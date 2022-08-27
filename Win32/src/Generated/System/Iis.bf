@@ -2577,7 +2577,7 @@ public static
 
 	public HRESULT Initialize() mut => VT.[Friend]Initialize(&this);
 
-	public HRESULT EnumDcomCLSIDs(ref Guid pclsidDcom, uint32 dwEnumIndex) mut => VT.[Friend]EnumDcomCLSIDs(&this, pclsidDcom, dwEnumIndex);
+	public HRESULT EnumDcomCLSIDs(ref Guid pclsidDcom, uint32 dwEnumIndex) mut => VT.[Friend]EnumDcomCLSIDs(&this, ref pclsidDcom, dwEnumIndex);
 
 	public HRESULT Terminate() mut => VT.[Friend]Terminate(&this);
 }

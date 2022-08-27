@@ -8242,7 +8242,7 @@ public static
 	}
 
 
-	public HRESULT GetJackContainerId(ref Guid pJackContainerId) mut => VT.[Friend]GetJackContainerId(&this, pJackContainerId);
+	public HRESULT GetJackContainerId(ref Guid pJackContainerId) mut => VT.[Friend]GetJackContainerId(&this, ref pJackContainerId);
 }
 
 [CRepr]struct IKsPropertySet : IUnknown

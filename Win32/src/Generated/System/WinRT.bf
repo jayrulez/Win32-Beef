@@ -263,7 +263,7 @@ public static
 	}
 
 
-	public HRESULT GetIids(uint32* iidCount, ref Guid iids) mut => VT.[Friend]GetIids(&this, iidCount, iids);
+	public HRESULT GetIids(uint32* iidCount, ref Guid iids) mut => VT.[Friend]GetIids(&this, iidCount, ref iids);
 
 	public HRESULT GetRuntimeClassName(HSTRING* className) mut => VT.[Friend]GetRuntimeClassName(&this, className);
 

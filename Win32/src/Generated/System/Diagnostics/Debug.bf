@@ -10572,7 +10572,7 @@ public static
 
 	public HRESULT SetOffsetExpressionWide(PWSTR Expression) mut => VT.[Friend]SetOffsetExpressionWide(&this, Expression);
 
-	public HRESULT GetGuid(ref Guid Guid) mut => VT.[Friend]GetGuid(&this, Guid);
+	public HRESULT GetGuid(ref Guid Guid) mut => VT.[Friend]GetGuid(&this, ref Guid);
 }
 
 [CRepr]struct IDebugClient : IUnknown
@@ -14523,7 +14523,7 @@ public static
 
 	public HRESULT OutputContextStackTraceEx(uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) mut => VT.[Friend]OutputContextStackTraceEx(&this, OutputControl, Frames, FramesSize, FrameContexts, FrameContextsSize, FrameContextsEntrySize, Flags);
 
-	public HRESULT GetBreakpointByGuid(ref Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, Guid, Bp);
+	public HRESULT GetBreakpointByGuid(ref Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, ref Guid, Bp);
 }
 
 [CRepr]struct IDebugControl6 : IUnknown
@@ -15050,7 +15050,7 @@ public static
 
 	public HRESULT OutputContextStackTraceEx(uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) mut => VT.[Friend]OutputContextStackTraceEx(&this, OutputControl, Frames, FramesSize, FrameContexts, FrameContextsSize, FrameContextsEntrySize, Flags);
 
-	public HRESULT GetBreakpointByGuid(ref Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, Guid, Bp);
+	public HRESULT GetBreakpointByGuid(ref Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, ref Guid, Bp);
 
 	public HRESULT GetExecutionStatusEx(uint32* Status) mut => VT.[Friend]GetExecutionStatusEx(&this, Status);
 
@@ -15582,7 +15582,7 @@ public static
 
 	public HRESULT OutputContextStackTraceEx(uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) mut => VT.[Friend]OutputContextStackTraceEx(&this, OutputControl, Frames, FramesSize, FrameContexts, FrameContextsSize, FrameContextsEntrySize, Flags);
 
-	public HRESULT GetBreakpointByGuid(ref Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, Guid, Bp);
+	public HRESULT GetBreakpointByGuid(ref Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, ref Guid, Bp);
 
 	public HRESULT GetExecutionStatusEx(uint32* Status) mut => VT.[Friend]GetExecutionStatusEx(&this, Status);
 
@@ -15849,11 +15849,11 @@ public static
 
 	public HRESULT ReadImageNtHeaders(uint64 ImageBase, IMAGE_NT_HEADERS64* Headers) mut => VT.[Friend]ReadImageNtHeaders(&this, ImageBase, Headers);
 
-	public HRESULT ReadTagged(ref Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) mut => VT.[Friend]ReadTagged(&this, Tag, Offset, Buffer, BufferSize, TotalSize);
+	public HRESULT ReadTagged(ref Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) mut => VT.[Friend]ReadTagged(&this, ref Tag, Offset, Buffer, BufferSize, TotalSize);
 
 	public HRESULT StartEnumTagged(uint64* Handle) mut => VT.[Friend]StartEnumTagged(&this, Handle);
 
-	public HRESULT GetNextTagged(uint64 Handle, ref Guid Tag, uint32* Size) mut => VT.[Friend]GetNextTagged(&this, Handle, Tag, Size);
+	public HRESULT GetNextTagged(uint64 Handle, ref Guid Tag, uint32* Size) mut => VT.[Friend]GetNextTagged(&this, Handle, ref Tag, Size);
 
 	public HRESULT EndEnumTagged(uint64 Handle) mut => VT.[Friend]EndEnumTagged(&this, Handle);
 }
@@ -15964,11 +15964,11 @@ public static
 
 	public HRESULT ReadImageNtHeaders(uint64 ImageBase, IMAGE_NT_HEADERS64* Headers) mut => VT.[Friend]ReadImageNtHeaders(&this, ImageBase, Headers);
 
-	public HRESULT ReadTagged(ref Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) mut => VT.[Friend]ReadTagged(&this, Tag, Offset, Buffer, BufferSize, TotalSize);
+	public HRESULT ReadTagged(ref Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) mut => VT.[Friend]ReadTagged(&this, ref Tag, Offset, Buffer, BufferSize, TotalSize);
 
 	public HRESULT StartEnumTagged(uint64* Handle) mut => VT.[Friend]StartEnumTagged(&this, Handle);
 
-	public HRESULT GetNextTagged(uint64 Handle, ref Guid Tag, uint32* Size) mut => VT.[Friend]GetNextTagged(&this, Handle, Tag, Size);
+	public HRESULT GetNextTagged(uint64 Handle, ref Guid Tag, uint32* Size) mut => VT.[Friend]GetNextTagged(&this, Handle, ref Tag, Size);
 
 	public HRESULT EndEnumTagged(uint64 Handle) mut => VT.[Friend]EndEnumTagged(&this, Handle);
 
@@ -20459,7 +20459,7 @@ public static
 	}
 
 
-	public HRESULT GetSIPOID(ref Guid poid_sip) mut => VT.[Friend]GetSIPOID(&this, poid_sip);
+	public HRESULT GetSIPOID(ref Guid poid_sip) mut => VT.[Friend]GetSIPOID(&this, ref poid_sip);
 }
 
 [CRepr]struct IActiveScriptSiteTraceInfo : IUnknown
@@ -20528,7 +20528,7 @@ public static
 
 	public HRESULT GetPropertyInfo(uint32 dwFieldSpec, uint32 nRadix, DebugPropertyInfo* pPropertyInfo) mut => VT.[Friend]GetPropertyInfo(&this, dwFieldSpec, nRadix, pPropertyInfo);
 
-	public HRESULT GetExtendedInfo(uint32 cInfos, ref Guid rgguidExtendedInfo, VARIANT* rgvar) mut => VT.[Friend]GetExtendedInfo(&this, cInfos, rgguidExtendedInfo, rgvar);
+	public HRESULT GetExtendedInfo(uint32 cInfos, ref Guid rgguidExtendedInfo, VARIANT* rgvar) mut => VT.[Friend]GetExtendedInfo(&this, cInfos, ref rgguidExtendedInfo, rgvar);
 
 	public HRESULT SetValueAsString(PWSTR pszValue, uint32 nRadix) mut => VT.[Friend]SetValueAsString(&this, pszValue, nRadix);
 
@@ -20626,7 +20626,7 @@ public static
 
 	public HRESULT GetDisplayString(int32 dispid, BSTR* pBstr) mut => VT.[Friend]GetDisplayString(&this, dispid, pBstr);
 
-	public HRESULT MapPropertyToPage(int32 dispid, ref Guid pClsidPropPage) mut => VT.[Friend]MapPropertyToPage(&this, dispid, pClsidPropPage);
+	public HRESULT MapPropertyToPage(int32 dispid, ref Guid pClsidPropPage) mut => VT.[Friend]MapPropertyToPage(&this, dispid, ref pClsidPropPage);
 
 	public HRESULT GetPredefinedStrings(int32 dispid, CALPOLESTR* pCaStrings, CADWORD* pCaCookies) mut => VT.[Friend]GetPredefinedStrings(&this, dispid, pCaStrings, pCaCookies);
 
@@ -20879,7 +20879,7 @@ public static
 
 	public HRESULT ParseLanguageText(PWSTR pstrCode, uint32 nRadix, PWSTR pstrDelimiter, uint32 dwFlags, IDebugExpression** ppe) mut => VT.[Friend]ParseLanguageText(&this, pstrCode, nRadix, pstrDelimiter, dwFlags, ppe);
 
-	public HRESULT GetLanguageInfo(BSTR* pbstrLanguageName, ref Guid pLanguageID) mut => VT.[Friend]GetLanguageInfo(&this, pbstrLanguageName, pLanguageID);
+	public HRESULT GetLanguageInfo(BSTR* pbstrLanguageName, ref Guid pLanguageID) mut => VT.[Friend]GetLanguageInfo(&this, pbstrLanguageName, ref pLanguageID);
 }
 
 [CRepr]struct IDebugExpressionCallBack : IUnknown
@@ -21110,7 +21110,7 @@ public static
 
 	public HRESULT GetName(DOCUMENTNAMETYPE dnt, BSTR* pbstrName) mut => VT.[Friend]GetName(&this, dnt, pbstrName);
 
-	public HRESULT GetDocumentClassId(ref Guid pclsidDocument) mut => VT.[Friend]GetDocumentClassId(&this, pclsidDocument);
+	public HRESULT GetDocumentClassId(ref Guid pclsidDocument) mut => VT.[Friend]GetDocumentClassId(&this, ref pclsidDocument);
 }
 
 [CRepr]struct IDebugDocumentProvider : IDebugDocumentInfo

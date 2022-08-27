@@ -2567,15 +2567,15 @@ public static
 
 	public HRESULT Reenumerate() mut => VT.[Friend]Reenumerate(&this);
 
-	public HRESULT SetControllerStatus(ref Guid pOnlineControllerIdArray, int32 lNumberOfOnlineControllers, ref Guid pOfflineControllerIdArray, int32 lNumberOfOfflineControllers) mut => VT.[Friend]SetControllerStatus(&this, pOnlineControllerIdArray, lNumberOfOnlineControllers, pOfflineControllerIdArray, lNumberOfOfflineControllers);
+	public HRESULT SetControllerStatus(ref Guid pOnlineControllerIdArray, int32 lNumberOfOnlineControllers, ref Guid pOfflineControllerIdArray, int32 lNumberOfOfflineControllers) mut => VT.[Friend]SetControllerStatus(&this, ref pOnlineControllerIdArray, lNumberOfOnlineControllers, ref pOfflineControllerIdArray, lNumberOfOfflineControllers);
 
-	public HRESULT CreateLun(VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS* pHints, IVdsAsync** ppAsync) mut => VT.[Friend]CreateLun(&this, type, ullSizeInBytes, pDriveIdArray, lNumberOfDrives, pwszUnmaskingList, pHints, ppAsync);
+	public HRESULT CreateLun(VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS* pHints, IVdsAsync** ppAsync) mut => VT.[Friend]CreateLun(&this, type, ullSizeInBytes, ref pDriveIdArray, lNumberOfDrives, pwszUnmaskingList, pHints, ppAsync);
 
 	public HRESULT ReplaceDrive(Guid DriveToBeReplaced, Guid ReplacementDrive) mut => VT.[Friend]ReplaceDrive(&this, DriveToBeReplaced, ReplacementDrive);
 
 	public HRESULT SetStatus(VDS_SUB_SYSTEM_STATUS status) mut => VT.[Friend]SetStatus(&this, status);
 
-	public HRESULT QueryMaxLunCreateSize(VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize(&this, type, pDriveIdArray, lNumberOfDrives, pHints, pullMaxLunSize);
+	public HRESULT QueryMaxLunCreateSize(VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize(&this, type, ref pDriveIdArray, lNumberOfDrives, pHints, pullMaxLunSize);
 }
 
 [CRepr]struct IVdsSubSystem2 : IUnknown
@@ -2597,9 +2597,9 @@ public static
 
 	public HRESULT GetDrive2(int16 sBusNumber, int16 sSlotNumber, uint32 ulEnclosureNumber, IVdsDrive** ppDrive) mut => VT.[Friend]GetDrive2(&this, sBusNumber, sSlotNumber, ulEnclosureNumber, ppDrive);
 
-	public HRESULT CreateLun2(VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) mut => VT.[Friend]CreateLun2(&this, type, ullSizeInBytes, pDriveIdArray, lNumberOfDrives, pwszUnmaskingList, pHints2, ppAsync);
+	public HRESULT CreateLun2(VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) mut => VT.[Friend]CreateLun2(&this, type, ullSizeInBytes, ref pDriveIdArray, lNumberOfDrives, pwszUnmaskingList, pHints2, ppAsync);
 
-	public HRESULT QueryMaxLunCreateSize2(VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize2(&this, type, pDriveIdArray, lNumberOfDrives, pHints2, pullMaxLunSize);
+	public HRESULT QueryMaxLunCreateSize2(VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize2(&this, type, ref pDriveIdArray, lNumberOfDrives, pHints2, pullMaxLunSize);
 }
 
 [CRepr]struct IVdsSubSystemNaming : IUnknown
@@ -2815,7 +2815,7 @@ public static
 
 	public HRESULT QueryActiveControllers(IEnumVdsObject** ppEnum) mut => VT.[Friend]QueryActiveControllers(&this, ppEnum);
 
-	public HRESULT Extend(uint64 ullNumberOfBytesToAdd, ref Guid pDriveIdArray, int32 lNumberOfDrives, IVdsAsync** ppAsync) mut => VT.[Friend]Extend(&this, ullNumberOfBytesToAdd, pDriveIdArray, lNumberOfDrives, ppAsync);
+	public HRESULT Extend(uint64 ullNumberOfBytesToAdd, ref Guid pDriveIdArray, int32 lNumberOfDrives, IVdsAsync** ppAsync) mut => VT.[Friend]Extend(&this, ullNumberOfBytesToAdd, ref pDriveIdArray, lNumberOfDrives, ppAsync);
 
 	public HRESULT Shrink(uint64 ullNumberOfBytesToRemove, IVdsAsync** ppAsync) mut => VT.[Friend]Shrink(&this, ullNumberOfBytesToRemove, ppAsync);
 
@@ -2831,7 +2831,7 @@ public static
 
 	public HRESULT Delete() mut => VT.[Friend]Delete(&this);
 
-	public HRESULT AssociateControllers(ref Guid pActiveControllerIdArray, int32 lNumberOfActiveControllers, ref Guid pInactiveControllerIdArray, int32 lNumberOfInactiveControllers) mut => VT.[Friend]AssociateControllers(&this, pActiveControllerIdArray, lNumberOfActiveControllers, pInactiveControllerIdArray, lNumberOfInactiveControllers);
+	public HRESULT AssociateControllers(ref Guid pActiveControllerIdArray, int32 lNumberOfActiveControllers, ref Guid pInactiveControllerIdArray, int32 lNumberOfInactiveControllers) mut => VT.[Friend]AssociateControllers(&this, ref pActiveControllerIdArray, lNumberOfActiveControllers, ref pInactiveControllerIdArray, lNumberOfInactiveControllers);
 
 	public HRESULT QueryHints(VDS_HINTS* pHints) mut => VT.[Friend]QueryHints(&this, pHints);
 
@@ -2839,7 +2839,7 @@ public static
 
 	public HRESULT SetStatus(VDS_LUN_STATUS status) mut => VT.[Friend]SetStatus(&this, status);
 
-	public HRESULT QueryMaxLunExtendSize(ref Guid pDriveIdArray, int32 lNumberOfDrives, uint64* pullMaxBytesToBeAdded) mut => VT.[Friend]QueryMaxLunExtendSize(&this, pDriveIdArray, lNumberOfDrives, pullMaxBytesToBeAdded);
+	public HRESULT QueryMaxLunExtendSize(ref Guid pDriveIdArray, int32 lNumberOfDrives, uint64* pullMaxBytesToBeAdded) mut => VT.[Friend]QueryMaxLunExtendSize(&this, ref pDriveIdArray, lNumberOfDrives, pullMaxBytesToBeAdded);
 }
 
 [CRepr]struct IVdsLun2 : IUnknown
@@ -2903,7 +2903,7 @@ public static
 	}
 
 
-	public HRESULT AssociateControllerPorts(ref Guid pActiveControllerPortIdArray, int32 lNumberOfActiveControllerPorts, ref Guid pInactiveControllerPortIdArray, int32 lNumberOfInactiveControllerPorts) mut => VT.[Friend]AssociateControllerPorts(&this, pActiveControllerPortIdArray, lNumberOfActiveControllerPorts, pInactiveControllerPortIdArray, lNumberOfInactiveControllerPorts);
+	public HRESULT AssociateControllerPorts(ref Guid pActiveControllerPortIdArray, int32 lNumberOfActiveControllerPorts, ref Guid pInactiveControllerPortIdArray, int32 lNumberOfInactiveControllerPorts) mut => VT.[Friend]AssociateControllerPorts(&this, ref pActiveControllerPortIdArray, lNumberOfActiveControllerPorts, ref pInactiveControllerPortIdArray, lNumberOfInactiveControllerPorts);
 
 	public HRESULT QueryActiveControllerPorts(IEnumVdsObject** ppEnum) mut => VT.[Friend]QueryActiveControllerPorts(&this, ppEnum);
 }
@@ -2945,7 +2945,7 @@ public static
 	}
 
 
-	public HRESULT AssociateTargets(ref Guid pTargetIdArray, int32 lNumberOfTargets) mut => VT.[Friend]AssociateTargets(&this, pTargetIdArray, lNumberOfTargets);
+	public HRESULT AssociateTargets(ref Guid pTargetIdArray, int32 lNumberOfTargets) mut => VT.[Friend]AssociateTargets(&this, ref pTargetIdArray, lNumberOfTargets);
 
 	public HRESULT QueryAssociatedTargets(IEnumVdsObject** ppEnum) mut => VT.[Friend]QueryAssociatedTargets(&this, ppEnum);
 }
@@ -3145,7 +3145,7 @@ public static
 	}
 
 
-	public HRESULT QueryIfCreatedLun(PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, ref Guid pLunId) mut => VT.[Friend]QueryIfCreatedLun(&this, pwszDevicePath, pVdsLunInformation, pLunId);
+	public HRESULT QueryIfCreatedLun(PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, ref Guid pLunId) mut => VT.[Friend]QueryIfCreatedLun(&this, pwszDevicePath, pVdsLunInformation, ref pLunId);
 }
 
 [CRepr]struct IVdsHwProviderPrivateMpio : IUnknown

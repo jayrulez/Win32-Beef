@@ -392,7 +392,7 @@ public static
 
 	public HRESULT GetCount(uint32* pdwProviders) mut => VT.[Friend]GetCount(&this, pdwProviders);
 
-	public HRESULT GetAt(uint32 dwProvider, ref Guid pProvGuid, IUnknown** ppIdentityProvider) mut => VT.[Friend]GetAt(&this, dwProvider, pProvGuid, ppIdentityProvider);
+	public HRESULT GetAt(uint32 dwProvider, ref Guid pProvGuid, IUnknown** ppIdentityProvider) mut => VT.[Friend]GetAt(&this, dwProvider, ref pProvGuid, ppIdentityProvider);
 
 	public HRESULT AddToCache(PWSTR lpszUniqueID, ref Guid ProviderGUID) mut => VT.[Friend]AddToCache(&this, lpszUniqueID, ref ProviderGUID);
 
@@ -430,9 +430,9 @@ public static
 
 	public HRESULT Finish_GetCount(uint32* pdwProviders) mut => VT.[Friend]Finish_GetCount(&this, pdwProviders);
 
-	public HRESULT Begin_GetAt(uint32 dwProvider, ref Guid pProvGuid) mut => VT.[Friend]Begin_GetAt(&this, dwProvider, pProvGuid);
+	public HRESULT Begin_GetAt(uint32 dwProvider, ref Guid pProvGuid) mut => VT.[Friend]Begin_GetAt(&this, dwProvider, ref pProvGuid);
 
-	public HRESULT Finish_GetAt(ref Guid pProvGuid, IUnknown** ppIdentityProvider) mut => VT.[Friend]Finish_GetAt(&this, pProvGuid, ppIdentityProvider);
+	public HRESULT Finish_GetAt(ref Guid pProvGuid, IUnknown** ppIdentityProvider) mut => VT.[Friend]Finish_GetAt(&this, ref pProvGuid, ppIdentityProvider);
 
 	public HRESULT Begin_AddToCache(PWSTR lpszUniqueID, ref Guid ProviderGUID) mut => VT.[Friend]Begin_AddToCache(&this, lpszUniqueID, ref ProviderGUID);
 

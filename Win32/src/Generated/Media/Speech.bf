@@ -2654,7 +2654,7 @@ public static
 	}
 
 
-	public HRESULT GetFormat(ref Guid pguidFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetFormat(&this, pguidFormatId, ppCoMemWaveFormatEx);
+	public HRESULT GetFormat(ref Guid pguidFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetFormat(&this, ref pguidFormatId, ppCoMemWaveFormatEx);
 }
 
 [CRepr]struct ISpStream : ISpStreamFormat
@@ -2743,7 +2743,7 @@ public static
 
 	public HRESULT GetBufferInfo(SPAUDIOBUFFERINFO* pBuffInfo) mut => VT.[Friend]GetBufferInfo(&this, pBuffInfo);
 
-	public HRESULT GetDefaultFormat(ref Guid pFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetDefaultFormat(&this, pFormatId, ppCoMemWaveFormatEx);
+	public HRESULT GetDefaultFormat(ref Guid pFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetDefaultFormat(&this, ref pFormatId, ppCoMemWaveFormatEx);
 
 	public HANDLE EventHandle() mut => VT.[Friend]EventHandle(&this);
 
@@ -3385,7 +3385,7 @@ public static
 
 	public HRESULT SetAudioOptions(SPAUDIOOPTIONS Options, ref Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetAudioOptions(&this, Options, ref pAudioFormatId, pWaveFormatEx);
 
-	public HRESULT GetAudioOptions(SPAUDIOOPTIONS* pOptions, ref Guid pAudioFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetAudioOptions(&this, pOptions, pAudioFormatId, ppCoMemWFEX);
+	public HRESULT GetAudioOptions(SPAUDIOOPTIONS* pOptions, ref Guid pAudioFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetAudioOptions(&this, pOptions, ref pAudioFormatId, ppCoMemWFEX);
 
 	public HRESULT DeserializeResult(SPSERIALIZEDRESULT* pSerializedResult, ISpRecoResult** ppResult) mut => VT.[Friend]DeserializeResult(&this, pSerializedResult, ppResult);
 
@@ -3506,7 +3506,7 @@ public static
 
 	public HRESULT GetStatus(SPRECOGNIZERSTATUS* pStatus) mut => VT.[Friend]GetStatus(&this, pStatus);
 
-	public HRESULT GetFormat(SPWAVEFORMATTYPE WaveFormatType, ref Guid pFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetFormat(&this, WaveFormatType, pFormatId, ppCoMemWFEX);
+	public HRESULT GetFormat(SPWAVEFORMATTYPE WaveFormatType, ref Guid pFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetFormat(&this, WaveFormatType, ref pFormatId, ppCoMemWFEX);
 
 	public HRESULT IsUISupported(PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, BOOL* pfSupported) mut => VT.[Friend]IsUISupported(&this, pszTypeOfUI, pvExtraData, cbExtraData, pfSupported);
 

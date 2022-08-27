@@ -1251,7 +1251,7 @@ public static
 	}
 
 
-	public HRESULT Synchronize(HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bAsync, uint32 dwSyncControl, IOfflineFilesSyncConflictHandler* pISyncConflictHandler, IOfflineFilesSyncProgress* pIProgress, ref Guid pSyncId) mut => VT.[Friend]Synchronize(&this, hwndParent, rgpszPaths, cPaths, bAsync, dwSyncControl, pISyncConflictHandler, pIProgress, pSyncId);
+	public HRESULT Synchronize(HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bAsync, uint32 dwSyncControl, IOfflineFilesSyncConflictHandler* pISyncConflictHandler, IOfflineFilesSyncProgress* pIProgress, ref Guid pSyncId) mut => VT.[Friend]Synchronize(&this, hwndParent, rgpszPaths, cPaths, bAsync, dwSyncControl, pISyncConflictHandler, pIProgress, ref pSyncId);
 
 	public HRESULT DeleteItems(PWSTR* rgpszPaths, uint32 cPaths, uint32 dwFlags, BOOL bAsync, IOfflineFilesSimpleProgress* pIProgress) mut => VT.[Friend]DeleteItems(&this, rgpszPaths, cPaths, dwFlags, bAsync, pIProgress);
 

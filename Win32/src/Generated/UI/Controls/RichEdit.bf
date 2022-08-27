@@ -2744,7 +2744,7 @@ public static
 
 	public HRESULT ShowContainerUI(BOOL fShow) mut => VT.[Friend]ShowContainerUI(&this, fShow);
 
-	public HRESULT QueryInsertObject(ref Guid lpclsid, IStorage* lpstg, int32 cp) mut => VT.[Friend]QueryInsertObject(&this, lpclsid, lpstg, cp);
+	public HRESULT QueryInsertObject(ref Guid lpclsid, IStorage* lpstg, int32 cp) mut => VT.[Friend]QueryInsertObject(&this, ref lpclsid, lpstg, cp);
 
 	public HRESULT DeleteObject(IOleObject* lpoleobj) mut => VT.[Friend]DeleteObject(&this, lpoleobj);
 

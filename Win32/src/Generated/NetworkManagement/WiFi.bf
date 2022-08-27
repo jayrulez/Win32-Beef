@@ -5112,15 +5112,15 @@ public static
 	}
 
 
-	public HRESULT CreateNetwork(PWSTR Name, PWSTR Password, int32 GeographicalId, IDot11AdHocInterface* pInterface, IDot11AdHocSecuritySettings* pSecurity, ref Guid pContextGuid, IDot11AdHocNetwork** pIAdHoc) mut => VT.[Friend]CreateNetwork(&this, Name, Password, GeographicalId, pInterface, pSecurity, pContextGuid, pIAdHoc);
+	public HRESULT CreateNetwork(PWSTR Name, PWSTR Password, int32 GeographicalId, IDot11AdHocInterface* pInterface, IDot11AdHocSecuritySettings* pSecurity, ref Guid pContextGuid, IDot11AdHocNetwork** pIAdHoc) mut => VT.[Friend]CreateNetwork(&this, Name, Password, GeographicalId, pInterface, pSecurity, ref pContextGuid, pIAdHoc);
 
 	public HRESULT CommitCreatedNetwork(IDot11AdHocNetwork* pIAdHoc, BOOLEAN fSaveProfile, BOOLEAN fMakeSavedProfileUserSpecific) mut => VT.[Friend]CommitCreatedNetwork(&this, pIAdHoc, fSaveProfile, fMakeSavedProfileUserSpecific);
 
-	public HRESULT GetIEnumDot11AdHocNetworks(ref Guid pContextGuid, IEnumDot11AdHocNetworks** ppEnum) mut => VT.[Friend]GetIEnumDot11AdHocNetworks(&this, pContextGuid, ppEnum);
+	public HRESULT GetIEnumDot11AdHocNetworks(ref Guid pContextGuid, IEnumDot11AdHocNetworks** ppEnum) mut => VT.[Friend]GetIEnumDot11AdHocNetworks(&this, ref pContextGuid, ppEnum);
 
 	public HRESULT GetIEnumDot11AdHocInterfaces(IEnumDot11AdHocInterfaces** ppEnum) mut => VT.[Friend]GetIEnumDot11AdHocInterfaces(&this, ppEnum);
 
-	public HRESULT GetNetwork(ref Guid NetworkSignature, IDot11AdHocNetwork** pNetwork) mut => VT.[Friend]GetNetwork(&this, NetworkSignature, pNetwork);
+	public HRESULT GetNetwork(ref Guid NetworkSignature, IDot11AdHocNetwork** pNetwork) mut => VT.[Friend]GetNetwork(&this, ref NetworkSignature, pNetwork);
 }
 
 [CRepr]struct IDot11AdHocManagerNotificationSink : IUnknown
@@ -5140,11 +5140,11 @@ public static
 
 	public HRESULT OnNetworkAdd(IDot11AdHocNetwork* pIAdHocNetwork) mut => VT.[Friend]OnNetworkAdd(&this, pIAdHocNetwork);
 
-	public HRESULT OnNetworkRemove(ref Guid Signature) mut => VT.[Friend]OnNetworkRemove(&this, Signature);
+	public HRESULT OnNetworkRemove(ref Guid Signature) mut => VT.[Friend]OnNetworkRemove(&this, ref Signature);
 
 	public HRESULT OnInterfaceAdd(IDot11AdHocInterface* pIAdHocInterface) mut => VT.[Friend]OnInterfaceAdd(&this, pIAdHocInterface);
 
-	public HRESULT OnInterfaceRemove(ref Guid Signature) mut => VT.[Friend]OnInterfaceRemove(&this, Signature);
+	public HRESULT OnInterfaceRemove(ref Guid Signature) mut => VT.[Friend]OnInterfaceRemove(&this, ref Signature);
 }
 
 [CRepr]struct IEnumDot11AdHocNetworks : IUnknown
@@ -5208,9 +5208,9 @@ public static
 
 	public HRESULT GetSecuritySetting(IDot11AdHocSecuritySettings** pAdHocSecuritySetting) mut => VT.[Friend]GetSecuritySetting(&this, pAdHocSecuritySetting);
 
-	public HRESULT GetContextGuid(ref Guid pContextGuid) mut => VT.[Friend]GetContextGuid(&this, pContextGuid);
+	public HRESULT GetContextGuid(ref Guid pContextGuid) mut => VT.[Friend]GetContextGuid(&this, ref pContextGuid);
 
-	public HRESULT GetSignature(ref Guid pSignature) mut => VT.[Friend]GetSignature(&this, pSignature);
+	public HRESULT GetSignature(ref Guid pSignature) mut => VT.[Friend]GetSignature(&this, ref pSignature);
 
 	public HRESULT GetInterface(IDot11AdHocInterface** pAdHocInterface) mut => VT.[Friend]GetInterface(&this, pAdHocInterface);
 
@@ -5257,7 +5257,7 @@ public static
 	}
 
 
-	public HRESULT GetDeviceSignature(ref Guid pSignature) mut => VT.[Friend]GetDeviceSignature(&this, pSignature);
+	public HRESULT GetDeviceSignature(ref Guid pSignature) mut => VT.[Friend]GetDeviceSignature(&this, ref pSignature);
 
 	public HRESULT GetFriendlyName(PWSTR* ppszName) mut => VT.[Friend]GetFriendlyName(&this, ppszName);
 
@@ -5271,7 +5271,7 @@ public static
 
 	public HRESULT GetIEnumSecuritySettings(IEnumDot11AdHocSecuritySettings** ppEnum) mut => VT.[Friend]GetIEnumSecuritySettings(&this, ppEnum);
 
-	public HRESULT GetIEnumDot11AdHocNetworks(ref Guid pFilterGuid, IEnumDot11AdHocNetworks** ppEnum) mut => VT.[Friend]GetIEnumDot11AdHocNetworks(&this, pFilterGuid, ppEnum);
+	public HRESULT GetIEnumDot11AdHocNetworks(ref Guid pFilterGuid, IEnumDot11AdHocNetworks** ppEnum) mut => VT.[Friend]GetIEnumDot11AdHocNetworks(&this, ref pFilterGuid, ppEnum);
 
 	public HRESULT GetStatus(DOT11_ADHOC_NETWORK_CONNECTION_STATUS* pState) mut => VT.[Friend]GetStatus(&this, pState);
 }

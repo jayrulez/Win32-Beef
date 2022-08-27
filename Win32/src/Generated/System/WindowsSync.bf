@@ -2100,7 +2100,7 @@ public static
 
 	public HRESULT Init(ref Guid pguidInstanceId, ref Guid pguidContentType, IPropertyStore* pContextPropertyStore) mut => VT.[Friend]Init(&this, ref pguidInstanceId, ref pguidContentType, pContextPropertyStore);
 
-	public HRESULT GetInstanceId(ref Guid pguidInstanceId) mut => VT.[Friend]GetInstanceId(&this, pguidInstanceId);
+	public HRESULT GetInstanceId(ref Guid pguidInstanceId) mut => VT.[Friend]GetInstanceId(&this, ref pguidInstanceId);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 }
@@ -2120,7 +2120,7 @@ public static
 
 	public HRESULT GetEvent(SYNC_REGISTRATION_EVENT* psreEvent) mut => VT.[Friend]GetEvent(&this, psreEvent);
 
-	public HRESULT GetInstanceId(ref Guid pguidInstanceId) mut => VT.[Friend]GetInstanceId(&this, pguidInstanceId);
+	public HRESULT GetInstanceId(ref Guid pguidInstanceId) mut => VT.[Friend]GetInstanceId(&this, ref pguidInstanceId);
 }
 
 #endregion

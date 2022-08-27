@@ -788,7 +788,7 @@ public static
 	}
 
 
-	public HRESULT GetWriterId(ref Guid pWriterId) mut => VT.[Friend]GetWriterId(&this, pWriterId);
+	public HRESULT GetWriterId(ref Guid pWriterId) mut => VT.[Friend]GetWriterId(&this, ref pWriterId);
 
 	public HRESULT GetLogicalPath(BSTR* pbstrLogicalPath) mut => VT.[Friend]GetLogicalPath(&this, pbstrLogicalPath);
 
@@ -937,7 +937,7 @@ public static
 
 	public HRESULT GetComponentCount(uint32* pcComponents) mut => VT.[Friend]GetComponentCount(&this, pcComponents);
 
-	public HRESULT GetWriterInfo(ref Guid pidInstance, ref Guid pidWriter) mut => VT.[Friend]GetWriterInfo(&this, pidInstance, pidWriter);
+	public HRESULT GetWriterInfo(ref Guid pidInstance, ref Guid pidWriter) mut => VT.[Friend]GetWriterInfo(&this, ref pidInstance, ref pidWriter);
 
 	public HRESULT GetComponent(uint32 iComponent, IVssComponent** ppComponent) mut => VT.[Friend]GetComponent(&this, iComponent, ppComponent);
 }
@@ -1112,7 +1112,7 @@ public static
 
 	public HRESULT SetWriterFailureEx(HRESULT hr, HRESULT hrApplication, PWSTR wszApplicationMessage) mut => VT.[Friend]SetWriterFailureEx(&this, hr, hrApplication, wszApplicationMessage);
 
-	public HRESULT GetSessionId(ref Guid idSession) mut => VT.[Friend]GetSessionId(&this, idSession);
+	public HRESULT GetSessionId(ref Guid idSession) mut => VT.[Friend]GetSessionId(&this, ref idSession);
 
 	public bool IsWriterShuttingDown() mut => VT.[Friend]IsWriterShuttingDown(&this);
 }
@@ -1387,7 +1387,7 @@ public static
 
 	public HRESULT Query(Guid QueriedObjectId, VSS_OBJECT_TYPE eQueriedObjectType, VSS_OBJECT_TYPE eReturnedObjectsType, IVssEnumObject** ppEnum) mut => VT.[Friend]Query(&this, QueriedObjectId, eQueriedObjectType, eReturnedObjectsType, ppEnum);
 
-	public HRESULT DeleteSnapshots(Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, ref Guid pNondeletedSnapshotID) mut => VT.[Friend]DeleteSnapshots(&this, SourceObjectId, eSourceObjectType, bForceDelete, plDeletedSnapshots, pNondeletedSnapshotID);
+	public HRESULT DeleteSnapshots(Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, ref Guid pNondeletedSnapshotID) mut => VT.[Friend]DeleteSnapshots(&this, SourceObjectId, eSourceObjectType, bForceDelete, plDeletedSnapshots, ref pNondeletedSnapshotID);
 
 	public HRESULT BeginPrepareSnapshot(Guid SnapshotSetId, Guid SnapshotId, uint16* pwszVolumeName, int32 lNewContext) mut => VT.[Friend]BeginPrepareSnapshot(&this, SnapshotSetId, SnapshotId, pwszVolumeName, lNewContext);
 
@@ -1532,7 +1532,7 @@ public static
 
 	public HRESULT Query(Guid QueriedObjectId, VSS_OBJECT_TYPE eQueriedObjectType, VSS_OBJECT_TYPE eReturnedObjectsType, IVssEnumObject** ppEnum) mut => VT.[Friend]Query(&this, QueriedObjectId, eQueriedObjectType, eReturnedObjectsType, ppEnum);
 
-	public HRESULT DeleteSnapshots(Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, ref Guid pNondeletedSnapshotID) mut => VT.[Friend]DeleteSnapshots(&this, SourceObjectId, eSourceObjectType, bForceDelete, plDeletedSnapshots, pNondeletedSnapshotID);
+	public HRESULT DeleteSnapshots(Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, ref Guid pNondeletedSnapshotID) mut => VT.[Friend]DeleteSnapshots(&this, SourceObjectId, eSourceObjectType, bForceDelete, plDeletedSnapshots, ref pNondeletedSnapshotID);
 
 	public HRESULT BeginPrepareSnapshot(Guid SnapshotSetId, Guid SnapshotId, uint16* pwszSharePath, int32 lNewContext, Guid ProviderId) mut => VT.[Friend]BeginPrepareSnapshot(&this, SnapshotSetId, SnapshotId, pwszSharePath, lNewContext, ProviderId);
 

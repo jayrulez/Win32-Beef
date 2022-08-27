@@ -12471,15 +12471,15 @@ public static
 
 	public HRESULT SetAllDefaults() mut => VT.[Friend]SetAllDefaults(&this);
 
-	public HRESULT SetValueWithNotify(ref Guid Api, VARIANT* Value, ref Guid ChangedParam, uint32* ChangedParamCount) mut => VT.[Friend]SetValueWithNotify(&this, ref Api, Value, ChangedParam, ChangedParamCount);
+	public HRESULT SetValueWithNotify(ref Guid Api, VARIANT* Value, ref Guid ChangedParam, uint32* ChangedParamCount) mut => VT.[Friend]SetValueWithNotify(&this, ref Api, Value, ref ChangedParam, ChangedParamCount);
 
-	public HRESULT SetAllDefaultsWithNotify(ref Guid ChangedParam, uint32* ChangedParamCount) mut => VT.[Friend]SetAllDefaultsWithNotify(&this, ChangedParam, ChangedParamCount);
+	public HRESULT SetAllDefaultsWithNotify(ref Guid ChangedParam, uint32* ChangedParamCount) mut => VT.[Friend]SetAllDefaultsWithNotify(&this, ref ChangedParam, ChangedParamCount);
 
 	public HRESULT GetAllSettings(IStream* __MIDL__ICodecAPI0000) mut => VT.[Friend]GetAllSettings(&this, __MIDL__ICodecAPI0000);
 
 	public HRESULT SetAllSettings(IStream* __MIDL__ICodecAPI0001) mut => VT.[Friend]SetAllSettings(&this, __MIDL__ICodecAPI0001);
 
-	public HRESULT SetAllSettingsWithNotify(IStream* __MIDL__ICodecAPI0002, ref Guid ChangedParam, uint32* ChangedParamCount) mut => VT.[Friend]SetAllSettingsWithNotify(&this, __MIDL__ICodecAPI0002, ChangedParam, ChangedParamCount);
+	public HRESULT SetAllSettingsWithNotify(IStream* __MIDL__ICodecAPI0002, ref Guid ChangedParam, uint32* ChangedParamCount) mut => VT.[Friend]SetAllSettingsWithNotify(&this, __MIDL__ICodecAPI0002, ref ChangedParam, ChangedParamCount);
 }
 
 [CRepr]struct IDirect3D9ExOverlayExtension : IUnknown
@@ -13512,9 +13512,9 @@ public static
 
 	public HRESULT GetSubEntries(uint32* pdwNumSubEntries, uint16* pwSubEntryIndices) mut => VT.[Friend]GetSubEntries(&this, pdwNumSubEntries, pwSubEntryIndices);
 
-	public HRESULT SetDescriptionData(uint32 dwDescriptionDataSize, uint8* pbtDescriptionData, ref Guid pguidType) mut => VT.[Friend]SetDescriptionData(&this, dwDescriptionDataSize, pbtDescriptionData, pguidType);
+	public HRESULT SetDescriptionData(uint32 dwDescriptionDataSize, uint8* pbtDescriptionData, ref Guid pguidType) mut => VT.[Friend]SetDescriptionData(&this, dwDescriptionDataSize, pbtDescriptionData, ref pguidType);
 
-	public HRESULT GetDescriptionData(uint32* pdwDescriptionDataSize, uint8* pbtDescriptionData, ref Guid pGuidType) mut => VT.[Friend]GetDescriptionData(&this, pdwDescriptionDataSize, pbtDescriptionData, pGuidType);
+	public HRESULT GetDescriptionData(uint32* pdwDescriptionDataSize, uint8* pbtDescriptionData, ref Guid pGuidType) mut => VT.[Friend]GetDescriptionData(&this, pdwDescriptionDataSize, pbtDescriptionData, ref pGuidType);
 }
 
 [CRepr]struct ITocEntryList : IUnknown
@@ -13859,7 +13859,7 @@ public static
 	}
 
 
-	public HRESULT GetDecoderDeviceGuids(uint32* pCount, ref Guid pGuids) mut => VT.[Friend]GetDecoderDeviceGuids(&this, pCount, pGuids);
+	public HRESULT GetDecoderDeviceGuids(uint32* pCount, ref Guid pGuids) mut => VT.[Friend]GetDecoderDeviceGuids(&this, pCount, ref pGuids);
 
 	public HRESULT GetDecoderRenderTargets(ref Guid Guid, uint32* pCount, D3DFORMAT** pFormats) mut => VT.[Friend]GetDecoderRenderTargets(&this, ref Guid, pCount, pFormats);
 
@@ -13889,7 +13889,7 @@ public static
 
 	public HRESULT RegisterVideoProcessorSoftwareDevice(void* pCallbacks) mut => VT.[Friend]RegisterVideoProcessorSoftwareDevice(&this, pCallbacks);
 
-	public HRESULT GetVideoProcessorDeviceGuids(DXVA2_VideoDesc* pVideoDesc, uint32* pCount, ref Guid pGuids) mut => VT.[Friend]GetVideoProcessorDeviceGuids(&this, pVideoDesc, pCount, pGuids);
+	public HRESULT GetVideoProcessorDeviceGuids(DXVA2_VideoDesc* pVideoDesc, uint32* pCount, ref Guid pGuids) mut => VT.[Friend]GetVideoProcessorDeviceGuids(&this, pVideoDesc, pCount, ref pGuids);
 
 	public HRESULT GetVideoProcessorRenderTargets(ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, uint32* pCount, D3DFORMAT** pFormats) mut => VT.[Friend]GetVideoProcessorRenderTargets(&this, ref VideoProcDeviceGuid, pVideoDesc, pCount, pFormats);
 
@@ -13924,7 +13924,7 @@ public static
 
 	public HRESULT GetVideoDecoderService(IDirectXVideoDecoderService** ppService) mut => VT.[Friend]GetVideoDecoderService(&this, ppService);
 
-	public HRESULT GetCreationParameters(ref Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, DXVA2_ConfigPictureDecode* pConfig, IDirect3DSurface9*** pDecoderRenderTargets, uint32* pNumSurfaces) mut => VT.[Friend]GetCreationParameters(&this, pDeviceGuid, pVideoDesc, pConfig, pDecoderRenderTargets, pNumSurfaces);
+	public HRESULT GetCreationParameters(ref Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, DXVA2_ConfigPictureDecode* pConfig, IDirect3DSurface9*** pDecoderRenderTargets, uint32* pNumSurfaces) mut => VT.[Friend]GetCreationParameters(&this, ref pDeviceGuid, pVideoDesc, pConfig, pDecoderRenderTargets, pNumSurfaces);
 
 	public HRESULT GetBuffer(DXVA2_BufferfType BufferType, void** ppBuffer, uint32* pBufferSize) mut => VT.[Friend]GetBuffer(&this, BufferType, ppBuffer, pBufferSize);
 
@@ -13956,7 +13956,7 @@ public static
 
 	public HRESULT GetVideoProcessorService(IDirectXVideoProcessorService** ppService) mut => VT.[Friend]GetVideoProcessorService(&this, ppService);
 
-	public HRESULT GetCreationParameters(ref Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT* pRenderTargetFormat, uint32* pMaxNumSubStreams) mut => VT.[Friend]GetCreationParameters(&this, pDeviceGuid, pVideoDesc, pRenderTargetFormat, pMaxNumSubStreams);
+	public HRESULT GetCreationParameters(ref Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT* pRenderTargetFormat, uint32* pMaxNumSubStreams) mut => VT.[Friend]GetCreationParameters(&this, ref pDeviceGuid, pVideoDesc, pRenderTargetFormat, pMaxNumSubStreams);
 
 	public HRESULT GetVideoProcessorCaps(DXVA2_VideoProcessorCaps* pCaps) mut => VT.[Friend]GetVideoProcessorCaps(&this, pCaps);
 
@@ -14067,7 +14067,7 @@ public static
 
 	public HRESULT GetDouble(ref Guid guidKey, double* pfValue) mut => VT.[Friend]GetDouble(&this, ref guidKey, pfValue);
 
-	public HRESULT GetGUID(ref Guid guidKey, ref Guid pguidValue) mut => VT.[Friend]GetGUID(&this, ref guidKey, pguidValue);
+	public HRESULT GetGUID(ref Guid guidKey, ref Guid pguidValue) mut => VT.[Friend]GetGUID(&this, ref guidKey, ref pguidValue);
 
 	public HRESULT GetStringLength(ref Guid guidKey, uint32* pcchLength) mut => VT.[Friend]GetStringLength(&this, ref guidKey, pcchLength);
 
@@ -14109,7 +14109,7 @@ public static
 
 	public HRESULT GetCount(uint32* pcItems) mut => VT.[Friend]GetCount(&this, pcItems);
 
-	public HRESULT GetItemByIndex(uint32 unIndex, ref Guid pguidKey, PROPVARIANT* pValue) mut => VT.[Friend]GetItemByIndex(&this, unIndex, pguidKey, pValue);
+	public HRESULT GetItemByIndex(uint32 unIndex, ref Guid pguidKey, PROPVARIANT* pValue) mut => VT.[Friend]GetItemByIndex(&this, unIndex, ref pguidKey, pValue);
 
 	public HRESULT CopyAllItems(IMFAttributes* pDest) mut => VT.[Friend]CopyAllItems(&this, pDest);
 }
@@ -14286,7 +14286,7 @@ public static
 	}
 
 
-	public HRESULT GetMajorType(ref Guid pguidMajorType) mut => VT.[Friend]GetMajorType(&this, pguidMajorType);
+	public HRESULT GetMajorType(ref Guid pguidMajorType) mut => VT.[Friend]GetMajorType(&this, ref pguidMajorType);
 
 	public HRESULT IsCompressedFormat(BOOL* pfCompressed) mut => VT.[Friend]IsCompressedFormat(&this, pfCompressed);
 
@@ -14410,7 +14410,7 @@ public static
 
 	public HRESULT GetType(uint32* pmet) mut => VT.[Friend]COM_GetType(&this, pmet);
 
-	public HRESULT GetExtendedType(ref Guid pguidExtendedType) mut => VT.[Friend]GetExtendedType(&this, pguidExtendedType);
+	public HRESULT GetExtendedType(ref Guid pguidExtendedType) mut => VT.[Friend]GetExtendedType(&this, ref pguidExtendedType);
 
 	public HRESULT GetStatus(HRESULT* phrStatus) mut => VT.[Friend]GetStatus(&this, phrStatus);
 
@@ -14650,15 +14650,15 @@ public static
 	}
 
 
-	public HRESULT GetPreferredClsid(uint32 pluginType, PWSTR selector, ref Guid clsid) mut => VT.[Friend]GetPreferredClsid(&this, pluginType, selector, clsid);
+	public HRESULT GetPreferredClsid(uint32 pluginType, PWSTR selector, ref Guid clsid) mut => VT.[Friend]GetPreferredClsid(&this, pluginType, selector, ref clsid);
 
-	public HRESULT GetPreferredClsidByIndex(uint32 pluginType, uint32 index, PWSTR* selector, ref Guid clsid) mut => VT.[Friend]GetPreferredClsidByIndex(&this, pluginType, index, selector, clsid);
+	public HRESULT GetPreferredClsidByIndex(uint32 pluginType, uint32 index, PWSTR* selector, ref Guid clsid) mut => VT.[Friend]GetPreferredClsidByIndex(&this, pluginType, index, selector, ref clsid);
 
 	public HRESULT SetPreferredClsid(uint32 pluginType, PWSTR selector, ref Guid clsid) mut => VT.[Friend]SetPreferredClsid(&this, pluginType, selector, ref clsid);
 
 	public HRESULT IsDisabled(uint32 pluginType, ref Guid clsid) mut => VT.[Friend]IsDisabled(&this, pluginType, ref clsid);
 
-	public HRESULT GetDisabledByIndex(uint32 pluginType, uint32 index, ref Guid clsid) mut => VT.[Friend]GetDisabledByIndex(&this, pluginType, index, clsid);
+	public HRESULT GetDisabledByIndex(uint32 pluginType, uint32 index, ref Guid clsid) mut => VT.[Friend]GetDisabledByIndex(&this, pluginType, index, ref clsid);
 
 	public HRESULT SetDisabled(uint32 pluginType, ref Guid clsid, BOOL disabled) mut => VT.[Friend]SetDisabled(&this, pluginType, ref clsid, disabled);
 }
@@ -14792,7 +14792,7 @@ public static
 	}
 
 
-	public HRESULT GetIdentifier(ref Guid pGuidIdentifier) mut => VT.[Friend]GetIdentifier(&this, pGuidIdentifier);
+	public HRESULT GetIdentifier(ref Guid pGuidIdentifier) mut => VT.[Friend]GetIdentifier(&this, ref pGuidIdentifier);
 }
 
 [CRepr]struct IMFTransform : IUnknown
@@ -15596,7 +15596,7 @@ public static
 
 	public HRESULT GetCurrentMediaType(IMFMediaType** ppMediaType) mut => VT.[Friend]GetCurrentMediaType(&this, ppMediaType);
 
-	public HRESULT GetMajorType(ref Guid pguidMajorType) mut => VT.[Friend]GetMajorType(&this, pguidMajorType);
+	public HRESULT GetMajorType(ref Guid pguidMajorType) mut => VT.[Friend]GetMajorType(&this, ref pguidMajorType);
 }
 
 [CRepr]struct IMFTimer : IUnknown
@@ -15686,7 +15686,7 @@ public static
 	}
 
 
-	public HRESULT GetEnableType(ref Guid pType) mut => VT.[Friend]GetEnableType(&this, pType);
+	public HRESULT GetEnableType(ref Guid pType) mut => VT.[Friend]GetEnableType(&this, ref pType);
 
 	public HRESULT GetEnableURL(PWSTR* ppwszURL, uint32* pcchURL, MF_URL_TRUST_STATUS* pTrustStatus) mut => VT.[Friend]GetEnableURL(&this, ppwszURL, pcchURL, pTrustStatus);
 
@@ -15897,7 +15897,7 @@ public static
 
 	public HRESULT SetGroupingParam(ref Guid rguidClass) mut => VT.[Friend]SetGroupingParam(&this, ref rguidClass);
 
-	public HRESULT GetGroupingParam(ref Guid pguidClass) mut => VT.[Friend]GetGroupingParam(&this, pguidClass);
+	public HRESULT GetGroupingParam(ref Guid pguidClass) mut => VT.[Friend]GetGroupingParam(&this, ref pguidClass);
 
 	public HRESULT SetDisplayName(PWSTR pszName) mut => VT.[Friend]SetDisplayName(&this, pszName);
 
@@ -16654,9 +16654,9 @@ public static
 	}
 
 
-	public HRESULT GenerateRequiredSchemas(uint32 dwAttributes, Guid guidOutputSubType, ref Guid rgGuidProtectionSchemasSupported, uint32 cProtectionSchemasSupported, IMFCollection** ppRequiredProtectionSchemas) mut => VT.[Friend]GenerateRequiredSchemas(&this, dwAttributes, guidOutputSubType, rgGuidProtectionSchemasSupported, cProtectionSchemasSupported, ppRequiredProtectionSchemas);
+	public HRESULT GenerateRequiredSchemas(uint32 dwAttributes, Guid guidOutputSubType, ref Guid rgGuidProtectionSchemasSupported, uint32 cProtectionSchemasSupported, IMFCollection** ppRequiredProtectionSchemas) mut => VT.[Friend]GenerateRequiredSchemas(&this, dwAttributes, guidOutputSubType, ref rgGuidProtectionSchemasSupported, cProtectionSchemasSupported, ppRequiredProtectionSchemas);
 
-	public HRESULT GetOriginatorID(ref Guid pguidOriginatorID) mut => VT.[Friend]GetOriginatorID(&this, pguidOriginatorID);
+	public HRESULT GetOriginatorID(ref Guid pguidOriginatorID) mut => VT.[Friend]GetOriginatorID(&this, ref pguidOriginatorID);
 
 	public HRESULT GetMinimumGRLVersion(uint32* pdwMinimumGRLVersion) mut => VT.[Friend]GetMinimumGRLVersion(&this, pdwMinimumGRLVersion);
 }
@@ -16675,11 +16675,11 @@ public static
 	}
 
 
-	public HRESULT GetSchemaType(ref Guid pguidSchemaType) mut => VT.[Friend]GetSchemaType(&this, pguidSchemaType);
+	public HRESULT GetSchemaType(ref Guid pguidSchemaType) mut => VT.[Friend]GetSchemaType(&this, ref pguidSchemaType);
 
 	public HRESULT GetConfigurationData(uint32* pdwVal) mut => VT.[Friend]GetConfigurationData(&this, pdwVal);
 
-	public HRESULT GetOriginatorID(ref Guid pguidOriginatorID) mut => VT.[Friend]GetOriginatorID(&this, pguidOriginatorID);
+	public HRESULT GetOriginatorID(ref Guid pguidOriginatorID) mut => VT.[Friend]GetOriginatorID(&this, ref pguidOriginatorID);
 }
 
 [CRepr]struct IMFSecureChannel : IUnknown
@@ -17009,7 +17009,7 @@ public static
 
 	public HRESULT SetPixelFormat(Guid subtype) mut => VT.[Friend]SetPixelFormat(&this, subtype);
 
-	public HRESULT GetPixelFormat(ref Guid subtype) mut => VT.[Friend]GetPixelFormat(&this, subtype);
+	public HRESULT GetPixelFormat(ref Guid subtype) mut => VT.[Friend]GetPixelFormat(&this, ref subtype);
 }
 
 [CRepr]struct IMFPMPHostApp : IUnknown
@@ -17430,7 +17430,7 @@ public static
 
 	public HRESULT GetTransformCount(uint32* pdwCount) mut => VT.[Friend]GetTransformCount(&this, pdwCount);
 
-	public HRESULT GetTransformInformation(uint32 TransformIndex, ref Guid pguidTransformId, IMFAttributes** ppAttributes, IMFCollection** ppStreamInformation) mut => VT.[Friend]GetTransformInformation(&this, TransformIndex, pguidTransformId, ppAttributes, ppStreamInformation);
+	public HRESULT GetTransformInformation(uint32 TransformIndex, ref Guid pguidTransformId, IMFAttributes** ppAttributes, IMFCollection** ppStreamInformation) mut => VT.[Friend]GetTransformInformation(&this, TransformIndex, ref pguidTransformId, ppAttributes, ppStreamInformation);
 
 	public HRESULT CreateTransform(ref Guid guidSensorTransformID, IMFAttributes* pAttributes, IMFDeviceTransform** ppDeviceMFT) mut => VT.[Friend]CreateTransform(&this, ref guidSensorTransformID, pAttributes, ppDeviceMFT);
 }
@@ -17957,7 +17957,7 @@ public static
 	}
 
 
-	public HRESULT GetStreamType(ref Guid pguidStreamType) mut => VT.[Friend]GetStreamType(&this, pguidStreamType);
+	public HRESULT GetStreamType(ref Guid pguidStreamType) mut => VT.[Friend]GetStreamType(&this, ref pguidStreamType);
 
 	public uint16 GetStreamNumber() mut => VT.[Friend]GetStreamNumber(&this);
 
@@ -17969,7 +17969,7 @@ public static
 
 	public HRESULT GetPayloadExtensionCount(uint16* pcPayloadExtensions) mut => VT.[Friend]GetPayloadExtensionCount(&this, pcPayloadExtensions);
 
-	public HRESULT GetPayloadExtension(uint16 wPayloadExtensionNumber, ref Guid pguidExtensionSystemID, uint16* pcbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32* pcbExtensionSystemInfo) mut => VT.[Friend]GetPayloadExtension(&this, wPayloadExtensionNumber, pguidExtensionSystemID, pcbExtensionDataSize, pbExtensionSystemInfo, pcbExtensionSystemInfo);
+	public HRESULT GetPayloadExtension(uint16 wPayloadExtensionNumber, ref Guid pguidExtensionSystemID, uint16* pcbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32* pcbExtensionSystemInfo) mut => VT.[Friend]GetPayloadExtension(&this, wPayloadExtensionNumber, ref pguidExtensionSystemID, pcbExtensionDataSize, pbExtensionSystemInfo, pcbExtensionSystemInfo);
 
 	public HRESULT AddPayloadExtension(Guid guidExtensionSystemID, uint16 cbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32 cbExtensionSystemInfo) mut => VT.[Friend]AddPayloadExtension(&this, guidExtensionSystemID, cbExtensionDataSize, pbExtensionSystemInfo, cbExtensionSystemInfo);
 
@@ -17998,7 +17998,7 @@ public static
 	}
 
 
-	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, pguidType);
+	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, ref pguidType);
 
 	public HRESULT SetType(ref Guid guidType) mut => VT.[Friend]SetType(&this, ref guidType);
 
@@ -19670,7 +19670,7 @@ public static
 
 	public HRESULT GetExtendedErrorCode() mut => VT.[Friend]GetExtendedErrorCode(&this);
 
-	public HRESULT GetDataFormat(ref Guid format) mut => VT.[Friend]GetDataFormat(&this, format);
+	public HRESULT GetDataFormat(ref Guid format) mut => VT.[Friend]GetDataFormat(&this, ref format);
 
 	public MF_TIMED_TEXT_TRACK_READY_STATE GetReadyState() mut => VT.[Friend]GetReadyState(&this);
 
@@ -20214,7 +20214,7 @@ public static
 
 	public HRESULT RemoveAllTransformsForStream(uint32 dwStreamIndex) mut => VT.[Friend]RemoveAllTransformsForStream(&this, dwStreamIndex);
 
-	public HRESULT GetTransformForStream(uint32 dwStreamIndex, uint32 dwTransformIndex, ref Guid pGuidCategory, IMFTransform** ppTransform) mut => VT.[Friend]GetTransformForStream(&this, dwStreamIndex, dwTransformIndex, pGuidCategory, ppTransform);
+	public HRESULT GetTransformForStream(uint32 dwStreamIndex, uint32 dwTransformIndex, ref Guid pGuidCategory, IMFTransform** ppTransform) mut => VT.[Friend]GetTransformForStream(&this, dwStreamIndex, dwTransformIndex, ref pGuidCategory, ppTransform);
 }
 
 [CRepr]struct IMFSourceReaderCallback : IUnknown
@@ -20313,7 +20313,7 @@ public static
 	}
 
 
-	public HRESULT GetTransformForStream(uint32 dwStreamIndex, uint32 dwTransformIndex, ref Guid pGuidCategory, IMFTransform** ppTransform) mut => VT.[Friend]GetTransformForStream(&this, dwStreamIndex, dwTransformIndex, pGuidCategory, ppTransform);
+	public HRESULT GetTransformForStream(uint32 dwStreamIndex, uint32 dwTransformIndex, ref Guid pGuidCategory, IMFTransform** ppTransform) mut => VT.[Friend]GetTransformForStream(&this, dwStreamIndex, dwTransformIndex, ref pGuidCategory, ppTransform);
 }
 
 [CRepr]struct IMFSinkWriterEncoderConfig : IUnknown
@@ -20397,7 +20397,7 @@ public static
 	}
 
 
-	public HRESULT GetDeviceID(ref Guid pDeviceID) mut => VT.[Friend]GetDeviceID(&this, pDeviceID);
+	public HRESULT GetDeviceID(ref Guid pDeviceID) mut => VT.[Friend]GetDeviceID(&this, ref pDeviceID);
 }
 
 [CRepr]struct IMFVideoDisplayControl : IUnknown
@@ -20809,7 +20809,7 @@ public static
 
 	public HRESULT SetUserData(uint dwUserData) mut => VT.[Friend]SetUserData(&this, dwUserData);
 
-	public HRESULT GetStartStopPosition(ref Guid pguidStartPositionType, PROPVARIANT* pvStartValue, ref Guid pguidStopPositionType, PROPVARIANT* pvStopValue) mut => VT.[Friend]GetStartStopPosition(&this, pguidStartPositionType, pvStartValue, pguidStopPositionType, pvStopValue);
+	public HRESULT GetStartStopPosition(ref Guid pguidStartPositionType, PROPVARIANT* pvStartValue, ref Guid pguidStopPositionType, PROPVARIANT* pvStopValue) mut => VT.[Friend]GetStartStopPosition(&this, ref pguidStartPositionType, pvStartValue, ref pguidStopPositionType, pvStopValue);
 
 	public HRESULT SetStartStopPosition(ref Guid pguidStartPositionType, PROPVARIANT* pvStartValue, ref Guid pguidStopPositionType, PROPVARIANT* pvStopValue) mut => VT.[Friend]SetStartStopPosition(&this, ref pguidStartPositionType, pvStartValue, ref pguidStopPositionType, pvStopValue);
 
@@ -21023,13 +21023,13 @@ public static
 	}
 
 
-	public HRESULT GetAvailableVideoProcessorModes(uint32* lpdwNumProcessingModes, ref Guid ppVideoProcessingModes) mut => VT.[Friend]GetAvailableVideoProcessorModes(&this, lpdwNumProcessingModes, ppVideoProcessingModes);
+	public HRESULT GetAvailableVideoProcessorModes(uint32* lpdwNumProcessingModes, ref Guid ppVideoProcessingModes) mut => VT.[Friend]GetAvailableVideoProcessorModes(&this, lpdwNumProcessingModes, ref ppVideoProcessingModes);
 
-	public HRESULT GetVideoProcessorCaps(ref Guid lpVideoProcessorMode, DXVA2_VideoProcessorCaps* lpVideoProcessorCaps) mut => VT.[Friend]GetVideoProcessorCaps(&this, lpVideoProcessorMode, lpVideoProcessorCaps);
+	public HRESULT GetVideoProcessorCaps(ref Guid lpVideoProcessorMode, DXVA2_VideoProcessorCaps* lpVideoProcessorCaps) mut => VT.[Friend]GetVideoProcessorCaps(&this, ref lpVideoProcessorMode, lpVideoProcessorCaps);
 
-	public HRESULT GetVideoProcessorMode(ref Guid lpMode) mut => VT.[Friend]GetVideoProcessorMode(&this, lpMode);
+	public HRESULT GetVideoProcessorMode(ref Guid lpMode) mut => VT.[Friend]GetVideoProcessorMode(&this, ref lpMode);
 
-	public HRESULT SetVideoProcessorMode(ref Guid lpMode) mut => VT.[Friend]SetVideoProcessorMode(&this, lpMode);
+	public HRESULT SetVideoProcessorMode(ref Guid lpMode) mut => VT.[Friend]SetVideoProcessorMode(&this, ref lpMode);
 
 	public HRESULT GetProcAmpRange(uint32 dwProperty, DXVA2_ValueRange* pPropRange) mut => VT.[Friend]GetProcAmpRange(&this, dwProperty, pPropRange);
 
@@ -21249,7 +21249,7 @@ public static
 
 	public HRESULT CreateTrustedInput(uint8* contentInitData, uint32 contentInitDataSize, IMFTrustedInput** trustedInput) mut => VT.[Friend]CreateTrustedInput(&this, contentInitData, contentInitDataSize, trustedInput);
 
-	public HRESULT GetProtectionSystemIds(ref Guid systemIds, uint32* count) mut => VT.[Friend]GetProtectionSystemIds(&this, systemIds, count);
+	public HRESULT GetProtectionSystemIds(ref Guid systemIds, uint32* count) mut => VT.[Friend]GetProtectionSystemIds(&this, ref systemIds, count);
 }
 
 [CRepr]struct IMFContentDecryptionModuleAccess : IUnknown

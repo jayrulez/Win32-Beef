@@ -46981,7 +46981,7 @@ public static
 	}
 
 
-	public HRESULT GetAudioSessionGuid(ref Guid audioSessionGuid) mut => VT.[Friend]GetAudioSessionGuid(&this, audioSessionGuid);
+	public HRESULT GetAudioSessionGuid(ref Guid audioSessionGuid) mut => VT.[Friend]GetAudioSessionGuid(&this, ref audioSessionGuid);
 
 	public HRESULT OnAudioStreamCreated(PWSTR endpointID) mut => VT.[Friend]OnAudioStreamCreated(&this, endpointID);
 
@@ -48216,7 +48216,7 @@ public static
 
 	public HRESULT EnableDefaultMappings(BOOL bEnable) mut => VT.[Friend]EnableDefaultMappings(&this, bEnable);
 
-	public HRESULT MapMIMEToCLSID(PWSTR pszMIMEType, ref Guid pCLSID) mut => VT.[Friend]MapMIMEToCLSID(&this, pszMIMEType, pCLSID);
+	public HRESULT MapMIMEToCLSID(PWSTR pszMIMEType, ref Guid pCLSID) mut => VT.[Friend]MapMIMEToCLSID(&this, pszMIMEType, ref pCLSID);
 
 	public HRESULT SetMapping(PWSTR pszMIMEType, uint32 dwMapMode, ref Guid clsid) mut => VT.[Friend]SetMapping(&this, pszMIMEType, dwMapMode, ref clsid);
 }
@@ -48261,7 +48261,7 @@ public static
 
 	public HRESULT GetSurface(int32 nWidth, int32 nHeight, ref Guid bfid, uint32 nPasses, uint32 dwHints, IUnknown** ppSurface) mut => VT.[Friend]GetSurface(&this, nWidth, nHeight, ref bfid, nPasses, dwHints, ppSurface);
 
-	public HRESULT OnBeginDecode(uint32* pdwEvents, uint32* pnFormats, ref Guid ppFormats) mut => VT.[Friend]OnBeginDecode(&this, pdwEvents, pnFormats, ppFormats);
+	public HRESULT OnBeginDecode(uint32* pdwEvents, uint32* pnFormats, ref Guid ppFormats) mut => VT.[Friend]OnBeginDecode(&this, pdwEvents, pnFormats, ref ppFormats);
 
 	public HRESULT OnBitsComplete() mut => VT.[Friend]OnBitsComplete(&this);
 

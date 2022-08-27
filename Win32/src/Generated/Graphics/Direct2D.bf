@@ -3884,7 +3884,7 @@ public static
 
 	public HRESULT UnregisterEffect(ref Guid classId) mut => VT.[Friend]UnregisterEffect(&this, ref classId);
 
-	public HRESULT GetRegisteredEffects(ref Guid effects, uint32 effectsCount, uint32* effectsReturned, uint32* effectsRegistered) mut => VT.[Friend]GetRegisteredEffects(&this, effects, effectsCount, effectsReturned, effectsRegistered);
+	public HRESULT GetRegisteredEffects(ref Guid effects, uint32 effectsCount, uint32* effectsReturned, uint32* effectsRegistered) mut => VT.[Friend]GetRegisteredEffects(&this, ref effects, effectsCount, effectsReturned, effectsRegistered);
 
 	public HRESULT GetEffectProperties(ref Guid effectId, ID2D1Properties** properties) mut => VT.[Friend]GetEffectProperties(&this, ref effectId, properties);
 }

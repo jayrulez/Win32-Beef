@@ -560,7 +560,7 @@ public static
 	}
 
 
-	public HRESULT GetEffectsList(ref Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) mut => VT.[Friend]GetEffectsList(&this, ppEffectsIds, pcEffects, Event);
+	public HRESULT GetEffectsList(ref Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) mut => VT.[Friend]GetEffectsList(&this, ref ppEffectsIds, pcEffects, Event);
 }
 
 [CRepr]struct IAudioSystemEffectsCustomFormats : IUnknown

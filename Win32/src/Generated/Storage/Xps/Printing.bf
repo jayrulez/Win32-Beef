@@ -130,7 +130,7 @@ public static
 	}
 
 
-	public HRESULT GetPackageTargetTypes(uint32* targetCount, ref Guid targetTypes) mut => VT.[Friend]GetPackageTargetTypes(&this, targetCount, targetTypes);
+	public HRESULT GetPackageTargetTypes(uint32* targetCount, ref Guid targetTypes) mut => VT.[Friend]GetPackageTargetTypes(&this, targetCount, ref targetTypes);
 
 	public HRESULT GetPackageTarget(ref Guid guidTargetType, ref Guid riid, void** ppvTarget) mut => VT.[Friend]GetPackageTarget(&this, ref guidTargetType, ref riid, ppvTarget);
 

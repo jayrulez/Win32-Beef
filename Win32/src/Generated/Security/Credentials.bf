@@ -1080,14 +1080,14 @@ public static
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardListInterfacesA(uint hContext, PSTR szCard, ref Guid pguidInterfaces, uint32* pcguidInterfaces);
-	public static int32 SCardListInterfaces(uint hContext, PSTR szCard, ref Guid pguidInterfaces, uint32* pcguidInterfaces) => SCardListInterfacesA(hContext, szCard, pguidInterfaces, pcguidInterfaces);
+	public static int32 SCardListInterfaces(uint hContext, PSTR szCard, ref Guid pguidInterfaces, uint32* pcguidInterfaces) => SCardListInterfacesA(hContext, szCard, ref pguidInterfaces, pcguidInterfaces);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardListInterfacesW(uint hContext, PWSTR szCard, ref Guid pguidInterfaces, uint32* pcguidInterfaces);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardGetProviderIdA(uint hContext, PSTR szCard, ref Guid pguidProviderId);
-	public static int32 SCardGetProviderId(uint hContext, PSTR szCard, ref Guid pguidProviderId) => SCardGetProviderIdA(hContext, szCard, pguidProviderId);
+	public static int32 SCardGetProviderId(uint hContext, PSTR szCard, ref Guid pguidProviderId) => SCardGetProviderIdA(hContext, szCard, ref pguidProviderId);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardGetProviderIdW(uint hContext, PWSTR szCard, ref Guid pguidProviderId);
@@ -1258,14 +1258,14 @@ public static
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardReadCacheA(uint hContext, ref Guid CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32* DataLen);
-	public static int32 SCardReadCache(uint hContext, ref Guid CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32* DataLen) => SCardReadCacheA(hContext, CardIdentifier, FreshnessCounter, LookupName, Data, DataLen);
+	public static int32 SCardReadCache(uint hContext, ref Guid CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32* DataLen) => SCardReadCacheA(hContext, ref CardIdentifier, FreshnessCounter, LookupName, Data, DataLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardReadCacheW(uint hContext, ref Guid CardIdentifier, uint32 FreshnessCounter, PWSTR LookupName, uint8* Data, uint32* DataLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardWriteCacheA(uint hContext, ref Guid CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32 DataLen);
-	public static int32 SCardWriteCache(uint hContext, ref Guid CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32 DataLen) => SCardWriteCacheA(hContext, CardIdentifier, FreshnessCounter, LookupName, Data, DataLen);
+	public static int32 SCardWriteCache(uint hContext, ref Guid CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32 DataLen) => SCardWriteCacheA(hContext, ref CardIdentifier, FreshnessCounter, LookupName, Data, DataLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardWriteCacheW(uint hContext, ref Guid CardIdentifier, uint32 FreshnessCounter, PWSTR LookupName, uint8* Data, uint32 DataLen);

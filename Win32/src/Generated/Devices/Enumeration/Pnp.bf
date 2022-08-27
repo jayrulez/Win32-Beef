@@ -590,7 +590,7 @@ public static
 	}
 
 
-	public HRESULT DeviceAddedWithInterface(int32 lFindData, IUPnPDevice* pDevice, ref Guid pguidInterface) mut => VT.[Friend]DeviceAddedWithInterface(&this, lFindData, pDevice, pguidInterface);
+	public HRESULT DeviceAddedWithInterface(int32 lFindData, IUPnPDevice* pDevice, ref Guid pguidInterface) mut => VT.[Friend]DeviceAddedWithInterface(&this, lFindData, pDevice, ref pguidInterface);
 }
 
 [CRepr]struct IUPnPDescriptionDocumentCallback : IUnknown
@@ -761,7 +761,7 @@ public static
 
 	public HRESULT GetStringValue(BSTR bstrValueName, BSTR* pbstrValue) mut => VT.[Friend]GetStringValue(&this, bstrValueName, pbstrValue);
 
-	public HRESULT GetGuidValue(BSTR bstrValueName, ref Guid pguidValue) mut => VT.[Friend]GetGuidValue(&this, bstrValueName, pguidValue);
+	public HRESULT GetGuidValue(BSTR bstrValueName, ref Guid pguidValue) mut => VT.[Friend]GetGuidValue(&this, bstrValueName, ref pguidValue);
 }
 
 #endregion

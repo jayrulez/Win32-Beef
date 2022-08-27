@@ -50,7 +50,7 @@ public static
 	}
 
 
-	public HRESULT GetUnmarshalClass(ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, ref Guid pCid) mut => VT.[Friend]GetUnmarshalClass(&this, ref riid, pv, dwDestContext, pvDestContext, mshlflags, pCid);
+	public HRESULT GetUnmarshalClass(ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, ref Guid pCid) mut => VT.[Friend]GetUnmarshalClass(&this, ref riid, pv, dwDestContext, pvDestContext, mshlflags, ref pCid);
 
 	public HRESULT GetMarshalSizeMax(ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, uint32* pSize) mut => VT.[Friend]GetMarshalSizeMax(&this, ref riid, pv, dwDestContext, pvDestContext, mshlflags, pSize);
 

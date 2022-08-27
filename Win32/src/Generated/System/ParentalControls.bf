@@ -849,7 +849,7 @@ public static
 
 	public HRESULT GetWebSettings(PWSTR pcszSID, IWPCWebSettings** ppSettings) mut => VT.[Friend]GetWebSettings(&this, pcszSID, ppSettings);
 
-	public HRESULT GetWebFilterInfo(ref Guid pguidID, PWSTR* ppszName) mut => VT.[Friend]GetWebFilterInfo(&this, pguidID, ppszName);
+	public HRESULT GetWebFilterInfo(ref Guid pguidID, PWSTR* ppszName) mut => VT.[Friend]GetWebFilterInfo(&this, ref pguidID, ppszName);
 }
 
 [CRepr]struct IWindowsParentalControls : IWindowsParentalControlsCore
@@ -879,7 +879,7 @@ public static
 	}
 
 
-	public HRESULT GetCurrent(ref Guid pguidProvider) mut => VT.[Friend]GetCurrent(&this, pguidProvider);
+	public HRESULT GetCurrent(ref Guid pguidProvider) mut => VT.[Friend]GetCurrent(&this, ref pguidProvider);
 }
 
 #endregion

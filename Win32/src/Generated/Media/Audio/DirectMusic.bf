@@ -1077,13 +1077,13 @@ public static
 
 	public HRESULT EnumMasterClock(uint32 dwIndex, DMUS_CLOCKINFO8* lpClockInfo) mut => VT.[Friend]EnumMasterClock(&this, dwIndex, lpClockInfo);
 
-	public HRESULT GetMasterClock(ref Guid pguidClock, IReferenceClock** ppReferenceClock) mut => VT.[Friend]GetMasterClock(&this, pguidClock, ppReferenceClock);
+	public HRESULT GetMasterClock(ref Guid pguidClock, IReferenceClock** ppReferenceClock) mut => VT.[Friend]GetMasterClock(&this, ref pguidClock, ppReferenceClock);
 
 	public HRESULT SetMasterClock(ref Guid rguidClock) mut => VT.[Friend]SetMasterClock(&this, ref rguidClock);
 
 	public HRESULT Activate(BOOL fEnable) mut => VT.[Friend]Activate(&this, fEnable);
 
-	public HRESULT GetDefaultPort(ref Guid pguidPort) mut => VT.[Friend]GetDefaultPort(&this, pguidPort);
+	public HRESULT GetDefaultPort(ref Guid pguidPort) mut => VT.[Friend]GetDefaultPort(&this, ref pguidPort);
 
 	public HRESULT SetDirectSound(IDirectSound* pDirectSound, HWND hWnd) mut => VT.[Friend]SetDirectSound(&this, pDirectSound, hWnd);
 }
@@ -1147,7 +1147,7 @@ public static
 
 	public HRESULT GetMaxBytes(uint32* pcb) mut => VT.[Friend]GetMaxBytes(&this, pcb);
 
-	public HRESULT GetBufferFormat(ref Guid pGuidFormat) mut => VT.[Friend]GetBufferFormat(&this, pGuidFormat);
+	public HRESULT GetBufferFormat(ref Guid pGuidFormat) mut => VT.[Friend]GetBufferFormat(&this, ref pGuidFormat);
 
 	public HRESULT SetStartTime(int64 rt) mut => VT.[Friend]SetStartTime(&this, rt);
 

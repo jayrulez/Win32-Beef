@@ -997,7 +997,7 @@ public static
 	}
 
 
-	public HRESULT GetSensorID(ref Guid pSensorID) mut => VT.[Friend]GetSensorID(&this, pSensorID);
+	public HRESULT GetSensorID(ref Guid pSensorID) mut => VT.[Friend]GetSensorID(&this, ref pSensorID);
 
 	public HRESULT GetTimestamp(SYSTEMTIME* pCreationTime) mut => VT.[Friend]GetTimestamp(&this, pCreationTime);
 
@@ -1100,7 +1100,7 @@ public static
 
 	public HRESULT SetDesiredAccuracy(ref Guid reportType, LOCATION_DESIRED_ACCURACY desiredAccuracy) mut => VT.[Friend]SetDesiredAccuracy(&this, ref reportType, desiredAccuracy);
 
-	public HRESULT RequestPermissions(HWND hParent, ref Guid pReportTypes, uint32 count, BOOL fModal) mut => VT.[Friend]RequestPermissions(&this, hParent, pReportTypes, count, fModal);
+	public HRESULT RequestPermissions(HWND hParent, ref Guid pReportTypes, uint32 count, BOOL fModal) mut => VT.[Friend]RequestPermissions(&this, hParent, ref pReportTypes, count, fModal);
 }
 
 [CRepr]struct ILocationPower : IUnknown

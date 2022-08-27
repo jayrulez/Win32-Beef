@@ -2859,11 +2859,11 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
-	public HRESULT get_InstanceID(ref Guid pInstanceID) mut => VT.[Friend]get_InstanceID(&this, pInstanceID);
+	public HRESULT get_InstanceID(ref Guid pInstanceID) mut => VT.[Friend]get_InstanceID(&this, ref pInstanceID);
 
-	public HRESULT get_OfferID(ref Guid pOfferID) mut => VT.[Friend]get_OfferID(&this, pOfferID);
+	public HRESULT get_OfferID(ref Guid pOfferID) mut => VT.[Friend]get_OfferID(&this, ref pOfferID);
 
 	public HRESULT get_DefaultTask(BSTR* pDefaultTask) mut => VT.[Friend]get_DefaultTask(&this, pDefaultTask);
 
@@ -2909,7 +2909,7 @@ public static
 
 	public HRESULT get_AppPlatMinorVersion(uint8* pMinorVer) mut => VT.[Friend]get_AppPlatMinorVersion(&this, pMinorVer);
 
-	public HRESULT get_PublisherID(ref Guid pPublisherID) mut => VT.[Friend]get_PublisherID(&this, pPublisherID);
+	public HRESULT get_PublisherID(ref Guid pPublisherID) mut => VT.[Friend]get_PublisherID(&this, ref pPublisherID);
 
 	public HRESULT get_IsMultiCore(BOOL* pIsMultiCore) mut => VT.[Friend]get_IsMultiCore(&this, pIsMultiCore);
 
@@ -2949,7 +2949,7 @@ public static
 
 	public HRESULT get_IsInboxApp(BOOL* pIsInboxApp) mut => VT.[Friend]get_IsInboxApp(&this, pIsInboxApp);
 
-	public HRESULT get_StorageID(ref Guid pStorageID) mut => VT.[Friend]get_StorageID(&this, pStorageID);
+	public HRESULT get_StorageID(ref Guid pStorageID) mut => VT.[Friend]get_StorageID(&this, ref pStorageID);
 
 	public HRESULT get_StartAppBlob(PM_STARTAPPBLOB* pBlob) mut => VT.[Friend]get_StartAppBlob(&this, pBlob);
 
@@ -3041,7 +3041,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
 	public HRESULT get_TileID(BSTR* pTileID) mut => VT.[Friend]get_TileID(&this, pTileID);
 
@@ -3155,7 +3155,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
 	public HRESULT get_TileID(BSTR* pTileID) mut => VT.[Friend]get_TileID(&this, pTileID);
 
@@ -3434,7 +3434,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
 	public HRESULT get_TaskID(BSTR* pTaskID) mut => VT.[Friend]get_TaskID(&this, pTaskID);
 
@@ -3509,7 +3509,7 @@ public static
 	}
 
 
-	public HRESULT get_SupplierPID(ref Guid pSupplierPID) mut => VT.[Friend]get_SupplierPID(&this, pSupplierPID);
+	public HRESULT get_SupplierPID(ref Guid pSupplierPID) mut => VT.[Friend]get_SupplierPID(&this, ref pSupplierPID);
 
 	public HRESULT get_SupplierTaskID(BSTR* pSupplierTID) mut => VT.[Friend]get_SupplierTaskID(&this, pSupplierTID);
 
@@ -3700,7 +3700,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
 	public HRESULT get_TaskID(BSTR* pTaskID) mut => VT.[Friend]get_TaskID(&this, pTaskID);
 
@@ -3746,7 +3746,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
 	public HRESULT get_TaskID(BSTR* pTaskID) mut => VT.[Friend]get_TaskID(&this, pTaskID);
 

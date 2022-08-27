@@ -3265,7 +3265,7 @@ public static
 
 	public HRESULT RecordCopy(void* pvExisting, void* pvNew) mut => VT.[Friend]RecordCopy(&this, pvExisting, pvNew);
 
-	public HRESULT GetGuid(ref Guid pguid) mut => VT.[Friend]GetGuid(&this, pguid);
+	public HRESULT GetGuid(ref Guid pguid) mut => VT.[Friend]GetGuid(&this, ref pguid);
 
 	public HRESULT GetName(BSTR* pbstrName) mut => VT.[Friend]GetName(&this, pbstrName);
 
@@ -3504,7 +3504,7 @@ public static
 
 	public HRESULT IsUpToDate() mut => VT.[Friend]IsUpToDate(&this);
 
-	public HRESULT GetUserClassID(ref Guid pClsid) mut => VT.[Friend]GetUserClassID(&this, pClsid);
+	public HRESULT GetUserClassID(ref Guid pClsid) mut => VT.[Friend]GetUserClassID(&this, ref pClsid);
 
 	public HRESULT GetUserType(uint32 dwFormOfType, PWSTR* pszUserType) mut => VT.[Friend]GetUserType(&this, dwFormOfType, pszUserType);
 
@@ -3964,7 +3964,7 @@ public static
 	}
 
 
-	public HRESULT GetGUID(uint32 dwGuidKind, ref Guid pGUID) mut => VT.[Friend]GetGUID(&this, dwGuidKind, pGUID);
+	public HRESULT GetGUID(uint32 dwGuidKind, ref Guid pGUID) mut => VT.[Friend]GetGUID(&this, dwGuidKind, ref pGUID);
 }
 
 [CRepr]struct IProvideMultipleClassInfo : IProvideClassInfo2
@@ -3982,7 +3982,7 @@ public static
 
 	public HRESULT GetMultiTypeInfoCount(uint32* pcti) mut => VT.[Friend]GetMultiTypeInfoCount(&this, pcti);
 
-	public HRESULT GetInfoOfIndex(uint32 iti, MULTICLASSINFO_FLAGS dwFlags, ITypeInfo** pptiCoClass, uint32* pdwTIFlags, uint32* pcdispidReserved, ref Guid piidPrimary, ref Guid piidSource) mut => VT.[Friend]GetInfoOfIndex(&this, iti, dwFlags, pptiCoClass, pdwTIFlags, pcdispidReserved, piidPrimary, piidSource);
+	public HRESULT GetInfoOfIndex(uint32 iti, MULTICLASSINFO_FLAGS dwFlags, ITypeInfo** pptiCoClass, uint32* pdwTIFlags, uint32* pcdispidReserved, ref Guid piidPrimary, ref Guid piidSource) mut => VT.[Friend]GetInfoOfIndex(&this, iti, dwFlags, pptiCoClass, pdwTIFlags, pcdispidReserved, ref piidPrimary, ref piidSource);
 }
 
 [CRepr]struct IOleControl : IUnknown
@@ -4559,7 +4559,7 @@ public static
 
 	public HRESULT GetDescription(BSTR* pBstr) mut => VT.[Friend]GetDescription(&this, pBstr);
 
-	public HRESULT GetUnitType(ref Guid pClsid, int32* plID) mut => VT.[Friend]GetUnitType(&this, pClsid, plID);
+	public HRESULT GetUnitType(ref Guid pClsid, int32* plID) mut => VT.[Friend]GetUnitType(&this, ref pClsid, plID);
 
 	public HRESULT OnNextAdd() mut => VT.[Friend]OnNextAdd(&this);
 }
@@ -4719,7 +4719,7 @@ public static
 
 	public HRESULT GetDisplayString(int32 dispID, BSTR* pBstr) mut => VT.[Friend]GetDisplayString(&this, dispID, pBstr);
 
-	public HRESULT MapPropertyToPage(int32 dispID, ref Guid pClsid) mut => VT.[Friend]MapPropertyToPage(&this, dispID, pClsid);
+	public HRESULT MapPropertyToPage(int32 dispID, ref Guid pClsid) mut => VT.[Friend]MapPropertyToPage(&this, dispID, ref pClsid);
 
 	public HRESULT GetPredefinedStrings(int32 dispID, CALPOLESTR* pCaStringsOut, CADWORD* pCaCookiesOut) mut => VT.[Friend]GetPredefinedStrings(&this, dispID, pCaStringsOut, pCaCookiesOut);
 
@@ -5149,7 +5149,7 @@ public static
 
 	public HRESULT GetObjectInfo(uint32 dwObject, uint32* lpdwObjSize, PWSTR* lplpszLabel, PWSTR* lplpszType, PWSTR* lplpszShortType, PWSTR* lplpszLocation) mut => VT.[Friend]GetObjectInfo(&this, dwObject, lpdwObjSize, lplpszLabel, lplpszType, lplpszShortType, lplpszLocation);
 
-	public HRESULT GetConvertInfo(uint32 dwObject, ref Guid lpClassID, uint16* lpwFormat, ref Guid lpConvertDefaultClassID, ref Guid lplpClsidExclude, uint32* lpcClsidExclude) mut => VT.[Friend]GetConvertInfo(&this, dwObject, lpClassID, lpwFormat, lpConvertDefaultClassID, lplpClsidExclude, lpcClsidExclude);
+	public HRESULT GetConvertInfo(uint32 dwObject, ref Guid lpClassID, uint16* lpwFormat, ref Guid lpConvertDefaultClassID, ref Guid lplpClsidExclude, uint32* lpcClsidExclude) mut => VT.[Friend]GetConvertInfo(&this, dwObject, ref lpClassID, lpwFormat, ref lpConvertDefaultClassID, ref lplpClsidExclude, lpcClsidExclude);
 
 	public HRESULT ConvertObject(uint32 dwObject, ref Guid clsidNew) mut => VT.[Friend]ConvertObject(&this, dwObject, ref clsidNew);
 
@@ -5174,7 +5174,7 @@ public static
 
 	public HRESULT GetObjectInfo(uint32 dwObject, uint32* lpdwObjSize, PSTR* lplpszLabel, PSTR* lplpszType, PSTR* lplpszShortType, PSTR* lplpszLocation) mut => VT.[Friend]GetObjectInfo(&this, dwObject, lpdwObjSize, lplpszLabel, lplpszType, lplpszShortType, lplpszLocation);
 
-	public HRESULT GetConvertInfo(uint32 dwObject, ref Guid lpClassID, uint16* lpwFormat, ref Guid lpConvertDefaultClassID, ref Guid lplpClsidExclude, uint32* lpcClsidExclude) mut => VT.[Friend]GetConvertInfo(&this, dwObject, lpClassID, lpwFormat, lpConvertDefaultClassID, lplpClsidExclude, lpcClsidExclude);
+	public HRESULT GetConvertInfo(uint32 dwObject, ref Guid lpClassID, uint16* lpwFormat, ref Guid lpConvertDefaultClassID, ref Guid lplpClsidExclude, uint32* lpcClsidExclude) mut => VT.[Friend]GetConvertInfo(&this, dwObject, ref lpClassID, lpwFormat, ref lpConvertDefaultClassID, ref lplpClsidExclude, lpcClsidExclude);
 
 	public HRESULT ConvertObject(uint32 dwObject, ref Guid clsidNew) mut => VT.[Friend]ConvertObject(&this, dwObject, ref clsidNew);
 

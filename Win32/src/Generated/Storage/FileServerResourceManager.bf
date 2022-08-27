@@ -846,7 +846,7 @@ public static
 	}
 
 
-	public HRESULT get_Id(ref Guid id) mut => VT.[Friend]get_Id(&this, id);
+	public HRESULT get_Id(ref Guid id) mut => VT.[Friend]get_Id(&this, ref id);
 
 	public HRESULT get_Description(BSTR* description) mut => VT.[Friend]get_Description(&this, description);
 
@@ -945,7 +945,7 @@ public static
 	}
 
 
-	public HRESULT get_Id(ref Guid id) mut => VT.[Friend]get_Id(&this, id);
+	public HRESULT get_Id(ref Guid id) mut => VT.[Friend]get_Id(&this, ref id);
 
 	public HRESULT get_ActionType(FsrmActionType* actionType) mut => VT.[Friend]get_ActionType(&this, actionType);
 

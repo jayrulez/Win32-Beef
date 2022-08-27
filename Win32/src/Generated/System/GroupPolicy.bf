@@ -2186,7 +2186,7 @@ public static
 
 	public HRESULT GetHint(GROUP_POLICY_HINT_TYPE* gpHint) mut => VT.[Friend]GetHint(&this, gpHint);
 
-	public HRESULT PolicyChanged(BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuidSnapin) mut => VT.[Friend]PolicyChanged(&this, bMachine, bAdd, pGuidExtension, pGuidSnapin);
+	public HRESULT PolicyChanged(BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuidSnapin) mut => VT.[Friend]PolicyChanged(&this, bMachine, bAdd, ref pGuidExtension, ref pGuidSnapin);
 }
 
 [CRepr]struct IGroupPolicyObject : IUnknown
@@ -2226,7 +2226,7 @@ public static
 
 	public HRESULT OpenRemoteMachineGPO(PWSTR pszComputerName, uint32 dwFlags) mut => VT.[Friend]OpenRemoteMachineGPO(&this, pszComputerName, dwFlags);
 
-	public HRESULT Save(BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuid) mut => VT.[Friend]Save(&this, bMachine, bAdd, pGuidExtension, pGuid);
+	public HRESULT Save(BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuid) mut => VT.[Friend]Save(&this, bMachine, bAdd, ref pGuidExtension, ref pGuid);
 
 	public HRESULT Delete() mut => VT.[Friend]Delete(&this);
 
@@ -2315,7 +2315,7 @@ public static
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetAppliedGPOListA(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, ref Guid pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList);
-	public static uint32 GetAppliedGPOList(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, ref Guid pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList) => GetAppliedGPOListA(dwFlags, pMachineName, pSidUser, pGuidExtension, ppGPOList);
+	public static uint32 GetAppliedGPOList(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, ref Guid pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList) => GetAppliedGPOListA(dwFlags, pMachineName, pSidUser, ref pGuidExtension, ppGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetAppliedGPOListW(uint32 dwFlags, PWSTR pMachineName, PSID pSidUser, ref Guid pGuidExtension, GROUP_POLICY_OBJECTW** ppGPOList);

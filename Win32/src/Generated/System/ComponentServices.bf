@@ -2459,7 +2459,7 @@ public static
 
 	public HRESULT GetIsolationLevel(int32* __MIDL__ITransactionProxy0000) mut => VT.[Friend]GetIsolationLevel(&this, __MIDL__ITransactionProxy0000);
 
-	public HRESULT GetIdentifier(ref Guid pbstrIdentifier) mut => VT.[Friend]GetIdentifier(&this, pbstrIdentifier);
+	public HRESULT GetIdentifier(ref Guid pbstrIdentifier) mut => VT.[Friend]GetIdentifier(&this, ref pbstrIdentifier);
 
 	public HRESULT IsReusable(BOOL* pfIsReusable) mut => VT.[Friend]IsReusable(&this, pfIsReusable);
 }
@@ -2494,7 +2494,7 @@ public static
 	}
 
 
-	public void GetIdentifier(ref Guid pGuidLtx) mut => VT.[Friend]GetIdentifier(&this, pGuidLtx);
+	public void GetIdentifier(ref Guid pGuidLtx) mut => VT.[Friend]GetIdentifier(&this, ref pGuidLtx);
 }
 
 [CRepr]struct IObjectContext : IUnknown
@@ -2731,7 +2731,7 @@ public static
 	}
 
 
-	public HRESULT GetActivityId(ref Guid pGUID) mut => VT.[Friend]GetActivityId(&this, pGUID);
+	public HRESULT GetActivityId(ref Guid pGUID) mut => VT.[Friend]GetActivityId(&this, ref pGUID);
 }
 
 [CRepr]struct IObjectContextInfo : IUnknown
@@ -2754,11 +2754,11 @@ public static
 
 	public HRESULT GetTransaction(IUnknown** pptrans) mut => VT.[Friend]GetTransaction(&this, pptrans);
 
-	public HRESULT GetTransactionId(ref Guid pGuid) mut => VT.[Friend]GetTransactionId(&this, pGuid);
+	public HRESULT GetTransactionId(ref Guid pGuid) mut => VT.[Friend]GetTransactionId(&this, ref pGuid);
 
-	public HRESULT GetActivityId(ref Guid pGUID) mut => VT.[Friend]GetActivityId(&this, pGUID);
+	public HRESULT GetActivityId(ref Guid pGUID) mut => VT.[Friend]GetActivityId(&this, ref pGUID);
 
-	public HRESULT GetContextId(ref Guid pGuid) mut => VT.[Friend]GetContextId(&this, pGuid);
+	public HRESULT GetContextId(ref Guid pGuid) mut => VT.[Friend]GetContextId(&this, ref pGuid);
 }
 
 [CRepr]struct IObjectContextInfo2 : IObjectContextInfo
@@ -2775,11 +2775,11 @@ public static
 	}
 
 
-	public HRESULT GetPartitionId(ref Guid pGuid) mut => VT.[Friend]GetPartitionId(&this, pGuid);
+	public HRESULT GetPartitionId(ref Guid pGuid) mut => VT.[Friend]GetPartitionId(&this, ref pGuid);
 
-	public HRESULT GetApplicationId(ref Guid pGuid) mut => VT.[Friend]GetApplicationId(&this, pGuid);
+	public HRESULT GetApplicationId(ref Guid pGuid) mut => VT.[Friend]GetApplicationId(&this, ref pGuid);
 
-	public HRESULT GetApplicationInstanceId(ref Guid pGuid) mut => VT.[Friend]GetApplicationInstanceId(&this, pGuid);
+	public HRESULT GetApplicationInstanceId(ref Guid pGuid) mut => VT.[Friend]GetApplicationInstanceId(&this, ref pGuid);
 }
 
 [CRepr]struct ITransactionStatus : IUnknown
@@ -2926,9 +2926,9 @@ public static
 	}
 
 
-	public HRESULT GetCLSID(ref Guid pCLSID) mut => VT.[Friend]GetCLSID(&this, pCLSID);
+	public HRESULT GetCLSID(ref Guid pCLSID) mut => VT.[Friend]GetCLSID(&this, ref pCLSID);
 
-	public HRESULT SetCLSID(ref Guid pCLSID) mut => VT.[Friend]SetCLSID(&this, pCLSID);
+	public HRESULT SetCLSID(ref Guid pCLSID) mut => VT.[Friend]SetCLSID(&this, ref pCLSID);
 
 	public HRESULT GetMachineName(uint32 cchSvr, char16* szServerName) mut => VT.[Friend]GetMachineName(&this, cchSvr, szServerName);
 

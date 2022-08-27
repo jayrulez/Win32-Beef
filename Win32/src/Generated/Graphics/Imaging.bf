@@ -1477,7 +1477,7 @@ public static
 
 	public HRESULT GetSize(uint32* puiWidth, uint32* puiHeight) mut => VT.[Friend]GetSize(&this, puiWidth, puiHeight);
 
-	public HRESULT GetPixelFormat(ref Guid pPixelFormat) mut => VT.[Friend]GetPixelFormat(&this, pPixelFormat);
+	public HRESULT GetPixelFormat(ref Guid pPixelFormat) mut => VT.[Friend]GetPixelFormat(&this, ref pPixelFormat);
 
 	public HRESULT GetResolution(double* pDpiX, double* pDpiY) mut => VT.[Friend]GetResolution(&this, pDpiX, pDpiY);
 
@@ -1499,9 +1499,9 @@ public static
 	}
 
 
-	public HRESULT Initialize(IWICBitmapSource* pISource, ref Guid dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) mut => VT.[Friend]Initialize(&this, pISource, dstFormat, dither, pIPalette, alphaThresholdPercent, paletteTranslate);
+	public HRESULT Initialize(IWICBitmapSource* pISource, ref Guid dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) mut => VT.[Friend]Initialize(&this, pISource, ref dstFormat, dither, pIPalette, alphaThresholdPercent, paletteTranslate);
 
-	public HRESULT CanConvert(ref Guid srcPixelFormat, ref Guid dstPixelFormat, BOOL* pfCanConvert) mut => VT.[Friend]CanConvert(&this, srcPixelFormat, dstPixelFormat, pfCanConvert);
+	public HRESULT CanConvert(ref Guid srcPixelFormat, ref Guid dstPixelFormat, BOOL* pfCanConvert) mut => VT.[Friend]CanConvert(&this, ref srcPixelFormat, ref dstPixelFormat, pfCanConvert);
 }
 
 [CRepr]struct IWICPlanarFormatConverter : IWICBitmapSource
@@ -1517,9 +1517,9 @@ public static
 	}
 
 
-	public HRESULT Initialize(IWICBitmapSource** ppPlanes, uint32 cPlanes, ref Guid dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) mut => VT.[Friend]Initialize(&this, ppPlanes, cPlanes, dstFormat, dither, pIPalette, alphaThresholdPercent, paletteTranslate);
+	public HRESULT Initialize(IWICBitmapSource** ppPlanes, uint32 cPlanes, ref Guid dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) mut => VT.[Friend]Initialize(&this, ppPlanes, cPlanes, ref dstFormat, dither, pIPalette, alphaThresholdPercent, paletteTranslate);
 
-	public HRESULT CanConvert(ref Guid pSrcPixelFormats, uint32 cSrcPlanes, ref Guid dstPixelFormat, BOOL* pfCanConvert) mut => VT.[Friend]CanConvert(&this, ref pSrcPixelFormats, cSrcPlanes, dstPixelFormat, pfCanConvert);
+	public HRESULT CanConvert(ref Guid pSrcPixelFormats, uint32 cSrcPlanes, ref Guid dstPixelFormat, BOOL* pfCanConvert) mut => VT.[Friend]CanConvert(&this, ref pSrcPixelFormats, cSrcPlanes, ref dstPixelFormat, pfCanConvert);
 }
 
 [CRepr]struct IWICBitmapScaler : IWICBitmapSource
@@ -1588,7 +1588,7 @@ public static
 
 	public HRESULT GetDataPointer(uint32* pcbBufferSize, uint8** ppbData) mut => VT.[Friend]GetDataPointer(&this, pcbBufferSize, ppbData);
 
-	public HRESULT GetPixelFormat(ref Guid pPixelFormat) mut => VT.[Friend]GetPixelFormat(&this, pPixelFormat);
+	public HRESULT GetPixelFormat(ref Guid pPixelFormat) mut => VT.[Friend]GetPixelFormat(&this, ref pPixelFormat);
 }
 
 [CRepr]struct IWICBitmap : IWICBitmapSource
@@ -1654,7 +1654,7 @@ public static
 	}
 
 
-	public HRESULT Initialize(IWICBitmapSource* pIBitmapSource, IWICColorContext* pIContextSource, IWICColorContext* pIContextDest, ref Guid pixelFmtDest) mut => VT.[Friend]Initialize(&this, pIBitmapSource, pIContextSource, pIContextDest, pixelFmtDest);
+	public HRESULT Initialize(IWICBitmapSource* pIBitmapSource, IWICColorContext* pIContextSource, IWICColorContext* pIContextDest, ref Guid pixelFmtDest) mut => VT.[Friend]Initialize(&this, pIBitmapSource, pIContextSource, pIContextDest, ref pixelFmtDest);
 }
 
 [CRepr]struct IWICFastMetadataEncoder : IUnknown
@@ -1738,7 +1738,7 @@ public static
 	}
 
 
-	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
+	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, ref pguidContainerFormat);
 
 	public HRESULT GetLocation(uint32 cchMaxLength, char16* wzNamespace, uint32* pcchActualLength) mut => VT.[Friend]GetLocation(&this, cchMaxLength, wzNamespace, pcchActualLength);
 
@@ -1788,7 +1788,7 @@ public static
 
 	public HRESULT Initialize(IStream* pIStream, WICBitmapEncoderCacheOption cacheOption) mut => VT.[Friend]Initialize(&this, pIStream, cacheOption);
 
-	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
+	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, ref pguidContainerFormat);
 
 	public HRESULT GetEncoderInfo(IWICBitmapEncoderInfo** ppIEncoderInfo) mut => VT.[Friend]GetEncoderInfo(&this, ppIEncoderInfo);
 
@@ -1835,7 +1835,7 @@ public static
 
 	public HRESULT SetResolution(double dpiX, double dpiY) mut => VT.[Friend]SetResolution(&this, dpiX, dpiY);
 
-	public HRESULT SetPixelFormat(ref Guid pPixelFormat) mut => VT.[Friend]SetPixelFormat(&this, pPixelFormat);
+	public HRESULT SetPixelFormat(ref Guid pPixelFormat) mut => VT.[Friend]SetPixelFormat(&this, ref pPixelFormat);
 
 	public HRESULT SetColorContexts(uint32 cCount, IWICColorContext** ppIColorContext) mut => VT.[Friend]SetColorContexts(&this, cCount, ppIColorContext);
 
@@ -1896,7 +1896,7 @@ public static
 
 	public HRESULT Initialize(IStream* pIStream, WICDecodeOptions cacheOptions) mut => VT.[Friend]Initialize(&this, pIStream, cacheOptions);
 
-	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
+	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, ref pguidContainerFormat);
 
 	public HRESULT GetDecoderInfo(IWICBitmapDecoderInfo** ppIDecoderInfo) mut => VT.[Friend]GetDecoderInfo(&this, ppIDecoderInfo);
 
@@ -1930,11 +1930,11 @@ public static
 	}
 
 
-	public HRESULT CopyPixels(WICRect* prc, uint32 uiWidth, uint32 uiHeight, ref Guid pguidDstFormat, WICBitmapTransformOptions dstTransform, uint32 nStride, uint32 cbBufferSize, uint8* pbBuffer) mut => VT.[Friend]CopyPixels(&this, prc, uiWidth, uiHeight, pguidDstFormat, dstTransform, nStride, cbBufferSize, pbBuffer);
+	public HRESULT CopyPixels(WICRect* prc, uint32 uiWidth, uint32 uiHeight, ref Guid pguidDstFormat, WICBitmapTransformOptions dstTransform, uint32 nStride, uint32 cbBufferSize, uint8* pbBuffer) mut => VT.[Friend]CopyPixels(&this, prc, uiWidth, uiHeight, ref pguidDstFormat, dstTransform, nStride, cbBufferSize, pbBuffer);
 
 	public HRESULT GetClosestSize(uint32* puiWidth, uint32* puiHeight) mut => VT.[Friend]GetClosestSize(&this, puiWidth, puiHeight);
 
-	public HRESULT GetClosestPixelFormat(ref Guid pguidDstFormat) mut => VT.[Friend]GetClosestPixelFormat(&this, pguidDstFormat);
+	public HRESULT GetClosestPixelFormat(ref Guid pguidDstFormat) mut => VT.[Friend]GetClosestPixelFormat(&this, ref pguidDstFormat);
 
 	public HRESULT DoesSupportTransform(WICBitmapTransformOptions dstTransform, BOOL* pfIsSupported) mut => VT.[Friend]DoesSupportTransform(&this, dstTransform, pfIsSupported);
 }
@@ -2050,13 +2050,13 @@ public static
 
 	public HRESULT GetComponentType(WICComponentType* pType) mut => VT.[Friend]GetComponentType(&this, pType);
 
-	public HRESULT GetCLSID(ref Guid pclsid) mut => VT.[Friend]GetCLSID(&this, pclsid);
+	public HRESULT GetCLSID(ref Guid pclsid) mut => VT.[Friend]GetCLSID(&this, ref pclsid);
 
 	public HRESULT GetSigningStatus(uint32* pStatus) mut => VT.[Friend]GetSigningStatus(&this, pStatus);
 
 	public HRESULT GetAuthor(uint32 cchAuthor, char16* wzAuthor, uint32* pcchActual) mut => VT.[Friend]GetAuthor(&this, cchAuthor, wzAuthor, pcchActual);
 
-	public HRESULT GetVendorGUID(ref Guid pguidVendor) mut => VT.[Friend]GetVendorGUID(&this, pguidVendor);
+	public HRESULT GetVendorGUID(ref Guid pguidVendor) mut => VT.[Friend]GetVendorGUID(&this, ref pguidVendor);
 
 	public HRESULT GetVersion(uint32 cchVersion, char16* wzVersion, uint32* pcchActual) mut => VT.[Friend]GetVersion(&this, cchVersion, wzVersion, pcchActual);
 
@@ -2078,7 +2078,7 @@ public static
 	}
 
 
-	public HRESULT GetPixelFormats(uint32 cFormats, ref Guid pPixelFormatGUIDs, uint32* pcActual) mut => VT.[Friend]GetPixelFormats(&this, cFormats, pPixelFormatGUIDs, pcActual);
+	public HRESULT GetPixelFormats(uint32 cFormats, ref Guid pPixelFormatGUIDs, uint32* pcActual) mut => VT.[Friend]GetPixelFormats(&this, cFormats, ref pPixelFormatGUIDs, pcActual);
 
 	public HRESULT CreateInstance(IWICFormatConverter** ppIConverter) mut => VT.[Friend]CreateInstance(&this, ppIConverter);
 }
@@ -2106,9 +2106,9 @@ public static
 	}
 
 
-	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
+	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, ref pguidContainerFormat);
 
-	public HRESULT GetPixelFormats(uint32 cFormats, ref Guid pguidPixelFormats, uint32* pcActual) mut => VT.[Friend]GetPixelFormats(&this, cFormats, pguidPixelFormats, pcActual);
+	public HRESULT GetPixelFormats(uint32 cFormats, ref Guid pguidPixelFormats, uint32* pcActual) mut => VT.[Friend]GetPixelFormats(&this, cFormats, ref pguidPixelFormats, pcActual);
 
 	public HRESULT GetColorManagementVersion(uint32 cchColorManagementVersion, char16* wzColorManagementVersion, uint32* pcchActual) mut => VT.[Friend]GetColorManagementVersion(&this, cchColorManagementVersion, wzColorManagementVersion, pcchActual);
 
@@ -2183,7 +2183,7 @@ public static
 	}
 
 
-	public HRESULT GetFormatGUID(ref Guid pFormat) mut => VT.[Friend]GetFormatGUID(&this, pFormat);
+	public HRESULT GetFormatGUID(ref Guid pFormat) mut => VT.[Friend]GetFormatGUID(&this, ref pFormat);
 
 	public HRESULT GetColorContext(IWICColorContext** ppIColorContext) mut => VT.[Friend]GetColorContext(&this, ppIColorContext);
 
@@ -2276,13 +2276,13 @@ public static
 
 	public HRESULT CreateColorTransformer(IWICColorTransform** ppIWICColorTransform) mut => VT.[Friend]CreateColorTransformer(&this, ppIWICColorTransform);
 
-	public HRESULT CreateBitmap(uint32 uiWidth, uint32 uiHeight, ref Guid pixelFormat, WICBitmapCreateCacheOption option, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmap(&this, uiWidth, uiHeight, pixelFormat, option, ppIBitmap);
+	public HRESULT CreateBitmap(uint32 uiWidth, uint32 uiHeight, ref Guid pixelFormat, WICBitmapCreateCacheOption option, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmap(&this, uiWidth, uiHeight, ref pixelFormat, option, ppIBitmap);
 
 	public HRESULT CreateBitmapFromSource(IWICBitmapSource* pIBitmapSource, WICBitmapCreateCacheOption option, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmapFromSource(&this, pIBitmapSource, option, ppIBitmap);
 
 	public HRESULT CreateBitmapFromSourceRect(IWICBitmapSource* pIBitmapSource, uint32 x, uint32 y, uint32 width, uint32 height, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmapFromSourceRect(&this, pIBitmapSource, x, y, width, height, ppIBitmap);
 
-	public HRESULT CreateBitmapFromMemory(uint32 uiWidth, uint32 uiHeight, ref Guid pixelFormat, uint32 cbStride, uint32 cbBufferSize, uint8* pbBuffer, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmapFromMemory(&this, uiWidth, uiHeight, pixelFormat, cbStride, cbBufferSize, pbBuffer, ppIBitmap);
+	public HRESULT CreateBitmapFromMemory(uint32 uiWidth, uint32 uiHeight, ref Guid pixelFormat, uint32 cbStride, uint32 cbBufferSize, uint8* pbBuffer, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmapFromMemory(&this, uiWidth, uiHeight, ref pixelFormat, cbStride, cbBufferSize, pbBuffer, ppIBitmap);
 
 	public HRESULT CreateBitmapFromHBITMAP(HBITMAP hBitmap, HPALETTE hPalette, WICBitmapAlphaChannelOption options, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmapFromHBITMAP(&this, hBitmap, hPalette, options, ppIBitmap);
 
@@ -2563,7 +2563,7 @@ public static
 	}
 
 
-	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
+	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, ref pguidContainerFormat);
 
 	public HRESULT GetCount(uint32* pcCount) mut => VT.[Friend]GetCount(&this, pcCount);
 
@@ -2616,7 +2616,7 @@ public static
 	}
 
 
-	public HRESULT GetMetadataFormat(ref Guid pguidMetadataFormat) mut => VT.[Friend]GetMetadataFormat(&this, pguidMetadataFormat);
+	public HRESULT GetMetadataFormat(ref Guid pguidMetadataFormat) mut => VT.[Friend]GetMetadataFormat(&this, ref pguidMetadataFormat);
 
 	public HRESULT GetMetadataHandlerInfo(IWICMetadataHandlerInfo** ppIHandler) mut => VT.[Friend]GetMetadataHandlerInfo(&this, ppIHandler);
 
@@ -2672,7 +2672,7 @@ public static
 
 	public HRESULT GetPersistOptions(uint32* pdwPersistOptions) mut => VT.[Friend]GetPersistOptions(&this, pdwPersistOptions);
 
-	public HRESULT GetPreferredVendorGUID(ref Guid pguidPreferredVendor) mut => VT.[Friend]GetPreferredVendorGUID(&this, pguidPreferredVendor);
+	public HRESULT GetPreferredVendorGUID(ref Guid pguidPreferredVendor) mut => VT.[Friend]GetPreferredVendorGUID(&this, ref pguidPreferredVendor);
 
 	public HRESULT RefreshStream() mut => VT.[Friend]RefreshStream(&this);
 }
@@ -2713,9 +2713,9 @@ public static
 	}
 
 
-	public HRESULT GetMetadataFormat(ref Guid pguidMetadataFormat) mut => VT.[Friend]GetMetadataFormat(&this, pguidMetadataFormat);
+	public HRESULT GetMetadataFormat(ref Guid pguidMetadataFormat) mut => VT.[Friend]GetMetadataFormat(&this, ref pguidMetadataFormat);
 
-	public HRESULT GetContainerFormats(uint32 cContainerFormats, ref Guid pguidContainerFormats, uint32* pcchActual) mut => VT.[Friend]GetContainerFormats(&this, cContainerFormats, pguidContainerFormats, pcchActual);
+	public HRESULT GetContainerFormats(uint32 cContainerFormats, ref Guid pguidContainerFormats, uint32* pcchActual) mut => VT.[Friend]GetContainerFormats(&this, cContainerFormats, ref pguidContainerFormats, pcchActual);
 
 	public HRESULT GetDeviceManufacturer(uint32 cchDeviceManufacturer, char16* wzDeviceManufacturer, uint32* pcchActual) mut => VT.[Friend]GetDeviceManufacturer(&this, cchDeviceManufacturer, wzDeviceManufacturer, pcchActual);
 

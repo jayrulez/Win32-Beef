@@ -131,7 +131,7 @@ public static
 
 	public HRESULT GetInfo(CALLFRAMEINFO* pInfo) mut => VT.[Friend]GetInfo(&this, pInfo);
 
-	public HRESULT GetIIDAndMethod(ref Guid pIID, uint32* piMethod) mut => VT.[Friend]GetIIDAndMethod(&this, pIID, piMethod);
+	public HRESULT GetIIDAndMethod(ref Guid pIID, uint32* piMethod) mut => VT.[Friend]GetIIDAndMethod(&this, ref pIID, piMethod);
 
 	public HRESULT GetNames(PWSTR* pwszInterface, PWSTR* pwszMethod) mut => VT.[Friend]GetNames(&this, pwszInterface, pwszMethod);
 
@@ -189,7 +189,7 @@ public static
 
 	public HRESULT GetStackSize(uint32 iMethod, uint32* cbArgs) mut => VT.[Friend]GetStackSize(&this, iMethod, cbArgs);
 
-	public HRESULT GetIID(ref Guid piid, BOOL* pfDerivesFromIDispatch, uint32* pcMethod, PWSTR* pwszInterface) mut => VT.[Friend]GetIID(&this, piid, pfDerivesFromIDispatch, pcMethod, pwszInterface);
+	public HRESULT GetIID(ref Guid piid, BOOL* pfDerivesFromIDispatch, uint32* pcMethod, PWSTR* pwszInterface) mut => VT.[Friend]GetIID(&this, ref piid, pfDerivesFromIDispatch, pcMethod, pwszInterface);
 }
 
 [CRepr]struct ICallInterceptor : ICallIndirect
@@ -273,7 +273,7 @@ public static
 
 	public HRESULT SetIID(ref Guid iid) mut => VT.[Friend]SetIID(&this, ref iid);
 
-	public HRESULT GetIID(ref Guid piid) mut => VT.[Friend]GetIID(&this, piid);
+	public HRESULT GetIID(ref Guid piid) mut => VT.[Friend]GetIID(&this, ref piid);
 }
 
 #endregion

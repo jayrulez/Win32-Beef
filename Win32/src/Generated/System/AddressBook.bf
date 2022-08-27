@@ -1268,17 +1268,17 @@ public static
 
 	public HRESULT GetPropList(uint32 ulFlags, SPropTagArray** lppPropTagArray) mut => VT.[Friend]GetPropList(&this, ulFlags, lppPropTagArray);
 
-	public HRESULT OpenProperty(uint32 ulPropTag, ref Guid lpiid, uint32 ulInterfaceOptions, uint32 ulFlags, IUnknown** lppUnk) mut => VT.[Friend]OpenProperty(&this, ulPropTag, lpiid, ulInterfaceOptions, ulFlags, lppUnk);
+	public HRESULT OpenProperty(uint32 ulPropTag, ref Guid lpiid, uint32 ulInterfaceOptions, uint32 ulFlags, IUnknown** lppUnk) mut => VT.[Friend]OpenProperty(&this, ulPropTag, ref lpiid, ulInterfaceOptions, ulFlags, lppUnk);
 
 	public HRESULT SetProps(uint32 cValues, SPropValue* lpPropArray, SPropProblemArray** lppProblems) mut => VT.[Friend]SetProps(&this, cValues, lpPropArray, lppProblems);
 
 	public HRESULT DeleteProps(SPropTagArray* lpPropTagArray, SPropProblemArray** lppProblems) mut => VT.[Friend]DeleteProps(&this, lpPropTagArray, lppProblems);
 
-	public HRESULT CopyTo(uint32 ciidExclude, ref Guid rgiidExclude, SPropTagArray* lpExcludeProps, uint ulUIParam, IMAPIProgress* lpProgress, ref Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) mut => VT.[Friend]CopyTo(&this, ciidExclude, rgiidExclude, lpExcludeProps, ulUIParam, lpProgress, lpInterface, lpDestObj, ulFlags, lppProblems);
+	public HRESULT CopyTo(uint32 ciidExclude, ref Guid rgiidExclude, SPropTagArray* lpExcludeProps, uint ulUIParam, IMAPIProgress* lpProgress, ref Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) mut => VT.[Friend]CopyTo(&this, ciidExclude, ref rgiidExclude, lpExcludeProps, ulUIParam, lpProgress, ref lpInterface, lpDestObj, ulFlags, lppProblems);
 
-	public HRESULT CopyProps(SPropTagArray* lpIncludeProps, uint ulUIParam, IMAPIProgress* lpProgress, ref Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) mut => VT.[Friend]CopyProps(&this, lpIncludeProps, ulUIParam, lpProgress, lpInterface, lpDestObj, ulFlags, lppProblems);
+	public HRESULT CopyProps(SPropTagArray* lpIncludeProps, uint ulUIParam, IMAPIProgress* lpProgress, ref Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) mut => VT.[Friend]CopyProps(&this, lpIncludeProps, ulUIParam, lpProgress, ref lpInterface, lpDestObj, ulFlags, lppProblems);
 
-	public HRESULT GetNamesFromIDs(SPropTagArray** lppPropTags, ref Guid lpPropSetGuid, uint32 ulFlags, uint32* lpcPropNames, MAPINAMEID*** lpppPropNames) mut => VT.[Friend]GetNamesFromIDs(&this, lppPropTags, lpPropSetGuid, ulFlags, lpcPropNames, lpppPropNames);
+	public HRESULT GetNamesFromIDs(SPropTagArray** lppPropTags, ref Guid lpPropSetGuid, uint32 ulFlags, uint32* lpcPropNames, MAPINAMEID*** lpppPropNames) mut => VT.[Friend]GetNamesFromIDs(&this, lppPropTags, ref lpPropSetGuid, ulFlags, lpcPropNames, lpppPropNames);
 
 	public HRESULT GetIDsFromNames(uint32 cPropNames, MAPINAMEID** lppPropNames, uint32 ulFlags, SPropTagArray** lppPropTags) mut => VT.[Friend]GetIDsFromNames(&this, cPropNames, lppPropNames, ulFlags, lppPropTags);
 }
@@ -1412,7 +1412,7 @@ public static
 
 	public HRESULT GetHierarchyTable(uint32 ulFlags, IMAPITable** lppTable) mut => VT.[Friend]GetHierarchyTable(&this, ulFlags, lppTable);
 
-	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, lpInterface, ulFlags, lpulObjType, lppUnk);
+	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, ref lpInterface, ulFlags, lpulObjType, lppUnk);
 
 	public HRESULT SetSearchCriteria(SRestriction* lpRestriction, SBinaryArray* lpContainerList, uint32 ulSearchFlags) mut => VT.[Friend]SetSearchCriteria(&this, lpRestriction, lpContainerList, ulSearchFlags);
 
@@ -1493,15 +1493,15 @@ public static
 	}
 
 
-	public HRESULT CreateMessage(ref Guid lpInterface, uint32 ulFlags, IMessage** lppMessage) mut => VT.[Friend]CreateMessage(&this, lpInterface, ulFlags, lppMessage);
+	public HRESULT CreateMessage(ref Guid lpInterface, uint32 ulFlags, IMessage** lppMessage) mut => VT.[Friend]CreateMessage(&this, ref lpInterface, ulFlags, lppMessage);
 
-	public HRESULT CopyMessages(SBinaryArray* lpMsgList, ref Guid lpInterface, void* lpDestFolder, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]CopyMessages(&this, lpMsgList, lpInterface, lpDestFolder, ulUIParam, lpProgress, ulFlags);
+	public HRESULT CopyMessages(SBinaryArray* lpMsgList, ref Guid lpInterface, void* lpDestFolder, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]CopyMessages(&this, lpMsgList, ref lpInterface, lpDestFolder, ulUIParam, lpProgress, ulFlags);
 
 	public HRESULT DeleteMessages(SBinaryArray* lpMsgList, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]DeleteMessages(&this, lpMsgList, ulUIParam, lpProgress, ulFlags);
 
-	public HRESULT CreateFolder(uint32 ulFolderType, int8* lpszFolderName, int8* lpszFolderComment, ref Guid lpInterface, uint32 ulFlags, IMAPIFolder** lppFolder) mut => VT.[Friend]CreateFolder(&this, ulFolderType, lpszFolderName, lpszFolderComment, lpInterface, ulFlags, lppFolder);
+	public HRESULT CreateFolder(uint32 ulFolderType, int8* lpszFolderName, int8* lpszFolderComment, ref Guid lpInterface, uint32 ulFlags, IMAPIFolder** lppFolder) mut => VT.[Friend]CreateFolder(&this, ulFolderType, lpszFolderName, lpszFolderComment, ref lpInterface, ulFlags, lppFolder);
 
-	public HRESULT CopyFolder(uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, void* lpDestFolder, int8* lpszNewFolderName, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]CopyFolder(&this, cbEntryID, lpEntryID, lpInterface, lpDestFolder, lpszNewFolderName, ulUIParam, lpProgress, ulFlags);
+	public HRESULT CopyFolder(uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, void* lpDestFolder, int8* lpszNewFolderName, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]CopyFolder(&this, cbEntryID, lpEntryID, ref lpInterface, lpDestFolder, lpszNewFolderName, ulUIParam, lpProgress, ulFlags);
 
 	public HRESULT DeleteFolder(uint32 cbEntryID, ENTRYID* lpEntryID, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]DeleteFolder(&this, cbEntryID, lpEntryID, ulUIParam, lpProgress, ulFlags);
 
@@ -1544,7 +1544,7 @@ public static
 
 	public HRESULT CompareEntryIDs(uint32 cbEntryID1, ENTRYID* lpEntryID1, uint32 cbEntryID2, ENTRYID* lpEntryID2, uint32 ulFlags, uint32* lpulResult) mut => VT.[Friend]CompareEntryIDs(&this, cbEntryID1, lpEntryID1, cbEntryID2, lpEntryID2, ulFlags, lpulResult);
 
-	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** ppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, lpInterface, ulFlags, lpulObjType, ppUnk);
+	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** ppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, ref lpInterface, ulFlags, lpulObjType, ppUnk);
 
 	public HRESULT SetReceiveFolder(int8* lpszMessageClass, uint32 ulFlags, uint32 cbEntryID, ENTRYID* lpEntryID) mut => VT.[Friend]SetReceiveFolder(&this, lpszMessageClass, ulFlags, cbEntryID, lpEntryID);
 
@@ -1584,9 +1584,9 @@ public static
 
 	public HRESULT GetAttachmentTable(uint32 ulFlags, IMAPITable** lppTable) mut => VT.[Friend]GetAttachmentTable(&this, ulFlags, lppTable);
 
-	public HRESULT OpenAttach(uint32 ulAttachmentNum, ref Guid lpInterface, uint32 ulFlags, IAttach** lppAttach) mut => VT.[Friend]OpenAttach(&this, ulAttachmentNum, lpInterface, ulFlags, lppAttach);
+	public HRESULT OpenAttach(uint32 ulAttachmentNum, ref Guid lpInterface, uint32 ulFlags, IAttach** lppAttach) mut => VT.[Friend]OpenAttach(&this, ulAttachmentNum, ref lpInterface, ulFlags, lppAttach);
 
-	public HRESULT CreateAttach(ref Guid lpInterface, uint32 ulFlags, uint32* lpulAttachmentNum, IAttach** lppAttach) mut => VT.[Friend]CreateAttach(&this, lpInterface, ulFlags, lpulAttachmentNum, lppAttach);
+	public HRESULT CreateAttach(ref Guid lpInterface, uint32 ulFlags, uint32* lpulAttachmentNum, IAttach** lppAttach) mut => VT.[Friend]CreateAttach(&this, ref lpInterface, ulFlags, lpulAttachmentNum, lppAttach);
 
 	public HRESULT DeleteAttach(uint32 ulAttachmentNum, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]DeleteAttach(&this, ulAttachmentNum, ulUIParam, lpProgress, ulFlags);
 
@@ -1650,7 +1650,7 @@ public static
 
 	public HRESULT DeleteProvider(MAPIUID* lpUID) mut => VT.[Friend]DeleteProvider(&this, lpUID);
 
-	public HRESULT OpenProfileSection(MAPIUID* lpUID, ref Guid lpInterface, uint32 ulFlags, IProfSect** lppProfSect) mut => VT.[Friend]OpenProfileSection(&this, lpUID, lpInterface, ulFlags, lppProfSect);
+	public HRESULT OpenProfileSection(MAPIUID* lpUID, ref Guid lpInterface, uint32 ulFlags, IProfSect** lppProfSect) mut => VT.[Friend]OpenProfileSection(&this, lpUID, ref lpInterface, ulFlags, lppProfSect);
 }
 
 [CRepr]struct ITableData : IUnknown
@@ -1739,7 +1739,7 @@ public static
 	}
 
 
-	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, lpInterface, ulFlags, lpulObjType, lppUnk);
+	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, ref lpInterface, ulFlags, lpulObjType, lppUnk);
 
 	public HRESULT CompareEntryIDs(uint32 cbEntryID1, ENTRYID* lpEntryID1, uint32 cbEntryID2, ENTRYID* lpEntryID2, uint32 ulFlags, uint32* lpulResult) mut => VT.[Friend]CompareEntryIDs(&this, cbEntryID1, lpEntryID1, cbEntryID2, lpEntryID2, ulFlags, lpulResult);
 

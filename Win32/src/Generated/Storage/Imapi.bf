@@ -3047,7 +3047,7 @@ public static
 	}
 
 
-	public HRESULT Next(uint32 cFormats, ref Guid lpiidFormatID, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFormats, lpiidFormatID, pcFetched);
+	public HRESULT Next(uint32 cFormats, ref Guid lpiidFormatID, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFormats, ref lpiidFormatID, pcFetched);
 
 	public HRESULT Skip(uint32 cFormats) mut => VT.[Friend]Skip(&this, cFormats);
 
@@ -3188,7 +3188,7 @@ public static
 
 	public HRESULT EnumDiscMasterFormats(IEnumDiscMasterFormats** ppEnum) mut => VT.[Friend]EnumDiscMasterFormats(&this, ppEnum);
 
-	public HRESULT GetActiveDiscMasterFormat(ref Guid lpiid) mut => VT.[Friend]GetActiveDiscMasterFormat(&this, lpiid);
+	public HRESULT GetActiveDiscMasterFormat(ref Guid lpiid) mut => VT.[Friend]GetActiveDiscMasterFormat(&this, ref lpiid);
 
 	public HRESULT SetActiveDiscMasterFormat(ref Guid riid, void** ppUnk) mut => VT.[Friend]SetActiveDiscMasterFormat(&this, ref riid, ppUnk);
 

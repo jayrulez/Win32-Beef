@@ -2488,7 +2488,7 @@ public static
 
 	public HRESULT SelectDeviceDlgID(HWND hwndParent, int32 lDeviceType, int32 lFlags, BSTR* pbstrDeviceID) mut => VT.[Friend]SelectDeviceDlgID(&this, hwndParent, lDeviceType, lFlags, pbstrDeviceID);
 
-	public HRESULT GetImageDlg(HWND hwndParent, int32 lDeviceType, int32 lFlags, int32 lIntent, IWiaItem* pItemRoot, BSTR bstrFilename, ref Guid pguidFormat) mut => VT.[Friend]GetImageDlg(&this, hwndParent, lDeviceType, lFlags, lIntent, pItemRoot, bstrFilename, pguidFormat);
+	public HRESULT GetImageDlg(HWND hwndParent, int32 lDeviceType, int32 lFlags, int32 lIntent, IWiaItem* pItemRoot, BSTR bstrFilename, ref Guid pguidFormat) mut => VT.[Friend]GetImageDlg(&this, hwndParent, lDeviceType, lFlags, lIntent, pItemRoot, bstrFilename, ref pguidFormat);
 
 	public HRESULT RegisterEventCallbackProgram(int32 lFlags, BSTR bstrDeviceID, ref Guid pEventGUID, BSTR bstrCommandline, BSTR bstrName, BSTR bstrDescription, BSTR bstrIcon) mut => VT.[Friend]RegisterEventCallbackProgram(&this, lFlags, bstrDeviceID, ref pEventGUID, bstrCommandline, bstrName, bstrDescription, bstrIcon);
 
@@ -2695,9 +2695,9 @@ public static
 
 	public HRESULT GetCount(uint32* pulNumProps) mut => VT.[Friend]GetCount(&this, pulNumProps);
 
-	public HRESULT GetPropertyStream(ref Guid pCompatibilityId, IStream** ppIStream) mut => VT.[Friend]GetPropertyStream(&this, pCompatibilityId, ppIStream);
+	public HRESULT GetPropertyStream(ref Guid pCompatibilityId, IStream** ppIStream) mut => VT.[Friend]GetPropertyStream(&this, ref pCompatibilityId, ppIStream);
 
-	public HRESULT SetPropertyStream(ref Guid pCompatibilityId, IStream* pIStream) mut => VT.[Friend]SetPropertyStream(&this, pCompatibilityId, pIStream);
+	public HRESULT SetPropertyStream(ref Guid pCompatibilityId, IStream* pIStream) mut => VT.[Friend]SetPropertyStream(&this, ref pCompatibilityId, pIStream);
 }
 
 [CRepr]struct IEnumWiaItem : IUnknown
@@ -3068,7 +3068,7 @@ public static
 
 	public HRESULT FindItemByName(int32 lFlags, BSTR bstrFullItemName, IWiaItem2** ppIWiaItem2) mut => VT.[Friend]FindItemByName(&this, lFlags, bstrFullItemName, ppIWiaItem2);
 
-	public HRESULT GetItemCategory(ref Guid pItemCategoryGUID) mut => VT.[Friend]GetItemCategory(&this, pItemCategoryGUID);
+	public HRESULT GetItemCategory(ref Guid pItemCategoryGUID) mut => VT.[Friend]GetItemCategory(&this, ref pItemCategoryGUID);
 
 	public HRESULT GetItemType(int32* pItemType) mut => VT.[Friend]GetItemType(&this, pItemType);
 

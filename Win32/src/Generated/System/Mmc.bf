@@ -1939,7 +1939,7 @@ public static
 
 	public HRESULT Expand(int hItem) mut => VT.[Friend]Expand(&this, hItem);
 
-	public HRESULT AddExtension(int hItem, ref Guid lpClsid) mut => VT.[Friend]AddExtension(&this, hItem, lpClsid);
+	public HRESULT AddExtension(int hItem, ref Guid lpClsid) mut => VT.[Friend]AddExtension(&this, hItem, ref lpClsid);
 }
 
 [CRepr]struct IPropertySheetCallback : IUnknown
@@ -2318,9 +2318,9 @@ public static
 
 	public HRESULT EnableAllExtensions() mut => VT.[Friend]EnableAllExtensions(&this);
 
-	public HRESULT GetFirstExtension(ref Guid pExtCLSID) mut => VT.[Friend]GetFirstExtension(&this, pExtCLSID);
+	public HRESULT GetFirstExtension(ref Guid pExtCLSID) mut => VT.[Friend]GetFirstExtension(&this, ref pExtCLSID);
 
-	public HRESULT GetNextExtension(ref Guid pExtCLSID) mut => VT.[Friend]GetNextExtension(&this, pExtCLSID);
+	public HRESULT GetNextExtension(ref Guid pExtCLSID) mut => VT.[Friend]GetNextExtension(&this, ref pExtCLSID);
 }
 
 [CRepr]struct IStringTable : IUnknown

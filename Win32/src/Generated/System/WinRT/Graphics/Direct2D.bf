@@ -58,7 +58,7 @@ public static
 	}
 
 
-	public HRESULT GetEffectId(ref Guid id) mut => VT.[Friend]GetEffectId(&this, id);
+	public HRESULT GetEffectId(ref Guid id) mut => VT.[Friend]GetEffectId(&this, ref id);
 
 	public HRESULT GetNamedPropertyMapping(PWSTR name, uint32* index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) mut => VT.[Friend]GetNamedPropertyMapping(&this, name, index, mapping);
 

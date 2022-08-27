@@ -10024,11 +10024,11 @@ public static
 	}
 
 
-	public HRESULT LoadIFilter(PWSTR pwcsPath, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, ref Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilter(&this, pwcsPath, pFilteredSources, pUnkOuter, fUseDefault, pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
+	public HRESULT LoadIFilter(PWSTR pwcsPath, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, ref Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilter(&this, pwcsPath, pFilteredSources, pUnkOuter, fUseDefault, ref pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
 
-	public HRESULT LoadIFilterFromStorage(IStorage* pStg, IUnknown* pUnkOuter, PWSTR pwcsOverride, BOOL fUseDefault, ref Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilterFromStorage(&this, pStg, pUnkOuter, pwcsOverride, fUseDefault, pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
+	public HRESULT LoadIFilterFromStorage(IStorage* pStg, IUnknown* pUnkOuter, PWSTR pwcsOverride, BOOL fUseDefault, ref Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilterFromStorage(&this, pStg, pUnkOuter, pwcsOverride, fUseDefault, ref pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
 
-	public HRESULT LoadIFilterFromStream(IStream* pStm, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, ref Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilterFromStream(&this, pStm, pFilteredSources, pUnkOuter, fUseDefault, pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
+	public HRESULT LoadIFilterFromStream(IStream* pStm, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, ref Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilterFromStream(&this, pStm, pFilteredSources, pUnkOuter, fUseDefault, ref pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
 }
 
 [CRepr]struct ILoadFilterWithPrivateComActivation : ILoadFilter
@@ -10043,7 +10043,7 @@ public static
 	}
 
 
-	public HRESULT LoadIFilterWithPrivateComActivation(FILTERED_DATA_SOURCES* filteredSources, BOOL useDefault, ref Guid filterClsid, BOOL* isFilterPrivateComActivated, IFilter** filterObj) mut => VT.[Friend]LoadIFilterWithPrivateComActivation(&this, filteredSources, useDefault, filterClsid, isFilterPrivateComActivated, filterObj);
+	public HRESULT LoadIFilterWithPrivateComActivation(FILTERED_DATA_SOURCES* filteredSources, BOOL useDefault, ref Guid filterClsid, BOOL* isFilterPrivateComActivated, IFilter** filterObj) mut => VT.[Friend]LoadIFilterWithPrivateComActivation(&this, filteredSources, useDefault, ref filterClsid, isFilterPrivateComActivated, filterObj);
 }
 
 [CRepr]struct IRichChunk : IUnknown
@@ -10617,7 +10617,7 @@ public static
 	}
 
 
-	public HRESULT GetCommandText(ref Guid pguidDialect, PWSTR* ppwszCommand) mut => VT.[Friend]GetCommandText(&this, pguidDialect, ppwszCommand);
+	public HRESULT GetCommandText(ref Guid pguidDialect, PWSTR* ppwszCommand) mut => VT.[Friend]GetCommandText(&this, ref pguidDialect, ppwszCommand);
 
 	public HRESULT SetCommandText(ref Guid rguidDialect, PWSTR pwszCommand) mut => VT.[Friend]SetCommandText(&this, ref rguidDialect, pwszCommand);
 }
@@ -10934,7 +10934,7 @@ public static
 
 	public HRESULT GetRowset(IUnknown* pUnkOuter, ref Guid rguidSchema, uint32 cRestrictions, VARIANT* rgRestrictions, ref Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]GetRowset(&this, pUnkOuter, ref rguidSchema, cRestrictions, rgRestrictions, ref riid, cPropertySets, rgPropertySets, ppRowset);
 
-	public HRESULT GetSchemas(uint32* pcSchemas, ref Guid prgSchemas, uint32** prgRestrictionSupport) mut => VT.[Friend]GetSchemas(&this, pcSchemas, prgSchemas, prgRestrictionSupport);
+	public HRESULT GetSchemas(uint32* pcSchemas, ref Guid prgSchemas, uint32** prgRestrictionSupport) mut => VT.[Friend]GetSchemas(&this, pcSchemas, ref prgSchemas, prgRestrictionSupport);
 }
 
 [CRepr]struct IMDDataset : IUnknown
@@ -11331,7 +11331,7 @@ public static
 
 	public HRESULT GetCurrentTrustee(TRUSTEE_W** ppTrustee) mut => VT.[Friend]GetCurrentTrustee(&this, ppTrustee);
 
-	public HRESULT GetObjectTypes(uint32* cObjectTypes, ref Guid rgObjectTypes) mut => VT.[Friend]GetObjectTypes(&this, cObjectTypes, rgObjectTypes);
+	public HRESULT GetObjectTypes(uint32* cObjectTypes, ref Guid rgObjectTypes) mut => VT.[Friend]GetObjectTypes(&this, cObjectTypes, ref rgObjectTypes);
 
 	public HRESULT GetPermissions(Guid ObjectType, uint32* pPermissions) mut => VT.[Friend]GetPermissions(&this, ObjectType, pPermissions);
 }
@@ -11542,7 +11542,7 @@ public static
 	}
 
 
-	public HRESULT GetURLMapping(PWSTR pwszURL, uint dwReserved, ref Guid pclsidProvider) mut => VT.[Friend]GetURLMapping(&this, pwszURL, dwReserved, pclsidProvider);
+	public HRESULT GetURLMapping(PWSTR pwszURL, uint dwReserved, ref Guid pclsidProvider) mut => VT.[Friend]GetURLMapping(&this, pwszURL, dwReserved, ref pclsidProvider);
 
 	public HRESULT SetURLMapping(PWSTR pwszURL, uint dwReserved, ref Guid rclsidProvider) mut => VT.[Friend]SetURLMapping(&this, pwszURL, dwReserved, ref rclsidProvider);
 
@@ -11610,7 +11610,7 @@ public static
 	}
 
 
-	public HRESULT GetCommandStream(ref Guid piid, ref Guid pguidDialect, IUnknown** ppCommandStream) mut => VT.[Friend]GetCommandStream(&this, piid, pguidDialect, ppCommandStream);
+	public HRESULT GetCommandStream(ref Guid piid, ref Guid pguidDialect, IUnknown** ppCommandStream) mut => VT.[Friend]GetCommandStream(&this, ref piid, ref pguidDialect, ppCommandStream);
 
 	public HRESULT SetCommandStream(ref Guid riid, ref Guid rguidDialect, IUnknown* pCommandStream) mut => VT.[Friend]SetCommandStream(&this, ref riid, ref rguidDialect, pCommandStream);
 }
@@ -12015,7 +12015,7 @@ public static
 
 	public HRESULT GetDocFormat(char16* wszDocFormat, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetDocFormat(&this, wszDocFormat, dwSize, pdwLength);
 
-	public HRESULT GetCLSID(ref Guid pClsid) mut => VT.[Friend]GetCLSID(&this, pClsid);
+	public HRESULT GetCLSID(ref Guid pClsid) mut => VT.[Friend]GetCLSID(&this, ref pClsid);
 
 	public HRESULT GetHost(char16* wszHost, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetHost(&this, wszHost, dwSize, pdwLength);
 
@@ -12031,7 +12031,7 @@ public static
 
 	public HRESULT GetRedirectedURL(char16* wszRedirectedURL, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetRedirectedURL(&this, wszRedirectedURL, dwSize, pdwLength);
 
-	public HRESULT GetSecurityProvider(ref Guid pSPClsid) mut => VT.[Friend]GetSecurityProvider(&this, pSPClsid);
+	public HRESULT GetSecurityProvider(ref Guid pSPClsid) mut => VT.[Friend]GetSecurityProvider(&this, ref pSPClsid);
 
 	public HRESULT BindToStream(IStream** ppStream) mut => VT.[Friend]BindToStream(&this, ppStream);
 
@@ -12185,7 +12185,7 @@ public static
 	}
 
 
-	public HRESULT GetFilter(ref Guid pclsidObj, PWSTR pcwszContentType, PWSTR pcwszExtension, IFilter** ppFilter) mut => VT.[Friend]GetFilter(&this, pclsidObj, pcwszContentType, pcwszExtension, ppFilter);
+	public HRESULT GetFilter(ref Guid pclsidObj, PWSTR pcwszContentType, PWSTR pcwszExtension, IFilter** ppFilter) mut => VT.[Friend]GetFilter(&this, ref pclsidObj, pcwszContentType, pcwszExtension, ppFilter);
 }
 
 [CRepr]struct ISearchRoot : IUnknown
@@ -12561,7 +12561,7 @@ public static
 
 	public HRESULT RegisterViewForNotification(PWSTR pszView, ISearchViewChangedSink* pViewChangedSink, uint32* pdwCookie) mut => VT.[Friend]RegisterViewForNotification(&this, pszView, pViewChangedSink, pdwCookie);
 
-	public HRESULT GetItemsChangedSink(ISearchNotifyInlineSite* pISearchNotifyInlineSite, ref Guid riid, void** ppv, ref Guid pGUIDCatalogResetSignature, ref Guid pGUIDCheckPointSignature, uint32* pdwLastCheckPointNumber) mut => VT.[Friend]GetItemsChangedSink(&this, pISearchNotifyInlineSite, ref riid, ppv, pGUIDCatalogResetSignature, pGUIDCheckPointSignature, pdwLastCheckPointNumber);
+	public HRESULT GetItemsChangedSink(ISearchNotifyInlineSite* pISearchNotifyInlineSite, ref Guid riid, void** ppv, ref Guid pGUIDCatalogResetSignature, ref Guid pGUIDCheckPointSignature, uint32* pdwLastCheckPointNumber) mut => VT.[Friend]GetItemsChangedSink(&this, pISearchNotifyInlineSite, ref riid, ppv, ref pGUIDCatalogResetSignature, ref pGUIDCheckPointSignature, pdwLastCheckPointNumber);
 
 	public HRESULT UnregisterViewForNotification(uint32 dwCookie) mut => VT.[Friend]UnregisterViewForNotification(&this, dwCookie);
 
@@ -12854,7 +12854,7 @@ public static
 	}
 
 
-	public HRESULT GetCookie(ref Guid pCookie) mut => VT.[Friend]GetCookie(&this, pCookie);
+	public HRESULT GetCookie(ref Guid pCookie) mut => VT.[Friend]GetCookie(&this, ref pCookie);
 
 	public HRESULT GetSubscriptionItemInfo(SUBSCRIPTIONITEMINFO* pSubscriptionItemInfo) mut => VT.[Friend]GetSubscriptionItemInfo(&this, pSubscriptionItemInfo);
 
@@ -12885,7 +12885,7 @@ public static
 	}
 
 
-	public HRESULT Next(uint32 celt, ref Guid rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, ref Guid rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, ref rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
@@ -13559,7 +13559,7 @@ public static
 
 	public HRESULT GetCommand(IUnknown* pUnkOuter, ref Guid rguidSchema, ICommand** ppCommand) mut => VT.[Friend]GetCommand(&this, pUnkOuter, ref rguidSchema, ppCommand);
 
-	public HRESULT GetSchemas(uint32* pcSchemas, ref Guid prgSchemas) mut => VT.[Friend]GetSchemas(&this, pcSchemas, prgSchemas);
+	public HRESULT GetSchemas(uint32* pcSchemas, ref Guid prgSchemas) mut => VT.[Friend]GetSchemas(&this, pcSchemas, ref prgSchemas);
 }
 
 [CRepr]struct IProvideMoniker : IUnknown

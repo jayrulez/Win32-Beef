@@ -6266,7 +6266,7 @@ public static
 
 	public HRESULT GetVerticalBlankStatus(int32* param0) mut => VT.[Friend]GetVerticalBlankStatus(&this, param0);
 
-	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, param0);
+	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, ref param0);
 
 	public HRESULT RestoreDisplayMode() mut => VT.[Friend]RestoreDisplayMode(&this);
 
@@ -6339,7 +6339,7 @@ public static
 
 	public HRESULT GetVerticalBlankStatus(int32* param0) mut => VT.[Friend]GetVerticalBlankStatus(&this, param0);
 
-	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, param0);
+	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, ref param0);
 
 	public HRESULT RestoreDisplayMode() mut => VT.[Friend]RestoreDisplayMode(&this);
 
@@ -6418,7 +6418,7 @@ public static
 
 	public HRESULT GetVerticalBlankStatus(int32* param0) mut => VT.[Friend]GetVerticalBlankStatus(&this, param0);
 
-	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, param0);
+	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, ref param0);
 
 	public HRESULT RestoreDisplayMode() mut => VT.[Friend]RestoreDisplayMode(&this);
 
@@ -6507,7 +6507,7 @@ public static
 
 	public HRESULT GetVerticalBlankStatus(int32* param0) mut => VT.[Friend]GetVerticalBlankStatus(&this, param0);
 
-	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, param0);
+	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, ref param0);
 
 	public HRESULT RestoreDisplayMode() mut => VT.[Friend]RestoreDisplayMode(&this);
 

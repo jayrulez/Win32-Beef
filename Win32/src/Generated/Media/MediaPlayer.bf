@@ -3930,7 +3930,7 @@ public static
 
 	public HRESULT Shutdown() mut => VT.[Friend]Shutdown(&this);
 
-	public HRESULT GetID(ref Guid pGUID) mut => VT.[Friend]GetID(&this, pGUID);
+	public HRESULT GetID(ref Guid pGUID) mut => VT.[Friend]GetID(&this, ref pGUID);
 
 	public HRESULT GetCaps(uint32* pdwFlags) mut => VT.[Friend]GetCaps(&this, pdwFlags);
 
@@ -4295,7 +4295,7 @@ public static
 
 	public HRESULT SetUrl(PWSTR pszUrl) mut => VT.[Friend]SetUrl(&this, pszUrl);
 
-	public HRESULT LocalId(ref Guid pguid) mut => VT.[Friend]LocalId(&this, pguid);
+	public HRESULT LocalId(ref Guid pguid) mut => VT.[Friend]LocalId(&this, ref pguid);
 
 	public HRESULT Path(PWSTR* ppszPath) mut => VT.[Friend]Path(&this, ppszPath);
 

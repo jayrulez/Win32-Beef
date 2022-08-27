@@ -301,7 +301,7 @@ public static
 	}
 
 
-	public HRESULT Next(uint32 cItemsToFetch, ref Guid pCLSID, PWSTR* Names, uint32* pcItemsFetched) mut => VT.[Friend]Next(&this, cItemsToFetch, pCLSID, Names, pcItemsFetched);
+	public HRESULT Next(uint32 cItemsToFetch, ref Guid pCLSID, PWSTR* Names, uint32* pcItemsFetched) mut => VT.[Friend]Next(&this, cItemsToFetch, ref pCLSID, Names, pcItemsFetched);
 
 	public HRESULT Skip(uint32 cItemsToSkip) mut => VT.[Friend]Skip(&this, cItemsToSkip);
 

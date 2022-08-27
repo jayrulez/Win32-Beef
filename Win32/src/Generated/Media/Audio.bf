@@ -3710,7 +3710,7 @@ public static
 
 	public HRESULT GetPartType(PartType* pPartType) mut => VT.[Friend]GetPartType(&this, pPartType);
 
-	public HRESULT GetSubType(ref Guid pSubType) mut => VT.[Friend]GetSubType(&this, pSubType);
+	public HRESULT GetSubType(ref Guid pSubType) mut => VT.[Friend]GetSubType(&this, ref pSubType);
 
 	public HRESULT GetControlInterfaceCount(uint32* pCount) mut => VT.[Friend]GetControlInterfaceCount(&this, pCount);
 
@@ -3792,7 +3792,7 @@ public static
 
 	public HRESULT GetName(PWSTR* ppwstrName) mut => VT.[Friend]GetName(&this, ppwstrName);
 
-	public HRESULT GetIID(ref Guid pIID) mut => VT.[Friend]GetIID(&this, pIID);
+	public HRESULT GetIID(ref Guid pIID) mut => VT.[Friend]GetIID(&this, ref pIID);
 }
 
 [CRepr]struct IControlChangeNotify : IUnknown
@@ -3906,7 +3906,7 @@ public static
 
 	public HRESULT SetIconPath(PWSTR Value, ref Guid EventContext) mut => VT.[Friend]SetIconPath(&this, Value, ref EventContext);
 
-	public HRESULT GetGroupingParam(ref Guid pRetVal) mut => VT.[Friend]GetGroupingParam(&this, pRetVal);
+	public HRESULT GetGroupingParam(ref Guid pRetVal) mut => VT.[Friend]GetGroupingParam(&this, ref pRetVal);
 
 	public HRESULT SetGroupingParam(ref Guid Override, ref Guid EventContext) mut => VT.[Friend]SetGroupingParam(&this, ref Override, ref EventContext);
 

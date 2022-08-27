@@ -856,7 +856,7 @@ public static
 
 	public HRESULT Complete() mut => VT.[Friend]Complete(&this);
 
-	public HRESULT GetId(ref Guid pVal) mut => VT.[Friend]GetId(&this, pVal);
+	public HRESULT GetId(ref Guid pVal) mut => VT.[Friend]GetId(&this, ref pVal);
 
 	public HRESULT GetType(BG_JOB_TYPE* pVal) mut => VT.[Friend]COM_GetType(&this, pVal);
 
@@ -1000,7 +1000,7 @@ public static
 	}
 
 
-	public HRESULT CreateJob(PWSTR DisplayName, BG_JOB_TYPE Type, ref Guid pJobId, IBackgroundCopyJob** ppJob) mut => VT.[Friend]CreateJob(&this, DisplayName, Type, pJobId, ppJob);
+	public HRESULT CreateJob(PWSTR DisplayName, BG_JOB_TYPE Type, ref Guid pJobId, IBackgroundCopyJob** ppJob) mut => VT.[Friend]CreateJob(&this, DisplayName, Type, ref pJobId, ppJob);
 
 	public HRESULT GetJob(ref Guid jobID, IBackgroundCopyJob** ppJob) mut => VT.[Friend]GetJob(&this, ref jobID, ppJob);
 
@@ -1141,7 +1141,7 @@ public static
 	}
 
 
-	public HRESULT GetId(ref Guid pVal) mut => VT.[Friend]GetId(&this, pVal);
+	public HRESULT GetId(ref Guid pVal) mut => VT.[Friend]GetId(&this, ref pVal);
 
 	public HRESULT GetOriginUrl(PWSTR* pVal) mut => VT.[Friend]GetOriginUrl(&this, pVal);
 
@@ -1591,7 +1591,7 @@ public static
 
 	public HRESULT SwitchToForeground() mut => VT.[Friend]SwitchToForeground(&this);
 
-	public HRESULT get_JobID(ref Guid pguidJobID) mut => VT.[Friend]get_JobID(&this, pguidJobID);
+	public HRESULT get_JobID(ref Guid pguidJobID) mut => VT.[Friend]get_JobID(&this, ref pguidJobID);
 }
 
 [CRepr]struct IEnumBackgroundCopyJobs1 : IUnknown
@@ -1610,7 +1610,7 @@ public static
 	}
 
 
-	public HRESULT Next(uint32 celt, ref Guid rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, ref Guid rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, ref rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
@@ -1665,7 +1665,7 @@ public static
 
 	public HRESULT get_Size(uint32* pdwSize) mut => VT.[Friend]get_Size(&this, pdwSize);
 
-	public HRESULT get_GroupID(ref Guid pguidGroupID) mut => VT.[Friend]get_GroupID(&this, pguidGroupID);
+	public HRESULT get_GroupID(ref Guid pguidGroupID) mut => VT.[Friend]get_GroupID(&this, ref pguidGroupID);
 
 	public HRESULT CreateJob(Guid guidJobID, IBackgroundCopyJob1** ppJob) mut => VT.[Friend]CreateJob(&this, guidJobID, ppJob);
 
@@ -1694,7 +1694,7 @@ public static
 	}
 
 
-	public HRESULT Next(uint32 celt, ref Guid rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, ref Guid rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, ref rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 

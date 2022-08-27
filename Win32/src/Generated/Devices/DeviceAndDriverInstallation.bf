@@ -5228,7 +5228,7 @@ public static
 
 	[Import("SETUPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetupDiGetINFClassA(PSTR InfName, ref Guid ClassGuid, uint8* ClassName, uint32 ClassNameSize, uint32* RequiredSize);
-	public static BOOL SetupDiGetINFClass(PSTR InfName, ref Guid ClassGuid, uint8* ClassName, uint32 ClassNameSize, uint32* RequiredSize) => SetupDiGetINFClassA(InfName, ClassGuid, ClassName, ClassNameSize, RequiredSize);
+	public static BOOL SetupDiGetINFClass(PSTR InfName, ref Guid ClassGuid, uint8* ClassName, uint32 ClassNameSize, uint32* RequiredSize) => SetupDiGetINFClassA(InfName, ref ClassGuid, ClassName, ClassNameSize, RequiredSize);
 
 	[Import("SETUPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetupDiGetINFClassW(PWSTR InfName, ref Guid ClassGuid, char16* ClassName, uint32 ClassNameSize, uint32* RequiredSize);
@@ -5238,7 +5238,7 @@ public static
 
 	[Import("SETUPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetupDiBuildClassInfoListExA(uint32 Flags, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize, PSTR MachineName, void* Reserved);
-	public static BOOL SetupDiBuildClassInfoListEx(uint32 Flags, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize, PSTR MachineName, void* Reserved) => SetupDiBuildClassInfoListExA(Flags, ClassGuidList, ClassGuidListSize, RequiredSize, MachineName, Reserved);
+	public static BOOL SetupDiBuildClassInfoListEx(uint32 Flags, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize, PSTR MachineName, void* Reserved) => SetupDiBuildClassInfoListExA(Flags, ref ClassGuidList, ClassGuidListSize, RequiredSize, MachineName, Reserved);
 
 	[Import("SETUPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetupDiBuildClassInfoListExW(uint32 Flags, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize, PWSTR MachineName, void* Reserved);
@@ -5510,14 +5510,14 @@ public static
 
 	[Import("SETUPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetupDiClassGuidsFromNameA(PSTR ClassName, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize);
-	public static BOOL SetupDiClassGuidsFromName(PSTR ClassName, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize) => SetupDiClassGuidsFromNameA(ClassName, ClassGuidList, ClassGuidListSize, RequiredSize);
+	public static BOOL SetupDiClassGuidsFromName(PSTR ClassName, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize) => SetupDiClassGuidsFromNameA(ClassName, ref ClassGuidList, ClassGuidListSize, RequiredSize);
 
 	[Import("SETUPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetupDiClassGuidsFromNameW(PWSTR ClassName, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize);
 
 	[Import("SETUPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetupDiClassGuidsFromNameExA(PSTR ClassName, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize, PSTR MachineName, void* Reserved);
-	public static BOOL SetupDiClassGuidsFromNameEx(PSTR ClassName, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize, PSTR MachineName, void* Reserved) => SetupDiClassGuidsFromNameExA(ClassName, ClassGuidList, ClassGuidListSize, RequiredSize, MachineName, Reserved);
+	public static BOOL SetupDiClassGuidsFromNameEx(PSTR ClassName, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize, PSTR MachineName, void* Reserved) => SetupDiClassGuidsFromNameExA(ClassName, ref ClassGuidList, ClassGuidListSize, RequiredSize, MachineName, Reserved);
 
 	[Import("SETUPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetupDiClassGuidsFromNameExW(PWSTR ClassName, ref Guid ClassGuidList, uint32 ClassGuidListSize, uint32* RequiredSize, PWSTR MachineName, void* Reserved);
@@ -5741,28 +5741,28 @@ public static
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Class_NameA(ref Guid ClassGuid, uint8* Buffer, uint32* pulLength, uint32 ulFlags);
-	public static CONFIGRET CM_Get_Class_Name(ref Guid ClassGuid, uint8* Buffer, uint32* pulLength, uint32 ulFlags) => CM_Get_Class_NameA(ClassGuid, Buffer, pulLength, ulFlags);
+	public static CONFIGRET CM_Get_Class_Name(ref Guid ClassGuid, uint8* Buffer, uint32* pulLength, uint32 ulFlags) => CM_Get_Class_NameA(ref ClassGuid, Buffer, pulLength, ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Class_NameW(ref Guid ClassGuid, char16* Buffer, uint32* pulLength, uint32 ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Class_Name_ExA(ref Guid ClassGuid, uint8* Buffer, uint32* pulLength, uint32 ulFlags, int hMachine);
-	public static CONFIGRET CM_Get_Class_Name_Ex(ref Guid ClassGuid, uint8* Buffer, uint32* pulLength, uint32 ulFlags, int hMachine) => CM_Get_Class_Name_ExA(ClassGuid, Buffer, pulLength, ulFlags, hMachine);
+	public static CONFIGRET CM_Get_Class_Name_Ex(ref Guid ClassGuid, uint8* Buffer, uint32* pulLength, uint32 ulFlags, int hMachine) => CM_Get_Class_Name_ExA(ref ClassGuid, Buffer, pulLength, ulFlags, hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Class_Name_ExW(ref Guid ClassGuid, char16* Buffer, uint32* pulLength, uint32 ulFlags, int hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Class_Key_NameA(ref Guid ClassGuid, uint8* pszKeyName, uint32* pulLength, uint32 ulFlags);
-	public static CONFIGRET CM_Get_Class_Key_Name(ref Guid ClassGuid, uint8* pszKeyName, uint32* pulLength, uint32 ulFlags) => CM_Get_Class_Key_NameA(ClassGuid, pszKeyName, pulLength, ulFlags);
+	public static CONFIGRET CM_Get_Class_Key_Name(ref Guid ClassGuid, uint8* pszKeyName, uint32* pulLength, uint32 ulFlags) => CM_Get_Class_Key_NameA(ref ClassGuid, pszKeyName, pulLength, ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Class_Key_NameW(ref Guid ClassGuid, char16* pszKeyName, uint32* pulLength, uint32 ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Class_Key_Name_ExA(ref Guid ClassGuid, uint8* pszKeyName, uint32* pulLength, uint32 ulFlags, int hMachine);
-	public static CONFIGRET CM_Get_Class_Key_Name_Ex(ref Guid ClassGuid, uint8* pszKeyName, uint32* pulLength, uint32 ulFlags, int hMachine) => CM_Get_Class_Key_Name_ExA(ClassGuid, pszKeyName, pulLength, ulFlags, hMachine);
+	public static CONFIGRET CM_Get_Class_Key_Name_Ex(ref Guid ClassGuid, uint8* pszKeyName, uint32* pulLength, uint32 ulFlags, int hMachine) => CM_Get_Class_Key_Name_ExA(ref ClassGuid, pszKeyName, pulLength, ulFlags, hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Class_Key_Name_ExW(ref Guid ClassGuid, char16* pszKeyName, uint32* pulLength, uint32 ulFlags, int hMachine);
@@ -5909,42 +5909,42 @@ public static
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_AliasA(PSTR pszDeviceInterface, ref Guid AliasInterfaceGuid, uint8* pszAliasDeviceInterface, uint32* pulLength, uint32 ulFlags);
-	public static CONFIGRET CM_Get_Device_Interface_Alias(PSTR pszDeviceInterface, ref Guid AliasInterfaceGuid, uint8* pszAliasDeviceInterface, uint32* pulLength, uint32 ulFlags) => CM_Get_Device_Interface_AliasA(pszDeviceInterface, AliasInterfaceGuid, pszAliasDeviceInterface, pulLength, ulFlags);
+	public static CONFIGRET CM_Get_Device_Interface_Alias(PSTR pszDeviceInterface, ref Guid AliasInterfaceGuid, uint8* pszAliasDeviceInterface, uint32* pulLength, uint32 ulFlags) => CM_Get_Device_Interface_AliasA(pszDeviceInterface, ref AliasInterfaceGuid, pszAliasDeviceInterface, pulLength, ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_AliasW(PWSTR pszDeviceInterface, ref Guid AliasInterfaceGuid, char16* pszAliasDeviceInterface, uint32* pulLength, uint32 ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_Alias_ExA(PSTR pszDeviceInterface, ref Guid AliasInterfaceGuid, uint8* pszAliasDeviceInterface, uint32* pulLength, uint32 ulFlags, int hMachine);
-	public static CONFIGRET CM_Get_Device_Interface_Alias_Ex(PSTR pszDeviceInterface, ref Guid AliasInterfaceGuid, uint8* pszAliasDeviceInterface, uint32* pulLength, uint32 ulFlags, int hMachine) => CM_Get_Device_Interface_Alias_ExA(pszDeviceInterface, AliasInterfaceGuid, pszAliasDeviceInterface, pulLength, ulFlags, hMachine);
+	public static CONFIGRET CM_Get_Device_Interface_Alias_Ex(PSTR pszDeviceInterface, ref Guid AliasInterfaceGuid, uint8* pszAliasDeviceInterface, uint32* pulLength, uint32 ulFlags, int hMachine) => CM_Get_Device_Interface_Alias_ExA(pszDeviceInterface, ref AliasInterfaceGuid, pszAliasDeviceInterface, pulLength, ulFlags, hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_Alias_ExW(PWSTR pszDeviceInterface, ref Guid AliasInterfaceGuid, char16* pszAliasDeviceInterface, uint32* pulLength, uint32 ulFlags, int hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_ListA(ref Guid InterfaceClassGuid, int8* pDeviceID, uint8* Buffer, uint32 BufferLen, uint32 ulFlags);
-	public static CONFIGRET CM_Get_Device_Interface_List(ref Guid InterfaceClassGuid, int8* pDeviceID, uint8* Buffer, uint32 BufferLen, uint32 ulFlags) => CM_Get_Device_Interface_ListA(InterfaceClassGuid, pDeviceID, Buffer, BufferLen, ulFlags);
+	public static CONFIGRET CM_Get_Device_Interface_List(ref Guid InterfaceClassGuid, int8* pDeviceID, uint8* Buffer, uint32 BufferLen, uint32 ulFlags) => CM_Get_Device_Interface_ListA(ref InterfaceClassGuid, pDeviceID, Buffer, BufferLen, ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_ListW(ref Guid InterfaceClassGuid, uint16* pDeviceID, char16* Buffer, uint32 BufferLen, uint32 ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_List_ExA(ref Guid InterfaceClassGuid, int8* pDeviceID, uint8* Buffer, uint32 BufferLen, uint32 ulFlags, int hMachine);
-	public static CONFIGRET CM_Get_Device_Interface_List_Ex(ref Guid InterfaceClassGuid, int8* pDeviceID, uint8* Buffer, uint32 BufferLen, uint32 ulFlags, int hMachine) => CM_Get_Device_Interface_List_ExA(InterfaceClassGuid, pDeviceID, Buffer, BufferLen, ulFlags, hMachine);
+	public static CONFIGRET CM_Get_Device_Interface_List_Ex(ref Guid InterfaceClassGuid, int8* pDeviceID, uint8* Buffer, uint32 BufferLen, uint32 ulFlags, int hMachine) => CM_Get_Device_Interface_List_ExA(ref InterfaceClassGuid, pDeviceID, Buffer, BufferLen, ulFlags, hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_List_ExW(ref Guid InterfaceClassGuid, uint16* pDeviceID, char16* Buffer, uint32 BufferLen, uint32 ulFlags, int hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_List_SizeA(uint32* pulLen, ref Guid InterfaceClassGuid, int8* pDeviceID, uint32 ulFlags);
-	public static CONFIGRET CM_Get_Device_Interface_List_Size(uint32* pulLen, ref Guid InterfaceClassGuid, int8* pDeviceID, uint32 ulFlags) => CM_Get_Device_Interface_List_SizeA(pulLen, InterfaceClassGuid, pDeviceID, ulFlags);
+	public static CONFIGRET CM_Get_Device_Interface_List_Size(uint32* pulLen, ref Guid InterfaceClassGuid, int8* pDeviceID, uint32 ulFlags) => CM_Get_Device_Interface_List_SizeA(pulLen, ref InterfaceClassGuid, pDeviceID, ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_List_SizeW(uint32* pulLen, ref Guid InterfaceClassGuid, uint16* pDeviceID, uint32 ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_List_Size_ExA(uint32* pulLen, ref Guid InterfaceClassGuid, int8* pDeviceID, uint32 ulFlags, int hMachine);
-	public static CONFIGRET CM_Get_Device_Interface_List_Size_Ex(uint32* pulLen, ref Guid InterfaceClassGuid, int8* pDeviceID, uint32 ulFlags, int hMachine) => CM_Get_Device_Interface_List_Size_ExA(pulLen, InterfaceClassGuid, pDeviceID, ulFlags, hMachine);
+	public static CONFIGRET CM_Get_Device_Interface_List_Size_Ex(uint32* pulLen, ref Guid InterfaceClassGuid, int8* pDeviceID, uint32 ulFlags, int hMachine) => CM_Get_Device_Interface_List_Size_ExA(pulLen, ref InterfaceClassGuid, pDeviceID, ulFlags, hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Device_Interface_List_Size_ExW(uint32* pulLen, ref Guid InterfaceClassGuid, uint16* pDeviceID, uint32 ulFlags, int hMachine);
@@ -6055,14 +6055,14 @@ public static
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Open_Class_KeyA(ref Guid ClassGuid, PSTR pszClassName, uint32 samDesired, uint32 Disposition, HKEY* phkClass, uint32 ulFlags);
-	public static CONFIGRET CM_Open_Class_Key(ref Guid ClassGuid, PSTR pszClassName, uint32 samDesired, uint32 Disposition, HKEY* phkClass, uint32 ulFlags) => CM_Open_Class_KeyA(ClassGuid, pszClassName, samDesired, Disposition, phkClass, ulFlags);
+	public static CONFIGRET CM_Open_Class_Key(ref Guid ClassGuid, PSTR pszClassName, uint32 samDesired, uint32 Disposition, HKEY* phkClass, uint32 ulFlags) => CM_Open_Class_KeyA(ref ClassGuid, pszClassName, samDesired, Disposition, phkClass, ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Open_Class_KeyW(ref Guid ClassGuid, PWSTR pszClassName, uint32 samDesired, uint32 Disposition, HKEY* phkClass, uint32 ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Open_Class_Key_ExA(ref Guid ClassGuid, PSTR pszClassName, uint32 samDesired, uint32 Disposition, HKEY* phkClass, uint32 ulFlags, int hMachine);
-	public static CONFIGRET CM_Open_Class_Key_Ex(ref Guid ClassGuid, PSTR pszClassName, uint32 samDesired, uint32 Disposition, HKEY* phkClass, uint32 ulFlags, int hMachine) => CM_Open_Class_Key_ExA(ClassGuid, pszClassName, samDesired, Disposition, phkClass, ulFlags, hMachine);
+	public static CONFIGRET CM_Open_Class_Key_Ex(ref Guid ClassGuid, PSTR pszClassName, uint32 samDesired, uint32 Disposition, HKEY* phkClass, uint32 ulFlags, int hMachine) => CM_Open_Class_Key_ExA(ref ClassGuid, pszClassName, samDesired, Disposition, phkClass, ulFlags, hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Open_Class_Key_ExW(ref Guid ClassGuid, PWSTR pszClassName, uint32 samDesired, uint32 Disposition, HKEY* phkClass, uint32 ulFlags, int hMachine);
@@ -6155,14 +6155,14 @@ public static
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Register_Device_InterfaceA(uint32 dnDevInst, ref Guid InterfaceClassGuid, PSTR pszReference, uint8* pszDeviceInterface, uint32* pulLength, uint32 ulFlags);
-	public static CONFIGRET CM_Register_Device_Interface(uint32 dnDevInst, ref Guid InterfaceClassGuid, PSTR pszReference, uint8* pszDeviceInterface, uint32* pulLength, uint32 ulFlags) => CM_Register_Device_InterfaceA(dnDevInst, InterfaceClassGuid, pszReference, pszDeviceInterface, pulLength, ulFlags);
+	public static CONFIGRET CM_Register_Device_Interface(uint32 dnDevInst, ref Guid InterfaceClassGuid, PSTR pszReference, uint8* pszDeviceInterface, uint32* pulLength, uint32 ulFlags) => CM_Register_Device_InterfaceA(dnDevInst, ref InterfaceClassGuid, pszReference, pszDeviceInterface, pulLength, ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Register_Device_InterfaceW(uint32 dnDevInst, ref Guid InterfaceClassGuid, PWSTR pszReference, char16* pszDeviceInterface, uint32* pulLength, uint32 ulFlags);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Register_Device_Interface_ExA(uint32 dnDevInst, ref Guid InterfaceClassGuid, PSTR pszReference, uint8* pszDeviceInterface, uint32* pulLength, uint32 ulFlags, int hMachine);
-	public static CONFIGRET CM_Register_Device_Interface_Ex(uint32 dnDevInst, ref Guid InterfaceClassGuid, PSTR pszReference, uint8* pszDeviceInterface, uint32* pulLength, uint32 ulFlags, int hMachine) => CM_Register_Device_Interface_ExA(dnDevInst, InterfaceClassGuid, pszReference, pszDeviceInterface, pulLength, ulFlags, hMachine);
+	public static CONFIGRET CM_Register_Device_Interface_Ex(uint32 dnDevInst, ref Guid InterfaceClassGuid, PSTR pszReference, uint8* pszDeviceInterface, uint32* pulLength, uint32 ulFlags, int hMachine) => CM_Register_Device_Interface_ExA(dnDevInst, ref InterfaceClassGuid, pszReference, pszDeviceInterface, pulLength, ulFlags, hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Register_Device_Interface_ExW(uint32 dnDevInst, ref Guid InterfaceClassGuid, PWSTR pszReference, char16* pszDeviceInterface, uint32* pulLength, uint32 ulFlags, int hMachine);
@@ -6314,14 +6314,14 @@ public static
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Class_Registry_PropertyA(ref Guid ClassGuid, uint32 ulProperty, uint32* pulRegDataType, void* Buffer, uint32* pulLength, uint32 ulFlags, int hMachine);
-	public static CONFIGRET CM_Get_Class_Registry_Property(ref Guid ClassGuid, uint32 ulProperty, uint32* pulRegDataType, void* Buffer, uint32* pulLength, uint32 ulFlags, int hMachine) => CM_Get_Class_Registry_PropertyA(ClassGuid, ulProperty, pulRegDataType, Buffer, pulLength, ulFlags, hMachine);
+	public static CONFIGRET CM_Get_Class_Registry_Property(ref Guid ClassGuid, uint32 ulProperty, uint32* pulRegDataType, void* Buffer, uint32* pulLength, uint32 ulFlags, int hMachine) => CM_Get_Class_Registry_PropertyA(ref ClassGuid, ulProperty, pulRegDataType, Buffer, pulLength, ulFlags, hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Get_Class_Registry_PropertyW(ref Guid ClassGuid, uint32 ulProperty, uint32* pulRegDataType, void* Buffer, uint32* pulLength, uint32 ulFlags, int hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Set_Class_Registry_PropertyA(ref Guid ClassGuid, uint32 ulProperty, void* Buffer, uint32 ulLength, uint32 ulFlags, int hMachine);
-	public static CONFIGRET CM_Set_Class_Registry_Property(ref Guid ClassGuid, uint32 ulProperty, void* Buffer, uint32 ulLength, uint32 ulFlags, int hMachine) => CM_Set_Class_Registry_PropertyA(ClassGuid, ulProperty, Buffer, ulLength, ulFlags, hMachine);
+	public static CONFIGRET CM_Set_Class_Registry_Property(ref Guid ClassGuid, uint32 ulProperty, void* Buffer, uint32 ulLength, uint32 ulFlags, int hMachine) => CM_Set_Class_Registry_PropertyA(ref ClassGuid, ulProperty, Buffer, ulLength, ulFlags, hMachine);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CONFIGRET CM_Set_Class_Registry_PropertyW(ref Guid ClassGuid, uint32 ulProperty, void* Buffer, uint32 ulLength, uint32 ulFlags, int hMachine);

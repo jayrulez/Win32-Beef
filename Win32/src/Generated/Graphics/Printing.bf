@@ -6982,13 +6982,13 @@ public static
 
 	public HRESULT get_BidiNotification(BSTR* pbstrBidiNotification) mut => VT.[Friend]get_BidiNotification(&this, pbstrBidiNotification);
 
-	public HRESULT get_ReasonId(ref Guid pReasonId) mut => VT.[Friend]get_ReasonId(&this, pReasonId);
+	public HRESULT get_ReasonId(ref Guid pReasonId) mut => VT.[Friend]get_ReasonId(&this, ref pReasonId);
 
 	public HRESULT get_Request(IPrinterExtensionRequest** ppRequest) mut => VT.[Friend]get_Request(&this, ppRequest);
 
 	public HRESULT get_SourceApplication(BSTR* pbstrApplication) mut => VT.[Friend]get_SourceApplication(&this, pbstrApplication);
 
-	public HRESULT get_DetailedReasonId(ref Guid pDetailedReasonId) mut => VT.[Friend]get_DetailedReasonId(&this, pDetailedReasonId);
+	public HRESULT get_DetailedReasonId(ref Guid pDetailedReasonId) mut => VT.[Friend]get_DetailedReasonId(&this, ref pDetailedReasonId);
 
 	public HRESULT get_WindowModal(BOOL* pbModal) mut => VT.[Friend]get_WindowModal(&this, pbModal);
 
@@ -7086,7 +7086,7 @@ public static
 	}
 
 
-	public HRESULT AcquireData(uint8** ppNotificationData, uint32* pSize, ref Guid ppSchema) mut => VT.[Friend]AcquireData(&this, ppNotificationData, pSize, ppSchema);
+	public HRESULT AcquireData(uint8** ppNotificationData, uint32* pSize, ref Guid ppSchema) mut => VT.[Friend]AcquireData(&this, ppNotificationData, pSize, ref ppSchema);
 
 	public HRESULT ReleaseData() mut => VT.[Friend]ReleaseData(&this);
 }
@@ -7158,9 +7158,9 @@ public static
 	}
 
 
-	public HRESULT CreatePrintAsyncNotifyChannel(uint32 param0, ref Guid param1, PrintAsyncNotifyUserFilter param2, PrintAsyncNotifyConversationStyle param3, IPrintAsyncNotifyCallback* param4, IPrintAsyncNotifyChannel** param5) mut => VT.[Friend]CreatePrintAsyncNotifyChannel(&this, param0, param1, param2, param3, param4, param5);
+	public HRESULT CreatePrintAsyncNotifyChannel(uint32 param0, ref Guid param1, PrintAsyncNotifyUserFilter param2, PrintAsyncNotifyConversationStyle param3, IPrintAsyncNotifyCallback* param4, IPrintAsyncNotifyChannel** param5) mut => VT.[Friend]CreatePrintAsyncNotifyChannel(&this, param0, ref param1, param2, param3, param4, param5);
 
-	public HRESULT CreatePrintAsyncNotifyRegistration(ref Guid param0, PrintAsyncNotifyUserFilter param1, PrintAsyncNotifyConversationStyle param2, IPrintAsyncNotifyCallback* param3, IPrintAsyncNotifyRegistration** param4) mut => VT.[Friend]CreatePrintAsyncNotifyRegistration(&this, param0, param1, param2, param3, param4);
+	public HRESULT CreatePrintAsyncNotifyRegistration(ref Guid param0, PrintAsyncNotifyUserFilter param1, PrintAsyncNotifyConversationStyle param2, IPrintAsyncNotifyCallback* param3, IPrintAsyncNotifyRegistration** param4) mut => VT.[Friend]CreatePrintAsyncNotifyRegistration(&this, ref param0, param1, param2, param3, param4);
 }
 
 [CRepr]struct IPrintAsyncCookie : IUnknown

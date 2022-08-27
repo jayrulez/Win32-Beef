@@ -98,11 +98,11 @@ public static
 
 	public HRESULT GetIndex(uint32* puiIndex) mut => VT.[Friend]GetIndex(&this, puiIndex);
 
-	public HRESULT GetOptimalFormat(ref Guid pFormat) mut => VT.[Friend]GetOptimalFormat(&this, pFormat);
+	public HRESULT GetOptimalFormat(ref Guid pFormat) mut => VT.[Friend]GetOptimalFormat(&this, ref pFormat);
 
 	public HRESULT GetNumberFormats(uint32* pulNumberFormats) mut => VT.[Friend]GetNumberFormats(&this, pulNumberFormats);
 
-	public HRESULT GetFormat(uint32 ulIndex, ref Guid pFormat) mut => VT.[Friend]GetFormat(&this, ulIndex, pFormat);
+	public HRESULT GetFormat(uint32 ulIndex, ref Guid pFormat) mut => VT.[Friend]GetFormat(&this, ulIndex, ref pFormat);
 }
 
 [CRepr]struct IMILBitmapEffectConnectionsInfo : IUnknown
@@ -262,9 +262,9 @@ public static
 	}
 
 
-	public HRESULT SetOutputPixelFormat(ref Guid format) mut => VT.[Friend]SetOutputPixelFormat(&this, format);
+	public HRESULT SetOutputPixelFormat(ref Guid format) mut => VT.[Friend]SetOutputPixelFormat(&this, ref format);
 
-	public HRESULT GetOutputPixelFormat(ref Guid pFormat) mut => VT.[Friend]GetOutputPixelFormat(&this, pFormat);
+	public HRESULT GetOutputPixelFormat(ref Guid pFormat) mut => VT.[Friend]GetOutputPixelFormat(&this, ref pFormat);
 
 	public HRESULT SetUseSoftwareRenderer(int16 fSoftware) mut => VT.[Friend]SetUseSoftwareRenderer(&this, fSoftware);
 

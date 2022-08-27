@@ -10410,9 +10410,9 @@ public static
 
 	public HRESULT IsFormatSupported(ref Guid pFormat) mut => VT.[Friend]IsFormatSupported(&this, ref pFormat);
 
-	public HRESULT QueryPreferredFormat(ref Guid pFormat) mut => VT.[Friend]QueryPreferredFormat(&this, pFormat);
+	public HRESULT QueryPreferredFormat(ref Guid pFormat) mut => VT.[Friend]QueryPreferredFormat(&this, ref pFormat);
 
-	public HRESULT GetTimeFormat(ref Guid pFormat) mut => VT.[Friend]GetTimeFormat(&this, pFormat);
+	public HRESULT GetTimeFormat(ref Guid pFormat) mut => VT.[Friend]GetTimeFormat(&this, ref pFormat);
 
 	public HRESULT IsUsingTimeFormat(ref Guid pFormat) mut => VT.[Friend]IsUsingTimeFormat(&this, ref pFormat);
 
@@ -10484,7 +10484,7 @@ public static
 
 	public HRESULT RegisterFilter(Guid clsid, PWSTR Name, uint32 dwMerit) mut => VT.[Friend]RegisterFilter(&this, clsid, Name, dwMerit);
 
-	public HRESULT RegisterFilterInstance(Guid clsid, PWSTR Name, ref Guid MRId) mut => VT.[Friend]RegisterFilterInstance(&this, clsid, Name, MRId);
+	public HRESULT RegisterFilterInstance(Guid clsid, PWSTR Name, ref Guid MRId) mut => VT.[Friend]RegisterFilterInstance(&this, clsid, Name, ref MRId);
 
 	public HRESULT RegisterPin(Guid Filter, PWSTR Name, BOOL bRendered, BOOL bOutput, BOOL bZero, BOOL bMany, Guid ConnectsToFilter, PWSTR ConnectsToPin) mut => VT.[Friend]RegisterPin(&this, Filter, Name, bRendered, bOutput, bZero, bMany, ConnectsToFilter, ConnectsToPin);
 
@@ -12184,7 +12184,7 @@ public static
 	}
 
 
-	public HRESULT DeviceInfo(ref Guid pclsidInterfaceClass, PWSTR* pwszSymbolicLink) mut => VT.[Friend]DeviceInfo(&this, pclsidInterfaceClass, pwszSymbolicLink);
+	public HRESULT DeviceInfo(ref Guid pclsidInterfaceClass, PWSTR* pwszSymbolicLink) mut => VT.[Friend]DeviceInfo(&this, ref pclsidInterfaceClass, pwszSymbolicLink);
 
 	public HRESULT Reassociate() mut => VT.[Friend]Reassociate(&this);
 
@@ -12554,7 +12554,7 @@ public static
 	}
 
 
-	public HRESULT KeyExchange(ref Guid pRandom, uint8** VarLenCertGH, uint32* pdwLengthCertGH) mut => VT.[Friend]KeyExchange(&this, pRandom, VarLenCertGH, pdwLengthCertGH);
+	public HRESULT KeyExchange(ref Guid pRandom, uint8** VarLenCertGH, uint32* pdwLengthCertGH) mut => VT.[Friend]KeyExchange(&this, ref pRandom, VarLenCertGH, pdwLengthCertGH);
 
 	public HRESULT SessionSequenceStart(AMCOPPSignature* pSig) mut => VT.[Friend]SessionSequenceStart(&this, pSig);
 
@@ -12599,15 +12599,15 @@ public static
 	}
 
 
-	public HRESULT GetPreferredClsid(ref Guid subType, ref Guid clsid) mut => VT.[Friend]GetPreferredClsid(&this, ref subType, clsid);
+	public HRESULT GetPreferredClsid(ref Guid subType, ref Guid clsid) mut => VT.[Friend]GetPreferredClsid(&this, ref subType, ref clsid);
 
-	public HRESULT GetPreferredClsidByIndex(uint32 index, ref Guid subType, ref Guid clsid) mut => VT.[Friend]GetPreferredClsidByIndex(&this, index, subType, clsid);
+	public HRESULT GetPreferredClsidByIndex(uint32 index, ref Guid subType, ref Guid clsid) mut => VT.[Friend]GetPreferredClsidByIndex(&this, index, ref subType, ref clsid);
 
 	public HRESULT SetPreferredClsid(ref Guid subType, ref Guid clsid) mut => VT.[Friend]SetPreferredClsid(&this, ref subType, ref clsid);
 
 	public HRESULT IsDisabled(ref Guid clsid) mut => VT.[Friend]IsDisabled(&this, ref clsid);
 
-	public HRESULT GetDisabledByIndex(uint32 index, ref Guid clsid) mut => VT.[Friend]GetDisabledByIndex(&this, index, clsid);
+	public HRESULT GetDisabledByIndex(uint32 index, ref Guid clsid) mut => VT.[Friend]GetDisabledByIndex(&this, index, ref clsid);
 
 	public HRESULT SetDisabled(ref Guid clsid, BOOL disabled) mut => VT.[Friend]SetDisabled(&this, ref clsid, disabled);
 
@@ -13004,19 +13004,19 @@ public static
 	}
 
 
-	public HRESULT GetNumberOfDeinterlaceModes(VMRVideoDesc* lpVideoDescription, uint32* lpdwNumDeinterlaceModes, ref Guid lpDeinterlaceModes) mut => VT.[Friend]GetNumberOfDeinterlaceModes(&this, lpVideoDescription, lpdwNumDeinterlaceModes, lpDeinterlaceModes);
+	public HRESULT GetNumberOfDeinterlaceModes(VMRVideoDesc* lpVideoDescription, uint32* lpdwNumDeinterlaceModes, ref Guid lpDeinterlaceModes) mut => VT.[Friend]GetNumberOfDeinterlaceModes(&this, lpVideoDescription, lpdwNumDeinterlaceModes, ref lpDeinterlaceModes);
 
-	public HRESULT GetDeinterlaceModeCaps(ref Guid lpDeinterlaceMode, VMRVideoDesc* lpVideoDescription, VMRDeinterlaceCaps* lpDeinterlaceCaps) mut => VT.[Friend]GetDeinterlaceModeCaps(&this, lpDeinterlaceMode, lpVideoDescription, lpDeinterlaceCaps);
+	public HRESULT GetDeinterlaceModeCaps(ref Guid lpDeinterlaceMode, VMRVideoDesc* lpVideoDescription, VMRDeinterlaceCaps* lpDeinterlaceCaps) mut => VT.[Friend]GetDeinterlaceModeCaps(&this, ref lpDeinterlaceMode, lpVideoDescription, lpDeinterlaceCaps);
 
-	public HRESULT GetDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]GetDeinterlaceMode(&this, dwStreamID, lpDeinterlaceMode);
+	public HRESULT GetDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]GetDeinterlaceMode(&this, dwStreamID, ref lpDeinterlaceMode);
 
-	public HRESULT SetDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]SetDeinterlaceMode(&this, dwStreamID, lpDeinterlaceMode);
+	public HRESULT SetDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]SetDeinterlaceMode(&this, dwStreamID, ref lpDeinterlaceMode);
 
 	public HRESULT GetDeinterlacePrefs(uint32* lpdwDeinterlacePrefs) mut => VT.[Friend]GetDeinterlacePrefs(&this, lpdwDeinterlacePrefs);
 
 	public HRESULT SetDeinterlacePrefs(uint32 dwDeinterlacePrefs) mut => VT.[Friend]SetDeinterlacePrefs(&this, dwDeinterlacePrefs);
 
-	public HRESULT GetActualDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]GetActualDeinterlaceMode(&this, dwStreamID, lpDeinterlaceMode);
+	public HRESULT GetActualDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]GetActualDeinterlaceMode(&this, dwStreamID, ref lpDeinterlaceMode);
 }
 
 [CRepr]struct IVMRMixerBitmap : IUnknown
@@ -13758,11 +13758,11 @@ public static
 
 	public HRESULT GetSignalSource(uint32* pulSignalSource) mut => VT.[Friend]GetSignalSource(&this, pulSignalSource);
 
-	public HRESULT GetNetworkType(ref Guid pguidNetworkType) mut => VT.[Friend]GetNetworkType(&this, pguidNetworkType);
+	public HRESULT GetNetworkType(ref Guid pguidNetworkType) mut => VT.[Friend]GetNetworkType(&this, ref pguidNetworkType);
 
 	public HRESULT PutTuningSpace(ref Guid guidTuningSpace) mut => VT.[Friend]PutTuningSpace(&this, ref guidTuningSpace);
 
-	public HRESULT GetTuningSpace(ref Guid pguidTuingSpace) mut => VT.[Friend]GetTuningSpace(&this, pguidTuingSpace);
+	public HRESULT GetTuningSpace(ref Guid pguidTuingSpace) mut => VT.[Friend]GetTuningSpace(&this, ref pguidTuingSpace);
 
 	public HRESULT RegisterDeviceFilter(IUnknown* pUnkFilterControl, uint32* ppvRegisitrationContext) mut => VT.[Friend]RegisterDeviceFilter(&this, pUnkFilterControl, ppvRegisitrationContext);
 
@@ -13914,7 +13914,7 @@ public static
 
 	public HRESULT PutNetworkType(ref Guid guidNetworkType) mut => VT.[Friend]PutNetworkType(&this, ref guidNetworkType);
 
-	public HRESULT GetNetworkType(ref Guid pguidNetworkType) mut => VT.[Friend]GetNetworkType(&this, pguidNetworkType);
+	public HRESULT GetNetworkType(ref Guid pguidNetworkType) mut => VT.[Friend]GetNetworkType(&this, ref pguidNetworkType);
 
 	public HRESULT PutSignalSource(uint32 ulSignalSource) mut => VT.[Friend]PutSignalSource(&this, ulSignalSource);
 
@@ -13922,7 +13922,7 @@ public static
 
 	public HRESULT PutTuningSpace(ref Guid guidTuningSpace) mut => VT.[Friend]PutTuningSpace(&this, ref guidTuningSpace);
 
-	public HRESULT GetTuningSpace(ref Guid pguidTuingSpace) mut => VT.[Friend]GetTuningSpace(&this, pguidTuingSpace);
+	public HRESULT GetTuningSpace(ref Guid pguidTuingSpace) mut => VT.[Friend]GetTuningSpace(&this, ref pguidTuingSpace);
 }
 
 [CRepr]struct IBDA_SignalStatistics : IUnknown
@@ -13993,7 +13993,7 @@ public static
 
 	public HRESULT GetNodeDescriptors(uint32* ulcNodeDescriptors, uint32 ulcNodeDescriptorsMax, BDANODE_DESCRIPTOR* rgNodeDescriptors) mut => VT.[Friend]GetNodeDescriptors(&this, ulcNodeDescriptors, ulcNodeDescriptorsMax, rgNodeDescriptors);
 
-	public HRESULT GetNodeInterfaces(uint32 ulNodeType, uint32* pulcInterfaces, uint32 ulcInterfacesMax, ref Guid rgguidInterfaces) mut => VT.[Friend]GetNodeInterfaces(&this, ulNodeType, pulcInterfaces, ulcInterfacesMax, rgguidInterfaces);
+	public HRESULT GetNodeInterfaces(uint32 ulNodeType, uint32* pulcInterfaces, uint32 ulcInterfacesMax, ref Guid rgguidInterfaces) mut => VT.[Friend]GetNodeInterfaces(&this, ulNodeType, pulcInterfaces, ulcInterfacesMax, ref rgguidInterfaces);
 
 	public HRESULT GetPinTypes(uint32* pulcPinTypes, uint32 ulcPinTypesMax, uint32* rgulPinTypes) mut => VT.[Friend]GetPinTypes(&this, pulcPinTypes, ulcPinTypesMax, rgulPinTypes);
 
@@ -14185,7 +14185,7 @@ public static
 	}
 
 
-	public HRESULT get_SupportedDeviceNodeTypes(uint32 ulcDeviceNodeTypesMax, uint32* pulcDeviceNodeTypes, ref Guid pguidDeviceNodeTypes) mut => VT.[Friend]get_SupportedDeviceNodeTypes(&this, ulcDeviceNodeTypesMax, pulcDeviceNodeTypes, pguidDeviceNodeTypes);
+	public HRESULT get_SupportedDeviceNodeTypes(uint32 ulcDeviceNodeTypesMax, uint32* pulcDeviceNodeTypes, ref Guid pguidDeviceNodeTypes) mut => VT.[Friend]get_SupportedDeviceNodeTypes(&this, ulcDeviceNodeTypesMax, pulcDeviceNodeTypes, ref pguidDeviceNodeTypes);
 
 	public HRESULT get_SupportedVideoFormats(uint32* pulAMTunerModeType, uint32* pulAnalogVideoStandard) mut => VT.[Friend]get_SupportedVideoFormats(&this, pulAMTunerModeType, pulAnalogVideoStandard);
 
@@ -14633,7 +14633,7 @@ public static
 
 	public HRESULT QueryCapabilities(uint32* pdwNumAuxInputsBSTR) mut => VT.[Friend]QueryCapabilities(&this, pdwNumAuxInputsBSTR);
 
-	public HRESULT EnumCapability(uint32 dwIndex, uint32* dwInputID, ref Guid pConnectorType, uint32* ConnTypeNum, uint32* NumVideoStds, uint64* AnalogStds) mut => VT.[Friend]EnumCapability(&this, dwIndex, dwInputID, pConnectorType, ConnTypeNum, NumVideoStds, AnalogStds);
+	public HRESULT EnumCapability(uint32 dwIndex, uint32* dwInputID, ref Guid pConnectorType, uint32* ConnTypeNum, uint32* NumVideoStds, uint64* AnalogStds) mut => VT.[Friend]EnumCapability(&this, dwIndex, dwInputID, ref pConnectorType, ConnTypeNum, NumVideoStds, AnalogStds);
 }
 
 [CRepr]struct IBDA_Encoder : IUnknown
@@ -14713,7 +14713,7 @@ public static
 	}
 
 
-	public HRESULT GetGuideDataType(ref Guid pguidDataType) mut => VT.[Friend]GetGuideDataType(&this, pguidDataType);
+	public HRESULT GetGuideDataType(ref Guid pguidDataType) mut => VT.[Friend]GetGuideDataType(&this, ref pguidDataType);
 
 	public HRESULT GetGuideData(uint32* pulcbBufferLen, uint8* pbBuffer, uint32* pulGuideDataPercentageProgress) mut => VT.[Friend]GetGuideData(&this, pulcbBufferLen, pbBuffer, pulGuideDataPercentageProgress);
 
@@ -14739,9 +14739,9 @@ public static
 	}
 
 
-	public HRESULT SetDRM(ref Guid puuidNewDrm) mut => VT.[Friend]SetDRM(&this, puuidNewDrm);
+	public HRESULT SetDRM(ref Guid puuidNewDrm) mut => VT.[Friend]SetDRM(&this, ref puuidNewDrm);
 
-	public HRESULT GetDRMStatus(BSTR* pbstrDrmUuidList, ref Guid DrmUuid) mut => VT.[Friend]GetDRMStatus(&this, pbstrDrmUuidList, DrmUuid);
+	public HRESULT GetDRMStatus(BSTR* pbstrDrmUuidList, ref Guid DrmUuid) mut => VT.[Friend]GetDRMStatus(&this, pbstrDrmUuidList, ref DrmUuid);
 }
 
 [CRepr]struct IBDA_WMDRMSession : IUnknown
@@ -14771,9 +14771,9 @@ public static
 
 	public HRESULT TransactMessage(uint32 ulcbRequest, uint8* pbRequest, uint32* pulcbResponse, uint8* pbResponse) mut => VT.[Friend]TransactMessage(&this, ulcbRequest, pbRequest, pulcbResponse, pbResponse);
 
-	public HRESULT GetLicense(ref Guid uuidKey, uint32* pulPackageLen, uint8* pbPackage) mut => VT.[Friend]GetLicense(&this, uuidKey, pulPackageLen, pbPackage);
+	public HRESULT GetLicense(ref Guid uuidKey, uint32* pulPackageLen, uint8* pbPackage) mut => VT.[Friend]GetLicense(&this, ref uuidKey, pulPackageLen, pbPackage);
 
-	public HRESULT ReissueLicense(ref Guid uuidKey) mut => VT.[Friend]ReissueLicense(&this, uuidKey);
+	public HRESULT ReissueLicense(ref Guid uuidKey) mut => VT.[Friend]ReissueLicense(&this, ref uuidKey);
 
 	public HRESULT RenewLicense(uint32 ulInXmrLicenseLen, uint8* pbInXmrLicense, uint32 ulEntitlementTokenLen, uint8* pbEntitlementToken, uint32* pulDescrambleStatus, uint32* pulOutXmrLicenseLen, uint8* pbOutXmrLicense) mut => VT.[Friend]RenewLicense(&this, ulInXmrLicenseLen, pbInXmrLicense, ulEntitlementTokenLen, pbEntitlementToken, pulDescrambleStatus, pulOutXmrLicenseLen, pbOutXmrLicense);
 
@@ -14801,9 +14801,9 @@ public static
 
 	public HRESULT CancelCaptureToken(uint32 ulCaptureTokenLen, uint8* pbCaptureToken) mut => VT.[Friend]CancelCaptureToken(&this, ulCaptureTokenLen, pbCaptureToken);
 
-	public HRESULT SetPidProtection(uint32 ulPid, ref Guid uuidKey) mut => VT.[Friend]SetPidProtection(&this, ulPid, uuidKey);
+	public HRESULT SetPidProtection(uint32 ulPid, ref Guid uuidKey) mut => VT.[Friend]SetPidProtection(&this, ulPid, ref uuidKey);
 
-	public HRESULT GetPidProtection(uint32 pulPid, ref Guid uuidKey) mut => VT.[Friend]GetPidProtection(&this, pulPid, uuidKey);
+	public HRESULT GetPidProtection(uint32 pulPid, ref Guid uuidKey) mut => VT.[Friend]GetPidProtection(&this, pulPid, ref uuidKey);
 
 	public HRESULT SetSyncValue(uint32 ulSyncValue) mut => VT.[Friend]SetSyncValue(&this, ulSyncValue);
 
@@ -14826,7 +14826,7 @@ public static
 
 	public HRESULT SetDRM(BSTR bstrNewDrm) mut => VT.[Friend]SetDRM(&this, bstrNewDrm);
 
-	public HRESULT GetDRMStatus(BSTR* pbstrDrmUuidList, ref Guid DrmUuid) mut => VT.[Friend]GetDRMStatus(&this, pbstrDrmUuidList, DrmUuid);
+	public HRESULT GetDRMStatus(BSTR* pbstrDrmUuidList, ref Guid DrmUuid) mut => VT.[Friend]GetDRMStatus(&this, pbstrDrmUuidList, ref DrmUuid);
 
 	public HRESULT GetPairingStatus(BDA_DrmPairingError* penumPairingStatus) mut => VT.[Friend]GetPairingStatus(&this, penumPairingStatus);
 }
@@ -14939,7 +14939,7 @@ public static
 
 	public HRESULT GetEventId(uint32* pdwEventId) mut => VT.[Friend]GetEventId(&this, pdwEventId);
 
-	public HRESULT GetEventType(ref Guid pguidEventType) mut => VT.[Friend]GetEventType(&this, pguidEventType);
+	public HRESULT GetEventType(ref Guid pguidEventType) mut => VT.[Friend]GetEventType(&this, ref pguidEventType);
 
 	public HRESULT SetCompletionStatus(uint32 dwResult) mut => VT.[Friend]SetCompletionStatus(&this, dwResult);
 
@@ -15908,9 +15908,9 @@ public static
 	}
 
 
-	public HRESULT InvokeAtStreamTime(IDeferredCommand** pCmd, double time, ref Guid iid, int32 dispidMethod, int16 wFlags, int32 cArgs, VARIANT* pDispParams, VARIANT* pvarResult, int16* puArgErr) mut => VT.[Friend]InvokeAtStreamTime(&this, pCmd, time, iid, dispidMethod, wFlags, cArgs, pDispParams, pvarResult, puArgErr);
+	public HRESULT InvokeAtStreamTime(IDeferredCommand** pCmd, double time, ref Guid iid, int32 dispidMethod, int16 wFlags, int32 cArgs, VARIANT* pDispParams, VARIANT* pvarResult, int16* puArgErr) mut => VT.[Friend]InvokeAtStreamTime(&this, pCmd, time, ref iid, dispidMethod, wFlags, cArgs, pDispParams, pvarResult, puArgErr);
 
-	public HRESULT InvokeAtPresentationTime(IDeferredCommand** pCmd, double time, ref Guid iid, int32 dispidMethod, int16 wFlags, int32 cArgs, VARIANT* pDispParams, VARIANT* pvarResult, int16* puArgErr) mut => VT.[Friend]InvokeAtPresentationTime(&this, pCmd, time, iid, dispidMethod, wFlags, cArgs, pDispParams, pvarResult, puArgErr);
+	public HRESULT InvokeAtPresentationTime(IDeferredCommand** pCmd, double time, ref Guid iid, int32 dispidMethod, int16 wFlags, int32 cArgs, VARIANT* pDispParams, VARIANT* pvarResult, int16* puArgErr) mut => VT.[Friend]InvokeAtPresentationTime(&this, pCmd, time, ref iid, dispidMethod, wFlags, cArgs, pDispParams, pvarResult, puArgErr);
 }
 
 [CRepr]struct IFilterInfo : IDispatch
@@ -16110,7 +16110,7 @@ public static
 	}
 
 
-	public HRESULT GetVideoAcceleratorGUIDs(uint32* pdwNumGuidsSupported, ref Guid pGuidsSupported) mut => VT.[Friend]GetVideoAcceleratorGUIDs(&this, pdwNumGuidsSupported, pGuidsSupported);
+	public HRESULT GetVideoAcceleratorGUIDs(uint32* pdwNumGuidsSupported, ref Guid pGuidsSupported) mut => VT.[Friend]GetVideoAcceleratorGUIDs(&this, pdwNumGuidsSupported, ref pGuidsSupported);
 
 	public HRESULT GetUncompFormatsSupported(ref Guid pGuid, uint32* pdwNumFormatsSupported, DDPIXELFORMAT* pFormatsSupported) mut => VT.[Friend]GetUncompFormatsSupported(&this, ref pGuid, pdwNumFormatsSupported, pFormatsSupported);
 
@@ -16220,7 +16220,7 @@ public static
 
 	public HRESULT get_NumCategories(uint32* pdwNumCategories) mut => VT.[Friend]get_NumCategories(&this, pdwNumCategories);
 
-	public HRESULT get_Category(uint32 dwIndex, ref Guid pCategory) mut => VT.[Friend]get_Category(&this, dwIndex, pCategory);
+	public HRESULT get_Category(uint32 dwIndex, ref Guid pCategory) mut => VT.[Friend]get_Category(&this, dwIndex, ref pCategory);
 
 	public HRESULT get_NumConnections(uint32* pdwNumConnections) mut => VT.[Friend]get_NumConnections(&this, pdwNumConnections);
 
@@ -16230,7 +16230,7 @@ public static
 
 	public HRESULT get_NumNodes(uint32* pdwNumNodes) mut => VT.[Friend]get_NumNodes(&this, pdwNumNodes);
 
-	public HRESULT get_NodeType(uint32 dwNodeId, ref Guid pNodeType) mut => VT.[Friend]get_NodeType(&this, dwNodeId, pNodeType);
+	public HRESULT get_NodeType(uint32 dwNodeId, ref Guid pNodeType) mut => VT.[Friend]get_NodeType(&this, dwNodeId, ref pNodeType);
 
 	public HRESULT CreateNodeInstance(uint32 dwNodeId, ref Guid iid, void** ppvObject) mut => VT.[Friend]CreateNodeInstance(&this, dwNodeId, ref iid, ppvObject);
 }
@@ -16593,7 +16593,7 @@ public static
 
 	public HRESULT ConfigureFilterUsingProfileGuid(ref Guid guidProfile) mut => VT.[Friend]ConfigureFilterUsingProfileGuid(&this, ref guidProfile);
 
-	public HRESULT GetCurrentProfileGuid(ref Guid pProfileGuid) mut => VT.[Friend]GetCurrentProfileGuid(&this, pProfileGuid);
+	public HRESULT GetCurrentProfileGuid(ref Guid pProfileGuid) mut => VT.[Friend]GetCurrentProfileGuid(&this, ref pProfileGuid);
 
 	public HRESULT ConfigureFilterUsingProfile(IWMProfile* pProfile) mut => VT.[Friend]ConfigureFilterUsingProfile(&this, pProfile);
 
@@ -16650,7 +16650,7 @@ public static
 
 	public HRESULT GetInformation(MMSSF_GET_INFORMATION_FLAGS* pdwFlags, STREAM_TYPE* pStreamType) mut => VT.[Friend]GetInformation(&this, pdwFlags, pStreamType);
 
-	public HRESULT GetMediaStream(ref Guid idPurpose, IMediaStream** ppMediaStream) mut => VT.[Friend]GetMediaStream(&this, idPurpose, ppMediaStream);
+	public HRESULT GetMediaStream(ref Guid idPurpose, IMediaStream** ppMediaStream) mut => VT.[Friend]GetMediaStream(&this, ref idPurpose, ppMediaStream);
 
 	public HRESULT EnumMediaStreams(int32 Index, IMediaStream** ppMediaStream) mut => VT.[Friend]EnumMediaStreams(&this, Index, ppMediaStream);
 
@@ -16686,7 +16686,7 @@ public static
 
 	public HRESULT GetMultiMediaStream(IMultiMediaStream** ppMultiMediaStream) mut => VT.[Friend]GetMultiMediaStream(&this, ppMultiMediaStream);
 
-	public HRESULT GetInformation(ref Guid pPurposeId, STREAM_TYPE* pType) mut => VT.[Friend]GetInformation(&this, pPurposeId, pType);
+	public HRESULT GetInformation(ref Guid pPurposeId, STREAM_TYPE* pType) mut => VT.[Friend]GetInformation(&this, ref pPurposeId, pType);
 
 	public HRESULT SetSameFormat(IMediaStream* pStreamThatHasDesiredFormat, uint32 dwFlags) mut => VT.[Friend]SetSameFormat(&this, pStreamThatHasDesiredFormat, dwFlags);
 
@@ -16896,7 +16896,7 @@ public static
 	}
 
 
-	public HRESULT Initialize(IUnknown* pSourceObject, uint32 dwFlags, ref Guid PurposeId, STREAM_TYPE StreamType) mut => VT.[Friend]Initialize(&this, pSourceObject, dwFlags, PurposeId, StreamType);
+	public HRESULT Initialize(IUnknown* pSourceObject, uint32 dwFlags, ref Guid PurposeId, STREAM_TYPE StreamType) mut => VT.[Friend]Initialize(&this, pSourceObject, dwFlags, ref PurposeId, StreamType);
 
 	public HRESULT SetState(FILTER_STATE State) mut => VT.[Friend]SetState(&this, State);
 
@@ -16929,7 +16929,7 @@ public static
 
 	public HRESULT AddMediaStream(IAMMediaStream* pAMMediaStream) mut => VT.[Friend]AddMediaStream(&this, pAMMediaStream);
 
-	public HRESULT GetMediaStream(ref Guid idPurpose, IMediaStream** ppMediaStream) mut => VT.[Friend]GetMediaStream(&this, idPurpose, ppMediaStream);
+	public HRESULT GetMediaStream(ref Guid idPurpose, IMediaStream** ppMediaStream) mut => VT.[Friend]GetMediaStream(&this, ref idPurpose, ppMediaStream);
 
 	public HRESULT EnumMediaStreams(int32 Index, IMediaStream** ppMediaStream) mut => VT.[Friend]EnumMediaStreams(&this, Index, ppMediaStream);
 
@@ -17818,19 +17818,19 @@ public static
 	}
 
 
-	public HRESULT GetNumberOfDeinterlaceModes(VMR9VideoDesc* lpVideoDescription, uint32* lpdwNumDeinterlaceModes, ref Guid lpDeinterlaceModes) mut => VT.[Friend]GetNumberOfDeinterlaceModes(&this, lpVideoDescription, lpdwNumDeinterlaceModes, lpDeinterlaceModes);
+	public HRESULT GetNumberOfDeinterlaceModes(VMR9VideoDesc* lpVideoDescription, uint32* lpdwNumDeinterlaceModes, ref Guid lpDeinterlaceModes) mut => VT.[Friend]GetNumberOfDeinterlaceModes(&this, lpVideoDescription, lpdwNumDeinterlaceModes, ref lpDeinterlaceModes);
 
-	public HRESULT GetDeinterlaceModeCaps(ref Guid lpDeinterlaceMode, VMR9VideoDesc* lpVideoDescription, VMR9DeinterlaceCaps* lpDeinterlaceCaps) mut => VT.[Friend]GetDeinterlaceModeCaps(&this, lpDeinterlaceMode, lpVideoDescription, lpDeinterlaceCaps);
+	public HRESULT GetDeinterlaceModeCaps(ref Guid lpDeinterlaceMode, VMR9VideoDesc* lpVideoDescription, VMR9DeinterlaceCaps* lpDeinterlaceCaps) mut => VT.[Friend]GetDeinterlaceModeCaps(&this, ref lpDeinterlaceMode, lpVideoDescription, lpDeinterlaceCaps);
 
-	public HRESULT GetDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]GetDeinterlaceMode(&this, dwStreamID, lpDeinterlaceMode);
+	public HRESULT GetDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]GetDeinterlaceMode(&this, dwStreamID, ref lpDeinterlaceMode);
 
-	public HRESULT SetDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]SetDeinterlaceMode(&this, dwStreamID, lpDeinterlaceMode);
+	public HRESULT SetDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]SetDeinterlaceMode(&this, dwStreamID, ref lpDeinterlaceMode);
 
 	public HRESULT GetDeinterlacePrefs(uint32* lpdwDeinterlacePrefs) mut => VT.[Friend]GetDeinterlacePrefs(&this, lpdwDeinterlacePrefs);
 
 	public HRESULT SetDeinterlacePrefs(uint32 dwDeinterlacePrefs) mut => VT.[Friend]SetDeinterlacePrefs(&this, dwDeinterlacePrefs);
 
-	public HRESULT GetActualDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]GetActualDeinterlaceMode(&this, dwStreamID, lpDeinterlaceMode);
+	public HRESULT GetActualDeinterlaceMode(uint32 dwStreamID, ref Guid lpDeinterlaceMode) mut => VT.[Friend]GetActualDeinterlaceMode(&this, dwStreamID, ref lpDeinterlaceMode);
 }
 
 [CRepr]struct IVMRImageCompositor9 : IUnknown
@@ -18012,9 +18012,9 @@ public static
 
 	public HRESULT GetNumTimeFormats(uint32* pdwNumTimeFormats) mut => VT.[Friend]GetNumTimeFormats(&this, pdwNumTimeFormats);
 
-	public HRESULT GetSupportedTimeFormat(uint32 dwFormatIndex, ref Guid pguidTimeFormat) mut => VT.[Friend]GetSupportedTimeFormat(&this, dwFormatIndex, pguidTimeFormat);
+	public HRESULT GetSupportedTimeFormat(uint32 dwFormatIndex, ref Guid pguidTimeFormat) mut => VT.[Friend]GetSupportedTimeFormat(&this, dwFormatIndex, ref pguidTimeFormat);
 
-	public HRESULT GetCurrentTimeFormat(ref Guid pguidTimeFormat, uint32* pTimeData) mut => VT.[Friend]GetCurrentTimeFormat(&this, pguidTimeFormat, pTimeData);
+	public HRESULT GetCurrentTimeFormat(ref Guid pguidTimeFormat, uint32* pTimeData) mut => VT.[Friend]GetCurrentTimeFormat(&this, ref pguidTimeFormat, pTimeData);
 }
 
 [CRepr]struct IMediaParams : IUnknown
@@ -18298,7 +18298,7 @@ public static
 
 	public HRESULT put_NetworkType(BSTR NetworkTypeGuid) mut => VT.[Friend]put_NetworkType(&this, NetworkTypeGuid);
 
-	public HRESULT get__NetworkType(ref Guid NetworkTypeGuid) mut => VT.[Friend]get__NetworkType(&this, NetworkTypeGuid);
+	public HRESULT get__NetworkType(ref Guid NetworkTypeGuid) mut => VT.[Friend]get__NetworkType(&this, ref NetworkTypeGuid);
 
 	public HRESULT put__NetworkType(ref Guid NetworkTypeGuid) mut => VT.[Friend]put__NetworkType(&this, ref NetworkTypeGuid);
 
@@ -18811,7 +18811,7 @@ public static
 	}
 
 
-	public HRESULT get_SupportedNetworkTypes(uint32 ulcNetworkTypesMax, uint32* pulcNetworkTypes, ref Guid pguidNetworkTypes) mut => VT.[Friend]get_SupportedNetworkTypes(&this, ulcNetworkTypesMax, pulcNetworkTypes, pguidNetworkTypes);
+	public HRESULT get_SupportedNetworkTypes(uint32 ulcNetworkTypesMax, uint32* pulcNetworkTypes, ref Guid pguidNetworkTypes) mut => VT.[Friend]get_SupportedNetworkTypes(&this, ulcNetworkTypesMax, pulcNetworkTypes, ref pguidNetworkTypes);
 
 	public HRESULT get_SupportedVideoFormats(uint32* pulAMTunerModeType, uint32* pulAnalogVideoStandard) mut => VT.[Friend]get_SupportedVideoFormats(&this, pulAMTunerModeType, pulAnalogVideoStandard);
 
@@ -18929,7 +18929,7 @@ public static
 
 	public HRESULT ResumeCurrentScan(uint hEvent) mut => VT.[Friend]ResumeCurrentScan(&this, hEvent);
 
-	public HRESULT GetTunerScanningCapability(int32* HardwareAssistedScanning, int32* NumStandardsSupported, ref Guid BroadcastStandards) mut => VT.[Friend]GetTunerScanningCapability(&this, HardwareAssistedScanning, NumStandardsSupported, BroadcastStandards);
+	public HRESULT GetTunerScanningCapability(int32* HardwareAssistedScanning, int32* NumStandardsSupported, ref Guid BroadcastStandards) mut => VT.[Friend]GetTunerScanningCapability(&this, HardwareAssistedScanning, NumStandardsSupported, ref BroadcastStandards);
 
 	public HRESULT GetTunerStatus(int32* SecondsLeft, int32* CurrentLockType, int32* AutoDetect, int32* CurrentFreq) mut => VT.[Friend]GetTunerStatus(&this, SecondsLeft, CurrentLockType, AutoDetect, CurrentFreq);
 
@@ -18974,7 +18974,7 @@ public static
 
 	public HRESULT put_MediaMajorType(BSTR MediaMajorType) mut => VT.[Friend]put_MediaMajorType(&this, MediaMajorType);
 
-	public HRESULT get__MediaMajorType(ref Guid MediaMajorTypeGuid) mut => VT.[Friend]get__MediaMajorType(&this, MediaMajorTypeGuid);
+	public HRESULT get__MediaMajorType(ref Guid MediaMajorTypeGuid) mut => VT.[Friend]get__MediaMajorType(&this, ref MediaMajorTypeGuid);
 
 	public HRESULT put__MediaMajorType(ref Guid MediaMajorTypeGuid) mut => VT.[Friend]put__MediaMajorType(&this, ref MediaMajorTypeGuid);
 
@@ -18982,7 +18982,7 @@ public static
 
 	public HRESULT put_MediaSubType(BSTR MediaSubType) mut => VT.[Friend]put_MediaSubType(&this, MediaSubType);
 
-	public HRESULT get__MediaSubType(ref Guid MediaSubTypeGuid) mut => VT.[Friend]get__MediaSubType(&this, MediaSubTypeGuid);
+	public HRESULT get__MediaSubType(ref Guid MediaSubTypeGuid) mut => VT.[Friend]get__MediaSubType(&this, ref MediaSubTypeGuid);
 
 	public HRESULT put__MediaSubType(ref Guid MediaSubTypeGuid) mut => VT.[Friend]put__MediaSubType(&this, ref MediaSubTypeGuid);
 
@@ -18990,7 +18990,7 @@ public static
 
 	public HRESULT put_MediaFormatType(BSTR MediaFormatType) mut => VT.[Friend]put_MediaFormatType(&this, MediaFormatType);
 
-	public HRESULT get__MediaFormatType(ref Guid MediaFormatTypeGuid) mut => VT.[Friend]get__MediaFormatType(&this, MediaFormatTypeGuid);
+	public HRESULT get__MediaFormatType(ref Guid MediaFormatTypeGuid) mut => VT.[Friend]get__MediaFormatType(&this, ref MediaFormatTypeGuid);
 
 	public HRESULT put__MediaFormatType(ref Guid MediaFormatTypeGuid) mut => VT.[Friend]put__MediaFormatType(&this, ref MediaFormatTypeGuid);
 
@@ -19645,7 +19645,7 @@ public static
 
 	public HRESULT GetDialogNumber(uint32* pDialogRequest, uint32* pDialogNumber) mut => VT.[Friend]GetDialogNumber(&this, pDialogRequest, pDialogNumber);
 
-	public HRESULT GetDialogType(ref Guid guidDialogType) mut => VT.[Friend]GetDialogType(&this, guidDialogType);
+	public HRESULT GetDialogType(ref Guid guidDialogType) mut => VT.[Friend]GetDialogType(&this, ref guidDialogType);
 
 	public HRESULT GetDialogData(SAFEARRAY** pbData) mut => VT.[Friend]GetDialogData(&this, pbData);
 
@@ -19822,7 +19822,7 @@ public static
 	}
 
 
-	public HRESULT GetTunerId(ref Guid pguidTunerId) mut => VT.[Friend]GetTunerId(&this, pguidTunerId);
+	public HRESULT GetTunerId(ref Guid pguidTunerId) mut => VT.[Friend]GetTunerId(&this, ref pguidTunerId);
 
 	public HRESULT GetExpiryDate(uint64* pqwExpiryDate) mut => VT.[Friend]GetExpiryDate(&this, pqwExpiryDate);
 
@@ -20443,7 +20443,7 @@ public static
 
 	public HRESULT get_Type(MSVidSegmentType* pType) mut => VT.[Friend]get_Type(&this, pType);
 
-	public HRESULT get_Category(ref Guid pGuid) mut => VT.[Friend]get_Category(&this, pGuid);
+	public HRESULT get_Category(ref Guid pGuid) mut => VT.[Friend]get_Category(&this, ref pGuid);
 
 	public HRESULT Build() mut => VT.[Friend]Build(&this);
 
@@ -20650,9 +20650,9 @@ public static
 
 	public HRESULT get_ClassID(BSTR* Clsid) mut => VT.[Friend]get_ClassID(&this, Clsid);
 
-	public HRESULT get__Category(ref Guid Guid) mut => VT.[Friend]get__Category(&this, Guid);
+	public HRESULT get__Category(ref Guid Guid) mut => VT.[Friend]get__Category(&this, ref Guid);
 
-	public HRESULT get__ClassID(ref Guid Clsid) mut => VT.[Friend]get__ClassID(&this, Clsid);
+	public HRESULT get__ClassID(ref Guid Clsid) mut => VT.[Friend]get__ClassID(&this, ref Clsid);
 
 	public HRESULT IsEqualDevice(IMSVidDevice* Device, int16* IsEqual) mut => VT.[Friend]IsEqualDevice(&this, Device, IsEqual);
 }
@@ -21623,7 +21623,7 @@ public static
 
 	public HRESULT put_CustomCompositorClass(BSTR CompositorCLSID) mut => VT.[Friend]put_CustomCompositorClass(&this, CompositorCLSID);
 
-	public HRESULT get__CustomCompositorClass(ref Guid CompositorCLSID) mut => VT.[Friend]get__CustomCompositorClass(&this, CompositorCLSID);
+	public HRESULT get__CustomCompositorClass(ref Guid CompositorCLSID) mut => VT.[Friend]get__CustomCompositorClass(&this, ref CompositorCLSID);
 
 	public HRESULT put__CustomCompositorClass(ref Guid CompositorCLSID) mut => VT.[Friend]put__CustomCompositorClass(&this, ref CompositorCLSID);
 
@@ -21860,7 +21860,7 @@ public static
 
 	public HRESULT put__AudioAnalysisFilter(Guid guid) mut => VT.[Friend]put__AudioAnalysisFilter(&this, guid);
 
-	public HRESULT get__AudioAnalysisFilter(ref Guid pGuid) mut => VT.[Friend]get__AudioAnalysisFilter(&this, pGuid);
+	public HRESULT get__AudioAnalysisFilter(ref Guid pGuid) mut => VT.[Friend]get__AudioAnalysisFilter(&this, ref pGuid);
 
 	public HRESULT put_VideoAnalysisFilter(BSTR szCLSID) mut => VT.[Friend]put_VideoAnalysisFilter(&this, szCLSID);
 
@@ -21868,7 +21868,7 @@ public static
 
 	public HRESULT put__VideoAnalysisFilter(Guid guid) mut => VT.[Friend]put__VideoAnalysisFilter(&this, guid);
 
-	public HRESULT get__VideoAnalysisFilter(ref Guid pGuid) mut => VT.[Friend]get__VideoAnalysisFilter(&this, pGuid);
+	public HRESULT get__VideoAnalysisFilter(ref Guid pGuid) mut => VT.[Friend]get__VideoAnalysisFilter(&this, ref pGuid);
 
 	public HRESULT put_DataAnalysisFilter(BSTR szCLSID) mut => VT.[Friend]put_DataAnalysisFilter(&this, szCLSID);
 
@@ -21876,7 +21876,7 @@ public static
 
 	public HRESULT put__DataAnalysisFilter(Guid guid) mut => VT.[Friend]put__DataAnalysisFilter(&this, guid);
 
-	public HRESULT get__DataAnalysisFilter(ref Guid pGuid) mut => VT.[Friend]get__DataAnalysisFilter(&this, pGuid);
+	public HRESULT get__DataAnalysisFilter(ref Guid pGuid) mut => VT.[Friend]get__DataAnalysisFilter(&this, ref pGuid);
 
 	public HRESULT get_LicenseErrorCode(HRESULT* hres) mut => VT.[Friend]get_LicenseErrorCode(&this, hres);
 }
@@ -23958,7 +23958,7 @@ public static
 
 	public HRESULT GetCount(int32* plCount) mut => VT.[Friend]GetCount(&this, plCount);
 
-	public HRESULT GetAttribIndexed(int32 lIndex, ref Guid pguidAttribute, uint8* pbAttribute, uint32* pdwAttributeLength) mut => VT.[Friend]GetAttribIndexed(&this, lIndex, pguidAttribute, pbAttribute, pdwAttributeLength);
+	public HRESULT GetAttribIndexed(int32 lIndex, ref Guid pguidAttribute, uint8* pbAttribute, uint32* pdwAttributeLength) mut => VT.[Friend]GetAttribIndexed(&this, lIndex, ref pguidAttribute, pbAttribute, pdwAttributeLength);
 
 	public HRESULT GetAttrib(Guid guidAttribute, uint8* pbAttribute, uint32* pdwAttributeLength) mut => VT.[Friend]GetAttrib(&this, guidAttribute, pbAttribute, pdwAttributeLength);
 }

@@ -2080,14 +2080,14 @@ public static
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcQueryFlowA(PSTR pFlowName, ref Guid pGuidParam, uint32* pBufferSize, void* Buffer);
-	public static uint32 TcQueryFlow(PSTR pFlowName, ref Guid pGuidParam, uint32* pBufferSize, void* Buffer) => TcQueryFlowA(pFlowName, pGuidParam, pBufferSize, Buffer);
+	public static uint32 TcQueryFlow(PSTR pFlowName, ref Guid pGuidParam, uint32* pBufferSize, void* Buffer) => TcQueryFlowA(pFlowName, ref pGuidParam, pBufferSize, Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcQueryFlowW(PWSTR pFlowName, ref Guid pGuidParam, uint32* pBufferSize, void* Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcSetFlowA(PSTR pFlowName, ref Guid pGuidParam, uint32 BufferSize, void* Buffer);
-	public static uint32 TcSetFlow(PSTR pFlowName, ref Guid pGuidParam, uint32 BufferSize, void* Buffer) => TcSetFlowA(pFlowName, pGuidParam, BufferSize, Buffer);
+	public static uint32 TcSetFlow(PSTR pFlowName, ref Guid pGuidParam, uint32 BufferSize, void* Buffer) => TcSetFlowA(pFlowName, ref pGuidParam, BufferSize, Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcSetFlowW(PWSTR pFlowName, ref Guid pGuidParam, uint32 BufferSize, void* Buffer);

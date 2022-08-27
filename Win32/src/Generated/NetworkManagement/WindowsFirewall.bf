@@ -743,7 +743,7 @@ public static
 
 	public HRESULT GetProperties(NETCON_PROPERTIES** ppProps) mut => VT.[Friend]GetProperties(&this, ppProps);
 
-	public HRESULT GetUiObjectClassId(ref Guid pclsid) mut => VT.[Friend]GetUiObjectClassId(&this, pclsid);
+	public HRESULT GetUiObjectClassId(ref Guid pclsid) mut => VT.[Friend]GetUiObjectClassId(&this, ref pclsid);
 
 	public HRESULT Rename(PWSTR pszwNewName) mut => VT.[Friend]Rename(&this, pszwNewName);
 }

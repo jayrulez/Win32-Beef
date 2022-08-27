@@ -3123,7 +3123,7 @@ public static
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS UuidFromStringA(uint8* StringUuid, ref Guid Uuid);
-	public static RPC_STATUS UuidFromString(uint8* StringUuid, ref Guid Uuid) => UuidFromStringA(StringUuid, Uuid);
+	public static RPC_STATUS UuidFromString(uint8* StringUuid, ref Guid Uuid) => UuidFromStringA(StringUuid, ref Uuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS UuidToStringW(ref Guid Uuid, uint16** StringUuid);
@@ -3178,7 +3178,7 @@ public static
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcMgmtEpEltInqNextA(void** InquiryContext, RPC_IF_ID* IfId, void** Binding, ref Guid ObjectUuid, uint8** Annotation);
-	public static RPC_STATUS RpcMgmtEpEltInqNext(void** InquiryContext, RPC_IF_ID* IfId, void** Binding, ref Guid ObjectUuid, uint8** Annotation) => RpcMgmtEpEltInqNextA(InquiryContext, IfId, Binding, ObjectUuid, Annotation);
+	public static RPC_STATUS RpcMgmtEpEltInqNext(void** InquiryContext, RPC_IF_ID* IfId, void** Binding, ref Guid ObjectUuid, uint8** Annotation) => RpcMgmtEpEltInqNextA(InquiryContext, IfId, Binding, ref ObjectUuid, Annotation);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcMgmtEpEltInqNextW(void** InquiryContext, RPC_IF_ID* IfId, void** Binding, ref Guid ObjectUuid, uint16** Annotation);
@@ -3437,7 +3437,7 @@ public static
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcNsBindingLookupBeginA(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, ref Guid ObjUuid, uint32 BindingMaxCount, void** LookupContext);
-	public static RPC_STATUS RpcNsBindingLookupBegin(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, ref Guid ObjUuid, uint32 BindingMaxCount, void** LookupContext) => RpcNsBindingLookupBeginA(EntryNameSyntax, EntryName, IfSpec, ObjUuid, BindingMaxCount, LookupContext);
+	public static RPC_STATUS RpcNsBindingLookupBegin(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, ref Guid ObjUuid, uint32 BindingMaxCount, void** LookupContext) => RpcNsBindingLookupBeginA(EntryNameSyntax, EntryName, IfSpec, ref ObjUuid, BindingMaxCount, LookupContext);
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcNsBindingLookupBeginW(uint32 EntryNameSyntax, uint16* EntryName, void* IfSpec, ref Guid ObjUuid, uint32 BindingMaxCount, void** LookupContext);
@@ -3583,7 +3583,7 @@ public static
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcNsBindingImportBeginA(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, ref Guid ObjUuid, void** ImportContext);
-	public static RPC_STATUS RpcNsBindingImportBegin(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, ref Guid ObjUuid, void** ImportContext) => RpcNsBindingImportBeginA(EntryNameSyntax, EntryName, IfSpec, ObjUuid, ImportContext);
+	public static RPC_STATUS RpcNsBindingImportBegin(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, ref Guid ObjUuid, void** ImportContext) => RpcNsBindingImportBeginA(EntryNameSyntax, EntryName, IfSpec, ref ObjUuid, ImportContext);
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcNsBindingImportBeginW(uint32 EntryNameSyntax, uint16* EntryName, void* IfSpec, ref Guid ObjUuid, void** ImportContext);

@@ -1329,7 +1329,7 @@ public static
 	}
 
 
-	public HRESULT GetClassID(ref Guid pClassID) mut => VT.[Friend]GetClassID(&this, pClassID);
+	public HRESULT GetClassID(ref Guid pClassID) mut => VT.[Friend]GetClassID(&this, ref pClassID);
 
 	public HRESULT IsDirty() mut => VT.[Friend]IsDirty(&this);
 

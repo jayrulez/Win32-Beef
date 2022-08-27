@@ -6164,7 +6164,7 @@ public static
 
 	public HRESULT Initialize(HINSTANCE param0, uint32 param1, ref Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, ref param2);
 
-	public HRESULT GetEffectGuid(ref Guid param0) mut => VT.[Friend]GetEffectGuid(&this, param0);
+	public HRESULT GetEffectGuid(ref Guid param0) mut => VT.[Friend]GetEffectGuid(&this, ref param0);
 
 	public HRESULT GetParameters(DIEFFECT* param0, uint32 param1) mut => VT.[Friend]GetParameters(&this, param0, param1);
 
@@ -6675,7 +6675,7 @@ public static
 	}
 
 
-	public HRESULT FindDevice(ref Guid param0, PWSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, param2);
+	public HRESULT FindDevice(ref Guid param0, PWSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, ref param2);
 }
 
 [CRepr]struct IDirectInput2A : IDirectInputA
@@ -6690,7 +6690,7 @@ public static
 	}
 
 
-	public HRESULT FindDevice(ref Guid param0, PSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, param2);
+	public HRESULT FindDevice(ref Guid param0, PSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, ref param2);
 }
 
 [CRepr]struct IDirectInput7W : IDirectInput2W
@@ -6752,7 +6752,7 @@ public static
 
 	public HRESULT Initialize(HINSTANCE param0, uint32 param1) mut => VT.[Friend]Initialize(&this, param0, param1);
 
-	public HRESULT FindDevice(ref Guid param0, PWSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, param2);
+	public HRESULT FindDevice(ref Guid param0, PWSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, ref param2);
 
 	public HRESULT EnumDevicesBySemantics(PWSTR param0, DIACTIONFORMATW* param1, LPDIENUMDEVICESBYSEMANTICSCBW param2, void* param3, uint32 param4) mut => VT.[Friend]EnumDevicesBySemantics(&this, param0, param1, param2, param3, param4);
 
@@ -6788,7 +6788,7 @@ public static
 
 	public HRESULT Initialize(HINSTANCE param0, uint32 param1) mut => VT.[Friend]Initialize(&this, param0, param1);
 
-	public HRESULT FindDevice(ref Guid param0, PSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, param2);
+	public HRESULT FindDevice(ref Guid param0, PSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, ref param2);
 
 	public HRESULT EnumDevicesBySemantics(PSTR param0, DIACTIONFORMATA* param1, LPDIENUMDEVICESBYSEMANTICSCBA param2, void* param3, uint32 param4) mut => VT.[Friend]EnumDevicesBySemantics(&this, param0, param1, param2, param3, param4);
 

@@ -249,7 +249,7 @@ public static
 
 	public HRESULT SetDescription(BSTR szDescription) mut => VT.[Friend]SetDescription(&this, szDescription);
 
-	public HRESULT GetNetworkId(ref Guid pgdGuidNetworkId) mut => VT.[Friend]GetNetworkId(&this, pgdGuidNetworkId);
+	public HRESULT GetNetworkId(ref Guid pgdGuidNetworkId) mut => VT.[Friend]GetNetworkId(&this, ref pgdGuidNetworkId);
 
 	public HRESULT GetDomainType(NLM_DOMAIN_TYPE* pNetworkType) mut => VT.[Friend]GetDomainType(&this, pNetworkType);
 
@@ -345,9 +345,9 @@ public static
 
 	public HRESULT GetConnectivity(NLM_CONNECTIVITY* pConnectivity) mut => VT.[Friend]GetConnectivity(&this, pConnectivity);
 
-	public HRESULT GetConnectionId(ref Guid pgdConnectionId) mut => VT.[Friend]GetConnectionId(&this, pgdConnectionId);
+	public HRESULT GetConnectionId(ref Guid pgdConnectionId) mut => VT.[Friend]GetConnectionId(&this, ref pgdConnectionId);
 
-	public HRESULT GetAdapterId(ref Guid pgdAdapterId) mut => VT.[Friend]GetAdapterId(&this, pgdAdapterId);
+	public HRESULT GetAdapterId(ref Guid pgdAdapterId) mut => VT.[Friend]GetAdapterId(&this, ref pgdAdapterId);
 
 	public HRESULT GetDomainType(NLM_DOMAIN_TYPE* pDomainType) mut => VT.[Friend]GetDomainType(&this, pDomainType);
 }

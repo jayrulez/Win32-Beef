@@ -2736,7 +2736,7 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetInheritanceSourceA(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, BOOL Container, ref Guid pObjectClassGuids, uint32 GuidCount, ACL* pAcl, FN_OBJECT_MGR_FUNCTIONS* pfnArray, GENERIC_MAPPING* pGenericMapping, INHERITED_FROMA* pInheritArray);
-	public static uint32 GetInheritanceSource(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, BOOL Container, ref Guid pObjectClassGuids, uint32 GuidCount, ACL* pAcl, FN_OBJECT_MGR_FUNCTIONS* pfnArray, GENERIC_MAPPING* pGenericMapping, INHERITED_FROMA* pInheritArray) => GetInheritanceSourceA(pObjectName, ObjectType, SecurityInfo, Container, pObjectClassGuids, GuidCount, pAcl, pfnArray, pGenericMapping, pInheritArray);
+	public static uint32 GetInheritanceSource(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, BOOL Container, ref Guid pObjectClassGuids, uint32 GuidCount, ACL* pAcl, FN_OBJECT_MGR_FUNCTIONS* pfnArray, GENERIC_MAPPING* pGenericMapping, INHERITED_FROMA* pInheritArray) => GetInheritanceSourceA(pObjectName, ObjectType, SecurityInfo, Container, ref pObjectClassGuids, GuidCount, pAcl, pfnArray, pGenericMapping, pInheritArray);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetInheritanceSourceW(PWSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, BOOL Container, ref Guid pObjectClassGuids, uint32 GuidCount, ACL* pAcl, FN_OBJECT_MGR_FUNCTIONS* pfnArray, GENERIC_MAPPING* pGenericMapping, INHERITED_FROMW* pInheritArray);
@@ -2809,7 +2809,7 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void BuildTrusteeWithObjectsAndSidA(TRUSTEE_A* pTrustee, OBJECTS_AND_SID* pObjSid, ref Guid pObjectGuid, ref Guid pInheritedObjectGuid, PSID pSid);
-	public static void BuildTrusteeWithObjectsAndSid(TRUSTEE_A* pTrustee, OBJECTS_AND_SID* pObjSid, ref Guid pObjectGuid, ref Guid pInheritedObjectGuid, PSID pSid) => BuildTrusteeWithObjectsAndSidA(pTrustee, pObjSid, pObjectGuid, pInheritedObjectGuid, pSid);
+	public static void BuildTrusteeWithObjectsAndSid(TRUSTEE_A* pTrustee, OBJECTS_AND_SID* pObjSid, ref Guid pObjectGuid, ref Guid pInheritedObjectGuid, PSID pSid) => BuildTrusteeWithObjectsAndSidA(pTrustee, pObjSid, ref pObjectGuid, ref pInheritedObjectGuid, pSid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void BuildTrusteeWithObjectsAndSidW(TRUSTEE_W* pTrustee, OBJECTS_AND_SID* pObjSid, ref Guid pObjectGuid, ref Guid pInheritedObjectGuid, PSID pSid);

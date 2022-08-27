@@ -1570,7 +1570,7 @@ public static
 
 	public HRESULT GetPropertyCount(uint32* pcBufferProperties) mut => VT.[Friend]GetPropertyCount(&this, pcBufferProperties);
 
-	public HRESULT GetPropertyByIndex(uint32 dwBufferPropertyIndex, ref Guid pguidBufferProperty, void* pvBufferProperty, uint32* pdwBufferPropertySize) mut => VT.[Friend]GetPropertyByIndex(&this, dwBufferPropertyIndex, pguidBufferProperty, pvBufferProperty, pdwBufferPropertySize);
+	public HRESULT GetPropertyByIndex(uint32 dwBufferPropertyIndex, ref Guid pguidBufferProperty, void* pvBufferProperty, uint32* pdwBufferPropertySize) mut => VT.[Friend]GetPropertyByIndex(&this, dwBufferPropertyIndex, ref pguidBufferProperty, pvBufferProperty, pdwBufferPropertySize);
 }
 
 [CRepr]struct IWMSBufferAllocator : IUnknown
@@ -1605,7 +1605,7 @@ public static
 	}
 
 
-	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, pguidType);
+	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, ref pguidType);
 
 	public HRESULT GetMediaType(WM_MEDIA_TYPE* pType, uint32* pcbType) mut => VT.[Friend]GetMediaType(&this, pType, pcbType);
 
@@ -2311,7 +2311,7 @@ public static
 	}
 
 
-	public HRESULT GetProfileID(ref Guid pguidID) mut => VT.[Friend]GetProfileID(&this, pguidID);
+	public HRESULT GetProfileID(ref Guid pguidID) mut => VT.[Friend]GetProfileID(&this, ref pguidID);
 }
 
 [CRepr]struct IWMProfile3 : IWMProfile2
@@ -2384,7 +2384,7 @@ public static
 	}
 
 
-	public HRESULT GetStreamType(ref Guid pguidStreamType) mut => VT.[Friend]GetStreamType(&this, pguidStreamType);
+	public HRESULT GetStreamType(ref Guid pguidStreamType) mut => VT.[Friend]GetStreamType(&this, ref pguidStreamType);
 
 	public HRESULT GetStreamNumber(uint16* pwStreamNum) mut => VT.[Friend]GetStreamNumber(&this, pwStreamNum);
 
@@ -2432,7 +2432,7 @@ public static
 
 	public HRESULT GetDataUnitExtensionCount(uint16* pcDataUnitExtensions) mut => VT.[Friend]GetDataUnitExtensionCount(&this, pcDataUnitExtensions);
 
-	public HRESULT GetDataUnitExtension(uint16 wDataUnitExtensionNumber, ref Guid pguidExtensionSystemID, uint16* pcbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32* pcbExtensionSystemInfo) mut => VT.[Friend]GetDataUnitExtension(&this, wDataUnitExtensionNumber, pguidExtensionSystemID, pcbExtensionDataSize, pbExtensionSystemInfo, pcbExtensionSystemInfo);
+	public HRESULT GetDataUnitExtension(uint16 wDataUnitExtensionNumber, ref Guid pguidExtensionSystemID, uint16* pcbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32* pcbExtensionSystemInfo) mut => VT.[Friend]GetDataUnitExtension(&this, wDataUnitExtensionNumber, ref pguidExtensionSystemID, pcbExtensionDataSize, pbExtensionSystemInfo, pcbExtensionSystemInfo);
 
 	public HRESULT RemoveAllDataUnitExtensions() mut => VT.[Friend]RemoveAllDataUnitExtensions(&this);
 }
@@ -2525,7 +2525,7 @@ public static
 	}
 
 
-	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, pguidType);
+	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, ref pguidType);
 
 	public HRESULT SetType(ref Guid guidType) mut => VT.[Friend]SetType(&this, ref guidType);
 }
@@ -2587,7 +2587,7 @@ public static
 	}
 
 
-	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, pguidType);
+	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, ref pguidType);
 
 	public HRESULT SetType(ref Guid guidType) mut => VT.[Friend]SetType(&this, ref guidType);
 
@@ -3343,7 +3343,7 @@ public static
 	}
 
 
-	public HRESULT GetInclusionList(ref Guid ppGuids, uint32* pcGuids) mut => VT.[Friend]GetInclusionList(&this, ppGuids, pcGuids);
+	public HRESULT GetInclusionList(ref Guid ppGuids, uint32* pcGuids) mut => VT.[Friend]GetInclusionList(&this, ref ppGuids, pcGuids);
 }
 
 [CRepr]struct IWMReaderPlaylistBurn : IUnknown

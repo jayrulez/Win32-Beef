@@ -1588,7 +1588,7 @@ public static
 	}
 
 
-	public HRESULT HandleActivation(uint32 dwActivationType, ref Guid rclsid, ref Guid pReplacementClsId) mut => VT.[Friend]HandleActivation(&this, dwActivationType, ref rclsid, pReplacementClsId);
+	public HRESULT HandleActivation(uint32 dwActivationType, ref Guid rclsid, ref Guid pReplacementClsId) mut => VT.[Friend]HandleActivation(&this, dwActivationType, ref rclsid, ref pReplacementClsId);
 }
 
 [CRepr]struct IMalloc : IUnknown
@@ -1633,7 +1633,7 @@ public static
 	}
 
 
-	public HRESULT GetClassForHandler(uint32 dwDestContext, void* pvDestContext, ref Guid pClsid) mut => VT.[Friend]GetClassForHandler(&this, dwDestContext, pvDestContext, pClsid);
+	public HRESULT GetClassForHandler(uint32 dwDestContext, void* pvDestContext, ref Guid pClsid) mut => VT.[Friend]GetClassForHandler(&this, dwDestContext, pvDestContext, ref pClsid);
 }
 
 [CRepr]struct IExternalConnection : IUnknown
@@ -2290,7 +2290,7 @@ public static
 
 	public HRESULT GetDCOMProtocolVersion(uint32* pComVersion) mut => VT.[Friend]GetDCOMProtocolVersion(&this, pComVersion);
 
-	public HRESULT GetIIDFromOBJREF(void* pObjRef, ref Guid piid) mut => VT.[Friend]GetIIDFromOBJREF(&this, pObjRef, piid);
+	public HRESULT GetIIDFromOBJREF(void* pObjRef, ref Guid piid) mut => VT.[Friend]GetIIDFromOBJREF(&this, pObjRef, ref piid);
 }
 
 [CRepr]struct IReleaseMarshalBuffers : IUnknown
@@ -2507,7 +2507,7 @@ public static
 
 	public HRESULT GetCurrentThreadType(THDTYPE* pThreadType) mut => VT.[Friend]GetCurrentThreadType(&this, pThreadType);
 
-	public HRESULT GetCurrentLogicalThreadId(ref Guid pguidLogicalThreadId) mut => VT.[Friend]GetCurrentLogicalThreadId(&this, pguidLogicalThreadId);
+	public HRESULT GetCurrentLogicalThreadId(ref Guid pguidLogicalThreadId) mut => VT.[Friend]GetCurrentLogicalThreadId(&this, ref pguidLogicalThreadId);
 
 	public HRESULT SetCurrentLogicalThreadId(ref Guid rguid) mut => VT.[Friend]SetCurrentLogicalThreadId(&this, ref rguid);
 }
@@ -2690,7 +2690,7 @@ public static
 	}
 
 
-	public HRESULT GetRunningClass(ref Guid lpClsid) mut => VT.[Friend]GetRunningClass(&this, lpClsid);
+	public HRESULT GetRunningClass(ref Guid lpClsid) mut => VT.[Friend]GetRunningClass(&this, ref lpClsid);
 
 	public HRESULT Run(IBindCtx* pbc) mut => VT.[Friend]Run(&this, pbc);
 
@@ -2746,7 +2746,7 @@ public static
 	}
 
 
-	public HRESULT GetClassID(ref Guid pClassID) mut => VT.[Friend]GetClassID(&this, pClassID);
+	public HRESULT GetClassID(ref Guid pClassID) mut => VT.[Friend]GetClassID(&this, ref pClassID);
 }
 
 [CRepr]struct IPersistStream : IPersist
@@ -3295,7 +3295,7 @@ public static
 	}
 
 
-	public HRESULT Next(uint32 celt, ref Guid rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, ref Guid rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, ref rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
@@ -3347,15 +3347,15 @@ public static
 
 	public HRESULT RegisterCategories(uint32 cCategories, CATEGORYINFO* rgCategoryInfo) mut => VT.[Friend]RegisterCategories(&this, cCategories, rgCategoryInfo);
 
-	public HRESULT UnRegisterCategories(uint32 cCategories, ref Guid rgcatid) mut => VT.[Friend]UnRegisterCategories(&this, cCategories, rgcatid);
+	public HRESULT UnRegisterCategories(uint32 cCategories, ref Guid rgcatid) mut => VT.[Friend]UnRegisterCategories(&this, cCategories, ref rgcatid);
 
-	public HRESULT RegisterClassImplCategories(ref Guid rclsid, uint32 cCategories, ref Guid rgcatid) mut => VT.[Friend]RegisterClassImplCategories(&this, ref rclsid, cCategories, rgcatid);
+	public HRESULT RegisterClassImplCategories(ref Guid rclsid, uint32 cCategories, ref Guid rgcatid) mut => VT.[Friend]RegisterClassImplCategories(&this, ref rclsid, cCategories, ref rgcatid);
 
-	public HRESULT UnRegisterClassImplCategories(ref Guid rclsid, uint32 cCategories, ref Guid rgcatid) mut => VT.[Friend]UnRegisterClassImplCategories(&this, ref rclsid, cCategories, rgcatid);
+	public HRESULT UnRegisterClassImplCategories(ref Guid rclsid, uint32 cCategories, ref Guid rgcatid) mut => VT.[Friend]UnRegisterClassImplCategories(&this, ref rclsid, cCategories, ref rgcatid);
 
-	public HRESULT RegisterClassReqCategories(ref Guid rclsid, uint32 cCategories, ref Guid rgcatid) mut => VT.[Friend]RegisterClassReqCategories(&this, ref rclsid, cCategories, rgcatid);
+	public HRESULT RegisterClassReqCategories(ref Guid rclsid, uint32 cCategories, ref Guid rgcatid) mut => VT.[Friend]RegisterClassReqCategories(&this, ref rclsid, cCategories, ref rgcatid);
 
-	public HRESULT UnRegisterClassReqCategories(ref Guid rclsid, uint32 cCategories, ref Guid rgcatid) mut => VT.[Friend]UnRegisterClassReqCategories(&this, ref rclsid, cCategories, rgcatid);
+	public HRESULT UnRegisterClassReqCategories(ref Guid rclsid, uint32 cCategories, ref Guid rgcatid) mut => VT.[Friend]UnRegisterClassReqCategories(&this, ref rclsid, cCategories, ref rgcatid);
 }
 
 [CRepr]struct ICatInformation : IUnknown
@@ -3377,7 +3377,7 @@ public static
 
 	public HRESULT EnumCategories(uint32 lcid, IEnumCATEGORYINFO** ppenumCategoryInfo) mut => VT.[Friend]EnumCategories(&this, lcid, ppenumCategoryInfo);
 
-	public HRESULT GetCategoryDesc(ref Guid rcatid, uint32 lcid, PWSTR* pszDesc) mut => VT.[Friend]GetCategoryDesc(&this, rcatid, lcid, pszDesc);
+	public HRESULT GetCategoryDesc(ref Guid rcatid, uint32 lcid, PWSTR* pszDesc) mut => VT.[Friend]GetCategoryDesc(&this, ref rcatid, lcid, pszDesc);
 
 	public HRESULT EnumClassesOfCategories(uint32 cImplemented, ref Guid rgcatidImpl, uint32 cRequired, ref Guid rgcatidReq, IEnumGUID** ppenumClsid) mut => VT.[Friend]EnumClassesOfCategories(&this, cImplemented, ref rgcatidImpl, cRequired, ref rgcatidReq, ppenumClsid);
 
@@ -3430,7 +3430,7 @@ public static
 
 	public HRESULT GetPriority(int32* pnPriority) mut => VT.[Friend]GetPriority(&this, pnPriority);
 
-	public HRESULT GetBindResult(ref Guid pclsidProtocol, uint32* pdwResult, PWSTR* pszResult, uint32* pdwReserved) mut => VT.[Friend]GetBindResult(&this, pclsidProtocol, pdwResult, pszResult, pdwReserved);
+	public HRESULT GetBindResult(ref Guid pclsidProtocol, uint32* pdwResult, PWSTR* pszResult, uint32* pdwReserved) mut => VT.[Friend]GetBindResult(&this, ref pclsidProtocol, pdwResult, pszResult, pdwReserved);
 }
 
 [CRepr]struct IBindStatusCallback : IUnknown
@@ -3953,7 +3953,7 @@ public static
 	}
 
 
-	public HRESULT GetGUID(ref Guid pGUID) mut => VT.[Friend]GetGUID(&this, pGUID);
+	public HRESULT GetGUID(ref Guid pGUID) mut => VT.[Friend]GetGUID(&this, ref pGUID);
 
 	public HRESULT GetSource(BSTR* pBstrSource) mut => VT.[Friend]GetSource(&this, pBstrSource);
 
@@ -4028,7 +4028,7 @@ public static
 	}
 
 
-	public HRESULT GetGuid(ref Guid pGuid) mut => VT.[Friend]GetGuid(&this, pGuid);
+	public HRESULT GetGuid(ref Guid pGuid) mut => VT.[Friend]GetGuid(&this, ref pGuid);
 
 	public HRESULT GetVersion(BSTR* pVersion) mut => VT.[Friend]GetVersion(&this, pVersion);
 
@@ -4085,7 +4085,7 @@ public static
 	}
 
 
-	public HRESULT GetConnectionInterface(ref Guid pIID) mut => VT.[Friend]GetConnectionInterface(&this, pIID);
+	public HRESULT GetConnectionInterface(ref Guid pIID) mut => VT.[Friend]GetConnectionInterface(&this, ref pIID);
 
 	public HRESULT GetConnectionPointContainer(IConnectionPointContainer** ppCPC) mut => VT.[Friend]GetConnectionPointContainer(&this, ppCPC);
 

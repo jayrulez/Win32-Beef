@@ -5694,7 +5694,7 @@ public static
 	}
 
 
-	public HRESULT Next(uint32 celt, ref Guid pElements, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, pElements, pceltFetched);
+	public HRESULT Next(uint32 celt, ref Guid pElements, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, ref pElements, pceltFetched);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
@@ -8031,7 +8031,7 @@ public static
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineCreateAgentSessionA(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, ref Guid lpGroupID, uint32* lphAgentSession);
-	public static int32 lineCreateAgentSession(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, ref Guid lpGroupID, uint32* lphAgentSession) => lineCreateAgentSessionA(hLine, hAgent, lpszAgentPIN, dwWorkingAddressID, lpGroupID, lphAgentSession);
+	public static int32 lineCreateAgentSession(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, ref Guid lpGroupID, uint32* lphAgentSession) => lineCreateAgentSessionA(hLine, hAgent, lpszAgentPIN, dwWorkingAddressID, ref lpGroupID, lphAgentSession);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineDeallocateCall(uint32 hCall);
@@ -8259,7 +8259,7 @@ public static
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetQueueListA(uint32 hLine, ref Guid lpGroupID, LINEQUEUELIST* lpQueueList);
-	public static int32 lineGetQueueList(uint32 hLine, ref Guid lpGroupID, LINEQUEUELIST* lpQueueList) => lineGetQueueListA(hLine, lpGroupID, lpQueueList);
+	public static int32 lineGetQueueList(uint32 hLine, ref Guid lpGroupID, LINEQUEUELIST* lpQueueList) => lineGetQueueListA(hLine, ref lpGroupID, lpQueueList);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetQueueListW(uint32 hLine, ref Guid lpGroupID, LINEQUEUELIST* lpQueueList);

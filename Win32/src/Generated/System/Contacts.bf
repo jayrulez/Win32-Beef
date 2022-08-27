@@ -472,7 +472,7 @@ public static
 
 	public HRESULT get_Members(IContactAggregationAggregateCollection** ppAggregateContactCollection) mut => VT.[Friend]get_Members(&this, ppAggregateContactCollection);
 
-	public HRESULT get_GlobalObjectId(ref Guid pGlobalObjectId) mut => VT.[Friend]get_GlobalObjectId(&this, pGlobalObjectId);
+	public HRESULT get_GlobalObjectId(ref Guid pGlobalObjectId) mut => VT.[Friend]get_GlobalObjectId(&this, ref pGlobalObjectId);
 
 	public HRESULT put_GlobalObjectId(ref Guid pGlobalObjectId) mut => VT.[Friend]put_GlobalObjectId(&this, ref pGlobalObjectId);
 

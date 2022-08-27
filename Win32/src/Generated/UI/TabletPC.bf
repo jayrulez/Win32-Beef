@@ -5012,7 +5012,7 @@ public static
 
 	public HRESULT SetDesiredPacketDescription(uint32 cProperties, ref Guid pPropertyGuids) mut => VT.[Friend]SetDesiredPacketDescription(&this, cProperties, ref pPropertyGuids);
 
-	public HRESULT GetDesiredPacketDescription(uint32* pcProperties, ref Guid ppPropertyGuids) mut => VT.[Friend]GetDesiredPacketDescription(&this, pcProperties, ppPropertyGuids);
+	public HRESULT GetDesiredPacketDescription(uint32* pcProperties, ref Guid ppPropertyGuids) mut => VT.[Friend]GetDesiredPacketDescription(&this, pcProperties, ref ppPropertyGuids);
 
 	public HRESULT GetPacketDescriptionData(uint32 tcid, float* pfInkToDeviceScaleX, float* pfInkToDeviceScaleY, uint32* pcPacketProperties, PACKET_PROPERTY** ppPacketProperties) mut => VT.[Friend]GetPacketDescriptionData(&this, tcid, pfInkToDeviceScaleX, pfInkToDeviceScaleY, pcPacketProperties, ppPacketProperties);
 }

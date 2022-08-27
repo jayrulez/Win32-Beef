@@ -1030,7 +1030,7 @@ public static
 	}
 
 
-	public HRESULT ParsePropertyName(PWSTR pszName, ref Guid pfmtid, uint32* ppid, uint32* pchEaten) mut => VT.[Friend]ParsePropertyName(&this, pszName, pfmtid, ppid, pchEaten);
+	public HRESULT ParsePropertyName(PWSTR pszName, ref Guid pfmtid, uint32* ppid, uint32* pchEaten) mut => VT.[Friend]ParsePropertyName(&this, pszName, ref pfmtid, ppid, pchEaten);
 
 	public HRESULT GetCannonicalName(ref Guid fmtid, uint32 pid, char16* pwszText, uint32 cchText) mut => VT.[Friend]GetCannonicalName(&this, ref fmtid, pid, pwszText, cchText);
 

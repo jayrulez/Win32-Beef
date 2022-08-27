@@ -5904,7 +5904,7 @@ public static
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsCrackUnquotedMangledRdnA(uint8* pszRDN, uint32 cchRDN, ref Guid pGuid, DS_MANGLE_FOR* peDsMangleFor);
-	public static BOOL DsCrackUnquotedMangledRdn(uint8* pszRDN, uint32 cchRDN, ref Guid pGuid, DS_MANGLE_FOR* peDsMangleFor) => DsCrackUnquotedMangledRdnA(pszRDN, cchRDN, pGuid, peDsMangleFor);
+	public static BOOL DsCrackUnquotedMangledRdn(uint8* pszRDN, uint32 cchRDN, ref Guid pGuid, DS_MANGLE_FOR* peDsMangleFor) => DsCrackUnquotedMangledRdnA(pszRDN, cchRDN, ref pGuid, peDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsIsMangledRdnValueW(char16* pszRdn, uint32 cRdn, DS_MANGLE_FOR eDsMangleForDesired);
@@ -5966,7 +5966,7 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindByInstanceA(PSTR ServerName, PSTR Annotation, ref Guid InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
-	public static uint32 DsBindByInstance(PSTR ServerName, PSTR Annotation, ref Guid InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS) => DsBindByInstanceA(ServerName, Annotation, InstanceGuid, DnsDomainName, AuthIdentity, ServicePrincipalName, BindFlags, phDS);
+	public static uint32 DsBindByInstance(PSTR ServerName, PSTR Annotation, ref Guid InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS) => DsBindByInstanceA(ServerName, Annotation, ref InstanceGuid, DnsDomainName, AuthIdentity, ServicePrincipalName, BindFlags, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindToISTGW(PWSTR SiteName, HANDLE* phDS);
@@ -6154,7 +6154,7 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsMapSchemaGuidsA(HANDLE hDs, uint32 cGuids, ref Guid rGuids, DS_SCHEMA_GUID_MAPA** ppGuidMap);
-	public static uint32 DsMapSchemaGuids(HANDLE hDs, uint32 cGuids, ref Guid rGuids, DS_SCHEMA_GUID_MAPA** ppGuidMap) => DsMapSchemaGuidsA(hDs, cGuids, rGuids, ppGuidMap);
+	public static uint32 DsMapSchemaGuids(HANDLE hDs, uint32 cGuids, ref Guid rGuids, DS_SCHEMA_GUID_MAPA** ppGuidMap) => DsMapSchemaGuidsA(hDs, cGuids, ref rGuids, ppGuidMap);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeSchemaGuidMapA(DS_SCHEMA_GUID_MAPA* pGuidMap);
@@ -6221,7 +6221,7 @@ public static
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcNameA(PSTR ComputerName, PSTR DomainName, ref Guid DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo);
-	public static uint32 DsGetDcName(PSTR ComputerName, PSTR DomainName, ref Guid DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo) => DsGetDcNameA(ComputerName, DomainName, DomainGuid, SiteName, Flags, DomainControllerInfo);
+	public static uint32 DsGetDcName(PSTR ComputerName, PSTR DomainName, ref Guid DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo) => DsGetDcNameA(ComputerName, DomainName, ref DomainGuid, SiteName, Flags, DomainControllerInfo);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcNameW(PWSTR ComputerName, PWSTR DomainName, ref Guid DomainGuid, PWSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOW** DomainControllerInfo);
@@ -6279,14 +6279,14 @@ public static
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsDeregisterDnsHostRecordsA(PSTR ServerName, PSTR DnsDomainName, ref Guid DomainGuid, ref Guid DsaGuid, PSTR DnsHostName);
-	public static uint32 DsDeregisterDnsHostRecords(PSTR ServerName, PSTR DnsDomainName, ref Guid DomainGuid, ref Guid DsaGuid, PSTR DnsHostName) => DsDeregisterDnsHostRecordsA(ServerName, DnsDomainName, DomainGuid, DsaGuid, DnsHostName);
+	public static uint32 DsDeregisterDnsHostRecords(PSTR ServerName, PSTR DnsDomainName, ref Guid DomainGuid, ref Guid DsaGuid, PSTR DnsHostName) => DsDeregisterDnsHostRecordsA(ServerName, DnsDomainName, ref DomainGuid, ref DsaGuid, DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcOpenW(PWSTR DnsName, uint32 OptionFlags, PWSTR SiteName, ref Guid DomainGuid, PWSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcOpenA(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, ref Guid DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
-	public static uint32 DsGetDcOpen(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, ref Guid DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext) => DsGetDcOpenA(DnsName, OptionFlags, SiteName, DomainGuid, DnsForestName, DcFlags, RetGetDcContext);
+	public static uint32 DsGetDcOpen(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, ref Guid DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext) => DsGetDcOpenA(DnsName, OptionFlags, SiteName, ref DomainGuid, DnsForestName, DcFlags, RetGetDcContext);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcNextW(HANDLE GetDcContextHandle, uint32* SockAddressCount, SOCKET_ADDRESS** SockAddresses, PWSTR* DnsHostName);

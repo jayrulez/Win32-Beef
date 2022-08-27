@@ -7243,11 +7243,11 @@ public static
 
 	public HRESULT GetCharacteristics(uint32* pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
 
-	public HRESULT GetInstanceGuid(ref Guid pGuid) mut => VT.[Friend]GetInstanceGuid(&this, pGuid);
+	public HRESULT GetInstanceGuid(ref Guid pGuid) mut => VT.[Friend]GetInstanceGuid(&this, ref pGuid);
 
 	public HRESULT GetPnpDevNodeId(PWSTR* ppszwDevNodeId) mut => VT.[Friend]GetPnpDevNodeId(&this, ppszwDevNodeId);
 
-	public HRESULT GetClassGuid(ref Guid pGuid) mut => VT.[Friend]GetClassGuid(&this, pGuid);
+	public HRESULT GetClassGuid(ref Guid pGuid) mut => VT.[Friend]GetClassGuid(&this, ref pGuid);
 
 	public HRESULT GetBindName(PWSTR* ppszwBindName) mut => VT.[Friend]GetBindName(&this, ppszwBindName);
 
@@ -7467,7 +7467,7 @@ public static
 	}
 
 
-	public HRESULT GetInterfaceIdsForAdapter(INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, ref Guid ppguidInterfaceIds) mut => VT.[Friend]GetInterfaceIdsForAdapter(&this, pAdapter, pdwNumInterfaces, ppguidInterfaceIds);
+	public HRESULT GetInterfaceIdsForAdapter(INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, ref Guid ppguidInterfaceIds) mut => VT.[Friend]GetInterfaceIdsForAdapter(&this, pAdapter, pdwNumInterfaces, ref ppguidInterfaceIds);
 
 	public HRESULT AddInterfacesToAdapter() mut => VT.[Friend]AddInterfacesToAdapter(&this);
 
@@ -7486,7 +7486,7 @@ public static
 	}
 
 
-	public HRESULT GetDeviceGuid(ref Guid pguid) mut => VT.[Friend]GetDeviceGuid(&this, pguid);
+	public HRESULT GetDeviceGuid(ref Guid pguid) mut => VT.[Friend]GetDeviceGuid(&this, ref pguid);
 }
 
 [CRepr]struct INetRasConnectionIpUiInfo : IUnknown
@@ -7517,9 +7517,9 @@ public static
 	}
 
 
-	public HRESULT SaveAdapterParameters(INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, ref Guid pAdapterInstanceGuid) mut => VT.[Friend]SaveAdapterParameters(&this, pncsp, pszwAnswerSections, pAdapterInstanceGuid);
+	public HRESULT SaveAdapterParameters(INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, ref Guid pAdapterInstanceGuid) mut => VT.[Friend]SaveAdapterParameters(&this, pncsp, pszwAnswerSections, ref pAdapterInstanceGuid);
 
-	public HRESULT RestoreAdapterParameters(PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, ref Guid pAdapterInstanceGuid) mut => VT.[Friend]RestoreAdapterParameters(&this, pszwAnswerFile, pszwAnswerSection, pAdapterInstanceGuid);
+	public HRESULT RestoreAdapterParameters(PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, ref Guid pAdapterInstanceGuid) mut => VT.[Friend]RestoreAdapterParameters(&this, pszwAnswerFile, pszwAnswerSection, ref pAdapterInstanceGuid);
 }
 
 [CRepr]struct IProvisioningDomain : IUnknown
@@ -7552,7 +7552,7 @@ public static
 	}
 
 
-	public HRESULT CreateProfile(BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, ref Guid pAdapterInstanceGuid, uint32* pulStatus) mut => VT.[Friend]CreateProfile(&this, bstrXMLWirelessConfigProfile, bstrXMLConnectionConfigProfile, pAdapterInstanceGuid, pulStatus);
+	public HRESULT CreateProfile(BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, ref Guid pAdapterInstanceGuid, uint32* pulStatus) mut => VT.[Friend]CreateProfile(&this, bstrXMLWirelessConfigProfile, bstrXMLConnectionConfigProfile, ref pAdapterInstanceGuid, pulStatus);
 }
 
 #endregion

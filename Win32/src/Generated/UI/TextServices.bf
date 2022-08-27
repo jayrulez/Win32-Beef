@@ -2427,7 +2427,7 @@ public static
 	}
 
 
-	public HRESULT GetOwnerClsid(ref Guid pclsid) mut => VT.[Friend]GetOwnerClsid(&this, pclsid);
+	public HRESULT GetOwnerClsid(ref Guid pclsid) mut => VT.[Friend]GetOwnerClsid(&this, ref pclsid);
 
 	public HRESULT GetRange(ITfRange** ppRange) mut => VT.[Friend]GetRange(&this, ppRange);
 }
@@ -2741,7 +2741,7 @@ public static
 	}
 
 
-	public HRESULT GetType(ref Guid pguid) mut => VT.[Friend]COM_GetType(&this, pguid);
+	public HRESULT GetType(ref Guid pguid) mut => VT.[Friend]COM_GetType(&this, ref pguid);
 
 	public HRESULT EnumRanges(uint32 ec, IEnumTfRanges** ppEnum, ITfRange* pTargetRange) mut => VT.[Friend]EnumRanges(&this, ec, ppEnum, pTargetRange);
 
@@ -3163,7 +3163,7 @@ public static
 	}
 
 
-	public HRESULT GetType(ref Guid pguid) mut => VT.[Friend]COM_GetType(&this, pguid);
+	public HRESULT GetType(ref Guid pguid) mut => VT.[Friend]COM_GetType(&this, ref pguid);
 
 	public HRESULT GetDataType(uint32* pdwReserved) mut => VT.[Friend]GetDataType(&this, pdwReserved);
 
@@ -3177,7 +3177,7 @@ public static
 
 	public HRESULT Clone(ITfPropertyStore** pPropStore) mut => VT.[Friend]Clone(&this, pPropStore);
 
-	public HRESULT GetPropertyRangeCreator(ref Guid pclsid) mut => VT.[Friend]GetPropertyRangeCreator(&this, pclsid);
+	public HRESULT GetPropertyRangeCreator(ref Guid pclsid) mut => VT.[Friend]GetPropertyRangeCreator(&this, ref pclsid);
 
 	public HRESULT Serialize(IStream* pStream, uint32* pcb) mut => VT.[Friend]Serialize(&this, pStream, pcb);
 }
@@ -3370,7 +3370,7 @@ public static
 	}
 
 
-	public HRESULT GetType(ref Guid pguid) mut => VT.[Friend]COM_GetType(&this, pguid);
+	public HRESULT GetType(ref Guid pguid) mut => VT.[Friend]COM_GetType(&this, ref pguid);
 
 	public HRESULT GetDescription(BSTR* pbstrDesc) mut => VT.[Friend]GetDescription(&this, pbstrDesc);
 
@@ -3440,13 +3440,13 @@ public static
 
 	public HRESULT EnumInputProcessorInfo(IEnumGUID** ppEnum) mut => VT.[Friend]EnumInputProcessorInfo(&this, ppEnum);
 
-	public HRESULT GetDefaultLanguageProfile(uint16 langid, ref Guid catid, ref Guid pclsid, ref Guid pguidProfile) mut => VT.[Friend]GetDefaultLanguageProfile(&this, langid, ref catid, pclsid, pguidProfile);
+	public HRESULT GetDefaultLanguageProfile(uint16 langid, ref Guid catid, ref Guid pclsid, ref Guid pguidProfile) mut => VT.[Friend]GetDefaultLanguageProfile(&this, langid, ref catid, ref pclsid, ref pguidProfile);
 
 	public HRESULT SetDefaultLanguageProfile(uint16 langid, ref Guid rclsid, ref Guid guidProfiles) mut => VT.[Friend]SetDefaultLanguageProfile(&this, langid, ref rclsid, ref guidProfiles);
 
 	public HRESULT ActivateLanguageProfile(ref Guid rclsid, uint16 langid, ref Guid guidProfiles) mut => VT.[Friend]ActivateLanguageProfile(&this, ref rclsid, langid, ref guidProfiles);
 
-	public HRESULT GetActiveLanguageProfile(ref Guid rclsid, uint16* plangid, ref Guid pguidProfile) mut => VT.[Friend]GetActiveLanguageProfile(&this, ref rclsid, plangid, pguidProfile);
+	public HRESULT GetActiveLanguageProfile(ref Guid rclsid, uint16* plangid, ref Guid pguidProfile) mut => VT.[Friend]GetActiveLanguageProfile(&this, ref rclsid, plangid, ref pguidProfile);
 
 	public HRESULT GetLanguageProfileDescription(ref Guid rclsid, uint16 langid, ref Guid guidProfile, BSTR* pbstrProfile) mut => VT.[Friend]GetLanguageProfileDescription(&this, ref rclsid, langid, ref guidProfile, pbstrProfile);
 
@@ -3658,7 +3658,7 @@ public static
 
 	public HRESULT UnadviseKeyEventSink(uint32 tid) mut => VT.[Friend]UnadviseKeyEventSink(&this, tid);
 
-	public HRESULT GetForeground(ref Guid pclsid) mut => VT.[Friend]GetForeground(&this, pclsid);
+	public HRESULT GetForeground(ref Guid pclsid) mut => VT.[Friend]GetForeground(&this, ref pclsid);
 
 	public HRESULT TestKeyDown(WPARAM wParam, LPARAM lParam, BOOL* pfEaten) mut => VT.[Friend]TestKeyDown(&this, wParam, lParam, pfEaten);
 
@@ -3668,7 +3668,7 @@ public static
 
 	public HRESULT KeyUp(WPARAM wParam, LPARAM lParam, BOOL* pfEaten) mut => VT.[Friend]KeyUp(&this, wParam, lParam, pfEaten);
 
-	public HRESULT GetPreservedKey(ITfContext* pic, TF_PRESERVEDKEY* pprekey, ref Guid pguid) mut => VT.[Friend]GetPreservedKey(&this, pic, pprekey, pguid);
+	public HRESULT GetPreservedKey(ITfContext* pic, TF_PRESERVEDKEY* pprekey, ref Guid pguid) mut => VT.[Friend]GetPreservedKey(&this, pic, pprekey, ref pguid);
 
 	public HRESULT IsPreservedKey(ref Guid rguid, TF_PRESERVEDKEY* pprekey, BOOL* pfRegistered) mut => VT.[Friend]IsPreservedKey(&this, ref rguid, pprekey, pfRegistered);
 
@@ -3852,7 +3852,7 @@ public static
 	}
 
 
-	public HRESULT GetGUID(ref Guid pguid) mut => VT.[Friend]GetGUID(&this, pguid);
+	public HRESULT GetGUID(ref Guid pguid) mut => VT.[Friend]GetGUID(&this, ref pguid);
 
 	public HRESULT GetDescription(BSTR* pbstrDesc) mut => VT.[Friend]GetDescription(&this, pbstrDesc);
 
@@ -3923,7 +3923,7 @@ public static
 
 	public HRESULT EnumDisplayAttributeInfo(IEnumTfDisplayAttributeInfo** ppEnum) mut => VT.[Friend]EnumDisplayAttributeInfo(&this, ppEnum);
 
-	public HRESULT GetDisplayAttributeInfo(ref Guid guid, ITfDisplayAttributeInfo** ppInfo, ref Guid pclsidOwner) mut => VT.[Friend]GetDisplayAttributeInfo(&this, ref guid, ppInfo, pclsidOwner);
+	public HRESULT GetDisplayAttributeInfo(ref Guid guid, ITfDisplayAttributeInfo** ppInfo, ref Guid pclsidOwner) mut => VT.[Friend]GetDisplayAttributeInfo(&this, ref guid, ppInfo, ref pclsidOwner);
 }
 
 [CRepr]struct ITfDisplayAttributeNotifySink : IUnknown
@@ -3974,7 +3974,7 @@ public static
 
 	public HRESULT EnumItemsInCategory(ref Guid rcatid, IEnumGUID** ppEnum) mut => VT.[Friend]EnumItemsInCategory(&this, ref rcatid, ppEnum);
 
-	public HRESULT FindClosestCategory(ref Guid rguid, ref Guid pcatid, ref Guid ppcatidList, uint32 ulCount) mut => VT.[Friend]FindClosestCategory(&this, ref rguid, pcatid, ref ppcatidList, ulCount);
+	public HRESULT FindClosestCategory(ref Guid rguid, ref Guid pcatid, ref Guid ppcatidList, uint32 ulCount) mut => VT.[Friend]FindClosestCategory(&this, ref rguid, ref pcatid, ref ppcatidList, ulCount);
 
 	public HRESULT RegisterGUIDDescription(ref Guid rclsid, ref Guid rguid, char16* pchDesc, uint32 cch) mut => VT.[Friend]RegisterGUIDDescription(&this, ref rclsid, ref rguid, pchDesc, cch);
 
@@ -3990,7 +3990,7 @@ public static
 
 	public HRESULT RegisterGUID(ref Guid rguid, uint32* pguidatom) mut => VT.[Friend]RegisterGUID(&this, ref rguid, pguidatom);
 
-	public HRESULT GetGUID(uint32 guidatom, ref Guid pguid) mut => VT.[Friend]GetGUID(&this, guidatom, pguid);
+	public HRESULT GetGUID(uint32 guidatom, ref Guid pguid) mut => VT.[Friend]GetGUID(&this, guidatom, ref pguid);
 
 	public HRESULT IsEqualTfGuidAtom(uint32 guidatom, ref Guid rguid, BOOL* pfEqual) mut => VT.[Friend]IsEqualTfGuidAtom(&this, guidatom, ref rguid, pfEqual);
 }
@@ -4120,7 +4120,7 @@ public static
 
 	public HRESULT GetDescription(BSTR* pbstrDescription) mut => VT.[Friend]GetDescription(&this, pbstrDescription);
 
-	public HRESULT GetGUID(ref Guid pguid) mut => VT.[Friend]GetGUID(&this, pguid);
+	public HRESULT GetGUID(ref Guid pguid) mut => VT.[Friend]GetGUID(&this, ref pguid);
 
 	public HRESULT Show(BOOL bShow) mut => VT.[Friend]Show(&this, bShow);
 
@@ -4961,11 +4961,11 @@ public static
 
 	public HRESULT GetLocalizedString(ref Guid Term, uint32 lcid, BSTR* pResult, uint32* plcid) mut => VT.[Friend]GetLocalizedString(&this, ref Term, lcid, pResult, plcid);
 
-	public HRESULT GetParentTerm(ref Guid Term, ref Guid pParentTerm) mut => VT.[Friend]GetParentTerm(&this, ref Term, pParentTerm);
+	public HRESULT GetParentTerm(ref Guid Term, ref Guid pParentTerm) mut => VT.[Friend]GetParentTerm(&this, ref Term, ref pParentTerm);
 
 	public HRESULT GetMnemonicString(ref Guid Term, BSTR* pResult) mut => VT.[Friend]GetMnemonicString(&this, ref Term, pResult);
 
-	public HRESULT LookupMnemonicTerm(BSTR bstrMnemonic, ref Guid pTerm) mut => VT.[Friend]LookupMnemonicTerm(&this, bstrMnemonic, pTerm);
+	public HRESULT LookupMnemonicTerm(BSTR bstrMnemonic, ref Guid pTerm) mut => VT.[Friend]LookupMnemonicTerm(&this, bstrMnemonic, ref pTerm);
 
 	public HRESULT ConvertValueToString(ref Guid Term, uint32 lcid, VARIANT varValue, BSTR* pbstrResult, uint32* plcid) mut => VT.[Friend]ConvertValueToString(&this, ref Term, lcid, varValue, pbstrResult, plcid);
 }
@@ -4988,7 +4988,7 @@ public static
 
 	public HRESULT GetSubcomponentCount(uint32 ulSub, uint32* ulCount) mut => VT.[Friend]GetSubcomponentCount(&this, ulSub, ulCount);
 
-	public HRESULT GetImplementationID(uint32 ulSub, ref Guid implid) mut => VT.[Friend]GetImplementationID(&this, ulSub, implid);
+	public HRESULT GetImplementationID(uint32 ulSub, ref Guid implid) mut => VT.[Friend]GetImplementationID(&this, ulSub, ref implid);
 
 	public HRESULT GetBuildVersion(uint32 ulSub, uint32* pdwMajor, uint32* pdwMinor) mut => VT.[Friend]GetBuildVersion(&this, ulSub, pdwMajor, pdwMinor);
 

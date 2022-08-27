@@ -1991,7 +1991,7 @@ public static
 
 	public HRESULT put_FreeBuffers(uint32 buffers) mut => VT.[Friend]put_FreeBuffers(&this, buffers);
 
-	public HRESULT get_Guid(ref Guid guid) mut => VT.[Friend]get_Guid(&this, guid);
+	public HRESULT get_Guid(ref Guid guid) mut => VT.[Friend]get_Guid(&this, ref guid);
 
 	public HRESULT put_Guid(Guid guid) mut => VT.[Friend]put_Guid(&this, guid);
 
@@ -2329,7 +2329,7 @@ public static
 
 	public HRESULT put_DisplayName(BSTR name) mut => VT.[Friend]put_DisplayName(&this, name);
 
-	public HRESULT get_Guid(ref Guid guid) mut => VT.[Friend]get_Guid(&this, guid);
+	public HRESULT get_Guid(ref Guid guid) mut => VT.[Friend]get_Guid(&this, ref guid);
 
 	public HRESULT put_Guid(Guid guid) mut => VT.[Friend]put_Guid(&this, guid);
 

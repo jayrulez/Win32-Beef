@@ -9449,7 +9449,7 @@ public static
 	}
 
 
-	public HRESULT GetDefaultSearchGUID(ref Guid pguid) mut => VT.[Friend]GetDefaultSearchGUID(&this, pguid);
+	public HRESULT GetDefaultSearchGUID(ref Guid pguid) mut => VT.[Friend]GetDefaultSearchGUID(&this, ref pguid);
 
 	public HRESULT EnumSearches(IEnumExtraSearch** ppenum) mut => VT.[Friend]EnumSearches(&this, ppenum);
 
@@ -9524,7 +9524,7 @@ public static
 	}
 
 
-	public HRESULT GetView(ref Guid pvid, uint32 uView) mut => VT.[Friend]GetView(&this, pvid, uView);
+	public HRESULT GetView(ref Guid pvid, uint32 uView) mut => VT.[Friend]GetView(&this, ref pvid, uView);
 
 	public HRESULT CreateViewWindow2(SV2CVW2_PARAMS* lpParams) mut => VT.[Friend]CreateViewWindow2(&this, lpParams);
 
@@ -10013,7 +10013,7 @@ public static
 	}
 
 
-	public HRESULT GetServiceIds(uint32* serviceIdCount, ref Guid serviceIds) mut => VT.[Friend]GetServiceIds(&this, serviceIdCount, serviceIds);
+	public HRESULT GetServiceIds(uint32* serviceIdCount, ref Guid serviceIds) mut => VT.[Friend]GetServiceIds(&this, serviceIdCount, ref serviceIds);
 }
 
 [CRepr]struct IShellItem : IUnknown
@@ -10079,7 +10079,7 @@ public static
 
 	public HRESULT GetProperty(PROPERTYKEY* key, PROPVARIANT* ppropvar) mut => VT.[Friend]GetProperty(&this, key, ppropvar);
 
-	public HRESULT GetCLSID(PROPERTYKEY* key, ref Guid pclsid) mut => VT.[Friend]GetCLSID(&this, key, pclsid);
+	public HRESULT GetCLSID(PROPERTYKEY* key, ref Guid pclsid) mut => VT.[Friend]GetCLSID(&this, key, ref pclsid);
 
 	public HRESULT GetFileTime(PROPERTYKEY* key, FILETIME* pft) mut => VT.[Friend]GetFileTime(&this, key, pft);
 
@@ -10464,9 +10464,9 @@ public static
 
 	public HRESULT CanCategorizeOnSCID(PROPERTYKEY* pscid) mut => VT.[Friend]CanCategorizeOnSCID(&this, pscid);
 
-	public HRESULT GetDefaultCategory(ref Guid pguid, PROPERTYKEY* pscid) mut => VT.[Friend]GetDefaultCategory(&this, pguid, pscid);
+	public HRESULT GetDefaultCategory(ref Guid pguid, PROPERTYKEY* pscid) mut => VT.[Friend]GetDefaultCategory(&this, ref pguid, pscid);
 
-	public HRESULT GetCategoryForSCID(PROPERTYKEY* pscid, ref Guid pguid) mut => VT.[Friend]GetCategoryForSCID(&this, pscid, pguid);
+	public HRESULT GetCategoryForSCID(PROPERTYKEY* pscid, ref Guid pguid) mut => VT.[Friend]GetCategoryForSCID(&this, pscid, ref pguid);
 
 	public HRESULT EnumCategories(IEnumGUID** penum) mut => VT.[Friend]EnumCategories(&this, penum);
 
@@ -12106,7 +12106,7 @@ public static
 	}
 
 
-	public HRESULT GetId(ref Guid pkfid) mut => VT.[Friend]GetId(&this, pkfid);
+	public HRESULT GetId(ref Guid pkfid) mut => VT.[Friend]GetId(&this, ref pkfid);
 
 	public HRESULT GetCategory(KF_CATEGORY* pCategory) mut => VT.[Friend]GetCategory(&this, pCategory);
 
@@ -12118,7 +12118,7 @@ public static
 
 	public HRESULT GetIDList(uint32 dwFlags, ITEMIDLIST** ppidl) mut => VT.[Friend]GetIDList(&this, dwFlags, ppidl);
 
-	public HRESULT GetFolderType(ref Guid pftid) mut => VT.[Friend]GetFolderType(&this, pftid);
+	public HRESULT GetFolderType(ref Guid pftid) mut => VT.[Friend]GetFolderType(&this, ref pftid);
 
 	public HRESULT GetRedirectionCapabilities(uint32* pCapabilities) mut => VT.[Friend]GetRedirectionCapabilities(&this, pCapabilities);
 
@@ -12146,11 +12146,11 @@ public static
 	}
 
 
-	public HRESULT FolderIdFromCsidl(int32 nCsidl, ref Guid pfid) mut => VT.[Friend]FolderIdFromCsidl(&this, nCsidl, pfid);
+	public HRESULT FolderIdFromCsidl(int32 nCsidl, ref Guid pfid) mut => VT.[Friend]FolderIdFromCsidl(&this, nCsidl, ref pfid);
 
 	public HRESULT FolderIdToCsidl(ref Guid rfid, int32* pnCsidl) mut => VT.[Friend]FolderIdToCsidl(&this, ref rfid, pnCsidl);
 
-	public HRESULT GetFolderIds(ref Guid ppKFId, uint32* pCount) mut => VT.[Friend]GetFolderIds(&this, ppKFId, pCount);
+	public HRESULT GetFolderIds(ref Guid ppKFId, uint32* pCount) mut => VT.[Friend]GetFolderIds(&this, ref ppKFId, pCount);
 
 	public HRESULT GetFolder(ref Guid rfid, IKnownFolder** ppkf) mut => VT.[Friend]GetFolder(&this, ref rfid, ppkf);
 
@@ -12669,7 +12669,7 @@ public static
 
 	public HRESULT GetToolTip(IShellItemArray* psiItemArray, PWSTR* ppszInfotip) mut => VT.[Friend]GetToolTip(&this, psiItemArray, ppszInfotip);
 
-	public HRESULT GetCanonicalName(ref Guid pguidCommandName) mut => VT.[Friend]GetCanonicalName(&this, pguidCommandName);
+	public HRESULT GetCanonicalName(ref Guid pguidCommandName) mut => VT.[Friend]GetCanonicalName(&this, ref pguidCommandName);
 
 	public HRESULT GetState(IShellItemArray* psiItemArray, BOOL fOkToBeSlow, uint32* pCmdState) mut => VT.[Friend]GetState(&this, psiItemArray, fOkToBeSlow, pCmdState);
 
@@ -12812,7 +12812,7 @@ public static
 
 	public HRESULT SetJunctionCLSID(ref Guid clsid) mut => VT.[Friend]SetJunctionCLSID(&this, ref clsid);
 
-	public HRESULT GetJunctionCLSID(ref Guid pclsid) mut => VT.[Friend]GetJunctionCLSID(&this, pclsid);
+	public HRESULT GetJunctionCLSID(ref Guid pclsid) mut => VT.[Friend]GetJunctionCLSID(&this, ref pclsid);
 }
 
 [CRepr]struct ICustomDestinationList : IUnknown
@@ -13100,7 +13100,7 @@ public static
 
 	public HRESULT SetOptions(LIBRARYOPTIONFLAGS lofMask, LIBRARYOPTIONFLAGS lofOptions) mut => VT.[Friend]SetOptions(&this, lofMask, lofOptions);
 
-	public HRESULT GetFolderType(ref Guid pftid) mut => VT.[Friend]GetFolderType(&this, pftid);
+	public HRESULT GetFolderType(ref Guid pftid) mut => VT.[Friend]GetFolderType(&this, ref pftid);
 
 	public HRESULT SetFolderType(ref Guid ftid) mut => VT.[Friend]SetFolderType(&this, ref ftid);
 
@@ -13176,7 +13176,7 @@ public static
 
 	public HRESULT IsWindowOnCurrentVirtualDesktop(HWND topLevelWindow, BOOL* onCurrentDesktop) mut => VT.[Friend]IsWindowOnCurrentVirtualDesktop(&this, topLevelWindow, onCurrentDesktop);
 
-	public HRESULT GetWindowDesktopId(HWND topLevelWindow, ref Guid desktopId) mut => VT.[Friend]GetWindowDesktopId(&this, topLevelWindow, desktopId);
+	public HRESULT GetWindowDesktopId(HWND topLevelWindow, ref Guid desktopId) mut => VT.[Friend]GetWindowDesktopId(&this, topLevelWindow, ref desktopId);
 
 	public HRESULT MoveWindowToDesktop(HWND topLevelWindow, ref Guid desktopId) mut => VT.[Friend]MoveWindowToDesktop(&this, topLevelWindow, ref desktopId);
 }
@@ -13420,7 +13420,7 @@ public static
 
 	public HRESULT SetTargetSessionId(uint32 sessionId) mut => VT.[Friend]SetTargetSessionId(&this, sessionId);
 
-	public HRESULT EnumerateBackgroundTasks(PWSTR packageFullName, uint32* taskCount, ref Guid taskIds, PWSTR** taskNames) mut => VT.[Friend]EnumerateBackgroundTasks(&this, packageFullName, taskCount, taskIds, taskNames);
+	public HRESULT EnumerateBackgroundTasks(PWSTR packageFullName, uint32* taskCount, ref Guid taskIds, PWSTR** taskNames) mut => VT.[Friend]EnumerateBackgroundTasks(&this, packageFullName, taskCount, ref taskIds, taskNames);
 
 	public HRESULT ActivateBackgroundTask(ref Guid taskId) mut => VT.[Friend]ActivateBackgroundTask(&this, ref taskId);
 
@@ -17456,7 +17456,7 @@ public static
 
 	public HRESULT GetNumberOfApps(uint32* pdwApps) mut => VT.[Friend]GetNumberOfApps(&this, pdwApps);
 
-	public HRESULT EnumApps(ref Guid pAppCategoryId, IEnumPublishedApps** ppepa) mut => VT.[Friend]EnumApps(&this, pAppCategoryId, ppepa);
+	public HRESULT EnumApps(ref Guid pAppCategoryId, IEnumPublishedApps** ppepa) mut => VT.[Friend]EnumApps(&this, ref pAppCategoryId, ppepa);
 }
 
 [CRepr]struct ICredentialProviderCredential : IUnknown
@@ -17661,7 +17661,7 @@ public static
 	}
 
 
-	public HRESULT Filter(CREDENTIAL_PROVIDER_USAGE_SCENARIO cpus, uint32 dwFlags, ref Guid rgclsidProviders, BOOL* rgbAllow, uint32 cProviders) mut => VT.[Friend]Filter(&this, cpus, dwFlags, rgclsidProviders, rgbAllow, cProviders);
+	public HRESULT Filter(CREDENTIAL_PROVIDER_USAGE_SCENARIO cpus, uint32 dwFlags, ref Guid rgclsidProviders, BOOL* rgbAllow, uint32 cProviders) mut => VT.[Friend]Filter(&this, cpus, dwFlags, ref rgclsidProviders, rgbAllow, cProviders);
 
 	public HRESULT UpdateRemoteCredential(CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcsIn, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcsOut) mut => VT.[Friend]UpdateRemoteCredential(&this, pcpcsIn, pcpcsOut);
 }
@@ -17734,7 +17734,7 @@ public static
 
 	public HRESULT GetSid(PWSTR* sid) mut => VT.[Friend]GetSid(&this, sid);
 
-	public HRESULT GetProviderID(ref Guid providerID) mut => VT.[Friend]GetProviderID(&this, providerID);
+	public HRESULT GetProviderID(ref Guid providerID) mut => VT.[Friend]GetProviderID(&this, ref providerID);
 
 	public HRESULT GetStringValue(PROPERTYKEY* key, PWSTR* stringValue) mut => VT.[Friend]GetStringValue(&this, key, stringValue);
 
@@ -18015,7 +18015,7 @@ public static
 
 	public HRESULT SetHandlerProgressText(PWSTR pszProgressText, SYNCMGR_CANCEL_REQUEST* pnCancelRequest) mut => VT.[Friend]SetHandlerProgressText(&this, pszProgressText, pnCancelRequest);
 
-	public HRESULT ReportEvent(PWSTR pszItemID, SYNCMGR_EVENT_LEVEL nLevel, SYNCMGR_EVENT_FLAGS nFlags, PWSTR pszName, PWSTR pszDescription, PWSTR pszLinkText, PWSTR pszLinkReference, PWSTR pszContext, ref Guid pguidEventID) mut => VT.[Friend]ReportEvent(&this, pszItemID, nLevel, nFlags, pszName, pszDescription, pszLinkText, pszLinkReference, pszContext, pguidEventID);
+	public HRESULT ReportEvent(PWSTR pszItemID, SYNCMGR_EVENT_LEVEL nLevel, SYNCMGR_EVENT_FLAGS nFlags, PWSTR pszName, PWSTR pszDescription, PWSTR pszLinkText, PWSTR pszLinkReference, PWSTR pszContext, ref Guid pguidEventID) mut => VT.[Friend]ReportEvent(&this, pszItemID, nLevel, nFlags, pszName, pszDescription, pszLinkText, pszLinkReference, pszContext, ref pguidEventID);
 
 	public HRESULT CanContinue(PWSTR pszItemID) mut => VT.[Friend]CanContinue(&this, pszItemID);
 
@@ -18170,7 +18170,7 @@ public static
 
 	public HRESULT GetEvent(ref Guid rguidEventID, ISyncMgrEvent** ppEvent) mut => VT.[Friend]GetEvent(&this, ref rguidEventID, ppEvent);
 
-	public HRESULT RemoveEvent(ref Guid pguidEventIDs, uint32 cEvents) mut => VT.[Friend]RemoveEvent(&this, pguidEventIDs, cEvents);
+	public HRESULT RemoveEvent(ref Guid pguidEventIDs, uint32 cEvents) mut => VT.[Friend]RemoveEvent(&this, ref pguidEventIDs, cEvents);
 }
 
 [CRepr]struct ISyncMgrEvent : IUnknown
@@ -18195,7 +18195,7 @@ public static
 	}
 
 
-	public HRESULT GetEventID(ref Guid pguidEventID) mut => VT.[Friend]GetEventID(&this, pguidEventID);
+	public HRESULT GetEventID(ref Guid pguidEventID) mut => VT.[Friend]GetEventID(&this, ref pguidEventID);
 
 	public HRESULT GetHandlerID(PWSTR* ppszHandlerID) mut => VT.[Friend]GetHandlerID(&this, ppszHandlerID);
 
@@ -18587,7 +18587,7 @@ public static
 
 	public HRESULT CreateImageFromStream(IStream* pStream, IShellImageData** ppshimg) mut => VT.[Friend]CreateImageFromStream(&this, pStream, ppshimg);
 
-	public HRESULT GetDataFormatFromPath(PWSTR pszPath, ref Guid pDataFormat) mut => VT.[Friend]GetDataFormatFromPath(&this, pszPath, pDataFormat);
+	public HRESULT GetDataFormatFromPath(PWSTR pszPath, ref Guid pDataFormat) mut => VT.[Friend]GetDataFormatFromPath(&this, pszPath, ref pDataFormat);
 }
 
 [CRepr]struct IShellImageData : IUnknown
@@ -18663,7 +18663,7 @@ public static
 
 	public HRESULT GetSize(SIZE* pSize) mut => VT.[Friend]GetSize(&this, pSize);
 
-	public HRESULT GetRawDataFormat(ref Guid pDataFormat) mut => VT.[Friend]GetRawDataFormat(&this, pDataFormat);
+	public HRESULT GetRawDataFormat(ref Guid pDataFormat) mut => VT.[Friend]GetRawDataFormat(&this, ref pDataFormat);
 
 	public HRESULT GetPixelFormat(uint32* pFormat) mut => VT.[Friend]GetPixelFormat(&this, pFormat);
 
@@ -18683,7 +18683,7 @@ public static
 
 	public HRESULT GetResolution(uint32* puResolutionX, uint32* puResolutionY) mut => VT.[Friend]GetResolution(&this, puResolutionX, puResolutionY);
 
-	public HRESULT GetEncoderParams(ref Guid pguidFmt, uint8** ppEncParams) mut => VT.[Friend]GetEncoderParams(&this, pguidFmt, ppEncParams);
+	public HRESULT GetEncoderParams(ref Guid pguidFmt, uint8** ppEncParams) mut => VT.[Friend]GetEncoderParams(&this, ref pguidFmt, ppEncParams);
 
 	public HRESULT RegisterAbort(IShellImageDataAbort* pAbort, IShellImageDataAbort** ppAbortPrev) mut => VT.[Friend]RegisterAbort(&this, pAbort, ppAbortPrev);
 
@@ -18842,7 +18842,7 @@ public static
 
 	public HRESULT SetProgressCallback(ISyncMgrSynchronizeCallback* lpCallBack) mut => VT.[Friend]SetProgressCallback(&this, lpCallBack);
 
-	public HRESULT PrepareForSync(uint32 cbNumItems, ref Guid pItemIDs, HWND hWndParent, uint32 dwReserved) mut => VT.[Friend]PrepareForSync(&this, cbNumItems, pItemIDs, hWndParent, dwReserved);
+	public HRESULT PrepareForSync(uint32 cbNumItems, ref Guid pItemIDs, HWND hWndParent, uint32 dwReserved) mut => VT.[Friend]PrepareForSync(&this, cbNumItems, ref pItemIDs, hWndParent, dwReserved);
 
 	public HRESULT Synchronize(HWND hWndParent) mut => VT.[Friend]Synchronize(&this, hWndParent);
 

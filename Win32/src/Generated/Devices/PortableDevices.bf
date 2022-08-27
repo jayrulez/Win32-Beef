@@ -2285,7 +2285,7 @@ public static
 
 	public HRESULT SetGuidValue(PROPERTYKEY* key, ref Guid Value) mut => VT.[Friend]SetGuidValue(&this, key, ref Value);
 
-	public HRESULT GetGuidValue(PROPERTYKEY* key, ref Guid pValue) mut => VT.[Friend]GetGuidValue(&this, key, pValue);
+	public HRESULT GetGuidValue(PROPERTYKEY* key, ref Guid pValue) mut => VT.[Friend]GetGuidValue(&this, key, ref pValue);
 
 	public HRESULT SetBufferValue(PROPERTYKEY* key, uint8* pValue, uint32 cbValue) mut => VT.[Friend]SetBufferValue(&this, key, pValue, cbValue);
 
@@ -2731,11 +2731,11 @@ public static
 	}
 
 
-	public HRESULT QueueGetValuesByObjectList(IPortableDevicePropVariantCollection* pObjectIDs, IPortableDeviceKeyCollection* pKeys, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) mut => VT.[Friend]QueueGetValuesByObjectList(&this, pObjectIDs, pKeys, pCallback, pContext);
+	public HRESULT QueueGetValuesByObjectList(IPortableDevicePropVariantCollection* pObjectIDs, IPortableDeviceKeyCollection* pKeys, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) mut => VT.[Friend]QueueGetValuesByObjectList(&this, pObjectIDs, pKeys, pCallback, ref pContext);
 
-	public HRESULT QueueGetValuesByObjectFormat(ref Guid pguidObjectFormat, PWSTR pszParentObjectID, uint32 dwDepth, IPortableDeviceKeyCollection* pKeys, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) mut => VT.[Friend]QueueGetValuesByObjectFormat(&this, ref pguidObjectFormat, pszParentObjectID, dwDepth, pKeys, pCallback, pContext);
+	public HRESULT QueueGetValuesByObjectFormat(ref Guid pguidObjectFormat, PWSTR pszParentObjectID, uint32 dwDepth, IPortableDeviceKeyCollection* pKeys, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) mut => VT.[Friend]QueueGetValuesByObjectFormat(&this, ref pguidObjectFormat, pszParentObjectID, dwDepth, pKeys, pCallback, ref pContext);
 
-	public HRESULT QueueSetValuesByObjectList(IPortableDeviceValuesCollection* pObjectValues, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) mut => VT.[Friend]QueueSetValuesByObjectList(&this, pObjectValues, pCallback, pContext);
+	public HRESULT QueueSetValuesByObjectList(IPortableDeviceValuesCollection* pObjectValues, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) mut => VT.[Friend]QueueSetValuesByObjectList(&this, pObjectValues, pCallback, ref pContext);
 
 	public HRESULT Start(ref Guid pContext) mut => VT.[Friend]Start(&this, ref pContext);
 
@@ -3111,7 +3111,7 @@ public static
 	}
 
 
-	public HRESULT GetRadioManagerSignature(ref Guid pguidSignature) mut => VT.[Friend]GetRadioManagerSignature(&this, pguidSignature);
+	public HRESULT GetRadioManagerSignature(ref Guid pguidSignature) mut => VT.[Friend]GetRadioManagerSignature(&this, ref pguidSignature);
 
 	public HRESULT GetInstanceSignature(BSTR* pbstrId) mut => VT.[Friend]GetInstanceSignature(&this, pbstrId);
 

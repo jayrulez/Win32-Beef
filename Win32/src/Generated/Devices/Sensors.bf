@@ -885,11 +885,11 @@ public static
 	}
 
 
-	public HRESULT GetSensorsByCategory(ref Guid sensorCategory, ISensorCollection** ppSensorsFound) mut => VT.[Friend]GetSensorsByCategory(&this, sensorCategory, ppSensorsFound);
+	public HRESULT GetSensorsByCategory(ref Guid sensorCategory, ISensorCollection** ppSensorsFound) mut => VT.[Friend]GetSensorsByCategory(&this, ref sensorCategory, ppSensorsFound);
 
-	public HRESULT GetSensorsByType(ref Guid sensorType, ISensorCollection** ppSensorsFound) mut => VT.[Friend]GetSensorsByType(&this, sensorType, ppSensorsFound);
+	public HRESULT GetSensorsByType(ref Guid sensorType, ISensorCollection** ppSensorsFound) mut => VT.[Friend]GetSensorsByType(&this, ref sensorType, ppSensorsFound);
 
-	public HRESULT GetSensorByID(ref Guid sensorID, ISensor** ppSensor) mut => VT.[Friend]GetSensorByID(&this, sensorID, ppSensor);
+	public HRESULT GetSensorByID(ref Guid sensorID, ISensor** ppSensor) mut => VT.[Friend]GetSensorByID(&this, ref sensorID, ppSensor);
 
 	public HRESULT SetEventSink(ISensorManagerEvents* pEvents) mut => VT.[Friend]SetEventSink(&this, pEvents);
 
@@ -939,7 +939,7 @@ public static
 
 	public HRESULT Remove(ISensor* pSensor) mut => VT.[Friend]Remove(&this, pSensor);
 
-	public HRESULT RemoveByID(ref Guid sensorID) mut => VT.[Friend]RemoveByID(&this, sensorID);
+	public HRESULT RemoveByID(ref Guid sensorID) mut => VT.[Friend]RemoveByID(&this, ref sensorID);
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 }
@@ -970,11 +970,11 @@ public static
 	}
 
 
-	public HRESULT GetID(ref Guid pID) mut => VT.[Friend]GetID(&this, pID);
+	public HRESULT GetID(ref Guid pID) mut => VT.[Friend]GetID(&this, ref pID);
 
-	public HRESULT GetCategory(ref Guid pSensorCategory) mut => VT.[Friend]GetCategory(&this, pSensorCategory);
+	public HRESULT GetCategory(ref Guid pSensorCategory) mut => VT.[Friend]GetCategory(&this, ref pSensorCategory);
 
-	public HRESULT GetType(ref Guid pSensorType) mut => VT.[Friend]COM_GetType(&this, pSensorType);
+	public HRESULT GetType(ref Guid pSensorType) mut => VT.[Friend]COM_GetType(&this, ref pSensorType);
 
 	public HRESULT GetFriendlyName(BSTR* pFriendlyName) mut => VT.[Friend]GetFriendlyName(&this, pFriendlyName);
 
@@ -994,9 +994,9 @@ public static
 
 	public HRESULT SupportsEvent(ref Guid eventGuid, int16* pIsSupported) mut => VT.[Friend]SupportsEvent(&this, ref eventGuid, pIsSupported);
 
-	public HRESULT GetEventInterest(ref Guid ppValues, uint32* pCount) mut => VT.[Friend]GetEventInterest(&this, ppValues, pCount);
+	public HRESULT GetEventInterest(ref Guid ppValues, uint32* pCount) mut => VT.[Friend]GetEventInterest(&this, ref ppValues, pCount);
 
-	public HRESULT SetEventInterest(ref Guid pValues, uint32 count) mut => VT.[Friend]SetEventInterest(&this, pValues, count);
+	public HRESULT SetEventInterest(ref Guid pValues, uint32 count) mut => VT.[Friend]SetEventInterest(&this, ref pValues, count);
 
 	public HRESULT SetEventSink(ISensorEvents* pEvents) mut => VT.[Friend]SetEventSink(&this, pEvents);
 }
@@ -1058,7 +1058,7 @@ public static
 
 	public HRESULT OnEvent(ISensor* pSensor, ref Guid eventID, IPortableDeviceValues* pEventData) mut => VT.[Friend]OnEvent(&this, pSensor, ref eventID, pEventData);
 
-	public HRESULT OnLeave(ref Guid ID) mut => VT.[Friend]OnLeave(&this, ID);
+	public HRESULT OnLeave(ref Guid ID) mut => VT.[Friend]OnLeave(&this, ref ID);
 }
 
 #endregion

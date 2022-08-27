@@ -788,7 +788,7 @@ public static
 	}
 
 
-	public HRESULT GetRemoteClassId(ref Guid pclsid) mut => VT.[Friend]GetRemoteClassId(&this, pclsid);
+	public HRESULT GetRemoteClassId(ref Guid pclsid) mut => VT.[Friend]GetRemoteClassId(&this, ref pclsid);
 
 	public HRESULT Create(uint32 cbWhereabouts, uint8* rgbWhereabouts, ITransactionExport** ppExport) mut => VT.[Friend]Create(&this, cbWhereabouts, rgbWhereabouts, ppExport);
 }
@@ -1033,7 +1033,7 @@ public static
 	}
 
 
-	public HRESULT Create(PSTR pszDSN, PSTR pszClientDllName, ref Guid pguidRm, IDtcToXaHelper** ppXaHelper) mut => VT.[Friend]Create(&this, pszDSN, pszClientDllName, pguidRm, ppXaHelper);
+	public HRESULT Create(PSTR pszDSN, PSTR pszClientDllName, ref Guid pguidRm, IDtcToXaHelper** ppXaHelper) mut => VT.[Friend]Create(&this, pszDSN, pszClientDllName, ref pguidRm, ppXaHelper);
 }
 
 [CRepr]struct IDtcToXaHelper : IUnknown
@@ -1051,7 +1051,7 @@ public static
 
 	public HRESULT Close(BOOL i_fDoRecovery) mut => VT.[Friend]Close(&this, i_fDoRecovery);
 
-	public HRESULT TranslateTridToXid(ITransaction* pITransaction, ref Guid pguidBqual, xid_t* pXid) mut => VT.[Friend]TranslateTridToXid(&this, pITransaction, pguidBqual, pXid);
+	public HRESULT TranslateTridToXid(ITransaction* pITransaction, ref Guid pguidBqual, xid_t* pXid) mut => VT.[Friend]TranslateTridToXid(&this, pITransaction, ref pguidBqual, pXid);
 }
 
 [CRepr]struct IDtcToXaHelperSinglePipe : IUnknown
@@ -1261,7 +1261,7 @@ public static
 	}
 
 
-	public HRESULT Create(ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, IResourceManager** ppResMgr) mut => VT.[Friend]Create(&this, pguidRM, pszRMName, pIResMgrSink, ppResMgr);
+	public HRESULT Create(ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, IResourceManager** ppResMgr) mut => VT.[Friend]Create(&this, ref pguidRM, pszRMName, pIResMgrSink, ppResMgr);
 }
 
 [CRepr]struct IResourceManagerFactory2 : IResourceManagerFactory
@@ -1276,7 +1276,7 @@ public static
 	}
 
 
-	public HRESULT CreateEx(ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, ref Guid riidRequested, void** ppvResMgr) mut => VT.[Friend]CreateEx(&this, pguidRM, pszRMName, pIResMgrSink, ref riidRequested, ppvResMgr);
+	public HRESULT CreateEx(ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, ref Guid riidRequested, void** ppvResMgr) mut => VT.[Friend]CreateEx(&this, ref pguidRM, pszRMName, pIResMgrSink, ref riidRequested, ppvResMgr);
 }
 
 [CRepr]struct IPrepareInfo : IUnknown

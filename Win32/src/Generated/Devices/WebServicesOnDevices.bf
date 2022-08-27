@@ -894,7 +894,7 @@ public static
 
 	public HRESULT SetAlias(ref Guid pAlias) mut => VT.[Friend]SetAlias(&this, ref pAlias);
 
-	public HRESULT GetAlias(ref Guid pAlias) mut => VT.[Friend]GetAlias(&this, pAlias);
+	public HRESULT GetAlias(ref Guid pAlias) mut => VT.[Friend]GetAlias(&this, ref pAlias);
 }
 
 [CRepr]struct IWSDHttpMessageParameters : IWSDMessageParameters
@@ -1195,7 +1195,7 @@ public static
 
 	public HRESULT GetLocalTransportAddress(PWSTR* ppszLocalTransportAddress) mut => VT.[Friend]GetLocalTransportAddress(&this, ppszLocalTransportAddress);
 
-	public HRESULT GetLocalInterfaceGUID(ref Guid pGuid) mut => VT.[Friend]GetLocalInterfaceGUID(&this, pGuid);
+	public HRESULT GetLocalInterfaceGUID(ref Guid pGuid) mut => VT.[Friend]GetLocalInterfaceGUID(&this, ref pGuid);
 
 	public HRESULT GetInstanceId(uint64* pullInstanceId) mut => VT.[Friend]GetInstanceId(&this, pullInstanceId);
 }

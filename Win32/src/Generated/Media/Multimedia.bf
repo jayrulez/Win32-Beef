@@ -11519,7 +11519,7 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIFileOpenA(IAVIFile** ppfile, PSTR szFile, uint32 uMode, ref Guid lpHandler);
-	public static HRESULT AVIFileOpen(IAVIFile** ppfile, PSTR szFile, uint32 uMode, ref Guid lpHandler) => AVIFileOpenA(ppfile, szFile, uMode, lpHandler);
+	public static HRESULT AVIFileOpen(IAVIFile** ppfile, PSTR szFile, uint32 uMode, ref Guid lpHandler) => AVIFileOpenA(ppfile, szFile, uMode, ref lpHandler);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIFileOpenW(IAVIFile** ppfile, PWSTR szFile, uint32 uMode, ref Guid lpHandler);
@@ -11613,7 +11613,7 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIStreamOpenFromFileA(IAVIStream** ppavi, PSTR szFile, uint32 fccType, int32 lParam, uint32 mode, ref Guid pclsidHandler);
-	public static HRESULT AVIStreamOpenFromFile(IAVIStream** ppavi, PSTR szFile, uint32 fccType, int32 lParam, uint32 mode, ref Guid pclsidHandler) => AVIStreamOpenFromFileA(ppavi, szFile, fccType, lParam, mode, pclsidHandler);
+	public static HRESULT AVIStreamOpenFromFile(IAVIStream** ppavi, PSTR szFile, uint32 fccType, int32 lParam, uint32 mode, ref Guid pclsidHandler) => AVIStreamOpenFromFileA(ppavi, szFile, fccType, lParam, mode, ref pclsidHandler);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIStreamOpenFromFileW(IAVIStream** ppavi, PWSTR szFile, uint32 fccType, int32 lParam, uint32 mode, ref Guid pclsidHandler);
@@ -11626,11 +11626,11 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVISaveA(PSTR szFile, ref Guid pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream* pfile, AVICOMPRESSOPTIONS* lpOptions);
-	public static HRESULT AVISave(PSTR szFile, ref Guid pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream* pfile, AVICOMPRESSOPTIONS* lpOptions) => AVISaveA(szFile, pclsidHandler, lpfnCallback, nStreams, pfile, lpOptions);
+	public static HRESULT AVISave(PSTR szFile, ref Guid pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream* pfile, AVICOMPRESSOPTIONS* lpOptions) => AVISaveA(szFile, ref pclsidHandler, lpfnCallback, nStreams, pfile, lpOptions);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVISaveVA(PSTR szFile, ref Guid pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream** ppavi, AVICOMPRESSOPTIONS** plpOptions);
-	public static HRESULT AVISaveV(PSTR szFile, ref Guid pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream** ppavi, AVICOMPRESSOPTIONS** plpOptions) => AVISaveVA(szFile, pclsidHandler, lpfnCallback, nStreams, ppavi, plpOptions);
+	public static HRESULT AVISaveV(PSTR szFile, ref Guid pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream** ppavi, AVICOMPRESSOPTIONS** plpOptions) => AVISaveVA(szFile, ref pclsidHandler, lpfnCallback, nStreams, ppavi, plpOptions);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVISaveW(PWSTR szFile, ref Guid pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream* pfile, AVICOMPRESSOPTIONS* lpOptions);

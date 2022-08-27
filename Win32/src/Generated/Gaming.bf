@@ -149,7 +149,7 @@ public static
 	}
 
 
-	public HRESULT AddGame(BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, ref Guid pguidInstanceID) mut => VT.[Friend]AddGame(&this, bstrGDFBinaryPath, bstrGameInstallDirectory, installScope, pguidInstanceID);
+	public HRESULT AddGame(BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, ref Guid pguidInstanceID) mut => VT.[Friend]AddGame(&this, bstrGDFBinaryPath, bstrGameInstallDirectory, installScope, ref pguidInstanceID);
 
 	public HRESULT RemoveGame(Guid guidInstanceID) mut => VT.[Friend]RemoveGame(&this, guidInstanceID);
 

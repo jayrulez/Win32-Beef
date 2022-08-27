@@ -6442,9 +6442,9 @@ public static
 	}
 
 
-	public void GetCryptoType(ref Guid pCryptoType) mut => VT.[Friend]GetCryptoType(&this, pCryptoType);
+	public void GetCryptoType(ref Guid pCryptoType) mut => VT.[Friend]GetCryptoType(&this, ref pCryptoType);
 
-	public void GetDecoderProfile(ref Guid pDecoderProfile) mut => VT.[Friend]GetDecoderProfile(&this, pDecoderProfile);
+	public void GetDecoderProfile(ref Guid pDecoderProfile) mut => VT.[Friend]GetDecoderProfile(&this, ref pDecoderProfile);
 
 	public HRESULT GetCertificateSize(uint32* pCertificateSize) mut => VT.[Friend]GetCertificateSize(&this, pCertificateSize);
 
@@ -6730,7 +6730,7 @@ public static
 
 	public uint32 GetVideoDecoderProfileCount() mut => VT.[Friend]GetVideoDecoderProfileCount(&this);
 
-	public HRESULT GetVideoDecoderProfile(uint32 Index, ref Guid pDecoderProfile) mut => VT.[Friend]GetVideoDecoderProfile(&this, Index, pDecoderProfile);
+	public HRESULT GetVideoDecoderProfile(uint32 Index, ref Guid pDecoderProfile) mut => VT.[Friend]GetVideoDecoderProfile(&this, Index, ref pDecoderProfile);
 
 	public HRESULT CheckVideoDecoderFormat(ref Guid pDecoderProfile, DXGI_FORMAT Format, BOOL* pSupported) mut => VT.[Friend]CheckVideoDecoderFormat(&this, ref pDecoderProfile, Format, pSupported);
 
@@ -6740,7 +6740,7 @@ public static
 
 	public HRESULT GetContentProtectionCaps(ref Guid pCryptoType, ref Guid pDecoderProfile, D3D11_VIDEO_CONTENT_PROTECTION_CAPS* pCaps) mut => VT.[Friend]GetContentProtectionCaps(&this, ref pCryptoType, ref pDecoderProfile, pCaps);
 
-	public HRESULT CheckCryptoKeyExchange(ref Guid pCryptoType, ref Guid pDecoderProfile, uint32 Index, ref Guid pKeyExchangeType) mut => VT.[Friend]CheckCryptoKeyExchange(&this, ref pCryptoType, ref pDecoderProfile, Index, pKeyExchangeType);
+	public HRESULT CheckCryptoKeyExchange(ref Guid pCryptoType, ref Guid pDecoderProfile, uint32 Index, ref Guid pKeyExchangeType) mut => VT.[Friend]CheckCryptoKeyExchange(&this, ref pCryptoType, ref pDecoderProfile, Index, ref pKeyExchangeType);
 
 	public HRESULT SetPrivateData(ref Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, ref guid, DataSize, pData);
 

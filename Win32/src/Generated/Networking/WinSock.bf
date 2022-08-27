@@ -5247,7 +5247,7 @@ public static
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSAGetServiceClassInfoA(ref Guid lpProviderId, ref Guid lpServiceClassId, uint32* lpdwBufSize, WSASERVICECLASSINFOA* lpServiceClassInfo);
-	public static int32 WSAGetServiceClassInfo(ref Guid lpProviderId, ref Guid lpServiceClassId, uint32* lpdwBufSize, WSASERVICECLASSINFOA* lpServiceClassInfo) => WSAGetServiceClassInfoA(lpProviderId, lpServiceClassId, lpdwBufSize, lpServiceClassInfo);
+	public static int32 WSAGetServiceClassInfo(ref Guid lpProviderId, ref Guid lpServiceClassId, uint32* lpdwBufSize, WSASERVICECLASSINFOA* lpServiceClassInfo) => WSAGetServiceClassInfoA(ref lpProviderId, ref lpServiceClassId, lpdwBufSize, lpServiceClassInfo);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSAGetServiceClassInfoW(ref Guid lpProviderId, ref Guid lpServiceClassId, uint32* lpdwBufSize, WSASERVICECLASSINFOW* lpServiceClassInfo);
@@ -5268,7 +5268,7 @@ public static
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSAGetServiceClassNameByClassIdA(ref Guid lpServiceClassId, PSTR lpszServiceClassName, uint32* lpdwBufferLength);
-	public static int32 WSAGetServiceClassNameByClassId(ref Guid lpServiceClassId, PSTR lpszServiceClassName, uint32* lpdwBufferLength) => WSAGetServiceClassNameByClassIdA(lpServiceClassId, lpszServiceClassName, lpdwBufferLength);
+	public static int32 WSAGetServiceClassNameByClassId(ref Guid lpServiceClassId, PSTR lpszServiceClassName, uint32* lpdwBufferLength) => WSAGetServiceClassNameByClassIdA(ref lpServiceClassId, lpszServiceClassName, lpdwBufferLength);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSAGetServiceClassNameByClassIdW(ref Guid lpServiceClassId, PWSTR lpszServiceClassName, uint32* lpdwBufferLength);
@@ -5501,21 +5501,21 @@ public static
 
 	[Import("MSWSOCK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetAddressByNameA(uint32 dwNameSpace, ref Guid lpServiceType, PSTR lpServiceName, int32* lpiProtocols, uint32 dwResolution, SERVICE_ASYNC_INFO* lpServiceAsyncInfo, void* lpCsaddrBuffer, uint32* lpdwBufferLength, uint8* lpAliasBuffer, uint32* lpdwAliasBufferLength);
-	public static int32 GetAddressByName(uint32 dwNameSpace, ref Guid lpServiceType, PSTR lpServiceName, int32* lpiProtocols, uint32 dwResolution, SERVICE_ASYNC_INFO* lpServiceAsyncInfo, void* lpCsaddrBuffer, uint32* lpdwBufferLength, uint8* lpAliasBuffer, uint32* lpdwAliasBufferLength) => GetAddressByNameA(dwNameSpace, lpServiceType, lpServiceName, lpiProtocols, dwResolution, lpServiceAsyncInfo, lpCsaddrBuffer, lpdwBufferLength, lpAliasBuffer, lpdwAliasBufferLength);
+	public static int32 GetAddressByName(uint32 dwNameSpace, ref Guid lpServiceType, PSTR lpServiceName, int32* lpiProtocols, uint32 dwResolution, SERVICE_ASYNC_INFO* lpServiceAsyncInfo, void* lpCsaddrBuffer, uint32* lpdwBufferLength, uint8* lpAliasBuffer, uint32* lpdwAliasBufferLength) => GetAddressByNameA(dwNameSpace, ref lpServiceType, lpServiceName, lpiProtocols, dwResolution, lpServiceAsyncInfo, lpCsaddrBuffer, lpdwBufferLength, lpAliasBuffer, lpdwAliasBufferLength);
 
 	[Import("MSWSOCK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetAddressByNameW(uint32 dwNameSpace, ref Guid lpServiceType, PWSTR lpServiceName, int32* lpiProtocols, uint32 dwResolution, SERVICE_ASYNC_INFO* lpServiceAsyncInfo, void* lpCsaddrBuffer, uint32* lpdwBufferLength, char16* lpAliasBuffer, uint32* lpdwAliasBufferLength);
 
 	[Import("MSWSOCK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetTypeByNameA(PSTR lpServiceName, ref Guid lpServiceType);
-	public static int32 GetTypeByName(PSTR lpServiceName, ref Guid lpServiceType) => GetTypeByNameA(lpServiceName, lpServiceType);
+	public static int32 GetTypeByName(PSTR lpServiceName, ref Guid lpServiceType) => GetTypeByNameA(lpServiceName, ref lpServiceType);
 
 	[Import("MSWSOCK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetTypeByNameW(PWSTR lpServiceName, ref Guid lpServiceType);
 
 	[Import("MSWSOCK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetNameByTypeA(ref Guid lpServiceType, PSTR lpServiceName, uint32 dwNameLength);
-	public static int32 GetNameByType(ref Guid lpServiceType, PSTR lpServiceName, uint32 dwNameLength) => GetNameByTypeA(lpServiceType, lpServiceName, dwNameLength);
+	public static int32 GetNameByType(ref Guid lpServiceType, PSTR lpServiceName, uint32 dwNameLength) => GetNameByTypeA(ref lpServiceType, lpServiceName, dwNameLength);
 
 	[Import("MSWSOCK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetNameByTypeW(ref Guid lpServiceType, PWSTR lpServiceName, uint32 dwNameLength);
@@ -5529,7 +5529,7 @@ public static
 
 	[Import("MSWSOCK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetServiceA(uint32 dwNameSpace, ref Guid lpGuid, PSTR lpServiceName, uint32 dwProperties, void* lpBuffer, uint32* lpdwBufferSize, SERVICE_ASYNC_INFO* lpServiceAsyncInfo);
-	public static int32 GetService(uint32 dwNameSpace, ref Guid lpGuid, PSTR lpServiceName, uint32 dwProperties, void* lpBuffer, uint32* lpdwBufferSize, SERVICE_ASYNC_INFO* lpServiceAsyncInfo) => GetServiceA(dwNameSpace, lpGuid, lpServiceName, dwProperties, lpBuffer, lpdwBufferSize, lpServiceAsyncInfo);
+	public static int32 GetService(uint32 dwNameSpace, ref Guid lpGuid, PSTR lpServiceName, uint32 dwProperties, void* lpBuffer, uint32* lpdwBufferSize, SERVICE_ASYNC_INFO* lpServiceAsyncInfo) => GetServiceA(dwNameSpace, ref lpGuid, lpServiceName, dwProperties, lpBuffer, lpdwBufferSize, lpServiceAsyncInfo);
 
 	[Import("MSWSOCK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetServiceW(uint32 dwNameSpace, ref Guid lpGuid, PWSTR lpServiceName, uint32 dwProperties, void* lpBuffer, uint32* lpdwBufferSize, SERVICE_ASYNC_INFO* lpServiceAsyncInfo);
@@ -5542,7 +5542,7 @@ public static
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetAddrInfoExA(PSTR pName, PSTR pServiceName, uint32 dwNameSpace, ref Guid lpNspId, addrinfoexA* hints, addrinfoexA** ppResult, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle);
-	public static int32 GetAddrInfoEx(PSTR pName, PSTR pServiceName, uint32 dwNameSpace, ref Guid lpNspId, addrinfoexA* hints, addrinfoexA** ppResult, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle) => GetAddrInfoExA(pName, pServiceName, dwNameSpace, lpNspId, hints, ppResult, timeout, lpOverlapped, lpCompletionRoutine, lpNameHandle);
+	public static int32 GetAddrInfoEx(PSTR pName, PSTR pServiceName, uint32 dwNameSpace, ref Guid lpNspId, addrinfoexA* hints, addrinfoexA** ppResult, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle) => GetAddrInfoExA(pName, pServiceName, dwNameSpace, ref lpNspId, hints, ppResult, timeout, lpOverlapped, lpCompletionRoutine, lpNameHandle);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetAddrInfoExW(PWSTR pName, PWSTR pServiceName, uint32 dwNameSpace, ref Guid lpNspId, addrinfoexW* hints, addrinfoexW** ppResult, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpHandle);
@@ -5555,7 +5555,7 @@ public static
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetAddrInfoExA(PSTR pName, PSTR pServiceName, SOCKET_ADDRESS* pAddresses, uint32 dwAddressCount, BLOB* lpBlob, uint32 dwFlags, uint32 dwNameSpace, ref Guid lpNspId, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle);
-	public static int32 SetAddrInfoEx(PSTR pName, PSTR pServiceName, SOCKET_ADDRESS* pAddresses, uint32 dwAddressCount, BLOB* lpBlob, uint32 dwFlags, uint32 dwNameSpace, ref Guid lpNspId, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle) => SetAddrInfoExA(pName, pServiceName, pAddresses, dwAddressCount, lpBlob, dwFlags, dwNameSpace, lpNspId, timeout, lpOverlapped, lpCompletionRoutine, lpNameHandle);
+	public static int32 SetAddrInfoEx(PSTR pName, PSTR pServiceName, SOCKET_ADDRESS* pAddresses, uint32 dwAddressCount, BLOB* lpBlob, uint32 dwFlags, uint32 dwNameSpace, ref Guid lpNspId, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle) => SetAddrInfoExA(pName, pServiceName, pAddresses, dwAddressCount, lpBlob, dwFlags, dwNameSpace, ref lpNspId, timeout, lpOverlapped, lpCompletionRoutine, lpNameHandle);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetAddrInfoExW(PWSTR pName, PWSTR pServiceName, SOCKET_ADDRESS* pAddresses, uint32 dwAddressCount, BLOB* lpBlob, uint32 dwFlags, uint32 dwNameSpace, ref Guid lpNspId, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle);
