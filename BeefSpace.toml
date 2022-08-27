@@ -1,5 +1,5 @@
 FileVersion = 1
-Projects = {Win32 = {Path = "."}}
+Projects = {Win32 = {Path = "Win32"}, "Win32.Tests" = {Path = "Win32.Tests"}}
 
 [Workspace]
-StartupProject = "Win32"
+StartupProject = "Win32.Tests"
