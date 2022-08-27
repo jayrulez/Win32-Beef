@@ -87,11 +87,11 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION(ENCLA
 
 public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY(ENCLAVE_VBS_BASIC_KEY_REQUEST* KeyRequest, uint32 RequestedKeySize, uint8* ReturnedKey);
 
-public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(uint8* EnclaveData, void* Report, uint32 BufferSize, uint32* OutputSize);
+public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(uint8 EnclaveData, void* Report, uint32 BufferSize, uint32 OutputSize);
 
 public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT(void* Report, uint32 ReportSize);
 
-public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(uint8* Buffer, uint32 NumberOfBytes, uint64* Generation);
+public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(uint8 Buffer, uint32 NumberOfBytes, uint64 Generation);
 
 #if BF_32_BIT || BF_ARM_64
 public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(void* ExceptionRecord);
@@ -336,13 +336,13 @@ public static
 	public static extern BOOL IsEnclaveTypeSupported(uint32 flEnclaveType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* CreateEnclave(HANDLE hProcess, void* lpAddress, uint dwSize, uint dwInitialCommitment, uint32 flEnclaveType, void* lpEnclaveInformation, uint32 dwInfoLength, uint32* lpEnclaveError);
+	public static extern void* CreateEnclave(HANDLE hProcess, void* lpAddress, uint dwSize, uint dwInitialCommitment, uint32 flEnclaveType, void* lpEnclaveInformation, uint32 dwInfoLength, uint32 lpEnclaveError);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL LoadEnclaveData(HANDLE hProcess, void* lpAddress, void* lpBuffer, uint nSize, uint32 flProtect, void* lpPageInformation, uint32 dwInfoLength, uint* lpNumberOfBytesWritten, uint32* lpEnclaveError);
+	public static extern BOOL LoadEnclaveData(HANDLE hProcess, void* lpAddress, void* lpBuffer, uint nSize, uint32 flProtect, void* lpPageInformation, uint32 dwInfoLength, uint lpNumberOfBytesWritten, uint32 lpEnclaveError);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InitializeEnclave(HANDLE hProcess, void* lpAddress, void* lpEnclaveInformation, uint32 dwInfoLength, uint32* lpEnclaveError);
+	public static extern BOOL InitializeEnclave(HANDLE hProcess, void* lpAddress, void* lpEnclaveInformation, uint32 dwInfoLength, uint32 lpEnclaveError);
 
 	[Import("api-ms-win-core-enclave-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LoadEnclaveImageA(void* lpEnclaveAddress, PSTR lpImageName);
@@ -361,16 +361,16 @@ public static
 	public static extern BOOL DeleteEnclave(void* lpAddress);
 
 	[Import("vertdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT EnclaveGetAttestationReport(uint8* EnclaveData, void* Report, uint32 BufferSize, uint32* OutputSize);
+	public static extern HRESULT EnclaveGetAttestationReport(uint8 EnclaveData, void* Report, uint32 BufferSize, uint32 OutputSize);
 
 	[Import("vertdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT EnclaveVerifyAttestationReport(uint32 EnclaveType, void* Report, uint32 ReportSize);
 
 	[Import("vertdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT EnclaveSealData(void* DataToEncrypt, uint32 DataToEncryptSize, ENCLAVE_SEALING_IDENTITY_POLICY IdentityPolicy, uint32 RuntimePolicy, void* ProtectedBlob, uint32 BufferSize, uint32* ProtectedBlobSize);
+	public static extern HRESULT EnclaveSealData(void* DataToEncrypt, uint32 DataToEncryptSize, ENCLAVE_SEALING_IDENTITY_POLICY IdentityPolicy, uint32 RuntimePolicy, void* ProtectedBlob, uint32 BufferSize, uint32 ProtectedBlobSize);
 
 	[Import("vertdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT EnclaveUnsealData(void* ProtectedBlob, uint32 ProtectedBlobSize, void* DecryptedData, uint32 BufferSize, uint32* DecryptedDataSize, ENCLAVE_IDENTITY* SealingIdentity, uint32* UnsealingFlags);
+	public static extern HRESULT EnclaveUnsealData(void* ProtectedBlob, uint32 ProtectedBlobSize, void* DecryptedData, uint32 BufferSize, uint32 DecryptedDataSize, ENCLAVE_IDENTITY* SealingIdentity, uint32 UnsealingFlags);
 
 	[Import("vertdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT EnclaveGetEnclaveInformation(uint32 InformationSize, ENCLAVE_INFORMATION* EnclaveInformation);

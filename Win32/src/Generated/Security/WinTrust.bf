@@ -833,10 +833,10 @@ public static
 public static
 {
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WinVerifyTrust(HWND hwnd, ref Guid pgActionID, void* pWVTData);
+	public static extern int32 WinVerifyTrust(HWND hwnd, Guid pgActionID, void* pWVTData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WinVerifyTrustEx(HWND hwnd, ref Guid pgActionID, WINTRUST_DATA* pWinTrustData);
+	public static extern int32 WinVerifyTrustEx(HWND hwnd, Guid pgActionID, WINTRUST_DATA* pWinTrustData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WintrustGetRegPolicyFlags(WINTRUST_POLICY_FLAGS* pdwPolicyFlags);
@@ -845,13 +845,13 @@ public static
 	public static extern BOOL WintrustSetRegPolicyFlags(WINTRUST_POLICY_FLAGS dwPolicyFlags);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WintrustAddActionID(ref Guid pgActionID, uint32 fdwFlags, CRYPT_REGISTER_ACTIONID* psProvInfo);
+	public static extern BOOL WintrustAddActionID(Guid pgActionID, uint32 fdwFlags, CRYPT_REGISTER_ACTIONID* psProvInfo);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WintrustRemoveActionID(ref Guid pgActionID);
+	public static extern BOOL WintrustRemoveActionID(Guid pgActionID);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WintrustLoadFunctionPointers(ref Guid pgActionID, CRYPT_PROVIDER_FUNCTIONS* pPfns);
+	public static extern BOOL WintrustLoadFunctionPointers(Guid pgActionID, CRYPT_PROVIDER_FUNCTIONS* pPfns);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WintrustAddDefaultForUsage(PSTR pszUsageOID, CRYPT_PROVIDER_REGDEFUSAGE* psDefUsage);
@@ -869,7 +869,7 @@ public static
 	public static extern CRYPT_PROVIDER_DATA* WTHelperProvDataFromStateData(HANDLE hStateData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPT_PROVIDER_PRIVDATA* WTHelperGetProvPrivateDataFromChain(CRYPT_PROVIDER_DATA* pProvData, ref Guid pgProviderID);
+	public static extern CRYPT_PROVIDER_PRIVDATA* WTHelperGetProvPrivateDataFromChain(CRYPT_PROVIDER_DATA* pProvData, Guid pgProviderID);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTHelperCertIsSelfSigned(uint32 dwEncoding, CERT_INFO* pCert);

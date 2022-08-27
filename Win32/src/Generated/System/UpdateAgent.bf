@@ -1227,9 +1227,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* retval) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR value) put_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value, int32* retval) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value, int32 retval) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection** retval) Copy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR value) Insert;
@@ -1243,11 +1243,11 @@ public static
 
 	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Count(int32* retval) mut => VT.[Friend]get_Count(&this, retval);
+	public HRESULT get_Count(int32 retval) mut => VT.[Friend]get_Count(&this, retval);
 
-	public HRESULT get_ReadOnly(int16* retval) mut => VT.[Friend]get_ReadOnly(&this, retval);
+	public HRESULT get_ReadOnly(int16 retval) mut => VT.[Friend]get_ReadOnly(&this, retval);
 
-	public HRESULT Add(BSTR value, int32* retval) mut => VT.[Friend]Add(&this, value, retval);
+	public HRESULT Add(BSTR value, int32 retval) mut => VT.[Friend]Add(&this, value, retval);
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
@@ -1270,15 +1270,15 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_Address;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection** retval) get_BypassList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection* value) put_BypassList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_BypassProxyOnLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_BypassProxyOnLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_BypassProxyOnLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_ReadOnly;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_UserName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_UserName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) SetPassword;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* parentWindow, BSTR title) PromptForCredentials;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND parentWindow, BSTR title) PromptForCredentialsFromHwnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_AutoDetect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_AutoDetect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_AutoDetect;
 	}
 
@@ -1291,11 +1291,11 @@ public static
 
 	public HRESULT put_BypassList(IStringCollection* value) mut => VT.[Friend]put_BypassList(&this, value);
 
-	public HRESULT get_BypassProxyOnLocal(int16* retval) mut => VT.[Friend]get_BypassProxyOnLocal(&this, retval);
+	public HRESULT get_BypassProxyOnLocal(int16 retval) mut => VT.[Friend]get_BypassProxyOnLocal(&this, retval);
 
 	public HRESULT put_BypassProxyOnLocal(int16 value) mut => VT.[Friend]put_BypassProxyOnLocal(&this, value);
 
-	public HRESULT get_ReadOnly(int16* retval) mut => VT.[Friend]get_ReadOnly(&this, retval);
+	public HRESULT get_ReadOnly(int16 retval) mut => VT.[Friend]get_ReadOnly(&this, retval);
 
 	public HRESULT get_UserName(BSTR* retval) mut => VT.[Friend]get_UserName(&this, retval);
 
@@ -1307,7 +1307,7 @@ public static
 
 	public HRESULT PromptForCredentialsFromHwnd(HWND parentWindow, BSTR title) mut => VT.[Friend]PromptForCredentialsFromHwnd(&this, parentWindow, title);
 
-	public HRESULT get_AutoDetect(int16* retval) mut => VT.[Friend]get_AutoDetect(&this, retval);
+	public HRESULT get_AutoDetect(int16 retval) mut => VT.[Friend]get_AutoDetect(&this, retval);
 
 	public HRESULT put_AutoDetect(int16 value) mut => VT.[Friend]put_AutoDetect(&this, value);
 }
@@ -1321,13 +1321,13 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_OemHardwareSupportLink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_RebootRequired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_RebootRequired;
 	}
 
 
 	public HRESULT get_OemHardwareSupportLink(BSTR* retval) mut => VT.[Friend]get_OemHardwareSupportLink(&this, retval);
 
-	public HRESULT get_RebootRequired(int16* retval) mut => VT.[Friend]get_RebootRequired(&this, retval);
+	public HRESULT get_RebootRequired(int16 retval) mut => VT.[Friend]get_RebootRequired(&this, retval);
 }
 
 [CRepr]struct IWindowsUpdateAgentInfo : IDispatch
@@ -1373,11 +1373,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AutomaticUpdatesNotificationLevel* retval) get_NotificationLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AutomaticUpdatesNotificationLevel value) put_NotificationLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_Required;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_Required;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AutomaticUpdatesScheduledInstallationDay* retval) get_ScheduledInstallationDay;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AutomaticUpdatesScheduledInstallationDay value) put_ScheduledInstallationDay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_ScheduledInstallationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_ScheduledInstallationTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) put_ScheduledInstallationTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
@@ -1388,15 +1388,15 @@ public static
 
 	public HRESULT put_NotificationLevel(AutomaticUpdatesNotificationLevel value) mut => VT.[Friend]put_NotificationLevel(&this, value);
 
-	public HRESULT get_ReadOnly(int16* retval) mut => VT.[Friend]get_ReadOnly(&this, retval);
+	public HRESULT get_ReadOnly(int16 retval) mut => VT.[Friend]get_ReadOnly(&this, retval);
 
-	public HRESULT get_Required(int16* retval) mut => VT.[Friend]get_Required(&this, retval);
+	public HRESULT get_Required(int16 retval) mut => VT.[Friend]get_Required(&this, retval);
 
 	public HRESULT get_ScheduledInstallationDay(AutomaticUpdatesScheduledInstallationDay* retval) mut => VT.[Friend]get_ScheduledInstallationDay(&this, retval);
 
 	public HRESULT put_ScheduledInstallationDay(AutomaticUpdatesScheduledInstallationDay value) mut => VT.[Friend]put_ScheduledInstallationDay(&this, value);
 
-	public HRESULT get_ScheduledInstallationTime(int32* retval) mut => VT.[Friend]get_ScheduledInstallationTime(&this, retval);
+	public HRESULT get_ScheduledInstallationTime(int32 retval) mut => VT.[Friend]get_ScheduledInstallationTime(&this, retval);
 
 	public HRESULT put_ScheduledInstallationTime(int32 value) mut => VT.[Friend]put_ScheduledInstallationTime(&this, value);
 
@@ -1413,17 +1413,17 @@ public static
 
 	[CRepr]public struct VTable : IAutomaticUpdatesSettings.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IncludeRecommendedUpdates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IncludeRecommendedUpdates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_IncludeRecommendedUpdates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AutomaticUpdatesUserType userType, AutomaticUpdatesPermissionType permissionType, int16* userHasPermission) CheckPermission;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AutomaticUpdatesUserType userType, AutomaticUpdatesPermissionType permissionType, int16 userHasPermission) CheckPermission;
 	}
 
 
-	public HRESULT get_IncludeRecommendedUpdates(int16* retval) mut => VT.[Friend]get_IncludeRecommendedUpdates(&this, retval);
+	public HRESULT get_IncludeRecommendedUpdates(int16 retval) mut => VT.[Friend]get_IncludeRecommendedUpdates(&this, retval);
 
 	public HRESULT put_IncludeRecommendedUpdates(int16 value) mut => VT.[Friend]put_IncludeRecommendedUpdates(&this, value);
 
-	public HRESULT CheckPermission(AutomaticUpdatesUserType userType, AutomaticUpdatesPermissionType permissionType, int16* userHasPermission) mut => VT.[Friend]CheckPermission(&this, userType, permissionType, userHasPermission);
+	public HRESULT CheckPermission(AutomaticUpdatesUserType userType, AutomaticUpdatesPermissionType permissionType, int16 userHasPermission) mut => VT.[Friend]CheckPermission(&this, userType, permissionType, userHasPermission);
 }
 
 [CRepr]struct IAutomaticUpdatesSettings3 : IAutomaticUpdatesSettings2
@@ -1434,18 +1434,18 @@ public static
 
 	[CRepr]public struct VTable : IAutomaticUpdatesSettings2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_NonAdministratorsElevated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_NonAdministratorsElevated;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_NonAdministratorsElevated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_FeaturedUpdatesEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_FeaturedUpdatesEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_FeaturedUpdatesEnabled;
 	}
 
 
-	public HRESULT get_NonAdministratorsElevated(int16* retval) mut => VT.[Friend]get_NonAdministratorsElevated(&this, retval);
+	public HRESULT get_NonAdministratorsElevated(int16 retval) mut => VT.[Friend]get_NonAdministratorsElevated(&this, retval);
 
 	public HRESULT put_NonAdministratorsElevated(int16 value) mut => VT.[Friend]put_NonAdministratorsElevated(&this, value);
 
-	public HRESULT get_FeaturedUpdatesEnabled(int16* retval) mut => VT.[Friend]get_FeaturedUpdatesEnabled(&this, retval);
+	public HRESULT get_FeaturedUpdatesEnabled(int16 retval) mut => VT.[Friend]get_FeaturedUpdatesEnabled(&this, retval);
 
 	public HRESULT put_FeaturedUpdatesEnabled(int16 value) mut => VT.[Friend]put_FeaturedUpdatesEnabled(&this, value);
 }
@@ -1463,7 +1463,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ShowSettingsDialog;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAutomaticUpdatesSettings** retval) get_Settings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_ServiceEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_ServiceEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EnableService;
 	}
 
@@ -1478,7 +1478,7 @@ public static
 
 	public HRESULT get_Settings(IAutomaticUpdatesSettings** retval) mut => VT.[Friend]get_Settings(&this, retval);
 
-	public HRESULT get_ServiceEnabled(int16* retval) mut => VT.[Friend]get_ServiceEnabled(&this, retval);
+	public HRESULT get_ServiceEnabled(int16 retval) mut => VT.[Friend]get_ServiceEnabled(&this, retval);
 
 	public HRESULT EnableService() mut => VT.[Friend]EnableService(&this);
 }
@@ -1506,12 +1506,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_RevisionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_RevisionNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_UpdateID;
 	}
 
 
-	public HRESULT get_RevisionNumber(int32* retval) mut => VT.[Friend]get_RevisionNumber(&this, retval);
+	public HRESULT get_RevisionNumber(int32 retval) mut => VT.[Friend]get_RevisionNumber(&this, retval);
 
 	public HRESULT get_UpdateID(BSTR* retval) mut => VT.[Friend]get_UpdateID(&this, retval);
 }
@@ -1525,19 +1525,19 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_AltText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Height;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Height;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Source;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Width;
 	}
 
 
 	public HRESULT get_AltText(BSTR* retval) mut => VT.[Friend]get_AltText(&this, retval);
 
-	public HRESULT get_Height(int32* retval) mut => VT.[Friend]get_Height(&this, retval);
+	public HRESULT get_Height(int32 retval) mut => VT.[Friend]get_Height(&this, retval);
 
 	public HRESULT get_Source(BSTR* retval) mut => VT.[Friend]get_Source(&this, retval);
 
-	public HRESULT get_Width(int32* retval) mut => VT.[Friend]get_Width(&this, retval);
+	public HRESULT get_Width(int32 retval) mut => VT.[Friend]get_Width(&this, retval);
 }
 
 [CRepr]struct ICategory : IDispatch
@@ -1553,7 +1553,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICategoryCollection** retval) get_Children;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IImageInformation** retval) get_Image;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Order;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Order;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICategory** retval) get_Parent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdateCollection** retval) get_Updates;
@@ -1570,7 +1570,7 @@ public static
 
 	public HRESULT get_Image(IImageInformation** retval) mut => VT.[Friend]get_Image(&this, retval);
 
-	public HRESULT get_Order(int32* retval) mut => VT.[Friend]get_Order(&this, retval);
+	public HRESULT get_Order(int32 retval) mut => VT.[Friend]get_Order(&this, retval);
 
 	public HRESULT get_Parent(ICategory** retval) mut => VT.[Friend]get_Parent(&this, retval);
 
@@ -1589,7 +1589,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, ICategory** retval) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Count;
 	}
 
 
@@ -1597,7 +1597,7 @@ public static
 
 	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Count(int32* retval) mut => VT.[Friend]get_Count(&this, retval);
+	public HRESULT get_Count(int32 retval) mut => VT.[Friend]get_Count(&this, retval);
 }
 
 [CRepr]struct IInstallationBehavior : IDispatch
@@ -1608,20 +1608,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_CanRequestUserInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_CanRequestUserInput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InstallationImpact* retval) get_Impact;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InstallationRebootBehavior* retval) get_RebootBehavior;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_RequiresNetworkConnectivity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_RequiresNetworkConnectivity;
 	}
 
 
-	public HRESULT get_CanRequestUserInput(int16* retval) mut => VT.[Friend]get_CanRequestUserInput(&this, retval);
+	public HRESULT get_CanRequestUserInput(int16 retval) mut => VT.[Friend]get_CanRequestUserInput(&this, retval);
 
 	public HRESULT get_Impact(InstallationImpact* retval) mut => VT.[Friend]get_Impact(&this, retval);
 
 	public HRESULT get_RebootBehavior(InstallationRebootBehavior* retval) mut => VT.[Friend]get_RebootBehavior(&this, retval);
 
-	public HRESULT get_RequiresNetworkConnectivity(int16* retval) mut => VT.[Friend]get_RequiresNetworkConnectivity(&this, retval);
+	public HRESULT get_RequiresNetworkConnectivity(int16 retval) mut => VT.[Friend]get_RequiresNetworkConnectivity(&this, retval);
 }
 
 [CRepr]struct IUpdateDownloadContent : IDispatch
@@ -1647,11 +1647,11 @@ public static
 
 	[CRepr]public struct VTable : IUpdateDownloadContent.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsDeltaCompressedContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsDeltaCompressedContent;
 	}
 
 
-	public HRESULT get_IsDeltaCompressedContent(int16* retval) mut => VT.[Friend]get_IsDeltaCompressedContent(&this, retval);
+	public HRESULT get_IsDeltaCompressedContent(int16 retval) mut => VT.[Friend]get_IsDeltaCompressedContent(&this, retval);
 }
 
 [CRepr]struct IUpdateDownloadContentCollection : IDispatch
@@ -1664,7 +1664,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IUpdateDownloadContent** retval) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Count;
 	}
 
 
@@ -1672,7 +1672,7 @@ public static
 
 	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Count(int32* retval) mut => VT.[Friend]get_Count(&this, retval);
+	public HRESULT get_Count(int32 retval) mut => VT.[Friend]get_Count(&this, retval);
 }
 
 [CRepr]struct IUpdate : IDispatch
@@ -1684,36 +1684,36 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_AutoSelectOnWebSites;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_AutoSelectOnWebSites;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdateCollection** retval) get_BundledUpdates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_CanRequireSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_CanRequireSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICategoryCollection** retval) get_Categories;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_Deadline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_DeltaCompressedContentAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_DeltaCompressedContentPreferred;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_DeltaCompressedContentAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_DeltaCompressedContentPreferred;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_EulaAccepted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_EulaAccepted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_EulaText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_HandlerID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdateIdentity** retval) get_Identity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IImageInformation** retval) get_Image;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInstallationBehavior** retval) get_InstallationBehavior;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsBeta;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsDownloaded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsHidden;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsBeta;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsDownloaded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsHidden;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_IsHidden;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsInstalled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsMandatory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsUninstallable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsInstalled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsMandatory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsUninstallable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection** retval) get_Languages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_LastDeploymentChangeTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_LastDeploymentChangeTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DECIMAL* retval) get_MaxDownloadSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DECIMAL* retval) get_MinDownloadSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection** retval) get_MoreInfoUrls;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_MsrcSeverity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_RecommendedCpuSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_RecommendedHardDiskSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_RecommendedMemory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_RecommendedCpuSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_RecommendedHardDiskSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_RecommendedMemory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ReleaseNotes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection** retval) get_SecurityBulletinIDs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection** retval) get_SupersededUpdateIDs;
@@ -1733,23 +1733,23 @@ public static
 
 	public HRESULT get_Title(BSTR* retval) mut => VT.[Friend]get_Title(&this, retval);
 
-	public HRESULT get_AutoSelectOnWebSites(int16* retval) mut => VT.[Friend]get_AutoSelectOnWebSites(&this, retval);
+	public HRESULT get_AutoSelectOnWebSites(int16 retval) mut => VT.[Friend]get_AutoSelectOnWebSites(&this, retval);
 
 	public HRESULT get_BundledUpdates(IUpdateCollection** retval) mut => VT.[Friend]get_BundledUpdates(&this, retval);
 
-	public HRESULT get_CanRequireSource(int16* retval) mut => VT.[Friend]get_CanRequireSource(&this, retval);
+	public HRESULT get_CanRequireSource(int16 retval) mut => VT.[Friend]get_CanRequireSource(&this, retval);
 
 	public HRESULT get_Categories(ICategoryCollection** retval) mut => VT.[Friend]get_Categories(&this, retval);
 
 	public HRESULT get_Deadline(VARIANT* retval) mut => VT.[Friend]get_Deadline(&this, retval);
 
-	public HRESULT get_DeltaCompressedContentAvailable(int16* retval) mut => VT.[Friend]get_DeltaCompressedContentAvailable(&this, retval);
+	public HRESULT get_DeltaCompressedContentAvailable(int16 retval) mut => VT.[Friend]get_DeltaCompressedContentAvailable(&this, retval);
 
-	public HRESULT get_DeltaCompressedContentPreferred(int16* retval) mut => VT.[Friend]get_DeltaCompressedContentPreferred(&this, retval);
+	public HRESULT get_DeltaCompressedContentPreferred(int16 retval) mut => VT.[Friend]get_DeltaCompressedContentPreferred(&this, retval);
 
 	public HRESULT get_Description(BSTR* retval) mut => VT.[Friend]get_Description(&this, retval);
 
-	public HRESULT get_EulaAccepted(int16* retval) mut => VT.[Friend]get_EulaAccepted(&this, retval);
+	public HRESULT get_EulaAccepted(int16 retval) mut => VT.[Friend]get_EulaAccepted(&this, retval);
 
 	public HRESULT get_EulaText(BSTR* retval) mut => VT.[Friend]get_EulaText(&this, retval);
 
@@ -1761,23 +1761,23 @@ public static
 
 	public HRESULT get_InstallationBehavior(IInstallationBehavior** retval) mut => VT.[Friend]get_InstallationBehavior(&this, retval);
 
-	public HRESULT get_IsBeta(int16* retval) mut => VT.[Friend]get_IsBeta(&this, retval);
+	public HRESULT get_IsBeta(int16 retval) mut => VT.[Friend]get_IsBeta(&this, retval);
 
-	public HRESULT get_IsDownloaded(int16* retval) mut => VT.[Friend]get_IsDownloaded(&this, retval);
+	public HRESULT get_IsDownloaded(int16 retval) mut => VT.[Friend]get_IsDownloaded(&this, retval);
 
-	public HRESULT get_IsHidden(int16* retval) mut => VT.[Friend]get_IsHidden(&this, retval);
+	public HRESULT get_IsHidden(int16 retval) mut => VT.[Friend]get_IsHidden(&this, retval);
 
 	public HRESULT put_IsHidden(int16 value) mut => VT.[Friend]put_IsHidden(&this, value);
 
-	public HRESULT get_IsInstalled(int16* retval) mut => VT.[Friend]get_IsInstalled(&this, retval);
+	public HRESULT get_IsInstalled(int16 retval) mut => VT.[Friend]get_IsInstalled(&this, retval);
 
-	public HRESULT get_IsMandatory(int16* retval) mut => VT.[Friend]get_IsMandatory(&this, retval);
+	public HRESULT get_IsMandatory(int16 retval) mut => VT.[Friend]get_IsMandatory(&this, retval);
 
-	public HRESULT get_IsUninstallable(int16* retval) mut => VT.[Friend]get_IsUninstallable(&this, retval);
+	public HRESULT get_IsUninstallable(int16 retval) mut => VT.[Friend]get_IsUninstallable(&this, retval);
 
 	public HRESULT get_Languages(IStringCollection** retval) mut => VT.[Friend]get_Languages(&this, retval);
 
-	public HRESULT get_LastDeploymentChangeTime(double* retval) mut => VT.[Friend]get_LastDeploymentChangeTime(&this, retval);
+	public HRESULT get_LastDeploymentChangeTime(double retval) mut => VT.[Friend]get_LastDeploymentChangeTime(&this, retval);
 
 	public HRESULT get_MaxDownloadSize(DECIMAL* retval) mut => VT.[Friend]get_MaxDownloadSize(&this, retval);
 
@@ -1787,11 +1787,11 @@ public static
 
 	public HRESULT get_MsrcSeverity(BSTR* retval) mut => VT.[Friend]get_MsrcSeverity(&this, retval);
 
-	public HRESULT get_RecommendedCpuSpeed(int32* retval) mut => VT.[Friend]get_RecommendedCpuSpeed(&this, retval);
+	public HRESULT get_RecommendedCpuSpeed(int32 retval) mut => VT.[Friend]get_RecommendedCpuSpeed(&this, retval);
 
-	public HRESULT get_RecommendedHardDiskSpace(int32* retval) mut => VT.[Friend]get_RecommendedHardDiskSpace(&this, retval);
+	public HRESULT get_RecommendedHardDiskSpace(int32 retval) mut => VT.[Friend]get_RecommendedHardDiskSpace(&this, retval);
 
-	public HRESULT get_RecommendedMemory(int32* retval) mut => VT.[Friend]get_RecommendedMemory(&this, retval);
+	public HRESULT get_RecommendedMemory(int32 retval) mut => VT.[Friend]get_RecommendedMemory(&this, retval);
 
 	public HRESULT get_ReleaseNotes(BSTR* retval) mut => VT.[Friend]get_ReleaseNotes(&this, retval);
 
@@ -1835,9 +1835,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_DriverManufacturer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_DriverModel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_DriverProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_DriverVerDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_DeviceProblemNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_DeviceStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_DriverVerDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_DeviceProblemNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_DeviceStatus;
 	}
 
 
@@ -1851,11 +1851,11 @@ public static
 
 	public HRESULT get_DriverProvider(BSTR* retval) mut => VT.[Friend]get_DriverProvider(&this, retval);
 
-	public HRESULT get_DriverVerDate(double* retval) mut => VT.[Friend]get_DriverVerDate(&this, retval);
+	public HRESULT get_DriverVerDate(double retval) mut => VT.[Friend]get_DriverVerDate(&this, retval);
 
-	public HRESULT get_DeviceProblemNumber(int32* retval) mut => VT.[Friend]get_DeviceProblemNumber(&this, retval);
+	public HRESULT get_DeviceProblemNumber(int32 retval) mut => VT.[Friend]get_DeviceProblemNumber(&this, retval);
 
-	public HRESULT get_DeviceStatus(int32* retval) mut => VT.[Friend]get_DeviceStatus(&this, retval);
+	public HRESULT get_DeviceStatus(int32 retval) mut => VT.[Friend]get_DeviceStatus(&this, retval);
 }
 
 [CRepr]struct IUpdate2 : IUpdate
@@ -1866,16 +1866,16 @@ public static
 
 	[CRepr]public struct VTable : IUpdate.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_RebootRequired;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsPresent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_RebootRequired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsPresent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection** retval) get_CveIDs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection* pFiles) CopyToCache;
 	}
 
 
-	public HRESULT get_RebootRequired(int16* retval) mut => VT.[Friend]get_RebootRequired(&this, retval);
+	public HRESULT get_RebootRequired(int16 retval) mut => VT.[Friend]get_RebootRequired(&this, retval);
 
-	public HRESULT get_IsPresent(int16* retval) mut => VT.[Friend]get_IsPresent(&this, retval);
+	public HRESULT get_IsPresent(int16 retval) mut => VT.[Friend]get_IsPresent(&this, retval);
 
 	public HRESULT get_CveIDs(IStringCollection** retval) mut => VT.[Friend]get_CveIDs(&this, retval);
 
@@ -1890,11 +1890,11 @@ public static
 
 	[CRepr]public struct VTable : IUpdate2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_BrowseOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_BrowseOnly;
 	}
 
 
-	public HRESULT get_BrowseOnly(int16* retval) mut => VT.[Friend]get_BrowseOnly(&this, retval);
+	public HRESULT get_BrowseOnly(int16 retval) mut => VT.[Friend]get_BrowseOnly(&this, retval);
 }
 
 [CRepr]struct IUpdate4 : IUpdate3
@@ -1905,11 +1905,11 @@ public static
 
 	[CRepr]public struct VTable : IUpdate3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_PerUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_PerUser;
 	}
 
 
-	public HRESULT get_PerUser(int16* retval) mut => VT.[Friend]get_PerUser(&this, retval);
+	public HRESULT get_PerUser(int16 retval) mut => VT.[Friend]get_PerUser(&this, retval);
 }
 
 [CRepr]struct IUpdate5 : IUpdate4
@@ -1938,16 +1938,16 @@ public static
 
 	[CRepr]public struct VTable : IWindowsDriverUpdate.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_RebootRequired;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsPresent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_RebootRequired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsPresent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection** retval) get_CveIDs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection* pFiles) CopyToCache;
 	}
 
 
-	public HRESULT get_RebootRequired(int16* retval) mut => VT.[Friend]get_RebootRequired(&this, retval);
+	public HRESULT get_RebootRequired(int16 retval) mut => VT.[Friend]get_RebootRequired(&this, retval);
 
-	public HRESULT get_IsPresent(int16* retval) mut => VT.[Friend]get_IsPresent(&this, retval);
+	public HRESULT get_IsPresent(int16 retval) mut => VT.[Friend]get_IsPresent(&this, retval);
 
 	public HRESULT get_CveIDs(IStringCollection** retval) mut => VT.[Friend]get_CveIDs(&this, retval);
 
@@ -1962,11 +1962,11 @@ public static
 
 	[CRepr]public struct VTable : IWindowsDriverUpdate2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_BrowseOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_BrowseOnly;
 	}
 
 
-	public HRESULT get_BrowseOnly(int16* retval) mut => VT.[Friend]get_BrowseOnly(&this, retval);
+	public HRESULT get_BrowseOnly(int16 retval) mut => VT.[Friend]get_BrowseOnly(&this, retval);
 }
 
 [CRepr]struct IWindowsDriverUpdateEntry : IDispatch
@@ -1982,9 +1982,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_DriverManufacturer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_DriverModel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_DriverProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_DriverVerDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_DeviceProblemNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_DeviceStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_DriverVerDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_DeviceProblemNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_DeviceStatus;
 	}
 
 
@@ -1998,11 +1998,11 @@ public static
 
 	public HRESULT get_DriverProvider(BSTR* retval) mut => VT.[Friend]get_DriverProvider(&this, retval);
 
-	public HRESULT get_DriverVerDate(double* retval) mut => VT.[Friend]get_DriverVerDate(&this, retval);
+	public HRESULT get_DriverVerDate(double retval) mut => VT.[Friend]get_DriverVerDate(&this, retval);
 
-	public HRESULT get_DeviceProblemNumber(int32* retval) mut => VT.[Friend]get_DeviceProblemNumber(&this, retval);
+	public HRESULT get_DeviceProblemNumber(int32 retval) mut => VT.[Friend]get_DeviceProblemNumber(&this, retval);
 
-	public HRESULT get_DeviceStatus(int32* retval) mut => VT.[Friend]get_DeviceStatus(&this, retval);
+	public HRESULT get_DeviceStatus(int32 retval) mut => VT.[Friend]get_DeviceStatus(&this, retval);
 }
 
 [CRepr]struct IWindowsDriverUpdateEntryCollection : IDispatch
@@ -2015,7 +2015,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IWindowsDriverUpdateEntry** retval) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Count;
 	}
 
 
@@ -2023,7 +2023,7 @@ public static
 
 	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Count(int32* retval) mut => VT.[Friend]get_Count(&this, retval);
+	public HRESULT get_Count(int32 retval) mut => VT.[Friend]get_Count(&this, retval);
 }
 
 [CRepr]struct IWindowsDriverUpdate4 : IWindowsDriverUpdate3
@@ -2035,13 +2035,13 @@ public static
 	[CRepr]public struct VTable : IWindowsDriverUpdate3.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWindowsDriverUpdateEntryCollection** retval) get_WindowsDriverUpdateEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_PerUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_PerUser;
 	}
 
 
 	public HRESULT get_WindowsDriverUpdateEntries(IWindowsDriverUpdateEntryCollection** retval) mut => VT.[Friend]get_WindowsDriverUpdateEntries(&this, retval);
 
-	public HRESULT get_PerUser(int16* retval) mut => VT.[Friend]get_PerUser(&this, retval);
+	public HRESULT get_PerUser(int16 retval) mut => VT.[Friend]get_PerUser(&this, retval);
 }
 
 [CRepr]struct IWindowsDriverUpdate5 : IWindowsDriverUpdate4
@@ -2073,9 +2073,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IUpdate** retval) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IUpdate* value) put_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdate* value, int32* retval) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdate* value, int32 retval) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdateCollection** retval) Copy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IUpdate* value) Insert;
@@ -2089,11 +2089,11 @@ public static
 
 	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Count(int32* retval) mut => VT.[Friend]get_Count(&this, retval);
+	public HRESULT get_Count(int32 retval) mut => VT.[Friend]get_Count(&this, retval);
 
-	public HRESULT get_ReadOnly(int16* retval) mut => VT.[Friend]get_ReadOnly(&this, retval);
+	public HRESULT get_ReadOnly(int16 retval) mut => VT.[Friend]get_ReadOnly(&this, retval);
 
-	public HRESULT Add(IUpdate* value, int32* retval) mut => VT.[Friend]Add(&this, value, retval);
+	public HRESULT Add(IUpdate* value, int32 retval) mut => VT.[Friend]Add(&this, value, retval);
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
@@ -2113,14 +2113,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Message;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_HResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_HResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UpdateExceptionContext* retval) get_Context;
 	}
 
 
 	public HRESULT get_Message(BSTR* retval) mut => VT.[Friend]get_Message(&this, retval);
 
-	public HRESULT get_HResult(int32* retval) mut => VT.[Friend]get_HResult(&this, retval);
+	public HRESULT get_HResult(int32 retval) mut => VT.[Friend]get_HResult(&this, retval);
 
 	public HRESULT get_Context(UpdateExceptionContext* retval) mut => VT.[Friend]get_Context(&this, retval);
 }
@@ -2150,7 +2150,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IUpdateException** retval) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Count;
 	}
 
 
@@ -2158,7 +2158,7 @@ public static
 
 	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Count(int32* retval) mut => VT.[Friend]get_Count(&this, retval);
+	public HRESULT get_Count(int32 retval) mut => VT.[Friend]get_Count(&this, retval);
 }
 
 [CRepr]struct ISearchResult : IDispatch
@@ -2194,7 +2194,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_AsyncState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsCompleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsCompleted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CleanUp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RequestAbort;
 	}
@@ -2202,7 +2202,7 @@ public static
 
 	public HRESULT get_AsyncState(VARIANT* retval) mut => VT.[Friend]get_AsyncState(&this, retval);
 
-	public HRESULT get_IsCompleted(int16* retval) mut => VT.[Friend]get_IsCompleted(&this, retval);
+	public HRESULT get_IsCompleted(int16 retval) mut => VT.[Friend]get_IsCompleted(&this, retval);
 
 	public HRESULT CleanUp() mut => VT.[Friend]CleanUp(&this);
 
@@ -2246,12 +2246,12 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UpdateOperation* retval) get_Operation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OperationResultCode* retval) get_ResultCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_HResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_Date;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_HResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_Date;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdateIdentity** retval) get_UpdateIdentity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Title;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_UnmappedResultCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_UnmappedResultCode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ClientApplicationID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ServerSelection* retval) get_ServerSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ServiceID;
@@ -2265,9 +2265,9 @@ public static
 
 	public HRESULT get_ResultCode(OperationResultCode* retval) mut => VT.[Friend]get_ResultCode(&this, retval);
 
-	public HRESULT get_HResult(int32* retval) mut => VT.[Friend]get_HResult(&this, retval);
+	public HRESULT get_HResult(int32 retval) mut => VT.[Friend]get_HResult(&this, retval);
 
-	public HRESULT get_Date(double* retval) mut => VT.[Friend]get_Date(&this, retval);
+	public HRESULT get_Date(double retval) mut => VT.[Friend]get_Date(&this, retval);
 
 	public HRESULT get_UpdateIdentity(IUpdateIdentity** retval) mut => VT.[Friend]get_UpdateIdentity(&this, retval);
 
@@ -2275,7 +2275,7 @@ public static
 
 	public HRESULT get_Description(BSTR* retval) mut => VT.[Friend]get_Description(&this, retval);
 
-	public HRESULT get_UnmappedResultCode(int32* retval) mut => VT.[Friend]get_UnmappedResultCode(&this, retval);
+	public HRESULT get_UnmappedResultCode(int32 retval) mut => VT.[Friend]get_UnmappedResultCode(&this, retval);
 
 	public HRESULT get_ClientApplicationID(BSTR* retval) mut => VT.[Friend]get_ClientApplicationID(&this, retval);
 
@@ -2315,7 +2315,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IUpdateHistoryEntry** retval) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Count;
 	}
 
 
@@ -2323,7 +2323,7 @@ public static
 
 	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Count(int32* retval) mut => VT.[Friend]get_Count(&this, retval);
+	public HRESULT get_Count(int32 retval) mut => VT.[Friend]get_Count(&this, retval);
 }
 
 [CRepr]struct IUpdateSearcher : IDispatch
@@ -2334,11 +2334,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_CanAutomaticallyUpgradeService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_CanAutomaticallyUpgradeService;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_CanAutomaticallyUpgradeService;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ClientApplicationID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_ClientApplicationID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IncludePotentiallySupersededUpdates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IncludePotentiallySupersededUpdates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_IncludePotentiallySupersededUpdates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ServerSelection* retval) get_ServerSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ServerSelection value) put_ServerSelection;
@@ -2347,15 +2347,15 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR unescaped, BSTR* retval) EscapeString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 startIndex, int32 count, IUpdateHistoryEntryCollection** retval) QueryHistory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR criteria, ISearchResult** retval) Search;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_Online;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_Online;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_Online;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) GetTotalHistoryCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) GetTotalHistoryCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ServiceID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_ServiceID;
 	}
 
 
-	public HRESULT get_CanAutomaticallyUpgradeService(int16* retval) mut => VT.[Friend]get_CanAutomaticallyUpgradeService(&this, retval);
+	public HRESULT get_CanAutomaticallyUpgradeService(int16 retval) mut => VT.[Friend]get_CanAutomaticallyUpgradeService(&this, retval);
 
 	public HRESULT put_CanAutomaticallyUpgradeService(int16 value) mut => VT.[Friend]put_CanAutomaticallyUpgradeService(&this, value);
 
@@ -2363,7 +2363,7 @@ public static
 
 	public HRESULT put_ClientApplicationID(BSTR value) mut => VT.[Friend]put_ClientApplicationID(&this, value);
 
-	public HRESULT get_IncludePotentiallySupersededUpdates(int16* retval) mut => VT.[Friend]get_IncludePotentiallySupersededUpdates(&this, retval);
+	public HRESULT get_IncludePotentiallySupersededUpdates(int16 retval) mut => VT.[Friend]get_IncludePotentiallySupersededUpdates(&this, retval);
 
 	public HRESULT put_IncludePotentiallySupersededUpdates(int16 value) mut => VT.[Friend]put_IncludePotentiallySupersededUpdates(&this, value);
 
@@ -2381,11 +2381,11 @@ public static
 
 	public HRESULT Search(BSTR criteria, ISearchResult** retval) mut => VT.[Friend]Search(&this, criteria, retval);
 
-	public HRESULT get_Online(int16* retval) mut => VT.[Friend]get_Online(&this, retval);
+	public HRESULT get_Online(int16 retval) mut => VT.[Friend]get_Online(&this, retval);
 
 	public HRESULT put_Online(int16 value) mut => VT.[Friend]put_Online(&this, value);
 
-	public HRESULT GetTotalHistoryCount(int32* retval) mut => VT.[Friend]GetTotalHistoryCount(&this, retval);
+	public HRESULT GetTotalHistoryCount(int32 retval) mut => VT.[Friend]GetTotalHistoryCount(&this, retval);
 
 	public HRESULT get_ServiceID(BSTR* retval) mut => VT.[Friend]get_ServiceID(&this, retval);
 
@@ -2400,12 +2400,12 @@ public static
 
 	[CRepr]public struct VTable : IUpdateSearcher.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IgnoreDownloadPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IgnoreDownloadPriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_IgnoreDownloadPriority;
 	}
 
 
-	public HRESULT get_IgnoreDownloadPriority(int16* retval) mut => VT.[Friend]get_IgnoreDownloadPriority(&this, retval);
+	public HRESULT get_IgnoreDownloadPriority(int16 retval) mut => VT.[Friend]get_IgnoreDownloadPriority(&this, retval);
 
 	public HRESULT put_IgnoreDownloadPriority(int16 value) mut => VT.[Friend]put_IgnoreDownloadPriority(&this, value);
 }
@@ -2436,12 +2436,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_HResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_HResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OperationResultCode* retval) get_ResultCode;
 	}
 
 
-	public HRESULT get_HResult(int32* retval) mut => VT.[Friend]get_HResult(&this, retval);
+	public HRESULT get_HResult(int32 retval) mut => VT.[Friend]get_HResult(&this, retval);
 
 	public HRESULT get_ResultCode(OperationResultCode* retval) mut => VT.[Friend]get_ResultCode(&this, retval);
 }
@@ -2454,13 +2454,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_HResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_HResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OperationResultCode* retval) get_ResultCode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 updateIndex, IUpdateDownloadResult** retval) GetUpdateResult;
 	}
 
 
-	public HRESULT get_HResult(int32* retval) mut => VT.[Friend]get_HResult(&this, retval);
+	public HRESULT get_HResult(int32 retval) mut => VT.[Friend]get_HResult(&this, retval);
 
 	public HRESULT get_ResultCode(OperationResultCode* retval) mut => VT.[Friend]get_ResultCode(&this, retval);
 
@@ -2477,13 +2477,13 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DECIMAL* retval) get_CurrentUpdateBytesDownloaded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DECIMAL* retval) get_CurrentUpdateBytesToDownload;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_CurrentUpdateIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_PercentComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_CurrentUpdateIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_PercentComplete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DECIMAL* retval) get_TotalBytesDownloaded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DECIMAL* retval) get_TotalBytesToDownload;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 updateIndex, IUpdateDownloadResult** retval) GetUpdateResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DownloadPhase* retval) get_CurrentUpdateDownloadPhase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_CurrentUpdatePercentComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_CurrentUpdatePercentComplete;
 	}
 
 
@@ -2491,9 +2491,9 @@ public static
 
 	public HRESULT get_CurrentUpdateBytesToDownload(DECIMAL* retval) mut => VT.[Friend]get_CurrentUpdateBytesToDownload(&this, retval);
 
-	public HRESULT get_CurrentUpdateIndex(int32* retval) mut => VT.[Friend]get_CurrentUpdateIndex(&this, retval);
+	public HRESULT get_CurrentUpdateIndex(int32 retval) mut => VT.[Friend]get_CurrentUpdateIndex(&this, retval);
 
-	public HRESULT get_PercentComplete(int32* retval) mut => VT.[Friend]get_PercentComplete(&this, retval);
+	public HRESULT get_PercentComplete(int32 retval) mut => VT.[Friend]get_PercentComplete(&this, retval);
 
 	public HRESULT get_TotalBytesDownloaded(DECIMAL* retval) mut => VT.[Friend]get_TotalBytesDownloaded(&this, retval);
 
@@ -2503,7 +2503,7 @@ public static
 
 	public HRESULT get_CurrentUpdateDownloadPhase(DownloadPhase* retval) mut => VT.[Friend]get_CurrentUpdateDownloadPhase(&this, retval);
 
-	public HRESULT get_CurrentUpdatePercentComplete(int32* retval) mut => VT.[Friend]get_CurrentUpdatePercentComplete(&this, retval);
+	public HRESULT get_CurrentUpdatePercentComplete(int32 retval) mut => VT.[Friend]get_CurrentUpdatePercentComplete(&this, retval);
 }
 
 [CRepr]struct IDownloadJob : IDispatch
@@ -2515,7 +2515,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_AsyncState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsCompleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsCompleted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdateCollection** retval) get_Updates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CleanUp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDownloadProgress** retval) GetProgress;
@@ -2525,7 +2525,7 @@ public static
 
 	public HRESULT get_AsyncState(VARIANT* retval) mut => VT.[Friend]get_AsyncState(&this, retval);
 
-	public HRESULT get_IsCompleted(int16* retval) mut => VT.[Friend]get_IsCompleted(&this, retval);
+	public HRESULT get_IsCompleted(int16 retval) mut => VT.[Friend]get_IsCompleted(&this, retval);
 
 	public HRESULT get_Updates(IUpdateCollection** retval) mut => VT.[Friend]get_Updates(&this, retval);
 
@@ -2603,7 +2603,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ClientApplicationID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_ClientApplicationID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsForced;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsForced;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_IsForced;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DownloadPriority* retval) get_Priority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DownloadPriority value) put_Priority;
@@ -2619,7 +2619,7 @@ public static
 
 	public HRESULT put_ClientApplicationID(BSTR value) mut => VT.[Friend]put_ClientApplicationID(&this, value);
 
-	public HRESULT get_IsForced(int16* retval) mut => VT.[Friend]get_IsForced(&this, retval);
+	public HRESULT get_IsForced(int16 retval) mut => VT.[Friend]get_IsForced(&this, retval);
 
 	public HRESULT put_IsForced(int16 value) mut => VT.[Friend]put_IsForced(&this, value);
 
@@ -2646,15 +2646,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_HResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_RebootRequired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_HResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_RebootRequired;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OperationResultCode* retval) get_ResultCode;
 	}
 
 
-	public HRESULT get_HResult(int32* retval) mut => VT.[Friend]get_HResult(&this, retval);
+	public HRESULT get_HResult(int32 retval) mut => VT.[Friend]get_HResult(&this, retval);
 
-	public HRESULT get_RebootRequired(int16* retval) mut => VT.[Friend]get_RebootRequired(&this, retval);
+	public HRESULT get_RebootRequired(int16 retval) mut => VT.[Friend]get_RebootRequired(&this, retval);
 
 	public HRESULT get_ResultCode(OperationResultCode* retval) mut => VT.[Friend]get_ResultCode(&this, retval);
 }
@@ -2667,16 +2667,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_HResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_RebootRequired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_HResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_RebootRequired;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OperationResultCode* retval) get_ResultCode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 updateIndex, IUpdateInstallationResult** retval) GetUpdateResult;
 	}
 
 
-	public HRESULT get_HResult(int32* retval) mut => VT.[Friend]get_HResult(&this, retval);
+	public HRESULT get_HResult(int32 retval) mut => VT.[Friend]get_HResult(&this, retval);
 
-	public HRESULT get_RebootRequired(int16* retval) mut => VT.[Friend]get_RebootRequired(&this, retval);
+	public HRESULT get_RebootRequired(int16 retval) mut => VT.[Friend]get_RebootRequired(&this, retval);
 
 	public HRESULT get_ResultCode(OperationResultCode* retval) mut => VT.[Friend]get_ResultCode(&this, retval);
 
@@ -2691,18 +2691,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_CurrentUpdateIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_CurrentUpdatePercentComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_PercentComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_CurrentUpdateIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_CurrentUpdatePercentComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_PercentComplete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 updateIndex, IUpdateInstallationResult** retval) GetUpdateResult;
 	}
 
 
-	public HRESULT get_CurrentUpdateIndex(int32* retval) mut => VT.[Friend]get_CurrentUpdateIndex(&this, retval);
+	public HRESULT get_CurrentUpdateIndex(int32 retval) mut => VT.[Friend]get_CurrentUpdateIndex(&this, retval);
 
-	public HRESULT get_CurrentUpdatePercentComplete(int32* retval) mut => VT.[Friend]get_CurrentUpdatePercentComplete(&this, retval);
+	public HRESULT get_CurrentUpdatePercentComplete(int32 retval) mut => VT.[Friend]get_CurrentUpdatePercentComplete(&this, retval);
 
-	public HRESULT get_PercentComplete(int32* retval) mut => VT.[Friend]get_PercentComplete(&this, retval);
+	public HRESULT get_PercentComplete(int32 retval) mut => VT.[Friend]get_PercentComplete(&this, retval);
 
 	public HRESULT GetUpdateResult(int32 updateIndex, IUpdateInstallationResult** retval) mut => VT.[Friend]GetUpdateResult(&this, updateIndex, retval);
 }
@@ -2716,7 +2716,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_AsyncState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsCompleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsCompleted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdateCollection** retval) get_Updates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CleanUp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInstallationProgress** retval) GetProgress;
@@ -2726,7 +2726,7 @@ public static
 
 	public HRESULT get_AsyncState(VARIANT* retval) mut => VT.[Friend]get_AsyncState(&this, retval);
 
-	public HRESULT get_IsCompleted(int16* retval) mut => VT.[Friend]get_IsCompleted(&this, retval);
+	public HRESULT get_IsCompleted(int16 retval) mut => VT.[Friend]get_IsCompleted(&this, retval);
 
 	public HRESULT get_Updates(IUpdateCollection** retval) mut => VT.[Friend]get_Updates(&this, retval);
 
@@ -2804,7 +2804,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ClientApplicationID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_ClientApplicationID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsForced;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsForced;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_IsForced;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* retval) get_ParentHwnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND value) put_ParentHwnd;
@@ -2818,11 +2818,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInstallationJob* value, IInstallationResult** retval) EndUninstall;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInstallationResult** retval) Install;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR dialogTitle, IInstallationResult** retval) RunWizard;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsBusy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsBusy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInstallationResult** retval) Uninstall;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_AllowSourcePrompts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_AllowSourcePrompts;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_AllowSourcePrompts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_RebootRequiredBeforeInstallation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_RebootRequiredBeforeInstallation;
 	}
 
 
@@ -2830,7 +2830,7 @@ public static
 
 	public HRESULT put_ClientApplicationID(BSTR value) mut => VT.[Friend]put_ClientApplicationID(&this, value);
 
-	public HRESULT get_IsForced(int16* retval) mut => VT.[Friend]get_IsForced(&this, retval);
+	public HRESULT get_IsForced(int16 retval) mut => VT.[Friend]get_IsForced(&this, retval);
 
 	public HRESULT put_IsForced(int16 value) mut => VT.[Friend]put_IsForced(&this, value);
 
@@ -2858,15 +2858,15 @@ public static
 
 	public HRESULT RunWizard(BSTR dialogTitle, IInstallationResult** retval) mut => VT.[Friend]RunWizard(&this, dialogTitle, retval);
 
-	public HRESULT get_IsBusy(int16* retval) mut => VT.[Friend]get_IsBusy(&this, retval);
+	public HRESULT get_IsBusy(int16 retval) mut => VT.[Friend]get_IsBusy(&this, retval);
 
 	public HRESULT Uninstall(IInstallationResult** retval) mut => VT.[Friend]Uninstall(&this, retval);
 
-	public HRESULT get_AllowSourcePrompts(int16* retval) mut => VT.[Friend]get_AllowSourcePrompts(&this, retval);
+	public HRESULT get_AllowSourcePrompts(int16 retval) mut => VT.[Friend]get_AllowSourcePrompts(&this, retval);
 
 	public HRESULT put_AllowSourcePrompts(int16 value) mut => VT.[Friend]put_AllowSourcePrompts(&this, value);
 
-	public HRESULT get_RebootRequiredBeforeInstallation(int16* retval) mut => VT.[Friend]get_RebootRequiredBeforeInstallation(&this, retval);
+	public HRESULT get_RebootRequiredBeforeInstallation(int16 retval) mut => VT.[Friend]get_RebootRequiredBeforeInstallation(&this, retval);
 }
 
 [CRepr]struct IUpdateInstaller2 : IUpdateInstaller
@@ -2877,12 +2877,12 @@ public static
 
 	[CRepr]public struct VTable : IUpdateInstaller.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_ForceQuiet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_ForceQuiet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_ForceQuiet;
 	}
 
 
-	public HRESULT get_ForceQuiet(int16* retval) mut => VT.[Friend]get_ForceQuiet(&this, retval);
+	public HRESULT get_ForceQuiet(int16 retval) mut => VT.[Friend]get_ForceQuiet(&this, retval);
 
 	public HRESULT put_ForceQuiet(int16 value) mut => VT.[Friend]put_ForceQuiet(&this, value);
 }
@@ -2895,12 +2895,12 @@ public static
 
 	[CRepr]public struct VTable : IUpdateInstaller2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_AttemptCloseAppsIfNecessary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_AttemptCloseAppsIfNecessary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_AttemptCloseAppsIfNecessary;
 	}
 
 
-	public HRESULT get_AttemptCloseAppsIfNecessary(int16* retval) mut => VT.[Friend]get_AttemptCloseAppsIfNecessary(&this, retval);
+	public HRESULT get_AttemptCloseAppsIfNecessary(int16 retval) mut => VT.[Friend]get_AttemptCloseAppsIfNecessary(&this, retval);
 
 	public HRESULT put_AttemptCloseAppsIfNecessary(int16 value) mut => VT.[Friend]put_AttemptCloseAppsIfNecessary(&this, value);
 }
@@ -2930,7 +2930,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ClientApplicationID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_ClientApplicationID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_ReadOnly;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWebProxy** retval) get_WebProxy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWebProxy* value) put_WebProxy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdateSearcher** retval) CreateUpdateSearcher;
@@ -2943,7 +2943,7 @@ public static
 
 	public HRESULT put_ClientApplicationID(BSTR value) mut => VT.[Friend]put_ClientApplicationID(&this, value);
 
-	public HRESULT get_ReadOnly(int16* retval) mut => VT.[Friend]get_ReadOnly(&this, retval);
+	public HRESULT get_ReadOnly(int16 retval) mut => VT.[Friend]get_ReadOnly(&this, retval);
 
 	public HRESULT get_WebProxy(IWebProxy** retval) mut => VT.[Friend]get_WebProxy(&this, retval);
 
@@ -2964,12 +2964,12 @@ public static
 
 	[CRepr]public struct VTable : IUpdateSession.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* retval) get_UserLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 retval) get_UserLocale;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 lcid) put_UserLocale;
 	}
 
 
-	public HRESULT get_UserLocale(uint32* retval) mut => VT.[Friend]get_UserLocale(&this, retval);
+	public HRESULT get_UserLocale(uint32 retval) mut => VT.[Friend]get_UserLocale(&this, retval);
 
 	public HRESULT put_UserLocale(uint32 lcid) mut => VT.[Friend]put_UserLocale(&this, lcid);
 }
@@ -3002,15 +3002,15 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_ContentValidationCert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_ExpirationDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsManaged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsRegisteredWithAU;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_IssueDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_OffersWindowsUpdates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_ExpirationDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsManaged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsRegisteredWithAU;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_IssueDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_OffersWindowsUpdates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStringCollection** retval) get_RedirectUrls;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ServiceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsScanPackageService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_CanRegisterWithAU;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsScanPackageService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_CanRegisterWithAU;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ServiceUrl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_SetupPrefix;
 	}
@@ -3020,23 +3020,23 @@ public static
 
 	public HRESULT get_ContentValidationCert(VARIANT* retval) mut => VT.[Friend]get_ContentValidationCert(&this, retval);
 
-	public HRESULT get_ExpirationDate(double* retval) mut => VT.[Friend]get_ExpirationDate(&this, retval);
+	public HRESULT get_ExpirationDate(double retval) mut => VT.[Friend]get_ExpirationDate(&this, retval);
 
-	public HRESULT get_IsManaged(int16* retval) mut => VT.[Friend]get_IsManaged(&this, retval);
+	public HRESULT get_IsManaged(int16 retval) mut => VT.[Friend]get_IsManaged(&this, retval);
 
-	public HRESULT get_IsRegisteredWithAU(int16* retval) mut => VT.[Friend]get_IsRegisteredWithAU(&this, retval);
+	public HRESULT get_IsRegisteredWithAU(int16 retval) mut => VT.[Friend]get_IsRegisteredWithAU(&this, retval);
 
-	public HRESULT get_IssueDate(double* retval) mut => VT.[Friend]get_IssueDate(&this, retval);
+	public HRESULT get_IssueDate(double retval) mut => VT.[Friend]get_IssueDate(&this, retval);
 
-	public HRESULT get_OffersWindowsUpdates(int16* retval) mut => VT.[Friend]get_OffersWindowsUpdates(&this, retval);
+	public HRESULT get_OffersWindowsUpdates(int16 retval) mut => VT.[Friend]get_OffersWindowsUpdates(&this, retval);
 
 	public HRESULT get_RedirectUrls(IStringCollection** retval) mut => VT.[Friend]get_RedirectUrls(&this, retval);
 
 	public HRESULT get_ServiceID(BSTR* retval) mut => VT.[Friend]get_ServiceID(&this, retval);
 
-	public HRESULT get_IsScanPackageService(int16* retval) mut => VT.[Friend]get_IsScanPackageService(&this, retval);
+	public HRESULT get_IsScanPackageService(int16 retval) mut => VT.[Friend]get_IsScanPackageService(&this, retval);
 
-	public HRESULT get_CanRegisterWithAU(int16* retval) mut => VT.[Friend]get_CanRegisterWithAU(&this, retval);
+	public HRESULT get_CanRegisterWithAU(int16 retval) mut => VT.[Friend]get_CanRegisterWithAU(&this, retval);
 
 	public HRESULT get_ServiceUrl(BSTR* retval) mut => VT.[Friend]get_ServiceUrl(&this, retval);
 
@@ -3051,11 +3051,11 @@ public static
 
 	[CRepr]public struct VTable : IUpdateService.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsDefaultAUService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsDefaultAUService;
 	}
 
 
-	public HRESULT get_IsDefaultAUService(int16* retval) mut => VT.[Friend]get_IsDefaultAUService(&this, retval);
+	public HRESULT get_IsDefaultAUService(int16 retval) mut => VT.[Friend]get_IsDefaultAUService(&this, retval);
 }
 
 [CRepr]struct IUpdateServiceCollection : IDispatch
@@ -3068,7 +3068,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IUpdateService** retval) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Count;
 	}
 
 
@@ -3076,7 +3076,7 @@ public static
 
 	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Count(int32* retval) mut => VT.[Friend]get_Count(&this, retval);
+	public HRESULT get_Count(int32 retval) mut => VT.[Friend]get_Count(&this, retval);
 }
 
 [CRepr]struct IUpdateServiceRegistration : IDispatch
@@ -3089,7 +3089,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UpdateServiceRegistrationState* retval) get_RegistrationState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ServiceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsPendingRegistrationWithAU;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsPendingRegistrationWithAU;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUpdateService2** retval) get_Service;
 	}
 
@@ -3098,7 +3098,7 @@ public static
 
 	public HRESULT get_ServiceID(BSTR* retval) mut => VT.[Friend]get_ServiceID(&this, retval);
 
-	public HRESULT get_IsPendingRegistrationWithAU(int16* retval) mut => VT.[Friend]get_IsPendingRegistrationWithAU(&this, retval);
+	public HRESULT get_IsPendingRegistrationWithAU(int16 retval) mut => VT.[Friend]get_IsPendingRegistrationWithAU(&this, retval);
 
 	public HRESULT get_Service(IUpdateService2** retval) mut => VT.[Friend]get_Service(&this, retval);
 }

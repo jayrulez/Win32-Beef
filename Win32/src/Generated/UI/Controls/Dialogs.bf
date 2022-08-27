@@ -1317,17 +1317,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DEVMODEA* pDevMode, uint32* pcbSize) GetCurrentDevMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pPrinterName, uint32* pcchSize) GetCurrentPrinterName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pPortName, uint32* pcchSize) GetCurrentPortName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DEVMODEA* pDevMode, uint32 pcbSize) GetCurrentDevMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pPrinterName, uint32 pcchSize) GetCurrentPrinterName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pPortName, uint32 pcchSize) GetCurrentPortName;
 	}
 
 
-	public HRESULT GetCurrentDevMode(DEVMODEA* pDevMode, uint32* pcbSize) mut => VT.[Friend]GetCurrentDevMode(&this, pDevMode, pcbSize);
+	public HRESULT GetCurrentDevMode(DEVMODEA* pDevMode, uint32 pcbSize) mut => VT.[Friend]GetCurrentDevMode(&this, pDevMode, pcbSize);
 
-	public HRESULT GetCurrentPrinterName(char16* pPrinterName, uint32* pcchSize) mut => VT.[Friend]GetCurrentPrinterName(&this, pPrinterName, pcchSize);
+	public HRESULT GetCurrentPrinterName(char16* pPrinterName, uint32 pcchSize) mut => VT.[Friend]GetCurrentPrinterName(&this, pPrinterName, pcchSize);
 
-	public HRESULT GetCurrentPortName(char16* pPortName, uint32* pcchSize) mut => VT.[Friend]GetCurrentPortName(&this, pPortName, pcchSize);
+	public HRESULT GetCurrentPortName(char16* pPortName, uint32 pcchSize) mut => VT.[Friend]GetCurrentPortName(&this, pPortName, pcchSize);
 }
 
 #endregion

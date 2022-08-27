@@ -109,23 +109,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, uint32* pdwFlags) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pdwlSpaceUsed, IEmptyVolumeCacheCallBack* picb) GetSpaceUsed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, uint32 pdwFlags) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pdwlSpaceUsed, IEmptyVolumeCacheCallBack* picb) GetSpaceUsed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 dwlSpaceToFree, IEmptyVolumeCacheCallBack* picb) Purge;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd) ShowProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) Deactivate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwFlags) Deactivate;
 	}
 
 
-	public HRESULT Initialize(HKEY hkRegKey, PWSTR pcwszVolume, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, uint32* pdwFlags) mut => VT.[Friend]Initialize(&this, hkRegKey, pcwszVolume, ppwszDisplayName, ppwszDescription, pdwFlags);
+	public HRESULT Initialize(HKEY hkRegKey, PWSTR pcwszVolume, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, uint32 pdwFlags) mut => VT.[Friend]Initialize(&this, hkRegKey, pcwszVolume, ppwszDisplayName, ppwszDescription, pdwFlags);
 
-	public HRESULT GetSpaceUsed(uint64* pdwlSpaceUsed, IEmptyVolumeCacheCallBack* picb) mut => VT.[Friend]GetSpaceUsed(&this, pdwlSpaceUsed, picb);
+	public HRESULT GetSpaceUsed(uint64 pdwlSpaceUsed, IEmptyVolumeCacheCallBack* picb) mut => VT.[Friend]GetSpaceUsed(&this, pdwlSpaceUsed, picb);
 
 	public HRESULT Purge(uint64 dwlSpaceToFree, IEmptyVolumeCacheCallBack* picb) mut => VT.[Friend]Purge(&this, dwlSpaceToFree, picb);
 
 	public HRESULT ShowProperties(HWND hwnd) mut => VT.[Friend]ShowProperties(&this, hwnd);
 
-	public HRESULT Deactivate(uint32* pdwFlags) mut => VT.[Friend]Deactivate(&this, pdwFlags);
+	public HRESULT Deactivate(uint32 pdwFlags) mut => VT.[Friend]Deactivate(&this, pdwFlags);
 }
 
 [CRepr]struct IEmptyVolumeCache2 : IEmptyVolumeCache
@@ -136,11 +136,11 @@ public static
 
 	[CRepr]public struct VTable : IEmptyVolumeCache.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR pcwszKeyName, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, PWSTR* ppwszBtnText, uint32* pdwFlags) InitializeEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR pcwszKeyName, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, PWSTR* ppwszBtnText, uint32 pdwFlags) InitializeEx;
 	}
 
 
-	public HRESULT InitializeEx(HKEY hkRegKey, PWSTR pcwszVolume, PWSTR pcwszKeyName, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, PWSTR* ppwszBtnText, uint32* pdwFlags) mut => VT.[Friend]InitializeEx(&this, hkRegKey, pcwszVolume, pcwszKeyName, ppwszDisplayName, ppwszDescription, ppwszBtnText, pdwFlags);
+	public HRESULT InitializeEx(HKEY hkRegKey, PWSTR pcwszVolume, PWSTR pcwszKeyName, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, PWSTR* ppwszBtnText, uint32 pdwFlags) mut => VT.[Friend]InitializeEx(&this, hkRegKey, pcwszVolume, pcwszKeyName, ppwszDisplayName, ppwszDescription, ppwszBtnText, pdwFlags);
 }
 
 [CRepr]struct IReconcileInitiator : IUnknown
@@ -169,14 +169,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReconcileInitiator* pInitiator, uint32 dwFlags, HWND hwndOwner, HWND hwndProgressFeedback, uint32 ulcInput, IMoniker** rgpmkOtherInput, int32* plOutIndex, IStorage* pstgNewResidues, void* pvReserved) Reconcile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulProgressMax) GetProgressFeedbackMaxEstimate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReconcileInitiator* pInitiator, uint32 dwFlags, HWND hwndOwner, HWND hwndProgressFeedback, uint32 ulcInput, IMoniker** rgpmkOtherInput, int32 plOutIndex, IStorage* pstgNewResidues, void* pvReserved) Reconcile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulProgressMax) GetProgressFeedbackMaxEstimate;
 	}
 
 
-	public HRESULT Reconcile(IReconcileInitiator* pInitiator, uint32 dwFlags, HWND hwndOwner, HWND hwndProgressFeedback, uint32 ulcInput, IMoniker** rgpmkOtherInput, int32* plOutIndex, IStorage* pstgNewResidues, void* pvReserved) mut => VT.[Friend]Reconcile(&this, pInitiator, dwFlags, hwndOwner, hwndProgressFeedback, ulcInput, rgpmkOtherInput, plOutIndex, pstgNewResidues, pvReserved);
+	public HRESULT Reconcile(IReconcileInitiator* pInitiator, uint32 dwFlags, HWND hwndOwner, HWND hwndProgressFeedback, uint32 ulcInput, IMoniker** rgpmkOtherInput, int32 plOutIndex, IStorage* pstgNewResidues, void* pvReserved) mut => VT.[Friend]Reconcile(&this, pInitiator, dwFlags, hwndOwner, hwndProgressFeedback, ulcInput, rgpmkOtherInput, plOutIndex, pstgNewResidues, pvReserved);
 
-	public HRESULT GetProgressFeedbackMaxEstimate(uint32* pulProgressMax) mut => VT.[Friend]GetProgressFeedbackMaxEstimate(&this, pulProgressMax);
+	public HRESULT GetProgressFeedbackMaxEstimate(uint32 pulProgressMax) mut => VT.[Friend]GetProgressFeedbackMaxEstimate(&this, pulProgressMax);
 }
 
 [CRepr]struct IBriefcaseInitiator : IUnknown
@@ -205,7 +205,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) SetSafeMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EnsureUpdateHTML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszSchemeName, uint32 dwFlags) SetScheme;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszSchemeName, uint32* pdwcchBuffer, uint32 dwFlags) GetScheme;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszSchemeName, uint32 pdwcchBuffer, uint32 dwFlags) GetScheme;
 	}
 
 
@@ -215,7 +215,7 @@ public static
 
 	public HRESULT SetScheme(PWSTR pwszSchemeName, uint32 dwFlags) mut => VT.[Friend]SetScheme(&this, pwszSchemeName, dwFlags);
 
-	public HRESULT GetScheme(char16* pwszSchemeName, uint32* pdwcchBuffer, uint32 dwFlags) mut => VT.[Friend]GetScheme(&this, pwszSchemeName, pdwcchBuffer, dwFlags);
+	public HRESULT GetScheme(char16* pwszSchemeName, uint32 pdwcchBuffer, uint32 dwFlags) mut => VT.[Friend]GetScheme(&this, pwszSchemeName, pdwcchBuffer, dwFlags);
 }
 
 [CRepr]struct IADesktopP2 : IUnknown
@@ -227,7 +227,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReReadWallpaper;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags, uint32 dwMask) GetADObjectFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwFlags, uint32 dwMask) GetADObjectFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UpdateAllDesktopSubscriptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleObject* pOleObj) MakeDynamicChanges;
 	}
@@ -235,7 +235,7 @@ public static
 
 	public HRESULT ReReadWallpaper() mut => VT.[Friend]ReReadWallpaper(&this);
 
-	public HRESULT GetADObjectFlags(uint32* pdwFlags, uint32 dwMask) mut => VT.[Friend]GetADObjectFlags(&this, pdwFlags, dwMask);
+	public HRESULT GetADObjectFlags(uint32 pdwFlags, uint32 dwMask) mut => VT.[Friend]GetADObjectFlags(&this, pdwFlags, dwMask);
 
 	public HRESULT UpdateAllDesktopSubscriptions() mut => VT.[Friend]UpdateAllDesktopSubscriptions(&this);
 

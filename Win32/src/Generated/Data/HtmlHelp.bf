@@ -798,11 +798,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PropID, BOOL fPersist) SetPersist0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CProperty* Property) GetFirst;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CProperty* Property) GetNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* cProp) GetPropCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cProp) GetPropCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpvData, uint32 dwHdrSize) SaveHeader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpvHeader, uint32 dwHdrSize, void* lpvData, uint32 dwBufSize) SaveData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwHdrSize) GetHeaderSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpvHeader, uint32 dwHdrSize, uint32* dwDataSize) GetDataSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwHdrSize) GetHeaderSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpvHeader, uint32 dwHdrSize, uint32 dwDataSize) GetDataSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpvHeader, uint32 dwHdrSize, IStream* pStream) SaveDataToStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpvData, uint32 dwBufSize) LoadFromMem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpvData, uint32 dwBufSize) SaveToMem;
@@ -829,15 +829,15 @@ public static
 
 	public HRESULT GetNext(CProperty* Property) mut => VT.[Friend]GetNext(&this, Property);
 
-	public HRESULT GetPropCount(int32* cProp) mut => VT.[Friend]GetPropCount(&this, cProp);
+	public HRESULT GetPropCount(int32 cProp) mut => VT.[Friend]GetPropCount(&this, cProp);
 
 	public HRESULT SaveHeader(void* lpvData, uint32 dwHdrSize) mut => VT.[Friend]SaveHeader(&this, lpvData, dwHdrSize);
 
 	public HRESULT SaveData(void* lpvHeader, uint32 dwHdrSize, void* lpvData, uint32 dwBufSize) mut => VT.[Friend]SaveData(&this, lpvHeader, dwHdrSize, lpvData, dwBufSize);
 
-	public HRESULT GetHeaderSize(uint32* dwHdrSize) mut => VT.[Friend]GetHeaderSize(&this, dwHdrSize);
+	public HRESULT GetHeaderSize(uint32 dwHdrSize) mut => VT.[Friend]GetHeaderSize(&this, dwHdrSize);
 
-	public HRESULT GetDataSize(void* lpvHeader, uint32 dwHdrSize, uint32* dwDataSize) mut => VT.[Friend]GetDataSize(&this, lpvHeader, dwHdrSize, dwDataSize);
+	public HRESULT GetDataSize(void* lpvHeader, uint32 dwHdrSize, uint32 dwDataSize) mut => VT.[Friend]GetDataSize(&this, lpvHeader, dwHdrSize, dwDataSize);
 
 	public HRESULT SaveDataToStream(void* lpvHeader, uint32 dwHdrSize, IStream* pStream) mut => VT.[Friend]SaveDataToStream(&this, lpvHeader, dwHdrSize, pStream);
 
@@ -856,8 +856,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszHost, PWSTR lpszMoniker, uint32 dwFlags) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid, uint32* pdwObjInstance) CreateObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObjInstance, ref Guid riid, void** ppvObj) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid rclsid, uint32 pdwObjInstance) CreateObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObjInstance, Guid riid, void** ppvObj) GetObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpwszObject, uint32 dwObjInstance, void** ppvPersistence, BOOL fStream) GetObjectPersistence;
 	}
 
@@ -866,9 +866,9 @@ public static
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
-	public HRESULT CreateObject(ref Guid rclsid, uint32* pdwObjInstance) mut => VT.[Friend]CreateObject(&this, ref rclsid, pdwObjInstance);
+	public HRESULT CreateObject(Guid rclsid, uint32 pdwObjInstance) mut => VT.[Friend]CreateObject(&this, rclsid, pdwObjInstance);
 
-	public HRESULT GetObject(uint32 dwObjInstance, ref Guid riid, void** ppvObj) mut => VT.[Friend]GetObject(&this, dwObjInstance, ref riid, ppvObj);
+	public HRESULT GetObject(uint32 dwObjInstance, Guid riid, void** ppvObj) mut => VT.[Friend]GetObject(&this, dwObjInstance, riid, ppvObj);
 
 	public HRESULT GetObjectPersistence(PWSTR lpwszObject, uint32 dwObjInstance, void** ppvPersistence, BOOL fStream) mut => VT.[Friend]GetObjectPersistence(&this, lpwszObject, dwObjInstance, ppvPersistence, fStream);
 }
@@ -883,15 +883,15 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IITDatabase* lpITDB, PWSTR lpszMoniker, WORD_WHEEL_OPEN_FLAGS dwFlags) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCodePageID, uint32* plcid) GetLocaleInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwObjInstance) GetSorterInstance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcEntries) Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpcvPrefix, BOOL fExactMatch, int32* plEntry) Lookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCodePageID, uint32 plcid) GetLocaleInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwObjInstance) GetSorterInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pcEntries) Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpcvPrefix, BOOL fExactMatch, int32 plEntry) Lookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEntry, IITResultSet* lpITResult, int32 cEntries) Lookup0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEntry, void* lpvKeyBuf, uint32 cbKeyBuf) Lookup1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IITGroup* piitGroup) SetGroup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IITGroup** ppiitGroup) GetGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEntry, uint32* pdwCount) GetDataCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEntry, uint32 pdwCount) GetDataCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEntry, IITResultSet* lpITResult) GetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IITResultSet* pRS) GetDataColumns;
 	}
@@ -901,13 +901,13 @@ public static
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
-	public HRESULT GetLocaleInfo(uint32* pdwCodePageID, uint32* plcid) mut => VT.[Friend]GetLocaleInfo(&this, pdwCodePageID, plcid);
+	public HRESULT GetLocaleInfo(uint32 pdwCodePageID, uint32 plcid) mut => VT.[Friend]GetLocaleInfo(&this, pdwCodePageID, plcid);
 
-	public HRESULT GetSorterInstance(uint32* pdwObjInstance) mut => VT.[Friend]GetSorterInstance(&this, pdwObjInstance);
+	public HRESULT GetSorterInstance(uint32 pdwObjInstance) mut => VT.[Friend]GetSorterInstance(&this, pdwObjInstance);
 
-	public HRESULT Count(int32* pcEntries) mut => VT.[Friend]Count(&this, pcEntries);
+	public HRESULT Count(int32 pcEntries) mut => VT.[Friend]Count(&this, pcEntries);
 
-	public HRESULT Lookup(void* lpcvPrefix, BOOL fExactMatch, int32* plEntry) mut => VT.[Friend]Lookup(&this, lpcvPrefix, fExactMatch, plEntry);
+	public HRESULT Lookup(void* lpcvPrefix, BOOL fExactMatch, int32 plEntry) mut => VT.[Friend]Lookup(&this, lpcvPrefix, fExactMatch, plEntry);
 
 	public HRESULT Lookup(int32 lEntry, IITResultSet* lpITResult, int32 cEntries) mut => VT.[Friend]Lookup0(&this, lEntry, lpITResult, cEntries);
 
@@ -917,7 +917,7 @@ public static
 
 	public HRESULT GetGroup(IITGroup** ppiitGroup) mut => VT.[Friend]GetGroup(&this, ppiitGroup);
 
-	public HRESULT GetDataCount(int32 lEntry, uint32* pdwCount) mut => VT.[Friend]GetDataCount(&this, lEntry, pdwCount);
+	public HRESULT GetDataCount(int32 lEntry, uint32 pdwCount) mut => VT.[Friend]GetDataCount(&this, lEntry, pdwCount);
 
 	public HRESULT GetData(int32 lEntry, IITResultSet* lpITResult) mut => VT.[Friend]GetData(&this, lEntry, lpITResult);
 
@@ -951,20 +951,20 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCodePageID, uint32 lcid) SetLocaleInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCodePageID, uint32* plcid) GetLocaleInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCodePageID, uint32 plcid) GetLocaleInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfStemFlags, uint32 dwReserved) SetControlInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pgrfStemFlags, uint32* pdwReserved) GetControlInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pgrfStemFlags, uint32 pdwReserved) GetControlInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, uint32 dwExtDataType) LoadExternalStemmerData;
 	}
 
 
 	public HRESULT SetLocaleInfo(uint32 dwCodePageID, uint32 lcid) mut => VT.[Friend]SetLocaleInfo(&this, dwCodePageID, lcid);
 
-	public HRESULT GetLocaleInfo(uint32* pdwCodePageID, uint32* plcid) mut => VT.[Friend]GetLocaleInfo(&this, pdwCodePageID, plcid);
+	public HRESULT GetLocaleInfo(uint32 pdwCodePageID, uint32 plcid) mut => VT.[Friend]GetLocaleInfo(&this, pdwCodePageID, plcid);
 
 	public HRESULT SetControlInfo(uint32 grfStemFlags, uint32 dwReserved) mut => VT.[Friend]SetControlInfo(&this, grfStemFlags, dwReserved);
 
-	public HRESULT GetControlInfo(uint32* pgrfStemFlags, uint32* pdwReserved) mut => VT.[Friend]GetControlInfo(&this, pgrfStemFlags, pdwReserved);
+	public HRESULT GetControlInfo(uint32 pgrfStemFlags, uint32 pdwReserved) mut => VT.[Friend]GetControlInfo(&this, pgrfStemFlags, pdwReserved);
 
 	public HRESULT LoadExternalStemmerData(IStream* pStream, uint32 dwExtDataType) mut => VT.[Friend]LoadExternalStemmerData(&this, pStream, dwExtDataType);
 }
@@ -978,32 +978,32 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCodePageID, uint32 lcid) SetLocaleInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCodePageID, uint32* plcid) GetLocaleInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCodePageID, uint32 plcid) GetLocaleInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwBreakWordType) SetBreakWordType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwBreakWordType) GetBreakWordType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwBreakWordType) GetBreakWordType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfBreakFlags, uint32 dwReserved) SetControlInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pgrfBreakFlags, uint32* pdwReserved) GetControlInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pgrfBreakFlags, uint32 pdwReserved) GetControlInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, uint32 dwExtDataType) LoadExternalBreakerData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid, IStemmer* pStemmer) SetWordStemmer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid rclsid, IStemmer* pStemmer) SetWordStemmer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStemmer** ppStemmer) GetWordStemmer;
 	}
 
 
 	public HRESULT SetLocaleInfo(uint32 dwCodePageID, uint32 lcid) mut => VT.[Friend]SetLocaleInfo(&this, dwCodePageID, lcid);
 
-	public HRESULT GetLocaleInfo(uint32* pdwCodePageID, uint32* plcid) mut => VT.[Friend]GetLocaleInfo(&this, pdwCodePageID, plcid);
+	public HRESULT GetLocaleInfo(uint32 pdwCodePageID, uint32 plcid) mut => VT.[Friend]GetLocaleInfo(&this, pdwCodePageID, plcid);
 
 	public HRESULT SetBreakWordType(uint32 dwBreakWordType) mut => VT.[Friend]SetBreakWordType(&this, dwBreakWordType);
 
-	public HRESULT GetBreakWordType(uint32* pdwBreakWordType) mut => VT.[Friend]GetBreakWordType(&this, pdwBreakWordType);
+	public HRESULT GetBreakWordType(uint32 pdwBreakWordType) mut => VT.[Friend]GetBreakWordType(&this, pdwBreakWordType);
 
 	public HRESULT SetControlInfo(uint32 grfBreakFlags, uint32 dwReserved) mut => VT.[Friend]SetControlInfo(&this, grfBreakFlags, dwReserved);
 
-	public HRESULT GetControlInfo(uint32* pgrfBreakFlags, uint32* pdwReserved) mut => VT.[Friend]GetControlInfo(&this, pgrfBreakFlags, pdwReserved);
+	public HRESULT GetControlInfo(uint32 pgrfBreakFlags, uint32 pdwReserved) mut => VT.[Friend]GetControlInfo(&this, pgrfBreakFlags, pdwReserved);
 
 	public HRESULT LoadExternalBreakerData(IStream* pStream, uint32 dwExtDataType) mut => VT.[Friend]LoadExternalBreakerData(&this, pStream, dwExtDataType);
 
-	public HRESULT SetWordStemmer(ref Guid rclsid, IStemmer* pStemmer) mut => VT.[Friend]SetWordStemmer(&this, ref rclsid, pStemmer);
+	public HRESULT SetWordStemmer(Guid rclsid, IStemmer* pStemmer) mut => VT.[Friend]SetWordStemmer(&this, rclsid, pStemmer);
 
 	public HRESULT GetWordStemmer(IStemmer** ppStemmer) mut => VT.[Friend]GetWordStemmer(&this, ppStemmer);
 }
@@ -1029,15 +1029,15 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRowIndex, int32 lColumnIndex, uint dwData) Set1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRowIndex, void* lpvHdr, void* lpvData) Set2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IITResultSet* pRSCopy) Copy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IITResultSet* pResSrc, int32 lRowSrcFirst, int32 cSrcRows, int32* lRowFirstDest) AppendRows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IITResultSet* pResSrc, int32 lRowSrcFirst, int32 cSrcRows, int32 lRowFirstDest) AppendRows;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRowIndex, int32 lColumnIndex, CProperty* Prop) Get;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* KeyPropID) GetKeyProp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 KeyPropID) GetKeyProp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lColumnIndex, PRIORITY* ColumnPriority) GetColumnPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lNumberOfRows) GetRowCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lNumberOfColumns) GetColumnCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lColumnIndex, uint32* PropID, uint32* dwType, void** lpvDefaultValue, uint32* cbSize, PRIORITY* ColumnPriority) GetColumn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lColumnIndex, uint32* PropID) GetColumn0;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PropID, int32* lColumnIndex) GetColumnFromPropID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lNumberOfRows) GetRowCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lNumberOfColumns) GetColumnCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lColumnIndex, uint32 PropID, uint32 dwType, void** lpvDefaultValue, uint32 cbSize, PRIORITY* ColumnPriority) GetColumn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lColumnIndex, uint32 PropID) GetColumn0;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PropID, int32 lColumnIndex) GetColumnFromPropID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearRows;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Free;
@@ -1075,23 +1075,23 @@ public static
 
 	public HRESULT Copy(IITResultSet* pRSCopy) mut => VT.[Friend]Copy(&this, pRSCopy);
 
-	public HRESULT AppendRows(IITResultSet* pResSrc, int32 lRowSrcFirst, int32 cSrcRows, int32* lRowFirstDest) mut => VT.[Friend]AppendRows(&this, pResSrc, lRowSrcFirst, cSrcRows, lRowFirstDest);
+	public HRESULT AppendRows(IITResultSet* pResSrc, int32 lRowSrcFirst, int32 cSrcRows, int32 lRowFirstDest) mut => VT.[Friend]AppendRows(&this, pResSrc, lRowSrcFirst, cSrcRows, lRowFirstDest);
 
 	public HRESULT Get(int32 lRowIndex, int32 lColumnIndex, CProperty* Prop) mut => VT.[Friend]Get(&this, lRowIndex, lColumnIndex, Prop);
 
-	public HRESULT GetKeyProp(uint32* KeyPropID) mut => VT.[Friend]GetKeyProp(&this, KeyPropID);
+	public HRESULT GetKeyProp(uint32 KeyPropID) mut => VT.[Friend]GetKeyProp(&this, KeyPropID);
 
 	public HRESULT GetColumnPriority(int32 lColumnIndex, PRIORITY* ColumnPriority) mut => VT.[Friend]GetColumnPriority(&this, lColumnIndex, ColumnPriority);
 
-	public HRESULT GetRowCount(int32* lNumberOfRows) mut => VT.[Friend]GetRowCount(&this, lNumberOfRows);
+	public HRESULT GetRowCount(int32 lNumberOfRows) mut => VT.[Friend]GetRowCount(&this, lNumberOfRows);
 
-	public HRESULT GetColumnCount(int32* lNumberOfColumns) mut => VT.[Friend]GetColumnCount(&this, lNumberOfColumns);
+	public HRESULT GetColumnCount(int32 lNumberOfColumns) mut => VT.[Friend]GetColumnCount(&this, lNumberOfColumns);
 
-	public HRESULT GetColumn(int32 lColumnIndex, uint32* PropID, uint32* dwType, void** lpvDefaultValue, uint32* cbSize, PRIORITY* ColumnPriority) mut => VT.[Friend]GetColumn(&this, lColumnIndex, PropID, dwType, lpvDefaultValue, cbSize, ColumnPriority);
+	public HRESULT GetColumn(int32 lColumnIndex, uint32 PropID, uint32 dwType, void** lpvDefaultValue, uint32 cbSize, PRIORITY* ColumnPriority) mut => VT.[Friend]GetColumn(&this, lColumnIndex, PropID, dwType, lpvDefaultValue, cbSize, ColumnPriority);
 
-	public HRESULT GetColumn(int32 lColumnIndex, uint32* PropID) mut => VT.[Friend]GetColumn0(&this, lColumnIndex, PropID);
+	public HRESULT GetColumn(int32 lColumnIndex, uint32 PropID) mut => VT.[Friend]GetColumn0(&this, lColumnIndex, PropID);
 
-	public HRESULT GetColumnFromPropID(uint32 PropID, int32* lColumnIndex) mut => VT.[Friend]GetColumnFromPropID(&this, PropID, lColumnIndex);
+	public HRESULT GetColumnFromPropID(uint32 PropID, int32 lColumnIndex) mut => VT.[Friend]GetColumnFromPropID(&this, PropID, lColumnIndex);
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 

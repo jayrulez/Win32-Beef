@@ -13808,7 +13808,7 @@ public static
 	public static extern BOOL CompareObjectHandles(HANDLE hFirstObjectHandle, HANDLE hSecondObjectHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetHandleInformation(HANDLE hObject, uint32* lpdwFlags);
+	public static extern BOOL GetHandleInformation(HANDLE hObject, uint32 lpdwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetHandleInformation(HANDLE hObject, uint32 dwMask, HANDLE_FLAGS dwFlags);

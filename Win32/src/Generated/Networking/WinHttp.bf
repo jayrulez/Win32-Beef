@@ -1497,7 +1497,7 @@ public static
 	public static extern BOOL WinHttpCrackUrl(char16* pwszUrl, uint32 dwUrlLength, uint32 dwFlags, URL_COMPONENTS* lpUrlComponents);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpCreateUrl(URL_COMPONENTS* lpUrlComponents, WIN_HTTP_CREATE_URL_FLAGS dwFlags, char16* pwszUrl, uint32* pdwUrlLength);
+	public static extern BOOL WinHttpCreateUrl(URL_COMPONENTS* lpUrlComponents, WIN_HTTP_CREATE_URL_FLAGS dwFlags, char16* pwszUrl, uint32 pdwUrlLength);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WinHttpCheckPlatform();
@@ -1518,19 +1518,19 @@ public static
 	public static extern void* WinHttpConnect(void* hSession, PWSTR pswzServerName, INTERNET_PORT nServerPort, uint32 dwReserved);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpReadData(void* hRequest, void* lpBuffer, uint32 dwNumberOfBytesToRead, uint32* lpdwNumberOfBytesRead);
+	public static extern BOOL WinHttpReadData(void* hRequest, void* lpBuffer, uint32 dwNumberOfBytesToRead, uint32 lpdwNumberOfBytesRead);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WinHttpReadDataEx(void* hRequest, void* lpBuffer, uint32 dwNumberOfBytesToRead, uint32* lpdwNumberOfBytesRead, uint64 ullFlags, uint32 cbProperty, void* pvProperty);
+	public static extern uint32 WinHttpReadDataEx(void* hRequest, void* lpBuffer, uint32 dwNumberOfBytesToRead, uint32 lpdwNumberOfBytesRead, uint64 ullFlags, uint32 cbProperty, void* pvProperty);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpWriteData(void* hRequest, void* lpBuffer, uint32 dwNumberOfBytesToWrite, uint32* lpdwNumberOfBytesWritten);
+	public static extern BOOL WinHttpWriteData(void* hRequest, void* lpBuffer, uint32 dwNumberOfBytesToWrite, uint32 lpdwNumberOfBytesWritten);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpQueryDataAvailable(void* hRequest, uint32* lpdwNumberOfBytesAvailable);
+	public static extern BOOL WinHttpQueryDataAvailable(void* hRequest, uint32 lpdwNumberOfBytesAvailable);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpQueryOption(void* hInternet, uint32 dwOption, void* lpBuffer, uint32* lpdwBufferLength);
+	public static extern BOOL WinHttpQueryOption(void* hInternet, uint32 dwOption, void* lpBuffer, uint32 lpdwBufferLength);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WinHttpSetOption(void* hInternet, uint32 dwOption, void* lpBuffer, uint32 dwBufferLength);
@@ -1554,19 +1554,19 @@ public static
 	public static extern BOOL WinHttpSetCredentials(void* hRequest, uint32 AuthTargets, uint32 AuthScheme, PWSTR pwszUserName, PWSTR pwszPassword, void* pAuthParams);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpQueryAuthSchemes(void* hRequest, uint32* lpdwSupportedSchemes, uint32* lpdwFirstScheme, uint32* pdwAuthTarget);
+	public static extern BOOL WinHttpQueryAuthSchemes(void* hRequest, uint32 lpdwSupportedSchemes, uint32 lpdwFirstScheme, uint32 pdwAuthTarget);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WinHttpReceiveResponse(void* hRequest, void* lpReserved);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpQueryHeaders(void* hRequest, uint32 dwInfoLevel, PWSTR pwszName, void* lpBuffer, uint32* lpdwBufferLength, uint32* lpdwIndex);
+	public static extern BOOL WinHttpQueryHeaders(void* hRequest, uint32 dwInfoLevel, PWSTR pwszName, void* lpBuffer, uint32 lpdwBufferLength, uint32 lpdwIndex);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WinHttpQueryHeadersEx(void* hRequest, uint32 dwInfoLevel, uint64 ullFlags, uint32 uiCodePage, uint32* pdwIndex, WINHTTP_HEADER_NAME* pHeaderName, void* pBuffer, uint32* pdwBufferLength, WINHTTP_EXTENDED_HEADER** ppHeaders, uint32* pdwHeadersCount);
+	public static extern uint32 WinHttpQueryHeadersEx(void* hRequest, uint32 dwInfoLevel, uint64 ullFlags, uint32 uiCodePage, uint32 pdwIndex, WINHTTP_HEADER_NAME* pHeaderName, void* pBuffer, uint32 pdwBufferLength, WINHTTP_EXTENDED_HEADER** ppHeaders, uint32 pdwHeadersCount);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WinHttpQueryConnectionGroup(void* hInternet, ref Guid pGuidConnection, uint64 ullFlags, WINHTTP_QUERY_CONNECTION_GROUP_RESULT** ppResult);
+	public static extern uint32 WinHttpQueryConnectionGroup(void* hInternet, Guid pGuidConnection, uint64 ullFlags, WINHTTP_QUERY_CONNECTION_GROUP_RESULT** ppResult);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WinHttpFreeQueryConnectionGroupResult(WINHTTP_QUERY_CONNECTION_GROUP_RESULT* pResult);
@@ -1584,7 +1584,7 @@ public static
 	public static extern uint32 WinHttpGetProxyForUrlEx(void* hResolver, PWSTR pcwszUrl, WINHTTP_AUTOPROXY_OPTIONS* pAutoProxyOptions, uint pContext);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WinHttpGetProxyForUrlEx2(void* hResolver, PWSTR pcwszUrl, WINHTTP_AUTOPROXY_OPTIONS* pAutoProxyOptions, uint32 cbInterfaceSelectionContext, uint8* pInterfaceSelectionContext, uint pContext);
+	public static extern uint32 WinHttpGetProxyForUrlEx2(void* hResolver, PWSTR pcwszUrl, WINHTTP_AUTOPROXY_OPTIONS* pAutoProxyOptions, uint32 cbInterfaceSelectionContext, uint8 pInterfaceSelectionContext, uint pContext);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WinHttpGetProxyResult(void* hResolver, WINHTTP_PROXY_RESULT* pProxyResult);
@@ -1608,13 +1608,13 @@ public static
 	public static extern uint32 WinHttpWriteProxySettings(void* hSession, BOOL fForceUpdate, WINHTTP_PROXY_SETTINGS* pWinHttpProxySettings);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WinHttpReadProxySettings(void* hSession, PWSTR pcwszConnectionName, BOOL fFallBackToDefaultSettings, BOOL fSetAutoDiscoverForDefaultSettings, uint32* pdwSettingsVersion, BOOL* pfDefaultSettingsAreReturned, WINHTTP_PROXY_SETTINGS* pWinHttpProxySettings);
+	public static extern uint32 WinHttpReadProxySettings(void* hSession, PWSTR pcwszConnectionName, BOOL fFallBackToDefaultSettings, BOOL fSetAutoDiscoverForDefaultSettings, uint32 pdwSettingsVersion, BOOL* pfDefaultSettingsAreReturned, WINHTTP_PROXY_SETTINGS* pWinHttpProxySettings);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WinHttpFreeProxySettings(WINHTTP_PROXY_SETTINGS* pWinHttpProxySettings);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WinHttpGetProxySettingsVersion(void* hSession, uint32* pdwProxySettingsVersion);
+	public static extern uint32 WinHttpGetProxySettingsVersion(void* hSession, uint32 pdwProxySettingsVersion);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WinHttpSetProxySettingsPerUser(BOOL fProxySettingsPerUser);
@@ -1626,7 +1626,7 @@ public static
 	public static extern uint32 WinHttpWebSocketSend(void* hWebSocket, WINHTTP_WEB_SOCKET_BUFFER_TYPE eBufferType, void* pvBuffer, uint32 dwBufferLength);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WinHttpWebSocketReceive(void* hWebSocket, void* pvBuffer, uint32 dwBufferLength, uint32* pdwBytesRead, WINHTTP_WEB_SOCKET_BUFFER_TYPE* peBufferType);
+	public static extern uint32 WinHttpWebSocketReceive(void* hWebSocket, void* pvBuffer, uint32 dwBufferLength, uint32 pdwBytesRead, WINHTTP_WEB_SOCKET_BUFFER_TYPE* peBufferType);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WinHttpWebSocketShutdown(void* hWebSocket, uint16 usStatus, void* pvReason, uint32 dwReasonLength);
@@ -1635,7 +1635,7 @@ public static
 	public static extern uint32 WinHttpWebSocketClose(void* hWebSocket, uint16 usStatus, void* pvReason, uint32 dwReasonLength);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WinHttpWebSocketQueryCloseStatus(void* hWebSocket, uint16* pusStatus, void* pvReason, uint32 dwReasonLength, uint32* pdwReasonLengthConsumed);
+	public static extern uint32 WinHttpWebSocketQueryCloseStatus(void* hWebSocket, uint16 pusStatus, void* pvReason, uint32 dwReasonLength, uint32 pdwReasonLengthConsumed);
 
 }
 #endregion

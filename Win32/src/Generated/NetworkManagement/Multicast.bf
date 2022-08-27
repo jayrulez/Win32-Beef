@@ -95,7 +95,7 @@ public static
 public static
 {
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 McastApiStartup(uint32* Version);
+	public static extern uint32 McastApiStartup(uint32 Version);
 
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void McastApiCleanup();
@@ -104,7 +104,7 @@ public static
 	public static extern uint32 McastGenUID(MCAST_CLIENT_UID* pRequestID);
 
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 McastEnumerateScopes(uint16 AddrFamily, BOOL ReQuery, MCAST_SCOPE_ENTRY* pScopeList, uint32* pScopeLen, uint32* pScopeCount);
+	public static extern uint32 McastEnumerateScopes(uint16 AddrFamily, BOOL ReQuery, MCAST_SCOPE_ENTRY* pScopeList, uint32 pScopeLen, uint32 pScopeCount);
 
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 McastRequestAddress(uint16 AddrFamily, MCAST_CLIENT_UID* pRequestID, MCAST_SCOPE_CTX* pScopeCtx, MCAST_LEASE_REQUEST* pAddrRequest, MCAST_LEASE_RESPONSE* pAddrResponse);

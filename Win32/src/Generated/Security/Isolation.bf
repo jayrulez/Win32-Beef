@@ -56,7 +56,7 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetAppContainerNamedObjectPath(HANDLE Token, PSID AppContainerSid, uint32 ObjectPathLength, char16* ObjectPath, uint32* ReturnLength);
+	public static extern BOOL GetAppContainerNamedObjectPath(HANDLE Token, PSID AppContainerSid, uint32 ObjectPathLength, char16* ObjectPath, uint32 ReturnLength);
 
 	[Import("api-ms-win-security-isolatedcontainer-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT IsProcessInWDAGContainer(void* Reserved, BOOL* isProcessInWDAGContainer);

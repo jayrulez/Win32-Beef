@@ -67,13 +67,13 @@ public static
 public static
 {
 	[Import("prntvpt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PTQuerySchemaVersionSupport(PWSTR pszPrinterName, uint32* pMaxVersion);
+	public static extern HRESULT PTQuerySchemaVersionSupport(PWSTR pszPrinterName, uint32 pMaxVersion);
 
 	[Import("prntvpt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PTOpenProvider(PWSTR pszPrinterName, uint32 dwVersion, HPTPROVIDER* phProvider);
 
 	[Import("prntvpt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PTOpenProviderEx(PWSTR pszPrinterName, uint32 dwMaxVersion, uint32 dwPrefVersion, HPTPROVIDER* phProvider, uint32* pUsedVersion);
+	public static extern HRESULT PTOpenProviderEx(PWSTR pszPrinterName, uint32 dwMaxVersion, uint32 dwPrefVersion, HPTPROVIDER* phProvider, uint32 pUsedVersion);
 
 	[Import("prntvpt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PTCloseProvider(HPTPROVIDER hProvider);
@@ -94,7 +94,7 @@ public static
 	public static extern HRESULT PTMergeAndValidatePrintTicket(HPTPROVIDER hProvider, IStream* pBaseTicket, IStream* pDeltaTicket, EPrintTicketScope @scope, IStream* pResultTicket, BSTR* pbstrErrorMessage);
 
 	[Import("prntvpt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PTConvertPrintTicketToDevMode(HPTPROVIDER hProvider, IStream* pPrintTicket, EDefaultDevmodeType baseDevmodeType, EPrintTicketScope @scope, uint32* pcbDevmode, DEVMODEA** ppDevmode, BSTR* pbstrErrorMessage);
+	public static extern HRESULT PTConvertPrintTicketToDevMode(HPTPROVIDER hProvider, IStream* pPrintTicket, EDefaultDevmodeType baseDevmodeType, EPrintTicketScope @scope, uint32 pcbDevmode, DEVMODEA** ppDevmode, BSTR* pbstrErrorMessage);
 
 	[Import("prntvpt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PTConvertDevModeToPrintTicket(HPTPROVIDER hProvider, uint32 cbDevmode, DEVMODEA* pDevmode, EPrintTicketScope @scope, IStream* pPrintTicket);

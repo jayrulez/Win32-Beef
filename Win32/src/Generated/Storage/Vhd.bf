@@ -989,31 +989,31 @@ public static
 	public static extern uint32 DetachVirtualDisk(HANDLE VirtualDiskHandle, DETACH_VIRTUAL_DISK_FLAG Flags, uint32 ProviderSpecificFlags);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetVirtualDiskPhysicalPath(HANDLE VirtualDiskHandle, uint32* DiskPathSizeInBytes, PWSTR DiskPath);
+	public static extern uint32 GetVirtualDiskPhysicalPath(HANDLE VirtualDiskHandle, uint32 DiskPathSizeInBytes, PWSTR DiskPath);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetAllAttachedVirtualDiskPhysicalPaths(uint32* PathsBufferSizeInBytes, PWSTR PathsBuffer);
+	public static extern uint32 GetAllAttachedVirtualDiskPhysicalPaths(uint32 PathsBufferSizeInBytes, PWSTR PathsBuffer);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetStorageDependencyInformation(HANDLE ObjectHandle, GET_STORAGE_DEPENDENCY_FLAG Flags, uint32 StorageDependencyInfoSize, STORAGE_DEPENDENCY_INFO* StorageDependencyInfo, uint32* SizeUsed);
+	public static extern uint32 GetStorageDependencyInformation(HANDLE ObjectHandle, GET_STORAGE_DEPENDENCY_FLAG Flags, uint32 StorageDependencyInfoSize, STORAGE_DEPENDENCY_INFO* StorageDependencyInfo, uint32 SizeUsed);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetVirtualDiskInformation(HANDLE VirtualDiskHandle, uint32* VirtualDiskInfoSize, GET_VIRTUAL_DISK_INFO* VirtualDiskInfo, uint32* SizeUsed);
+	public static extern uint32 GetVirtualDiskInformation(HANDLE VirtualDiskHandle, uint32 VirtualDiskInfoSize, GET_VIRTUAL_DISK_INFO* VirtualDiskInfo, uint32 SizeUsed);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetVirtualDiskInformation(HANDLE VirtualDiskHandle, SET_VIRTUAL_DISK_INFO* VirtualDiskInfo);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EnumerateVirtualDiskMetadata(HANDLE VirtualDiskHandle, uint32* NumberOfItems, ref Guid Items);
+	public static extern uint32 EnumerateVirtualDiskMetadata(HANDLE VirtualDiskHandle, uint32 NumberOfItems, Guid* Items);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetVirtualDiskMetadata(HANDLE VirtualDiskHandle, ref Guid Item, uint32* MetaDataSize, void* MetaData);
+	public static extern uint32 GetVirtualDiskMetadata(HANDLE VirtualDiskHandle, Guid Item, uint32 MetaDataSize, void* MetaData);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetVirtualDiskMetadata(HANDLE VirtualDiskHandle, ref Guid Item, uint32 MetaDataSize, void* MetaData);
+	public static extern uint32 SetVirtualDiskMetadata(HANDLE VirtualDiskHandle, Guid Item, uint32 MetaDataSize, void* MetaData);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DeleteVirtualDiskMetadata(HANDLE VirtualDiskHandle, ref Guid Item);
+	public static extern uint32 DeleteVirtualDiskMetadata(HANDLE VirtualDiskHandle, Guid Item);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetVirtualDiskOperationProgress(HANDLE VirtualDiskHandle, OVERLAPPED* Overlapped, VIRTUAL_DISK_PROGRESS* Progress);
@@ -1040,7 +1040,7 @@ public static
 	public static extern uint32 AddVirtualDiskParent(HANDLE VirtualDiskHandle, PWSTR ParentPath);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryChangesVirtualDisk(HANDLE VirtualDiskHandle, PWSTR ChangeTrackingId, uint64 ByteOffset, uint64 ByteLength, QUERY_CHANGES_VIRTUAL_DISK_FLAG Flags, QUERY_CHANGES_VIRTUAL_DISK_RANGE* Ranges, uint32* RangeCount, uint64* ProcessedLength);
+	public static extern uint32 QueryChangesVirtualDisk(HANDLE VirtualDiskHandle, PWSTR ChangeTrackingId, uint64 ByteOffset, uint64 ByteLength, QUERY_CHANGES_VIRTUAL_DISK_FLAG Flags, QUERY_CHANGES_VIRTUAL_DISK_RANGE* Ranges, uint32 RangeCount, uint64 ProcessedLength);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TakeSnapshotVhdSet(HANDLE VirtualDiskHandle, TAKE_SNAPSHOT_VHDSET_PARAMETERS* Parameters, TAKE_SNAPSHOT_VHDSET_FLAG Flags);

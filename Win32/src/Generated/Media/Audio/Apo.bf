@@ -416,7 +416,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfCompressed) IsCompressedFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioMediaType* pIAudioType, uint32* pdwFlags) IsEqual;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioMediaType* pIAudioType, uint32 pdwFlags) IsEqual;
 		protected new function [CallingConvention(.Stdcall)] WAVEFORMATEX*(SelfOuter* self) GetAudioFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UNCOMPRESSEDAUDIOFORMAT* pUncompressedAudioFormat) GetUncompressedAudioFormat;
 	}
@@ -424,7 +424,7 @@ public static
 
 	public HRESULT IsCompressedFormat(BOOL* pfCompressed) mut => VT.[Friend]IsCompressedFormat(&this, pfCompressed);
 
-	public HRESULT IsEqual(IAudioMediaType* pIAudioType, uint32* pdwFlags) mut => VT.[Friend]IsEqual(&this, pIAudioType, pdwFlags);
+	public HRESULT IsEqual(IAudioMediaType* pIAudioType, uint32 pdwFlags) mut => VT.[Friend]IsEqual(&this, pIAudioType, pdwFlags);
 
 	public WAVEFORMATEX* GetAudioFormat() mut => VT.[Friend]GetAudioFormat(&this);
 
@@ -460,14 +460,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32MaxOutputFrameCount, uint32* pu32InputFrameCount) CalcMaxInputFrames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32MaxInputFrameCount, uint32* pu32OutputFrameCount) CalcMaxOutputFrames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32MaxOutputFrameCount, uint32 pu32InputFrameCount) CalcMaxInputFrames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32MaxInputFrameCount, uint32 pu32OutputFrameCount) CalcMaxOutputFrames;
 	}
 
 
-	public HRESULT CalcMaxInputFrames(uint32 u32MaxOutputFrameCount, uint32* pu32InputFrameCount) mut => VT.[Friend]CalcMaxInputFrames(&this, u32MaxOutputFrameCount, pu32InputFrameCount);
+	public HRESULT CalcMaxInputFrames(uint32 u32MaxOutputFrameCount, uint32 pu32InputFrameCount) mut => VT.[Friend]CalcMaxInputFrames(&this, u32MaxOutputFrameCount, pu32InputFrameCount);
 
-	public HRESULT CalcMaxOutputFrames(uint32 u32MaxInputFrameCount, uint32* pu32OutputFrameCount) mut => VT.[Friend]CalcMaxOutputFrames(&this, u32MaxInputFrameCount, pu32OutputFrameCount);
+	public HRESULT CalcMaxOutputFrames(uint32 u32MaxInputFrameCount, uint32 pu32OutputFrameCount) mut => VT.[Friend]CalcMaxOutputFrames(&this, u32MaxInputFrameCount, pu32OutputFrameCount);
 }
 
 [CRepr]struct IAudioProcessingObjectConfiguration : IUnknown
@@ -497,18 +497,18 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pTime) GetLatency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 pTime) GetLatency;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APO_REG_PROPERTIES** ppRegProps) GetRegistrationProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbDataSize, uint8* pbyData) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioMediaType* pOppositeFormat, IAudioMediaType* pRequestedInputFormat, IAudioMediaType** ppSupportedInputFormat) IsInputFormatSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioMediaType* pOppositeFormat, IAudioMediaType* pRequestedOutputFormat, IAudioMediaType** ppSupportedOutputFormat) IsOutputFormatSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pu32ChannelCount) GetInputChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pu32ChannelCount) GetInputChannelCount;
 	}
 
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT GetLatency(int64* pTime) mut => VT.[Friend]GetLatency(&this, pTime);
+	public HRESULT GetLatency(int64 pTime) mut => VT.[Friend]GetLatency(&this, pTime);
 
 	public HRESULT GetRegistrationProperties(APO_REG_PROPERTIES** ppRegProps) mut => VT.[Friend]GetRegistrationProperties(&this, ppRegProps);
 
@@ -518,7 +518,7 @@ public static
 
 	public HRESULT IsOutputFormatSupported(IAudioMediaType* pOppositeFormat, IAudioMediaType* pRequestedOutputFormat, IAudioMediaType** ppSupportedOutputFormat) mut => VT.[Friend]IsOutputFormatSupported(&this, pOppositeFormat, pRequestedOutputFormat, ppSupportedOutputFormat);
 
-	public HRESULT GetInputChannelCount(uint32* pu32ChannelCount) mut => VT.[Friend]GetInputChannelCount(&this, pu32ChannelCount);
+	public HRESULT GetInputChannelCount(uint32 pu32ChannelCount) mut => VT.[Friend]GetInputChannelCount(&this, pu32ChannelCount);
 }
 
 [CRepr]struct IAudioDeviceModulesClient : IUnknown
@@ -556,11 +556,11 @@ public static
 
 	[CRepr]public struct VTable : IAudioSystemEffects.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) GetEffectsList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid** ppEffectsIds, uint32 pcEffects, HANDLE Event) GetEffectsList;
 	}
 
 
-	public HRESULT GetEffectsList(ref Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) mut => VT.[Friend]GetEffectsList(&this, ref ppEffectsIds, pcEffects, Event);
+	public HRESULT GetEffectsList(Guid** ppEffectsIds, uint32 pcEffects, HANDLE Event) mut => VT.[Friend]GetEffectsList(&this, ppEffectsIds, pcEffects, Event);
 }
 
 [CRepr]struct IAudioSystemEffectsCustomFormats : IUnknown
@@ -571,13 +571,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcFormats) GetFormatCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcFormats) GetFormatCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nFormat, IAudioMediaType** ppFormat) GetFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nFormat, PWSTR* ppwstrFormatRep) GetFormatRepresentation;
 	}
 
 
-	public HRESULT GetFormatCount(uint32* pcFormats) mut => VT.[Friend]GetFormatCount(&this, pcFormats);
+	public HRESULT GetFormatCount(uint32 pcFormats) mut => VT.[Friend]GetFormatCount(&this, pcFormats);
 
 	public HRESULT GetFormat(uint32 nFormat, IAudioMediaType** ppFormat) mut => VT.[Friend]GetFormat(&this, nFormat, ppFormat);
 
@@ -640,12 +640,12 @@ public static
 
 	[CRepr]public struct VTable : IAudioSystemEffects2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AUDIO_SYSTEMEFFECT** effects, uint32* numEffects, HANDLE event) GetControllableSystemEffectsList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AUDIO_SYSTEMEFFECT** effects, uint32 numEffects, HANDLE event) GetControllableSystemEffectsList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid effectId, AUDIO_SYSTEMEFFECT_STATE state) SetAudioSystemEffectState;
 	}
 
 
-	public HRESULT GetControllableSystemEffectsList(AUDIO_SYSTEMEFFECT** effects, uint32* numEffects, HANDLE event) mut => VT.[Friend]GetControllableSystemEffectsList(&this, effects, numEffects, event);
+	public HRESULT GetControllableSystemEffectsList(AUDIO_SYSTEMEFFECT** effects, uint32 numEffects, HANDLE event) mut => VT.[Friend]GetControllableSystemEffectsList(&this, effects, numEffects, event);
 
 	public HRESULT SetAudioSystemEffectState(Guid effectId, AUDIO_SYSTEMEFFECT_STATE state) mut => VT.[Friend]SetAudioSystemEffectState(&this, effectId, state);
 }
@@ -658,11 +658,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* workQueueId) GetRealTimeWorkQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 workQueueId) GetRealTimeWorkQueue;
 	}
 
 
-	public HRESULT GetRealTimeWorkQueue(uint32* workQueueId) mut => VT.[Friend]GetRealTimeWorkQueue(&this, workQueueId);
+	public HRESULT GetRealTimeWorkQueue(uint32 workQueueId) mut => VT.[Friend]GetRealTimeWorkQueue(&this, workQueueId);
 }
 
 [CRepr]struct IAudioProcessingObjectLoggingService : IUnknown
@@ -688,12 +688,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APO_NOTIFICATION_DESCRIPTOR** apoNotifications, uint32* count) GetApoNotificationRegistrationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APO_NOTIFICATION_DESCRIPTOR** apoNotifications, uint32 count) GetApoNotificationRegistrationInfo;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, APO_NOTIFICATION* apoNotification) HandleNotification;
 	}
 
 
-	public HRESULT GetApoNotificationRegistrationInfo(APO_NOTIFICATION_DESCRIPTOR** apoNotifications, uint32* count) mut => VT.[Friend]GetApoNotificationRegistrationInfo(&this, apoNotifications, count);
+	public HRESULT GetApoNotificationRegistrationInfo(APO_NOTIFICATION_DESCRIPTOR** apoNotifications, uint32 count) mut => VT.[Friend]GetApoNotificationRegistrationInfo(&this, apoNotifications, count);
 
 	public void HandleNotification(APO_NOTIFICATION* apoNotification) mut => VT.[Friend]HandleNotification(&this, apoNotification);
 }

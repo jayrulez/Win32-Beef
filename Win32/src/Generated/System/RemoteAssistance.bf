@@ -75,7 +75,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RENDEZVOUS_SESSION_STATE* pSessionState) get_State;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrUserName) get_RemoteUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pFlags) get_Flags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrData) SendContextData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr, BSTR bstrAppData) Terminate;
 	}
@@ -85,7 +85,7 @@ public static
 
 	public HRESULT get_RemoteUser(BSTR* bstrUserName) mut => VT.[Friend]get_RemoteUser(&this, bstrUserName);
 
-	public HRESULT get_Flags(int32* pFlags) mut => VT.[Friend]get_Flags(&this, pFlags);
+	public HRESULT get_Flags(int32 pFlags) mut => VT.[Friend]get_Flags(&this, pFlags);
 
 	public HRESULT SendContextData(BSTR bstrData) mut => VT.[Friend]SendContextData(&this, bstrData);
 

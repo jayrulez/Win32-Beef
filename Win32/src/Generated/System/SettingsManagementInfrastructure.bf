@@ -244,7 +244,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* Reserved, PWSTR Name, BSTR* Value) GetAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* Reserved, PWSTR Name, PWSTR Value) SetAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* Flags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Flags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Flags) SetFlags;
 	}
 
@@ -253,7 +253,7 @@ public static
 
 	public HRESULT SetAttribute(void* Reserved, PWSTR Name, PWSTR Value) mut => VT.[Friend]SetAttribute(&this, Reserved, Name, Value);
 
-	public HRESULT GetFlags(uint32* Flags) mut => VT.[Friend]COM_GetFlags(&this, Flags);
+	public HRESULT GetFlags(uint32 Flags) mut => VT.[Friend]COM_GetFlags(&this, Flags);
 
 	public HRESULT SetFlags(uint32 Flags) mut => VT.[Friend]SetFlags(&this, Flags);
 }
@@ -281,7 +281,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Offline, PWSTR Location, BSTR* ExpandedLocation) ExpandTargetPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Module, PWSTR Path) SetModulePath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Module, HINSTANCE* ModuleHandle) LoadModule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR InstallerModule, uint8* Wow64Context) SetWow64Context;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR InstallerModule, uint8 Wow64Context) SetWow64Context;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR ClientArchitecture, PWSTR Value, BSTR* TranslatedValue) TranslateWow64;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwzHiveDir) SetSchemaHiveLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pHiveLocation) GetSchemaHiveLocation;
@@ -320,7 +320,7 @@ public static
 
 	public HRESULT LoadModule(PWSTR Module, HINSTANCE* ModuleHandle) mut => VT.[Friend]LoadModule(&this, Module, ModuleHandle);
 
-	public HRESULT SetWow64Context(PWSTR InstallerModule, uint8* Wow64Context) mut => VT.[Friend]SetWow64Context(&this, InstallerModule, Wow64Context);
+	public HRESULT SetWow64Context(PWSTR InstallerModule, uint8 Wow64Context) mut => VT.[Friend]SetWow64Context(&this, InstallerModule, Wow64Context);
 
 	public HRESULT TranslateWow64(PWSTR ClientArchitecture, PWSTR Value, BSTR* TranslatedValue) mut => VT.[Friend]TranslateWow64(&this, ClientArchitecture, Value, TranslatedValue);
 
@@ -355,7 +355,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITargetInfo* Target) SetTargetInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Flags, void* Reserved, ISettingsContext** SettingsContext) CreateSettingsContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsContext* SettingsContext) SetSettingsContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsContext* SettingsContext, PWSTR** pppwzIdentities, uint* pcIdentities) ApplySettingsContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsContext* SettingsContext, PWSTR** pppwzIdentities, uint pcIdentities) ApplySettingsContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsContext** SettingsContext) GetSettingsContext;
 	}
 
@@ -388,7 +388,7 @@ public static
 
 	public HRESULT SetSettingsContext(ISettingsContext* SettingsContext) mut => VT.[Friend]SetSettingsContext(&this, SettingsContext);
 
-	public HRESULT ApplySettingsContext(ISettingsContext* SettingsContext, PWSTR** pppwzIdentities, uint* pcIdentities) mut => VT.[Friend]ApplySettingsContext(&this, SettingsContext, pppwzIdentities, pcIdentities);
+	public HRESULT ApplySettingsContext(ISettingsContext* SettingsContext, PWSTR** pppwzIdentities, uint pcIdentities) mut => VT.[Friend]ApplySettingsContext(&this, SettingsContext, pppwzIdentities, pcIdentities);
 
 	public HRESULT GetSettingsContext(ISettingsContext** SettingsContext) mut => VT.[Friend]GetSettingsContext(&this, SettingsContext);
 }
@@ -406,7 +406,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Value) SetValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WcmSettingType* Type) GetSettingType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WcmDataType* Type) GetDataType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** Data, uint32* DataSize) GetValueRaw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** Data, uint32 DataSize) GetValueRaw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 DataType, uint8* Data, uint32 DataSize) SetValueRaw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* ItemHasChild) HasChild;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IItemEnumerator** Children) Children;
@@ -436,7 +436,7 @@ public static
 
 	public HRESULT GetDataType(WcmDataType* Type) mut => VT.[Friend]GetDataType(&this, Type);
 
-	public HRESULT GetValueRaw(uint8** Data, uint32* DataSize) mut => VT.[Friend]GetValueRaw(&this, Data, DataSize);
+	public HRESULT GetValueRaw(uint8** Data, uint32 DataSize) mut => VT.[Friend]GetValueRaw(&this, Data, DataSize);
 
 	public HRESULT SetValueRaw(int32 DataType, uint8* Data, uint32 DataSize) mut => VT.[Friend]SetValueRaw(&this, DataType, Data, DataSize);
 
@@ -515,8 +515,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) GetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* hrOut) GetErrorCode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) GetContextDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwLine) GetLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwColumn) GetColumn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwLine) GetLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwColumn) GetColumn;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* file) GetSource;
 	}
 
@@ -527,9 +527,9 @@ public static
 
 	public HRESULT GetContextDescription(BSTR* description) mut => VT.[Friend]GetContextDescription(&this, description);
 
-	public HRESULT GetLine(uint32* dwLine) mut => VT.[Friend]GetLine(&this, dwLine);
+	public HRESULT GetLine(uint32 dwLine) mut => VT.[Friend]GetLine(&this, dwLine);
 
-	public HRESULT GetColumn(uint32* dwColumn) mut => VT.[Friend]GetColumn(&this, dwColumn);
+	public HRESULT GetColumn(uint32 dwColumn) mut => VT.[Friend]GetColumn(&this, dwColumn);
 
 	public HRESULT GetSource(BSTR* file) mut => VT.[Friend]GetSource(&this, file);
 }
@@ -543,7 +543,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, ITargetInfo* pTarget) Serialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, ITargetInfo* pTarget, ISettingsResult*** pppResults, uint* pcResultCount) Deserialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, ITargetInfo* pTarget, ISettingsResult*** pppResults, uint pcResultCount) Deserialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pUserData) SetUserData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void** pUserData) GetUserData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IItemEnumerator** ppNamespaceIds) GetNamespaces;
@@ -554,7 +554,7 @@ public static
 
 	public HRESULT Serialize(IStream* pStream, ITargetInfo* pTarget) mut => VT.[Friend]Serialize(&this, pStream, pTarget);
 
-	public HRESULT Deserialize(IStream* pStream, ITargetInfo* pTarget, ISettingsResult*** pppResults, uint* pcResultCount) mut => VT.[Friend]Deserialize(&this, pStream, pTarget, pppResults, pcResultCount);
+	public HRESULT Deserialize(IStream* pStream, ITargetInfo* pTarget, ISettingsResult*** pppResults, uint pcResultCount) mut => VT.[Friend]Deserialize(&this, pStream, pTarget, pppResults, pcResultCount);
 
 	public HRESULT SetUserData(void* pUserData) mut => VT.[Friend]SetUserData(&this, pUserData);
 

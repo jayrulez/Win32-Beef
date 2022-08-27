@@ -500,18 +500,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR name, MLOperatorAttributeType type, uint32* elementCount) GetAttributeElementCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR name, MLOperatorAttributeType type, uint32 elementCount) GetAttributeElementCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR name, MLOperatorAttributeType type, uint32 elementCount, uint elementByteSize, void* value) GetAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR name, uint32 elementIndex, uint32* attributeElementByteSize) GetStringAttributeElementLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR name, uint32 elementIndex, uint32 attributeElementByteSize) GetStringAttributeElementLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR name, uint32 elementIndex, uint32 attributeElementByteSize, uint8* attributeElement) GetStringAttributeElement;
 	}
 
 
-	public HRESULT GetAttributeElementCount(PSTR name, MLOperatorAttributeType type, uint32* elementCount) mut => VT.[Friend]GetAttributeElementCount(&this, name, type, elementCount);
+	public HRESULT GetAttributeElementCount(PSTR name, MLOperatorAttributeType type, uint32 elementCount) mut => VT.[Friend]GetAttributeElementCount(&this, name, type, elementCount);
 
 	public HRESULT GetAttribute(PSTR name, MLOperatorAttributeType type, uint32 elementCount, uint elementByteSize, void* value) mut => VT.[Friend]GetAttribute(&this, name, type, elementCount, elementByteSize, value);
 
-	public HRESULT GetStringAttributeElementLength(PSTR name, uint32 elementIndex, uint32* attributeElementByteSize) mut => VT.[Friend]GetStringAttributeElementLength(&this, name, elementIndex, attributeElementByteSize);
+	public HRESULT GetStringAttributeElementLength(PSTR name, uint32 elementIndex, uint32 attributeElementByteSize) mut => VT.[Friend]GetStringAttributeElementLength(&this, name, elementIndex, attributeElementByteSize);
 
 	public HRESULT GetStringAttributeElement(PSTR name, uint32 elementIndex, uint32 attributeElementByteSize, uint8* attributeElement) mut => VT.[Friend]GetStringAttributeElement(&this, name, elementIndex, attributeElementByteSize, attributeElement);
 }
@@ -524,21 +524,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputIndex, uint32* dimensionCount) GetInputTensorDimensionCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputIndex, uint32 dimensionCount) GetInputTensorDimensionCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputIndex, uint32 dimensionCount, uint32* dimensions) GetInputTensorShape;
 		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self) HasOutputShapeDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 outputIndex, uint32* dimensionCount) GetOutputTensorDimensionCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 outputIndex, uint32 dimensionCount) GetOutputTensorDimensionCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 outputIndex, uint32 dimensionCount, uint32* dimensions) GetOutputTensorShape;
 	}
 
 
-	public HRESULT GetInputTensorDimensionCount(uint32 inputIndex, uint32* dimensionCount) mut => VT.[Friend]GetInputTensorDimensionCount(&this, inputIndex, dimensionCount);
+	public HRESULT GetInputTensorDimensionCount(uint32 inputIndex, uint32 dimensionCount) mut => VT.[Friend]GetInputTensorDimensionCount(&this, inputIndex, dimensionCount);
 
 	public HRESULT GetInputTensorShape(uint32 inputIndex, uint32 dimensionCount, uint32* dimensions) mut => VT.[Friend]GetInputTensorShape(&this, inputIndex, dimensionCount, dimensions);
 
 	public bool HasOutputShapeDescription() mut => VT.[Friend]HasOutputShapeDescription(&this);
 
-	public HRESULT GetOutputTensorDimensionCount(uint32 outputIndex, uint32* dimensionCount) mut => VT.[Friend]GetOutputTensorDimensionCount(&this, outputIndex, dimensionCount);
+	public HRESULT GetOutputTensorDimensionCount(uint32 outputIndex, uint32 dimensionCount) mut => VT.[Friend]GetOutputTensorDimensionCount(&this, outputIndex, dimensionCount);
 
 	public HRESULT GetOutputTensorShape(uint32 outputIndex, uint32 dimensionCount, uint32* dimensions) mut => VT.[Friend]GetOutputTensorShape(&this, outputIndex, dimensionCount, dimensions);
 }
@@ -670,9 +670,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self, uint32 inputIndex) IsInputValid;
 		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self, uint32 outputIndex) IsOutputValid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputIndex, MLOperatorEdgeDescription* edgeDescription) GetInputEdgeDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputIndex, uint32* dimensionCount) GetInputTensorDimensionCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputIndex, uint32 dimensionCount) GetInputTensorDimensionCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputIndex, uint32 dimensionCount, uint32* dimensions) GetInputTensorShape;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 outputIndex, uint32 dimensionCount, uint32* dimensions) SetOutputTensorShape;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 outputIndex, uint32 dimensionCount, uint32 dimensions) SetOutputTensorShape;
 	}
 
 
@@ -686,11 +686,11 @@ public static
 
 	public HRESULT GetInputEdgeDescription(uint32 inputIndex, MLOperatorEdgeDescription* edgeDescription) mut => VT.[Friend]GetInputEdgeDescription(&this, inputIndex, edgeDescription);
 
-	public HRESULT GetInputTensorDimensionCount(uint32 inputIndex, uint32* dimensionCount) mut => VT.[Friend]GetInputTensorDimensionCount(&this, inputIndex, dimensionCount);
+	public HRESULT GetInputTensorDimensionCount(uint32 inputIndex, uint32 dimensionCount) mut => VT.[Friend]GetInputTensorDimensionCount(&this, inputIndex, dimensionCount);
 
 	public HRESULT GetInputTensorShape(uint32 inputIndex, uint32 dimensionCount, uint32* dimensions) mut => VT.[Friend]GetInputTensorShape(&this, inputIndex, dimensionCount, dimensions);
 
-	public HRESULT SetOutputTensorShape(uint32 outputIndex, uint32 dimensionCount, uint32* dimensions) mut => VT.[Friend]SetOutputTensorShape(&this, outputIndex, dimensionCount, dimensions);
+	public HRESULT SetOutputTensorShape(uint32 outputIndex, uint32 dimensionCount, uint32 dimensions) mut => VT.[Friend]SetOutputTensorShape(&this, outputIndex, dimensionCount, dimensions);
 }
 
 [CRepr]struct IMLOperatorTypeInferenceContext : IMLOperatorAttributes

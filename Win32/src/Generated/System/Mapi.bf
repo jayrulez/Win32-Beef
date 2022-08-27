@@ -125,7 +125,7 @@ public static
 #endregion
 
 #region Function Pointers
-public function uint32 LPMAPILOGON(uint ulUIParam, PSTR lpszProfileName, PSTR lpszPassword, uint32 flFlags, uint32 ulReserved, uint* lplhSession);
+public function uint32 LPMAPILOGON(uint ulUIParam, PSTR lpszProfileName, PSTR lpszPassword, uint32 flFlags, uint32 ulReserved, uint lplhSession);
 
 public function uint32 LPMAPILOGOFF(uint lhSession, uint ulUIParam, uint32 flFlags, uint32 ulReserved);
 
@@ -145,7 +145,7 @@ public function uint32 LPMAPIDELETEMAIL(uint lhSession, uint ulUIParam, PSTR lps
 
 public function uint32 LPMAPIFREEBUFFER(void* pv);
 
-public function uint32 LPMAPIADDRESS(uint lhSession, uint ulUIParam, PSTR lpszCaption, uint32 nEditFields, PSTR lpszLabels, uint32 nRecips, MapiRecipDesc* lpRecips, uint32 flFlags, uint32 ulReserved, uint32* lpnNewRecips, MapiRecipDesc** lppNewRecips);
+public function uint32 LPMAPIADDRESS(uint lhSession, uint ulUIParam, PSTR lpszCaption, uint32 nEditFields, PSTR lpszLabels, uint32 nRecips, MapiRecipDesc* lpRecips, uint32 flFlags, uint32 ulReserved, uint32 lpnNewRecips, MapiRecipDesc** lppNewRecips);
 
 public function uint32 LPMAPIDETAILS(uint lhSession, uint ulUIParam, MapiRecipDesc* lpRecip, uint32 flFlags, uint32 ulReserved);
 

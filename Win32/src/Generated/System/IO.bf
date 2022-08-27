@@ -65,19 +65,19 @@ public static
 	public static extern HANDLE CreateIoCompletionPort(HANDLE FileHandle, HANDLE ExistingCompletionPort, uint CompletionKey, uint32 NumberOfConcurrentThreads);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetQueuedCompletionStatus(HANDLE CompletionPort, uint32* lpNumberOfBytesTransferred, uint* lpCompletionKey, OVERLAPPED** lpOverlapped, uint32 dwMilliseconds);
+	public static extern BOOL GetQueuedCompletionStatus(HANDLE CompletionPort, uint32 lpNumberOfBytesTransferred, uint lpCompletionKey, OVERLAPPED** lpOverlapped, uint32 dwMilliseconds);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetQueuedCompletionStatusEx(HANDLE CompletionPort, OVERLAPPED_ENTRY* lpCompletionPortEntries, uint32 ulCount, uint32* ulNumEntriesRemoved, uint32 dwMilliseconds, BOOL fAlertable);
+	public static extern BOOL GetQueuedCompletionStatusEx(HANDLE CompletionPort, OVERLAPPED_ENTRY* lpCompletionPortEntries, uint32 ulCount, uint32 ulNumEntriesRemoved, uint32 dwMilliseconds, BOOL fAlertable);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PostQueuedCompletionStatus(HANDLE CompletionPort, uint32 dwNumberOfBytesTransferred, uint dwCompletionKey, OVERLAPPED* lpOverlapped);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DeviceIoControl(HANDLE hDevice, uint32 dwIoControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned, OVERLAPPED* lpOverlapped);
+	public static extern BOOL DeviceIoControl(HANDLE hDevice, uint32 dwIoControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned, OVERLAPPED* lpOverlapped);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetOverlappedResult(HANDLE hFile, OVERLAPPED* lpOverlapped, uint32* lpNumberOfBytesTransferred, BOOL bWait);
+	public static extern BOOL GetOverlappedResult(HANDLE hFile, OVERLAPPED* lpOverlapped, uint32 lpNumberOfBytesTransferred, BOOL bWait);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CancelIoEx(HANDLE hFile, OVERLAPPED* lpOverlapped);
@@ -86,7 +86,7 @@ public static
 	public static extern BOOL CancelIo(HANDLE hFile);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetOverlappedResultEx(HANDLE hFile, OVERLAPPED* lpOverlapped, uint32* lpNumberOfBytesTransferred, uint32 dwMilliseconds, BOOL bAlertable);
+	public static extern BOOL GetOverlappedResultEx(HANDLE hFile, OVERLAPPED* lpOverlapped, uint32 lpNumberOfBytesTransferred, uint32 dwMilliseconds, BOOL bAlertable);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CancelSynchronousIo(HANDLE hThread);

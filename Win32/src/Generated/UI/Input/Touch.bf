@@ -166,49 +166,49 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* x) get_InitialOriginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float x) get_InitialOriginX;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float x) put_InitialOriginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* y) get_InitialOriginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float y) get_InitialOriginY;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float y) put_InitialOriginY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* x) get_InitialVelocityX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float x) get_InitialVelocityX;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float x) put_InitialVelocityX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* y) get_InitialVelocityY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float y) get_InitialVelocityY;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float y) put_InitialVelocityY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* velocity) get_InitialAngularVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float velocity) get_InitialAngularVelocity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float velocity) put_InitialAngularVelocity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* velocity) get_InitialExpansionVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float velocity) get_InitialExpansionVelocity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float velocity) put_InitialExpansionVelocity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* radius) get_InitialRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float radius) get_InitialRadius;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float radius) put_InitialRadius;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* left) get_BoundaryLeft;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float left) get_BoundaryLeft;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float left) put_BoundaryLeft;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* top) get_BoundaryTop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float top) get_BoundaryTop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float top) put_BoundaryTop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* right) get_BoundaryRight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float right) get_BoundaryRight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float right) put_BoundaryRight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* bottom) get_BoundaryBottom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float bottom) get_BoundaryBottom;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float bottom) put_BoundaryBottom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* left) get_ElasticMarginLeft;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float left) get_ElasticMarginLeft;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float left) put_ElasticMarginLeft;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* top) get_ElasticMarginTop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float top) get_ElasticMarginTop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float top) put_ElasticMarginTop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* right) get_ElasticMarginRight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float right) get_ElasticMarginRight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float right) put_ElasticMarginRight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* bottom) get_ElasticMarginBottom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float bottom) get_ElasticMarginBottom;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float bottom) put_ElasticMarginBottom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* displacement) get_DesiredDisplacement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float displacement) get_DesiredDisplacement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float displacement) put_DesiredDisplacement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* rotation) get_DesiredRotation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float rotation) get_DesiredRotation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float rotation) put_DesiredRotation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* expansion) get_DesiredExpansion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float expansion) get_DesiredExpansion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float expansion) put_DesiredExpansion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* deceleration) get_DesiredDeceleration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float deceleration) get_DesiredDeceleration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float deceleration) put_DesiredDeceleration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* deceleration) get_DesiredAngularDeceleration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float deceleration) get_DesiredAngularDeceleration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float deceleration) put_DesiredAngularDeceleration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* deceleration) get_DesiredExpansionDeceleration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float deceleration) get_DesiredExpansionDeceleration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float deceleration) put_DesiredExpansionDeceleration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* timestamp) get_InitialTimestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 timestamp) get_InitialTimestamp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 timestamp) put_InitialTimestamp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* completed) Process;
@@ -218,91 +218,91 @@ public static
 	}
 
 
-	public HRESULT get_InitialOriginX(float* x) mut => VT.[Friend]get_InitialOriginX(&this, x);
+	public HRESULT get_InitialOriginX(float x) mut => VT.[Friend]get_InitialOriginX(&this, x);
 
 	public HRESULT put_InitialOriginX(float x) mut => VT.[Friend]put_InitialOriginX(&this, x);
 
-	public HRESULT get_InitialOriginY(float* y) mut => VT.[Friend]get_InitialOriginY(&this, y);
+	public HRESULT get_InitialOriginY(float y) mut => VT.[Friend]get_InitialOriginY(&this, y);
 
 	public HRESULT put_InitialOriginY(float y) mut => VT.[Friend]put_InitialOriginY(&this, y);
 
-	public HRESULT get_InitialVelocityX(float* x) mut => VT.[Friend]get_InitialVelocityX(&this, x);
+	public HRESULT get_InitialVelocityX(float x) mut => VT.[Friend]get_InitialVelocityX(&this, x);
 
 	public HRESULT put_InitialVelocityX(float x) mut => VT.[Friend]put_InitialVelocityX(&this, x);
 
-	public HRESULT get_InitialVelocityY(float* y) mut => VT.[Friend]get_InitialVelocityY(&this, y);
+	public HRESULT get_InitialVelocityY(float y) mut => VT.[Friend]get_InitialVelocityY(&this, y);
 
 	public HRESULT put_InitialVelocityY(float y) mut => VT.[Friend]put_InitialVelocityY(&this, y);
 
-	public HRESULT get_InitialAngularVelocity(float* velocity) mut => VT.[Friend]get_InitialAngularVelocity(&this, velocity);
+	public HRESULT get_InitialAngularVelocity(float velocity) mut => VT.[Friend]get_InitialAngularVelocity(&this, velocity);
 
 	public HRESULT put_InitialAngularVelocity(float velocity) mut => VT.[Friend]put_InitialAngularVelocity(&this, velocity);
 
-	public HRESULT get_InitialExpansionVelocity(float* velocity) mut => VT.[Friend]get_InitialExpansionVelocity(&this, velocity);
+	public HRESULT get_InitialExpansionVelocity(float velocity) mut => VT.[Friend]get_InitialExpansionVelocity(&this, velocity);
 
 	public HRESULT put_InitialExpansionVelocity(float velocity) mut => VT.[Friend]put_InitialExpansionVelocity(&this, velocity);
 
-	public HRESULT get_InitialRadius(float* radius) mut => VT.[Friend]get_InitialRadius(&this, radius);
+	public HRESULT get_InitialRadius(float radius) mut => VT.[Friend]get_InitialRadius(&this, radius);
 
 	public HRESULT put_InitialRadius(float radius) mut => VT.[Friend]put_InitialRadius(&this, radius);
 
-	public HRESULT get_BoundaryLeft(float* left) mut => VT.[Friend]get_BoundaryLeft(&this, left);
+	public HRESULT get_BoundaryLeft(float left) mut => VT.[Friend]get_BoundaryLeft(&this, left);
 
 	public HRESULT put_BoundaryLeft(float left) mut => VT.[Friend]put_BoundaryLeft(&this, left);
 
-	public HRESULT get_BoundaryTop(float* top) mut => VT.[Friend]get_BoundaryTop(&this, top);
+	public HRESULT get_BoundaryTop(float top) mut => VT.[Friend]get_BoundaryTop(&this, top);
 
 	public HRESULT put_BoundaryTop(float top) mut => VT.[Friend]put_BoundaryTop(&this, top);
 
-	public HRESULT get_BoundaryRight(float* right) mut => VT.[Friend]get_BoundaryRight(&this, right);
+	public HRESULT get_BoundaryRight(float right) mut => VT.[Friend]get_BoundaryRight(&this, right);
 
 	public HRESULT put_BoundaryRight(float right) mut => VT.[Friend]put_BoundaryRight(&this, right);
 
-	public HRESULT get_BoundaryBottom(float* bottom) mut => VT.[Friend]get_BoundaryBottom(&this, bottom);
+	public HRESULT get_BoundaryBottom(float bottom) mut => VT.[Friend]get_BoundaryBottom(&this, bottom);
 
 	public HRESULT put_BoundaryBottom(float bottom) mut => VT.[Friend]put_BoundaryBottom(&this, bottom);
 
-	public HRESULT get_ElasticMarginLeft(float* left) mut => VT.[Friend]get_ElasticMarginLeft(&this, left);
+	public HRESULT get_ElasticMarginLeft(float left) mut => VT.[Friend]get_ElasticMarginLeft(&this, left);
 
 	public HRESULT put_ElasticMarginLeft(float left) mut => VT.[Friend]put_ElasticMarginLeft(&this, left);
 
-	public HRESULT get_ElasticMarginTop(float* top) mut => VT.[Friend]get_ElasticMarginTop(&this, top);
+	public HRESULT get_ElasticMarginTop(float top) mut => VT.[Friend]get_ElasticMarginTop(&this, top);
 
 	public HRESULT put_ElasticMarginTop(float top) mut => VT.[Friend]put_ElasticMarginTop(&this, top);
 
-	public HRESULT get_ElasticMarginRight(float* right) mut => VT.[Friend]get_ElasticMarginRight(&this, right);
+	public HRESULT get_ElasticMarginRight(float right) mut => VT.[Friend]get_ElasticMarginRight(&this, right);
 
 	public HRESULT put_ElasticMarginRight(float right) mut => VT.[Friend]put_ElasticMarginRight(&this, right);
 
-	public HRESULT get_ElasticMarginBottom(float* bottom) mut => VT.[Friend]get_ElasticMarginBottom(&this, bottom);
+	public HRESULT get_ElasticMarginBottom(float bottom) mut => VT.[Friend]get_ElasticMarginBottom(&this, bottom);
 
 	public HRESULT put_ElasticMarginBottom(float bottom) mut => VT.[Friend]put_ElasticMarginBottom(&this, bottom);
 
-	public HRESULT get_DesiredDisplacement(float* displacement) mut => VT.[Friend]get_DesiredDisplacement(&this, displacement);
+	public HRESULT get_DesiredDisplacement(float displacement) mut => VT.[Friend]get_DesiredDisplacement(&this, displacement);
 
 	public HRESULT put_DesiredDisplacement(float displacement) mut => VT.[Friend]put_DesiredDisplacement(&this, displacement);
 
-	public HRESULT get_DesiredRotation(float* rotation) mut => VT.[Friend]get_DesiredRotation(&this, rotation);
+	public HRESULT get_DesiredRotation(float rotation) mut => VT.[Friend]get_DesiredRotation(&this, rotation);
 
 	public HRESULT put_DesiredRotation(float rotation) mut => VT.[Friend]put_DesiredRotation(&this, rotation);
 
-	public HRESULT get_DesiredExpansion(float* expansion) mut => VT.[Friend]get_DesiredExpansion(&this, expansion);
+	public HRESULT get_DesiredExpansion(float expansion) mut => VT.[Friend]get_DesiredExpansion(&this, expansion);
 
 	public HRESULT put_DesiredExpansion(float expansion) mut => VT.[Friend]put_DesiredExpansion(&this, expansion);
 
-	public HRESULT get_DesiredDeceleration(float* deceleration) mut => VT.[Friend]get_DesiredDeceleration(&this, deceleration);
+	public HRESULT get_DesiredDeceleration(float deceleration) mut => VT.[Friend]get_DesiredDeceleration(&this, deceleration);
 
 	public HRESULT put_DesiredDeceleration(float deceleration) mut => VT.[Friend]put_DesiredDeceleration(&this, deceleration);
 
-	public HRESULT get_DesiredAngularDeceleration(float* deceleration) mut => VT.[Friend]get_DesiredAngularDeceleration(&this, deceleration);
+	public HRESULT get_DesiredAngularDeceleration(float deceleration) mut => VT.[Friend]get_DesiredAngularDeceleration(&this, deceleration);
 
 	public HRESULT put_DesiredAngularDeceleration(float deceleration) mut => VT.[Friend]put_DesiredAngularDeceleration(&this, deceleration);
 
-	public HRESULT get_DesiredExpansionDeceleration(float* deceleration) mut => VT.[Friend]get_DesiredExpansionDeceleration(&this, deceleration);
+	public HRESULT get_DesiredExpansionDeceleration(float deceleration) mut => VT.[Friend]get_DesiredExpansionDeceleration(&this, deceleration);
 
 	public HRESULT put_DesiredExpansionDeceleration(float deceleration) mut => VT.[Friend]put_DesiredExpansionDeceleration(&this, deceleration);
 
-	public HRESULT get_InitialTimestamp(uint32* timestamp) mut => VT.[Friend]get_InitialTimestamp(&this, timestamp);
+	public HRESULT get_InitialTimestamp(uint32 timestamp) mut => VT.[Friend]get_InitialTimestamp(&this, timestamp);
 
 	public HRESULT put_InitialTimestamp(uint32 timestamp) mut => VT.[Friend]put_InitialTimestamp(&this, timestamp);
 
@@ -327,11 +327,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MANIPULATION_PROCESSOR_MANIPULATIONS* manipulations) get_SupportedManipulations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MANIPULATION_PROCESSOR_MANIPULATIONS manipulations) put_SupportedManipulations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pivotPointX) get_PivotPointX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pivotPointX) get_PivotPointX;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pivotPointX) put_PivotPointX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pivotPointY) get_PivotPointY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pivotPointY) get_PivotPointY;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pivotPointY) put_PivotPointY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pivotRadius) get_PivotRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pivotRadius) get_PivotRadius;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pivotRadius) put_PivotRadius;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CompleteManipulation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 manipulatorId, float x, float y) ProcessDown;
@@ -340,11 +340,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 manipulatorId, float x, float y, uint32 timestamp) ProcessDownWithTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 manipulatorId, float x, float y, uint32 timestamp) ProcessMoveWithTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 manipulatorId, float x, float y, uint32 timestamp) ProcessUpWithTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* velocityX) GetVelocityX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* velocityY) GetVelocityY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* expansionVelocity) GetExpansionVelocity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* angularVelocity) GetAngularVelocity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* minRadius) get_MinimumScaleRotateRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float velocityX) GetVelocityX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float velocityY) GetVelocityY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float expansionVelocity) GetExpansionVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float angularVelocity) GetAngularVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float minRadius) get_MinimumScaleRotateRadius;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float minRadius) put_MinimumScaleRotateRadius;
 	}
 
@@ -353,15 +353,15 @@ public static
 
 	public HRESULT put_SupportedManipulations(MANIPULATION_PROCESSOR_MANIPULATIONS manipulations) mut => VT.[Friend]put_SupportedManipulations(&this, manipulations);
 
-	public HRESULT get_PivotPointX(float* pivotPointX) mut => VT.[Friend]get_PivotPointX(&this, pivotPointX);
+	public HRESULT get_PivotPointX(float pivotPointX) mut => VT.[Friend]get_PivotPointX(&this, pivotPointX);
 
 	public HRESULT put_PivotPointX(float pivotPointX) mut => VT.[Friend]put_PivotPointX(&this, pivotPointX);
 
-	public HRESULT get_PivotPointY(float* pivotPointY) mut => VT.[Friend]get_PivotPointY(&this, pivotPointY);
+	public HRESULT get_PivotPointY(float pivotPointY) mut => VT.[Friend]get_PivotPointY(&this, pivotPointY);
 
 	public HRESULT put_PivotPointY(float pivotPointY) mut => VT.[Friend]put_PivotPointY(&this, pivotPointY);
 
-	public HRESULT get_PivotRadius(float* pivotRadius) mut => VT.[Friend]get_PivotRadius(&this, pivotRadius);
+	public HRESULT get_PivotRadius(float pivotRadius) mut => VT.[Friend]get_PivotRadius(&this, pivotRadius);
 
 	public HRESULT put_PivotRadius(float pivotRadius) mut => VT.[Friend]put_PivotRadius(&this, pivotRadius);
 
@@ -379,15 +379,15 @@ public static
 
 	public HRESULT ProcessUpWithTime(uint32 manipulatorId, float x, float y, uint32 timestamp) mut => VT.[Friend]ProcessUpWithTime(&this, manipulatorId, x, y, timestamp);
 
-	public HRESULT GetVelocityX(float* velocityX) mut => VT.[Friend]GetVelocityX(&this, velocityX);
+	public HRESULT GetVelocityX(float velocityX) mut => VT.[Friend]GetVelocityX(&this, velocityX);
 
-	public HRESULT GetVelocityY(float* velocityY) mut => VT.[Friend]GetVelocityY(&this, velocityY);
+	public HRESULT GetVelocityY(float velocityY) mut => VT.[Friend]GetVelocityY(&this, velocityY);
 
-	public HRESULT GetExpansionVelocity(float* expansionVelocity) mut => VT.[Friend]GetExpansionVelocity(&this, expansionVelocity);
+	public HRESULT GetExpansionVelocity(float expansionVelocity) mut => VT.[Friend]GetExpansionVelocity(&this, expansionVelocity);
 
-	public HRESULT GetAngularVelocity(float* angularVelocity) mut => VT.[Friend]GetAngularVelocity(&this, angularVelocity);
+	public HRESULT GetAngularVelocity(float angularVelocity) mut => VT.[Friend]GetAngularVelocity(&this, angularVelocity);
 
-	public HRESULT get_MinimumScaleRotateRadius(float* minRadius) mut => VT.[Friend]get_MinimumScaleRotateRadius(&this, minRadius);
+	public HRESULT get_MinimumScaleRotateRadius(float minRadius) mut => VT.[Friend]get_MinimumScaleRotateRadius(&this, minRadius);
 
 	public HRESULT put_MinimumScaleRotateRadius(float minRadius) mut => VT.[Friend]put_MinimumScaleRotateRadius(&this, minRadius);
 }
@@ -410,13 +410,13 @@ public static
 	public static extern BOOL UnregisterTouchWindow(HWND hwnd);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsTouchWindow(HWND hwnd, uint32* pulFlags);
+	public static extern BOOL IsTouchWindow(HWND hwnd, uint32 pulFlags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetGestureInfo(HGESTUREINFO hGestureInfo, GESTUREINFO* pGestureInfo);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetGestureExtraArgs(HGESTUREINFO hGestureInfo, uint32 cbExtraArgs, uint8* pExtraArgs);
+	public static extern BOOL GetGestureExtraArgs(HGESTUREINFO hGestureInfo, uint32 cbExtraArgs, uint8 pExtraArgs);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CloseGestureInfoHandle(HGESTUREINFO hGestureInfo);
@@ -425,7 +425,7 @@ public static
 	public static extern BOOL SetGestureConfig(HWND hwnd, uint32 dwReserved, uint32 cIDs, GESTURECONFIG* pGestureConfig, uint32 cbSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetGestureConfig(HWND hwnd, uint32 dwReserved, uint32 dwFlags, uint32* pcIDs, GESTURECONFIG* pGestureConfig, uint32 cbSize);
+	public static extern BOOL GetGestureConfig(HWND hwnd, uint32 dwReserved, uint32 dwFlags, uint32 pcIDs, GESTURECONFIG* pGestureConfig, uint32 cbSize);
 
 }
 #endregion

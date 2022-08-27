@@ -2036,10 +2036,10 @@ public static
 	public static extern BOOL QOSStopTrackingClient(HANDLE QOSHandle, SOCKADDR* DestAddr, uint32 Flags);
 
 	[Import("qwave.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QOSEnumerateFlows(HANDLE QOSHandle, uint32* Size, void* Buffer);
+	public static extern BOOL QOSEnumerateFlows(HANDLE QOSHandle, uint32 Size, void* Buffer);
 
 	[Import("qwave.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QOSAddSocketToFlow(HANDLE QOSHandle, SOCKET Socket, SOCKADDR* DestAddr, QOS_TRAFFIC_TYPE TrafficType, uint32 Flags, uint32* FlowId);
+	public static extern BOOL QOSAddSocketToFlow(HANDLE QOSHandle, SOCKET Socket, SOCKADDR* DestAddr, QOS_TRAFFIC_TYPE TrafficType, uint32 Flags, uint32 FlowId);
 
 	[Import("qwave.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL QOSRemoveSocketFromFlow(HANDLE QOSHandle, SOCKET Socket, uint32 FlowId, uint32 Flags);
@@ -2048,10 +2048,10 @@ public static
 	public static extern BOOL QOSSetFlow(HANDLE QOSHandle, uint32 FlowId, QOS_SET_FLOW Operation, uint32 Size, void* Buffer, uint32 Flags, OVERLAPPED* Overlapped);
 
 	[Import("qwave.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QOSQueryFlow(HANDLE QOSHandle, uint32 FlowId, QOS_QUERY_FLOW Operation, uint32* Size, void* Buffer, uint32 Flags, OVERLAPPED* Overlapped);
+	public static extern BOOL QOSQueryFlow(HANDLE QOSHandle, uint32 FlowId, QOS_QUERY_FLOW Operation, uint32 Size, void* Buffer, uint32 Flags, OVERLAPPED* Overlapped);
 
 	[Import("qwave.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QOSNotifyFlow(HANDLE QOSHandle, uint32 FlowId, QOS_NOTIFY_FLOW Operation, uint32* Size, void* Buffer, uint32 Flags, OVERLAPPED* Overlapped);
+	public static extern BOOL QOSNotifyFlow(HANDLE QOSHandle, uint32 FlowId, QOS_NOTIFY_FLOW Operation, uint32 Size, void* Buffer, uint32 Flags, OVERLAPPED* Overlapped);
 
 	[Import("qwave.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL QOSCancel(HANDLE QOSHandle, OVERLAPPED* Overlapped);
@@ -2060,7 +2060,7 @@ public static
 	public static extern uint32 TcRegisterClient(uint32 TciVersion, HANDLE ClRegCtx, TCI_CLIENT_FUNC_LIST* ClientHandlerList, HANDLE* pClientHandle);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TcEnumerateInterfaces(HANDLE ClientHandle, uint32* pBufferSize, TC_IFC_DESCRIPTOR* InterfaceBuffer);
+	public static extern uint32 TcEnumerateInterfaces(HANDLE ClientHandle, uint32 pBufferSize, TC_IFC_DESCRIPTOR* InterfaceBuffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcOpenInterfaceA(PSTR pInterfaceName, HANDLE ClientHandle, HANDLE ClIfcCtx, HANDLE* pIfcHandle);
@@ -2073,24 +2073,24 @@ public static
 	public static extern uint32 TcCloseInterface(HANDLE IfcHandle);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TcQueryInterface(HANDLE IfcHandle, ref Guid pGuidParam, BOOLEAN NotifyChange, uint32* pBufferSize, void* Buffer);
+	public static extern uint32 TcQueryInterface(HANDLE IfcHandle, Guid pGuidParam, BOOLEAN NotifyChange, uint32 pBufferSize, void* Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TcSetInterface(HANDLE IfcHandle, ref Guid pGuidParam, uint32 BufferSize, void* Buffer);
+	public static extern uint32 TcSetInterface(HANDLE IfcHandle, Guid pGuidParam, uint32 BufferSize, void* Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TcQueryFlowA(PSTR pFlowName, ref Guid pGuidParam, uint32* pBufferSize, void* Buffer);
-	public static uint32 TcQueryFlow(PSTR pFlowName, ref Guid pGuidParam, uint32* pBufferSize, void* Buffer) => TcQueryFlowA(pFlowName, ref pGuidParam, pBufferSize, Buffer);
+	public static extern uint32 TcQueryFlowA(PSTR pFlowName, Guid pGuidParam, uint32 pBufferSize, void* Buffer);
+	public static uint32 TcQueryFlow(PSTR pFlowName, Guid pGuidParam, uint32 pBufferSize, void* Buffer) => TcQueryFlowA(pFlowName, pGuidParam, pBufferSize, Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TcQueryFlowW(PWSTR pFlowName, ref Guid pGuidParam, uint32* pBufferSize, void* Buffer);
+	public static extern uint32 TcQueryFlowW(PWSTR pFlowName, Guid pGuidParam, uint32 pBufferSize, void* Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TcSetFlowA(PSTR pFlowName, ref Guid pGuidParam, uint32 BufferSize, void* Buffer);
-	public static uint32 TcSetFlow(PSTR pFlowName, ref Guid pGuidParam, uint32 BufferSize, void* Buffer) => TcSetFlowA(pFlowName, ref pGuidParam, BufferSize, Buffer);
+	public static extern uint32 TcSetFlowA(PSTR pFlowName, Guid pGuidParam, uint32 BufferSize, void* Buffer);
+	public static uint32 TcSetFlow(PSTR pFlowName, Guid pGuidParam, uint32 BufferSize, void* Buffer) => TcSetFlowA(pFlowName, pGuidParam, BufferSize, Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TcSetFlowW(PWSTR pFlowName, ref Guid pGuidParam, uint32 BufferSize, void* Buffer);
+	public static extern uint32 TcSetFlowW(PWSTR pFlowName, Guid pGuidParam, uint32 BufferSize, void* Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcAddFlow(HANDLE IfcHandle, HANDLE ClFlowCtx, uint32 Flags, TC_GEN_FLOW* pGenericFlow, HANDLE* pFlowHandle);
@@ -2118,7 +2118,7 @@ public static
 	public static extern uint32 TcDeleteFilter(HANDLE FilterHandle);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TcEnumerateFlows(HANDLE IfcHandle, HANDLE* pEnumHandle, uint32* pFlowCount, uint32* pBufSize, ENUMERATION_BUFFER* Buffer);
+	public static extern uint32 TcEnumerateFlows(HANDLE IfcHandle, HANDLE* pEnumHandle, uint32 pFlowCount, uint32 pBufSize, ENUMERATION_BUFFER* Buffer);
 
 }
 #endregion

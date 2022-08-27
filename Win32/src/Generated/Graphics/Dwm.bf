@@ -310,7 +310,7 @@ public static
 	public static extern HRESULT DwmExtendFrameIntoClientArea(HWND hWnd, MARGINS* pMarInset);
 
 	[Import("dwmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DwmGetColorizationColor(uint32* pcrColorization, BOOL* pfOpaqueBlend);
+	public static extern HRESULT DwmGetColorizationColor(uint32 pcrColorization, BOOL* pfOpaqueBlend);
 
 	[Import("dwmapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DwmGetCompositionTimingInfo(HWND hwnd, DWM_TIMING_INFO* pTimingInfo);
@@ -328,7 +328,7 @@ public static
 	public static extern HRESULT DwmQueryThumbnailSourceSize(int hThumbnail, SIZE* pSize);
 
 	[Import("dwmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DwmRegisterThumbnail(HWND hwndDestination, HWND hwndSource, int* phThumbnailId);
+	public static extern HRESULT DwmRegisterThumbnail(HWND hwndDestination, HWND hwndSource, int phThumbnailId);
 
 	[Import("dwmapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DwmSetDxFrameDuration(HWND hwnd, int32 cRefreshes);
@@ -367,10 +367,10 @@ public static
 	public static extern HRESULT DwmGetGraphicsStreamTransformHint(uint32 uIndex, MilMatrix3x2D* pTransform);
 
 	[Import("dwmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DwmGetGraphicsStreamClient(uint32 uIndex, ref Guid pClientUuid);
+	public static extern HRESULT DwmGetGraphicsStreamClient(uint32 uIndex, Guid pClientUuid);
 
 	[Import("dwmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DwmGetTransportAttributes(BOOL* pfIsRemoting, BOOL* pfIsConnected, uint32* pDwGeneration);
+	public static extern HRESULT DwmGetTransportAttributes(BOOL* pfIsRemoting, BOOL* pfIsConnected, uint32 pDwGeneration);
 
 	[Import("dwmapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DwmTransitionOwnedWindow(HWND hwnd, DWMTRANSITION_OWNEDWINDOW_TARGET target);

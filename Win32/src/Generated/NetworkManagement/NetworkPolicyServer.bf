@@ -969,7 +969,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IASDATASTORE eDataStore, BSTR bstrUserName, IUnknown** ppUserSDO) GetUserSDO;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IASOSTYPE* eOSType) GetOSType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IASDOMAINTYPE* eDomainType) GetDomainType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* boolDirectoryAvailable) IsDirectoryAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 boolDirectoryAvailable) IsDirectoryAvailable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrComputerName) GetAttachedComputer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppSDOSchema) GetSDOSchema;
 	}
@@ -987,7 +987,7 @@ public static
 
 	public HRESULT GetDomainType(IASDOMAINTYPE* eDomainType) mut => VT.[Friend]GetDomainType(&this, eDomainType);
 
-	public HRESULT IsDirectoryAvailable(int16* boolDirectoryAvailable) mut => VT.[Friend]IsDirectoryAvailable(&this, boolDirectoryAvailable);
+	public HRESULT IsDirectoryAvailable(int16 boolDirectoryAvailable) mut => VT.[Friend]IsDirectoryAvailable(&this, boolDirectoryAvailable);
 
 	public HRESULT GetAttachedComputer(BSTR* bstrComputerName) mut => VT.[Friend]GetAttachedComputer(&this, bstrComputerName);
 
@@ -1031,7 +1031,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StartService;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StopService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* status) GetServiceStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 status) GetServiceStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResetService;
 	}
 
@@ -1040,7 +1040,7 @@ public static
 
 	public HRESULT StopService() mut => VT.[Friend]StopService(&this);
 
-	public HRESULT GetServiceStatus(int32* status) mut => VT.[Friend]GetServiceStatus(&this, status);
+	public HRESULT GetServiceStatus(int32 status) mut => VT.[Friend]GetServiceStatus(&this, status);
 
 	public HRESULT ResetService() mut => VT.[Friend]ResetService(&this);
 }
@@ -1086,18 +1086,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, IDispatch** ppItem) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pItem) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAll;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reload;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, int16* pBool) IsNameUnique;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, int16 pBool) IsNameUnique;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Name, IDispatch** pItem) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumVARIANT) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32* pCount) mut => VT.[Friend]get_Count(&this, pCount);
+	public HRESULT get_Count(int32 pCount) mut => VT.[Friend]get_Count(&this, pCount);
 
 	public HRESULT Add(BSTR bstrName, IDispatch** ppItem) mut => VT.[Friend]Add(&this, bstrName, ppItem);
 
@@ -1107,7 +1107,7 @@ public static
 
 	public HRESULT Reload() mut => VT.[Friend]Reload(&this);
 
-	public HRESULT IsNameUnique(BSTR bstrName, int16* pBool) mut => VT.[Friend]IsNameUnique(&this, bstrName, pBool);
+	public HRESULT IsNameUnique(BSTR bstrName, int16 pBool) mut => VT.[Friend]IsNameUnique(&this, bstrName, pBool);
 
 	public HRESULT Item(VARIANT* Name, IDispatch** pItem) mut => VT.[Friend]Item(&this, Name, pItem);
 

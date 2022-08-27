@@ -141,15 +141,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, uint32* bytesReturned) DeviceIoControlSync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, IDeviceRequestCompletionCallback* requestCompletionCallback, uint* cancelContext) DeviceIoControlAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, uint32 bytesReturned) DeviceIoControlSync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, IDeviceRequestCompletionCallback* requestCompletionCallback, uint cancelContext) DeviceIoControlAsync;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cancelContext) CancelOperation;
 	}
 
 
-	public HRESULT DeviceIoControlSync(uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, uint32* bytesReturned) mut => VT.[Friend]DeviceIoControlSync(&this, ioControlCode, inputBuffer, inputBufferSize, outputBuffer, outputBufferSize, bytesReturned);
+	public HRESULT DeviceIoControlSync(uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, uint32 bytesReturned) mut => VT.[Friend]DeviceIoControlSync(&this, ioControlCode, inputBuffer, inputBufferSize, outputBuffer, outputBufferSize, bytesReturned);
 
-	public HRESULT DeviceIoControlAsync(uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, IDeviceRequestCompletionCallback* requestCompletionCallback, uint* cancelContext) mut => VT.[Friend]DeviceIoControlAsync(&this, ioControlCode, inputBuffer, inputBufferSize, outputBuffer, outputBufferSize, requestCompletionCallback, cancelContext);
+	public HRESULT DeviceIoControlAsync(uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, IDeviceRequestCompletionCallback* requestCompletionCallback, uint cancelContext) mut => VT.[Friend]DeviceIoControlAsync(&this, ioControlCode, inputBuffer, inputBufferSize, outputBuffer, outputBufferSize, requestCompletionCallback, cancelContext);
 
 	public HRESULT CancelOperation(uint cancelContext) mut => VT.[Friend]CancelOperation(&this, cancelContext);
 }
@@ -165,7 +165,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 timeout) Wait;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** deviceAccess) GetResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** deviceAccess) GetResult;
 	}
 
 
@@ -175,7 +175,7 @@ public static
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
-	public HRESULT GetResult(ref Guid riid, void** deviceAccess) mut => VT.[Friend]GetResult(&this, ref riid, deviceAccess);
+	public HRESULT GetResult(Guid riid, void** deviceAccess) mut => VT.[Friend]GetResult(&this, riid, deviceAccess);
 }
 
 #endregion

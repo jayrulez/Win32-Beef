@@ -182,7 +182,7 @@ public static
 	public static extern HRESULT GetProcessDpiAwareness(HANDLE hprocess, PROCESS_DPI_AWARENESS* value);
 
 	[Import("api-ms-win-shcore-scaling-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetDpiForMonitor(HMONITOR hmonitor, MONITOR_DPI_TYPE dpiType, uint32* dpiX, uint32* dpiY);
+	public static extern HRESULT GetDpiForMonitor(HMONITOR hmonitor, MONITOR_DPI_TYPE dpiType, uint32 dpiX, uint32 dpiY);
 
 }
 #endregion

@@ -2062,7 +2062,7 @@ public enum enumRECO_TYPE : int32
 #endregion
 
 #region Function Pointers
-public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTEXT param2);
+public function HRESULT PfnRecoCallback(uint32 param0, uint8 param1, HRECOCONTEXT param2);
 
 #endregion
 
@@ -2391,34 +2391,34 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Top;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) get_Top;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Top;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Left;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) get_Left;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Left;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Bottom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) get_Bottom;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Bottom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Right;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) get_Right;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Right;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* Rect) get_Data;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT Rect) put_Data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Top, int32* Left, int32* Bottom, int32* Right) GetRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Top, int32 Left, int32 Bottom, int32 Right) GetRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Top, int32 Left, int32 Bottom, int32 Right) SetRectangle;
 	}
 
 
-	public HRESULT get_Top(int32* Units) mut => VT.[Friend]get_Top(&this, Units);
+	public HRESULT get_Top(int32 Units) mut => VT.[Friend]get_Top(&this, Units);
 
 	public HRESULT put_Top(int32 Units) mut => VT.[Friend]put_Top(&this, Units);
 
-	public HRESULT get_Left(int32* Units) mut => VT.[Friend]get_Left(&this, Units);
+	public HRESULT get_Left(int32 Units) mut => VT.[Friend]get_Left(&this, Units);
 
 	public HRESULT put_Left(int32 Units) mut => VT.[Friend]put_Left(&this, Units);
 
-	public HRESULT get_Bottom(int32* Units) mut => VT.[Friend]get_Bottom(&this, Units);
+	public HRESULT get_Bottom(int32 Units) mut => VT.[Friend]get_Bottom(&this, Units);
 
 	public HRESULT put_Bottom(int32 Units) mut => VT.[Friend]put_Bottom(&this, Units);
 
-	public HRESULT get_Right(int32* Units) mut => VT.[Friend]get_Right(&this, Units);
+	public HRESULT get_Right(int32 Units) mut => VT.[Friend]get_Right(&this, Units);
 
 	public HRESULT put_Right(int32 Units) mut => VT.[Friend]put_Right(&this, Units);
 
@@ -2426,7 +2426,7 @@ public static
 
 	public HRESULT put_Data(RECT Rect) mut => VT.[Friend]put_Data(&this, Rect);
 
-	public HRESULT GetRectangle(int32* Top, int32* Left, int32* Bottom, int32* Right) mut => VT.[Friend]GetRectangle(&this, Top, Left, Bottom, Right);
+	public HRESULT GetRectangle(int32 Top, int32 Left, int32 Bottom, int32 Right) mut => VT.[Friend]GetRectangle(&this, Top, Left, Bottom, Right);
 
 	public HRESULT SetRectangle(int32 Top, int32 Left, int32 Bottom, int32 Right) mut => VT.[Friend]SetRectangle(&this, Top, Left, Bottom, Right);
 }
@@ -2460,17 +2460,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Identifier, IInkExtendedProperty** Item) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Guid, VARIANT Data, IInkExtendedProperty** InkExtendedProperty) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Identifier) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Guid, int16* DoesPropertyExist) DoesPropertyExist;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Guid, int16 DoesPropertyExist) DoesPropertyExist;
 	}
 
 
-	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** _NewEnum) mut => VT.[Friend]get__NewEnum(&this, _NewEnum);
 
@@ -2482,7 +2482,7 @@ public static
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
-	public HRESULT DoesPropertyExist(BSTR Guid, int16* DoesPropertyExist) mut => VT.[Friend]DoesPropertyExist(&this, Guid, DoesPropertyExist);
+	public HRESULT DoesPropertyExist(BSTR Guid, int16 DoesPropertyExist) mut => VT.[Friend]DoesPropertyExist(&this, Guid, DoesPropertyExist);
 }
 
 [CRepr]struct IInkDrawingAttributes : IDispatch
@@ -2493,19 +2493,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* CurrentColor) get_Color;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 CurrentColor) get_Color;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NewColor) put_Color;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* CurrentWidth) get_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float CurrentWidth) get_Width;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float NewWidth) put_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* CurrentHeight) get_Height;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float CurrentHeight) get_Height;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float NewHeight) put_Height;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Flag) get_FitToCurve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Flag) get_FitToCurve;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Flag) put_FitToCurve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Flag) get_IgnorePressure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Flag) get_IgnorePressure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Flag) put_IgnorePressure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Flag) get_AntiAliased;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Flag) get_AntiAliased;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Flag) put_AntiAliased;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* CurrentTransparency) get_Transparency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 CurrentTransparency) get_Transparency;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NewTransparency) put_Transparency;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRasterOperation* CurrentRasterOperation) get_RasterOperation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRasterOperation NewRasterOperation) put_RasterOperation;
@@ -2516,31 +2516,31 @@ public static
 	}
 
 
-	public HRESULT get_Color(int32* CurrentColor) mut => VT.[Friend]get_Color(&this, CurrentColor);
+	public HRESULT get_Color(int32 CurrentColor) mut => VT.[Friend]get_Color(&this, CurrentColor);
 
 	public HRESULT put_Color(int32 NewColor) mut => VT.[Friend]put_Color(&this, NewColor);
 
-	public HRESULT get_Width(float* CurrentWidth) mut => VT.[Friend]get_Width(&this, CurrentWidth);
+	public HRESULT get_Width(float CurrentWidth) mut => VT.[Friend]get_Width(&this, CurrentWidth);
 
 	public HRESULT put_Width(float NewWidth) mut => VT.[Friend]put_Width(&this, NewWidth);
 
-	public HRESULT get_Height(float* CurrentHeight) mut => VT.[Friend]get_Height(&this, CurrentHeight);
+	public HRESULT get_Height(float CurrentHeight) mut => VT.[Friend]get_Height(&this, CurrentHeight);
 
 	public HRESULT put_Height(float NewHeight) mut => VT.[Friend]put_Height(&this, NewHeight);
 
-	public HRESULT get_FitToCurve(int16* Flag) mut => VT.[Friend]get_FitToCurve(&this, Flag);
+	public HRESULT get_FitToCurve(int16 Flag) mut => VT.[Friend]get_FitToCurve(&this, Flag);
 
 	public HRESULT put_FitToCurve(int16 Flag) mut => VT.[Friend]put_FitToCurve(&this, Flag);
 
-	public HRESULT get_IgnorePressure(int16* Flag) mut => VT.[Friend]get_IgnorePressure(&this, Flag);
+	public HRESULT get_IgnorePressure(int16 Flag) mut => VT.[Friend]get_IgnorePressure(&this, Flag);
 
 	public HRESULT put_IgnorePressure(int16 Flag) mut => VT.[Friend]put_IgnorePressure(&this, Flag);
 
-	public HRESULT get_AntiAliased(int16* Flag) mut => VT.[Friend]get_AntiAliased(&this, Flag);
+	public HRESULT get_AntiAliased(int16 Flag) mut => VT.[Friend]get_AntiAliased(&this, Flag);
 
 	public HRESULT put_AntiAliased(int16 Flag) mut => VT.[Friend]put_AntiAliased(&this, Flag);
 
-	public HRESULT get_Transparency(int32* CurrentTransparency) mut => VT.[Friend]get_Transparency(&this, CurrentTransparency);
+	public HRESULT get_Transparency(int32 CurrentTransparency) mut => VT.[Friend]get_Transparency(&this, CurrentTransparency);
 
 	public HRESULT put_Transparency(int32 NewTransparency) mut => VT.[Friend]put_Transparency(&this, NewTransparency);
 
@@ -2571,19 +2571,19 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Horizontally, int16 Vertically) Reflect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalComponent, float VerticalComponent) Shear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) ScaleTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* eM11, float* eM12, float* eM21, float* eM22, float* eDx, float* eDy) GetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float eM11, float eM12, float eM21, float eM22, float eDx, float eDy) GetTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float eM11, float eM12, float eM21, float eM22, float eDx, float eDy) SetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eM11;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) get_eM11;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eM11;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eM12;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) get_eM12;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eM12;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eM21;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) get_eM21;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eM21;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eM22;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) get_eM22;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eM22;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eDx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) get_eDx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eDx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eDy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) get_eDy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eDy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XFORM* XForm) get_Data;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XFORM XForm) put_Data;
@@ -2602,31 +2602,31 @@ public static
 
 	public HRESULT ScaleTransform(float HorizontalMultiplier, float VerticalMultiplier) mut => VT.[Friend]ScaleTransform(&this, HorizontalMultiplier, VerticalMultiplier);
 
-	public HRESULT GetTransform(float* eM11, float* eM12, float* eM21, float* eM22, float* eDx, float* eDy) mut => VT.[Friend]GetTransform(&this, eM11, eM12, eM21, eM22, eDx, eDy);
+	public HRESULT GetTransform(float eM11, float eM12, float eM21, float eM22, float eDx, float eDy) mut => VT.[Friend]GetTransform(&this, eM11, eM12, eM21, eM22, eDx, eDy);
 
 	public HRESULT SetTransform(float eM11, float eM12, float eM21, float eM22, float eDx, float eDy) mut => VT.[Friend]SetTransform(&this, eM11, eM12, eM21, eM22, eDx, eDy);
 
-	public HRESULT get_eM11(float* Value) mut => VT.[Friend]get_eM11(&this, Value);
+	public HRESULT get_eM11(float Value) mut => VT.[Friend]get_eM11(&this, Value);
 
 	public HRESULT put_eM11(float Value) mut => VT.[Friend]put_eM11(&this, Value);
 
-	public HRESULT get_eM12(float* Value) mut => VT.[Friend]get_eM12(&this, Value);
+	public HRESULT get_eM12(float Value) mut => VT.[Friend]get_eM12(&this, Value);
 
 	public HRESULT put_eM12(float Value) mut => VT.[Friend]put_eM12(&this, Value);
 
-	public HRESULT get_eM21(float* Value) mut => VT.[Friend]get_eM21(&this, Value);
+	public HRESULT get_eM21(float Value) mut => VT.[Friend]get_eM21(&this, Value);
 
 	public HRESULT put_eM21(float Value) mut => VT.[Friend]put_eM21(&this, Value);
 
-	public HRESULT get_eM22(float* Value) mut => VT.[Friend]get_eM22(&this, Value);
+	public HRESULT get_eM22(float Value) mut => VT.[Friend]get_eM22(&this, Value);
 
 	public HRESULT put_eM22(float Value) mut => VT.[Friend]put_eM22(&this, Value);
 
-	public HRESULT get_eDx(float* Value) mut => VT.[Friend]get_eDx(&this, Value);
+	public HRESULT get_eDx(float Value) mut => VT.[Friend]get_eDx(&this, Value);
 
 	public HRESULT put_eDx(float Value) mut => VT.[Friend]put_eDx(&this, Value);
 
-	public HRESULT get_eDy(float* Value) mut => VT.[Friend]get_eDy(&this, Value);
+	public HRESULT get_eDy(float Value) mut => VT.[Friend]get_eDy(&this, Value);
 
 	public HRESULT put_eDy(float Value) mut => VT.[Friend]put_eDy(&this, Value);
 
@@ -2645,7 +2645,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecognitionConfidence* Confidence) get_Confidence;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture* Id) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* X, int32* Y) GetHotPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y) GetHotPoint;
 	}
 
 
@@ -2653,7 +2653,7 @@ public static
 
 	public HRESULT get_Id(InkApplicationGesture* Id) mut => VT.[Friend]get_Id(&this, Id);
 
-	public HRESULT GetHotPoint(int32* X, int32* Y) mut => VT.[Friend]GetHotPoint(&this, X, Y);
+	public HRESULT GetHotPoint(int32 X, int32 Y) mut => VT.[Friend]GetHotPoint(&this, X, Y);
 }
 
 [CRepr]struct IInkCursor : IDispatch
@@ -2665,8 +2665,8 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Id) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Status) get_Inverted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Status) get_Inverted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** Attributes) get_DrawingAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* Attributes) putref_DrawingAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** Tablet) get_Tablet;
@@ -2676,9 +2676,9 @@ public static
 
 	public HRESULT get_Name(BSTR* Name) mut => VT.[Friend]get_Name(&this, Name);
 
-	public HRESULT get_Id(int32* Id) mut => VT.[Friend]get_Id(&this, Id);
+	public HRESULT get_Id(int32 Id) mut => VT.[Friend]get_Id(&this, Id);
 
-	public HRESULT get_Inverted(int16* Status) mut => VT.[Friend]get_Inverted(&this, Status);
+	public HRESULT get_Inverted(int16 Status) mut => VT.[Friend]get_Inverted(&this, Status);
 
 	public HRESULT get_DrawingAttributes(IInkDrawingAttributes** Attributes) mut => VT.[Friend]get_DrawingAttributes(&this, Attributes);
 
@@ -2697,13 +2697,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkCursor** Cursor) Item;
 	}
 
 
-	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** _NewEnum) mut => VT.[Friend]get__NewEnum(&this, _NewEnum);
 
@@ -2739,13 +2739,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Identifier, IInkCursorButton** Button) Item;
 	}
 
 
-	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** _NewEnum) mut => VT.[Friend]get__NewEnum(&this, _NewEnum);
 
@@ -2764,8 +2764,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Id) get_PlugAndPlayId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** Rectangle) get_MaximumInputRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TabletHardwareCapabilities* Capabilities) get_HardwareCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR packetPropertyName, int16* Supported) IsPacketPropertySupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR propertyName, int32* Minimum, int32* Maximum, TabletPropertyMetricUnit* Units, float* Resolution) GetPropertyMetrics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR packetPropertyName, int16 Supported) IsPacketPropertySupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR propertyName, int32 Minimum, int32 Maximum, TabletPropertyMetricUnit* Units, float Resolution) GetPropertyMetrics;
 	}
 
 
@@ -2777,9 +2777,9 @@ public static
 
 	public HRESULT get_HardwareCapabilities(TabletHardwareCapabilities* Capabilities) mut => VT.[Friend]get_HardwareCapabilities(&this, Capabilities);
 
-	public HRESULT IsPacketPropertySupported(BSTR packetPropertyName, int16* Supported) mut => VT.[Friend]IsPacketPropertySupported(&this, packetPropertyName, Supported);
+	public HRESULT IsPacketPropertySupported(BSTR packetPropertyName, int16 Supported) mut => VT.[Friend]IsPacketPropertySupported(&this, packetPropertyName, Supported);
 
-	public HRESULT GetPropertyMetrics(BSTR propertyName, int32* Minimum, int32* Maximum, TabletPropertyMetricUnit* Units, float* Resolution) mut => VT.[Friend]GetPropertyMetrics(&this, propertyName, Minimum, Maximum, Units, Resolution);
+	public HRESULT GetPropertyMetrics(BSTR propertyName, int32 Minimum, int32 Maximum, TabletPropertyMetricUnit* Units, float Resolution) mut => VT.[Friend]GetPropertyMetrics(&this, propertyName, Minimum, Maximum, Units, Resolution);
 }
 
 [CRepr]struct IInkTablet2 : IDispatch
@@ -2805,14 +2805,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pIsMultiTouch) get_IsMultiTouch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pMaximumCursors) get_MaximumCursors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pIsMultiTouch) get_IsMultiTouch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pMaximumCursors) get_MaximumCursors;
 	}
 
 
-	public HRESULT get_IsMultiTouch(int16* pIsMultiTouch) mut => VT.[Friend]get_IsMultiTouch(&this, pIsMultiTouch);
+	public HRESULT get_IsMultiTouch(int16 pIsMultiTouch) mut => VT.[Friend]get_IsMultiTouch(&this, pIsMultiTouch);
 
-	public HRESULT get_MaximumCursors(uint32* pMaximumCursors) mut => VT.[Friend]get_MaximumCursors(&this, pMaximumCursors);
+	public HRESULT get_MaximumCursors(uint32 pMaximumCursors) mut => VT.[Friend]get_MaximumCursors(&this, pMaximumCursors);
 }
 
 [CRepr]struct IInkTablets : IDispatch
@@ -2823,15 +2823,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** DefaultTablet) get_DefaultTablet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkTablet** Tablet) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR packetPropertyName, int16* Supported) IsPacketPropertySupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR packetPropertyName, int16 Supported) IsPacketPropertySupported;
 	}
 
 
-	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** _NewEnum) mut => VT.[Friend]get__NewEnum(&this, _NewEnum);
 
@@ -2839,7 +2839,7 @@ public static
 
 	public HRESULT Item(int32 Index, IInkTablet** Tablet) mut => VT.[Friend]Item(&this, Index, Tablet);
 
-	public HRESULT IsPacketPropertySupported(BSTR packetPropertyName, int16* Supported) mut => VT.[Friend]IsPacketPropertySupported(&this, packetPropertyName, Supported);
+	public HRESULT IsPacketPropertySupported(BSTR packetPropertyName, int16 Supported) mut => VT.[Friend]IsPacketPropertySupported(&this, packetPropertyName, Supported);
 }
 
 [CRepr]struct IInkStrokeDisp : IDispatch
@@ -2850,7 +2850,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* ID) get_ID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 ID) get_ID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Points) get_BezierPoints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** DrawAttrs) get_DrawingAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* DrawAttrs) putref_DrawingAttributes;
@@ -2859,23 +2859,23 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Cusps) get_PolylineCusps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Cusps) get_BezierCusps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Intersections) get_SelfIntersections;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_PacketCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSize) get_PacketSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_PacketCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSize) get_PacketSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PacketDescription) get_PacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Deleted) get_Deleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Deleted) get_Deleted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkBoundingBoxMode BoundingBoxMode, IInkRectangle** Rectangle) GetBoundingBox;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes, VARIANT* Intersections) FindIntersections;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle, VARIANT* Intersections) GetRectangleIntersections;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) Clip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float Radius, int16* Intersects) HitTestCircle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float* Distance, float* Point) NearestPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float Radius, int16 Intersects) HitTestCircle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float Distance, float Point) NearestPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float SplitAt, IInkStrokeDisp** NewStroke) Split;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyName, int32* Minimum, int32* Maximum, TabletPropertyMetricUnit* Units, float* Resolution) GetPacketDescriptionPropertyMetrics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyName, int32 Minimum, int32 Maximum, TabletPropertyMetricUnit* Units, float Resolution) GetPacketDescriptionPropertyMetrics;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, int32 Count, VARIANT* Points) GetPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Points, int32 Index, int32 Count, int32* NumberOfPointsSet) SetPoints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Points, int32 Index, int32 Count, int32 NumberOfPointsSet) SetPoints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, int32 Count, VARIANT* PacketData) GetPacketData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyName, int32 Index, int32 Count, VARIANT* PacketValues) GetPacketValuesByProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName, VARIANT PacketValues, int32 Index, int32 Count, int32* NumberOfPacketsSet) SetPacketValuesByProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName, VARIANT PacketValues, int32 Index, int32 Count, int32 NumberOfPacketsSet) SetPacketValuesByProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 FittingError, VARIANT* FlattenedBezierPoints) GetFlattenedBezierPoints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTransform* Transform, int16 ApplyOnPenWidth) Transform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) ScaleToRectangle;
@@ -2886,7 +2886,7 @@ public static
 	}
 
 
-	public HRESULT get_ID(int32* ID) mut => VT.[Friend]get_ID(&this, ID);
+	public HRESULT get_ID(int32 ID) mut => VT.[Friend]get_ID(&this, ID);
 
 	public HRESULT get_BezierPoints(VARIANT* Points) mut => VT.[Friend]get_BezierPoints(&this, Points);
 
@@ -2904,13 +2904,13 @@ public static
 
 	public HRESULT get_SelfIntersections(VARIANT* Intersections) mut => VT.[Friend]get_SelfIntersections(&this, Intersections);
 
-	public HRESULT get_PacketCount(int32* plCount) mut => VT.[Friend]get_PacketCount(&this, plCount);
+	public HRESULT get_PacketCount(int32 plCount) mut => VT.[Friend]get_PacketCount(&this, plCount);
 
-	public HRESULT get_PacketSize(int32* plSize) mut => VT.[Friend]get_PacketSize(&this, plSize);
+	public HRESULT get_PacketSize(int32 plSize) mut => VT.[Friend]get_PacketSize(&this, plSize);
 
 	public HRESULT get_PacketDescription(VARIANT* PacketDescription) mut => VT.[Friend]get_PacketDescription(&this, PacketDescription);
 
-	public HRESULT get_Deleted(int16* Deleted) mut => VT.[Friend]get_Deleted(&this, Deleted);
+	public HRESULT get_Deleted(int16 Deleted) mut => VT.[Friend]get_Deleted(&this, Deleted);
 
 	public HRESULT GetBoundingBox(InkBoundingBoxMode BoundingBoxMode, IInkRectangle** Rectangle) mut => VT.[Friend]GetBoundingBox(&this, BoundingBoxMode, Rectangle);
 
@@ -2920,23 +2920,23 @@ public static
 
 	public HRESULT Clip(IInkRectangle* Rectangle) mut => VT.[Friend]Clip(&this, Rectangle);
 
-	public HRESULT HitTestCircle(int32 X, int32 Y, float Radius, int16* Intersects) mut => VT.[Friend]HitTestCircle(&this, X, Y, Radius, Intersects);
+	public HRESULT HitTestCircle(int32 X, int32 Y, float Radius, int16 Intersects) mut => VT.[Friend]HitTestCircle(&this, X, Y, Radius, Intersects);
 
-	public HRESULT NearestPoint(int32 X, int32 Y, float* Distance, float* Point) mut => VT.[Friend]NearestPoint(&this, X, Y, Distance, Point);
+	public HRESULT NearestPoint(int32 X, int32 Y, float Distance, float Point) mut => VT.[Friend]NearestPoint(&this, X, Y, Distance, Point);
 
 	public HRESULT Split(float SplitAt, IInkStrokeDisp** NewStroke) mut => VT.[Friend]Split(&this, SplitAt, NewStroke);
 
-	public HRESULT GetPacketDescriptionPropertyMetrics(BSTR PropertyName, int32* Minimum, int32* Maximum, TabletPropertyMetricUnit* Units, float* Resolution) mut => VT.[Friend]GetPacketDescriptionPropertyMetrics(&this, PropertyName, Minimum, Maximum, Units, Resolution);
+	public HRESULT GetPacketDescriptionPropertyMetrics(BSTR PropertyName, int32 Minimum, int32 Maximum, TabletPropertyMetricUnit* Units, float Resolution) mut => VT.[Friend]GetPacketDescriptionPropertyMetrics(&this, PropertyName, Minimum, Maximum, Units, Resolution);
 
 	public HRESULT GetPoints(int32 Index, int32 Count, VARIANT* Points) mut => VT.[Friend]GetPoints(&this, Index, Count, Points);
 
-	public HRESULT SetPoints(VARIANT Points, int32 Index, int32 Count, int32* NumberOfPointsSet) mut => VT.[Friend]SetPoints(&this, Points, Index, Count, NumberOfPointsSet);
+	public HRESULT SetPoints(VARIANT Points, int32 Index, int32 Count, int32 NumberOfPointsSet) mut => VT.[Friend]SetPoints(&this, Points, Index, Count, NumberOfPointsSet);
 
 	public HRESULT GetPacketData(int32 Index, int32 Count, VARIANT* PacketData) mut => VT.[Friend]GetPacketData(&this, Index, Count, PacketData);
 
 	public HRESULT GetPacketValuesByProperty(BSTR PropertyName, int32 Index, int32 Count, VARIANT* PacketValues) mut => VT.[Friend]GetPacketValuesByProperty(&this, PropertyName, Index, Count, PacketValues);
 
-	public HRESULT SetPacketValuesByProperty(BSTR bstrPropertyName, VARIANT PacketValues, int32 Index, int32 Count, int32* NumberOfPacketsSet) mut => VT.[Friend]SetPacketValuesByProperty(&this, bstrPropertyName, PacketValues, Index, Count, NumberOfPacketsSet);
+	public HRESULT SetPacketValuesByProperty(BSTR bstrPropertyName, VARIANT PacketValues, int32 Index, int32 Count, int32 NumberOfPacketsSet) mut => VT.[Friend]SetPacketValuesByProperty(&this, bstrPropertyName, PacketValues, Index, Count, NumberOfPacketsSet);
 
 	public HRESULT GetFlattenedBezierPoints(int32 FittingError, VARIANT* FlattenedBezierPoints) mut => VT.[Friend]GetFlattenedBezierPoints(&this, FittingError, FlattenedBezierPoints);
 
@@ -2961,7 +2961,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** Ink) get_Ink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognitionResult** RecognitionResult) get_RecognitionResult;
@@ -2984,7 +2984,7 @@ public static
 	}
 
 
-	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** _NewEnum) mut => VT.[Friend]get__NewEnum(&this, _NewEnum);
 
@@ -3033,7 +3033,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Identifier, IInkStrokes** Strokes) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Name, IInkStrokes* Strokes) Add;
@@ -3042,7 +3042,7 @@ public static
 	}
 
 
-	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** _NewEnum) mut => VT.[Friend]get__NewEnum(&this, _NewEnum);
 
@@ -3077,7 +3077,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkExtendedProperties** Properties) get_ExtendedProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Dirty) get_Dirty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Dirty) get_Dirty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Dirty) put_Dirty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCustomStrokes** ppunkInkCustomStrokes) get_CustomStrokes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkBoundingBoxMode BoundingBoxMode, IInkRectangle** Rectangle) GetBoundingBox;
@@ -3090,7 +3090,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float radius, IInkStrokes** Strokes) HitTestCircle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* SelectionRectangle, float IntersectPercent, IInkStrokes** Strokes) HitTestWithRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Points, float IntersectPercent, VARIANT* LassoPoints, IInkStrokes** Strokes) HitTestWithLasso;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float* PointOnStroke, float* DistanceFromPacket, IInkStrokeDisp** Stroke) NearestPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float PointOnStroke, float DistanceFromPacket, IInkStrokeDisp** Stroke) NearestPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT StrokeIds, IInkStrokes** Strokes) CreateStrokes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* SourceStrokes, IInkRectangle* TargetRectangle) AddStrokesAtRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkPersistenceFormat PersistenceFormat, InkPersistenceCompressionMode CompressionMode, VARIANT* Data) Save;
@@ -3098,7 +3098,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT PacketData, VARIANT PacketDescription, IInkStrokeDisp** Stroke) CreateStroke;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle, InkClipboardFormats ClipboardFormats, InkClipboardModes ClipboardModes, IDataObject** DataObject) ClipboardCopyWithRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* strokes, InkClipboardFormats ClipboardFormats, InkClipboardModes ClipboardModes, IDataObject** DataObject) ClipboardCopy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* DataObject, int16* CanPaste) CanPaste;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* DataObject, int16 CanPaste) CanPaste;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y, IDataObject* DataObject, IInkStrokes** Strokes) ClipboardPaste;
 	}
 
@@ -3107,7 +3107,7 @@ public static
 
 	public HRESULT get_ExtendedProperties(IInkExtendedProperties** Properties) mut => VT.[Friend]get_ExtendedProperties(&this, Properties);
 
-	public HRESULT get_Dirty(int16* Dirty) mut => VT.[Friend]get_Dirty(&this, Dirty);
+	public HRESULT get_Dirty(int16 Dirty) mut => VT.[Friend]get_Dirty(&this, Dirty);
 
 	public HRESULT put_Dirty(int16 Dirty) mut => VT.[Friend]put_Dirty(&this, Dirty);
 
@@ -3133,7 +3133,7 @@ public static
 
 	public HRESULT HitTestWithLasso(VARIANT Points, float IntersectPercent, VARIANT* LassoPoints, IInkStrokes** Strokes) mut => VT.[Friend]HitTestWithLasso(&this, Points, IntersectPercent, LassoPoints, Strokes);
 
-	public HRESULT NearestPoint(int32 X, int32 Y, float* PointOnStroke, float* DistanceFromPacket, IInkStrokeDisp** Stroke) mut => VT.[Friend]NearestPoint(&this, X, Y, PointOnStroke, DistanceFromPacket, Stroke);
+	public HRESULT NearestPoint(int32 X, int32 Y, float PointOnStroke, float DistanceFromPacket, IInkStrokeDisp** Stroke) mut => VT.[Friend]NearestPoint(&this, X, Y, PointOnStroke, DistanceFromPacket, Stroke);
 
 	public HRESULT CreateStrokes(VARIANT StrokeIds, IInkStrokes** Strokes) mut => VT.[Friend]CreateStrokes(&this, StrokeIds, Strokes);
 
@@ -3149,7 +3149,7 @@ public static
 
 	public HRESULT ClipboardCopy(IInkStrokes* strokes, InkClipboardFormats ClipboardFormats, InkClipboardModes ClipboardModes, IDataObject** DataObject) mut => VT.[Friend]ClipboardCopy(&this, strokes, ClipboardFormats, ClipboardModes, DataObject);
 
-	public HRESULT CanPaste(IDataObject* DataObject, int16* CanPaste) mut => VT.[Friend]CanPaste(&this, DataObject, CanPaste);
+	public HRESULT CanPaste(IDataObject* DataObject, int16 CanPaste) mut => VT.[Friend]CanPaste(&this, DataObject, CanPaste);
 
 	public HRESULT ClipboardPaste(int32 x, int32 y, IDataObject* DataObject, IInkStrokes** Strokes) mut => VT.[Friend]ClipboardPaste(&this, x, y, DataObject, Strokes);
 }
@@ -3180,8 +3180,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTransform* ObjectTransform) SetObjectTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, IInkStrokes* Strokes) Draw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, IInkStrokeDisp* Stroke, IInkDrawingAttributes* DrawingAttributes) DrawStroke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, int32* x, int32* y) PixelToInkSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hdcDisplay, int32* x, int32* y) InkSpaceToPixel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, int32 x, int32 y) PixelToInkSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hdcDisplay, int32 x, int32 y) InkSpaceToPixel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, VARIANT* Points) PixelToInkSpaceFromPoints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, VARIANT* Points) InkSpaceToPixelFromPoints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes, IInkRectangle** Rectangle) Measure;
@@ -3204,9 +3204,9 @@ public static
 
 	public HRESULT DrawStroke(int hDC, IInkStrokeDisp* Stroke, IInkDrawingAttributes* DrawingAttributes) mut => VT.[Friend]DrawStroke(&this, hDC, Stroke, DrawingAttributes);
 
-	public HRESULT PixelToInkSpace(int hDC, int32* x, int32* y) mut => VT.[Friend]PixelToInkSpace(&this, hDC, x, y);
+	public HRESULT PixelToInkSpace(int hDC, int32 x, int32 y) mut => VT.[Friend]PixelToInkSpace(&this, hDC, x, y);
 
-	public HRESULT InkSpaceToPixel(int hdcDisplay, int32* x, int32* y) mut => VT.[Friend]InkSpaceToPixel(&this, hdcDisplay, x, y);
+	public HRESULT InkSpaceToPixel(int hdcDisplay, int32 x, int32 y) mut => VT.[Friend]InkSpaceToPixel(&this, hdcDisplay, x, y);
 
 	public HRESULT PixelToInkSpaceFromPoints(int hDC, VARIANT* Points) mut => VT.[Friend]PixelToInkSpaceFromPoints(&this, hDC, Points);
 
@@ -3231,9 +3231,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int* CurrentWindow) get_hWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int CurrentWindow) get_hWnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int NewWindow) put_hWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) get_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) put_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** CurrentAttributes) get_DefaultDrawingAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* NewAttributes) putref_DefaultDrawingAttributes;
@@ -3241,12 +3241,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRenderer* NewInkRenderer) putref_Renderer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** Ink) get_Ink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp* NewInk) putref_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* AutoRedraw) get_AutoRedraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoRedraw) get_AutoRedraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoRedraw) put_AutoRedraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_CollectingInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) get_CollectingInk;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode* Mode) get_CollectionMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode Mode) put_CollectionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Enabled) get_DynamicRendering;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Enabled) get_DynamicRendering;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Enabled) put_DynamicRendering;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PacketGuids) get_DesiredPacketDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT PacketGuids) put_DesiredPacketDescription;
@@ -3256,29 +3256,29 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer* MousePointer) get_MousePointer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer MousePointer) put_MousePointer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCursors** Cursors) get_Cursors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginX) get_MarginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginX) get_MarginX;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginX) put_MarginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginY) get_MarginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginY) get_MarginY;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginY) put_MarginY;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** SingleTablet) get_Tablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Support) get_SupportHighContrastInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) get_SupportHighContrastInk;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) put_SupportHighContrastInk;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16* Listening) GetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listening) GetGestureStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** WindowInputRectangle) GetWindowInputRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* WindowInputRectangle) SetWindowInputRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 UseMouseForInput) SetAllTabletsMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* Tablet) SetSingleTabletIntegratedMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16* Listen) GetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) GetEventInterest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) SetEventInterest;
 	}
 
 
-	public HRESULT get_hWnd(int* CurrentWindow) mut => VT.[Friend]get_hWnd(&this, CurrentWindow);
+	public HRESULT get_hWnd(int CurrentWindow) mut => VT.[Friend]get_hWnd(&this, CurrentWindow);
 
 	public HRESULT put_hWnd(int NewWindow) mut => VT.[Friend]put_hWnd(&this, NewWindow);
 
-	public HRESULT get_Enabled(int16* Collecting) mut => VT.[Friend]get_Enabled(&this, Collecting);
+	public HRESULT get_Enabled(int16 Collecting) mut => VT.[Friend]get_Enabled(&this, Collecting);
 
 	public HRESULT put_Enabled(int16 Collecting) mut => VT.[Friend]put_Enabled(&this, Collecting);
 
@@ -3294,17 +3294,17 @@ public static
 
 	public HRESULT putref_Ink(IInkDisp* NewInk) mut => VT.[Friend]putref_Ink(&this, NewInk);
 
-	public HRESULT get_AutoRedraw(int16* AutoRedraw) mut => VT.[Friend]get_AutoRedraw(&this, AutoRedraw);
+	public HRESULT get_AutoRedraw(int16 AutoRedraw) mut => VT.[Friend]get_AutoRedraw(&this, AutoRedraw);
 
 	public HRESULT put_AutoRedraw(int16 AutoRedraw) mut => VT.[Friend]put_AutoRedraw(&this, AutoRedraw);
 
-	public HRESULT get_CollectingInk(int16* Collecting) mut => VT.[Friend]get_CollectingInk(&this, Collecting);
+	public HRESULT get_CollectingInk(int16 Collecting) mut => VT.[Friend]get_CollectingInk(&this, Collecting);
 
 	public HRESULT get_CollectionMode(InkCollectionMode* Mode) mut => VT.[Friend]get_CollectionMode(&this, Mode);
 
 	public HRESULT put_CollectionMode(InkCollectionMode Mode) mut => VT.[Friend]put_CollectionMode(&this, Mode);
 
-	public HRESULT get_DynamicRendering(int16* Enabled) mut => VT.[Friend]get_DynamicRendering(&this, Enabled);
+	public HRESULT get_DynamicRendering(int16 Enabled) mut => VT.[Friend]get_DynamicRendering(&this, Enabled);
 
 	public HRESULT put_DynamicRendering(int16 Enabled) mut => VT.[Friend]put_DynamicRendering(&this, Enabled);
 
@@ -3324,23 +3324,23 @@ public static
 
 	public HRESULT get_Cursors(IInkCursors** Cursors) mut => VT.[Friend]get_Cursors(&this, Cursors);
 
-	public HRESULT get_MarginX(int32* MarginX) mut => VT.[Friend]get_MarginX(&this, MarginX);
+	public HRESULT get_MarginX(int32 MarginX) mut => VT.[Friend]get_MarginX(&this, MarginX);
 
 	public HRESULT put_MarginX(int32 MarginX) mut => VT.[Friend]put_MarginX(&this, MarginX);
 
-	public HRESULT get_MarginY(int32* MarginY) mut => VT.[Friend]get_MarginY(&this, MarginY);
+	public HRESULT get_MarginY(int32 MarginY) mut => VT.[Friend]get_MarginY(&this, MarginY);
 
 	public HRESULT put_MarginY(int32 MarginY) mut => VT.[Friend]put_MarginY(&this, MarginY);
 
 	public HRESULT get_Tablet(IInkTablet** SingleTablet) mut => VT.[Friend]get_Tablet(&this, SingleTablet);
 
-	public HRESULT get_SupportHighContrastInk(int16* Support) mut => VT.[Friend]get_SupportHighContrastInk(&this, Support);
+	public HRESULT get_SupportHighContrastInk(int16 Support) mut => VT.[Friend]get_SupportHighContrastInk(&this, Support);
 
 	public HRESULT put_SupportHighContrastInk(int16 Support) mut => VT.[Friend]put_SupportHighContrastInk(&this, Support);
 
 	public HRESULT SetGestureStatus(InkApplicationGesture Gesture, int16 Listen) mut => VT.[Friend]SetGestureStatus(&this, Gesture, Listen);
 
-	public HRESULT GetGestureStatus(InkApplicationGesture Gesture, int16* Listening) mut => VT.[Friend]GetGestureStatus(&this, Gesture, Listening);
+	public HRESULT GetGestureStatus(InkApplicationGesture Gesture, int16 Listening) mut => VT.[Friend]GetGestureStatus(&this, Gesture, Listening);
 
 	public HRESULT GetWindowInputRectangle(IInkRectangle** WindowInputRectangle) mut => VT.[Friend]GetWindowInputRectangle(&this, WindowInputRectangle);
 
@@ -3350,7 +3350,7 @@ public static
 
 	public HRESULT SetSingleTabletIntegratedMode(IInkTablet* Tablet) mut => VT.[Friend]SetSingleTabletIntegratedMode(&this, Tablet);
 
-	public HRESULT GetEventInterest(InkCollectorEventInterest EventId, int16* Listen) mut => VT.[Friend]GetEventInterest(&this, EventId, Listen);
+	public HRESULT GetEventInterest(InkCollectorEventInterest EventId, int16 Listen) mut => VT.[Friend]GetEventInterest(&this, EventId, Listen);
 
 	public HRESULT SetEventInterest(InkCollectorEventInterest EventId, int16 Listen) mut => VT.[Friend]SetEventInterest(&this, EventId, Listen);
 }
@@ -3375,9 +3375,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int* CurrentWindow) get_hWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int CurrentWindow) get_hWnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int NewWindow) put_hWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) get_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) put_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** CurrentAttributes) get_DefaultDrawingAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* NewAttributes) putref_DefaultDrawingAttributes;
@@ -3385,12 +3385,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRenderer* NewInkRenderer) putref_Renderer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** Ink) get_Ink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp* NewInk) putref_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* AutoRedraw) get_AutoRedraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoRedraw) get_AutoRedraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoRedraw) put_AutoRedraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_CollectingInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) get_CollectingInk;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode* Mode) get_CollectionMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode Mode) put_CollectionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Enabled) get_DynamicRendering;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Enabled) get_DynamicRendering;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Enabled) put_DynamicRendering;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PacketGuids) get_DesiredPacketDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT PacketGuids) put_DesiredPacketDescription;
@@ -3405,38 +3405,38 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Selection) put_Selection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEraserMode* EraserMode) get_EraserMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEraserMode EraserMode) put_EraserMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* EraserWidth) get_EraserWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 EraserWidth) get_EraserWidth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newEraserWidth) put_EraserWidth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayAttachMode* AttachMode) get_AttachMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayAttachMode AttachMode) put_AttachMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCursors** Cursors) get_Cursors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginX) get_MarginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginX) get_MarginX;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginX) put_MarginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginY) get_MarginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginY) get_MarginY;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginY) put_MarginY;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** SingleTablet) get_Tablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Support) get_SupportHighContrastInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) get_SupportHighContrastInk;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) put_SupportHighContrastInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Support) get_SupportHighContrastSelectionUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) get_SupportHighContrastSelectionUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) put_SupportHighContrastSelectionUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y, SelectionHitResult* SelArea) HitTestSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rect) Draw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16* Listening) GetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listening) GetGestureStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** WindowInputRectangle) GetWindowInputRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* WindowInputRectangle) SetWindowInputRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 UseMouseForInput) SetAllTabletsMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* Tablet) SetSingleTabletIntegratedMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16* Listen) GetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) GetEventInterest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) SetEventInterest;
 	}
 
 
-	public HRESULT get_hWnd(int* CurrentWindow) mut => VT.[Friend]get_hWnd(&this, CurrentWindow);
+	public HRESULT get_hWnd(int CurrentWindow) mut => VT.[Friend]get_hWnd(&this, CurrentWindow);
 
 	public HRESULT put_hWnd(int NewWindow) mut => VT.[Friend]put_hWnd(&this, NewWindow);
 
-	public HRESULT get_Enabled(int16* Collecting) mut => VT.[Friend]get_Enabled(&this, Collecting);
+	public HRESULT get_Enabled(int16 Collecting) mut => VT.[Friend]get_Enabled(&this, Collecting);
 
 	public HRESULT put_Enabled(int16 Collecting) mut => VT.[Friend]put_Enabled(&this, Collecting);
 
@@ -3452,17 +3452,17 @@ public static
 
 	public HRESULT putref_Ink(IInkDisp* NewInk) mut => VT.[Friend]putref_Ink(&this, NewInk);
 
-	public HRESULT get_AutoRedraw(int16* AutoRedraw) mut => VT.[Friend]get_AutoRedraw(&this, AutoRedraw);
+	public HRESULT get_AutoRedraw(int16 AutoRedraw) mut => VT.[Friend]get_AutoRedraw(&this, AutoRedraw);
 
 	public HRESULT put_AutoRedraw(int16 AutoRedraw) mut => VT.[Friend]put_AutoRedraw(&this, AutoRedraw);
 
-	public HRESULT get_CollectingInk(int16* Collecting) mut => VT.[Friend]get_CollectingInk(&this, Collecting);
+	public HRESULT get_CollectingInk(int16 Collecting) mut => VT.[Friend]get_CollectingInk(&this, Collecting);
 
 	public HRESULT get_CollectionMode(InkCollectionMode* Mode) mut => VT.[Friend]get_CollectionMode(&this, Mode);
 
 	public HRESULT put_CollectionMode(InkCollectionMode Mode) mut => VT.[Friend]put_CollectionMode(&this, Mode);
 
-	public HRESULT get_DynamicRendering(int16* Enabled) mut => VT.[Friend]get_DynamicRendering(&this, Enabled);
+	public HRESULT get_DynamicRendering(int16 Enabled) mut => VT.[Friend]get_DynamicRendering(&this, Enabled);
 
 	public HRESULT put_DynamicRendering(int16 Enabled) mut => VT.[Friend]put_DynamicRendering(&this, Enabled);
 
@@ -3492,7 +3492,7 @@ public static
 
 	public HRESULT put_EraserMode(InkOverlayEraserMode EraserMode) mut => VT.[Friend]put_EraserMode(&this, EraserMode);
 
-	public HRESULT get_EraserWidth(int32* EraserWidth) mut => VT.[Friend]get_EraserWidth(&this, EraserWidth);
+	public HRESULT get_EraserWidth(int32 EraserWidth) mut => VT.[Friend]get_EraserWidth(&this, EraserWidth);
 
 	public HRESULT put_EraserWidth(int32 newEraserWidth) mut => VT.[Friend]put_EraserWidth(&this, newEraserWidth);
 
@@ -3502,21 +3502,21 @@ public static
 
 	public HRESULT get_Cursors(IInkCursors** Cursors) mut => VT.[Friend]get_Cursors(&this, Cursors);
 
-	public HRESULT get_MarginX(int32* MarginX) mut => VT.[Friend]get_MarginX(&this, MarginX);
+	public HRESULT get_MarginX(int32 MarginX) mut => VT.[Friend]get_MarginX(&this, MarginX);
 
 	public HRESULT put_MarginX(int32 MarginX) mut => VT.[Friend]put_MarginX(&this, MarginX);
 
-	public HRESULT get_MarginY(int32* MarginY) mut => VT.[Friend]get_MarginY(&this, MarginY);
+	public HRESULT get_MarginY(int32 MarginY) mut => VT.[Friend]get_MarginY(&this, MarginY);
 
 	public HRESULT put_MarginY(int32 MarginY) mut => VT.[Friend]put_MarginY(&this, MarginY);
 
 	public HRESULT get_Tablet(IInkTablet** SingleTablet) mut => VT.[Friend]get_Tablet(&this, SingleTablet);
 
-	public HRESULT get_SupportHighContrastInk(int16* Support) mut => VT.[Friend]get_SupportHighContrastInk(&this, Support);
+	public HRESULT get_SupportHighContrastInk(int16 Support) mut => VT.[Friend]get_SupportHighContrastInk(&this, Support);
 
 	public HRESULT put_SupportHighContrastInk(int16 Support) mut => VT.[Friend]put_SupportHighContrastInk(&this, Support);
 
-	public HRESULT get_SupportHighContrastSelectionUI(int16* Support) mut => VT.[Friend]get_SupportHighContrastSelectionUI(&this, Support);
+	public HRESULT get_SupportHighContrastSelectionUI(int16 Support) mut => VT.[Friend]get_SupportHighContrastSelectionUI(&this, Support);
 
 	public HRESULT put_SupportHighContrastSelectionUI(int16 Support) mut => VT.[Friend]put_SupportHighContrastSelectionUI(&this, Support);
 
@@ -3526,7 +3526,7 @@ public static
 
 	public HRESULT SetGestureStatus(InkApplicationGesture Gesture, int16 Listen) mut => VT.[Friend]SetGestureStatus(&this, Gesture, Listen);
 
-	public HRESULT GetGestureStatus(InkApplicationGesture Gesture, int16* Listening) mut => VT.[Friend]GetGestureStatus(&this, Gesture, Listening);
+	public HRESULT GetGestureStatus(InkApplicationGesture Gesture, int16 Listening) mut => VT.[Friend]GetGestureStatus(&this, Gesture, Listening);
 
 	public HRESULT GetWindowInputRectangle(IInkRectangle** WindowInputRectangle) mut => VT.[Friend]GetWindowInputRectangle(&this, WindowInputRectangle);
 
@@ -3536,7 +3536,7 @@ public static
 
 	public HRESULT SetSingleTabletIntegratedMode(IInkTablet* Tablet) mut => VT.[Friend]SetSingleTabletIntegratedMode(&this, Tablet);
 
-	public HRESULT GetEventInterest(InkCollectorEventInterest EventId, int16* Listen) mut => VT.[Friend]GetEventInterest(&this, EventId, Listen);
+	public HRESULT GetEventInterest(InkCollectorEventInterest EventId, int16 Listen) mut => VT.[Friend]GetEventInterest(&this, EventId, Listen);
 
 	public HRESULT SetEventInterest(InkCollectorEventInterest EventId, int16 Listen) mut => VT.[Friend]SetEventInterest(&this, EventId, Listen);
 }
@@ -3561,19 +3561,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int* CurrentWindow) get_hWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int CurrentWindow) get_hWnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** CurrentAttributes) get_DefaultDrawingAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* NewAttributes) putref_DefaultDrawingAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRenderer** CurrentInkRenderer) get_Renderer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRenderer* NewInkRenderer) putref_Renderer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** Ink) get_Ink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp* NewInk) putref_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* AutoRedraw) get_AutoRedraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoRedraw) get_AutoRedraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoRedraw) put_AutoRedraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_CollectingInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) get_CollectingInk;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode* Mode) get_CollectionMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode Mode) put_CollectionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Enabled) get_DynamicRendering;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Enabled) get_DynamicRendering;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Enabled) put_DynamicRendering;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PacketGuids) get_DesiredPacketDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT PacketGuids) put_DesiredPacketDescription;
@@ -3588,7 +3588,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Selection) put_Selection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEraserMode* EraserMode) get_EraserMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEraserMode EraserMode) put_EraserMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* EraserWidth) get_EraserWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 EraserWidth) get_EraserWidth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newEraserWidth) put_EraserWidth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* pPicture) putref_Picture;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* pPicture) put_Picture;
@@ -3596,34 +3596,34 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkPictureSizeMode smNewSizeMode) put_SizeMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkPictureSizeMode* smSizeMode) get_SizeMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 newColor) put_BackColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_BackColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pColor) get_BackColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCursors** Cursors) get_Cursors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginX) get_MarginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginX) get_MarginX;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginX) put_MarginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginY) get_MarginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginY) get_MarginY;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginY) put_MarginY;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** SingleTablet) get_Tablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Support) get_SupportHighContrastInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) get_SupportHighContrastInk;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) put_SupportHighContrastInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Support) get_SupportHighContrastSelectionUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) get_SupportHighContrastSelectionUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) put_SupportHighContrastSelectionUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y, SelectionHitResult* SelArea) HitTestSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16* Listening) GetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listening) GetGestureStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** WindowInputRectangle) GetWindowInputRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* WindowInputRectangle) SetWindowInputRectangle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 UseMouseForInput) SetAllTabletsMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* Tablet) SetSingleTabletIntegratedMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16* Listen) GetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) GetEventInterest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) SetEventInterest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_InkEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) get_InkEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) put_InkEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbool) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbool) get_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbool) put_Enabled;
 	}
 
 
-	public HRESULT get_hWnd(int* CurrentWindow) mut => VT.[Friend]get_hWnd(&this, CurrentWindow);
+	public HRESULT get_hWnd(int CurrentWindow) mut => VT.[Friend]get_hWnd(&this, CurrentWindow);
 
 	public HRESULT get_DefaultDrawingAttributes(IInkDrawingAttributes** CurrentAttributes) mut => VT.[Friend]get_DefaultDrawingAttributes(&this, CurrentAttributes);
 
@@ -3637,17 +3637,17 @@ public static
 
 	public HRESULT putref_Ink(IInkDisp* NewInk) mut => VT.[Friend]putref_Ink(&this, NewInk);
 
-	public HRESULT get_AutoRedraw(int16* AutoRedraw) mut => VT.[Friend]get_AutoRedraw(&this, AutoRedraw);
+	public HRESULT get_AutoRedraw(int16 AutoRedraw) mut => VT.[Friend]get_AutoRedraw(&this, AutoRedraw);
 
 	public HRESULT put_AutoRedraw(int16 AutoRedraw) mut => VT.[Friend]put_AutoRedraw(&this, AutoRedraw);
 
-	public HRESULT get_CollectingInk(int16* Collecting) mut => VT.[Friend]get_CollectingInk(&this, Collecting);
+	public HRESULT get_CollectingInk(int16 Collecting) mut => VT.[Friend]get_CollectingInk(&this, Collecting);
 
 	public HRESULT get_CollectionMode(InkCollectionMode* Mode) mut => VT.[Friend]get_CollectionMode(&this, Mode);
 
 	public HRESULT put_CollectionMode(InkCollectionMode Mode) mut => VT.[Friend]put_CollectionMode(&this, Mode);
 
-	public HRESULT get_DynamicRendering(int16* Enabled) mut => VT.[Friend]get_DynamicRendering(&this, Enabled);
+	public HRESULT get_DynamicRendering(int16 Enabled) mut => VT.[Friend]get_DynamicRendering(&this, Enabled);
 
 	public HRESULT put_DynamicRendering(int16 Enabled) mut => VT.[Friend]put_DynamicRendering(&this, Enabled);
 
@@ -3677,7 +3677,7 @@ public static
 
 	public HRESULT put_EraserMode(InkOverlayEraserMode EraserMode) mut => VT.[Friend]put_EraserMode(&this, EraserMode);
 
-	public HRESULT get_EraserWidth(int32* EraserWidth) mut => VT.[Friend]get_EraserWidth(&this, EraserWidth);
+	public HRESULT get_EraserWidth(int32 EraserWidth) mut => VT.[Friend]get_EraserWidth(&this, EraserWidth);
 
 	public HRESULT put_EraserWidth(int32 newEraserWidth) mut => VT.[Friend]put_EraserWidth(&this, newEraserWidth);
 
@@ -3693,25 +3693,25 @@ public static
 
 	public HRESULT put_BackColor(uint32 newColor) mut => VT.[Friend]put_BackColor(&this, newColor);
 
-	public HRESULT get_BackColor(uint32* pColor) mut => VT.[Friend]get_BackColor(&this, pColor);
+	public HRESULT get_BackColor(uint32 pColor) mut => VT.[Friend]get_BackColor(&this, pColor);
 
 	public HRESULT get_Cursors(IInkCursors** Cursors) mut => VT.[Friend]get_Cursors(&this, Cursors);
 
-	public HRESULT get_MarginX(int32* MarginX) mut => VT.[Friend]get_MarginX(&this, MarginX);
+	public HRESULT get_MarginX(int32 MarginX) mut => VT.[Friend]get_MarginX(&this, MarginX);
 
 	public HRESULT put_MarginX(int32 MarginX) mut => VT.[Friend]put_MarginX(&this, MarginX);
 
-	public HRESULT get_MarginY(int32* MarginY) mut => VT.[Friend]get_MarginY(&this, MarginY);
+	public HRESULT get_MarginY(int32 MarginY) mut => VT.[Friend]get_MarginY(&this, MarginY);
 
 	public HRESULT put_MarginY(int32 MarginY) mut => VT.[Friend]put_MarginY(&this, MarginY);
 
 	public HRESULT get_Tablet(IInkTablet** SingleTablet) mut => VT.[Friend]get_Tablet(&this, SingleTablet);
 
-	public HRESULT get_SupportHighContrastInk(int16* Support) mut => VT.[Friend]get_SupportHighContrastInk(&this, Support);
+	public HRESULT get_SupportHighContrastInk(int16 Support) mut => VT.[Friend]get_SupportHighContrastInk(&this, Support);
 
 	public HRESULT put_SupportHighContrastInk(int16 Support) mut => VT.[Friend]put_SupportHighContrastInk(&this, Support);
 
-	public HRESULT get_SupportHighContrastSelectionUI(int16* Support) mut => VT.[Friend]get_SupportHighContrastSelectionUI(&this, Support);
+	public HRESULT get_SupportHighContrastSelectionUI(int16 Support) mut => VT.[Friend]get_SupportHighContrastSelectionUI(&this, Support);
 
 	public HRESULT put_SupportHighContrastSelectionUI(int16 Support) mut => VT.[Friend]put_SupportHighContrastSelectionUI(&this, Support);
 
@@ -3719,7 +3719,7 @@ public static
 
 	public HRESULT SetGestureStatus(InkApplicationGesture Gesture, int16 Listen) mut => VT.[Friend]SetGestureStatus(&this, Gesture, Listen);
 
-	public HRESULT GetGestureStatus(InkApplicationGesture Gesture, int16* Listening) mut => VT.[Friend]GetGestureStatus(&this, Gesture, Listening);
+	public HRESULT GetGestureStatus(InkApplicationGesture Gesture, int16 Listening) mut => VT.[Friend]GetGestureStatus(&this, Gesture, Listening);
 
 	public HRESULT GetWindowInputRectangle(IInkRectangle** WindowInputRectangle) mut => VT.[Friend]GetWindowInputRectangle(&this, WindowInputRectangle);
 
@@ -3729,15 +3729,15 @@ public static
 
 	public HRESULT SetSingleTabletIntegratedMode(IInkTablet* Tablet) mut => VT.[Friend]SetSingleTabletIntegratedMode(&this, Tablet);
 
-	public HRESULT GetEventInterest(InkCollectorEventInterest EventId, int16* Listen) mut => VT.[Friend]GetEventInterest(&this, EventId, Listen);
+	public HRESULT GetEventInterest(InkCollectorEventInterest EventId, int16 Listen) mut => VT.[Friend]GetEventInterest(&this, EventId, Listen);
 
 	public HRESULT SetEventInterest(InkCollectorEventInterest EventId, int16 Listen) mut => VT.[Friend]SetEventInterest(&this, EventId, Listen);
 
-	public HRESULT get_InkEnabled(int16* Collecting) mut => VT.[Friend]get_InkEnabled(&this, Collecting);
+	public HRESULT get_InkEnabled(int16 Collecting) mut => VT.[Friend]get_InkEnabled(&this, Collecting);
 
 	public HRESULT put_InkEnabled(int16 Collecting) mut => VT.[Friend]put_InkEnabled(&this, Collecting);
 
-	public HRESULT get_Enabled(int16* pbool) mut => VT.[Friend]get_Enabled(&this, pbool);
+	public HRESULT get_Enabled(int16 pbool) mut => VT.[Friend]get_Enabled(&this, pbool);
 
 	public HRESULT put_Enabled(int16 vbool) mut => VT.[Friend]put_Enabled(&this, vbool);
 }
@@ -3813,14 +3813,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lcid, IInkRecognizer** DefaultRecognizer) GetDefaultRecognizer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkRecognizer** InkRecognizer) Item;
 	}
 
 
-	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** _NewEnum) mut => VT.[Friend]get__NewEnum(&this, _NewEnum);
 
@@ -3872,7 +3872,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT CustomData) BackgroundRecognize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT CustomData) BackgroundRecognizeWithAlternates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizerContext** RecoContext) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR String, int16* Supported) IsStringSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR String, int16 Supported) IsStringSupported;
 	}
 
 
@@ -3922,7 +3922,7 @@ public static
 
 	public HRESULT Clone(IInkRecognizerContext** RecoContext) mut => VT.[Friend]Clone(&this, RecoContext);
 
-	public HRESULT IsStringSupported(BSTR String, int16* Supported) mut => VT.[Friend]IsStringSupported(&this, String, Supported);
+	public HRESULT IsStringSupported(BSTR String, int16 Supported) mut => VT.[Friend]IsStringSupported(&this, String, Supported);
 }
 
 [CRepr]struct IInkRecognizerContext2 : IDispatch
@@ -3990,13 +3990,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Midline) get_Midline;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Ascender) get_Ascender;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Descender) get_Descender;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LineNumber) get_LineNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LineNumber) get_LineNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognitionAlternates** LineAlternates) get_LineAlternates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognitionAlternates** ConfidenceAlternates) get_ConfidenceAlternates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes, IInkStrokes** GetStrokesFromStrokeRanges) GetStrokesFromStrokeRanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* selectionStart, int32* selectionLength, IInkStrokes** GetStrokesFromTextRange) GetStrokesFromTextRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes, int32* selectionStart, int32* selectionLength) GetTextRangeFromStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 selectionStart, int32 selectionLength, IInkStrokes** GetStrokesFromTextRange) GetStrokesFromTextRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes, int32 selectionStart, int32 selectionLength) GetTextRangeFromStrokes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyType, IInkRecognitionAlternates** AlternatesWithConstantPropertyValues) AlternatesWithConstantPropertyValues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyType, VARIANT* PropertyValue) GetPropertyValue;
 	}
@@ -4014,7 +4014,7 @@ public static
 
 	public HRESULT get_Descender(VARIANT* Descender) mut => VT.[Friend]get_Descender(&this, Descender);
 
-	public HRESULT get_LineNumber(int32* LineNumber) mut => VT.[Friend]get_LineNumber(&this, LineNumber);
+	public HRESULT get_LineNumber(int32 LineNumber) mut => VT.[Friend]get_LineNumber(&this, LineNumber);
 
 	public HRESULT get_Strokes(IInkStrokes** Strokes) mut => VT.[Friend]get_Strokes(&this, Strokes);
 
@@ -4024,9 +4024,9 @@ public static
 
 	public HRESULT GetStrokesFromStrokeRanges(IInkStrokes* Strokes, IInkStrokes** GetStrokesFromStrokeRanges) mut => VT.[Friend]GetStrokesFromStrokeRanges(&this, Strokes, GetStrokesFromStrokeRanges);
 
-	public HRESULT GetStrokesFromTextRange(int32* selectionStart, int32* selectionLength, IInkStrokes** GetStrokesFromTextRange) mut => VT.[Friend]GetStrokesFromTextRange(&this, selectionStart, selectionLength, GetStrokesFromTextRange);
+	public HRESULT GetStrokesFromTextRange(int32 selectionStart, int32 selectionLength, IInkStrokes** GetStrokesFromTextRange) mut => VT.[Friend]GetStrokesFromTextRange(&this, selectionStart, selectionLength, GetStrokesFromTextRange);
 
-	public HRESULT GetTextRangeFromStrokes(IInkStrokes* Strokes, int32* selectionStart, int32* selectionLength) mut => VT.[Friend]GetTextRangeFromStrokes(&this, Strokes, selectionStart, selectionLength);
+	public HRESULT GetTextRangeFromStrokes(IInkStrokes* Strokes, int32 selectionStart, int32 selectionLength) mut => VT.[Friend]GetTextRangeFromStrokes(&this, Strokes, selectionStart, selectionLength);
 
 	public HRESULT AlternatesWithConstantPropertyValues(BSTR PropertyType, IInkRecognitionAlternates** AlternatesWithConstantPropertyValues) mut => VT.[Friend]AlternatesWithConstantPropertyValues(&this, PropertyType, AlternatesWithConstantPropertyValues);
 
@@ -4041,14 +4041,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkRecognitionAlternate** InkRecoAlternate) Item;
 	}
 
 
-	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** _NewEnum) mut => VT.[Friend]get__NewEnum(&this, _NewEnum);
 
@@ -4069,11 +4069,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) put_WritingBox;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** Rectangle) get_DrawnBox;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) put_DrawnBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Rows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) get_Rows;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Rows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Columns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) get_Columns;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Columns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Midline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) get_Midline;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Midline;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecoGuide* pRecoGuide) get_GuideData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecoGuide recoGuide) put_GuideData;
@@ -4088,15 +4088,15 @@ public static
 
 	public HRESULT put_DrawnBox(IInkRectangle* Rectangle) mut => VT.[Friend]put_DrawnBox(&this, Rectangle);
 
-	public HRESULT get_Rows(int32* Units) mut => VT.[Friend]get_Rows(&this, Units);
+	public HRESULT get_Rows(int32 Units) mut => VT.[Friend]get_Rows(&this, Units);
 
 	public HRESULT put_Rows(int32 Units) mut => VT.[Friend]put_Rows(&this, Units);
 
-	public HRESULT get_Columns(int32* Units) mut => VT.[Friend]get_Columns(&this, Units);
+	public HRESULT get_Columns(int32 Units) mut => VT.[Friend]get_Columns(&this, Units);
 
 	public HRESULT put_Columns(int32 Units) mut => VT.[Friend]put_Columns(&this, Units);
 
-	public HRESULT get_Midline(int32* Units) mut => VT.[Friend]get_Midline(&this, Units);
+	public HRESULT get_Midline(int32 Units) mut => VT.[Friend]get_Midline(&this, Units);
 
 	public HRESULT put_Midline(int32 Units) mut => VT.[Friend]put_Midline(&this, Units);
 
@@ -4163,8 +4163,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INKMETRIC* pim) SetFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INKMETRIC* pim) GetFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INKMETRIC* pim, uint32* pnWidth) GetInkExtent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nCandidateNum, PWSTR pwcRecogWord, uint32* pcwcRecogWord, uint32 dwFlags) GetCandidate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INKMETRIC* pim, uint32 pnWidth) GetInkExtent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nCandidateNum, PWSTR pwcRecogWord, uint32 pcwcRecogWord, uint32 dwFlags) GetCandidate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nCandidateNum, PWSTR strRecogWord) SetCandidate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Recognize;
 	}
@@ -4174,9 +4174,9 @@ public static
 
 	public HRESULT GetFormat(INKMETRIC* pim) mut => VT.[Friend]GetFormat(&this, pim);
 
-	public HRESULT GetInkExtent(INKMETRIC* pim, uint32* pnWidth) mut => VT.[Friend]GetInkExtent(&this, pim, pnWidth);
+	public HRESULT GetInkExtent(INKMETRIC* pim, uint32 pnWidth) mut => VT.[Friend]GetInkExtent(&this, pim, pnWidth);
 
-	public HRESULT GetCandidate(uint32 nCandidateNum, PWSTR pwcRecogWord, uint32* pcwcRecogWord, uint32 dwFlags) mut => VT.[Friend]GetCandidate(&this, nCandidateNum, pwcRecogWord, pcwcRecogWord, dwFlags);
+	public HRESULT GetCandidate(uint32 nCandidateNum, PWSTR pwcRecogWord, uint32 pcwcRecogWord, uint32 dwFlags) mut => VT.[Friend]GetCandidate(&this, nCandidateNum, pwcRecogWord, pcwcRecogWord, dwFlags);
 
 	public HRESULT SetCandidate(uint32 nCandidateNum, PWSTR strRecogWord) mut => VT.[Friend]SetCandidate(&this, nCandidateNum, strRecogWord);
 
@@ -4207,7 +4207,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes) putref_Strokes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizerContext** RecognizerContext) get_RecognizerContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizerContext* RecognizerContext) putref_RecognizerContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LineHeight) get_LineHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LineHeight) get_LineHeight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LineHeight) put_LineHeight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDivisionResult** InkDivisionResult) Divide;
 	}
@@ -4221,7 +4221,7 @@ public static
 
 	public HRESULT putref_RecognizerContext(IInkRecognizerContext* RecognizerContext) mut => VT.[Friend]putref_RecognizerContext(&this, RecognizerContext);
 
-	public HRESULT get_LineHeight(int32* LineHeight) mut => VT.[Friend]get_LineHeight(&this, LineHeight);
+	public HRESULT get_LineHeight(int32 LineHeight) mut => VT.[Friend]get_LineHeight(&this, LineHeight);
 
 	public HRESULT put_LineHeight(int32 LineHeight) mut => VT.[Friend]put_LineHeight(&this, LineHeight);
 
@@ -4278,13 +4278,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkDivisionUnit** InkDivisionUnit) Item;
 	}
 
 
-	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** _NewEnum) mut => VT.[Friend]get__NewEnum(&this, _NewEnum);
 
@@ -4299,26 +4299,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Busy) get_Busy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Busy) get_Busy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Factoid) get_Factoid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Factoid) put_Factoid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* AttachedEditWindow) get_AttachedEditWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AttachedEditWindow) get_AttachedEditWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AttachedEditWindow) put_AttachedEditWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelType* CurrentPanel) get_CurrentPanel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelType CurrentPanel) put_CurrentPanel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelType* pDefaultPanel) get_DefaultPanel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelType DefaultPanel) put_DefaultPanel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Visible) get_Visible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Visible) get_Visible;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Visible) put_Visible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Top) get_Top;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Left) get_Left;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Width) get_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Height) get_Height;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* VerticalOffset) get_VerticalOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Top) get_Top;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Left) get_Left;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Width) get_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Height) get_Height;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 VerticalOffset) get_VerticalOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 VerticalOffset) put_VerticalOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* HorizontalOffset) get_HorizontalOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 HorizontalOffset) get_HorizontalOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 HorizontalOffset) put_HorizontalOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pAutoShow) get_AutoShow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pAutoShow) get_AutoShow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoShow) put_AutoShow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Left, int32 Top) MoveTo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CommitPendingInput;
@@ -4327,13 +4327,13 @@ public static
 	}
 
 
-	public HRESULT get_Busy(int16* Busy) mut => VT.[Friend]get_Busy(&this, Busy);
+	public HRESULT get_Busy(int16 Busy) mut => VT.[Friend]get_Busy(&this, Busy);
 
 	public HRESULT get_Factoid(BSTR* Factoid) mut => VT.[Friend]get_Factoid(&this, Factoid);
 
 	public HRESULT put_Factoid(BSTR Factoid) mut => VT.[Friend]put_Factoid(&this, Factoid);
 
-	public HRESULT get_AttachedEditWindow(int32* AttachedEditWindow) mut => VT.[Friend]get_AttachedEditWindow(&this, AttachedEditWindow);
+	public HRESULT get_AttachedEditWindow(int32 AttachedEditWindow) mut => VT.[Friend]get_AttachedEditWindow(&this, AttachedEditWindow);
 
 	public HRESULT put_AttachedEditWindow(int32 AttachedEditWindow) mut => VT.[Friend]put_AttachedEditWindow(&this, AttachedEditWindow);
 
@@ -4345,27 +4345,27 @@ public static
 
 	public HRESULT put_DefaultPanel(PanelType DefaultPanel) mut => VT.[Friend]put_DefaultPanel(&this, DefaultPanel);
 
-	public HRESULT get_Visible(int16* Visible) mut => VT.[Friend]get_Visible(&this, Visible);
+	public HRESULT get_Visible(int16 Visible) mut => VT.[Friend]get_Visible(&this, Visible);
 
 	public HRESULT put_Visible(int16 Visible) mut => VT.[Friend]put_Visible(&this, Visible);
 
-	public HRESULT get_Top(int32* Top) mut => VT.[Friend]get_Top(&this, Top);
+	public HRESULT get_Top(int32 Top) mut => VT.[Friend]get_Top(&this, Top);
 
-	public HRESULT get_Left(int32* Left) mut => VT.[Friend]get_Left(&this, Left);
+	public HRESULT get_Left(int32 Left) mut => VT.[Friend]get_Left(&this, Left);
 
-	public HRESULT get_Width(int32* Width) mut => VT.[Friend]get_Width(&this, Width);
+	public HRESULT get_Width(int32 Width) mut => VT.[Friend]get_Width(&this, Width);
 
-	public HRESULT get_Height(int32* Height) mut => VT.[Friend]get_Height(&this, Height);
+	public HRESULT get_Height(int32 Height) mut => VT.[Friend]get_Height(&this, Height);
 
-	public HRESULT get_VerticalOffset(int32* VerticalOffset) mut => VT.[Friend]get_VerticalOffset(&this, VerticalOffset);
+	public HRESULT get_VerticalOffset(int32 VerticalOffset) mut => VT.[Friend]get_VerticalOffset(&this, VerticalOffset);
 
 	public HRESULT put_VerticalOffset(int32 VerticalOffset) mut => VT.[Friend]put_VerticalOffset(&this, VerticalOffset);
 
-	public HRESULT get_HorizontalOffset(int32* HorizontalOffset) mut => VT.[Friend]get_HorizontalOffset(&this, HorizontalOffset);
+	public HRESULT get_HorizontalOffset(int32 HorizontalOffset) mut => VT.[Friend]get_HorizontalOffset(&this, HorizontalOffset);
 
 	public HRESULT put_HorizontalOffset(int32 HorizontalOffset) mut => VT.[Friend]put_HorizontalOffset(&this, HorizontalOffset);
 
-	public HRESULT get_AutoShow(int16* pAutoShow) mut => VT.[Friend]get_AutoShow(&this, pAutoShow);
+	public HRESULT get_AutoShow(int16 pAutoShow) mut => VT.[Friend]get_AutoShow(&this, pAutoShow);
 
 	public HRESULT put_AutoShow(int16 AutoShow) mut => VT.[Friend]put_AutoShow(&this, AutoShow);
 
@@ -4481,8 +4481,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* Visible) get_InPlaceVisibleOnFocus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Visible) put_InPlaceVisibleOnFocus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* BoundingRectangle) get_InPlaceBoundingRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Height) get_PopUpCorrectionHeight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Height) get_PopDownCorrectionHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Height) get_PopUpCorrectionHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Height) get_PopDownCorrectionHeight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CommitPendingInput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Visible) SetInPlaceVisibility;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 xPosition, int32 yPosition, CorrectionPosition position) SetInPlacePosition;
@@ -4526,9 +4526,9 @@ public static
 
 	public HRESULT get_InPlaceBoundingRectangle(RECT* BoundingRectangle) mut => VT.[Friend]get_InPlaceBoundingRectangle(&this, BoundingRectangle);
 
-	public HRESULT get_PopUpCorrectionHeight(int32* Height) mut => VT.[Friend]get_PopUpCorrectionHeight(&this, Height);
+	public HRESULT get_PopUpCorrectionHeight(int32 Height) mut => VT.[Friend]get_PopUpCorrectionHeight(&this, Height);
 
-	public HRESULT get_PopDownCorrectionHeight(int32* Height) mut => VT.[Friend]get_PopDownCorrectionHeight(&this, Height);
+	public HRESULT get_PopDownCorrectionHeight(int32 Height) mut => VT.[Friend]get_PopDownCorrectionHeight(&this, Height);
 
 	public HRESULT CommitPendingInput() mut => VT.[Friend]CommitPendingInput(&this);
 
@@ -4551,18 +4551,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* AttachedEditWindow) get_AttachedEditWindow32;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AttachedEditWindow) get_AttachedEditWindow32;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AttachedEditWindow) put_AttachedEditWindow32;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* AttachedEditWindow) get_AttachedEditWindow64;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 AttachedEditWindow) get_AttachedEditWindow64;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 AttachedEditWindow) put_AttachedEditWindow64;
 	}
 
 
-	public HRESULT get_AttachedEditWindow32(int32* AttachedEditWindow) mut => VT.[Friend]get_AttachedEditWindow32(&this, AttachedEditWindow);
+	public HRESULT get_AttachedEditWindow32(int32 AttachedEditWindow) mut => VT.[Friend]get_AttachedEditWindow32(&this, AttachedEditWindow);
 
 	public HRESULT put_AttachedEditWindow32(int32 AttachedEditWindow) mut => VT.[Friend]put_AttachedEditWindow32(&this, AttachedEditWindow);
 
-	public HRESULT get_AttachedEditWindow64(int64* AttachedEditWindow) mut => VT.[Friend]get_AttachedEditWindow64(&this, AttachedEditWindow);
+	public HRESULT get_AttachedEditWindow64(int64 AttachedEditWindow) mut => VT.[Friend]get_AttachedEditWindow64(&this, AttachedEditWindow);
 
 	public HRESULT put_AttachedEditWindow64(int64 AttachedEditWindow) mut => VT.[Friend]put_AttachedEditWindow64(&this, AttachedEditWindow);
 }
@@ -4591,7 +4591,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkEditStatus* pStatus) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_UseMouseForInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_UseMouseForInput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_UseMouseForInput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMode* pVal) get_InkMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMode newVal) put_InkMode;
@@ -4599,7 +4599,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkInsertMode newVal) put_InkInsertMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** pVal) get_DrawingAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* newVal) putref_DrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RecognitionTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_RecognitionTimeout;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newVal) put_RecognitionTimeout;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizer** pVal) get_Recognizer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizer* newVal) putref_Recognizer;
@@ -4610,15 +4610,15 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkDisplayMode* pInkDisplayMode) get_SelInksDisplayMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkDisplayMode InkDisplayMode) put_SelInksDisplayMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Recognize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16* pListen) GetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 pListen) GetGestureStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 clr) put_BackColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pclr) get_BackColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pclr) get_BackColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AppearanceConstants* pAppearance) get_Appearance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AppearanceConstants pAppearance) put_Appearance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BorderStyleConstants* pBorderStyle) get_BorderStyle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BorderStyleConstants pBorderStyle) put_BorderStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pohHwnd) get_Hwnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pohHwnd) get_Hwnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFontDisp** ppFont) get_Font;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFontDisp* ppFont) putref_Font;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrText) get_Text;
@@ -4628,17 +4628,17 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* MouseIcon) putref_MouseIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer* MousePointer) get_MousePointer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer MousePointer) put_MousePointer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Locked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_Locked;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_Locked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxLength) get_MaxLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMaxLength) get_MaxLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxLength) put_MaxLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_MultiLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_MultiLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_MultiLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ScrollBarsConstants* pVal) get_ScrollBars;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ScrollBarsConstants newVal) put_ScrollBars;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_DisableNoScroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_DisableNoScroll;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_DisableNoScroll;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSelAlignment) get_SelAlignment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvarSelAlignment) put_SelAlignment;
@@ -4658,9 +4658,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvarSelCharOffset) put_SelCharOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTextRTF) get_TextRTF;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pbstrTextRTF) put_TextRTF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSelStart) get_SelStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSelStart) get_SelStart;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSelStart) put_SelStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSelLength) get_SelLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSelLength) get_SelLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSelLength) put_SelLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSelText) get_SelText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pbstrSelText) put_SelText;
@@ -4672,7 +4672,7 @@ public static
 
 	public HRESULT get_Status(InkEditStatus* pStatus) mut => VT.[Friend]get_Status(&this, pStatus);
 
-	public HRESULT get_UseMouseForInput(int16* pVal) mut => VT.[Friend]get_UseMouseForInput(&this, pVal);
+	public HRESULT get_UseMouseForInput(int16 pVal) mut => VT.[Friend]get_UseMouseForInput(&this, pVal);
 
 	public HRESULT put_UseMouseForInput(int16 newVal) mut => VT.[Friend]put_UseMouseForInput(&this, newVal);
 
@@ -4688,7 +4688,7 @@ public static
 
 	public HRESULT putref_DrawingAttributes(IInkDrawingAttributes* newVal) mut => VT.[Friend]putref_DrawingAttributes(&this, newVal);
 
-	public HRESULT get_RecognitionTimeout(int32* pVal) mut => VT.[Friend]get_RecognitionTimeout(&this, pVal);
+	public HRESULT get_RecognitionTimeout(int32 pVal) mut => VT.[Friend]get_RecognitionTimeout(&this, pVal);
 
 	public HRESULT put_RecognitionTimeout(int32 newVal) mut => VT.[Friend]put_RecognitionTimeout(&this, newVal);
 
@@ -4710,13 +4710,13 @@ public static
 
 	public HRESULT Recognize() mut => VT.[Friend]Recognize(&this);
 
-	public HRESULT GetGestureStatus(InkApplicationGesture Gesture, int16* pListen) mut => VT.[Friend]GetGestureStatus(&this, Gesture, pListen);
+	public HRESULT GetGestureStatus(InkApplicationGesture Gesture, int16 pListen) mut => VT.[Friend]GetGestureStatus(&this, Gesture, pListen);
 
 	public HRESULT SetGestureStatus(InkApplicationGesture Gesture, int16 Listen) mut => VT.[Friend]SetGestureStatus(&this, Gesture, Listen);
 
 	public HRESULT put_BackColor(uint32 clr) mut => VT.[Friend]put_BackColor(&this, clr);
 
-	public HRESULT get_BackColor(uint32* pclr) mut => VT.[Friend]get_BackColor(&this, pclr);
+	public HRESULT get_BackColor(uint32 pclr) mut => VT.[Friend]get_BackColor(&this, pclr);
 
 	public HRESULT get_Appearance(AppearanceConstants* pAppearance) mut => VT.[Friend]get_Appearance(&this, pAppearance);
 
@@ -4726,7 +4726,7 @@ public static
 
 	public HRESULT put_BorderStyle(BorderStyleConstants pBorderStyle) mut => VT.[Friend]put_BorderStyle(&this, pBorderStyle);
 
-	public HRESULT get_Hwnd(uint32* pohHwnd) mut => VT.[Friend]get_Hwnd(&this, pohHwnd);
+	public HRESULT get_Hwnd(uint32 pohHwnd) mut => VT.[Friend]get_Hwnd(&this, pohHwnd);
 
 	public HRESULT get_Font(IFontDisp** ppFont) mut => VT.[Friend]get_Font(&this, ppFont);
 
@@ -4746,19 +4746,19 @@ public static
 
 	public HRESULT put_MousePointer(InkMousePointer MousePointer) mut => VT.[Friend]put_MousePointer(&this, MousePointer);
 
-	public HRESULT get_Locked(int16* pVal) mut => VT.[Friend]get_Locked(&this, pVal);
+	public HRESULT get_Locked(int16 pVal) mut => VT.[Friend]get_Locked(&this, pVal);
 
 	public HRESULT put_Locked(int16 newVal) mut => VT.[Friend]put_Locked(&this, newVal);
 
-	public HRESULT get_Enabled(int16* pVal) mut => VT.[Friend]get_Enabled(&this, pVal);
+	public HRESULT get_Enabled(int16 pVal) mut => VT.[Friend]get_Enabled(&this, pVal);
 
 	public HRESULT put_Enabled(int16 newVal) mut => VT.[Friend]put_Enabled(&this, newVal);
 
-	public HRESULT get_MaxLength(int32* plMaxLength) mut => VT.[Friend]get_MaxLength(&this, plMaxLength);
+	public HRESULT get_MaxLength(int32 plMaxLength) mut => VT.[Friend]get_MaxLength(&this, plMaxLength);
 
 	public HRESULT put_MaxLength(int32 lMaxLength) mut => VT.[Friend]put_MaxLength(&this, lMaxLength);
 
-	public HRESULT get_MultiLine(int16* pVal) mut => VT.[Friend]get_MultiLine(&this, pVal);
+	public HRESULT get_MultiLine(int16 pVal) mut => VT.[Friend]get_MultiLine(&this, pVal);
 
 	public HRESULT put_MultiLine(int16 newVal) mut => VT.[Friend]put_MultiLine(&this, newVal);
 
@@ -4766,7 +4766,7 @@ public static
 
 	public HRESULT put_ScrollBars(ScrollBarsConstants newVal) mut => VT.[Friend]put_ScrollBars(&this, newVal);
 
-	public HRESULT get_DisableNoScroll(int16* pVal) mut => VT.[Friend]get_DisableNoScroll(&this, pVal);
+	public HRESULT get_DisableNoScroll(int16 pVal) mut => VT.[Friend]get_DisableNoScroll(&this, pVal);
 
 	public HRESULT put_DisableNoScroll(int16 newVal) mut => VT.[Friend]put_DisableNoScroll(&this, newVal);
 
@@ -4806,11 +4806,11 @@ public static
 
 	public HRESULT put_TextRTF(BSTR pbstrTextRTF) mut => VT.[Friend]put_TextRTF(&this, pbstrTextRTF);
 
-	public HRESULT get_SelStart(int32* plSelStart) mut => VT.[Friend]get_SelStart(&this, plSelStart);
+	public HRESULT get_SelStart(int32 plSelStart) mut => VT.[Friend]get_SelStart(&this, plSelStart);
 
 	public HRESULT put_SelStart(int32 plSelStart) mut => VT.[Friend]put_SelStart(&this, plSelStart);
 
-	public HRESULT get_SelLength(int32* plSelLength) mut => VT.[Friend]get_SelLength(&this, plSelLength);
+	public HRESULT get_SelLength(int32 plSelLength) mut => VT.[Friend]get_SelLength(&this, plSelLength);
 
 	public HRESULT put_SelLength(int32 plSelLength) mut => VT.[Friend]put_SelLength(&this, plSelLength);
 
@@ -4847,8 +4847,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Show;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Hide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbShown) IsVisible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Left, int32* Top, int32* Right, int32* Bottom) GetPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pvbShown) IsVisible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Left, int32 Top, int32 Right, int32 Bottom) GetPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Left, int32 Top, int32 Right, int32 Bottom) SetPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Element, int16 Paint) SetCustomPaint;
@@ -4856,7 +4856,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp* Ink) LoadInk;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int OwnerWindow) SetOwnerWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Extended) EnableExtendedButtons;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Height) GetPreviewHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Height) GetPreviewHeight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Height) SetPreviewHeight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoGrow) EnableAutoGrow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FunctionName) AddFunctionName;
@@ -4869,9 +4869,9 @@ public static
 
 	public HRESULT Hide() mut => VT.[Friend]Hide(&this);
 
-	public HRESULT IsVisible(int16* pvbShown) mut => VT.[Friend]IsVisible(&this, pvbShown);
+	public HRESULT IsVisible(int16 pvbShown) mut => VT.[Friend]IsVisible(&this, pvbShown);
 
-	public HRESULT GetPosition(int32* Left, int32* Top, int32* Right, int32* Bottom) mut => VT.[Friend]GetPosition(&this, Left, Top, Right, Bottom);
+	public HRESULT GetPosition(int32 Left, int32 Top, int32 Right, int32 Bottom) mut => VT.[Friend]GetPosition(&this, Left, Top, Right, Bottom);
 
 	public HRESULT SetPosition(int32 Left, int32 Top, int32 Right, int32 Bottom) mut => VT.[Friend]SetPosition(&this, Left, Top, Right, Bottom);
 
@@ -4887,7 +4887,7 @@ public static
 
 	public HRESULT EnableExtendedButtons(int16 Extended) mut => VT.[Friend]EnableExtendedButtons(&this, Extended);
 
-	public HRESULT GetPreviewHeight(int32* Height) mut => VT.[Friend]GetPreviewHeight(&this, Height);
+	public HRESULT GetPreviewHeight(int32 Height) mut => VT.[Friend]GetPreviewHeight(&this, Height);
 
 	public HRESULT SetPreviewHeight(int32 Height) mut => VT.[Friend]SetPreviewHeight(&this, Height);
 
@@ -4930,27 +4930,27 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusSyncPlugin** ppiPlugin) RemoveStylusSyncPlugin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAllStylusSyncPlugins;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusSyncPlugin** ppiPlugin) GetStylusSyncPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcPlugins) GetStylusSyncPluginCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcPlugins) GetStylusSyncPluginCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusAsyncPlugin* piPlugin) AddStylusAsyncPlugin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusAsyncPlugin** ppiPlugin) RemoveStylusAsyncPlugin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAllStylusAsyncPlugins;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusAsyncPlugin** ppiPlugin) GetStylusAsyncPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcPlugins) GetStylusAsyncPluginCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcPlugins) GetStylusAsyncPluginCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus** ppiRTS) get_ChildRealTimeStylusPlugin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRTS) putref_ChildRealTimeStylusPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, StylusQueue sq, ref Guid pGuidId, uint32 cbData, uint8* pbData) AddCustomStylusDataToQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, StylusQueue sq, Guid pGuidId, uint32 cbData, uint8* pbData) AddCustomStylusDataToQueue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearStylusQueues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fUseMouseForInput) SetAllTabletsMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* piTablet) SetSingleTabletMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** ppiSingleTablet) GetTablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* piTablet, uint32* ptcid) GetTabletContextIdFromTablet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* piTablet, uint32 ptcid) GetTabletContextIdFromTablet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, IInkTablet** ppiTablet) GetTabletFromTabletContextId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcTcidCount, uint32** ppTcids) GetAllTabletContextIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcTcidCount, uint32** ppTcids) GetAllTabletContextIds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCursors** ppiInkCursors) GetStyluses;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 sid, IInkCursor** ppiInkCursor) GetStylusForId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cProperties, ref Guid pPropertyGuids) SetDesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcProperties, ref Guid ppPropertyGuids) GetDesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, float* pfInkToDeviceScaleX, float* pfInkToDeviceScaleY, uint32* pcPacketProperties, PACKET_PROPERTY** ppPacketProperties) GetPacketDescriptionData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cProperties, Guid* pPropertyGuids) SetDesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcProperties, Guid** ppPropertyGuids) GetDesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, float pfInkToDeviceScaleX, float pfInkToDeviceScaleY, uint32 pcPacketProperties, PACKET_PROPERTY** ppPacketProperties) GetPacketDescriptionData;
 	}
 
 
@@ -4974,7 +4974,7 @@ public static
 
 	public HRESULT GetStylusSyncPlugin(uint32 iIndex, IStylusSyncPlugin** ppiPlugin) mut => VT.[Friend]GetStylusSyncPlugin(&this, iIndex, ppiPlugin);
 
-	public HRESULT GetStylusSyncPluginCount(uint32* pcPlugins) mut => VT.[Friend]GetStylusSyncPluginCount(&this, pcPlugins);
+	public HRESULT GetStylusSyncPluginCount(uint32 pcPlugins) mut => VT.[Friend]GetStylusSyncPluginCount(&this, pcPlugins);
 
 	public HRESULT AddStylusAsyncPlugin(uint32 iIndex, IStylusAsyncPlugin* piPlugin) mut => VT.[Friend]AddStylusAsyncPlugin(&this, iIndex, piPlugin);
 
@@ -4984,13 +4984,13 @@ public static
 
 	public HRESULT GetStylusAsyncPlugin(uint32 iIndex, IStylusAsyncPlugin** ppiPlugin) mut => VT.[Friend]GetStylusAsyncPlugin(&this, iIndex, ppiPlugin);
 
-	public HRESULT GetStylusAsyncPluginCount(uint32* pcPlugins) mut => VT.[Friend]GetStylusAsyncPluginCount(&this, pcPlugins);
+	public HRESULT GetStylusAsyncPluginCount(uint32 pcPlugins) mut => VT.[Friend]GetStylusAsyncPluginCount(&this, pcPlugins);
 
 	public HRESULT get_ChildRealTimeStylusPlugin(IRealTimeStylus** ppiRTS) mut => VT.[Friend]get_ChildRealTimeStylusPlugin(&this, ppiRTS);
 
 	public HRESULT putref_ChildRealTimeStylusPlugin(IRealTimeStylus* piRTS) mut => VT.[Friend]putref_ChildRealTimeStylusPlugin(&this, piRTS);
 
-	public HRESULT AddCustomStylusDataToQueue(StylusQueue sq, ref Guid pGuidId, uint32 cbData, uint8* pbData) mut => VT.[Friend]AddCustomStylusDataToQueue(&this, sq, ref pGuidId, cbData, pbData);
+	public HRESULT AddCustomStylusDataToQueue(StylusQueue sq, Guid pGuidId, uint32 cbData, uint8* pbData) mut => VT.[Friend]AddCustomStylusDataToQueue(&this, sq, pGuidId, cbData, pbData);
 
 	public HRESULT ClearStylusQueues() mut => VT.[Friend]ClearStylusQueues(&this);
 
@@ -5000,21 +5000,21 @@ public static
 
 	public HRESULT GetTablet(IInkTablet** ppiSingleTablet) mut => VT.[Friend]GetTablet(&this, ppiSingleTablet);
 
-	public HRESULT GetTabletContextIdFromTablet(IInkTablet* piTablet, uint32* ptcid) mut => VT.[Friend]GetTabletContextIdFromTablet(&this, piTablet, ptcid);
+	public HRESULT GetTabletContextIdFromTablet(IInkTablet* piTablet, uint32 ptcid) mut => VT.[Friend]GetTabletContextIdFromTablet(&this, piTablet, ptcid);
 
 	public HRESULT GetTabletFromTabletContextId(uint32 tcid, IInkTablet** ppiTablet) mut => VT.[Friend]GetTabletFromTabletContextId(&this, tcid, ppiTablet);
 
-	public HRESULT GetAllTabletContextIds(uint32* pcTcidCount, uint32** ppTcids) mut => VT.[Friend]GetAllTabletContextIds(&this, pcTcidCount, ppTcids);
+	public HRESULT GetAllTabletContextIds(uint32 pcTcidCount, uint32** ppTcids) mut => VT.[Friend]GetAllTabletContextIds(&this, pcTcidCount, ppTcids);
 
 	public HRESULT GetStyluses(IInkCursors** ppiInkCursors) mut => VT.[Friend]GetStyluses(&this, ppiInkCursors);
 
 	public HRESULT GetStylusForId(uint32 sid, IInkCursor** ppiInkCursor) mut => VT.[Friend]GetStylusForId(&this, sid, ppiInkCursor);
 
-	public HRESULT SetDesiredPacketDescription(uint32 cProperties, ref Guid pPropertyGuids) mut => VT.[Friend]SetDesiredPacketDescription(&this, cProperties, ref pPropertyGuids);
+	public HRESULT SetDesiredPacketDescription(uint32 cProperties, Guid* pPropertyGuids) mut => VT.[Friend]SetDesiredPacketDescription(&this, cProperties, pPropertyGuids);
 
-	public HRESULT GetDesiredPacketDescription(uint32* pcProperties, ref Guid ppPropertyGuids) mut => VT.[Friend]GetDesiredPacketDescription(&this, pcProperties, ref ppPropertyGuids);
+	public HRESULT GetDesiredPacketDescription(uint32 pcProperties, Guid** ppPropertyGuids) mut => VT.[Friend]GetDesiredPacketDescription(&this, pcProperties, ppPropertyGuids);
 
-	public HRESULT GetPacketDescriptionData(uint32 tcid, float* pfInkToDeviceScaleX, float* pfInkToDeviceScaleY, uint32* pcPacketProperties, PACKET_PROPERTY** ppPacketProperties) mut => VT.[Friend]GetPacketDescriptionData(&this, tcid, pfInkToDeviceScaleX, pfInkToDeviceScaleY, pcPacketProperties, ppPacketProperties);
+	public HRESULT GetPacketDescriptionData(uint32 tcid, float pfInkToDeviceScaleX, float pfInkToDeviceScaleY, uint32 pcPacketProperties, PACKET_PROPERTY** ppPacketProperties) mut => VT.[Friend]GetPacketDescriptionData(&this, tcid, pfInkToDeviceScaleX, pfInkToDeviceScaleY, pcPacketProperties, ppPacketProperties);
 }
 
 [CRepr]struct IRealTimeStylus2 : IUnknown
@@ -5080,7 +5080,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cPktBuffLength, int32* pPackets, uint32 cPacketProperties, PACKET_PROPERTY* pPacketProperties, float fInkToDeviceScaleX, float fInkToDeviceScaleY, IInkStrokeDisp** ppIInkStroke) CreateStroke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, uint32 sid, int32* pPacket, uint32 cPacketProperties, PACKET_PROPERTY* pPacketProperties, float fInkToDeviceScaleX, float fInkToDeviceScaleY, IInkStrokeDisp** ppIInkStroke) BeginStroke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, uint32 sid, int32 pPacket, uint32 cPacketProperties, PACKET_PROPERTY* pPacketProperties, float fInkToDeviceScaleX, float fInkToDeviceScaleY, IInkStrokeDisp** ppIInkStroke) BeginStroke;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, uint32 sid, uint32 cPktBuffLength, int32* pPackets) AppendPackets;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, uint32 sid, IInkStrokeDisp** ppIInkStroke, RECT* pDirtyRect) EndStroke;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** ppiInkObj) get_Ink;
@@ -5090,7 +5090,7 @@ public static
 
 	public HRESULT CreateStroke(uint32 cPktBuffLength, int32* pPackets, uint32 cPacketProperties, PACKET_PROPERTY* pPacketProperties, float fInkToDeviceScaleX, float fInkToDeviceScaleY, IInkStrokeDisp** ppIInkStroke) mut => VT.[Friend]CreateStroke(&this, cPktBuffLength, pPackets, cPacketProperties, pPacketProperties, fInkToDeviceScaleX, fInkToDeviceScaleY, ppIInkStroke);
 
-	public HRESULT BeginStroke(uint32 tcid, uint32 sid, int32* pPacket, uint32 cPacketProperties, PACKET_PROPERTY* pPacketProperties, float fInkToDeviceScaleX, float fInkToDeviceScaleY, IInkStrokeDisp** ppIInkStroke) mut => VT.[Friend]BeginStroke(&this, tcid, sid, pPacket, cPacketProperties, pPacketProperties, fInkToDeviceScaleX, fInkToDeviceScaleY, ppIInkStroke);
+	public HRESULT BeginStroke(uint32 tcid, uint32 sid, int32 pPacket, uint32 cPacketProperties, PACKET_PROPERTY* pPacketProperties, float fInkToDeviceScaleX, float fInkToDeviceScaleY, IInkStrokeDisp** ppIInkStroke) mut => VT.[Friend]BeginStroke(&this, tcid, sid, pPacket, cPacketProperties, pPacketProperties, fInkToDeviceScaleX, fInkToDeviceScaleY, ppIInkStroke);
 
 	public HRESULT AppendPackets(uint32 tcid, uint32 sid, uint32 cPktBuffLength, int32* pPackets) mut => VT.[Friend]AppendPackets(&this, tcid, sid, cPktBuffLength, pPackets);
 
@@ -5115,15 +5115,15 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid) StylusOutOfRange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPropCountPerPkt, int32* pPacket, int32** ppInOutPkt) StylusDown;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPropCountPerPkt, int32* pPacket, int32** ppInOutPkt) StylusUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonDown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) InAirPackets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) Packets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, ref Guid pGuidId, uint32 cbData, uint8* pbData) CustomStylusDataAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32 pcInOutPkts, int32** ppInOutPkts) InAirPackets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32 pcInOutPkts, int32** ppInOutPkts) Packets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, Guid pGuidId, uint32 cbData, uint8* pbData) CustomStylusDataAdded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid, uint16 event, SYSTEM_EVENT_DATA eventdata) SystemEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, IInkTablet* piTablet) TabletAdded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, int32 iTabletIndex) TabletRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, IStylusPlugin* piPlugin, RealTimeStylusDataInterest dataInterest, HRESULT hrErrorCode, int* lptrKey) Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, IStylusPlugin* piPlugin, RealTimeStylusDataInterest dataInterest, HRESULT hrErrorCode, int lptrKey) Error;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc) UpdateMapping;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RealTimeStylusDataInterest* pDataInterest) DataInterest;
 	}
@@ -5141,15 +5141,15 @@ public static
 
 	public HRESULT StylusUp(IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPropCountPerPkt, int32* pPacket, int32** ppInOutPkt) mut => VT.[Friend]StylusUp(&this, piRtsSrc, pStylusInfo, cPropCountPerPkt, pPacket, ppInOutPkt);
 
-	public HRESULT StylusButtonDown(IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) mut => VT.[Friend]StylusButtonDown(&this, piRtsSrc, sid, ref pGuidStylusButton, pStylusPos);
+	public HRESULT StylusButtonDown(IRealTimeStylus* piRtsSrc, uint32 sid, Guid pGuidStylusButton, POINT* pStylusPos) mut => VT.[Friend]StylusButtonDown(&this, piRtsSrc, sid, pGuidStylusButton, pStylusPos);
 
-	public HRESULT StylusButtonUp(IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) mut => VT.[Friend]StylusButtonUp(&this, piRtsSrc, sid, ref pGuidStylusButton, pStylusPos);
+	public HRESULT StylusButtonUp(IRealTimeStylus* piRtsSrc, uint32 sid, Guid pGuidStylusButton, POINT* pStylusPos) mut => VT.[Friend]StylusButtonUp(&this, piRtsSrc, sid, pGuidStylusButton, pStylusPos);
 
-	public HRESULT InAirPackets(IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) mut => VT.[Friend]InAirPackets(&this, piRtsSrc, pStylusInfo, cPktCount, cPktBuffLength, pPackets, pcInOutPkts, ppInOutPkts);
+	public HRESULT InAirPackets(IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32 pcInOutPkts, int32** ppInOutPkts) mut => VT.[Friend]InAirPackets(&this, piRtsSrc, pStylusInfo, cPktCount, cPktBuffLength, pPackets, pcInOutPkts, ppInOutPkts);
 
-	public HRESULT Packets(IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) mut => VT.[Friend]Packets(&this, piRtsSrc, pStylusInfo, cPktCount, cPktBuffLength, pPackets, pcInOutPkts, ppInOutPkts);
+	public HRESULT Packets(IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32 pcInOutPkts, int32** ppInOutPkts) mut => VT.[Friend]Packets(&this, piRtsSrc, pStylusInfo, cPktCount, cPktBuffLength, pPackets, pcInOutPkts, ppInOutPkts);
 
-	public HRESULT CustomStylusDataAdded(IRealTimeStylus* piRtsSrc, ref Guid pGuidId, uint32 cbData, uint8* pbData) mut => VT.[Friend]CustomStylusDataAdded(&this, piRtsSrc, ref pGuidId, cbData, pbData);
+	public HRESULT CustomStylusDataAdded(IRealTimeStylus* piRtsSrc, Guid pGuidId, uint32 cbData, uint8* pbData) mut => VT.[Friend]CustomStylusDataAdded(&this, piRtsSrc, pGuidId, cbData, pbData);
 
 	public HRESULT SystemEvent(IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid, uint16 event, SYSTEM_EVENT_DATA eventdata) mut => VT.[Friend]SystemEvent(&this, piRtsSrc, tcid, sid, event, eventdata);
 
@@ -5157,7 +5157,7 @@ public static
 
 	public HRESULT TabletRemoved(IRealTimeStylus* piRtsSrc, int32 iTabletIndex) mut => VT.[Friend]TabletRemoved(&this, piRtsSrc, iTabletIndex);
 
-	public HRESULT Error(IRealTimeStylus* piRtsSrc, IStylusPlugin* piPlugin, RealTimeStylusDataInterest dataInterest, HRESULT hrErrorCode, int* lptrKey) mut => VT.[Friend]Error(&this, piRtsSrc, piPlugin, dataInterest, hrErrorCode, lptrKey);
+	public HRESULT Error(IRealTimeStylus* piRtsSrc, IStylusPlugin* piPlugin, RealTimeStylusDataInterest dataInterest, HRESULT hrErrorCode, int lptrKey) mut => VT.[Friend]Error(&this, piRtsSrc, piPlugin, dataInterest, hrErrorCode, lptrKey);
 
 	public HRESULT UpdateMapping(IRealTimeStylus* piRtsSrc) mut => VT.[Friend]UpdateMapping(&this, piRtsSrc);
 
@@ -5255,7 +5255,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfEnabled) get_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcStrokes) get_MaxStrokeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pcStrokes) get_MaxStrokeCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cStrokes) put_MaxStrokeCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cGestures, int32* pGestures) EnableGestures;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
@@ -5266,7 +5266,7 @@ public static
 
 	public HRESULT put_Enabled(BOOL fEnabled) mut => VT.[Friend]put_Enabled(&this, fEnabled);
 
-	public HRESULT get_MaxStrokeCount(int32* pcStrokes) mut => VT.[Friend]get_MaxStrokeCount(&this, pcStrokes);
+	public HRESULT get_MaxStrokeCount(int32 pcStrokes) mut => VT.[Friend]get_MaxStrokeCount(&this, pcStrokes);
 
 	public HRESULT put_MaxStrokeCount(int32 cStrokes) mut => VT.[Friend]put_MaxStrokeCount(&this, cStrokes);
 
@@ -5326,7 +5326,7 @@ public static
 public static
 {
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateRecognizer(ref Guid pCLSID, HRECOGNIZER* phrec);
+	public static extern HRESULT CreateRecognizer(Guid pCLSID, HRECOGNIZER* phrec);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DestroyRecognizer(HRECOGNIZER hrec);
@@ -5341,16 +5341,16 @@ public static
 	public static extern HRESULT DestroyContext(HRECOCONTEXT hrc);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetResultPropertyList(HRECOGNIZER hrec, uint32* pPropertyCount, ref Guid pPropertyGuid);
+	public static extern HRESULT GetResultPropertyList(HRECOGNIZER hrec, uint32 pPropertyCount, Guid pPropertyGuid);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetUnicodeRanges(HRECOGNIZER hrec, uint32* pcRanges, CHARACTER_RANGE* pcr);
+	public static extern HRESULT GetUnicodeRanges(HRECOGNIZER hrec, uint32 pcRanges, CHARACTER_RANGE* pcr);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AddStroke(HRECOCONTEXT hrc, PACKET_DESCRIPTION* pPacketDesc, uint32 cbPacket, uint8* pPacket, XFORM* pXForm);
+	public static extern HRESULT AddStroke(HRECOCONTEXT hrc, PACKET_DESCRIPTION* pPacketDesc, uint32 cbPacket, uint8 pPacket, XFORM* pXForm);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetBestResultString(HRECOCONTEXT hrc, uint32* pcSize, char16* pwcBestResult);
+	public static extern HRESULT GetBestResultString(HRECOCONTEXT hrc, uint32 pcSize, char16* pwcBestResult);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetGuide(HRECOCONTEXT hrc, RECO_GUIDE* pGuide, uint32 iIndex);
@@ -5386,10 +5386,10 @@ public static
 	public static extern HRESULT SetWordList(HRECOCONTEXT hrc, HRECOWORDLIST hwl);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetRightSeparator(HRECOCONTEXT hrc, uint32* pcSize, char16* pwcRightSeparator);
+	public static extern HRESULT GetRightSeparator(HRECOCONTEXT hrc, uint32 pcSize, char16* pwcRightSeparator);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetLeftSeparator(HRECOCONTEXT hrc, uint32* pcSize, char16* pwcLeftSeparator);
+	public static extern HRESULT GetLeftSeparator(HRECOCONTEXT hrc, uint32 pcSize, char16* pwcLeftSeparator);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DestroyWordList(HRECOWORDLIST hwl);
@@ -5401,7 +5401,7 @@ public static
 	public static extern HRESULT MakeWordList(HRECOGNIZER hrec, PWSTR pBuffer, HRECOWORDLIST* phwl);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetAllRecognizers(ref Guid recognizerClsids, uint32* count);
+	public static extern HRESULT GetAllRecognizers(Guid** recognizerClsids, uint32 count);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT LoadCachedAttributes(Guid clsid, RECO_ATTRS* pRecoAttributes);

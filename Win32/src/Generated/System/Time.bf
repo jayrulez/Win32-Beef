@@ -97,7 +97,7 @@ public static
 	public static extern uint32 EnumDynamicTimeZoneInformation(uint32 dwIndex, DYNAMIC_TIME_ZONE_INFORMATION* lpTimeZoneInformation);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetDynamicTimeZoneInformationEffectiveYears(DYNAMIC_TIME_ZONE_INFORMATION* lpTimeZoneInformation, uint32* FirstYear, uint32* LastYear);
+	public static extern uint32 GetDynamicTimeZoneInformationEffectiveYears(DYNAMIC_TIME_ZONE_INFORMATION* lpTimeZoneInformation, uint32 FirstYear, uint32 LastYear);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SystemTimeToTzSpecificLocalTimeEx(DYNAMIC_TIME_ZONE_INFORMATION* lpTimeZoneInformation, SYSTEMTIME* lpUniversalTime, SYSTEMTIME* lpLocalTime);

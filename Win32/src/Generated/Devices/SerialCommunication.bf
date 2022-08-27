@@ -43,16 +43,16 @@ public static
 public static
 {
 	[Import("MSPORTS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ComDBOpen(int* PHComDB);
+	public static extern int32 ComDBOpen(int PHComDB);
 
 	[Import("MSPORTS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ComDBClose(HCOMDB HComDB);
 
 	[Import("MSPORTS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ComDBGetCurrentPortUsage(HCOMDB HComDB, uint8* Buffer, uint32 BufferSize, uint32 ReportType, uint32* MaxPortsReported);
+	public static extern int32 ComDBGetCurrentPortUsage(HCOMDB HComDB, uint8 Buffer, uint32 BufferSize, uint32 ReportType, uint32 MaxPortsReported);
 
 	[Import("MSPORTS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ComDBClaimNextFreePort(HCOMDB HComDB, uint32* ComNumber);
+	public static extern int32 ComDBClaimNextFreePort(HCOMDB HComDB, uint32 ComNumber);
 
 	[Import("MSPORTS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ComDBClaimPort(HCOMDB HComDB, uint32 ComNumber, BOOL ForceClaim, BOOL* Forced);

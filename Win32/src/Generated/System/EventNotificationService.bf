@@ -202,7 +202,7 @@ public static
 	public static extern BOOL IsDestinationReachableW(PWSTR lpszDestination, QOCINFO* lpQOCInfo);
 
 	[Import("SensApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsNetworkAlive(uint32* lpdwFlags);
+	public static extern BOOL IsNetworkAlive(uint32 lpdwFlags);
 
 }
 #endregion

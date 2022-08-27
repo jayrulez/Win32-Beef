@@ -127,11 +127,11 @@ public enum PRJ_COMPLETE_COMMAND_TYPE : int32
 #endregion
 
 #region Function Pointers
-public function HRESULT PRJ_START_DIRECTORY_ENUMERATION_CB(PRJ_CALLBACK_DATA* callbackData, ref Guid enumerationId);
+public function HRESULT PRJ_START_DIRECTORY_ENUMERATION_CB(PRJ_CALLBACK_DATA* callbackData, Guid enumerationId);
 
-public function HRESULT PRJ_GET_DIRECTORY_ENUMERATION_CB(PRJ_CALLBACK_DATA* callbackData, ref Guid enumerationId, PWSTR searchExpression, PRJ_DIR_ENTRY_BUFFER_HANDLE dirEntryBufferHandle);
+public function HRESULT PRJ_GET_DIRECTORY_ENUMERATION_CB(PRJ_CALLBACK_DATA* callbackData, Guid enumerationId, PWSTR searchExpression, PRJ_DIR_ENTRY_BUFFER_HANDLE dirEntryBufferHandle);
 
-public function HRESULT PRJ_END_DIRECTORY_ENUMERATION_CB(PRJ_CALLBACK_DATA* callbackData, ref Guid enumerationId);
+public function HRESULT PRJ_END_DIRECTORY_ENUMERATION_CB(PRJ_CALLBACK_DATA* callbackData, Guid enumerationId);
 
 public function HRESULT PRJ_GET_PLACEHOLDER_INFO_CB(PRJ_CALLBACK_DATA* callbackData);
 
@@ -343,13 +343,13 @@ public static
 	public static extern void PrjStopVirtualizing(PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT namespaceVirtualizationContext);
 
 	[Import("PROJECTEDFSLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PrjClearNegativePathCache(PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT namespaceVirtualizationContext, uint32* totalEntryNumber);
+	public static extern HRESULT PrjClearNegativePathCache(PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT namespaceVirtualizationContext, uint32 totalEntryNumber);
 
 	[Import("PROJECTEDFSLIB.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PrjGetVirtualizationInstanceInfo(PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT namespaceVirtualizationContext, PRJ_VIRTUALIZATION_INSTANCE_INFO* virtualizationInstanceInfo);
 
 	[Import("PROJECTEDFSLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PrjMarkDirectoryAsPlaceholder(PWSTR rootPathName, PWSTR targetPathName, PRJ_PLACEHOLDER_VERSION_INFO* versionInfo, ref Guid virtualizationInstanceID);
+	public static extern HRESULT PrjMarkDirectoryAsPlaceholder(PWSTR rootPathName, PWSTR targetPathName, PRJ_PLACEHOLDER_VERSION_INFO* versionInfo, Guid virtualizationInstanceID);
 
 	[Import("PROJECTEDFSLIB.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PrjWritePlaceholderInfo(PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT namespaceVirtualizationContext, PWSTR destinationFileName, PRJ_PLACEHOLDER_INFO* placeholderInfo, uint32 placeholderInfoSize);
@@ -364,7 +364,7 @@ public static
 	public static extern HRESULT PrjDeleteFile(PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT namespaceVirtualizationContext, PWSTR destinationFileName, PRJ_UPDATE_TYPES updateFlags, PRJ_UPDATE_FAILURE_CAUSES* failureReason);
 
 	[Import("PROJECTEDFSLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PrjWriteFileData(PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT namespaceVirtualizationContext, ref Guid dataStreamId, void* buffer, uint64 byteOffset, uint32 length);
+	public static extern HRESULT PrjWriteFileData(PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT namespaceVirtualizationContext, Guid dataStreamId, void* buffer, uint64 byteOffset, uint32 length);
 
 	[Import("PROJECTEDFSLIB.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PrjGetOnDiskFileState(PWSTR destinationFileName, PRJ_FILE_STATE* fileState);

@@ -1549,7 +1549,7 @@ public enum DSROLE_OPERATION_STATE : int32
 #region Function Pointers
 public function HRESULT LPCQADDFORMSPROC(LPARAM lParam, CQFORM* pForm);
 
-public function HRESULT LPCQADDPAGESPROC(LPARAM lParam, ref Guid clsidForm, CQPAGE* pPage);
+public function HRESULT LPCQADDPAGESPROC(LPARAM lParam, Guid clsidForm, CQPAGE* pPage);
 
 public function HRESULT LPCQPAGEPROC(CQPAGE* pPage, HWND hwnd, uint32 uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -2885,7 +2885,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pSection, PWSTR pValueName, PWSTR pValue) WriteString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pSection, PWSTR pValueName, PWSTR pBuffer, int32 cchBuffer) ReadString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pSection, PWSTR pValueName, int32 value) WriteInt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pSection, PWSTR pValueName, int32* pValue) ReadInt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pSection, PWSTR pValueName, int32 pValue) ReadInt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pSection, PWSTR pValueName, void* pStruct, uint32 cbStruct) WriteStruct;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pSection, PWSTR pValueName, void* pStruct, uint32 cbStruct) ReadStruct;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
@@ -2898,7 +2898,7 @@ public static
 
 	public HRESULT WriteInt(PWSTR pSection, PWSTR pValueName, int32 value) mut => VT.[Friend]WriteInt(&this, pSection, pValueName, value);
 
-	public HRESULT ReadInt(PWSTR pSection, PWSTR pValueName, int32* pValue) mut => VT.[Friend]ReadInt(&this, pSection, pValueName, pValue);
+	public HRESULT ReadInt(PWSTR pSection, PWSTR pValueName, int32 pValue) mut => VT.[Friend]ReadInt(&this, pSection, pValueName, pValue);
 
 	public HRESULT WriteStruct(PWSTR pSection, PWSTR pValueName, void* pStruct, uint32 cbStruct) mut => VT.[Friend]WriteStruct(&this, pSection, pValueName, pStruct, cbStruct);
 
@@ -2981,7 +2981,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVar) get_Filter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Var) put_Filter;
@@ -2995,7 +2995,7 @@ public static
 	}
 
 
-	public HRESULT get_Count(int32* retval) mut => VT.[Friend]get_Count(&this, retval);
+	public HRESULT get_Count(int32 retval) mut => VT.[Friend]get_Count(&this, retval);
 
 	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
@@ -3050,14 +3050,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumerator) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvFilter) get_Filter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvFilter) put_Filter;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
 	public HRESULT get__NewEnum(IUnknown** ppEnumerator) mut => VT.[Friend]get__NewEnum(&this, ppEnumerator);
 
@@ -3074,7 +3074,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_PropertyCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_PropertyCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVariant) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cElements) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
@@ -3086,7 +3086,7 @@ public static
 	}
 
 
-	public HRESULT get_PropertyCount(int32* plCount) mut => VT.[Friend]get_PropertyCount(&this, plCount);
+	public HRESULT get_PropertyCount(int32 plCount) mut => VT.[Friend]get_PropertyCount(&this, plCount);
 
 	public HRESULT Next(VARIANT* pVariant) mut => VT.[Friend]Next(&this, pVariant);
 
@@ -3116,9 +3116,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_ADsType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_ADsType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnADsType) put_ADsType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_ControlCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_ControlCode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnControlCode) put_ControlCode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_Values;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vValues) put_Values;
@@ -3131,11 +3131,11 @@ public static
 
 	public HRESULT put_Name(BSTR bstrName) mut => VT.[Friend]put_Name(&this, bstrName);
 
-	public HRESULT get_ADsType(int32* retval) mut => VT.[Friend]get_ADsType(&this, retval);
+	public HRESULT get_ADsType(int32 retval) mut => VT.[Friend]get_ADsType(&this, retval);
 
 	public HRESULT put_ADsType(int32 lnADsType) mut => VT.[Friend]put_ADsType(&this, lnADsType);
 
-	public HRESULT get_ControlCode(int32* retval) mut => VT.[Friend]get_ControlCode(&this, retval);
+	public HRESULT get_ControlCode(int32 retval) mut => VT.[Friend]get_ControlCode(&this, retval);
 
 	public HRESULT put_ControlCode(int32 lnControlCode) mut => VT.[Friend]put_ControlCode(&this, lnControlCode);
 
@@ -3153,7 +3153,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_ADsType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_ADsType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnADsType) put_ADsType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_DNString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDNString) put_DNString;
@@ -3165,9 +3165,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPrintableString) put_PrintableString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_NumericString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrNumericString) put_NumericString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Boolean;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Boolean;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnBoolean) put_Boolean;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Integer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Integer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnInteger) put_Integer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_OctetString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vOctetString) put_OctetString;
@@ -3175,14 +3175,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pSecurityDescriptor) put_SecurityDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** retval) get_LargeInteger;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pLargeInteger) put_LargeInteger;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_UTCTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_UTCTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double daUTCTime) put_UTCTime;
 	}
 
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
-	public HRESULT get_ADsType(int32* retval) mut => VT.[Friend]get_ADsType(&this, retval);
+	public HRESULT get_ADsType(int32 retval) mut => VT.[Friend]get_ADsType(&this, retval);
 
 	public HRESULT put_ADsType(int32 lnADsType) mut => VT.[Friend]put_ADsType(&this, lnADsType);
 
@@ -3206,11 +3206,11 @@ public static
 
 	public HRESULT put_NumericString(BSTR bstrNumericString) mut => VT.[Friend]put_NumericString(&this, bstrNumericString);
 
-	public HRESULT get_Boolean(int32* retval) mut => VT.[Friend]get_Boolean(&this, retval);
+	public HRESULT get_Boolean(int32 retval) mut => VT.[Friend]get_Boolean(&this, retval);
 
 	public HRESULT put_Boolean(int32 lnBoolean) mut => VT.[Friend]put_Boolean(&this, lnBoolean);
 
-	public HRESULT get_Integer(int32* retval) mut => VT.[Friend]get_Integer(&this, retval);
+	public HRESULT get_Integer(int32 retval) mut => VT.[Friend]get_Integer(&this, retval);
 
 	public HRESULT put_Integer(int32 lnInteger) mut => VT.[Friend]put_Integer(&this, lnInteger);
 
@@ -3226,7 +3226,7 @@ public static
 
 	public HRESULT put_LargeInteger(IDispatch* pLargeInteger) mut => VT.[Friend]put_LargeInteger(&this, pLargeInteger);
 
-	public HRESULT get_UTCTime(double* retval) mut => VT.[Friend]get_UTCTime(&this, retval);
+	public HRESULT get_UTCTime(double retval) mut => VT.[Friend]get_UTCTime(&this, retval);
 
 	public HRESULT put_UTCTime(double daUTCTime) mut => VT.[Friend]put_UTCTime(&this, daUTCTime);
 }
@@ -3239,12 +3239,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lnADsType, VARIANT* pvProp) GetObjectProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnADsType, VARIANT* pvProp) GetObjectProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnADsType, VARIANT vProp) PutObjectProperty;
 	}
 
 
-	public HRESULT GetObjectProperty(int32* lnADsType, VARIANT* pvProp) mut => VT.[Friend]GetObjectProperty(&this, lnADsType, pvProp);
+	public HRESULT GetObjectProperty(int32 lnADsType, VARIANT* pvProp) mut => VT.[Friend]GetObjectProperty(&this, lnADsType, pvProp);
 
 	public HRESULT PutObjectProperty(int32 lnADsType, VARIANT vProp) mut => VT.[Friend]PutObjectProperty(&this, lnADsType, vProp);
 }
@@ -3258,22 +3258,22 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dwExtensionId) ADSIInitializeDispatchManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pctinfo) ADSIGetTypeInfoCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pctinfo) ADSIGetTypeInfoCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 itinfo, uint32 lcid, ITypeInfo** pptinfo) ADSIGetTypeInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgdispid) ADSIGetIDsOfNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispidMember, ref Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) ADSIInvoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32 rgdispid) ADSIGetIDsOfNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispidMember, Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32 puArgErr) ADSIInvoke;
 	}
 
 
 	public HRESULT ADSIInitializeDispatchManager(int32 dwExtensionId) mut => VT.[Friend]ADSIInitializeDispatchManager(&this, dwExtensionId);
 
-	public HRESULT ADSIGetTypeInfoCount(uint32* pctinfo) mut => VT.[Friend]ADSIGetTypeInfoCount(&this, pctinfo);
+	public HRESULT ADSIGetTypeInfoCount(uint32 pctinfo) mut => VT.[Friend]ADSIGetTypeInfoCount(&this, pctinfo);
 
 	public HRESULT ADSIGetTypeInfo(uint32 itinfo, uint32 lcid, ITypeInfo** pptinfo) mut => VT.[Friend]ADSIGetTypeInfo(&this, itinfo, lcid, pptinfo);
 
-	public HRESULT ADSIGetIDsOfNames(ref Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgdispid) mut => VT.[Friend]ADSIGetIDsOfNames(&this, ref riid, rgszNames, cNames, lcid, rgdispid);
+	public HRESULT ADSIGetIDsOfNames(Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32 rgdispid) mut => VT.[Friend]ADSIGetIDsOfNames(&this, riid, rgszNames, cNames, lcid, rgdispid);
 
-	public HRESULT ADSIInvoke(int32 dispidMember, ref Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) mut => VT.[Friend]ADSIInvoke(&this, dispidMember, ref riid, lcid, wFlags, pdispparams, pvarResult, pexcepinfo, puArgErr);
+	public HRESULT ADSIInvoke(int32 dispidMember, Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32 puArgErr) mut => VT.[Friend]ADSIInvoke(&this, dispidMember, riid, lcid, wFlags, pdispparams, pvarResult, pexcepinfo, puArgErr);
 }
 
 [CRepr]struct IPrivateUnknown : IUnknown
@@ -3303,16 +3303,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCode, VARIANT varData1, VARIANT varData2, VARIANT varData3) Operate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgDispid) PrivateGetIDsOfNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispidMember, ref Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) PrivateInvoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32 rgDispid) PrivateGetIDsOfNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispidMember, Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32 puArgErr) PrivateInvoke;
 	}
 
 
 	public HRESULT Operate(uint32 dwCode, VARIANT varData1, VARIANT varData2, VARIANT varData3) mut => VT.[Friend]Operate(&this, dwCode, varData1, varData2, varData3);
 
-	public HRESULT PrivateGetIDsOfNames(ref Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgDispid) mut => VT.[Friend]PrivateGetIDsOfNames(&this, ref riid, rgszNames, cNames, lcid, rgDispid);
+	public HRESULT PrivateGetIDsOfNames(Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32 rgDispid) mut => VT.[Friend]PrivateGetIDsOfNames(&this, riid, rgszNames, cNames, lcid, rgDispid);
 
-	public HRESULT PrivateInvoke(int32 dispidMember, ref Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) mut => VT.[Friend]PrivateInvoke(&this, dispidMember, ref riid, lcid, wFlags, pdispparams, pvarResult, pexcepinfo, puArgErr);
+	public HRESULT PrivateInvoke(int32 dispidMember, Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32 puArgErr) mut => VT.[Friend]PrivateInvoke(&this, dispidMember, riid, lcid, wFlags, pdispparams, pvarResult, pexcepinfo, puArgErr);
 }
 
 [CRepr]struct IADsDeleteOps : IDispatch
@@ -3361,9 +3361,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCLSID) put_CLSID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_OID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOID) put_OID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_Abstract;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_Abstract;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fAbstract) put_Abstract;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_Auxiliary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_Auxiliary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fAuxiliary) put_Auxiliary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_MandatoryProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vMandatoryProperties) put_MandatoryProperties;
@@ -3379,11 +3379,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vPossibleSuperiors) put_PossibleSuperiors;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_Containment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vContainment) put_Containment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_Container;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_Container;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fContainer) put_Container;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_HelpFileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrHelpFileName) put_HelpFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_HelpFileContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_HelpFileContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnHelpFileContext) put_HelpFileContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IADsCollection** ppQualifiers) Qualifiers;
 	}
@@ -3399,11 +3399,11 @@ public static
 
 	public HRESULT put_OID(BSTR bstrOID) mut => VT.[Friend]put_OID(&this, bstrOID);
 
-	public HRESULT get_Abstract(int16* retval) mut => VT.[Friend]get_Abstract(&this, retval);
+	public HRESULT get_Abstract(int16 retval) mut => VT.[Friend]get_Abstract(&this, retval);
 
 	public HRESULT put_Abstract(int16 fAbstract) mut => VT.[Friend]put_Abstract(&this, fAbstract);
 
-	public HRESULT get_Auxiliary(int16* retval) mut => VT.[Friend]get_Auxiliary(&this, retval);
+	public HRESULT get_Auxiliary(int16 retval) mut => VT.[Friend]get_Auxiliary(&this, retval);
 
 	public HRESULT put_Auxiliary(int16 fAuxiliary) mut => VT.[Friend]put_Auxiliary(&this, fAuxiliary);
 
@@ -3435,7 +3435,7 @@ public static
 
 	public HRESULT put_Containment(VARIANT vContainment) mut => VT.[Friend]put_Containment(&this, vContainment);
 
-	public HRESULT get_Container(int16* retval) mut => VT.[Friend]get_Container(&this, retval);
+	public HRESULT get_Container(int16 retval) mut => VT.[Friend]get_Container(&this, retval);
 
 	public HRESULT put_Container(int16 fContainer) mut => VT.[Friend]put_Container(&this, fContainer);
 
@@ -3443,7 +3443,7 @@ public static
 
 	public HRESULT put_HelpFileName(BSTR bstrHelpFileName) mut => VT.[Friend]put_HelpFileName(&this, bstrHelpFileName);
 
-	public HRESULT get_HelpFileContext(int32* retval) mut => VT.[Friend]get_HelpFileContext(&this, retval);
+	public HRESULT get_HelpFileContext(int32 retval) mut => VT.[Friend]get_HelpFileContext(&this, retval);
 
 	public HRESULT put_HelpFileContext(int32 lnHelpFileContext) mut => VT.[Friend]put_HelpFileContext(&this, lnHelpFileContext);
 
@@ -3462,11 +3462,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOID) put_OID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Syntax;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSyntax) put_Syntax;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MaxRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MaxRange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnMaxRange) put_MaxRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MinRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MinRange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnMinRange) put_MinRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_MultiValued;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_MultiValued;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fMultiValued) put_MultiValued;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IADsCollection** ppQualifiers) Qualifiers;
 	}
@@ -3480,15 +3480,15 @@ public static
 
 	public HRESULT put_Syntax(BSTR bstrSyntax) mut => VT.[Friend]put_Syntax(&this, bstrSyntax);
 
-	public HRESULT get_MaxRange(int32* retval) mut => VT.[Friend]get_MaxRange(&this, retval);
+	public HRESULT get_MaxRange(int32 retval) mut => VT.[Friend]get_MaxRange(&this, retval);
 
 	public HRESULT put_MaxRange(int32 lnMaxRange) mut => VT.[Friend]put_MaxRange(&this, lnMaxRange);
 
-	public HRESULT get_MinRange(int32* retval) mut => VT.[Friend]get_MinRange(&this, retval);
+	public HRESULT get_MinRange(int32 retval) mut => VT.[Friend]get_MinRange(&this, retval);
 
 	public HRESULT put_MinRange(int32 lnMinRange) mut => VT.[Friend]put_MinRange(&this, lnMinRange);
 
-	public HRESULT get_MultiValued(int16* retval) mut => VT.[Friend]get_MultiValued(&this, retval);
+	public HRESULT get_MultiValued(int16 retval) mut => VT.[Friend]get_MultiValued(&this, retval);
 
 	public HRESULT put_MultiValued(int16 fMultiValued) mut => VT.[Friend]put_MultiValued(&this, fMultiValued);
 
@@ -3503,12 +3503,12 @@ public static
 
 	[CRepr]public struct VTable : IADs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_OleAutoDataType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_OleAutoDataType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnOleAutoDataType) put_OleAutoDataType;
 	}
 
 
-	public HRESULT get_OleAutoDataType(int32* retval) mut => VT.[Friend]get_OleAutoDataType(&this, retval);
+	public HRESULT get_OleAutoDataType(int32 retval) mut => VT.[Friend]get_OleAutoDataType(&this, retval);
 
 	public HRESULT put_OleAutoDataType(int32 lnOleAutoDataType) mut => VT.[Friend]put_OleAutoDataType(&this, lnOleAutoDataType);
 }
@@ -3659,57 +3659,57 @@ public static
 
 	[CRepr]public struct VTable : IADs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsWorkgroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MinPasswordLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsWorkgroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MinPasswordLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnMinPasswordLength) put_MinPasswordLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MinPasswordAge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MinPasswordAge;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnMinPasswordAge) put_MinPasswordAge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MaxPasswordAge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MaxPasswordAge;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnMaxPasswordAge) put_MaxPasswordAge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MaxBadPasswordsAllowed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MaxBadPasswordsAllowed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnMaxBadPasswordsAllowed) put_MaxBadPasswordsAllowed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_PasswordHistoryLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_PasswordHistoryLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnPasswordHistoryLength) put_PasswordHistoryLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_PasswordAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_PasswordAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnPasswordAttributes) put_PasswordAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_AutoUnlockInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_AutoUnlockInterval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnAutoUnlockInterval) put_AutoUnlockInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_LockoutObservationInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_LockoutObservationInterval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnLockoutObservationInterval) put_LockoutObservationInterval;
 	}
 
 
-	public HRESULT get_IsWorkgroup(int16* retval) mut => VT.[Friend]get_IsWorkgroup(&this, retval);
+	public HRESULT get_IsWorkgroup(int16 retval) mut => VT.[Friend]get_IsWorkgroup(&this, retval);
 
-	public HRESULT get_MinPasswordLength(int32* retval) mut => VT.[Friend]get_MinPasswordLength(&this, retval);
+	public HRESULT get_MinPasswordLength(int32 retval) mut => VT.[Friend]get_MinPasswordLength(&this, retval);
 
 	public HRESULT put_MinPasswordLength(int32 lnMinPasswordLength) mut => VT.[Friend]put_MinPasswordLength(&this, lnMinPasswordLength);
 
-	public HRESULT get_MinPasswordAge(int32* retval) mut => VT.[Friend]get_MinPasswordAge(&this, retval);
+	public HRESULT get_MinPasswordAge(int32 retval) mut => VT.[Friend]get_MinPasswordAge(&this, retval);
 
 	public HRESULT put_MinPasswordAge(int32 lnMinPasswordAge) mut => VT.[Friend]put_MinPasswordAge(&this, lnMinPasswordAge);
 
-	public HRESULT get_MaxPasswordAge(int32* retval) mut => VT.[Friend]get_MaxPasswordAge(&this, retval);
+	public HRESULT get_MaxPasswordAge(int32 retval) mut => VT.[Friend]get_MaxPasswordAge(&this, retval);
 
 	public HRESULT put_MaxPasswordAge(int32 lnMaxPasswordAge) mut => VT.[Friend]put_MaxPasswordAge(&this, lnMaxPasswordAge);
 
-	public HRESULT get_MaxBadPasswordsAllowed(int32* retval) mut => VT.[Friend]get_MaxBadPasswordsAllowed(&this, retval);
+	public HRESULT get_MaxBadPasswordsAllowed(int32 retval) mut => VT.[Friend]get_MaxBadPasswordsAllowed(&this, retval);
 
 	public HRESULT put_MaxBadPasswordsAllowed(int32 lnMaxBadPasswordsAllowed) mut => VT.[Friend]put_MaxBadPasswordsAllowed(&this, lnMaxBadPasswordsAllowed);
 
-	public HRESULT get_PasswordHistoryLength(int32* retval) mut => VT.[Friend]get_PasswordHistoryLength(&this, retval);
+	public HRESULT get_PasswordHistoryLength(int32 retval) mut => VT.[Friend]get_PasswordHistoryLength(&this, retval);
 
 	public HRESULT put_PasswordHistoryLength(int32 lnPasswordHistoryLength) mut => VT.[Friend]put_PasswordHistoryLength(&this, lnPasswordHistoryLength);
 
-	public HRESULT get_PasswordAttributes(int32* retval) mut => VT.[Friend]get_PasswordAttributes(&this, retval);
+	public HRESULT get_PasswordAttributes(int32 retval) mut => VT.[Friend]get_PasswordAttributes(&this, retval);
 
 	public HRESULT put_PasswordAttributes(int32 lnPasswordAttributes) mut => VT.[Friend]put_PasswordAttributes(&this, lnPasswordAttributes);
 
-	public HRESULT get_AutoUnlockInterval(int32* retval) mut => VT.[Friend]get_AutoUnlockInterval(&this, retval);
+	public HRESULT get_AutoUnlockInterval(int32 retval) mut => VT.[Friend]get_AutoUnlockInterval(&this, retval);
 
 	public HRESULT put_AutoUnlockInterval(int32 lnAutoUnlockInterval) mut => VT.[Friend]put_AutoUnlockInterval(&this, lnAutoUnlockInterval);
 
-	public HRESULT get_LockoutObservationInterval(int32* retval) mut => VT.[Friend]get_LockoutObservationInterval(&this, retval);
+	public HRESULT get_LockoutObservationInterval(int32 retval) mut => VT.[Friend]get_LockoutObservationInterval(&this, retval);
 
 	public HRESULT put_LockoutObservationInterval(int32 lnLockoutObservationInterval) mut => VT.[Friend]put_LockoutObservationInterval(&this, lnLockoutObservationInterval);
 }
@@ -3851,7 +3851,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IADsMembers** ppMembers) Members;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMember, int16* bMember) IsMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMember, int16 bMember) IsMember;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrNewItem) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrItemToBeRemoved) Remove;
 	}
@@ -3863,7 +3863,7 @@ public static
 
 	public HRESULT Members(IADsMembers** ppMembers) mut => VT.[Friend]Members(&this, ppMembers);
 
-	public HRESULT IsMember(BSTR bstrMember, int16* bMember) mut => VT.[Friend]IsMember(&this, bstrMember, bMember);
+	public HRESULT IsMember(BSTR bstrMember, int16 bMember) mut => VT.[Friend]IsMember(&this, bstrMember, bMember);
 
 	public HRESULT Add(BSTR bstrNewItem) mut => VT.[Friend]Add(&this, bstrNewItem);
 
@@ -3879,11 +3879,11 @@ public static
 	[CRepr]public struct VTable : IADs.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_BadLoginAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_BadLoginCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_LastLogin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_LastLogoff;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_LastFailedLogin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_PasswordLastChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_BadLoginCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_LastLogin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_LastLogoff;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_LastFailedLogin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_PasswordLastChanged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Division;
@@ -3926,31 +3926,31 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vPostalCodes) put_PostalCodes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_SeeAlso;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vSeeAlso) put_SeeAlso;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_AccountDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_AccountDisabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fAccountDisabled) put_AccountDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_AccountExpirationDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_AccountExpirationDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double daAccountExpirationDate) put_AccountExpirationDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_GraceLoginsAllowed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_GraceLoginsAllowed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnGraceLoginsAllowed) put_GraceLoginsAllowed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_GraceLoginsRemaining;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_GraceLoginsRemaining;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnGraceLoginsRemaining) put_GraceLoginsRemaining;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsAccountLocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsAccountLocked;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fIsAccountLocked) put_IsAccountLocked;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_LoginHours;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vLoginHours) put_LoginHours;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_LoginWorkstations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vLoginWorkstations) put_LoginWorkstations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MaxLogins;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MaxLogins;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnMaxLogins) put_MaxLogins;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MaxStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MaxStorage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnMaxStorage) put_MaxStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_PasswordExpirationDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_PasswordExpirationDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double daPasswordExpirationDate) put_PasswordExpirationDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_PasswordMinimumLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_PasswordMinimumLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnPasswordMinimumLength) put_PasswordMinimumLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_PasswordRequired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_PasswordRequired;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fPasswordRequired) put_PasswordRequired;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_RequireUniquePassword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_RequireUniquePassword;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fRequireUniquePassword) put_RequireUniquePassword;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_EmailAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrEmailAddress) put_EmailAddress;
@@ -3974,15 +3974,15 @@ public static
 
 	public HRESULT get_BadLoginAddress(BSTR* retval) mut => VT.[Friend]get_BadLoginAddress(&this, retval);
 
-	public HRESULT get_BadLoginCount(int32* retval) mut => VT.[Friend]get_BadLoginCount(&this, retval);
+	public HRESULT get_BadLoginCount(int32 retval) mut => VT.[Friend]get_BadLoginCount(&this, retval);
 
-	public HRESULT get_LastLogin(double* retval) mut => VT.[Friend]get_LastLogin(&this, retval);
+	public HRESULT get_LastLogin(double retval) mut => VT.[Friend]get_LastLogin(&this, retval);
 
-	public HRESULT get_LastLogoff(double* retval) mut => VT.[Friend]get_LastLogoff(&this, retval);
+	public HRESULT get_LastLogoff(double retval) mut => VT.[Friend]get_LastLogoff(&this, retval);
 
-	public HRESULT get_LastFailedLogin(double* retval) mut => VT.[Friend]get_LastFailedLogin(&this, retval);
+	public HRESULT get_LastFailedLogin(double retval) mut => VT.[Friend]get_LastFailedLogin(&this, retval);
 
-	public HRESULT get_PasswordLastChanged(double* retval) mut => VT.[Friend]get_PasswordLastChanged(&this, retval);
+	public HRESULT get_PasswordLastChanged(double retval) mut => VT.[Friend]get_PasswordLastChanged(&this, retval);
 
 	public HRESULT get_Description(BSTR* retval) mut => VT.[Friend]get_Description(&this, retval);
 
@@ -4068,23 +4068,23 @@ public static
 
 	public HRESULT put_SeeAlso(VARIANT vSeeAlso) mut => VT.[Friend]put_SeeAlso(&this, vSeeAlso);
 
-	public HRESULT get_AccountDisabled(int16* retval) mut => VT.[Friend]get_AccountDisabled(&this, retval);
+	public HRESULT get_AccountDisabled(int16 retval) mut => VT.[Friend]get_AccountDisabled(&this, retval);
 
 	public HRESULT put_AccountDisabled(int16 fAccountDisabled) mut => VT.[Friend]put_AccountDisabled(&this, fAccountDisabled);
 
-	public HRESULT get_AccountExpirationDate(double* retval) mut => VT.[Friend]get_AccountExpirationDate(&this, retval);
+	public HRESULT get_AccountExpirationDate(double retval) mut => VT.[Friend]get_AccountExpirationDate(&this, retval);
 
 	public HRESULT put_AccountExpirationDate(double daAccountExpirationDate) mut => VT.[Friend]put_AccountExpirationDate(&this, daAccountExpirationDate);
 
-	public HRESULT get_GraceLoginsAllowed(int32* retval) mut => VT.[Friend]get_GraceLoginsAllowed(&this, retval);
+	public HRESULT get_GraceLoginsAllowed(int32 retval) mut => VT.[Friend]get_GraceLoginsAllowed(&this, retval);
 
 	public HRESULT put_GraceLoginsAllowed(int32 lnGraceLoginsAllowed) mut => VT.[Friend]put_GraceLoginsAllowed(&this, lnGraceLoginsAllowed);
 
-	public HRESULT get_GraceLoginsRemaining(int32* retval) mut => VT.[Friend]get_GraceLoginsRemaining(&this, retval);
+	public HRESULT get_GraceLoginsRemaining(int32 retval) mut => VT.[Friend]get_GraceLoginsRemaining(&this, retval);
 
 	public HRESULT put_GraceLoginsRemaining(int32 lnGraceLoginsRemaining) mut => VT.[Friend]put_GraceLoginsRemaining(&this, lnGraceLoginsRemaining);
 
-	public HRESULT get_IsAccountLocked(int16* retval) mut => VT.[Friend]get_IsAccountLocked(&this, retval);
+	public HRESULT get_IsAccountLocked(int16 retval) mut => VT.[Friend]get_IsAccountLocked(&this, retval);
 
 	public HRESULT put_IsAccountLocked(int16 fIsAccountLocked) mut => VT.[Friend]put_IsAccountLocked(&this, fIsAccountLocked);
 
@@ -4096,27 +4096,27 @@ public static
 
 	public HRESULT put_LoginWorkstations(VARIANT vLoginWorkstations) mut => VT.[Friend]put_LoginWorkstations(&this, vLoginWorkstations);
 
-	public HRESULT get_MaxLogins(int32* retval) mut => VT.[Friend]get_MaxLogins(&this, retval);
+	public HRESULT get_MaxLogins(int32 retval) mut => VT.[Friend]get_MaxLogins(&this, retval);
 
 	public HRESULT put_MaxLogins(int32 lnMaxLogins) mut => VT.[Friend]put_MaxLogins(&this, lnMaxLogins);
 
-	public HRESULT get_MaxStorage(int32* retval) mut => VT.[Friend]get_MaxStorage(&this, retval);
+	public HRESULT get_MaxStorage(int32 retval) mut => VT.[Friend]get_MaxStorage(&this, retval);
 
 	public HRESULT put_MaxStorage(int32 lnMaxStorage) mut => VT.[Friend]put_MaxStorage(&this, lnMaxStorage);
 
-	public HRESULT get_PasswordExpirationDate(double* retval) mut => VT.[Friend]get_PasswordExpirationDate(&this, retval);
+	public HRESULT get_PasswordExpirationDate(double retval) mut => VT.[Friend]get_PasswordExpirationDate(&this, retval);
 
 	public HRESULT put_PasswordExpirationDate(double daPasswordExpirationDate) mut => VT.[Friend]put_PasswordExpirationDate(&this, daPasswordExpirationDate);
 
-	public HRESULT get_PasswordMinimumLength(int32* retval) mut => VT.[Friend]get_PasswordMinimumLength(&this, retval);
+	public HRESULT get_PasswordMinimumLength(int32 retval) mut => VT.[Friend]get_PasswordMinimumLength(&this, retval);
 
 	public HRESULT put_PasswordMinimumLength(int32 lnPasswordMinimumLength) mut => VT.[Friend]put_PasswordMinimumLength(&this, lnPasswordMinimumLength);
 
-	public HRESULT get_PasswordRequired(int16* retval) mut => VT.[Friend]get_PasswordRequired(&this, retval);
+	public HRESULT get_PasswordRequired(int16 retval) mut => VT.[Friend]get_PasswordRequired(&this, retval);
 
 	public HRESULT put_PasswordRequired(int16 fPasswordRequired) mut => VT.[Friend]put_PasswordRequired(&this, fPasswordRequired);
 
-	public HRESULT get_RequireUniquePassword(int16* retval) mut => VT.[Friend]get_RequireUniquePassword(&this, retval);
+	public HRESULT get_RequireUniquePassword(int16 retval) mut => VT.[Friend]get_RequireUniquePassword(&this, retval);
 
 	public HRESULT put_RequireUniquePassword(int16 fRequireUniquePassword) mut => VT.[Friend]put_RequireUniquePassword(&this, fRequireUniquePassword);
 
@@ -4175,13 +4175,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Location;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLocation) put_Location;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_StartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_StartTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double daStartTime) put_StartTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_UntilTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_UntilTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double daUntilTime) put_UntilTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_DefaultJobPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_DefaultJobPriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnDefaultJobPriority) put_DefaultJobPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Priority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnPriority) put_Priority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_BannerPage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrBannerPage) put_BannerPage;
@@ -4216,19 +4216,19 @@ public static
 
 	public HRESULT put_Location(BSTR bstrLocation) mut => VT.[Friend]put_Location(&this, bstrLocation);
 
-	public HRESULT get_StartTime(double* retval) mut => VT.[Friend]get_StartTime(&this, retval);
+	public HRESULT get_StartTime(double retval) mut => VT.[Friend]get_StartTime(&this, retval);
 
 	public HRESULT put_StartTime(double daStartTime) mut => VT.[Friend]put_StartTime(&this, daStartTime);
 
-	public HRESULT get_UntilTime(double* retval) mut => VT.[Friend]get_UntilTime(&this, retval);
+	public HRESULT get_UntilTime(double retval) mut => VT.[Friend]get_UntilTime(&this, retval);
 
 	public HRESULT put_UntilTime(double daUntilTime) mut => VT.[Friend]put_UntilTime(&this, daUntilTime);
 
-	public HRESULT get_DefaultJobPriority(int32* retval) mut => VT.[Friend]get_DefaultJobPriority(&this, retval);
+	public HRESULT get_DefaultJobPriority(int32 retval) mut => VT.[Friend]get_DefaultJobPriority(&this, retval);
 
 	public HRESULT put_DefaultJobPriority(int32 lnDefaultJobPriority) mut => VT.[Friend]put_DefaultJobPriority(&this, lnDefaultJobPriority);
 
-	public HRESULT get_Priority(int32* retval) mut => VT.[Friend]get_Priority(&this, retval);
+	public HRESULT get_Priority(int32 retval) mut => VT.[Friend]get_Priority(&this, retval);
 
 	public HRESULT put_Priority(int32 lnPriority) mut => VT.[Friend]put_Priority(&this, lnPriority);
 
@@ -4253,7 +4253,7 @@ public static
 
 	[CRepr]public struct VTable : IADs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Status;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IADsCollection** pObject) PrintJobs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
@@ -4261,7 +4261,7 @@ public static
 	}
 
 
-	public HRESULT get_Status(int32* retval) mut => VT.[Friend]get_Status(&this, retval);
+	public HRESULT get_Status(int32 retval) mut => VT.[Friend]get_Status(&this, retval);
 
 	public HRESULT PrintJobs(IADsCollection** pObject) mut => VT.[Friend]PrintJobs(&this, pObject);
 
@@ -4283,16 +4283,16 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_HostPrintQueue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_User;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_UserPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_TimeSubmitted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_TotalPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Size;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_TimeSubmitted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_TotalPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Size;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Priority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnPriority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_StartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_StartTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double daStartTime) put_StartTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* retval) get_UntilTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double retval) get_UntilTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double daUntilTime) put_UntilTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Notify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrNotify) put_Notify;
@@ -4307,25 +4307,25 @@ public static
 
 	public HRESULT get_UserPath(BSTR* retval) mut => VT.[Friend]get_UserPath(&this, retval);
 
-	public HRESULT get_TimeSubmitted(double* retval) mut => VT.[Friend]get_TimeSubmitted(&this, retval);
+	public HRESULT get_TimeSubmitted(double retval) mut => VT.[Friend]get_TimeSubmitted(&this, retval);
 
-	public HRESULT get_TotalPages(int32* retval) mut => VT.[Friend]get_TotalPages(&this, retval);
+	public HRESULT get_TotalPages(int32 retval) mut => VT.[Friend]get_TotalPages(&this, retval);
 
-	public HRESULT get_Size(int32* retval) mut => VT.[Friend]get_Size(&this, retval);
+	public HRESULT get_Size(int32 retval) mut => VT.[Friend]get_Size(&this, retval);
 
 	public HRESULT get_Description(BSTR* retval) mut => VT.[Friend]get_Description(&this, retval);
 
 	public HRESULT put_Description(BSTR bstrDescription) mut => VT.[Friend]put_Description(&this, bstrDescription);
 
-	public HRESULT get_Priority(int32* retval) mut => VT.[Friend]get_Priority(&this, retval);
+	public HRESULT get_Priority(int32 retval) mut => VT.[Friend]get_Priority(&this, retval);
 
 	public HRESULT put_Priority(int32 lnPriority) mut => VT.[Friend]put_Priority(&this, lnPriority);
 
-	public HRESULT get_StartTime(double* retval) mut => VT.[Friend]get_StartTime(&this, retval);
+	public HRESULT get_StartTime(double retval) mut => VT.[Friend]get_StartTime(&this, retval);
 
 	public HRESULT put_StartTime(double daStartTime) mut => VT.[Friend]put_StartTime(&this, daStartTime);
 
-	public HRESULT get_UntilTime(double* retval) mut => VT.[Friend]get_UntilTime(&this, retval);
+	public HRESULT get_UntilTime(double retval) mut => VT.[Friend]get_UntilTime(&this, retval);
 
 	public HRESULT put_UntilTime(double daUntilTime) mut => VT.[Friend]put_UntilTime(&this, daUntilTime);
 
@@ -4346,23 +4346,23 @@ public static
 
 	[CRepr]public struct VTable : IADs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_TimeElapsed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_PagesPrinted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Position;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_TimeElapsed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_PagesPrinted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Position;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnPosition) put_Position;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
 	}
 
 
-	public HRESULT get_Status(int32* retval) mut => VT.[Friend]get_Status(&this, retval);
+	public HRESULT get_Status(int32 retval) mut => VT.[Friend]get_Status(&this, retval);
 
-	public HRESULT get_TimeElapsed(int32* retval) mut => VT.[Friend]get_TimeElapsed(&this, retval);
+	public HRESULT get_TimeElapsed(int32 retval) mut => VT.[Friend]get_TimeElapsed(&this, retval);
 
-	public HRESULT get_PagesPrinted(int32* retval) mut => VT.[Friend]get_PagesPrinted(&this, retval);
+	public HRESULT get_PagesPrinted(int32 retval) mut => VT.[Friend]get_PagesPrinted(&this, retval);
 
-	public HRESULT get_Position(int32* retval) mut => VT.[Friend]get_Position(&this, retval);
+	public HRESULT get_Position(int32 retval) mut => VT.[Friend]get_Position(&this, retval);
 
 	public HRESULT put_Position(int32 lnPosition) mut => VT.[Friend]put_Position(&this, lnPosition);
 
@@ -4385,15 +4385,15 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDisplayName) put_DisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Version;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVersion) put_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_ServiceType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_ServiceType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnServiceType) put_ServiceType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_StartType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_StartType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnStartType) put_StartType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Path;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPath) put_Path;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_StartupParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrStartupParameters) put_StartupParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_ErrorControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_ErrorControl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnErrorControl) put_ErrorControl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_LoadOrderGroup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLoadOrderGroup) put_LoadOrderGroup;
@@ -4418,11 +4418,11 @@ public static
 
 	public HRESULT put_Version(BSTR bstrVersion) mut => VT.[Friend]put_Version(&this, bstrVersion);
 
-	public HRESULT get_ServiceType(int32* retval) mut => VT.[Friend]get_ServiceType(&this, retval);
+	public HRESULT get_ServiceType(int32 retval) mut => VT.[Friend]get_ServiceType(&this, retval);
 
 	public HRESULT put_ServiceType(int32 lnServiceType) mut => VT.[Friend]put_ServiceType(&this, lnServiceType);
 
-	public HRESULT get_StartType(int32* retval) mut => VT.[Friend]get_StartType(&this, retval);
+	public HRESULT get_StartType(int32 retval) mut => VT.[Friend]get_StartType(&this, retval);
 
 	public HRESULT put_StartType(int32 lnStartType) mut => VT.[Friend]put_StartType(&this, lnStartType);
 
@@ -4434,7 +4434,7 @@ public static
 
 	public HRESULT put_StartupParameters(BSTR bstrStartupParameters) mut => VT.[Friend]put_StartupParameters(&this, bstrStartupParameters);
 
-	public HRESULT get_ErrorControl(int32* retval) mut => VT.[Friend]get_ErrorControl(&this, retval);
+	public HRESULT get_ErrorControl(int32 retval) mut => VT.[Friend]get_ErrorControl(&this, retval);
 
 	public HRESULT put_ErrorControl(int32 lnErrorControl) mut => VT.[Friend]put_ErrorControl(&this, lnErrorControl);
 
@@ -4463,7 +4463,7 @@ public static
 
 	[CRepr]public struct VTable : IADs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Status;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Start;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
@@ -4472,7 +4472,7 @@ public static
 	}
 
 
-	public HRESULT get_Status(int32* retval) mut => VT.[Friend]get_Status(&this, retval);
+	public HRESULT get_Status(int32 retval) mut => VT.[Friend]get_Status(&this, retval);
 
 	public HRESULT Start() mut => VT.[Friend]Start(&this);
 
@@ -4495,7 +4495,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MaxUserCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MaxUserCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnMaxUserCount) put_MaxUserCount;
 	}
 
@@ -4504,7 +4504,7 @@ public static
 
 	public HRESULT put_Description(BSTR bstrDescription) mut => VT.[Friend]put_Description(&this, bstrDescription);
 
-	public HRESULT get_MaxUserCount(int32* retval) mut => VT.[Friend]get_MaxUserCount(&this, retval);
+	public HRESULT get_MaxUserCount(int32 retval) mut => VT.[Friend]get_MaxUserCount(&this, retval);
 
 	public HRESULT put_MaxUserCount(int32 lnMaxUserCount) mut => VT.[Friend]put_MaxUserCount(&this, lnMaxUserCount);
 }
@@ -4535,19 +4535,19 @@ public static
 
 	[CRepr]public struct VTable : IADs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_CurrentUserCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_CurrentUserCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_HostComputer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrHostComputer) put_HostComputer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Path;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPath) put_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MaxUserCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MaxUserCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnMaxUserCount) put_MaxUserCount;
 	}
 
 
-	public HRESULT get_CurrentUserCount(int32* retval) mut => VT.[Friend]get_CurrentUserCount(&this, retval);
+	public HRESULT get_CurrentUserCount(int32 retval) mut => VT.[Friend]get_CurrentUserCount(&this, retval);
 
 	public HRESULT get_Description(BSTR* retval) mut => VT.[Friend]get_Description(&this, retval);
 
@@ -4561,7 +4561,7 @@ public static
 
 	public HRESULT put_Path(BSTR bstrPath) mut => VT.[Friend]put_Path(&this, bstrPath);
 
-	public HRESULT get_MaxUserCount(int32* retval) mut => VT.[Friend]get_MaxUserCount(&this, retval);
+	public HRESULT get_MaxUserCount(int32 retval) mut => VT.[Friend]get_MaxUserCount(&this, retval);
 
 	public HRESULT put_MaxUserCount(int32 lnMaxUserCount) mut => VT.[Friend]put_MaxUserCount(&this, lnMaxUserCount);
 }
@@ -4578,8 +4578,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_UserPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Computer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ComputerPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_ConnectTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_IdleTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_ConnectTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_IdleTime;
 	}
 
 
@@ -4591,9 +4591,9 @@ public static
 
 	public HRESULT get_ComputerPath(BSTR* retval) mut => VT.[Friend]get_ComputerPath(&this, retval);
 
-	public HRESULT get_ConnectTime(int32* retval) mut => VT.[Friend]get_ConnectTime(&this, retval);
+	public HRESULT get_ConnectTime(int32 retval) mut => VT.[Friend]get_ConnectTime(&this, retval);
 
-	public HRESULT get_IdleTime(int32* retval) mut => VT.[Friend]get_IdleTime(&this, retval);
+	public HRESULT get_IdleTime(int32 retval) mut => VT.[Friend]get_IdleTime(&this, retval);
 }
 
 [CRepr]struct IADsResource : IADs
@@ -4607,7 +4607,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_User;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_UserPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_LockCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_LockCount;
 	}
 
 
@@ -4617,7 +4617,7 @@ public static
 
 	public HRESULT get_Path(BSTR* retval) mut => VT.[Friend]get_Path(&this, retval);
 
-	public HRESULT get_LockCount(int32* retval) mut => VT.[Friend]get_LockCount(&this, retval);
+	public HRESULT get_LockCount(int32 retval) mut => VT.[Friend]get_LockCount(&this, retval);
 }
 
 [CRepr]struct IADsOpenDSObject : IDispatch
@@ -4644,8 +4644,8 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_OBJECT_INFO** ppObjInfo) GetObjectInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pAttributeNames, uint32 dwNumberAttributes, ADS_ATTR_INFO** ppAttributeEntries, uint32* pdwNumAttributesReturned) GetObjectAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_ATTR_INFO* pAttributeEntries, uint32 dwNumAttributes, uint32* pdwNumAttributesModified) SetObjectAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pAttributeNames, uint32 dwNumberAttributes, ADS_ATTR_INFO** ppAttributeEntries, uint32 pdwNumAttributesReturned) GetObjectAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_ATTR_INFO* pAttributeEntries, uint32 dwNumAttributes, uint32 pdwNumAttributesModified) SetObjectAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszRDNName, ADS_ATTR_INFO* pAttributeEntries, uint32 dwNumAttributes, IDispatch** ppObject) CreateDSObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszRDNName) DeleteDSObject;
 	}
@@ -4653,9 +4653,9 @@ public static
 
 	public HRESULT GetObjectInformation(ADS_OBJECT_INFO** ppObjInfo) mut => VT.[Friend]GetObjectInformation(&this, ppObjInfo);
 
-	public HRESULT GetObjectAttributes(PWSTR* pAttributeNames, uint32 dwNumberAttributes, ADS_ATTR_INFO** ppAttributeEntries, uint32* pdwNumAttributesReturned) mut => VT.[Friend]GetObjectAttributes(&this, pAttributeNames, dwNumberAttributes, ppAttributeEntries, pdwNumAttributesReturned);
+	public HRESULT GetObjectAttributes(PWSTR* pAttributeNames, uint32 dwNumberAttributes, ADS_ATTR_INFO** ppAttributeEntries, uint32 pdwNumAttributesReturned) mut => VT.[Friend]GetObjectAttributes(&this, pAttributeNames, dwNumberAttributes, ppAttributeEntries, pdwNumAttributesReturned);
 
-	public HRESULT SetObjectAttributes(ADS_ATTR_INFO* pAttributeEntries, uint32 dwNumAttributes, uint32* pdwNumAttributesModified) mut => VT.[Friend]SetObjectAttributes(&this, pAttributeEntries, dwNumAttributes, pdwNumAttributesModified);
+	public HRESULT SetObjectAttributes(ADS_ATTR_INFO* pAttributeEntries, uint32 dwNumAttributes, uint32 pdwNumAttributesModified) mut => VT.[Friend]SetObjectAttributes(&this, pAttributeEntries, dwNumAttributes, pdwNumAttributesModified);
 
 	public HRESULT CreateDSObject(PWSTR pszRDNName, ADS_ATTR_INFO* pAttributeEntries, uint32 dwNumAttributes, IDispatch** ppObject) mut => VT.[Friend]CreateDSObject(&this, pszRDNName, pAttributeEntries, dwNumAttributes, ppObject);
 
@@ -4671,7 +4671,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ads_searchpref_info* pSearchPrefs, uint32 dwNumPrefs) SetSearchPreference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszSearchFilter, PWSTR* pAttributeNames, uint32 dwNumberAttributes, int* phSearchResult) ExecuteSearch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszSearchFilter, PWSTR* pAttributeNames, uint32 dwNumberAttributes, int phSearchResult) ExecuteSearch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int phSearchResult) AbandonSearch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hSearchResult) GetFirstRow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hSearchResult) GetNextRow;
@@ -4685,7 +4685,7 @@ public static
 
 	public HRESULT SetSearchPreference(ads_searchpref_info* pSearchPrefs, uint32 dwNumPrefs) mut => VT.[Friend]SetSearchPreference(&this, pSearchPrefs, dwNumPrefs);
 
-	public HRESULT ExecuteSearch(PWSTR pszSearchFilter, PWSTR* pAttributeNames, uint32 dwNumberAttributes, int* phSearchResult) mut => VT.[Friend]ExecuteSearch(&this, pszSearchFilter, pAttributeNames, dwNumberAttributes, phSearchResult);
+	public HRESULT ExecuteSearch(PWSTR pszSearchFilter, PWSTR* pAttributeNames, uint32 dwNumberAttributes, int phSearchResult) mut => VT.[Friend]ExecuteSearch(&this, pszSearchFilter, pAttributeNames, dwNumberAttributes, phSearchResult);
 
 	public HRESULT AbandonSearch(int phSearchResult) mut => VT.[Friend]AbandonSearch(&this, phSearchResult);
 
@@ -4712,18 +4712,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszAttrNames, uint32 dwNumAttributes, ADS_ATTR_DEF** ppAttrDefinition, uint32* pdwNumAttributes) EnumAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszAttrNames, uint32 dwNumAttributes, ADS_ATTR_DEF** ppAttrDefinition, uint32 pdwNumAttributes) EnumAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszAttributeName, ADS_ATTR_DEF* pAttributeDefinition) CreateAttributeDefinition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszAttributeName, ADS_ATTR_DEF* pAttributeDefinition) WriteAttributeDefinition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszAttributeName) DeleteAttributeDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszClassNames, uint32 dwNumClasses, ADS_CLASS_DEF** ppClassDefinition, uint32* pdwNumClasses) EnumClasses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszClassNames, uint32 dwNumClasses, ADS_CLASS_DEF** ppClassDefinition, uint32 pdwNumClasses) EnumClasses;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszClassName, ADS_CLASS_DEF* pClassDefinition) WriteClassDefinition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszClassName, ADS_CLASS_DEF* pClassDefinition) CreateClassDefinition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszClassName) DeleteClassDefinition;
 	}
 
 
-	public HRESULT EnumAttributes(PWSTR* ppszAttrNames, uint32 dwNumAttributes, ADS_ATTR_DEF** ppAttrDefinition, uint32* pdwNumAttributes) mut => VT.[Friend]EnumAttributes(&this, ppszAttrNames, dwNumAttributes, ppAttrDefinition, pdwNumAttributes);
+	public HRESULT EnumAttributes(PWSTR* ppszAttrNames, uint32 dwNumAttributes, ADS_ATTR_DEF** ppAttrDefinition, uint32 pdwNumAttributes) mut => VT.[Friend]EnumAttributes(&this, ppszAttrNames, dwNumAttributes, ppAttrDefinition, pdwNumAttributes);
 
 	public HRESULT CreateAttributeDefinition(PWSTR pszAttributeName, ADS_ATTR_DEF* pAttributeDefinition) mut => VT.[Friend]CreateAttributeDefinition(&this, pszAttributeName, pAttributeDefinition);
 
@@ -4731,7 +4731,7 @@ public static
 
 	public HRESULT DeleteAttributeDefinition(PWSTR pszAttributeName) mut => VT.[Friend]DeleteAttributeDefinition(&this, pszAttributeName);
 
-	public HRESULT EnumClasses(PWSTR* ppszClassNames, uint32 dwNumClasses, ADS_CLASS_DEF** ppClassDefinition, uint32* pdwNumClasses) mut => VT.[Friend]EnumClasses(&this, ppszClassNames, dwNumClasses, ppClassDefinition, pdwNumClasses);
+	public HRESULT EnumClasses(PWSTR* ppszClassNames, uint32 dwNumClasses, ADS_CLASS_DEF** ppClassDefinition, uint32 pdwNumClasses) mut => VT.[Friend]EnumClasses(&this, ppszClassNames, dwNumClasses, ppClassDefinition, pdwNumClasses);
 
 	public HRESULT WriteClassDefinition(PWSTR pszClassName, ADS_CLASS_DEF* pClassDefinition) mut => VT.[Friend]WriteClassDefinition(&this, pszClassName, pClassDefinition);
 
@@ -4750,8 +4750,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pOuterUnknown) ConnectAsAggregatee;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisconnectAsAggregatee;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid) RelinquishInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid) RestoreInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid) RelinquishInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid) RestoreInterface;
 	}
 
 
@@ -4759,9 +4759,9 @@ public static
 
 	public HRESULT DisconnectAsAggregatee() mut => VT.[Friend]DisconnectAsAggregatee(&this);
 
-	public HRESULT RelinquishInterface(ref Guid riid) mut => VT.[Friend]RelinquishInterface(&this, ref riid);
+	public HRESULT RelinquishInterface(Guid riid) mut => VT.[Friend]RelinquishInterface(&this, riid);
 
-	public HRESULT RestoreInterface(ref Guid riid) mut => VT.[Friend]RestoreInterface(&this, ref riid);
+	public HRESULT RestoreInterface(Guid riid) mut => VT.[Friend]RestoreInterface(&this, riid);
 }
 
 [CRepr]struct IADsAggregator : IUnknown
@@ -4790,13 +4790,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_AccessMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_AccessMask;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnAccessMask) put_AccessMask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_AceType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_AceType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnAceType) put_AceType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_AceFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_AceFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnAceFlags) put_AceFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Flags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnFlags) put_Flags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ObjectType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrObjectType) put_ObjectType;
@@ -4807,19 +4807,19 @@ public static
 	}
 
 
-	public HRESULT get_AccessMask(int32* retval) mut => VT.[Friend]get_AccessMask(&this, retval);
+	public HRESULT get_AccessMask(int32 retval) mut => VT.[Friend]get_AccessMask(&this, retval);
 
 	public HRESULT put_AccessMask(int32 lnAccessMask) mut => VT.[Friend]put_AccessMask(&this, lnAccessMask);
 
-	public HRESULT get_AceType(int32* retval) mut => VT.[Friend]get_AceType(&this, retval);
+	public HRESULT get_AceType(int32 retval) mut => VT.[Friend]get_AceType(&this, retval);
 
 	public HRESULT put_AceType(int32 lnAceType) mut => VT.[Friend]put_AceType(&this, lnAceType);
 
-	public HRESULT get_AceFlags(int32* retval) mut => VT.[Friend]get_AceFlags(&this, retval);
+	public HRESULT get_AceFlags(int32 retval) mut => VT.[Friend]get_AceFlags(&this, retval);
 
 	public HRESULT put_AceFlags(int32 lnAceFlags) mut => VT.[Friend]put_AceFlags(&this, lnAceFlags);
 
-	public HRESULT get_Flags(int32* retval) mut => VT.[Friend]get_Flags(&this, retval);
+	public HRESULT get_Flags(int32 retval) mut => VT.[Friend]get_Flags(&this, retval);
 
 	public HRESULT put_Flags(int32 lnFlags) mut => VT.[Friend]put_Flags(&this, lnFlags);
 
@@ -4844,9 +4844,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_AclRevision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_AclRevision;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnAclRevision) put_AclRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_AceCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_AceCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnAceCount) put_AceCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pAccessControlEntry) AddAce;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pAccessControlEntry) RemoveAce;
@@ -4855,11 +4855,11 @@ public static
 	}
 
 
-	public HRESULT get_AclRevision(int32* retval) mut => VT.[Friend]get_AclRevision(&this, retval);
+	public HRESULT get_AclRevision(int32 retval) mut => VT.[Friend]get_AclRevision(&this, retval);
 
 	public HRESULT put_AclRevision(int32 lnAclRevision) mut => VT.[Friend]put_AclRevision(&this, lnAclRevision);
 
-	public HRESULT get_AceCount(int32* retval) mut => VT.[Friend]get_AceCount(&this, retval);
+	public HRESULT get_AceCount(int32 retval) mut => VT.[Friend]get_AceCount(&this, retval);
 
 	public HRESULT put_AceCount(int32 lnAceCount) mut => VT.[Friend]put_AceCount(&this, lnAceCount);
 
@@ -4880,35 +4880,35 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Revision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Revision;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnRevision) put_Revision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Control;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Control;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnControl) put_Control;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Owner;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOwner) put_Owner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_OwnerDefaulted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_OwnerDefaulted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fOwnerDefaulted) put_OwnerDefaulted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Group;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroup) put_Group;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_GroupDefaulted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_GroupDefaulted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fGroupDefaulted) put_GroupDefaulted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** retval) get_DiscretionaryAcl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pDiscretionaryAcl) put_DiscretionaryAcl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_DaclDefaulted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_DaclDefaulted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fDaclDefaulted) put_DaclDefaulted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** retval) get_SystemAcl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pSystemAcl) put_SystemAcl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_SaclDefaulted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_SaclDefaulted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fSaclDefaulted) put_SaclDefaulted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppSecurityDescriptor) CopySecurityDescriptor;
 	}
 
 
-	public HRESULT get_Revision(int32* retval) mut => VT.[Friend]get_Revision(&this, retval);
+	public HRESULT get_Revision(int32 retval) mut => VT.[Friend]get_Revision(&this, retval);
 
 	public HRESULT put_Revision(int32 lnRevision) mut => VT.[Friend]put_Revision(&this, lnRevision);
 
-	public HRESULT get_Control(int32* retval) mut => VT.[Friend]get_Control(&this, retval);
+	public HRESULT get_Control(int32 retval) mut => VT.[Friend]get_Control(&this, retval);
 
 	public HRESULT put_Control(int32 lnControl) mut => VT.[Friend]put_Control(&this, lnControl);
 
@@ -4916,7 +4916,7 @@ public static
 
 	public HRESULT put_Owner(BSTR bstrOwner) mut => VT.[Friend]put_Owner(&this, bstrOwner);
 
-	public HRESULT get_OwnerDefaulted(int16* retval) mut => VT.[Friend]get_OwnerDefaulted(&this, retval);
+	public HRESULT get_OwnerDefaulted(int16 retval) mut => VT.[Friend]get_OwnerDefaulted(&this, retval);
 
 	public HRESULT put_OwnerDefaulted(int16 fOwnerDefaulted) mut => VT.[Friend]put_OwnerDefaulted(&this, fOwnerDefaulted);
 
@@ -4924,7 +4924,7 @@ public static
 
 	public HRESULT put_Group(BSTR bstrGroup) mut => VT.[Friend]put_Group(&this, bstrGroup);
 
-	public HRESULT get_GroupDefaulted(int16* retval) mut => VT.[Friend]get_GroupDefaulted(&this, retval);
+	public HRESULT get_GroupDefaulted(int16 retval) mut => VT.[Friend]get_GroupDefaulted(&this, retval);
 
 	public HRESULT put_GroupDefaulted(int16 fGroupDefaulted) mut => VT.[Friend]put_GroupDefaulted(&this, fGroupDefaulted);
 
@@ -4932,7 +4932,7 @@ public static
 
 	public HRESULT put_DiscretionaryAcl(IDispatch* pDiscretionaryAcl) mut => VT.[Friend]put_DiscretionaryAcl(&this, pDiscretionaryAcl);
 
-	public HRESULT get_DaclDefaulted(int16* retval) mut => VT.[Friend]get_DaclDefaulted(&this, retval);
+	public HRESULT get_DaclDefaulted(int16 retval) mut => VT.[Friend]get_DaclDefaulted(&this, retval);
 
 	public HRESULT put_DaclDefaulted(int16 fDaclDefaulted) mut => VT.[Friend]put_DaclDefaulted(&this, fDaclDefaulted);
 
@@ -4940,7 +4940,7 @@ public static
 
 	public HRESULT put_SystemAcl(IDispatch* pSystemAcl) mut => VT.[Friend]put_SystemAcl(&this, pSystemAcl);
 
-	public HRESULT get_SaclDefaulted(int16* retval) mut => VT.[Friend]get_SaclDefaulted(&this, retval);
+	public HRESULT get_SaclDefaulted(int16 retval) mut => VT.[Friend]get_SaclDefaulted(&this, retval);
 
 	public HRESULT put_SaclDefaulted(int16 fSaclDefaulted) mut => VT.[Friend]put_SaclDefaulted(&this, fSaclDefaulted);
 
@@ -4955,18 +4955,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_HighPart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_HighPart;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnHighPart) put_HighPart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_LowPart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_LowPart;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnLowPart) put_LowPart;
 	}
 
 
-	public HRESULT get_HighPart(int32* retval) mut => VT.[Friend]get_HighPart(&this, retval);
+	public HRESULT get_HighPart(int32 retval) mut => VT.[Friend]get_HighPart(&this, retval);
 
 	public HRESULT put_HighPart(int32 lnHighPart) mut => VT.[Friend]put_HighPart(&this, lnHighPart);
 
-	public HRESULT get_LowPart(int32* retval) mut => VT.[Friend]get_LowPart(&this, retval);
+	public HRESULT get_LowPart(int32 retval) mut => VT.[Friend]get_LowPart(&this, retval);
 
 	public HRESULT put_LowPart(int32 lnLowPart) mut => VT.[Friend]put_LowPart(&this, lnLowPart);
 }
@@ -5054,14 +5054,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_AddressType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_AddressType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnAddressType) put_AddressType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_Address;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vAddress) put_Address;
 	}
 
 
-	public HRESULT get_AddressType(int32* retval) mut => VT.[Friend]get_AddressType(&this, retval);
+	public HRESULT get_AddressType(int32 retval) mut => VT.[Friend]get_AddressType(&this, retval);
 
 	public HRESULT put_AddressType(int32 lnAddressType) mut => VT.[Friend]put_AddressType(&this, lnAddressType);
 
@@ -5096,14 +5096,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnType) put_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_Address;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAddress) put_Address;
 	}
 
 
-	public HRESULT get_Type(int32* retval) mut => VT.[Friend]get_Type(&this, retval);
+	public HRESULT get_Type(int32 retval) mut => VT.[Friend]get_Type(&this, retval);
 
 	public HRESULT put_Type(int32 lnType) mut => VT.[Friend]put_Type(&this, lnType);
 
@@ -5120,7 +5120,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnType) put_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_VolumeName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVolumeName) put_VolumeName;
@@ -5129,7 +5129,7 @@ public static
 	}
 
 
-	public HRESULT get_Type(int32* retval) mut => VT.[Friend]get_Type(&this, retval);
+	public HRESULT get_Type(int32 retval) mut => VT.[Friend]get_Type(&this, retval);
 
 	public HRESULT put_Type(int32 lnType) mut => VT.[Friend]put_Type(&this, lnType);
 
@@ -5152,11 +5152,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ServerName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrServerName) put_ServerName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_ReplicaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_ReplicaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnReplicaType) put_ReplicaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_ReplicaNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_ReplicaNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnReplicaNumber) put_ReplicaNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnCount) put_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* retval) get_ReplicaAddressHints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vReplicaAddressHints) put_ReplicaAddressHints;
@@ -5167,15 +5167,15 @@ public static
 
 	public HRESULT put_ServerName(BSTR bstrServerName) mut => VT.[Friend]put_ServerName(&this, bstrServerName);
 
-	public HRESULT get_ReplicaType(int32* retval) mut => VT.[Friend]get_ReplicaType(&this, retval);
+	public HRESULT get_ReplicaType(int32 retval) mut => VT.[Friend]get_ReplicaType(&this, retval);
 
 	public HRESULT put_ReplicaType(int32 lnReplicaType) mut => VT.[Friend]put_ReplicaType(&this, lnReplicaType);
 
-	public HRESULT get_ReplicaNumber(int32* retval) mut => VT.[Friend]get_ReplicaNumber(&this, retval);
+	public HRESULT get_ReplicaNumber(int32 retval) mut => VT.[Friend]get_ReplicaNumber(&this, retval);
 
 	public HRESULT put_ReplicaNumber(int32 lnReplicaNumber) mut => VT.[Friend]put_ReplicaNumber(&this, lnReplicaNumber);
 
-	public HRESULT get_Count(int32* retval) mut => VT.[Friend]get_Count(&this, retval);
+	public HRESULT get_Count(int32 retval) mut => VT.[Friend]get_Count(&this, retval);
 
 	public HRESULT put_Count(int32 lnCount) mut => VT.[Friend]put_Count(&this, lnCount);
 
@@ -5196,7 +5196,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProtectedAttrName) put_ProtectedAttrName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_SubjectName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSubjectName) put_SubjectName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Privileges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Privileges;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnPrivileges) put_Privileges;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppAcl) CopyAcl;
 	}
@@ -5210,7 +5210,7 @@ public static
 
 	public HRESULT put_SubjectName(BSTR bstrSubjectName) mut => VT.[Friend]put_SubjectName(&this, bstrSubjectName);
 
-	public HRESULT get_Privileges(int32* retval) mut => VT.[Friend]get_Privileges(&this, retval);
+	public HRESULT get_Privileges(int32 retval) mut => VT.[Friend]get_Privileges(&this, retval);
 
 	public HRESULT put_Privileges(int32 lnPrivileges) mut => VT.[Friend]put_Privileges(&this, lnPrivileges);
 
@@ -5225,18 +5225,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_WholeSeconds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_WholeSeconds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnWholeSeconds) put_WholeSeconds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_EventID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_EventID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnEventID) put_EventID;
 	}
 
 
-	public HRESULT get_WholeSeconds(int32* retval) mut => VT.[Friend]get_WholeSeconds(&this, retval);
+	public HRESULT get_WholeSeconds(int32 retval) mut => VT.[Friend]get_WholeSeconds(&this, retval);
 
 	public HRESULT put_WholeSeconds(int32 lnWholeSeconds) mut => VT.[Friend]put_WholeSeconds(&this, lnWholeSeconds);
 
-	public HRESULT get_EventID(int32* retval) mut => VT.[Friend]get_EventID(&this, retval);
+	public HRESULT get_EventID(int32 retval) mut => VT.[Friend]get_EventID(&this, retval);
 
 	public HRESULT put_EventID(int32 lnEventID) mut => VT.[Friend]put_EventID(&this, lnEventID);
 }
@@ -5267,14 +5267,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_RemoteID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_RemoteID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnRemoteID) put_RemoteID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ObjectName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrObjectName) put_ObjectName;
 	}
 
 
-	public HRESULT get_RemoteID(int32* retval) mut => VT.[Friend]get_RemoteID(&this, retval);
+	public HRESULT get_RemoteID(int32 retval) mut => VT.[Friend]get_RemoteID(&this, retval);
 
 	public HRESULT put_RemoteID(int32 lnRemoteID) mut => VT.[Friend]put_RemoteID(&this, lnRemoteID);
 
@@ -5293,9 +5293,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ObjectName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrObjectName) put_ObjectName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Level;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Level;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnLevel) put_Level;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Interval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Interval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnInterval) put_Interval;
 	}
 
@@ -5304,11 +5304,11 @@ public static
 
 	public HRESULT put_ObjectName(BSTR bstrObjectName) mut => VT.[Friend]put_ObjectName(&this, bstrObjectName);
 
-	public HRESULT get_Level(int32* retval) mut => VT.[Friend]get_Level(&this, retval);
+	public HRESULT get_Level(int32 retval) mut => VT.[Friend]get_Level(&this, retval);
 
 	public HRESULT put_Level(int32 lnLevel) mut => VT.[Friend]put_Level(&this, lnLevel);
 
-	public HRESULT get_Interval(int32* retval) mut => VT.[Friend]get_Interval(&this, retval);
+	public HRESULT get_Interval(int32 retval) mut => VT.[Friend]get_Interval(&this, retval);
 
 	public HRESULT put_Interval(int32 lnInterval) mut => VT.[Friend]put_Interval(&this, lnInterval);
 }
@@ -5323,7 +5323,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ObjectName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrObjectName) put_ObjectName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_Amount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_Amount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnAmount) put_Amount;
 	}
 
@@ -5332,7 +5332,7 @@ public static
 
 	public HRESULT put_ObjectName(BSTR bstrObjectName) mut => VT.[Friend]put_ObjectName(&this, bstrObjectName);
 
-	public HRESULT get_Amount(int32* retval) mut => VT.[Friend]get_Amount(&this, retval);
+	public HRESULT get_Amount(int32 retval) mut => VT.[Friend]get_Amount(&this, retval);
 
 	public HRESULT put_Amount(int32 lnAmount) mut => VT.[Friend]put_Amount(&this, lnAmount);
 }
@@ -5366,13 +5366,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrADsPath, int32 lnSetType) Set;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnDisplayType) SetDisplayType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnFormatType, BSTR* pbstrADsPath) Retrieve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plnNumPathElements) GetNumElements;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plnNumPathElements) GetNumElements;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnElementIndex, BSTR* pbstrElement) GetElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLeafElement) AddLeafElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveLeafElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppAdsPath) CopyPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnReserved, BSTR bstrInStr, BSTR* pbstrOutStr) GetEscapedElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_EscapedMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_EscapedMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnEscapedMode) put_EscapedMode;
 	}
 
@@ -5383,7 +5383,7 @@ public static
 
 	public HRESULT Retrieve(int32 lnFormatType, BSTR* pbstrADsPath) mut => VT.[Friend]Retrieve(&this, lnFormatType, pbstrADsPath);
 
-	public HRESULT GetNumElements(int32* plnNumPathElements) mut => VT.[Friend]GetNumElements(&this, plnNumPathElements);
+	public HRESULT GetNumElements(int32 plnNumPathElements) mut => VT.[Friend]GetNumElements(&this, plnNumPathElements);
 
 	public HRESULT GetElement(int32 lnElementIndex, BSTR* pbstrElement) mut => VT.[Friend]GetElement(&this, lnElementIndex, pbstrElement);
 
@@ -5395,7 +5395,7 @@ public static
 
 	public HRESULT GetEscapedElement(int32 lnReserved, BSTR bstrInStr, BSTR* pbstrOutStr) mut => VT.[Friend]GetEscapedElement(&this, lnReserved, bstrInStr, pbstrOutStr);
 
-	public HRESULT get_EscapedMode(int32* retval) mut => VT.[Friend]get_EscapedMode(&this, retval);
+	public HRESULT get_EscapedMode(int32 retval) mut => VT.[Friend]get_EscapedMode(&this, retval);
 
 	public HRESULT put_EscapedMode(int32 lnEscapedMode) mut => VT.[Friend]put_EscapedMode(&this, lnEscapedMode);
 }
@@ -5416,7 +5416,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_ForestDNSName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_PDCRoleOwner;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retval) get_SchemaRoleOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* retval) get_IsNativeMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 retval) get_IsNativeMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pszDCName) GetAnyDCName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR szServer, BSTR* pszSiteName) GetDCSiteName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RefreshSchemaCache;
@@ -5440,7 +5440,7 @@ public static
 
 	public HRESULT get_SchemaRoleOwner(BSTR* retval) mut => VT.[Friend]get_SchemaRoleOwner(&this, retval);
 
-	public HRESULT get_IsNativeMode(int16* retval) mut => VT.[Friend]get_IsNativeMode(&this, retval);
+	public HRESULT get_IsNativeMode(int16 retval) mut => VT.[Friend]get_IsNativeMode(&this, retval);
 
 	public HRESULT GetAnyDCName(BSTR* pszDCName) mut => VT.[Friend]GetAnyDCName(&this, pszDCName);
 
@@ -5534,7 +5534,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varPath, int32 lPathFormat, int32 lFormat, VARIANT* pVariant) GetSecurityDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varPath, int32 lPathFormat, VARIANT varData, int32 lDataFormat) SetSecurityDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSD, int32 lDataFormat, int32 lOutFormat, VARIANT* pResult) ConvertSecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_SecurityMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_SecurityMask;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lnSecurityMask) put_SecurityMask;
 	}
 
@@ -5545,7 +5545,7 @@ public static
 
 	public HRESULT ConvertSecurityDescriptor(VARIANT varSD, int32 lDataFormat, int32 lOutFormat, VARIANT* pResult) mut => VT.[Friend]ConvertSecurityDescriptor(&this, varSD, lDataFormat, lOutFormat, pResult);
 
-	public HRESULT get_SecurityMask(int32* retval) mut => VT.[Friend]get_SecurityMask(&this, retval);
+	public HRESULT get_SecurityMask(int32 retval) mut => VT.[Friend]get_SecurityMask(&this, retval);
 
 	public HRESULT put_SecurityMask(int32 lnSecurityMask) mut => VT.[Friend]put_SecurityMask(&this, lnSecurityMask);
 }
@@ -5587,8 +5587,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszServer, PWSTR pszUserName, PWSTR pszPassword, uint32 dwFlags) SetServer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 langid) SetLanguageID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectClass, ref Guid riid, void** ppv) GetDisplaySpecifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectClass, uint32 dwFlags, char16* pszBuffer, int32 cchBuffer, int32* presid) GetIconLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectClass, Guid riid, void** ppv) GetDisplaySpecifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectClass, uint32 dwFlags, char16* pszBuffer, int32 cchBuffer, int32 presid) GetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HICON(SelfOuter* self, PWSTR pszObjectClass, uint32 dwFlags, int32 cxIcon, int32 cyIcon) GetIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectClass, char16* pszBuffer, int32 cchBuffer) GetFriendlyClassName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectClass, PWSTR pszAttributeName, char16* pszBuffer, uint32 cchBuffer) GetFriendlyAttributeName;
@@ -5603,9 +5603,9 @@ public static
 
 	public HRESULT SetLanguageID(uint16 langid) mut => VT.[Friend]SetLanguageID(&this, langid);
 
-	public HRESULT GetDisplaySpecifier(PWSTR pszObjectClass, ref Guid riid, void** ppv) mut => VT.[Friend]GetDisplaySpecifier(&this, pszObjectClass, ref riid, ppv);
+	public HRESULT GetDisplaySpecifier(PWSTR pszObjectClass, Guid riid, void** ppv) mut => VT.[Friend]GetDisplaySpecifier(&this, pszObjectClass, riid, ppv);
 
-	public HRESULT GetIconLocation(PWSTR pszObjectClass, uint32 dwFlags, char16* pszBuffer, int32 cchBuffer, int32* presid) mut => VT.[Friend]GetIconLocation(&this, pszObjectClass, dwFlags, pszBuffer, cchBuffer, presid);
+	public HRESULT GetIconLocation(PWSTR pszObjectClass, uint32 dwFlags, char16* pszBuffer, int32 cchBuffer, int32 presid) mut => VT.[Friend]GetIconLocation(&this, pszObjectClass, dwFlags, pszBuffer, cchBuffer, presid);
 
 	public HICON GetIcon(PWSTR pszObjectClass, uint32 dwFlags, int32 cxIcon, int32 cyIcon) mut => VT.[Friend]GetIcon(&this, pszObjectClass, dwFlags, cxIcon, cyIcon);
 
@@ -5682,13 +5682,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nCurrIndex, BOOL bValid) SetButtons;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnTotal, int32* pnStartIndex) GetPageCounts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pnTotal, int32 pnStartIndex) GetPageCounts;
 	}
 
 
 	public HRESULT SetButtons(uint32 nCurrIndex, BOOL bValid) mut => VT.[Friend]SetButtons(&this, nCurrIndex, bValid);
 
-	public HRESULT GetPageCounts(int32* pnTotal, int32* pnStartIndex) mut => VT.[Friend]GetPageCounts(&this, pnTotal, pnStartIndex);
+	public HRESULT GetPageCounts(int32 pnTotal, int32 pnStartIndex) mut => VT.[Friend]GetPageCounts(&this, pnTotal, pnStartIndex);
 }
 
 [CRepr]struct IDsAdminNewObjPrimarySite : IUnknown
@@ -5747,16 +5747,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* pExtraInfo, uint32* puEventFlags) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uEvent, IDataObject* pArg1, IDataObject* pArg2, uint32* puFlags, BSTR* pBstr) Begin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* pExtraInfo, uint32 puEventFlags) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uEvent, IDataObject* pArg1, IDataObject* pArg2, uint32 puFlags, BSTR* pBstr) Begin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nItem, uint32 uFlags) Notify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) End;
 	}
 
 
-	public HRESULT Initialize(IDataObject* pExtraInfo, uint32* puEventFlags) mut => VT.[Friend]Initialize(&this, pExtraInfo, puEventFlags);
+	public HRESULT Initialize(IDataObject* pExtraInfo, uint32 puEventFlags) mut => VT.[Friend]Initialize(&this, pExtraInfo, puEventFlags);
 
-	public HRESULT Begin(uint32 uEvent, IDataObject* pArg1, IDataObject* pArg2, uint32* puFlags, BSTR* pBstr) mut => VT.[Friend]Begin(&this, uEvent, pArg1, pArg2, puFlags, pBstr);
+	public HRESULT Begin(uint32 uEvent, IDataObject* pArg1, IDataObject* pArg2, uint32 puFlags, BSTR* pBstr) mut => VT.[Friend]Begin(&this, uEvent, pArg1, pArg2, puFlags, pBstr);
 
 	public HRESULT Notify(uint32 nItem, uint32 uFlags) mut => VT.[Friend]Notify(&this, nItem, uFlags);
 
@@ -5769,7 +5769,7 @@ public static
 public static
 {
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ADsGetObject(PWSTR lpszPathName, ref Guid riid, void** ppObject);
+	public static extern HRESULT ADsGetObject(PWSTR lpszPathName, Guid riid, void** ppObject);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ADsBuildEnumerator(IADsContainer* pADsContainer, IEnumVARIANT** ppEnumVariant);
@@ -5778,19 +5778,19 @@ public static
 	public static extern HRESULT ADsFreeEnumerator(IEnumVARIANT* pEnumVariant);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ADsEnumerateNext(IEnumVARIANT* pEnumVariant, uint32 cElements, VARIANT* pvar, uint32* pcElementsFetched);
+	public static extern HRESULT ADsEnumerateNext(IEnumVARIANT* pEnumVariant, uint32 cElements, VARIANT* pvar, uint32 pcElementsFetched);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ADsBuildVarArrayStr(PWSTR* lppPathNames, uint32 dwPathNames, VARIANT* pVar);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ADsBuildVarArrayInt(uint32* lpdwObjectTypes, uint32 dwObjectTypes, VARIANT* pVar);
+	public static extern HRESULT ADsBuildVarArrayInt(uint32 lpdwObjectTypes, uint32 dwObjectTypes, VARIANT* pVar);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ADsOpenObject(PWSTR lpszPathName, PWSTR lpszUserName, PWSTR lpszPassword, ADS_AUTHENTICATION_ENUM dwReserved, ref Guid riid, void** ppObject);
+	public static extern HRESULT ADsOpenObject(PWSTR lpszPathName, PWSTR lpszUserName, PWSTR lpszPassword, ADS_AUTHENTICATION_ENUM dwReserved, Guid riid, void** ppObject);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ADsGetLastError(uint32* lpError, char16* lpErrorBuf, uint32 dwErrorBufLen, char16* lpNameBuf, uint32 dwNameBufLen);
+	public static extern HRESULT ADsGetLastError(uint32 lpError, char16* lpErrorBuf, uint32 dwErrorBufLen, char16* lpNameBuf, uint32 dwNameBufLen);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void ADsSetLastError(uint32 dwErr, PWSTR pszError, PWSTR pszProvider);
@@ -5814,13 +5814,13 @@ public static
 	public static extern BOOL ReallocADsStr(PWSTR* ppStr, PWSTR pStr);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ADsEncodeBinaryData(uint8* pbSrcData, uint32 dwSrcLen, PWSTR* ppszDestData);
+	public static extern HRESULT ADsEncodeBinaryData(uint8 pbSrcData, uint32 dwSrcLen, PWSTR* ppszDestData);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ADsDecodeBinaryData(PWSTR szSrcData, uint8** ppbDestData, uint32* pdwDestLen);
+	public static extern HRESULT ADsDecodeBinaryData(PWSTR szSrcData, uint8** ppbDestData, uint32 pdwDestLen);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PropVariantToAdsType(VARIANT* pVariant, uint32 dwNumVariant, ADSVALUE** ppAdsValues, uint32* pdwNumValues);
+	public static extern HRESULT PropVariantToAdsType(VARIANT* pVariant, uint32 dwNumVariant, ADSVALUE** ppAdsValues, uint32 pdwNumValues);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AdsTypeToPropVariant(ADSVALUE* pAdsValues, uint32 dwNumValues, VARIANT* pVariant);
@@ -5832,7 +5832,7 @@ public static
 	public static extern HRESULT BinarySDToSecurityDescriptor(SECURITY_DESCRIPTOR* pSecurityDescriptor, VARIANT* pVarsec, PWSTR pszServerName, PWSTR userName, PWSTR passWord, uint32 dwFlags);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SecurityDescriptorToBinarySD(VARIANT vVarSecDes, SECURITY_DESCRIPTOR** ppSecurityDescriptor, uint32* pdwSDLength, PWSTR pszServerName, PWSTR userName, PWSTR passWord, uint32 dwFlags);
+	public static extern HRESULT SecurityDescriptorToBinarySD(VARIANT vVarSecDes, SECURITY_DESCRIPTOR** ppSecurityDescriptor, uint32 pdwSDLength, PWSTR pszServerName, PWSTR userName, PWSTR passWord, uint32 dwFlags);
 
 	[Import("dsuiext.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DsBrowseForContainerW(DSBROWSEINFOW* pInfo);
@@ -5854,7 +5854,7 @@ public static
 	public static extern BOOL ADsPropGetInitInfo(HWND hNotifyObj, ADSPROPINITPARAMS* pInitParams);
 
 	[Import("dsprop.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ADsPropSetHwndWithTitle(HWND hNotifyObj, HWND hPage, int8* ptzTitle);
+	public static extern BOOL ADsPropSetHwndWithTitle(HWND hNotifyObj, HWND hPage, int8 ptzTitle);
 
 	[Import("dsprop.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ADsPropSetHwnd(HWND hNotifyObj, HWND hPage);
@@ -5869,42 +5869,42 @@ public static
 	public static extern BOOL ADsPropShowErrorDialog(HWND hNotifyObj, HWND hPage);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsMakeSpnW(PWSTR ServiceClass, PWSTR ServiceName, PWSTR InstanceName, uint16 InstancePort, PWSTR Referrer, uint32* pcSpnLength, char16* pszSpn);
+	public static extern uint32 DsMakeSpnW(PWSTR ServiceClass, PWSTR ServiceName, PWSTR InstanceName, uint16 InstancePort, PWSTR Referrer, uint32 pcSpnLength, char16* pszSpn);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsMakeSpnA(PSTR ServiceClass, PSTR ServiceName, PSTR InstanceName, uint16 InstancePort, PSTR Referrer, uint32* pcSpnLength, uint8* pszSpn);
-	public static uint32 DsMakeSpn(PSTR ServiceClass, PSTR ServiceName, PSTR InstanceName, uint16 InstancePort, PSTR Referrer, uint32* pcSpnLength, uint8* pszSpn) => DsMakeSpnA(ServiceClass, ServiceName, InstanceName, InstancePort, Referrer, pcSpnLength, pszSpn);
+	public static extern uint32 DsMakeSpnA(PSTR ServiceClass, PSTR ServiceName, PSTR InstanceName, uint16 InstancePort, PSTR Referrer, uint32 pcSpnLength, uint8* pszSpn);
+	public static uint32 DsMakeSpn(PSTR ServiceClass, PSTR ServiceName, PSTR InstanceName, uint16 InstancePort, PSTR Referrer, uint32 pcSpnLength, uint8* pszSpn) => DsMakeSpnA(ServiceClass, ServiceName, InstanceName, InstancePort, Referrer, pcSpnLength, pszSpn);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsCrackSpnA(PSTR pszSpn, uint32* pcServiceClass, uint8* ServiceClass, uint32* pcServiceName, uint8* ServiceName, uint32* pcInstanceName, uint8* InstanceName, uint16* pInstancePort);
-	public static uint32 DsCrackSpn(PSTR pszSpn, uint32* pcServiceClass, uint8* ServiceClass, uint32* pcServiceName, uint8* ServiceName, uint32* pcInstanceName, uint8* InstanceName, uint16* pInstancePort) => DsCrackSpnA(pszSpn, pcServiceClass, ServiceClass, pcServiceName, ServiceName, pcInstanceName, InstanceName, pInstancePort);
+	public static extern uint32 DsCrackSpnA(PSTR pszSpn, uint32 pcServiceClass, uint8* ServiceClass, uint32 pcServiceName, uint8* ServiceName, uint32 pcInstanceName, uint8* InstanceName, uint16 pInstancePort);
+	public static uint32 DsCrackSpn(PSTR pszSpn, uint32 pcServiceClass, uint8* ServiceClass, uint32 pcServiceName, uint8* ServiceName, uint32 pcInstanceName, uint8* InstanceName, uint16 pInstancePort) => DsCrackSpnA(pszSpn, pcServiceClass, ServiceClass, pcServiceName, ServiceName, pcInstanceName, InstanceName, pInstancePort);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsCrackSpnW(PWSTR pszSpn, uint32* pcServiceClass, char16* ServiceClass, uint32* pcServiceName, char16* ServiceName, uint32* pcInstanceName, char16* InstanceName, uint16* pInstancePort);
+	public static extern uint32 DsCrackSpnW(PWSTR pszSpn, uint32 pcServiceClass, char16* ServiceClass, uint32 pcServiceName, char16* ServiceName, uint32 pcInstanceName, char16* InstanceName, uint16 pInstancePort);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsQuoteRdnValueW(uint32 cUnquotedRdnValueLength, char16* psUnquotedRdnValue, uint32* pcQuotedRdnValueLength, char16* psQuotedRdnValue);
+	public static extern uint32 DsQuoteRdnValueW(uint32 cUnquotedRdnValueLength, char16* psUnquotedRdnValue, uint32 pcQuotedRdnValueLength, char16* psQuotedRdnValue);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsQuoteRdnValueA(uint32 cUnquotedRdnValueLength, uint8* psUnquotedRdnValue, uint32* pcQuotedRdnValueLength, uint8* psQuotedRdnValue);
-	public static uint32 DsQuoteRdnValue(uint32 cUnquotedRdnValueLength, uint8* psUnquotedRdnValue, uint32* pcQuotedRdnValueLength, uint8* psQuotedRdnValue) => DsQuoteRdnValueA(cUnquotedRdnValueLength, psUnquotedRdnValue, pcQuotedRdnValueLength, psQuotedRdnValue);
+	public static extern uint32 DsQuoteRdnValueA(uint32 cUnquotedRdnValueLength, uint8* psUnquotedRdnValue, uint32 pcQuotedRdnValueLength, uint8* psQuotedRdnValue);
+	public static uint32 DsQuoteRdnValue(uint32 cUnquotedRdnValueLength, uint8* psUnquotedRdnValue, uint32 pcQuotedRdnValueLength, uint8* psQuotedRdnValue) => DsQuoteRdnValueA(cUnquotedRdnValueLength, psUnquotedRdnValue, pcQuotedRdnValueLength, psQuotedRdnValue);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsUnquoteRdnValueW(uint32 cQuotedRdnValueLength, char16* psQuotedRdnValue, uint32* pcUnquotedRdnValueLength, char16* psUnquotedRdnValue);
+	public static extern uint32 DsUnquoteRdnValueW(uint32 cQuotedRdnValueLength, char16* psQuotedRdnValue, uint32 pcUnquotedRdnValueLength, char16* psUnquotedRdnValue);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsUnquoteRdnValueA(uint32 cQuotedRdnValueLength, uint8* psQuotedRdnValue, uint32* pcUnquotedRdnValueLength, uint8* psUnquotedRdnValue);
-	public static uint32 DsUnquoteRdnValue(uint32 cQuotedRdnValueLength, uint8* psQuotedRdnValue, uint32* pcUnquotedRdnValueLength, uint8* psUnquotedRdnValue) => DsUnquoteRdnValueA(cQuotedRdnValueLength, psQuotedRdnValue, pcUnquotedRdnValueLength, psUnquotedRdnValue);
+	public static extern uint32 DsUnquoteRdnValueA(uint32 cQuotedRdnValueLength, uint8* psQuotedRdnValue, uint32 pcUnquotedRdnValueLength, uint8* psUnquotedRdnValue);
+	public static uint32 DsUnquoteRdnValue(uint32 cQuotedRdnValueLength, uint8* psQuotedRdnValue, uint32 pcUnquotedRdnValueLength, uint8* psUnquotedRdnValue) => DsUnquoteRdnValueA(cQuotedRdnValueLength, psQuotedRdnValue, pcUnquotedRdnValueLength, psUnquotedRdnValue);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetRdnW(PWSTR* ppDN, uint32* pcDN, PWSTR* ppKey, uint32* pcKey, PWSTR* ppVal, uint32* pcVal);
+	public static extern uint32 DsGetRdnW(PWSTR* ppDN, uint32 pcDN, PWSTR* ppKey, uint32 pcKey, PWSTR* ppVal, uint32 pcVal);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DsCrackUnquotedMangledRdnW(char16* pszRDN, uint32 cchRDN, ref Guid pGuid, DS_MANGLE_FOR* peDsMangleFor);
+	public static extern BOOL DsCrackUnquotedMangledRdnW(char16* pszRDN, uint32 cchRDN, Guid pGuid, DS_MANGLE_FOR* peDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DsCrackUnquotedMangledRdnA(uint8* pszRDN, uint32 cchRDN, ref Guid pGuid, DS_MANGLE_FOR* peDsMangleFor);
-	public static BOOL DsCrackUnquotedMangledRdn(uint8* pszRDN, uint32 cchRDN, ref Guid pGuid, DS_MANGLE_FOR* peDsMangleFor) => DsCrackUnquotedMangledRdnA(pszRDN, cchRDN, ref pGuid, peDsMangleFor);
+	public static extern BOOL DsCrackUnquotedMangledRdnA(uint8* pszRDN, uint32 cchRDN, Guid pGuid, DS_MANGLE_FOR* peDsMangleFor);
+	public static BOOL DsCrackUnquotedMangledRdn(uint8* pszRDN, uint32 cchRDN, Guid pGuid, DS_MANGLE_FOR* peDsMangleFor) => DsCrackUnquotedMangledRdnA(pszRDN, cchRDN, pGuid, peDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsIsMangledRdnValueW(char16* pszRdn, uint32 cRdn, DS_MANGLE_FOR eDsMangleForDesired);
@@ -5921,17 +5921,17 @@ public static
 	public static extern BOOL DsIsMangledDnW(PWSTR pszDn, DS_MANGLE_FOR eDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsCrackSpn2A(uint8* pszSpn, uint32 cSpn, uint32* pcServiceClass, uint8* ServiceClass, uint32* pcServiceName, uint8* ServiceName, uint32* pcInstanceName, uint8* InstanceName, uint16* pInstancePort);
-	public static uint32 DsCrackSpn2(uint8* pszSpn, uint32 cSpn, uint32* pcServiceClass, uint8* ServiceClass, uint32* pcServiceName, uint8* ServiceName, uint32* pcInstanceName, uint8* InstanceName, uint16* pInstancePort) => DsCrackSpn2A(pszSpn, cSpn, pcServiceClass, ServiceClass, pcServiceName, ServiceName, pcInstanceName, InstanceName, pInstancePort);
+	public static extern uint32 DsCrackSpn2A(uint8* pszSpn, uint32 cSpn, uint32 pcServiceClass, uint8* ServiceClass, uint32 pcServiceName, uint8* ServiceName, uint32 pcInstanceName, uint8* InstanceName, uint16 pInstancePort);
+	public static uint32 DsCrackSpn2(uint8* pszSpn, uint32 cSpn, uint32 pcServiceClass, uint8* ServiceClass, uint32 pcServiceName, uint8* ServiceName, uint32 pcInstanceName, uint8* InstanceName, uint16 pInstancePort) => DsCrackSpn2A(pszSpn, cSpn, pcServiceClass, ServiceClass, pcServiceName, ServiceName, pcInstanceName, InstanceName, pInstancePort);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsCrackSpn2W(char16* pszSpn, uint32 cSpn, uint32* pcServiceClass, char16* ServiceClass, uint32* pcServiceName, char16* ServiceName, uint32* pcInstanceName, char16* InstanceName, uint16* pInstancePort);
+	public static extern uint32 DsCrackSpn2W(char16* pszSpn, uint32 cSpn, uint32 pcServiceClass, char16* ServiceClass, uint32 pcServiceName, char16* ServiceName, uint32 pcInstanceName, char16* InstanceName, uint16 pInstancePort);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsCrackSpn3W(PWSTR pszSpn, uint32 cSpn, uint32* pcHostName, char16* HostName, uint32* pcInstanceName, char16* InstanceName, uint16* pPortNumber, uint32* pcDomainName, char16* DomainName, uint32* pcRealmName, char16* RealmName);
+	public static extern uint32 DsCrackSpn3W(PWSTR pszSpn, uint32 cSpn, uint32 pcHostName, char16* HostName, uint32 pcInstanceName, char16* InstanceName, uint16 pPortNumber, uint32 pcDomainName, char16* DomainName, uint32 pcRealmName, char16* RealmName);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsCrackSpn4W(PWSTR pszSpn, uint32 cSpn, uint32* pcHostName, char16* HostName, uint32* pcInstanceName, char16* InstanceName, uint32* pcPortName, char16* PortName, uint32* pcDomainName, char16* DomainName, uint32* pcRealmName, char16* RealmName);
+	public static extern uint32 DsCrackSpn4W(PWSTR pszSpn, uint32 cSpn, uint32 pcHostName, char16* HostName, uint32 pcInstanceName, char16* InstanceName, uint32 pcPortName, char16* PortName, uint32 pcDomainName, char16* DomainName, uint32 pcRealmName, char16* RealmName);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindW(PWSTR DomainControllerName, PWSTR DnsDomainName, HANDLE* phDS);
@@ -5962,11 +5962,11 @@ public static
 	public static uint32 DsBindWithSpnEx(PSTR DomainControllerName, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS) => DsBindWithSpnExA(DomainControllerName, DnsDomainName, AuthIdentity, ServicePrincipalName, BindFlags, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsBindByInstanceW(PWSTR ServerName, PWSTR Annotation, ref Guid InstanceGuid, PWSTR DnsDomainName, void* AuthIdentity, PWSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
+	public static extern uint32 DsBindByInstanceW(PWSTR ServerName, PWSTR Annotation, Guid InstanceGuid, PWSTR DnsDomainName, void* AuthIdentity, PWSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsBindByInstanceA(PSTR ServerName, PSTR Annotation, ref Guid InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
-	public static uint32 DsBindByInstance(PSTR ServerName, PSTR Annotation, ref Guid InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS) => DsBindByInstanceA(ServerName, Annotation, ref InstanceGuid, DnsDomainName, AuthIdentity, ServicePrincipalName, BindFlags, phDS);
+	public static extern uint32 DsBindByInstanceA(PSTR ServerName, PSTR Annotation, Guid InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
+	public static uint32 DsBindByInstance(PSTR ServerName, PSTR Annotation, Guid InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS) => DsBindByInstanceA(ServerName, Annotation, InstanceGuid, DnsDomainName, AuthIdentity, ServicePrincipalName, BindFlags, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindToISTGW(PWSTR SiteName, HANDLE* phDS);
@@ -6010,11 +6010,11 @@ public static
 	public static void DsFreeNameResult(DS_NAME_RESULTA* pResult) => DsFreeNameResultA(pResult);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetSpnA(DS_SPN_NAME_TYPE ServiceType, PSTR ServiceClass, PSTR ServiceName, uint16 InstancePort, uint16 cInstanceNames, PSTR* pInstanceNames, uint16* pInstancePorts, uint32* pcSpn, PSTR** prpszSpn);
-	public static uint32 DsGetSpn(DS_SPN_NAME_TYPE ServiceType, PSTR ServiceClass, PSTR ServiceName, uint16 InstancePort, uint16 cInstanceNames, PSTR* pInstanceNames, uint16* pInstancePorts, uint32* pcSpn, PSTR** prpszSpn) => DsGetSpnA(ServiceType, ServiceClass, ServiceName, InstancePort, cInstanceNames, pInstanceNames, pInstancePorts, pcSpn, prpszSpn);
+	public static extern uint32 DsGetSpnA(DS_SPN_NAME_TYPE ServiceType, PSTR ServiceClass, PSTR ServiceName, uint16 InstancePort, uint16 cInstanceNames, PSTR* pInstanceNames, uint16* pInstancePorts, uint32 pcSpn, PSTR** prpszSpn);
+	public static uint32 DsGetSpn(DS_SPN_NAME_TYPE ServiceType, PSTR ServiceClass, PSTR ServiceName, uint16 InstancePort, uint16 cInstanceNames, PSTR* pInstanceNames, uint16* pInstancePorts, uint32 pcSpn, PSTR** prpszSpn) => DsGetSpnA(ServiceType, ServiceClass, ServiceName, InstancePort, cInstanceNames, pInstanceNames, pInstancePorts, pcSpn, prpszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetSpnW(DS_SPN_NAME_TYPE ServiceType, PWSTR ServiceClass, PWSTR ServiceName, uint16 InstancePort, uint16 cInstanceNames, PWSTR* pInstanceNames, uint16* pInstancePorts, uint32* pcSpn, PWSTR** prpszSpn);
+	public static extern uint32 DsGetSpnW(DS_SPN_NAME_TYPE ServiceType, PWSTR ServiceClass, PWSTR ServiceName, uint16 InstancePort, uint16 cInstanceNames, PWSTR* pInstanceNames, uint16* pInstancePorts, uint32 pcSpn, PWSTR** prpszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeSpnArrayA(uint32 cSpn, PSTR* rpszSpn);
@@ -6031,11 +6031,11 @@ public static
 	public static extern uint32 DsWriteAccountSpnW(HANDLE hDS, DS_SPN_WRITE_OP Operation, PWSTR pszAccount, uint32 cSpn, PWSTR* rpszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsClientMakeSpnForTargetServerW(PWSTR ServiceClass, PWSTR ServiceName, uint32* pcSpnLength, char16* pszSpn);
+	public static extern uint32 DsClientMakeSpnForTargetServerW(PWSTR ServiceClass, PWSTR ServiceName, uint32 pcSpnLength, char16* pszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsClientMakeSpnForTargetServerA(PSTR ServiceClass, PSTR ServiceName, uint32* pcSpnLength, uint8* pszSpn);
-	public static uint32 DsClientMakeSpnForTargetServer(PSTR ServiceClass, PSTR ServiceName, uint32* pcSpnLength, uint8* pszSpn) => DsClientMakeSpnForTargetServerA(ServiceClass, ServiceName, pcSpnLength, pszSpn);
+	public static extern uint32 DsClientMakeSpnForTargetServerA(PSTR ServiceClass, PSTR ServiceName, uint32 pcSpnLength, uint8* pszSpn);
+	public static uint32 DsClientMakeSpnForTargetServer(PSTR ServiceClass, PSTR ServiceName, uint32 pcSpnLength, uint8* pszSpn) => DsClientMakeSpnForTargetServerA(ServiceClass, ServiceName, pcSpnLength, pszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsServerRegisterSpnA(DS_SPN_WRITE_OP Operation, PSTR ServiceClass, PSTR UserObjectDN);
@@ -6045,11 +6045,11 @@ public static
 	public static extern uint32 DsServerRegisterSpnW(DS_SPN_WRITE_OP Operation, PWSTR ServiceClass, PWSTR UserObjectDN);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaSyncA(HANDLE hDS, PSTR NameContext, ref Guid pUuidDsaSrc, uint32 Options);
-	public static uint32 DsReplicaSync(HANDLE hDS, PSTR NameContext, ref Guid pUuidDsaSrc, uint32 Options) => DsReplicaSyncA(hDS, NameContext, ref pUuidDsaSrc, Options);
+	public static extern uint32 DsReplicaSyncA(HANDLE hDS, PSTR NameContext, Guid pUuidDsaSrc, uint32 Options);
+	public static uint32 DsReplicaSync(HANDLE hDS, PSTR NameContext, Guid pUuidDsaSrc, uint32 Options) => DsReplicaSyncA(hDS, NameContext, pUuidDsaSrc, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaSyncW(HANDLE hDS, PWSTR NameContext, ref Guid pUuidDsaSrc, uint32 Options);
+	public static extern uint32 DsReplicaSyncW(HANDLE hDS, PWSTR NameContext, Guid pUuidDsaSrc, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaAddA(HANDLE hDS, PSTR NameContext, PSTR SourceDsaDn, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 Options);
@@ -6066,18 +6066,18 @@ public static
 	public static extern uint32 DsReplicaDelW(HANDLE hDS, PWSTR NameContext, PWSTR DsaSrc, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaModifyA(HANDLE hDS, PSTR NameContext, ref Guid pUuidSourceDsa, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options);
-	public static uint32 DsReplicaModify(HANDLE hDS, PSTR NameContext, ref Guid pUuidSourceDsa, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options) => DsReplicaModifyA(hDS, NameContext, ref pUuidSourceDsa, TransportDn, SourceDsaAddress, pSchedule, ReplicaFlags, ModifyFields, Options);
+	public static extern uint32 DsReplicaModifyA(HANDLE hDS, PSTR NameContext, Guid pUuidSourceDsa, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options);
+	public static uint32 DsReplicaModify(HANDLE hDS, PSTR NameContext, Guid pUuidSourceDsa, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options) => DsReplicaModifyA(hDS, NameContext, pUuidSourceDsa, TransportDn, SourceDsaAddress, pSchedule, ReplicaFlags, ModifyFields, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaModifyW(HANDLE hDS, PWSTR NameContext, ref Guid pUuidSourceDsa, PWSTR TransportDn, PWSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options);
+	public static extern uint32 DsReplicaModifyW(HANDLE hDS, PWSTR NameContext, Guid pUuidSourceDsa, PWSTR TransportDn, PWSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaUpdateRefsA(HANDLE hDS, PSTR NameContext, PSTR DsaDest, ref Guid pUuidDsaDest, uint32 Options);
-	public static uint32 DsReplicaUpdateRefs(HANDLE hDS, PSTR NameContext, PSTR DsaDest, ref Guid pUuidDsaDest, uint32 Options) => DsReplicaUpdateRefsA(hDS, NameContext, DsaDest, ref pUuidDsaDest, Options);
+	public static extern uint32 DsReplicaUpdateRefsA(HANDLE hDS, PSTR NameContext, PSTR DsaDest, Guid pUuidDsaDest, uint32 Options);
+	public static uint32 DsReplicaUpdateRefs(HANDLE hDS, PSTR NameContext, PSTR DsaDest, Guid pUuidDsaDest, uint32 Options) => DsReplicaUpdateRefsA(hDS, NameContext, DsaDest, pUuidDsaDest, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaUpdateRefsW(HANDLE hDS, PWSTR NameContext, PWSTR DsaDest, ref Guid pUuidDsaDest, uint32 Options);
+	public static extern uint32 DsReplicaUpdateRefsW(HANDLE hDS, PWSTR NameContext, PWSTR DsaDest, Guid pUuidDsaDest, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaSyncAllA(HANDLE hDS, PSTR pszNameContext, uint32 ulFlags, int pFnCallBack, void* pCallbackData, DS_REPSYNCALL_ERRINFOA*** pErrors);
@@ -6153,25 +6153,25 @@ public static
 	public static extern void DsQuerySitesFree(DS_SITE_COST_INFO* rgSiteInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsMapSchemaGuidsA(HANDLE hDs, uint32 cGuids, ref Guid rGuids, DS_SCHEMA_GUID_MAPA** ppGuidMap);
-	public static uint32 DsMapSchemaGuids(HANDLE hDs, uint32 cGuids, ref Guid rGuids, DS_SCHEMA_GUID_MAPA** ppGuidMap) => DsMapSchemaGuidsA(hDs, cGuids, ref rGuids, ppGuidMap);
+	public static extern uint32 DsMapSchemaGuidsA(HANDLE hDs, uint32 cGuids, Guid* rGuids, DS_SCHEMA_GUID_MAPA** ppGuidMap);
+	public static uint32 DsMapSchemaGuids(HANDLE hDs, uint32 cGuids, Guid* rGuids, DS_SCHEMA_GUID_MAPA** ppGuidMap) => DsMapSchemaGuidsA(hDs, cGuids, rGuids, ppGuidMap);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeSchemaGuidMapA(DS_SCHEMA_GUID_MAPA* pGuidMap);
 	public static void DsFreeSchemaGuidMap(DS_SCHEMA_GUID_MAPA* pGuidMap) => DsFreeSchemaGuidMapA(pGuidMap);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsMapSchemaGuidsW(HANDLE hDs, uint32 cGuids, ref Guid rGuids, DS_SCHEMA_GUID_MAPW** ppGuidMap);
+	public static extern uint32 DsMapSchemaGuidsW(HANDLE hDs, uint32 cGuids, Guid* rGuids, DS_SCHEMA_GUID_MAPW** ppGuidMap);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeSchemaGuidMapW(DS_SCHEMA_GUID_MAPW* pGuidMap);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDomainControllerInfoA(HANDLE hDs, PSTR DomainName, uint32 InfoLevel, uint32* pcOut, void** ppInfo);
-	public static uint32 DsGetDomainControllerInfo(HANDLE hDs, PSTR DomainName, uint32 InfoLevel, uint32* pcOut, void** ppInfo) => DsGetDomainControllerInfoA(hDs, DomainName, InfoLevel, pcOut, ppInfo);
+	public static extern uint32 DsGetDomainControllerInfoA(HANDLE hDs, PSTR DomainName, uint32 InfoLevel, uint32 pcOut, void** ppInfo);
+	public static uint32 DsGetDomainControllerInfo(HANDLE hDs, PSTR DomainName, uint32 InfoLevel, uint32 pcOut, void** ppInfo) => DsGetDomainControllerInfoA(hDs, DomainName, InfoLevel, pcOut, ppInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDomainControllerInfoW(HANDLE hDs, PWSTR DomainName, uint32 InfoLevel, uint32* pcOut, void** ppInfo);
+	public static extern uint32 DsGetDomainControllerInfoW(HANDLE hDs, PWSTR DomainName, uint32 InfoLevel, uint32 pcOut, void** ppInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeDomainControllerInfoA(uint32 InfoLevel, uint32 cInfo, void* pInfo);
@@ -6184,17 +6184,17 @@ public static
 	public static extern uint32 DsReplicaConsistencyCheck(HANDLE hDS, DS_KCC_TASKID TaskID, uint32 dwFlags);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaVerifyObjectsW(HANDLE hDS, PWSTR NameContext, ref Guid pUuidDsaSrc, uint32 ulOptions);
+	public static extern uint32 DsReplicaVerifyObjectsW(HANDLE hDS, PWSTR NameContext, Guid pUuidDsaSrc, uint32 ulOptions);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaVerifyObjectsA(HANDLE hDS, PSTR NameContext, ref Guid pUuidDsaSrc, uint32 ulOptions);
-	public static uint32 DsReplicaVerifyObjects(HANDLE hDS, PSTR NameContext, ref Guid pUuidDsaSrc, uint32 ulOptions) => DsReplicaVerifyObjectsA(hDS, NameContext, ref pUuidDsaSrc, ulOptions);
+	public static extern uint32 DsReplicaVerifyObjectsA(HANDLE hDS, PSTR NameContext, Guid pUuidDsaSrc, uint32 ulOptions);
+	public static uint32 DsReplicaVerifyObjects(HANDLE hDS, PSTR NameContext, Guid pUuidDsaSrc, uint32 ulOptions) => DsReplicaVerifyObjectsA(hDS, NameContext, pUuidDsaSrc, ulOptions);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaGetInfoW(HANDLE hDS, DS_REPL_INFO_TYPE InfoType, PWSTR pszObject, ref Guid puuidForSourceDsaObjGuid, void** ppInfo);
+	public static extern uint32 DsReplicaGetInfoW(HANDLE hDS, DS_REPL_INFO_TYPE InfoType, PWSTR pszObject, Guid puuidForSourceDsaObjGuid, void** ppInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaGetInfo2W(HANDLE hDS, DS_REPL_INFO_TYPE InfoType, PWSTR pszObject, ref Guid puuidForSourceDsaObjGuid, PWSTR pszAttributeName, PWSTR pszValue, uint32 dwFlags, uint32 dwEnumerationContext, void** ppInfo);
+	public static extern uint32 DsReplicaGetInfo2W(HANDLE hDS, DS_REPL_INFO_TYPE InfoType, PWSTR pszObject, Guid puuidForSourceDsaObjGuid, PWSTR pszAttributeName, PWSTR pszValue, uint32 dwFlags, uint32 dwEnumerationContext, void** ppInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsReplicaFreeInfo(DS_REPL_INFO_TYPE InfoType, void* pInfo);
@@ -6220,11 +6220,11 @@ public static
 	public static extern void DsRoleFreeMemory(void* Buffer);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcNameA(PSTR ComputerName, PSTR DomainName, ref Guid DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo);
-	public static uint32 DsGetDcName(PSTR ComputerName, PSTR DomainName, ref Guid DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo) => DsGetDcNameA(ComputerName, DomainName, ref DomainGuid, SiteName, Flags, DomainControllerInfo);
+	public static extern uint32 DsGetDcNameA(PSTR ComputerName, PSTR DomainName, Guid DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo);
+	public static uint32 DsGetDcName(PSTR ComputerName, PSTR DomainName, Guid DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo) => DsGetDcNameA(ComputerName, DomainName, DomainGuid, SiteName, Flags, DomainControllerInfo);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcNameW(PWSTR ComputerName, PWSTR DomainName, ref Guid DomainGuid, PWSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOW** DomainControllerInfo);
+	public static extern uint32 DsGetDcNameW(PWSTR ComputerName, PWSTR DomainName, Guid DomainGuid, PWSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOW** DomainControllerInfo);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetSiteNameA(PSTR ComputerName, PSTR* SiteName);
@@ -6255,11 +6255,11 @@ public static
 	public static uint32 DsAddressToSiteNamesEx(PSTR ComputerName, uint32 EntryCount, SOCKET_ADDRESS* SocketAddresses, PSTR** SiteNames, PSTR** SubnetNames) => DsAddressToSiteNamesExA(ComputerName, EntryCount, SocketAddresses, SiteNames, SubnetNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsEnumerateDomainTrustsW(PWSTR ServerName, uint32 Flags, DS_DOMAIN_TRUSTSW** Domains, uint32* DomainCount);
+	public static extern uint32 DsEnumerateDomainTrustsW(PWSTR ServerName, uint32 Flags, DS_DOMAIN_TRUSTSW** Domains, uint32 DomainCount);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsEnumerateDomainTrustsA(PSTR ServerName, uint32 Flags, DS_DOMAIN_TRUSTSA** Domains, uint32* DomainCount);
-	public static uint32 DsEnumerateDomainTrusts(PSTR ServerName, uint32 Flags, DS_DOMAIN_TRUSTSA** Domains, uint32* DomainCount) => DsEnumerateDomainTrustsA(ServerName, Flags, Domains, DomainCount);
+	public static extern uint32 DsEnumerateDomainTrustsA(PSTR ServerName, uint32 Flags, DS_DOMAIN_TRUSTSA** Domains, uint32 DomainCount);
+	public static uint32 DsEnumerateDomainTrusts(PSTR ServerName, uint32 Flags, DS_DOMAIN_TRUSTSA** Domains, uint32 DomainCount) => DsEnumerateDomainTrustsA(ServerName, Flags, Domains, DomainCount);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetForestTrustInformationW(PWSTR ServerName, PWSTR TrustedDomainName, uint32 Flags, LSA_FOREST_TRUST_INFORMATION** ForestTrustInfo);
@@ -6268,32 +6268,32 @@ public static
 	public static extern uint32 DsMergeForestTrustInformationW(PWSTR DomainName, LSA_FOREST_TRUST_INFORMATION* NewForestTrustInfo, LSA_FOREST_TRUST_INFORMATION* OldForestTrustInfo, LSA_FOREST_TRUST_INFORMATION** MergedForestTrustInfo);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcSiteCoverageW(PWSTR ServerName, uint32* EntryCount, PWSTR** SiteNames);
+	public static extern uint32 DsGetDcSiteCoverageW(PWSTR ServerName, uint32 EntryCount, PWSTR** SiteNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcSiteCoverageA(PSTR ServerName, uint32* EntryCount, PSTR** SiteNames);
-	public static uint32 DsGetDcSiteCoverage(PSTR ServerName, uint32* EntryCount, PSTR** SiteNames) => DsGetDcSiteCoverageA(ServerName, EntryCount, SiteNames);
+	public static extern uint32 DsGetDcSiteCoverageA(PSTR ServerName, uint32 EntryCount, PSTR** SiteNames);
+	public static uint32 DsGetDcSiteCoverage(PSTR ServerName, uint32 EntryCount, PSTR** SiteNames) => DsGetDcSiteCoverageA(ServerName, EntryCount, SiteNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsDeregisterDnsHostRecordsW(PWSTR ServerName, PWSTR DnsDomainName, ref Guid DomainGuid, ref Guid DsaGuid, PWSTR DnsHostName);
+	public static extern uint32 DsDeregisterDnsHostRecordsW(PWSTR ServerName, PWSTR DnsDomainName, Guid DomainGuid, Guid DsaGuid, PWSTR DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsDeregisterDnsHostRecordsA(PSTR ServerName, PSTR DnsDomainName, ref Guid DomainGuid, ref Guid DsaGuid, PSTR DnsHostName);
-	public static uint32 DsDeregisterDnsHostRecords(PSTR ServerName, PSTR DnsDomainName, ref Guid DomainGuid, ref Guid DsaGuid, PSTR DnsHostName) => DsDeregisterDnsHostRecordsA(ServerName, DnsDomainName, ref DomainGuid, ref DsaGuid, DnsHostName);
+	public static extern uint32 DsDeregisterDnsHostRecordsA(PSTR ServerName, PSTR DnsDomainName, Guid DomainGuid, Guid DsaGuid, PSTR DnsHostName);
+	public static uint32 DsDeregisterDnsHostRecords(PSTR ServerName, PSTR DnsDomainName, Guid DomainGuid, Guid DsaGuid, PSTR DnsHostName) => DsDeregisterDnsHostRecordsA(ServerName, DnsDomainName, DomainGuid, DsaGuid, DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcOpenW(PWSTR DnsName, uint32 OptionFlags, PWSTR SiteName, ref Guid DomainGuid, PWSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
+	public static extern uint32 DsGetDcOpenW(PWSTR DnsName, uint32 OptionFlags, PWSTR SiteName, Guid DomainGuid, PWSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcOpenA(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, ref Guid DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
-	public static uint32 DsGetDcOpen(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, ref Guid DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext) => DsGetDcOpenA(DnsName, OptionFlags, SiteName, ref DomainGuid, DnsForestName, DcFlags, RetGetDcContext);
+	public static extern uint32 DsGetDcOpenA(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, Guid DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
+	public static uint32 DsGetDcOpen(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, Guid DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext) => DsGetDcOpenA(DnsName, OptionFlags, SiteName, DomainGuid, DnsForestName, DcFlags, RetGetDcContext);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcNextW(HANDLE GetDcContextHandle, uint32* SockAddressCount, SOCKET_ADDRESS** SockAddresses, PWSTR* DnsHostName);
+	public static extern uint32 DsGetDcNextW(HANDLE GetDcContextHandle, uint32 SockAddressCount, SOCKET_ADDRESS** SockAddresses, PWSTR* DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcNextA(HANDLE GetDcContextHandle, uint32* SockAddressCount, SOCKET_ADDRESS** SockAddresses, PSTR* DnsHostName);
-	public static uint32 DsGetDcNext(HANDLE GetDcContextHandle, uint32* SockAddressCount, SOCKET_ADDRESS** SockAddresses, PSTR* DnsHostName) => DsGetDcNextA(GetDcContextHandle, SockAddressCount, SockAddresses, DnsHostName);
+	public static extern uint32 DsGetDcNextA(HANDLE GetDcContextHandle, uint32 SockAddressCount, SOCKET_ADDRESS** SockAddresses, PSTR* DnsHostName);
+	public static uint32 DsGetDcNext(HANDLE GetDcContextHandle, uint32 SockAddressCount, SOCKET_ADDRESS** SockAddresses, PSTR* DnsHostName) => DsGetDcNextA(GetDcContextHandle, SockAddressCount, SockAddresses, DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsGetDcCloseW(GetDcContextHandle GetDcContextHandle);

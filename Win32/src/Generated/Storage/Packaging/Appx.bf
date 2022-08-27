@@ -606,7 +606,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_COMPRESSION_OPTION* compressionOption) GetCompressionOption;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* contentType) GetContentType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* fileName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* size) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 size) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** stream) GetStream;
 	}
 
@@ -617,7 +617,7 @@ public static
 
 	public HRESULT GetName(PWSTR* fileName) mut => VT.[Friend]GetName(&this, fileName);
 
-	public HRESULT GetSize(uint64* size) mut => VT.[Friend]GetSize(&this, size);
+	public HRESULT GetSize(uint64 size) mut => VT.[Friend]GetSize(&this, size);
 
 	public HRESULT GetStream(IStream** stream) mut => VT.[Friend]GetStream(&this, stream);
 }
@@ -676,20 +676,20 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBlockMapBlocksEnumerator** blocks) GetBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lfhSize) GetLocalFileHeaderSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 lfhSize) GetLocalFileHeaderSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* size) GetUncompressedSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 size) GetUncompressedSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* fileStream, BOOL* isValid) ValidateFileHash;
 	}
 
 
 	public HRESULT GetBlocks(IAppxBlockMapBlocksEnumerator** blocks) mut => VT.[Friend]GetBlocks(&this, blocks);
 
-	public HRESULT GetLocalFileHeaderSize(uint32* lfhSize) mut => VT.[Friend]GetLocalFileHeaderSize(&this, lfhSize);
+	public HRESULT GetLocalFileHeaderSize(uint32 lfhSize) mut => VT.[Friend]GetLocalFileHeaderSize(&this, lfhSize);
 
 	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetUncompressedSize(uint64* size) mut => VT.[Friend]GetUncompressedSize(&this, size);
+	public HRESULT GetUncompressedSize(uint64 size) mut => VT.[Friend]GetUncompressedSize(&this, size);
 
 	public HRESULT ValidateFileHash(IStream* fileStream, BOOL* isValid) mut => VT.[Friend]ValidateFileHash(&this, fileStream, isValid);
 }
@@ -723,14 +723,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* bufferSize, uint8** buffer) GetHash;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* size) GetCompressedSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 bufferSize, uint8** buffer) GetHash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 size) GetCompressedSize;
 	}
 
 
-	public HRESULT GetHash(uint32* bufferSize, uint8** buffer) mut => VT.[Friend]GetHash(&this, bufferSize, buffer);
+	public HRESULT GetHash(uint32 bufferSize, uint8** buffer) mut => VT.[Friend]GetHash(&this, bufferSize, buffer);
 
-	public HRESULT GetCompressedSize(uint32* size) mut => VT.[Friend]GetCompressedSize(&this, size);
+	public HRESULT GetCompressedSize(uint32 size) mut => VT.[Friend]GetCompressedSize(&this, size);
 }
 
 [CRepr]struct IAppxBlockMapBlocksEnumerator : IUnknown
@@ -768,7 +768,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_CAPABILITIES* capabilities) GetCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestResourcesEnumerator** resources) GetResources;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestDeviceCapabilitiesEnumerator** deviceCapabilities) GetDeviceCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, uint64* value) GetPrerequisite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, uint64 value) GetPrerequisite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestApplicationsEnumerator** applications) GetApplications;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** manifestStream) GetStream;
 	}
@@ -786,7 +786,7 @@ public static
 
 	public HRESULT GetDeviceCapabilities(IAppxManifestDeviceCapabilitiesEnumerator** deviceCapabilities) mut => VT.[Friend]GetDeviceCapabilities(&this, deviceCapabilities);
 
-	public HRESULT GetPrerequisite(PWSTR name, uint64* value) mut => VT.[Friend]GetPrerequisite(&this, name, value);
+	public HRESULT GetPrerequisite(PWSTR name, uint64 value) mut => VT.[Friend]GetPrerequisite(&this, name, value);
 
 	public HRESULT GetApplications(IAppxManifestApplicationsEnumerator** applications) mut => VT.[Friend]GetApplications(&this, applications);
 
@@ -958,14 +958,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 minVersion) GetMinVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* minDate) GetMinDate;
 	}
 
 
 	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetMinVersion(uint64* minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
+	public HRESULT GetMinVersion(uint64 minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
 
 	public HRESULT GetMinDate(PWSTR* minDate) mut => VT.[Friend]GetMinDate(&this, minDate);
 }
@@ -1000,13 +1000,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* version) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 version) GetVersion;
 	}
 
 
 	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetVersion(uint64* version) mut => VT.[Friend]GetVersion(&this, version);
+	public HRESULT GetVersion(uint64 version) mut => VT.[Friend]GetVersion(&this, version);
 }
 
 [CRepr]struct IAppxManifestHostRuntimeDependenciesEnumerator : IUnknown
@@ -1040,7 +1040,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 minVersion) GetMinVersion;
 	}
 
 
@@ -1048,7 +1048,7 @@ public static
 
 	public HRESULT GetPublisher(PWSTR* publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
 
-	public HRESULT GetMinVersion(uint64* minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
+	public HRESULT GetMinVersion(uint64 minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
 }
 
 [CRepr]struct IAppxManifestHostRuntimeDependency2 : IUnknown
@@ -1137,7 +1137,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_PACKAGE_ARCHITECTURE* architecture) GetArchitecture;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* packageVersion) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 packageVersion) GetVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* resourceId) GetResourceId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR other, BOOL* isSame) ComparePublisher;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* packageFullName) GetPackageFullName;
@@ -1151,7 +1151,7 @@ public static
 
 	public HRESULT GetPublisher(PWSTR* publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
 
-	public HRESULT GetVersion(uint64* packageVersion) mut => VT.[Friend]GetVersion(&this, packageVersion);
+	public HRESULT GetVersion(uint64 packageVersion) mut => VT.[Friend]GetVersion(&this, packageVersion);
 
 	public HRESULT GetResourceId(PWSTR* resourceId) mut => VT.[Friend]GetResourceId(&this, resourceId);
 
@@ -1225,16 +1225,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* minVersion) GetMinVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* maxVersionTested) GetMaxVersionTested;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 maxVersionTested) GetMaxVersionTested;
 	}
 
 
 	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetMinVersion(uint64* minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
+	public HRESULT GetMinVersion(uint64 minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
 
-	public HRESULT GetMaxVersionTested(uint64* maxVersionTested) mut => VT.[Friend]GetMaxVersionTested(&this, maxVersionTested);
+	public HRESULT GetMaxVersionTested(uint64 maxVersionTested) mut => VT.[Friend]GetMaxVersionTested(&this, maxVersionTested);
 }
 
 [CRepr]struct IAppxManifestPackageDependenciesEnumerator : IUnknown
@@ -1268,7 +1268,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 minVersion) GetMinVersion;
 	}
 
 
@@ -1276,7 +1276,7 @@ public static
 
 	public HRESULT GetPublisher(PWSTR* publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
 
-	public HRESULT GetMinVersion(uint64* minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
+	public HRESULT GetMinVersion(uint64 minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
 }
 
 [CRepr]struct IAppxManifestPackageDependency2 : IAppxManifestPackageDependency
@@ -1287,11 +1287,11 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestPackageDependency.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* maxMajorVersionTested) GetMaxMajorVersionTested;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 maxMajorVersionTested) GetMaxMajorVersionTested;
 	}
 
 
-	public HRESULT GetMaxMajorVersionTested(uint16* maxMajorVersionTested) mut => VT.[Friend]GetMaxMajorVersionTested(&this, maxMajorVersionTested);
+	public HRESULT GetMaxMajorVersionTested(uint16 maxMajorVersionTested) mut => VT.[Friend]GetMaxMajorVersionTested(&this, maxMajorVersionTested);
 }
 
 [CRepr]struct IAppxManifestPackageDependency3 : IUnknown
@@ -1441,14 +1441,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* language) GetLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* scale) GetScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 scale) GetScale;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DX_FEATURE_LEVEL* dxFeatureLevel) GetDXFeatureLevel;
 	}
 
 
 	public HRESULT GetLanguage(PWSTR* language) mut => VT.[Friend]GetLanguage(&this, language);
 
-	public HRESULT GetScale(uint32* scale) mut => VT.[Friend]GetScale(&this, scale);
+	public HRESULT GetScale(uint32 scale) mut => VT.[Friend]GetScale(&this, scale);
 
 	public HRESULT GetDXFeatureLevel(DX_FEATURE_LEVEL* dxFeatureLevel) mut => VT.[Friend]GetDXFeatureLevel(&this, dxFeatureLevel);
 }
@@ -1641,8 +1641,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE* packageType) GetPackageType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* fileName) GetFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* offset) GetOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* size) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 offset) GetOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 size) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestQualifiedResourcesEnumerator** resources) GetResources;
 	}
 
@@ -1653,9 +1653,9 @@ public static
 
 	public HRESULT GetFileName(PWSTR* fileName) mut => VT.[Friend]GetFileName(&this, fileName);
 
-	public HRESULT GetOffset(uint64* offset) mut => VT.[Friend]GetOffset(&this, offset);
+	public HRESULT GetOffset(uint64 offset) mut => VT.[Friend]GetOffset(&this, offset);
 
-	public HRESULT GetSize(uint64* size) mut => VT.[Friend]GetSize(&this, size);
+	public HRESULT GetSize(uint64 size) mut => VT.[Friend]GetSize(&this, size);
 
 	public HRESULT GetResources(IAppxManifestQualifiedResourcesEnumerator** resources) mut => VT.[Friend]GetResources(&this, resources);
 }
@@ -2113,61 +2113,61 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageId(uint32* bufferLength, uint8* buffer);
+	public static extern int32 GetCurrentPackageId(uint32 bufferLength, uint8 buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageFullName(uint32* packageFullNameLength, char16* packageFullName);
+	public static extern int32 GetCurrentPackageFullName(uint32 packageFullNameLength, char16* packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageFamilyName(uint32* packageFamilyNameLength, char16* packageFamilyName);
+	public static extern int32 GetCurrentPackageFamilyName(uint32 packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackagePath(uint32* pathLength, char16* path);
+	public static extern int32 GetCurrentPackagePath(uint32 pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageId(HANDLE hProcess, uint32* bufferLength, uint8* buffer);
+	public static extern int32 GetPackageId(HANDLE hProcess, uint32 bufferLength, uint8 buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFullName(HANDLE hProcess, uint32* packageFullNameLength, char16* packageFullName);
+	public static extern int32 GetPackageFullName(HANDLE hProcess, uint32 packageFullNameLength, char16* packageFullName);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFullNameFromToken(HANDLE token, uint32* packageFullNameLength, char16* packageFullName);
+	public static extern int32 GetPackageFullNameFromToken(HANDLE token, uint32 packageFullNameLength, char16* packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFamilyName(HANDLE hProcess, uint32* packageFamilyNameLength, char16* packageFamilyName);
+	public static extern int32 GetPackageFamilyName(HANDLE hProcess, uint32 packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFamilyNameFromToken(HANDLE token, uint32* packageFamilyNameLength, char16* packageFamilyName);
+	public static extern int32 GetPackageFamilyNameFromToken(HANDLE token, uint32 packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagePath(PACKAGE_ID* packageId, uint32 reserved, uint32* pathLength, char16* path);
+	public static extern int32 GetPackagePath(PACKAGE_ID* packageId, uint32 reserved, uint32 pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagePathByFullName(PWSTR packageFullName, uint32* pathLength, char16* path);
+	public static extern int32 GetPackagePathByFullName(PWSTR packageFullName, uint32 pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetStagedPackagePathByFullName(PWSTR packageFullName, uint32* pathLength, char16* path);
+	public static extern int32 GetStagedPackagePathByFullName(PWSTR packageFullName, uint32 pathLength, char16* path);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32* pathLength, char16* path);
+	public static extern int32 GetPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32 pathLength, char16* path);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetStagedPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32* pathLength, char16* path);
+	public static extern int32 GetStagedPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32 pathLength, char16* path);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageInfo2(uint32 flags, PackagePathType packagePathType, uint32* bufferLength, uint8* buffer, uint32* count);
+	public static extern int32 GetCurrentPackageInfo2(uint32 flags, PackagePathType packagePathType, uint32 bufferLength, uint8 buffer, uint32 count);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackagePath2(PackagePathType packagePathType, uint32* pathLength, char16* path);
+	public static extern int32 GetCurrentPackagePath2(PackagePathType packagePathType, uint32 pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentApplicationUserModelId(uint32* applicationUserModelIdLength, char16* applicationUserModelId);
+	public static extern int32 GetCurrentApplicationUserModelId(uint32 applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetApplicationUserModelId(HANDLE hProcess, uint32* applicationUserModelIdLength, char16* applicationUserModelId);
+	public static extern int32 GetApplicationUserModelId(HANDLE hProcess, uint32 applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetApplicationUserModelIdFromToken(HANDLE token, uint32* applicationUserModelIdLength, char16* applicationUserModelId);
+	public static extern int32 GetApplicationUserModelIdFromToken(HANDLE token, uint32 applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 VerifyPackageFullName(PWSTR packageFullName);
@@ -2185,37 +2185,37 @@ public static
 	public static extern int32 VerifyPackageRelativeApplicationId(PWSTR packageRelativeApplicationId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageIdFromFullName(PWSTR packageFullName, uint32 flags, uint32* bufferLength, uint8* buffer);
+	public static extern int32 PackageIdFromFullName(PWSTR packageFullName, uint32 flags, uint32 bufferLength, uint8 buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageFullNameFromId(PACKAGE_ID* packageId, uint32* packageFullNameLength, char16* packageFullName);
+	public static extern int32 PackageFullNameFromId(PACKAGE_ID* packageId, uint32 packageFullNameLength, char16* packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageFamilyNameFromId(PACKAGE_ID* packageId, uint32* packageFamilyNameLength, char16* packageFamilyName);
+	public static extern int32 PackageFamilyNameFromId(PACKAGE_ID* packageId, uint32 packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageFamilyNameFromFullName(PWSTR packageFullName, uint32* packageFamilyNameLength, char16* packageFamilyName);
+	public static extern int32 PackageFamilyNameFromFullName(PWSTR packageFullName, uint32 packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageNameAndPublisherIdFromFamilyName(PWSTR packageFamilyName, uint32* packageNameLength, char16* packageName, uint32* packagePublisherIdLength, char16* packagePublisherId);
+	public static extern int32 PackageNameAndPublisherIdFromFamilyName(PWSTR packageFamilyName, uint32 packageNameLength, char16* packageName, uint32 packagePublisherIdLength, char16* packagePublisherId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 FormatApplicationUserModelId(PWSTR packageFamilyName, PWSTR packageRelativeApplicationId, uint32* applicationUserModelIdLength, char16* applicationUserModelId);
+	public static extern int32 FormatApplicationUserModelId(PWSTR packageFamilyName, PWSTR packageRelativeApplicationId, uint32 applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ParseApplicationUserModelId(PWSTR applicationUserModelId, uint32* packageFamilyNameLength, char16* packageFamilyName, uint32* packageRelativeApplicationIdLength, char16* packageRelativeApplicationId);
+	public static extern int32 ParseApplicationUserModelId(PWSTR applicationUserModelId, uint32 packageFamilyNameLength, char16* packageFamilyName, uint32 packageRelativeApplicationIdLength, char16* packageRelativeApplicationId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagesByPackageFamily(PWSTR packageFamilyName, uint32* count, PWSTR* packageFullNames, uint32* bufferLength, char16* buffer);
+	public static extern int32 GetPackagesByPackageFamily(PWSTR packageFamilyName, uint32 count, PWSTR* packageFullNames, uint32 bufferLength, char16* buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 FindPackagesByPackageFamily(PWSTR packageFamilyName, uint32 packageFilters, uint32* count, PWSTR* packageFullNames, uint32* bufferLength, char16* buffer, uint32* packageProperties);
+	public static extern int32 FindPackagesByPackageFamily(PWSTR packageFamilyName, uint32 packageFilters, uint32 count, PWSTR* packageFullNames, uint32 bufferLength, char16* buffer, uint32* packageProperties);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetStagedPackageOrigin(PWSTR packageFullName, PackageOrigin* origin);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageInfo(uint32 flags, uint32* bufferLength, uint8* buffer, uint32* count);
+	public static extern int32 GetCurrentPackageInfo(uint32 flags, uint32 bufferLength, uint8 buffer, uint32 count);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 OpenPackageInfoByFullName(PWSTR packageFullName, uint32 reserved, _PACKAGE_INFO_REFERENCE** packageInfoReference);
@@ -2227,13 +2227,13 @@ public static
 	public static extern int32 ClosePackageInfo(_PACKAGE_INFO_REFERENCE* packageInfoReference);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageInfo(_PACKAGE_INFO_REFERENCE* packageInfoReference, uint32 flags, uint32* bufferLength, uint8* buffer, uint32* count);
+	public static extern int32 GetPackageInfo(_PACKAGE_INFO_REFERENCE* packageInfoReference, uint32 flags, uint32 bufferLength, uint8 buffer, uint32 count);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageApplicationIds(_PACKAGE_INFO_REFERENCE* packageInfoReference, uint32* bufferLength, uint8* buffer, uint32* count);
+	public static extern int32 GetPackageApplicationIds(_PACKAGE_INFO_REFERENCE* packageInfoReference, uint32 bufferLength, uint8 buffer, uint32 count);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageInfo2(_PACKAGE_INFO_REFERENCE* packageInfoReference, uint32 flags, PackagePathType packagePathType, uint32* bufferLength, uint8* buffer, uint32* count);
+	public static extern int32 GetPackageInfo2(_PACKAGE_INFO_REFERENCE* packageInfoReference, uint32 flags, PackagePathType packagePathType, uint32 bufferLength, uint8 buffer, uint32 count);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CheckIsMSIXPackage(PWSTR packageFullName, BOOL* isMSIXPackage);
@@ -2284,7 +2284,7 @@ public static
 	public static extern HRESULT CreatePackageVirtualizationContext(PWSTR packageFamilyName, PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__** context);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ActivatePackageVirtualizationContext(PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__* context, uint* cookie);
+	public static extern HRESULT ActivatePackageVirtualizationContext(PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__* context, uint cookie);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void ReleasePackageVirtualizationContext(PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__* context);
@@ -2299,7 +2299,7 @@ public static
 	public static extern PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__* GetCurrentPackageVirtualizationContext();
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetProcessesInVirtualizationContext(PWSTR packageFamilyName, uint32* count, HANDLE** processes);
+	public static extern HRESULT GetProcessesInVirtualizationContext(PWSTR packageFamilyName, uint32 count, HANDLE** processes);
 
 }
 #endregion

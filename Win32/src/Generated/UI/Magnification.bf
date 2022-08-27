@@ -90,7 +90,7 @@ public static
 	public static extern BOOL MagSetWindowFilterList(HWND hwnd, uint32 dwFilterMode, int32 count, HWND* pHWND);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 MagGetWindowFilterList(HWND hwnd, uint32* pdwFilterMode, int32 count, HWND* pHWND);
+	public static extern int32 MagGetWindowFilterList(HWND hwnd, uint32 pdwFilterMode, int32 count, HWND* pHWND);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MagSetImageScalingCallback(HWND hwnd, MagImageScalingCallback callback);
@@ -108,7 +108,7 @@ public static
 	public static extern BOOL MagSetFullscreenTransform(float magLevel, int32 xOffset, int32 yOffset);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagGetFullscreenTransform(float* pMagLevel, int32* pxOffset, int32* pyOffset);
+	public static extern BOOL MagGetFullscreenTransform(float pMagLevel, int32 pxOffset, int32 pyOffset);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MagSetFullscreenColorEffect(MAGCOLOREFFECT* pEffect);

@@ -1869,7 +1869,7 @@ public static
 public static
 {
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsQueryConfig(DNS_CONFIG_TYPE Config, uint32 Flag, PWSTR pwsAdapterName, void* pReserved, void* pBuffer, uint32* pBufLen);
+	public static extern int32 DnsQueryConfig(DNS_CONFIG_TYPE Config, uint32 Flag, PWSTR pwsAdapterName, void* pReserved, void* pBuffer, uint32 pBufLen);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern DNS_RECORDA* DnsRecordCopyEx(DNS_RECORDA* pRecord, DNS_CHARSET CharSetIn, DNS_CHARSET CharSetOut);
@@ -1906,10 +1906,10 @@ public static
 	public static extern int32 DnsCancelQuery(DNS_QUERY_CANCEL* pCancelHandle);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void DnsFreeCustomServers(uint32* pcServers, DNS_CUSTOM_SERVER** ppServers);
+	public static extern void DnsFreeCustomServers(uint32 pcServers, DNS_CUSTOM_SERVER** ppServers);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsGetApplicationSettings(uint32* pcServers, DNS_CUSTOM_SERVER** ppDefaultServers, DNS_APPLICATION_SETTINGS* pSettings);
+	public static extern uint32 DnsGetApplicationSettings(uint32 pcServers, DNS_CUSTOM_SERVER** ppDefaultServers, DNS_APPLICATION_SETTINGS* pSettings);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DnsSetApplicationSettings(uint32 cServers, DNS_CUSTOM_SERVER* pServers, DNS_APPLICATION_SETTINGS* pSettings);
@@ -1962,10 +1962,10 @@ public static
 	public static extern BOOL DnsNameCompare_W(PWSTR pName1, PWSTR pName2);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DnsWriteQuestionToBuffer_W(DNS_MESSAGE_BUFFER* pDnsBuffer, uint32* pdwBufferSize, PWSTR pszName, uint16 wType, uint16 Xid, BOOL fRecursionDesired);
+	public static extern BOOL DnsWriteQuestionToBuffer_W(DNS_MESSAGE_BUFFER* pDnsBuffer, uint32 pdwBufferSize, PWSTR pszName, uint16 wType, uint16 Xid, BOOL fRecursionDesired);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DnsWriteQuestionToBuffer_UTF8(DNS_MESSAGE_BUFFER* pDnsBuffer, uint32* pdwBufferSize, PSTR pszName, uint16 wType, uint16 Xid, BOOL fRecursionDesired);
+	public static extern BOOL DnsWriteQuestionToBuffer_UTF8(DNS_MESSAGE_BUFFER* pDnsBuffer, uint32 pdwBufferSize, PSTR pszName, uint16 wType, uint16 Xid, BOOL fRecursionDesired);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsExtractRecordsFromMessage_W(DNS_MESSAGE_BUFFER* pDnsBuffer, uint16 wMessageLength, DNS_RECORDA** ppRecord);
@@ -2019,7 +2019,7 @@ public static
 	public static extern uint32 DnsConnectionDeletePolicyEntries(DNS_CONNECTION_POLICY_TAG PolicyEntryTag);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern DNS_SERVICE_INSTANCE* DnsServiceConstructInstance(PWSTR pServiceName, PWSTR pHostName, uint32* pIp4, IP6_ADDRESS* pIp6, uint16 wPort, uint16 wPriority, uint16 wWeight, uint32 dwPropertiesCount, PWSTR* keys, PWSTR* values);
+	public static extern DNS_SERVICE_INSTANCE* DnsServiceConstructInstance(PWSTR pServiceName, PWSTR pHostName, uint32 pIp4, IP6_ADDRESS* pIp6, uint16 wPort, uint16 wPriority, uint16 wWeight, uint32 dwPropertiesCount, PWSTR* keys, PWSTR* values);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern DNS_SERVICE_INSTANCE* DnsServiceCopyInstance(DNS_SERVICE_INSTANCE* pOrig);

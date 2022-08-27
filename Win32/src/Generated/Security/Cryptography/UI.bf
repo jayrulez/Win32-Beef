@@ -337,7 +337,7 @@ public function BOOL PFNCMFILTERPROC(CERT_CONTEXT* pCertContext, LPARAM param1, 
 
 public function uint32 PFNCMHOOKPROC(HWND hwndDialog, uint32 message, WPARAM wParam, LPARAM lParam);
 
-public function HRESULT PFNTRUSTHELPER(CERT_CONTEXT* pCertContext, LPARAM lCustData, BOOL fLeafCertificate, uint8* pbTrustBlob);
+public function HRESULT PFNTRUSTHELPER(CERT_CONTEXT* pCertContext, LPARAM lCustData, BOOL fLeafCertificate, uint8 pbTrustBlob);
 
 public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialSelectedCert, void* pvCallbackData);
 
@@ -744,7 +744,7 @@ public static
 	public static extern CERT_CONTEXT* CryptUIDlgSelectCertificateFromStore(void* hCertStore, HWND hwnd, PWSTR pwszTitle, PWSTR pwszDisplayString, uint32 dwDontUseColumn, uint32 dwFlags, void* pvReserved);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSelectionGetSerializedBlob(CERT_SELECTUI_INPUT* pcsi, void** ppOutBuffer, uint32* pulOutBufferSize);
+	public static extern HRESULT CertSelectionGetSerializedBlob(CERT_SELECTUI_INPUT* pcsi, void** ppOutBuffer, uint32 pulOutBufferSize);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptUIDlgCertMgr(CRYPTUI_CERT_MGR_STRUCT* pCryptUICertMgr);

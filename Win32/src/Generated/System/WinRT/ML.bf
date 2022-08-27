@@ -48,12 +48,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** value, uint32* capacity) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** value, uint32 capacity) GetBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource** result) GetD3D12Resource;
 	}
 
 
-	public HRESULT GetBuffer(uint8** value, uint32* capacity) mut => VT.[Friend]GetBuffer(&this, value, capacity);
+	public HRESULT GetBuffer(uint8** value, uint32 capacity) mut => VT.[Friend]GetBuffer(&this, value, capacity);
 
 	public HRESULT GetD3D12Resource(ID3D12Resource** result) mut => VT.[Friend]GetD3D12Resource(&this, result);
 }
@@ -66,11 +66,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* value, int64* shape, int32 shapeCount, IUnknown** result) CreateFromD3D12Resource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* value, int64 shape, int32 shapeCount, IUnknown** result) CreateFromD3D12Resource;
 	}
 
 
-	public HRESULT CreateFromD3D12Resource(ID3D12Resource* value, int64* shape, int32 shapeCount, IUnknown** result) mut => VT.[Friend]CreateFromD3D12Resource(&this, value, shape, shapeCount, result);
+	public HRESULT CreateFromD3D12Resource(ID3D12Resource* value, int64 shape, int32 shapeCount, IUnknown** result) mut => VT.[Friend]CreateFromD3D12Resource(&this, value, shape, shapeCount, result);
 }
 
 [CRepr]struct ILearningModelDeviceFactoryNative : IUnknown

@@ -91,7 +91,7 @@ public static
 	[CRepr]public struct VTable : ISurfaceImageSourceNative.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT updateRect) Invalidate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetUpdateRectCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetUpdateRectCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updates, uint32 count) GetUpdateRects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* bounds) GetVisibleBounds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVirtualSurfaceUpdatesCallbackNative* callback) RegisterForUpdatesNeeded;
@@ -101,7 +101,7 @@ public static
 
 	public HRESULT Invalidate(RECT updateRect) mut => VT.[Friend]Invalidate(&this, updateRect);
 
-	public HRESULT GetUpdateRectCount(uint32* count) mut => VT.[Friend]GetUpdateRectCount(&this, count);
+	public HRESULT GetUpdateRectCount(uint32 count) mut => VT.[Friend]GetUpdateRectCount(&this, count);
 
 	public HRESULT GetUpdateRects(RECT* updates, uint32 count) mut => VT.[Friend]GetUpdateRects(&this, updates, count);
 
@@ -151,7 +151,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* device) SetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updateRect, ref Guid iid, void** updateObject, POINT* offset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updateRect, Guid iid, void** updateObject, POINT* offset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SuspendDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResumeDraw;
@@ -160,7 +160,7 @@ public static
 
 	public HRESULT SetDevice(IUnknown* device) mut => VT.[Friend]SetDevice(&this, device);
 
-	public HRESULT BeginDraw(RECT* updateRect, ref Guid iid, void** updateObject, POINT* offset) mut => VT.[Friend]BeginDraw(&this, updateRect, ref iid, updateObject, offset);
+	public HRESULT BeginDraw(RECT* updateRect, Guid iid, void** updateObject, POINT* offset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, offset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 

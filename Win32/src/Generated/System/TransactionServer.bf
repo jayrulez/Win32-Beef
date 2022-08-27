@@ -119,8 +119,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCollName, IDispatch** ppCatalogCollection) GetCollection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrConnectString, IDispatch** ppCatalogCollection) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 retval) get_MinorVersion;
 	}
 
 
@@ -128,9 +128,9 @@ public static
 
 	public HRESULT Connect(BSTR bstrConnectString, IDispatch** ppCatalogCollection) mut => VT.[Friend]Connect(&this, bstrConnectString, ppCatalogCollection);
 
-	public HRESULT get_MajorVersion(int32* retval) mut => VT.[Friend]get_MajorVersion(&this, retval);
+	public HRESULT get_MajorVersion(int32 retval) mut => VT.[Friend]get_MajorVersion(&this, retval);
 
-	public HRESULT get_MinorVersion(int32* retval) mut => VT.[Friend]get_MinorVersion(&this, retval);
+	public HRESULT get_MinorVersion(int32 retval) mut => VT.[Friend]get_MinorVersion(&this, retval);
 }
 
 [CRepr]struct IComponentUtil : IDispatch

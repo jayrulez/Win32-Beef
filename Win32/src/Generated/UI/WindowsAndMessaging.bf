@@ -4850,11 +4850,11 @@ public static
 	public static extern int32 LoadStringW(HINSTANCE hInstance, uint32 uID, char16* lpBuffer, int32 cchBufferMax);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 wvsprintfA(PSTR param0, PSTR param1, int8* arglist);
-	public static int32 wvsprintf(PSTR param0, PSTR param1, int8* arglist) => wvsprintfA(param0, param1, arglist);
+	public static extern int32 wvsprintfA(PSTR param0, PSTR param1, int8 arglist);
+	public static int32 wvsprintf(PSTR param0, PSTR param1, int8 arglist) => wvsprintfA(param0, param1, arglist);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 wvsprintfW(PWSTR param0, PWSTR param1, int8* arglist);
+	public static extern int32 wvsprintfW(PWSTR param0, PWSTR param1, int8 arglist);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 wsprintfA(PSTR param0, PSTR param1);
@@ -4926,11 +4926,11 @@ public static
 	public static extern LRESULT SendMessageW(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LRESULT SendMessageTimeoutA(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam, SEND_MESSAGE_TIMEOUT_FLAGS fuFlags, uint32 uTimeout, uint* lpdwResult);
-	public static LRESULT SendMessageTimeout(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam, SEND_MESSAGE_TIMEOUT_FLAGS fuFlags, uint32 uTimeout, uint* lpdwResult) => SendMessageTimeoutA(hWnd, Msg, wParam, lParam, fuFlags, uTimeout, lpdwResult);
+	public static extern LRESULT SendMessageTimeoutA(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam, SEND_MESSAGE_TIMEOUT_FLAGS fuFlags, uint32 uTimeout, uint lpdwResult);
+	public static LRESULT SendMessageTimeout(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam, SEND_MESSAGE_TIMEOUT_FLAGS fuFlags, uint32 uTimeout, uint lpdwResult) => SendMessageTimeoutA(hWnd, Msg, wParam, lParam, fuFlags, uTimeout, lpdwResult);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LRESULT SendMessageTimeoutW(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam, SEND_MESSAGE_TIMEOUT_FLAGS fuFlags, uint32 uTimeout, uint* lpdwResult);
+	public static extern LRESULT SendMessageTimeoutW(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam, SEND_MESSAGE_TIMEOUT_FLAGS fuFlags, uint32 uTimeout, uint lpdwResult);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SendNotifyMessageA(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam);
@@ -5063,7 +5063,7 @@ public static
 	public static extern BOOL UpdateLayeredWindowIndirect(HWND hWnd, UPDATELAYEREDWINDOWINFO* pULWInfo);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetLayeredWindowAttributes(HWND hwnd, uint32* pcrKey, uint8* pbAlpha, LAYERED_WINDOW_ATTRIBUTES_FLAGS* pdwFlags);
+	public static extern BOOL GetLayeredWindowAttributes(HWND hwnd, uint32 pcrKey, uint8 pbAlpha, LAYERED_WINDOW_ATTRIBUTES_FLAGS* pdwFlags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetLayeredWindowAttributes(HWND hwnd, uint32 crKey, uint8 bAlpha, LAYERED_WINDOW_ATTRIBUTES_FLAGS dwFlags);
@@ -5099,7 +5099,7 @@ public static
 	public static extern BOOL SetWindowPlacement(HWND hWnd, WINDOWPLACEMENT* lpwndpl);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetWindowDisplayAffinity(HWND hWnd, uint32* pdwAffinity);
+	public static extern BOOL GetWindowDisplayAffinity(HWND hWnd, uint32 pdwAffinity);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetWindowDisplayAffinity(HWND hWnd, WINDOW_DISPLAY_AFFINITY dwAffinity);
@@ -5561,7 +5561,7 @@ public static
 	public static extern int32 GetScrollPos(HWND hWnd, SCROLLBAR_CONSTANTS nBar);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetScrollRange(HWND hWnd, SCROLLBAR_CONSTANTS nBar, int32* lpMinPos, int32* lpMaxPos);
+	public static extern BOOL GetScrollRange(HWND hWnd, SCROLLBAR_CONSTANTS nBar, int32 lpMinPos, int32 lpMaxPos);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetPropA(HWND hWnd, PSTR lpString, HANDLE hData);
@@ -5812,7 +5812,7 @@ public static
 
 #endif
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetProcessDefaultLayout(uint32* pdwDefaultLayout);
+	public static extern BOOL GetProcessDefaultLayout(uint32 pdwDefaultLayout);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetProcessDefaultLayout(uint32 dwDefaultLayout);
@@ -5869,7 +5869,7 @@ public static
 	public static extern HWND GetTopWindow(HWND hWnd);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetWindowThreadProcessId(HWND hWnd, uint32* lpdwProcessId);
+	public static extern uint32 GetWindowThreadProcessId(HWND hWnd, uint32 lpdwProcessId);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsGUIThread(BOOL bConvert);
@@ -5950,16 +5950,16 @@ public static
 	public static extern BOOL DestroyIcon(HICON hIcon);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 LookupIconIdFromDirectory(uint8* presbits, BOOL fIcon);
+	public static extern int32 LookupIconIdFromDirectory(uint8 presbits, BOOL fIcon);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 LookupIconIdFromDirectoryEx(uint8* presbits, BOOL fIcon, int32 cxDesired, int32 cyDesired, IMAGE_FLAGS Flags);
+	public static extern int32 LookupIconIdFromDirectoryEx(uint8 presbits, BOOL fIcon, int32 cxDesired, int32 cyDesired, IMAGE_FLAGS Flags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HICON CreateIconFromResource(uint8* presbits, uint32 dwResSize, BOOL fIcon, uint32 dwVer);
+	public static extern HICON CreateIconFromResource(uint8 presbits, uint32 dwResSize, BOOL fIcon, uint32 dwVer);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HICON CreateIconFromResourceEx(uint8* presbits, uint32 dwResSize, BOOL fIcon, uint32 dwVer, int32 cxDesired, int32 cyDesired, IMAGE_FLAGS Flags);
+	public static extern HICON CreateIconFromResourceEx(uint8 presbits, uint32 dwResSize, BOOL fIcon, uint32 dwVer, int32 cxDesired, int32 cyDesired, IMAGE_FLAGS Flags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE LoadImageA(HINSTANCE hInst, PSTR name, GDI_IMAGE_TYPE type, int32 cx, int32 cy, IMAGE_FLAGS fuLoad);
@@ -6122,7 +6122,7 @@ public static
 	public static extern void DestroyResourceIndexer(void* resourceIndexer);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IndexFilePath(void* resourceIndexer, PWSTR filePath, PWSTR* ppResourceUri, uint32* pQualifierCount, IndexedResourceQualifier** ppQualifiers);
+	public static extern HRESULT IndexFilePath(void* resourceIndexer, PWSTR filePath, PWSTR* ppResourceUri, uint32 pQualifierCount, IndexedResourceQualifier** ppQualifiers);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DestroyIndexedResults(PWSTR resourceUri, uint32 qualifierCount, IndexedResourceQualifier* qualifiers);
@@ -6137,10 +6137,10 @@ public static
 	public static extern HRESULT MrmCreateResourceIndexerFromPreviousPriFile(PWSTR projectRoot, MrmPlatformVersion platformVersion, PWSTR defaultQualifiers, PWSTR priFile, MrmResourceIndexerHandle* indexer);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MrmCreateResourceIndexerFromPreviousSchemaData(PWSTR projectRoot, MrmPlatformVersion platformVersion, PWSTR defaultQualifiers, uint8* schemaXmlData, uint32 schemaXmlSize, MrmResourceIndexerHandle* indexer);
+	public static extern HRESULT MrmCreateResourceIndexerFromPreviousSchemaData(PWSTR projectRoot, MrmPlatformVersion platformVersion, PWSTR defaultQualifiers, uint8 schemaXmlData, uint32 schemaXmlSize, MrmResourceIndexerHandle* indexer);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MrmCreateResourceIndexerFromPreviousPriData(PWSTR projectRoot, MrmPlatformVersion platformVersion, PWSTR defaultQualifiers, uint8* priData, uint32 priSize, MrmResourceIndexerHandle* indexer);
+	public static extern HRESULT MrmCreateResourceIndexerFromPreviousPriData(PWSTR projectRoot, MrmPlatformVersion platformVersion, PWSTR defaultQualifiers, uint8 priData, uint32 priSize, MrmResourceIndexerHandle* indexer);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MrmCreateResourceIndexerWithFlags(PWSTR packageFamilyName, PWSTR projectRoot, MrmPlatformVersion platformVersion, PWSTR defaultQualifiers, MrmIndexerFlags flags, MrmResourceIndexerHandle* indexer);
@@ -6149,7 +6149,7 @@ public static
 	public static extern HRESULT MrmIndexString(MrmResourceIndexerHandle indexer, PWSTR resourceUri, PWSTR resourceString, PWSTR qualifiers);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MrmIndexEmbeddedData(MrmResourceIndexerHandle indexer, PWSTR resourceUri, uint8* embeddedData, uint32 embeddedDataSize, PWSTR qualifiers);
+	public static extern HRESULT MrmIndexEmbeddedData(MrmResourceIndexerHandle indexer, PWSTR resourceUri, uint8 embeddedData, uint32 embeddedDataSize, PWSTR qualifiers);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MrmIndexFile(MrmResourceIndexerHandle indexer, PWSTR resourceUri, PWSTR filePath, PWSTR qualifiers);
@@ -6167,34 +6167,34 @@ public static
 	public static extern HRESULT MrmCreateResourceFileWithChecksum(MrmResourceIndexerHandle indexer, MrmPackagingMode packagingMode, MrmPackagingOptions packagingOptions, uint32 checksum, PWSTR outputDirectory);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MrmCreateResourceFileInMemory(MrmResourceIndexerHandle indexer, MrmPackagingMode packagingMode, MrmPackagingOptions packagingOptions, uint8** outputPriData, uint32* outputPriSize);
+	public static extern HRESULT MrmCreateResourceFileInMemory(MrmResourceIndexerHandle indexer, MrmPackagingMode packagingMode, MrmPackagingOptions packagingOptions, uint8** outputPriData, uint32 outputPriSize);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MrmPeekResourceIndexerMessages(MrmResourceIndexerHandle handle, MrmResourceIndexerMessage** messages, uint32* numMsgs);
+	public static extern HRESULT MrmPeekResourceIndexerMessages(MrmResourceIndexerHandle handle, MrmResourceIndexerMessage** messages, uint32 numMsgs);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MrmDestroyIndexerAndMessages(MrmResourceIndexerHandle indexer);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MrmFreeMemory(uint8* data);
+	public static extern HRESULT MrmFreeMemory(uint8 data);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MrmDumpPriFile(PWSTR indexFileName, PWSTR schemaPriFile, MrmDumpType dumpType, PWSTR outputXmlFile);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MrmDumpPriFileInMemory(PWSTR indexFileName, PWSTR schemaPriFile, MrmDumpType dumpType, uint8** outputXmlData, uint32* outputXmlSize);
+	public static extern HRESULT MrmDumpPriFileInMemory(PWSTR indexFileName, PWSTR schemaPriFile, MrmDumpType dumpType, uint8** outputXmlData, uint32 outputXmlSize);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MrmDumpPriDataInMemory(uint8* inputPriData, uint32 inputPriSize, uint8* schemaPriData, uint32 schemaPriSize, MrmDumpType dumpType, uint8** outputXmlData, uint32* outputXmlSize);
+	public static extern HRESULT MrmDumpPriDataInMemory(uint8 inputPriData, uint32 inputPriSize, uint8 schemaPriData, uint32 schemaPriSize, MrmDumpType dumpType, uint8** outputXmlData, uint32 outputXmlSize);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MrmCreateConfig(MrmPlatformVersion platformVersion, PWSTR defaultQualifiers, PWSTR outputXmlFile);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MrmCreateConfigInMemory(MrmPlatformVersion platformVersion, PWSTR defaultQualifiers, uint8** outputXmlData, uint32* outputXmlSize);
+	public static extern HRESULT MrmCreateConfigInMemory(MrmPlatformVersion platformVersion, PWSTR defaultQualifiers, uint8** outputXmlData, uint32 outputXmlSize);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MrmGetPriFileContentChecksum(PWSTR priFile, uint32* checksum);
+	public static extern HRESULT MrmGetPriFileContentChecksum(PWSTR priFile, uint32 checksum);
 
 }
 #endregion

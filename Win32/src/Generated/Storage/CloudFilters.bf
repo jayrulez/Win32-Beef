@@ -990,7 +990,7 @@ public static
 	public static extern HRESULT CfReportSyncStatus(PWSTR SyncRootPath, CF_SYNC_STATUS* SyncStatus);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CfCreatePlaceholders(PWSTR BaseDirectoryPath, CF_PLACEHOLDER_CREATE_INFO* PlaceholderArray, uint32 PlaceholderCount, CF_CREATE_FLAGS CreateFlags, uint32* EntriesProcessed);
+	public static extern HRESULT CfCreatePlaceholders(PWSTR BaseDirectoryPath, CF_PLACEHOLDER_CREATE_INFO* PlaceholderArray, uint32 PlaceholderCount, CF_CREATE_FLAGS CreateFlags, uint32 EntriesProcessed);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CfOpenFileWithOplock(PWSTR FilePath, CF_OPEN_FILE_FLAGS Flags, HANDLE* ProtectedHandle);
@@ -1008,10 +1008,10 @@ public static
 	public static extern void CfCloseHandle(HANDLE FileHandle);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CfConvertToPlaceholder(HANDLE FileHandle, void* FileIdentity, uint32 FileIdentityLength, CF_CONVERT_FLAGS ConvertFlags, int64* ConvertUsn, OVERLAPPED* Overlapped);
+	public static extern HRESULT CfConvertToPlaceholder(HANDLE FileHandle, void* FileIdentity, uint32 FileIdentityLength, CF_CONVERT_FLAGS ConvertFlags, int64 ConvertUsn, OVERLAPPED* Overlapped);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CfUpdatePlaceholder(HANDLE FileHandle, CF_FS_METADATA* FsMetadata, void* FileIdentity, uint32 FileIdentityLength, CF_FILE_RANGE* DehydrateRangeArray, uint32 DehydrateRangeCount, CF_UPDATE_FLAGS UpdateFlags, int64* UpdateUsn, OVERLAPPED* Overlapped);
+	public static extern HRESULT CfUpdatePlaceholder(HANDLE FileHandle, CF_FS_METADATA* FsMetadata, void* FileIdentity, uint32 FileIdentityLength, CF_FILE_RANGE* DehydrateRangeArray, uint32 DehydrateRangeCount, CF_UPDATE_FLAGS UpdateFlags, int64 UpdateUsn, OVERLAPPED* Overlapped);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CfRevertPlaceholder(HANDLE FileHandle, CF_REVERT_FLAGS RevertFlags, OVERLAPPED* Overlapped);
@@ -1026,7 +1026,7 @@ public static
 	public static extern HRESULT CfSetPinState(HANDLE FileHandle, CF_PIN_STATE PinState, CF_SET_PIN_FLAGS PinFlags, OVERLAPPED* Overlapped);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CfSetInSyncState(HANDLE FileHandle, CF_IN_SYNC_STATE InSyncState, CF_SET_IN_SYNC_FLAGS InSyncFlags, int64* InSyncUsn);
+	public static extern HRESULT CfSetInSyncState(HANDLE FileHandle, CF_IN_SYNC_STATE InSyncState, CF_SET_IN_SYNC_FLAGS InSyncFlags, int64 InSyncUsn);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CfSetCorrelationVector(HANDLE FileHandle, CORRELATION_VECTOR* CorrelationVector);
@@ -1044,16 +1044,16 @@ public static
 	public static extern CF_PLACEHOLDER_STATE CfGetPlaceholderStateFromFindData(WIN32_FIND_DATAA* FindData);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CfGetPlaceholderInfo(HANDLE FileHandle, CF_PLACEHOLDER_INFO_CLASS InfoClass, void* InfoBuffer, uint32 InfoBufferLength, uint32* ReturnedLength);
+	public static extern HRESULT CfGetPlaceholderInfo(HANDLE FileHandle, CF_PLACEHOLDER_INFO_CLASS InfoClass, void* InfoBuffer, uint32 InfoBufferLength, uint32 ReturnedLength);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CfGetSyncRootInfoByPath(PWSTR FilePath, CF_SYNC_ROOT_INFO_CLASS InfoClass, void* InfoBuffer, uint32 InfoBufferLength, uint32* ReturnedLength);
+	public static extern HRESULT CfGetSyncRootInfoByPath(PWSTR FilePath, CF_SYNC_ROOT_INFO_CLASS InfoClass, void* InfoBuffer, uint32 InfoBufferLength, uint32 ReturnedLength);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CfGetSyncRootInfoByHandle(HANDLE FileHandle, CF_SYNC_ROOT_INFO_CLASS InfoClass, void* InfoBuffer, uint32 InfoBufferLength, uint32* ReturnedLength);
+	public static extern HRESULT CfGetSyncRootInfoByHandle(HANDLE FileHandle, CF_SYNC_ROOT_INFO_CLASS InfoClass, void* InfoBuffer, uint32 InfoBufferLength, uint32 ReturnedLength);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CfGetPlaceholderRangeInfo(HANDLE FileHandle, CF_PLACEHOLDER_RANGE_INFO_CLASS InfoClass, LARGE_INTEGER StartingOffset, LARGE_INTEGER Length, void* InfoBuffer, uint32 InfoBufferLength, uint32* ReturnedLength);
+	public static extern HRESULT CfGetPlaceholderRangeInfo(HANDLE FileHandle, CF_PLACEHOLDER_RANGE_INFO_CLASS InfoClass, LARGE_INTEGER StartingOffset, LARGE_INTEGER Length, void* InfoBuffer, uint32 InfoBufferLength, uint32 ReturnedLength);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CfReportProviderProgress(CF_CONNECTION_KEY ConnectionKey, LARGE_INTEGER TransferKey, LARGE_INTEGER ProviderProgressTotal, LARGE_INTEGER ProviderProgressCompleted);

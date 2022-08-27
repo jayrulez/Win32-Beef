@@ -108,7 +108,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, BOOLEAN bNoRollForward) PreRestore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, BOOLEAN bNoRollForward) PostRestore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cComponents, PWSTR* rgComponentName, PWSTR* rgComponentLogicalPaths, PWSTR** prgComponentName, PWSTR** prgComponentLogicalPath) OrderComponents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbRollForwardSupported) IsRollForwardSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbRollForwardSupported) IsRollForwardSupported;
 	}
 
 
@@ -118,7 +118,7 @@ public static
 
 	public HRESULT OrderComponents(uint32 cComponents, PWSTR* rgComponentName, PWSTR* rgComponentLogicalPaths, PWSTR** prgComponentName, PWSTR** prgComponentLogicalPath) mut => VT.[Friend]OrderComponents(&this, cComponents, rgComponentName, rgComponentLogicalPaths, prgComponentName, prgComponentLogicalPath);
 
-	public HRESULT IsRollForwardSupported(uint8* pbRollForwardSupported) mut => VT.[Friend]IsRollForwardSupported(&this, pbRollForwardSupported);
+	public HRESULT IsRollForwardSupported(uint8 pbRollForwardSupported) mut => VT.[Friend]IsRollForwardSupported(&this, pbRollForwardSupported);
 }
 
 [CRepr]struct IWsbApplicationAsync : IUnknown

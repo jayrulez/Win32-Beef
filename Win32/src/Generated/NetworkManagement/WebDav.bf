@@ -86,22 +86,22 @@ public static
 public static
 {
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DavAddConnection(HANDLE* ConnectionHandle, PWSTR RemoteName, PWSTR UserName, PWSTR Password, uint8* ClientCert, uint32 CertSize);
+	public static extern uint32 DavAddConnection(HANDLE* ConnectionHandle, PWSTR RemoteName, PWSTR UserName, PWSTR Password, uint8 ClientCert, uint32 CertSize);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DavDeleteConnection(HANDLE ConnectionHandle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DavGetUNCFromHTTPPath(PWSTR Url, char16* UncPath, uint32* lpSize);
+	public static extern uint32 DavGetUNCFromHTTPPath(PWSTR Url, char16* UncPath, uint32 lpSize);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DavGetHTTPFromUNCPath(PWSTR UncPath, char16* Url, uint32* lpSize);
+	public static extern uint32 DavGetHTTPFromUNCPath(PWSTR UncPath, char16* Url, uint32 lpSize);
 
 	[Import("davclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DavGetTheLockOwnerOfTheFile(PWSTR FileName, PWSTR LockOwnerName, uint32* LockOwnerNameLengthInBytes);
+	public static extern uint32 DavGetTheLockOwnerOfTheFile(PWSTR FileName, PWSTR LockOwnerName, uint32 LockOwnerNameLengthInBytes);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DavGetExtendedError(HANDLE hFile, uint32* ExtError, char16* ExtErrorString, uint32* cChSize);
+	public static extern uint32 DavGetExtendedError(HANDLE hFile, uint32 ExtError, char16* ExtErrorString, uint32 cChSize);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DavFlushFile(HANDLE hFile);

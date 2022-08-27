@@ -370,55 +370,55 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* piNewTrigger, ITaskTrigger** ppTrigger) CreateTrigger;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 piNewTrigger, ITaskTrigger** ppTrigger) CreateTrigger;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 iTrigger) DeleteTrigger;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwCount) GetTriggerCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwCount) GetTriggerCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 iTrigger, ITaskTrigger** ppTrigger) GetTrigger;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 iTrigger, PWSTR* ppwszTrigger) GetTriggerString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstBegin, SYSTEMTIME* pstEnd, uint16* pCount, SYSTEMTIME** rgstTaskTimes) GetRunTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstBegin, SYSTEMTIME* pstEnd, uint16 pCount, SYSTEMTIME** rgstTaskTimes) GetRunTimes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstNextRun) GetNextRunTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wIdleMinutes, uint16 wDeadlineMinutes) SetIdleWait;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwIdleMinutes, uint16* pwDeadlineMinutes) GetIdleWait;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwIdleMinutes, uint16 pwDeadlineMinutes) GetIdleWait;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Run;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Terminate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hParent, uint32 dwReserved) EditWorkItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstLastRun) GetMostRecentRunTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* phrStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwExitCode) GetExitCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwExitCode) GetExitCode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszComment) SetComment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszComment) GetComment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszCreator) SetCreator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszCreator) GetCreator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 cbData, uint8* rgbData) SetWorkItemData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pcbData, uint8** prgbData) GetWorkItemData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 cbData, uint8 rgbData) SetWorkItemData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pcbData, uint8** prgbData) GetWorkItemData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wRetryCount) SetErrorRetryCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwRetryCount) GetErrorRetryCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwRetryCount) GetErrorRetryCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wRetryInterval) SetErrorRetryInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwRetryInterval) GetErrorRetryInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwRetryInterval) GetErrorRetryInterval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) SetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwFlags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszAccountName, PWSTR pwszPassword) SetAccountInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszAccountName) GetAccountInformation;
 	}
 
 
-	public HRESULT CreateTrigger(uint16* piNewTrigger, ITaskTrigger** ppTrigger) mut => VT.[Friend]CreateTrigger(&this, piNewTrigger, ppTrigger);
+	public HRESULT CreateTrigger(uint16 piNewTrigger, ITaskTrigger** ppTrigger) mut => VT.[Friend]CreateTrigger(&this, piNewTrigger, ppTrigger);
 
 	public HRESULT DeleteTrigger(uint16 iTrigger) mut => VT.[Friend]DeleteTrigger(&this, iTrigger);
 
-	public HRESULT GetTriggerCount(uint16* pwCount) mut => VT.[Friend]GetTriggerCount(&this, pwCount);
+	public HRESULT GetTriggerCount(uint16 pwCount) mut => VT.[Friend]GetTriggerCount(&this, pwCount);
 
 	public HRESULT GetTrigger(uint16 iTrigger, ITaskTrigger** ppTrigger) mut => VT.[Friend]GetTrigger(&this, iTrigger, ppTrigger);
 
 	public HRESULT GetTriggerString(uint16 iTrigger, PWSTR* ppwszTrigger) mut => VT.[Friend]GetTriggerString(&this, iTrigger, ppwszTrigger);
 
-	public HRESULT GetRunTimes(SYSTEMTIME* pstBegin, SYSTEMTIME* pstEnd, uint16* pCount, SYSTEMTIME** rgstTaskTimes) mut => VT.[Friend]GetRunTimes(&this, pstBegin, pstEnd, pCount, rgstTaskTimes);
+	public HRESULT GetRunTimes(SYSTEMTIME* pstBegin, SYSTEMTIME* pstEnd, uint16 pCount, SYSTEMTIME** rgstTaskTimes) mut => VT.[Friend]GetRunTimes(&this, pstBegin, pstEnd, pCount, rgstTaskTimes);
 
 	public HRESULT GetNextRunTime(SYSTEMTIME* pstNextRun) mut => VT.[Friend]GetNextRunTime(&this, pstNextRun);
 
 	public HRESULT SetIdleWait(uint16 wIdleMinutes, uint16 wDeadlineMinutes) mut => VT.[Friend]SetIdleWait(&this, wIdleMinutes, wDeadlineMinutes);
 
-	public HRESULT GetIdleWait(uint16* pwIdleMinutes, uint16* pwDeadlineMinutes) mut => VT.[Friend]GetIdleWait(&this, pwIdleMinutes, pwDeadlineMinutes);
+	public HRESULT GetIdleWait(uint16 pwIdleMinutes, uint16 pwDeadlineMinutes) mut => VT.[Friend]GetIdleWait(&this, pwIdleMinutes, pwDeadlineMinutes);
 
 	public HRESULT Run() mut => VT.[Friend]Run(&this);
 
@@ -430,7 +430,7 @@ public static
 
 	public HRESULT GetStatus(HRESULT* phrStatus) mut => VT.[Friend]GetStatus(&this, phrStatus);
 
-	public HRESULT GetExitCode(uint32* pdwExitCode) mut => VT.[Friend]GetExitCode(&this, pdwExitCode);
+	public HRESULT GetExitCode(uint32 pdwExitCode) mut => VT.[Friend]GetExitCode(&this, pdwExitCode);
 
 	public HRESULT SetComment(PWSTR pwszComment) mut => VT.[Friend]SetComment(&this, pwszComment);
 
@@ -440,21 +440,21 @@ public static
 
 	public HRESULT GetCreator(PWSTR* ppwszCreator) mut => VT.[Friend]GetCreator(&this, ppwszCreator);
 
-	public HRESULT SetWorkItemData(uint16 cbData, uint8* rgbData) mut => VT.[Friend]SetWorkItemData(&this, cbData, rgbData);
+	public HRESULT SetWorkItemData(uint16 cbData, uint8 rgbData) mut => VT.[Friend]SetWorkItemData(&this, cbData, rgbData);
 
-	public HRESULT GetWorkItemData(uint16* pcbData, uint8** prgbData) mut => VT.[Friend]GetWorkItemData(&this, pcbData, prgbData);
+	public HRESULT GetWorkItemData(uint16 pcbData, uint8** prgbData) mut => VT.[Friend]GetWorkItemData(&this, pcbData, prgbData);
 
 	public HRESULT SetErrorRetryCount(uint16 wRetryCount) mut => VT.[Friend]SetErrorRetryCount(&this, wRetryCount);
 
-	public HRESULT GetErrorRetryCount(uint16* pwRetryCount) mut => VT.[Friend]GetErrorRetryCount(&this, pwRetryCount);
+	public HRESULT GetErrorRetryCount(uint16 pwRetryCount) mut => VT.[Friend]GetErrorRetryCount(&this, pwRetryCount);
 
 	public HRESULT SetErrorRetryInterval(uint16 wRetryInterval) mut => VT.[Friend]SetErrorRetryInterval(&this, wRetryInterval);
 
-	public HRESULT GetErrorRetryInterval(uint16* pwRetryInterval) mut => VT.[Friend]GetErrorRetryInterval(&this, pwRetryInterval);
+	public HRESULT GetErrorRetryInterval(uint16 pwRetryInterval) mut => VT.[Friend]GetErrorRetryInterval(&this, pwRetryInterval);
 
 	public HRESULT SetFlags(uint32 dwFlags) mut => VT.[Friend]SetFlags(&this, dwFlags);
 
-	public HRESULT GetFlags(uint32* pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
+	public HRESULT GetFlags(uint32 pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
 
 	public HRESULT SetAccountInformation(PWSTR pwszAccountName, PWSTR pwszPassword) mut => VT.[Friend]SetAccountInformation(&this, pwszAccountName, pwszPassword);
 
@@ -476,11 +476,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszWorkingDirectory) SetWorkingDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszWorkingDirectory) GetWorkingDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPriority) SetPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwPriority) GetPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwPriority) GetPriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) SetTaskFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) GetTaskFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwFlags) GetTaskFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMaxRunTimeMS) SetMaxRunTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMaxRunTimeMS) GetMaxRunTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwMaxRunTimeMS) GetMaxRunTime;
 	}
 
 
@@ -498,15 +498,15 @@ public static
 
 	public HRESULT SetPriority(uint32 dwPriority) mut => VT.[Friend]SetPriority(&this, dwPriority);
 
-	public HRESULT GetPriority(uint32* pdwPriority) mut => VT.[Friend]GetPriority(&this, pdwPriority);
+	public HRESULT GetPriority(uint32 pdwPriority) mut => VT.[Friend]GetPriority(&this, pdwPriority);
 
 	public HRESULT SetTaskFlags(uint32 dwFlags) mut => VT.[Friend]SetTaskFlags(&this, dwFlags);
 
-	public HRESULT GetTaskFlags(uint32* pdwFlags) mut => VT.[Friend]GetTaskFlags(&this, pdwFlags);
+	public HRESULT GetTaskFlags(uint32 pdwFlags) mut => VT.[Friend]GetTaskFlags(&this, pdwFlags);
 
 	public HRESULT SetMaxRunTime(uint32 dwMaxRunTimeMS) mut => VT.[Friend]SetMaxRunTime(&this, dwMaxRunTimeMS);
 
-	public HRESULT GetMaxRunTime(uint32* pdwMaxRunTimeMS) mut => VT.[Friend]GetMaxRunTime(&this, pdwMaxRunTimeMS);
+	public HRESULT GetMaxRunTime(uint32 pdwMaxRunTimeMS) mut => VT.[Friend]GetMaxRunTime(&this, pdwMaxRunTimeMS);
 }
 
 [CRepr]struct IEnumWorkItems : IUnknown
@@ -517,14 +517,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, PWSTR** rgpwszNames, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, PWSTR** rgpwszNames, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumWorkItems** ppEnumWorkItems) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, PWSTR** rgpwszNames, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgpwszNames, pceltFetched);
+	public HRESULT Next(uint32 celt, PWSTR** rgpwszNames, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgpwszNames, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
@@ -544,11 +544,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszComputer) SetTargetComputer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszComputer) GetTargetComputer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumWorkItems** ppEnumWorkItems) Enum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszName, ref Guid riid, IUnknown** ppUnk) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszName, Guid riid, IUnknown** ppUnk) Activate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszName) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszTaskName, ref Guid rclsid, ref Guid riid, IUnknown** ppUnk) NewWorkItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszTaskName, Guid rclsid, Guid riid, IUnknown** ppUnk) NewWorkItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszTaskName, IScheduledWorkItem* pWorkItem) AddWorkItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszName, ref Guid riid) IsOfType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszName, Guid riid) IsOfType;
 	}
 
 
@@ -558,15 +558,15 @@ public static
 
 	public HRESULT Enum(IEnumWorkItems** ppEnumWorkItems) mut => VT.[Friend]Enum(&this, ppEnumWorkItems);
 
-	public HRESULT Activate(PWSTR pwszName, ref Guid riid, IUnknown** ppUnk) mut => VT.[Friend]Activate(&this, pwszName, ref riid, ppUnk);
+	public HRESULT Activate(PWSTR pwszName, Guid riid, IUnknown** ppUnk) mut => VT.[Friend]Activate(&this, pwszName, riid, ppUnk);
 
 	public HRESULT Delete(PWSTR pwszName) mut => VT.[Friend]Delete(&this, pwszName);
 
-	public HRESULT NewWorkItem(PWSTR pwszTaskName, ref Guid rclsid, ref Guid riid, IUnknown** ppUnk) mut => VT.[Friend]NewWorkItem(&this, pwszTaskName, ref rclsid, ref riid, ppUnk);
+	public HRESULT NewWorkItem(PWSTR pwszTaskName, Guid rclsid, Guid riid, IUnknown** ppUnk) mut => VT.[Friend]NewWorkItem(&this, pwszTaskName, rclsid, riid, ppUnk);
 
 	public HRESULT AddWorkItem(PWSTR pwszTaskName, IScheduledWorkItem* pWorkItem) mut => VT.[Friend]AddWorkItem(&this, pwszTaskName, pWorkItem);
 
-	public HRESULT IsOfType(PWSTR pwszName, ref Guid riid) mut => VT.[Friend]IsOfType(&this, pwszName, ref riid);
+	public HRESULT IsOfType(PWSTR pwszName, Guid riid) mut => VT.[Friend]IsOfType(&this, pwszName, riid);
 }
 
 [CRepr]struct IProvideTaskPage : IUnknown
@@ -592,13 +592,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, ITaskFolder** ppFolder) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32* pCount) mut => VT.[Friend]get_Count(&this, pCount);
+	public HRESULT get_Count(int32 pCount) mut => VT.[Friend]get_Count(&this, pCount);
 
 	public HRESULT get_Item(VARIANT index, ITaskFolder** ppFolder) mut => VT.[Friend]get_Item(&this, index, ppFolder);
 
@@ -617,11 +617,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 flags, IRunningTaskCollection** ppRunningTasks) GetRunningTasks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 flags, ITaskDefinition** ppDefinition) NewTask;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT serverName, VARIANT user, VARIANT domain, VARIANT password) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pConnected) get_Connected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pConnected) get_Connected;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pServer) get_TargetServer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pUser) get_ConnectedUser;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDomain) get_ConnectedDomain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pVersion) get_HighestVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pVersion) get_HighestVersion;
 	}
 
 
@@ -633,7 +633,7 @@ public static
 
 	public HRESULT Connect(VARIANT serverName, VARIANT user, VARIANT domain, VARIANT password) mut => VT.[Friend]Connect(&this, serverName, user, domain, password);
 
-	public HRESULT get_Connected(int16* pConnected) mut => VT.[Friend]get_Connected(&this, pConnected);
+	public HRESULT get_Connected(int16 pConnected) mut => VT.[Friend]get_Connected(&this, pConnected);
 
 	public HRESULT get_TargetServer(BSTR* pServer) mut => VT.[Friend]get_TargetServer(&this, pServer);
 
@@ -641,7 +641,7 @@ public static
 
 	public HRESULT get_ConnectedDomain(BSTR* pDomain) mut => VT.[Friend]get_ConnectedDomain(&this, pDomain);
 
-	public HRESULT get_HighestVersion(uint32* pVersion) mut => VT.[Friend]get_HighestVersion(&this, pVersion);
+	public HRESULT get_HighestVersion(uint32 pVersion) mut => VT.[Friend]get_HighestVersion(&this, pVersion);
 }
 
 [CRepr]struct ITaskHandler : IUnknown
@@ -739,7 +739,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, ITaskNamedValuePair** ppPair) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, BSTR value, ITaskNamedValuePair** ppPair) Create;
@@ -748,7 +748,7 @@ public static
 	}
 
 
-	public HRESULT get_Count(int32* pCount) mut => VT.[Friend]get_Count(&this, pCount);
+	public HRESULT get_Count(int32 pCount) mut => VT.[Friend]get_Count(&this, pCount);
 
 	public HRESULT get_Item(int32 index, ITaskNamedValuePair** ppPair) mut => VT.[Friend]get_Item(&this, index, ppPair);
 
@@ -776,7 +776,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pName) get_CurrentAction;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pPID) get_EnginePID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pPID) get_EnginePID;
 	}
 
 
@@ -794,7 +794,7 @@ public static
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_EnginePID(uint32* pPID) mut => VT.[Friend]get_EnginePID(&this, pPID);
+	public HRESULT get_EnginePID(uint32 pPID) mut => VT.[Friend]get_EnginePID(&this, pPID);
 }
 
 [CRepr]struct IRunningTaskCollection : IDispatch
@@ -805,13 +805,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, IRunningTask** ppRunningTask) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32* pCount) mut => VT.[Friend]get_Count(&this, pCount);
+	public HRESULT get_Count(int32 pCount) mut => VT.[Friend]get_Count(&this, pCount);
 
 	public HRESULT get_Item(VARIANT index, IRunningTask** ppRunningTask) mut => VT.[Friend]get_Item(&this, index, ppRunningTask);
 
@@ -829,21 +829,21 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pPath) get_Path;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_STATE* pState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pEnabled) get_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enabled) put_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT @params, IRunningTask** ppRunningTask) Run;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT @params, int32 flags, int32 sessionID, BSTR user, IRunningTask** ppRunningTask) RunEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 flags, IRunningTaskCollection** ppRunningTasks) GetInstances;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pLastRunTime) get_LastRunTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pLastTaskResult) get_LastTaskResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pNumberOfMissedRuns) get_NumberOfMissedRuns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pNextRunTime) get_NextRunTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pLastRunTime) get_LastRunTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pLastTaskResult) get_LastTaskResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pNumberOfMissedRuns) get_NumberOfMissedRuns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pNextRunTime) get_NextRunTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITaskDefinition** ppDefinition) get_Definition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pXml) get_Xml;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 securityInformation, BSTR* pSddl) GetSecurityDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR sddl, int32 flags) SetSecurityDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 flags) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstStart, SYSTEMTIME* pstEnd, uint32* pCount, SYSTEMTIME** pRunTimes) GetRunTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstStart, SYSTEMTIME* pstEnd, uint32 pCount, SYSTEMTIME** pRunTimes) GetRunTimes;
 	}
 
 
@@ -853,7 +853,7 @@ public static
 
 	public HRESULT get_State(TASK_STATE* pState) mut => VT.[Friend]get_State(&this, pState);
 
-	public HRESULT get_Enabled(int16* pEnabled) mut => VT.[Friend]get_Enabled(&this, pEnabled);
+	public HRESULT get_Enabled(int16 pEnabled) mut => VT.[Friend]get_Enabled(&this, pEnabled);
 
 	public HRESULT put_Enabled(int16 enabled) mut => VT.[Friend]put_Enabled(&this, enabled);
 
@@ -863,13 +863,13 @@ public static
 
 	public HRESULT GetInstances(int32 flags, IRunningTaskCollection** ppRunningTasks) mut => VT.[Friend]GetInstances(&this, flags, ppRunningTasks);
 
-	public HRESULT get_LastRunTime(double* pLastRunTime) mut => VT.[Friend]get_LastRunTime(&this, pLastRunTime);
+	public HRESULT get_LastRunTime(double pLastRunTime) mut => VT.[Friend]get_LastRunTime(&this, pLastRunTime);
 
-	public HRESULT get_LastTaskResult(int32* pLastTaskResult) mut => VT.[Friend]get_LastTaskResult(&this, pLastTaskResult);
+	public HRESULT get_LastTaskResult(int32 pLastTaskResult) mut => VT.[Friend]get_LastTaskResult(&this, pLastTaskResult);
 
-	public HRESULT get_NumberOfMissedRuns(int32* pNumberOfMissedRuns) mut => VT.[Friend]get_NumberOfMissedRuns(&this, pNumberOfMissedRuns);
+	public HRESULT get_NumberOfMissedRuns(int32 pNumberOfMissedRuns) mut => VT.[Friend]get_NumberOfMissedRuns(&this, pNumberOfMissedRuns);
 
-	public HRESULT get_NextRunTime(double* pNextRunTime) mut => VT.[Friend]get_NextRunTime(&this, pNextRunTime);
+	public HRESULT get_NextRunTime(double pNextRunTime) mut => VT.[Friend]get_NextRunTime(&this, pNextRunTime);
 
 	public HRESULT get_Definition(ITaskDefinition** ppDefinition) mut => VT.[Friend]get_Definition(&this, ppDefinition);
 
@@ -881,7 +881,7 @@ public static
 
 	public HRESULT Stop(int32 flags) mut => VT.[Friend]Stop(&this, flags);
 
-	public HRESULT GetRunTimes(SYSTEMTIME* pstStart, SYSTEMTIME* pstEnd, uint32* pCount, SYSTEMTIME** pRunTimes) mut => VT.[Friend]GetRunTimes(&this, pstStart, pstEnd, pCount, pRunTimes);
+	public HRESULT GetRunTimes(SYSTEMTIME* pstStart, SYSTEMTIME* pstEnd, uint32 pCount, SYSTEMTIME** pRunTimes) mut => VT.[Friend]GetRunTimes(&this, pstStart, pstEnd, pCount, pRunTimes);
 }
 
 [CRepr]struct ITrigger : IDispatch
@@ -903,7 +903,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR start) put_StartBoundary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pEnd) get_EndBoundary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR end) put_EndBoundary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pEnabled) get_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enabled) put_Enabled;
 	}
 
@@ -930,7 +930,7 @@ public static
 
 	public HRESULT put_EndBoundary(BSTR end) mut => VT.[Friend]put_EndBoundary(&this, end);
 
-	public HRESULT get_Enabled(int16* pEnabled) mut => VT.[Friend]get_Enabled(&this, pEnabled);
+	public HRESULT get_Enabled(int16 pEnabled) mut => VT.[Friend]get_Enabled(&this, pEnabled);
 
 	public HRESULT put_Enabled(int16 enabled) mut => VT.[Friend]put_Enabled(&this, enabled);
 }
@@ -1057,14 +1057,14 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDays) get_DaysInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pDays) get_DaysInterval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 days) put_DaysInterval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR randomDelay) put_RandomDelay;
 	}
 
 
-	public HRESULT get_DaysInterval(int16* pDays) mut => VT.[Friend]get_DaysInterval(&this, pDays);
+	public HRESULT get_DaysInterval(int16 pDays) mut => VT.[Friend]get_DaysInterval(&this, pDays);
 
 	public HRESULT put_DaysInterval(int16 days) mut => VT.[Friend]put_DaysInterval(&this, days);
 
@@ -1081,20 +1081,20 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDays) get_DaysOfWeek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pDays) get_DaysOfWeek;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 days) put_DaysOfWeek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pWeeks) get_WeeksInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pWeeks) get_WeeksInterval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 weeks) put_WeeksInterval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR randomDelay) put_RandomDelay;
 	}
 
 
-	public HRESULT get_DaysOfWeek(int16* pDays) mut => VT.[Friend]get_DaysOfWeek(&this, pDays);
+	public HRESULT get_DaysOfWeek(int16 pDays) mut => VT.[Friend]get_DaysOfWeek(&this, pDays);
 
 	public HRESULT put_DaysOfWeek(int16 days) mut => VT.[Friend]put_DaysOfWeek(&this, days);
 
-	public HRESULT get_WeeksInterval(int16* pWeeks) mut => VT.[Friend]get_WeeksInterval(&this, pWeeks);
+	public HRESULT get_WeeksInterval(int16 pWeeks) mut => VT.[Friend]get_WeeksInterval(&this, pWeeks);
 
 	public HRESULT put_WeeksInterval(int16 weeks) mut => VT.[Friend]put_WeeksInterval(&this, weeks);
 
@@ -1111,26 +1111,26 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pDays) get_DaysOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pDays) get_DaysOfMonth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 days) put_DaysOfMonth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pMonths) get_MonthsOfYear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pMonths) get_MonthsOfYear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 months) put_MonthsOfYear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pLastDay) get_RunOnLastDayOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pLastDay) get_RunOnLastDayOfMonth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 lastDay) put_RunOnLastDayOfMonth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR randomDelay) put_RandomDelay;
 	}
 
 
-	public HRESULT get_DaysOfMonth(int32* pDays) mut => VT.[Friend]get_DaysOfMonth(&this, pDays);
+	public HRESULT get_DaysOfMonth(int32 pDays) mut => VT.[Friend]get_DaysOfMonth(&this, pDays);
 
 	public HRESULT put_DaysOfMonth(int32 days) mut => VT.[Friend]put_DaysOfMonth(&this, days);
 
-	public HRESULT get_MonthsOfYear(int16* pMonths) mut => VT.[Friend]get_MonthsOfYear(&this, pMonths);
+	public HRESULT get_MonthsOfYear(int16 pMonths) mut => VT.[Friend]get_MonthsOfYear(&this, pMonths);
 
 	public HRESULT put_MonthsOfYear(int16 months) mut => VT.[Friend]put_MonthsOfYear(&this, months);
 
-	public HRESULT get_RunOnLastDayOfMonth(int16* pLastDay) mut => VT.[Friend]get_RunOnLastDayOfMonth(&this, pLastDay);
+	public HRESULT get_RunOnLastDayOfMonth(int16 pLastDay) mut => VT.[Friend]get_RunOnLastDayOfMonth(&this, pLastDay);
 
 	public HRESULT put_RunOnLastDayOfMonth(int16 lastDay) mut => VT.[Friend]put_RunOnLastDayOfMonth(&this, lastDay);
 
@@ -1147,32 +1147,32 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDays) get_DaysOfWeek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pDays) get_DaysOfWeek;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 days) put_DaysOfWeek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pWeeks) get_WeeksOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pWeeks) get_WeeksOfMonth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 weeks) put_WeeksOfMonth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pMonths) get_MonthsOfYear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pMonths) get_MonthsOfYear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 months) put_MonthsOfYear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pLastWeek) get_RunOnLastWeekOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pLastWeek) get_RunOnLastWeekOfMonth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 lastWeek) put_RunOnLastWeekOfMonth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR randomDelay) put_RandomDelay;
 	}
 
 
-	public HRESULT get_DaysOfWeek(int16* pDays) mut => VT.[Friend]get_DaysOfWeek(&this, pDays);
+	public HRESULT get_DaysOfWeek(int16 pDays) mut => VT.[Friend]get_DaysOfWeek(&this, pDays);
 
 	public HRESULT put_DaysOfWeek(int16 days) mut => VT.[Friend]put_DaysOfWeek(&this, days);
 
-	public HRESULT get_WeeksOfMonth(int16* pWeeks) mut => VT.[Friend]get_WeeksOfMonth(&this, pWeeks);
+	public HRESULT get_WeeksOfMonth(int16 pWeeks) mut => VT.[Friend]get_WeeksOfMonth(&this, pWeeks);
 
 	public HRESULT put_WeeksOfMonth(int16 weeks) mut => VT.[Friend]put_WeeksOfMonth(&this, weeks);
 
-	public HRESULT get_MonthsOfYear(int16* pMonths) mut => VT.[Friend]get_MonthsOfYear(&this, pMonths);
+	public HRESULT get_MonthsOfYear(int16 pMonths) mut => VT.[Friend]get_MonthsOfYear(&this, pMonths);
 
 	public HRESULT put_MonthsOfYear(int16 months) mut => VT.[Friend]put_MonthsOfYear(&this, months);
 
-	public HRESULT get_RunOnLastWeekOfMonth(int16* pLastWeek) mut => VT.[Friend]get_RunOnLastWeekOfMonth(&this, pLastWeek);
+	public HRESULT get_RunOnLastWeekOfMonth(int16 pLastWeek) mut => VT.[Friend]get_RunOnLastWeekOfMonth(&this, pLastWeek);
 
 	public HRESULT put_RunOnLastWeekOfMonth(int16 lastWeek) mut => VT.[Friend]put_RunOnLastWeekOfMonth(&this, lastWeek);
 
@@ -1276,12 +1276,12 @@ public static
 
 	[CRepr]public struct VTable : IExecAction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pHideAppWindow) get_HideAppWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pHideAppWindow) get_HideAppWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 hideAppWindow) put_HideAppWindow;
 	}
 
 
-	public HRESULT get_HideAppWindow(int16* pHideAppWindow) mut => VT.[Friend]get_HideAppWindow(&this, pHideAppWindow);
+	public HRESULT get_HideAppWindow(int16 pHideAppWindow) mut => VT.[Friend]get_HideAppWindow(&this, pHideAppWindow);
 
 	public HRESULT put_HideAppWindow(int16 hideAppWindow) mut => VT.[Friend]put_HideAppWindow(&this, hideAppWindow);
 }
@@ -1414,7 +1414,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, ITrigger** ppTrigger) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_TRIGGER_TYPE2 type, ITrigger** ppTrigger) Create;
@@ -1423,7 +1423,7 @@ public static
 	}
 
 
-	public HRESULT get_Count(int32* pCount) mut => VT.[Friend]get_Count(&this, pCount);
+	public HRESULT get_Count(int32 pCount) mut => VT.[Friend]get_Count(&this, pCount);
 
 	public HRESULT get_Item(int32 index, ITrigger** ppTrigger) mut => VT.[Friend]get_Item(&this, index, ppTrigger);
 
@@ -1444,7 +1444,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IAction** ppAction) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pText) get_XmlText;
@@ -1457,7 +1457,7 @@ public static
 	}
 
 
-	public HRESULT get_Count(int32* pCount) mut => VT.[Friend]get_Count(&this, pCount);
+	public HRESULT get_Count(int32 pCount) mut => VT.[Friend]get_Count(&this, pCount);
 
 	public HRESULT get_Item(int32 index, IAction** ppAction) mut => VT.[Friend]get_Item(&this, index, ppAction);
 
@@ -1536,7 +1536,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_PROCESSTOKENSID_TYPE* pProcessTokenSidType) get_ProcessTokenSidType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_PROCESSTOKENSID_TYPE processTokenSidType) put_ProcessTokenSidType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_RequiredPrivilegeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pCount) get_RequiredPrivilegeCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* pPrivilege) get_RequiredPrivilege;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR privilege) AddRequiredPrivilege;
 	}
@@ -1546,7 +1546,7 @@ public static
 
 	public HRESULT put_ProcessTokenSidType(TASK_PROCESSTOKENSID_TYPE processTokenSidType) mut => VT.[Friend]put_ProcessTokenSidType(&this, processTokenSidType);
 
-	public HRESULT get_RequiredPrivilegeCount(int32* pCount) mut => VT.[Friend]get_RequiredPrivilegeCount(&this, pCount);
+	public HRESULT get_RequiredPrivilegeCount(int32 pCount) mut => VT.[Friend]get_RequiredPrivilegeCount(&this, pCount);
 
 	public HRESULT get_RequiredPrivilege(int32 index, BSTR* pPrivilege) mut => VT.[Friend]get_RequiredPrivilege(&this, index, pPrivilege);
 
@@ -1681,50 +1681,50 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pAllowDemandStart) get_AllowDemandStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pAllowDemandStart) get_AllowDemandStart;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 allowDemandStart) put_AllowDemandStart;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRestartInterval) get_RestartInterval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR restartInterval) put_RestartInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pRestartCount) get_RestartCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pRestartCount) get_RestartCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 restartCount) put_RestartCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_INSTANCES_POLICY* pPolicy) get_MultipleInstances;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_INSTANCES_POLICY policy) put_MultipleInstances;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pStopIfOnBatteries) get_StopIfGoingOnBatteries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pStopIfOnBatteries) get_StopIfGoingOnBatteries;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 stopIfOnBatteries) put_StopIfGoingOnBatteries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDisallowStart) get_DisallowStartIfOnBatteries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pDisallowStart) get_DisallowStartIfOnBatteries;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 disallowStart) put_DisallowStartIfOnBatteries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pAllowHardTerminate) get_AllowHardTerminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pAllowHardTerminate) get_AllowHardTerminate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 allowHardTerminate) put_AllowHardTerminate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pStartWhenAvailable) get_StartWhenAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pStartWhenAvailable) get_StartWhenAvailable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 startWhenAvailable) put_StartWhenAvailable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pText) get_XmlText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR text) put_XmlText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pRunOnlyIfNetworkAvailable) get_RunOnlyIfNetworkAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pRunOnlyIfNetworkAvailable) get_RunOnlyIfNetworkAvailable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 runOnlyIfNetworkAvailable) put_RunOnlyIfNetworkAvailable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pExecutionTimeLimit) get_ExecutionTimeLimit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR executionTimeLimit) put_ExecutionTimeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pEnabled) get_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enabled) put_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pExpirationDelay) get_DeleteExpiredTaskAfter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR expirationDelay) put_DeleteExpiredTaskAfter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pPriority) get_Priority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 priority) put_Priority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_COMPATIBILITY* pCompatLevel) get_Compatibility;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_COMPATIBILITY compatLevel) put_Compatibility;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pHidden) get_Hidden;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pHidden) get_Hidden;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 hidden) put_Hidden;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IIdleSettings** ppIdleSettings) get_IdleSettings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IIdleSettings* pIdleSettings) put_IdleSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pRunOnlyIfIdle) get_RunOnlyIfIdle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pRunOnlyIfIdle) get_RunOnlyIfIdle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 runOnlyIfIdle) put_RunOnlyIfIdle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pWake) get_WakeToRun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pWake) get_WakeToRun;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 wake) put_WakeToRun;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetworkSettings** ppNetworkSettings) get_NetworkSettings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetworkSettings* pNetworkSettings) put_NetworkSettings;
 	}
 
 
-	public HRESULT get_AllowDemandStart(int16* pAllowDemandStart) mut => VT.[Friend]get_AllowDemandStart(&this, pAllowDemandStart);
+	public HRESULT get_AllowDemandStart(int16 pAllowDemandStart) mut => VT.[Friend]get_AllowDemandStart(&this, pAllowDemandStart);
 
 	public HRESULT put_AllowDemandStart(int16 allowDemandStart) mut => VT.[Friend]put_AllowDemandStart(&this, allowDemandStart);
 
@@ -1732,7 +1732,7 @@ public static
 
 	public HRESULT put_RestartInterval(BSTR restartInterval) mut => VT.[Friend]put_RestartInterval(&this, restartInterval);
 
-	public HRESULT get_RestartCount(int32* pRestartCount) mut => VT.[Friend]get_RestartCount(&this, pRestartCount);
+	public HRESULT get_RestartCount(int32 pRestartCount) mut => VT.[Friend]get_RestartCount(&this, pRestartCount);
 
 	public HRESULT put_RestartCount(int32 restartCount) mut => VT.[Friend]put_RestartCount(&this, restartCount);
 
@@ -1740,19 +1740,19 @@ public static
 
 	public HRESULT put_MultipleInstances(TASK_INSTANCES_POLICY policy) mut => VT.[Friend]put_MultipleInstances(&this, policy);
 
-	public HRESULT get_StopIfGoingOnBatteries(int16* pStopIfOnBatteries) mut => VT.[Friend]get_StopIfGoingOnBatteries(&this, pStopIfOnBatteries);
+	public HRESULT get_StopIfGoingOnBatteries(int16 pStopIfOnBatteries) mut => VT.[Friend]get_StopIfGoingOnBatteries(&this, pStopIfOnBatteries);
 
 	public HRESULT put_StopIfGoingOnBatteries(int16 stopIfOnBatteries) mut => VT.[Friend]put_StopIfGoingOnBatteries(&this, stopIfOnBatteries);
 
-	public HRESULT get_DisallowStartIfOnBatteries(int16* pDisallowStart) mut => VT.[Friend]get_DisallowStartIfOnBatteries(&this, pDisallowStart);
+	public HRESULT get_DisallowStartIfOnBatteries(int16 pDisallowStart) mut => VT.[Friend]get_DisallowStartIfOnBatteries(&this, pDisallowStart);
 
 	public HRESULT put_DisallowStartIfOnBatteries(int16 disallowStart) mut => VT.[Friend]put_DisallowStartIfOnBatteries(&this, disallowStart);
 
-	public HRESULT get_AllowHardTerminate(int16* pAllowHardTerminate) mut => VT.[Friend]get_AllowHardTerminate(&this, pAllowHardTerminate);
+	public HRESULT get_AllowHardTerminate(int16 pAllowHardTerminate) mut => VT.[Friend]get_AllowHardTerminate(&this, pAllowHardTerminate);
 
 	public HRESULT put_AllowHardTerminate(int16 allowHardTerminate) mut => VT.[Friend]put_AllowHardTerminate(&this, allowHardTerminate);
 
-	public HRESULT get_StartWhenAvailable(int16* pStartWhenAvailable) mut => VT.[Friend]get_StartWhenAvailable(&this, pStartWhenAvailable);
+	public HRESULT get_StartWhenAvailable(int16 pStartWhenAvailable) mut => VT.[Friend]get_StartWhenAvailable(&this, pStartWhenAvailable);
 
 	public HRESULT put_StartWhenAvailable(int16 startWhenAvailable) mut => VT.[Friend]put_StartWhenAvailable(&this, startWhenAvailable);
 
@@ -1760,7 +1760,7 @@ public static
 
 	public HRESULT put_XmlText(BSTR text) mut => VT.[Friend]put_XmlText(&this, text);
 
-	public HRESULT get_RunOnlyIfNetworkAvailable(int16* pRunOnlyIfNetworkAvailable) mut => VT.[Friend]get_RunOnlyIfNetworkAvailable(&this, pRunOnlyIfNetworkAvailable);
+	public HRESULT get_RunOnlyIfNetworkAvailable(int16 pRunOnlyIfNetworkAvailable) mut => VT.[Friend]get_RunOnlyIfNetworkAvailable(&this, pRunOnlyIfNetworkAvailable);
 
 	public HRESULT put_RunOnlyIfNetworkAvailable(int16 runOnlyIfNetworkAvailable) mut => VT.[Friend]put_RunOnlyIfNetworkAvailable(&this, runOnlyIfNetworkAvailable);
 
@@ -1768,7 +1768,7 @@ public static
 
 	public HRESULT put_ExecutionTimeLimit(BSTR executionTimeLimit) mut => VT.[Friend]put_ExecutionTimeLimit(&this, executionTimeLimit);
 
-	public HRESULT get_Enabled(int16* pEnabled) mut => VT.[Friend]get_Enabled(&this, pEnabled);
+	public HRESULT get_Enabled(int16 pEnabled) mut => VT.[Friend]get_Enabled(&this, pEnabled);
 
 	public HRESULT put_Enabled(int16 enabled) mut => VT.[Friend]put_Enabled(&this, enabled);
 
@@ -1776,7 +1776,7 @@ public static
 
 	public HRESULT put_DeleteExpiredTaskAfter(BSTR expirationDelay) mut => VT.[Friend]put_DeleteExpiredTaskAfter(&this, expirationDelay);
 
-	public HRESULT get_Priority(int32* pPriority) mut => VT.[Friend]get_Priority(&this, pPriority);
+	public HRESULT get_Priority(int32 pPriority) mut => VT.[Friend]get_Priority(&this, pPriority);
 
 	public HRESULT put_Priority(int32 priority) mut => VT.[Friend]put_Priority(&this, priority);
 
@@ -1784,7 +1784,7 @@ public static
 
 	public HRESULT put_Compatibility(TASK_COMPATIBILITY compatLevel) mut => VT.[Friend]put_Compatibility(&this, compatLevel);
 
-	public HRESULT get_Hidden(int16* pHidden) mut => VT.[Friend]get_Hidden(&this, pHidden);
+	public HRESULT get_Hidden(int16 pHidden) mut => VT.[Friend]get_Hidden(&this, pHidden);
 
 	public HRESULT put_Hidden(int16 hidden) mut => VT.[Friend]put_Hidden(&this, hidden);
 
@@ -1792,11 +1792,11 @@ public static
 
 	public HRESULT put_IdleSettings(IIdleSettings* pIdleSettings) mut => VT.[Friend]put_IdleSettings(&this, pIdleSettings);
 
-	public HRESULT get_RunOnlyIfIdle(int16* pRunOnlyIfIdle) mut => VT.[Friend]get_RunOnlyIfIdle(&this, pRunOnlyIfIdle);
+	public HRESULT get_RunOnlyIfIdle(int16 pRunOnlyIfIdle) mut => VT.[Friend]get_RunOnlyIfIdle(&this, pRunOnlyIfIdle);
 
 	public HRESULT put_RunOnlyIfIdle(int16 runOnlyIfIdle) mut => VT.[Friend]put_RunOnlyIfIdle(&this, runOnlyIfIdle);
 
-	public HRESULT get_WakeToRun(int16* pWake) mut => VT.[Friend]get_WakeToRun(&this, pWake);
+	public HRESULT get_WakeToRun(int16 pWake) mut => VT.[Friend]get_WakeToRun(&this, pWake);
 
 	public HRESULT put_WakeToRun(int16 wake) mut => VT.[Friend]put_WakeToRun(&this, wake);
 
@@ -1813,18 +1813,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDisallowStart) get_DisallowStartOnRemoteAppSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pDisallowStart) get_DisallowStartOnRemoteAppSession;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 disallowStart) put_DisallowStartOnRemoteAppSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pUseUnifiedEngine) get_UseUnifiedSchedulingEngine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pUseUnifiedEngine) get_UseUnifiedSchedulingEngine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 useUnifiedEngine) put_UseUnifiedSchedulingEngine;
 	}
 
 
-	public HRESULT get_DisallowStartOnRemoteAppSession(int16* pDisallowStart) mut => VT.[Friend]get_DisallowStartOnRemoteAppSession(&this, pDisallowStart);
+	public HRESULT get_DisallowStartOnRemoteAppSession(int16 pDisallowStart) mut => VT.[Friend]get_DisallowStartOnRemoteAppSession(&this, pDisallowStart);
 
 	public HRESULT put_DisallowStartOnRemoteAppSession(int16 disallowStart) mut => VT.[Friend]put_DisallowStartOnRemoteAppSession(&this, disallowStart);
 
-	public HRESULT get_UseUnifiedSchedulingEngine(int16* pUseUnifiedEngine) mut => VT.[Friend]get_UseUnifiedSchedulingEngine(&this, pUseUnifiedEngine);
+	public HRESULT get_UseUnifiedSchedulingEngine(int16 pUseUnifiedEngine) mut => VT.[Friend]get_UseUnifiedSchedulingEngine(&this, pUseUnifiedEngine);
 
 	public HRESULT put_UseUnifiedSchedulingEngine(int16 useUnifiedEngine) mut => VT.[Friend]put_UseUnifiedSchedulingEngine(&this, useUnifiedEngine);
 }
@@ -1837,23 +1837,23 @@ public static
 
 	[CRepr]public struct VTable : ITaskSettings.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDisallowStart) get_DisallowStartOnRemoteAppSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pDisallowStart) get_DisallowStartOnRemoteAppSession;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 disallowStart) put_DisallowStartOnRemoteAppSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pUseUnifiedEngine) get_UseUnifiedSchedulingEngine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pUseUnifiedEngine) get_UseUnifiedSchedulingEngine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 useUnifiedEngine) put_UseUnifiedSchedulingEngine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMaintenanceSettings** ppMaintenanceSettings) get_MaintenanceSettings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMaintenanceSettings* pMaintenanceSettings) put_MaintenanceSettings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMaintenanceSettings** ppMaintenanceSettings) CreateMaintenanceSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVolatile) get_Volatile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVolatile) get_Volatile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Volatile) put_Volatile;
 	}
 
 
-	public HRESULT get_DisallowStartOnRemoteAppSession(int16* pDisallowStart) mut => VT.[Friend]get_DisallowStartOnRemoteAppSession(&this, pDisallowStart);
+	public HRESULT get_DisallowStartOnRemoteAppSession(int16 pDisallowStart) mut => VT.[Friend]get_DisallowStartOnRemoteAppSession(&this, pDisallowStart);
 
 	public HRESULT put_DisallowStartOnRemoteAppSession(int16 disallowStart) mut => VT.[Friend]put_DisallowStartOnRemoteAppSession(&this, disallowStart);
 
-	public HRESULT get_UseUnifiedSchedulingEngine(int16* pUseUnifiedEngine) mut => VT.[Friend]get_UseUnifiedSchedulingEngine(&this, pUseUnifiedEngine);
+	public HRESULT get_UseUnifiedSchedulingEngine(int16 pUseUnifiedEngine) mut => VT.[Friend]get_UseUnifiedSchedulingEngine(&this, pUseUnifiedEngine);
 
 	public HRESULT put_UseUnifiedSchedulingEngine(int16 useUnifiedEngine) mut => VT.[Friend]put_UseUnifiedSchedulingEngine(&this, useUnifiedEngine);
 
@@ -1863,7 +1863,7 @@ public static
 
 	public HRESULT CreateMaintenanceSettings(IMaintenanceSettings** ppMaintenanceSettings) mut => VT.[Friend]CreateMaintenanceSettings(&this, ppMaintenanceSettings);
 
-	public HRESULT get_Volatile(int16* pVolatile) mut => VT.[Friend]get_Volatile(&this, pVolatile);
+	public HRESULT get_Volatile(int16 pVolatile) mut => VT.[Friend]get_Volatile(&this, pVolatile);
 
 	public HRESULT put_Volatile(int16 Volatile) mut => VT.[Friend]put_Volatile(&this, Volatile);
 }
@@ -1881,7 +1881,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_Deadline;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* target) get_Deadline;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_Exclusive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* target) get_Exclusive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 target) get_Exclusive;
 	}
 
 
@@ -1895,7 +1895,7 @@ public static
 
 	public HRESULT put_Exclusive(int16 value) mut => VT.[Friend]put_Exclusive(&this, value);
 
-	public HRESULT get_Exclusive(int16* target) mut => VT.[Friend]get_Exclusive(&this, target);
+	public HRESULT get_Exclusive(int16 target) mut => VT.[Friend]get_Exclusive(&this, target);
 }
 
 [CRepr]struct IRegisteredTaskCollection : IDispatch
@@ -1906,13 +1906,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, IRegisteredTask** ppRegisteredTask) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32* pCount) mut => VT.[Friend]get_Count(&this, pCount);
+	public HRESULT get_Count(int32 pCount) mut => VT.[Friend]get_Count(&this, pCount);
 
 	public HRESULT get_Item(VARIANT index, IRegisteredTask** ppRegisteredTask) mut => VT.[Friend]get_Item(&this, index, ppRegisteredTask);
 
@@ -1982,9 +1982,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR delay) put_IdleDuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTimeout) get_WaitTimeout;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR timeout) put_WaitTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pStop) get_StopOnIdleEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pStop) get_StopOnIdleEnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 stop) put_StopOnIdleEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pRestart) get_RestartOnIdle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pRestart) get_RestartOnIdle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 restart) put_RestartOnIdle;
 	}
 
@@ -1997,11 +1997,11 @@ public static
 
 	public HRESULT put_WaitTimeout(BSTR timeout) mut => VT.[Friend]put_WaitTimeout(&this, timeout);
 
-	public HRESULT get_StopOnIdleEnd(int16* pStop) mut => VT.[Friend]get_StopOnIdleEnd(&this, pStop);
+	public HRESULT get_StopOnIdleEnd(int16 pStop) mut => VT.[Friend]get_StopOnIdleEnd(&this, pStop);
 
 	public HRESULT put_StopOnIdleEnd(int16 stop) mut => VT.[Friend]put_StopOnIdleEnd(&this, stop);
 
-	public HRESULT get_RestartOnIdle(int16* pRestart) mut => VT.[Friend]get_RestartOnIdle(&this, pRestart);
+	public HRESULT get_RestartOnIdle(int16 pRestart) mut => VT.[Friend]get_RestartOnIdle(&this, pRestart);
 
 	public HRESULT put_RestartOnIdle(int16 restart) mut => VT.[Friend]put_RestartOnIdle(&this, restart);
 }
@@ -2042,7 +2042,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR interval) put_Interval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDuration) get_Duration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR duration) put_Duration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pStop) get_StopAtDurationEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pStop) get_StopAtDurationEnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 stop) put_StopAtDurationEnd;
 	}
 
@@ -2055,7 +2055,7 @@ public static
 
 	public HRESULT put_Duration(BSTR duration) mut => VT.[Friend]put_Duration(&this, duration);
 
-	public HRESULT get_StopAtDurationEnd(int16* pStop) mut => VT.[Friend]get_StopAtDurationEnd(&this, pStop);
+	public HRESULT get_StopAtDurationEnd(int16 pStop) mut => VT.[Friend]get_StopAtDurationEnd(&this, pStop);
 
 	public HRESULT put_StopAtDurationEnd(int16 stop) mut => VT.[Friend]put_StopAtDurationEnd(&this, stop);
 }

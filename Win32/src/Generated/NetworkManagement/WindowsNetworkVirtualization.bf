@@ -159,7 +159,7 @@ public static
 	public static extern HANDLE WnvOpen();
 
 	[Import("wnvapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WnvRequestNotification(HANDLE WnvHandle, WNV_NOTIFICATION_PARAM* NotificationParam, OVERLAPPED* Overlapped, uint32* BytesTransferred);
+	public static extern uint32 WnvRequestNotification(HANDLE WnvHandle, WNV_NOTIFICATION_PARAM* NotificationParam, OVERLAPPED* Overlapped, uint32 BytesTransferred);
 
 }
 #endregion

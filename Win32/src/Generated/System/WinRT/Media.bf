@@ -41,11 +41,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) GetData;
 	}
 
 
-	public HRESULT GetData(ref Guid riid, void** ppv) mut => VT.[Friend]GetData(&this, ref riid, ppv);
+	public HRESULT GetData(Guid riid, void** ppv) mut => VT.[Friend]GetData(&this, riid, ppv);
 }
 
 [CRepr]struct IVideoFrameNative : IInspectable
@@ -56,14 +56,14 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) GetDevice;
 	}
 
 
-	public HRESULT GetData(ref Guid riid, void** ppv) mut => VT.[Friend]GetData(&this, ref riid, ppv);
+	public HRESULT GetData(Guid riid, void** ppv) mut => VT.[Friend]GetData(&this, riid, ppv);
 
-	public HRESULT GetDevice(ref Guid riid, void** ppv) mut => VT.[Friend]GetDevice(&this, ref riid, ppv);
+	public HRESULT GetDevice(Guid riid, void** ppv) mut => VT.[Friend]GetDevice(&this, riid, ppv);
 }
 
 [CRepr]struct IAudioFrameNativeFactory : IInspectable
@@ -74,11 +74,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFSample* data, BOOL forceReadOnly, ref Guid riid, void** ppv) CreateFromMFSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFSample* data, BOOL forceReadOnly, Guid riid, void** ppv) CreateFromMFSample;
 	}
 
 
-	public HRESULT CreateFromMFSample(IMFSample* data, BOOL forceReadOnly, ref Guid riid, void** ppv) mut => VT.[Friend]CreateFromMFSample(&this, data, forceReadOnly, ref riid, ppv);
+	public HRESULT CreateFromMFSample(IMFSample* data, BOOL forceReadOnly, Guid riid, void** ppv) mut => VT.[Friend]CreateFromMFSample(&this, data, forceReadOnly, riid, ppv);
 }
 
 [CRepr]struct IVideoFrameNativeFactory : IInspectable
@@ -89,11 +89,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFSample* data, ref Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, IMFDXGIDeviceManager* device, ref Guid riid, void** ppv) CreateFromMFSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFSample* data, Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, IMFDXGIDeviceManager* device, Guid riid, void** ppv) CreateFromMFSample;
 	}
 
 
-	public HRESULT CreateFromMFSample(IMFSample* data, ref Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, IMFDXGIDeviceManager* device, ref Guid riid, void** ppv) mut => VT.[Friend]CreateFromMFSample(&this, data, ref subtype, width, height, forceReadOnly, minDisplayAperture, device, ref riid, ppv);
+	public HRESULT CreateFromMFSample(IMFSample* data, Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, IMFDXGIDeviceManager* device, Guid riid, void** ppv) mut => VT.[Friend]CreateFromMFSample(&this, data, subtype, width, height, forceReadOnly, minDisplayAperture, device, riid, ppv);
 }
 
 #endregion

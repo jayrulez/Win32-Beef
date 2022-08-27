@@ -237,7 +237,7 @@ public static
 public static
 {
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SaferGetPolicyInformation(uint32 dwScopeId, SAFER_POLICY_INFO_CLASS SaferPolicyInfoClass, uint32 InfoBufferSize, void* InfoBuffer, uint32* InfoBufferRetSize, void* lpReserved);
+	public static extern BOOL SaferGetPolicyInformation(uint32 dwScopeId, SAFER_POLICY_INFO_CLASS SaferPolicyInfoClass, uint32 InfoBufferSize, void* InfoBuffer, uint32 InfoBufferRetSize, void* lpReserved);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SaferSetPolicyInformation(uint32 dwScopeId, SAFER_POLICY_INFO_CLASS SaferPolicyInfoClass, uint32 InfoBufferSize, void* InfoBuffer, void* lpReserved);
@@ -255,7 +255,7 @@ public static
 	public static extern BOOL SaferComputeTokenFromLevel(SAFER_LEVEL_HANDLE LevelHandle, HANDLE InAccessToken, HANDLE* OutAccessToken, SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS dwFlags, void* lpReserved);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SaferGetLevelInformation(SAFER_LEVEL_HANDLE LevelHandle, SAFER_OBJECT_INFO_CLASS dwInfoType, void* lpQueryBuffer, uint32 dwInBufferSize, uint32* lpdwOutBufferSize);
+	public static extern BOOL SaferGetLevelInformation(SAFER_LEVEL_HANDLE LevelHandle, SAFER_OBJECT_INFO_CLASS dwInfoType, void* lpQueryBuffer, uint32 dwInBufferSize, uint32 lpdwOutBufferSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SaferSetLevelInformation(SAFER_LEVEL_HANDLE LevelHandle, SAFER_OBJECT_INFO_CLASS dwInfoType, void* lpQueryBuffer, uint32 dwInBufferSize);

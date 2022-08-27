@@ -174,11 +174,11 @@ public static
 	public static extern HWINSTA GetProcessWindowStation();
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserObjectInformationA(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void* pvInfo, uint32 nLength, uint32* lpnLengthNeeded);
-	public static BOOL GetUserObjectInformation(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void* pvInfo, uint32 nLength, uint32* lpnLengthNeeded) => GetUserObjectInformationA(hObj, nIndex, pvInfo, nLength, lpnLengthNeeded);
+	public static extern BOOL GetUserObjectInformationA(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void* pvInfo, uint32 nLength, uint32 lpnLengthNeeded);
+	public static BOOL GetUserObjectInformation(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void* pvInfo, uint32 nLength, uint32 lpnLengthNeeded) => GetUserObjectInformationA(hObj, nIndex, pvInfo, nLength, lpnLengthNeeded);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserObjectInformationW(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void* pvInfo, uint32 nLength, uint32* lpnLengthNeeded);
+	public static extern BOOL GetUserObjectInformationW(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void* pvInfo, uint32 nLength, uint32 lpnLengthNeeded);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetUserObjectInformationA(HANDLE hObj, int32 nIndex, void* pvInfo, uint32 nLength);
@@ -195,8 +195,8 @@ public static
 	public static extern int32 BroadcastSystemMessageExW(BROADCAST_SYSTEM_MESSAGE_FLAGS flags, BROADCAST_SYSTEM_MESSAGE_INFO* lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam, BSMINFO* pbsmInfo);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 BroadcastSystemMessageA(uint32 flags, uint32* lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam);
-	public static int32 BroadcastSystemMessage(uint32 flags, uint32* lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam) => BroadcastSystemMessageA(flags, lpInfo, Msg, wParam, lParam);
+	public static extern int32 BroadcastSystemMessageA(uint32 flags, uint32 lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam);
+	public static int32 BroadcastSystemMessage(uint32 flags, uint32 lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam) => BroadcastSystemMessageA(flags, lpInfo, Msg, wParam, lParam);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 BroadcastSystemMessageW(BROADCAST_SYSTEM_MESSAGE_FLAGS flags, BROADCAST_SYSTEM_MESSAGE_INFO* lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam);

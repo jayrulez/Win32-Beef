@@ -222,7 +222,7 @@ public static
 	public static extern HRESULT UnregisterDeviceWithManagement(PWSTR enrollmentID);
 
 	[Import("MDMRegistration.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetDeviceManagementConfigInfo(PWSTR providerID, uint32* configStringBufferLength, char16* configString);
+	public static extern HRESULT GetDeviceManagementConfigInfo(PWSTR providerID, uint32 configStringBufferLength, char16* configString);
 
 	[Import("MDMRegistration.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetDeviceManagementConfigInfo(PWSTR providerID, PWSTR configString);

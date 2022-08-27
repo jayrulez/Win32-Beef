@@ -40,11 +40,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) GetData;
 	}
 
 
-	public HRESULT GetData(ref Guid riid, void** ppv) mut => VT.[Friend]GetData(&this, ref riid, ppv);
+	public HRESULT GetData(Guid riid, void** ppv) mut => VT.[Friend]GetData(&this, riid, ppv);
 }
 
 [CRepr]struct ISoftwareBitmapNativeFactory : IInspectable
@@ -55,14 +55,14 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmap* data, BOOL forceReadOnly, ref Guid riid, void** ppv) CreateFromWICBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMF2DBuffer2* data, ref Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, ref Guid riid, void** ppv) CreateFromMF2DBuffer2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmap* data, BOOL forceReadOnly, Guid riid, void** ppv) CreateFromWICBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMF2DBuffer2* data, Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, Guid riid, void** ppv) CreateFromMF2DBuffer2;
 	}
 
 
-	public HRESULT CreateFromWICBitmap(IWICBitmap* data, BOOL forceReadOnly, ref Guid riid, void** ppv) mut => VT.[Friend]CreateFromWICBitmap(&this, data, forceReadOnly, ref riid, ppv);
+	public HRESULT CreateFromWICBitmap(IWICBitmap* data, BOOL forceReadOnly, Guid riid, void** ppv) mut => VT.[Friend]CreateFromWICBitmap(&this, data, forceReadOnly, riid, ppv);
 
-	public HRESULT CreateFromMF2DBuffer2(IMF2DBuffer2* data, ref Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, ref Guid riid, void** ppv) mut => VT.[Friend]CreateFromMF2DBuffer2(&this, data, ref subtype, width, height, forceReadOnly, minDisplayAperture, ref riid, ppv);
+	public HRESULT CreateFromMF2DBuffer2(IMF2DBuffer2* data, Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, Guid riid, void** ppv) mut => VT.[Friend]CreateFromMF2DBuffer2(&this, data, subtype, width, height, forceReadOnly, minDisplayAperture, riid, ppv);
 }
 
 #endregion

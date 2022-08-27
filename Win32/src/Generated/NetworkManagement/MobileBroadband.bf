@@ -562,11 +562,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ConnectionID) get_ConnectionID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* InterfaceID) get_InterfaceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_CONNECTION_MODE connectionMode, PWSTR strProfile, uint32* requestID) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) Disconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_CONNECTION_MODE connectionMode, PWSTR strProfile, uint32 requestID) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 requestID) Disconnect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_ACTIVATION_STATE* ConnectionState, BSTR* ProfileName) GetConnectionState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_VOICE_CALL_STATE* voiceCallState) GetVoiceCallState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* networkError) GetActivationNetworkError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 networkError) GetActivationNetworkError;
 	}
 
 
@@ -574,15 +574,15 @@ public static
 
 	public HRESULT get_InterfaceID(BSTR* InterfaceID) mut => VT.[Friend]get_InterfaceID(&this, InterfaceID);
 
-	public HRESULT Connect(MBN_CONNECTION_MODE connectionMode, PWSTR strProfile, uint32* requestID) mut => VT.[Friend]Connect(&this, connectionMode, strProfile, requestID);
+	public HRESULT Connect(MBN_CONNECTION_MODE connectionMode, PWSTR strProfile, uint32 requestID) mut => VT.[Friend]Connect(&this, connectionMode, strProfile, requestID);
 
-	public HRESULT Disconnect(uint32* requestID) mut => VT.[Friend]Disconnect(&this, requestID);
+	public HRESULT Disconnect(uint32 requestID) mut => VT.[Friend]Disconnect(&this, requestID);
 
 	public HRESULT GetConnectionState(MBN_ACTIVATION_STATE* ConnectionState, BSTR* ProfileName) mut => VT.[Friend]GetConnectionState(&this, ConnectionState, ProfileName);
 
 	public HRESULT GetVoiceCallState(MBN_VOICE_CALL_STATE* voiceCallState) mut => VT.[Friend]GetVoiceCallState(&this, voiceCallState);
 
-	public HRESULT GetActivationNetworkError(uint32* networkError) mut => VT.[Friend]GetActivationNetworkError(&this, networkError);
+	public HRESULT GetActivationNetworkError(uint32 networkError) mut => VT.[Friend]GetActivationNetworkError(&this, networkError);
 }
 
 [CRepr]struct IMbnConnectionEvents : IUnknown
@@ -621,12 +621,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_INTERFACE_CAPS* interfaceCaps) GetInterfaceCapability;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSubscriberInformation** subscriberInformation) GetSubscriberInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_READY_STATE* readyState) GetReadyState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* emergencyMode) InEmergencyMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 emergencyMode) InEmergencyMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PROVIDER* homeProvider) GetHomeProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** preferredProviders) GetPreferredProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* preferredProviders, uint32* requestID) SetPreferredProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* age, SAFEARRAY** visibleProviders) GetVisibleProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) ScanNetwork;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* preferredProviders, uint32 requestID) SetPreferredProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 age, SAFEARRAY** visibleProviders) GetVisibleProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 requestID) ScanNetwork;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnection** mbnConnection) GetConnection;
 	}
 
@@ -639,17 +639,17 @@ public static
 
 	public HRESULT GetReadyState(MBN_READY_STATE* readyState) mut => VT.[Friend]GetReadyState(&this, readyState);
 
-	public HRESULT InEmergencyMode(int16* emergencyMode) mut => VT.[Friend]InEmergencyMode(&this, emergencyMode);
+	public HRESULT InEmergencyMode(int16 emergencyMode) mut => VT.[Friend]InEmergencyMode(&this, emergencyMode);
 
 	public HRESULT GetHomeProvider(MBN_PROVIDER* homeProvider) mut => VT.[Friend]GetHomeProvider(&this, homeProvider);
 
 	public HRESULT GetPreferredProviders(SAFEARRAY** preferredProviders) mut => VT.[Friend]GetPreferredProviders(&this, preferredProviders);
 
-	public HRESULT SetPreferredProviders(SAFEARRAY* preferredProviders, uint32* requestID) mut => VT.[Friend]SetPreferredProviders(&this, preferredProviders, requestID);
+	public HRESULT SetPreferredProviders(SAFEARRAY* preferredProviders, uint32 requestID) mut => VT.[Friend]SetPreferredProviders(&this, preferredProviders, requestID);
 
-	public HRESULT GetVisibleProviders(uint32* age, SAFEARRAY** visibleProviders) mut => VT.[Friend]GetVisibleProviders(&this, age, visibleProviders);
+	public HRESULT GetVisibleProviders(uint32 age, SAFEARRAY** visibleProviders) mut => VT.[Friend]GetVisibleProviders(&this, age, visibleProviders);
 
-	public HRESULT ScanNetwork(uint32* requestID) mut => VT.[Friend]ScanNetwork(&this, requestID);
+	public HRESULT ScanNetwork(uint32 requestID) mut => VT.[Friend]ScanNetwork(&this, requestID);
 
 	public HRESULT GetConnection(IMbnConnection** mbnConnection) mut => VT.[Friend]GetConnection(&this, mbnConnection);
 }
@@ -739,11 +739,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* providerID) GetProviderID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* providerName) GetProviderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* roamingText) GetRoamingText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* availableDataClasses) GetAvailableDataClasses;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* currentDataClass) GetCurrentDataClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* registrationNetworkError) GetRegistrationNetworkError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* packetAttachNetworkError) GetPacketAttachNetworkError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_REGISTER_MODE registerMode, PWSTR providerID, uint32 dataClass, uint32* requestID) SetRegisterMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 availableDataClasses) GetAvailableDataClasses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 currentDataClass) GetCurrentDataClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 registrationNetworkError) GetRegistrationNetworkError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 packetAttachNetworkError) GetPacketAttachNetworkError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_REGISTER_MODE registerMode, PWSTR providerID, uint32 dataClass, uint32 requestID) SetRegisterMode;
 	}
 
 
@@ -757,15 +757,15 @@ public static
 
 	public HRESULT GetRoamingText(BSTR* roamingText) mut => VT.[Friend]GetRoamingText(&this, roamingText);
 
-	public HRESULT GetAvailableDataClasses(uint32* availableDataClasses) mut => VT.[Friend]GetAvailableDataClasses(&this, availableDataClasses);
+	public HRESULT GetAvailableDataClasses(uint32 availableDataClasses) mut => VT.[Friend]GetAvailableDataClasses(&this, availableDataClasses);
 
-	public HRESULT GetCurrentDataClass(uint32* currentDataClass) mut => VT.[Friend]GetCurrentDataClass(&this, currentDataClass);
+	public HRESULT GetCurrentDataClass(uint32 currentDataClass) mut => VT.[Friend]GetCurrentDataClass(&this, currentDataClass);
 
-	public HRESULT GetRegistrationNetworkError(uint32* registrationNetworkError) mut => VT.[Friend]GetRegistrationNetworkError(&this, registrationNetworkError);
+	public HRESULT GetRegistrationNetworkError(uint32 registrationNetworkError) mut => VT.[Friend]GetRegistrationNetworkError(&this, registrationNetworkError);
 
-	public HRESULT GetPacketAttachNetworkError(uint32* packetAttachNetworkError) mut => VT.[Friend]GetPacketAttachNetworkError(&this, packetAttachNetworkError);
+	public HRESULT GetPacketAttachNetworkError(uint32 packetAttachNetworkError) mut => VT.[Friend]GetPacketAttachNetworkError(&this, packetAttachNetworkError);
 
-	public HRESULT SetRegisterMode(MBN_REGISTER_MODE registerMode, PWSTR providerID, uint32 dataClass, uint32* requestID) mut => VT.[Friend]SetRegisterMode(&this, registerMode, providerID, dataClass, requestID);
+	public HRESULT SetRegisterMode(MBN_REGISTER_MODE registerMode, PWSTR providerID, uint32 dataClass, uint32 requestID) mut => VT.[Friend]SetRegisterMode(&this, registerMode, providerID, dataClass, requestID);
 }
 
 [CRepr]struct IMbnRegistrationEvents : IUnknown
@@ -838,7 +838,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** pinList) GetPinList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PIN_TYPE pinType, IMbnPin** pin) GetPin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) GetPinState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 requestID) GetPinState;
 	}
 
 
@@ -846,7 +846,7 @@ public static
 
 	public HRESULT GetPin(MBN_PIN_TYPE pinType, IMbnPin** pin) mut => VT.[Friend]GetPin(&this, pinType, pin);
 
-	public HRESULT GetPinState(uint32* requestID) mut => VT.[Friend]GetPinState(&this, requestID);
+	public HRESULT GetPinState(uint32 requestID) mut => VT.[Friend]GetPinState(&this, requestID);
 }
 
 [CRepr]struct IMbnPinManagerEvents : IUnknown
@@ -923,14 +923,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* signalStrength) GetSignalStrength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* signalError) GetSignalError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 signalStrength) GetSignalStrength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 signalError) GetSignalError;
 	}
 
 
-	public HRESULT GetSignalStrength(uint32* signalStrength) mut => VT.[Friend]GetSignalStrength(&this, signalStrength);
+	public HRESULT GetSignalStrength(uint32 signalStrength) mut => VT.[Friend]GetSignalStrength(&this, signalStrength);
 
-	public HRESULT GetSignalError(uint32* signalError) mut => VT.[Friend]GetSignalError(&this, signalError);
+	public HRESULT GetSignalError(uint32 signalError) mut => VT.[Friend]GetSignalError(&this, signalError);
 }
 
 [CRepr]struct IMbnSignalEvents : IUnknown
@@ -957,13 +957,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** provisionedContexts) GetProvisionedContexts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_CONTEXT provisionedContexts, PWSTR providerID, uint32* requestID) SetProvisionedContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_CONTEXT provisionedContexts, PWSTR providerID, uint32 requestID) SetProvisionedContext;
 	}
 
 
 	public HRESULT GetProvisionedContexts(SAFEARRAY** provisionedContexts) mut => VT.[Friend]GetProvisionedContexts(&this, provisionedContexts);
 
-	public HRESULT SetProvisionedContext(MBN_CONTEXT provisionedContexts, PWSTR providerID, uint32* requestID) mut => VT.[Friend]SetProvisionedContext(&this, provisionedContexts, providerID, requestID);
+	public HRESULT SetProvisionedContext(MBN_CONTEXT provisionedContexts, PWSTR providerID, uint32 requestID) mut => VT.[Friend]SetProvisionedContext(&this, provisionedContexts, providerID, requestID);
 }
 
 [CRepr]struct IMbnConnectionContextEvents : IUnknown
@@ -1051,8 +1051,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* scAddress) get_ServiceCenterAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR scAddress) put_ServiceCenterAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* index) get_MaxMessageIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* shortMsgSize) get_CdmaShortMsgSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) get_MaxMessageIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 shortMsgSize) get_CdmaShortMsgSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_FORMAT* smsFormat) get_SmsFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_FORMAT smsFormat) put_SmsFormat;
 	}
@@ -1062,9 +1062,9 @@ public static
 
 	public HRESULT put_ServiceCenterAddress(PWSTR scAddress) mut => VT.[Friend]put_ServiceCenterAddress(&this, scAddress);
 
-	public HRESULT get_MaxMessageIndex(uint32* index) mut => VT.[Friend]get_MaxMessageIndex(&this, index);
+	public HRESULT get_MaxMessageIndex(uint32 index) mut => VT.[Friend]get_MaxMessageIndex(&this, index);
 
-	public HRESULT get_CdmaShortMsgSize(uint32* shortMsgSize) mut => VT.[Friend]get_CdmaShortMsgSize(&this, shortMsgSize);
+	public HRESULT get_CdmaShortMsgSize(uint32 shortMsgSize) mut => VT.[Friend]get_CdmaShortMsgSize(&this, shortMsgSize);
 
 	public HRESULT get_SmsFormat(MBN_SMS_FORMAT* smsFormat) mut => VT.[Friend]get_SmsFormat(&this, smsFormat);
 
@@ -1079,14 +1079,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* Index) get_Index;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index) get_Index;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_MSG_STATUS* Status) get_Status;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* PduData) get_PduData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** Message) get_Message;
 	}
 
 
-	public HRESULT get_Index(uint32* Index) mut => VT.[Friend]get_Index(&this, Index);
+	public HRESULT get_Index(uint32 Index) mut => VT.[Friend]get_Index(&this, Index);
 
 	public HRESULT get_Status(MBN_MSG_STATUS* Status) mut => VT.[Friend]get_Status(&this, Status);
 
@@ -1103,18 +1103,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* Index) get_Index;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index) get_Index;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_MSG_STATUS* Status) get_Status;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Address) get_Address;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Timestamp) get_Timestamp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_CDMA_ENCODING* EncodingID) get_EncodingID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_CDMA_LANG* LanguageID) get_LanguageID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* SizeInCharacters) get_SizeInCharacters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 SizeInCharacters) get_SizeInCharacters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** Message) get_Message;
 	}
 
 
-	public HRESULT get_Index(uint32* Index) mut => VT.[Friend]get_Index(&this, Index);
+	public HRESULT get_Index(uint32 Index) mut => VT.[Friend]get_Index(&this, Index);
 
 	public HRESULT get_Status(MBN_MSG_STATUS* Status) mut => VT.[Friend]get_Status(&this, Status);
 
@@ -1126,7 +1126,7 @@ public static
 
 	public HRESULT get_LanguageID(MBN_SMS_CDMA_LANG* LanguageID) mut => VT.[Friend]get_LanguageID(&this, LanguageID);
 
-	public HRESULT get_SizeInCharacters(uint32* SizeInCharacters) mut => VT.[Friend]get_SizeInCharacters(&this, SizeInCharacters);
+	public HRESULT get_SizeInCharacters(uint32 SizeInCharacters) mut => VT.[Friend]get_SizeInCharacters(&this, SizeInCharacters);
 
 	public HRESULT get_Message(SAFEARRAY** Message) mut => VT.[Friend]get_Message(&this, Message);
 }
@@ -1140,29 +1140,29 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSmsConfiguration** smsConfiguration) GetSmsConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSmsConfiguration* smsConfiguration, uint32* requestID) SetSmsConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pduData, uint8 size, uint32* requestID) SmsSendPdu;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR address, MBN_SMS_CDMA_ENCODING encoding, MBN_SMS_CDMA_LANG language, uint32 sizeInCharacters, SAFEARRAY* message, uint32* requestID) SmsSendCdma;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* message, uint32* requestID) SmsSendCdmaPdu;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_FILTER* smsFilter, MBN_SMS_FORMAT smsFormat, uint32* requestID) SmsRead;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_FILTER* smsFilter, uint32* requestID) SmsDelete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSmsConfiguration* smsConfiguration, uint32 requestID) SetSmsConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pduData, uint8 size, uint32 requestID) SmsSendPdu;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR address, MBN_SMS_CDMA_ENCODING encoding, MBN_SMS_CDMA_LANG language, uint32 sizeInCharacters, SAFEARRAY* message, uint32 requestID) SmsSendCdma;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* message, uint32 requestID) SmsSendCdmaPdu;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_FILTER* smsFilter, MBN_SMS_FORMAT smsFormat, uint32 requestID) SmsRead;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_FILTER* smsFilter, uint32 requestID) SmsDelete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_STATUS_INFO* smsStatusInfo) GetSmsStatus;
 	}
 
 
 	public HRESULT GetSmsConfiguration(IMbnSmsConfiguration** smsConfiguration) mut => VT.[Friend]GetSmsConfiguration(&this, smsConfiguration);
 
-	public HRESULT SetSmsConfiguration(IMbnSmsConfiguration* smsConfiguration, uint32* requestID) mut => VT.[Friend]SetSmsConfiguration(&this, smsConfiguration, requestID);
+	public HRESULT SetSmsConfiguration(IMbnSmsConfiguration* smsConfiguration, uint32 requestID) mut => VT.[Friend]SetSmsConfiguration(&this, smsConfiguration, requestID);
 
-	public HRESULT SmsSendPdu(PWSTR pduData, uint8 size, uint32* requestID) mut => VT.[Friend]SmsSendPdu(&this, pduData, size, requestID);
+	public HRESULT SmsSendPdu(PWSTR pduData, uint8 size, uint32 requestID) mut => VT.[Friend]SmsSendPdu(&this, pduData, size, requestID);
 
-	public HRESULT SmsSendCdma(PWSTR address, MBN_SMS_CDMA_ENCODING encoding, MBN_SMS_CDMA_LANG language, uint32 sizeInCharacters, SAFEARRAY* message, uint32* requestID) mut => VT.[Friend]SmsSendCdma(&this, address, encoding, language, sizeInCharacters, message, requestID);
+	public HRESULT SmsSendCdma(PWSTR address, MBN_SMS_CDMA_ENCODING encoding, MBN_SMS_CDMA_LANG language, uint32 sizeInCharacters, SAFEARRAY* message, uint32 requestID) mut => VT.[Friend]SmsSendCdma(&this, address, encoding, language, sizeInCharacters, message, requestID);
 
-	public HRESULT SmsSendCdmaPdu(SAFEARRAY* message, uint32* requestID) mut => VT.[Friend]SmsSendCdmaPdu(&this, message, requestID);
+	public HRESULT SmsSendCdmaPdu(SAFEARRAY* message, uint32 requestID) mut => VT.[Friend]SmsSendCdmaPdu(&this, message, requestID);
 
-	public HRESULT SmsRead(MBN_SMS_FILTER* smsFilter, MBN_SMS_FORMAT smsFormat, uint32* requestID) mut => VT.[Friend]SmsRead(&this, smsFilter, smsFormat, requestID);
+	public HRESULT SmsRead(MBN_SMS_FILTER* smsFilter, MBN_SMS_FORMAT smsFormat, uint32 requestID) mut => VT.[Friend]SmsRead(&this, smsFilter, smsFormat, requestID);
 
-	public HRESULT SmsDelete(MBN_SMS_FILTER* smsFilter, uint32* requestID) mut => VT.[Friend]SmsDelete(&this, smsFilter, requestID);
+	public HRESULT SmsDelete(MBN_SMS_FILTER* smsFilter, uint32 requestID) mut => VT.[Friend]SmsDelete(&this, smsFilter, requestID);
 
 	public HRESULT GetSmsStatus(MBN_SMS_STATUS_INFO* smsStatusInfo) mut => VT.[Friend]GetSmsStatus(&this, smsStatusInfo);
 }
@@ -1208,11 +1208,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* vendorSpecificData, uint32* requestID) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* vendorSpecificData, uint32 requestID) Activate;
 	}
 
 
-	public HRESULT Activate(SAFEARRAY* vendorSpecificData, uint32* requestID) mut => VT.[Friend]Activate(&this, vendorSpecificData, requestID);
+	public HRESULT Activate(SAFEARRAY* vendorSpecificData, uint32 requestID) mut => VT.[Friend]Activate(&this, vendorSpecificData, requestID);
 }
 
 [CRepr]struct IMbnServiceActivationEvents : IUnknown
@@ -1238,11 +1238,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* vendorSpecificData, uint32* requestID) SetVendorSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* vendorSpecificData, uint32 requestID) SetVendorSpecific;
 	}
 
 
-	public HRESULT SetVendorSpecific(SAFEARRAY* vendorSpecificData, uint32* requestID) mut => VT.[Friend]SetVendorSpecific(&this, vendorSpecificData, requestID);
+	public HRESULT SetVendorSpecific(SAFEARRAY* vendorSpecificData, uint32 requestID) mut => VT.[Friend]SetVendorSpecific(&this, vendorSpecificData, requestID);
 }
 
 [CRepr]struct IMbnVendorSpecificEvents : IUnknown
@@ -1291,7 +1291,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_RADIO* SoftwareRadioState) get_SoftwareRadioState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_RADIO* HardwareRadioState) get_HardwareRadioState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_RADIO radioState, uint32* requestID) SetSoftwareRadioState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_RADIO radioState, uint32 requestID) SetSoftwareRadioState;
 	}
 
 
@@ -1299,7 +1299,7 @@ public static
 
 	public HRESULT get_HardwareRadioState(MBN_RADIO* HardwareRadioState) mut => VT.[Friend]get_HardwareRadioState(&this, HardwareRadioState);
 
-	public HRESULT SetSoftwareRadioState(MBN_RADIO radioState, uint32* requestID) mut => VT.[Friend]SetSoftwareRadioState(&this, radioState, requestID);
+	public HRESULT SetSoftwareRadioState(MBN_RADIO radioState, uint32 requestID) mut => VT.[Friend]SetSoftwareRadioState(&this, radioState, requestID);
 }
 
 [CRepr]struct IMbnRadioEvents : IUnknown
@@ -1328,26 +1328,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PROVIDER2* homeProvider, uint32* requestID) SetHomeProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PROVIDER2* homeProvider, uint32 requestID) SetHomeProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** preferredMulticarrierProviders) GetPreferredProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* age, SAFEARRAY** visibleProviders) GetVisibleProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 age, SAFEARRAY** visibleProviders) GetVisibleProviders;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** cellularClasses) GetSupportedCellularClasses;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_CELLULAR_CLASS* currentCellularClass) GetCurrentCellularClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) ScanNetwork;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 requestID) ScanNetwork;
 	}
 
 
-	public HRESULT SetHomeProvider(MBN_PROVIDER2* homeProvider, uint32* requestID) mut => VT.[Friend]SetHomeProvider(&this, homeProvider, requestID);
+	public HRESULT SetHomeProvider(MBN_PROVIDER2* homeProvider, uint32 requestID) mut => VT.[Friend]SetHomeProvider(&this, homeProvider, requestID);
 
 	public HRESULT GetPreferredProviders(SAFEARRAY** preferredMulticarrierProviders) mut => VT.[Friend]GetPreferredProviders(&this, preferredMulticarrierProviders);
 
-	public HRESULT GetVisibleProviders(uint32* age, SAFEARRAY** visibleProviders) mut => VT.[Friend]GetVisibleProviders(&this, age, visibleProviders);
+	public HRESULT GetVisibleProviders(uint32 age, SAFEARRAY** visibleProviders) mut => VT.[Friend]GetVisibleProviders(&this, age, visibleProviders);
 
 	public HRESULT GetSupportedCellularClasses(SAFEARRAY** cellularClasses) mut => VT.[Friend]GetSupportedCellularClasses(&this, cellularClasses);
 
 	public HRESULT GetCurrentCellularClass(MBN_CELLULAR_CLASS* currentCellularClass) mut => VT.[Friend]GetCurrentCellularClass(&this, currentCellularClass);
 
-	public HRESULT ScanNetwork(uint32* requestID) mut => VT.[Friend]ScanNetwork(&this, requestID);
+	public HRESULT ScanNetwork(uint32 requestID) mut => VT.[Friend]ScanNetwork(&this, requestID);
 }
 
 [CRepr]struct IMbnMultiCarrierEvents : IUnknown
@@ -1417,8 +1417,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** deviceServices) EnumerateDeviceServices;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR deviceServiceID, IMbnDeviceService** mbnDeviceService) GetDeviceService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* maxCommandSize) get_MaxCommandSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* maxDataSize) get_MaxDataSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 maxCommandSize) get_MaxCommandSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 maxDataSize) get_MaxDataSize;
 	}
 
 
@@ -1426,9 +1426,9 @@ public static
 
 	public HRESULT GetDeviceService(BSTR deviceServiceID, IMbnDeviceService** mbnDeviceService) mut => VT.[Friend]GetDeviceService(&this, deviceServiceID, mbnDeviceService);
 
-	public HRESULT get_MaxCommandSize(uint32* maxCommandSize) mut => VT.[Friend]get_MaxCommandSize(&this, maxCommandSize);
+	public HRESULT get_MaxCommandSize(uint32 maxCommandSize) mut => VT.[Friend]get_MaxCommandSize(&this, maxCommandSize);
 
-	public HRESULT get_MaxDataSize(uint32* maxDataSize) mut => VT.[Friend]get_MaxDataSize(&this, maxDataSize);
+	public HRESULT get_MaxDataSize(uint32 maxDataSize) mut => VT.[Friend]get_MaxDataSize(&this, maxDataSize);
 }
 
 [CRepr]struct IMbnDeviceServicesEvents : IUnknown
@@ -1484,14 +1484,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) QuerySupportedCommands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) OpenCommandSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) CloseCommandSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 commandID, SAFEARRAY* deviceServiceData, uint32* requestID) SetCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 commandID, SAFEARRAY* deviceServiceData, uint32* requestID) QueryCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) OpenDataSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) CloseDataSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* deviceServiceData, uint32* requestID) WriteData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 requestID) QuerySupportedCommands;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 requestID) OpenCommandSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 requestID) CloseCommandSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 commandID, SAFEARRAY* deviceServiceData, uint32 requestID) SetCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 commandID, SAFEARRAY* deviceServiceData, uint32 requestID) QueryCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 requestID) OpenDataSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 requestID) CloseDataSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* deviceServiceData, uint32 requestID) WriteData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* InterfaceID) get_InterfaceID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* DeviceServiceID) get_DeviceServiceID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* value) get_IsCommandSessionOpen;
@@ -1499,21 +1499,21 @@ public static
 	}
 
 
-	public HRESULT QuerySupportedCommands(uint32* requestID) mut => VT.[Friend]QuerySupportedCommands(&this, requestID);
+	public HRESULT QuerySupportedCommands(uint32 requestID) mut => VT.[Friend]QuerySupportedCommands(&this, requestID);
 
-	public HRESULT OpenCommandSession(uint32* requestID) mut => VT.[Friend]OpenCommandSession(&this, requestID);
+	public HRESULT OpenCommandSession(uint32 requestID) mut => VT.[Friend]OpenCommandSession(&this, requestID);
 
-	public HRESULT CloseCommandSession(uint32* requestID) mut => VT.[Friend]CloseCommandSession(&this, requestID);
+	public HRESULT CloseCommandSession(uint32 requestID) mut => VT.[Friend]CloseCommandSession(&this, requestID);
 
-	public HRESULT SetCommand(uint32 commandID, SAFEARRAY* deviceServiceData, uint32* requestID) mut => VT.[Friend]SetCommand(&this, commandID, deviceServiceData, requestID);
+	public HRESULT SetCommand(uint32 commandID, SAFEARRAY* deviceServiceData, uint32 requestID) mut => VT.[Friend]SetCommand(&this, commandID, deviceServiceData, requestID);
 
-	public HRESULT QueryCommand(uint32 commandID, SAFEARRAY* deviceServiceData, uint32* requestID) mut => VT.[Friend]QueryCommand(&this, commandID, deviceServiceData, requestID);
+	public HRESULT QueryCommand(uint32 commandID, SAFEARRAY* deviceServiceData, uint32 requestID) mut => VT.[Friend]QueryCommand(&this, commandID, deviceServiceData, requestID);
 
-	public HRESULT OpenDataSession(uint32* requestID) mut => VT.[Friend]OpenDataSession(&this, requestID);
+	public HRESULT OpenDataSession(uint32 requestID) mut => VT.[Friend]OpenDataSession(&this, requestID);
 
-	public HRESULT CloseDataSession(uint32* requestID) mut => VT.[Friend]CloseDataSession(&this, requestID);
+	public HRESULT CloseDataSession(uint32 requestID) mut => VT.[Friend]CloseDataSession(&this, requestID);
 
-	public HRESULT WriteData(SAFEARRAY* deviceServiceData, uint32* requestID) mut => VT.[Friend]WriteData(&this, deviceServiceData, requestID);
+	public HRESULT WriteData(SAFEARRAY* deviceServiceData, uint32 requestID) mut => VT.[Friend]WriteData(&this, deviceServiceData, requestID);
 
 	public HRESULT get_InterfaceID(BSTR* InterfaceID) mut => VT.[Friend]get_InterfaceID(&this, InterfaceID);
 
@@ -1534,14 +1534,14 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PIN_TYPE* PinType) get_PinType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PIN_FORMAT* PinFormat) get_PinFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* PinLengthMin) get_PinLengthMin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* PinLengthMax) get_PinLengthMax;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PinLengthMin) get_PinLengthMin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PinLengthMax) get_PinLengthMax;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PIN_MODE* PinMode) get_PinMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, uint32* requestID) Enable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, uint32* requestID) Disable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, uint32* requestID) Enter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, PWSTR newPin, uint32* requestID) Change;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR puk, PWSTR newPin, uint32* requestID) Unblock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, uint32 requestID) Enable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, uint32 requestID) Disable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, uint32 requestID) Enter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, PWSTR newPin, uint32 requestID) Change;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR puk, PWSTR newPin, uint32 requestID) Unblock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnPinManager** pinManager) GetPinManager;
 	}
 
@@ -1550,21 +1550,21 @@ public static
 
 	public HRESULT get_PinFormat(MBN_PIN_FORMAT* PinFormat) mut => VT.[Friend]get_PinFormat(&this, PinFormat);
 
-	public HRESULT get_PinLengthMin(uint32* PinLengthMin) mut => VT.[Friend]get_PinLengthMin(&this, PinLengthMin);
+	public HRESULT get_PinLengthMin(uint32 PinLengthMin) mut => VT.[Friend]get_PinLengthMin(&this, PinLengthMin);
 
-	public HRESULT get_PinLengthMax(uint32* PinLengthMax) mut => VT.[Friend]get_PinLengthMax(&this, PinLengthMax);
+	public HRESULT get_PinLengthMax(uint32 PinLengthMax) mut => VT.[Friend]get_PinLengthMax(&this, PinLengthMax);
 
 	public HRESULT get_PinMode(MBN_PIN_MODE* PinMode) mut => VT.[Friend]get_PinMode(&this, PinMode);
 
-	public HRESULT Enable(PWSTR pin, uint32* requestID) mut => VT.[Friend]Enable(&this, pin, requestID);
+	public HRESULT Enable(PWSTR pin, uint32 requestID) mut => VT.[Friend]Enable(&this, pin, requestID);
 
-	public HRESULT Disable(PWSTR pin, uint32* requestID) mut => VT.[Friend]Disable(&this, pin, requestID);
+	public HRESULT Disable(PWSTR pin, uint32 requestID) mut => VT.[Friend]Disable(&this, pin, requestID);
 
-	public HRESULT Enter(PWSTR pin, uint32* requestID) mut => VT.[Friend]Enter(&this, pin, requestID);
+	public HRESULT Enter(PWSTR pin, uint32 requestID) mut => VT.[Friend]Enter(&this, pin, requestID);
 
-	public HRESULT Change(PWSTR pin, PWSTR newPin, uint32* requestID) mut => VT.[Friend]Change(&this, pin, newPin, requestID);
+	public HRESULT Change(PWSTR pin, PWSTR newPin, uint32 requestID) mut => VT.[Friend]Change(&this, pin, newPin, requestID);
 
-	public HRESULT Unblock(PWSTR puk, PWSTR newPin, uint32* requestID) mut => VT.[Friend]Unblock(&this, puk, newPin, requestID);
+	public HRESULT Unblock(PWSTR puk, PWSTR newPin, uint32 requestID) mut => VT.[Friend]Unblock(&this, puk, newPin, requestID);
 
 	public HRESULT GetPinManager(IMbnPinManager** pinManager) mut => VT.[Friend]GetPinManager(&this, pinManager);
 }

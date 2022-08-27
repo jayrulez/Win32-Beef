@@ -791,7 +791,7 @@ public static
 
 	[CRepr]public struct VTable : IWSDAddress.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwPort) GetPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwPort) GetPort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wPort) SetPort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszAddress) GetTransportAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fSafe, PWSTR* ppszAddress) GetTransportAddressEx;
@@ -799,7 +799,7 @@ public static
 	}
 
 
-	public HRESULT GetPort(uint16* pwPort) mut => VT.[Friend]GetPort(&this, pwPort);
+	public HRESULT GetPort(uint16 pwPort) mut => VT.[Friend]GetPort(&this, pwPort);
 
 	public HRESULT SetPort(uint16 wPort) mut => VT.[Friend]SetPort(&this, wPort);
 
@@ -870,9 +870,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDUdpMessageType messageType) SetMessageType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDUdpMessageType* pMessageType) GetMessageType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTTL) SetTTL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwTTL) GetTTL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pAlias) SetAlias;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pAlias) GetAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwTTL) GetTTL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pAlias) SetAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pAlias) GetAlias;
 	}
 
 
@@ -890,11 +890,11 @@ public static
 
 	public HRESULT SetTTL(uint32 dwTTL) mut => VT.[Friend]SetTTL(&this, dwTTL);
 
-	public HRESULT GetTTL(uint32* pdwTTL) mut => VT.[Friend]GetTTL(&this, pdwTTL);
+	public HRESULT GetTTL(uint32 pdwTTL) mut => VT.[Friend]GetTTL(&this, pdwTTL);
 
-	public HRESULT SetAlias(ref Guid pAlias) mut => VT.[Friend]SetAlias(&this, ref pAlias);
+	public HRESULT SetAlias(Guid pAlias) mut => VT.[Friend]SetAlias(&this, pAlias);
 
-	public HRESULT GetAlias(ref Guid pAlias) mut => VT.[Friend]GetAlias(&this, ref pAlias);
+	public HRESULT GetAlias(Guid pAlias) mut => VT.[Friend]GetAlias(&this, pAlias);
 }
 
 [CRepr]struct IWSDHttpMessageParameters : IWSDMessageParameters
@@ -987,13 +987,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* phToken) GetClientAccessToken;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pAuthType) GetAuthType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pAuthType) GetAuthType;
 	}
 
 
 	public HRESULT GetClientAccessToken(HANDLE* phToken) mut => VT.[Friend]GetClientAccessToken(&this, phToken);
 
-	public HRESULT GetAuthType(uint32* pAuthType) mut => VT.[Friend]GetAuthType(&this, pAuthType);
+	public HRESULT GetAuthType(uint32 pAuthType) mut => VT.[Friend]GetAuthType(&this, pAuthType);
 }
 
 [CRepr]struct IWSDSignatureProperty : IUnknown
@@ -1006,9 +1006,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbSigned) IsMessageSigned;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbSignatureTrusted) IsMessageSignatureTrusted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbKeyInfo, uint32* pdwKeyInfoSize) GetKeyInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbSignature, uint32* pdwSignatureSize) GetSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbSignedInfoHash, uint32* pdwHashSize) GetSignedInfoHash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbKeyInfo, uint32 pdwKeyInfoSize) GetKeyInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbSignature, uint32 pdwSignatureSize) GetSignature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbSignedInfoHash, uint32 pdwHashSize) GetSignedInfoHash;
 	}
 
 
@@ -1016,11 +1016,11 @@ public static
 
 	public HRESULT IsMessageSignatureTrusted(BOOL* pbSignatureTrusted) mut => VT.[Friend]IsMessageSignatureTrusted(&this, pbSignatureTrusted);
 
-	public HRESULT GetKeyInfo(uint8* pbKeyInfo, uint32* pdwKeyInfoSize) mut => VT.[Friend]GetKeyInfo(&this, pbKeyInfo, pdwKeyInfoSize);
+	public HRESULT GetKeyInfo(uint8 pbKeyInfo, uint32 pdwKeyInfoSize) mut => VT.[Friend]GetKeyInfo(&this, pbKeyInfo, pdwKeyInfoSize);
 
-	public HRESULT GetSignature(uint8* pbSignature, uint32* pdwSignatureSize) mut => VT.[Friend]GetSignature(&this, pbSignature, pdwSignatureSize);
+	public HRESULT GetSignature(uint8 pbSignature, uint32 pdwSignatureSize) mut => VT.[Friend]GetSignature(&this, pbSignature, pdwSignatureSize);
 
-	public HRESULT GetSignedInfoHash(uint8* pbSignedInfoHash, uint32* pdwHashSize) mut => VT.[Friend]GetSignedInfoHash(&this, pbSignedInfoHash, pdwHashSize);
+	public HRESULT GetSignedInfoHash(uint8 pbSignedInfoHash, uint32 pdwHashSize) mut => VT.[Friend]GetSignedInfoHash(&this, pbSignedInfoHash, pdwHashSize);
 }
 
 [CRepr]struct IWSDAttachment : IUnknown
@@ -1043,13 +1043,13 @@ public static
 
 	[CRepr]public struct VTable : IWSDAttachment.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pBuffer, uint32 dwBytesToWrite, uint32* pdwNumberOfBytesWritten) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pBuffer, uint32 dwBytesToWrite, uint32 pdwNumberOfBytesWritten) Write;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Abort;
 	}
 
 
-	public HRESULT Write(uint8* pBuffer, uint32 dwBytesToWrite, uint32* pdwNumberOfBytesWritten) mut => VT.[Friend]Write(&this, pBuffer, dwBytesToWrite, pdwNumberOfBytesWritten);
+	public HRESULT Write(uint8* pBuffer, uint32 dwBytesToWrite, uint32 pdwNumberOfBytesWritten) mut => VT.[Friend]Write(&this, pBuffer, dwBytesToWrite, pdwNumberOfBytesWritten);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
@@ -1064,12 +1064,12 @@ public static
 
 	[CRepr]public struct VTable : IWSDAttachment.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pBuffer, uint32 dwBytesToRead, uint32* pdwNumberOfBytesRead) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pBuffer, uint32 dwBytesToRead, uint32 pdwNumberOfBytesRead) Read;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
-	public HRESULT Read(uint8* pBuffer, uint32 dwBytesToRead, uint32* pdwNumberOfBytesRead) mut => VT.[Friend]Read(&this, pBuffer, dwBytesToRead, pdwNumberOfBytesRead);
+	public HRESULT Read(uint8* pBuffer, uint32 dwBytesToRead, uint32 pdwNumberOfBytesRead) mut => VT.[Friend]Read(&this, pBuffer, dwBytesToRead, pdwNumberOfBytesRead);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 }
@@ -1167,13 +1167,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_NAME_LIST** ppTypesList) GetTypes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_URI_LIST** ppScopesList) GetScopes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_URI_LIST** ppXAddrsList) GetXAddrs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullMetadataVersion) GetMetadataVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pullMetadataVersion) GetMetadataVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDXML_ELEMENT** ppHeaderAny, WSDXML_ELEMENT** ppBodyAny) GetExtendedDiscoXML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszTag) GetProbeResolveTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszRemoteTransportAddress) GetRemoteTransportAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszLocalTransportAddress) GetLocalTransportAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuid) GetLocalInterfaceGUID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullInstanceId) GetInstanceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pGuid) GetLocalInterfaceGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pullInstanceId) GetInstanceId;
 	}
 
 
@@ -1185,7 +1185,7 @@ public static
 
 	public HRESULT GetXAddrs(WSD_URI_LIST** ppXAddrsList) mut => VT.[Friend]GetXAddrs(&this, ppXAddrsList);
 
-	public HRESULT GetMetadataVersion(uint64* pullMetadataVersion) mut => VT.[Friend]GetMetadataVersion(&this, pullMetadataVersion);
+	public HRESULT GetMetadataVersion(uint64 pullMetadataVersion) mut => VT.[Friend]GetMetadataVersion(&this, pullMetadataVersion);
 
 	public HRESULT GetExtendedDiscoXML(WSDXML_ELEMENT** ppHeaderAny, WSDXML_ELEMENT** ppBodyAny) mut => VT.[Friend]GetExtendedDiscoXML(&this, ppHeaderAny, ppBodyAny);
 
@@ -1195,9 +1195,9 @@ public static
 
 	public HRESULT GetLocalTransportAddress(PWSTR* ppszLocalTransportAddress) mut => VT.[Friend]GetLocalTransportAddress(&this, ppszLocalTransportAddress);
 
-	public HRESULT GetLocalInterfaceGUID(ref Guid pGuid) mut => VT.[Friend]GetLocalInterfaceGUID(&this, ref pGuid);
+	public HRESULT GetLocalInterfaceGUID(Guid pGuid) mut => VT.[Friend]GetLocalInterfaceGUID(&this, pGuid);
 
-	public HRESULT GetInstanceId(uint64* pullInstanceId) mut => VT.[Friend]GetInstanceId(&this, pullInstanceId);
+	public HRESULT GetInstanceId(uint64 pullInstanceId) mut => VT.[Friend]GetInstanceId(&this, pullInstanceId);
 }
 
 [CRepr]struct IWSDiscoveryPublisher : IUnknown
@@ -1704,10 +1704,10 @@ public static
 	public static extern HRESULT WSDGenerateFaultEx(WSDXML_NAME* pCode, WSDXML_NAME* pSubCode, WSD_LOCALIZED_STRING_LIST* pReasons, PWSTR pszDetail, WSD_SOAP_FAULT** ppFault);
 
 	[Import("wsdapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WSDUriEncode(char16* source, uint32 cchSource, PWSTR* destOut, uint32* cchDestOut);
+	public static extern HRESULT WSDUriEncode(char16* source, uint32 cchSource, PWSTR* destOut, uint32 cchDestOut);
 
 	[Import("wsdapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WSDUriDecode(char16* source, uint32 cchSource, PWSTR* destOut, uint32* cchDestOut);
+	public static extern HRESULT WSDUriDecode(char16* source, uint32 cchSource, PWSTR* destOut, uint32 cchDestOut);
 
 }
 #endregion

@@ -149,12 +149,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, uint32 dwTypeIndex, IMFMediaType** pMediaType) GetOutputAvailableType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, IMFMediaType** pMediaType) GetOutputCurrentType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, IMFAttributes** ppAttributes) GetOutputStreamAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcInputStreams, uint32* pcOutputStreams) GetStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputIDArraySize, uint32* pdwInputStreamIds, uint32 dwOutputIDArraySize, uint32* pdwOutputStreamIds) GetStreamIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcInputStreams, uint32 pcOutputStreams) GetStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputIDArraySize, uint32 pdwInputStreamIds, uint32 dwOutputIDArraySize, uint32 pdwOutputStreamIds) GetStreamIDs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFMediaEvent* pEvent) ProcessEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFSample* pSample, uint32 dwFlags) ProcessInput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFT_MESSAGE_TYPE eMessage, uint ulParam) ProcessMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32 cOutputBufferCount, MFT_OUTPUT_DATA_BUFFER* pOutputSample, uint32* pdwStatus) ProcessOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32 cOutputBufferCount, MFT_OUTPUT_DATA_BUFFER* pOutputSample, uint32 pdwStatus) ProcessOutput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, IMFMediaType* pMediaType, DeviceStreamState value, uint32 dwFlags) SetInputStreamState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, DeviceStreamState* value) GetInputStreamState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, IMFMediaType* pMediaType, DeviceStreamState value, uint32 dwFlags) SetOutputStreamState;
@@ -179,9 +179,9 @@ public static
 
 	public HRESULT GetOutputStreamAttributes(uint32 dwOutputStreamID, IMFAttributes** ppAttributes) mut => VT.[Friend]GetOutputStreamAttributes(&this, dwOutputStreamID, ppAttributes);
 
-	public HRESULT GetStreamCount(uint32* pcInputStreams, uint32* pcOutputStreams) mut => VT.[Friend]GetStreamCount(&this, pcInputStreams, pcOutputStreams);
+	public HRESULT GetStreamCount(uint32 pcInputStreams, uint32 pcOutputStreams) mut => VT.[Friend]GetStreamCount(&this, pcInputStreams, pcOutputStreams);
 
-	public HRESULT GetStreamIDs(uint32 dwInputIDArraySize, uint32* pdwInputStreamIds, uint32 dwOutputIDArraySize, uint32* pdwOutputStreamIds) mut => VT.[Friend]GetStreamIDs(&this, dwInputIDArraySize, pdwInputStreamIds, dwOutputIDArraySize, pdwOutputStreamIds);
+	public HRESULT GetStreamIDs(uint32 dwInputIDArraySize, uint32 pdwInputStreamIds, uint32 dwOutputIDArraySize, uint32 pdwOutputStreamIds) mut => VT.[Friend]GetStreamIDs(&this, dwInputIDArraySize, pdwInputStreamIds, dwOutputIDArraySize, pdwOutputStreamIds);
 
 	public HRESULT ProcessEvent(uint32 dwInputStreamID, IMFMediaEvent* pEvent) mut => VT.[Friend]ProcessEvent(&this, dwInputStreamID, pEvent);
 
@@ -189,7 +189,7 @@ public static
 
 	public HRESULT ProcessMessage(MFT_MESSAGE_TYPE eMessage, uint ulParam) mut => VT.[Friend]ProcessMessage(&this, eMessage, ulParam);
 
-	public HRESULT ProcessOutput(uint32 dwFlags, uint32 cOutputBufferCount, MFT_OUTPUT_DATA_BUFFER* pOutputSample, uint32* pdwStatus) mut => VT.[Friend]ProcessOutput(&this, dwFlags, cOutputBufferCount, pOutputSample, pdwStatus);
+	public HRESULT ProcessOutput(uint32 dwFlags, uint32 cOutputBufferCount, MFT_OUTPUT_DATA_BUFFER* pOutputSample, uint32 pdwStatus) mut => VT.[Friend]ProcessOutput(&this, dwFlags, cOutputBufferCount, pOutputSample, pdwStatus);
 
 	public HRESULT SetInputStreamState(uint32 dwStreamID, IMFMediaType* pMediaType, DeviceStreamState value, uint32 dwFlags) mut => VT.[Friend]SetInputStreamState(&this, dwStreamID, pMediaType, value, dwFlags);
 
