@@ -58,16 +58,16 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EnableThreadProfiling(HANDLE ThreadHandle, uint32 Flags, uint64 HardwareCounters, HANDLE PerformanceDataHandle);
+	public static extern uint32 EnableThreadProfiling(HANDLE ThreadHandle, uint32 Flags, uint64 HardwareCounters, HANDLE* PerformanceDataHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DisableThreadProfiling(HANDLE PerformanceDataHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryThreadProfiling(HANDLE ThreadHandle, BOOLEAN Enabled);
+	public static extern uint32 QueryThreadProfiling(HANDLE ThreadHandle, BOOLEAN* Enabled);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReadThreadProfilingData(HANDLE PerformanceDataHandle, uint32 Flags, PERFORMANCE_DATA PerformanceData);
+	public static extern uint32 ReadThreadProfilingData(HANDLE PerformanceDataHandle, uint32 Flags, PERFORMANCE_DATA* PerformanceData);
 
 }
 #endregion

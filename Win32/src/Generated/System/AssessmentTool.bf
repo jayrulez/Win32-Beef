@@ -94,17 +94,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATAssessmentInfo*/SelfOuter* self, float score) get_Score;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATAssessmentInfo*/SelfOuter* self, BSTR title) get_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATAssessmentInfo*/SelfOuter* self, BSTR description) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATAssessmentInfo*/SelfOuter* self, float* score) get_Score;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATAssessmentInfo*/SelfOuter* self, BSTR* title) get_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATAssessmentInfo*/SelfOuter* self, BSTR* description) get_Description;
 	}
 
 
-	public HRESULT get_Score(float score) mut => VT.[Friend]get_Score(&this, score);
+	public HRESULT get_Score(float* score) mut => VT.[Friend]get_Score(&this, score);
 
-	public HRESULT get_Title(BSTR title) mut => VT.[Friend]get_Title(&this, title);
+	public HRESULT get_Title(BSTR* title) mut => VT.[Friend]get_Title(&this, title);
 
-	public HRESULT get_Description(BSTR description) mut => VT.[Friend]get_Description(&this, description);
+	public HRESULT get_Description(BSTR* description) mut => VT.[Friend]get_Description(&this, description);
 }
 
 [CRepr]struct IProvideWinSATResultsInfo : IDispatch
@@ -115,23 +115,23 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, WINSAT_ASSESSMENT_TYPE assessment, IProvideWinSATAssessmentInfo* ppinfo) GetAssessmentInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, WINSAT_ASSESSMENT_STATE state) get_AssessmentState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, VARIANT fileTime) get_AssessmentDateTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, float level) get_SystemRating;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, BSTR description) get_RatingStateDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, WINSAT_ASSESSMENT_TYPE assessment, IProvideWinSATAssessmentInfo** ppinfo) GetAssessmentInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, WINSAT_ASSESSMENT_STATE* state) get_AssessmentState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, VARIANT* fileTime) get_AssessmentDateTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, float* level) get_SystemRating;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, BSTR* description) get_RatingStateDesc;
 	}
 
 
-	public HRESULT GetAssessmentInfo(WINSAT_ASSESSMENT_TYPE assessment, IProvideWinSATAssessmentInfo* ppinfo) mut => VT.[Friend]GetAssessmentInfo(&this, assessment, ppinfo);
+	public HRESULT GetAssessmentInfo(WINSAT_ASSESSMENT_TYPE assessment, IProvideWinSATAssessmentInfo** ppinfo) mut => VT.[Friend]GetAssessmentInfo(&this, assessment, ppinfo);
 
-	public HRESULT get_AssessmentState(WINSAT_ASSESSMENT_STATE state) mut => VT.[Friend]get_AssessmentState(&this, state);
+	public HRESULT get_AssessmentState(WINSAT_ASSESSMENT_STATE* state) mut => VT.[Friend]get_AssessmentState(&this, state);
 
-	public HRESULT get_AssessmentDateTime(VARIANT fileTime) mut => VT.[Friend]get_AssessmentDateTime(&this, fileTime);
+	public HRESULT get_AssessmentDateTime(VARIANT* fileTime) mut => VT.[Friend]get_AssessmentDateTime(&this, fileTime);
 
-	public HRESULT get_SystemRating(float level) mut => VT.[Friend]get_SystemRating(&this, level);
+	public HRESULT get_SystemRating(float* level) mut => VT.[Friend]get_SystemRating(&this, level);
 
-	public HRESULT get_RatingStateDesc(BSTR description) mut => VT.[Friend]get_RatingStateDesc(&this, description);
+	public HRESULT get_RatingStateDesc(BSTR* description) mut => VT.[Friend]get_RatingStateDesc(&this, description);
 }
 
 [CRepr]struct IQueryRecentWinSATAssessment : IDispatch
@@ -142,14 +142,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryRecentWinSATAssessment*/SelfOuter* self, BSTR xPath, BSTR namespaces, IXMLDOMNodeList* ppDomNodeList) get_XML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryRecentWinSATAssessment*/SelfOuter* self, IProvideWinSATResultsInfo* ppWinSATAssessmentInfo) get_Info;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryRecentWinSATAssessment*/SelfOuter* self, BSTR xPath, BSTR namespaces, IXMLDOMNodeList** ppDomNodeList) get_XML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryRecentWinSATAssessment*/SelfOuter* self, IProvideWinSATResultsInfo** ppWinSATAssessmentInfo) get_Info;
 	}
 
 
-	public HRESULT get_XML(BSTR xPath, BSTR namespaces, IXMLDOMNodeList* ppDomNodeList) mut => VT.[Friend]get_XML(&this, xPath, namespaces, ppDomNodeList);
+	public HRESULT get_XML(BSTR xPath, BSTR namespaces, IXMLDOMNodeList** ppDomNodeList) mut => VT.[Friend]get_XML(&this, xPath, namespaces, ppDomNodeList);
 
-	public HRESULT get_Info(IProvideWinSATResultsInfo* ppWinSATAssessmentInfo) mut => VT.[Friend]get_Info(&this, ppWinSATAssessmentInfo);
+	public HRESULT get_Info(IProvideWinSATResultsInfo** ppWinSATAssessmentInfo) mut => VT.[Friend]get_Info(&this, ppWinSATAssessmentInfo);
 }
 
 [CRepr]struct IProvideWinSATVisuals : IUnknown
@@ -160,11 +160,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATVisuals*/SelfOuter* self, WINSAT_BITMAP_SIZE bitmapSize, WINSAT_ASSESSMENT_STATE state, float rating, HBITMAP pBitmap) get_Bitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATVisuals*/SelfOuter* self, WINSAT_BITMAP_SIZE bitmapSize, WINSAT_ASSESSMENT_STATE state, float rating, HBITMAP* pBitmap) get_Bitmap;
 	}
 
 
-	public HRESULT get_Bitmap(WINSAT_BITMAP_SIZE bitmapSize, WINSAT_ASSESSMENT_STATE state, float rating, HBITMAP pBitmap) mut => VT.[Friend]get_Bitmap(&this, bitmapSize, state, rating, pBitmap);
+	public HRESULT get_Bitmap(WINSAT_BITMAP_SIZE bitmapSize, WINSAT_ASSESSMENT_STATE state, float rating, HBITMAP* pBitmap) mut => VT.[Friend]get_Bitmap(&this, bitmapSize, state, rating, pBitmap);
 }
 
 [CRepr]struct IQueryAllWinSATAssessments : IDispatch
@@ -175,11 +175,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAllWinSATAssessments*/SelfOuter* self, BSTR xPath, BSTR namespaces, IXMLDOMNodeList* ppDomNodeList) get_AllXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAllWinSATAssessments*/SelfOuter* self, BSTR xPath, BSTR namespaces, IXMLDOMNodeList** ppDomNodeList) get_AllXML;
 	}
 
 
-	public HRESULT get_AllXML(BSTR xPath, BSTR namespaces, IXMLDOMNodeList* ppDomNodeList) mut => VT.[Friend]get_AllXML(&this, xPath, namespaces, ppDomNodeList);
+	public HRESULT get_AllXML(BSTR xPath, BSTR namespaces, IXMLDOMNodeList** ppDomNodeList) mut => VT.[Friend]get_AllXML(&this, xPath, namespaces, ppDomNodeList);
 }
 
 [CRepr]struct IWinSATInitiateEvents : IUnknown
@@ -244,11 +244,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryOEMWinSATCustomization*/SelfOuter* self, WINSAT_OEM_DATA_TYPE state) GetOEMPrePopulationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryOEMWinSATCustomization*/SelfOuter* self, WINSAT_OEM_DATA_TYPE* state) GetOEMPrePopulationInfo;
 	}
 
 
-	public HRESULT GetOEMPrePopulationInfo(WINSAT_OEM_DATA_TYPE state) mut => VT.[Friend]GetOEMPrePopulationInfo(&this, state);
+	public HRESULT GetOEMPrePopulationInfo(WINSAT_OEM_DATA_TYPE* state) mut => VT.[Friend]GetOEMPrePopulationInfo(&this, state);
 }
 
 #endregion

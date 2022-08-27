@@ -1237,20 +1237,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, IEnumVARIANT* ppunk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, int32 index, BSTR value) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, int32 value) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, int16 value) get_IsSupportedEnvironment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, IEnumVARIANT** ppunk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, int32 index, BSTR* value) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, int32* value) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, int16* value) get_IsSupportedEnvironment;
 	}
 
 
-	public HRESULT get__NewEnum(IEnumVARIANT* ppunk) mut => VT.[Friend]get__NewEnum(&this, ppunk);
+	public HRESULT get__NewEnum(IEnumVARIANT** ppunk) mut => VT.[Friend]get__NewEnum(&this, ppunk);
 
-	public HRESULT get_Item(int32 index, BSTR value) mut => VT.[Friend]get_Item(&this, index, value);
+	public HRESULT get_Item(int32 index, BSTR* value) mut => VT.[Friend]get_Item(&this, index, value);
 
-	public HRESULT get_Count(int32 value) mut => VT.[Friend]get_Count(&this, value);
+	public HRESULT get_Count(int32* value) mut => VT.[Friend]get_Count(&this, value);
 
-	public HRESULT get_IsSupportedEnvironment(int16 value) mut => VT.[Friend]get_IsSupportedEnvironment(&this, value);
+	public HRESULT get_IsSupportedEnvironment(int16* value) mut => VT.[Friend]get_IsSupportedEnvironment(&this, value);
 }
 
 [CRepr]struct DDiscMaster2Events : IDispatch
@@ -1281,22 +1281,22 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout) SendCommandNoData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout, uint8* Buffer, uint32 BufferSize) SendCommandSendDataToDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout, uint8* Buffer, uint32 BufferSize, uint32 BufferFetched) SendCommandGetDataFromDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 format, uint32 address, uint32 layer, uint32 agid, uint8* data, uint32 count) ReadDvdStructure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout, uint8* Buffer, uint32 BufferSize, uint32* BufferFetched) SendCommandGetDataFromDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 format, uint32 address, uint32 layer, uint32 agid, uint8** data, uint32* count) ReadDvdStructure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 format, uint8* data, uint32 count) SendDvdStructure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8* data, uint32 byteSize) GetAdapterDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8* data, uint32 byteSize) GetDeviceDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8* discInformation, uint32 byteSize) GetDiscInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 address, IMAPI_READ_TRACK_ADDRESS_TYPE addressType, uint8* trackInformation, uint32 byteSize) GetTrackInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_FEATURE_PAGE_TYPE requestedFeature, BOOLEAN currentFeatureOnly, uint8* featureData, uint32 byteSize) GetFeaturePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_MODE_PAGE_TYPE requestedModePage, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, uint8* modePageData, uint32 byteSize) GetModePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8** data, uint32* byteSize) GetAdapterDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8** data, uint32* byteSize) GetDeviceDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8** discInformation, uint32* byteSize) GetDiscInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 address, IMAPI_READ_TRACK_ADDRESS_TYPE addressType, uint8** trackInformation, uint32* byteSize) GetTrackInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_FEATURE_PAGE_TYPE requestedFeature, BOOLEAN currentFeatureOnly, uint8** featureData, uint32* byteSize) GetFeaturePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_MODE_PAGE_TYPE requestedModePage, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, uint8** modePageData, uint32* byteSize) GetModePage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, uint8* data, uint32 byteSize) SetModePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, BOOLEAN currentFeatureOnly, IMAPI_FEATURE_PAGE_TYPE* featureData, uint32 byteSize) GetSupportedFeaturePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, BOOLEAN currentOnly, IMAPI_PROFILE_TYPE* profileTypes, uint32 validProfiles) GetSupportedProfiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, IMAPI_MODE_PAGE_TYPE* modePageTypes, uint32 validPages) GetSupportedModePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 value) GetByteAlignmentMask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 value) GetMaximumNonPageAlignedTransferSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 value) GetMaximumPageAlignedTransferSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, BOOLEAN currentFeatureOnly, IMAPI_FEATURE_PAGE_TYPE** featureData, uint32* byteSize) GetSupportedFeaturePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, BOOLEAN currentOnly, IMAPI_PROFILE_TYPE** profileTypes, uint32* validProfiles) GetSupportedProfiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, IMAPI_MODE_PAGE_TYPE** modePageTypes, uint32* validPages) GetSupportedModePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32* value) GetByteAlignmentMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32* value) GetMaximumNonPageAlignedTransferSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32* value) GetMaximumPageAlignedTransferSize;
 	}
 
 
@@ -1304,37 +1304,37 @@ public static
 
 	public HRESULT SendCommandSendDataToDevice(uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout, uint8* Buffer, uint32 BufferSize) mut => VT.[Friend]SendCommandSendDataToDevice(&this, Cdb, CdbSize, SenseBuffer, Timeout, Buffer, BufferSize);
 
-	public HRESULT SendCommandGetDataFromDevice(uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout, uint8* Buffer, uint32 BufferSize, uint32 BufferFetched) mut => VT.[Friend]SendCommandGetDataFromDevice(&this, Cdb, CdbSize, SenseBuffer, Timeout, Buffer, BufferSize, BufferFetched);
+	public HRESULT SendCommandGetDataFromDevice(uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout, uint8* Buffer, uint32 BufferSize, uint32* BufferFetched) mut => VT.[Friend]SendCommandGetDataFromDevice(&this, Cdb, CdbSize, SenseBuffer, Timeout, Buffer, BufferSize, BufferFetched);
 
-	public HRESULT ReadDvdStructure(uint32 format, uint32 address, uint32 layer, uint32 agid, uint8* data, uint32 count) mut => VT.[Friend]ReadDvdStructure(&this, format, address, layer, agid, data, count);
+	public HRESULT ReadDvdStructure(uint32 format, uint32 address, uint32 layer, uint32 agid, uint8** data, uint32* count) mut => VT.[Friend]ReadDvdStructure(&this, format, address, layer, agid, data, count);
 
 	public HRESULT SendDvdStructure(uint32 format, uint8* data, uint32 count) mut => VT.[Friend]SendDvdStructure(&this, format, data, count);
 
-	public HRESULT GetAdapterDescriptor(uint8* data, uint32 byteSize) mut => VT.[Friend]GetAdapterDescriptor(&this, data, byteSize);
+	public HRESULT GetAdapterDescriptor(uint8** data, uint32* byteSize) mut => VT.[Friend]GetAdapterDescriptor(&this, data, byteSize);
 
-	public HRESULT GetDeviceDescriptor(uint8* data, uint32 byteSize) mut => VT.[Friend]GetDeviceDescriptor(&this, data, byteSize);
+	public HRESULT GetDeviceDescriptor(uint8** data, uint32* byteSize) mut => VT.[Friend]GetDeviceDescriptor(&this, data, byteSize);
 
-	public HRESULT GetDiscInformation(uint8* discInformation, uint32 byteSize) mut => VT.[Friend]GetDiscInformation(&this, discInformation, byteSize);
+	public HRESULT GetDiscInformation(uint8** discInformation, uint32* byteSize) mut => VT.[Friend]GetDiscInformation(&this, discInformation, byteSize);
 
-	public HRESULT GetTrackInformation(uint32 address, IMAPI_READ_TRACK_ADDRESS_TYPE addressType, uint8* trackInformation, uint32 byteSize) mut => VT.[Friend]GetTrackInformation(&this, address, addressType, trackInformation, byteSize);
+	public HRESULT GetTrackInformation(uint32 address, IMAPI_READ_TRACK_ADDRESS_TYPE addressType, uint8** trackInformation, uint32* byteSize) mut => VT.[Friend]GetTrackInformation(&this, address, addressType, trackInformation, byteSize);
 
-	public HRESULT GetFeaturePage(IMAPI_FEATURE_PAGE_TYPE requestedFeature, BOOLEAN currentFeatureOnly, uint8* featureData, uint32 byteSize) mut => VT.[Friend]GetFeaturePage(&this, requestedFeature, currentFeatureOnly, featureData, byteSize);
+	public HRESULT GetFeaturePage(IMAPI_FEATURE_PAGE_TYPE requestedFeature, BOOLEAN currentFeatureOnly, uint8** featureData, uint32* byteSize) mut => VT.[Friend]GetFeaturePage(&this, requestedFeature, currentFeatureOnly, featureData, byteSize);
 
-	public HRESULT GetModePage(IMAPI_MODE_PAGE_TYPE requestedModePage, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, uint8* modePageData, uint32 byteSize) mut => VT.[Friend]GetModePage(&this, requestedModePage, requestType, modePageData, byteSize);
+	public HRESULT GetModePage(IMAPI_MODE_PAGE_TYPE requestedModePage, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, uint8** modePageData, uint32* byteSize) mut => VT.[Friend]GetModePage(&this, requestedModePage, requestType, modePageData, byteSize);
 
 	public HRESULT SetModePage(IMAPI_MODE_PAGE_REQUEST_TYPE requestType, uint8* data, uint32 byteSize) mut => VT.[Friend]SetModePage(&this, requestType, data, byteSize);
 
-	public HRESULT GetSupportedFeaturePages(BOOLEAN currentFeatureOnly, IMAPI_FEATURE_PAGE_TYPE* featureData, uint32 byteSize) mut => VT.[Friend]GetSupportedFeaturePages(&this, currentFeatureOnly, featureData, byteSize);
+	public HRESULT GetSupportedFeaturePages(BOOLEAN currentFeatureOnly, IMAPI_FEATURE_PAGE_TYPE** featureData, uint32* byteSize) mut => VT.[Friend]GetSupportedFeaturePages(&this, currentFeatureOnly, featureData, byteSize);
 
-	public HRESULT GetSupportedProfiles(BOOLEAN currentOnly, IMAPI_PROFILE_TYPE* profileTypes, uint32 validProfiles) mut => VT.[Friend]GetSupportedProfiles(&this, currentOnly, profileTypes, validProfiles);
+	public HRESULT GetSupportedProfiles(BOOLEAN currentOnly, IMAPI_PROFILE_TYPE** profileTypes, uint32* validProfiles) mut => VT.[Friend]GetSupportedProfiles(&this, currentOnly, profileTypes, validProfiles);
 
-	public HRESULT GetSupportedModePages(IMAPI_MODE_PAGE_REQUEST_TYPE requestType, IMAPI_MODE_PAGE_TYPE* modePageTypes, uint32 validPages) mut => VT.[Friend]GetSupportedModePages(&this, requestType, modePageTypes, validPages);
+	public HRESULT GetSupportedModePages(IMAPI_MODE_PAGE_REQUEST_TYPE requestType, IMAPI_MODE_PAGE_TYPE** modePageTypes, uint32* validPages) mut => VT.[Friend]GetSupportedModePages(&this, requestType, modePageTypes, validPages);
 
-	public HRESULT GetByteAlignmentMask(uint32 value) mut => VT.[Friend]GetByteAlignmentMask(&this, value);
+	public HRESULT GetByteAlignmentMask(uint32* value) mut => VT.[Friend]GetByteAlignmentMask(&this, value);
 
-	public HRESULT GetMaximumNonPageAlignedTransferSize(uint32 value) mut => VT.[Friend]GetMaximumNonPageAlignedTransferSize(&this, value);
+	public HRESULT GetMaximumNonPageAlignedTransferSize(uint32* value) mut => VT.[Friend]GetMaximumNonPageAlignedTransferSize(&this, value);
 
-	public HRESULT GetMaximumPageAlignedTransferSize(uint32 value) mut => VT.[Friend]GetMaximumPageAlignedTransferSize(&this, value);
+	public HRESULT GetMaximumPageAlignedTransferSize(uint32* value) mut => VT.[Friend]GetMaximumPageAlignedTransferSize(&this, value);
 }
 
 [CRepr]struct IDiscRecorder2 : IDispatch
@@ -1352,20 +1352,20 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self) DisableMcn;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self) EnableMcn;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR recorderUniqueId) InitializeDiscRecorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR value) get_ActiveDiscRecorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR value) get_VendorId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR value) get_ProductId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR value) get_ProductRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR value) get_VolumeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY value) get_VolumePathNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, int16 value) get_DeviceCanLoadMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, int32 legacyDeviceNumber) get_LegacyDeviceNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY value) get_SupportedFeaturePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY value) get_CurrentFeaturePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY value) get_SupportedProfiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY value) get_CurrentProfiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY value) get_SupportedModePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR value) get_ExclusiveAccessOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_ActiveDiscRecorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_VendorId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_ProductId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_ProductRevision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_VolumeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_VolumePathNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, int16* value) get_DeviceCanLoadMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, int32* legacyDeviceNumber) get_LegacyDeviceNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_SupportedFeaturePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_CurrentFeaturePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_SupportedProfiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_CurrentProfiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_SupportedModePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_ExclusiveAccessOwner;
 	}
 
 
@@ -1383,33 +1383,33 @@ public static
 
 	public HRESULT InitializeDiscRecorder(BSTR recorderUniqueId) mut => VT.[Friend]InitializeDiscRecorder(&this, recorderUniqueId);
 
-	public HRESULT get_ActiveDiscRecorder(BSTR value) mut => VT.[Friend]get_ActiveDiscRecorder(&this, value);
+	public HRESULT get_ActiveDiscRecorder(BSTR* value) mut => VT.[Friend]get_ActiveDiscRecorder(&this, value);
 
-	public HRESULT get_VendorId(BSTR value) mut => VT.[Friend]get_VendorId(&this, value);
+	public HRESULT get_VendorId(BSTR* value) mut => VT.[Friend]get_VendorId(&this, value);
 
-	public HRESULT get_ProductId(BSTR value) mut => VT.[Friend]get_ProductId(&this, value);
+	public HRESULT get_ProductId(BSTR* value) mut => VT.[Friend]get_ProductId(&this, value);
 
-	public HRESULT get_ProductRevision(BSTR value) mut => VT.[Friend]get_ProductRevision(&this, value);
+	public HRESULT get_ProductRevision(BSTR* value) mut => VT.[Friend]get_ProductRevision(&this, value);
 
-	public HRESULT get_VolumeName(BSTR value) mut => VT.[Friend]get_VolumeName(&this, value);
+	public HRESULT get_VolumeName(BSTR* value) mut => VT.[Friend]get_VolumeName(&this, value);
 
-	public HRESULT get_VolumePathNames(SAFEARRAY value) mut => VT.[Friend]get_VolumePathNames(&this, value);
+	public HRESULT get_VolumePathNames(SAFEARRAY** value) mut => VT.[Friend]get_VolumePathNames(&this, value);
 
-	public HRESULT get_DeviceCanLoadMedia(int16 value) mut => VT.[Friend]get_DeviceCanLoadMedia(&this, value);
+	public HRESULT get_DeviceCanLoadMedia(int16* value) mut => VT.[Friend]get_DeviceCanLoadMedia(&this, value);
 
-	public HRESULT get_LegacyDeviceNumber(int32 legacyDeviceNumber) mut => VT.[Friend]get_LegacyDeviceNumber(&this, legacyDeviceNumber);
+	public HRESULT get_LegacyDeviceNumber(int32* legacyDeviceNumber) mut => VT.[Friend]get_LegacyDeviceNumber(&this, legacyDeviceNumber);
 
-	public HRESULT get_SupportedFeaturePages(SAFEARRAY value) mut => VT.[Friend]get_SupportedFeaturePages(&this, value);
+	public HRESULT get_SupportedFeaturePages(SAFEARRAY** value) mut => VT.[Friend]get_SupportedFeaturePages(&this, value);
 
-	public HRESULT get_CurrentFeaturePages(SAFEARRAY value) mut => VT.[Friend]get_CurrentFeaturePages(&this, value);
+	public HRESULT get_CurrentFeaturePages(SAFEARRAY** value) mut => VT.[Friend]get_CurrentFeaturePages(&this, value);
 
-	public HRESULT get_SupportedProfiles(SAFEARRAY value) mut => VT.[Friend]get_SupportedProfiles(&this, value);
+	public HRESULT get_SupportedProfiles(SAFEARRAY** value) mut => VT.[Friend]get_SupportedProfiles(&this, value);
 
-	public HRESULT get_CurrentProfiles(SAFEARRAY value) mut => VT.[Friend]get_CurrentProfiles(&this, value);
+	public HRESULT get_CurrentProfiles(SAFEARRAY** value) mut => VT.[Friend]get_CurrentProfiles(&this, value);
 
-	public HRESULT get_SupportedModePages(SAFEARRAY value) mut => VT.[Friend]get_SupportedModePages(&this, value);
+	public HRESULT get_SupportedModePages(SAFEARRAY** value) mut => VT.[Friend]get_SupportedModePages(&this, value);
 
-	public HRESULT get_ExclusiveAccessOwner(BSTR value) mut => VT.[Friend]get_ExclusiveAccessOwner(&this, value);
+	public HRESULT get_ExclusiveAccessOwner(BSTR* value) mut => VT.[Friend]get_ExclusiveAccessOwner(&this, value);
 }
 
 [CRepr]struct IWriteEngine2 : IDispatch
@@ -1423,16 +1423,16 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, IStream* data, int32 startingBlockAddress, int32 numberOfBlocks) WriteSection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self) CancelWrite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, IDiscRecorder2Ex* value) put_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, IDiscRecorder2Ex* value) get_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, IDiscRecorder2Ex** value) get_Recorder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int16 value) put_UseStreamingWrite12;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int16 value) get_UseStreamingWrite12;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int16* value) get_UseStreamingWrite12;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32 value) put_StartingSectorsPerSecond;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32 value) get_StartingSectorsPerSecond;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32* value) get_StartingSectorsPerSecond;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32 value) put_EndingSectorsPerSecond;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32 value) get_EndingSectorsPerSecond;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32* value) get_EndingSectorsPerSecond;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32 value) put_BytesPerSector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32 value) get_BytesPerSector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int16 value) get_WriteInProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32* value) get_BytesPerSector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int16* value) get_WriteInProgress;
 	}
 
 
@@ -1442,25 +1442,25 @@ public static
 
 	public HRESULT put_Recorder(IDiscRecorder2Ex* value) mut => VT.[Friend]put_Recorder(&this, value);
 
-	public HRESULT get_Recorder(IDiscRecorder2Ex* value) mut => VT.[Friend]get_Recorder(&this, value);
+	public HRESULT get_Recorder(IDiscRecorder2Ex** value) mut => VT.[Friend]get_Recorder(&this, value);
 
 	public HRESULT put_UseStreamingWrite12(int16 value) mut => VT.[Friend]put_UseStreamingWrite12(&this, value);
 
-	public HRESULT get_UseStreamingWrite12(int16 value) mut => VT.[Friend]get_UseStreamingWrite12(&this, value);
+	public HRESULT get_UseStreamingWrite12(int16* value) mut => VT.[Friend]get_UseStreamingWrite12(&this, value);
 
 	public HRESULT put_StartingSectorsPerSecond(int32 value) mut => VT.[Friend]put_StartingSectorsPerSecond(&this, value);
 
-	public HRESULT get_StartingSectorsPerSecond(int32 value) mut => VT.[Friend]get_StartingSectorsPerSecond(&this, value);
+	public HRESULT get_StartingSectorsPerSecond(int32* value) mut => VT.[Friend]get_StartingSectorsPerSecond(&this, value);
 
 	public HRESULT put_EndingSectorsPerSecond(int32 value) mut => VT.[Friend]put_EndingSectorsPerSecond(&this, value);
 
-	public HRESULT get_EndingSectorsPerSecond(int32 value) mut => VT.[Friend]get_EndingSectorsPerSecond(&this, value);
+	public HRESULT get_EndingSectorsPerSecond(int32* value) mut => VT.[Friend]get_EndingSectorsPerSecond(&this, value);
 
 	public HRESULT put_BytesPerSector(int32 value) mut => VT.[Friend]put_BytesPerSector(&this, value);
 
-	public HRESULT get_BytesPerSector(int32 value) mut => VT.[Friend]get_BytesPerSector(&this, value);
+	public HRESULT get_BytesPerSector(int32* value) mut => VT.[Friend]get_BytesPerSector(&this, value);
 
-	public HRESULT get_WriteInProgress(int16 value) mut => VT.[Friend]get_WriteInProgress(&this, value);
+	public HRESULT get_WriteInProgress(int16* value) mut => VT.[Friend]get_WriteInProgress(&this, value);
 }
 
 [CRepr]struct IWriteEngine2EventArgs : IDispatch
@@ -1471,29 +1471,29 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32 value) get_StartLba;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32 value) get_SectorCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32 value) get_LastReadLba;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32 value) get_LastWrittenLba;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32 value) get_TotalSystemBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32 value) get_UsedSystemBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32 value) get_FreeSystemBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_StartLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_SectorCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_LastReadLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_LastWrittenLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_TotalSystemBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_UsedSystemBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_FreeSystemBuffer;
 	}
 
 
-	public HRESULT get_StartLba(int32 value) mut => VT.[Friend]get_StartLba(&this, value);
+	public HRESULT get_StartLba(int32* value) mut => VT.[Friend]get_StartLba(&this, value);
 
-	public HRESULT get_SectorCount(int32 value) mut => VT.[Friend]get_SectorCount(&this, value);
+	public HRESULT get_SectorCount(int32* value) mut => VT.[Friend]get_SectorCount(&this, value);
 
-	public HRESULT get_LastReadLba(int32 value) mut => VT.[Friend]get_LastReadLba(&this, value);
+	public HRESULT get_LastReadLba(int32* value) mut => VT.[Friend]get_LastReadLba(&this, value);
 
-	public HRESULT get_LastWrittenLba(int32 value) mut => VT.[Friend]get_LastWrittenLba(&this, value);
+	public HRESULT get_LastWrittenLba(int32* value) mut => VT.[Friend]get_LastWrittenLba(&this, value);
 
-	public HRESULT get_TotalSystemBuffer(int32 value) mut => VT.[Friend]get_TotalSystemBuffer(&this, value);
+	public HRESULT get_TotalSystemBuffer(int32* value) mut => VT.[Friend]get_TotalSystemBuffer(&this, value);
 
-	public HRESULT get_UsedSystemBuffer(int32 value) mut => VT.[Friend]get_UsedSystemBuffer(&this, value);
+	public HRESULT get_UsedSystemBuffer(int32* value) mut => VT.[Friend]get_UsedSystemBuffer(&this, value);
 
-	public HRESULT get_FreeSystemBuffer(int32 value) mut => VT.[Friend]get_FreeSystemBuffer(&this, value);
+	public HRESULT get_FreeSystemBuffer(int32* value) mut => VT.[Friend]get_FreeSystemBuffer(&this, value);
 }
 
 [CRepr]struct DWriteEngine2Events : IDispatch
@@ -1519,23 +1519,23 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, IDiscRecorder2* recorder, int16 value) IsRecorderSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, IDiscRecorder2* recorder, int16 value) IsCurrentMediaSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, int16 value) get_MediaPhysicallyBlank;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, int16 value) get_MediaHeuristicallyBlank;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, SAFEARRAY value) get_SupportedMediaTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, IDiscRecorder2* recorder, int16* value) IsRecorderSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, IDiscRecorder2* recorder, int16* value) IsCurrentMediaSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, int16* value) get_MediaPhysicallyBlank;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, int16* value) get_MediaHeuristicallyBlank;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, SAFEARRAY** value) get_SupportedMediaTypes;
 	}
 
 
-	public HRESULT IsRecorderSupported(IDiscRecorder2* recorder, int16 value) mut => VT.[Friend]IsRecorderSupported(&this, recorder, value);
+	public HRESULT IsRecorderSupported(IDiscRecorder2* recorder, int16* value) mut => VT.[Friend]IsRecorderSupported(&this, recorder, value);
 
-	public HRESULT IsCurrentMediaSupported(IDiscRecorder2* recorder, int16 value) mut => VT.[Friend]IsCurrentMediaSupported(&this, recorder, value);
+	public HRESULT IsCurrentMediaSupported(IDiscRecorder2* recorder, int16* value) mut => VT.[Friend]IsCurrentMediaSupported(&this, recorder, value);
 
-	public HRESULT get_MediaPhysicallyBlank(int16 value) mut => VT.[Friend]get_MediaPhysicallyBlank(&this, value);
+	public HRESULT get_MediaPhysicallyBlank(int16* value) mut => VT.[Friend]get_MediaPhysicallyBlank(&this, value);
 
-	public HRESULT get_MediaHeuristicallyBlank(int16 value) mut => VT.[Friend]get_MediaHeuristicallyBlank(&this, value);
+	public HRESULT get_MediaHeuristicallyBlank(int16* value) mut => VT.[Friend]get_MediaHeuristicallyBlank(&this, value);
 
-	public HRESULT get_SupportedMediaTypes(SAFEARRAY value) mut => VT.[Friend]get_SupportedMediaTypes(&this, value);
+	public HRESULT get_SupportedMediaTypes(SAFEARRAY** value) mut => VT.[Friend]get_SupportedMediaTypes(&this, value);
 }
 
 [CRepr]struct IDiscFormat2Erase : IDiscFormat2
@@ -1547,29 +1547,29 @@ public static
 	[CRepr]public struct VTable : IDiscFormat2.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, IDiscRecorder2* value) put_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, IDiscRecorder2* value) get_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, IDiscRecorder2** value) get_Recorder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, int16 value) put_FullErase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, int16 value) get_FullErase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE value) get_CurrentPhysicalMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, int16* value) get_FullErase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, BSTR value) put_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, BSTR value) get_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, BSTR* value) get_ClientName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self) EraseMedia;
 	}
 
 
 	public HRESULT put_Recorder(IDiscRecorder2* value) mut => VT.[Friend]put_Recorder(&this, value);
 
-	public HRESULT get_Recorder(IDiscRecorder2* value) mut => VT.[Friend]get_Recorder(&this, value);
+	public HRESULT get_Recorder(IDiscRecorder2** value) mut => VT.[Friend]get_Recorder(&this, value);
 
 	public HRESULT put_FullErase(int16 value) mut => VT.[Friend]put_FullErase(&this, value);
 
-	public HRESULT get_FullErase(int16 value) mut => VT.[Friend]get_FullErase(&this, value);
+	public HRESULT get_FullErase(int16* value) mut => VT.[Friend]get_FullErase(&this, value);
 
-	public HRESULT get_CurrentPhysicalMediaType(IMAPI_MEDIA_PHYSICAL_TYPE value) mut => VT.[Friend]get_CurrentPhysicalMediaType(&this, value);
+	public HRESULT get_CurrentPhysicalMediaType(IMAPI_MEDIA_PHYSICAL_TYPE* value) mut => VT.[Friend]get_CurrentPhysicalMediaType(&this, value);
 
 	public HRESULT put_ClientName(BSTR value) mut => VT.[Friend]put_ClientName(&this, value);
 
-	public HRESULT get_ClientName(BSTR value) mut => VT.[Friend]get_ClientName(&this, value);
+	public HRESULT get_ClientName(BSTR* value) mut => VT.[Friend]get_ClientName(&this, value);
 
 	public HRESULT EraseMedia() mut => VT.[Friend]EraseMedia(&this);
 }
@@ -1598,34 +1598,34 @@ public static
 	[CRepr]public struct VTable : IDiscFormat2.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IDiscRecorder2* value) put_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IDiscRecorder2* value) get_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IDiscRecorder2** value) get_Recorder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) put_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) get_BufferUnderrunFreeDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_BufferUnderrunFreeDisabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) put_PostgapAlreadyInImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) get_PostgapAlreadyInImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IMAPI_FORMAT2_DATA_MEDIA_STATE value) get_CurrentMediaStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IMAPI_MEDIA_WRITE_PROTECT_STATE value) get_WriteProtectStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32 value) get_TotalSectorsOnMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32 value) get_FreeSectorsOnMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32 value) get_NextWritableAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32 value) get_StartAddressOfPreviousSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32 value) get_LastWrittenAddressOfPreviousSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_PostgapAlreadyInImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IMAPI_FORMAT2_DATA_MEDIA_STATE* value) get_CurrentMediaStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IMAPI_MEDIA_WRITE_PROTECT_STATE* value) get_WriteProtectStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_TotalSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_FreeSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_NextWritableAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_StartAddressOfPreviousSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_LastWrittenAddressOfPreviousSession;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) put_ForceMediaToBeClosed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) get_ForceMediaToBeClosed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_ForceMediaToBeClosed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) put_DisableConsumerDvdCompatibilityMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) get_DisableConsumerDvdCompatibilityMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE value) get_CurrentPhysicalMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_DisableConsumerDvdCompatibilityMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, BSTR value) put_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, BSTR value) get_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32 value) get_RequestedWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) get_RequestedRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32 value) get_CurrentWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) get_CurrentRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, SAFEARRAY supportedSpeeds) get_SupportedWriteSpeeds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, SAFEARRAY supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, BSTR* value) get_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_RequestedWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_RequestedRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_CurrentWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_CurrentRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, SAFEARRAY** supportedSpeeds) get_SupportedWriteSpeeds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, SAFEARRAY** supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) put_ForceOverwrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) get_ForceOverwrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, SAFEARRAY value) get_MultisessionInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_ForceOverwrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, SAFEARRAY** value) get_MultisessionInterfaces;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IStream* data) Write;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self) CancelWrite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32 RequestedSectorsPerSecond, int16 RotationTypeIsPureCAV) SetWriteSpeed;
@@ -1634,61 +1634,61 @@ public static
 
 	public HRESULT put_Recorder(IDiscRecorder2* value) mut => VT.[Friend]put_Recorder(&this, value);
 
-	public HRESULT get_Recorder(IDiscRecorder2* value) mut => VT.[Friend]get_Recorder(&this, value);
+	public HRESULT get_Recorder(IDiscRecorder2** value) mut => VT.[Friend]get_Recorder(&this, value);
 
 	public HRESULT put_BufferUnderrunFreeDisabled(int16 value) mut => VT.[Friend]put_BufferUnderrunFreeDisabled(&this, value);
 
-	public HRESULT get_BufferUnderrunFreeDisabled(int16 value) mut => VT.[Friend]get_BufferUnderrunFreeDisabled(&this, value);
+	public HRESULT get_BufferUnderrunFreeDisabled(int16* value) mut => VT.[Friend]get_BufferUnderrunFreeDisabled(&this, value);
 
 	public HRESULT put_PostgapAlreadyInImage(int16 value) mut => VT.[Friend]put_PostgapAlreadyInImage(&this, value);
 
-	public HRESULT get_PostgapAlreadyInImage(int16 value) mut => VT.[Friend]get_PostgapAlreadyInImage(&this, value);
+	public HRESULT get_PostgapAlreadyInImage(int16* value) mut => VT.[Friend]get_PostgapAlreadyInImage(&this, value);
 
-	public HRESULT get_CurrentMediaStatus(IMAPI_FORMAT2_DATA_MEDIA_STATE value) mut => VT.[Friend]get_CurrentMediaStatus(&this, value);
+	public HRESULT get_CurrentMediaStatus(IMAPI_FORMAT2_DATA_MEDIA_STATE* value) mut => VT.[Friend]get_CurrentMediaStatus(&this, value);
 
-	public HRESULT get_WriteProtectStatus(IMAPI_MEDIA_WRITE_PROTECT_STATE value) mut => VT.[Friend]get_WriteProtectStatus(&this, value);
+	public HRESULT get_WriteProtectStatus(IMAPI_MEDIA_WRITE_PROTECT_STATE* value) mut => VT.[Friend]get_WriteProtectStatus(&this, value);
 
-	public HRESULT get_TotalSectorsOnMedia(int32 value) mut => VT.[Friend]get_TotalSectorsOnMedia(&this, value);
+	public HRESULT get_TotalSectorsOnMedia(int32* value) mut => VT.[Friend]get_TotalSectorsOnMedia(&this, value);
 
-	public HRESULT get_FreeSectorsOnMedia(int32 value) mut => VT.[Friend]get_FreeSectorsOnMedia(&this, value);
+	public HRESULT get_FreeSectorsOnMedia(int32* value) mut => VT.[Friend]get_FreeSectorsOnMedia(&this, value);
 
-	public HRESULT get_NextWritableAddress(int32 value) mut => VT.[Friend]get_NextWritableAddress(&this, value);
+	public HRESULT get_NextWritableAddress(int32* value) mut => VT.[Friend]get_NextWritableAddress(&this, value);
 
-	public HRESULT get_StartAddressOfPreviousSession(int32 value) mut => VT.[Friend]get_StartAddressOfPreviousSession(&this, value);
+	public HRESULT get_StartAddressOfPreviousSession(int32* value) mut => VT.[Friend]get_StartAddressOfPreviousSession(&this, value);
 
-	public HRESULT get_LastWrittenAddressOfPreviousSession(int32 value) mut => VT.[Friend]get_LastWrittenAddressOfPreviousSession(&this, value);
+	public HRESULT get_LastWrittenAddressOfPreviousSession(int32* value) mut => VT.[Friend]get_LastWrittenAddressOfPreviousSession(&this, value);
 
 	public HRESULT put_ForceMediaToBeClosed(int16 value) mut => VT.[Friend]put_ForceMediaToBeClosed(&this, value);
 
-	public HRESULT get_ForceMediaToBeClosed(int16 value) mut => VT.[Friend]get_ForceMediaToBeClosed(&this, value);
+	public HRESULT get_ForceMediaToBeClosed(int16* value) mut => VT.[Friend]get_ForceMediaToBeClosed(&this, value);
 
 	public HRESULT put_DisableConsumerDvdCompatibilityMode(int16 value) mut => VT.[Friend]put_DisableConsumerDvdCompatibilityMode(&this, value);
 
-	public HRESULT get_DisableConsumerDvdCompatibilityMode(int16 value) mut => VT.[Friend]get_DisableConsumerDvdCompatibilityMode(&this, value);
+	public HRESULT get_DisableConsumerDvdCompatibilityMode(int16* value) mut => VT.[Friend]get_DisableConsumerDvdCompatibilityMode(&this, value);
 
-	public HRESULT get_CurrentPhysicalMediaType(IMAPI_MEDIA_PHYSICAL_TYPE value) mut => VT.[Friend]get_CurrentPhysicalMediaType(&this, value);
+	public HRESULT get_CurrentPhysicalMediaType(IMAPI_MEDIA_PHYSICAL_TYPE* value) mut => VT.[Friend]get_CurrentPhysicalMediaType(&this, value);
 
 	public HRESULT put_ClientName(BSTR value) mut => VT.[Friend]put_ClientName(&this, value);
 
-	public HRESULT get_ClientName(BSTR value) mut => VT.[Friend]get_ClientName(&this, value);
+	public HRESULT get_ClientName(BSTR* value) mut => VT.[Friend]get_ClientName(&this, value);
 
-	public HRESULT get_RequestedWriteSpeed(int32 value) mut => VT.[Friend]get_RequestedWriteSpeed(&this, value);
+	public HRESULT get_RequestedWriteSpeed(int32* value) mut => VT.[Friend]get_RequestedWriteSpeed(&this, value);
 
-	public HRESULT get_RequestedRotationTypeIsPureCAV(int16 value) mut => VT.[Friend]get_RequestedRotationTypeIsPureCAV(&this, value);
+	public HRESULT get_RequestedRotationTypeIsPureCAV(int16* value) mut => VT.[Friend]get_RequestedRotationTypeIsPureCAV(&this, value);
 
-	public HRESULT get_CurrentWriteSpeed(int32 value) mut => VT.[Friend]get_CurrentWriteSpeed(&this, value);
+	public HRESULT get_CurrentWriteSpeed(int32* value) mut => VT.[Friend]get_CurrentWriteSpeed(&this, value);
 
-	public HRESULT get_CurrentRotationTypeIsPureCAV(int16 value) mut => VT.[Friend]get_CurrentRotationTypeIsPureCAV(&this, value);
+	public HRESULT get_CurrentRotationTypeIsPureCAV(int16* value) mut => VT.[Friend]get_CurrentRotationTypeIsPureCAV(&this, value);
 
-	public HRESULT get_SupportedWriteSpeeds(SAFEARRAY supportedSpeeds) mut => VT.[Friend]get_SupportedWriteSpeeds(&this, supportedSpeeds);
+	public HRESULT get_SupportedWriteSpeeds(SAFEARRAY** supportedSpeeds) mut => VT.[Friend]get_SupportedWriteSpeeds(&this, supportedSpeeds);
 
-	public HRESULT get_SupportedWriteSpeedDescriptors(SAFEARRAY supportedSpeedDescriptors) mut => VT.[Friend]get_SupportedWriteSpeedDescriptors(&this, supportedSpeedDescriptors);
+	public HRESULT get_SupportedWriteSpeedDescriptors(SAFEARRAY** supportedSpeedDescriptors) mut => VT.[Friend]get_SupportedWriteSpeedDescriptors(&this, supportedSpeedDescriptors);
 
 	public HRESULT put_ForceOverwrite(int16 value) mut => VT.[Friend]put_ForceOverwrite(&this, value);
 
-	public HRESULT get_ForceOverwrite(int16 value) mut => VT.[Friend]get_ForceOverwrite(&this, value);
+	public HRESULT get_ForceOverwrite(int16* value) mut => VT.[Friend]get_ForceOverwrite(&this, value);
 
-	public HRESULT get_MultisessionInterfaces(SAFEARRAY value) mut => VT.[Friend]get_MultisessionInterfaces(&this, value);
+	public HRESULT get_MultisessionInterfaces(SAFEARRAY** value) mut => VT.[Friend]get_MultisessionInterfaces(&this, value);
 
 	public HRESULT Write(IStream* data) mut => VT.[Friend]Write(&this, data);
 
@@ -1720,20 +1720,20 @@ public static
 
 	[CRepr]public struct VTable : IWriteEngine2EventArgs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, int32 value) get_ElapsedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, int32 value) get_RemainingTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, int32 value) get_TotalTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, IMAPI_FORMAT2_DATA_WRITE_ACTION value) get_CurrentAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, int32* value) get_ElapsedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, int32* value) get_RemainingTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, int32* value) get_TotalTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, IMAPI_FORMAT2_DATA_WRITE_ACTION* value) get_CurrentAction;
 	}
 
 
-	public HRESULT get_ElapsedTime(int32 value) mut => VT.[Friend]get_ElapsedTime(&this, value);
+	public HRESULT get_ElapsedTime(int32* value) mut => VT.[Friend]get_ElapsedTime(&this, value);
 
-	public HRESULT get_RemainingTime(int32 value) mut => VT.[Friend]get_RemainingTime(&this, value);
+	public HRESULT get_RemainingTime(int32* value) mut => VT.[Friend]get_RemainingTime(&this, value);
 
-	public HRESULT get_TotalTime(int32 value) mut => VT.[Friend]get_TotalTime(&this, value);
+	public HRESULT get_TotalTime(int32* value) mut => VT.[Friend]get_TotalTime(&this, value);
 
-	public HRESULT get_CurrentAction(IMAPI_FORMAT2_DATA_WRITE_ACTION value) mut => VT.[Friend]get_CurrentAction(&this, value);
+	public HRESULT get_CurrentAction(IMAPI_FORMAT2_DATA_WRITE_ACTION* value) mut => VT.[Friend]get_CurrentAction(&this, value);
 }
 
 [CRepr]struct IDiscFormat2TrackAtOnce : IDiscFormat2
@@ -1750,25 +1750,25 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self) ReleaseMedia;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32 RequestedSectorsPerSecond, int16 RotationTypeIsPureCAV) SetWriteSpeed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, IDiscRecorder2* value) put_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, IDiscRecorder2* value) get_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, IDiscRecorder2** value) get_Recorder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16 value) put_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16 value) get_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32 value) get_NumberOfExistingTracks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32 value) get_TotalSectorsOnMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32 value) get_FreeSectorsOnMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32 value) get_UsedSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16* value) get_BufferUnderrunFreeDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_NumberOfExistingTracks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_TotalSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_FreeSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_UsedSectorsOnMedia;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16 value) put_DoNotFinalizeMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16 value) get_DoNotFinalizeMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, SAFEARRAY value) get_ExpectedTableOfContents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE value) get_CurrentPhysicalMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16* value) get_DoNotFinalizeMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, SAFEARRAY** value) get_ExpectedTableOfContents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, BSTR value) put_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, BSTR value) get_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32 value) get_RequestedWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16 value) get_RequestedRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32 value) get_CurrentWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16 value) get_CurrentRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, SAFEARRAY supportedSpeeds) get_SupportedWriteSpeeds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, SAFEARRAY supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, BSTR* value) get_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_RequestedWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16* value) get_RequestedRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_CurrentWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16* value) get_CurrentRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, SAFEARRAY** supportedSpeeds) get_SupportedWriteSpeeds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, SAFEARRAY** supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
 	}
 
 
@@ -1784,43 +1784,43 @@ public static
 
 	public HRESULT put_Recorder(IDiscRecorder2* value) mut => VT.[Friend]put_Recorder(&this, value);
 
-	public HRESULT get_Recorder(IDiscRecorder2* value) mut => VT.[Friend]get_Recorder(&this, value);
+	public HRESULT get_Recorder(IDiscRecorder2** value) mut => VT.[Friend]get_Recorder(&this, value);
 
 	public HRESULT put_BufferUnderrunFreeDisabled(int16 value) mut => VT.[Friend]put_BufferUnderrunFreeDisabled(&this, value);
 
-	public HRESULT get_BufferUnderrunFreeDisabled(int16 value) mut => VT.[Friend]get_BufferUnderrunFreeDisabled(&this, value);
+	public HRESULT get_BufferUnderrunFreeDisabled(int16* value) mut => VT.[Friend]get_BufferUnderrunFreeDisabled(&this, value);
 
-	public HRESULT get_NumberOfExistingTracks(int32 value) mut => VT.[Friend]get_NumberOfExistingTracks(&this, value);
+	public HRESULT get_NumberOfExistingTracks(int32* value) mut => VT.[Friend]get_NumberOfExistingTracks(&this, value);
 
-	public HRESULT get_TotalSectorsOnMedia(int32 value) mut => VT.[Friend]get_TotalSectorsOnMedia(&this, value);
+	public HRESULT get_TotalSectorsOnMedia(int32* value) mut => VT.[Friend]get_TotalSectorsOnMedia(&this, value);
 
-	public HRESULT get_FreeSectorsOnMedia(int32 value) mut => VT.[Friend]get_FreeSectorsOnMedia(&this, value);
+	public HRESULT get_FreeSectorsOnMedia(int32* value) mut => VT.[Friend]get_FreeSectorsOnMedia(&this, value);
 
-	public HRESULT get_UsedSectorsOnMedia(int32 value) mut => VT.[Friend]get_UsedSectorsOnMedia(&this, value);
+	public HRESULT get_UsedSectorsOnMedia(int32* value) mut => VT.[Friend]get_UsedSectorsOnMedia(&this, value);
 
 	public HRESULT put_DoNotFinalizeMedia(int16 value) mut => VT.[Friend]put_DoNotFinalizeMedia(&this, value);
 
-	public HRESULT get_DoNotFinalizeMedia(int16 value) mut => VT.[Friend]get_DoNotFinalizeMedia(&this, value);
+	public HRESULT get_DoNotFinalizeMedia(int16* value) mut => VT.[Friend]get_DoNotFinalizeMedia(&this, value);
 
-	public HRESULT get_ExpectedTableOfContents(SAFEARRAY value) mut => VT.[Friend]get_ExpectedTableOfContents(&this, value);
+	public HRESULT get_ExpectedTableOfContents(SAFEARRAY** value) mut => VT.[Friend]get_ExpectedTableOfContents(&this, value);
 
-	public HRESULT get_CurrentPhysicalMediaType(IMAPI_MEDIA_PHYSICAL_TYPE value) mut => VT.[Friend]get_CurrentPhysicalMediaType(&this, value);
+	public HRESULT get_CurrentPhysicalMediaType(IMAPI_MEDIA_PHYSICAL_TYPE* value) mut => VT.[Friend]get_CurrentPhysicalMediaType(&this, value);
 
 	public HRESULT put_ClientName(BSTR value) mut => VT.[Friend]put_ClientName(&this, value);
 
-	public HRESULT get_ClientName(BSTR value) mut => VT.[Friend]get_ClientName(&this, value);
+	public HRESULT get_ClientName(BSTR* value) mut => VT.[Friend]get_ClientName(&this, value);
 
-	public HRESULT get_RequestedWriteSpeed(int32 value) mut => VT.[Friend]get_RequestedWriteSpeed(&this, value);
+	public HRESULT get_RequestedWriteSpeed(int32* value) mut => VT.[Friend]get_RequestedWriteSpeed(&this, value);
 
-	public HRESULT get_RequestedRotationTypeIsPureCAV(int16 value) mut => VT.[Friend]get_RequestedRotationTypeIsPureCAV(&this, value);
+	public HRESULT get_RequestedRotationTypeIsPureCAV(int16* value) mut => VT.[Friend]get_RequestedRotationTypeIsPureCAV(&this, value);
 
-	public HRESULT get_CurrentWriteSpeed(int32 value) mut => VT.[Friend]get_CurrentWriteSpeed(&this, value);
+	public HRESULT get_CurrentWriteSpeed(int32* value) mut => VT.[Friend]get_CurrentWriteSpeed(&this, value);
 
-	public HRESULT get_CurrentRotationTypeIsPureCAV(int16 value) mut => VT.[Friend]get_CurrentRotationTypeIsPureCAV(&this, value);
+	public HRESULT get_CurrentRotationTypeIsPureCAV(int16* value) mut => VT.[Friend]get_CurrentRotationTypeIsPureCAV(&this, value);
 
-	public HRESULT get_SupportedWriteSpeeds(SAFEARRAY supportedSpeeds) mut => VT.[Friend]get_SupportedWriteSpeeds(&this, supportedSpeeds);
+	public HRESULT get_SupportedWriteSpeeds(SAFEARRAY** supportedSpeeds) mut => VT.[Friend]get_SupportedWriteSpeeds(&this, supportedSpeeds);
 
-	public HRESULT get_SupportedWriteSpeedDescriptors(SAFEARRAY supportedSpeedDescriptors) mut => VT.[Friend]get_SupportedWriteSpeedDescriptors(&this, supportedSpeedDescriptors);
+	public HRESULT get_SupportedWriteSpeedDescriptors(SAFEARRAY** supportedSpeedDescriptors) mut => VT.[Friend]get_SupportedWriteSpeedDescriptors(&this, supportedSpeedDescriptors);
 }
 
 [CRepr]struct DDiscFormat2TrackAtOnceEvents : IDispatch
@@ -1846,20 +1846,20 @@ public static
 
 	[CRepr]public struct VTable : IWriteEngine2EventArgs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, int32 value) get_CurrentTrackNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, IMAPI_FORMAT2_TAO_WRITE_ACTION value) get_CurrentAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, int32 value) get_ElapsedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, int32 value) get_RemainingTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, int32* value) get_CurrentTrackNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, IMAPI_FORMAT2_TAO_WRITE_ACTION* value) get_CurrentAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, int32* value) get_ElapsedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, int32* value) get_RemainingTime;
 	}
 
 
-	public HRESULT get_CurrentTrackNumber(int32 value) mut => VT.[Friend]get_CurrentTrackNumber(&this, value);
+	public HRESULT get_CurrentTrackNumber(int32* value) mut => VT.[Friend]get_CurrentTrackNumber(&this, value);
 
-	public HRESULT get_CurrentAction(IMAPI_FORMAT2_TAO_WRITE_ACTION value) mut => VT.[Friend]get_CurrentAction(&this, value);
+	public HRESULT get_CurrentAction(IMAPI_FORMAT2_TAO_WRITE_ACTION* value) mut => VT.[Friend]get_CurrentAction(&this, value);
 
-	public HRESULT get_ElapsedTime(int32 value) mut => VT.[Friend]get_ElapsedTime(&this, value);
+	public HRESULT get_ElapsedTime(int32* value) mut => VT.[Friend]get_ElapsedTime(&this, value);
 
-	public HRESULT get_RemainingTime(int32 value) mut => VT.[Friend]get_RemainingTime(&this, value);
+	public HRESULT get_RemainingTime(int32* value) mut => VT.[Friend]get_RemainingTime(&this, value);
 }
 
 [CRepr]struct IDiscFormat2RawCD : IDiscFormat2
@@ -1877,23 +1877,23 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self) ReleaseMedia;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32 RequestedSectorsPerSecond, int16 RotationTypeIsPureCAV) SetWriteSpeed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IDiscRecorder2* value) put_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IDiscRecorder2* value) get_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IDiscRecorder2** value) get_Recorder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16 value) put_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16 value) get_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32 value) get_StartOfNextSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32 value) get_LastPossibleStartOfLeadout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE value) get_CurrentPhysicalMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, SAFEARRAY value) get_SupportedSectorTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16* value) get_BufferUnderrunFreeDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32* value) get_StartOfNextSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32* value) get_LastPossibleStartOfLeadout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, SAFEARRAY** value) get_SupportedSectorTypes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) put_RequestedSectorType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) get_RequestedSectorType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE* value) get_RequestedSectorType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, BSTR value) put_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, BSTR value) get_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32 value) get_RequestedWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16 value) get_RequestedRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32 value) get_CurrentWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16 value) get_CurrentRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, SAFEARRAY supportedSpeeds) get_SupportedWriteSpeeds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, SAFEARRAY supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, BSTR* value) get_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32* value) get_RequestedWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16* value) get_RequestedRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32* value) get_CurrentWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16* value) get_CurrentRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, SAFEARRAY** supportedSpeeds) get_SupportedWriteSpeeds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, SAFEARRAY** supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
 	}
 
 
@@ -1911,39 +1911,39 @@ public static
 
 	public HRESULT put_Recorder(IDiscRecorder2* value) mut => VT.[Friend]put_Recorder(&this, value);
 
-	public HRESULT get_Recorder(IDiscRecorder2* value) mut => VT.[Friend]get_Recorder(&this, value);
+	public HRESULT get_Recorder(IDiscRecorder2** value) mut => VT.[Friend]get_Recorder(&this, value);
 
 	public HRESULT put_BufferUnderrunFreeDisabled(int16 value) mut => VT.[Friend]put_BufferUnderrunFreeDisabled(&this, value);
 
-	public HRESULT get_BufferUnderrunFreeDisabled(int16 value) mut => VT.[Friend]get_BufferUnderrunFreeDisabled(&this, value);
+	public HRESULT get_BufferUnderrunFreeDisabled(int16* value) mut => VT.[Friend]get_BufferUnderrunFreeDisabled(&this, value);
 
-	public HRESULT get_StartOfNextSession(int32 value) mut => VT.[Friend]get_StartOfNextSession(&this, value);
+	public HRESULT get_StartOfNextSession(int32* value) mut => VT.[Friend]get_StartOfNextSession(&this, value);
 
-	public HRESULT get_LastPossibleStartOfLeadout(int32 value) mut => VT.[Friend]get_LastPossibleStartOfLeadout(&this, value);
+	public HRESULT get_LastPossibleStartOfLeadout(int32* value) mut => VT.[Friend]get_LastPossibleStartOfLeadout(&this, value);
 
-	public HRESULT get_CurrentPhysicalMediaType(IMAPI_MEDIA_PHYSICAL_TYPE value) mut => VT.[Friend]get_CurrentPhysicalMediaType(&this, value);
+	public HRESULT get_CurrentPhysicalMediaType(IMAPI_MEDIA_PHYSICAL_TYPE* value) mut => VT.[Friend]get_CurrentPhysicalMediaType(&this, value);
 
-	public HRESULT get_SupportedSectorTypes(SAFEARRAY value) mut => VT.[Friend]get_SupportedSectorTypes(&this, value);
+	public HRESULT get_SupportedSectorTypes(SAFEARRAY** value) mut => VT.[Friend]get_SupportedSectorTypes(&this, value);
 
 	public HRESULT put_RequestedSectorType(IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) mut => VT.[Friend]put_RequestedSectorType(&this, value);
 
-	public HRESULT get_RequestedSectorType(IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) mut => VT.[Friend]get_RequestedSectorType(&this, value);
+	public HRESULT get_RequestedSectorType(IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE* value) mut => VT.[Friend]get_RequestedSectorType(&this, value);
 
 	public HRESULT put_ClientName(BSTR value) mut => VT.[Friend]put_ClientName(&this, value);
 
-	public HRESULT get_ClientName(BSTR value) mut => VT.[Friend]get_ClientName(&this, value);
+	public HRESULT get_ClientName(BSTR* value) mut => VT.[Friend]get_ClientName(&this, value);
 
-	public HRESULT get_RequestedWriteSpeed(int32 value) mut => VT.[Friend]get_RequestedWriteSpeed(&this, value);
+	public HRESULT get_RequestedWriteSpeed(int32* value) mut => VT.[Friend]get_RequestedWriteSpeed(&this, value);
 
-	public HRESULT get_RequestedRotationTypeIsPureCAV(int16 value) mut => VT.[Friend]get_RequestedRotationTypeIsPureCAV(&this, value);
+	public HRESULT get_RequestedRotationTypeIsPureCAV(int16* value) mut => VT.[Friend]get_RequestedRotationTypeIsPureCAV(&this, value);
 
-	public HRESULT get_CurrentWriteSpeed(int32 value) mut => VT.[Friend]get_CurrentWriteSpeed(&this, value);
+	public HRESULT get_CurrentWriteSpeed(int32* value) mut => VT.[Friend]get_CurrentWriteSpeed(&this, value);
 
-	public HRESULT get_CurrentRotationTypeIsPureCAV(int16 value) mut => VT.[Friend]get_CurrentRotationTypeIsPureCAV(&this, value);
+	public HRESULT get_CurrentRotationTypeIsPureCAV(int16* value) mut => VT.[Friend]get_CurrentRotationTypeIsPureCAV(&this, value);
 
-	public HRESULT get_SupportedWriteSpeeds(SAFEARRAY supportedSpeeds) mut => VT.[Friend]get_SupportedWriteSpeeds(&this, supportedSpeeds);
+	public HRESULT get_SupportedWriteSpeeds(SAFEARRAY** supportedSpeeds) mut => VT.[Friend]get_SupportedWriteSpeeds(&this, supportedSpeeds);
 
-	public HRESULT get_SupportedWriteSpeedDescriptors(SAFEARRAY supportedSpeedDescriptors) mut => VT.[Friend]get_SupportedWriteSpeedDescriptors(&this, supportedSpeedDescriptors);
+	public HRESULT get_SupportedWriteSpeedDescriptors(SAFEARRAY** supportedSpeedDescriptors) mut => VT.[Friend]get_SupportedWriteSpeedDescriptors(&this, supportedSpeedDescriptors);
 }
 
 [CRepr]struct DDiscFormat2RawCDEvents : IDispatch
@@ -1969,17 +1969,17 @@ public static
 
 	[CRepr]public struct VTable : IWriteEngine2EventArgs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCDEventArgs*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_WRITE_ACTION value) get_CurrentAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCDEventArgs*/SelfOuter* self, int32 value) get_ElapsedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCDEventArgs*/SelfOuter* self, int32 value) get_RemainingTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCDEventArgs*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_WRITE_ACTION* value) get_CurrentAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCDEventArgs*/SelfOuter* self, int32* value) get_ElapsedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCDEventArgs*/SelfOuter* self, int32* value) get_RemainingTime;
 	}
 
 
-	public HRESULT get_CurrentAction(IMAPI_FORMAT2_RAW_CD_WRITE_ACTION value) mut => VT.[Friend]get_CurrentAction(&this, value);
+	public HRESULT get_CurrentAction(IMAPI_FORMAT2_RAW_CD_WRITE_ACTION* value) mut => VT.[Friend]get_CurrentAction(&this, value);
 
-	public HRESULT get_ElapsedTime(int32 value) mut => VT.[Friend]get_ElapsedTime(&this, value);
+	public HRESULT get_ElapsedTime(int32* value) mut => VT.[Friend]get_ElapsedTime(&this, value);
 
-	public HRESULT get_RemainingTime(int32 value) mut => VT.[Friend]get_RemainingTime(&this, value);
+	public HRESULT get_RemainingTime(int32* value) mut => VT.[Friend]get_RemainingTime(&this, value);
 }
 
 [CRepr]struct IBurnVerification : IUnknown
@@ -1991,13 +1991,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBurnVerification*/SelfOuter* self, IMAPI_BURN_VERIFICATION_LEVEL value) put_BurnVerificationLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBurnVerification*/SelfOuter* self, IMAPI_BURN_VERIFICATION_LEVEL value) get_BurnVerificationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBurnVerification*/SelfOuter* self, IMAPI_BURN_VERIFICATION_LEVEL* value) get_BurnVerificationLevel;
 	}
 
 
 	public HRESULT put_BurnVerificationLevel(IMAPI_BURN_VERIFICATION_LEVEL value) mut => VT.[Friend]put_BurnVerificationLevel(&this, value);
 
-	public HRESULT get_BurnVerificationLevel(IMAPI_BURN_VERIFICATION_LEVEL value) mut => VT.[Friend]get_BurnVerificationLevel(&this, value);
+	public HRESULT get_BurnVerificationLevel(IMAPI_BURN_VERIFICATION_LEVEL* value) mut => VT.[Friend]get_BurnVerificationLevel(&this, value);
 }
 
 [CRepr]struct IWriteSpeedDescriptor : IDispatch
@@ -2008,17 +2008,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteSpeedDescriptor*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE value) get_MediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteSpeedDescriptor*/SelfOuter* self, int16 value) get_RotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteSpeedDescriptor*/SelfOuter* self, int32 value) get_WriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteSpeedDescriptor*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_MediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteSpeedDescriptor*/SelfOuter* self, int16* value) get_RotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteSpeedDescriptor*/SelfOuter* self, int32* value) get_WriteSpeed;
 	}
 
 
-	public HRESULT get_MediaType(IMAPI_MEDIA_PHYSICAL_TYPE value) mut => VT.[Friend]get_MediaType(&this, value);
+	public HRESULT get_MediaType(IMAPI_MEDIA_PHYSICAL_TYPE* value) mut => VT.[Friend]get_MediaType(&this, value);
 
-	public HRESULT get_RotationTypeIsPureCAV(int16 value) mut => VT.[Friend]get_RotationTypeIsPureCAV(&this, value);
+	public HRESULT get_RotationTypeIsPureCAV(int16* value) mut => VT.[Friend]get_RotationTypeIsPureCAV(&this, value);
 
-	public HRESULT get_WriteSpeed(int32 value) mut => VT.[Friend]get_WriteSpeed(&this, value);
+	public HRESULT get_WriteSpeed(int32* value) mut => VT.[Friend]get_WriteSpeed(&this, value);
 }
 
 [CRepr]struct IMultisession : IDispatch
@@ -2029,20 +2029,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, int16 value) get_IsSupportedOnCurrentMediaState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, int16* value) get_IsSupportedOnCurrentMediaState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, int16 value) put_InUse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, int16 value) get_InUse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, IDiscRecorder2* value) get_ImportRecorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, int16* value) get_InUse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, IDiscRecorder2** value) get_ImportRecorder;
 	}
 
 
-	public HRESULT get_IsSupportedOnCurrentMediaState(int16 value) mut => VT.[Friend]get_IsSupportedOnCurrentMediaState(&this, value);
+	public HRESULT get_IsSupportedOnCurrentMediaState(int16* value) mut => VT.[Friend]get_IsSupportedOnCurrentMediaState(&this, value);
 
 	public HRESULT put_InUse(int16 value) mut => VT.[Friend]put_InUse(&this, value);
 
-	public HRESULT get_InUse(int16 value) mut => VT.[Friend]get_InUse(&this, value);
+	public HRESULT get_InUse(int16* value) mut => VT.[Friend]get_InUse(&this, value);
 
-	public HRESULT get_ImportRecorder(IDiscRecorder2* value) mut => VT.[Friend]get_ImportRecorder(&this, value);
+	public HRESULT get_ImportRecorder(IDiscRecorder2** value) mut => VT.[Friend]get_ImportRecorder(&this, value);
 }
 
 [CRepr]struct IMultisessionSequential : IMultisession
@@ -2053,23 +2053,23 @@ public static
 
 	[CRepr]public struct VTable : IMultisession.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int16 value) get_IsFirstDataSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32 value) get_StartAddressOfPreviousSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32 value) get_LastWrittenAddressOfPreviousSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32 value) get_NextWritableAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32 value) get_FreeSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int16* value) get_IsFirstDataSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32* value) get_StartAddressOfPreviousSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32* value) get_LastWrittenAddressOfPreviousSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32* value) get_NextWritableAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32* value) get_FreeSectorsOnMedia;
 	}
 
 
-	public HRESULT get_IsFirstDataSession(int16 value) mut => VT.[Friend]get_IsFirstDataSession(&this, value);
+	public HRESULT get_IsFirstDataSession(int16* value) mut => VT.[Friend]get_IsFirstDataSession(&this, value);
 
-	public HRESULT get_StartAddressOfPreviousSession(int32 value) mut => VT.[Friend]get_StartAddressOfPreviousSession(&this, value);
+	public HRESULT get_StartAddressOfPreviousSession(int32* value) mut => VT.[Friend]get_StartAddressOfPreviousSession(&this, value);
 
-	public HRESULT get_LastWrittenAddressOfPreviousSession(int32 value) mut => VT.[Friend]get_LastWrittenAddressOfPreviousSession(&this, value);
+	public HRESULT get_LastWrittenAddressOfPreviousSession(int32* value) mut => VT.[Friend]get_LastWrittenAddressOfPreviousSession(&this, value);
 
-	public HRESULT get_NextWritableAddress(int32 value) mut => VT.[Friend]get_NextWritableAddress(&this, value);
+	public HRESULT get_NextWritableAddress(int32* value) mut => VT.[Friend]get_NextWritableAddress(&this, value);
 
-	public HRESULT get_FreeSectorsOnMedia(int32 value) mut => VT.[Friend]get_FreeSectorsOnMedia(&this, value);
+	public HRESULT get_FreeSectorsOnMedia(int32* value) mut => VT.[Friend]get_FreeSectorsOnMedia(&this, value);
 }
 
 [CRepr]struct IMultisessionSequential2 : IMultisessionSequential
@@ -2080,11 +2080,11 @@ public static
 
 	[CRepr]public struct VTable : IMultisessionSequential.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential2*/SelfOuter* self, int32 value) get_WriteUnitSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential2*/SelfOuter* self, int32* value) get_WriteUnitSize;
 	}
 
 
-	public HRESULT get_WriteUnitSize(int32 value) mut => VT.[Friend]get_WriteUnitSize(&this, value);
+	public HRESULT get_WriteUnitSize(int32* value) mut => VT.[Friend]get_WriteUnitSize(&this, value);
 }
 
 [CRepr]struct IMultisessionRandomWrite : IMultisession
@@ -2095,17 +2095,17 @@ public static
 
 	[CRepr]public struct VTable : IMultisession.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionRandomWrite*/SelfOuter* self, int32 value) get_WriteUnitSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionRandomWrite*/SelfOuter* self, int32 value) get_LastWrittenAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionRandomWrite*/SelfOuter* self, int32 value) get_TotalSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionRandomWrite*/SelfOuter* self, int32* value) get_WriteUnitSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionRandomWrite*/SelfOuter* self, int32* value) get_LastWrittenAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionRandomWrite*/SelfOuter* self, int32* value) get_TotalSectorsOnMedia;
 	}
 
 
-	public HRESULT get_WriteUnitSize(int32 value) mut => VT.[Friend]get_WriteUnitSize(&this, value);
+	public HRESULT get_WriteUnitSize(int32* value) mut => VT.[Friend]get_WriteUnitSize(&this, value);
 
-	public HRESULT get_LastWrittenAddress(int32 value) mut => VT.[Friend]get_LastWrittenAddress(&this, value);
+	public HRESULT get_LastWrittenAddress(int32* value) mut => VT.[Friend]get_LastWrittenAddress(&this, value);
 
-	public HRESULT get_TotalSectorsOnMedia(int32 value) mut => VT.[Friend]get_TotalSectorsOnMedia(&this, value);
+	public HRESULT get_TotalSectorsOnMedia(int32* value) mut => VT.[Friend]get_TotalSectorsOnMedia(&this, value);
 }
 
 [CRepr]struct IStreamPseudoRandomBased : IStream
@@ -2117,19 +2117,19 @@ public static
 	[CRepr]public struct VTable : IStream.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamPseudoRandomBased*/SelfOuter* self, uint32 value) put_Seed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamPseudoRandomBased*/SelfOuter* self, uint32 value) get_Seed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamPseudoRandomBased*/SelfOuter* self, uint32* value) get_Seed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamPseudoRandomBased*/SelfOuter* self, uint32* values, uint32 eCount) put_ExtendedSeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamPseudoRandomBased*/SelfOuter* self, uint32* values, uint32 eCount) get_ExtendedSeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamPseudoRandomBased*/SelfOuter* self, uint32** values, uint32* eCount) get_ExtendedSeed;
 	}
 
 
 	public HRESULT put_Seed(uint32 value) mut => VT.[Friend]put_Seed(&this, value);
 
-	public HRESULT get_Seed(uint32 value) mut => VT.[Friend]get_Seed(&this, value);
+	public HRESULT get_Seed(uint32* value) mut => VT.[Friend]get_Seed(&this, value);
 
 	public HRESULT put_ExtendedSeed(uint32* values, uint32 eCount) mut => VT.[Friend]put_ExtendedSeed(&this, values, eCount);
 
-	public HRESULT get_ExtendedSeed(uint32* values, uint32 eCount) mut => VT.[Friend]get_ExtendedSeed(&this, values, eCount);
+	public HRESULT get_ExtendedSeed(uint32** values, uint32* eCount) mut => VT.[Friend]get_ExtendedSeed(&this, values, eCount);
 }
 
 [CRepr]struct IStreamConcatenate : IStream
@@ -2179,31 +2179,31 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IStream* resultStream) CreateResultImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IMAPI_CD_SECTOR_TYPE dataType, IStream* data, int32 trackIndex) AddTrack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IStream** resultStream) CreateResultImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IMAPI_CD_SECTOR_TYPE dataType, IStream* data, int32* trackIndex) AddTrack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IStream* data) AddSpecialPregap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IStream* subcode) AddSubcodeRWGenerator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) put_ResultingImageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) get_ResultingImageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 value) get_StartOfLeadout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE* value) get_ResultingImageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32* value) get_StartOfLeadout;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 value) put_StartOfLeadoutLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 value) get_StartOfLeadoutLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32* value) get_StartOfLeadoutLimit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int16 value) put_DisableGaplessAudio;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int16 value) get_DisableGaplessAudio;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int16* value) get_DisableGaplessAudio;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, BSTR value) put_MediaCatalogNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, BSTR value) get_MediaCatalogNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, BSTR* value) get_MediaCatalogNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 value) put_StartingTrackNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 value) get_StartingTrackNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 trackIndex, IRawCDImageTrackInfo* value) get_TrackInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 value) get_NumberOfExistingTracks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 value) get_LastUsedUserSectorInImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, SAFEARRAY value) get_ExpectedTableOfContents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32* value) get_StartingTrackNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 trackIndex, IRawCDImageTrackInfo** value) get_TrackInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32* value) get_NumberOfExistingTracks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32* value) get_LastUsedUserSectorInImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, SAFEARRAY** value) get_ExpectedTableOfContents;
 	}
 
 
-	public HRESULT CreateResultImage(IStream* resultStream) mut => VT.[Friend]CreateResultImage(&this, resultStream);
+	public HRESULT CreateResultImage(IStream** resultStream) mut => VT.[Friend]CreateResultImage(&this, resultStream);
 
-	public HRESULT AddTrack(IMAPI_CD_SECTOR_TYPE dataType, IStream* data, int32 trackIndex) mut => VT.[Friend]AddTrack(&this, dataType, data, trackIndex);
+	public HRESULT AddTrack(IMAPI_CD_SECTOR_TYPE dataType, IStream* data, int32* trackIndex) mut => VT.[Friend]AddTrack(&this, dataType, data, trackIndex);
 
 	public HRESULT AddSpecialPregap(IStream* data) mut => VT.[Friend]AddSpecialPregap(&this, data);
 
@@ -2211,33 +2211,33 @@ public static
 
 	public HRESULT put_ResultingImageType(IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) mut => VT.[Friend]put_ResultingImageType(&this, value);
 
-	public HRESULT get_ResultingImageType(IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) mut => VT.[Friend]get_ResultingImageType(&this, value);
+	public HRESULT get_ResultingImageType(IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE* value) mut => VT.[Friend]get_ResultingImageType(&this, value);
 
-	public HRESULT get_StartOfLeadout(int32 value) mut => VT.[Friend]get_StartOfLeadout(&this, value);
+	public HRESULT get_StartOfLeadout(int32* value) mut => VT.[Friend]get_StartOfLeadout(&this, value);
 
 	public HRESULT put_StartOfLeadoutLimit(int32 value) mut => VT.[Friend]put_StartOfLeadoutLimit(&this, value);
 
-	public HRESULT get_StartOfLeadoutLimit(int32 value) mut => VT.[Friend]get_StartOfLeadoutLimit(&this, value);
+	public HRESULT get_StartOfLeadoutLimit(int32* value) mut => VT.[Friend]get_StartOfLeadoutLimit(&this, value);
 
 	public HRESULT put_DisableGaplessAudio(int16 value) mut => VT.[Friend]put_DisableGaplessAudio(&this, value);
 
-	public HRESULT get_DisableGaplessAudio(int16 value) mut => VT.[Friend]get_DisableGaplessAudio(&this, value);
+	public HRESULT get_DisableGaplessAudio(int16* value) mut => VT.[Friend]get_DisableGaplessAudio(&this, value);
 
 	public HRESULT put_MediaCatalogNumber(BSTR value) mut => VT.[Friend]put_MediaCatalogNumber(&this, value);
 
-	public HRESULT get_MediaCatalogNumber(BSTR value) mut => VT.[Friend]get_MediaCatalogNumber(&this, value);
+	public HRESULT get_MediaCatalogNumber(BSTR* value) mut => VT.[Friend]get_MediaCatalogNumber(&this, value);
 
 	public HRESULT put_StartingTrackNumber(int32 value) mut => VT.[Friend]put_StartingTrackNumber(&this, value);
 
-	public HRESULT get_StartingTrackNumber(int32 value) mut => VT.[Friend]get_StartingTrackNumber(&this, value);
+	public HRESULT get_StartingTrackNumber(int32* value) mut => VT.[Friend]get_StartingTrackNumber(&this, value);
 
-	public HRESULT get_TrackInfo(int32 trackIndex, IRawCDImageTrackInfo* value) mut => VT.[Friend]get_TrackInfo(&this, trackIndex, value);
+	public HRESULT get_TrackInfo(int32 trackIndex, IRawCDImageTrackInfo** value) mut => VT.[Friend]get_TrackInfo(&this, trackIndex, value);
 
-	public HRESULT get_NumberOfExistingTracks(int32 value) mut => VT.[Friend]get_NumberOfExistingTracks(&this, value);
+	public HRESULT get_NumberOfExistingTracks(int32* value) mut => VT.[Friend]get_NumberOfExistingTracks(&this, value);
 
-	public HRESULT get_LastUsedUserSectorInImage(int32 value) mut => VT.[Friend]get_LastUsedUserSectorInImage(&this, value);
+	public HRESULT get_LastUsedUserSectorInImage(int32* value) mut => VT.[Friend]get_LastUsedUserSectorInImage(&this, value);
 
-	public HRESULT get_ExpectedTableOfContents(SAFEARRAY value) mut => VT.[Friend]get_ExpectedTableOfContents(&this, value);
+	public HRESULT get_ExpectedTableOfContents(SAFEARRAY** value) mut => VT.[Friend]get_ExpectedTableOfContents(&this, value);
 }
 
 [CRepr]struct IRawCDImageTrackInfo : IDispatch
@@ -2248,43 +2248,43 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32 value) get_StartingLba;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32 value) get_SectorCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32 value) get_TrackNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, IMAPI_CD_SECTOR_TYPE value) get_SectorType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, BSTR value) get_ISRC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32* value) get_StartingLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32* value) get_SectorCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32* value) get_TrackNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, IMAPI_CD_SECTOR_TYPE* value) get_SectorType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, BSTR* value) get_ISRC;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, BSTR value) put_ISRC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, IMAPI_CD_TRACK_DIGITAL_COPY_SETTING value) get_DigitalAudioCopySetting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, IMAPI_CD_TRACK_DIGITAL_COPY_SETTING* value) get_DigitalAudioCopySetting;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, IMAPI_CD_TRACK_DIGITAL_COPY_SETTING value) put_DigitalAudioCopySetting;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int16 value) get_AudioHasPreemphasis;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int16* value) get_AudioHasPreemphasis;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int16 value) put_AudioHasPreemphasis;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, SAFEARRAY value) get_TrackIndexes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, SAFEARRAY** value) get_TrackIndexes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32 lbaOffset) AddTrackIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32 lbaOffset) ClearTrackIndex;
 	}
 
 
-	public HRESULT get_StartingLba(int32 value) mut => VT.[Friend]get_StartingLba(&this, value);
+	public HRESULT get_StartingLba(int32* value) mut => VT.[Friend]get_StartingLba(&this, value);
 
-	public HRESULT get_SectorCount(int32 value) mut => VT.[Friend]get_SectorCount(&this, value);
+	public HRESULT get_SectorCount(int32* value) mut => VT.[Friend]get_SectorCount(&this, value);
 
-	public HRESULT get_TrackNumber(int32 value) mut => VT.[Friend]get_TrackNumber(&this, value);
+	public HRESULT get_TrackNumber(int32* value) mut => VT.[Friend]get_TrackNumber(&this, value);
 
-	public HRESULT get_SectorType(IMAPI_CD_SECTOR_TYPE value) mut => VT.[Friend]get_SectorType(&this, value);
+	public HRESULT get_SectorType(IMAPI_CD_SECTOR_TYPE* value) mut => VT.[Friend]get_SectorType(&this, value);
 
-	public HRESULT get_ISRC(BSTR value) mut => VT.[Friend]get_ISRC(&this, value);
+	public HRESULT get_ISRC(BSTR* value) mut => VT.[Friend]get_ISRC(&this, value);
 
 	public HRESULT put_ISRC(BSTR value) mut => VT.[Friend]put_ISRC(&this, value);
 
-	public HRESULT get_DigitalAudioCopySetting(IMAPI_CD_TRACK_DIGITAL_COPY_SETTING value) mut => VT.[Friend]get_DigitalAudioCopySetting(&this, value);
+	public HRESULT get_DigitalAudioCopySetting(IMAPI_CD_TRACK_DIGITAL_COPY_SETTING* value) mut => VT.[Friend]get_DigitalAudioCopySetting(&this, value);
 
 	public HRESULT put_DigitalAudioCopySetting(IMAPI_CD_TRACK_DIGITAL_COPY_SETTING value) mut => VT.[Friend]put_DigitalAudioCopySetting(&this, value);
 
-	public HRESULT get_AudioHasPreemphasis(int16 value) mut => VT.[Friend]get_AudioHasPreemphasis(&this, value);
+	public HRESULT get_AudioHasPreemphasis(int16* value) mut => VT.[Friend]get_AudioHasPreemphasis(&this, value);
 
 	public HRESULT put_AudioHasPreemphasis(int16 value) mut => VT.[Friend]put_AudioHasPreemphasis(&this, value);
 
-	public HRESULT get_TrackIndexes(SAFEARRAY value) mut => VT.[Friend]get_TrackIndexes(&this, value);
+	public HRESULT get_TrackIndexes(SAFEARRAY** value) mut => VT.[Friend]get_TrackIndexes(&this, value);
 
 	public HRESULT AddTrackIndex(int32 lbaOffset) mut => VT.[Friend]AddTrackIndex(&this, lbaOffset);
 
@@ -2299,14 +2299,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBlockRange*/SelfOuter* self, int32 value) get_StartLba;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBlockRange*/SelfOuter* self, int32 value) get_EndLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBlockRange*/SelfOuter* self, int32* value) get_StartLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBlockRange*/SelfOuter* self, int32* value) get_EndLba;
 	}
 
 
-	public HRESULT get_StartLba(int32 value) mut => VT.[Friend]get_StartLba(&this, value);
+	public HRESULT get_StartLba(int32* value) mut => VT.[Friend]get_StartLba(&this, value);
 
-	public HRESULT get_EndLba(int32 value) mut => VT.[Friend]get_EndLba(&this, value);
+	public HRESULT get_EndLba(int32* value) mut => VT.[Friend]get_EndLba(&this, value);
 }
 
 [CRepr]struct IBlockRangeList : IDispatch
@@ -2317,11 +2317,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBlockRangeList*/SelfOuter* self, SAFEARRAY value) get_BlockRanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBlockRangeList*/SelfOuter* self, SAFEARRAY** value) get_BlockRanges;
 	}
 
 
-	public HRESULT get_BlockRanges(SAFEARRAY value) mut => VT.[Friend]get_BlockRanges(&this, value);
+	public HRESULT get_BlockRanges(SAFEARRAY** value) mut => VT.[Friend]get_BlockRanges(&this, value);
 }
 
 [CRepr]struct IBootOptions : IDispatch
@@ -2332,33 +2332,33 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, IStream* pVal) get_BootImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, BSTR pVal) get_Manufacturer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, IStream** pVal) get_BootImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, BSTR* pVal) get_Manufacturer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, BSTR newVal) put_Manufacturer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, PlatformId pVal) get_PlatformId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, PlatformId* pVal) get_PlatformId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, PlatformId newVal) put_PlatformId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, EmulationType pVal) get_Emulation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, EmulationType* pVal) get_Emulation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, EmulationType newVal) put_Emulation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, uint32 pVal) get_ImageSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, uint32* pVal) get_ImageSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, IStream* newVal) AssignBootImage;
 	}
 
 
-	public HRESULT get_BootImage(IStream* pVal) mut => VT.[Friend]get_BootImage(&this, pVal);
+	public HRESULT get_BootImage(IStream** pVal) mut => VT.[Friend]get_BootImage(&this, pVal);
 
-	public HRESULT get_Manufacturer(BSTR pVal) mut => VT.[Friend]get_Manufacturer(&this, pVal);
+	public HRESULT get_Manufacturer(BSTR* pVal) mut => VT.[Friend]get_Manufacturer(&this, pVal);
 
 	public HRESULT put_Manufacturer(BSTR newVal) mut => VT.[Friend]put_Manufacturer(&this, newVal);
 
-	public HRESULT get_PlatformId(PlatformId pVal) mut => VT.[Friend]get_PlatformId(&this, pVal);
+	public HRESULT get_PlatformId(PlatformId* pVal) mut => VT.[Friend]get_PlatformId(&this, pVal);
 
 	public HRESULT put_PlatformId(PlatformId newVal) mut => VT.[Friend]put_PlatformId(&this, newVal);
 
-	public HRESULT get_Emulation(EmulationType pVal) mut => VT.[Friend]get_Emulation(&this, pVal);
+	public HRESULT get_Emulation(EmulationType* pVal) mut => VT.[Friend]get_Emulation(&this, pVal);
 
 	public HRESULT put_Emulation(EmulationType newVal) mut => VT.[Friend]put_Emulation(&this, newVal);
 
-	public HRESULT get_ImageSize(uint32 pVal) mut => VT.[Friend]get_ImageSize(&this, pVal);
+	public HRESULT get_ImageSize(uint32* pVal) mut => VT.[Friend]get_ImageSize(&this, pVal);
 
 	public HRESULT AssignBootImage(IStream* newVal) mut => VT.[Friend]AssignBootImage(&this, newVal);
 }
@@ -2371,20 +2371,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, BSTR desc) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, uint32 block) get_FirstBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, uint32 block) get_LastBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, uint32 blocks) get_BlockCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, BSTR* desc) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, uint32* block) get_FirstBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, uint32* block) get_LastBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, uint32* blocks) get_BlockCount;
 	}
 
 
-	public HRESULT get_Description(BSTR desc) mut => VT.[Friend]get_Description(&this, desc);
+	public HRESULT get_Description(BSTR* desc) mut => VT.[Friend]get_Description(&this, desc);
 
-	public HRESULT get_FirstBlock(uint32 block) mut => VT.[Friend]get_FirstBlock(&this, block);
+	public HRESULT get_FirstBlock(uint32* block) mut => VT.[Friend]get_FirstBlock(&this, block);
 
-	public HRESULT get_LastBlock(uint32 block) mut => VT.[Friend]get_LastBlock(&this, block);
+	public HRESULT get_LastBlock(uint32* block) mut => VT.[Friend]get_LastBlock(&this, block);
 
-	public HRESULT get_BlockCount(uint32 blocks) mut => VT.[Friend]get_BlockCount(&this, blocks);
+	public HRESULT get_BlockCount(uint32* blocks) mut => VT.[Friend]get_BlockCount(&this, blocks);
 }
 
 [CRepr]struct IEnumProgressItems : IUnknown
@@ -2395,20 +2395,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumProgressItems*/SelfOuter* self, uint32 celt, IProgressItem** rgelt, uint32 pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumProgressItems*/SelfOuter* self, uint32 celt, IProgressItem** rgelt, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumProgressItems*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumProgressItems*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumProgressItems*/SelfOuter* self, IEnumProgressItems* ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumProgressItems*/SelfOuter* self, IEnumProgressItems** ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, IProgressItem** rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, IProgressItem** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumProgressItems* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumProgressItems** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct IProgressItems : IDispatch
@@ -2419,26 +2419,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, IEnumVARIANT* NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, int32 Index, IProgressItem* item) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, int32 Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, uint32 block, IProgressItem* item) ProgressItemFromBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, BSTR description, IProgressItem* item) ProgressItemFromDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, IEnumProgressItems* NewEnum) get_EnumProgressItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, IEnumVARIANT** NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, int32 Index, IProgressItem** item) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, uint32 block, IProgressItem** item) ProgressItemFromBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, BSTR description, IProgressItem** item) ProgressItemFromDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, IEnumProgressItems** NewEnum) get_EnumProgressItems;
 	}
 
 
-	public HRESULT get__NewEnum(IEnumVARIANT* NewEnum) mut => VT.[Friend]get__NewEnum(&this, NewEnum);
+	public HRESULT get__NewEnum(IEnumVARIANT** NewEnum) mut => VT.[Friend]get__NewEnum(&this, NewEnum);
 
-	public HRESULT get_Item(int32 Index, IProgressItem* item) mut => VT.[Friend]get_Item(&this, Index, item);
+	public HRESULT get_Item(int32 Index, IProgressItem** item) mut => VT.[Friend]get_Item(&this, Index, item);
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
-	public HRESULT ProgressItemFromBlock(uint32 block, IProgressItem* item) mut => VT.[Friend]ProgressItemFromBlock(&this, block, item);
+	public HRESULT ProgressItemFromBlock(uint32 block, IProgressItem** item) mut => VT.[Friend]ProgressItemFromBlock(&this, block, item);
 
-	public HRESULT ProgressItemFromDescription(BSTR description, IProgressItem* item) mut => VT.[Friend]ProgressItemFromDescription(&this, description, item);
+	public HRESULT ProgressItemFromDescription(BSTR description, IProgressItem** item) mut => VT.[Friend]ProgressItemFromDescription(&this, description, item);
 
-	public HRESULT get_EnumProgressItems(IEnumProgressItems* NewEnum) mut => VT.[Friend]get_EnumProgressItems(&this, NewEnum);
+	public HRESULT get_EnumProgressItems(IEnumProgressItems** NewEnum) mut => VT.[Friend]get_EnumProgressItems(&this, NewEnum);
 }
 
 [CRepr]struct IFileSystemImageResult : IDispatch
@@ -2449,23 +2449,23 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, IStream* pVal) get_ImageStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, IProgressItems* pVal) get_ProgressItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, int32 pVal) get_TotalBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, int32 pVal) get_BlockSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, BSTR pVal) get_DiscId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, IStream** pVal) get_ImageStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, IProgressItems** pVal) get_ProgressItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, int32* pVal) get_TotalBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, int32* pVal) get_BlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, BSTR* pVal) get_DiscId;
 	}
 
 
-	public HRESULT get_ImageStream(IStream* pVal) mut => VT.[Friend]get_ImageStream(&this, pVal);
+	public HRESULT get_ImageStream(IStream** pVal) mut => VT.[Friend]get_ImageStream(&this, pVal);
 
-	public HRESULT get_ProgressItems(IProgressItems* pVal) mut => VT.[Friend]get_ProgressItems(&this, pVal);
+	public HRESULT get_ProgressItems(IProgressItems** pVal) mut => VT.[Friend]get_ProgressItems(&this, pVal);
 
-	public HRESULT get_TotalBlocks(int32 pVal) mut => VT.[Friend]get_TotalBlocks(&this, pVal);
+	public HRESULT get_TotalBlocks(int32* pVal) mut => VT.[Friend]get_TotalBlocks(&this, pVal);
 
-	public HRESULT get_BlockSize(int32 pVal) mut => VT.[Friend]get_BlockSize(&this, pVal);
+	public HRESULT get_BlockSize(int32* pVal) mut => VT.[Friend]get_BlockSize(&this, pVal);
 
-	public HRESULT get_DiscId(BSTR pVal) mut => VT.[Friend]get_DiscId(&this, pVal);
+	public HRESULT get_DiscId(BSTR* pVal) mut => VT.[Friend]get_DiscId(&this, pVal);
 }
 
 [CRepr]struct IFileSystemImageResult2 : IFileSystemImageResult
@@ -2476,11 +2476,11 @@ public static
 
 	[CRepr]public struct VTable : IFileSystemImageResult.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult2*/SelfOuter* self, IBlockRangeList* pVal) get_ModifiedBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult2*/SelfOuter* self, IBlockRangeList** pVal) get_ModifiedBlocks;
 	}
 
 
-	public HRESULT get_ModifiedBlocks(IBlockRangeList* pVal) mut => VT.[Friend]get_ModifiedBlocks(&this, pVal);
+	public HRESULT get_ModifiedBlocks(IBlockRangeList** pVal) mut => VT.[Friend]get_ModifiedBlocks(&this, pVal);
 }
 
 [CRepr]struct IFsiItem : IDispatch
@@ -2491,44 +2491,44 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, BSTR pVal) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, BSTR pVal) get_FullPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double pVal) get_CreationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, BSTR* pVal) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, BSTR* pVal) get_FullPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double* pVal) get_CreationTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double newVal) put_CreationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double pVal) get_LastAccessedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double* pVal) get_LastAccessedTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double newVal) put_LastAccessedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double pVal) get_LastModifiedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double* pVal) get_LastModifiedTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double newVal) put_LastModifiedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, int16 pVal) get_IsHidden;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, int16* pVal) get_IsHidden;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, int16 newVal) put_IsHidden;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, FsiFileSystems fileSystem, BSTR pVal) FileSystemName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, FsiFileSystems fileSystem, BSTR pVal) FileSystemPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, FsiFileSystems fileSystem, BSTR* pVal) FileSystemName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, FsiFileSystems fileSystem, BSTR* pVal) FileSystemPath;
 	}
 
 
-	public HRESULT get_Name(BSTR pVal) mut => VT.[Friend]get_Name(&this, pVal);
+	public HRESULT get_Name(BSTR* pVal) mut => VT.[Friend]get_Name(&this, pVal);
 
-	public HRESULT get_FullPath(BSTR pVal) mut => VT.[Friend]get_FullPath(&this, pVal);
+	public HRESULT get_FullPath(BSTR* pVal) mut => VT.[Friend]get_FullPath(&this, pVal);
 
-	public HRESULT get_CreationTime(double pVal) mut => VT.[Friend]get_CreationTime(&this, pVal);
+	public HRESULT get_CreationTime(double* pVal) mut => VT.[Friend]get_CreationTime(&this, pVal);
 
 	public HRESULT put_CreationTime(double newVal) mut => VT.[Friend]put_CreationTime(&this, newVal);
 
-	public HRESULT get_LastAccessedTime(double pVal) mut => VT.[Friend]get_LastAccessedTime(&this, pVal);
+	public HRESULT get_LastAccessedTime(double* pVal) mut => VT.[Friend]get_LastAccessedTime(&this, pVal);
 
 	public HRESULT put_LastAccessedTime(double newVal) mut => VT.[Friend]put_LastAccessedTime(&this, newVal);
 
-	public HRESULT get_LastModifiedTime(double pVal) mut => VT.[Friend]get_LastModifiedTime(&this, pVal);
+	public HRESULT get_LastModifiedTime(double* pVal) mut => VT.[Friend]get_LastModifiedTime(&this, pVal);
 
 	public HRESULT put_LastModifiedTime(double newVal) mut => VT.[Friend]put_LastModifiedTime(&this, newVal);
 
-	public HRESULT get_IsHidden(int16 pVal) mut => VT.[Friend]get_IsHidden(&this, pVal);
+	public HRESULT get_IsHidden(int16* pVal) mut => VT.[Friend]get_IsHidden(&this, pVal);
 
 	public HRESULT put_IsHidden(int16 newVal) mut => VT.[Friend]put_IsHidden(&this, newVal);
 
-	public HRESULT FileSystemName(FsiFileSystems fileSystem, BSTR pVal) mut => VT.[Friend]FileSystemName(&this, fileSystem, pVal);
+	public HRESULT FileSystemName(FsiFileSystems fileSystem, BSTR* pVal) mut => VT.[Friend]FileSystemName(&this, fileSystem, pVal);
 
-	public HRESULT FileSystemPath(FsiFileSystems fileSystem, BSTR pVal) mut => VT.[Friend]FileSystemPath(&this, fileSystem, pVal);
+	public HRESULT FileSystemPath(FsiFileSystems fileSystem, BSTR* pVal) mut => VT.[Friend]FileSystemPath(&this, fileSystem, pVal);
 }
 
 [CRepr]struct IEnumFsiItems : IUnknown
@@ -2539,20 +2539,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFsiItems*/SelfOuter* self, uint32 celt, IFsiItem** rgelt, uint32 pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFsiItems*/SelfOuter* self, uint32 celt, IFsiItem** rgelt, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFsiItems*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFsiItems*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFsiItems*/SelfOuter* self, IEnumFsiItems* ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFsiItems*/SelfOuter* self, IEnumFsiItems** ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, IFsiItem** rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, IFsiItem** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumFsiItems* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumFsiItems** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct IFsiFileItem : IFsiItem
@@ -2563,21 +2563,21 @@ public static
 
 	[CRepr]public struct VTable : IFsiItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, int64 pVal) get_DataSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, int32 pVal) get_DataSize32BitLow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, int32 pVal) get_DataSize32BitHigh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, IStream* pVal) get_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, int64* pVal) get_DataSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, int32* pVal) get_DataSize32BitLow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, int32* pVal) get_DataSize32BitHigh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, IStream** pVal) get_Data;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, IStream* newVal) put_Data;
 	}
 
 
-	public HRESULT get_DataSize(int64 pVal) mut => VT.[Friend]get_DataSize(&this, pVal);
+	public HRESULT get_DataSize(int64* pVal) mut => VT.[Friend]get_DataSize(&this, pVal);
 
-	public HRESULT get_DataSize32BitLow(int32 pVal) mut => VT.[Friend]get_DataSize32BitLow(&this, pVal);
+	public HRESULT get_DataSize32BitLow(int32* pVal) mut => VT.[Friend]get_DataSize32BitLow(&this, pVal);
 
-	public HRESULT get_DataSize32BitHigh(int32 pVal) mut => VT.[Friend]get_DataSize32BitHigh(&this, pVal);
+	public HRESULT get_DataSize32BitHigh(int32* pVal) mut => VT.[Friend]get_DataSize32BitHigh(&this, pVal);
 
-	public HRESULT get_Data(IStream* pVal) mut => VT.[Friend]get_Data(&this, pVal);
+	public HRESULT get_Data(IStream** pVal) mut => VT.[Friend]get_Data(&this, pVal);
 
 	public HRESULT put_Data(IStream* newVal) mut => VT.[Friend]put_Data(&this, newVal);
 }
@@ -2590,24 +2590,24 @@ public static
 
 	[CRepr]public struct VTable : IFsiFileItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, IFsiNamedStreams* streams) get_FsiNamedStreams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, int16 pVal) get_IsNamedStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, IFsiNamedStreams** streams) get_FsiNamedStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, int16* pVal) get_IsNamedStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, BSTR name, IStream* streamData) AddStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, BSTR name) RemoveStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, int16 pVal) get_IsRealTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, int16* pVal) get_IsRealTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, int16 newVal) put_IsRealTime;
 	}
 
 
-	public HRESULT get_FsiNamedStreams(IFsiNamedStreams* streams) mut => VT.[Friend]get_FsiNamedStreams(&this, streams);
+	public HRESULT get_FsiNamedStreams(IFsiNamedStreams** streams) mut => VT.[Friend]get_FsiNamedStreams(&this, streams);
 
-	public HRESULT get_IsNamedStream(int16 pVal) mut => VT.[Friend]get_IsNamedStream(&this, pVal);
+	public HRESULT get_IsNamedStream(int16* pVal) mut => VT.[Friend]get_IsNamedStream(&this, pVal);
 
 	public HRESULT AddStream(BSTR name, IStream* streamData) mut => VT.[Friend]AddStream(&this, name, streamData);
 
 	public HRESULT RemoveStream(BSTR name) mut => VT.[Friend]RemoveStream(&this, name);
 
-	public HRESULT get_IsRealTime(int16 pVal) mut => VT.[Friend]get_IsRealTime(&this, pVal);
+	public HRESULT get_IsRealTime(int16* pVal) mut => VT.[Friend]get_IsRealTime(&this, pVal);
 
 	public HRESULT put_IsRealTime(int16 newVal) mut => VT.[Friend]put_IsRealTime(&this, newVal);
 }
@@ -2620,20 +2620,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, IEnumVARIANT* NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, int32 index, IFsiFileItem2* item) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, int32 count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, IEnumFsiItems* NewEnum) get_EnumNamedStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, IEnumVARIANT** NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, int32 index, IFsiFileItem2** item) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, int32* count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, IEnumFsiItems** NewEnum) get_EnumNamedStreams;
 	}
 
 
-	public HRESULT get__NewEnum(IEnumVARIANT* NewEnum) mut => VT.[Friend]get__NewEnum(&this, NewEnum);
+	public HRESULT get__NewEnum(IEnumVARIANT** NewEnum) mut => VT.[Friend]get__NewEnum(&this, NewEnum);
 
-	public HRESULT get_Item(int32 index, IFsiFileItem2* item) mut => VT.[Friend]get_Item(&this, index, item);
+	public HRESULT get_Item(int32 index, IFsiFileItem2** item) mut => VT.[Friend]get_Item(&this, index, item);
 
-	public HRESULT get_Count(int32 count) mut => VT.[Friend]get_Count(&this, count);
+	public HRESULT get_Count(int32* count) mut => VT.[Friend]get_Count(&this, count);
 
-	public HRESULT get_EnumNamedStreams(IEnumFsiItems* NewEnum) mut => VT.[Friend]get_EnumNamedStreams(&this, NewEnum);
+	public HRESULT get_EnumNamedStreams(IEnumFsiItems** NewEnum) mut => VT.[Friend]get_EnumNamedStreams(&this, NewEnum);
 }
 
 [CRepr]struct IFsiDirectoryItem : IFsiItem
@@ -2644,10 +2644,10 @@ public static
 
 	[CRepr]public struct VTable : IFsiItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, IEnumVARIANT* NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR path, IFsiItem* item) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, int32 Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, IEnumFsiItems* NewEnum) get_EnumFsiItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, IEnumVARIANT** NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR path, IFsiItem** item) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, IEnumFsiItems** NewEnum) get_EnumFsiItems;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR path) AddDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR path, IStream* fileData) AddFile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR sourceDirectory, int16 includeBaseDirectory) AddTree;
@@ -2657,13 +2657,13 @@ public static
 	}
 
 
-	public HRESULT get__NewEnum(IEnumVARIANT* NewEnum) mut => VT.[Friend]get__NewEnum(&this, NewEnum);
+	public HRESULT get__NewEnum(IEnumVARIANT** NewEnum) mut => VT.[Friend]get__NewEnum(&this, NewEnum);
 
-	public HRESULT get_Item(BSTR path, IFsiItem* item) mut => VT.[Friend]get_Item(&this, path, item);
+	public HRESULT get_Item(BSTR path, IFsiItem** item) mut => VT.[Friend]get_Item(&this, path, item);
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
-	public HRESULT get_EnumFsiItems(IEnumFsiItems* NewEnum) mut => VT.[Friend]get_EnumFsiItems(&this, NewEnum);
+	public HRESULT get_EnumFsiItems(IEnumFsiItems** NewEnum) mut => VT.[Friend]get_EnumFsiItems(&this, NewEnum);
 
 	public HRESULT AddDirectory(BSTR path) mut => VT.[Friend]AddDirectory(&this, path);
 
@@ -2701,112 +2701,112 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IFsiDirectoryItem* pVal) get_Root;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 pVal) get_SessionStartBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IFsiDirectoryItem** pVal) get_Root;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_SessionStartBlock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 newVal) put_SessionStartBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 pVal) get_FreeMediaBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_FreeMediaBlocks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 newVal) put_FreeMediaBlocks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IDiscRecorder2* discRecorder) SetMaxMediaBlocksFromDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 pVal) get_UsedBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR pVal) get_VolumeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_UsedBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_VolumeName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR newVal) put_VolumeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR pVal) get_ImportedVolumeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IBootOptions* pVal) get_BootImageOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_ImportedVolumeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IBootOptions** pVal) get_BootImageOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IBootOptions* newVal) put_BootImageOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 pVal) get_FileCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 pVal) get_DirectoryCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR pVal) get_WorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_FileCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_DirectoryCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_WorkingDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR newVal) put_WorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 pVal) get_ChangePoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16 pVal) get_StrictFileSystemCompliance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_ChangePoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16* pVal) get_StrictFileSystemCompliance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16 newVal) put_StrictFileSystemCompliance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16 pVal) get_UseRestrictedCharacterSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16* pVal) get_UseRestrictedCharacterSet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16 newVal) put_UseRestrictedCharacterSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems pVal) get_FileSystemsToCreate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems* pVal) get_FileSystemsToCreate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems newVal) put_FileSystemsToCreate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems pVal) get_FileSystemsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems* pVal) get_FileSystemsSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 newVal) put_UDFRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 pVal) get_UDFRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY pVal) get_UDFRevisionsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_UDFRevision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY** pVal) get_UDFRevisionsSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IDiscRecorder2* discRecorder) ChooseImageDefaults;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE value) ChooseImageDefaultsForMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 newVal) put_ISO9660InterchangeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 pVal) get_ISO9660InterchangeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY pVal) get_ISO9660InterchangeLevelsSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IFileSystemImageResult* resultStream) CreateResultImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR fullPath, FsiItemType itemType) Exists;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR discIdentifier) CalculateDiscIdentifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IDiscRecorder2* discRecorder, FsiFileSystems fileSystems) IdentifyFileSystemsOnDisc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems fileSystems, FsiFileSystems importDefault) GetDefaultFileSystemForImport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems importedFileSystem) ImportFileSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_ISO9660InterchangeLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY** pVal) get_ISO9660InterchangeLevelsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IFileSystemImageResult** resultStream) CreateResultImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR fullPath, FsiItemType* itemType) Exists;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* discIdentifier) CalculateDiscIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IDiscRecorder2* discRecorder, FsiFileSystems* fileSystems) IdentifyFileSystemsOnDisc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems fileSystems, FsiFileSystems* importDefault) GetDefaultFileSystemForImport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems* importedFileSystem) ImportFileSystem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems fileSystemToUse) ImportSpecificFileSystem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 changePoint) RollbackToChangePoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self) LockInChangePoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR name, IFsiDirectoryItem* newItem) CreateDirectoryItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR name, IFsiFileItem* newItem) CreateFileItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR pVal) get_VolumeNameUDF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR pVal) get_VolumeNameJoliet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR pVal) get_VolumeNameISO9660;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16 pVal) get_StageFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR name, IFsiDirectoryItem** newItem) CreateDirectoryItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR name, IFsiFileItem** newItem) CreateFileItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_VolumeNameUDF;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_VolumeNameJoliet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_VolumeNameISO9660;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16* pVal) get_StageFiles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16 newVal) put_StageFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY pVal) get_MultisessionInterfaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY newVal) put_MultisessionInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY** pVal) get_MultisessionInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY* newVal) put_MultisessionInterfaces;
 	}
 
 
-	public HRESULT get_Root(IFsiDirectoryItem* pVal) mut => VT.[Friend]get_Root(&this, pVal);
+	public HRESULT get_Root(IFsiDirectoryItem** pVal) mut => VT.[Friend]get_Root(&this, pVal);
 
-	public HRESULT get_SessionStartBlock(int32 pVal) mut => VT.[Friend]get_SessionStartBlock(&this, pVal);
+	public HRESULT get_SessionStartBlock(int32* pVal) mut => VT.[Friend]get_SessionStartBlock(&this, pVal);
 
 	public HRESULT put_SessionStartBlock(int32 newVal) mut => VT.[Friend]put_SessionStartBlock(&this, newVal);
 
-	public HRESULT get_FreeMediaBlocks(int32 pVal) mut => VT.[Friend]get_FreeMediaBlocks(&this, pVal);
+	public HRESULT get_FreeMediaBlocks(int32* pVal) mut => VT.[Friend]get_FreeMediaBlocks(&this, pVal);
 
 	public HRESULT put_FreeMediaBlocks(int32 newVal) mut => VT.[Friend]put_FreeMediaBlocks(&this, newVal);
 
 	public HRESULT SetMaxMediaBlocksFromDevice(IDiscRecorder2* discRecorder) mut => VT.[Friend]SetMaxMediaBlocksFromDevice(&this, discRecorder);
 
-	public HRESULT get_UsedBlocks(int32 pVal) mut => VT.[Friend]get_UsedBlocks(&this, pVal);
+	public HRESULT get_UsedBlocks(int32* pVal) mut => VT.[Friend]get_UsedBlocks(&this, pVal);
 
-	public HRESULT get_VolumeName(BSTR pVal) mut => VT.[Friend]get_VolumeName(&this, pVal);
+	public HRESULT get_VolumeName(BSTR* pVal) mut => VT.[Friend]get_VolumeName(&this, pVal);
 
 	public HRESULT put_VolumeName(BSTR newVal) mut => VT.[Friend]put_VolumeName(&this, newVal);
 
-	public HRESULT get_ImportedVolumeName(BSTR pVal) mut => VT.[Friend]get_ImportedVolumeName(&this, pVal);
+	public HRESULT get_ImportedVolumeName(BSTR* pVal) mut => VT.[Friend]get_ImportedVolumeName(&this, pVal);
 
-	public HRESULT get_BootImageOptions(IBootOptions* pVal) mut => VT.[Friend]get_BootImageOptions(&this, pVal);
+	public HRESULT get_BootImageOptions(IBootOptions** pVal) mut => VT.[Friend]get_BootImageOptions(&this, pVal);
 
 	public HRESULT put_BootImageOptions(IBootOptions* newVal) mut => VT.[Friend]put_BootImageOptions(&this, newVal);
 
-	public HRESULT get_FileCount(int32 pVal) mut => VT.[Friend]get_FileCount(&this, pVal);
+	public HRESULT get_FileCount(int32* pVal) mut => VT.[Friend]get_FileCount(&this, pVal);
 
-	public HRESULT get_DirectoryCount(int32 pVal) mut => VT.[Friend]get_DirectoryCount(&this, pVal);
+	public HRESULT get_DirectoryCount(int32* pVal) mut => VT.[Friend]get_DirectoryCount(&this, pVal);
 
-	public HRESULT get_WorkingDirectory(BSTR pVal) mut => VT.[Friend]get_WorkingDirectory(&this, pVal);
+	public HRESULT get_WorkingDirectory(BSTR* pVal) mut => VT.[Friend]get_WorkingDirectory(&this, pVal);
 
 	public HRESULT put_WorkingDirectory(BSTR newVal) mut => VT.[Friend]put_WorkingDirectory(&this, newVal);
 
-	public HRESULT get_ChangePoint(int32 pVal) mut => VT.[Friend]get_ChangePoint(&this, pVal);
+	public HRESULT get_ChangePoint(int32* pVal) mut => VT.[Friend]get_ChangePoint(&this, pVal);
 
-	public HRESULT get_StrictFileSystemCompliance(int16 pVal) mut => VT.[Friend]get_StrictFileSystemCompliance(&this, pVal);
+	public HRESULT get_StrictFileSystemCompliance(int16* pVal) mut => VT.[Friend]get_StrictFileSystemCompliance(&this, pVal);
 
 	public HRESULT put_StrictFileSystemCompliance(int16 newVal) mut => VT.[Friend]put_StrictFileSystemCompliance(&this, newVal);
 
-	public HRESULT get_UseRestrictedCharacterSet(int16 pVal) mut => VT.[Friend]get_UseRestrictedCharacterSet(&this, pVal);
+	public HRESULT get_UseRestrictedCharacterSet(int16* pVal) mut => VT.[Friend]get_UseRestrictedCharacterSet(&this, pVal);
 
 	public HRESULT put_UseRestrictedCharacterSet(int16 newVal) mut => VT.[Friend]put_UseRestrictedCharacterSet(&this, newVal);
 
-	public HRESULT get_FileSystemsToCreate(FsiFileSystems pVal) mut => VT.[Friend]get_FileSystemsToCreate(&this, pVal);
+	public HRESULT get_FileSystemsToCreate(FsiFileSystems* pVal) mut => VT.[Friend]get_FileSystemsToCreate(&this, pVal);
 
 	public HRESULT put_FileSystemsToCreate(FsiFileSystems newVal) mut => VT.[Friend]put_FileSystemsToCreate(&this, newVal);
 
-	public HRESULT get_FileSystemsSupported(FsiFileSystems pVal) mut => VT.[Friend]get_FileSystemsSupported(&this, pVal);
+	public HRESULT get_FileSystemsSupported(FsiFileSystems* pVal) mut => VT.[Friend]get_FileSystemsSupported(&this, pVal);
 
 	public HRESULT put_UDFRevision(int32 newVal) mut => VT.[Friend]put_UDFRevision(&this, newVal);
 
-	public HRESULT get_UDFRevision(int32 pVal) mut => VT.[Friend]get_UDFRevision(&this, pVal);
+	public HRESULT get_UDFRevision(int32* pVal) mut => VT.[Friend]get_UDFRevision(&this, pVal);
 
-	public HRESULT get_UDFRevisionsSupported(SAFEARRAY pVal) mut => VT.[Friend]get_UDFRevisionsSupported(&this, pVal);
+	public HRESULT get_UDFRevisionsSupported(SAFEARRAY** pVal) mut => VT.[Friend]get_UDFRevisionsSupported(&this, pVal);
 
 	public HRESULT ChooseImageDefaults(IDiscRecorder2* discRecorder) mut => VT.[Friend]ChooseImageDefaults(&this, discRecorder);
 
@@ -2814,21 +2814,21 @@ public static
 
 	public HRESULT put_ISO9660InterchangeLevel(int32 newVal) mut => VT.[Friend]put_ISO9660InterchangeLevel(&this, newVal);
 
-	public HRESULT get_ISO9660InterchangeLevel(int32 pVal) mut => VT.[Friend]get_ISO9660InterchangeLevel(&this, pVal);
+	public HRESULT get_ISO9660InterchangeLevel(int32* pVal) mut => VT.[Friend]get_ISO9660InterchangeLevel(&this, pVal);
 
-	public HRESULT get_ISO9660InterchangeLevelsSupported(SAFEARRAY pVal) mut => VT.[Friend]get_ISO9660InterchangeLevelsSupported(&this, pVal);
+	public HRESULT get_ISO9660InterchangeLevelsSupported(SAFEARRAY** pVal) mut => VT.[Friend]get_ISO9660InterchangeLevelsSupported(&this, pVal);
 
-	public HRESULT CreateResultImage(IFileSystemImageResult* resultStream) mut => VT.[Friend]CreateResultImage(&this, resultStream);
+	public HRESULT CreateResultImage(IFileSystemImageResult** resultStream) mut => VT.[Friend]CreateResultImage(&this, resultStream);
 
-	public HRESULT Exists(BSTR fullPath, FsiItemType itemType) mut => VT.[Friend]Exists(&this, fullPath, itemType);
+	public HRESULT Exists(BSTR fullPath, FsiItemType* itemType) mut => VT.[Friend]Exists(&this, fullPath, itemType);
 
-	public HRESULT CalculateDiscIdentifier(BSTR discIdentifier) mut => VT.[Friend]CalculateDiscIdentifier(&this, discIdentifier);
+	public HRESULT CalculateDiscIdentifier(BSTR* discIdentifier) mut => VT.[Friend]CalculateDiscIdentifier(&this, discIdentifier);
 
-	public HRESULT IdentifyFileSystemsOnDisc(IDiscRecorder2* discRecorder, FsiFileSystems fileSystems) mut => VT.[Friend]IdentifyFileSystemsOnDisc(&this, discRecorder, fileSystems);
+	public HRESULT IdentifyFileSystemsOnDisc(IDiscRecorder2* discRecorder, FsiFileSystems* fileSystems) mut => VT.[Friend]IdentifyFileSystemsOnDisc(&this, discRecorder, fileSystems);
 
-	public HRESULT GetDefaultFileSystemForImport(FsiFileSystems fileSystems, FsiFileSystems importDefault) mut => VT.[Friend]GetDefaultFileSystemForImport(&this, fileSystems, importDefault);
+	public HRESULT GetDefaultFileSystemForImport(FsiFileSystems fileSystems, FsiFileSystems* importDefault) mut => VT.[Friend]GetDefaultFileSystemForImport(&this, fileSystems, importDefault);
 
-	public HRESULT ImportFileSystem(FsiFileSystems importedFileSystem) mut => VT.[Friend]ImportFileSystem(&this, importedFileSystem);
+	public HRESULT ImportFileSystem(FsiFileSystems* importedFileSystem) mut => VT.[Friend]ImportFileSystem(&this, importedFileSystem);
 
 	public HRESULT ImportSpecificFileSystem(FsiFileSystems fileSystemToUse) mut => VT.[Friend]ImportSpecificFileSystem(&this, fileSystemToUse);
 
@@ -2836,23 +2836,23 @@ public static
 
 	public HRESULT LockInChangePoint() mut => VT.[Friend]LockInChangePoint(&this);
 
-	public HRESULT CreateDirectoryItem(BSTR name, IFsiDirectoryItem* newItem) mut => VT.[Friend]CreateDirectoryItem(&this, name, newItem);
+	public HRESULT CreateDirectoryItem(BSTR name, IFsiDirectoryItem** newItem) mut => VT.[Friend]CreateDirectoryItem(&this, name, newItem);
 
-	public HRESULT CreateFileItem(BSTR name, IFsiFileItem* newItem) mut => VT.[Friend]CreateFileItem(&this, name, newItem);
+	public HRESULT CreateFileItem(BSTR name, IFsiFileItem** newItem) mut => VT.[Friend]CreateFileItem(&this, name, newItem);
 
-	public HRESULT get_VolumeNameUDF(BSTR pVal) mut => VT.[Friend]get_VolumeNameUDF(&this, pVal);
+	public HRESULT get_VolumeNameUDF(BSTR* pVal) mut => VT.[Friend]get_VolumeNameUDF(&this, pVal);
 
-	public HRESULT get_VolumeNameJoliet(BSTR pVal) mut => VT.[Friend]get_VolumeNameJoliet(&this, pVal);
+	public HRESULT get_VolumeNameJoliet(BSTR* pVal) mut => VT.[Friend]get_VolumeNameJoliet(&this, pVal);
 
-	public HRESULT get_VolumeNameISO9660(BSTR pVal) mut => VT.[Friend]get_VolumeNameISO9660(&this, pVal);
+	public HRESULT get_VolumeNameISO9660(BSTR* pVal) mut => VT.[Friend]get_VolumeNameISO9660(&this, pVal);
 
-	public HRESULT get_StageFiles(int16 pVal) mut => VT.[Friend]get_StageFiles(&this, pVal);
+	public HRESULT get_StageFiles(int16* pVal) mut => VT.[Friend]get_StageFiles(&this, pVal);
 
 	public HRESULT put_StageFiles(int16 newVal) mut => VT.[Friend]put_StageFiles(&this, newVal);
 
-	public HRESULT get_MultisessionInterfaces(SAFEARRAY pVal) mut => VT.[Friend]get_MultisessionInterfaces(&this, pVal);
+	public HRESULT get_MultisessionInterfaces(SAFEARRAY** pVal) mut => VT.[Friend]get_MultisessionInterfaces(&this, pVal);
 
-	public HRESULT put_MultisessionInterfaces(SAFEARRAY newVal) mut => VT.[Friend]put_MultisessionInterfaces(&this, newVal);
+	public HRESULT put_MultisessionInterfaces(SAFEARRAY* newVal) mut => VT.[Friend]put_MultisessionInterfaces(&this, newVal);
 }
 
 [CRepr]struct IFileSystemImage2 : IFileSystemImage
@@ -2863,14 +2863,14 @@ public static
 
 	[CRepr]public struct VTable : IFileSystemImage.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage2*/SelfOuter* self, SAFEARRAY pVal) get_BootImageOptionsArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage2*/SelfOuter* self, SAFEARRAY newVal) put_BootImageOptionsArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage2*/SelfOuter* self, SAFEARRAY** pVal) get_BootImageOptionsArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage2*/SelfOuter* self, SAFEARRAY* newVal) put_BootImageOptionsArray;
 	}
 
 
-	public HRESULT get_BootImageOptionsArray(SAFEARRAY pVal) mut => VT.[Friend]get_BootImageOptionsArray(&this, pVal);
+	public HRESULT get_BootImageOptionsArray(SAFEARRAY** pVal) mut => VT.[Friend]get_BootImageOptionsArray(&this, pVal);
 
-	public HRESULT put_BootImageOptionsArray(SAFEARRAY newVal) mut => VT.[Friend]put_BootImageOptionsArray(&this, newVal);
+	public HRESULT put_BootImageOptionsArray(SAFEARRAY* newVal) mut => VT.[Friend]put_BootImageOptionsArray(&this, newVal);
 }
 
 [CRepr]struct IFileSystemImage3 : IFileSystemImage2
@@ -2881,17 +2881,17 @@ public static
 
 	[CRepr]public struct VTable : IFileSystemImage2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage3*/SelfOuter* self, int16 pVal) get_CreateRedundantUdfMetadataFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage3*/SelfOuter* self, int16* pVal) get_CreateRedundantUdfMetadataFiles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage3*/SelfOuter* self, int16 newVal) put_CreateRedundantUdfMetadataFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage3*/SelfOuter* self, FsiFileSystems fileSystemToProbe, int16 isAppendable) ProbeSpecificFileSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage3*/SelfOuter* self, FsiFileSystems fileSystemToProbe, int16* isAppendable) ProbeSpecificFileSystem;
 	}
 
 
-	public HRESULT get_CreateRedundantUdfMetadataFiles(int16 pVal) mut => VT.[Friend]get_CreateRedundantUdfMetadataFiles(&this, pVal);
+	public HRESULT get_CreateRedundantUdfMetadataFiles(int16* pVal) mut => VT.[Friend]get_CreateRedundantUdfMetadataFiles(&this, pVal);
 
 	public HRESULT put_CreateRedundantUdfMetadataFiles(int16 newVal) mut => VT.[Friend]put_CreateRedundantUdfMetadataFiles(&this, newVal);
 
-	public HRESULT ProbeSpecificFileSystem(FsiFileSystems fileSystemToProbe, int16 isAppendable) mut => VT.[Friend]ProbeSpecificFileSystem(&this, fileSystemToProbe, isAppendable);
+	public HRESULT ProbeSpecificFileSystem(FsiFileSystems fileSystemToProbe, int16* isAppendable) mut => VT.[Friend]ProbeSpecificFileSystem(&this, fileSystemToProbe, isAppendable);
 }
 
 [CRepr]struct DFileSystemImageEvents : IDispatch
@@ -2932,17 +2932,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self, BSTR pVal) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self, IStream* data) get_Stream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self, BSTR* pVal) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self, IStream** data) get_Stream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self, BSTR Val) SetPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self, IStream* data) SetStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self) Validate;
 	}
 
 
-	public HRESULT get_Path(BSTR pVal) mut => VT.[Friend]get_Path(&this, pVal);
+	public HRESULT get_Path(BSTR* pVal) mut => VT.[Friend]get_Path(&this, pVal);
 
-	public HRESULT get_Stream(IStream* data) mut => VT.[Friend]get_Stream(&this, data);
+	public HRESULT get_Stream(IStream** data) mut => VT.[Friend]get_Stream(&this, data);
 
 	public HRESULT SetPath(BSTR Val) mut => VT.[Friend]SetPath(&this, Val);
 
@@ -2960,17 +2960,17 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, uint8* pbyUniqueID, uint32 nulIDSize, uint32 nulDriveNumber) Init;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, uint8* pbyUniqueID, uint32 ulBufferSize, uint32 pulReturnSizeRequired) GetRecorderGUID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, RECORDER_TYPES fTypeCode) GetRecorderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, BSTR pbstrVendorID, BSTR pbstrProductID, BSTR pbstrRevision) GetDisplayNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, BSTR pbstrBasePnPID) GetBasePnPID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, BSTR pbstrPath) GetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, IPropertyStorage* ppPropStg) GetRecorderProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, uint8* pbyUniqueID, uint32 ulBufferSize, uint32* pulReturnSizeRequired) GetRecorderGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, RECORDER_TYPES* fTypeCode) GetRecorderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, BSTR* pbstrVendorID, BSTR* pbstrProductID, BSTR* pbstrRevision) GetDisplayNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, BSTR* pbstrBasePnPID) GetBasePnPID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, BSTR* pbstrPath) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, IPropertyStorage** ppPropStg) GetRecorderProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, IPropertyStorage* pPropStg) SetRecorderProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, DISC_RECORDER_STATE_FLAGS pulDevStateFlags) GetRecorderState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, DISC_RECORDER_STATE_FLAGS* pulDevStateFlags) GetRecorderState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self) OpenExclusive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, MEDIA_TYPES fMediaType, MEDIA_FLAGS fMediaFlags) QueryMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, uint8 pbSessions, uint8 pbLastTrack, uint32 ulStartAddress, uint32 ulNextWritable, uint32 ulFreeBlocks) QueryMediaInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, MEDIA_TYPES* fMediaType, MEDIA_FLAGS* fMediaFlags) QueryMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, uint8* pbSessions, uint8* pbLastTrack, uint32* ulStartAddress, uint32* ulNextWritable, uint32* ulFreeBlocks) QueryMediaInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self) Eject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, uint8 bFullErase) Erase;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self) Close;
@@ -2979,27 +2979,27 @@ public static
 
 	public HRESULT Init(uint8* pbyUniqueID, uint32 nulIDSize, uint32 nulDriveNumber) mut => VT.[Friend]Init(&this, pbyUniqueID, nulIDSize, nulDriveNumber);
 
-	public HRESULT GetRecorderGUID(uint8* pbyUniqueID, uint32 ulBufferSize, uint32 pulReturnSizeRequired) mut => VT.[Friend]GetRecorderGUID(&this, pbyUniqueID, ulBufferSize, pulReturnSizeRequired);
+	public HRESULT GetRecorderGUID(uint8* pbyUniqueID, uint32 ulBufferSize, uint32* pulReturnSizeRequired) mut => VT.[Friend]GetRecorderGUID(&this, pbyUniqueID, ulBufferSize, pulReturnSizeRequired);
 
-	public HRESULT GetRecorderType(RECORDER_TYPES fTypeCode) mut => VT.[Friend]GetRecorderType(&this, fTypeCode);
+	public HRESULT GetRecorderType(RECORDER_TYPES* fTypeCode) mut => VT.[Friend]GetRecorderType(&this, fTypeCode);
 
-	public HRESULT GetDisplayNames(BSTR pbstrVendorID, BSTR pbstrProductID, BSTR pbstrRevision) mut => VT.[Friend]GetDisplayNames(&this, pbstrVendorID, pbstrProductID, pbstrRevision);
+	public HRESULT GetDisplayNames(BSTR* pbstrVendorID, BSTR* pbstrProductID, BSTR* pbstrRevision) mut => VT.[Friend]GetDisplayNames(&this, pbstrVendorID, pbstrProductID, pbstrRevision);
 
-	public HRESULT GetBasePnPID(BSTR pbstrBasePnPID) mut => VT.[Friend]GetBasePnPID(&this, pbstrBasePnPID);
+	public HRESULT GetBasePnPID(BSTR* pbstrBasePnPID) mut => VT.[Friend]GetBasePnPID(&this, pbstrBasePnPID);
 
-	public HRESULT GetPath(BSTR pbstrPath) mut => VT.[Friend]GetPath(&this, pbstrPath);
+	public HRESULT GetPath(BSTR* pbstrPath) mut => VT.[Friend]GetPath(&this, pbstrPath);
 
-	public HRESULT GetRecorderProperties(IPropertyStorage* ppPropStg) mut => VT.[Friend]GetRecorderProperties(&this, ppPropStg);
+	public HRESULT GetRecorderProperties(IPropertyStorage** ppPropStg) mut => VT.[Friend]GetRecorderProperties(&this, ppPropStg);
 
 	public HRESULT SetRecorderProperties(IPropertyStorage* pPropStg) mut => VT.[Friend]SetRecorderProperties(&this, pPropStg);
 
-	public HRESULT GetRecorderState(DISC_RECORDER_STATE_FLAGS pulDevStateFlags) mut => VT.[Friend]GetRecorderState(&this, pulDevStateFlags);
+	public HRESULT GetRecorderState(DISC_RECORDER_STATE_FLAGS* pulDevStateFlags) mut => VT.[Friend]GetRecorderState(&this, pulDevStateFlags);
 
 	public HRESULT OpenExclusive() mut => VT.[Friend]OpenExclusive(&this);
 
-	public HRESULT QueryMediaType(MEDIA_TYPES fMediaType, MEDIA_FLAGS fMediaFlags) mut => VT.[Friend]QueryMediaType(&this, fMediaType, fMediaFlags);
+	public HRESULT QueryMediaType(MEDIA_TYPES* fMediaType, MEDIA_FLAGS* fMediaFlags) mut => VT.[Friend]QueryMediaType(&this, fMediaType, fMediaFlags);
 
-	public HRESULT QueryMediaInfo(uint8 pbSessions, uint8 pbLastTrack, uint32 ulStartAddress, uint32 ulNextWritable, uint32 ulFreeBlocks) mut => VT.[Friend]QueryMediaInfo(&this, pbSessions, pbLastTrack, ulStartAddress, ulNextWritable, ulFreeBlocks);
+	public HRESULT QueryMediaInfo(uint8* pbSessions, uint8* pbLastTrack, uint32* ulStartAddress, uint32* ulNextWritable, uint32* ulFreeBlocks) mut => VT.[Friend]QueryMediaInfo(&this, pbSessions, pbLastTrack, ulStartAddress, ulNextWritable, ulFreeBlocks);
 
 	public HRESULT Eject() mut => VT.[Friend]Eject(&this);
 
@@ -3016,20 +3016,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscRecorders*/SelfOuter* self, uint32 cRecorders, IDiscRecorder** ppRecorder, uint32 pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscRecorders*/SelfOuter* self, uint32 cRecorders, IDiscRecorder** ppRecorder, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscRecorders*/SelfOuter* self, uint32 cRecorders) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscRecorders*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscRecorders*/SelfOuter* self, IEnumDiscRecorders* ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscRecorders*/SelfOuter* self, IEnumDiscRecorders** ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cRecorders, IDiscRecorder** ppRecorder, uint32 pcFetched) mut => VT.[Friend]Next(&this, cRecorders, ppRecorder, pcFetched);
+	public HRESULT Next(uint32 cRecorders, IDiscRecorder** ppRecorder, uint32* pcFetched) mut => VT.[Friend]Next(&this, cRecorders, ppRecorder, pcFetched);
 
 	public HRESULT Skip(uint32 cRecorders) mut => VT.[Friend]Skip(&this, cRecorders);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumDiscRecorders* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumDiscRecorders** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct IEnumDiscMasterFormats : IUnknown
@@ -3040,20 +3040,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, uint32 cFormats, Guid* lpiidFormatID, uint32 pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, uint32 cFormats, Guid* lpiidFormatID, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, uint32 cFormats) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, IEnumDiscMasterFormats* ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, IEnumDiscMasterFormats** ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cFormats, Guid* lpiidFormatID, uint32 pcFetched) mut => VT.[Friend]Next(&this, cFormats, lpiidFormatID, pcFetched);
+	public HRESULT Next(uint32 cFormats, Guid* lpiidFormatID, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFormats, lpiidFormatID, pcFetched);
 
 	public HRESULT Skip(uint32 cFormats) mut => VT.[Friend]Skip(&this, cFormats);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumDiscMasterFormats* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumDiscMasterFormats** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct IRedbookDiscMaster : IUnknown
@@ -3064,26 +3064,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32 pnTracks) GetTotalAudioTracks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32 pnBlocks) GetTotalAudioBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32 pnBlocks) GetUsedAudioBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32 pnBlocks) GetAvailableAudioTrackBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32 pnBlockBytes) GetAudioBlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32* pnTracks) GetTotalAudioTracks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32* pnBlocks) GetTotalAudioBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32* pnBlocks) GetUsedAudioBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32* pnBlocks) GetAvailableAudioTrackBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32* pnBlockBytes) GetAudioBlockSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32 nBlocks) CreateAudioTrack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, uint8* pby, int32 cb) AddAudioTrackBlocks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self) CloseAudioTrack;
 	}
 
 
-	public HRESULT GetTotalAudioTracks(int32 pnTracks) mut => VT.[Friend]GetTotalAudioTracks(&this, pnTracks);
+	public HRESULT GetTotalAudioTracks(int32* pnTracks) mut => VT.[Friend]GetTotalAudioTracks(&this, pnTracks);
 
-	public HRESULT GetTotalAudioBlocks(int32 pnBlocks) mut => VT.[Friend]GetTotalAudioBlocks(&this, pnBlocks);
+	public HRESULT GetTotalAudioBlocks(int32* pnBlocks) mut => VT.[Friend]GetTotalAudioBlocks(&this, pnBlocks);
 
-	public HRESULT GetUsedAudioBlocks(int32 pnBlocks) mut => VT.[Friend]GetUsedAudioBlocks(&this, pnBlocks);
+	public HRESULT GetUsedAudioBlocks(int32* pnBlocks) mut => VT.[Friend]GetUsedAudioBlocks(&this, pnBlocks);
 
-	public HRESULT GetAvailableAudioTrackBlocks(int32 pnBlocks) mut => VT.[Friend]GetAvailableAudioTrackBlocks(&this, pnBlocks);
+	public HRESULT GetAvailableAudioTrackBlocks(int32* pnBlocks) mut => VT.[Friend]GetAvailableAudioTrackBlocks(&this, pnBlocks);
 
-	public HRESULT GetAudioBlockSize(int32 pnBlockBytes) mut => VT.[Friend]GetAudioBlockSize(&this, pnBlockBytes);
+	public HRESULT GetAudioBlockSize(int32* pnBlockBytes) mut => VT.[Friend]GetAudioBlockSize(&this, pnBlockBytes);
 
 	public HRESULT CreateAudioTrack(int32 nBlocks) mut => VT.[Friend]CreateAudioTrack(&this, nBlocks);
 
@@ -3100,24 +3100,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, int32 pnBlocks) GetTotalDataBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, int32 pnBlocks) GetUsedDataBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, int32 pnBlockBytes) GetDataBlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, int32* pnBlocks) GetTotalDataBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, int32* pnBlocks) GetUsedDataBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, int32* pnBlockBytes) GetDataBlockSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, IStorage* pStorage, int32 lFileOverwrite) AddData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, IPropertyStorage* ppPropStg) GetJolietProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, IPropertyStorage** ppPropStg) GetJolietProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, IPropertyStorage* pPropStg) SetJolietProperties;
 	}
 
 
-	public HRESULT GetTotalDataBlocks(int32 pnBlocks) mut => VT.[Friend]GetTotalDataBlocks(&this, pnBlocks);
+	public HRESULT GetTotalDataBlocks(int32* pnBlocks) mut => VT.[Friend]GetTotalDataBlocks(&this, pnBlocks);
 
-	public HRESULT GetUsedDataBlocks(int32 pnBlocks) mut => VT.[Friend]GetUsedDataBlocks(&this, pnBlocks);
+	public HRESULT GetUsedDataBlocks(int32* pnBlocks) mut => VT.[Friend]GetUsedDataBlocks(&this, pnBlocks);
 
-	public HRESULT GetDataBlockSize(int32 pnBlockBytes) mut => VT.[Friend]GetDataBlockSize(&this, pnBlockBytes);
+	public HRESULT GetDataBlockSize(int32* pnBlockBytes) mut => VT.[Friend]GetDataBlockSize(&this, pnBlockBytes);
 
 	public HRESULT AddData(IStorage* pStorage, int32 lFileOverwrite) mut => VT.[Friend]AddData(&this, pStorage, lFileOverwrite);
 
-	public HRESULT GetJolietProperties(IPropertyStorage* ppPropStg) mut => VT.[Friend]GetJolietProperties(&this, ppPropStg);
+	public HRESULT GetJolietProperties(IPropertyStorage** ppPropStg) mut => VT.[Friend]GetJolietProperties(&this, ppPropStg);
 
 	public HRESULT SetJolietProperties(IPropertyStorage* pPropStg) mut => VT.[Friend]SetJolietProperties(&this, pPropStg);
 }
@@ -3130,7 +3130,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, uint8 pbCancel) QueryCancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, uint8* pbCancel) QueryCancel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self) NotifyPnPActivity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, int32 nCompletedSteps, int32 nTotalSteps) NotifyAddProgress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, int32 nCompleted, int32 nTotal) NotifyBlockProgress;
@@ -3142,7 +3142,7 @@ public static
 	}
 
 
-	public HRESULT QueryCancel(uint8 pbCancel) mut => VT.[Friend]QueryCancel(&this, pbCancel);
+	public HRESULT QueryCancel(uint8* pbCancel) mut => VT.[Friend]QueryCancel(&this, pbCancel);
 
 	public HRESULT NotifyPnPActivity() mut => VT.[Friend]NotifyPnPActivity(&this);
 
@@ -3170,14 +3170,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IEnumDiscMasterFormats* ppEnum) EnumDiscMasterFormats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IEnumDiscMasterFormats** ppEnum) EnumDiscMasterFormats;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, Guid lpiid) GetActiveDiscMasterFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, Guid riid, void ppUnk) SetActiveDiscMasterFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IEnumDiscRecorders* ppEnum) EnumDiscRecorders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscRecorder* ppRecorder) GetActiveDiscRecorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, Guid riid, void** ppUnk) SetActiveDiscMasterFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IEnumDiscRecorders** ppEnum) EnumDiscRecorders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscRecorder** ppRecorder) GetActiveDiscRecorder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscRecorder* pRecorder) SetActiveDiscRecorder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self) ClearFormatContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscMasterProgressEvents* pEvents, uint pvCookie) ProgressAdvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscMasterProgressEvents* pEvents, uint* pvCookie) ProgressAdvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, uint vCookie) ProgressUnadvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, uint8 bSimulate, uint8 bEjectAfterBurn) RecordDisc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self) Close;
@@ -3186,21 +3186,21 @@ public static
 
 	public HRESULT Open() mut => VT.[Friend]Open(&this);
 
-	public HRESULT EnumDiscMasterFormats(IEnumDiscMasterFormats* ppEnum) mut => VT.[Friend]EnumDiscMasterFormats(&this, ppEnum);
+	public HRESULT EnumDiscMasterFormats(IEnumDiscMasterFormats** ppEnum) mut => VT.[Friend]EnumDiscMasterFormats(&this, ppEnum);
 
 	public HRESULT GetActiveDiscMasterFormat(Guid lpiid) mut => VT.[Friend]GetActiveDiscMasterFormat(&this, lpiid);
 
-	public HRESULT SetActiveDiscMasterFormat(Guid riid, void ppUnk) mut => VT.[Friend]SetActiveDiscMasterFormat(&this, riid, ppUnk);
+	public HRESULT SetActiveDiscMasterFormat(Guid riid, void** ppUnk) mut => VT.[Friend]SetActiveDiscMasterFormat(&this, riid, ppUnk);
 
-	public HRESULT EnumDiscRecorders(IEnumDiscRecorders* ppEnum) mut => VT.[Friend]EnumDiscRecorders(&this, ppEnum);
+	public HRESULT EnumDiscRecorders(IEnumDiscRecorders** ppEnum) mut => VT.[Friend]EnumDiscRecorders(&this, ppEnum);
 
-	public HRESULT GetActiveDiscRecorder(IDiscRecorder* ppRecorder) mut => VT.[Friend]GetActiveDiscRecorder(&this, ppRecorder);
+	public HRESULT GetActiveDiscRecorder(IDiscRecorder** ppRecorder) mut => VT.[Friend]GetActiveDiscRecorder(&this, ppRecorder);
 
 	public HRESULT SetActiveDiscRecorder(IDiscRecorder* pRecorder) mut => VT.[Friend]SetActiveDiscRecorder(&this, pRecorder);
 
 	public HRESULT ClearFormatContent() mut => VT.[Friend]ClearFormatContent(&this);
 
-	public HRESULT ProgressAdvise(IDiscMasterProgressEvents* pEvents, uint pvCookie) mut => VT.[Friend]ProgressAdvise(&this, pEvents, pvCookie);
+	public HRESULT ProgressAdvise(IDiscMasterProgressEvents* pEvents, uint* pvCookie) mut => VT.[Friend]ProgressAdvise(&this, pEvents, pvCookie);
 
 	public HRESULT ProgressUnadvise(uint vCookie) mut => VT.[Friend]ProgressUnadvise(&this, vCookie);
 
@@ -3215,19 +3215,19 @@ public static
 public static
 {
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 OpenIMsgSession(IMalloc* lpMalloc, uint32 ulFlags, _MSGSESS lppMsgSess);
+	public static extern int32 OpenIMsgSession(IMalloc* lpMalloc, uint32 ulFlags, _MSGSESS** lppMsgSess);
 
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void CloseIMsgSession(_MSGSESS lpMsgSess);
+	public static extern void CloseIMsgSession(_MSGSESS* lpMsgSess);
 
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 OpenIMsgOnIStg(_MSGSESS lpMsgSess, LPALLOCATEBUFFER lpAllocateBuffer, LPALLOCATEMORE lpAllocateMore, LPFREEBUFFER lpFreeBuffer, IMalloc* lpMalloc, void lpMapiSup, IStorage* lpStg, MSGCALLRELEASE lpfMsgCallRelease, uint32 ulCallerData, uint32 ulFlags, IMessage* lppMsg);
+	public static extern int32 OpenIMsgOnIStg(_MSGSESS* lpMsgSess, LPALLOCATEBUFFER lpAllocateBuffer, LPALLOCATEMORE lpAllocateMore, LPFREEBUFFER lpFreeBuffer, IMalloc* lpMalloc, void* lpMapiSup, IStorage* lpStg, MSGCALLRELEASE* lpfMsgCallRelease, uint32 ulCallerData, uint32 ulFlags, IMessage** lppMsg);
 
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetAttribIMsgOnIStg(void lpObject, SPropTagArray lpPropTagArray, SPropAttrArray lppPropAttrArray);
+	public static extern HRESULT GetAttribIMsgOnIStg(void* lpObject, SPropTagArray* lpPropTagArray, SPropAttrArray** lppPropAttrArray);
 
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SetAttribIMsgOnIStg(void lpObject, SPropTagArray lpPropTags, SPropAttrArray lpPropAttrs, SPropProblemArray lppPropProblems);
+	public static extern HRESULT SetAttribIMsgOnIStg(void* lpObject, SPropTagArray* lpPropTags, SPropAttrArray* lpPropAttrs, SPropProblemArray** lppPropProblems);
 
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 MapStorageSCode(int32 StgSCode);

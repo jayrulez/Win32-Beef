@@ -50,13 +50,13 @@ public static
 	public static extern HRESULT WslConfigureDistribution(PWSTR distributionName, uint32 defaultUID, WSL_DISTRIBUTION_FLAGS wslDistributionFlags);
 
 	[Import("Api-ms-win-wsl-api-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WslGetDistributionConfiguration(PWSTR distributionName, uint32 distributionVersion, uint32 defaultUID, WSL_DISTRIBUTION_FLAGS wslDistributionFlags, PSTR defaultEnvironmentVariables, uint32 defaultEnvironmentVariableCount);
+	public static extern HRESULT WslGetDistributionConfiguration(PWSTR distributionName, uint32* distributionVersion, uint32* defaultUID, WSL_DISTRIBUTION_FLAGS* wslDistributionFlags, PSTR** defaultEnvironmentVariables, uint32* defaultEnvironmentVariableCount);
 
 	[Import("Api-ms-win-wsl-api-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WslLaunchInteractive(PWSTR distributionName, PWSTR command, BOOL useCurrentWorkingDirectory, uint32 exitCode);
+	public static extern HRESULT WslLaunchInteractive(PWSTR distributionName, PWSTR command, BOOL useCurrentWorkingDirectory, uint32* exitCode);
 
 	[Import("Api-ms-win-wsl-api-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WslLaunch(PWSTR distributionName, PWSTR command, BOOL useCurrentWorkingDirectory, HANDLE stdIn, HANDLE stdOut, HANDLE stdErr, HANDLE process);
+	public static extern HRESULT WslLaunch(PWSTR distributionName, PWSTR command, BOOL useCurrentWorkingDirectory, HANDLE stdIn, HANDLE stdOut, HANDLE stdErr, HANDLE* process);
 
 }
 #endregion

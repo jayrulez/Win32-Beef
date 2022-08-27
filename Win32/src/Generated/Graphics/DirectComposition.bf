@@ -202,28 +202,28 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self) Commit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self) WaitForCommitCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, DCOMPOSITION_FRAME_STATISTICS statistics) GetFrameStatistics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, HWND hwnd, BOOL topmost, IDCompositionTarget* target) CreateTargetForHwnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionVisual* visual) CreateVisual;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface* surface) CreateSurface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface* virtualSurface) CreateVirtualSurface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, HANDLE handle, IUnknown* surface) CreateSurfaceFromHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, HWND hwnd, IUnknown* surface) CreateSurfaceFromHwnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionTranslateTransform* translateTransform) CreateTranslateTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionScaleTransform* scaleTransform) CreateScaleTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionRotateTransform* rotateTransform) CreateRotateTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionSkewTransform* skewTransform) CreateSkewTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionMatrixTransform* matrixTransform) CreateMatrixTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionTransform** transforms, uint32 elements, IDCompositionTransform* transformGroup) CreateTransformGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionTranslateTransform3D* translateTransform3D) CreateTranslateTransform3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionScaleTransform3D* scaleTransform3D) CreateScaleTransform3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionRotateTransform3D* rotateTransform3D) CreateRotateTransform3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionMatrixTransform3D* matrixTransform3D) CreateMatrixTransform3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionTransform3D** transforms3D, uint32 elements, IDCompositionTransform3D* transform3DGroup) CreateTransform3DGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionEffectGroup* effectGroup) CreateEffectGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionRectangleClip* clip) CreateRectangleClip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionAnimation* animation) CreateAnimation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, BOOL pfValid) CheckDeviceState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, DCOMPOSITION_FRAME_STATISTICS* statistics) GetFrameStatistics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, HWND hwnd, BOOL topmost, IDCompositionTarget** target) CreateTargetForHwnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionVisual** visual) CreateVisual;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface** surface) CreateSurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface** virtualSurface) CreateVirtualSurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, HANDLE handle, IUnknown** surface) CreateSurfaceFromHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, HWND hwnd, IUnknown** surface) CreateSurfaceFromHwnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionTranslateTransform** translateTransform) CreateTranslateTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionScaleTransform** scaleTransform) CreateScaleTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionRotateTransform** rotateTransform) CreateRotateTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionSkewTransform** skewTransform) CreateSkewTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionMatrixTransform** matrixTransform) CreateMatrixTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionTransform** transforms, uint32 elements, IDCompositionTransform** transformGroup) CreateTransformGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionTranslateTransform3D** translateTransform3D) CreateTranslateTransform3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionScaleTransform3D** scaleTransform3D) CreateScaleTransform3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionRotateTransform3D** rotateTransform3D) CreateRotateTransform3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionMatrixTransform3D** matrixTransform3D) CreateMatrixTransform3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionTransform3D** transforms3D, uint32 elements, IDCompositionTransform3D** transform3DGroup) CreateTransform3DGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionEffectGroup** effectGroup) CreateEffectGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionRectangleClip** clip) CreateRectangleClip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, IDCompositionAnimation** animation) CreateAnimation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice*/SelfOuter* self, BOOL* pfValid) CheckDeviceState;
 	}
 
 
@@ -231,49 +231,49 @@ public static
 
 	public HRESULT WaitForCommitCompletion() mut => VT.[Friend]WaitForCommitCompletion(&this);
 
-	public HRESULT GetFrameStatistics(DCOMPOSITION_FRAME_STATISTICS statistics) mut => VT.[Friend]GetFrameStatistics(&this, statistics);
+	public HRESULT GetFrameStatistics(DCOMPOSITION_FRAME_STATISTICS* statistics) mut => VT.[Friend]GetFrameStatistics(&this, statistics);
 
-	public HRESULT CreateTargetForHwnd(HWND hwnd, BOOL topmost, IDCompositionTarget* target) mut => VT.[Friend]CreateTargetForHwnd(&this, hwnd, topmost, target);
+	public HRESULT CreateTargetForHwnd(HWND hwnd, BOOL topmost, IDCompositionTarget** target) mut => VT.[Friend]CreateTargetForHwnd(&this, hwnd, topmost, target);
 
-	public HRESULT CreateVisual(IDCompositionVisual* visual) mut => VT.[Friend]CreateVisual(&this, visual);
+	public HRESULT CreateVisual(IDCompositionVisual** visual) mut => VT.[Friend]CreateVisual(&this, visual);
 
-	public HRESULT CreateSurface(uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface* surface) mut => VT.[Friend]CreateSurface(&this, width, height, pixelFormat, alphaMode, surface);
+	public HRESULT CreateSurface(uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface** surface) mut => VT.[Friend]CreateSurface(&this, width, height, pixelFormat, alphaMode, surface);
 
-	public HRESULT CreateVirtualSurface(uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface* virtualSurface) mut => VT.[Friend]CreateVirtualSurface(&this, initialWidth, initialHeight, pixelFormat, alphaMode, virtualSurface);
+	public HRESULT CreateVirtualSurface(uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface** virtualSurface) mut => VT.[Friend]CreateVirtualSurface(&this, initialWidth, initialHeight, pixelFormat, alphaMode, virtualSurface);
 
-	public HRESULT CreateSurfaceFromHandle(HANDLE handle, IUnknown* surface) mut => VT.[Friend]CreateSurfaceFromHandle(&this, handle, surface);
+	public HRESULT CreateSurfaceFromHandle(HANDLE handle, IUnknown** surface) mut => VT.[Friend]CreateSurfaceFromHandle(&this, handle, surface);
 
-	public HRESULT CreateSurfaceFromHwnd(HWND hwnd, IUnknown* surface) mut => VT.[Friend]CreateSurfaceFromHwnd(&this, hwnd, surface);
+	public HRESULT CreateSurfaceFromHwnd(HWND hwnd, IUnknown** surface) mut => VT.[Friend]CreateSurfaceFromHwnd(&this, hwnd, surface);
 
-	public HRESULT CreateTranslateTransform(IDCompositionTranslateTransform* translateTransform) mut => VT.[Friend]CreateTranslateTransform(&this, translateTransform);
+	public HRESULT CreateTranslateTransform(IDCompositionTranslateTransform** translateTransform) mut => VT.[Friend]CreateTranslateTransform(&this, translateTransform);
 
-	public HRESULT CreateScaleTransform(IDCompositionScaleTransform* scaleTransform) mut => VT.[Friend]CreateScaleTransform(&this, scaleTransform);
+	public HRESULT CreateScaleTransform(IDCompositionScaleTransform** scaleTransform) mut => VT.[Friend]CreateScaleTransform(&this, scaleTransform);
 
-	public HRESULT CreateRotateTransform(IDCompositionRotateTransform* rotateTransform) mut => VT.[Friend]CreateRotateTransform(&this, rotateTransform);
+	public HRESULT CreateRotateTransform(IDCompositionRotateTransform** rotateTransform) mut => VT.[Friend]CreateRotateTransform(&this, rotateTransform);
 
-	public HRESULT CreateSkewTransform(IDCompositionSkewTransform* skewTransform) mut => VT.[Friend]CreateSkewTransform(&this, skewTransform);
+	public HRESULT CreateSkewTransform(IDCompositionSkewTransform** skewTransform) mut => VT.[Friend]CreateSkewTransform(&this, skewTransform);
 
-	public HRESULT CreateMatrixTransform(IDCompositionMatrixTransform* matrixTransform) mut => VT.[Friend]CreateMatrixTransform(&this, matrixTransform);
+	public HRESULT CreateMatrixTransform(IDCompositionMatrixTransform** matrixTransform) mut => VT.[Friend]CreateMatrixTransform(&this, matrixTransform);
 
-	public HRESULT CreateTransformGroup(IDCompositionTransform** transforms, uint32 elements, IDCompositionTransform* transformGroup) mut => VT.[Friend]CreateTransformGroup(&this, transforms, elements, transformGroup);
+	public HRESULT CreateTransformGroup(IDCompositionTransform** transforms, uint32 elements, IDCompositionTransform** transformGroup) mut => VT.[Friend]CreateTransformGroup(&this, transforms, elements, transformGroup);
 
-	public HRESULT CreateTranslateTransform3D(IDCompositionTranslateTransform3D* translateTransform3D) mut => VT.[Friend]CreateTranslateTransform3D(&this, translateTransform3D);
+	public HRESULT CreateTranslateTransform3D(IDCompositionTranslateTransform3D** translateTransform3D) mut => VT.[Friend]CreateTranslateTransform3D(&this, translateTransform3D);
 
-	public HRESULT CreateScaleTransform3D(IDCompositionScaleTransform3D* scaleTransform3D) mut => VT.[Friend]CreateScaleTransform3D(&this, scaleTransform3D);
+	public HRESULT CreateScaleTransform3D(IDCompositionScaleTransform3D** scaleTransform3D) mut => VT.[Friend]CreateScaleTransform3D(&this, scaleTransform3D);
 
-	public HRESULT CreateRotateTransform3D(IDCompositionRotateTransform3D* rotateTransform3D) mut => VT.[Friend]CreateRotateTransform3D(&this, rotateTransform3D);
+	public HRESULT CreateRotateTransform3D(IDCompositionRotateTransform3D** rotateTransform3D) mut => VT.[Friend]CreateRotateTransform3D(&this, rotateTransform3D);
 
-	public HRESULT CreateMatrixTransform3D(IDCompositionMatrixTransform3D* matrixTransform3D) mut => VT.[Friend]CreateMatrixTransform3D(&this, matrixTransform3D);
+	public HRESULT CreateMatrixTransform3D(IDCompositionMatrixTransform3D** matrixTransform3D) mut => VT.[Friend]CreateMatrixTransform3D(&this, matrixTransform3D);
 
-	public HRESULT CreateTransform3DGroup(IDCompositionTransform3D** transforms3D, uint32 elements, IDCompositionTransform3D* transform3DGroup) mut => VT.[Friend]CreateTransform3DGroup(&this, transforms3D, elements, transform3DGroup);
+	public HRESULT CreateTransform3DGroup(IDCompositionTransform3D** transforms3D, uint32 elements, IDCompositionTransform3D** transform3DGroup) mut => VT.[Friend]CreateTransform3DGroup(&this, transforms3D, elements, transform3DGroup);
 
-	public HRESULT CreateEffectGroup(IDCompositionEffectGroup* effectGroup) mut => VT.[Friend]CreateEffectGroup(&this, effectGroup);
+	public HRESULT CreateEffectGroup(IDCompositionEffectGroup** effectGroup) mut => VT.[Friend]CreateEffectGroup(&this, effectGroup);
 
-	public HRESULT CreateRectangleClip(IDCompositionRectangleClip* clip) mut => VT.[Friend]CreateRectangleClip(&this, clip);
+	public HRESULT CreateRectangleClip(IDCompositionRectangleClip** clip) mut => VT.[Friend]CreateRectangleClip(&this, clip);
 
-	public HRESULT CreateAnimation(IDCompositionAnimation* animation) mut => VT.[Friend]CreateAnimation(&this, animation);
+	public HRESULT CreateAnimation(IDCompositionAnimation** animation) mut => VT.[Friend]CreateAnimation(&this, animation);
 
-	public HRESULT CheckDeviceState(BOOL pfValid) mut => VT.[Friend]CheckDeviceState(&this, pfValid);
+	public HRESULT CheckDeviceState(BOOL* pfValid) mut => VT.[Friend]CheckDeviceState(&this, pfValid);
 }
 
 [CRepr]struct IDCompositionTarget : IUnknown
@@ -304,13 +304,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, IDCompositionAnimation* animation) SetOffsetY;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, float offsetY) SetOffsetY0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, IDCompositionTransform* transform) SetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, D2D_MATRIX_3X2_F matrix) SetTransform0;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, D2D_MATRIX_3X2_F* matrix) SetTransform0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, IDCompositionVisual* visual) SetTransformParent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, IDCompositionEffect* effect) SetEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, DCOMPOSITION_BITMAP_INTERPOLATION_MODE interpolationMode) SetBitmapInterpolationMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, DCOMPOSITION_BORDER_MODE borderMode) SetBorderMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, IDCompositionClip* clip) SetClip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, D2D_RECT_F rect) SetClip0;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, D2D_RECT_F* rect) SetClip0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, IUnknown* content) SetContent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, IDCompositionVisual* visual, BOOL insertAbove, IDCompositionVisual* referenceVisual) AddVisual;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual*/SelfOuter* self, IDCompositionVisual* visual) RemoveVisual;
@@ -329,7 +329,7 @@ public static
 
 	public HRESULT SetTransform(IDCompositionTransform* transform) mut => VT.[Friend]SetTransform(&this, transform);
 
-	public HRESULT SetTransform(D2D_MATRIX_3X2_F matrix) mut => VT.[Friend]SetTransform0(&this, matrix);
+	public HRESULT SetTransform(D2D_MATRIX_3X2_F* matrix) mut => VT.[Friend]SetTransform0(&this, matrix);
 
 	public HRESULT SetTransformParent(IDCompositionVisual* visual) mut => VT.[Friend]SetTransformParent(&this, visual);
 
@@ -341,7 +341,7 @@ public static
 
 	public HRESULT SetClip(IDCompositionClip* clip) mut => VT.[Friend]SetClip(&this, clip);
 
-	public HRESULT SetClip(D2D_RECT_F rect) mut => VT.[Friend]SetClip0(&this, rect);
+	public HRESULT SetClip(D2D_RECT_F* rect) mut => VT.[Friend]SetClip0(&this, rect);
 
 	public HRESULT SetContent(IUnknown* content) mut => VT.[Friend]SetContent(&this, content);
 
@@ -524,13 +524,13 @@ public static
 
 	[CRepr]public struct VTable : IDCompositionTransform.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionMatrixTransform*/SelfOuter* self, D2D_MATRIX_3X2_F matrix) SetMatrix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionMatrixTransform*/SelfOuter* self, D2D_MATRIX_3X2_F* matrix) SetMatrix;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionMatrixTransform*/SelfOuter* self, int32 row, int32 column, IDCompositionAnimation* animation) SetMatrixElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionMatrixTransform*/SelfOuter* self, int32 row, int32 column, float value) SetMatrixElement0;
 	}
 
 
-	public HRESULT SetMatrix(D2D_MATRIX_3X2_F matrix) mut => VT.[Friend]SetMatrix(&this, matrix);
+	public HRESULT SetMatrix(D2D_MATRIX_3X2_F* matrix) mut => VT.[Friend]SetMatrix(&this, matrix);
 
 	public HRESULT SetMatrixElement(int32 row, int32 column, IDCompositionAnimation* animation) mut => VT.[Friend]SetMatrixElement(&this, row, column, animation);
 
@@ -698,13 +698,13 @@ public static
 
 	[CRepr]public struct VTable : IDCompositionTransform3D.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionMatrixTransform3D*/SelfOuter* self, D3DMATRIX matrix) SetMatrix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionMatrixTransform3D*/SelfOuter* self, D3DMATRIX* matrix) SetMatrix;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionMatrixTransform3D*/SelfOuter* self, int32 row, int32 column, IDCompositionAnimation* animation) SetMatrixElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionMatrixTransform3D*/SelfOuter* self, int32 row, int32 column, float value) SetMatrixElement0;
 	}
 
 
-	public HRESULT SetMatrix(D3DMATRIX matrix) mut => VT.[Friend]SetMatrix(&this, matrix);
+	public HRESULT SetMatrix(D3DMATRIX* matrix) mut => VT.[Friend]SetMatrix(&this, matrix);
 
 	public HRESULT SetMatrixElement(int32 row, int32 column, IDCompositionAnimation* animation) mut => VT.[Friend]SetMatrixElement(&this, row, column, animation);
 
@@ -815,15 +815,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self, RECT updateRect, Guid iid, void updateObject, POINT updateOffset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self, RECT* updateRect, Guid iid, void** updateObject, POINT* updateOffset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self) SuspendDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self) ResumeDraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self, RECT scrollRect, RECT clipRect, int32 offsetX, int32 offsetY) Scroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self, RECT* scrollRect, RECT* clipRect, int32 offsetX, int32 offsetY) Scroll;
 	}
 
 
-	public HRESULT BeginDraw(RECT updateRect, Guid iid, void updateObject, POINT updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, updateOffset);
+	public HRESULT BeginDraw(RECT* updateRect, Guid iid, void** updateObject, POINT* updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, updateOffset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 
@@ -831,7 +831,7 @@ public static
 
 	public HRESULT ResumeDraw() mut => VT.[Friend]ResumeDraw(&this);
 
-	public HRESULT Scroll(RECT scrollRect, RECT clipRect, int32 offsetX, int32 offsetY) mut => VT.[Friend]Scroll(&this, scrollRect, clipRect, offsetX, offsetY);
+	public HRESULT Scroll(RECT* scrollRect, RECT* clipRect, int32 offsetX, int32 offsetY) mut => VT.[Friend]Scroll(&this, scrollRect, clipRect, offsetX, offsetY);
 }
 
 [CRepr]struct IDCompositionVirtualSurface : IDCompositionSurface
@@ -862,25 +862,25 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self) Commit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self) WaitForCommitCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, DCOMPOSITION_FRAME_STATISTICS statistics) GetFrameStatistics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionVisual2* visual) CreateVisual;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IUnknown* renderingDevice, IDCompositionSurfaceFactory* surfaceFactory) CreateSurfaceFactory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface* surface) CreateSurface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface* virtualSurface) CreateVirtualSurface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionTranslateTransform* translateTransform) CreateTranslateTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionScaleTransform* scaleTransform) CreateScaleTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionRotateTransform* rotateTransform) CreateRotateTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionSkewTransform* skewTransform) CreateSkewTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionMatrixTransform* matrixTransform) CreateMatrixTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionTransform** transforms, uint32 elements, IDCompositionTransform* transformGroup) CreateTransformGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionTranslateTransform3D* translateTransform3D) CreateTranslateTransform3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionScaleTransform3D* scaleTransform3D) CreateScaleTransform3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionRotateTransform3D* rotateTransform3D) CreateRotateTransform3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionMatrixTransform3D* matrixTransform3D) CreateMatrixTransform3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionTransform3D** transforms3D, uint32 elements, IDCompositionTransform3D* transform3DGroup) CreateTransform3DGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionEffectGroup* effectGroup) CreateEffectGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionRectangleClip* clip) CreateRectangleClip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionAnimation* animation) CreateAnimation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, DCOMPOSITION_FRAME_STATISTICS* statistics) GetFrameStatistics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionVisual2** visual) CreateVisual;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IUnknown* renderingDevice, IDCompositionSurfaceFactory** surfaceFactory) CreateSurfaceFactory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface** surface) CreateSurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface** virtualSurface) CreateVirtualSurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionTranslateTransform** translateTransform) CreateTranslateTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionScaleTransform** scaleTransform) CreateScaleTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionRotateTransform** rotateTransform) CreateRotateTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionSkewTransform** skewTransform) CreateSkewTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionMatrixTransform** matrixTransform) CreateMatrixTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionTransform** transforms, uint32 elements, IDCompositionTransform** transformGroup) CreateTransformGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionTranslateTransform3D** translateTransform3D) CreateTranslateTransform3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionScaleTransform3D** scaleTransform3D) CreateScaleTransform3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionRotateTransform3D** rotateTransform3D) CreateRotateTransform3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionMatrixTransform3D** matrixTransform3D) CreateMatrixTransform3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionTransform3D** transforms3D, uint32 elements, IDCompositionTransform3D** transform3DGroup) CreateTransform3DGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionEffectGroup** effectGroup) CreateEffectGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionRectangleClip** clip) CreateRectangleClip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice2*/SelfOuter* self, IDCompositionAnimation** animation) CreateAnimation;
 	}
 
 
@@ -888,43 +888,43 @@ public static
 
 	public HRESULT WaitForCommitCompletion() mut => VT.[Friend]WaitForCommitCompletion(&this);
 
-	public HRESULT GetFrameStatistics(DCOMPOSITION_FRAME_STATISTICS statistics) mut => VT.[Friend]GetFrameStatistics(&this, statistics);
+	public HRESULT GetFrameStatistics(DCOMPOSITION_FRAME_STATISTICS* statistics) mut => VT.[Friend]GetFrameStatistics(&this, statistics);
 
-	public HRESULT CreateVisual(IDCompositionVisual2* visual) mut => VT.[Friend]CreateVisual(&this, visual);
+	public HRESULT CreateVisual(IDCompositionVisual2** visual) mut => VT.[Friend]CreateVisual(&this, visual);
 
-	public HRESULT CreateSurfaceFactory(IUnknown* renderingDevice, IDCompositionSurfaceFactory* surfaceFactory) mut => VT.[Friend]CreateSurfaceFactory(&this, renderingDevice, surfaceFactory);
+	public HRESULT CreateSurfaceFactory(IUnknown* renderingDevice, IDCompositionSurfaceFactory** surfaceFactory) mut => VT.[Friend]CreateSurfaceFactory(&this, renderingDevice, surfaceFactory);
 
-	public HRESULT CreateSurface(uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface* surface) mut => VT.[Friend]CreateSurface(&this, width, height, pixelFormat, alphaMode, surface);
+	public HRESULT CreateSurface(uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface** surface) mut => VT.[Friend]CreateSurface(&this, width, height, pixelFormat, alphaMode, surface);
 
-	public HRESULT CreateVirtualSurface(uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface* virtualSurface) mut => VT.[Friend]CreateVirtualSurface(&this, initialWidth, initialHeight, pixelFormat, alphaMode, virtualSurface);
+	public HRESULT CreateVirtualSurface(uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface** virtualSurface) mut => VT.[Friend]CreateVirtualSurface(&this, initialWidth, initialHeight, pixelFormat, alphaMode, virtualSurface);
 
-	public HRESULT CreateTranslateTransform(IDCompositionTranslateTransform* translateTransform) mut => VT.[Friend]CreateTranslateTransform(&this, translateTransform);
+	public HRESULT CreateTranslateTransform(IDCompositionTranslateTransform** translateTransform) mut => VT.[Friend]CreateTranslateTransform(&this, translateTransform);
 
-	public HRESULT CreateScaleTransform(IDCompositionScaleTransform* scaleTransform) mut => VT.[Friend]CreateScaleTransform(&this, scaleTransform);
+	public HRESULT CreateScaleTransform(IDCompositionScaleTransform** scaleTransform) mut => VT.[Friend]CreateScaleTransform(&this, scaleTransform);
 
-	public HRESULT CreateRotateTransform(IDCompositionRotateTransform* rotateTransform) mut => VT.[Friend]CreateRotateTransform(&this, rotateTransform);
+	public HRESULT CreateRotateTransform(IDCompositionRotateTransform** rotateTransform) mut => VT.[Friend]CreateRotateTransform(&this, rotateTransform);
 
-	public HRESULT CreateSkewTransform(IDCompositionSkewTransform* skewTransform) mut => VT.[Friend]CreateSkewTransform(&this, skewTransform);
+	public HRESULT CreateSkewTransform(IDCompositionSkewTransform** skewTransform) mut => VT.[Friend]CreateSkewTransform(&this, skewTransform);
 
-	public HRESULT CreateMatrixTransform(IDCompositionMatrixTransform* matrixTransform) mut => VT.[Friend]CreateMatrixTransform(&this, matrixTransform);
+	public HRESULT CreateMatrixTransform(IDCompositionMatrixTransform** matrixTransform) mut => VT.[Friend]CreateMatrixTransform(&this, matrixTransform);
 
-	public HRESULT CreateTransformGroup(IDCompositionTransform** transforms, uint32 elements, IDCompositionTransform* transformGroup) mut => VT.[Friend]CreateTransformGroup(&this, transforms, elements, transformGroup);
+	public HRESULT CreateTransformGroup(IDCompositionTransform** transforms, uint32 elements, IDCompositionTransform** transformGroup) mut => VT.[Friend]CreateTransformGroup(&this, transforms, elements, transformGroup);
 
-	public HRESULT CreateTranslateTransform3D(IDCompositionTranslateTransform3D* translateTransform3D) mut => VT.[Friend]CreateTranslateTransform3D(&this, translateTransform3D);
+	public HRESULT CreateTranslateTransform3D(IDCompositionTranslateTransform3D** translateTransform3D) mut => VT.[Friend]CreateTranslateTransform3D(&this, translateTransform3D);
 
-	public HRESULT CreateScaleTransform3D(IDCompositionScaleTransform3D* scaleTransform3D) mut => VT.[Friend]CreateScaleTransform3D(&this, scaleTransform3D);
+	public HRESULT CreateScaleTransform3D(IDCompositionScaleTransform3D** scaleTransform3D) mut => VT.[Friend]CreateScaleTransform3D(&this, scaleTransform3D);
 
-	public HRESULT CreateRotateTransform3D(IDCompositionRotateTransform3D* rotateTransform3D) mut => VT.[Friend]CreateRotateTransform3D(&this, rotateTransform3D);
+	public HRESULT CreateRotateTransform3D(IDCompositionRotateTransform3D** rotateTransform3D) mut => VT.[Friend]CreateRotateTransform3D(&this, rotateTransform3D);
 
-	public HRESULT CreateMatrixTransform3D(IDCompositionMatrixTransform3D* matrixTransform3D) mut => VT.[Friend]CreateMatrixTransform3D(&this, matrixTransform3D);
+	public HRESULT CreateMatrixTransform3D(IDCompositionMatrixTransform3D** matrixTransform3D) mut => VT.[Friend]CreateMatrixTransform3D(&this, matrixTransform3D);
 
-	public HRESULT CreateTransform3DGroup(IDCompositionTransform3D** transforms3D, uint32 elements, IDCompositionTransform3D* transform3DGroup) mut => VT.[Friend]CreateTransform3DGroup(&this, transforms3D, elements, transform3DGroup);
+	public HRESULT CreateTransform3DGroup(IDCompositionTransform3D** transforms3D, uint32 elements, IDCompositionTransform3D** transform3DGroup) mut => VT.[Friend]CreateTransform3DGroup(&this, transforms3D, elements, transform3DGroup);
 
-	public HRESULT CreateEffectGroup(IDCompositionEffectGroup* effectGroup) mut => VT.[Friend]CreateEffectGroup(&this, effectGroup);
+	public HRESULT CreateEffectGroup(IDCompositionEffectGroup** effectGroup) mut => VT.[Friend]CreateEffectGroup(&this, effectGroup);
 
-	public HRESULT CreateRectangleClip(IDCompositionRectangleClip* clip) mut => VT.[Friend]CreateRectangleClip(&this, clip);
+	public HRESULT CreateRectangleClip(IDCompositionRectangleClip** clip) mut => VT.[Friend]CreateRectangleClip(&this, clip);
 
-	public HRESULT CreateAnimation(IDCompositionAnimation* animation) mut => VT.[Friend]CreateAnimation(&this, animation);
+	public HRESULT CreateAnimation(IDCompositionAnimation** animation) mut => VT.[Friend]CreateAnimation(&this, animation);
 }
 
 [CRepr]struct IDCompositionDesktopDevice : IDCompositionDevice2
@@ -935,17 +935,17 @@ public static
 
 	[CRepr]public struct VTable : IDCompositionDevice2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDesktopDevice*/SelfOuter* self, HWND hwnd, BOOL topmost, IDCompositionTarget* target) CreateTargetForHwnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDesktopDevice*/SelfOuter* self, HANDLE handle, IUnknown* surface) CreateSurfaceFromHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDesktopDevice*/SelfOuter* self, HWND hwnd, IUnknown* surface) CreateSurfaceFromHwnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDesktopDevice*/SelfOuter* self, HWND hwnd, BOOL topmost, IDCompositionTarget** target) CreateTargetForHwnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDesktopDevice*/SelfOuter* self, HANDLE handle, IUnknown** surface) CreateSurfaceFromHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDesktopDevice*/SelfOuter* self, HWND hwnd, IUnknown** surface) CreateSurfaceFromHwnd;
 	}
 
 
-	public HRESULT CreateTargetForHwnd(HWND hwnd, BOOL topmost, IDCompositionTarget* target) mut => VT.[Friend]CreateTargetForHwnd(&this, hwnd, topmost, target);
+	public HRESULT CreateTargetForHwnd(HWND hwnd, BOOL topmost, IDCompositionTarget** target) mut => VT.[Friend]CreateTargetForHwnd(&this, hwnd, topmost, target);
 
-	public HRESULT CreateSurfaceFromHandle(HANDLE handle, IUnknown* surface) mut => VT.[Friend]CreateSurfaceFromHandle(&this, handle, surface);
+	public HRESULT CreateSurfaceFromHandle(HANDLE handle, IUnknown** surface) mut => VT.[Friend]CreateSurfaceFromHandle(&this, handle, surface);
 
-	public HRESULT CreateSurfaceFromHwnd(HWND hwnd, IUnknown* surface) mut => VT.[Friend]CreateSurfaceFromHwnd(&this, hwnd, surface);
+	public HRESULT CreateSurfaceFromHwnd(HWND hwnd, IUnknown** surface) mut => VT.[Friend]CreateSurfaceFromHwnd(&this, hwnd, surface);
 }
 
 [CRepr]struct IDCompositionDeviceDebug : IUnknown
@@ -974,14 +974,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurfaceFactory*/SelfOuter* self, uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface* surface) CreateSurface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurfaceFactory*/SelfOuter* self, uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface* virtualSurface) CreateVirtualSurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurfaceFactory*/SelfOuter* self, uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface** surface) CreateSurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurfaceFactory*/SelfOuter* self, uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface** virtualSurface) CreateVirtualSurface;
 	}
 
 
-	public HRESULT CreateSurface(uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface* surface) mut => VT.[Friend]CreateSurface(&this, width, height, pixelFormat, alphaMode, surface);
+	public HRESULT CreateSurface(uint32 width, uint32 height, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionSurface** surface) mut => VT.[Friend]CreateSurface(&this, width, height, pixelFormat, alphaMode, surface);
 
-	public HRESULT CreateVirtualSurface(uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface* virtualSurface) mut => VT.[Friend]CreateVirtualSurface(&this, initialWidth, initialHeight, pixelFormat, alphaMode, virtualSurface);
+	public HRESULT CreateVirtualSurface(uint32 initialWidth, uint32 initialHeight, DXGI_FORMAT pixelFormat, DXGI_ALPHA_MODE alphaMode, IDCompositionVirtualSurface** virtualSurface) mut => VT.[Friend]CreateVirtualSurface(&this, initialWidth, initialHeight, pixelFormat, alphaMode, virtualSurface);
 }
 
 [CRepr]struct IDCompositionVisual2 : IDCompositionVisual
@@ -1010,14 +1010,14 @@ public static
 
 	[CRepr]public struct VTable : IDCompositionVisual2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisualDebug*/SelfOuter* self, D2D1_COLOR_F color) EnableHeatMap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisualDebug*/SelfOuter* self, D2D1_COLOR_F* color) EnableHeatMap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisualDebug*/SelfOuter* self) DisableHeatMap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisualDebug*/SelfOuter* self) EnableRedrawRegions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisualDebug*/SelfOuter* self) DisableRedrawRegions;
 	}
 
 
-	public HRESULT EnableHeatMap(D2D1_COLOR_F color) mut => VT.[Friend]EnableHeatMap(&this, color);
+	public HRESULT EnableHeatMap(D2D1_COLOR_F* color) mut => VT.[Friend]EnableHeatMap(&this, color);
 
 	public HRESULT DisableHeatMap() mut => VT.[Friend]DisableHeatMap(&this);
 
@@ -1040,7 +1040,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual3*/SelfOuter* self, IDCompositionAnimation* animation) SetOpacity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual3*/SelfOuter* self, float opacity) SetOpacity0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual3*/SelfOuter* self, IDCompositionTransform3D* transform) SetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual3*/SelfOuter* self, D2D_MATRIX_4X4_F matrix) SetTransform0;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual3*/SelfOuter* self, D2D_MATRIX_4X4_F* matrix) SetTransform0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionVisual3*/SelfOuter* self, BOOL visible) SetVisible;
 	}
 
@@ -1057,7 +1057,7 @@ public static
 
 	public HRESULT SetTransform(IDCompositionTransform3D* transform) mut => VT.[Friend]SetTransform(&this, transform);
 
-	public HRESULT SetTransform(D2D_MATRIX_4X4_F matrix) mut => VT.[Friend]SetTransform0(&this, matrix);
+	public HRESULT SetTransform(D2D_MATRIX_4X4_F* matrix) mut => VT.[Friend]SetTransform0(&this, matrix);
 
 	public HRESULT SetVisible(BOOL visible) mut => VT.[Friend]SetVisible(&this, visible);
 }
@@ -1070,47 +1070,47 @@ public static
 
 	[CRepr]public struct VTable : IDCompositionDevice2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionGaussianBlurEffect* gaussianBlurEffect) CreateGaussianBlurEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionBrightnessEffect* brightnessEffect) CreateBrightnessEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionColorMatrixEffect* colorMatrixEffect) CreateColorMatrixEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionShadowEffect* shadowEffect) CreateShadowEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionHueRotationEffect* hueRotationEffect) CreateHueRotationEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionSaturationEffect* saturationEffect) CreateSaturationEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionTurbulenceEffect* turbulenceEffect) CreateTurbulenceEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionLinearTransferEffect* linearTransferEffect) CreateLinearTransferEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionTableTransferEffect* tableTransferEffect) CreateTableTransferEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionCompositeEffect* compositeEffect) CreateCompositeEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionBlendEffect* blendEffect) CreateBlendEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionArithmeticCompositeEffect* arithmeticCompositeEffect) CreateArithmeticCompositeEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionAffineTransform2DEffect* affineTransform2dEffect) CreateAffineTransform2DEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionGaussianBlurEffect** gaussianBlurEffect) CreateGaussianBlurEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionBrightnessEffect** brightnessEffect) CreateBrightnessEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionColorMatrixEffect** colorMatrixEffect) CreateColorMatrixEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionShadowEffect** shadowEffect) CreateShadowEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionHueRotationEffect** hueRotationEffect) CreateHueRotationEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionSaturationEffect** saturationEffect) CreateSaturationEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionTurbulenceEffect** turbulenceEffect) CreateTurbulenceEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionLinearTransferEffect** linearTransferEffect) CreateLinearTransferEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionTableTransferEffect** tableTransferEffect) CreateTableTransferEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionCompositeEffect** compositeEffect) CreateCompositeEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionBlendEffect** blendEffect) CreateBlendEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionArithmeticCompositeEffect** arithmeticCompositeEffect) CreateArithmeticCompositeEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDevice3*/SelfOuter* self, IDCompositionAffineTransform2DEffect** affineTransform2dEffect) CreateAffineTransform2DEffect;
 	}
 
 
-	public HRESULT CreateGaussianBlurEffect(IDCompositionGaussianBlurEffect* gaussianBlurEffect) mut => VT.[Friend]CreateGaussianBlurEffect(&this, gaussianBlurEffect);
+	public HRESULT CreateGaussianBlurEffect(IDCompositionGaussianBlurEffect** gaussianBlurEffect) mut => VT.[Friend]CreateGaussianBlurEffect(&this, gaussianBlurEffect);
 
-	public HRESULT CreateBrightnessEffect(IDCompositionBrightnessEffect* brightnessEffect) mut => VT.[Friend]CreateBrightnessEffect(&this, brightnessEffect);
+	public HRESULT CreateBrightnessEffect(IDCompositionBrightnessEffect** brightnessEffect) mut => VT.[Friend]CreateBrightnessEffect(&this, brightnessEffect);
 
-	public HRESULT CreateColorMatrixEffect(IDCompositionColorMatrixEffect* colorMatrixEffect) mut => VT.[Friend]CreateColorMatrixEffect(&this, colorMatrixEffect);
+	public HRESULT CreateColorMatrixEffect(IDCompositionColorMatrixEffect** colorMatrixEffect) mut => VT.[Friend]CreateColorMatrixEffect(&this, colorMatrixEffect);
 
-	public HRESULT CreateShadowEffect(IDCompositionShadowEffect* shadowEffect) mut => VT.[Friend]CreateShadowEffect(&this, shadowEffect);
+	public HRESULT CreateShadowEffect(IDCompositionShadowEffect** shadowEffect) mut => VT.[Friend]CreateShadowEffect(&this, shadowEffect);
 
-	public HRESULT CreateHueRotationEffect(IDCompositionHueRotationEffect* hueRotationEffect) mut => VT.[Friend]CreateHueRotationEffect(&this, hueRotationEffect);
+	public HRESULT CreateHueRotationEffect(IDCompositionHueRotationEffect** hueRotationEffect) mut => VT.[Friend]CreateHueRotationEffect(&this, hueRotationEffect);
 
-	public HRESULT CreateSaturationEffect(IDCompositionSaturationEffect* saturationEffect) mut => VT.[Friend]CreateSaturationEffect(&this, saturationEffect);
+	public HRESULT CreateSaturationEffect(IDCompositionSaturationEffect** saturationEffect) mut => VT.[Friend]CreateSaturationEffect(&this, saturationEffect);
 
-	public HRESULT CreateTurbulenceEffect(IDCompositionTurbulenceEffect* turbulenceEffect) mut => VT.[Friend]CreateTurbulenceEffect(&this, turbulenceEffect);
+	public HRESULT CreateTurbulenceEffect(IDCompositionTurbulenceEffect** turbulenceEffect) mut => VT.[Friend]CreateTurbulenceEffect(&this, turbulenceEffect);
 
-	public HRESULT CreateLinearTransferEffect(IDCompositionLinearTransferEffect* linearTransferEffect) mut => VT.[Friend]CreateLinearTransferEffect(&this, linearTransferEffect);
+	public HRESULT CreateLinearTransferEffect(IDCompositionLinearTransferEffect** linearTransferEffect) mut => VT.[Friend]CreateLinearTransferEffect(&this, linearTransferEffect);
 
-	public HRESULT CreateTableTransferEffect(IDCompositionTableTransferEffect* tableTransferEffect) mut => VT.[Friend]CreateTableTransferEffect(&this, tableTransferEffect);
+	public HRESULT CreateTableTransferEffect(IDCompositionTableTransferEffect** tableTransferEffect) mut => VT.[Friend]CreateTableTransferEffect(&this, tableTransferEffect);
 
-	public HRESULT CreateCompositeEffect(IDCompositionCompositeEffect* compositeEffect) mut => VT.[Friend]CreateCompositeEffect(&this, compositeEffect);
+	public HRESULT CreateCompositeEffect(IDCompositionCompositeEffect** compositeEffect) mut => VT.[Friend]CreateCompositeEffect(&this, compositeEffect);
 
-	public HRESULT CreateBlendEffect(IDCompositionBlendEffect* blendEffect) mut => VT.[Friend]CreateBlendEffect(&this, blendEffect);
+	public HRESULT CreateBlendEffect(IDCompositionBlendEffect** blendEffect) mut => VT.[Friend]CreateBlendEffect(&this, blendEffect);
 
-	public HRESULT CreateArithmeticCompositeEffect(IDCompositionArithmeticCompositeEffect* arithmeticCompositeEffect) mut => VT.[Friend]CreateArithmeticCompositeEffect(&this, arithmeticCompositeEffect);
+	public HRESULT CreateArithmeticCompositeEffect(IDCompositionArithmeticCompositeEffect** arithmeticCompositeEffect) mut => VT.[Friend]CreateArithmeticCompositeEffect(&this, arithmeticCompositeEffect);
 
-	public HRESULT CreateAffineTransform2DEffect(IDCompositionAffineTransform2DEffect* affineTransform2dEffect) mut => VT.[Friend]CreateAffineTransform2DEffect(&this, affineTransform2dEffect);
+	public HRESULT CreateAffineTransform2DEffect(IDCompositionAffineTransform2DEffect** affineTransform2dEffect) mut => VT.[Friend]CreateAffineTransform2DEffect(&this, affineTransform2dEffect);
 }
 
 [CRepr]struct IDCompositionFilterEffect : IDCompositionEffect
@@ -1157,8 +1157,8 @@ public static
 
 	[CRepr]public struct VTable : IDCompositionFilterEffect.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionBrightnessEffect*/SelfOuter* self, D2D_VECTOR_2F whitePoint) SetWhitePoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionBrightnessEffect*/SelfOuter* self, D2D_VECTOR_2F blackPoint) SetBlackPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionBrightnessEffect*/SelfOuter* self, D2D_VECTOR_2F* whitePoint) SetWhitePoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionBrightnessEffect*/SelfOuter* self, D2D_VECTOR_2F* blackPoint) SetBlackPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionBrightnessEffect*/SelfOuter* self, IDCompositionAnimation* animation) SetWhitePointX;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionBrightnessEffect*/SelfOuter* self, float whitePointX) SetWhitePointX0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionBrightnessEffect*/SelfOuter* self, IDCompositionAnimation* animation) SetWhitePointY;
@@ -1170,9 +1170,9 @@ public static
 	}
 
 
-	public HRESULT SetWhitePoint(D2D_VECTOR_2F whitePoint) mut => VT.[Friend]SetWhitePoint(&this, whitePoint);
+	public HRESULT SetWhitePoint(D2D_VECTOR_2F* whitePoint) mut => VT.[Friend]SetWhitePoint(&this, whitePoint);
 
-	public HRESULT SetBlackPoint(D2D_VECTOR_2F blackPoint) mut => VT.[Friend]SetBlackPoint(&this, blackPoint);
+	public HRESULT SetBlackPoint(D2D_VECTOR_2F* blackPoint) mut => VT.[Friend]SetBlackPoint(&this, blackPoint);
 
 	public HRESULT SetWhitePointX(IDCompositionAnimation* animation) mut => VT.[Friend]SetWhitePointX(&this, animation);
 
@@ -1199,7 +1199,7 @@ public static
 
 	[CRepr]public struct VTable : IDCompositionFilterEffect.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionColorMatrixEffect*/SelfOuter* self, D2D_MATRIX_5X4_F matrix) SetMatrix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionColorMatrixEffect*/SelfOuter* self, D2D_MATRIX_5X4_F* matrix) SetMatrix;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionColorMatrixEffect*/SelfOuter* self, int32 row, int32 column, IDCompositionAnimation* animation) SetMatrixElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionColorMatrixEffect*/SelfOuter* self, int32 row, int32 column, float value) SetMatrixElement0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionColorMatrixEffect*/SelfOuter* self, D2D1_COLORMATRIX_ALPHA_MODE mode) SetAlphaMode;
@@ -1207,7 +1207,7 @@ public static
 	}
 
 
-	public HRESULT SetMatrix(D2D_MATRIX_5X4_F matrix) mut => VT.[Friend]SetMatrix(&this, matrix);
+	public HRESULT SetMatrix(D2D_MATRIX_5X4_F* matrix) mut => VT.[Friend]SetMatrix(&this, matrix);
 
 	public HRESULT SetMatrixElement(int32 row, int32 column, IDCompositionAnimation* animation) mut => VT.[Friend]SetMatrixElement(&this, row, column, animation);
 
@@ -1228,7 +1228,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionShadowEffect*/SelfOuter* self, IDCompositionAnimation* animation) SetStandardDeviation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionShadowEffect*/SelfOuter* self, float amount) SetStandardDeviation0;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionShadowEffect*/SelfOuter* self, D2D_VECTOR_4F color) SetColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionShadowEffect*/SelfOuter* self, D2D_VECTOR_4F* color) SetColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionShadowEffect*/SelfOuter* self, IDCompositionAnimation* animation) SetRed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionShadowEffect*/SelfOuter* self, float amount) SetRed0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionShadowEffect*/SelfOuter* self, IDCompositionAnimation* animation) SetGreen;
@@ -1244,7 +1244,7 @@ public static
 
 	public HRESULT SetStandardDeviation(float amount) mut => VT.[Friend]SetStandardDeviation0(&this, amount);
 
-	public HRESULT SetColor(D2D_VECTOR_4F color) mut => VT.[Friend]SetColor(&this, color);
+	public HRESULT SetColor(D2D_VECTOR_4F* color) mut => VT.[Friend]SetColor(&this, color);
 
 	public HRESULT SetRed(IDCompositionAnimation* animation) mut => VT.[Friend]SetRed(&this, animation);
 
@@ -1307,9 +1307,9 @@ public static
 
 	[CRepr]public struct VTable : IDCompositionFilterEffect.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionTurbulenceEffect*/SelfOuter* self, D2D_VECTOR_2F offset) SetOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionTurbulenceEffect*/SelfOuter* self, D2D_VECTOR_2F frequency) SetBaseFrequency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionTurbulenceEffect*/SelfOuter* self, D2D_VECTOR_2F size) SetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionTurbulenceEffect*/SelfOuter* self, D2D_VECTOR_2F* offset) SetOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionTurbulenceEffect*/SelfOuter* self, D2D_VECTOR_2F* frequency) SetBaseFrequency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionTurbulenceEffect*/SelfOuter* self, D2D_VECTOR_2F* size) SetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionTurbulenceEffect*/SelfOuter* self, uint32 numOctaves) SetNumOctaves;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionTurbulenceEffect*/SelfOuter* self, uint32 seed) SetSeed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionTurbulenceEffect*/SelfOuter* self, D2D1_TURBULENCE_NOISE noise) SetNoise;
@@ -1317,11 +1317,11 @@ public static
 	}
 
 
-	public HRESULT SetOffset(D2D_VECTOR_2F offset) mut => VT.[Friend]SetOffset(&this, offset);
+	public HRESULT SetOffset(D2D_VECTOR_2F* offset) mut => VT.[Friend]SetOffset(&this, offset);
 
-	public HRESULT SetBaseFrequency(D2D_VECTOR_2F frequency) mut => VT.[Friend]SetBaseFrequency(&this, frequency);
+	public HRESULT SetBaseFrequency(D2D_VECTOR_2F* frequency) mut => VT.[Friend]SetBaseFrequency(&this, frequency);
 
-	public HRESULT SetSize(D2D_VECTOR_2F size) mut => VT.[Friend]SetSize(&this, size);
+	public HRESULT SetSize(D2D_VECTOR_2F* size) mut => VT.[Friend]SetSize(&this, size);
 
 	public HRESULT SetNumOctaves(uint32 numOctaves) mut => VT.[Friend]SetNumOctaves(&this, numOctaves);
 
@@ -1508,7 +1508,7 @@ public static
 
 	[CRepr]public struct VTable : IDCompositionFilterEffect.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionArithmeticCompositeEffect*/SelfOuter* self, D2D_VECTOR_4F coefficients) SetCoefficients;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionArithmeticCompositeEffect*/SelfOuter* self, D2D_VECTOR_4F* coefficients) SetCoefficients;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionArithmeticCompositeEffect*/SelfOuter* self, BOOL clampoutput) SetClampOutput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionArithmeticCompositeEffect*/SelfOuter* self, IDCompositionAnimation* animation) SetCoefficient1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionArithmeticCompositeEffect*/SelfOuter* self, float Coeffcient1) SetCoefficient10;
@@ -1521,7 +1521,7 @@ public static
 	}
 
 
-	public HRESULT SetCoefficients(D2D_VECTOR_4F coefficients) mut => VT.[Friend]SetCoefficients(&this, coefficients);
+	public HRESULT SetCoefficients(D2D_VECTOR_4F* coefficients) mut => VT.[Friend]SetCoefficients(&this, coefficients);
 
 	public HRESULT SetClampOutput(BOOL clampoutput) mut => VT.[Friend]SetClampOutput(&this, clampoutput);
 
@@ -1552,7 +1552,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionAffineTransform2DEffect*/SelfOuter* self, D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE interpolationMode) SetInterpolationMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionAffineTransform2DEffect*/SelfOuter* self, D2D1_BORDER_MODE borderMode) SetBorderMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionAffineTransform2DEffect*/SelfOuter* self, D2D_MATRIX_3X2_F transformMatrix) SetTransformMatrix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionAffineTransform2DEffect*/SelfOuter* self, D2D_MATRIX_3X2_F* transformMatrix) SetTransformMatrix;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionAffineTransform2DEffect*/SelfOuter* self, int32 row, int32 column, IDCompositionAnimation* animation) SetTransformMatrixElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionAffineTransform2DEffect*/SelfOuter* self, int32 row, int32 column, float value) SetTransformMatrixElement0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionAffineTransform2DEffect*/SelfOuter* self, IDCompositionAnimation* animation) SetSharpness;
@@ -1564,7 +1564,7 @@ public static
 
 	public HRESULT SetBorderMode(D2D1_BORDER_MODE borderMode) mut => VT.[Friend]SetBorderMode(&this, borderMode);
 
-	public HRESULT SetTransformMatrix(D2D_MATRIX_3X2_F transformMatrix) mut => VT.[Friend]SetTransformMatrix(&this, transformMatrix);
+	public HRESULT SetTransformMatrix(D2D_MATRIX_3X2_F* transformMatrix) mut => VT.[Friend]SetTransformMatrix(&this, transformMatrix);
 
 	public HRESULT SetTransformMatrixElement(int32 row, int32 column, IDCompositionAnimation* animation) mut => VT.[Friend]SetTransformMatrixElement(&this, row, column, animation);
 
@@ -1583,20 +1583,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDelegatedInkTrail*/SelfOuter* self, DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, uint32 generationId) AddTrailPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDelegatedInkTrail*/SelfOuter* self, DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, DCompositionInkTrailPoint* predictedInkPoints, uint32 predictedInkPointsCount, uint32 generationId) AddTrailPointsWithPrediction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDelegatedInkTrail*/SelfOuter* self, DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, uint32* generationId) AddTrailPoints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDelegatedInkTrail*/SelfOuter* self, DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, DCompositionInkTrailPoint* predictedInkPoints, uint32 predictedInkPointsCount, uint32* generationId) AddTrailPointsWithPrediction;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDelegatedInkTrail*/SelfOuter* self, uint32 generationId) RemoveTrailPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDelegatedInkTrail*/SelfOuter* self, D2D1_COLOR_F color) StartNewTrail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionDelegatedInkTrail*/SelfOuter* self, D2D1_COLOR_F* color) StartNewTrail;
 	}
 
 
-	public HRESULT AddTrailPoints(DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, uint32 generationId) mut => VT.[Friend]AddTrailPoints(&this, inkPoints, inkPointsCount, generationId);
+	public HRESULT AddTrailPoints(DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, uint32* generationId) mut => VT.[Friend]AddTrailPoints(&this, inkPoints, inkPointsCount, generationId);
 
-	public HRESULT AddTrailPointsWithPrediction(DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, DCompositionInkTrailPoint* predictedInkPoints, uint32 predictedInkPointsCount, uint32 generationId) mut => VT.[Friend]AddTrailPointsWithPrediction(&this, inkPoints, inkPointsCount, predictedInkPoints, predictedInkPointsCount, generationId);
+	public HRESULT AddTrailPointsWithPrediction(DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, DCompositionInkTrailPoint* predictedInkPoints, uint32 predictedInkPointsCount, uint32* generationId) mut => VT.[Friend]AddTrailPointsWithPrediction(&this, inkPoints, inkPointsCount, predictedInkPoints, predictedInkPointsCount, generationId);
 
 	public HRESULT RemoveTrailPoints(uint32 generationId) mut => VT.[Friend]RemoveTrailPoints(&this, generationId);
 
-	public HRESULT StartNewTrail(D2D1_COLOR_F color) mut => VT.[Friend]StartNewTrail(&this, color);
+	public HRESULT StartNewTrail(D2D1_COLOR_F* color) mut => VT.[Friend]StartNewTrail(&this, color);
 }
 
 [CRepr]struct IDCompositionInkTrailDevice : IUnknown
@@ -1607,14 +1607,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionInkTrailDevice*/SelfOuter* self, IDCompositionDelegatedInkTrail* inkTrail) CreateDelegatedInkTrail;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionInkTrailDevice*/SelfOuter* self, IUnknown* swapChain, IDCompositionDelegatedInkTrail* inkTrail) CreateDelegatedInkTrailForSwapChain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionInkTrailDevice*/SelfOuter* self, IDCompositionDelegatedInkTrail** inkTrail) CreateDelegatedInkTrail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionInkTrailDevice*/SelfOuter* self, IUnknown* swapChain, IDCompositionDelegatedInkTrail** inkTrail) CreateDelegatedInkTrailForSwapChain;
 	}
 
 
-	public HRESULT CreateDelegatedInkTrail(IDCompositionDelegatedInkTrail* inkTrail) mut => VT.[Friend]CreateDelegatedInkTrail(&this, inkTrail);
+	public HRESULT CreateDelegatedInkTrail(IDCompositionDelegatedInkTrail** inkTrail) mut => VT.[Friend]CreateDelegatedInkTrail(&this, inkTrail);
 
-	public HRESULT CreateDelegatedInkTrailForSwapChain(IUnknown* swapChain, IDCompositionDelegatedInkTrail* inkTrail) mut => VT.[Friend]CreateDelegatedInkTrailForSwapChain(&this, swapChain, inkTrail);
+	public HRESULT CreateDelegatedInkTrailForSwapChain(IUnknown* swapChain, IDCompositionDelegatedInkTrail** inkTrail) mut => VT.[Friend]CreateDelegatedInkTrailForSwapChain(&this, swapChain, inkTrail);
 }
 
 #endregion
@@ -1623,16 +1623,16 @@ public static
 public static
 {
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionCreateDevice(IDXGIDevice* dxgiDevice, Guid iid, void dcompositionDevice);
+	public static extern HRESULT DCompositionCreateDevice(IDXGIDevice* dxgiDevice, Guid iid, void** dcompositionDevice);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionCreateDevice2(IUnknown* renderingDevice, Guid iid, void dcompositionDevice);
+	public static extern HRESULT DCompositionCreateDevice2(IUnknown* renderingDevice, Guid iid, void** dcompositionDevice);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionCreateDevice3(IUnknown* renderingDevice, Guid iid, void dcompositionDevice);
+	public static extern HRESULT DCompositionCreateDevice3(IUnknown* renderingDevice, Guid iid, void** dcompositionDevice);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionCreateSurfaceHandle(uint32 desiredAccess, SECURITY_ATTRIBUTES securityAttributes, HANDLE surfaceHandle);
+	public static extern HRESULT DCompositionCreateSurfaceHandle(uint32 desiredAccess, SECURITY_ATTRIBUTES* securityAttributes, HANDLE* surfaceHandle);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DCompositionAttachMouseWheelToHwnd(IDCompositionVisual* visual, HWND hwnd, BOOL enable);
@@ -1641,13 +1641,13 @@ public static
 	public static extern HRESULT DCompositionAttachMouseDragToHwnd(IDCompositionVisual* visual, HWND hwnd, BOOL enable);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionGetFrameId(COMPOSITION_FRAME_ID_TYPE frameIdType, uint64 frameId);
+	public static extern HRESULT DCompositionGetFrameId(COMPOSITION_FRAME_ID_TYPE frameIdType, uint64* frameId);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionGetStatistics(uint64 frameId, COMPOSITION_FRAME_STATS frameStats, uint32 targetIdCount, COMPOSITION_TARGET_ID targetIds, uint32 actualTargetIdCount);
+	public static extern HRESULT DCompositionGetStatistics(uint64 frameId, COMPOSITION_FRAME_STATS* frameStats, uint32 targetIdCount, COMPOSITION_TARGET_ID* targetIds, uint32* actualTargetIdCount);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionGetTargetStatistics(uint64 frameId, COMPOSITION_TARGET_ID targetId, COMPOSITION_TARGET_STATS targetStats);
+	public static extern HRESULT DCompositionGetTargetStatistics(uint64 frameId, COMPOSITION_TARGET_ID* targetId, COMPOSITION_TARGET_STATS* targetStats);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DCompositionBoostCompositorClock(BOOL enable);

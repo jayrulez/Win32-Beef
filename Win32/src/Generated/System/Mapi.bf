@@ -125,31 +125,31 @@ public static
 #endregion
 
 #region Function Pointers
-public function uint32 LPMAPILOGON(uint ulUIParam, PSTR lpszProfileName, PSTR lpszPassword, uint32 flFlags, uint32 ulReserved, uint lplhSession);
+public function uint32 LPMAPILOGON(uint ulUIParam, PSTR lpszProfileName, PSTR lpszPassword, uint32 flFlags, uint32 ulReserved, uint* lplhSession);
 
 public function uint32 LPMAPILOGOFF(uint lhSession, uint ulUIParam, uint32 flFlags, uint32 ulReserved);
 
-public function uint32 LPMAPISENDMAIL(uint lhSession, uint ulUIParam, MapiMessage lpMessage, uint32 flFlags, uint32 ulReserved);
+public function uint32 LPMAPISENDMAIL(uint lhSession, uint ulUIParam, MapiMessage* lpMessage, uint32 flFlags, uint32 ulReserved);
 
-public function uint32 LPMAPISENDMAILW(uint lhSession, uint ulUIParam, MapiMessageW lpMessage, uint32 flFlags, uint32 ulReserved);
+public function uint32 LPMAPISENDMAILW(uint lhSession, uint ulUIParam, MapiMessageW* lpMessage, uint32 flFlags, uint32 ulReserved);
 
 public function uint32 LPMAPISENDDOCUMENTS(uint ulUIParam, PSTR lpszDelimChar, PSTR lpszFilePaths, PSTR lpszFileNames, uint32 ulReserved);
 
 public function uint32 LPMAPIFINDNEXT(uint lhSession, uint ulUIParam, PSTR lpszMessageType, PSTR lpszSeedMessageID, uint32 flFlags, uint32 ulReserved, PSTR lpszMessageID);
 
-public function uint32 LPMAPIREADMAIL(uint lhSession, uint ulUIParam, PSTR lpszMessageID, uint32 flFlags, uint32 ulReserved, MapiMessage lppMessage);
+public function uint32 LPMAPIREADMAIL(uint lhSession, uint ulUIParam, PSTR lpszMessageID, uint32 flFlags, uint32 ulReserved, MapiMessage** lppMessage);
 
-public function uint32 LPMAPISAVEMAIL(uint lhSession, uint ulUIParam, MapiMessage lpMessage, uint32 flFlags, uint32 ulReserved, PSTR lpszMessageID);
+public function uint32 LPMAPISAVEMAIL(uint lhSession, uint ulUIParam, MapiMessage* lpMessage, uint32 flFlags, uint32 ulReserved, PSTR lpszMessageID);
 
 public function uint32 LPMAPIDELETEMAIL(uint lhSession, uint ulUIParam, PSTR lpszMessageID, uint32 flFlags, uint32 ulReserved);
 
-public function uint32 LPMAPIFREEBUFFER(void pv);
+public function uint32 LPMAPIFREEBUFFER(void* pv);
 
-public function uint32 LPMAPIADDRESS(uint lhSession, uint ulUIParam, PSTR lpszCaption, uint32 nEditFields, PSTR lpszLabels, uint32 nRecips, MapiRecipDesc lpRecips, uint32 flFlags, uint32 ulReserved, uint32 lpnNewRecips, MapiRecipDesc lppNewRecips);
+public function uint32 LPMAPIADDRESS(uint lhSession, uint ulUIParam, PSTR lpszCaption, uint32 nEditFields, PSTR lpszLabels, uint32 nRecips, MapiRecipDesc* lpRecips, uint32 flFlags, uint32 ulReserved, uint32* lpnNewRecips, MapiRecipDesc** lppNewRecips);
 
-public function uint32 LPMAPIDETAILS(uint lhSession, uint ulUIParam, MapiRecipDesc lpRecip, uint32 flFlags, uint32 ulReserved);
+public function uint32 LPMAPIDETAILS(uint lhSession, uint ulUIParam, MapiRecipDesc* lpRecip, uint32 flFlags, uint32 ulReserved);
 
-public function uint32 LPMAPIRESOLVENAME(uint lhSession, uint ulUIParam, PSTR lpszName, uint32 flFlags, uint32 ulReserved, MapiRecipDesc lppRecip);
+public function uint32 LPMAPIRESOLVENAME(uint lhSession, uint ulUIParam, PSTR lpszName, uint32 flFlags, uint32 ulReserved, MapiRecipDesc** lppRecip);
 
 #endregion
 
@@ -162,7 +162,7 @@ public struct MapiFileDesc
 	public uint32 nPosition;
 	public PSTR lpszPathName;
 	public PSTR lpszFileName;
-	public void lpFileType;
+	public void* lpFileType;
 }
 
 [CRepr]
@@ -173,7 +173,7 @@ public struct MapiFileDescW
 	public uint32 nPosition;
 	public PWSTR lpszPathName;
 	public PWSTR lpszFileName;
-	public void lpFileType;
+	public void* lpFileType;
 }
 
 [CRepr]
@@ -181,9 +181,9 @@ public struct MapiFileTagExt
 {
 	public uint32 ulReserved;
 	public uint32 cbTag;
-	public uint8 lpTag;
+	public uint8* lpTag;
 	public uint32 cbEncoding;
-	public uint8 lpEncoding;
+	public uint8* lpEncoding;
 }
 
 [CRepr]
@@ -194,7 +194,7 @@ public struct MapiRecipDesc
 	public PSTR lpszName;
 	public PSTR lpszAddress;
 	public uint32 ulEIDSize;
-	public void lpEntryID;
+	public void* lpEntryID;
 }
 
 [CRepr]
@@ -205,7 +205,7 @@ public struct MapiRecipDescW
 	public PWSTR lpszName;
 	public PWSTR lpszAddress;
 	public uint32 ulEIDSize;
-	public void lpEntryID;
+	public void* lpEntryID;
 }
 
 [CRepr]
@@ -218,11 +218,11 @@ public struct MapiMessage
 	public PSTR lpszDateReceived;
 	public PSTR lpszConversationID;
 	public uint32 flFlags;
-	public MapiRecipDesc lpOriginator;
+	public MapiRecipDesc* lpOriginator;
 	public uint32 nRecipCount;
-	public MapiRecipDesc lpRecips;
+	public MapiRecipDesc* lpRecips;
 	public uint32 nFileCount;
-	public MapiFileDesc lpFiles;
+	public MapiFileDesc* lpFiles;
 }
 
 [CRepr]
@@ -235,11 +235,11 @@ public struct MapiMessageW
 	public PWSTR lpszDateReceived;
 	public PWSTR lpszConversationID;
 	public uint32 flFlags;
-	public MapiRecipDescW lpOriginator;
+	public MapiRecipDescW* lpOriginator;
 	public uint32 nRecipCount;
-	public MapiRecipDescW lpRecips;
+	public MapiRecipDescW* lpRecips;
 	public uint32 nFileCount;
-	public MapiFileDescW lpFiles;
+	public MapiFileDescW* lpFiles;
 }
 
 #endregion
@@ -257,7 +257,7 @@ public static
 public static
 {
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MAPIFreeBuffer(void pv);
+	public static extern uint32 MAPIFreeBuffer(void* pv);
 
 }
 #endregion

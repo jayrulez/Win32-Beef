@@ -614,7 +614,7 @@ public struct VK_TO_BIT
 [CRepr]
 public struct MODIFIERS
 {
-	public VK_TO_BIT pVkToBit;
+	public VK_TO_BIT* pVkToBit;
 	public uint16 wMaxModBits;
 	public uint8[1] ModNumber;
 }
@@ -716,7 +716,7 @@ public struct VK_TO_WCHARS10
 [CRepr]
 public struct VK_TO_WCHAR_TABLE
 {
-	public VK_TO_WCHARS1 pVkToWchars;
+	public VK_TO_WCHARS1* pVkToWchars;
 	public uint8 nModifications;
 	public uint8 cbSize;
 }
@@ -779,20 +779,20 @@ public struct VSC_LPWSTR
 [CRepr]
 public struct tagKbdLayer
 {
-	public MODIFIERS pCharModifiers;
-	public VK_TO_WCHAR_TABLE pVkToWcharTable;
-	public DEADKEY pDeadKey;
-	public VSC_LPWSTR pKeyNames;
-	public VSC_LPWSTR pKeyNamesExt;
-	public uint16 pKeyNamesDead;
-	public uint16 pusVSCtoVK;
+	public MODIFIERS* pCharModifiers;
+	public VK_TO_WCHAR_TABLE* pVkToWcharTable;
+	public DEADKEY* pDeadKey;
+	public VSC_LPWSTR* pKeyNames;
+	public VSC_LPWSTR* pKeyNamesExt;
+	public uint16** pKeyNamesDead;
+	public uint16* pusVSCtoVK;
 	public uint8 bMaxVSCtoVK;
-	public VSC_VK pVSCtoVK_E0;
-	public VSC_VK pVSCtoVK_E1;
+	public VSC_VK* pVSCtoVK_E0;
+	public VSC_VK* pVSCtoVK_E1;
 	public uint32 fLocaleFlags;
 	public uint8 nLgMax;
 	public uint8 cbLgEntry;
-	public LIGATURE1 pLigature;
+	public LIGATURE1* pLigature;
 	public uint32 dwType;
 	public uint32 dwSubType;
 }
@@ -821,9 +821,9 @@ public struct tagKbdNlsLayer
 	public uint16 OEMIdentifier;
 	public uint16 LayoutInformation;
 	public uint32 NumOfVkToF;
-	public _VK_TO_FUNCTION_TABLE pVkToF;
+	public _VK_TO_FUNCTION_TABLE* pVkToF;
 	public int32 NumOfMouseVKey;
-	public uint16 pusMouseVKey;
+	public uint16* pusMouseVKey;
 }
 
 [CRepr]
@@ -933,7 +933,7 @@ public static
 public static
 {
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL _TrackMouseEvent(TRACKMOUSEEVENT lpEventTrack);
+	public static extern BOOL _TrackMouseEvent(TRACKMOUSEEVENT* lpEventTrack);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HKL LoadKeyboardLayoutA(PSTR pwszKLID, ACTIVATE_KEYBOARD_LAYOUT_FLAGS Flags);
@@ -965,10 +965,10 @@ public static
 	public static extern HKL GetKeyboardLayout(uint32 idThread);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetMouseMovePointsEx(uint32 cbSize, MOUSEMOVEPOINT lppt, MOUSEMOVEPOINT* lpptBuf, int32 nBufPoints, GET_MOUSE_MOVE_POINTS_EX_RESOLUTION resolution);
+	public static extern int32 GetMouseMovePointsEx(uint32 cbSize, MOUSEMOVEPOINT* lppt, MOUSEMOVEPOINT* lpptBuf, int32 nBufPoints, GET_MOUSE_MOVE_POINTS_EX_RESOLUTION resolution);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL TrackMouseEvent(TRACKMOUSEEVENT lpEventTrack);
+	public static extern BOOL TrackMouseEvent(TRACKMOUSEEVENT* lpEventTrack);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RegisterHotKey(HWND hWnd, int32 id, HOT_KEY_MODIFIERS fsModifiers, uint32 vk);
@@ -1020,10 +1020,10 @@ public static
 	public static extern int32 GetKeyboardType(int32 nTypeFlag);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ToAscii(uint32 uVirtKey, uint32 uScanCode, uint8* lpKeyState, uint16 lpChar, uint32 uFlags);
+	public static extern int32 ToAscii(uint32 uVirtKey, uint32 uScanCode, uint8* lpKeyState, uint16* lpChar, uint32 uFlags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ToAsciiEx(uint32 uVirtKey, uint32 uScanCode, uint8* lpKeyState, uint16 lpChar, uint32 uFlags, HKL dwhkl);
+	public static extern int32 ToAsciiEx(uint32 uVirtKey, uint32 uScanCode, uint8* lpKeyState, uint16* lpChar, uint32 uFlags, HKL dwhkl);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ToUnicode(uint32 wVirtKey, uint32 wScanCode, uint8* lpKeyState, char16* pwszBuff, int32 cchBuff, uint32 wFlags);
@@ -1055,7 +1055,7 @@ public static
 	public static extern uint32 SendInput(uint32 cInputs, INPUT* pInputs, int32 cbSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetLastInputInfo(LASTINPUTINFO plii);
+	public static extern BOOL GetLastInputInfo(LASTINPUTINFO* plii);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MapVirtualKeyA(uint32 uCode, uint32 uMapType);

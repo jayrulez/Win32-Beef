@@ -14,7 +14,7 @@ namespace Win32.Graphics.Direct3D11on12;
 #endregion
 
 #region Function Pointers
-public function HRESULT PFN_D3D11ON12_CREATE_DEVICE(IUnknown* param0, uint32 param1, D3D_FEATURE_LEVEL* param2, uint32 FeatureLevels, IUnknown** param4, uint32 NumQueues, uint32 param6, ID3D11Device* param7, ID3D11DeviceContext* param8, D3D_FEATURE_LEVEL param9);
+public function HRESULT PFN_D3D11ON12_CREATE_DEVICE(IUnknown* param0, uint32 param1, D3D_FEATURE_LEVEL* param2, uint32 FeatureLevels, IUnknown** param4, uint32 NumQueues, uint32 param6, ID3D11Device** param7, ID3D11DeviceContext** param8, D3D_FEATURE_LEVEL* param9);
 
 #endregion
 
@@ -45,13 +45,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D11On12Device*/SelfOuter* self, IUnknown* pResource12, D3D11_RESOURCE_FLAGS pFlags11, D3D12_RESOURCE_STATES InState, D3D12_RESOURCE_STATES OutState, Guid riid, void ppResource11) CreateWrappedResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D11On12Device*/SelfOuter* self, IUnknown* pResource12, D3D11_RESOURCE_FLAGS* pFlags11, D3D12_RESOURCE_STATES InState, D3D12_RESOURCE_STATES OutState, Guid riid, void** ppResource11) CreateWrappedResource;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D11On12Device*/SelfOuter* self, ID3D11Resource** ppResources, uint32 NumResources) ReleaseWrappedResources;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D11On12Device*/SelfOuter* self, ID3D11Resource** ppResources, uint32 NumResources) AcquireWrappedResources;
 	}
 
 
-	public HRESULT CreateWrappedResource(IUnknown* pResource12, D3D11_RESOURCE_FLAGS pFlags11, D3D12_RESOURCE_STATES InState, D3D12_RESOURCE_STATES OutState, Guid riid, void ppResource11) mut => VT.[Friend]CreateWrappedResource(&this, pResource12, pFlags11, InState, OutState, riid, ppResource11);
+	public HRESULT CreateWrappedResource(IUnknown* pResource12, D3D11_RESOURCE_FLAGS* pFlags11, D3D12_RESOURCE_STATES InState, D3D12_RESOURCE_STATES OutState, Guid riid, void** ppResource11) mut => VT.[Friend]CreateWrappedResource(&this, pResource12, pFlags11, InState, OutState, riid, ppResource11);
 
 	public void ReleaseWrappedResources(ID3D11Resource** ppResources, uint32 NumResources) mut => VT.[Friend]ReleaseWrappedResources(&this, ppResources, NumResources);
 
@@ -66,11 +66,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D11On12Device.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D11On12Device1*/SelfOuter* self, Guid riid, void ppvDevice) GetD3D12Device;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D11On12Device1*/SelfOuter* self, Guid riid, void** ppvDevice) GetD3D12Device;
 	}
 
 
-	public HRESULT GetD3D12Device(Guid riid, void ppvDevice) mut => VT.[Friend]GetD3D12Device(&this, riid, ppvDevice);
+	public HRESULT GetD3D12Device(Guid riid, void** ppvDevice) mut => VT.[Friend]GetD3D12Device(&this, riid, ppvDevice);
 }
 
 [CRepr]struct ID3D11On12Device2 : ID3D11On12Device1
@@ -81,12 +81,12 @@ public static
 
 	[CRepr]public struct VTable : ID3D11On12Device1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D11On12Device2*/SelfOuter* self, ID3D11Resource* pResource11, ID3D12CommandQueue* pCommandQueue, Guid riid, void ppvResource12) UnwrapUnderlyingResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D11On12Device2*/SelfOuter* self, ID3D11Resource* pResource11, ID3D12CommandQueue* pCommandQueue, Guid riid, void** ppvResource12) UnwrapUnderlyingResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D11On12Device2*/SelfOuter* self, ID3D11Resource* pResource11, uint32 NumSync, uint64* pSignalValues, ID3D12Fence** ppFences) ReturnUnderlyingResource;
 	}
 
 
-	public HRESULT UnwrapUnderlyingResource(ID3D11Resource* pResource11, ID3D12CommandQueue* pCommandQueue, Guid riid, void ppvResource12) mut => VT.[Friend]UnwrapUnderlyingResource(&this, pResource11, pCommandQueue, riid, ppvResource12);
+	public HRESULT UnwrapUnderlyingResource(ID3D11Resource* pResource11, ID3D12CommandQueue* pCommandQueue, Guid riid, void** ppvResource12) mut => VT.[Friend]UnwrapUnderlyingResource(&this, pResource11, pCommandQueue, riid, ppvResource12);
 
 	public HRESULT ReturnUnderlyingResource(ID3D11Resource* pResource11, uint32 NumSync, uint64* pSignalValues, ID3D12Fence** ppFences) mut => VT.[Friend]ReturnUnderlyingResource(&this, pResource11, NumSync, pSignalValues, ppFences);
 }
@@ -97,7 +97,7 @@ public static
 public static
 {
 	[Import("d3d11.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D11On12CreateDevice(IUnknown* pDevice, uint32 Flags, D3D_FEATURE_LEVEL* pFeatureLevels, uint32 FeatureLevels, IUnknown** ppCommandQueues, uint32 NumQueues, uint32 NodeMask, ID3D11Device* ppDevice, ID3D11DeviceContext* ppImmediateContext, D3D_FEATURE_LEVEL pChosenFeatureLevel);
+	public static extern HRESULT D3D11On12CreateDevice(IUnknown* pDevice, uint32 Flags, D3D_FEATURE_LEVEL* pFeatureLevels, uint32 FeatureLevels, IUnknown** ppCommandQueues, uint32 NumQueues, uint32 NodeMask, ID3D11Device** ppDevice, ID3D11DeviceContext** ppImmediateContext, D3D_FEATURE_LEVEL* pChosenFeatureLevel);
 
 }
 #endregion

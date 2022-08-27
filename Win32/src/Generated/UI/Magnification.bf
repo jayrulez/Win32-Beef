@@ -26,7 +26,7 @@ public static
 #endregion
 
 #region Function Pointers
-public function BOOL MagImageScalingCallback(HWND hwnd, void srcdata, MAGIMAGEHEADER srcheader, void destdata, MAGIMAGEHEADER destheader, RECT unclipped, RECT clipped, HRGN dirty);
+public function BOOL MagImageScalingCallback(HWND hwnd, void* srcdata, MAGIMAGEHEADER srcheader, void* destdata, MAGIMAGEHEADER destheader, RECT unclipped, RECT clipped, HRGN dirty);
 
 #endregion
 
@@ -78,19 +78,19 @@ public static
 	public static extern BOOL MagSetWindowSource(HWND hwnd, RECT rect);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagGetWindowSource(HWND hwnd, RECT pRect);
+	public static extern BOOL MagGetWindowSource(HWND hwnd, RECT* pRect);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagSetWindowTransform(HWND hwnd, MAGTRANSFORM pTransform);
+	public static extern BOOL MagSetWindowTransform(HWND hwnd, MAGTRANSFORM* pTransform);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagGetWindowTransform(HWND hwnd, MAGTRANSFORM pTransform);
+	public static extern BOOL MagGetWindowTransform(HWND hwnd, MAGTRANSFORM* pTransform);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagSetWindowFilterList(HWND hwnd, uint32 dwFilterMode, int32 count, HWND pHWND);
+	public static extern BOOL MagSetWindowFilterList(HWND hwnd, uint32 dwFilterMode, int32 count, HWND* pHWND);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 MagGetWindowFilterList(HWND hwnd, uint32 pdwFilterMode, int32 count, HWND pHWND);
+	public static extern int32 MagGetWindowFilterList(HWND hwnd, uint32* pdwFilterMode, int32 count, HWND* pHWND);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MagSetImageScalingCallback(HWND hwnd, MagImageScalingCallback callback);
@@ -99,28 +99,28 @@ public static
 	public static extern MagImageScalingCallback MagGetImageScalingCallback(HWND hwnd);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagSetColorEffect(HWND hwnd, MAGCOLOREFFECT pEffect);
+	public static extern BOOL MagSetColorEffect(HWND hwnd, MAGCOLOREFFECT* pEffect);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagGetColorEffect(HWND hwnd, MAGCOLOREFFECT pEffect);
+	public static extern BOOL MagGetColorEffect(HWND hwnd, MAGCOLOREFFECT* pEffect);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MagSetFullscreenTransform(float magLevel, int32 xOffset, int32 yOffset);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagGetFullscreenTransform(float pMagLevel, int32 pxOffset, int32 pyOffset);
+	public static extern BOOL MagGetFullscreenTransform(float* pMagLevel, int32* pxOffset, int32* pyOffset);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagSetFullscreenColorEffect(MAGCOLOREFFECT pEffect);
+	public static extern BOOL MagSetFullscreenColorEffect(MAGCOLOREFFECT* pEffect);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagGetFullscreenColorEffect(MAGCOLOREFFECT pEffect);
+	public static extern BOOL MagGetFullscreenColorEffect(MAGCOLOREFFECT* pEffect);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagSetInputTransform(BOOL fEnabled, RECT pRectSource, RECT pRectDest);
+	public static extern BOOL MagSetInputTransform(BOOL fEnabled, RECT* pRectSource, RECT* pRectDest);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagGetInputTransform(BOOL pfEnabled, RECT pRectSource, RECT pRectDest);
+	public static extern BOOL MagGetInputTransform(BOOL* pfEnabled, RECT* pRectSource, RECT* pRectDest);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MagShowSystemCursor(BOOL fShowCursor);

@@ -1334,31 +1334,31 @@ public function void LPWAVECALLBACK(HDRVR hdrvr, uint32 uMsg, uint dwUser, uint 
 
 public function void LPMIDICALLBACK(HDRVR hdrvr, uint32 uMsg, uint dwUser, uint dw1, uint dw2);
 
-public function void PAudioStateMonitorCallback(IAudioStateMonitor* audioStateMonitor, void context);
+public function void PAudioStateMonitorCallback(IAudioStateMonitor* audioStateMonitor, void* context);
 
 public function BOOL ACMDRIVERENUMCB(HACMDRIVERID hadid, uint dwInstance, uint32 fdwSupport);
 
 public function LRESULT LPACMDRIVERPROC(uint param0, HACMDRIVERID param1, uint32 param2, LPARAM param3, LPARAM param4);
 
-public function BOOL ACMFORMATTAGENUMCBA(HACMDRIVERID hadid, ACMFORMATTAGDETAILSA paftd, uint dwInstance, uint32 fdwSupport);
+public function BOOL ACMFORMATTAGENUMCBA(HACMDRIVERID hadid, ACMFORMATTAGDETAILSA* paftd, uint dwInstance, uint32 fdwSupport);
 
-public function BOOL ACMFORMATTAGENUMCBW(HACMDRIVERID hadid, ACMFORMATTAGDETAILSW paftd, uint dwInstance, uint32 fdwSupport);
+public function BOOL ACMFORMATTAGENUMCBW(HACMDRIVERID hadid, ACMFORMATTAGDETAILSW* paftd, uint dwInstance, uint32 fdwSupport);
 
-public function BOOL ACMFORMATENUMCBA(HACMDRIVERID hadid, ACMFORMATDETAILSA pafd, uint dwInstance, uint32 fdwSupport);
+public function BOOL ACMFORMATENUMCBA(HACMDRIVERID hadid, ACMFORMATDETAILSA* pafd, uint dwInstance, uint32 fdwSupport);
 
-public function BOOL ACMFORMATENUMCBW(HACMDRIVERID hadid, tACMFORMATDETAILSW pafd, uint dwInstance, uint32 fdwSupport);
+public function BOOL ACMFORMATENUMCBW(HACMDRIVERID hadid, tACMFORMATDETAILSW* pafd, uint dwInstance, uint32 fdwSupport);
 
 public function uint32 ACMFORMATCHOOSEHOOKPROCA(HWND hwnd, uint32 uMsg, WPARAM wParam, LPARAM lParam);
 
 public function uint32 ACMFORMATCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM wParam, LPARAM lParam);
 
-public function BOOL ACMFILTERTAGENUMCBA(HACMDRIVERID hadid, ACMFILTERTAGDETAILSA paftd, uint dwInstance, uint32 fdwSupport);
+public function BOOL ACMFILTERTAGENUMCBA(HACMDRIVERID hadid, ACMFILTERTAGDETAILSA* paftd, uint dwInstance, uint32 fdwSupport);
 
-public function BOOL ACMFILTERTAGENUMCBW(HACMDRIVERID hadid, ACMFILTERTAGDETAILSW paftd, uint dwInstance, uint32 fdwSupport);
+public function BOOL ACMFILTERTAGENUMCBW(HACMDRIVERID hadid, ACMFILTERTAGDETAILSW* paftd, uint dwInstance, uint32 fdwSupport);
 
-public function BOOL ACMFILTERENUMCBA(HACMDRIVERID hadid, ACMFILTERDETAILSA pafd, uint dwInstance, uint32 fdwSupport);
+public function BOOL ACMFILTERENUMCBA(HACMDRIVERID hadid, ACMFILTERDETAILSA* pafd, uint dwInstance, uint32 fdwSupport);
 
-public function BOOL ACMFILTERENUMCBW(HACMDRIVERID hadid, ACMFILTERDETAILSW pafd, uint dwInstance, uint32 fdwSupport);
+public function BOOL ACMFILTERENUMCBW(HACMDRIVERID hadid, ACMFILTERDETAILSW* pafd, uint dwInstance, uint32 fdwSupport);
 
 public function uint32 ACMFILTERCHOOSEHOOKPROCA(HWND hwnd, uint32 uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -1427,7 +1427,7 @@ public struct WAVEHDR
 	public uint dwUser;
 	public uint32 dwFlags;
 	public uint32 dwLoops;
-	public WAVEHDR lpNext;
+	public WAVEHDR* lpNext;
 	public uint reserved;
 }
 
@@ -1688,7 +1688,7 @@ public struct MIDIHDR
 	public uint32 dwBytesRecorded;
 	public uint dwUser;
 	public uint32 dwFlags;
-	public MIDIHDR lpNext;
+	public MIDIHDR* lpNext;
 	public uint reserved;
 	public uint32 dwOffset;
 	public uint[8] dwReserved;
@@ -1990,7 +1990,7 @@ public struct MIXERLINECONTROLSA
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 cControls;
 	public uint32 cbmxctrl;
-	public MIXERCONTROLA pamxctrl;
+	public MIXERCONTROLA* pamxctrl;
 }
 
 [CRepr, Packed(1)]
@@ -2008,7 +2008,7 @@ public struct MIXERLINECONTROLSW
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 cControls;
 	public uint32 cbmxctrl;
-	public MIXERCONTROLW pamxctrl;
+	public MIXERCONTROLW* pamxctrl;
 }
 
 [CRepr, Packed(1)]
@@ -2026,7 +2026,7 @@ public struct MIXERCONTROLDETAILS
 	public uint32 cChannels;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 cbDetails;
-	public void paDetails;
+	public void* paDetails;
 }
 
 [CRepr, Packed(1)]
@@ -2096,13 +2096,13 @@ public struct AMBISONICS_PARAMS
 	public AMBISONICS_NORMALIZATION u32Normalization;
 	public uint32 u32Order;
 	public uint32 u32NumChannels;
-	public uint32 pu32ChannelMap;
+	public uint32* pu32ChannelMap;
 }
 
 [CRepr, Packed(1)]
 public struct SpatialAudioObjectRenderStreamActivationParams
 {
-	public WAVEFORMATEX ObjectFormat;
+	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
 	public uint32 MinDynamicObjectCount;
 	public uint32 MaxDynamicObjectCount;
@@ -2114,7 +2114,7 @@ public struct SpatialAudioObjectRenderStreamActivationParams
 [CRepr, Packed(1)]
 public struct SpatialAudioObjectRenderStreamActivationParams2
 {
-	public WAVEFORMATEX ObjectFormat;
+	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
 	public uint32 MinDynamicObjectCount;
 	public uint32 MaxDynamicObjectCount;
@@ -2178,33 +2178,33 @@ public struct SpatialAudioHrtfDistanceDecay
 [CRepr, Packed(1)]
 public struct SpatialAudioHrtfActivationParams
 {
-	public WAVEFORMATEX ObjectFormat;
+	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
 	public uint32 MinDynamicObjectCount;
 	public uint32 MaxDynamicObjectCount;
 	public AUDIO_STREAM_CATEGORY Category;
 	public HANDLE EventHandle;
 	public ISpatialAudioObjectRenderStreamNotify* NotifyObject;
-	public SpatialAudioHrtfDistanceDecay DistanceDecay;
-	public SpatialAudioHrtfDirectivityUnion Directivity;
-	public SpatialAudioHrtfEnvironmentType Environment;
-	public float Orientation;
+	public SpatialAudioHrtfDistanceDecay* DistanceDecay;
+	public SpatialAudioHrtfDirectivityUnion* Directivity;
+	public SpatialAudioHrtfEnvironmentType* Environment;
+	public float* Orientation;
 }
 
 [CRepr, Packed(1)]
 public struct SpatialAudioHrtfActivationParams2
 {
-	public WAVEFORMATEX ObjectFormat;
+	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
 	public uint32 MinDynamicObjectCount;
 	public uint32 MaxDynamicObjectCount;
 	public AUDIO_STREAM_CATEGORY Category;
 	public HANDLE EventHandle;
 	public ISpatialAudioObjectRenderStreamNotify* NotifyObject;
-	public SpatialAudioHrtfDistanceDecay DistanceDecay;
-	public SpatialAudioHrtfDirectivityUnion Directivity;
-	public SpatialAudioHrtfEnvironmentType Environment;
-	public float Orientation;
+	public SpatialAudioHrtfDistanceDecay* DistanceDecay;
+	public SpatialAudioHrtfDirectivityUnion* Directivity;
+	public SpatialAudioHrtfEnvironmentType* Environment;
+	public float* Orientation;
 	public SPATIAL_AUDIO_STREAM_OPTIONS Options;
 }
 
@@ -2237,7 +2237,7 @@ public struct SpatialAudioMetadataItemsInfo
 [CRepr, Packed(1)]
 public struct SpatialAudioObjectRenderStreamForMetadataActivationParams
 {
-	public WAVEFORMATEX ObjectFormat;
+	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
 	public uint32 MinDynamicObjectCount;
 	public uint32 MaxDynamicObjectCount;
@@ -2245,14 +2245,14 @@ public struct SpatialAudioObjectRenderStreamForMetadataActivationParams
 	public HANDLE EventHandle;
 	public Guid MetadataFormatId;
 	public uint16 MaxMetadataItemCount;
-	public PROPVARIANT MetadataActivationParams;
+	public PROPVARIANT* MetadataActivationParams;
 	public ISpatialAudioObjectRenderStreamNotify* NotifyObject;
 }
 
 [CRepr, Packed(1)]
 public struct SpatialAudioObjectRenderStreamForMetadataActivationParams2
 {
-	public WAVEFORMATEX ObjectFormat;
+	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
 	public uint32 MinDynamicObjectCount;
 	public uint32 MaxDynamicObjectCount;
@@ -2260,7 +2260,7 @@ public struct SpatialAudioObjectRenderStreamForMetadataActivationParams2
 	public HANDLE EventHandle;
 	public Guid MetadataFormatId;
 	public uint32 MaxMetadataItemCount;
-	public PROPVARIANT MetadataActivationParams;
+	public PROPVARIANT* MetadataActivationParams;
 	public ISpatialAudioObjectRenderStreamNotify* NotifyObject;
 	public SPATIAL_AUDIO_STREAM_OPTIONS Options;
 }
@@ -2358,7 +2358,7 @@ public struct ACMFORMATDETAILSA
 	public uint32 dwFormatIndex;
 	public uint32 dwFormatTag;
 	public uint32 fdwSupport;
-	public WAVEFORMATEX pwfx;
+	public WAVEFORMATEX* pwfx;
 	public uint32 cbwfx;
 	public CHAR[128] szFormat;
 }
@@ -2370,7 +2370,7 @@ public struct tACMFORMATDETAILSW
 	public uint32 dwFormatIndex;
 	public uint32 dwFormatTag;
 	public uint32 fdwSupport;
-	public WAVEFORMATEX pwfx;
+	public WAVEFORMATEX* pwfx;
 	public uint32 cbwfx;
 	public char16[128] szFormat;
 }
@@ -2381,7 +2381,7 @@ public struct ACMFORMATCHOOSEA
 	public uint32 cbStruct;
 	public uint32 fdwStyle;
 	public HWND hwndOwner;
-	public WAVEFORMATEX pwfx;
+	public WAVEFORMATEX* pwfx;
 	public uint32 cbwfx;
 	public PSTR pszTitle;
 	public CHAR[48] szFormatTag;
@@ -2389,7 +2389,7 @@ public struct ACMFORMATCHOOSEA
 	public PSTR pszName;
 	public uint32 cchName;
 	public uint32 fdwEnum;
-	public WAVEFORMATEX pwfxEnum;
+	public WAVEFORMATEX* pwfxEnum;
 	public HINSTANCE hInstance;
 	public PSTR pszTemplateName;
 	public LPARAM lCustData;
@@ -2402,7 +2402,7 @@ public struct ACMFORMATCHOOSEW
 	public uint32 cbStruct;
 	public uint32 fdwStyle;
 	public HWND hwndOwner;
-	public WAVEFORMATEX pwfx;
+	public WAVEFORMATEX* pwfx;
 	public uint32 cbwfx;
 	public PWSTR pszTitle;
 	public char16[48] szFormatTag;
@@ -2410,7 +2410,7 @@ public struct ACMFORMATCHOOSEW
 	public PWSTR pszName;
 	public uint32 cchName;
 	public uint32 fdwEnum;
-	public WAVEFORMATEX pwfxEnum;
+	public WAVEFORMATEX* pwfxEnum;
 	public HINSTANCE hInstance;
 	public PWSTR pszTemplateName;
 	public LPARAM lCustData;
@@ -2448,7 +2448,7 @@ public struct ACMFILTERDETAILSA
 	public uint32 dwFilterIndex;
 	public uint32 dwFilterTag;
 	public uint32 fdwSupport;
-	public WAVEFILTER pwfltr;
+	public WAVEFILTER* pwfltr;
 	public uint32 cbwfltr;
 	public CHAR[128] szFilter;
 }
@@ -2460,7 +2460,7 @@ public struct ACMFILTERDETAILSW
 	public uint32 dwFilterIndex;
 	public uint32 dwFilterTag;
 	public uint32 fdwSupport;
-	public WAVEFILTER pwfltr;
+	public WAVEFILTER* pwfltr;
 	public uint32 cbwfltr;
 	public char16[128] szFilter;
 }
@@ -2471,7 +2471,7 @@ public struct ACMFILTERCHOOSEA
 	public uint32 cbStruct;
 	public uint32 fdwStyle;
 	public HWND hwndOwner;
-	public WAVEFILTER pwfltr;
+	public WAVEFILTER* pwfltr;
 	public uint32 cbwfltr;
 	public PSTR pszTitle;
 	public CHAR[48] szFilterTag;
@@ -2479,7 +2479,7 @@ public struct ACMFILTERCHOOSEA
 	public PSTR pszName;
 	public uint32 cchName;
 	public uint32 fdwEnum;
-	public WAVEFILTER pwfltrEnum;
+	public WAVEFILTER* pwfltrEnum;
 	public HINSTANCE hInstance;
 	public PSTR pszTemplateName;
 	public LPARAM lCustData;
@@ -2492,7 +2492,7 @@ public struct ACMFILTERCHOOSEW
 	public uint32 cbStruct;
 	public uint32 fdwStyle;
 	public HWND hwndOwner;
-	public WAVEFILTER pwfltr;
+	public WAVEFILTER* pwfltr;
 	public uint32 cbwfltr;
 	public PWSTR pszTitle;
 	public char16[48] szFilterTag;
@@ -2500,7 +2500,7 @@ public struct ACMFILTERCHOOSEW
 	public PWSTR pszName;
 	public uint32 cchName;
 	public uint32 fdwEnum;
-	public WAVEFILTER pwfltrEnum;
+	public WAVEFILTER* pwfltrEnum;
 	public HINSTANCE hInstance;
 	public PWSTR pszTemplateName;
 	public LPARAM lCustData;
@@ -2514,11 +2514,11 @@ public struct ACMSTREAMHEADER
 	public uint32 cbStruct;
 	public uint32 fdwStatus;
 	public uint dwUser;
-	public uint8 pbSrc;
+	public uint8* pbSrc;
 	public uint32 cbSrcLength;
 	public uint32 cbSrcLengthUsed;
 	public uint dwSrcUser;
-	public uint8 pbDst;
+	public uint8* pbDst;
 	public uint32 cbDstLength;
 	public uint32 cbDstLengthUsed;
 	public uint dwDstUser;
@@ -2558,9 +2558,9 @@ public struct tACMDRVOPENDESCW
 public struct ACMDRVSTREAMINSTANCE
 {
 	public uint32 cbStruct;
-	public WAVEFORMATEX pwfxSrc;
-	public WAVEFORMATEX pwfxDst;
-	public WAVEFILTER pwfltr;
+	public WAVEFORMATEX* pwfxSrc;
+	public WAVEFORMATEX* pwfxDst;
+	public WAVEFILTER* pwfltr;
 	public uint dwCallback;
 	public uint dwInstance;
 	public uint32 fdwOpen;
@@ -2575,23 +2575,23 @@ public struct ACMDRVSTREAMHEADER
 	public uint32 cbStruct;
 	public uint32 fdwStatus;
 	public uint dwUser;
-	public uint8 pbSrc;
+	public uint8* pbSrc;
 	public uint32 cbSrcLength;
 	public uint32 cbSrcLengthUsed;
 	public uint dwSrcUser;
-	public uint8 pbDst;
+	public uint8* pbDst;
 	public uint32 cbDstLength;
 	public uint32 cbDstLengthUsed;
 	public uint dwDstUser;
 	public uint32 fdwConvert;
-	public ACMDRVSTREAMHEADER padshNext;
+	public ACMDRVSTREAMHEADER* padshNext;
 	public uint32 fdwDriver;
 	public uint dwDriver;
 	public uint32 fdwPrepared;
 	public uint dwPrepared;
-	public uint8 pbPreparedSrc;
+	public uint8* pbPreparedSrc;
 	public uint32 cbPreparedSrcLength;
-	public uint8 pbPreparedDst;
+	public uint8* pbPreparedDst;
 	public uint32 cbPreparedDstLength;
 }
 
@@ -2609,9 +2609,9 @@ public struct ACMDRVFORMATSUGGEST
 {
 	public uint32 cbStruct;
 	public uint32 fdwSuggest;
-	public WAVEFORMATEX pwfxSrc;
+	public WAVEFORMATEX* pwfxSrc;
 	public uint32 cbwfxSrc;
-	public WAVEFORMATEX pwfxDst;
+	public WAVEFORMATEX* pwfxDst;
 	public uint32 cbwfxDst;
 }
 
@@ -2622,11 +2622,11 @@ public struct ACMSTREAMHEADER
 	public uint32 cbStruct;
 	public uint32 fdwStatus;
 	public uint dwUser;
-	public uint8 pbSrc;
+	public uint8* pbSrc;
 	public uint32 cbSrcLength;
 	public uint32 cbSrcLengthUsed;
 	public uint dwSrcUser;
-	public uint8 pbDst;
+	public uint8* pbDst;
 	public uint32 cbDstLength;
 	public uint32 cbDstLengthUsed;
 	public uint dwDstUser;
@@ -2657,13 +2657,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IMessageFilter*/SelfOuter* self, uint32 dwCallType, HTASK htaskCaller, uint32 dwTickCount, INTERFACEINFO lpInterfaceInfo) HandleInComingCall;
+		protected new function [CallingConvention(.Stdcall)] uint32(/*IMessageFilter*/SelfOuter* self, uint32 dwCallType, HTASK htaskCaller, uint32 dwTickCount, INTERFACEINFO* lpInterfaceInfo) HandleInComingCall;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IMessageFilter*/SelfOuter* self, HTASK htaskCallee, uint32 dwTickCount, uint32 dwRejectType) RetryRejectedCall;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IMessageFilter*/SelfOuter* self, HTASK htaskCallee, uint32 dwTickCount, uint32 dwPendingType) MessagePending;
 	}
 
 
-	public uint32 HandleInComingCall(uint32 dwCallType, HTASK htaskCaller, uint32 dwTickCount, INTERFACEINFO lpInterfaceInfo) mut => VT.[Friend]HandleInComingCall(&this, dwCallType, htaskCaller, dwTickCount, lpInterfaceInfo);
+	public uint32 HandleInComingCall(uint32 dwCallType, HTASK htaskCaller, uint32 dwTickCount, INTERFACEINFO* lpInterfaceInfo) mut => VT.[Friend]HandleInComingCall(&this, dwCallType, htaskCaller, dwTickCount, lpInterfaceInfo);
 
 	public uint32 RetryRejectedCall(HTASK htaskCallee, uint32 dwTickCount, uint32 dwRejectType) mut => VT.[Friend]RetryRejectedCall(&this, htaskCallee, dwTickCount, dwRejectType);
 
@@ -2678,34 +2678,34 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, AUDCLNT_SHAREMODE ShareMode, uint32 StreamFlags, int64 hnsBufferDuration, int64 hnsPeriodicity, WAVEFORMATEX pFormat, Guid AudioSessionGuid) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, uint32 pNumBufferFrames) GetBufferSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, int64 phnsLatency) GetStreamLatency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, uint32 pNumPaddingFrames) GetCurrentPadding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, AUDCLNT_SHAREMODE ShareMode, WAVEFORMATEX pFormat, WAVEFORMATEX ppClosestMatch) IsFormatSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, WAVEFORMATEX ppDeviceFormat) GetMixFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, int64 phnsDefaultDevicePeriod, int64 phnsMinimumDevicePeriod) GetDevicePeriod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, AUDCLNT_SHAREMODE ShareMode, uint32 StreamFlags, int64 hnsBufferDuration, int64 hnsPeriodicity, WAVEFORMATEX* pFormat, Guid AudioSessionGuid) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, uint32* pNumBufferFrames) GetBufferSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, int64* phnsLatency) GetStreamLatency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, uint32* pNumPaddingFrames) GetCurrentPadding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, AUDCLNT_SHAREMODE ShareMode, WAVEFORMATEX* pFormat, WAVEFORMATEX** ppClosestMatch) IsFormatSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, WAVEFORMATEX** ppDeviceFormat) GetMixFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, int64* phnsDefaultDevicePeriod, int64* phnsMinimumDevicePeriod) GetDevicePeriod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self) Start;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self) Stop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, HANDLE eventHandle) SetEventHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, Guid riid, void ppv) GetService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient*/SelfOuter* self, Guid riid, void** ppv) GetService;
 	}
 
 
-	public HRESULT Initialize(AUDCLNT_SHAREMODE ShareMode, uint32 StreamFlags, int64 hnsBufferDuration, int64 hnsPeriodicity, WAVEFORMATEX pFormat, Guid AudioSessionGuid) mut => VT.[Friend]Initialize(&this, ShareMode, StreamFlags, hnsBufferDuration, hnsPeriodicity, pFormat, AudioSessionGuid);
+	public HRESULT Initialize(AUDCLNT_SHAREMODE ShareMode, uint32 StreamFlags, int64 hnsBufferDuration, int64 hnsPeriodicity, WAVEFORMATEX* pFormat, Guid AudioSessionGuid) mut => VT.[Friend]Initialize(&this, ShareMode, StreamFlags, hnsBufferDuration, hnsPeriodicity, pFormat, AudioSessionGuid);
 
-	public HRESULT GetBufferSize(uint32 pNumBufferFrames) mut => VT.[Friend]GetBufferSize(&this, pNumBufferFrames);
+	public HRESULT GetBufferSize(uint32* pNumBufferFrames) mut => VT.[Friend]GetBufferSize(&this, pNumBufferFrames);
 
-	public HRESULT GetStreamLatency(int64 phnsLatency) mut => VT.[Friend]GetStreamLatency(&this, phnsLatency);
+	public HRESULT GetStreamLatency(int64* phnsLatency) mut => VT.[Friend]GetStreamLatency(&this, phnsLatency);
 
-	public HRESULT GetCurrentPadding(uint32 pNumPaddingFrames) mut => VT.[Friend]GetCurrentPadding(&this, pNumPaddingFrames);
+	public HRESULT GetCurrentPadding(uint32* pNumPaddingFrames) mut => VT.[Friend]GetCurrentPadding(&this, pNumPaddingFrames);
 
-	public HRESULT IsFormatSupported(AUDCLNT_SHAREMODE ShareMode, WAVEFORMATEX pFormat, WAVEFORMATEX ppClosestMatch) mut => VT.[Friend]IsFormatSupported(&this, ShareMode, pFormat, ppClosestMatch);
+	public HRESULT IsFormatSupported(AUDCLNT_SHAREMODE ShareMode, WAVEFORMATEX* pFormat, WAVEFORMATEX** ppClosestMatch) mut => VT.[Friend]IsFormatSupported(&this, ShareMode, pFormat, ppClosestMatch);
 
-	public HRESULT GetMixFormat(WAVEFORMATEX ppDeviceFormat) mut => VT.[Friend]GetMixFormat(&this, ppDeviceFormat);
+	public HRESULT GetMixFormat(WAVEFORMATEX** ppDeviceFormat) mut => VT.[Friend]GetMixFormat(&this, ppDeviceFormat);
 
-	public HRESULT GetDevicePeriod(int64 phnsDefaultDevicePeriod, int64 phnsMinimumDevicePeriod) mut => VT.[Friend]GetDevicePeriod(&this, phnsDefaultDevicePeriod, phnsMinimumDevicePeriod);
+	public HRESULT GetDevicePeriod(int64* phnsDefaultDevicePeriod, int64* phnsMinimumDevicePeriod) mut => VT.[Friend]GetDevicePeriod(&this, phnsDefaultDevicePeriod, phnsMinimumDevicePeriod);
 
 	public HRESULT Start() mut => VT.[Friend]Start(&this);
 
@@ -2715,7 +2715,7 @@ public static
 
 	public HRESULT SetEventHandle(HANDLE eventHandle) mut => VT.[Friend]SetEventHandle(&this, eventHandle);
 
-	public HRESULT GetService(Guid riid, void ppv) mut => VT.[Friend]GetService(&this, riid, ppv);
+	public HRESULT GetService(Guid riid, void** ppv) mut => VT.[Friend]GetService(&this, riid, ppv);
 }
 
 [CRepr]struct IAudioClient2 : IAudioClient
@@ -2726,17 +2726,17 @@ public static
 
 	[CRepr]public struct VTable : IAudioClient.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient2*/SelfOuter* self, AUDIO_STREAM_CATEGORY Category, BOOL pbOffloadCapable) IsOffloadCapable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient2*/SelfOuter* self, AudioClientProperties pProperties) SetClientProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient2*/SelfOuter* self, WAVEFORMATEX pFormat, BOOL bEventDriven, int64 phnsMinBufferDuration, int64 phnsMaxBufferDuration) GetBufferSizeLimits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient2*/SelfOuter* self, AUDIO_STREAM_CATEGORY Category, BOOL* pbOffloadCapable) IsOffloadCapable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient2*/SelfOuter* self, AudioClientProperties* pProperties) SetClientProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient2*/SelfOuter* self, WAVEFORMATEX* pFormat, BOOL bEventDriven, int64* phnsMinBufferDuration, int64* phnsMaxBufferDuration) GetBufferSizeLimits;
 	}
 
 
-	public HRESULT IsOffloadCapable(AUDIO_STREAM_CATEGORY Category, BOOL pbOffloadCapable) mut => VT.[Friend]IsOffloadCapable(&this, Category, pbOffloadCapable);
+	public HRESULT IsOffloadCapable(AUDIO_STREAM_CATEGORY Category, BOOL* pbOffloadCapable) mut => VT.[Friend]IsOffloadCapable(&this, Category, pbOffloadCapable);
 
-	public HRESULT SetClientProperties(AudioClientProperties pProperties) mut => VT.[Friend]SetClientProperties(&this, pProperties);
+	public HRESULT SetClientProperties(AudioClientProperties* pProperties) mut => VT.[Friend]SetClientProperties(&this, pProperties);
 
-	public HRESULT GetBufferSizeLimits(WAVEFORMATEX pFormat, BOOL bEventDriven, int64 phnsMinBufferDuration, int64 phnsMaxBufferDuration) mut => VT.[Friend]GetBufferSizeLimits(&this, pFormat, bEventDriven, phnsMinBufferDuration, phnsMaxBufferDuration);
+	public HRESULT GetBufferSizeLimits(WAVEFORMATEX* pFormat, BOOL bEventDriven, int64* phnsMinBufferDuration, int64* phnsMaxBufferDuration) mut => VT.[Friend]GetBufferSizeLimits(&this, pFormat, bEventDriven, phnsMinBufferDuration, phnsMaxBufferDuration);
 }
 
 [CRepr]struct IAudioClient3 : IAudioClient2
@@ -2747,17 +2747,17 @@ public static
 
 	[CRepr]public struct VTable : IAudioClient2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient3*/SelfOuter* self, WAVEFORMATEX pFormat, uint32 pDefaultPeriodInFrames, uint32 pFundamentalPeriodInFrames, uint32 pMinPeriodInFrames, uint32 pMaxPeriodInFrames) GetSharedModeEnginePeriod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient3*/SelfOuter* self, WAVEFORMATEX ppFormat, uint32 pCurrentPeriodInFrames) GetCurrentSharedModeEnginePeriod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient3*/SelfOuter* self, uint32 StreamFlags, uint32 PeriodInFrames, WAVEFORMATEX pFormat, Guid AudioSessionGuid) InitializeSharedAudioStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient3*/SelfOuter* self, WAVEFORMATEX* pFormat, uint32* pDefaultPeriodInFrames, uint32* pFundamentalPeriodInFrames, uint32* pMinPeriodInFrames, uint32* pMaxPeriodInFrames) GetSharedModeEnginePeriod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient3*/SelfOuter* self, WAVEFORMATEX** ppFormat, uint32* pCurrentPeriodInFrames) GetCurrentSharedModeEnginePeriod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClient3*/SelfOuter* self, uint32 StreamFlags, uint32 PeriodInFrames, WAVEFORMATEX* pFormat, Guid AudioSessionGuid) InitializeSharedAudioStream;
 	}
 
 
-	public HRESULT GetSharedModeEnginePeriod(WAVEFORMATEX pFormat, uint32 pDefaultPeriodInFrames, uint32 pFundamentalPeriodInFrames, uint32 pMinPeriodInFrames, uint32 pMaxPeriodInFrames) mut => VT.[Friend]GetSharedModeEnginePeriod(&this, pFormat, pDefaultPeriodInFrames, pFundamentalPeriodInFrames, pMinPeriodInFrames, pMaxPeriodInFrames);
+	public HRESULT GetSharedModeEnginePeriod(WAVEFORMATEX* pFormat, uint32* pDefaultPeriodInFrames, uint32* pFundamentalPeriodInFrames, uint32* pMinPeriodInFrames, uint32* pMaxPeriodInFrames) mut => VT.[Friend]GetSharedModeEnginePeriod(&this, pFormat, pDefaultPeriodInFrames, pFundamentalPeriodInFrames, pMinPeriodInFrames, pMaxPeriodInFrames);
 
-	public HRESULT GetCurrentSharedModeEnginePeriod(WAVEFORMATEX ppFormat, uint32 pCurrentPeriodInFrames) mut => VT.[Friend]GetCurrentSharedModeEnginePeriod(&this, ppFormat, pCurrentPeriodInFrames);
+	public HRESULT GetCurrentSharedModeEnginePeriod(WAVEFORMATEX** ppFormat, uint32* pCurrentPeriodInFrames) mut => VT.[Friend]GetCurrentSharedModeEnginePeriod(&this, ppFormat, pCurrentPeriodInFrames);
 
-	public HRESULT InitializeSharedAudioStream(uint32 StreamFlags, uint32 PeriodInFrames, WAVEFORMATEX pFormat, Guid AudioSessionGuid) mut => VT.[Friend]InitializeSharedAudioStream(&this, StreamFlags, PeriodInFrames, pFormat, AudioSessionGuid);
+	public HRESULT InitializeSharedAudioStream(uint32 StreamFlags, uint32 PeriodInFrames, WAVEFORMATEX* pFormat, Guid AudioSessionGuid) mut => VT.[Friend]InitializeSharedAudioStream(&this, StreamFlags, PeriodInFrames, pFormat, AudioSessionGuid);
 }
 
 [CRepr]struct IAudioRenderClient : IUnknown
@@ -2768,12 +2768,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioRenderClient*/SelfOuter* self, uint32 NumFramesRequested, uint8 ppData) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioRenderClient*/SelfOuter* self, uint32 NumFramesRequested, uint8** ppData) GetBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioRenderClient*/SelfOuter* self, uint32 NumFramesWritten, uint32 dwFlags) ReleaseBuffer;
 	}
 
 
-	public HRESULT GetBuffer(uint32 NumFramesRequested, uint8 ppData) mut => VT.[Friend]GetBuffer(&this, NumFramesRequested, ppData);
+	public HRESULT GetBuffer(uint32 NumFramesRequested, uint8** ppData) mut => VT.[Friend]GetBuffer(&this, NumFramesRequested, ppData);
 
 	public HRESULT ReleaseBuffer(uint32 NumFramesWritten, uint32 dwFlags) mut => VT.[Friend]ReleaseBuffer(&this, NumFramesWritten, dwFlags);
 }
@@ -2786,17 +2786,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioCaptureClient*/SelfOuter* self, uint8 ppData, uint32 pNumFramesToRead, uint32 pdwFlags, uint64 pu64DevicePosition, uint64 pu64QPCPosition) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioCaptureClient*/SelfOuter* self, uint8** ppData, uint32* pNumFramesToRead, uint32* pdwFlags, uint64* pu64DevicePosition, uint64* pu64QPCPosition) GetBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioCaptureClient*/SelfOuter* self, uint32 NumFramesRead) ReleaseBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioCaptureClient*/SelfOuter* self, uint32 pNumFramesInNextPacket) GetNextPacketSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioCaptureClient*/SelfOuter* self, uint32* pNumFramesInNextPacket) GetNextPacketSize;
 	}
 
 
-	public HRESULT GetBuffer(uint8 ppData, uint32 pNumFramesToRead, uint32 pdwFlags, uint64 pu64DevicePosition, uint64 pu64QPCPosition) mut => VT.[Friend]GetBuffer(&this, ppData, pNumFramesToRead, pdwFlags, pu64DevicePosition, pu64QPCPosition);
+	public HRESULT GetBuffer(uint8** ppData, uint32* pNumFramesToRead, uint32* pdwFlags, uint64* pu64DevicePosition, uint64* pu64QPCPosition) mut => VT.[Friend]GetBuffer(&this, ppData, pNumFramesToRead, pdwFlags, pu64DevicePosition, pu64QPCPosition);
 
 	public HRESULT ReleaseBuffer(uint32 NumFramesRead) mut => VT.[Friend]ReleaseBuffer(&this, NumFramesRead);
 
-	public HRESULT GetNextPacketSize(uint32 pNumFramesInNextPacket) mut => VT.[Friend]GetNextPacketSize(&this, pNumFramesInNextPacket);
+	public HRESULT GetNextPacketSize(uint32* pNumFramesInNextPacket) mut => VT.[Friend]GetNextPacketSize(&this, pNumFramesInNextPacket);
 }
 
 [CRepr]struct IAudioClock : IUnknown
@@ -2807,17 +2807,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClock*/SelfOuter* self, uint64 pu64Frequency) GetFrequency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClock*/SelfOuter* self, uint64 pu64Position, uint64 pu64QPCPosition) GetPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClock*/SelfOuter* self, uint32 pdwCharacteristics) GetCharacteristics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClock*/SelfOuter* self, uint64* pu64Frequency) GetFrequency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClock*/SelfOuter* self, uint64* pu64Position, uint64* pu64QPCPosition) GetPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClock*/SelfOuter* self, uint32* pdwCharacteristics) GetCharacteristics;
 	}
 
 
-	public HRESULT GetFrequency(uint64 pu64Frequency) mut => VT.[Friend]GetFrequency(&this, pu64Frequency);
+	public HRESULT GetFrequency(uint64* pu64Frequency) mut => VT.[Friend]GetFrequency(&this, pu64Frequency);
 
-	public HRESULT GetPosition(uint64 pu64Position, uint64 pu64QPCPosition) mut => VT.[Friend]GetPosition(&this, pu64Position, pu64QPCPosition);
+	public HRESULT GetPosition(uint64* pu64Position, uint64* pu64QPCPosition) mut => VT.[Friend]GetPosition(&this, pu64Position, pu64QPCPosition);
 
-	public HRESULT GetCharacteristics(uint32 pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
+	public HRESULT GetCharacteristics(uint32* pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
 }
 
 [CRepr]struct IAudioClock2 : IUnknown
@@ -2828,11 +2828,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClock2*/SelfOuter* self, uint64 DevicePosition, uint64 QPCPosition) GetDevicePosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioClock2*/SelfOuter* self, uint64* DevicePosition, uint64* QPCPosition) GetDevicePosition;
 	}
 
 
-	public HRESULT GetDevicePosition(uint64 DevicePosition, uint64 QPCPosition) mut => VT.[Friend]GetDevicePosition(&this, DevicePosition, QPCPosition);
+	public HRESULT GetDevicePosition(uint64* DevicePosition, uint64* QPCPosition) mut => VT.[Friend]GetDevicePosition(&this, DevicePosition, QPCPosition);
 }
 
 [CRepr]struct IAudioClockAdjustment : IUnknown
@@ -2859,19 +2859,19 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISimpleAudioVolume*/SelfOuter* self, float fLevel, Guid EventContext) SetMasterVolume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISimpleAudioVolume*/SelfOuter* self, float pfLevel) GetMasterVolume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISimpleAudioVolume*/SelfOuter* self, float* pfLevel) GetMasterVolume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISimpleAudioVolume*/SelfOuter* self, BOOL bMute, Guid EventContext) SetMute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISimpleAudioVolume*/SelfOuter* self, BOOL pbMute) GetMute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISimpleAudioVolume*/SelfOuter* self, BOOL* pbMute) GetMute;
 	}
 
 
 	public HRESULT SetMasterVolume(float fLevel, Guid EventContext) mut => VT.[Friend]SetMasterVolume(&this, fLevel, EventContext);
 
-	public HRESULT GetMasterVolume(float pfLevel) mut => VT.[Friend]GetMasterVolume(&this, pfLevel);
+	public HRESULT GetMasterVolume(float* pfLevel) mut => VT.[Friend]GetMasterVolume(&this, pfLevel);
 
 	public HRESULT SetMute(BOOL bMute, Guid EventContext) mut => VT.[Friend]SetMute(&this, bMute, EventContext);
 
-	public HRESULT GetMute(BOOL pbMute) mut => VT.[Friend]GetMute(&this, pbMute);
+	public HRESULT GetMute(BOOL* pbMute) mut => VT.[Friend]GetMute(&this, pbMute);
 }
 
 [CRepr]struct IAudioClientDuckingControl : IUnknown
@@ -2914,7 +2914,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEffectsManager*/SelfOuter* self, IAudioEffectsChangedNotificationClient* client) RegisterAudioEffectsChangedNotificationCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEffectsManager*/SelfOuter* self, IAudioEffectsChangedNotificationClient* client) UnregisterAudioEffectsChangedNotificationCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEffectsManager*/SelfOuter* self, AUDIO_EFFECT effects, uint32 numEffects) GetAudioEffects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEffectsManager*/SelfOuter* self, AUDIO_EFFECT** effects, uint32* numEffects) GetAudioEffects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEffectsManager*/SelfOuter* self, Guid effectId, AUDIO_EFFECT_STATE state) SetAudioEffectState;
 	}
 
@@ -2923,7 +2923,7 @@ public static
 
 	public HRESULT UnregisterAudioEffectsChangedNotificationCallback(IAudioEffectsChangedNotificationClient* client) mut => VT.[Friend]UnregisterAudioEffectsChangedNotificationCallback(&this, client);
 
-	public HRESULT GetAudioEffects(AUDIO_EFFECT effects, uint32 numEffects) mut => VT.[Friend]GetAudioEffects(&this, effects, numEffects);
+	public HRESULT GetAudioEffects(AUDIO_EFFECT** effects, uint32* numEffects) mut => VT.[Friend]GetAudioEffects(&this, effects, numEffects);
 
 	public HRESULT SetAudioEffectState(Guid effectId, AUDIO_EFFECT_STATE state) mut => VT.[Friend]SetAudioEffectState(&this, effectId, state);
 }
@@ -2936,19 +2936,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioStreamVolume*/SelfOuter* self, uint32 pdwCount) GetChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioStreamVolume*/SelfOuter* self, uint32* pdwCount) GetChannelCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioStreamVolume*/SelfOuter* self, uint32 dwIndex, float fLevel) SetChannelVolume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioStreamVolume*/SelfOuter* self, uint32 dwIndex, float pfLevel) GetChannelVolume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioStreamVolume*/SelfOuter* self, uint32 dwIndex, float* pfLevel) GetChannelVolume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioStreamVolume*/SelfOuter* self, uint32 dwCount, float* pfVolumes) SetAllVolumes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioStreamVolume*/SelfOuter* self, uint32 dwCount, float* pfVolumes) GetAllVolumes;
 	}
 
 
-	public HRESULT GetChannelCount(uint32 pdwCount) mut => VT.[Friend]GetChannelCount(&this, pdwCount);
+	public HRESULT GetChannelCount(uint32* pdwCount) mut => VT.[Friend]GetChannelCount(&this, pdwCount);
 
 	public HRESULT SetChannelVolume(uint32 dwIndex, float fLevel) mut => VT.[Friend]SetChannelVolume(&this, dwIndex, fLevel);
 
-	public HRESULT GetChannelVolume(uint32 dwIndex, float pfLevel) mut => VT.[Friend]GetChannelVolume(&this, dwIndex, pfLevel);
+	public HRESULT GetChannelVolume(uint32 dwIndex, float* pfLevel) mut => VT.[Friend]GetChannelVolume(&this, dwIndex, pfLevel);
 
 	public HRESULT SetAllVolumes(uint32 dwCount, float* pfVolumes) mut => VT.[Friend]SetAllVolumes(&this, dwCount, pfVolumes);
 
@@ -2965,7 +2965,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioAmbisonicsControl*/SelfOuter* self, AMBISONICS_PARAMS* pAmbisonicsParams, uint32 cbAmbisonicsParams) SetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioAmbisonicsControl*/SelfOuter* self, BOOL bEnableHeadTracking) SetHeadTracking;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioAmbisonicsControl*/SelfOuter* self, BOOL pbEnableHeadTracking) GetHeadTracking;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioAmbisonicsControl*/SelfOuter* self, BOOL* pbEnableHeadTracking) GetHeadTracking;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioAmbisonicsControl*/SelfOuter* self, float X, float Y, float Z, float W) SetRotation;
 	}
 
@@ -2974,7 +2974,7 @@ public static
 
 	public HRESULT SetHeadTracking(BOOL bEnableHeadTracking) mut => VT.[Friend]SetHeadTracking(&this, bEnableHeadTracking);
 
-	public HRESULT GetHeadTracking(BOOL pbEnableHeadTracking) mut => VT.[Friend]GetHeadTracking(&this, pbEnableHeadTracking);
+	public HRESULT GetHeadTracking(BOOL* pbEnableHeadTracking) mut => VT.[Friend]GetHeadTracking(&this, pbEnableHeadTracking);
 
 	public HRESULT SetRotation(float X, float Y, float Z, float W) mut => VT.[Friend]SetRotation(&this, X, Y, Z, W);
 }
@@ -2987,19 +2987,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelAudioVolume*/SelfOuter* self, uint32 pdwCount) GetChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelAudioVolume*/SelfOuter* self, uint32* pdwCount) GetChannelCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelAudioVolume*/SelfOuter* self, uint32 dwIndex, float fLevel, Guid EventContext) SetChannelVolume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelAudioVolume*/SelfOuter* self, uint32 dwIndex, float pfLevel) GetChannelVolume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelAudioVolume*/SelfOuter* self, uint32 dwIndex, float* pfLevel) GetChannelVolume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelAudioVolume*/SelfOuter* self, uint32 dwCount, float* pfVolumes, Guid EventContext) SetAllVolumes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelAudioVolume*/SelfOuter* self, uint32 dwCount, float* pfVolumes) GetAllVolumes;
 	}
 
 
-	public HRESULT GetChannelCount(uint32 pdwCount) mut => VT.[Friend]GetChannelCount(&this, pdwCount);
+	public HRESULT GetChannelCount(uint32* pdwCount) mut => VT.[Friend]GetChannelCount(&this, pdwCount);
 
 	public HRESULT SetChannelVolume(uint32 dwIndex, float fLevel, Guid EventContext) mut => VT.[Friend]SetChannelVolume(&this, dwIndex, fLevel, EventContext);
 
-	public HRESULT GetChannelVolume(uint32 dwIndex, float pfLevel) mut => VT.[Friend]GetChannelVolume(&this, dwIndex, pfLevel);
+	public HRESULT GetChannelVolume(uint32 dwIndex, float* pfLevel) mut => VT.[Friend]GetChannelVolume(&this, dwIndex, pfLevel);
 
 	public HRESULT SetAllVolumes(uint32 dwCount, float* pfVolumes, Guid EventContext) mut => VT.[Friend]SetAllVolumes(&this, dwCount, pfVolumes, EventContext);
 
@@ -3014,14 +3014,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioFormatEnumerator*/SelfOuter* self, uint32 count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioFormatEnumerator*/SelfOuter* self, uint32 index, WAVEFORMATEX format) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioFormatEnumerator*/SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioFormatEnumerator*/SelfOuter* self, uint32 index, WAVEFORMATEX** format) GetFormat;
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
-	public HRESULT GetFormat(uint32 index, WAVEFORMATEX format) mut => VT.[Friend]GetFormat(&this, index, format);
+	public HRESULT GetFormat(uint32 index, WAVEFORMATEX** format) mut => VT.[Friend]GetFormat(&this, index, format);
 }
 
 [CRepr]struct ISpatialAudioObjectBase : IUnknown
@@ -3032,20 +3032,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectBase*/SelfOuter* self, uint8 buffer, uint32 bufferLength) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectBase*/SelfOuter* self, uint8** buffer, uint32* bufferLength) GetBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectBase*/SelfOuter* self, uint32 frameCount) SetEndOfStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectBase*/SelfOuter* self, BOOL isActive) IsActive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectBase*/SelfOuter* self, AudioObjectType audioObjectType) GetAudioObjectType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectBase*/SelfOuter* self, BOOL* isActive) IsActive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectBase*/SelfOuter* self, AudioObjectType* audioObjectType) GetAudioObjectType;
 	}
 
 
-	public HRESULT GetBuffer(uint8 buffer, uint32 bufferLength) mut => VT.[Friend]GetBuffer(&this, buffer, bufferLength);
+	public HRESULT GetBuffer(uint8** buffer, uint32* bufferLength) mut => VT.[Friend]GetBuffer(&this, buffer, bufferLength);
 
 	public HRESULT SetEndOfStream(uint32 frameCount) mut => VT.[Friend]SetEndOfStream(&this, frameCount);
 
-	public HRESULT IsActive(BOOL isActive) mut => VT.[Friend]IsActive(&this, isActive);
+	public HRESULT IsActive(BOOL* isActive) mut => VT.[Friend]IsActive(&this, isActive);
 
-	public HRESULT GetAudioObjectType(AudioObjectType audioObjectType) mut => VT.[Friend]GetAudioObjectType(&this, audioObjectType);
+	public HRESULT GetAudioObjectType(AudioObjectType* audioObjectType) mut => VT.[Friend]GetAudioObjectType(&this, audioObjectType);
 }
 
 [CRepr]struct ISpatialAudioObject : ISpatialAudioObjectBase
@@ -3074,19 +3074,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamBase*/SelfOuter* self, uint32 value) GetAvailableDynamicObjectCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamBase*/SelfOuter* self, Guid riid, void service) GetService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamBase*/SelfOuter* self, uint32* value) GetAvailableDynamicObjectCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamBase*/SelfOuter* self, Guid riid, void** service) GetService;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamBase*/SelfOuter* self) Start;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamBase*/SelfOuter* self) Stop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamBase*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamBase*/SelfOuter* self, uint32 availableDynamicObjectCount, uint32 frameCountPerBuffer) BeginUpdatingAudioObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamBase*/SelfOuter* self, uint32* availableDynamicObjectCount, uint32* frameCountPerBuffer) BeginUpdatingAudioObjects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamBase*/SelfOuter* self) EndUpdatingAudioObjects;
 	}
 
 
-	public HRESULT GetAvailableDynamicObjectCount(uint32 value) mut => VT.[Friend]GetAvailableDynamicObjectCount(&this, value);
+	public HRESULT GetAvailableDynamicObjectCount(uint32* value) mut => VT.[Friend]GetAvailableDynamicObjectCount(&this, value);
 
-	public HRESULT GetService(Guid riid, void service) mut => VT.[Friend]GetService(&this, riid, service);
+	public HRESULT GetService(Guid riid, void** service) mut => VT.[Friend]GetService(&this, riid, service);
 
 	public HRESULT Start() mut => VT.[Friend]Start(&this);
 
@@ -3094,7 +3094,7 @@ public static
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT BeginUpdatingAudioObjects(uint32 availableDynamicObjectCount, uint32 frameCountPerBuffer) mut => VT.[Friend]BeginUpdatingAudioObjects(&this, availableDynamicObjectCount, frameCountPerBuffer);
+	public HRESULT BeginUpdatingAudioObjects(uint32* availableDynamicObjectCount, uint32* frameCountPerBuffer) mut => VT.[Friend]BeginUpdatingAudioObjects(&this, availableDynamicObjectCount, frameCountPerBuffer);
 
 	public HRESULT EndUpdatingAudioObjects() mut => VT.[Friend]EndUpdatingAudioObjects(&this);
 }
@@ -3107,11 +3107,11 @@ public static
 
 	[CRepr]public struct VTable : ISpatialAudioObjectRenderStreamBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStream*/SelfOuter* self, AudioObjectType type, ISpatialAudioObject* audioObject) ActivateSpatialAudioObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStream*/SelfOuter* self, AudioObjectType type, ISpatialAudioObject** audioObject) ActivateSpatialAudioObject;
 	}
 
 
-	public HRESULT ActivateSpatialAudioObject(AudioObjectType type, ISpatialAudioObject* audioObject) mut => VT.[Friend]ActivateSpatialAudioObject(&this, type, audioObject);
+	public HRESULT ActivateSpatialAudioObject(AudioObjectType type, ISpatialAudioObject** audioObject) mut => VT.[Friend]ActivateSpatialAudioObject(&this, type, audioObject);
 }
 
 [CRepr]struct ISpatialAudioObjectRenderStreamNotify : IUnknown
@@ -3137,32 +3137,32 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, AudioObjectType type, float x, float y, float z) GetStaticObjectPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, AudioObjectType mask) GetNativeStaticObjectTypeMask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, uint32 value) GetMaxDynamicObjectCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, IAudioFormatEnumerator* enumerator) GetSupportedAudioObjectFormatEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, WAVEFORMATEX objectFormat, uint32 frameCountPerBuffer) GetMaxFrameCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, WAVEFORMATEX objectFormat) IsAudioObjectFormatSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, Guid streamUuid, PROPVARIANT auxiliaryInfo) IsSpatialAudioStreamAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, PROPVARIANT activationParams, Guid riid, void stream) ActivateSpatialAudioStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, AudioObjectType type, float* x, float* y, float* z) GetStaticObjectPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, AudioObjectType* mask) GetNativeStaticObjectTypeMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, uint32* value) GetMaxDynamicObjectCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, IAudioFormatEnumerator** enumerator) GetSupportedAudioObjectFormatEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, WAVEFORMATEX* objectFormat, uint32* frameCountPerBuffer) GetMaxFrameCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, WAVEFORMATEX* objectFormat) IsAudioObjectFormatSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, Guid streamUuid, PROPVARIANT* auxiliaryInfo) IsSpatialAudioStreamAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient*/SelfOuter* self, PROPVARIANT* activationParams, Guid riid, void** stream) ActivateSpatialAudioStream;
 	}
 
 
-	public HRESULT GetStaticObjectPosition(AudioObjectType type, float x, float y, float z) mut => VT.[Friend]GetStaticObjectPosition(&this, type, x, y, z);
+	public HRESULT GetStaticObjectPosition(AudioObjectType type, float* x, float* y, float* z) mut => VT.[Friend]GetStaticObjectPosition(&this, type, x, y, z);
 
-	public HRESULT GetNativeStaticObjectTypeMask(AudioObjectType mask) mut => VT.[Friend]GetNativeStaticObjectTypeMask(&this, mask);
+	public HRESULT GetNativeStaticObjectTypeMask(AudioObjectType* mask) mut => VT.[Friend]GetNativeStaticObjectTypeMask(&this, mask);
 
-	public HRESULT GetMaxDynamicObjectCount(uint32 value) mut => VT.[Friend]GetMaxDynamicObjectCount(&this, value);
+	public HRESULT GetMaxDynamicObjectCount(uint32* value) mut => VT.[Friend]GetMaxDynamicObjectCount(&this, value);
 
-	public HRESULT GetSupportedAudioObjectFormatEnumerator(IAudioFormatEnumerator* enumerator) mut => VT.[Friend]GetSupportedAudioObjectFormatEnumerator(&this, enumerator);
+	public HRESULT GetSupportedAudioObjectFormatEnumerator(IAudioFormatEnumerator** enumerator) mut => VT.[Friend]GetSupportedAudioObjectFormatEnumerator(&this, enumerator);
 
-	public HRESULT GetMaxFrameCount(WAVEFORMATEX objectFormat, uint32 frameCountPerBuffer) mut => VT.[Friend]GetMaxFrameCount(&this, objectFormat, frameCountPerBuffer);
+	public HRESULT GetMaxFrameCount(WAVEFORMATEX* objectFormat, uint32* frameCountPerBuffer) mut => VT.[Friend]GetMaxFrameCount(&this, objectFormat, frameCountPerBuffer);
 
-	public HRESULT IsAudioObjectFormatSupported(WAVEFORMATEX objectFormat) mut => VT.[Friend]IsAudioObjectFormatSupported(&this, objectFormat);
+	public HRESULT IsAudioObjectFormatSupported(WAVEFORMATEX* objectFormat) mut => VT.[Friend]IsAudioObjectFormatSupported(&this, objectFormat);
 
-	public HRESULT IsSpatialAudioStreamAvailable(Guid streamUuid, PROPVARIANT auxiliaryInfo) mut => VT.[Friend]IsSpatialAudioStreamAvailable(&this, streamUuid, auxiliaryInfo);
+	public HRESULT IsSpatialAudioStreamAvailable(Guid streamUuid, PROPVARIANT* auxiliaryInfo) mut => VT.[Friend]IsSpatialAudioStreamAvailable(&this, streamUuid, auxiliaryInfo);
 
-	public HRESULT ActivateSpatialAudioStream(PROPVARIANT activationParams, Guid riid, void stream) mut => VT.[Friend]ActivateSpatialAudioStream(&this, activationParams, riid, stream);
+	public HRESULT ActivateSpatialAudioStream(PROPVARIANT* activationParams, Guid riid, void** stream) mut => VT.[Friend]ActivateSpatialAudioStream(&this, activationParams, riid, stream);
 }
 
 [CRepr]struct ISpatialAudioClient2 : ISpatialAudioClient
@@ -3173,14 +3173,14 @@ public static
 
 	[CRepr]public struct VTable : ISpatialAudioClient.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient2*/SelfOuter* self, AUDIO_STREAM_CATEGORY category, BOOL isOffloadCapable) IsOffloadCapable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient2*/SelfOuter* self, AUDIO_STREAM_CATEGORY category, BOOL offloadEnabled, WAVEFORMATEX objectFormat, uint32 frameCountPerBuffer) GetMaxFrameCountForCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient2*/SelfOuter* self, AUDIO_STREAM_CATEGORY category, BOOL* isOffloadCapable) IsOffloadCapable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioClient2*/SelfOuter* self, AUDIO_STREAM_CATEGORY category, BOOL offloadEnabled, WAVEFORMATEX* objectFormat, uint32* frameCountPerBuffer) GetMaxFrameCountForCategory;
 	}
 
 
-	public HRESULT IsOffloadCapable(AUDIO_STREAM_CATEGORY category, BOOL isOffloadCapable) mut => VT.[Friend]IsOffloadCapable(&this, category, isOffloadCapable);
+	public HRESULT IsOffloadCapable(AUDIO_STREAM_CATEGORY category, BOOL* isOffloadCapable) mut => VT.[Friend]IsOffloadCapable(&this, category, isOffloadCapable);
 
-	public HRESULT GetMaxFrameCountForCategory(AUDIO_STREAM_CATEGORY category, BOOL offloadEnabled, WAVEFORMATEX objectFormat, uint32 frameCountPerBuffer) mut => VT.[Friend]GetMaxFrameCountForCategory(&this, category, offloadEnabled, objectFormat, frameCountPerBuffer);
+	public HRESULT GetMaxFrameCountForCategory(AUDIO_STREAM_CATEGORY category, BOOL offloadEnabled, WAVEFORMATEX* objectFormat, uint32* frameCountPerBuffer) mut => VT.[Friend]GetMaxFrameCountForCategory(&this, category, offloadEnabled, objectFormat, frameCountPerBuffer);
 }
 
 [CRepr]struct ISpatialAudioObjectForHrtf : ISpatialAudioObjectBase
@@ -3193,10 +3193,10 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForHrtf*/SelfOuter* self, float x, float y, float z) SetPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForHrtf*/SelfOuter* self, float gain) SetGain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForHrtf*/SelfOuter* self, float orientation) SetOrientation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForHrtf*/SelfOuter* self, float** orientation) SetOrientation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForHrtf*/SelfOuter* self, SpatialAudioHrtfEnvironmentType environment) SetEnvironment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForHrtf*/SelfOuter* self, SpatialAudioHrtfDistanceDecay distanceDecay) SetDistanceDecay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForHrtf*/SelfOuter* self, SpatialAudioHrtfDirectivityUnion directivity) SetDirectivity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForHrtf*/SelfOuter* self, SpatialAudioHrtfDistanceDecay* distanceDecay) SetDistanceDecay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForHrtf*/SelfOuter* self, SpatialAudioHrtfDirectivityUnion* directivity) SetDirectivity;
 	}
 
 
@@ -3204,13 +3204,13 @@ public static
 
 	public HRESULT SetGain(float gain) mut => VT.[Friend]SetGain(&this, gain);
 
-	public HRESULT SetOrientation(float orientation) mut => VT.[Friend]SetOrientation(&this, orientation);
+	public HRESULT SetOrientation(float** orientation) mut => VT.[Friend]SetOrientation(&this, orientation);
 
 	public HRESULT SetEnvironment(SpatialAudioHrtfEnvironmentType environment) mut => VT.[Friend]SetEnvironment(&this, environment);
 
-	public HRESULT SetDistanceDecay(SpatialAudioHrtfDistanceDecay distanceDecay) mut => VT.[Friend]SetDistanceDecay(&this, distanceDecay);
+	public HRESULT SetDistanceDecay(SpatialAudioHrtfDistanceDecay* distanceDecay) mut => VT.[Friend]SetDistanceDecay(&this, distanceDecay);
 
-	public HRESULT SetDirectivity(SpatialAudioHrtfDirectivityUnion directivity) mut => VT.[Friend]SetDirectivity(&this, directivity);
+	public HRESULT SetDirectivity(SpatialAudioHrtfDirectivityUnion* directivity) mut => VT.[Friend]SetDirectivity(&this, directivity);
 }
 
 [CRepr]struct ISpatialAudioObjectRenderStreamForHrtf : ISpatialAudioObjectRenderStreamBase
@@ -3221,11 +3221,11 @@ public static
 
 	[CRepr]public struct VTable : ISpatialAudioObjectRenderStreamBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamForHrtf*/SelfOuter* self, AudioObjectType type, ISpatialAudioObjectForHrtf* audioObject) ActivateSpatialAudioObjectForHrtf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamForHrtf*/SelfOuter* self, AudioObjectType type, ISpatialAudioObjectForHrtf** audioObject) ActivateSpatialAudioObjectForHrtf;
 	}
 
 
-	public HRESULT ActivateSpatialAudioObjectForHrtf(AudioObjectType type, ISpatialAudioObjectForHrtf* audioObject) mut => VT.[Friend]ActivateSpatialAudioObjectForHrtf(&this, type, audioObject);
+	public HRESULT ActivateSpatialAudioObjectForHrtf(AudioObjectType type, ISpatialAudioObjectForHrtf** audioObject) mut => VT.[Friend]ActivateSpatialAudioObjectForHrtf(&this, type, audioObject);
 }
 
 [CRepr]struct IMMNotificationClient : IUnknown
@@ -3263,20 +3263,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDevice*/SelfOuter* self, Guid iid, uint32 dwClsCtx, PROPVARIANT pActivationParams, void ppInterface) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDevice*/SelfOuter* self, uint32 stgmAccess, IPropertyStore* ppProperties) OpenPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDevice*/SelfOuter* self, Guid iid, uint32 dwClsCtx, PROPVARIANT* pActivationParams, void** ppInterface) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDevice*/SelfOuter* self, uint32 stgmAccess, IPropertyStore** ppProperties) OpenPropertyStore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDevice*/SelfOuter* self, PWSTR ppstrId) GetId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDevice*/SelfOuter* self, uint32 pdwState) GetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDevice*/SelfOuter* self, uint32* pdwState) GetState;
 	}
 
 
-	public HRESULT Activate(Guid iid, uint32 dwClsCtx, PROPVARIANT pActivationParams, void ppInterface) mut => VT.[Friend]Activate(&this, iid, dwClsCtx, pActivationParams, ppInterface);
+	public HRESULT Activate(Guid iid, uint32 dwClsCtx, PROPVARIANT* pActivationParams, void** ppInterface) mut => VT.[Friend]Activate(&this, iid, dwClsCtx, pActivationParams, ppInterface);
 
-	public HRESULT OpenPropertyStore(uint32 stgmAccess, IPropertyStore* ppProperties) mut => VT.[Friend]OpenPropertyStore(&this, stgmAccess, ppProperties);
+	public HRESULT OpenPropertyStore(uint32 stgmAccess, IPropertyStore** ppProperties) mut => VT.[Friend]OpenPropertyStore(&this, stgmAccess, ppProperties);
 
 	public HRESULT GetId(PWSTR ppstrId) mut => VT.[Friend]GetId(&this, ppstrId);
 
-	public HRESULT GetState(uint32 pdwState) mut => VT.[Friend]GetState(&this, pdwState);
+	public HRESULT GetState(uint32* pdwState) mut => VT.[Friend]GetState(&this, pdwState);
 }
 
 [CRepr]struct IMMDeviceCollection : IUnknown
@@ -3287,14 +3287,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceCollection*/SelfOuter* self, uint32 pcDevices) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceCollection*/SelfOuter* self, uint32 nDevice, IMMDevice* ppDevice) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceCollection*/SelfOuter* self, uint32* pcDevices) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceCollection*/SelfOuter* self, uint32 nDevice, IMMDevice** ppDevice) Item;
 	}
 
 
-	public HRESULT GetCount(uint32 pcDevices) mut => VT.[Friend]GetCount(&this, pcDevices);
+	public HRESULT GetCount(uint32* pcDevices) mut => VT.[Friend]GetCount(&this, pcDevices);
 
-	public HRESULT Item(uint32 nDevice, IMMDevice* ppDevice) mut => VT.[Friend]Item(&this, nDevice, ppDevice);
+	public HRESULT Item(uint32 nDevice, IMMDevice** ppDevice) mut => VT.[Friend]Item(&this, nDevice, ppDevice);
 }
 
 [CRepr]struct IMMEndpoint : IUnknown
@@ -3305,11 +3305,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMEndpoint*/SelfOuter* self, EDataFlow pDataFlow) GetDataFlow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMEndpoint*/SelfOuter* self, EDataFlow* pDataFlow) GetDataFlow;
 	}
 
 
-	public HRESULT GetDataFlow(EDataFlow pDataFlow) mut => VT.[Friend]GetDataFlow(&this, pDataFlow);
+	public HRESULT GetDataFlow(EDataFlow* pDataFlow) mut => VT.[Friend]GetDataFlow(&this, pDataFlow);
 }
 
 [CRepr]struct IMMDeviceEnumerator : IUnknown
@@ -3320,19 +3320,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceEnumerator*/SelfOuter* self, EDataFlow dataFlow, uint32 dwStateMask, IMMDeviceCollection* ppDevices) EnumAudioEndpoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceEnumerator*/SelfOuter* self, EDataFlow dataFlow, ERole role, IMMDevice* ppEndpoint) GetDefaultAudioEndpoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceEnumerator*/SelfOuter* self, PWSTR pwstrId, IMMDevice* ppDevice) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceEnumerator*/SelfOuter* self, EDataFlow dataFlow, uint32 dwStateMask, IMMDeviceCollection** ppDevices) EnumAudioEndpoints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceEnumerator*/SelfOuter* self, EDataFlow dataFlow, ERole role, IMMDevice** ppEndpoint) GetDefaultAudioEndpoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceEnumerator*/SelfOuter* self, PWSTR pwstrId, IMMDevice** ppDevice) GetDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceEnumerator*/SelfOuter* self, IMMNotificationClient* pClient) RegisterEndpointNotificationCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceEnumerator*/SelfOuter* self, IMMNotificationClient* pClient) UnregisterEndpointNotificationCallback;
 	}
 
 
-	public HRESULT EnumAudioEndpoints(EDataFlow dataFlow, uint32 dwStateMask, IMMDeviceCollection* ppDevices) mut => VT.[Friend]EnumAudioEndpoints(&this, dataFlow, dwStateMask, ppDevices);
+	public HRESULT EnumAudioEndpoints(EDataFlow dataFlow, uint32 dwStateMask, IMMDeviceCollection** ppDevices) mut => VT.[Friend]EnumAudioEndpoints(&this, dataFlow, dwStateMask, ppDevices);
 
-	public HRESULT GetDefaultAudioEndpoint(EDataFlow dataFlow, ERole role, IMMDevice* ppEndpoint) mut => VT.[Friend]GetDefaultAudioEndpoint(&this, dataFlow, role, ppEndpoint);
+	public HRESULT GetDefaultAudioEndpoint(EDataFlow dataFlow, ERole role, IMMDevice** ppEndpoint) mut => VT.[Friend]GetDefaultAudioEndpoint(&this, dataFlow, role, ppEndpoint);
 
-	public HRESULT GetDevice(PWSTR pwstrId, IMMDevice* ppDevice) mut => VT.[Friend]GetDevice(&this, pwstrId, ppDevice);
+	public HRESULT GetDevice(PWSTR pwstrId, IMMDevice** ppDevice) mut => VT.[Friend]GetDevice(&this, pwstrId, ppDevice);
 
 	public HRESULT RegisterEndpointNotificationCallback(IMMNotificationClient* pClient) mut => VT.[Friend]RegisterEndpointNotificationCallback(&this, pClient);
 
@@ -3347,11 +3347,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceActivator*/SelfOuter* self, Guid iid, IMMDevice* pDevice, PROPVARIANT pActivationParams, void ppInterface) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMMDeviceActivator*/SelfOuter* self, Guid iid, IMMDevice* pDevice, PROPVARIANT* pActivationParams, void** ppInterface) Activate;
 	}
 
 
-	public HRESULT Activate(Guid iid, IMMDevice* pDevice, PROPVARIANT pActivationParams, void ppInterface) mut => VT.[Friend]Activate(&this, iid, pDevice, pActivationParams, ppInterface);
+	public HRESULT Activate(Guid iid, IMMDevice* pDevice, PROPVARIANT* pActivationParams, void** ppInterface) mut => VT.[Friend]Activate(&this, iid, pDevice, pActivationParams, ppInterface);
 }
 
 [CRepr]struct IActivateAudioInterfaceCompletionHandler : IUnknown
@@ -3377,11 +3377,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActivateAudioInterfaceAsyncOperation*/SelfOuter* self, HRESULT activateResult, IUnknown* activatedInterface) GetActivateResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActivateAudioInterfaceAsyncOperation*/SelfOuter* self, HRESULT* activateResult, IUnknown** activatedInterface) GetActivateResult;
 	}
 
 
-	public HRESULT GetActivateResult(HRESULT activateResult, IUnknown* activatedInterface) mut => VT.[Friend]GetActivateResult(&this, activateResult, activatedInterface);
+	public HRESULT GetActivateResult(HRESULT* activateResult, IUnknown** activatedInterface) mut => VT.[Friend]GetActivateResult(&this, activateResult, activatedInterface);
 }
 
 [CRepr]struct IAudioSystemEffectsPropertyChangeNotificationClient : IUnknown
@@ -3407,9 +3407,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsPropertyStore*/SelfOuter* self, uint32 stgmAccess, IPropertyStore* propStore) OpenDefaultPropertyStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsPropertyStore*/SelfOuter* self, uint32 stgmAccess, IPropertyStore* propStore) OpenUserPropertyStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsPropertyStore*/SelfOuter* self, uint32 stgmAccess, IPropertyStore* propStore) OpenVolatilePropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsPropertyStore*/SelfOuter* self, uint32 stgmAccess, IPropertyStore** propStore) OpenDefaultPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsPropertyStore*/SelfOuter* self, uint32 stgmAccess, IPropertyStore** propStore) OpenUserPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsPropertyStore*/SelfOuter* self, uint32 stgmAccess, IPropertyStore** propStore) OpenVolatilePropertyStore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsPropertyStore*/SelfOuter* self) ResetUserPropertyStore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsPropertyStore*/SelfOuter* self) ResetVolatilePropertyStore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsPropertyStore*/SelfOuter* self, IAudioSystemEffectsPropertyChangeNotificationClient* callback) RegisterPropertyChangeNotification;
@@ -3417,11 +3417,11 @@ public static
 	}
 
 
-	public HRESULT OpenDefaultPropertyStore(uint32 stgmAccess, IPropertyStore* propStore) mut => VT.[Friend]OpenDefaultPropertyStore(&this, stgmAccess, propStore);
+	public HRESULT OpenDefaultPropertyStore(uint32 stgmAccess, IPropertyStore** propStore) mut => VT.[Friend]OpenDefaultPropertyStore(&this, stgmAccess, propStore);
 
-	public HRESULT OpenUserPropertyStore(uint32 stgmAccess, IPropertyStore* propStore) mut => VT.[Friend]OpenUserPropertyStore(&this, stgmAccess, propStore);
+	public HRESULT OpenUserPropertyStore(uint32 stgmAccess, IPropertyStore** propStore) mut => VT.[Friend]OpenUserPropertyStore(&this, stgmAccess, propStore);
 
-	public HRESULT OpenVolatilePropertyStore(uint32 stgmAccess, IPropertyStore* propStore) mut => VT.[Friend]OpenVolatilePropertyStore(&this, stgmAccess, propStore);
+	public HRESULT OpenVolatilePropertyStore(uint32 stgmAccess, IPropertyStore** propStore) mut => VT.[Friend]OpenVolatilePropertyStore(&this, stgmAccess, propStore);
 
 	public HRESULT ResetUserPropertyStore() mut => VT.[Friend]ResetUserPropertyStore(&this);
 
@@ -3440,20 +3440,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerChannelDbLevel*/SelfOuter* self, uint32 pcChannels) GetChannelCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerChannelDbLevel*/SelfOuter* self, uint32 nChannel, float pfMinLevelDB, float pfMaxLevelDB, float pfStepping) GetLevelRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerChannelDbLevel*/SelfOuter* self, uint32 nChannel, float pfLevelDB) GetLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerChannelDbLevel*/SelfOuter* self, uint32* pcChannels) GetChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerChannelDbLevel*/SelfOuter* self, uint32 nChannel, float* pfMinLevelDB, float* pfMaxLevelDB, float* pfStepping) GetLevelRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerChannelDbLevel*/SelfOuter* self, uint32 nChannel, float* pfLevelDB) GetLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerChannelDbLevel*/SelfOuter* self, uint32 nChannel, float fLevelDB, Guid pguidEventContext) SetLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerChannelDbLevel*/SelfOuter* self, float fLevelDB, Guid pguidEventContext) SetLevelUniform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerChannelDbLevel*/SelfOuter* self, float* aLevelsDB, uint32 cChannels, Guid pguidEventContext) SetLevelAllChannels;
 	}
 
 
-	public HRESULT GetChannelCount(uint32 pcChannels) mut => VT.[Friend]GetChannelCount(&this, pcChannels);
+	public HRESULT GetChannelCount(uint32* pcChannels) mut => VT.[Friend]GetChannelCount(&this, pcChannels);
 
-	public HRESULT GetLevelRange(uint32 nChannel, float pfMinLevelDB, float pfMaxLevelDB, float pfStepping) mut => VT.[Friend]GetLevelRange(&this, nChannel, pfMinLevelDB, pfMaxLevelDB, pfStepping);
+	public HRESULT GetLevelRange(uint32 nChannel, float* pfMinLevelDB, float* pfMaxLevelDB, float* pfStepping) mut => VT.[Friend]GetLevelRange(&this, nChannel, pfMinLevelDB, pfMaxLevelDB, pfStepping);
 
-	public HRESULT GetLevel(uint32 nChannel, float pfLevelDB) mut => VT.[Friend]GetLevel(&this, nChannel, pfLevelDB);
+	public HRESULT GetLevel(uint32 nChannel, float* pfLevelDB) mut => VT.[Friend]GetLevel(&this, nChannel, pfLevelDB);
 
 	public HRESULT SetLevel(uint32 nChannel, float fLevelDB, Guid pguidEventContext) mut => VT.[Friend]SetLevel(&this, nChannel, fLevelDB, pguidEventContext);
 
@@ -3483,13 +3483,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioChannelConfig*/SelfOuter* self, uint32 dwConfig, Guid pguidEventContext) SetChannelConfig;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioChannelConfig*/SelfOuter* self, uint32 pdwConfig) GetChannelConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioChannelConfig*/SelfOuter* self, uint32* pdwConfig) GetChannelConfig;
 	}
 
 
 	public HRESULT SetChannelConfig(uint32 dwConfig, Guid pguidEventContext) mut => VT.[Friend]SetChannelConfig(&this, dwConfig, pguidEventContext);
 
-	public HRESULT GetChannelConfig(uint32 pdwConfig) mut => VT.[Friend]GetChannelConfig(&this, pdwConfig);
+	public HRESULT GetChannelConfig(uint32* pdwConfig) mut => VT.[Friend]GetChannelConfig(&this, pdwConfig);
 }
 
 [CRepr]struct IAudioLoudness : IUnknown
@@ -3500,12 +3500,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioLoudness*/SelfOuter* self, BOOL pbEnabled) GetEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioLoudness*/SelfOuter* self, BOOL* pbEnabled) GetEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioLoudness*/SelfOuter* self, BOOL bEnable, Guid pguidEventContext) SetEnabled;
 	}
 
 
-	public HRESULT GetEnabled(BOOL pbEnabled) mut => VT.[Friend]GetEnabled(&this, pbEnabled);
+	public HRESULT GetEnabled(BOOL* pbEnabled) mut => VT.[Friend]GetEnabled(&this, pbEnabled);
 
 	public HRESULT SetEnabled(BOOL bEnable, Guid pguidEventContext) mut => VT.[Friend]SetEnabled(&this, bEnable, pguidEventContext);
 }
@@ -3518,12 +3518,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioInputSelector*/SelfOuter* self, uint32 pnIdSelected) GetSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioInputSelector*/SelfOuter* self, uint32* pnIdSelected) GetSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioInputSelector*/SelfOuter* self, uint32 nIdSelect, Guid pguidEventContext) SetSelection;
 	}
 
 
-	public HRESULT GetSelection(uint32 pnIdSelected) mut => VT.[Friend]GetSelection(&this, pnIdSelected);
+	public HRESULT GetSelection(uint32* pnIdSelected) mut => VT.[Friend]GetSelection(&this, pnIdSelected);
 
 	public HRESULT SetSelection(uint32 nIdSelect, Guid pguidEventContext) mut => VT.[Friend]SetSelection(&this, nIdSelect, pguidEventContext);
 }
@@ -3536,12 +3536,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioOutputSelector*/SelfOuter* self, uint32 pnIdSelected) GetSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioOutputSelector*/SelfOuter* self, uint32* pnIdSelected) GetSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioOutputSelector*/SelfOuter* self, uint32 nIdSelect, Guid pguidEventContext) SetSelection;
 	}
 
 
-	public HRESULT GetSelection(uint32 pnIdSelected) mut => VT.[Friend]GetSelection(&this, pnIdSelected);
+	public HRESULT GetSelection(uint32* pnIdSelected) mut => VT.[Friend]GetSelection(&this, pnIdSelected);
 
 	public HRESULT SetSelection(uint32 nIdSelect, Guid pguidEventContext) mut => VT.[Friend]SetSelection(&this, nIdSelect, pguidEventContext);
 }
@@ -3555,13 +3555,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioMute*/SelfOuter* self, BOOL bMuted, Guid pguidEventContext) SetMute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioMute*/SelfOuter* self, BOOL pbMuted) GetMute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioMute*/SelfOuter* self, BOOL* pbMuted) GetMute;
 	}
 
 
 	public HRESULT SetMute(BOOL bMuted, Guid pguidEventContext) mut => VT.[Friend]SetMute(&this, bMuted, pguidEventContext);
 
-	public HRESULT GetMute(BOOL pbMuted) mut => VT.[Friend]GetMute(&this, pbMuted);
+	public HRESULT GetMute(BOOL* pbMuted) mut => VT.[Friend]GetMute(&this, pbMuted);
 }
 
 [CRepr]struct IAudioBass : IPerChannelDbLevel
@@ -3608,12 +3608,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioAutoGainControl*/SelfOuter* self, BOOL pbEnabled) GetEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioAutoGainControl*/SelfOuter* self, BOOL* pbEnabled) GetEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioAutoGainControl*/SelfOuter* self, BOOL bEnable, Guid pguidEventContext) SetEnabled;
 	}
 
 
-	public HRESULT GetEnabled(BOOL pbEnabled) mut => VT.[Friend]GetEnabled(&this, pbEnabled);
+	public HRESULT GetEnabled(BOOL* pbEnabled) mut => VT.[Friend]GetEnabled(&this, pbEnabled);
 
 	public HRESULT SetEnabled(BOOL bEnable, Guid pguidEventContext) mut => VT.[Friend]SetEnabled(&this, bEnable, pguidEventContext);
 }
@@ -3626,14 +3626,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioPeakMeter*/SelfOuter* self, uint32 pcChannels) GetChannelCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioPeakMeter*/SelfOuter* self, uint32 nChannel, float pfLevel) GetLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioPeakMeter*/SelfOuter* self, uint32* pcChannels) GetChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioPeakMeter*/SelfOuter* self, uint32 nChannel, float* pfLevel) GetLevel;
 	}
 
 
-	public HRESULT GetChannelCount(uint32 pcChannels) mut => VT.[Friend]GetChannelCount(&this, pcChannels);
+	public HRESULT GetChannelCount(uint32* pcChannels) mut => VT.[Friend]GetChannelCount(&this, pcChannels);
 
-	public HRESULT GetLevel(uint32 nChannel, float pfLevel) mut => VT.[Friend]GetLevel(&this, nChannel, pfLevel);
+	public HRESULT GetLevel(uint32 nChannel, float* pfLevel) mut => VT.[Friend]GetLevel(&this, nChannel, pfLevel);
 }
 
 [CRepr]struct IDeviceSpecificProperty : IUnknown
@@ -3644,20 +3644,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceSpecificProperty*/SelfOuter* self, uint16 pVType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceSpecificProperty*/SelfOuter* self, void pvValue, uint32 pcbValue) GetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceSpecificProperty*/SelfOuter* self, void pvValue, uint32 cbValue, Guid pguidEventContext) SetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceSpecificProperty*/SelfOuter* self, int32 plMin, int32 plMax, int32 plStepping) Get4BRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceSpecificProperty*/SelfOuter* self, uint16* pVType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceSpecificProperty*/SelfOuter* self, void* pvValue, uint32* pcbValue) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceSpecificProperty*/SelfOuter* self, void* pvValue, uint32 cbValue, Guid pguidEventContext) SetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceSpecificProperty*/SelfOuter* self, int32* plMin, int32* plMax, int32* plStepping) Get4BRange;
 	}
 
 
-	public HRESULT GetType(uint16 pVType) mut => VT.[Friend]COM_GetType(&this, pVType);
+	public HRESULT GetType(uint16* pVType) mut => VT.[Friend]COM_GetType(&this, pVType);
 
-	public HRESULT GetValue(void pvValue, uint32 pcbValue) mut => VT.[Friend]GetValue(&this, pvValue, pcbValue);
+	public HRESULT GetValue(void* pvValue, uint32* pcbValue) mut => VT.[Friend]GetValue(&this, pvValue, pcbValue);
 
-	public HRESULT SetValue(void pvValue, uint32 cbValue, Guid pguidEventContext) mut => VT.[Friend]SetValue(&this, pvValue, cbValue, pguidEventContext);
+	public HRESULT SetValue(void* pvValue, uint32 cbValue, Guid pguidEventContext) mut => VT.[Friend]SetValue(&this, pvValue, cbValue, pguidEventContext);
 
-	public HRESULT Get4BRange(int32 plMin, int32 plMax, int32 plStepping) mut => VT.[Friend]Get4BRange(&this, plMin, plMax, plStepping);
+	public HRESULT Get4BRange(int32* plMin, int32* plMax, int32* plStepping) mut => VT.[Friend]Get4BRange(&this, plMin, plMax, plStepping);
 }
 
 [CRepr]struct IPartsList : IUnknown
@@ -3668,14 +3668,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPartsList*/SelfOuter* self, uint32 pCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPartsList*/SelfOuter* self, uint32 nIndex, IPart* ppPart) GetPart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPartsList*/SelfOuter* self, uint32* pCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPartsList*/SelfOuter* self, uint32 nIndex, IPart** ppPart) GetPart;
 	}
 
 
-	public HRESULT GetCount(uint32 pCount) mut => VT.[Friend]GetCount(&this, pCount);
+	public HRESULT GetCount(uint32* pCount) mut => VT.[Friend]GetCount(&this, pCount);
 
-	public HRESULT GetPart(uint32 nIndex, IPart* ppPart) mut => VT.[Friend]GetPart(&this, nIndex, ppPart);
+	public HRESULT GetPart(uint32 nIndex, IPart** ppPart) mut => VT.[Friend]GetPart(&this, nIndex, ppPart);
 }
 
 [CRepr]struct IPart : IUnknown
@@ -3687,16 +3687,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, PWSTR ppwstrName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, uint32 pnId) GetLocalId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, uint32* pnId) GetLocalId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, PWSTR ppwstrGlobalId) GetGlobalId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, PartType pPartType) GetPartType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, PartType* pPartType) GetPartType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, Guid pSubType) GetSubType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, uint32 pCount) GetControlInterfaceCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, uint32 nIndex, IControlInterface* ppInterfaceDesc) GetControlInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, IPartsList* ppParts) EnumPartsIncoming;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, IPartsList* ppParts) EnumPartsOutgoing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, IDeviceTopology* ppTopology) GetTopologyObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, uint32 dwClsContext, Guid refiid, void ppvObject) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, uint32* pCount) GetControlInterfaceCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, uint32 nIndex, IControlInterface** ppInterfaceDesc) GetControlInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, IPartsList** ppParts) EnumPartsIncoming;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, IPartsList** ppParts) EnumPartsOutgoing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, IDeviceTopology** ppTopology) GetTopologyObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, uint32 dwClsContext, Guid refiid, void** ppvObject) Activate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, Guid riid, IControlChangeNotify* pNotify) RegisterControlChangeCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPart*/SelfOuter* self, IControlChangeNotify* pNotify) UnregisterControlChangeCallback;
 	}
@@ -3704,25 +3704,25 @@ public static
 
 	public HRESULT GetName(PWSTR ppwstrName) mut => VT.[Friend]GetName(&this, ppwstrName);
 
-	public HRESULT GetLocalId(uint32 pnId) mut => VT.[Friend]GetLocalId(&this, pnId);
+	public HRESULT GetLocalId(uint32* pnId) mut => VT.[Friend]GetLocalId(&this, pnId);
 
 	public HRESULT GetGlobalId(PWSTR ppwstrGlobalId) mut => VT.[Friend]GetGlobalId(&this, ppwstrGlobalId);
 
-	public HRESULT GetPartType(PartType pPartType) mut => VT.[Friend]GetPartType(&this, pPartType);
+	public HRESULT GetPartType(PartType* pPartType) mut => VT.[Friend]GetPartType(&this, pPartType);
 
 	public HRESULT GetSubType(Guid pSubType) mut => VT.[Friend]GetSubType(&this, pSubType);
 
-	public HRESULT GetControlInterfaceCount(uint32 pCount) mut => VT.[Friend]GetControlInterfaceCount(&this, pCount);
+	public HRESULT GetControlInterfaceCount(uint32* pCount) mut => VT.[Friend]GetControlInterfaceCount(&this, pCount);
 
-	public HRESULT GetControlInterface(uint32 nIndex, IControlInterface* ppInterfaceDesc) mut => VT.[Friend]GetControlInterface(&this, nIndex, ppInterfaceDesc);
+	public HRESULT GetControlInterface(uint32 nIndex, IControlInterface** ppInterfaceDesc) mut => VT.[Friend]GetControlInterface(&this, nIndex, ppInterfaceDesc);
 
-	public HRESULT EnumPartsIncoming(IPartsList* ppParts) mut => VT.[Friend]EnumPartsIncoming(&this, ppParts);
+	public HRESULT EnumPartsIncoming(IPartsList** ppParts) mut => VT.[Friend]EnumPartsIncoming(&this, ppParts);
 
-	public HRESULT EnumPartsOutgoing(IPartsList* ppParts) mut => VT.[Friend]EnumPartsOutgoing(&this, ppParts);
+	public HRESULT EnumPartsOutgoing(IPartsList** ppParts) mut => VT.[Friend]EnumPartsOutgoing(&this, ppParts);
 
-	public HRESULT GetTopologyObject(IDeviceTopology* ppTopology) mut => VT.[Friend]GetTopologyObject(&this, ppTopology);
+	public HRESULT GetTopologyObject(IDeviceTopology** ppTopology) mut => VT.[Friend]GetTopologyObject(&this, ppTopology);
 
-	public HRESULT Activate(uint32 dwClsContext, Guid refiid, void ppvObject) mut => VT.[Friend]Activate(&this, dwClsContext, refiid, ppvObject);
+	public HRESULT Activate(uint32 dwClsContext, Guid refiid, void** ppvObject) mut => VT.[Friend]Activate(&this, dwClsContext, refiid, ppvObject);
 
 	public HRESULT RegisterControlChangeCallback(Guid riid, IControlChangeNotify* pNotify) mut => VT.[Friend]RegisterControlChangeCallback(&this, riid, pNotify);
 
@@ -3737,28 +3737,28 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, ConnectorType pType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, DataFlow pFlow) GetDataFlow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, ConnectorType* pType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, DataFlow* pFlow) GetDataFlow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, IConnector* pConnectTo) ConnectTo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self) Disconnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, BOOL pbConnected) IsConnected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, IConnector* ppConTo) GetConnectedTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, BOOL* pbConnected) IsConnected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, IConnector** ppConTo) GetConnectedTo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, PWSTR ppwstrConnectorId) GetConnectorIdConnectedTo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnector*/SelfOuter* self, PWSTR ppwstrDeviceId) GetDeviceIdConnectedTo;
 	}
 
 
-	public HRESULT GetType(ConnectorType pType) mut => VT.[Friend]COM_GetType(&this, pType);
+	public HRESULT GetType(ConnectorType* pType) mut => VT.[Friend]COM_GetType(&this, pType);
 
-	public HRESULT GetDataFlow(DataFlow pFlow) mut => VT.[Friend]GetDataFlow(&this, pFlow);
+	public HRESULT GetDataFlow(DataFlow* pFlow) mut => VT.[Friend]GetDataFlow(&this, pFlow);
 
 	public HRESULT ConnectTo(IConnector* pConnectTo) mut => VT.[Friend]ConnectTo(&this, pConnectTo);
 
 	public HRESULT Disconnect() mut => VT.[Friend]Disconnect(&this);
 
-	public HRESULT IsConnected(BOOL pbConnected) mut => VT.[Friend]IsConnected(&this, pbConnected);
+	public HRESULT IsConnected(BOOL* pbConnected) mut => VT.[Friend]IsConnected(&this, pbConnected);
 
-	public HRESULT GetConnectedTo(IConnector* ppConTo) mut => VT.[Friend]GetConnectedTo(&this, ppConTo);
+	public HRESULT GetConnectedTo(IConnector** ppConTo) mut => VT.[Friend]GetConnectedTo(&this, ppConTo);
 
 	public HRESULT GetConnectorIdConnectedTo(PWSTR ppwstrConnectorId) mut => VT.[Friend]GetConnectorIdConnectedTo(&this, ppwstrConnectorId);
 
@@ -3818,29 +3818,29 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, uint32 pCount) GetConnectorCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, uint32 nIndex, IConnector* ppConnector) GetConnector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, uint32 pCount) GetSubunitCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, uint32 nIndex, ISubunit* ppSubunit) GetSubunit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, uint32 nId, IPart* ppPart) GetPartById;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, uint32* pCount) GetConnectorCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, uint32 nIndex, IConnector** ppConnector) GetConnector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, uint32* pCount) GetSubunitCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, uint32 nIndex, ISubunit** ppSubunit) GetSubunit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, uint32 nId, IPart** ppPart) GetPartById;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, PWSTR ppwstrDeviceId) GetDeviceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, IPart* pIPartFrom, IPart* pIPartTo, BOOL bRejectMixedPaths, IPartsList* ppParts) GetSignalPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceTopology*/SelfOuter* self, IPart* pIPartFrom, IPart* pIPartTo, BOOL bRejectMixedPaths, IPartsList** ppParts) GetSignalPath;
 	}
 
 
-	public HRESULT GetConnectorCount(uint32 pCount) mut => VT.[Friend]GetConnectorCount(&this, pCount);
+	public HRESULT GetConnectorCount(uint32* pCount) mut => VT.[Friend]GetConnectorCount(&this, pCount);
 
-	public HRESULT GetConnector(uint32 nIndex, IConnector* ppConnector) mut => VT.[Friend]GetConnector(&this, nIndex, ppConnector);
+	public HRESULT GetConnector(uint32 nIndex, IConnector** ppConnector) mut => VT.[Friend]GetConnector(&this, nIndex, ppConnector);
 
-	public HRESULT GetSubunitCount(uint32 pCount) mut => VT.[Friend]GetSubunitCount(&this, pCount);
+	public HRESULT GetSubunitCount(uint32* pCount) mut => VT.[Friend]GetSubunitCount(&this, pCount);
 
-	public HRESULT GetSubunit(uint32 nIndex, ISubunit* ppSubunit) mut => VT.[Friend]GetSubunit(&this, nIndex, ppSubunit);
+	public HRESULT GetSubunit(uint32 nIndex, ISubunit** ppSubunit) mut => VT.[Friend]GetSubunit(&this, nIndex, ppSubunit);
 
-	public HRESULT GetPartById(uint32 nId, IPart* ppPart) mut => VT.[Friend]GetPartById(&this, nId, ppPart);
+	public HRESULT GetPartById(uint32 nId, IPart** ppPart) mut => VT.[Friend]GetPartById(&this, nId, ppPart);
 
 	public HRESULT GetDeviceId(PWSTR ppwstrDeviceId) mut => VT.[Friend]GetDeviceId(&this, ppwstrDeviceId);
 
-	public HRESULT GetSignalPath(IPart* pIPartFrom, IPart* pIPartTo, BOOL bRejectMixedPaths, IPartsList* ppParts) mut => VT.[Friend]GetSignalPath(&this, pIPartFrom, pIPartTo, bRejectMixedPaths, ppParts);
+	public HRESULT GetSignalPath(IPart* pIPartFrom, IPart* pIPartTo, BOOL bRejectMixedPaths, IPartsList** ppParts) mut => VT.[Friend]GetSignalPath(&this, pIPartFrom, pIPartTo, bRejectMixedPaths, ppParts);
 }
 
 [CRepr]struct IAudioSessionEvents : IUnknown
@@ -3884,7 +3884,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl*/SelfOuter* self, AudioSessionState pRetVal) GetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl*/SelfOuter* self, AudioSessionState* pRetVal) GetState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl*/SelfOuter* self, PWSTR pRetVal) GetDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl*/SelfOuter* self, PWSTR Value, Guid EventContext) SetDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl*/SelfOuter* self, PWSTR pRetVal) GetIconPath;
@@ -3896,7 +3896,7 @@ public static
 	}
 
 
-	public HRESULT GetState(AudioSessionState pRetVal) mut => VT.[Friend]GetState(&this, pRetVal);
+	public HRESULT GetState(AudioSessionState* pRetVal) mut => VT.[Friend]GetState(&this, pRetVal);
 
 	public HRESULT GetDisplayName(PWSTR pRetVal) mut => VT.[Friend]GetDisplayName(&this, pRetVal);
 
@@ -3925,7 +3925,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl2*/SelfOuter* self, PWSTR pRetVal) GetSessionIdentifier;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl2*/SelfOuter* self, PWSTR pRetVal) GetSessionInstanceIdentifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl2*/SelfOuter* self, uint32 pRetVal) GetProcessId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl2*/SelfOuter* self, uint32* pRetVal) GetProcessId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl2*/SelfOuter* self) IsSystemSoundsSession;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionControl2*/SelfOuter* self, BOOL optOut) SetDuckingPreference;
 	}
@@ -3935,7 +3935,7 @@ public static
 
 	public HRESULT GetSessionInstanceIdentifier(PWSTR pRetVal) mut => VT.[Friend]GetSessionInstanceIdentifier(&this, pRetVal);
 
-	public HRESULT GetProcessId(uint32 pRetVal) mut => VT.[Friend]GetProcessId(&this, pRetVal);
+	public HRESULT GetProcessId(uint32* pRetVal) mut => VT.[Friend]GetProcessId(&this, pRetVal);
 
 	public HRESULT IsSystemSoundsSession() mut => VT.[Friend]IsSystemSoundsSession(&this);
 
@@ -3950,14 +3950,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionManager*/SelfOuter* self, Guid AudioSessionGuid, uint32 StreamFlags, IAudioSessionControl* SessionControl) GetAudioSessionControl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionManager*/SelfOuter* self, Guid AudioSessionGuid, uint32 StreamFlags, ISimpleAudioVolume* AudioVolume) GetSimpleAudioVolume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionManager*/SelfOuter* self, Guid AudioSessionGuid, uint32 StreamFlags, IAudioSessionControl** SessionControl) GetAudioSessionControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionManager*/SelfOuter* self, Guid AudioSessionGuid, uint32 StreamFlags, ISimpleAudioVolume** AudioVolume) GetSimpleAudioVolume;
 	}
 
 
-	public HRESULT GetAudioSessionControl(Guid AudioSessionGuid, uint32 StreamFlags, IAudioSessionControl* SessionControl) mut => VT.[Friend]GetAudioSessionControl(&this, AudioSessionGuid, StreamFlags, SessionControl);
+	public HRESULT GetAudioSessionControl(Guid AudioSessionGuid, uint32 StreamFlags, IAudioSessionControl** SessionControl) mut => VT.[Friend]GetAudioSessionControl(&this, AudioSessionGuid, StreamFlags, SessionControl);
 
-	public HRESULT GetSimpleAudioVolume(Guid AudioSessionGuid, uint32 StreamFlags, ISimpleAudioVolume* AudioVolume) mut => VT.[Friend]GetSimpleAudioVolume(&this, AudioSessionGuid, StreamFlags, AudioVolume);
+	public HRESULT GetSimpleAudioVolume(Guid AudioSessionGuid, uint32 StreamFlags, ISimpleAudioVolume** AudioVolume) mut => VT.[Friend]GetSimpleAudioVolume(&this, AudioSessionGuid, StreamFlags, AudioVolume);
 }
 
 [CRepr]struct IAudioVolumeDuckNotification : IUnknown
@@ -4001,14 +4001,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionEnumerator*/SelfOuter* self, int32 SessionCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionEnumerator*/SelfOuter* self, int32 SessionCount, IAudioSessionControl* Session) GetSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionEnumerator*/SelfOuter* self, int32* SessionCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionEnumerator*/SelfOuter* self, int32 SessionCount, IAudioSessionControl** Session) GetSession;
 	}
 
 
-	public HRESULT GetCount(int32 SessionCount) mut => VT.[Friend]GetCount(&this, SessionCount);
+	public HRESULT GetCount(int32* SessionCount) mut => VT.[Friend]GetCount(&this, SessionCount);
 
-	public HRESULT GetSession(int32 SessionCount, IAudioSessionControl* Session) mut => VT.[Friend]GetSession(&this, SessionCount, Session);
+	public HRESULT GetSession(int32 SessionCount, IAudioSessionControl** Session) mut => VT.[Friend]GetSession(&this, SessionCount, Session);
 }
 
 [CRepr]struct IAudioSessionManager2 : IAudioSessionManager
@@ -4019,7 +4019,7 @@ public static
 
 	[CRepr]public struct VTable : IAudioSessionManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionManager2*/SelfOuter* self, IAudioSessionEnumerator* SessionEnum) GetSessionEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionManager2*/SelfOuter* self, IAudioSessionEnumerator** SessionEnum) GetSessionEnumerator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionManager2*/SelfOuter* self, IAudioSessionNotification* SessionNotification) RegisterSessionNotification;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionManager2*/SelfOuter* self, IAudioSessionNotification* SessionNotification) UnregisterSessionNotification;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSessionManager2*/SelfOuter* self, PWSTR sessionID, IAudioVolumeDuckNotification* duckNotification) RegisterDuckNotification;
@@ -4027,7 +4027,7 @@ public static
 	}
 
 
-	public HRESULT GetSessionEnumerator(IAudioSessionEnumerator* SessionEnum) mut => VT.[Friend]GetSessionEnumerator(&this, SessionEnum);
+	public HRESULT GetSessionEnumerator(IAudioSessionEnumerator** SessionEnum) mut => VT.[Friend]GetSessionEnumerator(&this, SessionEnum);
 
 	public HRESULT RegisterSessionNotification(IAudioSessionNotification* SessionNotification) mut => VT.[Friend]RegisterSessionNotification(&this, SessionNotification);
 
@@ -4046,23 +4046,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItems*/SelfOuter* self, uint16 frameCount) GetFrameCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItems*/SelfOuter* self, uint16 itemCount) GetItemCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItems*/SelfOuter* self, uint16 maxItemCount) GetMaxItemCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItems*/SelfOuter* self, uint32 maxValueBufferLength) GetMaxValueBufferLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItems*/SelfOuter* self, SpatialAudioMetadataItemsInfo info) GetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItems*/SelfOuter* self, uint16* frameCount) GetFrameCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItems*/SelfOuter* self, uint16* itemCount) GetItemCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItems*/SelfOuter* self, uint16* maxItemCount) GetMaxItemCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItems*/SelfOuter* self, uint32* maxValueBufferLength) GetMaxValueBufferLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItems*/SelfOuter* self, SpatialAudioMetadataItemsInfo* info) GetInfo;
 	}
 
 
-	public HRESULT GetFrameCount(uint16 frameCount) mut => VT.[Friend]GetFrameCount(&this, frameCount);
+	public HRESULT GetFrameCount(uint16* frameCount) mut => VT.[Friend]GetFrameCount(&this, frameCount);
 
-	public HRESULT GetItemCount(uint16 itemCount) mut => VT.[Friend]GetItemCount(&this, itemCount);
+	public HRESULT GetItemCount(uint16* itemCount) mut => VT.[Friend]GetItemCount(&this, itemCount);
 
-	public HRESULT GetMaxItemCount(uint16 maxItemCount) mut => VT.[Friend]GetMaxItemCount(&this, maxItemCount);
+	public HRESULT GetMaxItemCount(uint16* maxItemCount) mut => VT.[Friend]GetMaxItemCount(&this, maxItemCount);
 
-	public HRESULT GetMaxValueBufferLength(uint32 maxValueBufferLength) mut => VT.[Friend]GetMaxValueBufferLength(&this, maxValueBufferLength);
+	public HRESULT GetMaxValueBufferLength(uint32* maxValueBufferLength) mut => VT.[Friend]GetMaxValueBufferLength(&this, maxValueBufferLength);
 
-	public HRESULT GetInfo(SpatialAudioMetadataItemsInfo info) mut => VT.[Friend]GetInfo(&this, info);
+	public HRESULT GetInfo(SpatialAudioMetadataItemsInfo* info) mut => VT.[Friend]GetInfo(&this, info);
 }
 
 [CRepr]struct ISpatialAudioMetadataWriter : IUnknown
@@ -4075,7 +4075,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataWriter*/SelfOuter* self, ISpatialAudioMetadataItems* metadataItems) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataWriter*/SelfOuter* self, uint16 frameOffset) WriteNextItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataWriter*/SelfOuter* self, uint8 commandID, void valueBuffer, uint32 valueBufferLength) WriteNextItemCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataWriter*/SelfOuter* self, uint8 commandID, void* valueBuffer, uint32 valueBufferLength) WriteNextItemCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataWriter*/SelfOuter* self) Close;
 	}
 
@@ -4084,7 +4084,7 @@ public static
 
 	public HRESULT WriteNextItem(uint16 frameOffset) mut => VT.[Friend]WriteNextItem(&this, frameOffset);
 
-	public HRESULT WriteNextItemCommand(uint8 commandID, void valueBuffer, uint32 valueBufferLength) mut => VT.[Friend]WriteNextItemCommand(&this, commandID, valueBuffer, valueBufferLength);
+	public HRESULT WriteNextItemCommand(uint8 commandID, void* valueBuffer, uint32 valueBufferLength) mut => VT.[Friend]WriteNextItemCommand(&this, commandID, valueBuffer, valueBufferLength);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 }
@@ -4098,17 +4098,17 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataReader*/SelfOuter* self, ISpatialAudioMetadataItems* metadataItems) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataReader*/SelfOuter* self, uint8 commandCount, uint16 frameOffset) ReadNextItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataReader*/SelfOuter* self, uint8 commandID, void valueBuffer, uint32 maxValueBufferLength, uint32 valueBufferLength) ReadNextItemCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataReader*/SelfOuter* self, uint8* commandCount, uint16* frameOffset) ReadNextItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataReader*/SelfOuter* self, uint8* commandID, void* valueBuffer, uint32 maxValueBufferLength, uint32* valueBufferLength) ReadNextItemCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataReader*/SelfOuter* self) Close;
 	}
 
 
 	public HRESULT Open(ISpatialAudioMetadataItems* metadataItems) mut => VT.[Friend]Open(&this, metadataItems);
 
-	public HRESULT ReadNextItem(uint8 commandCount, uint16 frameOffset) mut => VT.[Friend]ReadNextItem(&this, commandCount, frameOffset);
+	public HRESULT ReadNextItem(uint8* commandCount, uint16* frameOffset) mut => VT.[Friend]ReadNextItem(&this, commandCount, frameOffset);
 
-	public HRESULT ReadNextItemCommand(uint8 commandID, void valueBuffer, uint32 maxValueBufferLength, uint32 valueBufferLength) mut => VT.[Friend]ReadNextItemCommand(&this, commandID, valueBuffer, maxValueBufferLength, valueBufferLength);
+	public HRESULT ReadNextItemCommand(uint8* commandID, void* valueBuffer, uint32 maxValueBufferLength, uint32* valueBufferLength) mut => VT.[Friend]ReadNextItemCommand(&this, commandID, valueBuffer, maxValueBufferLength, valueBufferLength);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 }
@@ -4122,14 +4122,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataCopier*/SelfOuter* self, ISpatialAudioMetadataItems* metadataItems) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataCopier*/SelfOuter* self, uint16 copyFrameCount, SpatialAudioMetadataCopyMode copyMode, ISpatialAudioMetadataItems* dstMetadataItems, uint16 itemsCopied) CopyMetadataForFrames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataCopier*/SelfOuter* self, uint16 copyFrameCount, SpatialAudioMetadataCopyMode copyMode, ISpatialAudioMetadataItems* dstMetadataItems, uint16* itemsCopied) CopyMetadataForFrames;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataCopier*/SelfOuter* self) Close;
 	}
 
 
 	public HRESULT Open(ISpatialAudioMetadataItems* metadataItems) mut => VT.[Friend]Open(&this, metadataItems);
 
-	public HRESULT CopyMetadataForFrames(uint16 copyFrameCount, SpatialAudioMetadataCopyMode copyMode, ISpatialAudioMetadataItems* dstMetadataItems, uint16 itemsCopied) mut => VT.[Friend]CopyMetadataForFrames(&this, copyFrameCount, copyMode, dstMetadataItems, itemsCopied);
+	public HRESULT CopyMetadataForFrames(uint16 copyFrameCount, SpatialAudioMetadataCopyMode copyMode, ISpatialAudioMetadataItems* dstMetadataItems, uint16* itemsCopied) mut => VT.[Friend]CopyMetadataForFrames(&this, copyFrameCount, copyMode, dstMetadataItems, itemsCopied);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 }
@@ -4142,15 +4142,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItemsBuffer*/SelfOuter* self, uint8 buffer, uint32 bufferLength) AttachToBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItemsBuffer*/SelfOuter* self, uint8 buffer, uint32 bufferLength) AttachToPopulatedBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItemsBuffer*/SelfOuter* self, uint8* buffer, uint32 bufferLength) AttachToBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItemsBuffer*/SelfOuter* self, uint8* buffer, uint32 bufferLength) AttachToPopulatedBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataItemsBuffer*/SelfOuter* self) DetachBuffer;
 	}
 
 
-	public HRESULT AttachToBuffer(uint8 buffer, uint32 bufferLength) mut => VT.[Friend]AttachToBuffer(&this, buffer, bufferLength);
+	public HRESULT AttachToBuffer(uint8* buffer, uint32 bufferLength) mut => VT.[Friend]AttachToBuffer(&this, buffer, bufferLength);
 
-	public HRESULT AttachToPopulatedBuffer(uint8 buffer, uint32 bufferLength) mut => VT.[Friend]AttachToPopulatedBuffer(&this, buffer, bufferLength);
+	public HRESULT AttachToPopulatedBuffer(uint8* buffer, uint32 bufferLength) mut => VT.[Friend]AttachToPopulatedBuffer(&this, buffer, bufferLength);
 
 	public HRESULT DetachBuffer() mut => VT.[Friend]DetachBuffer(&this);
 }
@@ -4163,23 +4163,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataClient*/SelfOuter* self, uint16 maxItemCount, uint16 frameCount, ISpatialAudioMetadataItemsBuffer* metadataItemsBuffer, ISpatialAudioMetadataItems* metadataItems) ActivateSpatialAudioMetadataItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataClient*/SelfOuter* self, uint16 maxItemCount, uint32 bufferLength) GetSpatialAudioMetadataItemsBufferLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataClient*/SelfOuter* self, SpatialAudioMetadataWriterOverflowMode overflowMode, ISpatialAudioMetadataWriter* metadataWriter) ActivateSpatialAudioMetadataWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataClient*/SelfOuter* self, ISpatialAudioMetadataCopier* metadataCopier) ActivateSpatialAudioMetadataCopier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataClient*/SelfOuter* self, ISpatialAudioMetadataReader* metadataReader) ActivateSpatialAudioMetadataReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataClient*/SelfOuter* self, uint16 maxItemCount, uint16 frameCount, ISpatialAudioMetadataItemsBuffer** metadataItemsBuffer, ISpatialAudioMetadataItems** metadataItems) ActivateSpatialAudioMetadataItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataClient*/SelfOuter* self, uint16 maxItemCount, uint32* bufferLength) GetSpatialAudioMetadataItemsBufferLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataClient*/SelfOuter* self, SpatialAudioMetadataWriterOverflowMode overflowMode, ISpatialAudioMetadataWriter** metadataWriter) ActivateSpatialAudioMetadataWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataClient*/SelfOuter* self, ISpatialAudioMetadataCopier** metadataCopier) ActivateSpatialAudioMetadataCopier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioMetadataClient*/SelfOuter* self, ISpatialAudioMetadataReader** metadataReader) ActivateSpatialAudioMetadataReader;
 	}
 
 
-	public HRESULT ActivateSpatialAudioMetadataItems(uint16 maxItemCount, uint16 frameCount, ISpatialAudioMetadataItemsBuffer* metadataItemsBuffer, ISpatialAudioMetadataItems* metadataItems) mut => VT.[Friend]ActivateSpatialAudioMetadataItems(&this, maxItemCount, frameCount, metadataItemsBuffer, metadataItems);
+	public HRESULT ActivateSpatialAudioMetadataItems(uint16 maxItemCount, uint16 frameCount, ISpatialAudioMetadataItemsBuffer** metadataItemsBuffer, ISpatialAudioMetadataItems** metadataItems) mut => VT.[Friend]ActivateSpatialAudioMetadataItems(&this, maxItemCount, frameCount, metadataItemsBuffer, metadataItems);
 
-	public HRESULT GetSpatialAudioMetadataItemsBufferLength(uint16 maxItemCount, uint32 bufferLength) mut => VT.[Friend]GetSpatialAudioMetadataItemsBufferLength(&this, maxItemCount, bufferLength);
+	public HRESULT GetSpatialAudioMetadataItemsBufferLength(uint16 maxItemCount, uint32* bufferLength) mut => VT.[Friend]GetSpatialAudioMetadataItemsBufferLength(&this, maxItemCount, bufferLength);
 
-	public HRESULT ActivateSpatialAudioMetadataWriter(SpatialAudioMetadataWriterOverflowMode overflowMode, ISpatialAudioMetadataWriter* metadataWriter) mut => VT.[Friend]ActivateSpatialAudioMetadataWriter(&this, overflowMode, metadataWriter);
+	public HRESULT ActivateSpatialAudioMetadataWriter(SpatialAudioMetadataWriterOverflowMode overflowMode, ISpatialAudioMetadataWriter** metadataWriter) mut => VT.[Friend]ActivateSpatialAudioMetadataWriter(&this, overflowMode, metadataWriter);
 
-	public HRESULT ActivateSpatialAudioMetadataCopier(ISpatialAudioMetadataCopier* metadataCopier) mut => VT.[Friend]ActivateSpatialAudioMetadataCopier(&this, metadataCopier);
+	public HRESULT ActivateSpatialAudioMetadataCopier(ISpatialAudioMetadataCopier** metadataCopier) mut => VT.[Friend]ActivateSpatialAudioMetadataCopier(&this, metadataCopier);
 
-	public HRESULT ActivateSpatialAudioMetadataReader(ISpatialAudioMetadataReader* metadataReader) mut => VT.[Friend]ActivateSpatialAudioMetadataReader(&this, metadataReader);
+	public HRESULT ActivateSpatialAudioMetadataReader(ISpatialAudioMetadataReader** metadataReader) mut => VT.[Friend]ActivateSpatialAudioMetadataReader(&this, metadataReader);
 }
 
 [CRepr]struct ISpatialAudioObjectForMetadataCommands : ISpatialAudioObjectBase
@@ -4190,11 +4190,11 @@ public static
 
 	[CRepr]public struct VTable : ISpatialAudioObjectBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForMetadataCommands*/SelfOuter* self, uint8 commandID, void valueBuffer, uint32 valueBufferLength) WriteNextMetadataCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForMetadataCommands*/SelfOuter* self, uint8 commandID, void* valueBuffer, uint32 valueBufferLength) WriteNextMetadataCommand;
 	}
 
 
-	public HRESULT WriteNextMetadataCommand(uint8 commandID, void valueBuffer, uint32 valueBufferLength) mut => VT.[Friend]WriteNextMetadataCommand(&this, commandID, valueBuffer, valueBufferLength);
+	public HRESULT WriteNextMetadataCommand(uint8 commandID, void* valueBuffer, uint32 valueBufferLength) mut => VT.[Friend]WriteNextMetadataCommand(&this, commandID, valueBuffer, valueBufferLength);
 }
 
 [CRepr]struct ISpatialAudioObjectForMetadataItems : ISpatialAudioObjectBase
@@ -4205,11 +4205,11 @@ public static
 
 	[CRepr]public struct VTable : ISpatialAudioObjectBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForMetadataItems*/SelfOuter* self, ISpatialAudioMetadataItems* metadataItems) GetSpatialAudioMetadataItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectForMetadataItems*/SelfOuter* self, ISpatialAudioMetadataItems** metadataItems) GetSpatialAudioMetadataItems;
 	}
 
 
-	public HRESULT GetSpatialAudioMetadataItems(ISpatialAudioMetadataItems* metadataItems) mut => VT.[Friend]GetSpatialAudioMetadataItems(&this, metadataItems);
+	public HRESULT GetSpatialAudioMetadataItems(ISpatialAudioMetadataItems** metadataItems) mut => VT.[Friend]GetSpatialAudioMetadataItems(&this, metadataItems);
 }
 
 [CRepr]struct ISpatialAudioObjectRenderStreamForMetadata : ISpatialAudioObjectRenderStreamBase
@@ -4220,14 +4220,14 @@ public static
 
 	[CRepr]public struct VTable : ISpatialAudioObjectRenderStreamBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamForMetadata*/SelfOuter* self, AudioObjectType type, ISpatialAudioObjectForMetadataCommands* audioObject) ActivateSpatialAudioObjectForMetadataCommands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamForMetadata*/SelfOuter* self, AudioObjectType type, ISpatialAudioObjectForMetadataItems* audioObject) ActivateSpatialAudioObjectForMetadataItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamForMetadata*/SelfOuter* self, AudioObjectType type, ISpatialAudioObjectForMetadataCommands** audioObject) ActivateSpatialAudioObjectForMetadataCommands;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialAudioObjectRenderStreamForMetadata*/SelfOuter* self, AudioObjectType type, ISpatialAudioObjectForMetadataItems** audioObject) ActivateSpatialAudioObjectForMetadataItems;
 	}
 
 
-	public HRESULT ActivateSpatialAudioObjectForMetadataCommands(AudioObjectType type, ISpatialAudioObjectForMetadataCommands* audioObject) mut => VT.[Friend]ActivateSpatialAudioObjectForMetadataCommands(&this, type, audioObject);
+	public HRESULT ActivateSpatialAudioObjectForMetadataCommands(AudioObjectType type, ISpatialAudioObjectForMetadataCommands** audioObject) mut => VT.[Friend]ActivateSpatialAudioObjectForMetadataCommands(&this, type, audioObject);
 
-	public HRESULT ActivateSpatialAudioObjectForMetadataItems(AudioObjectType type, ISpatialAudioObjectForMetadataItems* audioObject) mut => VT.[Friend]ActivateSpatialAudioObjectForMetadataItems(&this, type, audioObject);
+	public HRESULT ActivateSpatialAudioObjectForMetadataItems(AudioObjectType type, ISpatialAudioObjectForMetadataItems** audioObject) mut => VT.[Friend]ActivateSpatialAudioObjectForMetadataItems(&this, type, audioObject);
 }
 
 [CRepr]struct IAudioStateMonitor : IUnknown
@@ -4238,13 +4238,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioStateMonitor*/SelfOuter* self, PAudioStateMonitorCallback callback, void context, int64 registration) RegisterCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioStateMonitor*/SelfOuter* self, PAudioStateMonitorCallback callback, void* context, int64* registration) RegisterCallback;
 		protected new function [CallingConvention(.Stdcall)] void(/*IAudioStateMonitor*/SelfOuter* self, int64 registration) UnregisterCallback;
 		protected new function [CallingConvention(.Stdcall)] AudioStateMonitorSoundLevel(/*IAudioStateMonitor*/SelfOuter* self) GetSoundLevel;
 	}
 
 
-	public HRESULT RegisterCallback(PAudioStateMonitorCallback callback, void context, int64 registration) mut => VT.[Friend]RegisterCallback(&this, callback, context, registration);
+	public HRESULT RegisterCallback(PAudioStateMonitorCallback callback, void* context, int64* registration) mut => VT.[Friend]RegisterCallback(&this, callback, context, registration);
 
 	public void UnregisterCallback(int64 registration) mut => VT.[Friend]UnregisterCallback(&this, registration);
 
@@ -4257,7 +4257,7 @@ public static
 public static
 {
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoRegisterMessageFilter(IMessageFilter* lpMessageFilter, IMessageFilter* lplpMessageFilter);
+	public static extern HRESULT CoRegisterMessageFilter(IMessageFilter* lpMessageFilter, IMessageFilter** lplpMessageFilter);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL sndPlaySoundA(PSTR pszSound, uint32 fuSound);
@@ -4277,14 +4277,14 @@ public static
 	public static extern uint32 waveOutGetNumDevs();
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutGetDevCapsA(uint uDeviceID, WAVEOUTCAPSA pwoc, uint32 cbwoc);
-	public static uint32 waveOutGetDevCaps(uint uDeviceID, WAVEOUTCAPSA pwoc, uint32 cbwoc) => waveOutGetDevCapsA(uDeviceID, pwoc, cbwoc);
+	public static extern uint32 waveOutGetDevCapsA(uint uDeviceID, WAVEOUTCAPSA* pwoc, uint32 cbwoc);
+	public static uint32 waveOutGetDevCaps(uint uDeviceID, WAVEOUTCAPSA* pwoc, uint32 cbwoc) => waveOutGetDevCapsA(uDeviceID, pwoc, cbwoc);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutGetDevCapsW(uint uDeviceID, WAVEOUTCAPSW pwoc, uint32 cbwoc);
+	public static extern uint32 waveOutGetDevCapsW(uint uDeviceID, WAVEOUTCAPSW* pwoc, uint32 cbwoc);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutGetVolume(HWAVEOUT hwo, uint32 pdwVolume);
+	public static extern uint32 waveOutGetVolume(HWAVEOUT hwo, uint32* pdwVolume);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutSetVolume(HWAVEOUT hwo, uint32 dwVolume);
@@ -4297,19 +4297,19 @@ public static
 	public static extern uint32 waveOutGetErrorTextW(uint32 mmrError, char16* pszText, uint32 cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutOpen(HWAVEOUT phwo, uint32 uDeviceID, WAVEFORMATEX pwfx, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
+	public static extern uint32 waveOutOpen(HWAVEOUT* phwo, uint32 uDeviceID, WAVEFORMATEX* pwfx, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutClose(HWAVEOUT hwo);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutPrepareHeader(HWAVEOUT hwo, WAVEHDR pwh, uint32 cbwh);
+	public static extern uint32 waveOutPrepareHeader(HWAVEOUT hwo, WAVEHDR* pwh, uint32 cbwh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutUnprepareHeader(HWAVEOUT hwo, WAVEHDR pwh, uint32 cbwh);
+	public static extern uint32 waveOutUnprepareHeader(HWAVEOUT hwo, WAVEHDR* pwh, uint32 cbwh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutWrite(HWAVEOUT hwo, WAVEHDR pwh, uint32 cbwh);
+	public static extern uint32 waveOutWrite(HWAVEOUT hwo, WAVEHDR* pwh, uint32 cbwh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutPause(HWAVEOUT hwo);
@@ -4324,22 +4324,22 @@ public static
 	public static extern uint32 waveOutBreakLoop(HWAVEOUT hwo);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutGetPosition(HWAVEOUT hwo, MMTIME pmmt, uint32 cbmmt);
+	public static extern uint32 waveOutGetPosition(HWAVEOUT hwo, MMTIME* pmmt, uint32 cbmmt);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutGetPitch(HWAVEOUT hwo, uint32 pdwPitch);
+	public static extern uint32 waveOutGetPitch(HWAVEOUT hwo, uint32* pdwPitch);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutSetPitch(HWAVEOUT hwo, uint32 dwPitch);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutGetPlaybackRate(HWAVEOUT hwo, uint32 pdwRate);
+	public static extern uint32 waveOutGetPlaybackRate(HWAVEOUT hwo, uint32* pdwRate);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutSetPlaybackRate(HWAVEOUT hwo, uint32 dwRate);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutGetID(HWAVEOUT hwo, uint32 puDeviceID);
+	public static extern uint32 waveOutGetID(HWAVEOUT hwo, uint32* puDeviceID);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutMessage(HWAVEOUT hwo, uint32 uMsg, uint dw1, uint dw2);
@@ -4348,11 +4348,11 @@ public static
 	public static extern uint32 waveInGetNumDevs();
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveInGetDevCapsA(uint uDeviceID, WAVEINCAPSA pwic, uint32 cbwic);
-	public static uint32 waveInGetDevCaps(uint uDeviceID, WAVEINCAPSA pwic, uint32 cbwic) => waveInGetDevCapsA(uDeviceID, pwic, cbwic);
+	public static extern uint32 waveInGetDevCapsA(uint uDeviceID, WAVEINCAPSA* pwic, uint32 cbwic);
+	public static uint32 waveInGetDevCaps(uint uDeviceID, WAVEINCAPSA* pwic, uint32 cbwic) => waveInGetDevCapsA(uDeviceID, pwic, cbwic);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveInGetDevCapsW(uint uDeviceID, WAVEINCAPSW pwic, uint32 cbwic);
+	public static extern uint32 waveInGetDevCapsW(uint uDeviceID, WAVEINCAPSW* pwic, uint32 cbwic);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveInGetErrorTextA(uint32 mmrError, uint8* pszText, uint32 cchText);
@@ -4362,19 +4362,19 @@ public static
 	public static extern uint32 waveInGetErrorTextW(uint32 mmrError, char16* pszText, uint32 cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveInOpen(HWAVEIN phwi, uint32 uDeviceID, WAVEFORMATEX pwfx, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
+	public static extern uint32 waveInOpen(HWAVEIN* phwi, uint32 uDeviceID, WAVEFORMATEX* pwfx, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveInClose(HWAVEIN hwi);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveInPrepareHeader(HWAVEIN hwi, WAVEHDR pwh, uint32 cbwh);
+	public static extern uint32 waveInPrepareHeader(HWAVEIN hwi, WAVEHDR* pwh, uint32 cbwh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveInUnprepareHeader(HWAVEIN hwi, WAVEHDR pwh, uint32 cbwh);
+	public static extern uint32 waveInUnprepareHeader(HWAVEIN hwi, WAVEHDR* pwh, uint32 cbwh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveInAddBuffer(HWAVEIN hwi, WAVEHDR pwh, uint32 cbwh);
+	public static extern uint32 waveInAddBuffer(HWAVEIN hwi, WAVEHDR* pwh, uint32 cbwh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveInStart(HWAVEIN hwi);
@@ -4386,10 +4386,10 @@ public static
 	public static extern uint32 waveInReset(HWAVEIN hwi);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveInGetPosition(HWAVEIN hwi, MMTIME pmmt, uint32 cbmmt);
+	public static extern uint32 waveInGetPosition(HWAVEIN hwi, MMTIME* pmmt, uint32 cbmmt);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveInGetID(HWAVEIN hwi, uint32 puDeviceID);
+	public static extern uint32 waveInGetID(HWAVEIN hwi, uint32* puDeviceID);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveInMessage(HWAVEIN hwi, uint32 uMsg, uint dw1, uint dw2);
@@ -4398,19 +4398,19 @@ public static
 	public static extern uint32 midiOutGetNumDevs();
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiStreamOpen(HMIDISTRM phms, uint32* puDeviceID, uint32 cMidi, uint dwCallback, uint dwInstance, uint32 fdwOpen);
+	public static extern uint32 midiStreamOpen(HMIDISTRM* phms, uint32* puDeviceID, uint32 cMidi, uint dwCallback, uint dwInstance, uint32 fdwOpen);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiStreamClose(HMIDISTRM hms);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiStreamProperty(HMIDISTRM hms, uint8 lppropdata, uint32 dwProperty);
+	public static extern uint32 midiStreamProperty(HMIDISTRM hms, uint8* lppropdata, uint32 dwProperty);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiStreamPosition(HMIDISTRM hms, MMTIME lpmmt, uint32 cbmmt);
+	public static extern uint32 midiStreamPosition(HMIDISTRM hms, MMTIME* lpmmt, uint32 cbmmt);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiStreamOut(HMIDISTRM hms, MIDIHDR pmh, uint32 cbmh);
+	public static extern uint32 midiStreamOut(HMIDISTRM hms, MIDIHDR* pmh, uint32 cbmh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiStreamPause(HMIDISTRM hms);
@@ -4422,20 +4422,20 @@ public static
 	public static extern uint32 midiStreamStop(HMIDISTRM hms);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiConnect(HMIDI hmi, HMIDIOUT hmo, void pReserved);
+	public static extern uint32 midiConnect(HMIDI hmi, HMIDIOUT hmo, void* pReserved);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiDisconnect(HMIDI hmi, HMIDIOUT hmo, void pReserved);
+	public static extern uint32 midiDisconnect(HMIDI hmi, HMIDIOUT hmo, void* pReserved);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiOutGetDevCapsA(uint uDeviceID, MIDIOUTCAPSA pmoc, uint32 cbmoc);
-	public static uint32 midiOutGetDevCaps(uint uDeviceID, MIDIOUTCAPSA pmoc, uint32 cbmoc) => midiOutGetDevCapsA(uDeviceID, pmoc, cbmoc);
+	public static extern uint32 midiOutGetDevCapsA(uint uDeviceID, MIDIOUTCAPSA* pmoc, uint32 cbmoc);
+	public static uint32 midiOutGetDevCaps(uint uDeviceID, MIDIOUTCAPSA* pmoc, uint32 cbmoc) => midiOutGetDevCapsA(uDeviceID, pmoc, cbmoc);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiOutGetDevCapsW(uint uDeviceID, MIDIOUTCAPSW pmoc, uint32 cbmoc);
+	public static extern uint32 midiOutGetDevCapsW(uint uDeviceID, MIDIOUTCAPSW* pmoc, uint32 cbmoc);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiOutGetVolume(HMIDIOUT hmo, uint32 pdwVolume);
+	public static extern uint32 midiOutGetVolume(HMIDIOUT hmo, uint32* pdwVolume);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiOutSetVolume(HMIDIOUT hmo, uint32 dwVolume);
@@ -4448,22 +4448,22 @@ public static
 	public static extern uint32 midiOutGetErrorTextW(uint32 mmrError, char16* pszText, uint32 cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiOutOpen(HMIDIOUT phmo, uint32 uDeviceID, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
+	public static extern uint32 midiOutOpen(HMIDIOUT* phmo, uint32 uDeviceID, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiOutClose(HMIDIOUT hmo);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiOutPrepareHeader(HMIDIOUT hmo, MIDIHDR pmh, uint32 cbmh);
+	public static extern uint32 midiOutPrepareHeader(HMIDIOUT hmo, MIDIHDR* pmh, uint32 cbmh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiOutUnprepareHeader(HMIDIOUT hmo, MIDIHDR pmh, uint32 cbmh);
+	public static extern uint32 midiOutUnprepareHeader(HMIDIOUT hmo, MIDIHDR* pmh, uint32 cbmh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiOutShortMsg(HMIDIOUT hmo, uint32 dwMsg);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiOutLongMsg(HMIDIOUT hmo, MIDIHDR pmh, uint32 cbmh);
+	public static extern uint32 midiOutLongMsg(HMIDIOUT hmo, MIDIHDR* pmh, uint32 cbmh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiOutReset(HMIDIOUT hmo);
@@ -4475,7 +4475,7 @@ public static
 	public static extern uint32 midiOutCacheDrumPatches(HMIDIOUT hmo, uint32 uPatch, uint16* pwkya, uint32 fuCache);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiOutGetID(HMIDIOUT hmo, uint32 puDeviceID);
+	public static extern uint32 midiOutGetID(HMIDIOUT hmo, uint32* puDeviceID);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiOutMessage(HMIDIOUT hmo, uint32 uMsg, uint dw1, uint dw2);
@@ -4484,11 +4484,11 @@ public static
 	public static extern uint32 midiInGetNumDevs();
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiInGetDevCapsA(uint uDeviceID, MIDIINCAPSA pmic, uint32 cbmic);
-	public static uint32 midiInGetDevCaps(uint uDeviceID, MIDIINCAPSA pmic, uint32 cbmic) => midiInGetDevCapsA(uDeviceID, pmic, cbmic);
+	public static extern uint32 midiInGetDevCapsA(uint uDeviceID, MIDIINCAPSA* pmic, uint32 cbmic);
+	public static uint32 midiInGetDevCaps(uint uDeviceID, MIDIINCAPSA* pmic, uint32 cbmic) => midiInGetDevCapsA(uDeviceID, pmic, cbmic);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiInGetDevCapsW(uint uDeviceID, MIDIINCAPSW pmic, uint32 cbmic);
+	public static extern uint32 midiInGetDevCapsW(uint uDeviceID, MIDIINCAPSW* pmic, uint32 cbmic);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiInGetErrorTextA(uint32 mmrError, uint8* pszText, uint32 cchText);
@@ -4498,19 +4498,19 @@ public static
 	public static extern uint32 midiInGetErrorTextW(uint32 mmrError, char16* pszText, uint32 cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiInOpen(HMIDIIN phmi, uint32 uDeviceID, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
+	public static extern uint32 midiInOpen(HMIDIIN* phmi, uint32 uDeviceID, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiInClose(HMIDIIN hmi);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiInPrepareHeader(HMIDIIN hmi, MIDIHDR pmh, uint32 cbmh);
+	public static extern uint32 midiInPrepareHeader(HMIDIIN hmi, MIDIHDR* pmh, uint32 cbmh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiInUnprepareHeader(HMIDIIN hmi, MIDIHDR pmh, uint32 cbmh);
+	public static extern uint32 midiInUnprepareHeader(HMIDIIN hmi, MIDIHDR* pmh, uint32 cbmh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiInAddBuffer(HMIDIIN hmi, MIDIHDR pmh, uint32 cbmh);
+	public static extern uint32 midiInAddBuffer(HMIDIIN hmi, MIDIHDR* pmh, uint32 cbmh);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiInStart(HMIDIIN hmi);
@@ -4522,7 +4522,7 @@ public static
 	public static extern uint32 midiInReset(HMIDIIN hmi);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiInGetID(HMIDIIN hmi, uint32 puDeviceID);
+	public static extern uint32 midiInGetID(HMIDIIN hmi, uint32* puDeviceID);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiInMessage(HMIDIIN hmi, uint32 uMsg, uint dw1, uint dw2);
@@ -4531,17 +4531,17 @@ public static
 	public static extern uint32 auxGetNumDevs();
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 auxGetDevCapsA(uint uDeviceID, AUXCAPSA pac, uint32 cbac);
-	public static uint32 auxGetDevCaps(uint uDeviceID, AUXCAPSA pac, uint32 cbac) => auxGetDevCapsA(uDeviceID, pac, cbac);
+	public static extern uint32 auxGetDevCapsA(uint uDeviceID, AUXCAPSA* pac, uint32 cbac);
+	public static uint32 auxGetDevCaps(uint uDeviceID, AUXCAPSA* pac, uint32 cbac) => auxGetDevCapsA(uDeviceID, pac, cbac);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 auxGetDevCapsW(uint uDeviceID, AUXCAPSW pac, uint32 cbac);
+	public static extern uint32 auxGetDevCapsW(uint uDeviceID, AUXCAPSW* pac, uint32 cbac);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 auxSetVolume(uint32 uDeviceID, uint32 dwVolume);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 auxGetVolume(uint32 uDeviceID, uint32 pdwVolume);
+	public static extern uint32 auxGetVolume(uint32 uDeviceID, uint32* pdwVolume);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 auxOutMessage(uint32 uDeviceID, uint32 uMsg, uint dw1, uint dw2);
@@ -4550,14 +4550,14 @@ public static
 	public static extern uint32 mixerGetNumDevs();
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerGetDevCapsA(uint uMxId, MIXERCAPSA pmxcaps, uint32 cbmxcaps);
-	public static uint32 mixerGetDevCaps(uint uMxId, MIXERCAPSA pmxcaps, uint32 cbmxcaps) => mixerGetDevCapsA(uMxId, pmxcaps, cbmxcaps);
+	public static extern uint32 mixerGetDevCapsA(uint uMxId, MIXERCAPSA* pmxcaps, uint32 cbmxcaps);
+	public static uint32 mixerGetDevCaps(uint uMxId, MIXERCAPSA* pmxcaps, uint32 cbmxcaps) => mixerGetDevCapsA(uMxId, pmxcaps, cbmxcaps);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerGetDevCapsW(uint uMxId, MIXERCAPSW pmxcaps, uint32 cbmxcaps);
+	public static extern uint32 mixerGetDevCapsW(uint uMxId, MIXERCAPSW* pmxcaps, uint32 cbmxcaps);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerOpen(int phmx, uint32 uMxId, uint dwCallback, uint dwInstance, uint32 fdwOpen);
+	public static extern uint32 mixerOpen(int* phmx, uint32 uMxId, uint dwCallback, uint dwInstance, uint32 fdwOpen);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mixerClose(HMIXER hmx);
@@ -4566,83 +4566,83 @@ public static
 	public static extern uint32 mixerMessage(HMIXER hmx, uint32 uMsg, uint dwParam1, uint dwParam2);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerGetLineInfoA(HMIXEROBJ hmxobj, MIXERLINEA pmxl, uint32 fdwInfo);
-	public static uint32 mixerGetLineInfo(HMIXEROBJ hmxobj, MIXERLINEA pmxl, uint32 fdwInfo) => mixerGetLineInfoA(hmxobj, pmxl, fdwInfo);
+	public static extern uint32 mixerGetLineInfoA(HMIXEROBJ hmxobj, MIXERLINEA* pmxl, uint32 fdwInfo);
+	public static uint32 mixerGetLineInfo(HMIXEROBJ hmxobj, MIXERLINEA* pmxl, uint32 fdwInfo) => mixerGetLineInfoA(hmxobj, pmxl, fdwInfo);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerGetLineInfoW(HMIXEROBJ hmxobj, MIXERLINEW pmxl, uint32 fdwInfo);
+	public static extern uint32 mixerGetLineInfoW(HMIXEROBJ hmxobj, MIXERLINEW* pmxl, uint32 fdwInfo);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerGetID(HMIXEROBJ hmxobj, uint32 puMxId, uint32 fdwId);
+	public static extern uint32 mixerGetID(HMIXEROBJ hmxobj, uint32* puMxId, uint32 fdwId);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerGetLineControlsA(HMIXEROBJ hmxobj, MIXERLINECONTROLSA pmxlc, uint32 fdwControls);
-	public static uint32 mixerGetLineControls(HMIXEROBJ hmxobj, MIXERLINECONTROLSA pmxlc, uint32 fdwControls) => mixerGetLineControlsA(hmxobj, pmxlc, fdwControls);
+	public static extern uint32 mixerGetLineControlsA(HMIXEROBJ hmxobj, MIXERLINECONTROLSA* pmxlc, uint32 fdwControls);
+	public static uint32 mixerGetLineControls(HMIXEROBJ hmxobj, MIXERLINECONTROLSA* pmxlc, uint32 fdwControls) => mixerGetLineControlsA(hmxobj, pmxlc, fdwControls);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerGetLineControlsW(HMIXEROBJ hmxobj, MIXERLINECONTROLSW pmxlc, uint32 fdwControls);
+	public static extern uint32 mixerGetLineControlsW(HMIXEROBJ hmxobj, MIXERLINECONTROLSW* pmxlc, uint32 fdwControls);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerGetControlDetailsA(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS pmxcd, uint32 fdwDetails);
-	public static uint32 mixerGetControlDetails(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS pmxcd, uint32 fdwDetails) => mixerGetControlDetailsA(hmxobj, pmxcd, fdwDetails);
+	public static extern uint32 mixerGetControlDetailsA(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS* pmxcd, uint32 fdwDetails);
+	public static uint32 mixerGetControlDetails(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS* pmxcd, uint32 fdwDetails) => mixerGetControlDetailsA(hmxobj, pmxcd, fdwDetails);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerGetControlDetailsW(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS pmxcd, uint32 fdwDetails);
+	public static extern uint32 mixerGetControlDetailsW(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS* pmxcd, uint32 fdwDetails);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mixerSetControlDetails(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS pmxcd, uint32 fdwDetails);
+	public static extern uint32 mixerSetControlDetails(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS* pmxcd, uint32 fdwDetails);
 
 	[Import("MMDevAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ActivateAudioInterfaceAsync(PWSTR deviceInterfacePath, Guid riid, PROPVARIANT activationParams, IActivateAudioInterfaceCompletionHandler* completionHandler, IActivateAudioInterfaceAsyncOperation* activationOperation);
+	public static extern HRESULT ActivateAudioInterfaceAsync(PWSTR deviceInterfacePath, Guid riid, PROPVARIANT* activationParams, IActivateAudioInterfaceCompletionHandler* completionHandler, IActivateAudioInterfaceAsyncOperation** activationOperation);
 
 	[Import("Windows.Media.MediaControl.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateRenderAudioStateMonitor(IAudioStateMonitor* audioStateMonitor);
+	public static extern HRESULT CreateRenderAudioStateMonitor(IAudioStateMonitor** audioStateMonitor);
 
 	[Import("Windows.Media.MediaControl.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateRenderAudioStateMonitorForCategory(AUDIO_STREAM_CATEGORY category, IAudioStateMonitor* audioStateMonitor);
+	public static extern HRESULT CreateRenderAudioStateMonitorForCategory(AUDIO_STREAM_CATEGORY category, IAudioStateMonitor** audioStateMonitor);
 
 	[Import("Windows.Media.MediaControl.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateRenderAudioStateMonitorForCategoryAndDeviceRole(AUDIO_STREAM_CATEGORY category, ERole role, IAudioStateMonitor* audioStateMonitor);
+	public static extern HRESULT CreateRenderAudioStateMonitorForCategoryAndDeviceRole(AUDIO_STREAM_CATEGORY category, ERole role, IAudioStateMonitor** audioStateMonitor);
 
 	[Import("Windows.Media.MediaControl.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateRenderAudioStateMonitorForCategoryAndDeviceId(AUDIO_STREAM_CATEGORY category, PWSTR deviceId, IAudioStateMonitor* audioStateMonitor);
+	public static extern HRESULT CreateRenderAudioStateMonitorForCategoryAndDeviceId(AUDIO_STREAM_CATEGORY category, PWSTR deviceId, IAudioStateMonitor** audioStateMonitor);
 
 	[Import("Windows.Media.MediaControl.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateCaptureAudioStateMonitor(IAudioStateMonitor* audioStateMonitor);
+	public static extern HRESULT CreateCaptureAudioStateMonitor(IAudioStateMonitor** audioStateMonitor);
 
 	[Import("Windows.Media.MediaControl.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateCaptureAudioStateMonitorForCategory(AUDIO_STREAM_CATEGORY category, IAudioStateMonitor* audioStateMonitor);
+	public static extern HRESULT CreateCaptureAudioStateMonitorForCategory(AUDIO_STREAM_CATEGORY category, IAudioStateMonitor** audioStateMonitor);
 
 	[Import("Windows.Media.MediaControl.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(AUDIO_STREAM_CATEGORY category, ERole role, IAudioStateMonitor* audioStateMonitor);
+	public static extern HRESULT CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(AUDIO_STREAM_CATEGORY category, ERole role, IAudioStateMonitor** audioStateMonitor);
 
 	[Import("Windows.Media.MediaControl.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateCaptureAudioStateMonitorForCategoryAndDeviceId(AUDIO_STREAM_CATEGORY category, PWSTR deviceId, IAudioStateMonitor* audioStateMonitor);
+	public static extern HRESULT CreateCaptureAudioStateMonitorForCategoryAndDeviceId(AUDIO_STREAM_CATEGORY category, PWSTR deviceId, IAudioStateMonitor** audioStateMonitor);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmGetVersion();
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmMetrics(HACMOBJ hao, uint32 uMetric, void pMetric);
+	public static extern uint32 acmMetrics(HACMOBJ hao, uint32 uMetric, void* pMetric);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmDriverEnum(ACMDRIVERENUMCB fnCallback, uint dwInstance, uint32 fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmDriverID(HACMOBJ hao, int phadid, uint32 fdwDriverID);
+	public static extern uint32 acmDriverID(HACMOBJ hao, int* phadid, uint32 fdwDriverID);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmDriverAddA(int phadid, HINSTANCE hinstModule, LPARAM lParam, uint32 dwPriority, uint32 fdwAdd);
-	public static uint32 acmDriverAdd(int phadid, HINSTANCE hinstModule, LPARAM lParam, uint32 dwPriority, uint32 fdwAdd) => acmDriverAddA(phadid, hinstModule, lParam, dwPriority, fdwAdd);
+	public static extern uint32 acmDriverAddA(int* phadid, HINSTANCE hinstModule, LPARAM lParam, uint32 dwPriority, uint32 fdwAdd);
+	public static uint32 acmDriverAdd(int* phadid, HINSTANCE hinstModule, LPARAM lParam, uint32 dwPriority, uint32 fdwAdd) => acmDriverAddA(phadid, hinstModule, lParam, dwPriority, fdwAdd);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmDriverAddW(int phadid, HINSTANCE hinstModule, LPARAM lParam, uint32 dwPriority, uint32 fdwAdd);
+	public static extern uint32 acmDriverAddW(int* phadid, HINSTANCE hinstModule, LPARAM lParam, uint32 dwPriority, uint32 fdwAdd);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmDriverRemove(HACMDRIVERID hadid, uint32 fdwRemove);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmDriverOpen(int phad, HACMDRIVERID hadid, uint32 fdwOpen);
+	public static extern uint32 acmDriverOpen(int* phad, HACMDRIVERID hadid, uint32 fdwOpen);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmDriverClose(HACMDRIVER had, uint32 fdwClose);
@@ -4654,93 +4654,93 @@ public static
 	public static extern uint32 acmDriverPriority(HACMDRIVERID hadid, uint32 dwPriority, uint32 fdwPriority);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmDriverDetailsA(HACMDRIVERID hadid, ACMDRIVERDETAILSA padd, uint32 fdwDetails);
-	public static uint32 acmDriverDetails(HACMDRIVERID hadid, ACMDRIVERDETAILSA padd, uint32 fdwDetails) => acmDriverDetailsA(hadid, padd, fdwDetails);
+	public static extern uint32 acmDriverDetailsA(HACMDRIVERID hadid, ACMDRIVERDETAILSA* padd, uint32 fdwDetails);
+	public static uint32 acmDriverDetails(HACMDRIVERID hadid, ACMDRIVERDETAILSA* padd, uint32 fdwDetails) => acmDriverDetailsA(hadid, padd, fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmDriverDetailsW(HACMDRIVERID hadid, ACMDRIVERDETAILSW padd, uint32 fdwDetails);
+	public static extern uint32 acmDriverDetailsW(HACMDRIVERID hadid, ACMDRIVERDETAILSW* padd, uint32 fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatTagDetailsA(HACMDRIVER had, ACMFORMATTAGDETAILSA paftd, uint32 fdwDetails);
-	public static uint32 acmFormatTagDetails(HACMDRIVER had, ACMFORMATTAGDETAILSA paftd, uint32 fdwDetails) => acmFormatTagDetailsA(had, paftd, fdwDetails);
+	public static extern uint32 acmFormatTagDetailsA(HACMDRIVER had, ACMFORMATTAGDETAILSA* paftd, uint32 fdwDetails);
+	public static uint32 acmFormatTagDetails(HACMDRIVER had, ACMFORMATTAGDETAILSA* paftd, uint32 fdwDetails) => acmFormatTagDetailsA(had, paftd, fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatTagDetailsW(HACMDRIVER had, ACMFORMATTAGDETAILSW paftd, uint32 fdwDetails);
+	public static extern uint32 acmFormatTagDetailsW(HACMDRIVER had, ACMFORMATTAGDETAILSW* paftd, uint32 fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatTagEnumA(HACMDRIVER had, ACMFORMATTAGDETAILSA paftd, ACMFORMATTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
-	public static uint32 acmFormatTagEnum(HACMDRIVER had, ACMFORMATTAGDETAILSA paftd, ACMFORMATTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFormatTagEnumA(had, paftd, fnCallback, dwInstance, fdwEnum);
+	public static extern uint32 acmFormatTagEnumA(HACMDRIVER had, ACMFORMATTAGDETAILSA* paftd, ACMFORMATTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static uint32 acmFormatTagEnum(HACMDRIVER had, ACMFORMATTAGDETAILSA* paftd, ACMFORMATTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFormatTagEnumA(had, paftd, fnCallback, dwInstance, fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatTagEnumW(HACMDRIVER had, ACMFORMATTAGDETAILSW paftd, ACMFORMATTAGENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static extern uint32 acmFormatTagEnumW(HACMDRIVER had, ACMFORMATTAGDETAILSW* paftd, ACMFORMATTAGENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatDetailsA(HACMDRIVER had, ACMFORMATDETAILSA pafd, uint32 fdwDetails);
-	public static uint32 acmFormatDetails(HACMDRIVER had, ACMFORMATDETAILSA pafd, uint32 fdwDetails) => acmFormatDetailsA(had, pafd, fdwDetails);
+	public static extern uint32 acmFormatDetailsA(HACMDRIVER had, ACMFORMATDETAILSA* pafd, uint32 fdwDetails);
+	public static uint32 acmFormatDetails(HACMDRIVER had, ACMFORMATDETAILSA* pafd, uint32 fdwDetails) => acmFormatDetailsA(had, pafd, fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatDetailsW(HACMDRIVER had, tACMFORMATDETAILSW pafd, uint32 fdwDetails);
+	public static extern uint32 acmFormatDetailsW(HACMDRIVER had, tACMFORMATDETAILSW* pafd, uint32 fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatEnumA(HACMDRIVER had, ACMFORMATDETAILSA pafd, ACMFORMATENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
-	public static uint32 acmFormatEnum(HACMDRIVER had, ACMFORMATDETAILSA pafd, ACMFORMATENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFormatEnumA(had, pafd, fnCallback, dwInstance, fdwEnum);
+	public static extern uint32 acmFormatEnumA(HACMDRIVER had, ACMFORMATDETAILSA* pafd, ACMFORMATENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static uint32 acmFormatEnum(HACMDRIVER had, ACMFORMATDETAILSA* pafd, ACMFORMATENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFormatEnumA(had, pafd, fnCallback, dwInstance, fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatEnumW(HACMDRIVER had, tACMFORMATDETAILSW pafd, ACMFORMATENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static extern uint32 acmFormatEnumW(HACMDRIVER had, tACMFORMATDETAILSW* pafd, ACMFORMATENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatSuggest(HACMDRIVER had, WAVEFORMATEX pwfxSrc, WAVEFORMATEX pwfxDst, uint32 cbwfxDst, uint32 fdwSuggest);
+	public static extern uint32 acmFormatSuggest(HACMDRIVER had, WAVEFORMATEX* pwfxSrc, WAVEFORMATEX* pwfxDst, uint32 cbwfxDst, uint32 fdwSuggest);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatChooseA(ACMFORMATCHOOSEA pafmtc);
-	public static uint32 acmFormatChoose(ACMFORMATCHOOSEA pafmtc) => acmFormatChooseA(pafmtc);
+	public static extern uint32 acmFormatChooseA(ACMFORMATCHOOSEA* pafmtc);
+	public static uint32 acmFormatChoose(ACMFORMATCHOOSEA* pafmtc) => acmFormatChooseA(pafmtc);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFormatChooseW(ACMFORMATCHOOSEW pafmtc);
+	public static extern uint32 acmFormatChooseW(ACMFORMATCHOOSEW* pafmtc);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFilterTagDetailsA(HACMDRIVER had, ACMFILTERTAGDETAILSA paftd, uint32 fdwDetails);
-	public static uint32 acmFilterTagDetails(HACMDRIVER had, ACMFILTERTAGDETAILSA paftd, uint32 fdwDetails) => acmFilterTagDetailsA(had, paftd, fdwDetails);
+	public static extern uint32 acmFilterTagDetailsA(HACMDRIVER had, ACMFILTERTAGDETAILSA* paftd, uint32 fdwDetails);
+	public static uint32 acmFilterTagDetails(HACMDRIVER had, ACMFILTERTAGDETAILSA* paftd, uint32 fdwDetails) => acmFilterTagDetailsA(had, paftd, fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFilterTagDetailsW(HACMDRIVER had, ACMFILTERTAGDETAILSW paftd, uint32 fdwDetails);
+	public static extern uint32 acmFilterTagDetailsW(HACMDRIVER had, ACMFILTERTAGDETAILSW* paftd, uint32 fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFilterTagEnumA(HACMDRIVER had, ACMFILTERTAGDETAILSA paftd, ACMFILTERTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
-	public static uint32 acmFilterTagEnum(HACMDRIVER had, ACMFILTERTAGDETAILSA paftd, ACMFILTERTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFilterTagEnumA(had, paftd, fnCallback, dwInstance, fdwEnum);
+	public static extern uint32 acmFilterTagEnumA(HACMDRIVER had, ACMFILTERTAGDETAILSA* paftd, ACMFILTERTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static uint32 acmFilterTagEnum(HACMDRIVER had, ACMFILTERTAGDETAILSA* paftd, ACMFILTERTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFilterTagEnumA(had, paftd, fnCallback, dwInstance, fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFilterTagEnumW(HACMDRIVER had, ACMFILTERTAGDETAILSW paftd, ACMFILTERTAGENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static extern uint32 acmFilterTagEnumW(HACMDRIVER had, ACMFILTERTAGDETAILSW* paftd, ACMFILTERTAGENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFilterDetailsA(HACMDRIVER had, ACMFILTERDETAILSA pafd, uint32 fdwDetails);
-	public static uint32 acmFilterDetails(HACMDRIVER had, ACMFILTERDETAILSA pafd, uint32 fdwDetails) => acmFilterDetailsA(had, pafd, fdwDetails);
+	public static extern uint32 acmFilterDetailsA(HACMDRIVER had, ACMFILTERDETAILSA* pafd, uint32 fdwDetails);
+	public static uint32 acmFilterDetails(HACMDRIVER had, ACMFILTERDETAILSA* pafd, uint32 fdwDetails) => acmFilterDetailsA(had, pafd, fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFilterDetailsW(HACMDRIVER had, ACMFILTERDETAILSW pafd, uint32 fdwDetails);
+	public static extern uint32 acmFilterDetailsW(HACMDRIVER had, ACMFILTERDETAILSW* pafd, uint32 fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFilterEnumA(HACMDRIVER had, ACMFILTERDETAILSA pafd, ACMFILTERENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
-	public static uint32 acmFilterEnum(HACMDRIVER had, ACMFILTERDETAILSA pafd, ACMFILTERENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFilterEnumA(had, pafd, fnCallback, dwInstance, fdwEnum);
+	public static extern uint32 acmFilterEnumA(HACMDRIVER had, ACMFILTERDETAILSA* pafd, ACMFILTERENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static uint32 acmFilterEnum(HACMDRIVER had, ACMFILTERDETAILSA* pafd, ACMFILTERENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFilterEnumA(had, pafd, fnCallback, dwInstance, fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFilterEnumW(HACMDRIVER had, ACMFILTERDETAILSW pafd, ACMFILTERENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static extern uint32 acmFilterEnumW(HACMDRIVER had, ACMFILTERDETAILSW* pafd, ACMFILTERENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFilterChooseA(ACMFILTERCHOOSEA pafltrc);
-	public static uint32 acmFilterChoose(ACMFILTERCHOOSEA pafltrc) => acmFilterChooseA(pafltrc);
+	public static extern uint32 acmFilterChooseA(ACMFILTERCHOOSEA* pafltrc);
+	public static uint32 acmFilterChoose(ACMFILTERCHOOSEA* pafltrc) => acmFilterChooseA(pafltrc);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmFilterChooseW(ACMFILTERCHOOSEW pafltrc);
+	public static extern uint32 acmFilterChooseW(ACMFILTERCHOOSEW* pafltrc);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmStreamOpen(int phas, HACMDRIVER had, WAVEFORMATEX pwfxSrc, WAVEFORMATEX pwfxDst, WAVEFILTER pwfltr, uint dwCallback, uint dwInstance, uint32 fdwOpen);
+	public static extern uint32 acmStreamOpen(int* phas, HACMDRIVER had, WAVEFORMATEX* pwfxSrc, WAVEFORMATEX* pwfxDst, WAVEFILTER* pwfltr, uint dwCallback, uint dwInstance, uint32 fdwOpen);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmStreamClose(HACMSTREAM has, uint32 fdwClose);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmStreamSize(HACMSTREAM has, uint32 cbInput, uint32 pdwOutputBytes, uint32 fdwSize);
+	public static extern uint32 acmStreamSize(HACMSTREAM has, uint32 cbInput, uint32* pdwOutputBytes, uint32 fdwSize);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmStreamReset(HACMSTREAM has, uint32 fdwReset);
@@ -4749,13 +4749,13 @@ public static
 	public static extern uint32 acmStreamMessage(HACMSTREAM has, uint32 uMsg, LPARAM lParam1, LPARAM lParam2);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmStreamConvert(HACMSTREAM has, ACMSTREAMHEADER pash, uint32 fdwConvert);
+	public static extern uint32 acmStreamConvert(HACMSTREAM has, ACMSTREAMHEADER* pash, uint32 fdwConvert);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmStreamPrepareHeader(HACMSTREAM has, ACMSTREAMHEADER pash, uint32 fdwPrepare);
+	public static extern uint32 acmStreamPrepareHeader(HACMSTREAM has, ACMSTREAMHEADER* pash, uint32 fdwPrepare);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 acmStreamUnprepareHeader(HACMSTREAM has, ACMSTREAMHEADER pash, uint32 fdwUnprepare);
+	public static extern uint32 acmStreamUnprepareHeader(HACMSTREAM has, ACMSTREAMHEADER* pash, uint32 fdwUnprepare);
 
 }
 #endregion

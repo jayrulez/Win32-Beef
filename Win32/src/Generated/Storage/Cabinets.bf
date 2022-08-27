@@ -99,49 +99,49 @@ public enum FDINOTIFICATIONTYPE : int32
 #endregion
 
 #region Function Pointers
-public function void PFNFCIALLOC(uint32 cb);
+public function void* PFNFCIALLOC(uint32 cb);
 
-public function void PFNFCIFREE(void memory);
+public function void PFNFCIFREE(void* memory);
 
-public function int PFNFCIOPEN(PSTR pszFile, int32 oflag, int32 pmode, int32 err, void pv);
+public function int PFNFCIOPEN(PSTR pszFile, int32 oflag, int32 pmode, int32* err, void* pv);
 
-public function uint32 PFNFCIREAD(int hf, void memory, uint32 cb, int32 err, void pv);
+public function uint32 PFNFCIREAD(int hf, void* memory, uint32 cb, int32* err, void* pv);
 
-public function uint32 PFNFCIWRITE(int hf, void memory, uint32 cb, int32 err, void pv);
+public function uint32 PFNFCIWRITE(int hf, void* memory, uint32 cb, int32* err, void* pv);
 
-public function int32 PFNFCICLOSE(int hf, int32 err, void pv);
+public function int32 PFNFCICLOSE(int hf, int32* err, void* pv);
 
-public function int32 PFNFCISEEK(int hf, int32 dist, int32 seektype, int32 err, void pv);
+public function int32 PFNFCISEEK(int hf, int32 dist, int32 seektype, int32* err, void* pv);
 
-public function int32 PFNFCIDELETE(PSTR pszFile, int32 err, void pv);
+public function int32 PFNFCIDELETE(PSTR pszFile, int32* err, void* pv);
 
-public function BOOL PFNFCIGETNEXTCABINET(CCAB pccab, uint32 cbPrevCab, void pv);
+public function BOOL PFNFCIGETNEXTCABINET(CCAB* pccab, uint32 cbPrevCab, void* pv);
 
-public function int32 PFNFCIFILEPLACED(CCAB pccab, PSTR pszFile, int32 cbFile, BOOL fContinuation, void pv);
+public function int32 PFNFCIFILEPLACED(CCAB* pccab, PSTR pszFile, int32 cbFile, BOOL fContinuation, void* pv);
 
-public function int PFNFCIGETOPENINFO(PSTR pszName, uint16 pdate, uint16 ptime, uint16 pattribs, int32 err, void pv);
+public function int PFNFCIGETOPENINFO(PSTR pszName, uint16* pdate, uint16* ptime, uint16* pattribs, int32* err, void* pv);
 
-public function int32 PFNFCISTATUS(uint32 typeStatus, uint32 cb1, uint32 cb2, void pv);
+public function int32 PFNFCISTATUS(uint32 typeStatus, uint32 cb1, uint32 cb2, void* pv);
 
-public function BOOL PFNFCIGETTEMPFILE(PSTR pszTempName, int32 cbTempName, void pv);
+public function BOOL PFNFCIGETTEMPFILE(PSTR pszTempName, int32 cbTempName, void* pv);
 
-public function void PFNALLOC(uint32 cb);
+public function void* PFNALLOC(uint32 cb);
 
-public function void PFNFREE(void pv);
+public function void PFNFREE(void* pv);
 
 public function int PFNOPEN(PSTR pszFile, int32 oflag, int32 pmode);
 
-public function uint32 PFNREAD(int hf, void pv, uint32 cb);
+public function uint32 PFNREAD(int hf, void* pv, uint32 cb);
 
-public function uint32 PFNWRITE(int hf, void pv, uint32 cb);
+public function uint32 PFNWRITE(int hf, void* pv, uint32 cb);
 
 public function int32 PFNCLOSE(int hf);
 
 public function int32 PFNSEEK(int hf, int32 dist, int32 seektype);
 
-public function int32 PFNFDIDECRYPT(FDIDECRYPT pfdid);
+public function int32 PFNFDIDECRYPT(FDIDECRYPT* pfdid);
 
-public function int PFNFDINOTIFY(FDINOTIFICATIONTYPE fdint, FDINOTIFICATION pfdin);
+public function int PFNFDINOTIFY(FDINOTIFICATIONTYPE fdint, FDINOTIFICATION* pfdin);
 
 #endregion
 
@@ -193,9 +193,9 @@ public struct FDIDECRYPT
 		[CRepr]
 		public struct _decrypt_e__Struct
 		{
-			public void pDataReserve;
+			public void* pDataReserve;
 			public uint16 cbDataReserve;
-			public void pbData;
+			public void* pbData;
 			public uint16 cbData;
 			public BOOL fSplit;
 			public uint16 cbPartial;
@@ -204,7 +204,7 @@ public struct FDIDECRYPT
 		[CRepr]
 		public struct _cabinet_e__Struct
 		{
-			public void pHeaderReserve;
+			public void* pHeaderReserve;
 			public uint16 cbHeaderReserve;
 			public uint16 setID;
 			public int32 iCabinet;
@@ -213,7 +213,7 @@ public struct FDIDECRYPT
 		[CRepr]
 		public struct _folder_e__Struct
 		{
-			public void pFolderReserve;
+			public void* pFolderReserve;
 			public uint16 cbFolderReserve;
 			public uint16 iFolder;
 		}
@@ -224,7 +224,7 @@ public struct FDIDECRYPT
 	}
 
 	public FDIDECRYPTTYPE fdidt;
-	public void pvUser;
+	public void* pvUser;
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -235,7 +235,7 @@ public struct FDINOTIFICATION
 	public PSTR psz1;
 	public PSTR psz2;
 	public PSTR psz3;
-	public void pv;
+	public void* pv;
 	public int hf;
 	public uint16 date;
 	public uint16 time;
@@ -279,34 +279,34 @@ public static
 public static
 {
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FCICreate(ERF perf, PFNFCIFILEPLACED pfnfcifp, PFNFCIALLOC pfna, PFNFCIFREE pfnf, PFNFCIOPEN pfnopen, PFNFCIREAD pfnread, PFNFCIWRITE pfnwrite, PFNFCICLOSE pfnclose, PFNFCISEEK pfnseek, PFNFCIDELETE pfndelete, PFNFCIGETTEMPFILE pfnfcigtf, CCAB pccab, void pv);
+	public static extern void* FCICreate(ERF* perf, PFNFCIFILEPLACED pfnfcifp, PFNFCIALLOC pfna, PFNFCIFREE pfnf, PFNFCIOPEN pfnopen, PFNFCIREAD pfnread, PFNFCIWRITE pfnwrite, PFNFCICLOSE pfnclose, PFNFCISEEK pfnseek, PFNFCIDELETE pfndelete, PFNFCIGETTEMPFILE pfnfcigtf, CCAB* pccab, void* pv);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FCIAddFile(void hfci, PSTR pszSourceFile, PSTR pszFileName, BOOL fExecute, PFNFCIGETNEXTCABINET pfnfcignc, PFNFCISTATUS pfnfcis, PFNFCIGETOPENINFO pfnfcigoi, uint16 typeCompress);
+	public static extern BOOL FCIAddFile(void* hfci, PSTR pszSourceFile, PSTR pszFileName, BOOL fExecute, PFNFCIGETNEXTCABINET pfnfcignc, PFNFCISTATUS pfnfcis, PFNFCIGETOPENINFO pfnfcigoi, uint16 typeCompress);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FCIFlushCabinet(void hfci, BOOL fGetNextCab, PFNFCIGETNEXTCABINET pfnfcignc, PFNFCISTATUS pfnfcis);
+	public static extern BOOL FCIFlushCabinet(void* hfci, BOOL fGetNextCab, PFNFCIGETNEXTCABINET pfnfcignc, PFNFCISTATUS pfnfcis);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FCIFlushFolder(void hfci, PFNFCIGETNEXTCABINET pfnfcignc, PFNFCISTATUS pfnfcis);
+	public static extern BOOL FCIFlushFolder(void* hfci, PFNFCIGETNEXTCABINET pfnfcignc, PFNFCISTATUS pfnfcis);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FCIDestroy(void hfci);
+	public static extern BOOL FCIDestroy(void* hfci);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FDICreate(PFNALLOC pfnalloc, PFNFREE pfnfree, PFNOPEN pfnopen, PFNREAD pfnread, PFNWRITE pfnwrite, PFNCLOSE pfnclose, PFNSEEK pfnseek, FDICREATE_CPU_TYPE cpuType, ERF perf);
+	public static extern void* FDICreate(PFNALLOC pfnalloc, PFNFREE pfnfree, PFNOPEN pfnopen, PFNREAD pfnread, PFNWRITE pfnwrite, PFNCLOSE pfnclose, PFNSEEK pfnseek, FDICREATE_CPU_TYPE cpuType, ERF* perf);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FDIIsCabinet(void hfdi, int hf, FDICABINETINFO pfdici);
+	public static extern BOOL FDIIsCabinet(void* hfdi, int hf, FDICABINETINFO* pfdici);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FDICopy(void hfdi, PSTR pszCabinet, PSTR pszCabPath, int32 flags, PFNFDINOTIFY pfnfdin, PFNFDIDECRYPT pfnfdid, void pvUser);
+	public static extern BOOL FDICopy(void* hfdi, PSTR pszCabinet, PSTR pszCabPath, int32 flags, PFNFDINOTIFY pfnfdin, PFNFDIDECRYPT pfnfdid, void* pvUser);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FDIDestroy(void hfdi);
+	public static extern BOOL FDIDestroy(void* hfdi);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FDITruncateCabinet(void hfdi, PSTR pszCabinetName, uint16 iFolderToDelete);
+	public static extern BOOL FDITruncateCabinet(void* hfdi, PSTR pszCabinetName, uint16 iFolderToDelete);
 
 }
 #endregion

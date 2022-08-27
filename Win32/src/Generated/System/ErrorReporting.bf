@@ -263,13 +263,13 @@ public enum EFaultRepRetVal : int32
 #endregion
 
 #region Function Pointers
-public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT(void pContext, WER_RUNTIME_EXCEPTION_INFORMATION pExceptionInformation, BOOL pbOwnershipClaimed, char16* pwszEventName, uint32 pchSize, uint32 pdwSignatureCount);
+public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, BOOL* pbOwnershipClaimed, char16* pwszEventName, uint32* pchSize, uint32* pdwSignatureCount);
 
-public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(void pContext, WER_RUNTIME_EXCEPTION_INFORMATION pExceptionInformation, uint32 dwIndex, char16* pwszName, uint32 pchName, char16* pwszValue, uint32 pchValue);
+public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, uint32 dwIndex, char16* pwszName, uint32* pchName, char16* pwszValue, uint32* pchValue);
 
-public function HRESULT PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(void pContext, WER_RUNTIME_EXCEPTION_INFORMATION pExceptionInformation, BOOL pbIsCustomDebugger, char16* pwszDebuggerLaunch, uint32 pchDebuggerLaunch, BOOL pbIsDebuggerAutolaunch);
+public function HRESULT PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, BOOL* pbIsCustomDebugger, char16* pwszDebuggerLaunch, uint32* pchDebuggerLaunch, BOOL* pbIsDebuggerAutolaunch);
 
-public function EFaultRepRetVal pfn_REPORTFAULT(EXCEPTION_POINTERS param0, uint32 param1);
+public function EFaultRepRetVal pfn_REPORTFAULT(EXCEPTION_POINTERS* param0, uint32 param1);
 
 public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONA(PSTR param0);
 
@@ -393,7 +393,7 @@ public struct WER_DUMP_CUSTOM_OPTIONS_V3
 	public char16[256] wzPreferredModuleList;
 	public uint32 dwPreferredModuleResetFlags;
 	public uint32 dwOtherModuleResetFlags;
-	public void pvDumpKey;
+	public void* pvDumpKey;
 	public HANDLE hSnapshot;
 	public uint32 dwThreadID;
 }
@@ -401,7 +401,7 @@ public struct WER_DUMP_CUSTOM_OPTIONS_V3
 [CRepr]
 public struct WER_EXCEPTION_INFORMATION
 {
-	public EXCEPTION_POINTERS pExceptionPointers;
+	public EXCEPTION_POINTERS* pExceptionPointers;
 	public BOOL bClientPointers;
 }
 
@@ -495,7 +495,7 @@ public static
 public static
 {
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerReportCreate(PWSTR pwzEventType, WER_REPORT_TYPE repType, WER_REPORT_INFORMATION pReportInformation, HREPORT phReportHandle);
+	public static extern HRESULT WerReportCreate(PWSTR pwzEventType, WER_REPORT_TYPE repType, WER_REPORT_INFORMATION* pReportInformation, HREPORT* phReportHandle);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WerReportSetParameter(HREPORT hReportHandle, uint32 dwparamID, PWSTR pwzName, PWSTR pwzValue);
@@ -507,10 +507,10 @@ public static
 	public static extern HRESULT WerReportSetUIOption(HREPORT hReportHandle, WER_REPORT_UI repUITypeID, PWSTR pwzValue);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerReportSubmit(HREPORT hReportHandle, WER_CONSENT consent, WER_SUBMIT_FLAGS dwFlags, WER_SUBMIT_RESULT pSubmitResult);
+	public static extern HRESULT WerReportSubmit(HREPORT hReportHandle, WER_CONSENT consent, WER_SUBMIT_FLAGS dwFlags, WER_SUBMIT_RESULT* pSubmitResult);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerReportAddDump(HREPORT hReportHandle, HANDLE hProcess, HANDLE hThread, WER_DUMP_TYPE dumpType, WER_EXCEPTION_INFORMATION pExceptionParam, WER_DUMP_CUSTOM_OPTIONS pDumpCustomOptions, uint32 dwFlags);
+	public static extern HRESULT WerReportAddDump(HREPORT hReportHandle, HANDLE hProcess, HANDLE hThread, WER_DUMP_TYPE dumpType, WER_EXCEPTION_INFORMATION* pExceptionParam, WER_DUMP_CUSTOM_OPTIONS* pDumpCustomOptions, uint32 dwFlags);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WerReportCloseHandle(HREPORT hReportHandle);
@@ -522,16 +522,16 @@ public static
 	public static extern HRESULT WerUnregisterFile(PWSTR pwzFilePath);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerRegisterMemoryBlock(void pvAddress, uint32 dwSize);
+	public static extern HRESULT WerRegisterMemoryBlock(void* pvAddress, uint32 dwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerUnregisterMemoryBlock(void pvAddress);
+	public static extern HRESULT WerUnregisterMemoryBlock(void* pvAddress);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerRegisterExcludedMemoryBlock(void address, uint32 size);
+	public static extern HRESULT WerRegisterExcludedMemoryBlock(void* address, uint32 size);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerUnregisterExcludedMemoryBlock(void address);
+	public static extern HRESULT WerUnregisterExcludedMemoryBlock(void* address);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WerRegisterCustomMetadata(PWSTR key, PWSTR value);
@@ -555,7 +555,7 @@ public static
 	public static extern HRESULT WerSetFlags(WER_FAULT_REPORTING dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerGetFlags(HANDLE hProcess, WER_FAULT_REPORTING pdwFlags);
+	public static extern HRESULT WerGetFlags(HANDLE hProcess, WER_FAULT_REPORTING* pdwFlags);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WerAddExcludedApplication(PWSTR pwzExeName, BOOL bAllUsers);
@@ -564,13 +564,13 @@ public static
 	public static extern HRESULT WerRemoveExcludedApplication(PWSTR pwzExeName, BOOL bAllUsers);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerRegisterRuntimeExceptionModule(PWSTR pwszOutOfProcessCallbackDll, void pContext);
+	public static extern HRESULT WerRegisterRuntimeExceptionModule(PWSTR pwszOutOfProcessCallbackDll, void* pContext);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerUnregisterRuntimeExceptionModule(PWSTR pwszOutOfProcessCallbackDll, void pContext);
+	public static extern HRESULT WerUnregisterRuntimeExceptionModule(PWSTR pwszOutOfProcessCallbackDll, void* pContext);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreOpen(REPORT_STORE_TYPES repStoreType, HREPORTSTORE phReportStore);
+	public static extern HRESULT WerStoreOpen(REPORT_STORE_TYPES repStoreType, HREPORTSTORE* phReportStore);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WerStoreClose(HREPORTSTORE hReportStore);
@@ -582,10 +582,10 @@ public static
 	public static extern HRESULT WerStoreGetNextReportKey(HREPORTSTORE hReportStore, PWSTR ppszReportKey);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreQueryReportMetadataV2(HREPORTSTORE hReportStore, PWSTR pszReportKey, WER_REPORT_METADATA_V2 pReportMetadata);
+	public static extern HRESULT WerStoreQueryReportMetadataV2(HREPORTSTORE hReportStore, PWSTR pszReportKey, WER_REPORT_METADATA_V2* pReportMetadata);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreQueryReportMetadataV3(HREPORTSTORE hReportStore, PWSTR pszReportKey, WER_REPORT_METADATA_V3 pReportMetadata);
+	public static extern HRESULT WerStoreQueryReportMetadataV3(HREPORTSTORE hReportStore, PWSTR pszReportKey, WER_REPORT_METADATA_V3* pReportMetadata);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WerFreeString(PWSTR pwszStr);
@@ -594,19 +594,19 @@ public static
 	public static extern HRESULT WerStorePurge();
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreGetReportCount(HREPORTSTORE hReportStore, uint32 pdwReportCount);
+	public static extern HRESULT WerStoreGetReportCount(HREPORTSTORE hReportStore, uint32* pdwReportCount);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreGetSizeOnDisk(HREPORTSTORE hReportStore, uint64 pqwSizeInBytes);
+	public static extern HRESULT WerStoreGetSizeOnDisk(HREPORTSTORE hReportStore, uint64* pqwSizeInBytes);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreQueryReportMetadataV1(HREPORTSTORE hReportStore, PWSTR pszReportKey, WER_REPORT_METADATA_V1 pReportMetadata);
+	public static extern HRESULT WerStoreQueryReportMetadataV1(HREPORTSTORE hReportStore, PWSTR pszReportKey, WER_REPORT_METADATA_V1* pReportMetadata);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreUploadReport(HREPORTSTORE hReportStore, PWSTR pszReportKey, uint32 dwFlags, WER_SUBMIT_RESULT pSubmitResult);
+	public static extern HRESULT WerStoreUploadReport(HREPORTSTORE hReportStore, PWSTR pszReportKey, uint32 dwFlags, WER_SUBMIT_RESULT* pSubmitResult);
 
 	[Import("faultrep.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern EFaultRepRetVal ReportFault(EXCEPTION_POINTERS pep, uint32 dwOpt);
+	public static extern EFaultRepRetVal ReportFault(EXCEPTION_POINTERS* pep, uint32 dwOpt);
 
 	[Import("faultrep.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddERExcludedApplicationA(PSTR szApplication);

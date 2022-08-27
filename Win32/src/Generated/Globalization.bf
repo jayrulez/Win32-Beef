@@ -4735,77 +4735,77 @@ public function BOOL TIMEFMT_ENUMPROCEX(PWSTR param0, LPARAM param1);
 
 public function BOOL LOCALE_ENUMPROCEX(PWSTR param0, uint32 param1, LPARAM param2);
 
-public function void PFN_MAPPINGCALLBACKPROC(MAPPING_PROPERTY_BAG pBag, void data, uint32 dwDataSize, HRESULT Result);
+public function void PFN_MAPPINGCALLBACKPROC(MAPPING_PROPERTY_BAG* pBag, void* data, uint32 dwDataSize, HRESULT Result);
 
-public function void UTraceEntry(void context, int32 fnNumber);
+public function void UTraceEntry(void* context, int32 fnNumber);
 
-public function void UTraceExit(void context, int32 fnNumber, PSTR fmt, int8 args);
+public function void UTraceExit(void* context, int32 fnNumber, PSTR fmt, int8* args);
 
-public function void UTraceData(void context, int32 fnNumber, int32 level, PSTR fmt, int8 args);
+public function void UTraceData(void* context, int32 fnNumber, int32 level, PSTR fmt, int8* args);
 
-public function int32 UCharIteratorGetIndex(UCharIterator iter, UCharIteratorOrigin origin);
+public function int32 UCharIteratorGetIndex(UCharIterator* iter, UCharIteratorOrigin origin);
 
-public function int32 UCharIteratorMove(UCharIterator iter, int32 delta, UCharIteratorOrigin origin);
+public function int32 UCharIteratorMove(UCharIterator* iter, int32 delta, UCharIteratorOrigin origin);
 
-public function int8 UCharIteratorHasNext(UCharIterator iter);
+public function int8 UCharIteratorHasNext(UCharIterator* iter);
 
-public function int8 UCharIteratorHasPrevious(UCharIterator iter);
+public function int8 UCharIteratorHasPrevious(UCharIterator* iter);
 
-public function int32 UCharIteratorCurrent(UCharIterator iter);
+public function int32 UCharIteratorCurrent(UCharIterator* iter);
 
-public function int32 UCharIteratorNext(UCharIterator iter);
+public function int32 UCharIteratorNext(UCharIterator* iter);
 
-public function int32 UCharIteratorPrevious(UCharIterator iter);
+public function int32 UCharIteratorPrevious(UCharIterator* iter);
 
-public function int32 UCharIteratorReserved(UCharIterator iter, int32 something);
+public function int32 UCharIteratorReserved(UCharIterator* iter, int32 something);
 
-public function uint32 UCharIteratorGetState(UCharIterator iter);
+public function uint32 UCharIteratorGetState(UCharIterator* iter);
 
-public function void UCharIteratorSetState(UCharIterator iter, uint32 state, UErrorCode pErrorCode);
+public function void UCharIteratorSetState(UCharIterator* iter, uint32 state, UErrorCode* pErrorCode);
 
-public function uint32 UCPMapValueFilter(void context, uint32 value);
+public function uint32 UCPMapValueFilter(void* context, uint32 value);
 
-public function void UConverterToUCallback(void context, UConverterToUnicodeArgs args, PSTR codeUnits, int32 length, UConverterCallbackReason reason, UErrorCode pErrorCode);
+public function void UConverterToUCallback(void* context, UConverterToUnicodeArgs* args, PSTR codeUnits, int32 length, UConverterCallbackReason reason, UErrorCode* pErrorCode);
 
-public function void UConverterFromUCallback(void context, UConverterFromUnicodeArgs args, uint16 codeUnits, int32 length, int32 codePoint, UConverterCallbackReason reason, UErrorCode pErrorCode);
+public function void UConverterFromUCallback(void* context, UConverterFromUnicodeArgs* args, uint16* codeUnits, int32 length, int32 codePoint, UConverterCallbackReason reason, UErrorCode* pErrorCode);
 
-public function void UMemAllocFn(void context, uint size);
+public function void* UMemAllocFn(void* context, uint size);
 
-public function void UMemReallocFn(void context, void mem, uint size);
+public function void* UMemReallocFn(void* context, void* mem, uint size);
 
-public function void UMemFreeFn(void context, void mem);
+public function void UMemFreeFn(void* context, void* mem);
 
-public function int8 UCharEnumTypeRange(void context, int32 start, int32 limit, UCharCategory type);
+public function int8 UCharEnumTypeRange(void* context, int32 start, int32 limit, UCharCategory type);
 
-public function int8 UEnumCharNamesFn(void context, int32 code, UCharNameChoice nameChoice, PSTR name, int32 length);
+public function int8 UEnumCharNamesFn(void* context, int32 code, UCharNameChoice nameChoice, PSTR name, int32 length);
 
-public function UCharDirection UBiDiClassCallback(void context, int32 c);
+public function UCharDirection UBiDiClassCallback(void* context, int32 c);
 
-public function UText UTextClone(UText dest, UText src, int8 deep, UErrorCode status);
+public function UText* UTextClone(UText* dest, UText* src, int8 deep, UErrorCode* status);
 
-public function int64 UTextNativeLength(UText ut);
+public function int64 UTextNativeLength(UText* ut);
 
-public function int8 UTextAccess(UText ut, int64 nativeIndex, int8 forward);
+public function int8 UTextAccess(UText* ut, int64 nativeIndex, int8 forward);
 
-public function int32 UTextExtract(UText ut, int64 nativeStart, int64 nativeLimit, uint16 dest, int32 destCapacity, UErrorCode status);
+public function int32 UTextExtract(UText* ut, int64 nativeStart, int64 nativeLimit, uint16* dest, int32 destCapacity, UErrorCode* status);
 
-public function int32 UTextReplace(UText ut, int64 nativeStart, int64 nativeLimit, uint16 replacementText, int32 replacmentLength, UErrorCode status);
+public function int32 UTextReplace(UText* ut, int64 nativeStart, int64 nativeLimit, uint16* replacementText, int32 replacmentLength, UErrorCode* status);
 
-public function void UTextCopy(UText ut, int64 nativeStart, int64 nativeLimit, int64 nativeDest, int8 move, UErrorCode status);
+public function void UTextCopy(UText* ut, int64 nativeStart, int64 nativeLimit, int64 nativeDest, int8 move, UErrorCode* status);
 
-public function int64 UTextMapOffsetToNative(UText ut);
+public function int64 UTextMapOffsetToNative(UText* ut);
 
-public function int32 UTextMapNativeIndexToUTF16(UText ut, int64 nativeIndex);
+public function int32 UTextMapNativeIndexToUTF16(UText* ut, int64 nativeIndex);
 
-public function void UTextClose(UText ut);
+public function void UTextClose(UText* ut);
 
-public function uint16 UNESCAPE_CHAR_AT(int32 offset, void context);
+public function uint16 UNESCAPE_CHAR_AT(int32 offset, void* context);
 
-public function int8 URegexMatchCallback(void context, int32 steps);
+public function int8 URegexMatchCallback(void* context, int32 steps);
 
-public function int8 URegexFindProgressCallback(void context, int64 matchIndex);
+public function int8 URegexFindProgressCallback(void* context, int64 matchIndex);
 
-public function int32 UStringCaseMapper(UCaseMap csm, uint16 dest, int32 destCapacity, uint16 src, int32 srcLength, UErrorCode pErrorCode);
+public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destCapacity, uint16* src, int32 srcLength, UErrorCode* pErrorCode);
 
 #endregion
 
@@ -5002,8 +5002,8 @@ public struct MAPPING_SERVICE_INFO
 	public PWSTR pszCategory;
 	public PWSTR pszDescription;
 	public uint32 dwPrivateDataSize;
-	public void pPrivateData;
-	public void pContext;
+	public void* pPrivateData;
+	public void* pContext;
 	public uint32 _bitfield;
 }
 
@@ -5034,10 +5034,10 @@ public struct MAPPING_OPTIONS
 	public PWSTR pszOutputContentType;
 	public PWSTR pszUILanguage;
 	public PFN_MAPPINGCALLBACKPROC pfnRecognizeCallback;
-	public void pRecognizeCallerData;
+	public void* pRecognizeCallerData;
 	public uint32 dwRecognizeCallerDataSize;
 	public PFN_MAPPINGCALLBACKPROC pfnActionCallback;
-	public void pActionCallerData;
+	public void* pActionCallerData;
 	public uint32 dwActionCallerDataSize;
 	public uint32 dwServiceFlag;
 	public uint32 _bitfield;
@@ -5050,7 +5050,7 @@ public struct MAPPING_DATA_RANGE
 	public uint32 dwEndIndex;
 	public PWSTR pszDescription;
 	public uint32 dwDescriptionLength;
-	public void pData;
+	public void* pData;
 	public uint32 dwDataSize;
 	public PWSTR pszContentType;
 	public PWSTR prgActionIds;
@@ -5062,13 +5062,13 @@ public struct MAPPING_DATA_RANGE
 public struct MAPPING_PROPERTY_BAG
 {
 	public uint Size;
-	public MAPPING_DATA_RANGE prgResultRanges;
+	public MAPPING_DATA_RANGE* prgResultRanges;
 	public uint32 dwRangesCount;
-	public void pServiceData;
+	public void* pServiceData;
 	public uint32 dwServiceDataSize;
-	public void pCallerData;
+	public void* pCallerData;
 	public uint32 dwCallerDataSize;
-	public void pContext;
+	public void* pContext;
 }
 
 [CRepr]
@@ -5139,7 +5139,7 @@ public struct SCRIPT_TABDEF
 {
 	public int32 cTabStops;
 	public int32 iScale;
-	public int32 pTabStops;
+	public int32* pTabStops;
 	public int32 iTabOrigin;
 }
 
@@ -5161,7 +5161,7 @@ public struct opentype_feature_record
 [CRepr]
 public struct textrange_properties
 {
-	public opentype_feature_record potfRecords;
+	public opentype_feature_record* potfRecords;
 	public int32 cotfRecords;
 }
 
@@ -5200,7 +5200,7 @@ public struct UFieldPosition
 [CRepr]
 public struct UCharIterator
 {
-	public void context;
+	public void* context;
 	public int32 length;
 	public int32 start;
 	public int32 index;
@@ -5241,16 +5241,16 @@ public struct UCPMap
 [CRepr, Union]
 public struct UCPTrieData
 {
-	public void ptr0;
-	public uint16 ptr16;
-	public uint32 ptr32;
-	public uint8 ptr8;
+	public void* ptr0;
+	public uint16* ptr16;
+	public uint32* ptr32;
+	public uint8* ptr8;
 }
 
 [CRepr]
 public struct UCPTrie
 {
-	public uint16 index;
+	public uint16* index;
 	public UCPTrieData data;
 	public int32 indexLength;
 	public int32 dataLength;
@@ -5280,12 +5280,12 @@ public struct UConverterFromUnicodeArgs
 {
 	public uint16 size;
 	public int8 flush;
-	public UConverter converter;
-	public uint16 source;
-	public uint16 sourceLimit;
+	public UConverter* converter;
+	public uint16* source;
+	public uint16* sourceLimit;
 	public PSTR target;
 	public PSTR targetLimit;
-	public int32 offsets;
+	public int32* offsets;
 }
 
 [CRepr]
@@ -5293,12 +5293,12 @@ public struct UConverterToUnicodeArgs
 {
 	public uint16 size;
 	public int8 flush;
-	public UConverter converter;
+	public UConverter* converter;
 	public PSTR source;
 	public PSTR sourceLimit;
-	public uint16 target;
-	public uint16 targetLimit;
-	public int32 offsets;
+	public uint16* target;
+	public uint16* targetLimit;
+	public int32* offsets;
 }
 
 [CRepr]
@@ -5350,14 +5350,14 @@ public struct UText
 	public int64 chunkNativeStart;
 	public int32 chunkOffset;
 	public int32 chunkLength;
-	public uint16 chunkContents;
-	public UTextFuncs pFuncs;
-	public void pExtra;
-	public void context;
-	public void p;
-	public void q;
-	public void r;
-	public void privP;
+	public uint16* chunkContents;
+	public UTextFuncs* pFuncs;
+	public void* pExtra;
+	public void* context;
+	public void* p;
+	public void* q;
+	public void* r;
+	public void* privP;
 	public int64 a;
 	public int32 b;
 	public int32 c;
@@ -5369,7 +5369,7 @@ public struct UText
 [CRepr]
 public struct USerializedSet
 {
-	public uint16 array;
+	public uint16* array;
 	public int32 bmpLength;
 	public int32 length;
 	public uint16[8] staticArray;
@@ -5667,18 +5667,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, uint32 value) get_StartIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, uint32 value) get_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, CORRECTIVE_ACTION value) get_CorrectiveAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, uint32* value) get_StartIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, uint32* value) get_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, CORRECTIVE_ACTION* value) get_CorrectiveAction;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, PWSTR value) get_Replacement;
 	}
 
 
-	public HRESULT get_StartIndex(uint32 value) mut => VT.[Friend]get_StartIndex(&this, value);
+	public HRESULT get_StartIndex(uint32* value) mut => VT.[Friend]get_StartIndex(&this, value);
 
-	public HRESULT get_Length(uint32 value) mut => VT.[Friend]get_Length(&this, value);
+	public HRESULT get_Length(uint32* value) mut => VT.[Friend]get_Length(&this, value);
 
-	public HRESULT get_CorrectiveAction(CORRECTIVE_ACTION value) mut => VT.[Friend]get_CorrectiveAction(&this, value);
+	public HRESULT get_CorrectiveAction(CORRECTIVE_ACTION* value) mut => VT.[Friend]get_CorrectiveAction(&this, value);
 
 	public HRESULT get_Replacement(PWSTR value) mut => VT.[Friend]get_Replacement(&this, value);
 }
@@ -5691,11 +5691,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSpellingError*/SelfOuter* self, ISpellingError* value) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSpellingError*/SelfOuter* self, ISpellingError** value) Next;
 	}
 
 
-	public HRESULT Next(ISpellingError* value) mut => VT.[Friend]Next(&this, value);
+	public HRESULT Next(ISpellingError** value) mut => VT.[Friend]Next(&this, value);
 }
 
 [CRepr]struct IOptionDescription : IUnknown
@@ -5709,7 +5709,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR value) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR value) get_Heading;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR value) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, IEnumString* value) get_Labels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, IEnumString** value) get_Labels;
 	}
 
 
@@ -5719,7 +5719,7 @@ public static
 
 	public HRESULT get_Description(PWSTR value) mut => VT.[Friend]get_Description(&this, value);
 
-	public HRESULT get_Labels(IEnumString* value) mut => VT.[Friend]get_Labels(&this, value);
+	public HRESULT get_Labels(IEnumString** value) mut => VT.[Friend]get_Labels(&this, value);
 }
 
 [CRepr]struct ISpellCheckerChangedEventHandler : IUnknown
@@ -5746,27 +5746,27 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR value) get_LanguageTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR text, IEnumSpellingError* value) Check;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR word, IEnumString* value) Suggest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR text, IEnumSpellingError** value) Check;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR word, IEnumString** value) Suggest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR word) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR word) Ignore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR from, PWSTR to) AutoCorrect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR optionId, uint8 value) GetOptionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, IEnumString* value) get_OptionIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR optionId, uint8* value) GetOptionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, IEnumString** value) get_OptionIds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR value) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR value) get_LocalizedName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, ISpellCheckerChangedEventHandler* handler, uint32 eventCookie) add_SpellCheckerChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, ISpellCheckerChangedEventHandler* handler, uint32* eventCookie) add_SpellCheckerChanged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, uint32 eventCookie) remove_SpellCheckerChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR optionId, IOptionDescription* value) GetOptionDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR text, IEnumSpellingError* value) ComprehensiveCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR optionId, IOptionDescription** value) GetOptionDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR text, IEnumSpellingError** value) ComprehensiveCheck;
 	}
 
 
 	public HRESULT get_LanguageTag(PWSTR value) mut => VT.[Friend]get_LanguageTag(&this, value);
 
-	public HRESULT Check(PWSTR text, IEnumSpellingError* value) mut => VT.[Friend]Check(&this, text, value);
+	public HRESULT Check(PWSTR text, IEnumSpellingError** value) mut => VT.[Friend]Check(&this, text, value);
 
-	public HRESULT Suggest(PWSTR word, IEnumString* value) mut => VT.[Friend]Suggest(&this, word, value);
+	public HRESULT Suggest(PWSTR word, IEnumString** value) mut => VT.[Friend]Suggest(&this, word, value);
 
 	public HRESULT Add(PWSTR word) mut => VT.[Friend]Add(&this, word);
 
@@ -5774,21 +5774,21 @@ public static
 
 	public HRESULT AutoCorrect(PWSTR from, PWSTR to) mut => VT.[Friend]AutoCorrect(&this, from, to);
 
-	public HRESULT GetOptionValue(PWSTR optionId, uint8 value) mut => VT.[Friend]GetOptionValue(&this, optionId, value);
+	public HRESULT GetOptionValue(PWSTR optionId, uint8* value) mut => VT.[Friend]GetOptionValue(&this, optionId, value);
 
-	public HRESULT get_OptionIds(IEnumString* value) mut => VT.[Friend]get_OptionIds(&this, value);
+	public HRESULT get_OptionIds(IEnumString** value) mut => VT.[Friend]get_OptionIds(&this, value);
 
 	public HRESULT get_Id(PWSTR value) mut => VT.[Friend]get_Id(&this, value);
 
 	public HRESULT get_LocalizedName(PWSTR value) mut => VT.[Friend]get_LocalizedName(&this, value);
 
-	public HRESULT add_SpellCheckerChanged(ISpellCheckerChangedEventHandler* handler, uint32 eventCookie) mut => VT.[Friend]add_SpellCheckerChanged(&this, handler, eventCookie);
+	public HRESULT add_SpellCheckerChanged(ISpellCheckerChangedEventHandler* handler, uint32* eventCookie) mut => VT.[Friend]add_SpellCheckerChanged(&this, handler, eventCookie);
 
 	public HRESULT remove_SpellCheckerChanged(uint32 eventCookie) mut => VT.[Friend]remove_SpellCheckerChanged(&this, eventCookie);
 
-	public HRESULT GetOptionDescription(PWSTR optionId, IOptionDescription* value) mut => VT.[Friend]GetOptionDescription(&this, optionId, value);
+	public HRESULT GetOptionDescription(PWSTR optionId, IOptionDescription** value) mut => VT.[Friend]GetOptionDescription(&this, optionId, value);
 
-	public HRESULT ComprehensiveCheck(PWSTR text, IEnumSpellingError* value) mut => VT.[Friend]ComprehensiveCheck(&this, text, value);
+	public HRESULT ComprehensiveCheck(PWSTR text, IEnumSpellingError** value) mut => VT.[Friend]ComprehensiveCheck(&this, text, value);
 }
 
 [CRepr]struct ISpellChecker2 : ISpellChecker
@@ -5814,17 +5814,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckerFactory*/SelfOuter* self, IEnumString* value) get_SupportedLanguages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckerFactory*/SelfOuter* self, PWSTR languageTag, BOOL value) IsSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckerFactory*/SelfOuter* self, PWSTR languageTag, ISpellChecker* value) CreateSpellChecker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckerFactory*/SelfOuter* self, IEnumString** value) get_SupportedLanguages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckerFactory*/SelfOuter* self, PWSTR languageTag, BOOL* value) IsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckerFactory*/SelfOuter* self, PWSTR languageTag, ISpellChecker** value) CreateSpellChecker;
 	}
 
 
-	public HRESULT get_SupportedLanguages(IEnumString* value) mut => VT.[Friend]get_SupportedLanguages(&this, value);
+	public HRESULT get_SupportedLanguages(IEnumString** value) mut => VT.[Friend]get_SupportedLanguages(&this, value);
 
-	public HRESULT IsSupported(PWSTR languageTag, BOOL value) mut => VT.[Friend]IsSupported(&this, languageTag, value);
+	public HRESULT IsSupported(PWSTR languageTag, BOOL* value) mut => VT.[Friend]IsSupported(&this, languageTag, value);
 
-	public HRESULT CreateSpellChecker(PWSTR languageTag, ISpellChecker* value) mut => VT.[Friend]CreateSpellChecker(&this, languageTag, value);
+	public HRESULT CreateSpellChecker(PWSTR languageTag, ISpellChecker** value) mut => VT.[Friend]CreateSpellChecker(&this, languageTag, value);
 }
 
 [CRepr]struct IUserDictionariesRegistrar : IUnknown
@@ -5854,35 +5854,35 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR value) get_LanguageTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR text, IEnumSpellingError* value) Check;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR word, IEnumString* value) Suggest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, uint8 value) GetOptionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR text, IEnumSpellingError** value) Check;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR word, IEnumString** value) Suggest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, uint8* value) GetOptionValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, uint8 value) SetOptionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, IEnumString* value) get_OptionIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, IEnumString** value) get_OptionIds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR value) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR value) get_LocalizedName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, IOptionDescription* value) GetOptionDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, IOptionDescription** value) GetOptionDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, WORDLIST_TYPE wordlistType, IEnumString* words) InitializeWordlist;
 	}
 
 
 	public HRESULT get_LanguageTag(PWSTR value) mut => VT.[Friend]get_LanguageTag(&this, value);
 
-	public HRESULT Check(PWSTR text, IEnumSpellingError* value) mut => VT.[Friend]Check(&this, text, value);
+	public HRESULT Check(PWSTR text, IEnumSpellingError** value) mut => VT.[Friend]Check(&this, text, value);
 
-	public HRESULT Suggest(PWSTR word, IEnumString* value) mut => VT.[Friend]Suggest(&this, word, value);
+	public HRESULT Suggest(PWSTR word, IEnumString** value) mut => VT.[Friend]Suggest(&this, word, value);
 
-	public HRESULT GetOptionValue(PWSTR optionId, uint8 value) mut => VT.[Friend]GetOptionValue(&this, optionId, value);
+	public HRESULT GetOptionValue(PWSTR optionId, uint8* value) mut => VT.[Friend]GetOptionValue(&this, optionId, value);
 
 	public HRESULT SetOptionValue(PWSTR optionId, uint8 value) mut => VT.[Friend]SetOptionValue(&this, optionId, value);
 
-	public HRESULT get_OptionIds(IEnumString* value) mut => VT.[Friend]get_OptionIds(&this, value);
+	public HRESULT get_OptionIds(IEnumString** value) mut => VT.[Friend]get_OptionIds(&this, value);
 
 	public HRESULT get_Id(PWSTR value) mut => VT.[Friend]get_Id(&this, value);
 
 	public HRESULT get_LocalizedName(PWSTR value) mut => VT.[Friend]get_LocalizedName(&this, value);
 
-	public HRESULT GetOptionDescription(PWSTR optionId, IOptionDescription* value) mut => VT.[Friend]GetOptionDescription(&this, optionId, value);
+	public HRESULT GetOptionDescription(PWSTR optionId, IOptionDescription** value) mut => VT.[Friend]GetOptionDescription(&this, optionId, value);
 
 	public HRESULT InitializeWordlist(WORDLIST_TYPE wordlistType, IEnumString* words) mut => VT.[Friend]InitializeWordlist(&this, wordlistType, words);
 }
@@ -5895,11 +5895,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComprehensiveSpellCheckProvider*/SelfOuter* self, PWSTR text, IEnumSpellingError* value) ComprehensiveCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComprehensiveSpellCheckProvider*/SelfOuter* self, PWSTR text, IEnumSpellingError** value) ComprehensiveCheck;
 	}
 
 
-	public HRESULT ComprehensiveCheck(PWSTR text, IEnumSpellingError* value) mut => VT.[Friend]ComprehensiveCheck(&this, text, value);
+	public HRESULT ComprehensiveCheck(PWSTR text, IEnumSpellingError** value) mut => VT.[Friend]ComprehensiveCheck(&this, text, value);
 }
 
 [CRepr]struct ISpellCheckProviderFactory : IUnknown
@@ -5910,17 +5910,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProviderFactory*/SelfOuter* self, IEnumString* value) get_SupportedLanguages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProviderFactory*/SelfOuter* self, PWSTR languageTag, BOOL value) IsSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProviderFactory*/SelfOuter* self, PWSTR languageTag, ISpellCheckProvider* value) CreateSpellCheckProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProviderFactory*/SelfOuter* self, IEnumString** value) get_SupportedLanguages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProviderFactory*/SelfOuter* self, PWSTR languageTag, BOOL* value) IsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProviderFactory*/SelfOuter* self, PWSTR languageTag, ISpellCheckProvider** value) CreateSpellCheckProvider;
 	}
 
 
-	public HRESULT get_SupportedLanguages(IEnumString* value) mut => VT.[Friend]get_SupportedLanguages(&this, value);
+	public HRESULT get_SupportedLanguages(IEnumString** value) mut => VT.[Friend]get_SupportedLanguages(&this, value);
 
-	public HRESULT IsSupported(PWSTR languageTag, BOOL value) mut => VT.[Friend]IsSupported(&this, languageTag, value);
+	public HRESULT IsSupported(PWSTR languageTag, BOOL* value) mut => VT.[Friend]IsSupported(&this, languageTag, value);
 
-	public HRESULT CreateSpellCheckProvider(PWSTR languageTag, ISpellCheckProvider* value) mut => VT.[Friend]CreateSpellCheckProvider(&this, languageTag, value);
+	public HRESULT CreateSpellCheckProvider(PWSTR languageTag, ISpellCheckProvider** value) mut => VT.[Friend]CreateSpellCheckProvider(&this, languageTag, value);
 }
 
 [CRepr]struct IMLangStringBufW : IUnknown
@@ -5931,21 +5931,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32 plFlags, int32 pcchBuf) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32 cchOffset, int32 cchMaxLock, uint16 ppszBuf, int32 pcchBuf) LockBuf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32* plFlags, int32* pcchBuf) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32 cchOffset, int32 cchMaxLock, uint16** ppszBuf, int32* pcchBuf) LockBuf;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, PWSTR pszBuf, int32 cchOffset, int32 cchWrite) UnlockBuf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32 cchOffset, int32 cchMaxInsert, int32 pcchActual) Insert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32 cchOffset, int32 cchMaxInsert, int32* pcchActual) Insert;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32 cchOffset, int32 cchDelete) Delete;
 	}
 
 
-	public HRESULT GetStatus(int32 plFlags, int32 pcchBuf) mut => VT.[Friend]GetStatus(&this, plFlags, pcchBuf);
+	public HRESULT GetStatus(int32* plFlags, int32* pcchBuf) mut => VT.[Friend]GetStatus(&this, plFlags, pcchBuf);
 
-	public HRESULT LockBuf(int32 cchOffset, int32 cchMaxLock, uint16 ppszBuf, int32 pcchBuf) mut => VT.[Friend]LockBuf(&this, cchOffset, cchMaxLock, ppszBuf, pcchBuf);
+	public HRESULT LockBuf(int32 cchOffset, int32 cchMaxLock, uint16** ppszBuf, int32* pcchBuf) mut => VT.[Friend]LockBuf(&this, cchOffset, cchMaxLock, ppszBuf, pcchBuf);
 
 	public HRESULT UnlockBuf(PWSTR pszBuf, int32 cchOffset, int32 cchWrite) mut => VT.[Friend]UnlockBuf(&this, pszBuf, cchOffset, cchWrite);
 
-	public HRESULT Insert(int32 cchOffset, int32 cchMaxInsert, int32 pcchActual) mut => VT.[Friend]Insert(&this, cchOffset, cchMaxInsert, pcchActual);
+	public HRESULT Insert(int32 cchOffset, int32 cchMaxInsert, int32* pcchActual) mut => VT.[Friend]Insert(&this, cchOffset, cchMaxInsert, pcchActual);
 
 	public HRESULT Delete(int32 cchOffset, int32 cchDelete) mut => VT.[Friend]Delete(&this, cchOffset, cchDelete);
 }
@@ -5958,21 +5958,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32 plFlags, int32 pcchBuf) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32 cchOffset, int32 cchMaxLock, CHAR ppszBuf, int32 pcchBuf) LockBuf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32* plFlags, int32* pcchBuf) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32 cchOffset, int32 cchMaxLock, CHAR** ppszBuf, int32* pcchBuf) LockBuf;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, PSTR pszBuf, int32 cchOffset, int32 cchWrite) UnlockBuf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32 cchOffset, int32 cchMaxInsert, int32 pcchActual) Insert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32 cchOffset, int32 cchMaxInsert, int32* pcchActual) Insert;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32 cchOffset, int32 cchDelete) Delete;
 	}
 
 
-	public HRESULT GetStatus(int32 plFlags, int32 pcchBuf) mut => VT.[Friend]GetStatus(&this, plFlags, pcchBuf);
+	public HRESULT GetStatus(int32* plFlags, int32* pcchBuf) mut => VT.[Friend]GetStatus(&this, plFlags, pcchBuf);
 
-	public HRESULT LockBuf(int32 cchOffset, int32 cchMaxLock, CHAR ppszBuf, int32 pcchBuf) mut => VT.[Friend]LockBuf(&this, cchOffset, cchMaxLock, ppszBuf, pcchBuf);
+	public HRESULT LockBuf(int32 cchOffset, int32 cchMaxLock, CHAR** ppszBuf, int32* pcchBuf) mut => VT.[Friend]LockBuf(&this, cchOffset, cchMaxLock, ppszBuf, pcchBuf);
 
 	public HRESULT UnlockBuf(PSTR pszBuf, int32 cchOffset, int32 cchWrite) mut => VT.[Friend]UnlockBuf(&this, pszBuf, cchOffset, cchWrite);
 
-	public HRESULT Insert(int32 cchOffset, int32 cchMaxInsert, int32 pcchActual) mut => VT.[Friend]Insert(&this, cchOffset, cchMaxInsert, pcchActual);
+	public HRESULT Insert(int32 cchOffset, int32 cchMaxInsert, int32* pcchActual) mut => VT.[Friend]Insert(&this, cchOffset, cchMaxInsert, pcchActual);
 
 	public HRESULT Delete(int32 cchOffset, int32 cchDelete) mut => VT.[Friend]Delete(&this, cchOffset, cchDelete);
 }
@@ -5986,19 +5986,19 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, BOOL fNoAccess) Sync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 plLen) GetLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32* plLen) GetLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lDestPos, int32 lDestLen, IUnknown* pSrcMLStr, int32 lSrcPos, int32 lSrcLen) SetMLStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, Guid piid, IUnknown* ppDestMLStr, int32 plDestPos, int32 plDestLen) GetMLStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, Guid piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) GetMLStr;
 	}
 
 
 	public HRESULT Sync(BOOL fNoAccess) mut => VT.[Friend]Sync(&this, fNoAccess);
 
-	public HRESULT GetLength(int32 plLen) mut => VT.[Friend]GetLength(&this, plLen);
+	public HRESULT GetLength(int32* plLen) mut => VT.[Friend]GetLength(&this, plLen);
 
 	public HRESULT SetMLStr(int32 lDestPos, int32 lDestLen, IUnknown* pSrcMLStr, int32 lSrcPos, int32 lSrcLen) mut => VT.[Friend]SetMLStr(&this, lDestPos, lDestLen, pSrcMLStr, lSrcPos, lSrcLen);
 
-	public HRESULT GetMLStr(int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, Guid piid, IUnknown* ppDestMLStr, int32 plDestPos, int32 plDestLen) mut => VT.[Friend]GetMLStr(&this, lSrcPos, lSrcLen, pUnkOuter, dwClsContext, piid, ppDestMLStr, plDestPos, plDestLen);
+	public HRESULT GetMLStr(int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, Guid piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) mut => VT.[Friend]GetMLStr(&this, lSrcPos, lSrcLen, pUnkOuter, dwClsContext, piid, ppDestMLStr, plDestPos, plDestLen);
 }
 
 [CRepr]struct IMLangStringWStr : IMLangString
@@ -6009,32 +6009,32 @@ public static
 
 	[CRepr]public struct VTable : IMLangString.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, char16* pszSrc, int32 cchSrc, int32 pcchActual, int32 plActualLen) SetWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, IMLangStringBufW* pSrcBuf, int32 pcchActual, int32 plActualLen) SetStrBufW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, char16* pszDest, int32 cchDest, int32 pcchActual, int32 plActualLen) GetWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, IMLangStringBufW* ppDestBuf, int32 plDestLen) GetStrBufW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, int32 lFlags, int32 cchRequest, PWSTR ppszDest, int32 pcchDest, int32 plDestLen) LockWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, char16* pszSrc, int32 cchSrc, int32 pcchActual, int32 plActualLen) UnlockWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, char16* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) SetWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, IMLangStringBufW* pSrcBuf, int32* pcchActual, int32* plActualLen) SetStrBufW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, char16* pszDest, int32 cchDest, int32* pcchActual, int32* plActualLen) GetWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, IMLangStringBufW** ppDestBuf, int32* plDestLen) GetStrBufW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, int32 lFlags, int32 cchRequest, PWSTR ppszDest, int32* pcchDest, int32* plDestLen) LockWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, char16* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) UnlockWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 locale) SetLocale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32 plocale, int32 plLocalePos, int32 plLocaleLen) GetLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32* plocale, int32* plLocalePos, int32* plLocaleLen) GetLocale;
 	}
 
 
-	public HRESULT SetWStr(int32 lDestPos, int32 lDestLen, char16* pszSrc, int32 cchSrc, int32 pcchActual, int32 plActualLen) mut => VT.[Friend]SetWStr(&this, lDestPos, lDestLen, pszSrc, cchSrc, pcchActual, plActualLen);
+	public HRESULT SetWStr(int32 lDestPos, int32 lDestLen, char16* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) mut => VT.[Friend]SetWStr(&this, lDestPos, lDestLen, pszSrc, cchSrc, pcchActual, plActualLen);
 
-	public HRESULT SetStrBufW(int32 lDestPos, int32 lDestLen, IMLangStringBufW* pSrcBuf, int32 pcchActual, int32 plActualLen) mut => VT.[Friend]SetStrBufW(&this, lDestPos, lDestLen, pSrcBuf, pcchActual, plActualLen);
+	public HRESULT SetStrBufW(int32 lDestPos, int32 lDestLen, IMLangStringBufW* pSrcBuf, int32* pcchActual, int32* plActualLen) mut => VT.[Friend]SetStrBufW(&this, lDestPos, lDestLen, pSrcBuf, pcchActual, plActualLen);
 
-	public HRESULT GetWStr(int32 lSrcPos, int32 lSrcLen, char16* pszDest, int32 cchDest, int32 pcchActual, int32 plActualLen) mut => VT.[Friend]GetWStr(&this, lSrcPos, lSrcLen, pszDest, cchDest, pcchActual, plActualLen);
+	public HRESULT GetWStr(int32 lSrcPos, int32 lSrcLen, char16* pszDest, int32 cchDest, int32* pcchActual, int32* plActualLen) mut => VT.[Friend]GetWStr(&this, lSrcPos, lSrcLen, pszDest, cchDest, pcchActual, plActualLen);
 
-	public HRESULT GetStrBufW(int32 lSrcPos, int32 lSrcMaxLen, IMLangStringBufW* ppDestBuf, int32 plDestLen) mut => VT.[Friend]GetStrBufW(&this, lSrcPos, lSrcMaxLen, ppDestBuf, plDestLen);
+	public HRESULT GetStrBufW(int32 lSrcPos, int32 lSrcMaxLen, IMLangStringBufW** ppDestBuf, int32* plDestLen) mut => VT.[Friend]GetStrBufW(&this, lSrcPos, lSrcMaxLen, ppDestBuf, plDestLen);
 
-	public HRESULT LockWStr(int32 lSrcPos, int32 lSrcLen, int32 lFlags, int32 cchRequest, PWSTR ppszDest, int32 pcchDest, int32 plDestLen) mut => VT.[Friend]LockWStr(&this, lSrcPos, lSrcLen, lFlags, cchRequest, ppszDest, pcchDest, plDestLen);
+	public HRESULT LockWStr(int32 lSrcPos, int32 lSrcLen, int32 lFlags, int32 cchRequest, PWSTR ppszDest, int32* pcchDest, int32* plDestLen) mut => VT.[Friend]LockWStr(&this, lSrcPos, lSrcLen, lFlags, cchRequest, ppszDest, pcchDest, plDestLen);
 
-	public HRESULT UnlockWStr(char16* pszSrc, int32 cchSrc, int32 pcchActual, int32 plActualLen) mut => VT.[Friend]UnlockWStr(&this, pszSrc, cchSrc, pcchActual, plActualLen);
+	public HRESULT UnlockWStr(char16* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) mut => VT.[Friend]UnlockWStr(&this, pszSrc, cchSrc, pcchActual, plActualLen);
 
 	public HRESULT SetLocale(int32 lDestPos, int32 lDestLen, uint32 locale) mut => VT.[Friend]SetLocale(&this, lDestPos, lDestLen, locale);
 
-	public HRESULT GetLocale(int32 lSrcPos, int32 lSrcMaxLen, uint32 plocale, int32 plLocalePos, int32 plLocaleLen) mut => VT.[Friend]GetLocale(&this, lSrcPos, lSrcMaxLen, plocale, plLocalePos, plLocaleLen);
+	public HRESULT GetLocale(int32 lSrcPos, int32 lSrcMaxLen, uint32* plocale, int32* plLocalePos, int32* plLocaleLen) mut => VT.[Friend]GetLocale(&this, lSrcPos, lSrcMaxLen, plocale, plLocalePos, plLocaleLen);
 }
 
 [CRepr]struct IMLangStringAStr : IMLangString
@@ -6045,32 +6045,32 @@ public static
 
 	[CRepr]public struct VTable : IMLangString.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32 pcchActual, int32 plActualLen) SetAStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 uCodePage, IMLangStringBufA* pSrcBuf, int32 pcchActual, int32 plActualLen) SetStrBufA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, uint32 uCodePageIn, uint32 puCodePageOut, uint8* pszDest, int32 cchDest, int32 pcchActual, int32 plActualLen) GetAStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32 puDestCodePage, IMLangStringBufA* ppDestBuf, int32 plDestLen) GetStrBufA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, int32 lFlags, uint32 uCodePageIn, int32 cchRequest, uint32 puCodePageOut, PSTR ppszDest, int32 pcchDest, int32 plDestLen) LockAStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, uint8* pszSrc, int32 cchSrc, int32 pcchActual, int32 plActualLen) UnlockAStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) SetAStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 uCodePage, IMLangStringBufA* pSrcBuf, int32* pcchActual, int32* plActualLen) SetStrBufA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, uint32 uCodePageIn, uint32* puCodePageOut, uint8* pszDest, int32 cchDest, int32* pcchActual, int32* plActualLen) GetAStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32* puDestCodePage, IMLangStringBufA** ppDestBuf, int32* plDestLen) GetStrBufA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, int32 lFlags, uint32 uCodePageIn, int32 cchRequest, uint32* puCodePageOut, PSTR* ppszDest, int32* pcchDest, int32* plDestLen) LockAStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, uint8* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) UnlockAStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 locale) SetLocale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32 plocale, int32 plLocalePos, int32 plLocaleLen) GetLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32* plocale, int32* plLocalePos, int32* plLocaleLen) GetLocale;
 	}
 
 
-	public HRESULT SetAStr(int32 lDestPos, int32 lDestLen, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32 pcchActual, int32 plActualLen) mut => VT.[Friend]SetAStr(&this, lDestPos, lDestLen, uCodePage, pszSrc, cchSrc, pcchActual, plActualLen);
+	public HRESULT SetAStr(int32 lDestPos, int32 lDestLen, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) mut => VT.[Friend]SetAStr(&this, lDestPos, lDestLen, uCodePage, pszSrc, cchSrc, pcchActual, plActualLen);
 
-	public HRESULT SetStrBufA(int32 lDestPos, int32 lDestLen, uint32 uCodePage, IMLangStringBufA* pSrcBuf, int32 pcchActual, int32 plActualLen) mut => VT.[Friend]SetStrBufA(&this, lDestPos, lDestLen, uCodePage, pSrcBuf, pcchActual, plActualLen);
+	public HRESULT SetStrBufA(int32 lDestPos, int32 lDestLen, uint32 uCodePage, IMLangStringBufA* pSrcBuf, int32* pcchActual, int32* plActualLen) mut => VT.[Friend]SetStrBufA(&this, lDestPos, lDestLen, uCodePage, pSrcBuf, pcchActual, plActualLen);
 
-	public HRESULT GetAStr(int32 lSrcPos, int32 lSrcLen, uint32 uCodePageIn, uint32 puCodePageOut, uint8* pszDest, int32 cchDest, int32 pcchActual, int32 plActualLen) mut => VT.[Friend]GetAStr(&this, lSrcPos, lSrcLen, uCodePageIn, puCodePageOut, pszDest, cchDest, pcchActual, plActualLen);
+	public HRESULT GetAStr(int32 lSrcPos, int32 lSrcLen, uint32 uCodePageIn, uint32* puCodePageOut, uint8* pszDest, int32 cchDest, int32* pcchActual, int32* plActualLen) mut => VT.[Friend]GetAStr(&this, lSrcPos, lSrcLen, uCodePageIn, puCodePageOut, pszDest, cchDest, pcchActual, plActualLen);
 
-	public HRESULT GetStrBufA(int32 lSrcPos, int32 lSrcMaxLen, uint32 puDestCodePage, IMLangStringBufA* ppDestBuf, int32 plDestLen) mut => VT.[Friend]GetStrBufA(&this, lSrcPos, lSrcMaxLen, puDestCodePage, ppDestBuf, plDestLen);
+	public HRESULT GetStrBufA(int32 lSrcPos, int32 lSrcMaxLen, uint32* puDestCodePage, IMLangStringBufA** ppDestBuf, int32* plDestLen) mut => VT.[Friend]GetStrBufA(&this, lSrcPos, lSrcMaxLen, puDestCodePage, ppDestBuf, plDestLen);
 
-	public HRESULT LockAStr(int32 lSrcPos, int32 lSrcLen, int32 lFlags, uint32 uCodePageIn, int32 cchRequest, uint32 puCodePageOut, PSTR ppszDest, int32 pcchDest, int32 plDestLen) mut => VT.[Friend]LockAStr(&this, lSrcPos, lSrcLen, lFlags, uCodePageIn, cchRequest, puCodePageOut, ppszDest, pcchDest, plDestLen);
+	public HRESULT LockAStr(int32 lSrcPos, int32 lSrcLen, int32 lFlags, uint32 uCodePageIn, int32 cchRequest, uint32* puCodePageOut, PSTR* ppszDest, int32* pcchDest, int32* plDestLen) mut => VT.[Friend]LockAStr(&this, lSrcPos, lSrcLen, lFlags, uCodePageIn, cchRequest, puCodePageOut, ppszDest, pcchDest, plDestLen);
 
-	public HRESULT UnlockAStr(uint8* pszSrc, int32 cchSrc, int32 pcchActual, int32 plActualLen) mut => VT.[Friend]UnlockAStr(&this, pszSrc, cchSrc, pcchActual, plActualLen);
+	public HRESULT UnlockAStr(uint8* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) mut => VT.[Friend]UnlockAStr(&this, pszSrc, cchSrc, pcchActual, plActualLen);
 
 	public HRESULT SetLocale(int32 lDestPos, int32 lDestLen, uint32 locale) mut => VT.[Friend]SetLocale(&this, lDestPos, lDestLen, locale);
 
-	public HRESULT GetLocale(int32 lSrcPos, int32 lSrcMaxLen, uint32 plocale, int32 plLocalePos, int32 plLocaleLen) mut => VT.[Friend]GetLocale(&this, lSrcPos, lSrcMaxLen, plocale, plLocalePos, plLocaleLen);
+	public HRESULT GetLocale(int32 lSrcPos, int32 lSrcMaxLen, uint32* plocale, int32* plLocalePos, int32* plLocaleLen) mut => VT.[Friend]GetLocale(&this, lSrcPos, lSrcMaxLen, plocale, plLocalePos, plLocaleLen);
 }
 
 [CRepr]struct IMLangLineBreakConsole : IUnknown
@@ -6081,17 +6081,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangLineBreakConsole*/SelfOuter* self, IMLangString* pSrcMLStr, int32 lSrcPos, int32 lSrcLen, int32 cMinColumns, int32 cMaxColumns, int32 plLineLen, int32 plSkipLen) BreakLineML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangLineBreakConsole*/SelfOuter* self, uint32 locale, char16* pszSrc, int32 cchSrc, int32 cMaxColumns, int32 pcchLine, int32 pcchSkip) BreakLineW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangLineBreakConsole*/SelfOuter* self, uint32 locale, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32 cMaxColumns, int32 pcchLine, int32 pcchSkip) BreakLineA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangLineBreakConsole*/SelfOuter* self, IMLangString* pSrcMLStr, int32 lSrcPos, int32 lSrcLen, int32 cMinColumns, int32 cMaxColumns, int32* plLineLen, int32* plSkipLen) BreakLineML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangLineBreakConsole*/SelfOuter* self, uint32 locale, char16* pszSrc, int32 cchSrc, int32 cMaxColumns, int32* pcchLine, int32* pcchSkip) BreakLineW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangLineBreakConsole*/SelfOuter* self, uint32 locale, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32 cMaxColumns, int32* pcchLine, int32* pcchSkip) BreakLineA;
 	}
 
 
-	public HRESULT BreakLineML(IMLangString* pSrcMLStr, int32 lSrcPos, int32 lSrcLen, int32 cMinColumns, int32 cMaxColumns, int32 plLineLen, int32 plSkipLen) mut => VT.[Friend]BreakLineML(&this, pSrcMLStr, lSrcPos, lSrcLen, cMinColumns, cMaxColumns, plLineLen, plSkipLen);
+	public HRESULT BreakLineML(IMLangString* pSrcMLStr, int32 lSrcPos, int32 lSrcLen, int32 cMinColumns, int32 cMaxColumns, int32* plLineLen, int32* plSkipLen) mut => VT.[Friend]BreakLineML(&this, pSrcMLStr, lSrcPos, lSrcLen, cMinColumns, cMaxColumns, plLineLen, plSkipLen);
 
-	public HRESULT BreakLineW(uint32 locale, char16* pszSrc, int32 cchSrc, int32 cMaxColumns, int32 pcchLine, int32 pcchSkip) mut => VT.[Friend]BreakLineW(&this, locale, pszSrc, cchSrc, cMaxColumns, pcchLine, pcchSkip);
+	public HRESULT BreakLineW(uint32 locale, char16* pszSrc, int32 cchSrc, int32 cMaxColumns, int32* pcchLine, int32* pcchSkip) mut => VT.[Friend]BreakLineW(&this, locale, pszSrc, cchSrc, cMaxColumns, pcchLine, pcchSkip);
 
-	public HRESULT BreakLineA(uint32 locale, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32 cMaxColumns, int32 pcchLine, int32 pcchSkip) mut => VT.[Friend]BreakLineA(&this, locale, uCodePage, pszSrc, cchSrc, cMaxColumns, pcchLine, pcchSkip);
+	public HRESULT BreakLineA(uint32 locale, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32 cMaxColumns, int32* pcchLine, int32* pcchSkip) mut => VT.[Friend]BreakLineA(&this, locale, uCodePage, pszSrc, cchSrc, cMaxColumns, pcchLine, pcchSkip);
 }
 
 [CRepr]struct IEnumCodePage : IUnknown
@@ -6102,16 +6102,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCodePage*/SelfOuter* self, IEnumCodePage* ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCodePage*/SelfOuter* self, uint32 celt, MIMECPINFO rgelt, uint32 pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCodePage*/SelfOuter* self, IEnumCodePage** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCodePage*/SelfOuter* self, uint32 celt, MIMECPINFO* rgelt, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCodePage*/SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCodePage*/SelfOuter* self, uint32 celt) Skip;
 	}
 
 
-	public HRESULT Clone(IEnumCodePage* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumCodePage** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 
-	public HRESULT Next(uint32 celt, MIMECPINFO rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, MIMECPINFO* rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
@@ -6126,16 +6126,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRfc1766*/SelfOuter* self, IEnumRfc1766* ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRfc1766*/SelfOuter* self, uint32 celt, RFC1766INFO rgelt, uint32 pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRfc1766*/SelfOuter* self, IEnumRfc1766** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRfc1766*/SelfOuter* self, uint32 celt, RFC1766INFO* rgelt, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRfc1766*/SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRfc1766*/SelfOuter* self, uint32 celt) Skip;
 	}
 
 
-	public HRESULT Clone(IEnumRfc1766* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumRfc1766** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 
-	public HRESULT Next(uint32 celt, RFC1766INFO rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, RFC1766INFO* rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
@@ -6150,16 +6150,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumScript*/SelfOuter* self, IEnumScript* ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumScript*/SelfOuter* self, uint32 celt, SCRIPTINFO rgelt, uint32 pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumScript*/SelfOuter* self, IEnumScript** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumScript*/SelfOuter* self, uint32 celt, SCRIPTINFO* rgelt, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumScript*/SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumScript*/SelfOuter* self, uint32 celt) Skip;
 	}
 
 
-	public HRESULT Clone(IEnumScript* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumScript** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 
-	public HRESULT Next(uint32 celt, SCRIPTINFO rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, SCRIPTINFO* rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
@@ -6175,28 +6175,28 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32 puiSrcCodePage) GetSourceCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32 puiDstCodePage) GetDestinationCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32 pdwProperty) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint8 pSrcStr, uint32 pcSrcSize, uint8 pDstStr, uint32 pcDstSize) DoConversion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, PSTR pSrcStr, uint32 pcSrcSize, char16* pDstStr, uint32 pcDstSize) DoConversionToUnicode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, char16* pSrcStr, uint32 pcSrcSize, PSTR pDstStr, uint32 pcDstSize) DoConversionFromUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32* puiSrcCodePage) GetSourceCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32* puiDstCodePage) GetDestinationCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32* pdwProperty) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) DoConversion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) DoConversionToUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) DoConversionFromUnicode;
 	}
 
 
 	public HRESULT Initialize(uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty) mut => VT.[Friend]Initialize(&this, uiSrcCodePage, uiDstCodePage, dwProperty);
 
-	public HRESULT GetSourceCodePage(uint32 puiSrcCodePage) mut => VT.[Friend]GetSourceCodePage(&this, puiSrcCodePage);
+	public HRESULT GetSourceCodePage(uint32* puiSrcCodePage) mut => VT.[Friend]GetSourceCodePage(&this, puiSrcCodePage);
 
-	public HRESULT GetDestinationCodePage(uint32 puiDstCodePage) mut => VT.[Friend]GetDestinationCodePage(&this, puiDstCodePage);
+	public HRESULT GetDestinationCodePage(uint32* puiDstCodePage) mut => VT.[Friend]GetDestinationCodePage(&this, puiDstCodePage);
 
-	public HRESULT GetProperty(uint32 pdwProperty) mut => VT.[Friend]GetProperty(&this, pdwProperty);
+	public HRESULT GetProperty(uint32* pdwProperty) mut => VT.[Friend]GetProperty(&this, pdwProperty);
 
-	public HRESULT DoConversion(uint8 pSrcStr, uint32 pcSrcSize, uint8 pDstStr, uint32 pcDstSize) mut => VT.[Friend]DoConversion(&this, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
+	public HRESULT DoConversion(uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) mut => VT.[Friend]DoConversion(&this, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
 
-	public HRESULT DoConversionToUnicode(PSTR pSrcStr, uint32 pcSrcSize, char16* pDstStr, uint32 pcDstSize) mut => VT.[Friend]DoConversionToUnicode(&this, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
+	public HRESULT DoConversionToUnicode(PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) mut => VT.[Friend]DoConversionToUnicode(&this, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
 
-	public HRESULT DoConversionFromUnicode(char16* pSrcStr, uint32 pcSrcSize, PSTR pDstStr, uint32 pcDstSize) mut => VT.[Friend]DoConversionFromUnicode(&this, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
+	public HRESULT DoConversionFromUnicode(char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) mut => VT.[Friend]DoConversionFromUnicode(&this, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
 }
 
 [CRepr]struct IMultiLanguage : IUnknown
@@ -6207,53 +6207,53 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 pcCodePage) GetNumberOfCodePageInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 uiCodePage, MIMECPINFO pCodePageInfo) GetCodePageInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 uiCodePage, uint32 puiFamilyCodePage) GetFamilyCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 grfFlags, IEnumCodePage* ppEnumCodePage) EnumCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, BSTR Charset, MIMECSETINFO pCharsetInfo) GetCharsetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32* pcCodePage) GetNumberOfCodePageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 uiCodePage, MIMECPINFO* pCodePageInfo) GetCodePageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 uiCodePage, uint32* puiFamilyCodePage) GetFamilyCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 grfFlags, IEnumCodePage** ppEnumCodePage) EnumCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, BSTR Charset, MIMECSETINFO* pCharsetInfo) GetCharsetInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 dwSrcEncoding, uint32 dwDstEncoding) IsConvertible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8 pSrcStr, uint32 pcSrcSize, uint8 pDstStr, uint32 pcDstSize) ConvertString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32 pcSrcSize, char16* pDstStr, uint32 pcDstSize) ConvertStringToUnicode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32 pcSrcSize, PSTR pDstStr, uint32 pcDstSize) ConvertStringFromUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32* pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) ConvertString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) ConvertStringToUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) ConvertStringFromUnicode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self) ConvertStringReset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 Locale, BSTR pbstrRfc1766) GetRfc1766FromLcid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 pLocale, BSTR bstrRfc1766) GetLcidFromRfc1766;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, IEnumRfc1766* ppEnumRfc1766) EnumRfc1766;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 Locale, RFC1766INFO pRfc1766Info) GetRfc1766Info;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset* ppMLangConvertCharset) CreateConvertCharset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 Locale, BSTR* pbstrRfc1766) GetRfc1766FromLcid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32* pLocale, BSTR bstrRfc1766) GetLcidFromRfc1766;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, IEnumRfc1766** ppEnumRfc1766) EnumRfc1766;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 Locale, RFC1766INFO* pRfc1766Info) GetRfc1766Info;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset** ppMLangConvertCharset) CreateConvertCharset;
 	}
 
 
-	public HRESULT GetNumberOfCodePageInfo(uint32 pcCodePage) mut => VT.[Friend]GetNumberOfCodePageInfo(&this, pcCodePage);
+	public HRESULT GetNumberOfCodePageInfo(uint32* pcCodePage) mut => VT.[Friend]GetNumberOfCodePageInfo(&this, pcCodePage);
 
-	public HRESULT GetCodePageInfo(uint32 uiCodePage, MIMECPINFO pCodePageInfo) mut => VT.[Friend]GetCodePageInfo(&this, uiCodePage, pCodePageInfo);
+	public HRESULT GetCodePageInfo(uint32 uiCodePage, MIMECPINFO* pCodePageInfo) mut => VT.[Friend]GetCodePageInfo(&this, uiCodePage, pCodePageInfo);
 
-	public HRESULT GetFamilyCodePage(uint32 uiCodePage, uint32 puiFamilyCodePage) mut => VT.[Friend]GetFamilyCodePage(&this, uiCodePage, puiFamilyCodePage);
+	public HRESULT GetFamilyCodePage(uint32 uiCodePage, uint32* puiFamilyCodePage) mut => VT.[Friend]GetFamilyCodePage(&this, uiCodePage, puiFamilyCodePage);
 
-	public HRESULT EnumCodePages(uint32 grfFlags, IEnumCodePage* ppEnumCodePage) mut => VT.[Friend]EnumCodePages(&this, grfFlags, ppEnumCodePage);
+	public HRESULT EnumCodePages(uint32 grfFlags, IEnumCodePage** ppEnumCodePage) mut => VT.[Friend]EnumCodePages(&this, grfFlags, ppEnumCodePage);
 
-	public HRESULT GetCharsetInfo(BSTR Charset, MIMECSETINFO pCharsetInfo) mut => VT.[Friend]GetCharsetInfo(&this, Charset, pCharsetInfo);
+	public HRESULT GetCharsetInfo(BSTR Charset, MIMECSETINFO* pCharsetInfo) mut => VT.[Friend]GetCharsetInfo(&this, Charset, pCharsetInfo);
 
 	public HRESULT IsConvertible(uint32 dwSrcEncoding, uint32 dwDstEncoding) mut => VT.[Friend]IsConvertible(&this, dwSrcEncoding, dwDstEncoding);
 
-	public HRESULT ConvertString(uint32 pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8 pSrcStr, uint32 pcSrcSize, uint8 pDstStr, uint32 pcDstSize) mut => VT.[Friend]ConvertString(&this, pdwMode, dwSrcEncoding, dwDstEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
+	public HRESULT ConvertString(uint32* pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) mut => VT.[Friend]ConvertString(&this, pdwMode, dwSrcEncoding, dwDstEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
 
-	public HRESULT ConvertStringToUnicode(uint32 pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32 pcSrcSize, char16* pDstStr, uint32 pcDstSize) mut => VT.[Friend]ConvertStringToUnicode(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
+	public HRESULT ConvertStringToUnicode(uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) mut => VT.[Friend]ConvertStringToUnicode(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
 
-	public HRESULT ConvertStringFromUnicode(uint32 pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32 pcSrcSize, PSTR pDstStr, uint32 pcDstSize) mut => VT.[Friend]ConvertStringFromUnicode(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
+	public HRESULT ConvertStringFromUnicode(uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) mut => VT.[Friend]ConvertStringFromUnicode(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
 
 	public HRESULT ConvertStringReset() mut => VT.[Friend]ConvertStringReset(&this);
 
-	public HRESULT GetRfc1766FromLcid(uint32 Locale, BSTR pbstrRfc1766) mut => VT.[Friend]GetRfc1766FromLcid(&this, Locale, pbstrRfc1766);
+	public HRESULT GetRfc1766FromLcid(uint32 Locale, BSTR* pbstrRfc1766) mut => VT.[Friend]GetRfc1766FromLcid(&this, Locale, pbstrRfc1766);
 
-	public HRESULT GetLcidFromRfc1766(uint32 pLocale, BSTR bstrRfc1766) mut => VT.[Friend]GetLcidFromRfc1766(&this, pLocale, bstrRfc1766);
+	public HRESULT GetLcidFromRfc1766(uint32* pLocale, BSTR bstrRfc1766) mut => VT.[Friend]GetLcidFromRfc1766(&this, pLocale, bstrRfc1766);
 
-	public HRESULT EnumRfc1766(IEnumRfc1766* ppEnumRfc1766) mut => VT.[Friend]EnumRfc1766(&this, ppEnumRfc1766);
+	public HRESULT EnumRfc1766(IEnumRfc1766** ppEnumRfc1766) mut => VT.[Friend]EnumRfc1766(&this, ppEnumRfc1766);
 
-	public HRESULT GetRfc1766Info(uint32 Locale, RFC1766INFO pRfc1766Info) mut => VT.[Friend]GetRfc1766Info(&this, Locale, pRfc1766Info);
+	public HRESULT GetRfc1766Info(uint32 Locale, RFC1766INFO* pRfc1766Info) mut => VT.[Friend]GetRfc1766Info(&this, Locale, pRfc1766Info);
 
-	public HRESULT CreateConvertCharset(uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset* ppMLangConvertCharset) mut => VT.[Friend]CreateConvertCharset(&this, uiSrcCodePage, uiDstCodePage, dwProperty, ppMLangConvertCharset);
+	public HRESULT CreateConvertCharset(uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset** ppMLangConvertCharset) mut => VT.[Friend]CreateConvertCharset(&this, uiSrcCodePage, uiDstCodePage, dwProperty, ppMLangConvertCharset);
 }
 
 [CRepr]struct IMultiLanguage2 : IUnknown
@@ -6264,75 +6264,75 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 pcCodePage) GetNumberOfCodePageInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, uint16 LangId, MIMECPINFO pCodePageInfo) GetCodePageInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, uint32 puiFamilyCodePage) GetFamilyCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 grfFlags, uint16 LangId, IEnumCodePage* ppEnumCodePage) EnumCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, BSTR Charset, MIMECSETINFO pCharsetInfo) GetCharsetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pcCodePage) GetNumberOfCodePageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, uint16 LangId, MIMECPINFO* pCodePageInfo) GetCodePageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, uint32* puiFamilyCodePage) GetFamilyCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 grfFlags, uint16 LangId, IEnumCodePage** ppEnumCodePage) EnumCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, BSTR Charset, MIMECSETINFO* pCharsetInfo) GetCharsetInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwSrcEncoding, uint32 dwDstEncoding) IsConvertible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8 pSrcStr, uint32 pcSrcSize, uint8 pDstStr, uint32 pcDstSize) ConvertString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32 pcSrcSize, char16* pDstStr, uint32 pcDstSize) ConvertStringToUnicode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32 pcSrcSize, PSTR pDstStr, uint32 pcDstSize) ConvertStringFromUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) ConvertString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) ConvertStringToUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) ConvertStringFromUnicode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self) ConvertStringReset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 Locale, BSTR pbstrRfc1766) GetRfc1766FromLcid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 pLocale, BSTR bstrRfc1766) GetLcidFromRfc1766;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint16 LangId, IEnumRfc1766* ppEnumRfc1766) EnumRfc1766;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 Locale, uint16 LangId, RFC1766INFO pRfc1766Info) GetRfc1766Info;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset* ppMLangConvertCharset) CreateConvertCharset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 pdwMode, uint32 dwFlag, PWSTR lpFallBack, uint32 dwSrcEncoding, uint32 dwDstEncoding, IStream* pstmIn, IStream* pstmOut) ConvertStringInIStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32 pcSrcSize, char16* pDstStr, uint32 pcDstSize, uint32 dwFlag, PWSTR lpFallBack) ConvertStringToUnicodeEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32 pcSrcSize, PSTR pDstStr, uint32 pcDstSize, uint32 dwFlag, PWSTR lpFallBack) ConvertStringFromUnicodeEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwFlag, uint32 dwPrefWinCodePage, IStream* pstmIn, DetectEncodingInfo lpEncoding, int32 pnScores) DetectCodepageInIStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwFlag, uint32 dwPrefWinCodePage, PSTR pSrcStr, int32 pcSrcSize, DetectEncodingInfo lpEncoding, int32 pnScores) DetectInputCodepage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 Locale, BSTR* pbstrRfc1766) GetRfc1766FromLcid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pLocale, BSTR bstrRfc1766) GetLcidFromRfc1766;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint16 LangId, IEnumRfc1766** ppEnumRfc1766) EnumRfc1766;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 Locale, uint16 LangId, RFC1766INFO* pRfc1766Info) GetRfc1766Info;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset** ppMLangConvertCharset) CreateConvertCharset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwFlag, PWSTR lpFallBack, uint32 dwSrcEncoding, uint32 dwDstEncoding, IStream* pstmIn, IStream* pstmOut) ConvertStringInIStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize, uint32 dwFlag, PWSTR lpFallBack) ConvertStringToUnicodeEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize, uint32 dwFlag, PWSTR lpFallBack) ConvertStringFromUnicodeEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwFlag, uint32 dwPrefWinCodePage, IStream* pstmIn, DetectEncodingInfo* lpEncoding, int32* pnScores) DetectCodepageInIStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwFlag, uint32 dwPrefWinCodePage, PSTR pSrcStr, int32* pcSrcSize, DetectEncodingInfo* lpEncoding, int32* pnScores) DetectInputCodepage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, HWND hwnd) ValidateCodePage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, uint32 lcid, char16* lpWideCharStr, int32 cchWideChar) GetCodePageDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage) IsCodePageInstallable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, MIMECONTF dwSource) SetMimeDBSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 pnScripts) GetNumberOfScripts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwFlags, uint16 LangId, IEnumScript* ppEnumScript) EnumScripts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pnScripts) GetNumberOfScripts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwFlags, uint16 LangId, IEnumScript** ppEnumScript) EnumScripts;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, HWND hwnd, uint32 dwfIODControl) ValidateCodePageEx;
 	}
 
 
-	public HRESULT GetNumberOfCodePageInfo(uint32 pcCodePage) mut => VT.[Friend]GetNumberOfCodePageInfo(&this, pcCodePage);
+	public HRESULT GetNumberOfCodePageInfo(uint32* pcCodePage) mut => VT.[Friend]GetNumberOfCodePageInfo(&this, pcCodePage);
 
-	public HRESULT GetCodePageInfo(uint32 uiCodePage, uint16 LangId, MIMECPINFO pCodePageInfo) mut => VT.[Friend]GetCodePageInfo(&this, uiCodePage, LangId, pCodePageInfo);
+	public HRESULT GetCodePageInfo(uint32 uiCodePage, uint16 LangId, MIMECPINFO* pCodePageInfo) mut => VT.[Friend]GetCodePageInfo(&this, uiCodePage, LangId, pCodePageInfo);
 
-	public HRESULT GetFamilyCodePage(uint32 uiCodePage, uint32 puiFamilyCodePage) mut => VT.[Friend]GetFamilyCodePage(&this, uiCodePage, puiFamilyCodePage);
+	public HRESULT GetFamilyCodePage(uint32 uiCodePage, uint32* puiFamilyCodePage) mut => VT.[Friend]GetFamilyCodePage(&this, uiCodePage, puiFamilyCodePage);
 
-	public HRESULT EnumCodePages(uint32 grfFlags, uint16 LangId, IEnumCodePage* ppEnumCodePage) mut => VT.[Friend]EnumCodePages(&this, grfFlags, LangId, ppEnumCodePage);
+	public HRESULT EnumCodePages(uint32 grfFlags, uint16 LangId, IEnumCodePage** ppEnumCodePage) mut => VT.[Friend]EnumCodePages(&this, grfFlags, LangId, ppEnumCodePage);
 
-	public HRESULT GetCharsetInfo(BSTR Charset, MIMECSETINFO pCharsetInfo) mut => VT.[Friend]GetCharsetInfo(&this, Charset, pCharsetInfo);
+	public HRESULT GetCharsetInfo(BSTR Charset, MIMECSETINFO* pCharsetInfo) mut => VT.[Friend]GetCharsetInfo(&this, Charset, pCharsetInfo);
 
 	public HRESULT IsConvertible(uint32 dwSrcEncoding, uint32 dwDstEncoding) mut => VT.[Friend]IsConvertible(&this, dwSrcEncoding, dwDstEncoding);
 
-	public HRESULT ConvertString(uint32 pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8 pSrcStr, uint32 pcSrcSize, uint8 pDstStr, uint32 pcDstSize) mut => VT.[Friend]ConvertString(&this, pdwMode, dwSrcEncoding, dwDstEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
+	public HRESULT ConvertString(uint32* pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) mut => VT.[Friend]ConvertString(&this, pdwMode, dwSrcEncoding, dwDstEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
 
-	public HRESULT ConvertStringToUnicode(uint32 pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32 pcSrcSize, char16* pDstStr, uint32 pcDstSize) mut => VT.[Friend]ConvertStringToUnicode(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
+	public HRESULT ConvertStringToUnicode(uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) mut => VT.[Friend]ConvertStringToUnicode(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
 
-	public HRESULT ConvertStringFromUnicode(uint32 pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32 pcSrcSize, PSTR pDstStr, uint32 pcDstSize) mut => VT.[Friend]ConvertStringFromUnicode(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
+	public HRESULT ConvertStringFromUnicode(uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) mut => VT.[Friend]ConvertStringFromUnicode(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize);
 
 	public HRESULT ConvertStringReset() mut => VT.[Friend]ConvertStringReset(&this);
 
-	public HRESULT GetRfc1766FromLcid(uint32 Locale, BSTR pbstrRfc1766) mut => VT.[Friend]GetRfc1766FromLcid(&this, Locale, pbstrRfc1766);
+	public HRESULT GetRfc1766FromLcid(uint32 Locale, BSTR* pbstrRfc1766) mut => VT.[Friend]GetRfc1766FromLcid(&this, Locale, pbstrRfc1766);
 
-	public HRESULT GetLcidFromRfc1766(uint32 pLocale, BSTR bstrRfc1766) mut => VT.[Friend]GetLcidFromRfc1766(&this, pLocale, bstrRfc1766);
+	public HRESULT GetLcidFromRfc1766(uint32* pLocale, BSTR bstrRfc1766) mut => VT.[Friend]GetLcidFromRfc1766(&this, pLocale, bstrRfc1766);
 
-	public HRESULT EnumRfc1766(uint16 LangId, IEnumRfc1766* ppEnumRfc1766) mut => VT.[Friend]EnumRfc1766(&this, LangId, ppEnumRfc1766);
+	public HRESULT EnumRfc1766(uint16 LangId, IEnumRfc1766** ppEnumRfc1766) mut => VT.[Friend]EnumRfc1766(&this, LangId, ppEnumRfc1766);
 
-	public HRESULT GetRfc1766Info(uint32 Locale, uint16 LangId, RFC1766INFO pRfc1766Info) mut => VT.[Friend]GetRfc1766Info(&this, Locale, LangId, pRfc1766Info);
+	public HRESULT GetRfc1766Info(uint32 Locale, uint16 LangId, RFC1766INFO* pRfc1766Info) mut => VT.[Friend]GetRfc1766Info(&this, Locale, LangId, pRfc1766Info);
 
-	public HRESULT CreateConvertCharset(uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset* ppMLangConvertCharset) mut => VT.[Friend]CreateConvertCharset(&this, uiSrcCodePage, uiDstCodePage, dwProperty, ppMLangConvertCharset);
+	public HRESULT CreateConvertCharset(uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset** ppMLangConvertCharset) mut => VT.[Friend]CreateConvertCharset(&this, uiSrcCodePage, uiDstCodePage, dwProperty, ppMLangConvertCharset);
 
-	public HRESULT ConvertStringInIStream(uint32 pdwMode, uint32 dwFlag, PWSTR lpFallBack, uint32 dwSrcEncoding, uint32 dwDstEncoding, IStream* pstmIn, IStream* pstmOut) mut => VT.[Friend]ConvertStringInIStream(&this, pdwMode, dwFlag, lpFallBack, dwSrcEncoding, dwDstEncoding, pstmIn, pstmOut);
+	public HRESULT ConvertStringInIStream(uint32* pdwMode, uint32 dwFlag, PWSTR lpFallBack, uint32 dwSrcEncoding, uint32 dwDstEncoding, IStream* pstmIn, IStream* pstmOut) mut => VT.[Friend]ConvertStringInIStream(&this, pdwMode, dwFlag, lpFallBack, dwSrcEncoding, dwDstEncoding, pstmIn, pstmOut);
 
-	public HRESULT ConvertStringToUnicodeEx(uint32 pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32 pcSrcSize, char16* pDstStr, uint32 pcDstSize, uint32 dwFlag, PWSTR lpFallBack) mut => VT.[Friend]ConvertStringToUnicodeEx(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize, dwFlag, lpFallBack);
+	public HRESULT ConvertStringToUnicodeEx(uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize, uint32 dwFlag, PWSTR lpFallBack) mut => VT.[Friend]ConvertStringToUnicodeEx(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize, dwFlag, lpFallBack);
 
-	public HRESULT ConvertStringFromUnicodeEx(uint32 pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32 pcSrcSize, PSTR pDstStr, uint32 pcDstSize, uint32 dwFlag, PWSTR lpFallBack) mut => VT.[Friend]ConvertStringFromUnicodeEx(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize, dwFlag, lpFallBack);
+	public HRESULT ConvertStringFromUnicodeEx(uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize, uint32 dwFlag, PWSTR lpFallBack) mut => VT.[Friend]ConvertStringFromUnicodeEx(&this, pdwMode, dwEncoding, pSrcStr, pcSrcSize, pDstStr, pcDstSize, dwFlag, lpFallBack);
 
-	public HRESULT DetectCodepageInIStream(uint32 dwFlag, uint32 dwPrefWinCodePage, IStream* pstmIn, DetectEncodingInfo lpEncoding, int32 pnScores) mut => VT.[Friend]DetectCodepageInIStream(&this, dwFlag, dwPrefWinCodePage, pstmIn, lpEncoding, pnScores);
+	public HRESULT DetectCodepageInIStream(uint32 dwFlag, uint32 dwPrefWinCodePage, IStream* pstmIn, DetectEncodingInfo* lpEncoding, int32* pnScores) mut => VT.[Friend]DetectCodepageInIStream(&this, dwFlag, dwPrefWinCodePage, pstmIn, lpEncoding, pnScores);
 
-	public HRESULT DetectInputCodepage(uint32 dwFlag, uint32 dwPrefWinCodePage, PSTR pSrcStr, int32 pcSrcSize, DetectEncodingInfo lpEncoding, int32 pnScores) mut => VT.[Friend]DetectInputCodepage(&this, dwFlag, dwPrefWinCodePage, pSrcStr, pcSrcSize, lpEncoding, pnScores);
+	public HRESULT DetectInputCodepage(uint32 dwFlag, uint32 dwPrefWinCodePage, PSTR pSrcStr, int32* pcSrcSize, DetectEncodingInfo* lpEncoding, int32* pnScores) mut => VT.[Friend]DetectInputCodepage(&this, dwFlag, dwPrefWinCodePage, pSrcStr, pcSrcSize, lpEncoding, pnScores);
 
 	public HRESULT ValidateCodePage(uint32 uiCodePage, HWND hwnd) mut => VT.[Friend]ValidateCodePage(&this, uiCodePage, hwnd);
 
@@ -6342,9 +6342,9 @@ public static
 
 	public HRESULT SetMimeDBSource(MIMECONTF dwSource) mut => VT.[Friend]SetMimeDBSource(&this, dwSource);
 
-	public HRESULT GetNumberOfScripts(uint32 pnScripts) mut => VT.[Friend]GetNumberOfScripts(&this, pnScripts);
+	public HRESULT GetNumberOfScripts(uint32* pnScripts) mut => VT.[Friend]GetNumberOfScripts(&this, pnScripts);
 
-	public HRESULT EnumScripts(uint32 dwFlags, uint16 LangId, IEnumScript* ppEnumScript) mut => VT.[Friend]EnumScripts(&this, dwFlags, LangId, ppEnumScript);
+	public HRESULT EnumScripts(uint32 dwFlags, uint16 LangId, IEnumScript** ppEnumScript) mut => VT.[Friend]EnumScripts(&this, dwFlags, LangId, ppEnumScript);
 
 	public HRESULT ValidateCodePageEx(uint32 uiCodePage, HWND hwnd, uint32 dwfIODControl) mut => VT.[Friend]ValidateCodePageEx(&this, uiCodePage, hwnd, dwfIODControl);
 }
@@ -6357,20 +6357,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, char16 chSrc, uint32 pdwCodePages) GetCharCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, char16* pszSrc, int32 cchSrc, uint32 dwPriorityCodePages, uint32 pdwCodePages, int32 pcchCodePages) GetStrCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, uint32 uCodePage, uint32 pdwCodePages) CodePageToCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, uint32 dwCodePages, uint32 uDefaultCodePage, uint32 puCodePage) CodePagesToCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, char16 chSrc, uint32* pdwCodePages) GetCharCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, char16* pszSrc, int32 cchSrc, uint32 dwPriorityCodePages, uint32* pdwCodePages, int32* pcchCodePages) GetStrCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, uint32 uCodePage, uint32* pdwCodePages) CodePageToCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, uint32 dwCodePages, uint32 uDefaultCodePage, uint32* puCodePage) CodePagesToCodePage;
 	}
 
 
-	public HRESULT GetCharCodePages(char16 chSrc, uint32 pdwCodePages) mut => VT.[Friend]GetCharCodePages(&this, chSrc, pdwCodePages);
+	public HRESULT GetCharCodePages(char16 chSrc, uint32* pdwCodePages) mut => VT.[Friend]GetCharCodePages(&this, chSrc, pdwCodePages);
 
-	public HRESULT GetStrCodePages(char16* pszSrc, int32 cchSrc, uint32 dwPriorityCodePages, uint32 pdwCodePages, int32 pcchCodePages) mut => VT.[Friend]GetStrCodePages(&this, pszSrc, cchSrc, dwPriorityCodePages, pdwCodePages, pcchCodePages);
+	public HRESULT GetStrCodePages(char16* pszSrc, int32 cchSrc, uint32 dwPriorityCodePages, uint32* pdwCodePages, int32* pcchCodePages) mut => VT.[Friend]GetStrCodePages(&this, pszSrc, cchSrc, dwPriorityCodePages, pdwCodePages, pcchCodePages);
 
-	public HRESULT CodePageToCodePages(uint32 uCodePage, uint32 pdwCodePages) mut => VT.[Friend]CodePageToCodePages(&this, uCodePage, pdwCodePages);
+	public HRESULT CodePageToCodePages(uint32 uCodePage, uint32* pdwCodePages) mut => VT.[Friend]CodePageToCodePages(&this, uCodePage, pdwCodePages);
 
-	public HRESULT CodePagesToCodePage(uint32 dwCodePages, uint32 uDefaultCodePage, uint32 puCodePage) mut => VT.[Friend]CodePagesToCodePage(&this, dwCodePages, uDefaultCodePage, puCodePage);
+	public HRESULT CodePagesToCodePage(uint32 dwCodePages, uint32 uDefaultCodePage, uint32* puCodePage) mut => VT.[Friend]CodePagesToCodePage(&this, dwCodePages, uDefaultCodePage, puCodePage);
 }
 
 [CRepr]struct IMLangFontLink : IMLangCodePages
@@ -6381,16 +6381,16 @@ public static
 
 	[CRepr]public struct VTable : IMLangCodePages.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink*/SelfOuter* self, HDC hDC, HFONT hFont, uint32 pdwCodePages) GetFontCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink*/SelfOuter* self, HDC hDC, uint32 dwCodePages, HFONT hSrcFont, HFONT phDestFont) MapFont;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink*/SelfOuter* self, HDC hDC, HFONT hFont, uint32* pdwCodePages) GetFontCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink*/SelfOuter* self, HDC hDC, uint32 dwCodePages, HFONT hSrcFont, HFONT* phDestFont) MapFont;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink*/SelfOuter* self, HFONT hFont) ReleaseFont;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink*/SelfOuter* self) ResetFontMapping;
 	}
 
 
-	public HRESULT GetFontCodePages(HDC hDC, HFONT hFont, uint32 pdwCodePages) mut => VT.[Friend]GetFontCodePages(&this, hDC, hFont, pdwCodePages);
+	public HRESULT GetFontCodePages(HDC hDC, HFONT hFont, uint32* pdwCodePages) mut => VT.[Friend]GetFontCodePages(&this, hDC, hFont, pdwCodePages);
 
-	public HRESULT MapFont(HDC hDC, uint32 dwCodePages, HFONT hSrcFont, HFONT phDestFont) mut => VT.[Friend]MapFont(&this, hDC, dwCodePages, hSrcFont, phDestFont);
+	public HRESULT MapFont(HDC hDC, uint32 dwCodePages, HFONT hSrcFont, HFONT* phDestFont) mut => VT.[Friend]MapFont(&this, hDC, dwCodePages, hSrcFont, phDestFont);
 
 	public HRESULT ReleaseFont(HFONT hFont) mut => VT.[Friend]ReleaseFont(&this, hFont);
 
@@ -6405,29 +6405,29 @@ public static
 
 	[CRepr]public struct VTable : IMLangCodePages.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HDC hDC, HFONT hFont, uint32 pdwCodePages) GetFontCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HDC hDC, HFONT hFont, uint32* pdwCodePages) GetFontCodePages;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HFONT hFont) ReleaseFont;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self) ResetFontMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HDC hDC, uint32 dwCodePages, char16 chSrc, HFONT pFont) MapFont;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HDC hDC, uint32 puiRanges, UNICODERANGE pUranges) GetFontUnicodeRanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, uint8 sid, uint32 dwFlags, uint32 puiFonts, tagSCRIPFONTINFO pScriptFont) GetScriptFontInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, uint32 uiCodePage, uint8 pSid) CodePageToScriptID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HDC hDC, uint32 dwCodePages, char16 chSrc, HFONT* pFont) MapFont;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HDC hDC, uint32* puiRanges, UNICODERANGE* pUranges) GetFontUnicodeRanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, uint8 sid, uint32 dwFlags, uint32* puiFonts, tagSCRIPFONTINFO* pScriptFont) GetScriptFontInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, uint32 uiCodePage, uint8* pSid) CodePageToScriptID;
 	}
 
 
-	public HRESULT GetFontCodePages(HDC hDC, HFONT hFont, uint32 pdwCodePages) mut => VT.[Friend]GetFontCodePages(&this, hDC, hFont, pdwCodePages);
+	public HRESULT GetFontCodePages(HDC hDC, HFONT hFont, uint32* pdwCodePages) mut => VT.[Friend]GetFontCodePages(&this, hDC, hFont, pdwCodePages);
 
 	public HRESULT ReleaseFont(HFONT hFont) mut => VT.[Friend]ReleaseFont(&this, hFont);
 
 	public HRESULT ResetFontMapping() mut => VT.[Friend]ResetFontMapping(&this);
 
-	public HRESULT MapFont(HDC hDC, uint32 dwCodePages, char16 chSrc, HFONT pFont) mut => VT.[Friend]MapFont(&this, hDC, dwCodePages, chSrc, pFont);
+	public HRESULT MapFont(HDC hDC, uint32 dwCodePages, char16 chSrc, HFONT* pFont) mut => VT.[Friend]MapFont(&this, hDC, dwCodePages, chSrc, pFont);
 
-	public HRESULT GetFontUnicodeRanges(HDC hDC, uint32 puiRanges, UNICODERANGE pUranges) mut => VT.[Friend]GetFontUnicodeRanges(&this, hDC, puiRanges, pUranges);
+	public HRESULT GetFontUnicodeRanges(HDC hDC, uint32* puiRanges, UNICODERANGE* pUranges) mut => VT.[Friend]GetFontUnicodeRanges(&this, hDC, puiRanges, pUranges);
 
-	public HRESULT GetScriptFontInfo(uint8 sid, uint32 dwFlags, uint32 puiFonts, tagSCRIPFONTINFO pScriptFont) mut => VT.[Friend]GetScriptFontInfo(&this, sid, dwFlags, puiFonts, pScriptFont);
+	public HRESULT GetScriptFontInfo(uint8 sid, uint32 dwFlags, uint32* puiFonts, tagSCRIPFONTINFO* pScriptFont) mut => VT.[Friend]GetScriptFontInfo(&this, sid, dwFlags, puiFonts, pScriptFont);
 
-	public HRESULT CodePageToScriptID(uint32 uiCodePage, uint8 pSid) mut => VT.[Friend]CodePageToScriptID(&this, uiCodePage, pSid);
+	public HRESULT CodePageToScriptID(uint32 uiCodePage, uint8* pSid) mut => VT.[Friend]CodePageToScriptID(&this, uiCodePage, pSid);
 }
 
 [CRepr]struct IMultiLanguage3 : IMultiLanguage2
@@ -6438,14 +6438,14 @@ public static
 
 	[CRepr]public struct VTable : IMultiLanguage2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage3*/SelfOuter* self, uint32 dwFlags, char16* lpWideCharStr, uint32 cchWideChar, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32 pnDetectedCodePages, PWSTR lpSpecialChar) DetectOutboundCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage3*/SelfOuter* self, uint32 dwFlags, IStream* pStrIn, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32 pnDetectedCodePages, PWSTR lpSpecialChar) DetectOutboundCodePageInIStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage3*/SelfOuter* self, uint32 dwFlags, char16* lpWideCharStr, uint32 cchWideChar, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32* pnDetectedCodePages, PWSTR lpSpecialChar) DetectOutboundCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage3*/SelfOuter* self, uint32 dwFlags, IStream* pStrIn, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32* pnDetectedCodePages, PWSTR lpSpecialChar) DetectOutboundCodePageInIStream;
 	}
 
 
-	public HRESULT DetectOutboundCodePage(uint32 dwFlags, char16* lpWideCharStr, uint32 cchWideChar, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32 pnDetectedCodePages, PWSTR lpSpecialChar) mut => VT.[Friend]DetectOutboundCodePage(&this, dwFlags, lpWideCharStr, cchWideChar, puiPreferredCodePages, nPreferredCodePages, puiDetectedCodePages, pnDetectedCodePages, lpSpecialChar);
+	public HRESULT DetectOutboundCodePage(uint32 dwFlags, char16* lpWideCharStr, uint32 cchWideChar, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32* pnDetectedCodePages, PWSTR lpSpecialChar) mut => VT.[Friend]DetectOutboundCodePage(&this, dwFlags, lpWideCharStr, cchWideChar, puiPreferredCodePages, nPreferredCodePages, puiDetectedCodePages, pnDetectedCodePages, lpSpecialChar);
 
-	public HRESULT DetectOutboundCodePageInIStream(uint32 dwFlags, IStream* pStrIn, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32 pnDetectedCodePages, PWSTR lpSpecialChar) mut => VT.[Friend]DetectOutboundCodePageInIStream(&this, dwFlags, pStrIn, puiPreferredCodePages, nPreferredCodePages, puiDetectedCodePages, pnDetectedCodePages, lpSpecialChar);
+	public HRESULT DetectOutboundCodePageInIStream(uint32 dwFlags, IStream* pStrIn, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32* pnDetectedCodePages, PWSTR lpSpecialChar) mut => VT.[Friend]DetectOutboundCodePageInIStream(&this, dwFlags, pStrIn, puiPreferredCodePages, nPreferredCodePages, puiDetectedCodePages, pnDetectedCodePages, lpSpecialChar);
 }
 
 #endregion
@@ -6457,36 +6457,36 @@ public static
 	public static extern int32 GetTextCharset(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetTextCharsetInfo(HDC hdc, FONTSIGNATURE lpSig, uint32 dwFlags);
+	public static extern int32 GetTextCharsetInfo(HDC hdc, FONTSIGNATURE* lpSig, uint32 dwFlags);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL TranslateCharsetInfo(uint32 lpSrc, CHARSETINFO lpCs, TRANSLATE_CHARSET_INFO_FLAGS dwFlags);
+	public static extern BOOL TranslateCharsetInfo(uint32* lpSrc, CHARSETINFO* lpCs, TRANSLATE_CHARSET_INFO_FLAGS dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetDateFormatA(uint32 Locale, uint32 dwFlags, SYSTEMTIME lpDate, PSTR lpFormat, uint8* lpDateStr, int32 cchDate);
-	public static int32 GetDateFormat(uint32 Locale, uint32 dwFlags, SYSTEMTIME lpDate, PSTR lpFormat, uint8* lpDateStr, int32 cchDate) => GetDateFormatA(Locale, dwFlags, lpDate, lpFormat, lpDateStr, cchDate);
+	public static extern int32 GetDateFormatA(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpDate, PSTR lpFormat, uint8* lpDateStr, int32 cchDate);
+	public static int32 GetDateFormat(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpDate, PSTR lpFormat, uint8* lpDateStr, int32 cchDate) => GetDateFormatA(Locale, dwFlags, lpDate, lpFormat, lpDateStr, cchDate);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetDateFormatW(uint32 Locale, uint32 dwFlags, SYSTEMTIME lpDate, PWSTR lpFormat, char16* lpDateStr, int32 cchDate);
+	public static extern int32 GetDateFormatW(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpDate, PWSTR lpFormat, char16* lpDateStr, int32 cchDate);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetTimeFormatA(uint32 Locale, uint32 dwFlags, SYSTEMTIME lpTime, PSTR lpFormat, uint8* lpTimeStr, int32 cchTime);
-	public static int32 GetTimeFormat(uint32 Locale, uint32 dwFlags, SYSTEMTIME lpTime, PSTR lpFormat, uint8* lpTimeStr, int32 cchTime) => GetTimeFormatA(Locale, dwFlags, lpTime, lpFormat, lpTimeStr, cchTime);
+	public static extern int32 GetTimeFormatA(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpTime, PSTR lpFormat, uint8* lpTimeStr, int32 cchTime);
+	public static int32 GetTimeFormat(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpTime, PSTR lpFormat, uint8* lpTimeStr, int32 cchTime) => GetTimeFormatA(Locale, dwFlags, lpTime, lpFormat, lpTimeStr, cchTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetTimeFormatW(uint32 Locale, uint32 dwFlags, SYSTEMTIME lpTime, PWSTR lpFormat, char16* lpTimeStr, int32 cchTime);
+	public static extern int32 GetTimeFormatW(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpTime, PWSTR lpFormat, char16* lpTimeStr, int32 cchTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetTimeFormatEx(PWSTR lpLocaleName, TIME_FORMAT_FLAGS dwFlags, SYSTEMTIME lpTime, PWSTR lpFormat, char16* lpTimeStr, int32 cchTime);
+	public static extern int32 GetTimeFormatEx(PWSTR lpLocaleName, TIME_FORMAT_FLAGS dwFlags, SYSTEMTIME* lpTime, PWSTR lpFormat, char16* lpTimeStr, int32 cchTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetDateFormatEx(PWSTR lpLocaleName, ENUM_DATE_FORMATS_FLAGS dwFlags, SYSTEMTIME lpDate, PWSTR lpFormat, char16* lpDateStr, int32 cchDate, PWSTR lpCalendar);
+	public static extern int32 GetDateFormatEx(PWSTR lpLocaleName, ENUM_DATE_FORMATS_FLAGS dwFlags, SYSTEMTIME* lpDate, PWSTR lpFormat, char16* lpDateStr, int32 cchDate, PWSTR lpCalendar);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetDurationFormatEx(PWSTR lpLocaleName, uint32 dwFlags, SYSTEMTIME lpDuration, uint64 ullDuration, PWSTR lpFormat, char16* lpDurationStr, int32 cchDuration);
+	public static extern int32 GetDurationFormatEx(PWSTR lpLocaleName, uint32 dwFlags, SYSTEMTIME* lpDuration, uint64 ullDuration, PWSTR lpFormat, char16* lpDurationStr, int32 cchDuration);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 CompareStringEx(PWSTR lpLocaleName, COMPARE_STRING_FLAGS dwCmpFlags, char16* lpString1, int32 cchCount1, char16* lpString2, int32 cchCount2, NLSVERSIONINFO lpVersionInformation, void lpReserved, LPARAM lParam);
+	public static extern int32 CompareStringEx(PWSTR lpLocaleName, COMPARE_STRING_FLAGS dwCmpFlags, char16* lpString1, int32 cchCount1, char16* lpString2, int32 cchCount2, NLSVERSIONINFO* lpVersionInformation, void* lpReserved, LPARAM lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 CompareStringOrdinal(char16* lpString1, int32 cchCount1, char16* lpString2, int32 cchCount2, BOOL bIgnoreCase);
@@ -6501,13 +6501,13 @@ public static
 	public static extern BOOL GetStringTypeExW(uint32 Locale, uint32 dwInfoType, char16* lpSrcStr, int32 cchSrc, uint16* lpCharType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetStringTypeW(uint32 dwInfoType, char16* lpSrcStr, int32 cchSrc, uint16 lpCharType);
+	public static extern BOOL GetStringTypeW(uint32 dwInfoType, char16* lpSrcStr, int32 cchSrc, uint16* lpCharType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 MultiByteToWideChar(uint32 CodePage, MULTI_BYTE_TO_WIDE_CHAR_FLAGS dwFlags, uint8* lpMultiByteStr, int32 cbMultiByte, char16* lpWideCharStr, int32 cchWideChar);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WideCharToMultiByte(uint32 CodePage, uint32 dwFlags, char16* lpWideCharStr, int32 cchWideChar, PSTR lpMultiByteStr, int32 cbMultiByte, PSTR lpDefaultChar, int32 lpUsedDefaultChar);
+	public static extern int32 WideCharToMultiByte(uint32 CodePage, uint32 dwFlags, char16* lpWideCharStr, int32 cchWideChar, PSTR lpMultiByteStr, int32 cbMultiByte, PSTR lpDefaultChar, int32* lpUsedDefaultChar);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsValidCodePage(uint32 CodePage);
@@ -6519,21 +6519,21 @@ public static
 	public static extern uint32 GetOEMCP();
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCPInfo(uint32 CodePage, CPINFO lpCPInfo);
+	public static extern BOOL GetCPInfo(uint32 CodePage, CPINFO* lpCPInfo);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCPInfoExA(uint32 CodePage, uint32 dwFlags, CPINFOEXA lpCPInfoEx);
-	public static BOOL GetCPInfoEx(uint32 CodePage, uint32 dwFlags, CPINFOEXA lpCPInfoEx) => GetCPInfoExA(CodePage, dwFlags, lpCPInfoEx);
+	public static extern BOOL GetCPInfoExA(uint32 CodePage, uint32 dwFlags, CPINFOEXA* lpCPInfoEx);
+	public static BOOL GetCPInfoEx(uint32 CodePage, uint32 dwFlags, CPINFOEXA* lpCPInfoEx) => GetCPInfoExA(CodePage, dwFlags, lpCPInfoEx);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCPInfoExW(uint32 CodePage, uint32 dwFlags, CPINFOEXW lpCPInfoEx);
+	public static extern BOOL GetCPInfoExW(uint32 CodePage, uint32 dwFlags, CPINFOEXW* lpCPInfoEx);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 CompareStringA(uint32 Locale, uint32 dwCmpFlags, int8* lpString1, int32 cchCount1, int8* lpString2, int32 cchCount2);
 	public static int32 CompareString(uint32 Locale, uint32 dwCmpFlags, int8* lpString1, int32 cchCount1, int8* lpString2, int32 cchCount2) => CompareStringA(Locale, dwCmpFlags, lpString1, cchCount1, lpString2, cchCount2);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 FindNLSString(uint32 Locale, uint32 dwFindNLSStringFlags, char16* lpStringSource, int32 cchSource, char16* lpStringValue, int32 cchValue, int32 pcchFound);
+	public static extern int32 FindNLSString(uint32 Locale, uint32 dwFindNLSStringFlags, char16* lpStringSource, int32 cchSource, char16* lpStringValue, int32 cchValue, int32* pcchFound);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 LCMapStringW(uint32 Locale, uint32 dwMapFlags, char16* lpSrcStr, int32 cchSrc, PWSTR lpDestStr, int32 cchDest);
@@ -6557,11 +6557,11 @@ public static
 	public static extern BOOL SetLocaleInfoW(uint32 Locale, uint32 LCType, PWSTR lpLCData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCalendarInfoA(uint32 Locale, uint32 Calendar, uint32 CalType, uint8* lpCalData, int32 cchData, uint32 lpValue);
-	public static int32 GetCalendarInfo(uint32 Locale, uint32 Calendar, uint32 CalType, uint8* lpCalData, int32 cchData, uint32 lpValue) => GetCalendarInfoA(Locale, Calendar, CalType, lpCalData, cchData, lpValue);
+	public static extern int32 GetCalendarInfoA(uint32 Locale, uint32 Calendar, uint32 CalType, uint8* lpCalData, int32 cchData, uint32* lpValue);
+	public static int32 GetCalendarInfo(uint32 Locale, uint32 Calendar, uint32 CalType, uint8* lpCalData, int32 cchData, uint32* lpValue) => GetCalendarInfoA(Locale, Calendar, CalType, lpCalData, cchData, lpValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCalendarInfoW(uint32 Locale, uint32 Calendar, uint32 CalType, char16* lpCalData, int32 cchData, uint32 lpValue);
+	public static extern int32 GetCalendarInfoW(uint32 Locale, uint32 Calendar, uint32 CalType, char16* lpCalData, int32 cchData, uint32* lpValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetCalendarInfoA(uint32 Locale, uint32 Calendar, uint32 CalType, PSTR lpCalData);
@@ -6583,21 +6583,21 @@ public static
 	public static extern int32 LCIDToLocaleName(uint32 Locale, char16* lpName, int32 cchName, uint32 dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetDurationFormat(uint32 Locale, uint32 dwFlags, SYSTEMTIME lpDuration, uint64 ullDuration, PWSTR lpFormat, char16* lpDurationStr, int32 cchDuration);
+	public static extern int32 GetDurationFormat(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpDuration, uint64 ullDuration, PWSTR lpFormat, char16* lpDurationStr, int32 cchDuration);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetNumberFormatA(uint32 Locale, uint32 dwFlags, PSTR lpValue, NUMBERFMTA lpFormat, uint8* lpNumberStr, int32 cchNumber);
-	public static int32 GetNumberFormat(uint32 Locale, uint32 dwFlags, PSTR lpValue, NUMBERFMTA lpFormat, uint8* lpNumberStr, int32 cchNumber) => GetNumberFormatA(Locale, dwFlags, lpValue, lpFormat, lpNumberStr, cchNumber);
+	public static extern int32 GetNumberFormatA(uint32 Locale, uint32 dwFlags, PSTR lpValue, NUMBERFMTA* lpFormat, uint8* lpNumberStr, int32 cchNumber);
+	public static int32 GetNumberFormat(uint32 Locale, uint32 dwFlags, PSTR lpValue, NUMBERFMTA* lpFormat, uint8* lpNumberStr, int32 cchNumber) => GetNumberFormatA(Locale, dwFlags, lpValue, lpFormat, lpNumberStr, cchNumber);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetNumberFormatW(uint32 Locale, uint32 dwFlags, PWSTR lpValue, NUMBERFMTW lpFormat, char16* lpNumberStr, int32 cchNumber);
+	public static extern int32 GetNumberFormatW(uint32 Locale, uint32 dwFlags, PWSTR lpValue, NUMBERFMTW* lpFormat, char16* lpNumberStr, int32 cchNumber);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrencyFormatA(uint32 Locale, uint32 dwFlags, PSTR lpValue, CURRENCYFMTA lpFormat, uint8* lpCurrencyStr, int32 cchCurrency);
-	public static int32 GetCurrencyFormat(uint32 Locale, uint32 dwFlags, PSTR lpValue, CURRENCYFMTA lpFormat, uint8* lpCurrencyStr, int32 cchCurrency) => GetCurrencyFormatA(Locale, dwFlags, lpValue, lpFormat, lpCurrencyStr, cchCurrency);
+	public static extern int32 GetCurrencyFormatA(uint32 Locale, uint32 dwFlags, PSTR lpValue, CURRENCYFMTA* lpFormat, uint8* lpCurrencyStr, int32 cchCurrency);
+	public static int32 GetCurrencyFormat(uint32 Locale, uint32 dwFlags, PSTR lpValue, CURRENCYFMTA* lpFormat, uint8* lpCurrencyStr, int32 cchCurrency) => GetCurrencyFormatA(Locale, dwFlags, lpValue, lpFormat, lpCurrencyStr, cchCurrency);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrencyFormatW(uint32 Locale, uint32 dwFlags, PWSTR lpValue, CURRENCYFMTW lpFormat, char16* lpCurrencyStr, int32 cchCurrency);
+	public static extern int32 GetCurrencyFormatW(uint32 Locale, uint32 dwFlags, PWSTR lpValue, CURRENCYFMTW* lpFormat, char16* lpCurrencyStr, int32 cchCurrency);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumCalendarInfoA(CALINFO_ENUMPROCA lpCalInfoEnumProc, uint32 Locale, uint32 Calendar, uint32 CalType);
@@ -6638,7 +6638,7 @@ public static
 	public static extern BOOL IsValidLanguageGroup(uint32 LanguageGroup, ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetNLSVersion(uint32 Function, uint32 Locale, NLSVERSIONINFO lpVersionInformation);
+	public static extern BOOL GetNLSVersion(uint32 Function, uint32 Locale, NLSVERSIONINFO* lpVersionInformation);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsValidLocale(uint32 Locale, IS_VALID_LOCALE_FLAGS dwFlags);
@@ -6705,48 +6705,48 @@ public static
 	public static extern uint16 GetThreadUILanguage();
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetProcessPreferredUILanguages(uint32 dwFlags, uint32 pulNumLanguages, char16* pwszLanguagesBuffer, uint32 pcchLanguagesBuffer);
+	public static extern BOOL GetProcessPreferredUILanguages(uint32 dwFlags, uint32* pulNumLanguages, char16* pwszLanguagesBuffer, uint32* pcchLanguagesBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetProcessPreferredUILanguages(uint32 dwFlags, PWSTR pwszLanguagesBuffer, uint32 pulNumLanguages);
+	public static extern BOOL SetProcessPreferredUILanguages(uint32 dwFlags, PWSTR pwszLanguagesBuffer, uint32* pulNumLanguages);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserPreferredUILanguages(uint32 dwFlags, uint32 pulNumLanguages, char16* pwszLanguagesBuffer, uint32 pcchLanguagesBuffer);
+	public static extern BOOL GetUserPreferredUILanguages(uint32 dwFlags, uint32* pulNumLanguages, char16* pwszLanguagesBuffer, uint32* pcchLanguagesBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetSystemPreferredUILanguages(uint32 dwFlags, uint32 pulNumLanguages, char16* pwszLanguagesBuffer, uint32 pcchLanguagesBuffer);
+	public static extern BOOL GetSystemPreferredUILanguages(uint32 dwFlags, uint32* pulNumLanguages, char16* pwszLanguagesBuffer, uint32* pcchLanguagesBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetThreadPreferredUILanguages(uint32 dwFlags, uint32 pulNumLanguages, char16* pwszLanguagesBuffer, uint32 pcchLanguagesBuffer);
+	public static extern BOOL GetThreadPreferredUILanguages(uint32 dwFlags, uint32* pulNumLanguages, char16* pwszLanguagesBuffer, uint32* pcchLanguagesBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetThreadPreferredUILanguages(uint32 dwFlags, PWSTR pwszLanguagesBuffer, uint32 pulNumLanguages);
+	public static extern BOOL SetThreadPreferredUILanguages(uint32 dwFlags, PWSTR pwszLanguagesBuffer, uint32* pulNumLanguages);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetFileMUIInfo(uint32 dwFlags, PWSTR pcwszFilePath, FILEMUIINFO pFileMUIInfo, uint32 pcbFileMUIInfo);
+	public static extern BOOL GetFileMUIInfo(uint32 dwFlags, PWSTR pcwszFilePath, FILEMUIINFO* pFileMUIInfo, uint32* pcbFileMUIInfo);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetFileMUIPath(uint32 dwFlags, PWSTR pcwszFilePath, char16* pwszLanguage, uint32 pcchLanguage, char16* pwszFileMUIPath, uint32 pcchFileMUIPath, uint64 pululEnumerator);
+	public static extern BOOL GetFileMUIPath(uint32 dwFlags, PWSTR pcwszFilePath, char16* pwszLanguage, uint32* pcchLanguage, char16* pwszFileMUIPath, uint32* pcchFileMUIPath, uint64* pululEnumerator);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUILanguageInfo(uint32 dwFlags, PWSTR pwmszLanguage, char16* pwszFallbackLanguages, uint32 pcchFallbackLanguages, uint32 pAttributes);
+	public static extern BOOL GetUILanguageInfo(uint32 dwFlags, PWSTR pwmszLanguage, char16* pwszFallbackLanguages, uint32* pcchFallbackLanguages, uint32* pAttributes);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetThreadPreferredUILanguages2(uint32 flags, PWSTR languages, uint32 numLanguagesSet, HSAVEDUILANGUAGES snapshot);
+	public static extern BOOL SetThreadPreferredUILanguages2(uint32 flags, PWSTR languages, uint32* numLanguagesSet, HSAVEDUILANGUAGES* snapshot);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RestoreThreadPreferredUILanguages(HSAVEDUILANGUAGES snapshot);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL NotifyUILanguageChange(uint32 dwFlags, PWSTR pcwstrNewLanguage, PWSTR pcwstrPreviousLanguage, uint32 dwReserved, uint32 pdwStatusRtrn);
+	public static extern BOOL NotifyUILanguageChange(uint32 dwFlags, PWSTR pcwstrNewLanguage, PWSTR pcwstrPreviousLanguage, uint32 dwReserved, uint32* pdwStatusRtrn);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetStringTypeExA(uint32 Locale, uint32 dwInfoType, uint8* lpSrcStr, int32 cchSrc, uint16* lpCharType);
 	public static BOOL GetStringTypeEx(uint32 Locale, uint32 dwInfoType, uint8* lpSrcStr, int32 cchSrc, uint16* lpCharType) => GetStringTypeExA(Locale, dwInfoType, lpSrcStr, cchSrc, lpCharType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetStringTypeA(uint32 Locale, uint32 dwInfoType, uint8* lpSrcStr, int32 cchSrc, uint16 lpCharType);
-	public static BOOL GetStringType(uint32 Locale, uint32 dwInfoType, uint8* lpSrcStr, int32 cchSrc, uint16 lpCharType) => GetStringTypeA(Locale, dwInfoType, lpSrcStr, cchSrc, lpCharType);
+	public static extern BOOL GetStringTypeA(uint32 Locale, uint32 dwInfoType, uint8* lpSrcStr, int32 cchSrc, uint16* lpCharType);
+	public static BOOL GetStringType(uint32 Locale, uint32 dwInfoType, uint8* lpSrcStr, int32 cchSrc, uint16* lpCharType) => GetStringTypeA(Locale, dwInfoType, lpSrcStr, cchSrc, lpCharType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 FoldStringA(FOLD_STRING_MAP_FLAGS dwMapFlags, uint8* lpSrcStr, int32 cchSrc, uint8* lpDestStr, int32 cchDest);
@@ -6812,13 +6812,13 @@ public static
 	public static extern int32 GetLocaleInfoEx(PWSTR lpLocaleName, uint32 LCType, char16* lpLCData, int32 cchData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCalendarInfoEx(PWSTR lpLocaleName, uint32 Calendar, PWSTR lpReserved, uint32 CalType, char16* lpCalData, int32 cchData, uint32 lpValue);
+	public static extern int32 GetCalendarInfoEx(PWSTR lpLocaleName, uint32 Calendar, PWSTR lpReserved, uint32 CalType, char16* lpCalData, int32 cchData, uint32* lpValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetNumberFormatEx(PWSTR lpLocaleName, uint32 dwFlags, PWSTR lpValue, NUMBERFMTW lpFormat, char16* lpNumberStr, int32 cchNumber);
+	public static extern int32 GetNumberFormatEx(PWSTR lpLocaleName, uint32 dwFlags, PWSTR lpValue, NUMBERFMTW* lpFormat, char16* lpNumberStr, int32 cchNumber);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrencyFormatEx(PWSTR lpLocaleName, uint32 dwFlags, PWSTR lpValue, CURRENCYFMTW lpFormat, char16* lpCurrencyStr, int32 cchCurrency);
+	public static extern int32 GetCurrencyFormatEx(PWSTR lpLocaleName, uint32 dwFlags, PWSTR lpValue, CURRENCYFMTW* lpFormat, char16* lpCurrencyStr, int32 cchCurrency);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetUserDefaultLocaleName(char16* lpLocaleName, int32 cchLocaleName);
@@ -6827,19 +6827,19 @@ public static
 	public static extern int32 GetSystemDefaultLocaleName(char16* lpLocaleName, int32 cchLocaleName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsNLSDefinedString(uint32 Function, uint32 dwFlags, NLSVERSIONINFO lpVersionInformation, char16* lpString, int32 cchStr);
+	public static extern BOOL IsNLSDefinedString(uint32 Function, uint32 dwFlags, NLSVERSIONINFO* lpVersionInformation, char16* lpString, int32 cchStr);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetNLSVersionEx(uint32 @function, PWSTR lpLocaleName, NLSVERSIONINFOEX lpVersionInformation);
+	public static extern BOOL GetNLSVersionEx(uint32 @function, PWSTR lpLocaleName, NLSVERSIONINFOEX* lpVersionInformation);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 IsValidNLSVersion(uint32 @function, PWSTR lpLocaleName, NLSVERSIONINFOEX lpVersionInformation);
+	public static extern uint32 IsValidNLSVersion(uint32 @function, PWSTR lpLocaleName, NLSVERSIONINFOEX* lpVersionInformation);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 FindNLSStringEx(PWSTR lpLocaleName, uint32 dwFindNLSStringFlags, char16* lpStringSource, int32 cchSource, char16* lpStringValue, int32 cchValue, int32 pcchFound, NLSVERSIONINFO lpVersionInformation, void lpReserved, LPARAM sortHandle);
+	public static extern int32 FindNLSStringEx(PWSTR lpLocaleName, uint32 dwFindNLSStringFlags, char16* lpStringSource, int32 cchSource, char16* lpStringValue, int32 cchValue, int32* pcchFound, NLSVERSIONINFO* lpVersionInformation, void* lpReserved, LPARAM sortHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 LCMapStringEx(PWSTR lpLocaleName, uint32 dwMapFlags, char16* lpSrcStr, int32 cchSrc, char16* lpDestStr, int32 cchDest, NLSVERSIONINFO lpVersionInformation, void lpReserved, LPARAM sortHandle);
+	public static extern int32 LCMapStringEx(PWSTR lpLocaleName, uint32 dwMapFlags, char16* lpSrcStr, int32 cchSrc, char16* lpDestStr, int32 cchDest, NLSVERSIONINFO* lpVersionInformation, void* lpReserved, LPARAM sortHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsValidLocaleName(PWSTR lpLocaleName);
@@ -6854,169 +6854,169 @@ public static
 	public static extern BOOL EnumTimeFormatsEx(TIMEFMT_ENUMPROCEX lpTimeFmtEnumProcEx, PWSTR lpLocaleName, uint32 dwFlags, LPARAM lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EnumSystemLocalesEx(LOCALE_ENUMPROCEX lpLocaleEnumProcEx, uint32 dwFlags, LPARAM lParam, void lpReserved);
+	public static extern BOOL EnumSystemLocalesEx(LOCALE_ENUMPROCEX lpLocaleEnumProcEx, uint32 dwFlags, LPARAM lParam, void* lpReserved);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ResolveLocaleName(PWSTR lpNameToResolve, char16* lpLocaleName, int32 cchLocaleName);
 
 	[Import("elscore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MappingGetServices(MAPPING_ENUM_OPTIONS pOptions, MAPPING_SERVICE_INFO prgServices, uint32 pdwServicesCount);
+	public static extern HRESULT MappingGetServices(MAPPING_ENUM_OPTIONS* pOptions, MAPPING_SERVICE_INFO** prgServices, uint32* pdwServicesCount);
 
 	[Import("elscore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MappingFreeServices(MAPPING_SERVICE_INFO pServiceInfo);
+	public static extern HRESULT MappingFreeServices(MAPPING_SERVICE_INFO* pServiceInfo);
 
 	[Import("elscore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MappingRecognizeText(MAPPING_SERVICE_INFO pServiceInfo, char16* pszText, uint32 dwLength, uint32 dwIndex, MAPPING_OPTIONS pOptions, MAPPING_PROPERTY_BAG pbag);
+	public static extern HRESULT MappingRecognizeText(MAPPING_SERVICE_INFO* pServiceInfo, char16* pszText, uint32 dwLength, uint32 dwIndex, MAPPING_OPTIONS* pOptions, MAPPING_PROPERTY_BAG* pbag);
 
 	[Import("elscore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MappingDoAction(MAPPING_PROPERTY_BAG pBag, uint32 dwRangeIndex, PWSTR pszActionId);
+	public static extern HRESULT MappingDoAction(MAPPING_PROPERTY_BAG* pBag, uint32 dwRangeIndex, PWSTR pszActionId);
 
 	[Import("elscore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MappingFreePropertyBag(MAPPING_PROPERTY_BAG pBag);
+	public static extern HRESULT MappingFreePropertyBag(MAPPING_PROPERTY_BAG* pBag);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptFreeCache(void psc);
+	public static extern HRESULT ScriptFreeCache(void** psc);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptItemize(char16* pwcInChars, int32 cInChars, int32 cMaxItems, SCRIPT_CONTROL psControl, SCRIPT_STATE psState, SCRIPT_ITEM* pItems, int32 pcItems);
+	public static extern HRESULT ScriptItemize(char16* pwcInChars, int32 cInChars, int32 cMaxItems, SCRIPT_CONTROL* psControl, SCRIPT_STATE* psState, SCRIPT_ITEM* pItems, int32* pcItems);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptLayout(int32 cRuns, uint8* pbLevel, int32 piVisualToLogical, int32 piLogicalToVisual);
+	public static extern HRESULT ScriptLayout(int32 cRuns, uint8* pbLevel, int32* piVisualToLogical, int32* piLogicalToVisual);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptShape(HDC hdc, void psc, char16* pwcChars, int32 cChars, int32 cMaxGlyphs, SCRIPT_ANALYSIS psa, uint16* pwOutGlyphs, uint16 pwLogClust, SCRIPT_VISATTR* psva, int32 pcGlyphs);
+	public static extern HRESULT ScriptShape(HDC hdc, void** psc, char16* pwcChars, int32 cChars, int32 cMaxGlyphs, SCRIPT_ANALYSIS* psa, uint16* pwOutGlyphs, uint16* pwLogClust, SCRIPT_VISATTR* psva, int32* pcGlyphs);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptPlace(HDC hdc, void psc, uint16* pwGlyphs, int32 cGlyphs, SCRIPT_VISATTR* psva, SCRIPT_ANALYSIS psa, int32 piAdvance, GOFFSET pGoffset, ABC pABC);
+	public static extern HRESULT ScriptPlace(HDC hdc, void** psc, uint16* pwGlyphs, int32 cGlyphs, SCRIPT_VISATTR* psva, SCRIPT_ANALYSIS* psa, int32* piAdvance, GOFFSET* pGoffset, ABC* pABC);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptTextOut(HDC hdc, void psc, int32 x, int32 y, uint32 fuOptions, RECT lprc, SCRIPT_ANALYSIS psa, PWSTR pwcReserved, int32 iReserved, uint16* pwGlyphs, int32 cGlyphs, int32* piAdvance, int32* piJustify, GOFFSET* pGoffset);
+	public static extern HRESULT ScriptTextOut(HDC hdc, void** psc, int32 x, int32 y, uint32 fuOptions, RECT* lprc, SCRIPT_ANALYSIS* psa, PWSTR pwcReserved, int32 iReserved, uint16* pwGlyphs, int32 cGlyphs, int32* piAdvance, int32* piJustify, GOFFSET* pGoffset);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptJustify(SCRIPT_VISATTR* psva, int32* piAdvance, int32 cGlyphs, int32 iDx, int32 iMinKashida, int32 piJustify);
+	public static extern HRESULT ScriptJustify(SCRIPT_VISATTR* psva, int32* piAdvance, int32 cGlyphs, int32 iDx, int32 iMinKashida, int32* piJustify);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptBreak(char16* pwcChars, int32 cChars, SCRIPT_ANALYSIS psa, SCRIPT_LOGATTR psla);
+	public static extern HRESULT ScriptBreak(char16* pwcChars, int32 cChars, SCRIPT_ANALYSIS* psa, SCRIPT_LOGATTR* psla);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptCPtoX(int32 iCP, BOOL fTrailing, int32 cChars, int32 cGlyphs, uint16* pwLogClust, SCRIPT_VISATTR* psva, int32* piAdvance, SCRIPT_ANALYSIS psa, int32 piX);
+	public static extern HRESULT ScriptCPtoX(int32 iCP, BOOL fTrailing, int32 cChars, int32 cGlyphs, uint16* pwLogClust, SCRIPT_VISATTR* psva, int32* piAdvance, SCRIPT_ANALYSIS* psa, int32* piX);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptXtoCP(int32 iX, int32 cChars, int32 cGlyphs, uint16* pwLogClust, SCRIPT_VISATTR* psva, int32* piAdvance, SCRIPT_ANALYSIS psa, int32 piCP, int32 piTrailing);
+	public static extern HRESULT ScriptXtoCP(int32 iX, int32 cChars, int32 cGlyphs, uint16* pwLogClust, SCRIPT_VISATTR* psva, int32* piAdvance, SCRIPT_ANALYSIS* psa, int32* piCP, int32* piTrailing);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptGetLogicalWidths(SCRIPT_ANALYSIS psa, int32 cChars, int32 cGlyphs, int32* piGlyphWidth, uint16* pwLogClust, SCRIPT_VISATTR* psva, int32* piDx);
+	public static extern HRESULT ScriptGetLogicalWidths(SCRIPT_ANALYSIS* psa, int32 cChars, int32 cGlyphs, int32* piGlyphWidth, uint16* pwLogClust, SCRIPT_VISATTR* psva, int32* piDx);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptApplyLogicalWidth(int32* piDx, int32 cChars, int32 cGlyphs, uint16* pwLogClust, SCRIPT_VISATTR* psva, int32* piAdvance, SCRIPT_ANALYSIS psa, ABC pABC, int32 piJustify);
+	public static extern HRESULT ScriptApplyLogicalWidth(int32* piDx, int32 cChars, int32 cGlyphs, uint16* pwLogClust, SCRIPT_VISATTR* psva, int32* piAdvance, SCRIPT_ANALYSIS* psa, ABC* pABC, int32* piJustify);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptGetCMap(HDC hdc, void psc, char16* pwcInChars, int32 cChars, uint32 dwFlags, uint16* pwOutGlyphs);
+	public static extern HRESULT ScriptGetCMap(HDC hdc, void** psc, char16* pwcInChars, int32 cChars, uint32 dwFlags, uint16* pwOutGlyphs);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptGetGlyphABCWidth(HDC hdc, void psc, uint16 wGlyph, ABC pABC);
+	public static extern HRESULT ScriptGetGlyphABCWidth(HDC hdc, void** psc, uint16 wGlyph, ABC* pABC);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptGetProperties(SCRIPT_PROPERTIES ppSp, int32 piNumScripts);
+	public static extern HRESULT ScriptGetProperties(SCRIPT_PROPERTIES*** ppSp, int32* piNumScripts);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptGetFontProperties(HDC hdc, void psc, SCRIPT_FONTPROPERTIES sfp);
+	public static extern HRESULT ScriptGetFontProperties(HDC hdc, void** psc, SCRIPT_FONTPROPERTIES* sfp);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptCacheGetHeight(HDC hdc, void psc, int32 tmHeight);
+	public static extern HRESULT ScriptCacheGetHeight(HDC hdc, void** psc, int32* tmHeight);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptStringAnalyse(HDC hdc, void pString, int32 cString, int32 cGlyphs, int32 iCharset, uint32 dwFlags, int32 iReqWidth, SCRIPT_CONTROL psControl, SCRIPT_STATE psState, int32* piDx, SCRIPT_TABDEF pTabdef, uint8 pbInClass, void pssa);
+	public static extern HRESULT ScriptStringAnalyse(HDC hdc, void* pString, int32 cString, int32 cGlyphs, int32 iCharset, uint32 dwFlags, int32 iReqWidth, SCRIPT_CONTROL* psControl, SCRIPT_STATE* psState, int32* piDx, SCRIPT_TABDEF* pTabdef, uint8* pbInClass, void** pssa);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptStringFree(void pssa);
+	public static extern HRESULT ScriptStringFree(void** pssa);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SIZE ScriptString_pSize(void ssa);
+	public static extern SIZE* ScriptString_pSize(void* ssa);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ScriptString_pcOutChars(void ssa);
+	public static extern int32* ScriptString_pcOutChars(void* ssa);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SCRIPT_LOGATTR ScriptString_pLogAttr(void ssa);
+	public static extern SCRIPT_LOGATTR* ScriptString_pLogAttr(void* ssa);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptStringGetOrder(void ssa, uint32 puOrder);
+	public static extern HRESULT ScriptStringGetOrder(void* ssa, uint32* puOrder);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptStringCPtoX(void ssa, int32 icp, BOOL fTrailing, int32 pX);
+	public static extern HRESULT ScriptStringCPtoX(void* ssa, int32 icp, BOOL fTrailing, int32* pX);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptStringXtoCP(void ssa, int32 iX, int32 piCh, int32 piTrailing);
+	public static extern HRESULT ScriptStringXtoCP(void* ssa, int32 iX, int32* piCh, int32* piTrailing);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptStringGetLogicalWidths(void ssa, int32 piDx);
+	public static extern HRESULT ScriptStringGetLogicalWidths(void* ssa, int32* piDx);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptStringValidate(void ssa);
+	public static extern HRESULT ScriptStringValidate(void* ssa);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptStringOut(void ssa, int32 iX, int32 iY, ETO_OPTIONS uOptions, RECT prc, int32 iMinSel, int32 iMaxSel, BOOL fDisabled);
+	public static extern HRESULT ScriptStringOut(void* ssa, int32 iX, int32 iY, ETO_OPTIONS uOptions, RECT* prc, int32 iMinSel, int32 iMaxSel, BOOL fDisabled);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ScriptIsComplex(char16* pwcInChars, int32 cInChars, SCRIPT_IS_COMPLEX_FLAGS dwFlags);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptRecordDigitSubstitution(uint32 Locale, SCRIPT_DIGITSUBSTITUTE psds);
+	public static extern HRESULT ScriptRecordDigitSubstitution(uint32 Locale, SCRIPT_DIGITSUBSTITUTE* psds);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptApplyDigitSubstitution(SCRIPT_DIGITSUBSTITUTE psds, SCRIPT_CONTROL psc, SCRIPT_STATE pss);
+	public static extern HRESULT ScriptApplyDigitSubstitution(SCRIPT_DIGITSUBSTITUTE* psds, SCRIPT_CONTROL* psc, SCRIPT_STATE* pss);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptShapeOpenType(HDC hdc, void psc, SCRIPT_ANALYSIS psa, uint32 tagScript, uint32 tagLangSys, int32* rcRangeChars, textrange_properties* rpRangeProperties, int32 cRanges, char16* pwcChars, int32 cChars, int32 cMaxGlyphs, uint16 pwLogClust, script_charprop pCharProps, uint16* pwOutGlyphs, script_glyphprop* pOutGlyphProps, int32 pcGlyphs);
+	public static extern HRESULT ScriptShapeOpenType(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, uint32 tagLangSys, int32* rcRangeChars, textrange_properties** rpRangeProperties, int32 cRanges, char16* pwcChars, int32 cChars, int32 cMaxGlyphs, uint16* pwLogClust, script_charprop* pCharProps, uint16* pwOutGlyphs, script_glyphprop* pOutGlyphProps, int32* pcGlyphs);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptPlaceOpenType(HDC hdc, void psc, SCRIPT_ANALYSIS psa, uint32 tagScript, uint32 tagLangSys, int32* rcRangeChars, textrange_properties* rpRangeProperties, int32 cRanges, char16* pwcChars, uint16* pwLogClust, script_charprop* pCharProps, int32 cChars, uint16* pwGlyphs, script_glyphprop* pGlyphProps, int32 cGlyphs, int32 piAdvance, GOFFSET pGoffset, ABC pABC);
+	public static extern HRESULT ScriptPlaceOpenType(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, uint32 tagLangSys, int32* rcRangeChars, textrange_properties** rpRangeProperties, int32 cRanges, char16* pwcChars, uint16* pwLogClust, script_charprop* pCharProps, int32 cChars, uint16* pwGlyphs, script_glyphprop* pGlyphProps, int32 cGlyphs, int32* piAdvance, GOFFSET* pGoffset, ABC* pABC);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptItemizeOpenType(char16* pwcInChars, int32 cInChars, int32 cMaxItems, SCRIPT_CONTROL psControl, SCRIPT_STATE psState, SCRIPT_ITEM* pItems, uint32* pScriptTags, int32 pcItems);
+	public static extern HRESULT ScriptItemizeOpenType(char16* pwcInChars, int32 cInChars, int32 cMaxItems, SCRIPT_CONTROL* psControl, SCRIPT_STATE* psState, SCRIPT_ITEM* pItems, uint32* pScriptTags, int32* pcItems);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptGetFontScriptTags(HDC hdc, void psc, SCRIPT_ANALYSIS psa, int32 cMaxTags, uint32* pScriptTags, int32 pcTags);
+	public static extern HRESULT ScriptGetFontScriptTags(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, int32 cMaxTags, uint32* pScriptTags, int32* pcTags);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptGetFontLanguageTags(HDC hdc, void psc, SCRIPT_ANALYSIS psa, uint32 tagScript, int32 cMaxTags, uint32* pLangsysTags, int32 pcTags);
+	public static extern HRESULT ScriptGetFontLanguageTags(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, int32 cMaxTags, uint32* pLangsysTags, int32* pcTags);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptGetFontFeatureTags(HDC hdc, void psc, SCRIPT_ANALYSIS psa, uint32 tagScript, uint32 tagLangSys, int32 cMaxTags, uint32* pFeatureTags, int32 pcTags);
+	public static extern HRESULT ScriptGetFontFeatureTags(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, uint32 tagLangSys, int32 cMaxTags, uint32* pFeatureTags, int32* pcTags);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptGetFontAlternateGlyphs(HDC hdc, void psc, SCRIPT_ANALYSIS psa, uint32 tagScript, uint32 tagLangSys, uint32 tagFeature, uint16 wGlyphId, int32 cMaxAlternates, uint16* pAlternateGlyphs, int32 pcAlternates);
+	public static extern HRESULT ScriptGetFontAlternateGlyphs(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, uint32 tagLangSys, uint32 tagFeature, uint16 wGlyphId, int32 cMaxAlternates, uint16* pAlternateGlyphs, int32* pcAlternates);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptSubstituteSingleGlyph(HDC hdc, void psc, SCRIPT_ANALYSIS psa, uint32 tagScript, uint32 tagLangSys, uint32 tagFeature, int32 lParameter, uint16 wGlyphId, uint16 pwOutGlyphId);
+	public static extern HRESULT ScriptSubstituteSingleGlyph(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, uint32 tagLangSys, uint32 tagFeature, int32 lParameter, uint16 wGlyphId, uint16* pwOutGlyphId);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptPositionSingleGlyph(HDC hdc, void psc, SCRIPT_ANALYSIS psa, uint32 tagScript, uint32 tagLangSys, uint32 tagFeature, int32 lParameter, uint16 wGlyphId, int32 iAdvance, GOFFSET GOffset, int32 piOutAdvance, GOFFSET pOutGoffset);
+	public static extern HRESULT ScriptPositionSingleGlyph(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, uint32 tagLangSys, uint32 tagFeature, int32 lParameter, uint16 wGlyphId, int32 iAdvance, GOFFSET GOffset, int32* piOutAdvance, GOFFSET* pOutGoffset);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utf8_nextCharSafeBody(uint8 s, int32 pi, int32 length, int32 c, int8 strict);
+	public static extern int32 utf8_nextCharSafeBody(uint8* s, int32* pi, int32 length, int32 c, int8 strict);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utf8_appendCharSafeBody(uint8 s, int32 i, int32 length, int32 c, int8 pIsError);
+	public static extern int32 utf8_appendCharSafeBody(uint8* s, int32 i, int32 length, int32 c, int8* pIsError);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utf8_prevCharSafeBody(uint8 s, int32 start, int32 pi, int32 c, int8 strict);
+	public static extern int32 utf8_prevCharSafeBody(uint8* s, int32 start, int32* pi, int32 c, int8 strict);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utf8_back1SafeBody(uint8 s, int32 start, int32 i);
+	public static extern int32 utf8_back1SafeBody(uint8* s, int32 start, int32 i);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_versionFromString(uint8 versionArray, PSTR versionString);
+	public static extern void u_versionFromString(uint8* versionArray, PSTR versionString);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_versionFromUString(uint8 versionArray, uint16 versionString);
+	public static extern void u_versionFromUString(uint8* versionArray, uint16* versionString);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_versionToString(uint8 versionArray, PSTR versionString);
+	public static extern void u_versionToString(uint8* versionArray, PSTR versionString);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_getVersion(uint8 versionArray);
+	public static extern void u_getVersion(uint8* versionArray);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR u_errorName(UErrorCode code);
@@ -7028,13 +7028,13 @@ public static
 	public static extern int32 utrace_getLevel();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrace_setFunctions(void context, UTraceEntry e, UTraceExit x, UTraceData d);
+	public static extern void utrace_setFunctions(void* context, UTraceEntry e, UTraceExit x, UTraceData d);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrace_getFunctions(void context, UTraceEntry e, UTraceExit x, UTraceData d);
+	public static extern void utrace_getFunctions(void** context, UTraceEntry* e, UTraceExit* x, UTraceData* d);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utrace_vformat(PSTR outBuf, int32 capacity, int32 indent, PSTR fmt, int8 args);
+	public static extern int32 utrace_vformat(PSTR outBuf, int32 capacity, int32 indent, PSTR fmt, int8* args);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 utrace_format(PSTR outBuf, int32 capacity, int32 indent, PSTR fmt);
@@ -7043,10 +7043,10 @@ public static
 	public static extern PSTR utrace_functionName(int32 fnNumber);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_shapeArabic(uint16 source, int32 sourceLength, uint16 dest, int32 destSize, uint32 options, UErrorCode pErrorCode);
+	public static extern int32 u_shapeArabic(uint16* source, int32 sourceLength, uint16* dest, int32 destSize, uint32 options, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uscript_getCode(PSTR nameOrAbbrOrLocale, UScriptCode fillIn, int32 capacity, UErrorCode err);
+	public static extern int32 uscript_getCode(PSTR nameOrAbbrOrLocale, UScriptCode* fillIn, int32 capacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR uscript_getName(UScriptCode scriptCode);
@@ -7055,16 +7055,16 @@ public static
 	public static extern PSTR uscript_getShortName(UScriptCode scriptCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UScriptCode uscript_getScript(int32 codepoint, UErrorCode err);
+	public static extern UScriptCode uscript_getScript(int32 codepoint, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int8 uscript_hasScript(int32 c, UScriptCode sc);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uscript_getScriptExtensions(int32 c, UScriptCode scripts, int32 capacity, UErrorCode errorCode);
+	public static extern int32 uscript_getScriptExtensions(int32 c, UScriptCode* scripts, int32 capacity, UErrorCode* errorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uscript_getSampleString(UScriptCode script, uint16 dest, int32 capacity, UErrorCode pErrorCode);
+	public static extern int32 uscript_getSampleString(UScriptCode script, uint16* dest, int32 capacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern UScriptUsage uscript_getUsage(UScriptCode script);
@@ -7079,73 +7079,73 @@ public static
 	public static extern int8 uscript_isCased(UScriptCode script);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uiter_current32(UCharIterator iter);
+	public static extern int32 uiter_current32(UCharIterator* iter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uiter_next32(UCharIterator iter);
+	public static extern int32 uiter_next32(UCharIterator* iter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uiter_previous32(UCharIterator iter);
+	public static extern int32 uiter_previous32(UCharIterator* iter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 uiter_getState(UCharIterator iter);
+	public static extern uint32 uiter_getState(UCharIterator* iter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uiter_setState(UCharIterator iter, uint32 state, UErrorCode pErrorCode);
+	public static extern void uiter_setState(UCharIterator* iter, uint32 state, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uiter_setString(UCharIterator iter, uint16 s, int32 length);
+	public static extern void uiter_setString(UCharIterator* iter, uint16* s, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uiter_setUTF16BE(UCharIterator iter, PSTR s, int32 length);
+	public static extern void uiter_setUTF16BE(UCharIterator* iter, PSTR s, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uiter_setUTF8(UCharIterator iter, PSTR s, int32 length);
+	public static extern void uiter_setUTF8(UCharIterator* iter, PSTR s, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uenum_close(UEnumeration en);
+	public static extern void uenum_close(UEnumeration* en);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uenum_count(UEnumeration en, UErrorCode status);
+	public static extern int32 uenum_count(UEnumeration* en, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 uenum_unext(UEnumeration en, int32 resultLength, UErrorCode status);
+	public static extern uint16* uenum_unext(UEnumeration* en, int32* resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR uenum_next(UEnumeration en, int32 resultLength, UErrorCode status);
+	public static extern PSTR uenum_next(UEnumeration* en, int32* resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uenum_reset(UEnumeration en, UErrorCode status);
+	public static extern void uenum_reset(UEnumeration* en, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration uenum_openUCharStringsEnumeration(uint16 strings, int32 count, UErrorCode ec);
+	public static extern UEnumeration* uenum_openUCharStringsEnumeration(uint16** strings, int32 count, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration uenum_openCharStringsEnumeration(int8 strings, int32 count, UErrorCode ec);
+	public static extern UEnumeration* uenum_openCharStringsEnumeration(int8** strings, int32 count, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR uloc_getDefault();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uloc_setDefault(PSTR localeID, UErrorCode status);
+	public static extern void uloc_setDefault(PSTR localeID, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getLanguage(PSTR localeID, PSTR language, int32 languageCapacity, UErrorCode err);
+	public static extern int32 uloc_getLanguage(PSTR localeID, PSTR language, int32 languageCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getScript(PSTR localeID, PSTR script, int32 scriptCapacity, UErrorCode err);
+	public static extern int32 uloc_getScript(PSTR localeID, PSTR script, int32 scriptCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getCountry(PSTR localeID, PSTR country, int32 countryCapacity, UErrorCode err);
+	public static extern int32 uloc_getCountry(PSTR localeID, PSTR country, int32 countryCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getVariant(PSTR localeID, PSTR variant, int32 variantCapacity, UErrorCode err);
+	public static extern int32 uloc_getVariant(PSTR localeID, PSTR variant, int32 variantCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getName(PSTR localeID, PSTR name, int32 nameCapacity, UErrorCode err);
+	public static extern int32 uloc_getName(PSTR localeID, PSTR name, int32 nameCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_canonicalize(PSTR localeID, PSTR name, int32 nameCapacity, UErrorCode err);
+	public static extern int32 uloc_canonicalize(PSTR localeID, PSTR name, int32 nameCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR uloc_getISO3Language(PSTR localeID);
@@ -7157,25 +7157,25 @@ public static
 	public static extern uint32 uloc_getLCID(PSTR localeID);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getDisplayLanguage(PSTR locale, PSTR displayLocale, uint16 language, int32 languageCapacity, UErrorCode status);
+	public static extern int32 uloc_getDisplayLanguage(PSTR locale, PSTR displayLocale, uint16* language, int32 languageCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getDisplayScript(PSTR locale, PSTR displayLocale, uint16 script, int32 scriptCapacity, UErrorCode status);
+	public static extern int32 uloc_getDisplayScript(PSTR locale, PSTR displayLocale, uint16* script, int32 scriptCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getDisplayCountry(PSTR locale, PSTR displayLocale, uint16 country, int32 countryCapacity, UErrorCode status);
+	public static extern int32 uloc_getDisplayCountry(PSTR locale, PSTR displayLocale, uint16* country, int32 countryCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getDisplayVariant(PSTR locale, PSTR displayLocale, uint16 variant, int32 variantCapacity, UErrorCode status);
+	public static extern int32 uloc_getDisplayVariant(PSTR locale, PSTR displayLocale, uint16* variant, int32 variantCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getDisplayKeyword(PSTR keyword, PSTR displayLocale, uint16 dest, int32 destCapacity, UErrorCode status);
+	public static extern int32 uloc_getDisplayKeyword(PSTR keyword, PSTR displayLocale, uint16* dest, int32 destCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getDisplayKeywordValue(PSTR locale, PSTR keyword, PSTR displayLocale, uint16 dest, int32 destCapacity, UErrorCode status);
+	public static extern int32 uloc_getDisplayKeywordValue(PSTR locale, PSTR keyword, PSTR displayLocale, uint16* dest, int32 destCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getDisplayName(PSTR localeID, PSTR inLocaleID, uint16 result, int32 maxResultSize, UErrorCode err);
+	public static extern int32 uloc_getDisplayName(PSTR localeID, PSTR inLocaleID, uint16* result, int32 maxResultSize, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR uloc_getAvailable(int32 n);
@@ -7184,58 +7184,58 @@ public static
 	public static extern int32 uloc_countAvailable();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration uloc_openAvailableByType(ULocAvailableType type, UErrorCode status);
+	public static extern UEnumeration* uloc_openAvailableByType(ULocAvailableType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uloc_getISOLanguages();
+	public static extern int8** uloc_getISOLanguages();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uloc_getISOCountries();
+	public static extern int8** uloc_getISOCountries();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getParent(PSTR localeID, PSTR parent, int32 parentCapacity, UErrorCode err);
+	public static extern int32 uloc_getParent(PSTR localeID, PSTR parent, int32 parentCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getBaseName(PSTR localeID, PSTR name, int32 nameCapacity, UErrorCode err);
+	public static extern int32 uloc_getBaseName(PSTR localeID, PSTR name, int32 nameCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration uloc_openKeywords(PSTR localeID, UErrorCode status);
+	public static extern UEnumeration* uloc_openKeywords(PSTR localeID, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getKeywordValue(PSTR localeID, PSTR keywordName, PSTR buffer, int32 bufferCapacity, UErrorCode status);
+	public static extern int32 uloc_getKeywordValue(PSTR localeID, PSTR keywordName, PSTR buffer, int32 bufferCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_setKeywordValue(PSTR keywordName, PSTR keywordValue, PSTR buffer, int32 bufferCapacity, UErrorCode status);
+	public static extern int32 uloc_setKeywordValue(PSTR keywordName, PSTR keywordValue, PSTR buffer, int32 bufferCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int8 uloc_isRightToLeft(PSTR locale);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ULayoutType uloc_getCharacterOrientation(PSTR localeId, UErrorCode status);
+	public static extern ULayoutType uloc_getCharacterOrientation(PSTR localeId, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ULayoutType uloc_getLineOrientation(PSTR localeId, UErrorCode status);
+	public static extern ULayoutType uloc_getLineOrientation(PSTR localeId, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_acceptLanguageFromHTTP(PSTR result, int32 resultAvailable, UAcceptResult outResult, PSTR httpAcceptLanguage, UEnumeration availableLocales, UErrorCode status);
+	public static extern int32 uloc_acceptLanguageFromHTTP(PSTR result, int32 resultAvailable, UAcceptResult* outResult, PSTR httpAcceptLanguage, UEnumeration* availableLocales, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_acceptLanguage(PSTR result, int32 resultAvailable, UAcceptResult outResult, int8 acceptList, int32 acceptListCount, UEnumeration availableLocales, UErrorCode status);
+	public static extern int32 uloc_acceptLanguage(PSTR result, int32 resultAvailable, UAcceptResult* outResult, int8** acceptList, int32 acceptListCount, UEnumeration* availableLocales, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_getLocaleForLCID(uint32 hostID, PSTR locale, int32 localeCapacity, UErrorCode status);
+	public static extern int32 uloc_getLocaleForLCID(uint32 hostID, PSTR locale, int32 localeCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_addLikelySubtags(PSTR localeID, PSTR maximizedLocaleID, int32 maximizedLocaleIDCapacity, UErrorCode err);
+	public static extern int32 uloc_addLikelySubtags(PSTR localeID, PSTR maximizedLocaleID, int32 maximizedLocaleIDCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_minimizeSubtags(PSTR localeID, PSTR minimizedLocaleID, int32 minimizedLocaleIDCapacity, UErrorCode err);
+	public static extern int32 uloc_minimizeSubtags(PSTR localeID, PSTR minimizedLocaleID, int32 minimizedLocaleIDCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_forLanguageTag(PSTR langtag, PSTR localeID, int32 localeIDCapacity, int32 parsedLength, UErrorCode err);
+	public static extern int32 uloc_forLanguageTag(PSTR langtag, PSTR localeID, int32 localeIDCapacity, int32* parsedLength, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uloc_toLanguageTag(PSTR localeID, PSTR langtag, int32 langtagCapacity, int8 strict, UErrorCode err);
+	public static extern int32 uloc_toLanguageTag(PSTR localeID, PSTR langtag, int32 langtagCapacity, int8 strict, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR uloc_toUnicodeLocaleKey(PSTR keyword);
@@ -7250,370 +7250,370 @@ public static
 	public static extern PSTR uloc_toLegacyType(PSTR keyword, PSTR value);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UResourceBundle ures_open(PSTR packageName, PSTR locale, UErrorCode status);
+	public static extern UResourceBundle* ures_open(PSTR packageName, PSTR locale, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UResourceBundle ures_openDirect(PSTR packageName, PSTR locale, UErrorCode status);
+	public static extern UResourceBundle* ures_openDirect(PSTR packageName, PSTR locale, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UResourceBundle ures_openU(uint16 packageName, PSTR locale, UErrorCode status);
+	public static extern UResourceBundle* ures_openU(uint16* packageName, PSTR locale, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ures_close(UResourceBundle resourceBundle);
+	public static extern void ures_close(UResourceBundle* resourceBundle);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ures_getVersion(UResourceBundle resB, uint8 versionInfo);
+	public static extern void ures_getVersion(UResourceBundle* resB, uint8* versionInfo);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ures_getLocaleByType(UResourceBundle resourceBundle, ULocDataLocaleType type, UErrorCode status);
+	public static extern PSTR ures_getLocaleByType(UResourceBundle* resourceBundle, ULocDataLocaleType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ures_getString(UResourceBundle resourceBundle, int32 len, UErrorCode status);
+	public static extern uint16* ures_getString(UResourceBundle* resourceBundle, int32* len, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ures_getUTF8String(UResourceBundle resB, PSTR dest, int32 length, int8 forceCopy, UErrorCode status);
+	public static extern PSTR ures_getUTF8String(UResourceBundle* resB, PSTR dest, int32* length, int8 forceCopy, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8 ures_getBinary(UResourceBundle resourceBundle, int32 len, UErrorCode status);
+	public static extern uint8* ures_getBinary(UResourceBundle* resourceBundle, int32* len, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ures_getIntVector(UResourceBundle resourceBundle, int32 len, UErrorCode status);
+	public static extern int32* ures_getIntVector(UResourceBundle* resourceBundle, int32* len, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ures_getUInt(UResourceBundle resourceBundle, UErrorCode status);
+	public static extern uint32 ures_getUInt(UResourceBundle* resourceBundle, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ures_getInt(UResourceBundle resourceBundle, UErrorCode status);
+	public static extern int32 ures_getInt(UResourceBundle* resourceBundle, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ures_getSize(UResourceBundle resourceBundle);
+	public static extern int32 ures_getSize(UResourceBundle* resourceBundle);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UResType ures_getType(UResourceBundle resourceBundle);
+	public static extern UResType ures_getType(UResourceBundle* resourceBundle);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ures_getKey(UResourceBundle resourceBundle);
+	public static extern PSTR ures_getKey(UResourceBundle* resourceBundle);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ures_resetIterator(UResourceBundle resourceBundle);
+	public static extern void ures_resetIterator(UResourceBundle* resourceBundle);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ures_hasNext(UResourceBundle resourceBundle);
+	public static extern int8 ures_hasNext(UResourceBundle* resourceBundle);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UResourceBundle ures_getNextResource(UResourceBundle resourceBundle, UResourceBundle fillIn, UErrorCode status);
+	public static extern UResourceBundle* ures_getNextResource(UResourceBundle* resourceBundle, UResourceBundle* fillIn, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ures_getNextString(UResourceBundle resourceBundle, int32 len, int8 key, UErrorCode status);
+	public static extern uint16* ures_getNextString(UResourceBundle* resourceBundle, int32* len, int8** key, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UResourceBundle ures_getByIndex(UResourceBundle resourceBundle, int32 indexR, UResourceBundle fillIn, UErrorCode status);
+	public static extern UResourceBundle* ures_getByIndex(UResourceBundle* resourceBundle, int32 indexR, UResourceBundle* fillIn, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ures_getStringByIndex(UResourceBundle resourceBundle, int32 indexS, int32 len, UErrorCode status);
+	public static extern uint16* ures_getStringByIndex(UResourceBundle* resourceBundle, int32 indexS, int32* len, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ures_getUTF8StringByIndex(UResourceBundle resB, int32 stringIndex, PSTR dest, int32 pLength, int8 forceCopy, UErrorCode status);
+	public static extern PSTR ures_getUTF8StringByIndex(UResourceBundle* resB, int32 stringIndex, PSTR dest, int32* pLength, int8 forceCopy, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UResourceBundle ures_getByKey(UResourceBundle resourceBundle, PSTR key, UResourceBundle fillIn, UErrorCode status);
+	public static extern UResourceBundle* ures_getByKey(UResourceBundle* resourceBundle, PSTR key, UResourceBundle* fillIn, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ures_getStringByKey(UResourceBundle resB, PSTR key, int32 len, UErrorCode status);
+	public static extern uint16* ures_getStringByKey(UResourceBundle* resB, PSTR key, int32* len, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ures_getUTF8StringByKey(UResourceBundle resB, PSTR key, PSTR dest, int32 pLength, int8 forceCopy, UErrorCode status);
+	public static extern PSTR ures_getUTF8StringByKey(UResourceBundle* resB, PSTR key, PSTR dest, int32* pLength, int8 forceCopy, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ures_openAvailableLocales(PSTR packageName, UErrorCode status);
+	public static extern UEnumeration* ures_openAvailableLocales(PSTR packageName, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ULocaleDisplayNames uldn_open(PSTR locale, UDialectHandling dialectHandling, UErrorCode pErrorCode);
+	public static extern ULocaleDisplayNames* uldn_open(PSTR locale, UDialectHandling dialectHandling, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uldn_close(ULocaleDisplayNames ldn);
+	public static extern void uldn_close(ULocaleDisplayNames* ldn);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR uldn_getLocale(ULocaleDisplayNames ldn);
+	public static extern PSTR uldn_getLocale(ULocaleDisplayNames* ldn);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UDialectHandling uldn_getDialectHandling(ULocaleDisplayNames ldn);
+	public static extern UDialectHandling uldn_getDialectHandling(ULocaleDisplayNames* ldn);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uldn_localeDisplayName(ULocaleDisplayNames ldn, PSTR locale, uint16 result, int32 maxResultSize, UErrorCode pErrorCode);
+	public static extern int32 uldn_localeDisplayName(ULocaleDisplayNames* ldn, PSTR locale, uint16* result, int32 maxResultSize, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uldn_languageDisplayName(ULocaleDisplayNames ldn, PSTR lang, uint16 result, int32 maxResultSize, UErrorCode pErrorCode);
+	public static extern int32 uldn_languageDisplayName(ULocaleDisplayNames* ldn, PSTR lang, uint16* result, int32 maxResultSize, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uldn_scriptDisplayName(ULocaleDisplayNames ldn, PSTR script, uint16 result, int32 maxResultSize, UErrorCode pErrorCode);
+	public static extern int32 uldn_scriptDisplayName(ULocaleDisplayNames* ldn, PSTR script, uint16* result, int32 maxResultSize, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uldn_scriptCodeDisplayName(ULocaleDisplayNames ldn, UScriptCode scriptCode, uint16 result, int32 maxResultSize, UErrorCode pErrorCode);
+	public static extern int32 uldn_scriptCodeDisplayName(ULocaleDisplayNames* ldn, UScriptCode scriptCode, uint16* result, int32 maxResultSize, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uldn_regionDisplayName(ULocaleDisplayNames ldn, PSTR region, uint16 result, int32 maxResultSize, UErrorCode pErrorCode);
+	public static extern int32 uldn_regionDisplayName(ULocaleDisplayNames* ldn, PSTR region, uint16* result, int32 maxResultSize, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uldn_variantDisplayName(ULocaleDisplayNames ldn, PSTR variant, uint16 result, int32 maxResultSize, UErrorCode pErrorCode);
+	public static extern int32 uldn_variantDisplayName(ULocaleDisplayNames* ldn, PSTR variant, uint16* result, int32 maxResultSize, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uldn_keyDisplayName(ULocaleDisplayNames ldn, PSTR key, uint16 result, int32 maxResultSize, UErrorCode pErrorCode);
+	public static extern int32 uldn_keyDisplayName(ULocaleDisplayNames* ldn, PSTR key, uint16* result, int32 maxResultSize, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uldn_keyValueDisplayName(ULocaleDisplayNames ldn, PSTR key, PSTR value, uint16 result, int32 maxResultSize, UErrorCode pErrorCode);
+	public static extern int32 uldn_keyValueDisplayName(ULocaleDisplayNames* ldn, PSTR key, PSTR value, uint16* result, int32 maxResultSize, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ULocaleDisplayNames uldn_openForContext(PSTR locale, UDisplayContext contexts, int32 length, UErrorCode pErrorCode);
+	public static extern ULocaleDisplayNames* uldn_openForContext(PSTR locale, UDisplayContext* contexts, int32 length, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UDisplayContext uldn_getContext(ULocaleDisplayNames ldn, UDisplayContextType type, UErrorCode pErrorCode);
+	public static extern UDisplayContext uldn_getContext(ULocaleDisplayNames* ldn, UDisplayContextType type, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucurr_forLocale(PSTR locale, uint16 buff, int32 buffCapacity, UErrorCode ec);
+	public static extern int32 ucurr_forLocale(PSTR locale, uint16* buff, int32 buffCapacity, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucurr_register(uint16 isoCode, PSTR locale, UErrorCode status);
+	public static extern void* ucurr_register(uint16* isoCode, PSTR locale, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucurr_unregister(void key, UErrorCode status);
+	public static extern int8 ucurr_unregister(void* key, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ucurr_getName(uint16 currency, PSTR locale, UCurrNameStyle nameStyle, int8 isChoiceFormat, int32 len, UErrorCode ec);
+	public static extern uint16* ucurr_getName(uint16* currency, PSTR locale, UCurrNameStyle nameStyle, int8* isChoiceFormat, int32* len, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ucurr_getPluralName(uint16 currency, PSTR locale, int8 isChoiceFormat, PSTR pluralCount, int32 len, UErrorCode ec);
+	public static extern uint16* ucurr_getPluralName(uint16* currency, PSTR locale, int8* isChoiceFormat, PSTR pluralCount, int32* len, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucurr_getDefaultFractionDigits(uint16 currency, UErrorCode ec);
+	public static extern int32 ucurr_getDefaultFractionDigits(uint16* currency, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucurr_getDefaultFractionDigitsForUsage(uint16 currency, UCurrencyUsage usage, UErrorCode ec);
+	public static extern int32 ucurr_getDefaultFractionDigitsForUsage(uint16* currency, UCurrencyUsage usage, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double ucurr_getRoundingIncrement(uint16 currency, UErrorCode ec);
+	public static extern double ucurr_getRoundingIncrement(uint16* currency, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double ucurr_getRoundingIncrementForUsage(uint16 currency, UCurrencyUsage usage, UErrorCode ec);
+	public static extern double ucurr_getRoundingIncrementForUsage(uint16* currency, UCurrencyUsage usage, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucurr_openISOCurrencies(uint32 currType, UErrorCode pErrorCode);
+	public static extern UEnumeration* ucurr_openISOCurrencies(uint32 currType, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucurr_isAvailable(uint16 isoCode, double from, double to, UErrorCode errorCode);
+	public static extern int8 ucurr_isAvailable(uint16* isoCode, double from, double to, UErrorCode* errorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucurr_countCurrencies(PSTR locale, double date, UErrorCode ec);
+	public static extern int32 ucurr_countCurrencies(PSTR locale, double date, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucurr_forLocaleAndDate(PSTR locale, double date, int32 index, uint16 buff, int32 buffCapacity, UErrorCode ec);
+	public static extern int32 ucurr_forLocaleAndDate(PSTR locale, double date, int32 index, uint16* buff, int32 buffCapacity, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucurr_getKeywordValuesForLocale(PSTR key, PSTR locale, int8 commonlyUsed, UErrorCode status);
+	public static extern UEnumeration* ucurr_getKeywordValuesForLocale(PSTR key, PSTR locale, int8 commonlyUsed, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucurr_getNumericCode(uint16 currency);
+	public static extern int32 ucurr_getNumericCode(uint16* currency);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ucpmap_get(UCPMap map, int32 c);
+	public static extern uint32 ucpmap_get(UCPMap* map, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucpmap_getRange(UCPMap map, int32 start, UCPMapRangeOption option, uint32 surrogateValue, UCPMapValueFilter filter, void context, uint32 pValue);
+	public static extern int32 ucpmap_getRange(UCPMap* map, int32 start, UCPMapRangeOption option, uint32 surrogateValue, UCPMapValueFilter* filter, void* context, uint32* pValue);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCPTrie ucptrie_openFromBinary(UCPTrieType type, UCPTrieValueWidth valueWidth, void data, int32 length, int32 pActualLength, UErrorCode pErrorCode);
+	public static extern UCPTrie* ucptrie_openFromBinary(UCPTrieType type, UCPTrieValueWidth valueWidth, void* data, int32 length, int32* pActualLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucptrie_close(UCPTrie trie);
+	public static extern void ucptrie_close(UCPTrie* trie);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCPTrieType ucptrie_getType(UCPTrie trie);
+	public static extern UCPTrieType ucptrie_getType(UCPTrie* trie);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCPTrieValueWidth ucptrie_getValueWidth(UCPTrie trie);
+	public static extern UCPTrieValueWidth ucptrie_getValueWidth(UCPTrie* trie);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ucptrie_get(UCPTrie trie, int32 c);
+	public static extern uint32 ucptrie_get(UCPTrie* trie, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucptrie_getRange(UCPTrie trie, int32 start, UCPMapRangeOption option, uint32 surrogateValue, UCPMapValueFilter filter, void context, uint32 pValue);
+	public static extern int32 ucptrie_getRange(UCPTrie* trie, int32 start, UCPMapRangeOption option, uint32 surrogateValue, UCPMapValueFilter* filter, void* context, uint32* pValue);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucptrie_toBinary(UCPTrie trie, void data, int32 capacity, UErrorCode pErrorCode);
+	public static extern int32 ucptrie_toBinary(UCPTrie* trie, void* data, int32 capacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucptrie_internalSmallIndex(UCPTrie trie, int32 c);
+	public static extern int32 ucptrie_internalSmallIndex(UCPTrie* trie, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucptrie_internalSmallU8Index(UCPTrie trie, int32 lt1, uint8 t2, uint8 t3);
+	public static extern int32 ucptrie_internalSmallU8Index(UCPTrie* trie, int32 lt1, uint8 t2, uint8 t3);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucptrie_internalU8PrevIndex(UCPTrie trie, int32 c, uint8 start, uint8 src);
+	public static extern int32 ucptrie_internalU8PrevIndex(UCPTrie* trie, int32 c, uint8* start, uint8* src);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UMutableCPTrie umutablecptrie_open(uint32 initialValue, uint32 errorValue, UErrorCode pErrorCode);
+	public static extern UMutableCPTrie* umutablecptrie_open(uint32 initialValue, uint32 errorValue, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UMutableCPTrie umutablecptrie_clone(UMutableCPTrie other, UErrorCode pErrorCode);
+	public static extern UMutableCPTrie* umutablecptrie_clone(UMutableCPTrie* other, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void umutablecptrie_close(UMutableCPTrie trie);
+	public static extern void umutablecptrie_close(UMutableCPTrie* trie);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UMutableCPTrie umutablecptrie_fromUCPMap(UCPMap map, UErrorCode pErrorCode);
+	public static extern UMutableCPTrie* umutablecptrie_fromUCPMap(UCPMap* map, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UMutableCPTrie umutablecptrie_fromUCPTrie(UCPTrie trie, UErrorCode pErrorCode);
+	public static extern UMutableCPTrie* umutablecptrie_fromUCPTrie(UCPTrie* trie, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 umutablecptrie_get(UMutableCPTrie trie, int32 c);
+	public static extern uint32 umutablecptrie_get(UMutableCPTrie* trie, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 umutablecptrie_getRange(UMutableCPTrie trie, int32 start, UCPMapRangeOption option, uint32 surrogateValue, UCPMapValueFilter filter, void context, uint32 pValue);
+	public static extern int32 umutablecptrie_getRange(UMutableCPTrie* trie, int32 start, UCPMapRangeOption option, uint32 surrogateValue, UCPMapValueFilter* filter, void* context, uint32* pValue);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void umutablecptrie_set(UMutableCPTrie trie, int32 c, uint32 value, UErrorCode pErrorCode);
+	public static extern void umutablecptrie_set(UMutableCPTrie* trie, int32 c, uint32 value, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void umutablecptrie_setRange(UMutableCPTrie trie, int32 start, int32 end, uint32 value, UErrorCode pErrorCode);
+	public static extern void umutablecptrie_setRange(UMutableCPTrie* trie, int32 start, int32 end, uint32 value, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCPTrie umutablecptrie_buildImmutable(UMutableCPTrie trie, UCPTrieType type, UCPTrieValueWidth valueWidth, UErrorCode pErrorCode);
+	public static extern UCPTrie* umutablecptrie_buildImmutable(UMutableCPTrie* trie, UCPTrieType type, UCPTrieValueWidth valueWidth, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UCNV_FROM_U_CALLBACK_STOP(void context, UConverterFromUnicodeArgs fromUArgs, uint16 codeUnits, int32 length, int32 codePoint, UConverterCallbackReason reason, UErrorCode err);
+	public static extern void UCNV_FROM_U_CALLBACK_STOP(void* context, UConverterFromUnicodeArgs* fromUArgs, uint16* codeUnits, int32 length, int32 codePoint, UConverterCallbackReason reason, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UCNV_TO_U_CALLBACK_STOP(void context, UConverterToUnicodeArgs toUArgs, PSTR codeUnits, int32 length, UConverterCallbackReason reason, UErrorCode err);
+	public static extern void UCNV_TO_U_CALLBACK_STOP(void* context, UConverterToUnicodeArgs* toUArgs, PSTR codeUnits, int32 length, UConverterCallbackReason reason, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UCNV_FROM_U_CALLBACK_SKIP(void context, UConverterFromUnicodeArgs fromUArgs, uint16 codeUnits, int32 length, int32 codePoint, UConverterCallbackReason reason, UErrorCode err);
+	public static extern void UCNV_FROM_U_CALLBACK_SKIP(void* context, UConverterFromUnicodeArgs* fromUArgs, uint16* codeUnits, int32 length, int32 codePoint, UConverterCallbackReason reason, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UCNV_FROM_U_CALLBACK_SUBSTITUTE(void context, UConverterFromUnicodeArgs fromUArgs, uint16 codeUnits, int32 length, int32 codePoint, UConverterCallbackReason reason, UErrorCode err);
+	public static extern void UCNV_FROM_U_CALLBACK_SUBSTITUTE(void* context, UConverterFromUnicodeArgs* fromUArgs, uint16* codeUnits, int32 length, int32 codePoint, UConverterCallbackReason reason, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UCNV_FROM_U_CALLBACK_ESCAPE(void context, UConverterFromUnicodeArgs fromUArgs, uint16 codeUnits, int32 length, int32 codePoint, UConverterCallbackReason reason, UErrorCode err);
+	public static extern void UCNV_FROM_U_CALLBACK_ESCAPE(void* context, UConverterFromUnicodeArgs* fromUArgs, uint16* codeUnits, int32 length, int32 codePoint, UConverterCallbackReason reason, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UCNV_TO_U_CALLBACK_SKIP(void context, UConverterToUnicodeArgs toUArgs, PSTR codeUnits, int32 length, UConverterCallbackReason reason, UErrorCode err);
+	public static extern void UCNV_TO_U_CALLBACK_SKIP(void* context, UConverterToUnicodeArgs* toUArgs, PSTR codeUnits, int32 length, UConverterCallbackReason reason, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UCNV_TO_U_CALLBACK_SUBSTITUTE(void context, UConverterToUnicodeArgs toUArgs, PSTR codeUnits, int32 length, UConverterCallbackReason reason, UErrorCode err);
+	public static extern void UCNV_TO_U_CALLBACK_SUBSTITUTE(void* context, UConverterToUnicodeArgs* toUArgs, PSTR codeUnits, int32 length, UConverterCallbackReason reason, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UCNV_TO_U_CALLBACK_ESCAPE(void context, UConverterToUnicodeArgs toUArgs, PSTR codeUnits, int32 length, UConverterCallbackReason reason, UErrorCode err);
+	public static extern void UCNV_TO_U_CALLBACK_ESCAPE(void* context, UConverterToUnicodeArgs* toUArgs, PSTR codeUnits, int32 length, UConverterCallbackReason reason, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ucnv_compareNames(PSTR name1, PSTR name2);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UConverter ucnv_open(PSTR converterName, UErrorCode err);
+	public static extern UConverter* ucnv_open(PSTR converterName, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UConverter ucnv_openU(uint16 name, UErrorCode err);
+	public static extern UConverter* ucnv_openU(uint16* name, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UConverter ucnv_openCCSID(int32 codepage, UConverterPlatform platform, UErrorCode err);
+	public static extern UConverter* ucnv_openCCSID(int32 codepage, UConverterPlatform platform, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UConverter ucnv_openPackage(PSTR packageName, PSTR converterName, UErrorCode err);
+	public static extern UConverter* ucnv_openPackage(PSTR packageName, PSTR converterName, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UConverter ucnv_safeClone(UConverter cnv, void stackBuffer, int32 pBufferSize, UErrorCode status);
+	public static extern UConverter* ucnv_safeClone(UConverter* cnv, void* stackBuffer, int32* pBufferSize, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_close(UConverter converter);
+	public static extern void ucnv_close(UConverter* converter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_getSubstChars(UConverter converter, PSTR subChars, int8 len, UErrorCode err);
+	public static extern void ucnv_getSubstChars(UConverter* converter, PSTR subChars, int8* len, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_setSubstChars(UConverter converter, PSTR subChars, int8 len, UErrorCode err);
+	public static extern void ucnv_setSubstChars(UConverter* converter, PSTR subChars, int8 len, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_setSubstString(UConverter cnv, uint16 s, int32 length, UErrorCode err);
+	public static extern void ucnv_setSubstString(UConverter* cnv, uint16* s, int32 length, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_getInvalidChars(UConverter converter, PSTR errBytes, int8 len, UErrorCode err);
+	public static extern void ucnv_getInvalidChars(UConverter* converter, PSTR errBytes, int8* len, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_getInvalidUChars(UConverter converter, uint16 errUChars, int8 len, UErrorCode err);
+	public static extern void ucnv_getInvalidUChars(UConverter* converter, uint16* errUChars, int8* len, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_reset(UConverter converter);
+	public static extern void ucnv_reset(UConverter* converter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_resetToUnicode(UConverter converter);
+	public static extern void ucnv_resetToUnicode(UConverter* converter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_resetFromUnicode(UConverter converter);
+	public static extern void ucnv_resetFromUnicode(UConverter* converter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucnv_getMaxCharSize(UConverter converter);
+	public static extern int8 ucnv_getMaxCharSize(UConverter* converter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucnv_getMinCharSize(UConverter converter);
+	public static extern int8 ucnv_getMinCharSize(UConverter* converter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnv_getDisplayName(UConverter converter, PSTR displayLocale, uint16 displayName, int32 displayNameCapacity, UErrorCode err);
+	public static extern int32 ucnv_getDisplayName(UConverter* converter, PSTR displayLocale, uint16* displayName, int32 displayNameCapacity, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucnv_getName(UConverter converter, UErrorCode err);
+	public static extern PSTR ucnv_getName(UConverter* converter, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnv_getCCSID(UConverter converter, UErrorCode err);
+	public static extern int32 ucnv_getCCSID(UConverter* converter, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UConverterPlatform ucnv_getPlatform(UConverter converter, UErrorCode err);
+	public static extern UConverterPlatform ucnv_getPlatform(UConverter* converter, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UConverterType ucnv_getType(UConverter converter);
+	public static extern UConverterType ucnv_getType(UConverter* converter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_getStarters(UConverter converter, int8 starters, UErrorCode err);
+	public static extern void ucnv_getStarters(UConverter* converter, int8* starters, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_getUnicodeSet(UConverter cnv, USet setFillIn, UConverterUnicodeSet whichSet, UErrorCode pErrorCode);
+	public static extern void ucnv_getUnicodeSet(UConverter* cnv, USet* setFillIn, UConverterUnicodeSet whichSet, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_getToUCallBack(UConverter converter, UConverterToUCallback action, void context);
+	public static extern void ucnv_getToUCallBack(UConverter* converter, UConverterToUCallback* action, void** context);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_getFromUCallBack(UConverter converter, UConverterFromUCallback action, void context);
+	public static extern void ucnv_getFromUCallBack(UConverter* converter, UConverterFromUCallback* action, void** context);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_setToUCallBack(UConverter converter, UConverterToUCallback newAction, void newContext, UConverterToUCallback oldAction, void oldContext, UErrorCode err);
+	public static extern void ucnv_setToUCallBack(UConverter* converter, UConverterToUCallback newAction, void* newContext, UConverterToUCallback* oldAction, void** oldContext, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_setFromUCallBack(UConverter converter, UConverterFromUCallback newAction, void newContext, UConverterFromUCallback oldAction, void oldContext, UErrorCode err);
+	public static extern void ucnv_setFromUCallBack(UConverter* converter, UConverterFromUCallback newAction, void* newContext, UConverterFromUCallback* oldAction, void** oldContext, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_fromUnicode(UConverter converter, int8 target, PSTR targetLimit, uint16 source, uint16 sourceLimit, int32 offsets, int8 flush, UErrorCode err);
+	public static extern void ucnv_fromUnicode(UConverter* converter, int8** target, PSTR targetLimit, uint16** source, uint16* sourceLimit, int32* offsets, int8 flush, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_toUnicode(UConverter converter, uint16 target, uint16 targetLimit, int8 source, PSTR sourceLimit, int32 offsets, int8 flush, UErrorCode err);
+	public static extern void ucnv_toUnicode(UConverter* converter, uint16** target, uint16* targetLimit, int8** source, PSTR sourceLimit, int32* offsets, int8 flush, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnv_fromUChars(UConverter cnv, PSTR dest, int32 destCapacity, uint16 src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern int32 ucnv_fromUChars(UConverter* cnv, PSTR dest, int32 destCapacity, uint16* src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnv_toUChars(UConverter cnv, uint16 dest, int32 destCapacity, PSTR src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern int32 ucnv_toUChars(UConverter* cnv, uint16* dest, int32 destCapacity, PSTR src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnv_getNextUChar(UConverter converter, int8 source, PSTR sourceLimit, UErrorCode err);
+	public static extern int32 ucnv_getNextUChar(UConverter* converter, int8** source, PSTR sourceLimit, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_convertEx(UConverter targetCnv, UConverter sourceCnv, int8 target, PSTR targetLimit, int8 source, PSTR sourceLimit, uint16 pivotStart, uint16 pivotSource, uint16 pivotTarget, uint16 pivotLimit, int8 reset, int8 flush, UErrorCode pErrorCode);
+	public static extern void ucnv_convertEx(UConverter* targetCnv, UConverter* sourceCnv, int8** target, PSTR targetLimit, int8** source, PSTR sourceLimit, uint16* pivotStart, uint16** pivotSource, uint16** pivotTarget, uint16* pivotLimit, int8 reset, int8 flush, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnv_convert(PSTR toConverterName, PSTR fromConverterName, PSTR target, int32 targetCapacity, PSTR source, int32 sourceLength, UErrorCode pErrorCode);
+	public static extern int32 ucnv_convert(PSTR toConverterName, PSTR fromConverterName, PSTR target, int32 targetCapacity, PSTR source, int32 sourceLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnv_toAlgorithmic(UConverterType algorithmicType, UConverter cnv, PSTR target, int32 targetCapacity, PSTR source, int32 sourceLength, UErrorCode pErrorCode);
+	public static extern int32 ucnv_toAlgorithmic(UConverterType algorithmicType, UConverter* cnv, PSTR target, int32 targetCapacity, PSTR source, int32 sourceLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnv_fromAlgorithmic(UConverter cnv, UConverterType algorithmicType, PSTR target, int32 targetCapacity, PSTR source, int32 sourceLength, UErrorCode pErrorCode);
+	public static extern int32 ucnv_fromAlgorithmic(UConverter* cnv, UConverterType algorithmicType, PSTR target, int32 targetCapacity, PSTR source, int32 sourceLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ucnv_flushCache();
@@ -7625,31 +7625,31 @@ public static
 	public static extern PSTR ucnv_getAvailableName(int32 n);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucnv_openAllNames(UErrorCode pErrorCode);
+	public static extern UEnumeration* ucnv_openAllNames(UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ucnv_countAliases(PSTR alias, UErrorCode pErrorCode);
+	public static extern uint16 ucnv_countAliases(PSTR alias, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucnv_getAlias(PSTR alias, uint16 n, UErrorCode pErrorCode);
+	public static extern PSTR ucnv_getAlias(PSTR alias, uint16 n, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_getAliases(PSTR alias, int8 aliases, UErrorCode pErrorCode);
+	public static extern void ucnv_getAliases(PSTR alias, int8** aliases, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucnv_openStandardNames(PSTR convName, PSTR standard, UErrorCode pErrorCode);
+	public static extern UEnumeration* ucnv_openStandardNames(PSTR convName, PSTR standard, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 ucnv_countStandards();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucnv_getStandard(uint16 n, UErrorCode pErrorCode);
+	public static extern PSTR ucnv_getStandard(uint16 n, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucnv_getStandardName(PSTR name, PSTR standard, UErrorCode pErrorCode);
+	public static extern PSTR ucnv_getStandardName(PSTR name, PSTR standard, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucnv_getCanonicalName(PSTR alias, PSTR standard, UErrorCode pErrorCode);
+	public static extern PSTR ucnv_getCanonicalName(PSTR alias, PSTR standard, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR ucnv_getDefaultName();
@@ -7658,67 +7658,67 @@ public static
 	public static extern void ucnv_setDefaultName(PSTR name);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_fixFileSeparator(UConverter cnv, uint16 source, int32 sourceLen);
+	public static extern void ucnv_fixFileSeparator(UConverter* cnv, uint16* source, int32 sourceLen);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucnv_isAmbiguous(UConverter cnv);
+	public static extern int8 ucnv_isAmbiguous(UConverter* cnv);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_setFallback(UConverter cnv, int8 usesFallback);
+	public static extern void ucnv_setFallback(UConverter* cnv, int8 usesFallback);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucnv_usesFallback(UConverter cnv);
+	public static extern int8 ucnv_usesFallback(UConverter* cnv);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucnv_detectUnicodeSignature(PSTR source, int32 sourceLength, int32 signatureLength, UErrorCode pErrorCode);
+	public static extern PSTR ucnv_detectUnicodeSignature(PSTR source, int32 sourceLength, int32* signatureLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnv_fromUCountPending(UConverter cnv, UErrorCode status);
+	public static extern int32 ucnv_fromUCountPending(UConverter* cnv, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnv_toUCountPending(UConverter cnv, UErrorCode status);
+	public static extern int32 ucnv_toUCountPending(UConverter* cnv, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucnv_isFixedWidth(UConverter cnv, UErrorCode status);
+	public static extern int8 ucnv_isFixedWidth(UConverter* cnv, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_cbFromUWriteBytes(UConverterFromUnicodeArgs args, PSTR source, int32 length, int32 offsetIndex, UErrorCode err);
+	public static extern void ucnv_cbFromUWriteBytes(UConverterFromUnicodeArgs* args, PSTR source, int32 length, int32 offsetIndex, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_cbFromUWriteSub(UConverterFromUnicodeArgs args, int32 offsetIndex, UErrorCode err);
+	public static extern void ucnv_cbFromUWriteSub(UConverterFromUnicodeArgs* args, int32 offsetIndex, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_cbFromUWriteUChars(UConverterFromUnicodeArgs args, uint16 source, uint16 sourceLimit, int32 offsetIndex, UErrorCode err);
+	public static extern void ucnv_cbFromUWriteUChars(UConverterFromUnicodeArgs* args, uint16** source, uint16* sourceLimit, int32 offsetIndex, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_cbToUWriteUChars(UConverterToUnicodeArgs args, uint16 source, int32 length, int32 offsetIndex, UErrorCode err);
+	public static extern void ucnv_cbToUWriteUChars(UConverterToUnicodeArgs* args, uint16* source, int32 length, int32 offsetIndex, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnv_cbToUWriteSub(UConverterToUnicodeArgs args, int32 offsetIndex, UErrorCode err);
+	public static extern void ucnv_cbToUWriteSub(UConverterToUnicodeArgs* args, int32 offsetIndex, UErrorCode* err);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_init(UErrorCode status);
+	public static extern void u_init(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void u_cleanup();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_setMemoryFunctions(void context, UMemAllocFn a, UMemReallocFn r, UMemFreeFn f, UErrorCode status);
+	public static extern void u_setMemoryFunctions(void* context, UMemAllocFn* a, UMemReallocFn* r, UMemFreeFn* f, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UResourceBundle u_catopen(PSTR name, PSTR locale, UErrorCode ec);
+	public static extern UResourceBundle* u_catopen(PSTR name, PSTR locale, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_catclose(UResourceBundle catd);
+	public static extern void u_catclose(UResourceBundle* catd);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_catgets(UResourceBundle catd, int32 set_num, int32 msg_num, uint16 s, int32 len, UErrorCode ec);
+	public static extern uint16* u_catgets(UResourceBundle* catd, int32 set_num, int32 msg_num, uint16* s, int32* len, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int8 u_hasBinaryProperty(int32 c, UProperty which);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet u_getBinaryPropertySet(UProperty property, UErrorCode pErrorCode);
+	public static extern USet* u_getBinaryPropertySet(UProperty property, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int8 u_isUAlphabetic(int32 c);
@@ -7742,7 +7742,7 @@ public static
 	public static extern int32 u_getIntPropertyMaxValue(UProperty which);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCPMap u_getIntPropertyMap(UProperty property, UErrorCode pErrorCode);
+	public static extern UCPMap* u_getIntPropertyMap(UProperty property, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern double u_getNumericValue(int32 c);
@@ -7817,7 +7817,7 @@ public static
 	public static extern int8 u_charType(int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_enumCharTypes(UCharEnumTypeRange enumRange, void context);
+	public static extern void u_enumCharTypes(UCharEnumTypeRange* enumRange, void* context);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint8 u_getCombiningClass(int32 c);
@@ -7829,13 +7829,13 @@ public static
 	public static extern UBlockCode ublock_getCode(int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_charName(int32 code, UCharNameChoice nameChoice, PSTR buffer, int32 bufferLength, UErrorCode pErrorCode);
+	public static extern int32 u_charName(int32 code, UCharNameChoice nameChoice, PSTR buffer, int32 bufferLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_charFromName(UCharNameChoice nameChoice, PSTR name, UErrorCode pErrorCode);
+	public static extern int32 u_charFromName(UCharNameChoice nameChoice, PSTR name, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_enumCharNames(int32 start, int32 limit, UEnumCharNamesFn fn, void context, UCharNameChoice nameChoice, UErrorCode pErrorCode);
+	public static extern void u_enumCharNames(int32 start, int32 limit, UEnumCharNamesFn* fn, void* context, UCharNameChoice nameChoice, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR u_getPropertyName(UProperty property, UPropertyNameChoice nameChoice);
@@ -7883,781 +7883,781 @@ public static
 	public static extern int32 u_forDigit(int32 digit, int8 radix);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_charAge(int32 c, uint8 versionArray);
+	public static extern void u_charAge(int32 c, uint8* versionArray);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_getUnicodeVersion(uint8 versionArray);
+	public static extern void u_getUnicodeVersion(uint8* versionArray);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_getFC_NFKC_Closure(int32 c, uint16 dest, int32 destCapacity, UErrorCode pErrorCode);
+	public static extern int32 u_getFC_NFKC_Closure(int32 c, uint16* dest, int32 destCapacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBiDi ubidi_open();
+	public static extern UBiDi* ubidi_open();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBiDi ubidi_openSized(int32 maxLength, int32 maxRunCount, UErrorCode pErrorCode);
+	public static extern UBiDi* ubidi_openSized(int32 maxLength, int32 maxRunCount, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_close(UBiDi pBiDi);
+	public static extern void ubidi_close(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_setInverse(UBiDi pBiDi, int8 isInverse);
+	public static extern void ubidi_setInverse(UBiDi* pBiDi, int8 isInverse);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ubidi_isInverse(UBiDi pBiDi);
+	public static extern int8 ubidi_isInverse(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_orderParagraphsLTR(UBiDi pBiDi, int8 orderParagraphsLTR);
+	public static extern void ubidi_orderParagraphsLTR(UBiDi* pBiDi, int8 orderParagraphsLTR);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ubidi_isOrderParagraphsLTR(UBiDi pBiDi);
+	public static extern int8 ubidi_isOrderParagraphsLTR(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_setReorderingMode(UBiDi pBiDi, UBiDiReorderingMode reorderingMode);
+	public static extern void ubidi_setReorderingMode(UBiDi* pBiDi, UBiDiReorderingMode reorderingMode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBiDiReorderingMode ubidi_getReorderingMode(UBiDi pBiDi);
+	public static extern UBiDiReorderingMode ubidi_getReorderingMode(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_setReorderingOptions(UBiDi pBiDi, uint32 reorderingOptions);
+	public static extern void ubidi_setReorderingOptions(UBiDi* pBiDi, uint32 reorderingOptions);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ubidi_getReorderingOptions(UBiDi pBiDi);
+	public static extern uint32 ubidi_getReorderingOptions(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_setContext(UBiDi pBiDi, uint16 prologue, int32 proLength, uint16 epilogue, int32 epiLength, UErrorCode pErrorCode);
+	public static extern void ubidi_setContext(UBiDi* pBiDi, uint16* prologue, int32 proLength, uint16* epilogue, int32 epiLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_setPara(UBiDi pBiDi, uint16 text, int32 length, uint8 paraLevel, uint8 embeddingLevels, UErrorCode pErrorCode);
+	public static extern void ubidi_setPara(UBiDi* pBiDi, uint16* text, int32 length, uint8 paraLevel, uint8* embeddingLevels, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_setLine(UBiDi pParaBiDi, int32 start, int32 limit, UBiDi pLineBiDi, UErrorCode pErrorCode);
+	public static extern void ubidi_setLine(UBiDi* pParaBiDi, int32 start, int32 limit, UBiDi* pLineBiDi, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBiDiDirection ubidi_getDirection(UBiDi pBiDi);
+	public static extern UBiDiDirection ubidi_getDirection(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBiDiDirection ubidi_getBaseDirection(uint16 text, int32 length);
+	public static extern UBiDiDirection ubidi_getBaseDirection(uint16* text, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ubidi_getText(UBiDi pBiDi);
+	public static extern uint16* ubidi_getText(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubidi_getLength(UBiDi pBiDi);
+	public static extern int32 ubidi_getLength(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8 ubidi_getParaLevel(UBiDi pBiDi);
+	public static extern uint8 ubidi_getParaLevel(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubidi_countParagraphs(UBiDi pBiDi);
+	public static extern int32 ubidi_countParagraphs(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubidi_getParagraph(UBiDi pBiDi, int32 charIndex, int32 pParaStart, int32 pParaLimit, uint8 pParaLevel, UErrorCode pErrorCode);
+	public static extern int32 ubidi_getParagraph(UBiDi* pBiDi, int32 charIndex, int32* pParaStart, int32* pParaLimit, uint8* pParaLevel, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_getParagraphByIndex(UBiDi pBiDi, int32 paraIndex, int32 pParaStart, int32 pParaLimit, uint8 pParaLevel, UErrorCode pErrorCode);
+	public static extern void ubidi_getParagraphByIndex(UBiDi* pBiDi, int32 paraIndex, int32* pParaStart, int32* pParaLimit, uint8* pParaLevel, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8 ubidi_getLevelAt(UBiDi pBiDi, int32 charIndex);
+	public static extern uint8 ubidi_getLevelAt(UBiDi* pBiDi, int32 charIndex);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8 ubidi_getLevels(UBiDi pBiDi, UErrorCode pErrorCode);
+	public static extern uint8* ubidi_getLevels(UBiDi* pBiDi, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_getLogicalRun(UBiDi pBiDi, int32 logicalPosition, int32 pLogicalLimit, uint8 pLevel);
+	public static extern void ubidi_getLogicalRun(UBiDi* pBiDi, int32 logicalPosition, int32* pLogicalLimit, uint8* pLevel);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubidi_countRuns(UBiDi pBiDi, UErrorCode pErrorCode);
+	public static extern int32 ubidi_countRuns(UBiDi* pBiDi, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBiDiDirection ubidi_getVisualRun(UBiDi pBiDi, int32 runIndex, int32 pLogicalStart, int32 pLength);
+	public static extern UBiDiDirection ubidi_getVisualRun(UBiDi* pBiDi, int32 runIndex, int32* pLogicalStart, int32* pLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubidi_getVisualIndex(UBiDi pBiDi, int32 logicalIndex, UErrorCode pErrorCode);
+	public static extern int32 ubidi_getVisualIndex(UBiDi* pBiDi, int32 logicalIndex, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubidi_getLogicalIndex(UBiDi pBiDi, int32 visualIndex, UErrorCode pErrorCode);
+	public static extern int32 ubidi_getLogicalIndex(UBiDi* pBiDi, int32 visualIndex, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_getLogicalMap(UBiDi pBiDi, int32 indexMap, UErrorCode pErrorCode);
+	public static extern void ubidi_getLogicalMap(UBiDi* pBiDi, int32* indexMap, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_getVisualMap(UBiDi pBiDi, int32 indexMap, UErrorCode pErrorCode);
+	public static extern void ubidi_getVisualMap(UBiDi* pBiDi, int32* indexMap, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_reorderLogical(uint8 levels, int32 length, int32 indexMap);
+	public static extern void ubidi_reorderLogical(uint8* levels, int32 length, int32* indexMap);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_reorderVisual(uint8 levels, int32 length, int32 indexMap);
+	public static extern void ubidi_reorderVisual(uint8* levels, int32 length, int32* indexMap);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_invertMap(int32 srcMap, int32 destMap, int32 length);
+	public static extern void ubidi_invertMap(int32* srcMap, int32* destMap, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubidi_getProcessedLength(UBiDi pBiDi);
+	public static extern int32 ubidi_getProcessedLength(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubidi_getResultLength(UBiDi pBiDi);
+	public static extern int32 ubidi_getResultLength(UBiDi* pBiDi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCharDirection ubidi_getCustomizedClass(UBiDi pBiDi, int32 c);
+	public static extern UCharDirection ubidi_getCustomizedClass(UBiDi* pBiDi, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_setClassCallback(UBiDi pBiDi, UBiDiClassCallback newFn, void newContext, UBiDiClassCallback oldFn, void oldContext, UErrorCode pErrorCode);
+	public static extern void ubidi_setClassCallback(UBiDi* pBiDi, UBiDiClassCallback newFn, void* newContext, UBiDiClassCallback* oldFn, void** oldContext, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubidi_getClassCallback(UBiDi pBiDi, UBiDiClassCallback fn, void context);
+	public static extern void ubidi_getClassCallback(UBiDi* pBiDi, UBiDiClassCallback* fn, void** context);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubidi_writeReordered(UBiDi pBiDi, uint16 dest, int32 destSize, uint16 options, UErrorCode pErrorCode);
+	public static extern int32 ubidi_writeReordered(UBiDi* pBiDi, uint16* dest, int32 destSize, uint16 options, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubidi_writeReverse(uint16 src, int32 srcLength, uint16 dest, int32 destSize, uint16 options, UErrorCode pErrorCode);
+	public static extern int32 ubidi_writeReverse(uint16* src, int32 srcLength, uint16* dest, int32 destSize, uint16 options, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ubiditransform_transform(UBiDiTransform pBiDiTransform, uint16 src, int32 srcLength, uint16 dest, int32 destSize, uint8 inParaLevel, UBiDiOrder inOrder, uint8 outParaLevel, UBiDiOrder outOrder, UBiDiMirroring doMirroring, uint32 shapingOptions, UErrorCode pErrorCode);
+	public static extern uint32 ubiditransform_transform(UBiDiTransform* pBiDiTransform, uint16* src, int32 srcLength, uint16* dest, int32 destSize, uint8 inParaLevel, UBiDiOrder inOrder, uint8 outParaLevel, UBiDiOrder outOrder, UBiDiMirroring doMirroring, uint32 shapingOptions, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBiDiTransform ubiditransform_open(UErrorCode pErrorCode);
+	public static extern UBiDiTransform* ubiditransform_open(UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubiditransform_close(UBiDiTransform pBidiTransform);
+	public static extern void ubiditransform_close(UBiDiTransform* pBidiTransform);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText utext_close(UText ut);
+	public static extern UText* utext_close(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText utext_openUTF8(UText ut, PSTR s, int64 length, UErrorCode status);
+	public static extern UText* utext_openUTF8(UText* ut, PSTR s, int64 length, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText utext_openUChars(UText ut, uint16 s, int64 length, UErrorCode status);
+	public static extern UText* utext_openUChars(UText* ut, uint16* s, int64 length, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText utext_clone(UText dest, UText src, int8 deep, int8 readOnly, UErrorCode status);
+	public static extern UText* utext_clone(UText* dest, UText* src, int8 deep, int8 readOnly, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 utext_equals(UText a, UText b);
+	public static extern int8 utext_equals(UText* a, UText* b);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 utext_nativeLength(UText ut);
+	public static extern int64 utext_nativeLength(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 utext_isLengthExpensive(UText ut);
+	public static extern int8 utext_isLengthExpensive(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utext_char32At(UText ut, int64 nativeIndex);
+	public static extern int32 utext_char32At(UText* ut, int64 nativeIndex);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utext_current32(UText ut);
+	public static extern int32 utext_current32(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utext_next32(UText ut);
+	public static extern int32 utext_next32(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utext_previous32(UText ut);
+	public static extern int32 utext_previous32(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utext_next32From(UText ut, int64 nativeIndex);
+	public static extern int32 utext_next32From(UText* ut, int64 nativeIndex);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utext_previous32From(UText ut, int64 nativeIndex);
+	public static extern int32 utext_previous32From(UText* ut, int64 nativeIndex);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 utext_getNativeIndex(UText ut);
+	public static extern int64 utext_getNativeIndex(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utext_setNativeIndex(UText ut, int64 nativeIndex);
+	public static extern void utext_setNativeIndex(UText* ut, int64 nativeIndex);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 utext_moveIndex32(UText ut, int32 delta);
+	public static extern int8 utext_moveIndex32(UText* ut, int32 delta);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 utext_getPreviousNativeIndex(UText ut);
+	public static extern int64 utext_getPreviousNativeIndex(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utext_extract(UText ut, int64 nativeStart, int64 nativeLimit, uint16 dest, int32 destCapacity, UErrorCode status);
+	public static extern int32 utext_extract(UText* ut, int64 nativeStart, int64 nativeLimit, uint16* dest, int32 destCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 utext_isWritable(UText ut);
+	public static extern int8 utext_isWritable(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 utext_hasMetaData(UText ut);
+	public static extern int8 utext_hasMetaData(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utext_replace(UText ut, int64 nativeStart, int64 nativeLimit, uint16 replacementText, int32 replacementLength, UErrorCode status);
+	public static extern int32 utext_replace(UText* ut, int64 nativeStart, int64 nativeLimit, uint16* replacementText, int32 replacementLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utext_copy(UText ut, int64 nativeStart, int64 nativeLimit, int64 destIndex, int8 move, UErrorCode status);
+	public static extern void utext_copy(UText* ut, int64 nativeStart, int64 nativeLimit, int64 destIndex, int8 move, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utext_freeze(UText ut);
+	public static extern void utext_freeze(UText* ut);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText utext_setup(UText ut, int32 extraSpace, UErrorCode status);
+	public static extern UText* utext_setup(UText* ut, int32 extraSpace, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet uset_openEmpty();
+	public static extern USet* uset_openEmpty();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet uset_open(int32 start, int32 end);
+	public static extern USet* uset_open(int32 start, int32 end);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet uset_openPattern(uint16 pattern, int32 patternLength, UErrorCode ec);
+	public static extern USet* uset_openPattern(uint16* pattern, int32 patternLength, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet uset_openPatternOptions(uint16 pattern, int32 patternLength, uint32 options, UErrorCode ec);
+	public static extern USet* uset_openPatternOptions(uint16* pattern, int32 patternLength, uint32 options, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_close(USet set);
+	public static extern void uset_close(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet uset_clone(USet set);
+	public static extern USet* uset_clone(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_isFrozen(USet set);
+	public static extern int8 uset_isFrozen(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_freeze(USet set);
+	public static extern void uset_freeze(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet uset_cloneAsThawed(USet set);
+	public static extern USet* uset_cloneAsThawed(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_set(USet set, int32 start, int32 end);
+	public static extern void uset_set(USet* set, int32 start, int32 end);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_applyPattern(USet set, uint16 pattern, int32 patternLength, uint32 options, UErrorCode status);
+	public static extern int32 uset_applyPattern(USet* set, uint16* pattern, int32 patternLength, uint32 options, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_applyIntPropertyValue(USet set, UProperty prop, int32 value, UErrorCode ec);
+	public static extern void uset_applyIntPropertyValue(USet* set, UProperty prop, int32 value, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_applyPropertyAlias(USet set, uint16 prop, int32 propLength, uint16 value, int32 valueLength, UErrorCode ec);
+	public static extern void uset_applyPropertyAlias(USet* set, uint16* prop, int32 propLength, uint16* value, int32 valueLength, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_resemblesPattern(uint16 pattern, int32 patternLength, int32 pos);
+	public static extern int8 uset_resemblesPattern(uint16* pattern, int32 patternLength, int32 pos);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_toPattern(USet set, uint16 result, int32 resultCapacity, int8 escapeUnprintable, UErrorCode ec);
+	public static extern int32 uset_toPattern(USet* set, uint16* result, int32 resultCapacity, int8 escapeUnprintable, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_add(USet set, int32 c);
+	public static extern void uset_add(USet* set, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_addAll(USet set, USet additionalSet);
+	public static extern void uset_addAll(USet* set, USet* additionalSet);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_addRange(USet set, int32 start, int32 end);
+	public static extern void uset_addRange(USet* set, int32 start, int32 end);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_addString(USet set, uint16 str, int32 strLen);
+	public static extern void uset_addString(USet* set, uint16* str, int32 strLen);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_addAllCodePoints(USet set, uint16 str, int32 strLen);
+	public static extern void uset_addAllCodePoints(USet* set, uint16* str, int32 strLen);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_remove(USet set, int32 c);
+	public static extern void uset_remove(USet* set, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_removeRange(USet set, int32 start, int32 end);
+	public static extern void uset_removeRange(USet* set, int32 start, int32 end);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_removeString(USet set, uint16 str, int32 strLen);
+	public static extern void uset_removeString(USet* set, uint16* str, int32 strLen);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_removeAll(USet set, USet removeSet);
+	public static extern void uset_removeAll(USet* set, USet* removeSet);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_retain(USet set, int32 start, int32 end);
+	public static extern void uset_retain(USet* set, int32 start, int32 end);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_retainAll(USet set, USet retain);
+	public static extern void uset_retainAll(USet* set, USet* retain);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_compact(USet set);
+	public static extern void uset_compact(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_complement(USet set);
+	public static extern void uset_complement(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_complementAll(USet set, USet complement);
+	public static extern void uset_complementAll(USet* set, USet* complement);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_clear(USet set);
+	public static extern void uset_clear(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_closeOver(USet set, int32 attributes);
+	public static extern void uset_closeOver(USet* set, int32 attributes);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_removeAllStrings(USet set);
+	public static extern void uset_removeAllStrings(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_isEmpty(USet set);
+	public static extern int8 uset_isEmpty(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_contains(USet set, int32 c);
+	public static extern int8 uset_contains(USet* set, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_containsRange(USet set, int32 start, int32 end);
+	public static extern int8 uset_containsRange(USet* set, int32 start, int32 end);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_containsString(USet set, uint16 str, int32 strLen);
+	public static extern int8 uset_containsString(USet* set, uint16* str, int32 strLen);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_indexOf(USet set, int32 c);
+	public static extern int32 uset_indexOf(USet* set, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_charAt(USet set, int32 charIndex);
+	public static extern int32 uset_charAt(USet* set, int32 charIndex);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_size(USet set);
+	public static extern int32 uset_size(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_getItemCount(USet set);
+	public static extern int32 uset_getItemCount(USet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_getItem(USet set, int32 itemIndex, int32 start, int32 end, uint16 str, int32 strCapacity, UErrorCode ec);
+	public static extern int32 uset_getItem(USet* set, int32 itemIndex, int32* start, int32* end, uint16* str, int32 strCapacity, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_containsAll(USet set1, USet set2);
+	public static extern int8 uset_containsAll(USet* set1, USet* set2);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_containsAllCodePoints(USet set, uint16 str, int32 strLen);
+	public static extern int8 uset_containsAllCodePoints(USet* set, uint16* str, int32 strLen);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_containsNone(USet set1, USet set2);
+	public static extern int8 uset_containsNone(USet* set1, USet* set2);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_containsSome(USet set1, USet set2);
+	public static extern int8 uset_containsSome(USet* set1, USet* set2);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_span(USet set, uint16 s, int32 length, USetSpanCondition spanCondition);
+	public static extern int32 uset_span(USet* set, uint16* s, int32 length, USetSpanCondition spanCondition);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_spanBack(USet set, uint16 s, int32 length, USetSpanCondition spanCondition);
+	public static extern int32 uset_spanBack(USet* set, uint16* s, int32 length, USetSpanCondition spanCondition);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_spanUTF8(USet set, PSTR s, int32 length, USetSpanCondition spanCondition);
+	public static extern int32 uset_spanUTF8(USet* set, PSTR s, int32 length, USetSpanCondition spanCondition);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_spanBackUTF8(USet set, PSTR s, int32 length, USetSpanCondition spanCondition);
+	public static extern int32 uset_spanBackUTF8(USet* set, PSTR s, int32 length, USetSpanCondition spanCondition);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_equals(USet set1, USet set2);
+	public static extern int8 uset_equals(USet* set1, USet* set2);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_serialize(USet set, uint16 dest, int32 destCapacity, UErrorCode pErrorCode);
+	public static extern int32 uset_serialize(USet* set, uint16* dest, int32 destCapacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_getSerializedSet(USerializedSet fillSet, uint16 src, int32 srcLength);
+	public static extern int8 uset_getSerializedSet(USerializedSet* fillSet, uint16* src, int32 srcLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uset_setSerializedToOne(USerializedSet fillSet, int32 c);
+	public static extern void uset_setSerializedToOne(USerializedSet* fillSet, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_serializedContains(USerializedSet set, int32 c);
+	public static extern int8 uset_serializedContains(USerializedSet* set, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uset_getSerializedRangeCount(USerializedSet set);
+	public static extern int32 uset_getSerializedRangeCount(USerializedSet* set);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uset_getSerializedRange(USerializedSet set, int32 rangeIndex, int32 pStart, int32 pEnd);
+	public static extern int8 uset_getSerializedRange(USerializedSet* set, int32 rangeIndex, int32* pStart, int32* pEnd);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNormalizer2 unorm2_getNFCInstance(UErrorCode pErrorCode);
+	public static extern UNormalizer2* unorm2_getNFCInstance(UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNormalizer2 unorm2_getNFDInstance(UErrorCode pErrorCode);
+	public static extern UNormalizer2* unorm2_getNFDInstance(UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNormalizer2 unorm2_getNFKCInstance(UErrorCode pErrorCode);
+	public static extern UNormalizer2* unorm2_getNFKCInstance(UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNormalizer2 unorm2_getNFKDInstance(UErrorCode pErrorCode);
+	public static extern UNormalizer2* unorm2_getNFKDInstance(UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNormalizer2 unorm2_getNFKCCasefoldInstance(UErrorCode pErrorCode);
+	public static extern UNormalizer2* unorm2_getNFKCCasefoldInstance(UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNormalizer2 unorm2_getInstance(PSTR packageName, PSTR name, UNormalization2Mode mode, UErrorCode pErrorCode);
+	public static extern UNormalizer2* unorm2_getInstance(PSTR packageName, PSTR name, UNormalization2Mode mode, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNormalizer2 unorm2_openFiltered(UNormalizer2 norm2, USet filterSet, UErrorCode pErrorCode);
+	public static extern UNormalizer2* unorm2_openFiltered(UNormalizer2* norm2, USet* filterSet, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unorm2_close(UNormalizer2 norm2);
+	public static extern void unorm2_close(UNormalizer2* norm2);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unorm2_normalize(UNormalizer2 norm2, uint16 src, int32 length, uint16 dest, int32 capacity, UErrorCode pErrorCode);
+	public static extern int32 unorm2_normalize(UNormalizer2* norm2, uint16* src, int32 length, uint16* dest, int32 capacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unorm2_normalizeSecondAndAppend(UNormalizer2 norm2, uint16 first, int32 firstLength, int32 firstCapacity, uint16 second, int32 secondLength, UErrorCode pErrorCode);
+	public static extern int32 unorm2_normalizeSecondAndAppend(UNormalizer2* norm2, uint16* first, int32 firstLength, int32 firstCapacity, uint16* second, int32 secondLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unorm2_append(UNormalizer2 norm2, uint16 first, int32 firstLength, int32 firstCapacity, uint16 second, int32 secondLength, UErrorCode pErrorCode);
+	public static extern int32 unorm2_append(UNormalizer2* norm2, uint16* first, int32 firstLength, int32 firstCapacity, uint16* second, int32 secondLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unorm2_getDecomposition(UNormalizer2 norm2, int32 c, uint16 decomposition, int32 capacity, UErrorCode pErrorCode);
+	public static extern int32 unorm2_getDecomposition(UNormalizer2* norm2, int32 c, uint16* decomposition, int32 capacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unorm2_getRawDecomposition(UNormalizer2 norm2, int32 c, uint16 decomposition, int32 capacity, UErrorCode pErrorCode);
+	public static extern int32 unorm2_getRawDecomposition(UNormalizer2* norm2, int32 c, uint16* decomposition, int32 capacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unorm2_composePair(UNormalizer2 norm2, int32 a, int32 b);
+	public static extern int32 unorm2_composePair(UNormalizer2* norm2, int32 a, int32 b);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8 unorm2_getCombiningClass(UNormalizer2 norm2, int32 c);
+	public static extern uint8 unorm2_getCombiningClass(UNormalizer2* norm2, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 unorm2_isNormalized(UNormalizer2 norm2, uint16 s, int32 length, UErrorCode pErrorCode);
+	public static extern int8 unorm2_isNormalized(UNormalizer2* norm2, uint16* s, int32 length, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNormalizationCheckResult unorm2_quickCheck(UNormalizer2 norm2, uint16 s, int32 length, UErrorCode pErrorCode);
+	public static extern UNormalizationCheckResult unorm2_quickCheck(UNormalizer2* norm2, uint16* s, int32 length, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unorm2_spanQuickCheckYes(UNormalizer2 norm2, uint16 s, int32 length, UErrorCode pErrorCode);
+	public static extern int32 unorm2_spanQuickCheckYes(UNormalizer2* norm2, uint16* s, int32 length, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 unorm2_hasBoundaryBefore(UNormalizer2 norm2, int32 c);
+	public static extern int8 unorm2_hasBoundaryBefore(UNormalizer2* norm2, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 unorm2_hasBoundaryAfter(UNormalizer2 norm2, int32 c);
+	public static extern int8 unorm2_hasBoundaryAfter(UNormalizer2* norm2, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 unorm2_isInert(UNormalizer2 norm2, int32 c);
+	public static extern int8 unorm2_isInert(UNormalizer2* norm2, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unorm_compare(uint16 s1, int32 length1, uint16 s2, int32 length2, uint32 options, UErrorCode pErrorCode);
+	public static extern int32 unorm_compare(uint16* s1, int32 length1, uint16* s2, int32 length2, uint32 options, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UConverterSelector ucnvsel_open(int8 converterList, int32 converterListSize, USet excludedCodePoints, UConverterUnicodeSet whichSet, UErrorCode status);
+	public static extern UConverterSelector* ucnvsel_open(int8** converterList, int32 converterListSize, USet* excludedCodePoints, UConverterUnicodeSet whichSet, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucnvsel_close(UConverterSelector sel);
+	public static extern void ucnvsel_close(UConverterSelector* sel);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UConverterSelector ucnvsel_openFromSerialized(void buffer, int32 length, UErrorCode status);
+	public static extern UConverterSelector* ucnvsel_openFromSerialized(void* buffer, int32 length, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucnvsel_serialize(UConverterSelector sel, void buffer, int32 bufferCapacity, UErrorCode status);
+	public static extern int32 ucnvsel_serialize(UConverterSelector* sel, void* buffer, int32 bufferCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucnvsel_selectForString(UConverterSelector sel, uint16 s, int32 length, UErrorCode status);
+	public static extern UEnumeration* ucnvsel_selectForString(UConverterSelector* sel, uint16* s, int32 length, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucnvsel_selectForUTF8(UConverterSelector sel, PSTR s, int32 length, UErrorCode status);
+	public static extern UEnumeration* ucnvsel_selectForUTF8(UConverterSelector* sel, PSTR s, int32 length, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_charsToUChars(PSTR cs, uint16 us, int32 length);
+	public static extern void u_charsToUChars(PSTR cs, uint16* us, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_UCharsToChars(uint16 us, PSTR cs, int32 length);
+	public static extern void u_UCharsToChars(uint16* us, PSTR cs, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strlen(uint16 s);
+	public static extern int32 u_strlen(uint16* s);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_countChar32(uint16 s, int32 length);
+	public static extern int32 u_countChar32(uint16* s, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 u_strHasMoreChar32Than(uint16 s, int32 length, int32 number);
+	public static extern int8 u_strHasMoreChar32Than(uint16* s, int32 length, int32 number);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strcat(uint16 dst, uint16 src);
+	public static extern uint16* u_strcat(uint16* dst, uint16* src);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strncat(uint16 dst, uint16 src, int32 n);
+	public static extern uint16* u_strncat(uint16* dst, uint16* src, int32 n);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strstr(uint16 s, uint16 substring);
+	public static extern uint16* u_strstr(uint16* s, uint16* substring);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strFindFirst(uint16 s, int32 length, uint16 substring, int32 subLength);
+	public static extern uint16* u_strFindFirst(uint16* s, int32 length, uint16* substring, int32 subLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strchr(uint16 s, uint16 c);
+	public static extern uint16* u_strchr(uint16* s, uint16 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strchr32(uint16 s, int32 c);
+	public static extern uint16* u_strchr32(uint16* s, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strrstr(uint16 s, uint16 substring);
+	public static extern uint16* u_strrstr(uint16* s, uint16* substring);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strFindLast(uint16 s, int32 length, uint16 substring, int32 subLength);
+	public static extern uint16* u_strFindLast(uint16* s, int32 length, uint16* substring, int32 subLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strrchr(uint16 s, uint16 c);
+	public static extern uint16* u_strrchr(uint16* s, uint16 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strrchr32(uint16 s, int32 c);
+	public static extern uint16* u_strrchr32(uint16* s, int32 c);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strpbrk(uint16 string, uint16 matchSet);
+	public static extern uint16* u_strpbrk(uint16* string, uint16* matchSet);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strcspn(uint16 string, uint16 matchSet);
+	public static extern int32 u_strcspn(uint16* string, uint16* matchSet);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strspn(uint16 string, uint16 matchSet);
+	public static extern int32 u_strspn(uint16* string, uint16* matchSet);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strtok_r(uint16 src, uint16 delim, uint16 saveState);
+	public static extern uint16* u_strtok_r(uint16* src, uint16* delim, uint16** saveState);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strcmp(uint16 s1, uint16 s2);
+	public static extern int32 u_strcmp(uint16* s1, uint16* s2);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strcmpCodePointOrder(uint16 s1, uint16 s2);
+	public static extern int32 u_strcmpCodePointOrder(uint16* s1, uint16* s2);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strCompare(uint16 s1, int32 length1, uint16 s2, int32 length2, int8 codePointOrder);
+	public static extern int32 u_strCompare(uint16* s1, int32 length1, uint16* s2, int32 length2, int8 codePointOrder);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strCompareIter(UCharIterator iter1, UCharIterator iter2, int8 codePointOrder);
+	public static extern int32 u_strCompareIter(UCharIterator* iter1, UCharIterator* iter2, int8 codePointOrder);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strCaseCompare(uint16 s1, int32 length1, uint16 s2, int32 length2, uint32 options, UErrorCode pErrorCode);
+	public static extern int32 u_strCaseCompare(uint16* s1, int32 length1, uint16* s2, int32 length2, uint32 options, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strncmp(uint16 ucs1, uint16 ucs2, int32 n);
+	public static extern int32 u_strncmp(uint16* ucs1, uint16* ucs2, int32 n);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strncmpCodePointOrder(uint16 s1, uint16 s2, int32 n);
+	public static extern int32 u_strncmpCodePointOrder(uint16* s1, uint16* s2, int32 n);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strcasecmp(uint16 s1, uint16 s2, uint32 options);
+	public static extern int32 u_strcasecmp(uint16* s1, uint16* s2, uint32 options);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strncasecmp(uint16 s1, uint16 s2, int32 n, uint32 options);
+	public static extern int32 u_strncasecmp(uint16* s1, uint16* s2, int32 n, uint32 options);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_memcasecmp(uint16 s1, uint16 s2, int32 length, uint32 options);
+	public static extern int32 u_memcasecmp(uint16* s1, uint16* s2, int32 length, uint32 options);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strcpy(uint16 dst, uint16 src);
+	public static extern uint16* u_strcpy(uint16* dst, uint16* src);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strncpy(uint16 dst, uint16 src, int32 n);
+	public static extern uint16* u_strncpy(uint16* dst, uint16* src, int32 n);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_uastrcpy(uint16 dst, PSTR src);
+	public static extern uint16* u_uastrcpy(uint16* dst, PSTR src);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_uastrncpy(uint16 dst, PSTR src, int32 n);
+	public static extern uint16* u_uastrncpy(uint16* dst, PSTR src, int32 n);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR u_austrcpy(PSTR dst, uint16 src);
+	public static extern PSTR u_austrcpy(PSTR dst, uint16* src);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR u_austrncpy(PSTR dst, uint16 src, int32 n);
+	public static extern PSTR u_austrncpy(PSTR dst, uint16* src, int32 n);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_memcpy(uint16 dest, uint16 src, int32 count);
+	public static extern uint16* u_memcpy(uint16* dest, uint16* src, int32 count);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_memmove(uint16 dest, uint16 src, int32 count);
+	public static extern uint16* u_memmove(uint16* dest, uint16* src, int32 count);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_memset(uint16 dest, uint16 c, int32 count);
+	public static extern uint16* u_memset(uint16* dest, uint16 c, int32 count);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_memcmp(uint16 buf1, uint16 buf2, int32 count);
+	public static extern int32 u_memcmp(uint16* buf1, uint16* buf2, int32 count);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_memcmpCodePointOrder(uint16 s1, uint16 s2, int32 count);
+	public static extern int32 u_memcmpCodePointOrder(uint16* s1, uint16* s2, int32 count);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_memchr(uint16 s, uint16 c, int32 count);
+	public static extern uint16* u_memchr(uint16* s, uint16 c, int32 count);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_memchr32(uint16 s, int32 c, int32 count);
+	public static extern uint16* u_memchr32(uint16* s, int32 c, int32 count);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_memrchr(uint16 s, uint16 c, int32 count);
+	public static extern uint16* u_memrchr(uint16* s, uint16 c, int32 count);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_memrchr32(uint16 s, int32 c, int32 count);
+	public static extern uint16* u_memrchr32(uint16* s, int32 c, int32 count);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_unescape(PSTR src, uint16 dest, int32 destCapacity);
+	public static extern int32 u_unescape(PSTR src, uint16* dest, int32 destCapacity);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_unescapeAt(UNESCAPE_CHAR_AT charAt, int32 offset, int32 length, void context);
+	public static extern int32 u_unescapeAt(UNESCAPE_CHAR_AT charAt, int32* offset, int32 length, void* context);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strToUpper(uint16 dest, int32 destCapacity, uint16 src, int32 srcLength, PSTR locale, UErrorCode pErrorCode);
+	public static extern int32 u_strToUpper(uint16* dest, int32 destCapacity, uint16* src, int32 srcLength, PSTR locale, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strToLower(uint16 dest, int32 destCapacity, uint16 src, int32 srcLength, PSTR locale, UErrorCode pErrorCode);
+	public static extern int32 u_strToLower(uint16* dest, int32 destCapacity, uint16* src, int32 srcLength, PSTR locale, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strToTitle(uint16 dest, int32 destCapacity, uint16 src, int32 srcLength, UBreakIterator titleIter, PSTR locale, UErrorCode pErrorCode);
+	public static extern int32 u_strToTitle(uint16* dest, int32 destCapacity, uint16* src, int32 srcLength, UBreakIterator* titleIter, PSTR locale, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strFoldCase(uint16 dest, int32 destCapacity, uint16 src, int32 srcLength, uint32 options, UErrorCode pErrorCode);
+	public static extern int32 u_strFoldCase(uint16* dest, int32 destCapacity, uint16* src, int32 srcLength, uint32 options, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR u_strToWCS(PWSTR dest, int32 destCapacity, int32 pDestLength, uint16 src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern PWSTR u_strToWCS(PWSTR dest, int32 destCapacity, int32* pDestLength, uint16* src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strFromWCS(uint16 dest, int32 destCapacity, int32 pDestLength, PWSTR src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern uint16* u_strFromWCS(uint16* dest, int32 destCapacity, int32* pDestLength, PWSTR src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR u_strToUTF8(PSTR dest, int32 destCapacity, int32 pDestLength, uint16 src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern PSTR u_strToUTF8(PSTR dest, int32 destCapacity, int32* pDestLength, uint16* src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strFromUTF8(uint16 dest, int32 destCapacity, int32 pDestLength, PSTR src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern uint16* u_strFromUTF8(uint16* dest, int32 destCapacity, int32* pDestLength, PSTR src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR u_strToUTF8WithSub(PSTR dest, int32 destCapacity, int32 pDestLength, uint16 src, int32 srcLength, int32 subchar, int32 pNumSubstitutions, UErrorCode pErrorCode);
+	public static extern PSTR u_strToUTF8WithSub(PSTR dest, int32 destCapacity, int32* pDestLength, uint16* src, int32 srcLength, int32 subchar, int32* pNumSubstitutions, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strFromUTF8WithSub(uint16 dest, int32 destCapacity, int32 pDestLength, PSTR src, int32 srcLength, int32 subchar, int32 pNumSubstitutions, UErrorCode pErrorCode);
+	public static extern uint16* u_strFromUTF8WithSub(uint16* dest, int32 destCapacity, int32* pDestLength, PSTR src, int32 srcLength, int32 subchar, int32* pNumSubstitutions, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strFromUTF8Lenient(uint16 dest, int32 destCapacity, int32 pDestLength, PSTR src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern uint16* u_strFromUTF8Lenient(uint16* dest, int32 destCapacity, int32* pDestLength, PSTR src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strToUTF32(int32 dest, int32 destCapacity, int32 pDestLength, uint16 src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern int32* u_strToUTF32(int32* dest, int32 destCapacity, int32* pDestLength, uint16* src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strFromUTF32(uint16 dest, int32 destCapacity, int32 pDestLength, int32 src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern uint16* u_strFromUTF32(uint16* dest, int32 destCapacity, int32* pDestLength, int32* src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_strToUTF32WithSub(int32 dest, int32 destCapacity, int32 pDestLength, uint16 src, int32 srcLength, int32 subchar, int32 pNumSubstitutions, UErrorCode pErrorCode);
+	public static extern int32* u_strToUTF32WithSub(int32* dest, int32 destCapacity, int32* pDestLength, uint16* src, int32 srcLength, int32 subchar, int32* pNumSubstitutions, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strFromUTF32WithSub(uint16 dest, int32 destCapacity, int32 pDestLength, int32 src, int32 srcLength, int32 subchar, int32 pNumSubstitutions, UErrorCode pErrorCode);
+	public static extern uint16* u_strFromUTF32WithSub(uint16* dest, int32 destCapacity, int32* pDestLength, int32* src, int32 srcLength, int32 subchar, int32* pNumSubstitutions, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR u_strToJavaModifiedUTF8(PSTR dest, int32 destCapacity, int32 pDestLength, uint16 src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern PSTR u_strToJavaModifiedUTF8(PSTR dest, int32 destCapacity, int32* pDestLength, uint16* src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 u_strFromJavaModifiedUTF8WithSub(uint16 dest, int32 destCapacity, int32 pDestLength, PSTR src, int32 srcLength, int32 subchar, int32 pNumSubstitutions, UErrorCode pErrorCode);
+	public static extern uint16* u_strFromJavaModifiedUTF8WithSub(uint16* dest, int32 destCapacity, int32* pDestLength, PSTR src, int32 srcLength, int32 subchar, int32* pNumSubstitutions, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCaseMap ucasemap_open(PSTR locale, uint32 options, UErrorCode pErrorCode);
+	public static extern UCaseMap* ucasemap_open(PSTR locale, uint32 options, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucasemap_close(UCaseMap csm);
+	public static extern void ucasemap_close(UCaseMap* csm);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucasemap_getLocale(UCaseMap csm);
+	public static extern PSTR ucasemap_getLocale(UCaseMap* csm);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ucasemap_getOptions(UCaseMap csm);
+	public static extern uint32 ucasemap_getOptions(UCaseMap* csm);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucasemap_setLocale(UCaseMap csm, PSTR locale, UErrorCode pErrorCode);
+	public static extern void ucasemap_setLocale(UCaseMap* csm, PSTR locale, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucasemap_setOptions(UCaseMap csm, uint32 options, UErrorCode pErrorCode);
+	public static extern void ucasemap_setOptions(UCaseMap* csm, uint32 options, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBreakIterator ucasemap_getBreakIterator(UCaseMap csm);
+	public static extern UBreakIterator* ucasemap_getBreakIterator(UCaseMap* csm);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucasemap_setBreakIterator(UCaseMap csm, UBreakIterator iterToAdopt, UErrorCode pErrorCode);
+	public static extern void ucasemap_setBreakIterator(UCaseMap* csm, UBreakIterator* iterToAdopt, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucasemap_toTitle(UCaseMap csm, uint16 dest, int32 destCapacity, uint16 src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern int32 ucasemap_toTitle(UCaseMap* csm, uint16* dest, int32 destCapacity, uint16* src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucasemap_utf8ToLower(UCaseMap csm, PSTR dest, int32 destCapacity, PSTR src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern int32 ucasemap_utf8ToLower(UCaseMap* csm, PSTR dest, int32 destCapacity, PSTR src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucasemap_utf8ToUpper(UCaseMap csm, PSTR dest, int32 destCapacity, PSTR src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern int32 ucasemap_utf8ToUpper(UCaseMap* csm, PSTR dest, int32 destCapacity, PSTR src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucasemap_utf8ToTitle(UCaseMap csm, PSTR dest, int32 destCapacity, PSTR src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern int32 ucasemap_utf8ToTitle(UCaseMap* csm, PSTR dest, int32 destCapacity, PSTR src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucasemap_utf8FoldCase(UCaseMap csm, PSTR dest, int32 destCapacity, PSTR src, int32 srcLength, UErrorCode pErrorCode);
+	public static extern int32 ucasemap_utf8FoldCase(UCaseMap* csm, PSTR dest, int32 destCapacity, PSTR src, int32 srcLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UStringPrepProfile usprep_open(PSTR path, PSTR fileName, UErrorCode status);
+	public static extern UStringPrepProfile* usprep_open(PSTR path, PSTR fileName, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UStringPrepProfile usprep_openByType(UStringPrepProfileType type, UErrorCode status);
+	public static extern UStringPrepProfile* usprep_openByType(UStringPrepProfileType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void usprep_close(UStringPrepProfile profile);
+	public static extern void usprep_close(UStringPrepProfile* profile);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usprep_prepare(UStringPrepProfile prep, uint16 src, int32 srcLength, uint16 dest, int32 destCapacity, int32 options, UParseError parseError, UErrorCode status);
+	public static extern int32 usprep_prepare(UStringPrepProfile* prep, uint16* src, int32 srcLength, uint16* dest, int32 destCapacity, int32 options, UParseError* parseError, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UIDNA uidna_openUTS46(uint32 options, UErrorCode pErrorCode);
+	public static extern UIDNA* uidna_openUTS46(uint32 options, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uidna_close(UIDNA idna);
+	public static extern void uidna_close(UIDNA* idna);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uidna_labelToASCII(UIDNA idna, uint16 label, int32 length, uint16 dest, int32 capacity, UIDNAInfo pInfo, UErrorCode pErrorCode);
+	public static extern int32 uidna_labelToASCII(UIDNA* idna, uint16* label, int32 length, uint16* dest, int32 capacity, UIDNAInfo* pInfo, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uidna_labelToUnicode(UIDNA idna, uint16 label, int32 length, uint16 dest, int32 capacity, UIDNAInfo pInfo, UErrorCode pErrorCode);
+	public static extern int32 uidna_labelToUnicode(UIDNA* idna, uint16* label, int32 length, uint16* dest, int32 capacity, UIDNAInfo* pInfo, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uidna_nameToASCII(UIDNA idna, uint16 name, int32 length, uint16 dest, int32 capacity, UIDNAInfo pInfo, UErrorCode pErrorCode);
+	public static extern int32 uidna_nameToASCII(UIDNA* idna, uint16* name, int32 length, uint16* dest, int32 capacity, UIDNAInfo* pInfo, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uidna_nameToUnicode(UIDNA idna, uint16 name, int32 length, uint16 dest, int32 capacity, UIDNAInfo pInfo, UErrorCode pErrorCode);
+	public static extern int32 uidna_nameToUnicode(UIDNA* idna, uint16* name, int32 length, uint16* dest, int32 capacity, UIDNAInfo* pInfo, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uidna_labelToASCII_UTF8(UIDNA idna, PSTR label, int32 length, PSTR dest, int32 capacity, UIDNAInfo pInfo, UErrorCode pErrorCode);
+	public static extern int32 uidna_labelToASCII_UTF8(UIDNA* idna, PSTR label, int32 length, PSTR dest, int32 capacity, UIDNAInfo* pInfo, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uidna_labelToUnicodeUTF8(UIDNA idna, PSTR label, int32 length, PSTR dest, int32 capacity, UIDNAInfo pInfo, UErrorCode pErrorCode);
+	public static extern int32 uidna_labelToUnicodeUTF8(UIDNA* idna, PSTR label, int32 length, PSTR dest, int32 capacity, UIDNAInfo* pInfo, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uidna_nameToASCII_UTF8(UIDNA idna, PSTR name, int32 length, PSTR dest, int32 capacity, UIDNAInfo pInfo, UErrorCode pErrorCode);
+	public static extern int32 uidna_nameToASCII_UTF8(UIDNA* idna, PSTR name, int32 length, PSTR dest, int32 capacity, UIDNAInfo* pInfo, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uidna_nameToUnicodeUTF8(UIDNA idna, PSTR name, int32 length, PSTR dest, int32 capacity, UIDNAInfo pInfo, UErrorCode pErrorCode);
+	public static extern int32 uidna_nameToUnicodeUTF8(UIDNA* idna, PSTR name, int32 length, PSTR dest, int32 capacity, UIDNAInfo* pInfo, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBreakIterator ubrk_open(UBreakIteratorType type, PSTR locale, uint16 text, int32 textLength, UErrorCode status);
+	public static extern UBreakIterator* ubrk_open(UBreakIteratorType type, PSTR locale, uint16* text, int32 textLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBreakIterator ubrk_openRules(uint16 rules, int32 rulesLength, uint16 text, int32 textLength, UParseError parseErr, UErrorCode status);
+	public static extern UBreakIterator* ubrk_openRules(uint16* rules, int32 rulesLength, uint16* text, int32 textLength, UParseError* parseErr, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBreakIterator ubrk_openBinaryRules(uint8 binaryRules, int32 rulesLength, uint16 text, int32 textLength, UErrorCode status);
+	public static extern UBreakIterator* ubrk_openBinaryRules(uint8* binaryRules, int32 rulesLength, uint16* text, int32 textLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBreakIterator ubrk_safeClone(UBreakIterator bi, void stackBuffer, int32 pBufferSize, UErrorCode status);
+	public static extern UBreakIterator* ubrk_safeClone(UBreakIterator* bi, void* stackBuffer, int32* pBufferSize, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubrk_close(UBreakIterator bi);
+	public static extern void ubrk_close(UBreakIterator* bi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubrk_setText(UBreakIterator bi, uint16 text, int32 textLength, UErrorCode status);
+	public static extern void ubrk_setText(UBreakIterator* bi, uint16* text, int32 textLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubrk_setUText(UBreakIterator bi, UText text, UErrorCode status);
+	public static extern void ubrk_setUText(UBreakIterator* bi, UText* text, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubrk_current(UBreakIterator bi);
+	public static extern int32 ubrk_current(UBreakIterator* bi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubrk_next(UBreakIterator bi);
+	public static extern int32 ubrk_next(UBreakIterator* bi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubrk_previous(UBreakIterator bi);
+	public static extern int32 ubrk_previous(UBreakIterator* bi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubrk_first(UBreakIterator bi);
+	public static extern int32 ubrk_first(UBreakIterator* bi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubrk_last(UBreakIterator bi);
+	public static extern int32 ubrk_last(UBreakIterator* bi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubrk_preceding(UBreakIterator bi, int32 offset);
+	public static extern int32 ubrk_preceding(UBreakIterator* bi, int32 offset);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubrk_following(UBreakIterator bi, int32 offset);
+	public static extern int32 ubrk_following(UBreakIterator* bi, int32 offset);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR ubrk_getAvailable(int32 index);
@@ -8666,82 +8666,82 @@ public static
 	public static extern int32 ubrk_countAvailable();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ubrk_isBoundary(UBreakIterator bi, int32 offset);
+	public static extern int8 ubrk_isBoundary(UBreakIterator* bi, int32 offset);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubrk_getRuleStatus(UBreakIterator bi);
+	public static extern int32 ubrk_getRuleStatus(UBreakIterator* bi);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubrk_getRuleStatusVec(UBreakIterator bi, int32 fillInVec, int32 capacity, UErrorCode status);
+	public static extern int32 ubrk_getRuleStatusVec(UBreakIterator* bi, int32* fillInVec, int32 capacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ubrk_getLocaleByType(UBreakIterator bi, ULocDataLocaleType type, UErrorCode status);
+	public static extern PSTR ubrk_getLocaleByType(UBreakIterator* bi, ULocDataLocaleType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ubrk_refreshUText(UBreakIterator bi, UText text, UErrorCode status);
+	public static extern void ubrk_refreshUText(UBreakIterator* bi, UText* text, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ubrk_getBinaryRules(UBreakIterator bi, uint8 binaryRules, int32 rulesCapacity, UErrorCode status);
+	public static extern int32 ubrk_getBinaryRules(UBreakIterator* bi, uint8* binaryRules, int32 rulesCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_getDataVersion(uint8 dataVersionFillin, UErrorCode status);
+	public static extern void u_getDataVersion(uint8* dataVersionFillin, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucal_openTimeZoneIDEnumeration(USystemTimeZoneType zoneType, PSTR region, int32 rawOffset, UErrorCode ec);
+	public static extern UEnumeration* ucal_openTimeZoneIDEnumeration(USystemTimeZoneType zoneType, PSTR region, int32* rawOffset, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucal_openTimeZones(UErrorCode ec);
+	public static extern UEnumeration* ucal_openTimeZones(UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucal_openCountryTimeZones(PSTR country, UErrorCode ec);
+	public static extern UEnumeration* ucal_openCountryTimeZones(PSTR country, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getDefaultTimeZone(uint16 result, int32 resultCapacity, UErrorCode ec);
+	public static extern int32 ucal_getDefaultTimeZone(uint16* result, int32 resultCapacity, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_setDefaultTimeZone(uint16 zoneID, UErrorCode ec);
+	public static extern void ucal_setDefaultTimeZone(uint16* zoneID, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getHostTimeZone(uint16 result, int32 resultCapacity, UErrorCode ec);
+	public static extern int32 ucal_getHostTimeZone(uint16* result, int32 resultCapacity, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getDSTSavings(uint16 zoneID, UErrorCode ec);
+	public static extern int32 ucal_getDSTSavings(uint16* zoneID, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern double ucal_getNow();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_open(uint16 zoneID, int32 len, PSTR locale, UCalendarType type, UErrorCode status);
+	public static extern void** ucal_open(uint16* zoneID, int32 len, PSTR locale, UCalendarType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_close(void cal);
+	public static extern void ucal_close(void** cal);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_clone(void cal, UErrorCode status);
+	public static extern void** ucal_clone(void** cal, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_setTimeZone(void cal, uint16 zoneID, int32 len, UErrorCode status);
+	public static extern void ucal_setTimeZone(void** cal, uint16* zoneID, int32 len, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getTimeZoneID(void cal, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 ucal_getTimeZoneID(void** cal, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getTimeZoneDisplayName(void cal, UCalendarDisplayNameType type, PSTR locale, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 ucal_getTimeZoneDisplayName(void** cal, UCalendarDisplayNameType type, PSTR locale, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucal_inDaylightTime(void cal, UErrorCode status);
+	public static extern int8 ucal_inDaylightTime(void** cal, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_setGregorianChange(void cal, double date, UErrorCode pErrorCode);
+	public static extern void ucal_setGregorianChange(void** cal, double date, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double ucal_getGregorianChange(void cal, UErrorCode pErrorCode);
+	public static extern double ucal_getGregorianChange(void** cal, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getAttribute(void cal, UCalendarAttribute attr);
+	public static extern int32 ucal_getAttribute(void** cal, UCalendarAttribute attr);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_setAttribute(void cal, UCalendarAttribute attr, int32 newValue);
+	public static extern void ucal_setAttribute(void** cal, UCalendarAttribute attr, int32 newValue);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR ucal_getAvailable(int32 localeIndex);
@@ -8750,127 +8750,127 @@ public static
 	public static extern int32 ucal_countAvailable();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double ucal_getMillis(void cal, UErrorCode status);
+	public static extern double ucal_getMillis(void** cal, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_setMillis(void cal, double dateTime, UErrorCode status);
+	public static extern void ucal_setMillis(void** cal, double dateTime, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_setDate(void cal, int32 year, int32 month, int32 date, UErrorCode status);
+	public static extern void ucal_setDate(void** cal, int32 year, int32 month, int32 date, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_setDateTime(void cal, int32 year, int32 month, int32 date, int32 hour, int32 minute, int32 second, UErrorCode status);
+	public static extern void ucal_setDateTime(void** cal, int32 year, int32 month, int32 date, int32 hour, int32 minute, int32 second, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucal_equivalentTo(void cal1, void cal2);
+	public static extern int8 ucal_equivalentTo(void** cal1, void** cal2);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_add(void cal, UCalendarDateFields field, int32 amount, UErrorCode status);
+	public static extern void ucal_add(void** cal, UCalendarDateFields field, int32 amount, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_roll(void cal, UCalendarDateFields field, int32 amount, UErrorCode status);
+	public static extern void ucal_roll(void** cal, UCalendarDateFields field, int32 amount, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_get(void cal, UCalendarDateFields field, UErrorCode status);
+	public static extern int32 ucal_get(void** cal, UCalendarDateFields field, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_set(void cal, UCalendarDateFields field, int32 value);
+	public static extern void ucal_set(void** cal, UCalendarDateFields field, int32 value);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucal_isSet(void cal, UCalendarDateFields field);
+	public static extern int8 ucal_isSet(void** cal, UCalendarDateFields field);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_clearField(void cal, UCalendarDateFields field);
+	public static extern void ucal_clearField(void** cal, UCalendarDateFields field);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucal_clear(void calendar);
+	public static extern void ucal_clear(void** calendar);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getLimit(void cal, UCalendarDateFields field, UCalendarLimitType type, UErrorCode status);
+	public static extern int32 ucal_getLimit(void** cal, UCalendarDateFields field, UCalendarLimitType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucal_getLocaleByType(void cal, ULocDataLocaleType type, UErrorCode status);
+	public static extern PSTR ucal_getLocaleByType(void** cal, ULocDataLocaleType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucal_getTZDataVersion(UErrorCode status);
+	public static extern PSTR ucal_getTZDataVersion(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getCanonicalTimeZoneID(uint16 id, int32 len, uint16 result, int32 resultCapacity, int8 isSystemID, UErrorCode status);
+	public static extern int32 ucal_getCanonicalTimeZoneID(uint16* id, int32 len, uint16* result, int32 resultCapacity, int8* isSystemID, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucal_getType(void cal, UErrorCode status);
+	public static extern PSTR ucal_getType(void** cal, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucal_getKeywordValuesForLocale(PSTR key, PSTR locale, int8 commonlyUsed, UErrorCode status);
+	public static extern UEnumeration* ucal_getKeywordValuesForLocale(PSTR key, PSTR locale, int8 commonlyUsed, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCalendarWeekdayType ucal_getDayOfWeekType(void cal, UCalendarDaysOfWeek dayOfWeek, UErrorCode status);
+	public static extern UCalendarWeekdayType ucal_getDayOfWeekType(void** cal, UCalendarDaysOfWeek dayOfWeek, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getWeekendTransition(void cal, UCalendarDaysOfWeek dayOfWeek, UErrorCode status);
+	public static extern int32 ucal_getWeekendTransition(void** cal, UCalendarDaysOfWeek dayOfWeek, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucal_isWeekend(void cal, double date, UErrorCode status);
+	public static extern int8 ucal_isWeekend(void** cal, double date, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getFieldDifference(void cal, double target, UCalendarDateFields field, UErrorCode status);
+	public static extern int32 ucal_getFieldDifference(void** cal, double target, UCalendarDateFields field, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucal_getTimeZoneTransitionDate(void cal, UTimeZoneTransitionType type, double transition, UErrorCode status);
+	public static extern int8 ucal_getTimeZoneTransitionDate(void** cal, UTimeZoneTransitionType type, double* transition, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getWindowsTimeZoneID(uint16 id, int32 len, uint16 winid, int32 winidCapacity, UErrorCode status);
+	public static extern int32 ucal_getWindowsTimeZoneID(uint16* id, int32 len, uint16* winid, int32 winidCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucal_getTimeZoneIDForWindowsID(uint16 winid, int32 len, PSTR region, uint16 id, int32 idCapacity, UErrorCode status);
+	public static extern int32 ucal_getTimeZoneIDForWindowsID(uint16* winid, int32 len, PSTR region, uint16* id, int32 idCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCollator ucol_open(PSTR loc, UErrorCode status);
+	public static extern UCollator* ucol_open(PSTR loc, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCollator ucol_openRules(uint16 rules, int32 rulesLength, UColAttributeValue normalizationMode, UColAttributeValue strength, UParseError parseError, UErrorCode status);
+	public static extern UCollator* ucol_openRules(uint16* rules, int32 rulesLength, UColAttributeValue normalizationMode, UColAttributeValue strength, UParseError* parseError, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_getContractionsAndExpansions(UCollator coll, USet contractions, USet expansions, int8 addPrefixes, UErrorCode status);
+	public static extern void ucol_getContractionsAndExpansions(UCollator* coll, USet* contractions, USet* expansions, int8 addPrefixes, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_close(UCollator coll);
+	public static extern void ucol_close(UCollator* coll);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCollationResult ucol_strcoll(UCollator coll, uint16 source, int32 sourceLength, uint16 target, int32 targetLength);
+	public static extern UCollationResult ucol_strcoll(UCollator* coll, uint16* source, int32 sourceLength, uint16* target, int32 targetLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCollationResult ucol_strcollUTF8(UCollator coll, PSTR source, int32 sourceLength, PSTR target, int32 targetLength, UErrorCode status);
+	public static extern UCollationResult ucol_strcollUTF8(UCollator* coll, PSTR source, int32 sourceLength, PSTR target, int32 targetLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucol_greater(UCollator coll, uint16 source, int32 sourceLength, uint16 target, int32 targetLength);
+	public static extern int8 ucol_greater(UCollator* coll, uint16* source, int32 sourceLength, uint16* target, int32 targetLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucol_greaterOrEqual(UCollator coll, uint16 source, int32 sourceLength, uint16 target, int32 targetLength);
+	public static extern int8 ucol_greaterOrEqual(UCollator* coll, uint16* source, int32 sourceLength, uint16* target, int32 targetLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucol_equal(UCollator coll, uint16 source, int32 sourceLength, uint16 target, int32 targetLength);
+	public static extern int8 ucol_equal(UCollator* coll, uint16* source, int32 sourceLength, uint16* target, int32 targetLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCollationResult ucol_strcollIter(UCollator coll, UCharIterator sIter, UCharIterator tIter, UErrorCode status);
+	public static extern UCollationResult ucol_strcollIter(UCollator* coll, UCharIterator* sIter, UCharIterator* tIter, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UColAttributeValue ucol_getStrength(UCollator coll);
+	public static extern UColAttributeValue ucol_getStrength(UCollator* coll);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_setStrength(UCollator coll, UColAttributeValue strength);
+	public static extern void ucol_setStrength(UCollator* coll, UColAttributeValue strength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_getReorderCodes(UCollator coll, int32 dest, int32 destCapacity, UErrorCode pErrorCode);
+	public static extern int32 ucol_getReorderCodes(UCollator* coll, int32* dest, int32 destCapacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_setReorderCodes(UCollator coll, int32 reorderCodes, int32 reorderCodesLength, UErrorCode pErrorCode);
+	public static extern void ucol_setReorderCodes(UCollator* coll, int32* reorderCodes, int32 reorderCodesLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_getEquivalentReorderCodes(int32 reorderCode, int32 dest, int32 destCapacity, UErrorCode pErrorCode);
+	public static extern int32 ucol_getEquivalentReorderCodes(int32 reorderCode, int32* dest, int32 destCapacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_getDisplayName(PSTR objLoc, PSTR dispLoc, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 ucol_getDisplayName(PSTR objLoc, PSTR dispLoc, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR ucol_getAvailable(int32 localeIndex);
@@ -8879,103 +8879,103 @@ public static
 	public static extern int32 ucol_countAvailable();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucol_openAvailableLocales(UErrorCode status);
+	public static extern UEnumeration* ucol_openAvailableLocales(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucol_getKeywords(UErrorCode status);
+	public static extern UEnumeration* ucol_getKeywords(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucol_getKeywordValues(PSTR keyword, UErrorCode status);
+	public static extern UEnumeration* ucol_getKeywordValues(PSTR keyword, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucol_getKeywordValuesForLocale(PSTR key, PSTR locale, int8 commonlyUsed, UErrorCode status);
+	public static extern UEnumeration* ucol_getKeywordValuesForLocale(PSTR key, PSTR locale, int8 commonlyUsed, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_getFunctionalEquivalent(PSTR result, int32 resultCapacity, PSTR keyword, PSTR locale, int8 isAvailable, UErrorCode status);
+	public static extern int32 ucol_getFunctionalEquivalent(PSTR result, int32 resultCapacity, PSTR keyword, PSTR locale, int8* isAvailable, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ucol_getRules(UCollator coll, int32 length);
+	public static extern uint16* ucol_getRules(UCollator* coll, int32* length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_getSortKey(UCollator coll, uint16 source, int32 sourceLength, uint8 result, int32 resultLength);
+	public static extern int32 ucol_getSortKey(UCollator* coll, uint16* source, int32 sourceLength, uint8* result, int32 resultLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_nextSortKeyPart(UCollator coll, UCharIterator iter, uint32 state, uint8 dest, int32 count, UErrorCode status);
+	public static extern int32 ucol_nextSortKeyPart(UCollator* coll, UCharIterator* iter, uint32* state, uint8* dest, int32 count, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_getBound(uint8 source, int32 sourceLength, UColBoundMode boundType, uint32 noOfLevels, uint8 result, int32 resultLength, UErrorCode status);
+	public static extern int32 ucol_getBound(uint8* source, int32 sourceLength, UColBoundMode boundType, uint32 noOfLevels, uint8* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_getVersion(UCollator coll, uint8 info);
+	public static extern void ucol_getVersion(UCollator* coll, uint8* info);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_getUCAVersion(UCollator coll, uint8 info);
+	public static extern void ucol_getUCAVersion(UCollator* coll, uint8* info);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_mergeSortkeys(uint8 src1, int32 src1Length, uint8 src2, int32 src2Length, uint8 dest, int32 destCapacity);
+	public static extern int32 ucol_mergeSortkeys(uint8* src1, int32 src1Length, uint8* src2, int32 src2Length, uint8* dest, int32 destCapacity);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_setAttribute(UCollator coll, UColAttribute attr, UColAttributeValue value, UErrorCode status);
+	public static extern void ucol_setAttribute(UCollator* coll, UColAttribute attr, UColAttributeValue value, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UColAttributeValue ucol_getAttribute(UCollator coll, UColAttribute attr, UErrorCode status);
+	public static extern UColAttributeValue ucol_getAttribute(UCollator* coll, UColAttribute attr, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_setMaxVariable(UCollator coll, UColReorderCode group, UErrorCode pErrorCode);
+	public static extern void ucol_setMaxVariable(UCollator* coll, UColReorderCode group, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UColReorderCode ucol_getMaxVariable(UCollator coll);
+	public static extern UColReorderCode ucol_getMaxVariable(UCollator* coll);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ucol_getVariableTop(UCollator coll, UErrorCode status);
+	public static extern uint32 ucol_getVariableTop(UCollator* coll, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCollator ucol_safeClone(UCollator coll, void stackBuffer, int32 pBufferSize, UErrorCode status);
+	public static extern UCollator* ucol_safeClone(UCollator* coll, void* stackBuffer, int32* pBufferSize, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_getRulesEx(UCollator coll, UColRuleOption delta, uint16 buffer, int32 bufferLen);
+	public static extern int32 ucol_getRulesEx(UCollator* coll, UColRuleOption delta, uint16* buffer, int32 bufferLen);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucol_getLocaleByType(UCollator coll, ULocDataLocaleType type, UErrorCode status);
+	public static extern PSTR ucol_getLocaleByType(UCollator* coll, ULocDataLocaleType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet ucol_getTailoredSet(UCollator coll, UErrorCode status);
+	public static extern USet* ucol_getTailoredSet(UCollator* coll, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_cloneBinary(UCollator coll, uint8 buffer, int32 capacity, UErrorCode status);
+	public static extern int32 ucol_cloneBinary(UCollator* coll, uint8* buffer, int32 capacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCollator ucol_openBinary(uint8 bin, int32 length, UCollator @base, UErrorCode status);
+	public static extern UCollator* ucol_openBinary(uint8* bin, int32 length, UCollator* @base, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCollationElements ucol_openElements(UCollator coll, uint16 text, int32 textLength, UErrorCode status);
+	public static extern UCollationElements* ucol_openElements(UCollator* coll, uint16* text, int32 textLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_keyHashCode(uint8 key, int32 length);
+	public static extern int32 ucol_keyHashCode(uint8* key, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_closeElements(UCollationElements elems);
+	public static extern void ucol_closeElements(UCollationElements* elems);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_reset(UCollationElements elems);
+	public static extern void ucol_reset(UCollationElements* elems);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_next(UCollationElements elems, UErrorCode status);
+	public static extern int32 ucol_next(UCollationElements* elems, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_previous(UCollationElements elems, UErrorCode status);
+	public static extern int32 ucol_previous(UCollationElements* elems, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_getMaxExpansion(UCollationElements elems, int32 order);
+	public static extern int32 ucol_getMaxExpansion(UCollationElements* elems, int32 order);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_setText(UCollationElements elems, uint16 text, int32 textLength, UErrorCode status);
+	public static extern void ucol_setText(UCollationElements* elems, uint16* text, int32 textLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucol_getOffset(UCollationElements elems);
+	public static extern int32 ucol_getOffset(UCollationElements* elems);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucol_setOffset(UCollationElements elems, int32 offset, UErrorCode status);
+	public static extern void ucol_setOffset(UCollationElements* elems, int32 offset, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ucol_primaryOrder(int32 order);
@@ -8987,325 +8987,325 @@ public static
 	public static extern int32 ucol_tertiaryOrder(int32 order);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCharsetDetector ucsdet_open(UErrorCode status);
+	public static extern UCharsetDetector* ucsdet_open(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucsdet_close(UCharsetDetector ucsd);
+	public static extern void ucsdet_close(UCharsetDetector* ucsd);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucsdet_setText(UCharsetDetector ucsd, PSTR textIn, int32 len, UErrorCode status);
+	public static extern void ucsdet_setText(UCharsetDetector* ucsd, PSTR textIn, int32 len, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucsdet_setDeclaredEncoding(UCharsetDetector ucsd, PSTR encoding, int32 length, UErrorCode status);
+	public static extern void ucsdet_setDeclaredEncoding(UCharsetDetector* ucsd, PSTR encoding, int32 length, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCharsetMatch ucsdet_detect(UCharsetDetector ucsd, UErrorCode status);
+	public static extern UCharsetMatch* ucsdet_detect(UCharsetDetector* ucsd, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCharsetMatch ucsdet_detectAll(UCharsetDetector ucsd, int32 matchesFound, UErrorCode status);
+	public static extern UCharsetMatch** ucsdet_detectAll(UCharsetDetector* ucsd, int32* matchesFound, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucsdet_getName(UCharsetMatch ucsm, UErrorCode status);
+	public static extern PSTR ucsdet_getName(UCharsetMatch* ucsm, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucsdet_getConfidence(UCharsetMatch ucsm, UErrorCode status);
+	public static extern int32 ucsdet_getConfidence(UCharsetMatch* ucsm, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ucsdet_getLanguage(UCharsetMatch ucsm, UErrorCode status);
+	public static extern PSTR ucsdet_getLanguage(UCharsetMatch* ucsm, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucsdet_getUChars(UCharsetMatch ucsm, uint16 buf, int32 cap, UErrorCode status);
+	public static extern int32 ucsdet_getUChars(UCharsetMatch* ucsm, uint16* buf, int32 cap, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration ucsdet_getAllDetectableCharsets(UCharsetDetector ucsd, UErrorCode status);
+	public static extern UEnumeration* ucsdet_getAllDetectableCharsets(UCharsetDetector* ucsd, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucsdet_isInputFilterEnabled(UCharsetDetector ucsd);
+	public static extern int8 ucsdet_isInputFilterEnabled(UCharsetDetector* ucsd);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucsdet_enableInputFilter(UCharsetDetector ucsd, int8 filter);
+	public static extern int8 ucsdet_enableInputFilter(UCharsetDetector* ucsd, int8 filter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UFieldPositionIterator ufieldpositer_open(UErrorCode status);
+	public static extern UFieldPositionIterator* ufieldpositer_open(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ufieldpositer_close(UFieldPositionIterator fpositer);
+	public static extern void ufieldpositer_close(UFieldPositionIterator* fpositer);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ufieldpositer_next(UFieldPositionIterator fpositer, int32 beginIndex, int32 endIndex);
+	public static extern int32 ufieldpositer_next(UFieldPositionIterator* fpositer, int32* beginIndex, int32* endIndex);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ufmt_open(UErrorCode status);
+	public static extern void** ufmt_open(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ufmt_close(void fmt);
+	public static extern void ufmt_close(void** fmt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UFormattableType ufmt_getType(void fmt, UErrorCode status);
+	public static extern UFormattableType ufmt_getType(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ufmt_isNumeric(void fmt);
+	public static extern int8 ufmt_isNumeric(void** fmt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double ufmt_getDate(void fmt, UErrorCode status);
+	public static extern double ufmt_getDate(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double ufmt_getDouble(void fmt, UErrorCode status);
+	public static extern double ufmt_getDouble(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ufmt_getLong(void fmt, UErrorCode status);
+	public static extern int32 ufmt_getLong(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 ufmt_getInt64(void fmt, UErrorCode status);
+	public static extern int64 ufmt_getInt64(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ufmt_getObject(void fmt, UErrorCode status);
+	public static extern void* ufmt_getObject(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ufmt_getUChars(void fmt, int32 len, UErrorCode status);
+	public static extern uint16* ufmt_getUChars(void** fmt, int32* len, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ufmt_getArrayLength(void fmt, UErrorCode status);
+	public static extern int32 ufmt_getArrayLength(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ufmt_getArrayItemByIndex(void fmt, int32 n, UErrorCode status);
+	public static extern void** ufmt_getArrayItemByIndex(void** fmt, int32 n, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR ufmt_getDecNumChars(void fmt, int32 len, UErrorCode status);
+	public static extern PSTR ufmt_getDecNumChars(void** fmt, int32* len, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UConstrainedFieldPosition ucfpos_open(UErrorCode ec);
+	public static extern UConstrainedFieldPosition* ucfpos_open(UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucfpos_reset(UConstrainedFieldPosition ucfpos, UErrorCode ec);
+	public static extern void ucfpos_reset(UConstrainedFieldPosition* ucfpos, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucfpos_close(UConstrainedFieldPosition ucfpos);
+	public static extern void ucfpos_close(UConstrainedFieldPosition* ucfpos);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucfpos_constrainCategory(UConstrainedFieldPosition ucfpos, int32 category, UErrorCode ec);
+	public static extern void ucfpos_constrainCategory(UConstrainedFieldPosition* ucfpos, int32 category, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucfpos_constrainField(UConstrainedFieldPosition ucfpos, int32 category, int32 field, UErrorCode ec);
+	public static extern void ucfpos_constrainField(UConstrainedFieldPosition* ucfpos, int32 category, int32 field, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucfpos_getCategory(UConstrainedFieldPosition ucfpos, UErrorCode ec);
+	public static extern int32 ucfpos_getCategory(UConstrainedFieldPosition* ucfpos, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ucfpos_getField(UConstrainedFieldPosition ucfpos, UErrorCode ec);
+	public static extern int32 ucfpos_getField(UConstrainedFieldPosition* ucfpos, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucfpos_getIndexes(UConstrainedFieldPosition ucfpos, int32 pStart, int32 pLimit, UErrorCode ec);
+	public static extern void ucfpos_getIndexes(UConstrainedFieldPosition* ucfpos, int32* pStart, int32* pLimit, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 ucfpos_getInt64IterationContext(UConstrainedFieldPosition ucfpos, UErrorCode ec);
+	public static extern int64 ucfpos_getInt64IterationContext(UConstrainedFieldPosition* ucfpos, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucfpos_setInt64IterationContext(UConstrainedFieldPosition ucfpos, int64 context, UErrorCode ec);
+	public static extern void ucfpos_setInt64IterationContext(UConstrainedFieldPosition* ucfpos, int64 context, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ucfpos_matchesField(UConstrainedFieldPosition ucfpos, int32 category, int32 field, UErrorCode ec);
+	public static extern int8 ucfpos_matchesField(UConstrainedFieldPosition* ucfpos, int32 category, int32 field, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ucfpos_setState(UConstrainedFieldPosition ucfpos, int32 category, int32 field, int32 start, int32 limit, UErrorCode ec);
+	public static extern void ucfpos_setState(UConstrainedFieldPosition* ucfpos, int32 category, int32 field, int32 start, int32 limit, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 ufmtval_getString(UFormattedValue ufmtval, int32 pLength, UErrorCode ec);
+	public static extern uint16* ufmtval_getString(UFormattedValue* ufmtval, int32* pLength, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ufmtval_nextPosition(UFormattedValue ufmtval, UConstrainedFieldPosition ucfpos, UErrorCode ec);
+	public static extern int8 ufmtval_nextPosition(UFormattedValue* ufmtval, UConstrainedFieldPosition* ucfpos, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UDateIntervalFormat udtitvfmt_open(PSTR locale, uint16 skeleton, int32 skeletonLength, uint16 tzID, int32 tzIDLength, UErrorCode status);
+	public static extern UDateIntervalFormat* udtitvfmt_open(PSTR locale, uint16* skeleton, int32 skeletonLength, uint16* tzID, int32 tzIDLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udtitvfmt_close(UDateIntervalFormat formatter);
+	public static extern void udtitvfmt_close(UDateIntervalFormat* formatter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UFormattedDateInterval udtitvfmt_openResult(UErrorCode ec);
+	public static extern UFormattedDateInterval* udtitvfmt_openResult(UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UFormattedValue udtitvfmt_resultAsValue(UFormattedDateInterval uresult, UErrorCode ec);
+	public static extern UFormattedValue* udtitvfmt_resultAsValue(UFormattedDateInterval* uresult, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udtitvfmt_closeResult(UFormattedDateInterval uresult);
+	public static extern void udtitvfmt_closeResult(UFormattedDateInterval* uresult);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udtitvfmt_format(UDateIntervalFormat formatter, double fromDate, double toDate, uint16 result, int32 resultCapacity, UFieldPosition position, UErrorCode status);
+	public static extern int32 udtitvfmt_format(UDateIntervalFormat* formatter, double fromDate, double toDate, uint16* result, int32 resultCapacity, UFieldPosition* position, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UGenderInfo ugender_getInstance(PSTR locale, UErrorCode status);
+	public static extern UGenderInfo* ugender_getInstance(PSTR locale, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UGender ugender_getListGender(UGenderInfo genderInfo, UGender genders, int32 size, UErrorCode status);
+	public static extern UGender ugender_getListGender(UGenderInfo* genderInfo, UGender* genders, int32 size, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UListFormatter ulistfmt_open(PSTR locale, UErrorCode status);
+	public static extern UListFormatter* ulistfmt_open(PSTR locale, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UListFormatter ulistfmt_openForType(PSTR locale, UListFormatterType type, UListFormatterWidth width, UErrorCode status);
+	public static extern UListFormatter* ulistfmt_openForType(PSTR locale, UListFormatterType type, UListFormatterWidth width, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ulistfmt_close(UListFormatter listfmt);
+	public static extern void ulistfmt_close(UListFormatter* listfmt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UFormattedList ulistfmt_openResult(UErrorCode ec);
+	public static extern UFormattedList* ulistfmt_openResult(UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UFormattedValue ulistfmt_resultAsValue(UFormattedList uresult, UErrorCode ec);
+	public static extern UFormattedValue* ulistfmt_resultAsValue(UFormattedList* uresult, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ulistfmt_closeResult(UFormattedList uresult);
+	public static extern void ulistfmt_closeResult(UFormattedList* uresult);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ulistfmt_format(UListFormatter listfmt, uint16 strings, int32 stringLengths, int32 stringCount, uint16 result, int32 resultCapacity, UErrorCode status);
+	public static extern int32 ulistfmt_format(UListFormatter* listfmt, uint16** strings, int32* stringLengths, int32 stringCount, uint16* result, int32 resultCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ulistfmt_formatStringsToResult(UListFormatter listfmt, uint16 strings, int32 stringLengths, int32 stringCount, UFormattedList uresult, UErrorCode status);
+	public static extern void ulistfmt_formatStringsToResult(UListFormatter* listfmt, uint16** strings, int32* stringLengths, int32 stringCount, UFormattedList* uresult, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ULocaleData ulocdata_open(PSTR localeID, UErrorCode status);
+	public static extern ULocaleData* ulocdata_open(PSTR localeID, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ulocdata_close(ULocaleData uld);
+	public static extern void ulocdata_close(ULocaleData* uld);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ulocdata_setNoSubstitute(ULocaleData uld, int8 setting);
+	public static extern void ulocdata_setNoSubstitute(ULocaleData* uld, int8 setting);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 ulocdata_getNoSubstitute(ULocaleData uld);
+	public static extern int8 ulocdata_getNoSubstitute(ULocaleData* uld);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet ulocdata_getExemplarSet(ULocaleData uld, USet fillIn, uint32 options, ULocaleDataExemplarSetType extype, UErrorCode status);
+	public static extern USet* ulocdata_getExemplarSet(ULocaleData* uld, USet* fillIn, uint32 options, ULocaleDataExemplarSetType extype, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ulocdata_getDelimiter(ULocaleData uld, ULocaleDataDelimiterType type, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 ulocdata_getDelimiter(ULocaleData* uld, ULocaleDataDelimiterType type, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UMeasurementSystem ulocdata_getMeasurementSystem(PSTR localeID, UErrorCode status);
+	public static extern UMeasurementSystem ulocdata_getMeasurementSystem(PSTR localeID, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ulocdata_getPaperSize(PSTR localeID, int32 height, int32 width, UErrorCode status);
+	public static extern void ulocdata_getPaperSize(PSTR localeID, int32* height, int32* width, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ulocdata_getCLDRVersion(uint8 versionArray, UErrorCode status);
+	public static extern void ulocdata_getCLDRVersion(uint8* versionArray, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ulocdata_getLocaleDisplayPattern(ULocaleData uld, uint16 pattern, int32 patternCapacity, UErrorCode status);
+	public static extern int32 ulocdata_getLocaleDisplayPattern(ULocaleData* uld, uint16* pattern, int32 patternCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ulocdata_getLocaleSeparator(ULocaleData uld, uint16 separator, int32 separatorCapacity, UErrorCode status);
+	public static extern int32 ulocdata_getLocaleSeparator(ULocaleData* uld, uint16* separator, int32 separatorCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_formatMessage(PSTR locale, uint16 pattern, int32 patternLength, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 u_formatMessage(PSTR locale, uint16* pattern, int32 patternLength, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_vformatMessage(PSTR locale, uint16 pattern, int32 patternLength, uint16 result, int32 resultLength, int8 ap, UErrorCode status);
+	public static extern int32 u_vformatMessage(PSTR locale, uint16* pattern, int32 patternLength, uint16* result, int32 resultLength, int8* ap, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_parseMessage(PSTR locale, uint16 pattern, int32 patternLength, uint16 source, int32 sourceLength, UErrorCode status);
+	public static extern void u_parseMessage(PSTR locale, uint16* pattern, int32 patternLength, uint16* source, int32 sourceLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_vparseMessage(PSTR locale, uint16 pattern, int32 patternLength, uint16 source, int32 sourceLength, int8 ap, UErrorCode status);
+	public static extern void u_vparseMessage(PSTR locale, uint16* pattern, int32 patternLength, uint16* source, int32 sourceLength, int8* ap, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_formatMessageWithError(PSTR locale, uint16 pattern, int32 patternLength, uint16 result, int32 resultLength, UParseError parseError, UErrorCode status);
+	public static extern int32 u_formatMessageWithError(PSTR locale, uint16* pattern, int32 patternLength, uint16* result, int32 resultLength, UParseError* parseError, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 u_vformatMessageWithError(PSTR locale, uint16 pattern, int32 patternLength, uint16 result, int32 resultLength, UParseError parseError, int8 ap, UErrorCode status);
+	public static extern int32 u_vformatMessageWithError(PSTR locale, uint16* pattern, int32 patternLength, uint16* result, int32 resultLength, UParseError* parseError, int8* ap, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_parseMessageWithError(PSTR locale, uint16 pattern, int32 patternLength, uint16 source, int32 sourceLength, UParseError parseError, UErrorCode status);
+	public static extern void u_parseMessageWithError(PSTR locale, uint16* pattern, int32 patternLength, uint16* source, int32 sourceLength, UParseError* parseError, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void u_vparseMessageWithError(PSTR locale, uint16 pattern, int32 patternLength, uint16 source, int32 sourceLength, int8 ap, UParseError parseError, UErrorCode status);
+	public static extern void u_vparseMessageWithError(PSTR locale, uint16* pattern, int32 patternLength, uint16* source, int32 sourceLength, int8* ap, UParseError* parseError, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void umsg_open(uint16 pattern, int32 patternLength, PSTR locale, UParseError parseError, UErrorCode status);
+	public static extern void** umsg_open(uint16* pattern, int32 patternLength, PSTR locale, UParseError* parseError, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void umsg_close(void format);
+	public static extern void umsg_close(void** format);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void umsg_clone(void fmt, UErrorCode status);
+	public static extern void* umsg_clone(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void umsg_setLocale(void fmt, PSTR locale);
+	public static extern void umsg_setLocale(void** fmt, PSTR locale);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR umsg_getLocale(void fmt);
+	public static extern PSTR umsg_getLocale(void** fmt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void umsg_applyPattern(void fmt, uint16 pattern, int32 patternLength, UParseError parseError, UErrorCode status);
+	public static extern void umsg_applyPattern(void** fmt, uint16* pattern, int32 patternLength, UParseError* parseError, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 umsg_toPattern(void fmt, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 umsg_toPattern(void** fmt, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 umsg_format(void fmt, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 umsg_format(void** fmt, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 umsg_vformat(void fmt, uint16 result, int32 resultLength, int8 ap, UErrorCode status);
+	public static extern int32 umsg_vformat(void** fmt, uint16* result, int32 resultLength, int8* ap, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void umsg_parse(void fmt, uint16 source, int32 sourceLength, int32 count, UErrorCode status);
+	public static extern void umsg_parse(void** fmt, uint16* source, int32 sourceLength, int32* count, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void umsg_vparse(void fmt, uint16 source, int32 sourceLength, int32 count, int8 ap, UErrorCode status);
+	public static extern void umsg_vparse(void** fmt, uint16* source, int32 sourceLength, int32* count, int8* ap, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 umsg_autoQuoteApostrophe(uint16 pattern, int32 patternLength, uint16 dest, int32 destCapacity, UErrorCode ec);
+	public static extern int32 umsg_autoQuoteApostrophe(uint16* pattern, int32 patternLength, uint16* dest, int32 destCapacity, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unum_open(UNumberFormatStyle style, uint16 pattern, int32 patternLength, PSTR locale, UParseError parseErr, UErrorCode status);
+	public static extern void** unum_open(UNumberFormatStyle style, uint16* pattern, int32 patternLength, PSTR locale, UParseError* parseErr, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unum_close(void fmt);
+	public static extern void unum_close(void** fmt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unum_clone(void fmt, UErrorCode status);
+	public static extern void** unum_clone(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_format(void fmt, int32 number, uint16 result, int32 resultLength, UFieldPosition pos, UErrorCode status);
+	public static extern int32 unum_format(void** fmt, int32 number, uint16* result, int32 resultLength, UFieldPosition* pos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_formatInt64(void fmt, int64 number, uint16 result, int32 resultLength, UFieldPosition pos, UErrorCode status);
+	public static extern int32 unum_formatInt64(void** fmt, int64 number, uint16* result, int32 resultLength, UFieldPosition* pos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_formatDouble(void fmt, double number, uint16 result, int32 resultLength, UFieldPosition pos, UErrorCode status);
+	public static extern int32 unum_formatDouble(void** fmt, double number, uint16* result, int32 resultLength, UFieldPosition* pos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_formatDoubleForFields(void format, double number, uint16 result, int32 resultLength, UFieldPositionIterator fpositer, UErrorCode status);
+	public static extern int32 unum_formatDoubleForFields(void** format, double number, uint16* result, int32 resultLength, UFieldPositionIterator* fpositer, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_formatDecimal(void fmt, PSTR number, int32 length, uint16 result, int32 resultLength, UFieldPosition pos, UErrorCode status);
+	public static extern int32 unum_formatDecimal(void** fmt, PSTR number, int32 length, uint16* result, int32 resultLength, UFieldPosition* pos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_formatDoubleCurrency(void fmt, double number, uint16 currency, uint16 result, int32 resultLength, UFieldPosition pos, UErrorCode status);
+	public static extern int32 unum_formatDoubleCurrency(void** fmt, double number, uint16* currency, uint16* result, int32 resultLength, UFieldPosition* pos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_formatUFormattable(void fmt, void number, uint16 result, int32 resultLength, UFieldPosition pos, UErrorCode status);
+	public static extern int32 unum_formatUFormattable(void** fmt, void** number, uint16* result, int32 resultLength, UFieldPosition* pos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_parse(void fmt, uint16 text, int32 textLength, int32 parsePos, UErrorCode status);
+	public static extern int32 unum_parse(void** fmt, uint16* text, int32 textLength, int32* parsePos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 unum_parseInt64(void fmt, uint16 text, int32 textLength, int32 parsePos, UErrorCode status);
+	public static extern int64 unum_parseInt64(void** fmt, uint16* text, int32 textLength, int32* parsePos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double unum_parseDouble(void fmt, uint16 text, int32 textLength, int32 parsePos, UErrorCode status);
+	public static extern double unum_parseDouble(void** fmt, uint16* text, int32 textLength, int32* parsePos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_parseDecimal(void fmt, uint16 text, int32 textLength, int32 parsePos, PSTR outBuf, int32 outBufLength, UErrorCode status);
+	public static extern int32 unum_parseDecimal(void** fmt, uint16* text, int32 textLength, int32* parsePos, PSTR outBuf, int32 outBufLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double unum_parseDoubleCurrency(void fmt, uint16 text, int32 textLength, int32 parsePos, uint16 currency, UErrorCode status);
+	public static extern double unum_parseDoubleCurrency(void** fmt, uint16* text, int32 textLength, int32* parsePos, uint16* currency, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unum_parseToUFormattable(void fmt, void result, uint16 text, int32 textLength, int32 parsePos, UErrorCode status);
+	public static extern void** unum_parseToUFormattable(void** fmt, void** result, uint16* text, int32 textLength, int32* parsePos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unum_applyPattern(void format, int8 localized, uint16 pattern, int32 patternLength, UParseError parseError, UErrorCode status);
+	public static extern void unum_applyPattern(void** format, int8 localized, uint16* pattern, int32 patternLength, UParseError* parseError, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR unum_getAvailable(int32 localeIndex);
@@ -9314,103 +9314,103 @@ public static
 	public static extern int32 unum_countAvailable();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_getAttribute(void fmt, UNumberFormatAttribute attr);
+	public static extern int32 unum_getAttribute(void** fmt, UNumberFormatAttribute attr);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unum_setAttribute(void fmt, UNumberFormatAttribute attr, int32 newValue);
+	public static extern void unum_setAttribute(void** fmt, UNumberFormatAttribute attr, int32 newValue);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double unum_getDoubleAttribute(void fmt, UNumberFormatAttribute attr);
+	public static extern double unum_getDoubleAttribute(void** fmt, UNumberFormatAttribute attr);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unum_setDoubleAttribute(void fmt, UNumberFormatAttribute attr, double newValue);
+	public static extern void unum_setDoubleAttribute(void** fmt, UNumberFormatAttribute attr, double newValue);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_getTextAttribute(void fmt, UNumberFormatTextAttribute tag, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 unum_getTextAttribute(void** fmt, UNumberFormatTextAttribute tag, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unum_setTextAttribute(void fmt, UNumberFormatTextAttribute tag, uint16 newValue, int32 newValueLength, UErrorCode status);
+	public static extern void unum_setTextAttribute(void** fmt, UNumberFormatTextAttribute tag, uint16* newValue, int32 newValueLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_toPattern(void fmt, int8 isPatternLocalized, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 unum_toPattern(void** fmt, int8 isPatternLocalized, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unum_getSymbol(void fmt, UNumberFormatSymbol symbol, uint16 buffer, int32 size, UErrorCode status);
+	public static extern int32 unum_getSymbol(void** fmt, UNumberFormatSymbol symbol, uint16* buffer, int32 size, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unum_setSymbol(void fmt, UNumberFormatSymbol symbol, uint16 value, int32 length, UErrorCode status);
+	public static extern void unum_setSymbol(void** fmt, UNumberFormatSymbol symbol, uint16* value, int32 length, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR unum_getLocaleByType(void fmt, ULocDataLocaleType type, UErrorCode status);
+	public static extern PSTR unum_getLocaleByType(void** fmt, ULocDataLocaleType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unum_setContext(void fmt, UDisplayContext value, UErrorCode status);
+	public static extern void unum_setContext(void** fmt, UDisplayContext value, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UDisplayContext unum_getContext(void fmt, UDisplayContextType type, UErrorCode status);
+	public static extern UDisplayContext unum_getContext(void** fmt, UDisplayContextType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern UCalendarDateFields udat_toCalendarDateField(UDateFormatField field);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_open(UDateFormatStyle timeStyle, UDateFormatStyle dateStyle, PSTR locale, uint16 tzID, int32 tzIDLength, uint16 pattern, int32 patternLength, UErrorCode status);
+	public static extern void** udat_open(UDateFormatStyle timeStyle, UDateFormatStyle dateStyle, PSTR locale, uint16* tzID, int32 tzIDLength, uint16* pattern, int32 patternLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_close(void format);
+	public static extern void udat_close(void** format);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 udat_getBooleanAttribute(void fmt, UDateFormatBooleanAttribute attr, UErrorCode status);
+	public static extern int8 udat_getBooleanAttribute(void** fmt, UDateFormatBooleanAttribute attr, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_setBooleanAttribute(void fmt, UDateFormatBooleanAttribute attr, int8 newValue, UErrorCode status);
+	public static extern void udat_setBooleanAttribute(void** fmt, UDateFormatBooleanAttribute attr, int8 newValue, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_clone(void fmt, UErrorCode status);
+	public static extern void** udat_clone(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udat_format(void format, double dateToFormat, uint16 result, int32 resultLength, UFieldPosition position, UErrorCode status);
+	public static extern int32 udat_format(void** format, double dateToFormat, uint16* result, int32 resultLength, UFieldPosition* position, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udat_formatCalendar(void format, void calendar, uint16 result, int32 capacity, UFieldPosition position, UErrorCode status);
+	public static extern int32 udat_formatCalendar(void** format, void** calendar, uint16* result, int32 capacity, UFieldPosition* position, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udat_formatForFields(void format, double dateToFormat, uint16 result, int32 resultLength, UFieldPositionIterator fpositer, UErrorCode status);
+	public static extern int32 udat_formatForFields(void** format, double dateToFormat, uint16* result, int32 resultLength, UFieldPositionIterator* fpositer, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udat_formatCalendarForFields(void format, void calendar, uint16 result, int32 capacity, UFieldPositionIterator fpositer, UErrorCode status);
+	public static extern int32 udat_formatCalendarForFields(void** format, void** calendar, uint16* result, int32 capacity, UFieldPositionIterator* fpositer, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double udat_parse(void format, uint16 text, int32 textLength, int32 parsePos, UErrorCode status);
+	public static extern double udat_parse(void** format, uint16* text, int32 textLength, int32* parsePos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_parseCalendar(void format, void calendar, uint16 text, int32 textLength, int32 parsePos, UErrorCode status);
+	public static extern void udat_parseCalendar(void** format, void** calendar, uint16* text, int32 textLength, int32* parsePos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 udat_isLenient(void fmt);
+	public static extern int8 udat_isLenient(void** fmt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_setLenient(void fmt, int8 isLenient);
+	public static extern void udat_setLenient(void** fmt, int8 isLenient);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_getCalendar(void fmt);
+	public static extern void** udat_getCalendar(void** fmt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_setCalendar(void fmt, void calendarToSet);
+	public static extern void udat_setCalendar(void** fmt, void** calendarToSet);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_getNumberFormat(void fmt);
+	public static extern void** udat_getNumberFormat(void** fmt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_getNumberFormatForField(void fmt, uint16 field);
+	public static extern void** udat_getNumberFormatForField(void** fmt, uint16 field);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_adoptNumberFormatForFields(void fmt, uint16 fields, void numberFormatToSet, UErrorCode status);
+	public static extern void udat_adoptNumberFormatForFields(void** fmt, uint16* fields, void** numberFormatToSet, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_setNumberFormat(void fmt, void numberFormatToSet);
+	public static extern void udat_setNumberFormat(void** fmt, void** numberFormatToSet);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_adoptNumberFormat(void fmt, void numberFormatToAdopt);
+	public static extern void udat_adoptNumberFormat(void** fmt, void** numberFormatToAdopt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR udat_getAvailable(int32 localeIndex);
@@ -9419,658 +9419,658 @@ public static
 	public static extern int32 udat_countAvailable();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern double udat_get2DigitYearStart(void fmt, UErrorCode status);
+	public static extern double udat_get2DigitYearStart(void** fmt, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_set2DigitYearStart(void fmt, double d, UErrorCode status);
+	public static extern void udat_set2DigitYearStart(void** fmt, double d, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udat_toPattern(void fmt, int8 localized, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 udat_toPattern(void** fmt, int8 localized, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_applyPattern(void format, int8 localized, uint16 pattern, int32 patternLength);
+	public static extern void udat_applyPattern(void** format, int8 localized, uint16* pattern, int32 patternLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udat_getSymbols(void fmt, UDateFormatSymbolType type, int32 symbolIndex, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 udat_getSymbols(void** fmt, UDateFormatSymbolType type, int32 symbolIndex, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udat_countSymbols(void fmt, UDateFormatSymbolType type);
+	public static extern int32 udat_countSymbols(void** fmt, UDateFormatSymbolType type);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_setSymbols(void format, UDateFormatSymbolType type, int32 symbolIndex, uint16 value, int32 valueLength, UErrorCode status);
+	public static extern void udat_setSymbols(void** format, UDateFormatSymbolType type, int32 symbolIndex, uint16* value, int32 valueLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR udat_getLocaleByType(void fmt, ULocDataLocaleType type, UErrorCode status);
+	public static extern PSTR udat_getLocaleByType(void** fmt, ULocDataLocaleType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udat_setContext(void fmt, UDisplayContext value, UErrorCode status);
+	public static extern void udat_setContext(void** fmt, UDisplayContext value, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UDisplayContext udat_getContext(void fmt, UDisplayContextType type, UErrorCode status);
+	public static extern UDisplayContext udat_getContext(void** fmt, UDisplayContextType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udatpg_open(PSTR locale, UErrorCode pErrorCode);
+	public static extern void** udatpg_open(PSTR locale, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udatpg_openEmpty(UErrorCode pErrorCode);
+	public static extern void** udatpg_openEmpty(UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udatpg_close(void dtpg);
+	public static extern void udatpg_close(void** dtpg);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udatpg_clone(void dtpg, UErrorCode pErrorCode);
+	public static extern void** udatpg_clone(void** dtpg, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udatpg_getBestPattern(void dtpg, uint16 skeleton, int32 length, uint16 bestPattern, int32 capacity, UErrorCode pErrorCode);
+	public static extern int32 udatpg_getBestPattern(void** dtpg, uint16* skeleton, int32 length, uint16* bestPattern, int32 capacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udatpg_getBestPatternWithOptions(void dtpg, uint16 skeleton, int32 length, UDateTimePatternMatchOptions options, uint16 bestPattern, int32 capacity, UErrorCode pErrorCode);
+	public static extern int32 udatpg_getBestPatternWithOptions(void** dtpg, uint16* skeleton, int32 length, UDateTimePatternMatchOptions options, uint16* bestPattern, int32 capacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udatpg_getSkeleton(void unusedDtpg, uint16 pattern, int32 length, uint16 skeleton, int32 capacity, UErrorCode pErrorCode);
+	public static extern int32 udatpg_getSkeleton(void** unusedDtpg, uint16* pattern, int32 length, uint16* skeleton, int32 capacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udatpg_getBaseSkeleton(void unusedDtpg, uint16 pattern, int32 length, uint16 baseSkeleton, int32 capacity, UErrorCode pErrorCode);
+	public static extern int32 udatpg_getBaseSkeleton(void** unusedDtpg, uint16* pattern, int32 length, uint16* baseSkeleton, int32 capacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UDateTimePatternConflict udatpg_addPattern(void dtpg, uint16 pattern, int32 patternLength, int8 @override, uint16 conflictingPattern, int32 capacity, int32 pLength, UErrorCode pErrorCode);
+	public static extern UDateTimePatternConflict udatpg_addPattern(void** dtpg, uint16* pattern, int32 patternLength, int8 @override, uint16* conflictingPattern, int32 capacity, int32* pLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udatpg_setAppendItemFormat(void dtpg, UDateTimePatternField field, uint16 value, int32 length);
+	public static extern void udatpg_setAppendItemFormat(void** dtpg, UDateTimePatternField field, uint16* value, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 udatpg_getAppendItemFormat(void dtpg, UDateTimePatternField field, int32 pLength);
+	public static extern uint16* udatpg_getAppendItemFormat(void** dtpg, UDateTimePatternField field, int32* pLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udatpg_setAppendItemName(void dtpg, UDateTimePatternField field, uint16 value, int32 length);
+	public static extern void udatpg_setAppendItemName(void** dtpg, UDateTimePatternField field, uint16* value, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 udatpg_getAppendItemName(void dtpg, UDateTimePatternField field, int32 pLength);
+	public static extern uint16* udatpg_getAppendItemName(void** dtpg, UDateTimePatternField field, int32* pLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udatpg_getFieldDisplayName(void dtpg, UDateTimePatternField field, UDateTimePGDisplayWidth width, uint16 fieldName, int32 capacity, UErrorCode pErrorCode);
+	public static extern int32 udatpg_getFieldDisplayName(void** dtpg, UDateTimePatternField field, UDateTimePGDisplayWidth width, uint16* fieldName, int32 capacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udatpg_setDateTimeFormat(void dtpg, uint16 dtFormat, int32 length);
+	public static extern void udatpg_setDateTimeFormat(void** dtpg, uint16* dtFormat, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 udatpg_getDateTimeFormat(void dtpg, int32 pLength);
+	public static extern uint16* udatpg_getDateTimeFormat(void** dtpg, int32* pLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void udatpg_setDecimal(void dtpg, uint16 decimal, int32 length);
+	public static extern void udatpg_setDecimal(void** dtpg, uint16* decimal, int32 length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 udatpg_getDecimal(void dtpg, int32 pLength);
+	public static extern uint16* udatpg_getDecimal(void** dtpg, int32* pLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udatpg_replaceFieldTypes(void dtpg, uint16 pattern, int32 patternLength, uint16 skeleton, int32 skeletonLength, uint16 dest, int32 destCapacity, UErrorCode pErrorCode);
+	public static extern int32 udatpg_replaceFieldTypes(void** dtpg, uint16* pattern, int32 patternLength, uint16* skeleton, int32 skeletonLength, uint16* dest, int32 destCapacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 udatpg_replaceFieldTypesWithOptions(void dtpg, uint16 pattern, int32 patternLength, uint16 skeleton, int32 skeletonLength, UDateTimePatternMatchOptions options, uint16 dest, int32 destCapacity, UErrorCode pErrorCode);
+	public static extern int32 udatpg_replaceFieldTypesWithOptions(void** dtpg, uint16* pattern, int32 patternLength, uint16* skeleton, int32 skeletonLength, UDateTimePatternMatchOptions options, uint16* dest, int32 destCapacity, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration udatpg_openSkeletons(void dtpg, UErrorCode pErrorCode);
+	public static extern UEnumeration* udatpg_openSkeletons(void** dtpg, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration udatpg_openBaseSkeletons(void dtpg, UErrorCode pErrorCode);
+	public static extern UEnumeration* udatpg_openBaseSkeletons(void** dtpg, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 udatpg_getPatternForSkeleton(void dtpg, uint16 skeleton, int32 skeletonLength, int32 pLength);
+	public static extern uint16* udatpg_getPatternForSkeleton(void** dtpg, uint16* skeleton, int32 skeletonLength, int32* pLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNumberFormatter unumf_openForSkeletonAndLocale(uint16 skeleton, int32 skeletonLen, PSTR locale, UErrorCode ec);
+	public static extern UNumberFormatter* unumf_openForSkeletonAndLocale(uint16* skeleton, int32 skeletonLen, PSTR locale, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNumberFormatter unumf_openForSkeletonAndLocaleWithError(uint16 skeleton, int32 skeletonLen, PSTR locale, UParseError perror, UErrorCode ec);
+	public static extern UNumberFormatter* unumf_openForSkeletonAndLocaleWithError(uint16* skeleton, int32 skeletonLen, PSTR locale, UParseError* perror, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UFormattedNumber unumf_openResult(UErrorCode ec);
+	public static extern UFormattedNumber* unumf_openResult(UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unumf_formatInt(UNumberFormatter uformatter, int64 value, UFormattedNumber uresult, UErrorCode ec);
+	public static extern void unumf_formatInt(UNumberFormatter* uformatter, int64 value, UFormattedNumber* uresult, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unumf_formatDouble(UNumberFormatter uformatter, double value, UFormattedNumber uresult, UErrorCode ec);
+	public static extern void unumf_formatDouble(UNumberFormatter* uformatter, double value, UFormattedNumber* uresult, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unumf_formatDecimal(UNumberFormatter uformatter, PSTR value, int32 valueLen, UFormattedNumber uresult, UErrorCode ec);
+	public static extern void unumf_formatDecimal(UNumberFormatter* uformatter, PSTR value, int32 valueLen, UFormattedNumber* uresult, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UFormattedValue unumf_resultAsValue(UFormattedNumber uresult, UErrorCode ec);
+	public static extern UFormattedValue* unumf_resultAsValue(UFormattedNumber* uresult, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unumf_resultToString(UFormattedNumber uresult, uint16 buffer, int32 bufferCapacity, UErrorCode ec);
+	public static extern int32 unumf_resultToString(UFormattedNumber* uresult, uint16* buffer, int32 bufferCapacity, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 unumf_resultNextFieldPosition(UFormattedNumber uresult, UFieldPosition ufpos, UErrorCode ec);
+	public static extern int8 unumf_resultNextFieldPosition(UFormattedNumber* uresult, UFieldPosition* ufpos, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unumf_resultGetAllFieldPositions(UFormattedNumber uresult, UFieldPositionIterator ufpositer, UErrorCode ec);
+	public static extern void unumf_resultGetAllFieldPositions(UFormattedNumber* uresult, UFieldPositionIterator* ufpositer, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unumf_close(UNumberFormatter uformatter);
+	public static extern void unumf_close(UNumberFormatter* uformatter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unumf_closeResult(UFormattedNumber uresult);
+	public static extern void unumf_closeResult(UFormattedNumber* uresult);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNumberingSystem unumsys_open(PSTR locale, UErrorCode status);
+	public static extern UNumberingSystem* unumsys_open(PSTR locale, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UNumberingSystem unumsys_openByName(PSTR name, UErrorCode status);
+	public static extern UNumberingSystem* unumsys_openByName(PSTR name, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void unumsys_close(UNumberingSystem unumsys);
+	public static extern void unumsys_close(UNumberingSystem* unumsys);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration unumsys_openAvailableNames(UErrorCode status);
+	public static extern UEnumeration* unumsys_openAvailableNames(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR unumsys_getName(UNumberingSystem unumsys);
+	public static extern PSTR unumsys_getName(UNumberingSystem* unumsys);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 unumsys_isAlgorithmic(UNumberingSystem unumsys);
+	public static extern int8 unumsys_isAlgorithmic(UNumberingSystem* unumsys);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unumsys_getRadix(UNumberingSystem unumsys);
+	public static extern int32 unumsys_getRadix(UNumberingSystem* unumsys);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 unumsys_getDescription(UNumberingSystem unumsys, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 unumsys_getDescription(UNumberingSystem* unumsys, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UPluralRules uplrules_open(PSTR locale, UErrorCode status);
+	public static extern UPluralRules* uplrules_open(PSTR locale, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UPluralRules uplrules_openForType(PSTR locale, UPluralType type, UErrorCode status);
+	public static extern UPluralRules* uplrules_openForType(PSTR locale, UPluralType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uplrules_close(UPluralRules uplrules);
+	public static extern void uplrules_close(UPluralRules* uplrules);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uplrules_select(UPluralRules uplrules, double number, uint16 keyword, int32 capacity, UErrorCode status);
+	public static extern int32 uplrules_select(UPluralRules* uplrules, double number, uint16* keyword, int32 capacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uplrules_selectFormatted(UPluralRules uplrules, UFormattedNumber number, uint16 keyword, int32 capacity, UErrorCode status);
+	public static extern int32 uplrules_selectFormatted(UPluralRules* uplrules, UFormattedNumber* number, uint16* keyword, int32 capacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration uplrules_getKeywords(UPluralRules uplrules, UErrorCode status);
+	public static extern UEnumeration* uplrules_getKeywords(UPluralRules* uplrules, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URegularExpression uregex_open(uint16 pattern, int32 patternLength, uint32 flags, UParseError pe, UErrorCode status);
+	public static extern URegularExpression* uregex_open(uint16* pattern, int32 patternLength, uint32 flags, UParseError* pe, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URegularExpression uregex_openUText(UText pattern, uint32 flags, UParseError pe, UErrorCode status);
+	public static extern URegularExpression* uregex_openUText(UText* pattern, uint32 flags, UParseError* pe, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URegularExpression uregex_openC(PSTR pattern, uint32 flags, UParseError pe, UErrorCode status);
+	public static extern URegularExpression* uregex_openC(PSTR pattern, uint32 flags, UParseError* pe, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_close(URegularExpression regexp);
+	public static extern void uregex_close(URegularExpression* regexp);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URegularExpression uregex_clone(URegularExpression regexp, UErrorCode status);
+	public static extern URegularExpression* uregex_clone(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 uregex_pattern(URegularExpression regexp, int32 patLength, UErrorCode status);
+	public static extern uint16* uregex_pattern(URegularExpression* regexp, int32* patLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText uregex_patternUText(URegularExpression regexp, UErrorCode status);
+	public static extern UText* uregex_patternUText(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_flags(URegularExpression regexp, UErrorCode status);
+	public static extern int32 uregex_flags(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_setText(URegularExpression regexp, uint16 text, int32 textLength, UErrorCode status);
+	public static extern void uregex_setText(URegularExpression* regexp, uint16* text, int32 textLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_setUText(URegularExpression regexp, UText text, UErrorCode status);
+	public static extern void uregex_setUText(URegularExpression* regexp, UText* text, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 uregex_getText(URegularExpression regexp, int32 textLength, UErrorCode status);
+	public static extern uint16* uregex_getText(URegularExpression* regexp, int32* textLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText uregex_getUText(URegularExpression regexp, UText dest, UErrorCode status);
+	public static extern UText* uregex_getUText(URegularExpression* regexp, UText* dest, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_refreshUText(URegularExpression regexp, UText text, UErrorCode status);
+	public static extern void uregex_refreshUText(URegularExpression* regexp, UText* text, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_matches(URegularExpression regexp, int32 startIndex, UErrorCode status);
+	public static extern int8 uregex_matches(URegularExpression* regexp, int32 startIndex, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_matches64(URegularExpression regexp, int64 startIndex, UErrorCode status);
+	public static extern int8 uregex_matches64(URegularExpression* regexp, int64 startIndex, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_lookingAt(URegularExpression regexp, int32 startIndex, UErrorCode status);
+	public static extern int8 uregex_lookingAt(URegularExpression* regexp, int32 startIndex, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_lookingAt64(URegularExpression regexp, int64 startIndex, UErrorCode status);
+	public static extern int8 uregex_lookingAt64(URegularExpression* regexp, int64 startIndex, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_find(URegularExpression regexp, int32 startIndex, UErrorCode status);
+	public static extern int8 uregex_find(URegularExpression* regexp, int32 startIndex, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_find64(URegularExpression regexp, int64 startIndex, UErrorCode status);
+	public static extern int8 uregex_find64(URegularExpression* regexp, int64 startIndex, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_findNext(URegularExpression regexp, UErrorCode status);
+	public static extern int8 uregex_findNext(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_groupCount(URegularExpression regexp, UErrorCode status);
+	public static extern int32 uregex_groupCount(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_groupNumberFromName(URegularExpression regexp, uint16 groupName, int32 nameLength, UErrorCode status);
+	public static extern int32 uregex_groupNumberFromName(URegularExpression* regexp, uint16* groupName, int32 nameLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_groupNumberFromCName(URegularExpression regexp, PSTR groupName, int32 nameLength, UErrorCode status);
+	public static extern int32 uregex_groupNumberFromCName(URegularExpression* regexp, PSTR groupName, int32 nameLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_group(URegularExpression regexp, int32 groupNum, uint16 dest, int32 destCapacity, UErrorCode status);
+	public static extern int32 uregex_group(URegularExpression* regexp, int32 groupNum, uint16* dest, int32 destCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText uregex_groupUText(URegularExpression regexp, int32 groupNum, UText dest, int64 groupLength, UErrorCode status);
+	public static extern UText* uregex_groupUText(URegularExpression* regexp, int32 groupNum, UText* dest, int64* groupLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_start(URegularExpression regexp, int32 groupNum, UErrorCode status);
+	public static extern int32 uregex_start(URegularExpression* regexp, int32 groupNum, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 uregex_start64(URegularExpression regexp, int32 groupNum, UErrorCode status);
+	public static extern int64 uregex_start64(URegularExpression* regexp, int32 groupNum, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_end(URegularExpression regexp, int32 groupNum, UErrorCode status);
+	public static extern int32 uregex_end(URegularExpression* regexp, int32 groupNum, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 uregex_end64(URegularExpression regexp, int32 groupNum, UErrorCode status);
+	public static extern int64 uregex_end64(URegularExpression* regexp, int32 groupNum, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_reset(URegularExpression regexp, int32 index, UErrorCode status);
+	public static extern void uregex_reset(URegularExpression* regexp, int32 index, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_reset64(URegularExpression regexp, int64 index, UErrorCode status);
+	public static extern void uregex_reset64(URegularExpression* regexp, int64 index, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_setRegion(URegularExpression regexp, int32 regionStart, int32 regionLimit, UErrorCode status);
+	public static extern void uregex_setRegion(URegularExpression* regexp, int32 regionStart, int32 regionLimit, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_setRegion64(URegularExpression regexp, int64 regionStart, int64 regionLimit, UErrorCode status);
+	public static extern void uregex_setRegion64(URegularExpression* regexp, int64 regionStart, int64 regionLimit, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_setRegionAndStart(URegularExpression regexp, int64 regionStart, int64 regionLimit, int64 startIndex, UErrorCode status);
+	public static extern void uregex_setRegionAndStart(URegularExpression* regexp, int64 regionStart, int64 regionLimit, int64 startIndex, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_regionStart(URegularExpression regexp, UErrorCode status);
+	public static extern int32 uregex_regionStart(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 uregex_regionStart64(URegularExpression regexp, UErrorCode status);
+	public static extern int64 uregex_regionStart64(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_regionEnd(URegularExpression regexp, UErrorCode status);
+	public static extern int32 uregex_regionEnd(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 uregex_regionEnd64(URegularExpression regexp, UErrorCode status);
+	public static extern int64 uregex_regionEnd64(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_hasTransparentBounds(URegularExpression regexp, UErrorCode status);
+	public static extern int8 uregex_hasTransparentBounds(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_useTransparentBounds(URegularExpression regexp, int8 b, UErrorCode status);
+	public static extern void uregex_useTransparentBounds(URegularExpression* regexp, int8 b, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_hasAnchoringBounds(URegularExpression regexp, UErrorCode status);
+	public static extern int8 uregex_hasAnchoringBounds(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_useAnchoringBounds(URegularExpression regexp, int8 b, UErrorCode status);
+	public static extern void uregex_useAnchoringBounds(URegularExpression* regexp, int8 b, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_hitEnd(URegularExpression regexp, UErrorCode status);
+	public static extern int8 uregex_hitEnd(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregex_requireEnd(URegularExpression regexp, UErrorCode status);
+	public static extern int8 uregex_requireEnd(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_replaceAll(URegularExpression regexp, uint16 replacementText, int32 replacementLength, uint16 destBuf, int32 destCapacity, UErrorCode status);
+	public static extern int32 uregex_replaceAll(URegularExpression* regexp, uint16* replacementText, int32 replacementLength, uint16* destBuf, int32 destCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText uregex_replaceAllUText(URegularExpression regexp, UText replacement, UText dest, UErrorCode status);
+	public static extern UText* uregex_replaceAllUText(URegularExpression* regexp, UText* replacement, UText* dest, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_replaceFirst(URegularExpression regexp, uint16 replacementText, int32 replacementLength, uint16 destBuf, int32 destCapacity, UErrorCode status);
+	public static extern int32 uregex_replaceFirst(URegularExpression* regexp, uint16* replacementText, int32 replacementLength, uint16* destBuf, int32 destCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText uregex_replaceFirstUText(URegularExpression regexp, UText replacement, UText dest, UErrorCode status);
+	public static extern UText* uregex_replaceFirstUText(URegularExpression* regexp, UText* replacement, UText* dest, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_appendReplacement(URegularExpression regexp, uint16 replacementText, int32 replacementLength, uint16 destBuf, int32 destCapacity, UErrorCode status);
+	public static extern int32 uregex_appendReplacement(URegularExpression* regexp, uint16* replacementText, int32 replacementLength, uint16** destBuf, int32* destCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_appendReplacementUText(URegularExpression regexp, UText replacementText, UText dest, UErrorCode status);
+	public static extern void uregex_appendReplacementUText(URegularExpression* regexp, UText* replacementText, UText* dest, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_appendTail(URegularExpression regexp, uint16 destBuf, int32 destCapacity, UErrorCode status);
+	public static extern int32 uregex_appendTail(URegularExpression* regexp, uint16** destBuf, int32* destCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UText uregex_appendTailUText(URegularExpression regexp, UText dest, UErrorCode status);
+	public static extern UText* uregex_appendTailUText(URegularExpression* regexp, UText* dest, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_split(URegularExpression regexp, uint16 destBuf, int32 destCapacity, int32 requiredCapacity, uint16 destFields, int32 destFieldsCapacity, UErrorCode status);
+	public static extern int32 uregex_split(URegularExpression* regexp, uint16* destBuf, int32 destCapacity, int32* requiredCapacity, uint16** destFields, int32 destFieldsCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_splitUText(URegularExpression regexp, UText destFields, int32 destFieldsCapacity, UErrorCode status);
+	public static extern int32 uregex_splitUText(URegularExpression* regexp, UText** destFields, int32 destFieldsCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_setTimeLimit(URegularExpression regexp, int32 limit, UErrorCode status);
+	public static extern void uregex_setTimeLimit(URegularExpression* regexp, int32 limit, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_getTimeLimit(URegularExpression regexp, UErrorCode status);
+	public static extern int32 uregex_getTimeLimit(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_setStackLimit(URegularExpression regexp, int32 limit, UErrorCode status);
+	public static extern void uregex_setStackLimit(URegularExpression* regexp, int32 limit, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregex_getStackLimit(URegularExpression regexp, UErrorCode status);
+	public static extern int32 uregex_getStackLimit(URegularExpression* regexp, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_setMatchCallback(URegularExpression regexp, URegexMatchCallback callback, void context, UErrorCode status);
+	public static extern void uregex_setMatchCallback(URegularExpression* regexp, URegexMatchCallback callback, void* context, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_getMatchCallback(URegularExpression regexp, URegexMatchCallback callback, void context, UErrorCode status);
+	public static extern void uregex_getMatchCallback(URegularExpression* regexp, URegexMatchCallback* callback, void** context, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_setFindProgressCallback(URegularExpression regexp, URegexFindProgressCallback callback, void context, UErrorCode status);
+	public static extern void uregex_setFindProgressCallback(URegularExpression* regexp, URegexFindProgressCallback callback, void* context, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uregex_getFindProgressCallback(URegularExpression regexp, URegexFindProgressCallback callback, void context, UErrorCode status);
+	public static extern void uregex_getFindProgressCallback(URegularExpression* regexp, URegexFindProgressCallback* callback, void** context, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URegion uregion_getRegionFromCode(PSTR regionCode, UErrorCode status);
+	public static extern URegion* uregion_getRegionFromCode(PSTR regionCode, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URegion uregion_getRegionFromNumericCode(int32 code, UErrorCode status);
+	public static extern URegion* uregion_getRegionFromNumericCode(int32 code, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration uregion_getAvailable(URegionType type, UErrorCode status);
+	public static extern UEnumeration* uregion_getAvailable(URegionType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregion_areEqual(URegion uregion, URegion otherRegion);
+	public static extern int8 uregion_areEqual(URegion* uregion, URegion* otherRegion);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URegion uregion_getContainingRegion(URegion uregion);
+	public static extern URegion* uregion_getContainingRegion(URegion* uregion);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URegion uregion_getContainingRegionOfType(URegion uregion, URegionType type);
+	public static extern URegion* uregion_getContainingRegionOfType(URegion* uregion, URegionType type);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration uregion_getContainedRegions(URegion uregion, UErrorCode status);
+	public static extern UEnumeration* uregion_getContainedRegions(URegion* uregion, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration uregion_getContainedRegionsOfType(URegion uregion, URegionType type, UErrorCode status);
+	public static extern UEnumeration* uregion_getContainedRegionsOfType(URegion* uregion, URegionType type, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int8 uregion_contains(URegion uregion, URegion otherRegion);
+	public static extern int8 uregion_contains(URegion* uregion, URegion* otherRegion);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration uregion_getPreferredValues(URegion uregion, UErrorCode status);
+	public static extern UEnumeration* uregion_getPreferredValues(URegion* uregion, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR uregion_getRegionCode(URegion uregion);
+	public static extern PSTR uregion_getRegionCode(URegion* uregion);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uregion_getNumericCode(URegion uregion);
+	public static extern int32 uregion_getNumericCode(URegion* uregion);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URegionType uregion_getType(URegion uregion);
+	public static extern URegionType uregion_getType(URegion* uregion);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URelativeDateTimeFormatter ureldatefmt_open(PSTR locale, void nfToAdopt, UDateRelativeDateTimeFormatterStyle width, UDisplayContext capitalizationContext, UErrorCode status);
+	public static extern URelativeDateTimeFormatter* ureldatefmt_open(PSTR locale, void** nfToAdopt, UDateRelativeDateTimeFormatterStyle width, UDisplayContext capitalizationContext, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ureldatefmt_close(URelativeDateTimeFormatter reldatefmt);
+	public static extern void ureldatefmt_close(URelativeDateTimeFormatter* reldatefmt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UFormattedRelativeDateTime ureldatefmt_openResult(UErrorCode ec);
+	public static extern UFormattedRelativeDateTime* ureldatefmt_openResult(UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UFormattedValue ureldatefmt_resultAsValue(UFormattedRelativeDateTime ufrdt, UErrorCode ec);
+	public static extern UFormattedValue* ureldatefmt_resultAsValue(UFormattedRelativeDateTime* ufrdt, UErrorCode* ec);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ureldatefmt_closeResult(UFormattedRelativeDateTime ufrdt);
+	public static extern void ureldatefmt_closeResult(UFormattedRelativeDateTime* ufrdt);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ureldatefmt_formatNumeric(URelativeDateTimeFormatter reldatefmt, double offset, URelativeDateTimeUnit unit, uint16 result, int32 resultCapacity, UErrorCode status);
+	public static extern int32 ureldatefmt_formatNumeric(URelativeDateTimeFormatter* reldatefmt, double offset, URelativeDateTimeUnit unit, uint16* result, int32 resultCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ureldatefmt_formatNumericToResult(URelativeDateTimeFormatter reldatefmt, double offset, URelativeDateTimeUnit unit, UFormattedRelativeDateTime result, UErrorCode status);
+	public static extern void ureldatefmt_formatNumericToResult(URelativeDateTimeFormatter* reldatefmt, double offset, URelativeDateTimeUnit unit, UFormattedRelativeDateTime* result, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ureldatefmt_format(URelativeDateTimeFormatter reldatefmt, double offset, URelativeDateTimeUnit unit, uint16 result, int32 resultCapacity, UErrorCode status);
+	public static extern int32 ureldatefmt_format(URelativeDateTimeFormatter* reldatefmt, double offset, URelativeDateTimeUnit unit, uint16* result, int32 resultCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ureldatefmt_formatToResult(URelativeDateTimeFormatter reldatefmt, double offset, URelativeDateTimeUnit unit, UFormattedRelativeDateTime result, UErrorCode status);
+	public static extern void ureldatefmt_formatToResult(URelativeDateTimeFormatter* reldatefmt, double offset, URelativeDateTimeUnit unit, UFormattedRelativeDateTime* result, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ureldatefmt_combineDateAndTime(URelativeDateTimeFormatter reldatefmt, uint16 relativeDateString, int32 relativeDateStringLen, uint16 timeString, int32 timeStringLen, uint16 result, int32 resultCapacity, UErrorCode status);
+	public static extern int32 ureldatefmt_combineDateAndTime(URelativeDateTimeFormatter* reldatefmt, uint16* relativeDateString, int32 relativeDateStringLen, uint16* timeString, int32 timeStringLen, uint16* result, int32 resultCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UStringSearch usearch_open(uint16 pattern, int32 patternlength, uint16 text, int32 textlength, PSTR locale, UBreakIterator breakiter, UErrorCode status);
+	public static extern UStringSearch* usearch_open(uint16* pattern, int32 patternlength, uint16* text, int32 textlength, PSTR locale, UBreakIterator* breakiter, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UStringSearch usearch_openFromCollator(uint16 pattern, int32 patternlength, uint16 text, int32 textlength, UCollator collator, UBreakIterator breakiter, UErrorCode status);
+	public static extern UStringSearch* usearch_openFromCollator(uint16* pattern, int32 patternlength, uint16* text, int32 textlength, UCollator* collator, UBreakIterator* breakiter, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void usearch_close(UStringSearch searchiter);
+	public static extern void usearch_close(UStringSearch* searchiter);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void usearch_setOffset(UStringSearch strsrch, int32 position, UErrorCode status);
+	public static extern void usearch_setOffset(UStringSearch* strsrch, int32 position, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usearch_getOffset(UStringSearch strsrch);
+	public static extern int32 usearch_getOffset(UStringSearch* strsrch);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void usearch_setAttribute(UStringSearch strsrch, USearchAttribute attribute, USearchAttributeValue value, UErrorCode status);
+	public static extern void usearch_setAttribute(UStringSearch* strsrch, USearchAttribute attribute, USearchAttributeValue value, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USearchAttributeValue usearch_getAttribute(UStringSearch strsrch, USearchAttribute attribute);
+	public static extern USearchAttributeValue usearch_getAttribute(UStringSearch* strsrch, USearchAttribute attribute);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usearch_getMatchedStart(UStringSearch strsrch);
+	public static extern int32 usearch_getMatchedStart(UStringSearch* strsrch);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usearch_getMatchedLength(UStringSearch strsrch);
+	public static extern int32 usearch_getMatchedLength(UStringSearch* strsrch);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usearch_getMatchedText(UStringSearch strsrch, uint16 result, int32 resultCapacity, UErrorCode status);
+	public static extern int32 usearch_getMatchedText(UStringSearch* strsrch, uint16* result, int32 resultCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void usearch_setBreakIterator(UStringSearch strsrch, UBreakIterator breakiter, UErrorCode status);
+	public static extern void usearch_setBreakIterator(UStringSearch* strsrch, UBreakIterator* breakiter, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UBreakIterator usearch_getBreakIterator(UStringSearch strsrch);
+	public static extern UBreakIterator* usearch_getBreakIterator(UStringSearch* strsrch);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void usearch_setText(UStringSearch strsrch, uint16 text, int32 textlength, UErrorCode status);
+	public static extern void usearch_setText(UStringSearch* strsrch, uint16* text, int32 textlength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 usearch_getText(UStringSearch strsrch, int32 length);
+	public static extern uint16* usearch_getText(UStringSearch* strsrch, int32* length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UCollator usearch_getCollator(UStringSearch strsrch);
+	public static extern UCollator* usearch_getCollator(UStringSearch* strsrch);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void usearch_setCollator(UStringSearch strsrch, UCollator collator, UErrorCode status);
+	public static extern void usearch_setCollator(UStringSearch* strsrch, UCollator* collator, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void usearch_setPattern(UStringSearch strsrch, uint16 pattern, int32 patternlength, UErrorCode status);
+	public static extern void usearch_setPattern(UStringSearch* strsrch, uint16* pattern, int32 patternlength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 usearch_getPattern(UStringSearch strsrch, int32 length);
+	public static extern uint16* usearch_getPattern(UStringSearch* strsrch, int32* length);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usearch_first(UStringSearch strsrch, UErrorCode status);
+	public static extern int32 usearch_first(UStringSearch* strsrch, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usearch_following(UStringSearch strsrch, int32 position, UErrorCode status);
+	public static extern int32 usearch_following(UStringSearch* strsrch, int32 position, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usearch_last(UStringSearch strsrch, UErrorCode status);
+	public static extern int32 usearch_last(UStringSearch* strsrch, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usearch_preceding(UStringSearch strsrch, int32 position, UErrorCode status);
+	public static extern int32 usearch_preceding(UStringSearch* strsrch, int32 position, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usearch_next(UStringSearch strsrch, UErrorCode status);
+	public static extern int32 usearch_next(UStringSearch* strsrch, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 usearch_previous(UStringSearch strsrch, UErrorCode status);
+	public static extern int32 usearch_previous(UStringSearch* strsrch, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void usearch_reset(UStringSearch strsrch);
+	public static extern void usearch_reset(UStringSearch* strsrch);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USpoofChecker uspoof_open(UErrorCode status);
+	public static extern USpoofChecker* uspoof_open(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USpoofChecker uspoof_openFromSerialized(void data, int32 length, int32 pActualLength, UErrorCode pErrorCode);
+	public static extern USpoofChecker* uspoof_openFromSerialized(void* data, int32 length, int32* pActualLength, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USpoofChecker uspoof_openFromSource(PSTR confusables, int32 confusablesLen, PSTR confusablesWholeScript, int32 confusablesWholeScriptLen, int32 errType, UParseError pe, UErrorCode status);
+	public static extern USpoofChecker* uspoof_openFromSource(PSTR confusables, int32 confusablesLen, PSTR confusablesWholeScript, int32 confusablesWholeScriptLen, int32* errType, UParseError* pe, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uspoof_close(USpoofChecker sc);
+	public static extern void uspoof_close(USpoofChecker* sc);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USpoofChecker uspoof_clone(USpoofChecker sc, UErrorCode status);
+	public static extern USpoofChecker* uspoof_clone(USpoofChecker* sc, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uspoof_setChecks(USpoofChecker sc, int32 checks, UErrorCode status);
+	public static extern void uspoof_setChecks(USpoofChecker* sc, int32 checks, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_getChecks(USpoofChecker sc, UErrorCode status);
+	public static extern int32 uspoof_getChecks(USpoofChecker* sc, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uspoof_setRestrictionLevel(USpoofChecker sc, URestrictionLevel restrictionLevel);
+	public static extern void uspoof_setRestrictionLevel(USpoofChecker* sc, URestrictionLevel restrictionLevel);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URestrictionLevel uspoof_getRestrictionLevel(USpoofChecker sc);
+	public static extern URestrictionLevel uspoof_getRestrictionLevel(USpoofChecker* sc);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uspoof_setAllowedLocales(USpoofChecker sc, PSTR localesList, UErrorCode status);
+	public static extern void uspoof_setAllowedLocales(USpoofChecker* sc, PSTR localesList, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR uspoof_getAllowedLocales(USpoofChecker sc, UErrorCode status);
+	public static extern PSTR uspoof_getAllowedLocales(USpoofChecker* sc, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uspoof_setAllowedChars(USpoofChecker sc, USet chars, UErrorCode status);
+	public static extern void uspoof_setAllowedChars(USpoofChecker* sc, USet* chars, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet uspoof_getAllowedChars(USpoofChecker sc, UErrorCode status);
+	public static extern USet* uspoof_getAllowedChars(USpoofChecker* sc, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_check(USpoofChecker sc, uint16 id, int32 length, int32 position, UErrorCode status);
+	public static extern int32 uspoof_check(USpoofChecker* sc, uint16* id, int32 length, int32* position, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_checkUTF8(USpoofChecker sc, PSTR id, int32 length, int32 position, UErrorCode status);
+	public static extern int32 uspoof_checkUTF8(USpoofChecker* sc, PSTR id, int32 length, int32* position, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_check2(USpoofChecker sc, uint16 id, int32 length, USpoofCheckResult checkResult, UErrorCode status);
+	public static extern int32 uspoof_check2(USpoofChecker* sc, uint16* id, int32 length, USpoofCheckResult* checkResult, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_check2UTF8(USpoofChecker sc, PSTR id, int32 length, USpoofCheckResult checkResult, UErrorCode status);
+	public static extern int32 uspoof_check2UTF8(USpoofChecker* sc, PSTR id, int32 length, USpoofCheckResult* checkResult, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USpoofCheckResult uspoof_openCheckResult(UErrorCode status);
+	public static extern USpoofCheckResult* uspoof_openCheckResult(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void uspoof_closeCheckResult(USpoofCheckResult checkResult);
+	public static extern void uspoof_closeCheckResult(USpoofCheckResult* checkResult);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_getCheckResultChecks(USpoofCheckResult checkResult, UErrorCode status);
+	public static extern int32 uspoof_getCheckResultChecks(USpoofCheckResult* checkResult, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern URestrictionLevel uspoof_getCheckResultRestrictionLevel(USpoofCheckResult checkResult, UErrorCode status);
+	public static extern URestrictionLevel uspoof_getCheckResultRestrictionLevel(USpoofCheckResult* checkResult, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet uspoof_getCheckResultNumerics(USpoofCheckResult checkResult, UErrorCode status);
+	public static extern USet* uspoof_getCheckResultNumerics(USpoofCheckResult* checkResult, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_areConfusable(USpoofChecker sc, uint16 id1, int32 length1, uint16 id2, int32 length2, UErrorCode status);
+	public static extern int32 uspoof_areConfusable(USpoofChecker* sc, uint16* id1, int32 length1, uint16* id2, int32 length2, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_areConfusableUTF8(USpoofChecker sc, PSTR id1, int32 length1, PSTR id2, int32 length2, UErrorCode status);
+	public static extern int32 uspoof_areConfusableUTF8(USpoofChecker* sc, PSTR id1, int32 length1, PSTR id2, int32 length2, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_getSkeleton(USpoofChecker sc, uint32 type, uint16 id, int32 length, uint16 dest, int32 destCapacity, UErrorCode status);
+	public static extern int32 uspoof_getSkeleton(USpoofChecker* sc, uint32 type, uint16* id, int32 length, uint16* dest, int32 destCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_getSkeletonUTF8(USpoofChecker sc, uint32 type, PSTR id, int32 length, PSTR dest, int32 destCapacity, UErrorCode status);
+	public static extern int32 uspoof_getSkeletonUTF8(USpoofChecker* sc, uint32 type, PSTR id, int32 length, PSTR dest, int32 destCapacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet uspoof_getInclusionSet(UErrorCode status);
+	public static extern USet* uspoof_getInclusionSet(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet uspoof_getRecommendedSet(UErrorCode status);
+	public static extern USet* uspoof_getRecommendedSet(UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uspoof_serialize(USpoofChecker sc, void data, int32 capacity, UErrorCode status);
+	public static extern int32 uspoof_serialize(USpoofChecker* sc, void* data, int32 capacity, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 utmscale_getTimeScaleValue(UDateTimeScale timeScale, UTimeScaleValue value, UErrorCode status);
+	public static extern int64 utmscale_getTimeScaleValue(UDateTimeScale timeScale, UTimeScaleValue value, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 utmscale_fromInt64(int64 otherTime, UDateTimeScale timeScale, UErrorCode status);
+	public static extern int64 utmscale_fromInt64(int64 otherTime, UDateTimeScale timeScale, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 utmscale_toInt64(int64 universalTime, UDateTimeScale timeScale, UErrorCode status);
+	public static extern int64 utmscale_toInt64(int64 universalTime, UDateTimeScale timeScale, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_openU(uint16 id, int32 idLength, UTransDirection dir, uint16 rules, int32 rulesLength, UParseError parseError, UErrorCode pErrorCode);
+	public static extern void** utrans_openU(uint16* id, int32 idLength, UTransDirection dir, uint16* rules, int32 rulesLength, UParseError* parseError, UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_openInverse(void trans, UErrorCode status);
+	public static extern void** utrans_openInverse(void** trans, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_clone(void trans, UErrorCode status);
+	public static extern void** utrans_clone(void** trans, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_close(void trans);
+	public static extern void utrans_close(void** trans);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 utrans_getUnicodeID(void trans, int32 resultLength);
+	public static extern uint16* utrans_getUnicodeID(void** trans, int32* resultLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_register(void adoptedTrans, UErrorCode status);
+	public static extern void utrans_register(void** adoptedTrans, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_unregisterID(uint16 id, int32 idLength);
+	public static extern void utrans_unregisterID(uint16* id, int32 idLength);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_setFilter(void trans, uint16 filterPattern, int32 filterPatternLen, UErrorCode status);
+	public static extern void utrans_setFilter(void** trans, uint16* filterPattern, int32 filterPatternLen, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 utrans_countAvailableIDs();
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern UEnumeration utrans_openIDs(UErrorCode pErrorCode);
+	public static extern UEnumeration* utrans_openIDs(UErrorCode* pErrorCode);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_trans(void trans, void rep, UReplaceableCallbacks repFunc, int32 start, int32 limit, UErrorCode status);
+	public static extern void utrans_trans(void** trans, void** rep, UReplaceableCallbacks* repFunc, int32 start, int32* limit, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_transIncremental(void trans, void rep, UReplaceableCallbacks repFunc, UTransPosition pos, UErrorCode status);
+	public static extern void utrans_transIncremental(void** trans, void** rep, UReplaceableCallbacks* repFunc, UTransPosition* pos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_transUChars(void trans, uint16 text, int32 textLength, int32 textCapacity, int32 start, int32 limit, UErrorCode status);
+	public static extern void utrans_transUChars(void** trans, uint16* text, int32* textLength, int32 textCapacity, int32 start, int32* limit, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void utrans_transIncrementalUChars(void trans, uint16 text, int32 textLength, int32 textCapacity, UTransPosition pos, UErrorCode status);
+	public static extern void utrans_transIncrementalUChars(void** trans, uint16* text, int32* textLength, int32 textCapacity, UTransPosition* pos, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 utrans_toRules(void trans, int8 escapeUnprintable, uint16 result, int32 resultLength, UErrorCode status);
+	public static extern int32 utrans_toRules(void** trans, int8 escapeUnprintable, uint16* result, int32 resultLength, UErrorCode* status);
 
 	[Import("icu.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USet utrans_getSourceSet(void trans, int8 ignoreFilter, USet fillIn, UErrorCode status);
+	public static extern USet* utrans_getSourceSet(void** trans, int8 ignoreFilter, USet* fillIn, UErrorCode* status);
 
 	[Import("bcp47mrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetDistanceOfClosestLanguageInList(PWSTR pszLanguage, PWSTR pszLanguagesList, char16 wchListDelimiter, double pClosestDistance);
+	public static extern HRESULT GetDistanceOfClosestLanguageInList(PWSTR pszLanguage, PWSTR pszLanguagesList, char16 wchListDelimiter, double* pClosestDistance);
 
 	[Import("bcp47mrm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint8 IsWellFormedTag(PWSTR pszTag);
@@ -10121,7 +10121,7 @@ public static
 	public static extern int32 lstrlenW(PWSTR lpString);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsTextUnicode(void lpv, int32 iSize, IS_TEXT_UNICODE_RESULT lpiResult);
+	public static extern BOOL IsTextUnicode(void* lpv, int32 iSize, IS_TEXT_UNICODE_RESULT* lpiResult);
 
 }
 #endregion

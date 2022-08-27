@@ -465,23 +465,23 @@ public enum SERVICE_SHARED_DIRECTORY_TYPE : int32
 #region Function Pointers
 public function void SERVICE_MAIN_FUNCTIONW(uint32 dwNumServicesArgs, PWSTR lpServiceArgVectors);
 
-public function void SERVICE_MAIN_FUNCTIONA(uint32 dwNumServicesArgs, int8 lpServiceArgVectors);
+public function void SERVICE_MAIN_FUNCTIONA(uint32 dwNumServicesArgs, int8** lpServiceArgVectors);
 
 public function void LPSERVICE_MAIN_FUNCTIONW(uint32 dwNumServicesArgs, PWSTR lpServiceArgVectors);
 
-public function void LPSERVICE_MAIN_FUNCTIONA(uint32 dwNumServicesArgs, PSTR lpServiceArgVectors);
+public function void LPSERVICE_MAIN_FUNCTIONA(uint32 dwNumServicesArgs, PSTR* lpServiceArgVectors);
 
 public function void HANDLER_FUNCTION(uint32 dwControl);
 
-public function uint32 HANDLER_FUNCTION_EX(uint32 dwControl, uint32 dwEventType, void lpEventData, void lpContext);
+public function uint32 HANDLER_FUNCTION_EX(uint32 dwControl, uint32 dwEventType, void* lpEventData, void* lpContext);
 
 public function void LPHANDLER_FUNCTION(uint32 dwControl);
 
-public function uint32 LPHANDLER_FUNCTION_EX(uint32 dwControl, uint32 dwEventType, void lpEventData, void lpContext);
+public function uint32 LPHANDLER_FUNCTION_EX(uint32 dwControl, uint32 dwEventType, void* lpEventData, void* lpContext);
 
-public function void PFN_SC_NOTIFY_CALLBACK(void pParameter);
+public function void PFN_SC_NOTIFY_CALLBACK(void* pParameter);
 
-public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void pCallbackContext);
+public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackContext);
 
 #endregion
 
@@ -538,7 +538,7 @@ public struct SERVICE_FAILURE_ACTIONSA
 	public PSTR lpRebootMsg;
 	public PSTR lpCommand;
 	public uint32 cActions;
-	public SC_ACTION lpsaActions;
+	public SC_ACTION* lpsaActions;
 }
 
 [CRepr]
@@ -548,7 +548,7 @@ public struct SERVICE_FAILURE_ACTIONSW
 	public PWSTR lpRebootMsg;
 	public PWSTR lpCommand;
 	public uint32 cActions;
-	public SC_ACTION lpsaActions;
+	public SC_ACTION* lpsaActions;
 }
 
 [CRepr]
@@ -592,7 +592,7 @@ public struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM
 {
 	public SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE dwDataType;
 	public uint32 cbData;
-	public uint8 pData;
+	public uint8* pData;
 }
 
 [CRepr]
@@ -602,15 +602,15 @@ public struct SERVICE_TRIGGER
 	public SERVICE_TRIGGER_ACTION dwAction;
 	public Guid pTriggerSubtype;
 	public uint32 cDataItems;
-	public SERVICE_TRIGGER_SPECIFIC_DATA_ITEM pDataItems;
+	public SERVICE_TRIGGER_SPECIFIC_DATA_ITEM* pDataItems;
 }
 
 [CRepr]
 public struct SERVICE_TRIGGER_INFO
 {
 	public uint32 cTriggers;
-	public SERVICE_TRIGGER pTriggers;
-	public uint8 pReserved;
+	public SERVICE_TRIGGER* pTriggers;
+	public uint8* pReserved;
 }
 
 [CRepr]
@@ -754,7 +754,7 @@ public struct SERVICE_NOTIFY_1
 {
 	public uint32 dwVersion;
 	public PFN_SC_NOTIFY_CALLBACK pfnNotifyCallback;
-	public void pContext;
+	public void* pContext;
 	public uint32 dwNotificationStatus;
 	public SERVICE_STATUS_PROCESS ServiceStatus;
 }
@@ -764,7 +764,7 @@ public struct SERVICE_NOTIFY_2A
 {
 	public uint32 dwVersion;
 	public PFN_SC_NOTIFY_CALLBACK pfnNotifyCallback;
-	public void pContext;
+	public void* pContext;
 	public uint32 dwNotificationStatus;
 	public SERVICE_STATUS_PROCESS ServiceStatus;
 	public uint32 dwNotificationTriggered;
@@ -776,7 +776,7 @@ public struct SERVICE_NOTIFY_2W
 {
 	public uint32 dwVersion;
 	public PFN_SC_NOTIFY_CALLBACK pfnNotifyCallback;
-	public void pContext;
+	public void* pContext;
 	public uint32 dwNotificationStatus;
 	public SERVICE_STATUS_PROCESS ServiceStatus;
 	public uint32 dwNotificationTriggered;
@@ -828,72 +828,72 @@ public static
 	public static extern BOOL SetServiceBits(SERVICE_STATUS_HANDLE hServiceStatus, uint32 dwServiceBits, BOOL bSetBitsOn, BOOL bUpdateImmediately);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ChangeServiceConfigA(SC_HANDLE hService, uint32 dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PSTR lpBinaryPathName, PSTR lpLoadOrderGroup, uint32 lpdwTagId, PSTR lpDependencies, PSTR lpServiceStartName, PSTR lpPassword, PSTR lpDisplayName);
-	public static BOOL ChangeServiceConfig(SC_HANDLE hService, uint32 dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PSTR lpBinaryPathName, PSTR lpLoadOrderGroup, uint32 lpdwTagId, PSTR lpDependencies, PSTR lpServiceStartName, PSTR lpPassword, PSTR lpDisplayName) => ChangeServiceConfigA(hService, dwServiceType, dwStartType, dwErrorControl, lpBinaryPathName, lpLoadOrderGroup, lpdwTagId, lpDependencies, lpServiceStartName, lpPassword, lpDisplayName);
+	public static extern BOOL ChangeServiceConfigA(SC_HANDLE hService, uint32 dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PSTR lpBinaryPathName, PSTR lpLoadOrderGroup, uint32* lpdwTagId, PSTR lpDependencies, PSTR lpServiceStartName, PSTR lpPassword, PSTR lpDisplayName);
+	public static BOOL ChangeServiceConfig(SC_HANDLE hService, uint32 dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PSTR lpBinaryPathName, PSTR lpLoadOrderGroup, uint32* lpdwTagId, PSTR lpDependencies, PSTR lpServiceStartName, PSTR lpPassword, PSTR lpDisplayName) => ChangeServiceConfigA(hService, dwServiceType, dwStartType, dwErrorControl, lpBinaryPathName, lpLoadOrderGroup, lpdwTagId, lpDependencies, lpServiceStartName, lpPassword, lpDisplayName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ChangeServiceConfigW(SC_HANDLE hService, uint32 dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PWSTR lpBinaryPathName, PWSTR lpLoadOrderGroup, uint32 lpdwTagId, PWSTR lpDependencies, PWSTR lpServiceStartName, PWSTR lpPassword, PWSTR lpDisplayName);
+	public static extern BOOL ChangeServiceConfigW(SC_HANDLE hService, uint32 dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PWSTR lpBinaryPathName, PWSTR lpLoadOrderGroup, uint32* lpdwTagId, PWSTR lpDependencies, PWSTR lpServiceStartName, PWSTR lpPassword, PWSTR lpDisplayName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ChangeServiceConfig2A(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, void lpInfo);
-	public static BOOL ChangeServiceConfig2(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, void lpInfo) => ChangeServiceConfig2A(hService, dwInfoLevel, lpInfo);
+	public static extern BOOL ChangeServiceConfig2A(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, void* lpInfo);
+	public static BOOL ChangeServiceConfig2(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, void* lpInfo) => ChangeServiceConfig2A(hService, dwInfoLevel, lpInfo);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ChangeServiceConfig2W(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, void lpInfo);
+	public static extern BOOL ChangeServiceConfig2W(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, void* lpInfo);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CloseServiceHandle(SC_HANDLE hSCObject);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ControlService(SC_HANDLE hService, uint32 dwControl, SERVICE_STATUS lpServiceStatus);
+	public static extern BOOL ControlService(SC_HANDLE hService, uint32 dwControl, SERVICE_STATUS* lpServiceStatus);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SC_HANDLE CreateServiceA(SC_HANDLE hSCManager, PSTR lpServiceName, PSTR lpDisplayName, uint32 dwDesiredAccess, ENUM_SERVICE_TYPE dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PSTR lpBinaryPathName, PSTR lpLoadOrderGroup, uint32 lpdwTagId, PSTR lpDependencies, PSTR lpServiceStartName, PSTR lpPassword);
-	public static SC_HANDLE CreateService(SC_HANDLE hSCManager, PSTR lpServiceName, PSTR lpDisplayName, uint32 dwDesiredAccess, ENUM_SERVICE_TYPE dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PSTR lpBinaryPathName, PSTR lpLoadOrderGroup, uint32 lpdwTagId, PSTR lpDependencies, PSTR lpServiceStartName, PSTR lpPassword) => CreateServiceA(hSCManager, lpServiceName, lpDisplayName, dwDesiredAccess, dwServiceType, dwStartType, dwErrorControl, lpBinaryPathName, lpLoadOrderGroup, lpdwTagId, lpDependencies, lpServiceStartName, lpPassword);
+	public static extern SC_HANDLE CreateServiceA(SC_HANDLE hSCManager, PSTR lpServiceName, PSTR lpDisplayName, uint32 dwDesiredAccess, ENUM_SERVICE_TYPE dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PSTR lpBinaryPathName, PSTR lpLoadOrderGroup, uint32* lpdwTagId, PSTR lpDependencies, PSTR lpServiceStartName, PSTR lpPassword);
+	public static SC_HANDLE CreateService(SC_HANDLE hSCManager, PSTR lpServiceName, PSTR lpDisplayName, uint32 dwDesiredAccess, ENUM_SERVICE_TYPE dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PSTR lpBinaryPathName, PSTR lpLoadOrderGroup, uint32* lpdwTagId, PSTR lpDependencies, PSTR lpServiceStartName, PSTR lpPassword) => CreateServiceA(hSCManager, lpServiceName, lpDisplayName, dwDesiredAccess, dwServiceType, dwStartType, dwErrorControl, lpBinaryPathName, lpLoadOrderGroup, lpdwTagId, lpDependencies, lpServiceStartName, lpPassword);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SC_HANDLE CreateServiceW(SC_HANDLE hSCManager, PWSTR lpServiceName, PWSTR lpDisplayName, uint32 dwDesiredAccess, ENUM_SERVICE_TYPE dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PWSTR lpBinaryPathName, PWSTR lpLoadOrderGroup, uint32 lpdwTagId, PWSTR lpDependencies, PWSTR lpServiceStartName, PWSTR lpPassword);
+	public static extern SC_HANDLE CreateServiceW(SC_HANDLE hSCManager, PWSTR lpServiceName, PWSTR lpDisplayName, uint32 dwDesiredAccess, ENUM_SERVICE_TYPE dwServiceType, SERVICE_START_TYPE dwStartType, SERVICE_ERROR dwErrorControl, PWSTR lpBinaryPathName, PWSTR lpLoadOrderGroup, uint32* lpdwTagId, PWSTR lpDependencies, PWSTR lpServiceStartName, PWSTR lpPassword);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteService(SC_HANDLE hService);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EnumDependentServicesA(SC_HANDLE hService, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSA lpServices, uint32 cbBufSize, uint32 pcbBytesNeeded, uint32 lpServicesReturned);
-	public static BOOL EnumDependentServices(SC_HANDLE hService, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSA lpServices, uint32 cbBufSize, uint32 pcbBytesNeeded, uint32 lpServicesReturned) => EnumDependentServicesA(hService, dwServiceState, lpServices, cbBufSize, pcbBytesNeeded, lpServicesReturned);
+	public static extern BOOL EnumDependentServicesA(SC_HANDLE hService, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSA* lpServices, uint32 cbBufSize, uint32* pcbBytesNeeded, uint32* lpServicesReturned);
+	public static BOOL EnumDependentServices(SC_HANDLE hService, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSA* lpServices, uint32 cbBufSize, uint32* pcbBytesNeeded, uint32* lpServicesReturned) => EnumDependentServicesA(hService, dwServiceState, lpServices, cbBufSize, pcbBytesNeeded, lpServicesReturned);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EnumDependentServicesW(SC_HANDLE hService, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSW lpServices, uint32 cbBufSize, uint32 pcbBytesNeeded, uint32 lpServicesReturned);
+	public static extern BOOL EnumDependentServicesW(SC_HANDLE hService, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSW* lpServices, uint32 cbBufSize, uint32* pcbBytesNeeded, uint32* lpServicesReturned);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EnumServicesStatusA(SC_HANDLE hSCManager, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSA lpServices, uint32 cbBufSize, uint32 pcbBytesNeeded, uint32 lpServicesReturned, uint32 lpResumeHandle);
-	public static BOOL EnumServicesStatus(SC_HANDLE hSCManager, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSA lpServices, uint32 cbBufSize, uint32 pcbBytesNeeded, uint32 lpServicesReturned, uint32 lpResumeHandle) => EnumServicesStatusA(hSCManager, dwServiceType, dwServiceState, lpServices, cbBufSize, pcbBytesNeeded, lpServicesReturned, lpResumeHandle);
+	public static extern BOOL EnumServicesStatusA(SC_HANDLE hSCManager, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSA* lpServices, uint32 cbBufSize, uint32* pcbBytesNeeded, uint32* lpServicesReturned, uint32* lpResumeHandle);
+	public static BOOL EnumServicesStatus(SC_HANDLE hSCManager, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSA* lpServices, uint32 cbBufSize, uint32* pcbBytesNeeded, uint32* lpServicesReturned, uint32* lpResumeHandle) => EnumServicesStatusA(hSCManager, dwServiceType, dwServiceState, lpServices, cbBufSize, pcbBytesNeeded, lpServicesReturned, lpResumeHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EnumServicesStatusW(SC_HANDLE hSCManager, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSW lpServices, uint32 cbBufSize, uint32 pcbBytesNeeded, uint32 lpServicesReturned, uint32 lpResumeHandle);
+	public static extern BOOL EnumServicesStatusW(SC_HANDLE hSCManager, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, ENUM_SERVICE_STATUSW* lpServices, uint32 cbBufSize, uint32* pcbBytesNeeded, uint32* lpServicesReturned, uint32* lpResumeHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EnumServicesStatusExA(SC_HANDLE hSCManager, SC_ENUM_TYPE InfoLevel, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, uint8 lpServices, uint32 cbBufSize, uint32 pcbBytesNeeded, uint32 lpServicesReturned, uint32 lpResumeHandle, PSTR pszGroupName);
-	public static BOOL EnumServicesStatusEx(SC_HANDLE hSCManager, SC_ENUM_TYPE InfoLevel, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, uint8 lpServices, uint32 cbBufSize, uint32 pcbBytesNeeded, uint32 lpServicesReturned, uint32 lpResumeHandle, PSTR pszGroupName) => EnumServicesStatusExA(hSCManager, InfoLevel, dwServiceType, dwServiceState, lpServices, cbBufSize, pcbBytesNeeded, lpServicesReturned, lpResumeHandle, pszGroupName);
+	public static extern BOOL EnumServicesStatusExA(SC_HANDLE hSCManager, SC_ENUM_TYPE InfoLevel, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, uint8* lpServices, uint32 cbBufSize, uint32* pcbBytesNeeded, uint32* lpServicesReturned, uint32* lpResumeHandle, PSTR pszGroupName);
+	public static BOOL EnumServicesStatusEx(SC_HANDLE hSCManager, SC_ENUM_TYPE InfoLevel, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, uint8* lpServices, uint32 cbBufSize, uint32* pcbBytesNeeded, uint32* lpServicesReturned, uint32* lpResumeHandle, PSTR pszGroupName) => EnumServicesStatusExA(hSCManager, InfoLevel, dwServiceType, dwServiceState, lpServices, cbBufSize, pcbBytesNeeded, lpServicesReturned, lpResumeHandle, pszGroupName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EnumServicesStatusExW(SC_HANDLE hSCManager, SC_ENUM_TYPE InfoLevel, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, uint8 lpServices, uint32 cbBufSize, uint32 pcbBytesNeeded, uint32 lpServicesReturned, uint32 lpResumeHandle, PWSTR pszGroupName);
+	public static extern BOOL EnumServicesStatusExW(SC_HANDLE hSCManager, SC_ENUM_TYPE InfoLevel, ENUM_SERVICE_TYPE dwServiceType, ENUM_SERVICE_STATE dwServiceState, uint8* lpServices, uint32 cbBufSize, uint32* pcbBytesNeeded, uint32* lpServicesReturned, uint32* lpResumeHandle, PWSTR pszGroupName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetServiceKeyNameA(SC_HANDLE hSCManager, PSTR lpDisplayName, uint8* lpServiceName, uint32 lpcchBuffer);
-	public static BOOL GetServiceKeyName(SC_HANDLE hSCManager, PSTR lpDisplayName, uint8* lpServiceName, uint32 lpcchBuffer) => GetServiceKeyNameA(hSCManager, lpDisplayName, lpServiceName, lpcchBuffer);
+	public static extern BOOL GetServiceKeyNameA(SC_HANDLE hSCManager, PSTR lpDisplayName, uint8* lpServiceName, uint32* lpcchBuffer);
+	public static BOOL GetServiceKeyName(SC_HANDLE hSCManager, PSTR lpDisplayName, uint8* lpServiceName, uint32* lpcchBuffer) => GetServiceKeyNameA(hSCManager, lpDisplayName, lpServiceName, lpcchBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetServiceKeyNameW(SC_HANDLE hSCManager, PWSTR lpDisplayName, char16* lpServiceName, uint32 lpcchBuffer);
+	public static extern BOOL GetServiceKeyNameW(SC_HANDLE hSCManager, PWSTR lpDisplayName, char16* lpServiceName, uint32* lpcchBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetServiceDisplayNameA(SC_HANDLE hSCManager, PSTR lpServiceName, uint8* lpDisplayName, uint32 lpcchBuffer);
-	public static BOOL GetServiceDisplayName(SC_HANDLE hSCManager, PSTR lpServiceName, uint8* lpDisplayName, uint32 lpcchBuffer) => GetServiceDisplayNameA(hSCManager, lpServiceName, lpDisplayName, lpcchBuffer);
+	public static extern BOOL GetServiceDisplayNameA(SC_HANDLE hSCManager, PSTR lpServiceName, uint8* lpDisplayName, uint32* lpcchBuffer);
+	public static BOOL GetServiceDisplayName(SC_HANDLE hSCManager, PSTR lpServiceName, uint8* lpDisplayName, uint32* lpcchBuffer) => GetServiceDisplayNameA(hSCManager, lpServiceName, lpDisplayName, lpcchBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetServiceDisplayNameW(SC_HANDLE hSCManager, PWSTR lpServiceName, char16* lpDisplayName, uint32 lpcchBuffer);
+	public static extern BOOL GetServiceDisplayNameW(SC_HANDLE hSCManager, PWSTR lpServiceName, char16* lpDisplayName, uint32* lpcchBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void LockServiceDatabase(SC_HANDLE hSCManager);
+	public static extern void* LockServiceDatabase(SC_HANDLE hSCManager);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL NotifyBootConfigStatus(BOOL BootAcceptable);
@@ -913,34 +913,34 @@ public static
 	public static extern SC_HANDLE OpenServiceW(SC_HANDLE hSCManager, PWSTR lpServiceName, uint32 dwDesiredAccess);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryServiceConfigA(SC_HANDLE hService, QUERY_SERVICE_CONFIGA lpServiceConfig, uint32 cbBufSize, uint32 pcbBytesNeeded);
-	public static BOOL QueryServiceConfig(SC_HANDLE hService, QUERY_SERVICE_CONFIGA lpServiceConfig, uint32 cbBufSize, uint32 pcbBytesNeeded) => QueryServiceConfigA(hService, lpServiceConfig, cbBufSize, pcbBytesNeeded);
+	public static extern BOOL QueryServiceConfigA(SC_HANDLE hService, QUERY_SERVICE_CONFIGA* lpServiceConfig, uint32 cbBufSize, uint32* pcbBytesNeeded);
+	public static BOOL QueryServiceConfig(SC_HANDLE hService, QUERY_SERVICE_CONFIGA* lpServiceConfig, uint32 cbBufSize, uint32* pcbBytesNeeded) => QueryServiceConfigA(hService, lpServiceConfig, cbBufSize, pcbBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryServiceConfigW(SC_HANDLE hService, QUERY_SERVICE_CONFIGW lpServiceConfig, uint32 cbBufSize, uint32 pcbBytesNeeded);
+	public static extern BOOL QueryServiceConfigW(SC_HANDLE hService, QUERY_SERVICE_CONFIGW* lpServiceConfig, uint32 cbBufSize, uint32* pcbBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryServiceConfig2A(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, uint8 lpBuffer, uint32 cbBufSize, uint32 pcbBytesNeeded);
-	public static BOOL QueryServiceConfig2(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, uint8 lpBuffer, uint32 cbBufSize, uint32 pcbBytesNeeded) => QueryServiceConfig2A(hService, dwInfoLevel, lpBuffer, cbBufSize, pcbBytesNeeded);
+	public static extern BOOL QueryServiceConfig2A(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, uint8* lpBuffer, uint32 cbBufSize, uint32* pcbBytesNeeded);
+	public static BOOL QueryServiceConfig2(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, uint8* lpBuffer, uint32 cbBufSize, uint32* pcbBytesNeeded) => QueryServiceConfig2A(hService, dwInfoLevel, lpBuffer, cbBufSize, pcbBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryServiceConfig2W(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, uint8 lpBuffer, uint32 cbBufSize, uint32 pcbBytesNeeded);
+	public static extern BOOL QueryServiceConfig2W(SC_HANDLE hService, SERVICE_CONFIG dwInfoLevel, uint8* lpBuffer, uint32 cbBufSize, uint32* pcbBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryServiceLockStatusA(SC_HANDLE hSCManager, QUERY_SERVICE_LOCK_STATUSA lpLockStatus, uint32 cbBufSize, uint32 pcbBytesNeeded);
-	public static BOOL QueryServiceLockStatus(SC_HANDLE hSCManager, QUERY_SERVICE_LOCK_STATUSA lpLockStatus, uint32 cbBufSize, uint32 pcbBytesNeeded) => QueryServiceLockStatusA(hSCManager, lpLockStatus, cbBufSize, pcbBytesNeeded);
+	public static extern BOOL QueryServiceLockStatusA(SC_HANDLE hSCManager, QUERY_SERVICE_LOCK_STATUSA* lpLockStatus, uint32 cbBufSize, uint32* pcbBytesNeeded);
+	public static BOOL QueryServiceLockStatus(SC_HANDLE hSCManager, QUERY_SERVICE_LOCK_STATUSA* lpLockStatus, uint32 cbBufSize, uint32* pcbBytesNeeded) => QueryServiceLockStatusA(hSCManager, lpLockStatus, cbBufSize, pcbBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryServiceLockStatusW(SC_HANDLE hSCManager, QUERY_SERVICE_LOCK_STATUSW lpLockStatus, uint32 cbBufSize, uint32 pcbBytesNeeded);
+	public static extern BOOL QueryServiceLockStatusW(SC_HANDLE hSCManager, QUERY_SERVICE_LOCK_STATUSW* lpLockStatus, uint32 cbBufSize, uint32* pcbBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryServiceObjectSecurity(SC_HANDLE hService, uint32 dwSecurityInformation, SECURITY_DESCRIPTOR lpSecurityDescriptor, uint32 cbBufSize, uint32 pcbBytesNeeded);
+	public static extern BOOL QueryServiceObjectSecurity(SC_HANDLE hService, uint32 dwSecurityInformation, SECURITY_DESCRIPTOR* lpSecurityDescriptor, uint32 cbBufSize, uint32* pcbBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryServiceStatus(SC_HANDLE hService, SERVICE_STATUS lpServiceStatus);
+	public static extern BOOL QueryServiceStatus(SC_HANDLE hService, SERVICE_STATUS* lpServiceStatus);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryServiceStatusEx(SC_HANDLE hService, SC_STATUS_TYPE InfoLevel, uint8 lpBuffer, uint32 cbBufSize, uint32 pcbBytesNeeded);
+	public static extern BOOL QueryServiceStatusEx(SC_HANDLE hService, SC_STATUS_TYPE InfoLevel, uint8* lpBuffer, uint32 cbBufSize, uint32* pcbBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern SERVICE_STATUS_HANDLE RegisterServiceCtrlHandlerA(PSTR lpServiceName, LPHANDLER_FUNCTION lpHandlerProc);
@@ -950,24 +950,24 @@ public static
 	public static extern SERVICE_STATUS_HANDLE RegisterServiceCtrlHandlerW(PWSTR lpServiceName, LPHANDLER_FUNCTION lpHandlerProc);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SERVICE_STATUS_HANDLE RegisterServiceCtrlHandlerExA(PSTR lpServiceName, LPHANDLER_FUNCTION_EX lpHandlerProc, void lpContext);
-	public static SERVICE_STATUS_HANDLE RegisterServiceCtrlHandlerEx(PSTR lpServiceName, LPHANDLER_FUNCTION_EX lpHandlerProc, void lpContext) => RegisterServiceCtrlHandlerExA(lpServiceName, lpHandlerProc, lpContext);
+	public static extern SERVICE_STATUS_HANDLE RegisterServiceCtrlHandlerExA(PSTR lpServiceName, LPHANDLER_FUNCTION_EX lpHandlerProc, void* lpContext);
+	public static SERVICE_STATUS_HANDLE RegisterServiceCtrlHandlerEx(PSTR lpServiceName, LPHANDLER_FUNCTION_EX lpHandlerProc, void* lpContext) => RegisterServiceCtrlHandlerExA(lpServiceName, lpHandlerProc, lpContext);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SERVICE_STATUS_HANDLE RegisterServiceCtrlHandlerExW(PWSTR lpServiceName, LPHANDLER_FUNCTION_EX lpHandlerProc, void lpContext);
+	public static extern SERVICE_STATUS_HANDLE RegisterServiceCtrlHandlerExW(PWSTR lpServiceName, LPHANDLER_FUNCTION_EX lpHandlerProc, void* lpContext);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetServiceObjectSecurity(SC_HANDLE hService, OBJECT_SECURITY_INFORMATION dwSecurityInformation, SECURITY_DESCRIPTOR lpSecurityDescriptor);
+	public static extern BOOL SetServiceObjectSecurity(SC_HANDLE hService, OBJECT_SECURITY_INFORMATION dwSecurityInformation, SECURITY_DESCRIPTOR* lpSecurityDescriptor);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetServiceStatus(SERVICE_STATUS_HANDLE hServiceStatus, SERVICE_STATUS lpServiceStatus);
+	public static extern BOOL SetServiceStatus(SERVICE_STATUS_HANDLE hServiceStatus, SERVICE_STATUS* lpServiceStatus);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL StartServiceCtrlDispatcherA(SERVICE_TABLE_ENTRYA lpServiceStartTable);
-	public static BOOL StartServiceCtrlDispatcher(SERVICE_TABLE_ENTRYA lpServiceStartTable) => StartServiceCtrlDispatcherA(lpServiceStartTable);
+	public static extern BOOL StartServiceCtrlDispatcherA(SERVICE_TABLE_ENTRYA* lpServiceStartTable);
+	public static BOOL StartServiceCtrlDispatcher(SERVICE_TABLE_ENTRYA* lpServiceStartTable) => StartServiceCtrlDispatcherA(lpServiceStartTable);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL StartServiceCtrlDispatcherW(SERVICE_TABLE_ENTRYW lpServiceStartTable);
+	public static extern BOOL StartServiceCtrlDispatcherW(SERVICE_TABLE_ENTRYW* lpServiceStartTable);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StartServiceA(SC_HANDLE hService, uint32 dwNumServiceArgs, PSTR* lpServiceArgVectors);
@@ -977,39 +977,39 @@ public static
 	public static extern BOOL StartServiceW(SC_HANDLE hService, uint32 dwNumServiceArgs, PWSTR* lpServiceArgVectors);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL UnlockServiceDatabase(void ScLock);
+	public static extern BOOL UnlockServiceDatabase(void* ScLock);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NotifyServiceStatusChangeA(SC_HANDLE hService, SERVICE_NOTIFY dwNotifyMask, SERVICE_NOTIFY_2A pNotifyBuffer);
-	public static uint32 NotifyServiceStatusChange(SC_HANDLE hService, SERVICE_NOTIFY dwNotifyMask, SERVICE_NOTIFY_2A pNotifyBuffer) => NotifyServiceStatusChangeA(hService, dwNotifyMask, pNotifyBuffer);
+	public static extern uint32 NotifyServiceStatusChangeA(SC_HANDLE hService, SERVICE_NOTIFY dwNotifyMask, SERVICE_NOTIFY_2A* pNotifyBuffer);
+	public static uint32 NotifyServiceStatusChange(SC_HANDLE hService, SERVICE_NOTIFY dwNotifyMask, SERVICE_NOTIFY_2A* pNotifyBuffer) => NotifyServiceStatusChangeA(hService, dwNotifyMask, pNotifyBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NotifyServiceStatusChangeW(SC_HANDLE hService, SERVICE_NOTIFY dwNotifyMask, SERVICE_NOTIFY_2W pNotifyBuffer);
+	public static extern uint32 NotifyServiceStatusChangeW(SC_HANDLE hService, SERVICE_NOTIFY dwNotifyMask, SERVICE_NOTIFY_2W* pNotifyBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ControlServiceExA(SC_HANDLE hService, uint32 dwControl, uint32 dwInfoLevel, void pControlParams);
-	public static BOOL ControlServiceEx(SC_HANDLE hService, uint32 dwControl, uint32 dwInfoLevel, void pControlParams) => ControlServiceExA(hService, dwControl, dwInfoLevel, pControlParams);
+	public static extern BOOL ControlServiceExA(SC_HANDLE hService, uint32 dwControl, uint32 dwInfoLevel, void* pControlParams);
+	public static BOOL ControlServiceEx(SC_HANDLE hService, uint32 dwControl, uint32 dwInfoLevel, void* pControlParams) => ControlServiceExA(hService, dwControl, dwInfoLevel, pControlParams);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ControlServiceExW(SC_HANDLE hService, uint32 dwControl, uint32 dwInfoLevel, void pControlParams);
+	public static extern BOOL ControlServiceExW(SC_HANDLE hService, uint32 dwControl, uint32 dwInfoLevel, void* pControlParams);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryServiceDynamicInformation(SERVICE_STATUS_HANDLE hServiceStatus, uint32 dwInfoLevel, void ppDynamicInfo);
+	public static extern BOOL QueryServiceDynamicInformation(SERVICE_STATUS_HANDLE hServiceStatus, uint32 dwInfoLevel, void** ppDynamicInfo);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WaitServiceState(SC_HANDLE hService, uint32 dwNotify, uint32 dwTimeout, HANDLE hCancelEvent);
 
 	[Import("api-ms-win-service-core-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetServiceRegistryStateKey(SERVICE_STATUS_HANDLE ServiceStatusHandle, SERVICE_REGISTRY_STATE_TYPE StateType, uint32 AccessMask, HKEY ServiceStateKey);
+	public static extern uint32 GetServiceRegistryStateKey(SERVICE_STATUS_HANDLE ServiceStatusHandle, SERVICE_REGISTRY_STATE_TYPE StateType, uint32 AccessMask, HKEY* ServiceStateKey);
 
 	[Import("api-ms-win-service-core-l1-1-4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetServiceDirectory(SERVICE_STATUS_HANDLE hServiceStatus, SERVICE_DIRECTORY_TYPE eDirectoryType, char16* lpPathBuffer, uint32 cchPathBufferLength, uint32 lpcchRequiredBufferLength);
+	public static extern uint32 GetServiceDirectory(SERVICE_STATUS_HANDLE hServiceStatus, SERVICE_DIRECTORY_TYPE eDirectoryType, char16* lpPathBuffer, uint32 cchPathBufferLength, uint32* lpcchRequiredBufferLength);
 
 	[Import("api-ms-win-service-core-l1-1-5.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSharedServiceRegistryStateKey(SC_HANDLE ServiceHandle, SERVICE_SHARED_REGISTRY_STATE_TYPE StateType, uint32 AccessMask, HKEY ServiceStateKey);
+	public static extern uint32 GetSharedServiceRegistryStateKey(SC_HANDLE ServiceHandle, SERVICE_SHARED_REGISTRY_STATE_TYPE StateType, uint32 AccessMask, HKEY* ServiceStateKey);
 
 	[Import("api-ms-win-service-core-l1-1-5.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSharedServiceDirectory(SC_HANDLE ServiceHandle, SERVICE_SHARED_DIRECTORY_TYPE DirectoryType, char16* PathBuffer, uint32 PathBufferLength, uint32 RequiredBufferLength);
+	public static extern uint32 GetSharedServiceDirectory(SC_HANDLE ServiceHandle, SERVICE_SHARED_DIRECTORY_TYPE DirectoryType, char16* PathBuffer, uint32 PathBufferLength, uint32* RequiredBufferLength);
 
 }
 #endregion

@@ -3239,7 +3239,7 @@ public struct KSEVENTDATA
 		[CRepr]
 		public struct _Alignment_e__Struct
 		{
-			public void Unused;
+			public void* Unused;
 			public int[2] Alignment;
 		}
 
@@ -3263,8 +3263,8 @@ public struct KSEVENTDATA
 public struct KSQUERYBUFFER
 {
 	public KSIDENTIFIER Event;
-	public KSEVENTDATA EventData;
-	public void Reserved;
+	public KSEVENTDATA* EventData;
+	public void* Reserved;
 }
 
 [CRepr]
@@ -3274,13 +3274,13 @@ public struct KSRELATIVEEVENT
 	public struct _Anonymous_e__Union
 	{
 		public HANDLE ObjectHandle;
-		public void ObjectPointer;
+		public void* ObjectPointer;
 	}
 
 	public uint32 Size;
 	public uint32 Flags;
 	public using _Anonymous_e__Union Anonymous;
-	public void Reserved;
+	public void* Reserved;
 	public KSIDENTIFIER Event;
 	public KSEVENTDATA EventData;
 }
@@ -3360,7 +3360,7 @@ public struct KSTOPOLOGY
 	public uint32 TopologyNodesCount;
 	public Guid TopologyNodes;
 	public uint32 TopologyConnectionsCount;
-	public KSTOPOLOGY_CONNECTION TopologyConnections;
+	public KSTOPOLOGY_CONNECTION* TopologyConnections;
 	public Guid TopologyNodesNames;
 	public uint32 Reserved;
 }
@@ -3562,7 +3562,7 @@ public struct KSSTREAM_HEADER
 	public int64 Duration;
 	public uint32 FrameExtent;
 	public uint32 DataUsed;
-	public void Data;
+	public void* Data;
 	public uint32 OptionsFlags;
 	public uint32 Reserved;
 }
@@ -3573,8 +3573,8 @@ public struct KSSTREAM_METADATA_INFO
 {
 	public uint32 BufferSize;
 	public uint32 UsedSize;
-	public void Data;
-	public void SystemVa;
+	public void* Data;
+	public void* SystemVa;
 	public uint32 Flags;
 	public uint32 Reserved;
 }
@@ -3613,7 +3613,7 @@ public struct KSSTREAM_UVC_METADATA
 public struct KSPIN_MDL_CACHING_NOTIFICATION
 {
 	public KSPIN_MDL_CACHING_EVENT Event;
-	public void Buffer;
+	public void* Buffer;
 }
 
 [CRepr]
@@ -3627,7 +3627,7 @@ public struct KSPIN_MDL_CACHING_NOTIFICATION32
 public struct KSQUALITY_MANAGER
 {
 	public HANDLE QualityManager;
-	public void Context;
+	public void* Context;
 }
 
 [CRepr]
@@ -3678,7 +3678,7 @@ public struct KSRESOLUTION
 [CRepr]
 public struct KSQUALITY
 {
-	public void Context;
+	public void* Context;
 	public uint32 Proportion;
 	public int64 DeltaTime;
 }
@@ -3686,7 +3686,7 @@ public struct KSQUALITY
 [CRepr]
 public struct KSERROR
 {
-	public void Context;
+	public void* Context;
 	public uint32 Status;
 }
 
@@ -3932,7 +3932,7 @@ public struct KSDATARANGE_AUDIO
 public struct KSRTAUDIO_BUFFER_PROPERTY
 {
 	public KSIDENTIFIER Property;
-	public void BaseAddress;
+	public void* BaseAddress;
 	public uint32 RequestedBufferSize;
 }
 
@@ -3948,7 +3948,7 @@ public struct KSRTAUDIO_BUFFER_PROPERTY32
 public struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION
 {
 	public KSIDENTIFIER Property;
-	public void BaseAddress;
+	public void* BaseAddress;
 	public uint32 RequestedBufferSize;
 	public uint32 NotificationCount;
 }
@@ -3965,7 +3965,7 @@ public struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32
 [CRepr]
 public struct KSRTAUDIO_BUFFER
 {
-	public void BufferAddress;
+	public void* BufferAddress;
 	public uint32 ActualBufferSize;
 	public BOOL CallMemoryBarrier;
 }
@@ -3990,7 +3990,7 @@ public struct KSRTAUDIO_HWLATENCY
 public struct KSRTAUDIO_HWREGISTER_PROPERTY
 {
 	public KSIDENTIFIER Property;
-	public void BaseAddress;
+	public void* BaseAddress;
 }
 
 [CRepr]
@@ -4003,7 +4003,7 @@ public struct KSRTAUDIO_HWREGISTER_PROPERTY32
 [CRepr]
 public struct KSRTAUDIO_HWREGISTER
 {
-	public void Register;
+	public void* Register;
 	public uint32 Width;
 	public uint64 Numerator;
 	public uint64 Denominator;
@@ -4055,15 +4055,15 @@ public struct KSRTAUDIO_SETWRITEPACKET_INFO
 public struct KSRTAUDIO_PACKETVREGISTER_PROPERTY
 {
 	public KSIDENTIFIER Property;
-	public void BaseAddress;
+	public void* BaseAddress;
 }
 
 [CRepr]
 public struct KSRTAUDIO_PACKETVREGISTER
 {
-	public uint64 CompletedPacketCount;
-	public uint64 CompletedPacketQPC;
-	public uint64 CompletedPacketHash;
+	public uint64* CompletedPacketCount;
+	public uint64* CompletedPacketQPC;
+	public uint64* CompletedPacketHash;
 }
 
 [CRepr]
@@ -4253,7 +4253,7 @@ public struct KSWAVE_BUFFER
 {
 	public uint32 Attributes;
 	public uint32 BufferSize;
-	public void BufferAddress;
+	public void* BufferAddress;
 }
 
 [CRepr]
@@ -4303,7 +4303,7 @@ public struct KSNODEPROPERTY_AUDIO_DEV_SPECIFIC
 public struct KSNODEPROPERTY_AUDIO_3D_LISTENER
 {
 	public KSNODEPROPERTY NodeProperty;
-	public void ListenerId;
+	public void* ListenerId;
 }
 #endif
 
@@ -4312,7 +4312,7 @@ public struct KSNODEPROPERTY_AUDIO_3D_LISTENER
 public struct KSNODEPROPERTY_AUDIO_PROPERTY
 {
 	public KSNODEPROPERTY NodeProperty;
-	public void AppContext;
+	public void* AppContext;
 	public uint32 Length;
 }
 #endif
@@ -5072,7 +5072,7 @@ public struct VRAM_SURFACE_INFO
 public struct VRAM_SURFACE_INFO_PROPERTY_S
 {
 	public KSIDENTIFIER Property;
-	public VRAM_SURFACE_INFO pVramSurfaceInfo;
+	public VRAM_SURFACE_INFO* pVramSurfaceInfo;
 }
 
 [CRepr]
@@ -5308,7 +5308,7 @@ public struct KSPROPERTY_TUNER_SCAN_CAPS_S
 	public KSIDENTIFIER Property;
 	public BOOL fSupportsHardwareAssistedScanning;
 	public uint32 SupportedBroadcastStandards;
-	public void GUIDBucket;
+	public void* GUIDBucket;
 	public uint32 lengthofBucket;
 }
 
@@ -5318,7 +5318,7 @@ public struct KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S
 	public KSIDENTIFIER Property;
 	public Guid NetworkType;
 	public uint32 BufferSize;
-	public void NetworkTunerCapabilities;
+	public void* NetworkTunerCapabilities;
 }
 
 [CRepr]
@@ -5854,7 +5854,7 @@ public struct KSCAMERA_PROFILE_PININFO
 	public Guid PinCategory;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 MediaInfoCount;
-	public KSCAMERA_PROFILE_MEDIAINFO MediaInfos;
+	public KSCAMERA_PROFILE_MEDIAINFO* MediaInfos;
 }
 
 [CRepr]
@@ -5863,7 +5863,7 @@ public struct KSCAMERA_PROFILE_INFO
 	public Guid ProfileId;
 	public uint32 Index;
 	public uint32 PinCount;
-	public KSCAMERA_PROFILE_PININFO Pins;
+	public KSCAMERA_PROFILE_PININFO* Pins;
 }
 
 [CRepr]
@@ -5872,7 +5872,7 @@ public struct KSCAMERA_PROFILE_CONCURRENCYINFO
 	public Guid ReferenceGuid;
 	public uint32 Reserved;
 	public uint32 ProfileCount;
-	public KSCAMERA_PROFILE_INFO Profiles;
+	public KSCAMERA_PROFILE_INFO* Profiles;
 }
 
 [CRepr]
@@ -5887,7 +5887,7 @@ public struct KSDEVICE_PROFILE_INFO
 			public KSCAMERA_PROFILE_INFO Info;
 			public uint32 Reserved;
 			public uint32 ConcurrencyCount;
-			public KSCAMERA_PROFILE_CONCURRENCYINFO Concurrency;
+			public KSCAMERA_PROFILE_CONCURRENCYINFO* Concurrency;
 		}
 
 		public _Camera_e__Struct Camera;
@@ -6522,9 +6522,9 @@ public struct ALLOCATOR_PROPERTIES_EX
 	public PIPE_ALLOCATOR_PLACE AllocatorPlace;
 	public PIPE_DIMENSIONS Dimensions;
 	public KS_FRAMING_RANGE PhysicalRange;
-	public IKsAllocatorEx PrevSegment;
+	public IKsAllocatorEx* PrevSegment;
 	public uint32 CountNextSegments;
-	public IKsAllocatorEx NextSegments;
+	public IKsAllocatorEx** NextSegments;
 	public uint32 InsideFactors;
 	public uint32 NumberPins;
 }
@@ -6539,7 +6539,7 @@ public struct KSSTREAM_HEADER
 	public int64 Duration;
 	public uint32 FrameExtent;
 	public uint32 DataUsed;
-	public void Data;
+	public void* Data;
 	public uint32 OptionsFlags;
 }
 #endif
@@ -6549,7 +6549,7 @@ public struct KSSTREAM_HEADER
 public struct KSNODEPROPERTY_AUDIO_3D_LISTENER
 {
 	public KSNODEPROPERTY NodeProperty;
-	public void ListenerId;
+	public void* ListenerId;
 	public uint32 Reserved;
 }
 #endif
@@ -6559,7 +6559,7 @@ public struct KSNODEPROPERTY_AUDIO_3D_LISTENER
 public struct KSNODEPROPERTY_AUDIO_PROPERTY
 {
 	public KSNODEPROPERTY NodeProperty;
-	public void AppContext;
+	public void* AppContext;
 	public uint32 Length;
 	public uint32 Reserved;
 }
@@ -8148,17 +8148,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsControl*/SelfOuter* self, KSIDENTIFIER Property, uint32 PropertyLength, void PropertyData, uint32 DataLength, uint32 BytesReturned) KsProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsControl*/SelfOuter* self, KSIDENTIFIER Method, uint32 MethodLength, void MethodData, uint32 DataLength, uint32 BytesReturned) KsMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsControl*/SelfOuter* self, KSIDENTIFIER Event, uint32 EventLength, void EventData, uint32 DataLength, uint32 BytesReturned) KsEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsControl*/SelfOuter* self, KSIDENTIFIER* Property, uint32 PropertyLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) KsProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsControl*/SelfOuter* self, KSIDENTIFIER* Method, uint32 MethodLength, void* MethodData, uint32 DataLength, uint32* BytesReturned) KsMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsControl*/SelfOuter* self, KSIDENTIFIER* Event, uint32 EventLength, void* EventData, uint32 DataLength, uint32* BytesReturned) KsEvent;
 	}
 
 
-	public HRESULT KsProperty(KSIDENTIFIER Property, uint32 PropertyLength, void PropertyData, uint32 DataLength, uint32 BytesReturned) mut => VT.[Friend]KsProperty(&this, Property, PropertyLength, PropertyData, DataLength, BytesReturned);
+	public HRESULT KsProperty(KSIDENTIFIER* Property, uint32 PropertyLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) mut => VT.[Friend]KsProperty(&this, Property, PropertyLength, PropertyData, DataLength, BytesReturned);
 
-	public HRESULT KsMethod(KSIDENTIFIER Method, uint32 MethodLength, void MethodData, uint32 DataLength, uint32 BytesReturned) mut => VT.[Friend]KsMethod(&this, Method, MethodLength, MethodData, DataLength, BytesReturned);
+	public HRESULT KsMethod(KSIDENTIFIER* Method, uint32 MethodLength, void* MethodData, uint32 DataLength, uint32* BytesReturned) mut => VT.[Friend]KsMethod(&this, Method, MethodLength, MethodData, DataLength, BytesReturned);
 
-	public HRESULT KsEvent(KSIDENTIFIER Event, uint32 EventLength, void EventData, uint32 DataLength, uint32 BytesReturned) mut => VT.[Friend]KsEvent(&this, Event, EventLength, EventData, DataLength, BytesReturned);
+	public HRESULT KsEvent(KSIDENTIFIER* Event, uint32 EventLength, void* EventData, uint32 DataLength, uint32* BytesReturned) mut => VT.[Friend]KsEvent(&this, Event, EventLength, EventData, DataLength, BytesReturned);
 }
 
 [CRepr]struct IKsFormatSupport : IUnknown
@@ -8169,14 +8169,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsFormatSupport*/SelfOuter* self, KSDATAFORMAT pKsFormat, uint32 cbFormat, BOOL pbSupported) IsFormatSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsFormatSupport*/SelfOuter* self, KSDATAFORMAT ppKsFormat) GetDevicePreferredFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsFormatSupport*/SelfOuter* self, KSDATAFORMAT* pKsFormat, uint32 cbFormat, BOOL* pbSupported) IsFormatSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsFormatSupport*/SelfOuter* self, KSDATAFORMAT** ppKsFormat) GetDevicePreferredFormat;
 	}
 
 
-	public HRESULT IsFormatSupported(KSDATAFORMAT pKsFormat, uint32 cbFormat, BOOL pbSupported) mut => VT.[Friend]IsFormatSupported(&this, pKsFormat, cbFormat, pbSupported);
+	public HRESULT IsFormatSupported(KSDATAFORMAT* pKsFormat, uint32 cbFormat, BOOL* pbSupported) mut => VT.[Friend]IsFormatSupported(&this, pKsFormat, cbFormat, pbSupported);
 
-	public HRESULT GetDevicePreferredFormat(KSDATAFORMAT ppKsFormat) mut => VT.[Friend]GetDevicePreferredFormat(&this, ppKsFormat);
+	public HRESULT GetDevicePreferredFormat(KSDATAFORMAT** ppKsFormat) mut => VT.[Friend]GetDevicePreferredFormat(&this, ppKsFormat);
 }
 
 [CRepr]struct IKsJackDescription : IUnknown
@@ -8187,14 +8187,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription*/SelfOuter* self, uint32 pcJacks) GetJackCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription*/SelfOuter* self, uint32 nJack, KSJACK_DESCRIPTION pDescription) GetJackDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription*/SelfOuter* self, uint32* pcJacks) GetJackCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription*/SelfOuter* self, uint32 nJack, KSJACK_DESCRIPTION* pDescription) GetJackDescription;
 	}
 
 
-	public HRESULT GetJackCount(uint32 pcJacks) mut => VT.[Friend]GetJackCount(&this, pcJacks);
+	public HRESULT GetJackCount(uint32* pcJacks) mut => VT.[Friend]GetJackCount(&this, pcJacks);
 
-	public HRESULT GetJackDescription(uint32 nJack, KSJACK_DESCRIPTION pDescription) mut => VT.[Friend]GetJackDescription(&this, nJack, pDescription);
+	public HRESULT GetJackDescription(uint32 nJack, KSJACK_DESCRIPTION* pDescription) mut => VT.[Friend]GetJackDescription(&this, nJack, pDescription);
 }
 
 [CRepr]struct IKsJackDescription2 : IUnknown
@@ -8205,14 +8205,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription2*/SelfOuter* self, uint32 pcJacks) GetJackCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription2*/SelfOuter* self, uint32 nJack, KSJACK_DESCRIPTION2 pDescription2) GetJackDescription2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription2*/SelfOuter* self, uint32* pcJacks) GetJackCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription2*/SelfOuter* self, uint32 nJack, KSJACK_DESCRIPTION2* pDescription2) GetJackDescription2;
 	}
 
 
-	public HRESULT GetJackCount(uint32 pcJacks) mut => VT.[Friend]GetJackCount(&this, pcJacks);
+	public HRESULT GetJackCount(uint32* pcJacks) mut => VT.[Friend]GetJackCount(&this, pcJacks);
 
-	public HRESULT GetJackDescription2(uint32 nJack, KSJACK_DESCRIPTION2 pDescription2) mut => VT.[Friend]GetJackDescription2(&this, nJack, pDescription2);
+	public HRESULT GetJackDescription2(uint32 nJack, KSJACK_DESCRIPTION2* pDescription2) mut => VT.[Friend]GetJackDescription2(&this, nJack, pDescription2);
 }
 
 [CRepr]struct IKsJackSinkInformation : IUnknown
@@ -8223,11 +8223,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackSinkInformation*/SelfOuter* self, KSJACK_SINK_INFORMATION pJackSinkInformation) GetJackSinkInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackSinkInformation*/SelfOuter* self, KSJACK_SINK_INFORMATION* pJackSinkInformation) GetJackSinkInformation;
 	}
 
 
-	public HRESULT GetJackSinkInformation(KSJACK_SINK_INFORMATION pJackSinkInformation) mut => VT.[Friend]GetJackSinkInformation(&this, pJackSinkInformation);
+	public HRESULT GetJackSinkInformation(KSJACK_SINK_INFORMATION* pJackSinkInformation) mut => VT.[Friend]GetJackSinkInformation(&this, pJackSinkInformation);
 }
 
 [CRepr]struct IKsJackContainerId : IUnknown
@@ -8253,17 +8253,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, Guid PropSet, uint32 Id, void InstanceData, uint32 InstanceLength, void PropertyData, uint32 DataLength) Set;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, Guid PropSet, uint32 Id, void InstanceData, uint32 InstanceLength, void PropertyData, uint32 DataLength, uint32 BytesReturned) Get;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, Guid PropSet, uint32 Id, uint32 TypeSupport) QuerySupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength) Set;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) Get;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, Guid PropSet, uint32 Id, uint32* TypeSupport) QuerySupported;
 	}
 
 
-	public HRESULT Set(Guid PropSet, uint32 Id, void InstanceData, uint32 InstanceLength, void PropertyData, uint32 DataLength) mut => VT.[Friend]Set(&this, PropSet, Id, InstanceData, InstanceLength, PropertyData, DataLength);
+	public HRESULT Set(Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength) mut => VT.[Friend]Set(&this, PropSet, Id, InstanceData, InstanceLength, PropertyData, DataLength);
 
-	public HRESULT Get(Guid PropSet, uint32 Id, void InstanceData, uint32 InstanceLength, void PropertyData, uint32 DataLength, uint32 BytesReturned) mut => VT.[Friend]Get(&this, PropSet, Id, InstanceData, InstanceLength, PropertyData, DataLength, BytesReturned);
+	public HRESULT Get(Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) mut => VT.[Friend]Get(&this, PropSet, Id, InstanceData, InstanceLength, PropertyData, DataLength, BytesReturned);
 
-	public HRESULT QuerySupported(Guid PropSet, uint32 Id, uint32 TypeSupport) mut => VT.[Friend]QuerySupported(&this, PropSet, Id, TypeSupport);
+	public HRESULT QuerySupported(Guid PropSet, uint32 Id, uint32* TypeSupport) mut => VT.[Friend]QuerySupported(&this, PropSet, Id, TypeSupport);
 }
 
 [CRepr]struct IKsAggregateControl : IUnknown
@@ -8292,11 +8292,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsTopology*/SelfOuter* self, uint32 NodeId, uint32 Flags, uint32 DesiredAccess, IUnknown* UnkOuter, Guid InterfaceId, void Interface) CreateNodeInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsTopology*/SelfOuter* self, uint32 NodeId, uint32 Flags, uint32 DesiredAccess, IUnknown* UnkOuter, Guid InterfaceId, void** Interface) CreateNodeInstance;
 	}
 
 
-	public HRESULT CreateNodeInstance(uint32 NodeId, uint32 Flags, uint32 DesiredAccess, IUnknown* UnkOuter, Guid InterfaceId, void Interface) mut => VT.[Friend]CreateNodeInstance(&this, NodeId, Flags, DesiredAccess, UnkOuter, InterfaceId, Interface);
+	public HRESULT CreateNodeInstance(uint32 NodeId, uint32 Flags, uint32 DesiredAccess, IUnknown* UnkOuter, Guid InterfaceId, void** Interface) mut => VT.[Friend]CreateNodeInstance(&this, NodeId, Flags, DesiredAccess, UnkOuter, InterfaceId, Interface);
 }
 
 #endregion
@@ -8305,28 +8305,28 @@ public static
 public static
 {
 	[Import("ksuser.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 KsCreateAllocator(HANDLE ConnectionHandle, KSALLOCATOR_FRAMING AllocatorFraming, HANDLE AllocatorHandle);
+	public static extern uint32 KsCreateAllocator(HANDLE ConnectionHandle, KSALLOCATOR_FRAMING* AllocatorFraming, HANDLE* AllocatorHandle);
 
 	[Import("ksuser.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 KsCreateClock(HANDLE ConnectionHandle, KSCLOCK_CREATE ClockCreate, HANDLE ClockHandle);
+	public static extern uint32 KsCreateClock(HANDLE ConnectionHandle, KSCLOCK_CREATE* ClockCreate, HANDLE* ClockHandle);
 
 	[Import("ksuser.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 KsCreatePin(HANDLE FilterHandle, KSPIN_CONNECT Connect, uint32 DesiredAccess, HANDLE ConnectionHandle);
+	public static extern uint32 KsCreatePin(HANDLE FilterHandle, KSPIN_CONNECT* Connect, uint32 DesiredAccess, HANDLE* ConnectionHandle);
 
 	[Import("ksuser.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 KsCreateTopologyNode(HANDLE ParentHandle, KSNODE_CREATE NodeCreate, uint32 DesiredAccess, HANDLE NodeHandle);
+	public static extern uint32 KsCreateTopologyNode(HANDLE ParentHandle, KSNODE_CREATE* NodeCreate, uint32 DesiredAccess, HANDLE* NodeHandle);
 
 	[Import("ksuser.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT KsCreateAllocator2(HANDLE ConnectionHandle, KSALLOCATOR_FRAMING AllocatorFraming, HANDLE AllocatorHandle);
+	public static extern HRESULT KsCreateAllocator2(HANDLE ConnectionHandle, KSALLOCATOR_FRAMING* AllocatorFraming, HANDLE* AllocatorHandle);
 
 	[Import("ksuser.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT KsCreateClock2(HANDLE ConnectionHandle, KSCLOCK_CREATE ClockCreate, HANDLE ClockHandle);
+	public static extern HRESULT KsCreateClock2(HANDLE ConnectionHandle, KSCLOCK_CREATE* ClockCreate, HANDLE* ClockHandle);
 
 	[Import("ksuser.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT KsCreatePin2(HANDLE FilterHandle, KSPIN_CONNECT Connect, uint32 DesiredAccess, HANDLE ConnectionHandle);
+	public static extern HRESULT KsCreatePin2(HANDLE FilterHandle, KSPIN_CONNECT* Connect, uint32 DesiredAccess, HANDLE* ConnectionHandle);
 
 	[Import("ksuser.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT KsCreateTopologyNode2(HANDLE ParentHandle, KSNODE_CREATE NodeCreate, uint32 DesiredAccess, HANDLE NodeHandle);
+	public static extern HRESULT KsCreateTopologyNode2(HANDLE ParentHandle, KSNODE_CREATE* NodeCreate, uint32 DesiredAccess, HANDLE* NodeHandle);
 
 }
 #endregion

@@ -10,7 +10,7 @@ namespace Win32.System.SetupAndMigration;
 #endregion
 
 #region Function Pointers
-public function void OOBE_COMPLETED_CALLBACK(void CallbackContext);
+public function void OOBE_COMPLETED_CALLBACK(void* CallbackContext);
 
 #endregion
 
@@ -30,13 +30,13 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL OOBEComplete(BOOL isOOBEComplete);
+	public static extern BOOL OOBEComplete(BOOL* isOOBEComplete);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL RegisterWaitUntilOOBECompleted(OOBE_COMPLETED_CALLBACK OOBECompletedCallback, void CallbackContext, void WaitHandle);
+	public static extern BOOL RegisterWaitUntilOOBECompleted(OOBE_COMPLETED_CALLBACK OOBECompletedCallback, void* CallbackContext, void** WaitHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL UnregisterWaitUntilOOBECompleted(void WaitHandle);
+	public static extern BOOL UnregisterWaitUntilOOBECompleted(void* WaitHandle);
 
 }
 #endregion

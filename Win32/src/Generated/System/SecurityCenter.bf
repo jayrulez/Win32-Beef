@@ -100,29 +100,29 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR pVal) get_ProductName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, WSC_SECURITY_PRODUCT_STATE pVal) get_ProductState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, WSC_SECURITY_SIGNATURE_STATUS pVal) get_SignatureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR pVal) get_RemediationPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR pVal) get_ProductStateTimestamp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR pVal) get_ProductGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BOOL pVal) get_ProductIsDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR* pVal) get_ProductName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, WSC_SECURITY_PRODUCT_STATE* pVal) get_ProductState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, WSC_SECURITY_SIGNATURE_STATUS* pVal) get_SignatureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR* pVal) get_RemediationPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR* pVal) get_ProductStateTimestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR* pVal) get_ProductGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BOOL* pVal) get_ProductIsDefault;
 	}
 
 
-	public HRESULT get_ProductName(BSTR pVal) mut => VT.[Friend]get_ProductName(&this, pVal);
+	public HRESULT get_ProductName(BSTR* pVal) mut => VT.[Friend]get_ProductName(&this, pVal);
 
-	public HRESULT get_ProductState(WSC_SECURITY_PRODUCT_STATE pVal) mut => VT.[Friend]get_ProductState(&this, pVal);
+	public HRESULT get_ProductState(WSC_SECURITY_PRODUCT_STATE* pVal) mut => VT.[Friend]get_ProductState(&this, pVal);
 
-	public HRESULT get_SignatureStatus(WSC_SECURITY_SIGNATURE_STATUS pVal) mut => VT.[Friend]get_SignatureStatus(&this, pVal);
+	public HRESULT get_SignatureStatus(WSC_SECURITY_SIGNATURE_STATUS* pVal) mut => VT.[Friend]get_SignatureStatus(&this, pVal);
 
-	public HRESULT get_RemediationPath(BSTR pVal) mut => VT.[Friend]get_RemediationPath(&this, pVal);
+	public HRESULT get_RemediationPath(BSTR* pVal) mut => VT.[Friend]get_RemediationPath(&this, pVal);
 
-	public HRESULT get_ProductStateTimestamp(BSTR pVal) mut => VT.[Friend]get_ProductStateTimestamp(&this, pVal);
+	public HRESULT get_ProductStateTimestamp(BSTR* pVal) mut => VT.[Friend]get_ProductStateTimestamp(&this, pVal);
 
-	public HRESULT get_ProductGuid(BSTR pVal) mut => VT.[Friend]get_ProductGuid(&this, pVal);
+	public HRESULT get_ProductGuid(BSTR* pVal) mut => VT.[Friend]get_ProductGuid(&this, pVal);
 
-	public HRESULT get_ProductIsDefault(BOOL pVal) mut => VT.[Friend]get_ProductIsDefault(&this, pVal);
+	public HRESULT get_ProductIsDefault(BOOL* pVal) mut => VT.[Friend]get_ProductIsDefault(&this, pVal);
 }
 
 [CRepr]struct IWscProduct2 : IWscProduct
@@ -133,26 +133,26 @@ public static
 
 	[CRepr]public struct VTable : IWscProduct.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) get_AntivirusScanSubstatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) get_AntivirusSettingsSubstatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) get_AntivirusProtectionUpdateSubstatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) get_FirewallDomainProfileSubstatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) get_FirewallPrivateProfileSubstatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) get_FirewallPublicProfileSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_AntivirusScanSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_AntivirusSettingsSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_AntivirusProtectionUpdateSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_FirewallDomainProfileSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_FirewallPrivateProfileSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_FirewallPublicProfileSubstatus;
 	}
 
 
-	public HRESULT get_AntivirusScanSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) mut => VT.[Friend]get_AntivirusScanSubstatus(&this, peStatus);
+	public HRESULT get_AntivirusScanSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) mut => VT.[Friend]get_AntivirusScanSubstatus(&this, peStatus);
 
-	public HRESULT get_AntivirusSettingsSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) mut => VT.[Friend]get_AntivirusSettingsSubstatus(&this, peStatus);
+	public HRESULT get_AntivirusSettingsSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) mut => VT.[Friend]get_AntivirusSettingsSubstatus(&this, peStatus);
 
-	public HRESULT get_AntivirusProtectionUpdateSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) mut => VT.[Friend]get_AntivirusProtectionUpdateSubstatus(&this, peStatus);
+	public HRESULT get_AntivirusProtectionUpdateSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) mut => VT.[Friend]get_AntivirusProtectionUpdateSubstatus(&this, peStatus);
 
-	public HRESULT get_FirewallDomainProfileSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) mut => VT.[Friend]get_FirewallDomainProfileSubstatus(&this, peStatus);
+	public HRESULT get_FirewallDomainProfileSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) mut => VT.[Friend]get_FirewallDomainProfileSubstatus(&this, peStatus);
 
-	public HRESULT get_FirewallPrivateProfileSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) mut => VT.[Friend]get_FirewallPrivateProfileSubstatus(&this, peStatus);
+	public HRESULT get_FirewallPrivateProfileSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) mut => VT.[Friend]get_FirewallPrivateProfileSubstatus(&this, peStatus);
 
-	public HRESULT get_FirewallPublicProfileSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS peStatus) mut => VT.[Friend]get_FirewallPublicProfileSubstatus(&this, peStatus);
+	public HRESULT get_FirewallPublicProfileSubstatus(WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) mut => VT.[Friend]get_FirewallPublicProfileSubstatus(&this, peStatus);
 }
 
 [CRepr]struct IWscProduct3 : IWscProduct2
@@ -163,11 +163,11 @@ public static
 
 	[CRepr]public struct VTable : IWscProduct2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct3*/SelfOuter* self, uint32 pdwDays) get_AntivirusDaysUntilExpired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct3*/SelfOuter* self, uint32* pdwDays) get_AntivirusDaysUntilExpired;
 	}
 
 
-	public HRESULT get_AntivirusDaysUntilExpired(uint32 pdwDays) mut => VT.[Friend]get_AntivirusDaysUntilExpired(&this, pdwDays);
+	public HRESULT get_AntivirusDaysUntilExpired(uint32* pdwDays) mut => VT.[Friend]get_AntivirusDaysUntilExpired(&this, pdwDays);
 }
 
 [CRepr]struct IWSCProductList : IDispatch
@@ -179,16 +179,16 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSCProductList*/SelfOuter* self, WSC_SECURITY_PROVIDER provider) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSCProductList*/SelfOuter* self, int32 pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSCProductList*/SelfOuter* self, uint32 index, IWscProduct* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSCProductList*/SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSCProductList*/SelfOuter* self, uint32 index, IWscProduct** pVal) get_Item;
 	}
 
 
 	public HRESULT Initialize(WSC_SECURITY_PROVIDER provider) mut => VT.[Friend]Initialize(&this, provider);
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get_Item(uint32 index, IWscProduct* pVal) mut => VT.[Friend]get_Item(&this, index, pVal);
+	public HRESULT get_Item(uint32 index, IWscProduct** pVal) mut => VT.[Friend]get_Item(&this, index, pVal);
 }
 
 [CRepr]struct IWSCDefaultProduct : IDispatch
@@ -212,7 +212,7 @@ public static
 public static
 {
 	[Import("WSCAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WscRegisterForChanges(void Reserved, HANDLE phCallbackRegistration, LPTHREAD_START_ROUTINE lpCallbackAddress, void pContext);
+	public static extern HRESULT WscRegisterForChanges(void* Reserved, HANDLE* phCallbackRegistration, LPTHREAD_START_ROUTINE lpCallbackAddress, void* pContext);
 
 	[Import("WSCAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WscUnRegisterChanges(HANDLE hRegistrationHandle);
@@ -221,7 +221,7 @@ public static
 	public static extern HRESULT WscRegisterForUserNotifications();
 
 	[Import("WSCAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WscGetSecurityProviderHealth(uint32 Providers, WSC_SECURITY_PROVIDER_HEALTH pHealth);
+	public static extern HRESULT WscGetSecurityProviderHealth(uint32 Providers, WSC_SECURITY_PROVIDER_HEALTH* pHealth);
 
 	[Import("WSCAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WscQueryAntiMalwareUri();

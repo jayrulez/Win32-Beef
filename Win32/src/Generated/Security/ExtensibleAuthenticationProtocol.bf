@@ -783,7 +783,7 @@ public enum EAP_AUTHENTICATOR_SEND_TIMEOUT : int32
 #endregion
 
 #region Function Pointers
-public function void NotificationHandler(Guid connectionId, void pContextData);
+public function void NotificationHandler(Guid connectionId, void* pContextData);
 
 #endregion
 
@@ -801,7 +801,7 @@ public struct RAS_AUTH_ATTRIBUTE
 {
 	public RAS_AUTH_ATTRIBUTE_TYPE raaType;
 	public uint32 dwLength;
-	public void Value;
+	public void* Value;
 }
 
 [CRepr]
@@ -822,17 +822,17 @@ public struct PPP_EAP_INPUT
 	public PWSTR pwszIdentity;
 	public PWSTR pwszPassword;
 	public uint8 bInitialId;
-	public RAS_AUTH_ATTRIBUTE pUserAttributes;
+	public RAS_AUTH_ATTRIBUTE* pUserAttributes;
 	public BOOL fAuthenticationComplete;
 	public uint32 dwAuthResultCode;
 	public HANDLE hTokenImpersonateUser;
 	public BOOL fSuccessPacketReceived;
 	public BOOL fDataReceivedFromInteractiveUI;
-	public uint8 pDataFromInteractiveUI;
+	public uint8* pDataFromInteractiveUI;
 	public uint32 dwSizeOfDataFromInteractiveUI;
-	public uint8 pConnectionData;
+	public uint8* pConnectionData;
 	public uint32 dwSizeOfConnectionData;
-	public uint8 pUserData;
+	public uint8* pUserData;
 	public uint32 dwSizeOfUserData;
 	public HANDLE hReserved;
 	public Guid guidConnectionId;
@@ -845,17 +845,17 @@ public struct PPP_EAP_OUTPUT
 	public uint32 dwSizeInBytes;
 	public PPP_EAP_ACTION Action;
 	public uint32 dwAuthResultCode;
-	public RAS_AUTH_ATTRIBUTE pUserAttributes;
+	public RAS_AUTH_ATTRIBUTE* pUserAttributes;
 	public BOOL fInvokeInteractiveUI;
-	public uint8 pUIContextData;
+	public uint8* pUIContextData;
 	public uint32 dwSizeOfUIContextData;
 	public BOOL fSaveConnectionData;
-	public uint8 pConnectionData;
+	public uint8* pConnectionData;
 	public uint32 dwSizeOfConnectionData;
 	public BOOL fSaveUserData;
-	public uint8 pUserData;
+	public uint8* pUserData;
 	public uint32 dwSizeOfUserData;
-	public NgcTicketContext pNgcKerbTicket;
+	public NgcTicketContext* pNgcKerbTicket;
 	public BOOL fSaveToCredMan;
 }
 
@@ -876,11 +876,11 @@ public struct LEGACY_IDENTITY_UI_PARAMS
 	public uint32 eapType;
 	public uint32 dwFlags;
 	public uint32 dwSizeofConnectionData;
-	public uint8 pConnectionData;
+	public uint8* pConnectionData;
 	public uint32 dwSizeofUserData;
-	public uint8 pUserData;
+	public uint8* pUserData;
 	public uint32 dwSizeofUserDataOut;
-	public uint8 pUserDataOut;
+	public uint8* pUserDataOut;
 	public PWSTR pwszIdentity;
 	public uint32 dwError;
 }
@@ -890,9 +890,9 @@ public struct LEGACY_INTERACTIVE_UI_PARAMS
 {
 	public uint32 eapType;
 	public uint32 dwSizeofContextData;
-	public uint8 pContextData;
+	public uint8* pContextData;
 	public uint32 dwSizeofInteractiveUIData;
-	public uint8 pInteractiveUIData;
+	public uint8* pInteractiveUIData;
 	public uint32 dwError;
 }
 
@@ -918,7 +918,7 @@ public struct EAP_METHOD_INFO
 	public PWSTR pwszAuthorName;
 	public PWSTR pwszFriendlyName;
 	public uint32 eapProperties;
-	public EAP_METHOD_INFO pInnerMethodInfo;
+	public EAP_METHOD_INFO* pInnerMethodInfo;
 }
 
 [CRepr]
@@ -928,21 +928,21 @@ public struct EAP_METHOD_INFO_EX
 	public PWSTR pwszAuthorName;
 	public PWSTR pwszFriendlyName;
 	public uint32 eapProperties;
-	public EAP_METHOD_INFO_ARRAY_EX pInnerMethodInfoArray;
+	public EAP_METHOD_INFO_ARRAY_EX* pInnerMethodInfoArray;
 }
 
 [CRepr]
 public struct EAP_METHOD_INFO_ARRAY
 {
 	public uint32 dwNumberOfMethods;
-	public EAP_METHOD_INFO pEapMethods;
+	public EAP_METHOD_INFO* pEapMethods;
 }
 
 [CRepr]
 public struct EAP_METHOD_INFO_ARRAY_EX
 {
 	public uint32 dwNumberOfMethods;
-	public EAP_METHOD_INFO_EX pEapMethods;
+	public EAP_METHOD_INFO_EX* pEapMethods;
 }
 
 [CRepr]
@@ -963,14 +963,14 @@ public struct EAP_ATTRIBUTE
 {
 	public EAP_ATTRIBUTE_TYPE eaType;
 	public uint32 dwLength;
-	public uint8 pValue;
+	public uint8* pValue;
 }
 
 [CRepr]
 public struct EAP_ATTRIBUTES
 {
 	public uint32 dwNumberOfAttributes;
-	public EAP_ATTRIBUTE pAttribs;
+	public EAP_ATTRIBUTE* pAttribs;
 }
 
 [CRepr]
@@ -990,7 +990,7 @@ public struct EAP_CONFIG_INPUT_FIELD_ARRAY
 {
 	public uint32 dwVersion;
 	public uint32 dwNumberOfFields;
-	public EAP_CONFIG_INPUT_FIELD_DATA pFields;
+	public EAP_CONFIG_INPUT_FIELD_DATA* pFields;
 }
 
 [CRepr]
@@ -1003,9 +1003,9 @@ public struct EAP_CRED_EXPIRY_REQ
 [CRepr, Union]
 public struct EAP_UI_DATA_FORMAT
 {
-	public EAP_CONFIG_INPUT_FIELD_ARRAY credData;
-	public EAP_CRED_EXPIRY_REQ credExpiryData;
-	public EAP_CONFIG_INPUT_FIELD_ARRAY credLogonData;
+	public EAP_CONFIG_INPUT_FIELD_ARRAY* credData;
+	public EAP_CRED_EXPIRY_REQ* credExpiryData;
+	public EAP_CONFIG_INPUT_FIELD_ARRAY* credLogonData;
 }
 
 [CRepr]
@@ -1036,7 +1036,7 @@ public struct EAP_METHOD_PROPERTY_VALUE_DWORD
 public struct EAP_METHOD_PROPERTY_VALUE_STRING
 {
 	public uint32 length;
-	public uint8 value;
+	public uint8* value;
 }
 
 [CRepr, Union]
@@ -1059,7 +1059,7 @@ public struct EAP_METHOD_PROPERTY
 public struct EAP_METHOD_PROPERTY_ARRAY
 {
 	public uint32 dwNumberOfProperties;
-	public EAP_METHOD_PROPERTY pMethodProperty;
+	public EAP_METHOD_PROPERTY* pMethodProperty;
 }
 
 [CRepr]
@@ -1068,25 +1068,25 @@ public struct EAPHOST_IDENTITY_UI_PARAMS
 	public EAP_METHOD_TYPE eapMethodType;
 	public uint32 dwFlags;
 	public uint32 dwSizeofConnectionData;
-	public uint8 pConnectionData;
+	public uint8* pConnectionData;
 	public uint32 dwSizeofUserData;
-	public uint8 pUserData;
+	public uint8* pUserData;
 	public uint32 dwSizeofUserDataOut;
-	public uint8 pUserDataOut;
+	public uint8* pUserDataOut;
 	public PWSTR pwszIdentity;
 	public uint32 dwError;
-	public EAP_ERROR pEapError;
+	public EAP_ERROR* pEapError;
 }
 
 [CRepr]
 public struct EAPHOST_INTERACTIVE_UI_PARAMS
 {
 	public uint32 dwSizeofContextData;
-	public uint8 pContextData;
+	public uint8* pContextData;
 	public uint32 dwSizeofInteractiveUIData;
-	public uint8 pInteractiveUIData;
+	public uint8* pInteractiveUIData;
 	public uint32 dwError;
-	public EAP_ERROR pEapError;
+	public EAP_ERROR* pEapError;
 }
 
 [CRepr]
@@ -1139,14 +1139,14 @@ public struct EapHostPeerMethodResult
 	public uint32 dwFailureReasonCode;
 	public BOOL fSaveConnectionData;
 	public uint32 dwSizeofConnectionData;
-	public uint8 pConnectionData;
+	public uint8* pConnectionData;
 	public BOOL fSaveUserData;
 	public uint32 dwSizeofUserData;
-	public uint8 pUserData;
-	public EAP_ATTRIBUTES pAttribArray;
+	public uint8* pUserData;
+	public EAP_ATTRIBUTES* pAttribArray;
 	public ISOLATION_STATE isolationState;
-	public EAP_METHOD_INFO pEapMethodInfo;
-	public EAP_ERROR pEapError;
+	public EAP_METHOD_INFO* pEapMethodInfo;
+	public EAP_ERROR* pEapError;
 }
 
 [CRepr]
@@ -1163,7 +1163,7 @@ public struct EAP_METHOD_AUTHENTICATOR_RESULT
 {
 	public BOOL fIsSuccess;
 	public uint32 dwFailureReason;
-	public EAP_ATTRIBUTES pAuthAttribs;
+	public EAP_ATTRIBUTES* pAuthAttribs;
 }
 
 [CRepr]
@@ -1180,13 +1180,13 @@ public struct EapPeerMethodResult
 	public uint32 dwFailureReasonCode;
 	public BOOL fSaveConnectionData;
 	public uint32 dwSizeofConnectionData;
-	public uint8 pConnectionData;
+	public uint8* pConnectionData;
 	public BOOL fSaveUserData;
 	public uint32 dwSizeofUserData;
-	public uint8 pUserData;
-	public EAP_ATTRIBUTES pAttribArray;
-	public EAP_ERROR pEapError;
-	public NgcTicketContext pNgcKerbTicket;
+	public uint8* pUserData;
+	public EAP_ATTRIBUTES* pAttribArray;
+	public EAP_ERROR* pEapError;
+	public NgcTicketContext* pNgcKerbTicket;
 	public BOOL fSaveToCredMan;
 }
 
@@ -1194,7 +1194,7 @@ public struct EapPeerMethodResult
 public struct EAP_PEER_METHOD_ROUTINES
 {
 	public uint32 dwVersion;
-	public EAP_TYPE pEapType;
+	public EAP_TYPE* pEapType;
 	public int EapPeerInitialize;
 	public int EapPeerGetIdentity;
 	public int EapPeerBeginSession;
@@ -1214,7 +1214,7 @@ public struct EAP_PEER_METHOD_ROUTINES
 public struct EAP_AUTHENTICATOR_METHOD_ROUTINES
 {
 	public uint32 dwSizeInBytes;
-	public EAP_METHOD_TYPE pEapType;
+	public EAP_METHOD_TYPE* pEapType;
 	public int EapMethodAuthenticatorInitialize;
 	public int EapMethodAuthenticatorBeginSession;
 	public int EapMethodAuthenticatorUpdateInnerMethodParams;
@@ -1262,7 +1262,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAuthenticationProviderConfig*/SelfOuter* self, PWSTR pszMachineName, uint puConnectionParam) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAuthenticationProviderConfig*/SelfOuter* self, PWSTR pszMachineName, uint* puConnectionParam) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAuthenticationProviderConfig*/SelfOuter* self, uint uConnectionParam) Uninitialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAuthenticationProviderConfig*/SelfOuter* self, uint uConnectionParam, HWND hWnd, uint32 dwFlags, uint uReserved1, uint uReserved2) Configure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAuthenticationProviderConfig*/SelfOuter* self, uint uConnectionParam, uint uReserved1, uint uReserved2) Activate;
@@ -1270,7 +1270,7 @@ public static
 	}
 
 
-	public HRESULT Initialize(PWSTR pszMachineName, uint puConnectionParam) mut => VT.[Friend]Initialize(&this, pszMachineName, puConnectionParam);
+	public HRESULT Initialize(PWSTR pszMachineName, uint* puConnectionParam) mut => VT.[Friend]Initialize(&this, pszMachineName, puConnectionParam);
 
 	public HRESULT Uninitialize(uint uConnectionParam) mut => VT.[Friend]Uninitialize(&this, uConnectionParam);
 
@@ -1289,7 +1289,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountingProviderConfig*/SelfOuter* self, PWSTR pszMachineName, uint puConnectionParam) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountingProviderConfig*/SelfOuter* self, PWSTR pszMachineName, uint* puConnectionParam) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountingProviderConfig*/SelfOuter* self, uint uConnectionParam) Uninitialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountingProviderConfig*/SelfOuter* self, uint uConnectionParam, HWND hWnd, uint32 dwFlags, uint uReserved1, uint uReserved2) Configure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountingProviderConfig*/SelfOuter* self, uint uConnectionParam, uint uReserved1, uint uReserved2) Activate;
@@ -1297,7 +1297,7 @@ public static
 	}
 
 
-	public HRESULT Initialize(PWSTR pszMachineName, uint puConnectionParam) mut => VT.[Friend]Initialize(&this, pszMachineName, puConnectionParam);
+	public HRESULT Initialize(PWSTR pszMachineName, uint* puConnectionParam) mut => VT.[Friend]Initialize(&this, pszMachineName, puConnectionParam);
 
 	public HRESULT Uninitialize(uint uConnectionParam) mut => VT.[Friend]Uninitialize(&this, uConnectionParam);
 
@@ -1316,23 +1316,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, PWSTR pszMachineName, uint32 dwEapTypeId, uint puConnectionParam) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, PWSTR pszMachineName, uint32 dwEapTypeId, uint* puConnectionParam) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam) Uninitialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint uReserved1, uint uReserved2) ServerInvokeConfigUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8* ppConnectionDataOut, uint32 pdwSizeOfConnectionDataOut) RouterInvokeConfigUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8* pUserDataIn, uint32 dwSizeOfUserDataIn, uint8* ppUserDataOut, uint32 pdwSizeOfUserDataOut) RouterInvokeCredentialsUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8** ppConnectionDataOut, uint32* pdwSizeOfConnectionDataOut) RouterInvokeConfigUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8* pUserDataIn, uint32 dwSizeOfUserDataIn, uint8** ppUserDataOut, uint32* pdwSizeOfUserDataOut) RouterInvokeCredentialsUI;
 	}
 
 
-	public HRESULT Initialize(PWSTR pszMachineName, uint32 dwEapTypeId, uint puConnectionParam) mut => VT.[Friend]Initialize(&this, pszMachineName, dwEapTypeId, puConnectionParam);
+	public HRESULT Initialize(PWSTR pszMachineName, uint32 dwEapTypeId, uint* puConnectionParam) mut => VT.[Friend]Initialize(&this, pszMachineName, dwEapTypeId, puConnectionParam);
 
 	public HRESULT Uninitialize(uint32 dwEapTypeId, uint uConnectionParam) mut => VT.[Friend]Uninitialize(&this, dwEapTypeId, uConnectionParam);
 
 	public HRESULT ServerInvokeConfigUI(uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint uReserved1, uint uReserved2) mut => VT.[Friend]ServerInvokeConfigUI(&this, dwEapTypeId, uConnectionParam, hWnd, uReserved1, uReserved2);
 
-	public HRESULT RouterInvokeConfigUI(uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8* ppConnectionDataOut, uint32 pdwSizeOfConnectionDataOut) mut => VT.[Friend]RouterInvokeConfigUI(&this, dwEapTypeId, uConnectionParam, hwndParent, dwFlags, pConnectionDataIn, dwSizeOfConnectionDataIn, ppConnectionDataOut, pdwSizeOfConnectionDataOut);
+	public HRESULT RouterInvokeConfigUI(uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8** ppConnectionDataOut, uint32* pdwSizeOfConnectionDataOut) mut => VT.[Friend]RouterInvokeConfigUI(&this, dwEapTypeId, uConnectionParam, hwndParent, dwFlags, pConnectionDataIn, dwSizeOfConnectionDataIn, ppConnectionDataOut, pdwSizeOfConnectionDataOut);
 
-	public HRESULT RouterInvokeCredentialsUI(uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8* pUserDataIn, uint32 dwSizeOfUserDataIn, uint8* ppUserDataOut, uint32 pdwSizeOfUserDataOut) mut => VT.[Friend]RouterInvokeCredentialsUI(&this, dwEapTypeId, uConnectionParam, hwndParent, dwFlags, pConnectionDataIn, dwSizeOfConnectionDataIn, pUserDataIn, dwSizeOfUserDataIn, ppUserDataOut, pdwSizeOfUserDataOut);
+	public HRESULT RouterInvokeCredentialsUI(uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8* pUserDataIn, uint32 dwSizeOfUserDataIn, uint8** ppUserDataOut, uint32* pdwSizeOfUserDataOut) mut => VT.[Friend]RouterInvokeCredentialsUI(&this, dwEapTypeId, uConnectionParam, hwndParent, dwFlags, pConnectionDataIn, dwSizeOfConnectionDataIn, pUserDataIn, dwSizeOfUserDataIn, ppUserDataOut, pdwSizeOfUserDataOut);
 }
 
 [CRepr]struct IEAPProviderConfig2 : IEAPProviderConfig
@@ -1343,14 +1343,14 @@ public static
 
 	[CRepr]public struct VTable : IEAPProviderConfig.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig2*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8 pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8 ppConfigDataOut, uint32 pdwSizeOfConfigDataOut) ServerInvokeConfigUI2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig2*/SelfOuter* self, uint32 dwEapTypeId, uint8 ppConfigDataOut, uint32 pdwSizeOfConfigDataOut) GetGlobalConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig2*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8* pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut) ServerInvokeConfigUI2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig2*/SelfOuter* self, uint32 dwEapTypeId, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut) GetGlobalConfig;
 	}
 
 
-	public HRESULT ServerInvokeConfigUI2(uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8 pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8 ppConfigDataOut, uint32 pdwSizeOfConfigDataOut) mut => VT.[Friend]ServerInvokeConfigUI2(&this, dwEapTypeId, uConnectionParam, hWnd, pConfigDataIn, dwSizeOfConfigDataIn, ppConfigDataOut, pdwSizeOfConfigDataOut);
+	public HRESULT ServerInvokeConfigUI2(uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8* pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut) mut => VT.[Friend]ServerInvokeConfigUI2(&this, dwEapTypeId, uConnectionParam, hWnd, pConfigDataIn, dwSizeOfConfigDataIn, ppConfigDataOut, pdwSizeOfConfigDataOut);
 
-	public HRESULT GetGlobalConfig(uint32 dwEapTypeId, uint8 ppConfigDataOut, uint32 pdwSizeOfConfigDataOut) mut => VT.[Friend]GetGlobalConfig(&this, dwEapTypeId, ppConfigDataOut, pdwSizeOfConfigDataOut);
+	public HRESULT GetGlobalConfig(uint32 dwEapTypeId, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut) mut => VT.[Friend]GetGlobalConfig(&this, dwEapTypeId, ppConfigDataOut, pdwSizeOfConfigDataOut);
 }
 
 [CRepr]struct IEAPProviderConfig3 : IEAPProviderConfig2
@@ -1361,11 +1361,11 @@ public static
 
 	[CRepr]public struct VTable : IEAPProviderConfig2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig3*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8 pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8 ppConfigDataOut, uint32 pdwSizeOfConfigDataOut, uint uReserved) ServerInvokeCertificateConfigUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig3*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8* pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut, uint uReserved) ServerInvokeCertificateConfigUI;
 	}
 
 
-	public HRESULT ServerInvokeCertificateConfigUI(uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8 pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8 ppConfigDataOut, uint32 pdwSizeOfConfigDataOut, uint uReserved) mut => VT.[Friend]ServerInvokeCertificateConfigUI(&this, dwEapTypeId, uConnectionParam, hWnd, pConfigDataIn, dwSizeOfConfigDataIn, ppConfigDataOut, pdwSizeOfConfigDataOut, uReserved);
+	public HRESULT ServerInvokeCertificateConfigUI(uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8* pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut, uint uReserved) mut => VT.[Friend]ServerInvokeCertificateConfigUI(&this, dwEapTypeId, uConnectionParam, hWnd, pConfigDataIn, dwSizeOfConfigDataIn, ppConfigDataOut, pdwSizeOfConfigDataOut, uReserved);
 }
 
 #endregion
@@ -1374,46 +1374,46 @@ public static
 public static
 {
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetMethods(EAP_METHOD_INFO_ARRAY pEapMethodInfoArray, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerGetMethods(EAP_METHOD_INFO_ARRAY* pEapMethodInfoArray, EAP_ERROR** ppEapError);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetMethodProperties(uint32 dwVersion, uint32 dwFlags, EAP_METHOD_TYPE eapMethodType, HANDLE hUserImpersonationToken, uint32 dwEapConnDataSize, uint8* pbEapConnData, uint32 dwUserDataSize, uint8* pbUserData, EAP_METHOD_PROPERTY_ARRAY pMethodPropertyArray, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerGetMethodProperties(uint32 dwVersion, uint32 dwFlags, EAP_METHOD_TYPE eapMethodType, HANDLE hUserImpersonationToken, uint32 dwEapConnDataSize, uint8* pbEapConnData, uint32 dwUserDataSize, uint8* pbUserData, EAP_METHOD_PROPERTY_ARRAY* pMethodPropertyArray, EAP_ERROR** ppEapError);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerInvokeConfigUI(HWND hwndParent, uint32 dwFlags, EAP_METHOD_TYPE eapMethodType, uint32 dwSizeOfConfigIn, uint8* pConfigIn, uint32 pdwSizeOfConfigOut, uint8 ppConfigOut, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerInvokeConfigUI(HWND hwndParent, uint32 dwFlags, EAP_METHOD_TYPE eapMethodType, uint32 dwSizeOfConfigIn, uint8* pConfigIn, uint32* pdwSizeOfConfigOut, uint8** ppConfigOut, EAP_ERROR** ppEapError);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerQueryCredentialInputFields(HANDLE hUserImpersonationToken, EAP_METHOD_TYPE eapMethodType, uint32 dwFlags, uint32 dwEapConnDataSize, uint8* pbEapConnData, EAP_CONFIG_INPUT_FIELD_ARRAY pEapConfigInputFieldArray, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerQueryCredentialInputFields(HANDLE hUserImpersonationToken, EAP_METHOD_TYPE eapMethodType, uint32 dwFlags, uint32 dwEapConnDataSize, uint8* pbEapConnData, EAP_CONFIG_INPUT_FIELD_ARRAY* pEapConfigInputFieldArray, EAP_ERROR** ppEapError);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerQueryUserBlobFromCredentialInputFields(HANDLE hUserImpersonationToken, EAP_METHOD_TYPE eapMethodType, uint32 dwFlags, uint32 dwEapConnDataSize, uint8* pbEapConnData, EAP_CONFIG_INPUT_FIELD_ARRAY pEapConfigInputFieldArray, uint32 pdwUserBlobSize, uint8* ppbUserBlob, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerQueryUserBlobFromCredentialInputFields(HANDLE hUserImpersonationToken, EAP_METHOD_TYPE eapMethodType, uint32 dwFlags, uint32 dwEapConnDataSize, uint8* pbEapConnData, EAP_CONFIG_INPUT_FIELD_ARRAY* pEapConfigInputFieldArray, uint32* pdwUserBlobSize, uint8** ppbUserBlob, EAP_ERROR** ppEapError);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerInvokeIdentityUI(uint32 dwVersion, EAP_METHOD_TYPE eapMethodType, uint32 dwFlags, HWND hwndParent, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, uint32 pdwSizeOfUserDataOut, uint8 ppUserDataOut, PWSTR ppwszIdentity, EAP_ERROR ppEapError, void ppvReserved);
+	public static extern uint32 EapHostPeerInvokeIdentityUI(uint32 dwVersion, EAP_METHOD_TYPE eapMethodType, uint32 dwFlags, HWND hwndParent, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, uint32* pdwSizeOfUserDataOut, uint8** ppUserDataOut, PWSTR ppwszIdentity, EAP_ERROR** ppEapError, void** ppvReserved);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerInvokeInteractiveUI(HWND hwndParent, uint32 dwSizeofUIContextData, uint8* pUIContextData, uint32 pdwSizeOfDataFromInteractiveUI, uint8 ppDataFromInteractiveUI, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerInvokeInteractiveUI(HWND hwndParent, uint32 dwSizeofUIContextData, uint8* pUIContextData, uint32* pdwSizeOfDataFromInteractiveUI, uint8** ppDataFromInteractiveUI, EAP_ERROR** ppEapError);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerQueryInteractiveUIInputFields(uint32 dwVersion, uint32 dwFlags, uint32 dwSizeofUIContextData, uint8* pUIContextData, EAP_INTERACTIVE_UI_DATA pEapInteractiveUIData, EAP_ERROR ppEapError, void ppvReserved);
+	public static extern uint32 EapHostPeerQueryInteractiveUIInputFields(uint32 dwVersion, uint32 dwFlags, uint32 dwSizeofUIContextData, uint8* pUIContextData, EAP_INTERACTIVE_UI_DATA* pEapInteractiveUIData, EAP_ERROR** ppEapError, void** ppvReserved);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerQueryUIBlobFromInteractiveUIInputFields(uint32 dwVersion, uint32 dwFlags, uint32 dwSizeofUIContextData, uint8* pUIContextData, EAP_INTERACTIVE_UI_DATA pEapInteractiveUIData, uint32 pdwSizeOfDataFromInteractiveUI, uint8 ppDataFromInteractiveUI, EAP_ERROR ppEapError, void ppvReserved);
+	public static extern uint32 EapHostPeerQueryUIBlobFromInteractiveUIInputFields(uint32 dwVersion, uint32 dwFlags, uint32 dwSizeofUIContextData, uint8* pUIContextData, EAP_INTERACTIVE_UI_DATA* pEapInteractiveUIData, uint32* pdwSizeOfDataFromInteractiveUI, uint8** ppDataFromInteractiveUI, EAP_ERROR** ppEapError, void** ppvReserved);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerConfigXml2Blob(uint32 dwFlags, IXMLDOMNode* pConfigDoc, uint32 pdwSizeOfConfigOut, uint8 ppConfigOut, EAP_METHOD_TYPE pEapMethodType, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerConfigXml2Blob(uint32 dwFlags, IXMLDOMNode* pConfigDoc, uint32* pdwSizeOfConfigOut, uint8** ppConfigOut, EAP_METHOD_TYPE* pEapMethodType, EAP_ERROR** ppEapError);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerCredentialsXml2Blob(uint32 dwFlags, IXMLDOMNode* pCredentialsDoc, uint32 dwSizeOfConfigIn, uint8* pConfigIn, uint32 pdwSizeOfCredentialsOut, uint8 ppCredentialsOut, EAP_METHOD_TYPE pEapMethodType, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerCredentialsXml2Blob(uint32 dwFlags, IXMLDOMNode* pCredentialsDoc, uint32 dwSizeOfConfigIn, uint8* pConfigIn, uint32* pdwSizeOfCredentialsOut, uint8** ppCredentialsOut, EAP_METHOD_TYPE* pEapMethodType, EAP_ERROR** ppEapError);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerConfigBlob2Xml(uint32 dwFlags, EAP_METHOD_TYPE eapMethodType, uint32 dwSizeOfConfigIn, uint8* pConfigIn, IXMLDOMDocument2* ppConfigDoc, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerConfigBlob2Xml(uint32 dwFlags, EAP_METHOD_TYPE eapMethodType, uint32 dwSizeOfConfigIn, uint8* pConfigIn, IXMLDOMDocument2** ppConfigDoc, EAP_ERROR** ppEapError);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void EapHostPeerFreeMemory(uint8 pData);
+	public static extern void EapHostPeerFreeMemory(uint8* pData);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void EapHostPeerFreeErrorMemory(EAP_ERROR pEapError);
+	public static extern void EapHostPeerFreeErrorMemory(EAP_ERROR* pEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EapHostPeerInitialize();
@@ -1422,52 +1422,52 @@ public static
 	public static extern void EapHostPeerUninitialize();
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerBeginSession(uint32 dwFlags, EAP_METHOD_TYPE eapType, EAP_ATTRIBUTES pAttributeArray, HANDLE hTokenImpersonateUser, uint32 dwSizeofConnectionData, uint8 pConnectionData, uint32 dwSizeofUserData, uint8 pUserData, uint32 dwMaxSendPacketSize, Guid pConnectionId, NotificationHandler func, void pContextData, uint32 pSessionId, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerBeginSession(uint32 dwFlags, EAP_METHOD_TYPE eapType, EAP_ATTRIBUTES* pAttributeArray, HANDLE hTokenImpersonateUser, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, uint32 dwMaxSendPacketSize, Guid pConnectionId, NotificationHandler func, void* pContextData, uint32* pSessionId, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerProcessReceivedPacket(uint32 sessionHandle, uint32 cbReceivePacket, uint8 pReceivePacket, EapHostPeerResponseAction pEapOutput, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerProcessReceivedPacket(uint32 sessionHandle, uint32 cbReceivePacket, uint8* pReceivePacket, EapHostPeerResponseAction* pEapOutput, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetSendPacket(uint32 sessionHandle, uint32 pcbSendPacket, uint8 ppSendPacket, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerGetSendPacket(uint32 sessionHandle, uint32* pcbSendPacket, uint8** ppSendPacket, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetResult(uint32 sessionHandle, EapHostPeerMethodResultReason reason, EapHostPeerMethodResult ppResult, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerGetResult(uint32 sessionHandle, EapHostPeerMethodResultReason reason, EapHostPeerMethodResult* ppResult, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetUIContext(uint32 sessionHandle, uint32 pdwSizeOfUIContextData, uint8 ppUIContextData, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerGetUIContext(uint32 sessionHandle, uint32* pdwSizeOfUIContextData, uint8** ppUIContextData, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerSetUIContext(uint32 sessionHandle, uint32 dwSizeOfUIContextData, uint8 pUIContextData, EapHostPeerResponseAction pEapOutput, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerSetUIContext(uint32 sessionHandle, uint32 dwSizeOfUIContextData, uint8* pUIContextData, EapHostPeerResponseAction* pEapOutput, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetResponseAttributes(uint32 sessionHandle, EAP_ATTRIBUTES pAttribs, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerGetResponseAttributes(uint32 sessionHandle, EAP_ATTRIBUTES* pAttribs, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerSetResponseAttributes(uint32 sessionHandle, EAP_ATTRIBUTES pAttribs, EapHostPeerResponseAction pEapOutput, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerSetResponseAttributes(uint32 sessionHandle, EAP_ATTRIBUTES* pAttribs, EapHostPeerResponseAction* pEapOutput, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetAuthStatus(uint32 sessionHandle, EapHostPeerAuthParams authParam, uint32 pcbAuthData, uint8 ppAuthData, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerGetAuthStatus(uint32 sessionHandle, EapHostPeerAuthParams authParam, uint32* pcbAuthData, uint8** ppAuthData, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerEndSession(uint32 sessionHandle, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerEndSession(uint32 sessionHandle, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetDataToUnplumbCredentials(Guid pConnectionIdThatLastSavedCreds, int phCredentialImpersonationToken, uint32 sessionHandle, EAP_ERROR ppEapError, BOOL fSaveToCredMan);
+	public static extern uint32 EapHostPeerGetDataToUnplumbCredentials(Guid pConnectionIdThatLastSavedCreds, int* phCredentialImpersonationToken, uint32 sessionHandle, EAP_ERROR** ppEapError, BOOL* fSaveToCredMan);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerClearConnection(Guid pConnectionId, EAP_ERROR ppEapError);
+	public static extern uint32 EapHostPeerClearConnection(Guid pConnectionId, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void EapHostPeerFreeEapError(EAP_ERROR pEapError);
+	public static extern void EapHostPeerFreeEapError(EAP_ERROR* pEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetIdentity(uint32 dwVersion, uint32 dwFlags, EAP_METHOD_TYPE eapMethodType, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, HANDLE hTokenImpersonateUser, BOOL pfInvokeUI, uint32 pdwSizeOfUserDataOut, uint8 ppUserDataOut, PWSTR ppwszIdentity, EAP_ERROR ppEapError, uint8 ppvReserved);
+	public static extern uint32 EapHostPeerGetIdentity(uint32 dwVersion, uint32 dwFlags, EAP_METHOD_TYPE eapMethodType, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, HANDLE hTokenImpersonateUser, BOOL* pfInvokeUI, uint32* pdwSizeOfUserDataOut, uint8** ppUserDataOut, PWSTR ppwszIdentity, EAP_ERROR** ppEapError, uint8** ppvReserved);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EapHostPeerGetEncryptedPassword(uint32 dwSizeofPassword, PWSTR szPassword, PWSTR ppszEncPassword);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void EapHostPeerFreeRuntimeMemory(uint8 pData);
+	public static extern void EapHostPeerFreeRuntimeMemory(uint8* pData);
 
 }
 #endregion

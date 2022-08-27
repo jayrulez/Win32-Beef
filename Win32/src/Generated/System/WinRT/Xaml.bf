@@ -55,14 +55,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNative*/SelfOuter* self, IDXGIDevice* device) SetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNative*/SelfOuter* self, RECT updateRect, IDXGISurface* surface, POINT offset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNative*/SelfOuter* self, RECT updateRect, IDXGISurface** surface, POINT* offset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNative*/SelfOuter* self) EndDraw;
 	}
 
 
 	public HRESULT SetDevice(IDXGIDevice* device) mut => VT.[Friend]SetDevice(&this, device);
 
-	public HRESULT BeginDraw(RECT updateRect, IDXGISurface* surface, POINT offset) mut => VT.[Friend]BeginDraw(&this, updateRect, surface, offset);
+	public HRESULT BeginDraw(RECT updateRect, IDXGISurface** surface, POINT* offset) mut => VT.[Friend]BeginDraw(&this, updateRect, surface, offset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 }
@@ -91,9 +91,9 @@ public static
 	[CRepr]public struct VTable : ISurfaceImageSourceNative.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, RECT updateRect) Invalidate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, uint32 count) GetUpdateRectCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, uint32* count) GetUpdateRectCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, RECT* updates, uint32 count) GetUpdateRects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, RECT bounds) GetVisibleBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, RECT* bounds) GetVisibleBounds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, IVirtualSurfaceUpdatesCallbackNative* callback) RegisterForUpdatesNeeded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, int32 newWidth, int32 newHeight) Resize;
 	}
@@ -101,11 +101,11 @@ public static
 
 	public HRESULT Invalidate(RECT updateRect) mut => VT.[Friend]Invalidate(&this, updateRect);
 
-	public HRESULT GetUpdateRectCount(uint32 count) mut => VT.[Friend]GetUpdateRectCount(&this, count);
+	public HRESULT GetUpdateRectCount(uint32* count) mut => VT.[Friend]GetUpdateRectCount(&this, count);
 
 	public HRESULT GetUpdateRects(RECT* updates, uint32 count) mut => VT.[Friend]GetUpdateRects(&this, updates, count);
 
-	public HRESULT GetVisibleBounds(RECT bounds) mut => VT.[Friend]GetVisibleBounds(&this, bounds);
+	public HRESULT GetVisibleBounds(RECT* bounds) mut => VT.[Friend]GetVisibleBounds(&this, bounds);
 
 	public HRESULT RegisterForUpdatesNeeded(IVirtualSurfaceUpdatesCallbackNative* callback) mut => VT.[Friend]RegisterForUpdatesNeeded(&this, callback);
 
@@ -151,7 +151,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self, IUnknown* device) SetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self, RECT updateRect, Guid iid, void updateObject, POINT offset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self, RECT* updateRect, Guid iid, void** updateObject, POINT* offset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self) SuspendDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self) ResumeDraw;
@@ -160,7 +160,7 @@ public static
 
 	public HRESULT SetDevice(IUnknown* device) mut => VT.[Friend]SetDevice(&this, device);
 
-	public HRESULT BeginDraw(RECT updateRect, Guid iid, void updateObject, POINT offset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, offset);
+	public HRESULT BeginDraw(RECT* updateRect, Guid iid, void** updateObject, POINT* offset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, offset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 
@@ -208,13 +208,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWindowXamlSourceNative*/SelfOuter* self, HWND parentWnd) AttachToWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWindowXamlSourceNative*/SelfOuter* self, HWND hWnd) get_WindowHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWindowXamlSourceNative*/SelfOuter* self, HWND* hWnd) get_WindowHandle;
 	}
 
 
 	public HRESULT AttachToWindow(HWND parentWnd) mut => VT.[Friend]AttachToWindow(&this, parentWnd);
 
-	public HRESULT get_WindowHandle(HWND hWnd) mut => VT.[Friend]get_WindowHandle(&this, hWnd);
+	public HRESULT get_WindowHandle(HWND* hWnd) mut => VT.[Friend]get_WindowHandle(&this, hWnd);
 }
 
 [CRepr]struct IDesktopWindowXamlSourceNative2 : IDesktopWindowXamlSourceNative
@@ -225,11 +225,11 @@ public static
 
 	[CRepr]public struct VTable : IDesktopWindowXamlSourceNative.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWindowXamlSourceNative2*/SelfOuter* self, MSG message, BOOL result) PreTranslateMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWindowXamlSourceNative2*/SelfOuter* self, MSG* message, BOOL* result) PreTranslateMessage;
 	}
 
 
-	public HRESULT PreTranslateMessage(MSG message, BOOL result) mut => VT.[Friend]PreTranslateMessage(&this, message, result);
+	public HRESULT PreTranslateMessage(MSG* message, BOOL* result) mut => VT.[Friend]PreTranslateMessage(&this, message, result);
 }
 
 [CRepr]struct IReferenceTrackerTarget : IUnknown
@@ -267,7 +267,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self) ConnectFromTrackerSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self) DisconnectFromTrackerSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self, IFindReferenceTargetsCallback* callback) FindTrackerTargets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self, IReferenceTrackerManager* value) GetReferenceTrackerManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self, IReferenceTrackerManager** value) GetReferenceTrackerManager;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self) AddRefFromTrackerSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self) ReleaseFromTrackerSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self) PegFromTrackerSource;
@@ -280,7 +280,7 @@ public static
 
 	public HRESULT FindTrackerTargets(IFindReferenceTargetsCallback* callback) mut => VT.[Friend]FindTrackerTargets(&this, callback);
 
-	public HRESULT GetReferenceTrackerManager(IReferenceTrackerManager* value) mut => VT.[Friend]GetReferenceTrackerManager(&this, value);
+	public HRESULT GetReferenceTrackerManager(IReferenceTrackerManager** value) mut => VT.[Friend]GetReferenceTrackerManager(&this, value);
 
 	public HRESULT AddRefFromTrackerSource() mut => VT.[Friend]AddRefFromTrackerSource(&this);
 
@@ -339,7 +339,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self, XAML_REFERENCETRACKER_DISCONNECT options) DisconnectUnusedReferenceSources;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self) ReleaseDisconnectedReferenceSources;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self) NotifyEndOfReferenceTrackingOnThread;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self, IUnknown* unknown, IReferenceTrackerTarget* newReference) GetTrackerTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self, IUnknown* unknown, IReferenceTrackerTarget** newReference) GetTrackerTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self, uint64 bytesAllocated) AddMemoryPressure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self, uint64 bytesAllocated) RemoveMemoryPressure;
 	}
@@ -351,7 +351,7 @@ public static
 
 	public HRESULT NotifyEndOfReferenceTrackingOnThread() mut => VT.[Friend]NotifyEndOfReferenceTrackingOnThread(&this);
 
-	public HRESULT GetTrackerTarget(IUnknown* unknown, IReferenceTrackerTarget* newReference) mut => VT.[Friend]GetTrackerTarget(&this, unknown, newReference);
+	public HRESULT GetTrackerTarget(IUnknown* unknown, IReferenceTrackerTarget** newReference) mut => VT.[Friend]GetTrackerTarget(&this, unknown, newReference);
 
 	public HRESULT AddMemoryPressure(uint64 bytesAllocated) mut => VT.[Friend]AddMemoryPressure(&this, bytesAllocated);
 
@@ -378,20 +378,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__ returnValue) CreateTrackerHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__ handle) DeleteTrackerHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__ handle, IUnknown* value) SetTrackerValue;
-		protected new function [CallingConvention(.Stdcall)] uint8(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__ handle, IUnknown* returnValue) TryGetSafeTrackerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__** returnValue) CreateTrackerHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__* handle) DeleteTrackerHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__* handle, IUnknown* value) SetTrackerValue;
+		protected new function [CallingConvention(.Stdcall)] uint8(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__* handle, IUnknown** returnValue) TryGetSafeTrackerValue;
 	}
 
 
-	public HRESULT CreateTrackerHandle(TrackerHandle__ returnValue) mut => VT.[Friend]CreateTrackerHandle(&this, returnValue);
+	public HRESULT CreateTrackerHandle(TrackerHandle__** returnValue) mut => VT.[Friend]CreateTrackerHandle(&this, returnValue);
 
-	public HRESULT DeleteTrackerHandle(TrackerHandle__ handle) mut => VT.[Friend]DeleteTrackerHandle(&this, handle);
+	public HRESULT DeleteTrackerHandle(TrackerHandle__* handle) mut => VT.[Friend]DeleteTrackerHandle(&this, handle);
 
-	public HRESULT SetTrackerValue(TrackerHandle__ handle, IUnknown* value) mut => VT.[Friend]SetTrackerValue(&this, handle, value);
+	public HRESULT SetTrackerValue(TrackerHandle__* handle, IUnknown* value) mut => VT.[Friend]SetTrackerValue(&this, handle, value);
 
-	public uint8 TryGetSafeTrackerValue(TrackerHandle__ handle, IUnknown* returnValue) mut => VT.[Friend]TryGetSafeTrackerValue(&this, handle, returnValue);
+	public uint8 TryGetSafeTrackerValue(TrackerHandle__* handle, IUnknown** returnValue) mut => VT.[Friend]TryGetSafeTrackerValue(&this, handle, returnValue);
 }
 
 #endregion

@@ -1301,17 +1301,17 @@ public enum TDH_CONTEXT_TYPE : int32
 #endregion
 
 #region Function Pointers
-public function uint32 PEVENT_TRACE_BUFFER_CALLBACKW(EVENT_TRACE_LOGFILEW Logfile);
+public function uint32 PEVENT_TRACE_BUFFER_CALLBACKW(EVENT_TRACE_LOGFILEW* Logfile);
 
-public function uint32 PEVENT_TRACE_BUFFER_CALLBACKA(EVENT_TRACE_LOGFILEA Logfile);
+public function uint32 PEVENT_TRACE_BUFFER_CALLBACKA(EVENT_TRACE_LOGFILEA* Logfile);
 
-public function void PEVENT_CALLBACK(EVENT_TRACE pEvent);
+public function void PEVENT_CALLBACK(EVENT_TRACE* pEvent);
 
-public function void PEVENT_RECORD_CALLBACK(EVENT_RECORD EventRecord);
+public function void PEVENT_RECORD_CALLBACK(EVENT_RECORD* EventRecord);
 
-public function uint32 WMIDPREQUEST(WMIDPREQUESTCODE RequestCode, void RequestContext, uint32 BufferSize, void Buffer);
+public function uint32 WMIDPREQUEST(WMIDPREQUESTCODE RequestCode, void* RequestContext, uint32* BufferSize, void* Buffer);
 
-public function void PENABLECALLBACK(Guid SourceId, ENABLECALLBACK_ENABLED_STATE IsEnabled, uint8 Level, uint64 MatchAnyKeyword, uint64 MatchAllKeyword, EVENT_FILTER_DESCRIPTOR FilterData, void CallbackContext);
+public function void PENABLECALLBACK(Guid SourceId, ENABLECALLBACK_ENABLED_STATE IsEnabled, uint8 Level, uint64 MatchAnyKeyword, uint64 MatchAllKeyword, EVENT_FILTER_DESCRIPTOR* FilterData, void* CallbackContext);
 
 #endregion
 
@@ -1871,7 +1871,7 @@ public struct EVENT_TRACE_PROPERTIES_V2
 	public uint32 LoggerNameOffset;
 	public _Anonymous2_e__Union Anonymous2;
 	public uint32 FilterDescCount;
-	public EVENT_FILTER_DESCRIPTOR FilterDesc;
+	public EVENT_FILTER_DESCRIPTOR* FilterDesc;
 	public _Anonymous3_e__Union Anonymous3;
 }
 
@@ -1984,7 +1984,7 @@ public struct EVENT_TRACE
 	public uint32 InstanceId;
 	public uint32 ParentInstanceId;
 	public Guid ParentGuid;
-	public void MofData;
+	public void* MofData;
 	public uint32 MofLength;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -2019,7 +2019,7 @@ public struct EVENT_TRACE_LOGFILEW
 	public uint32 EventsLost;
 	public _Anonymous2_e__Union Anonymous2;
 	public uint32 IsKernelTrace;
-	public void Context;
+	public void* Context;
 }
 
 [CRepr]
@@ -2052,7 +2052,7 @@ public struct EVENT_TRACE_LOGFILEA
 	public uint32 EventsLost;
 	public _Anonymous2_e__Union Anonymous2;
 	public uint32 IsKernelTrace;
-	public void Context;
+	public void* Context;
 }
 
 [CRepr]
@@ -2062,7 +2062,7 @@ public struct ENABLE_TRACE_PARAMETERS_V1
 	public uint32 EnableProperty;
 	public uint32 ControlFlags;
 	public Guid SourceId;
-	public EVENT_FILTER_DESCRIPTOR EnableFilterDesc;
+	public EVENT_FILTER_DESCRIPTOR* EnableFilterDesc;
 }
 
 [CRepr]
@@ -2072,7 +2072,7 @@ public struct ENABLE_TRACE_PARAMETERS
 	public uint32 EnableProperty;
 	public uint32 ControlFlags;
 	public Guid SourceId;
-	public EVENT_FILTER_DESCRIPTOR EnableFilterDesc;
+	public EVENT_FILTER_DESCRIPTOR* EnableFilterDesc;
 	public uint32 FilterDescCount;
 }
 
@@ -2341,9 +2341,9 @@ public struct EVENT_RECORD
 	public ETW_BUFFER_CONTEXT BufferContext;
 	public uint16 ExtendedDataCount;
 	public uint16 UserDataLength;
-	public EVENT_HEADER_EXTENDED_DATA_ITEM ExtendedData;
-	public void UserData;
-	public void UserContext;
+	public EVENT_HEADER_EXTENDED_DATA_ITEM* ExtendedData;
+	public void* UserData;
+	public void* UserContext;
 }
 
 [CRepr]
@@ -2594,30 +2594,30 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, ITraceEvent* NewEvent) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, void UserContext) GetUserContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, EVENT_RECORD EventRecord) GetEventRecord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, ITraceEvent** NewEvent) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, void** UserContext) GetUserContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, EVENT_RECORD** EventRecord) GetEventRecord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, uint8* Payload, uint32 PayloadSize) SetPayload;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, EVENT_DESCRIPTOR EventDescriptor) SetEventDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, EVENT_DESCRIPTOR* EventDescriptor) SetEventDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, uint32 ProcessId) SetProcessId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, uint32 ProcessorIndex) SetProcessorIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, uint32 ThreadId) SetThreadId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, uint32 KernelTime, uint32 UserTime) SetThreadTimes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, Guid ActivityId) SetActivityId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, LARGE_INTEGER TimeStamp) SetTimeStamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, LARGE_INTEGER* TimeStamp) SetTimeStamp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, Guid ProviderId) SetProviderId;
 	}
 
 
-	public HRESULT Clone(ITraceEvent* NewEvent) mut => VT.[Friend]Clone(&this, NewEvent);
+	public HRESULT Clone(ITraceEvent** NewEvent) mut => VT.[Friend]Clone(&this, NewEvent);
 
-	public HRESULT GetUserContext(void UserContext) mut => VT.[Friend]GetUserContext(&this, UserContext);
+	public HRESULT GetUserContext(void** UserContext) mut => VT.[Friend]GetUserContext(&this, UserContext);
 
-	public HRESULT GetEventRecord(EVENT_RECORD EventRecord) mut => VT.[Friend]GetEventRecord(&this, EventRecord);
+	public HRESULT GetEventRecord(EVENT_RECORD** EventRecord) mut => VT.[Friend]GetEventRecord(&this, EventRecord);
 
 	public HRESULT SetPayload(uint8* Payload, uint32 PayloadSize) mut => VT.[Friend]SetPayload(&this, Payload, PayloadSize);
 
-	public HRESULT SetEventDescriptor(EVENT_DESCRIPTOR EventDescriptor) mut => VT.[Friend]SetEventDescriptor(&this, EventDescriptor);
+	public HRESULT SetEventDescriptor(EVENT_DESCRIPTOR* EventDescriptor) mut => VT.[Friend]SetEventDescriptor(&this, EventDescriptor);
 
 	public HRESULT SetProcessId(uint32 ProcessId) mut => VT.[Friend]SetProcessId(&this, ProcessId);
 
@@ -2629,7 +2629,7 @@ public static
 
 	public HRESULT SetActivityId(Guid ActivityId) mut => VT.[Friend]SetActivityId(&this, ActivityId);
 
-	public HRESULT SetTimeStamp(LARGE_INTEGER TimeStamp) mut => VT.[Friend]SetTimeStamp(&this, TimeStamp);
+	public HRESULT SetTimeStamp(LARGE_INTEGER* TimeStamp) mut => VT.[Friend]SetTimeStamp(&this, TimeStamp);
 
 	public HRESULT SetProviderId(Guid ProviderId) mut => VT.[Friend]SetProviderId(&this, ProviderId);
 }
@@ -2663,11 +2663,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, BSTR LogfileName, void UserContext, uint64 TraceHandle) AddLogfileTraceStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, BSTR LoggerName, void UserContext, uint64 TraceHandle) AddRealtimeTraceStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, BSTR LogfileName, void* UserContext, uint64* TraceHandle) AddLogfileTraceStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, BSTR LoggerName, void* UserContext, uint64* TraceHandle) AddRealtimeTraceStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, ITraceEventCallback* Callback) RegisterCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, ITraceEvent* Event) Inject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, uint64 TraceHandle, uint32 Flags, ITraceEvent* Event) CreateEventInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, uint64 TraceHandle, uint32 Flags, ITraceEvent** Event) CreateEventInstance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self) ProcessTrace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, BSTR LogfileName) SetOutputFilename;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, BOOLEAN CompressionMode) SetCompressionMode;
@@ -2675,15 +2675,15 @@ public static
 	}
 
 
-	public HRESULT AddLogfileTraceStream(BSTR LogfileName, void UserContext, uint64 TraceHandle) mut => VT.[Friend]AddLogfileTraceStream(&this, LogfileName, UserContext, TraceHandle);
+	public HRESULT AddLogfileTraceStream(BSTR LogfileName, void* UserContext, uint64* TraceHandle) mut => VT.[Friend]AddLogfileTraceStream(&this, LogfileName, UserContext, TraceHandle);
 
-	public HRESULT AddRealtimeTraceStream(BSTR LoggerName, void UserContext, uint64 TraceHandle) mut => VT.[Friend]AddRealtimeTraceStream(&this, LoggerName, UserContext, TraceHandle);
+	public HRESULT AddRealtimeTraceStream(BSTR LoggerName, void* UserContext, uint64* TraceHandle) mut => VT.[Friend]AddRealtimeTraceStream(&this, LoggerName, UserContext, TraceHandle);
 
 	public HRESULT RegisterCallback(ITraceEventCallback* Callback) mut => VT.[Friend]RegisterCallback(&this, Callback);
 
 	public HRESULT Inject(ITraceEvent* Event) mut => VT.[Friend]Inject(&this, Event);
 
-	public HRESULT CreateEventInstance(uint64 TraceHandle, uint32 Flags, ITraceEvent* Event) mut => VT.[Friend]CreateEventInstance(&this, TraceHandle, Flags, Event);
+	public HRESULT CreateEventInstance(uint64 TraceHandle, uint32 Flags, ITraceEvent** Event) mut => VT.[Friend]CreateEventInstance(&this, TraceHandle, Flags, Event);
 
 	public HRESULT ProcessTrace() mut => VT.[Friend]ProcessTrace(&this);
 
@@ -2700,96 +2700,96 @@ public static
 public static
 {
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 StartTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES Properties);
+	public static extern uint32 StartTraceW(uint64* TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 StartTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties);
-	public static uint32 StartTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties) => StartTraceA(TraceHandle, InstanceName, Properties);
+	public static extern uint32 StartTraceA(uint64* TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
+	public static uint32 StartTrace(uint64* TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties) => StartTraceA(TraceHandle, InstanceName, Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 StopTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES Properties);
+	public static extern uint32 StopTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 StopTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties);
-	public static uint32 StopTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties) => StopTraceA(TraceHandle, InstanceName, Properties);
+	public static extern uint32 StopTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
+	public static uint32 StopTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties) => StopTraceA(TraceHandle, InstanceName, Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES Properties);
+	public static extern uint32 QueryTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties);
-	public static uint32 QueryTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties) => QueryTraceA(TraceHandle, InstanceName, Properties);
+	public static extern uint32 QueryTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
+	public static uint32 QueryTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties) => QueryTraceA(TraceHandle, InstanceName, Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UpdateTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES Properties);
+	public static extern uint32 UpdateTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UpdateTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties);
-	public static uint32 UpdateTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties) => UpdateTraceA(TraceHandle, InstanceName, Properties);
+	public static extern uint32 UpdateTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
+	public static uint32 UpdateTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties) => UpdateTraceA(TraceHandle, InstanceName, Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FlushTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES Properties);
+	public static extern uint32 FlushTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FlushTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties);
-	public static uint32 FlushTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties) => FlushTraceA(TraceHandle, InstanceName, Properties);
+	public static extern uint32 FlushTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
+	public static uint32 FlushTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties) => FlushTraceA(TraceHandle, InstanceName, Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ControlTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES Properties, EVENT_TRACE_CONTROL ControlCode);
+	public static extern uint32 ControlTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties, EVENT_TRACE_CONTROL ControlCode);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ControlTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties, EVENT_TRACE_CONTROL ControlCode);
-	public static uint32 ControlTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES Properties, EVENT_TRACE_CONTROL ControlCode) => ControlTraceA(TraceHandle, InstanceName, Properties, ControlCode);
+	public static extern uint32 ControlTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties, EVENT_TRACE_CONTROL ControlCode);
+	public static uint32 ControlTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties, EVENT_TRACE_CONTROL ControlCode) => ControlTraceA(TraceHandle, InstanceName, Properties, ControlCode);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryAllTracesW(EVENT_TRACE_PROPERTIES* PropertyArray, uint32 PropertyArrayCount, uint32 LoggerCount);
+	public static extern uint32 QueryAllTracesW(EVENT_TRACE_PROPERTIES** PropertyArray, uint32 PropertyArrayCount, uint32* LoggerCount);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryAllTracesA(EVENT_TRACE_PROPERTIES* PropertyArray, uint32 PropertyArrayCount, uint32 LoggerCount);
-	public static uint32 QueryAllTraces(EVENT_TRACE_PROPERTIES* PropertyArray, uint32 PropertyArrayCount, uint32 LoggerCount) => QueryAllTracesA(PropertyArray, PropertyArrayCount, LoggerCount);
+	public static extern uint32 QueryAllTracesA(EVENT_TRACE_PROPERTIES** PropertyArray, uint32 PropertyArrayCount, uint32* LoggerCount);
+	public static uint32 QueryAllTraces(EVENT_TRACE_PROPERTIES** PropertyArray, uint32 PropertyArrayCount, uint32* LoggerCount) => QueryAllTracesA(PropertyArray, PropertyArrayCount, LoggerCount);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EnableTrace(uint32 Enable, uint32 EnableFlag, uint32 EnableLevel, Guid ControlGuid, uint64 TraceHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EnableTraceEx(Guid ProviderId, Guid SourceId, uint64 TraceHandle, uint32 IsEnabled, uint8 Level, uint64 MatchAnyKeyword, uint64 MatchAllKeyword, uint32 EnableProperty, EVENT_FILTER_DESCRIPTOR EnableFilterDesc);
+	public static extern uint32 EnableTraceEx(Guid ProviderId, Guid SourceId, uint64 TraceHandle, uint32 IsEnabled, uint8 Level, uint64 MatchAnyKeyword, uint64 MatchAllKeyword, uint32 EnableProperty, EVENT_FILTER_DESCRIPTOR* EnableFilterDesc);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EnableTraceEx2(uint64 TraceHandle, Guid ProviderId, uint32 ControlCode, uint8 Level, uint64 MatchAnyKeyword, uint64 MatchAllKeyword, uint32 Timeout, ENABLE_TRACE_PARAMETERS EnableParameters);
+	public static extern uint32 EnableTraceEx2(uint64 TraceHandle, Guid ProviderId, uint32 ControlCode, uint8 Level, uint64 MatchAnyKeyword, uint64 MatchAllKeyword, uint32 Timeout, ENABLE_TRACE_PARAMETERS* EnableParameters);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EnumerateTraceGuidsEx(TRACE_QUERY_INFO_CLASS TraceQueryInfoClass, void InBuffer, uint32 InBufferSize, void OutBuffer, uint32 OutBufferSize, uint32 ReturnLength);
+	public static extern uint32 EnumerateTraceGuidsEx(TRACE_QUERY_INFO_CLASS TraceQueryInfoClass, void* InBuffer, uint32 InBufferSize, void* OutBuffer, uint32 OutBufferSize, uint32* ReturnLength);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TraceSetInformation(uint64 SessionHandle, TRACE_QUERY_INFO_CLASS InformationClass, void TraceInformation, uint32 InformationLength);
+	public static extern uint32 TraceSetInformation(uint64 SessionHandle, TRACE_QUERY_INFO_CLASS InformationClass, void* TraceInformation, uint32 InformationLength);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TraceQueryInformation(uint64 SessionHandle, TRACE_QUERY_INFO_CLASS InformationClass, void TraceInformation, uint32 InformationLength, uint32 ReturnLength);
+	public static extern uint32 TraceQueryInformation(uint64 SessionHandle, TRACE_QUERY_INFO_CLASS InformationClass, void* TraceInformation, uint32 InformationLength, uint32* ReturnLength);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CreateTraceInstanceId(HANDLE RegHandle, EVENT_INSTANCE_INFO InstInfo);
+	public static extern uint32 CreateTraceInstanceId(HANDLE RegHandle, EVENT_INSTANCE_INFO* InstInfo);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TraceEvent(uint64 TraceHandle, EVENT_TRACE_HEADER EventTrace);
+	public static extern uint32 TraceEvent(uint64 TraceHandle, EVENT_TRACE_HEADER* EventTrace);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TraceEventInstance(uint64 TraceHandle, EVENT_INSTANCE_HEADER EventTrace, EVENT_INSTANCE_INFO InstInfo, EVENT_INSTANCE_INFO ParentInstInfo);
+	public static extern uint32 TraceEventInstance(uint64 TraceHandle, EVENT_INSTANCE_HEADER* EventTrace, EVENT_INSTANCE_INFO* InstInfo, EVENT_INSTANCE_INFO* ParentInstInfo);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterTraceGuidsW(WMIDPREQUEST RequestAddress, void RequestContext, Guid ControlGuid, uint32 GuidCount, TRACE_GUID_REGISTRATION* TraceGuidReg, PWSTR MofImagePath, PWSTR MofResourceName, uint64 RegistrationHandle);
+	public static extern uint32 RegisterTraceGuidsW(WMIDPREQUEST RequestAddress, void* RequestContext, Guid ControlGuid, uint32 GuidCount, TRACE_GUID_REGISTRATION* TraceGuidReg, PWSTR MofImagePath, PWSTR MofResourceName, uint64* RegistrationHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterTraceGuidsA(WMIDPREQUEST RequestAddress, void RequestContext, Guid ControlGuid, uint32 GuidCount, TRACE_GUID_REGISTRATION* TraceGuidReg, PSTR MofImagePath, PSTR MofResourceName, uint64 RegistrationHandle);
-	public static uint32 RegisterTraceGuids(WMIDPREQUEST RequestAddress, void RequestContext, Guid ControlGuid, uint32 GuidCount, TRACE_GUID_REGISTRATION* TraceGuidReg, PSTR MofImagePath, PSTR MofResourceName, uint64 RegistrationHandle) => RegisterTraceGuidsA(RequestAddress, RequestContext, ControlGuid, GuidCount, TraceGuidReg, MofImagePath, MofResourceName, RegistrationHandle);
+	public static extern uint32 RegisterTraceGuidsA(WMIDPREQUEST RequestAddress, void* RequestContext, Guid ControlGuid, uint32 GuidCount, TRACE_GUID_REGISTRATION* TraceGuidReg, PSTR MofImagePath, PSTR MofResourceName, uint64* RegistrationHandle);
+	public static uint32 RegisterTraceGuids(WMIDPREQUEST RequestAddress, void* RequestContext, Guid ControlGuid, uint32 GuidCount, TRACE_GUID_REGISTRATION* TraceGuidReg, PSTR MofImagePath, PSTR MofResourceName, uint64* RegistrationHandle) => RegisterTraceGuidsA(RequestAddress, RequestContext, ControlGuid, GuidCount, TraceGuidReg, MofImagePath, MofResourceName, RegistrationHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EnumerateTraceGuids(TRACE_GUID_PROPERTIES* GuidPropertiesArray, uint32 PropertyArrayCount, uint32 GuidCount);
+	public static extern uint32 EnumerateTraceGuids(TRACE_GUID_PROPERTIES** GuidPropertiesArray, uint32 PropertyArrayCount, uint32* GuidCount);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 UnregisterTraceGuids(uint64 RegistrationHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint64 GetTraceLoggerHandle(void Buffer);
+	public static extern uint64 GetTraceLoggerHandle(void* Buffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint8 GetTraceEnableLevel(uint64 TraceHandle);
@@ -2798,20 +2798,20 @@ public static
 	public static extern uint32 GetTraceEnableFlags(uint64 TraceHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint64 OpenTraceW(EVENT_TRACE_LOGFILEW Logfile);
+	public static extern uint64 OpenTraceW(EVENT_TRACE_LOGFILEW* Logfile);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ProcessTrace(uint64* HandleArray, uint32 HandleCount, FILETIME StartTime, FILETIME EndTime);
+	public static extern uint32 ProcessTrace(uint64* HandleArray, uint32 HandleCount, FILETIME* StartTime, FILETIME* EndTime);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CloseTrace(uint64 TraceHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryTraceProcessingHandle(uint64 ProcessingHandle, ETW_PROCESS_HANDLE_INFO_TYPE InformationClass, void InBuffer, uint32 InBufferSize, void OutBuffer, uint32 OutBufferSize, uint32 ReturnLength);
+	public static extern uint32 QueryTraceProcessingHandle(uint64 ProcessingHandle, ETW_PROCESS_HANDLE_INFO_TYPE InformationClass, void* InBuffer, uint32 InBufferSize, void* OutBuffer, uint32 OutBufferSize, uint32* ReturnLength);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint64 OpenTraceA(EVENT_TRACE_LOGFILEA Logfile);
-	public static uint64 OpenTrace(EVENT_TRACE_LOGFILEA Logfile) => OpenTraceA(Logfile);
+	public static extern uint64 OpenTraceA(EVENT_TRACE_LOGFILEA* Logfile);
+	public static uint64 OpenTrace(EVENT_TRACE_LOGFILEA* Logfile) => OpenTraceA(Logfile);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetTraceCallback(Guid pGuid, PEVENT_CALLBACK EventCallback);
@@ -2823,31 +2823,31 @@ public static
 	public static extern uint32 TraceMessage(uint64 LoggerHandle, TRACE_MESSAGE_FLAGS MessageFlags, Guid MessageGuid, uint16 MessageNumber);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TraceMessageVa(uint64 LoggerHandle, TRACE_MESSAGE_FLAGS MessageFlags, Guid MessageGuid, uint16 MessageNumber, int8 MessageArgList);
+	public static extern uint32 TraceMessageVa(uint64 LoggerHandle, TRACE_MESSAGE_FLAGS MessageFlags, Guid MessageGuid, uint16 MessageNumber, int8* MessageArgList);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EventRegister(Guid ProviderId, PENABLECALLBACK EnableCallback, void CallbackContext, uint64 RegHandle);
+	public static extern uint32 EventRegister(Guid ProviderId, PENABLECALLBACK EnableCallback, void* CallbackContext, uint64* RegHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EventUnregister(uint64 RegHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EventSetInformation(uint64 RegHandle, EVENT_INFO_CLASS InformationClass, void EventInformation, uint32 InformationLength);
+	public static extern uint32 EventSetInformation(uint64 RegHandle, EVENT_INFO_CLASS InformationClass, void* EventInformation, uint32 InformationLength);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN EventEnabled(uint64 RegHandle, EVENT_DESCRIPTOR EventDescriptor);
+	public static extern BOOLEAN EventEnabled(uint64 RegHandle, EVENT_DESCRIPTOR* EventDescriptor);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN EventProviderEnabled(uint64 RegHandle, uint8 Level, uint64 Keyword);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EventWrite(uint64 RegHandle, EVENT_DESCRIPTOR EventDescriptor, uint32 UserDataCount, EVENT_DATA_DESCRIPTOR* UserData);
+	public static extern uint32 EventWrite(uint64 RegHandle, EVENT_DESCRIPTOR* EventDescriptor, uint32 UserDataCount, EVENT_DATA_DESCRIPTOR* UserData);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EventWriteTransfer(uint64 RegHandle, EVENT_DESCRIPTOR EventDescriptor, Guid ActivityId, Guid RelatedActivityId, uint32 UserDataCount, EVENT_DATA_DESCRIPTOR* UserData);
+	public static extern uint32 EventWriteTransfer(uint64 RegHandle, EVENT_DESCRIPTOR* EventDescriptor, Guid ActivityId, Guid RelatedActivityId, uint32 UserDataCount, EVENT_DATA_DESCRIPTOR* UserData);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EventWriteEx(uint64 RegHandle, EVENT_DESCRIPTOR EventDescriptor, uint64 Filter, uint32 Flags, Guid ActivityId, Guid RelatedActivityId, uint32 UserDataCount, EVENT_DATA_DESCRIPTOR* UserData);
+	public static extern uint32 EventWriteEx(uint64 RegHandle, EVENT_DESCRIPTOR* EventDescriptor, uint64 Filter, uint32 Flags, Guid ActivityId, Guid RelatedActivityId, uint32 UserDataCount, EVENT_DATA_DESCRIPTOR* UserData);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EventWriteString(uint64 RegHandle, uint8 Level, uint64 Keyword, PWSTR String);
@@ -2859,79 +2859,79 @@ public static
 	public static extern uint32 EventAccessControl(Guid Guid, uint32 Operation, PSID Sid, uint32 Rights, BOOLEAN AllowOrDeny);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EventAccessQuery(Guid Guid, SECURITY_DESCRIPTOR Buffer, uint32 BufferSize);
+	public static extern uint32 EventAccessQuery(Guid Guid, SECURITY_DESCRIPTOR* Buffer, uint32* BufferSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EventAccessRemove(Guid Guid);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhCreatePayloadFilter(Guid ProviderGuid, EVENT_DESCRIPTOR EventDescriptor, BOOLEAN EventMatchANY, uint32 PayloadPredicateCount, PAYLOAD_FILTER_PREDICATE* PayloadPredicates, void PayloadFilter);
+	public static extern uint32 TdhCreatePayloadFilter(Guid ProviderGuid, EVENT_DESCRIPTOR* EventDescriptor, BOOLEAN EventMatchANY, uint32 PayloadPredicateCount, PAYLOAD_FILTER_PREDICATE* PayloadPredicates, void** PayloadFilter);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhDeletePayloadFilter(void PayloadFilter);
+	public static extern uint32 TdhDeletePayloadFilter(void** PayloadFilter);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhAggregatePayloadFilters(uint32 PayloadFilterCount, void* PayloadFilterPtrs, BOOLEAN* EventMatchALLFlags, EVENT_FILTER_DESCRIPTOR EventFilterDescriptor);
+	public static extern uint32 TdhAggregatePayloadFilters(uint32 PayloadFilterCount, void** PayloadFilterPtrs, BOOLEAN* EventMatchALLFlags, EVENT_FILTER_DESCRIPTOR* EventFilterDescriptor);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhCleanupPayloadEventFilterDescriptor(EVENT_FILTER_DESCRIPTOR EventFilterDescriptor);
+	public static extern uint32 TdhCleanupPayloadEventFilterDescriptor(EVENT_FILTER_DESCRIPTOR* EventFilterDescriptor);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhGetEventInformation(EVENT_RECORD Event, uint32 TdhContextCount, TDH_CONTEXT* TdhContext, TRACE_EVENT_INFO Buffer, uint32 BufferSize);
+	public static extern uint32 TdhGetEventInformation(EVENT_RECORD* Event, uint32 TdhContextCount, TDH_CONTEXT* TdhContext, TRACE_EVENT_INFO* Buffer, uint32* BufferSize);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhGetEventMapInformation(EVENT_RECORD pEvent, PWSTR pMapName, EVENT_MAP_INFO pBuffer, uint32 pBufferSize);
+	public static extern uint32 TdhGetEventMapInformation(EVENT_RECORD* pEvent, PWSTR pMapName, EVENT_MAP_INFO* pBuffer, uint32* pBufferSize);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhGetPropertySize(EVENT_RECORD pEvent, uint32 TdhContextCount, TDH_CONTEXT* pTdhContext, uint32 PropertyDataCount, PROPERTY_DATA_DESCRIPTOR* pPropertyData, uint32 pPropertySize);
+	public static extern uint32 TdhGetPropertySize(EVENT_RECORD* pEvent, uint32 TdhContextCount, TDH_CONTEXT* pTdhContext, uint32 PropertyDataCount, PROPERTY_DATA_DESCRIPTOR* pPropertyData, uint32* pPropertySize);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhGetProperty(EVENT_RECORD pEvent, uint32 TdhContextCount, TDH_CONTEXT* pTdhContext, uint32 PropertyDataCount, PROPERTY_DATA_DESCRIPTOR* pPropertyData, uint32 BufferSize, uint8 pBuffer);
+	public static extern uint32 TdhGetProperty(EVENT_RECORD* pEvent, uint32 TdhContextCount, TDH_CONTEXT* pTdhContext, uint32 PropertyDataCount, PROPERTY_DATA_DESCRIPTOR* pPropertyData, uint32 BufferSize, uint8* pBuffer);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhEnumerateProviders(PROVIDER_ENUMERATION_INFO pBuffer, uint32 pBufferSize);
+	public static extern uint32 TdhEnumerateProviders(PROVIDER_ENUMERATION_INFO* pBuffer, uint32* pBufferSize);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhEnumerateProvidersForDecodingSource(DECODING_SOURCE filter, PROVIDER_ENUMERATION_INFO buffer, uint32 bufferSize, uint32 bufferRequired);
+	public static extern uint32 TdhEnumerateProvidersForDecodingSource(DECODING_SOURCE filter, PROVIDER_ENUMERATION_INFO* buffer, uint32 bufferSize, uint32* bufferRequired);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhQueryProviderFieldInformation(Guid pGuid, uint64 EventFieldValue, EVENT_FIELD_TYPE EventFieldType, PROVIDER_FIELD_INFOARRAY pBuffer, uint32 pBufferSize);
+	public static extern uint32 TdhQueryProviderFieldInformation(Guid pGuid, uint64 EventFieldValue, EVENT_FIELD_TYPE EventFieldType, PROVIDER_FIELD_INFOARRAY* pBuffer, uint32* pBufferSize);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhEnumerateProviderFieldInformation(Guid pGuid, EVENT_FIELD_TYPE EventFieldType, PROVIDER_FIELD_INFOARRAY pBuffer, uint32 pBufferSize);
+	public static extern uint32 TdhEnumerateProviderFieldInformation(Guid pGuid, EVENT_FIELD_TYPE EventFieldType, PROVIDER_FIELD_INFOARRAY* pBuffer, uint32* pBufferSize);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhEnumerateProviderFilters(Guid Guid, uint32 TdhContextCount, TDH_CONTEXT* TdhContext, uint32 FilterCount, PROVIDER_FILTER_INFO Buffer, uint32 BufferSize);
+	public static extern uint32 TdhEnumerateProviderFilters(Guid Guid, uint32 TdhContextCount, TDH_CONTEXT* TdhContext, uint32* FilterCount, PROVIDER_FILTER_INFO** Buffer, uint32* BufferSize);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TdhLoadManifest(PWSTR Manifest);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhLoadManifestFromMemory(void pData, uint32 cbData);
+	public static extern uint32 TdhLoadManifestFromMemory(void* pData, uint32 cbData);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TdhUnloadManifest(PWSTR Manifest);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhUnloadManifestFromMemory(void pData, uint32 cbData);
+	public static extern uint32 TdhUnloadManifestFromMemory(void* pData, uint32 cbData);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhFormatProperty(TRACE_EVENT_INFO EventInfo, EVENT_MAP_INFO MapInfo, uint32 PointerSize, uint16 PropertyInType, uint16 PropertyOutType, uint16 PropertyLength, uint16 UserDataLength, uint8 UserData, uint32 BufferSize, PWSTR Buffer, uint16 UserDataConsumed);
+	public static extern uint32 TdhFormatProperty(TRACE_EVENT_INFO* EventInfo, EVENT_MAP_INFO* MapInfo, uint32 PointerSize, uint16 PropertyInType, uint16 PropertyOutType, uint16 PropertyLength, uint16 UserDataLength, uint8* UserData, uint32* BufferSize, PWSTR Buffer, uint16* UserDataConsumed);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhOpenDecodingHandle(TDH_HANDLE Handle);
+	public static extern uint32 TdhOpenDecodingHandle(TDH_HANDLE* Handle);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhSetDecodingParameter(TDH_HANDLE Handle, TDH_CONTEXT TdhContext);
+	public static extern uint32 TdhSetDecodingParameter(TDH_HANDLE Handle, TDH_CONTEXT* TdhContext);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhGetDecodingParameter(TDH_HANDLE Handle, TDH_CONTEXT TdhContext);
+	public static extern uint32 TdhGetDecodingParameter(TDH_HANDLE Handle, TDH_CONTEXT* TdhContext);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhGetWppProperty(TDH_HANDLE Handle, EVENT_RECORD EventRecord, PWSTR PropertyName, uint32 BufferSize, uint8 Buffer);
+	public static extern uint32 TdhGetWppProperty(TDH_HANDLE Handle, EVENT_RECORD* EventRecord, PWSTR PropertyName, uint32* BufferSize, uint8* Buffer);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhGetWppMessage(TDH_HANDLE Handle, EVENT_RECORD EventRecord, uint32 BufferSize, uint8 Buffer);
+	public static extern uint32 TdhGetWppMessage(TDH_HANDLE Handle, EVENT_RECORD* EventRecord, uint32* BufferSize, uint8* Buffer);
 
 	[Import("tdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TdhCloseDecodingHandle(TDH_HANDLE Handle);
@@ -2940,10 +2940,10 @@ public static
 	public static extern uint32 TdhLoadManifestFromBinary(PWSTR BinaryPath);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhEnumerateManifestProviderEvents(Guid ProviderGuid, PROVIDER_EVENT_INFO Buffer, uint32 BufferSize);
+	public static extern uint32 TdhEnumerateManifestProviderEvents(Guid ProviderGuid, PROVIDER_EVENT_INFO* Buffer, uint32* BufferSize);
 
 	[Import("TDH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TdhGetManifestEventInformation(Guid ProviderGuid, EVENT_DESCRIPTOR EventDescriptor, TRACE_EVENT_INFO Buffer, uint32 BufferSize);
+	public static extern uint32 TdhGetManifestEventInformation(Guid ProviderGuid, EVENT_DESCRIPTOR* EventDescriptor, TRACE_EVENT_INFO* Buffer, uint32* BufferSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 CveEventWrite(PWSTR CveId, PWSTR AdditionalDetails);

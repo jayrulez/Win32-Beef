@@ -28,10 +28,10 @@ public static
 public static
 {
 	[Import("WSClient.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CheckDeveloperLicense(FILETIME pExpiration);
+	public static extern HRESULT CheckDeveloperLicense(FILETIME* pExpiration);
 
 	[Import("WSClient.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AcquireDeveloperLicense(HWND hwndParent, FILETIME pExpiration);
+	public static extern HRESULT AcquireDeveloperLicense(HWND hwndParent, FILETIME* pExpiration);
 
 	[Import("WSClient.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RemoveDeveloperLicense(HWND hwndParent);

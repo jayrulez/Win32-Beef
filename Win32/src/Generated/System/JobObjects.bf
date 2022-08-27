@@ -271,9 +271,9 @@ public struct JOBOBJECT_SECURITY_LIMIT_INFORMATION
 {
 	public JOB_OBJECT_SECURITY SecurityLimitFlags;
 	public HANDLE JobToken;
-	public TOKEN_GROUPS SidsToDisable;
-	public TOKEN_PRIVILEGES PrivilegesToDelete;
-	public TOKEN_GROUPS RestrictedSids;
+	public TOKEN_GROUPS* SidsToDisable;
+	public TOKEN_PRIVILEGES* PrivilegesToDelete;
+	public TOKEN_GROUPS* RestrictedSids;
 }
 
 [CRepr]
@@ -285,7 +285,7 @@ public struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION
 [CRepr]
 public struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT
 {
-	public void CompletionKey;
+	public void* CompletionKey;
 	public HANDLE CompletionPort;
 }
 
@@ -528,13 +528,13 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsProcessInJob(HANDLE ProcessHandle, HANDLE JobHandle, BOOL Result);
+	public static extern BOOL IsProcessInJob(HANDLE ProcessHandle, HANDLE JobHandle, BOOL* Result);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE CreateJobObjectW(SECURITY_ATTRIBUTES lpJobAttributes, PWSTR lpName);
+	public static extern HANDLE CreateJobObjectW(SECURITY_ATTRIBUTES* lpJobAttributes, PWSTR lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FreeMemoryJobObject(void Buffer);
+	public static extern void FreeMemoryJobObject(void* Buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE OpenJobObjectW(uint32 dwDesiredAccess, BOOL bInheritHandle, PWSTR lpName);
@@ -546,23 +546,23 @@ public static
 	public static extern BOOL TerminateJobObject(HANDLE hJob, uint32 uExitCode);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetInformationJobObject(HANDLE hJob, JOBOBJECTINFOCLASS JobObjectInformationClass, void lpJobObjectInformation, uint32 cbJobObjectInformationLength);
+	public static extern BOOL SetInformationJobObject(HANDLE hJob, JOBOBJECTINFOCLASS JobObjectInformationClass, void* lpJobObjectInformation, uint32 cbJobObjectInformationLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetIoRateControlInformationJobObject(HANDLE hJob, JOBOBJECT_IO_RATE_CONTROL_INFORMATION IoRateControlInfo);
+	public static extern uint32 SetIoRateControlInformationJobObject(HANDLE hJob, JOBOBJECT_IO_RATE_CONTROL_INFORMATION* IoRateControlInfo);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryInformationJobObject(HANDLE hJob, JOBOBJECTINFOCLASS JobObjectInformationClass, void lpJobObjectInformation, uint32 cbJobObjectInformationLength, uint32 lpReturnLength);
+	public static extern BOOL QueryInformationJobObject(HANDLE hJob, JOBOBJECTINFOCLASS JobObjectInformationClass, void* lpJobObjectInformation, uint32 cbJobObjectInformationLength, uint32* lpReturnLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryIoRateControlInformationJobObject(HANDLE hJob, PWSTR VolumeName, JOBOBJECT_IO_RATE_CONTROL_INFORMATION InfoBlocks, uint32 InfoBlockCount);
+	public static extern uint32 QueryIoRateControlInformationJobObject(HANDLE hJob, PWSTR VolumeName, JOBOBJECT_IO_RATE_CONTROL_INFORMATION** InfoBlocks, uint32* InfoBlockCount);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UserHandleGrantAccess(HANDLE hUserHandle, HANDLE hJob, BOOL bGrant);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE CreateJobObjectA(SECURITY_ATTRIBUTES lpJobAttributes, PSTR lpName);
-	public static HANDLE CreateJobObject(SECURITY_ATTRIBUTES lpJobAttributes, PSTR lpName) => CreateJobObjectA(lpJobAttributes, lpName);
+	public static extern HANDLE CreateJobObjectA(SECURITY_ATTRIBUTES* lpJobAttributes, PSTR lpName);
+	public static HANDLE CreateJobObject(SECURITY_ATTRIBUTES* lpJobAttributes, PSTR lpName) => CreateJobObjectA(lpJobAttributes, lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE OpenJobObjectA(uint32 dwDesiredAccess, BOOL bInheritHandle, PSTR lpName);

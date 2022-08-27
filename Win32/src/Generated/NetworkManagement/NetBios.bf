@@ -190,7 +190,7 @@ public struct NCB
 	public uint8 ncb_retcode;
 	public uint8 ncb_lsn;
 	public uint8 ncb_num;
-	public uint8 ncb_buffer;
+	public uint8* ncb_buffer;
 	public uint16 ncb_length;
 	public uint8[16] ncb_callname;
 	public uint8[16] ncb_name;
@@ -306,7 +306,7 @@ public struct NCB
 	public uint8 ncb_retcode;
 	public uint8 ncb_lsn;
 	public uint8 ncb_num;
-	public uint8 ncb_buffer;
+	public uint8* ncb_buffer;
 	public uint16 ncb_length;
 	public uint8[16] ncb_callname;
 	public uint8[16] ncb_name;
@@ -335,7 +335,7 @@ public static
 public static
 {
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8 Netbios(NCB pncb);
+	public static extern uint8 Netbios(NCB* pncb);
 
 }
 #endregion

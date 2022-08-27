@@ -130,7 +130,7 @@ public struct CorrelationId
 public struct ResultCodes
 {
 	public uint16 count;
-	public HRESULT results;
+	public HRESULT* results;
 }
 
 [CRepr]
@@ -168,28 +168,28 @@ public struct SoHAttribute
 {
 	public uint16 type;
 	public uint16 size;
-	public uint8 value;
+	public uint8* value;
 }
 
 [CRepr]
 public struct SoH
 {
 	public uint16 count;
-	public SoHAttribute attributes;
+	public SoHAttribute* attributes;
 }
 
 [CRepr]
 public struct NetworkSoH
 {
 	public uint16 size;
-	public uint8 data;
+	public uint8* data;
 }
 
 [CRepr]
 public struct PrivateData
 {
 	public uint16 size;
-	public uint8 data;
+	public uint8* data;
 }
 
 [CRepr]

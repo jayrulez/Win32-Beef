@@ -85,7 +85,7 @@ public struct CALLFRAME_MARSHALCONTEXT
 {
 	public BOOLEAN fIn;
 	public uint32 dwDestContext;
-	public void pvDestContext;
+	public void* pvDestContext;
 	public IUnknown* punkReserved;
 	public Guid guidTransferSyntax;
 }
@@ -107,49 +107,49 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, CALLFRAMEINFO pInfo) GetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, Guid pIID, uint32 piMethod) GetIIDAndMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, CALLFRAMEINFO* pInfo) GetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, Guid pIID, uint32* piMethod) GetIIDAndMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, PWSTR pwszInterface, PWSTR pwszMethod) GetNames;
-		protected new function [CallingConvention(.Stdcall)] void(/*ICallFrame*/SelfOuter* self) GetStackLocation;
-		protected new function [CallingConvention(.Stdcall)] void(/*ICallFrame*/SelfOuter* self, void pvStack) SetStackLocation;
+		protected new function [CallingConvention(.Stdcall)] void*(/*ICallFrame*/SelfOuter* self) GetStackLocation;
+		protected new function [CallingConvention(.Stdcall)] void(/*ICallFrame*/SelfOuter* self, void* pvStack) SetStackLocation;
 		protected new function [CallingConvention(.Stdcall)] void(/*ICallFrame*/SelfOuter* self, HRESULT hr) SetReturnValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self) GetReturnValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, uint32 iparam, CALLFRAMEPARAMINFO pInfo) GetParamInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, uint32 iparam, VARIANT pvar) SetParam;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, uint32 iparam, VARIANT pvar) GetParam;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, CALLFRAME_COPY copyControl, ICallFrameWalker* pWalker, ICallFrame* ppFrame) Copy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, uint32 iparam, CALLFRAMEPARAMINFO* pInfo) GetParamInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, uint32 iparam, VARIANT* pvar) SetParam;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, uint32 iparam, VARIANT* pvar) GetParam;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, CALLFRAME_COPY copyControl, ICallFrameWalker* pWalker, ICallFrame** ppFrame) Copy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, ICallFrame* pframeArgsDest, ICallFrameWalker* pWalkerDestFree, ICallFrameWalker* pWalkerCopy, uint32 freeFlags, ICallFrameWalker* pWalkerFree, uint32 nullFlags) Free;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, uint32 iparam, uint32 freeFlags, ICallFrameWalker* pWalkerFree, uint32 nullFlags) FreeParam;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, uint32 walkWhat, ICallFrameWalker* pWalker) WalkFrame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, CALLFRAME_MARSHALCONTEXT pmshlContext, MSHLFLAGS mshlflags, uint32 pcbBufferNeeded) GetMarshalSizeMax;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, CALLFRAME_MARSHALCONTEXT pmshlContext, MSHLFLAGS mshlflags, void* pBuffer, uint32 cbBuffer, uint32 pcbBufferUsed, uint32 pdataRep, uint32 prpcFlags) Marshal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, void* pBuffer, uint32 cbBuffer, uint32 dataRep, CALLFRAME_MARSHALCONTEXT pcontext, uint32 pcbUnmarshalled) Unmarshal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, void* pBuffer, uint32 cbBuffer, uint32 ibFirstRelease, uint32 dataRep, CALLFRAME_MARSHALCONTEXT pcontext) ReleaseMarshalData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, void pvReceiver) Invoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, CALLFRAME_MARSHALCONTEXT* pmshlContext, MSHLFLAGS mshlflags, uint32* pcbBufferNeeded) GetMarshalSizeMax;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, CALLFRAME_MARSHALCONTEXT* pmshlContext, MSHLFLAGS mshlflags, void* pBuffer, uint32 cbBuffer, uint32* pcbBufferUsed, uint32* pdataRep, uint32* prpcFlags) Marshal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, void* pBuffer, uint32 cbBuffer, uint32 dataRep, CALLFRAME_MARSHALCONTEXT* pcontext, uint32* pcbUnmarshalled) Unmarshal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, void* pBuffer, uint32 cbBuffer, uint32 ibFirstRelease, uint32 dataRep, CALLFRAME_MARSHALCONTEXT* pcontext) ReleaseMarshalData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrame*/SelfOuter* self, void* pvReceiver) Invoke;
 	}
 
 
-	public HRESULT GetInfo(CALLFRAMEINFO pInfo) mut => VT.[Friend]GetInfo(&this, pInfo);
+	public HRESULT GetInfo(CALLFRAMEINFO* pInfo) mut => VT.[Friend]GetInfo(&this, pInfo);
 
-	public HRESULT GetIIDAndMethod(Guid pIID, uint32 piMethod) mut => VT.[Friend]GetIIDAndMethod(&this, pIID, piMethod);
+	public HRESULT GetIIDAndMethod(Guid pIID, uint32* piMethod) mut => VT.[Friend]GetIIDAndMethod(&this, pIID, piMethod);
 
 	public HRESULT GetNames(PWSTR pwszInterface, PWSTR pwszMethod) mut => VT.[Friend]GetNames(&this, pwszInterface, pwszMethod);
 
-	public void GetStackLocation() mut => VT.[Friend]GetStackLocation(&this);
+	public void* GetStackLocation() mut => VT.[Friend]GetStackLocation(&this);
 
-	public void SetStackLocation(void pvStack) mut => VT.[Friend]SetStackLocation(&this, pvStack);
+	public void SetStackLocation(void* pvStack) mut => VT.[Friend]SetStackLocation(&this, pvStack);
 
 	public void SetReturnValue(HRESULT hr) mut => VT.[Friend]SetReturnValue(&this, hr);
 
 	public HRESULT GetReturnValue() mut => VT.[Friend]GetReturnValue(&this);
 
-	public HRESULT GetParamInfo(uint32 iparam, CALLFRAMEPARAMINFO pInfo) mut => VT.[Friend]GetParamInfo(&this, iparam, pInfo);
+	public HRESULT GetParamInfo(uint32 iparam, CALLFRAMEPARAMINFO* pInfo) mut => VT.[Friend]GetParamInfo(&this, iparam, pInfo);
 
-	public HRESULT SetParam(uint32 iparam, VARIANT pvar) mut => VT.[Friend]SetParam(&this, iparam, pvar);
+	public HRESULT SetParam(uint32 iparam, VARIANT* pvar) mut => VT.[Friend]SetParam(&this, iparam, pvar);
 
-	public HRESULT GetParam(uint32 iparam, VARIANT pvar) mut => VT.[Friend]GetParam(&this, iparam, pvar);
+	public HRESULT GetParam(uint32 iparam, VARIANT* pvar) mut => VT.[Friend]GetParam(&this, iparam, pvar);
 
-	public HRESULT Copy(CALLFRAME_COPY copyControl, ICallFrameWalker* pWalker, ICallFrame* ppFrame) mut => VT.[Friend]Copy(&this, copyControl, pWalker, ppFrame);
+	public HRESULT Copy(CALLFRAME_COPY copyControl, ICallFrameWalker* pWalker, ICallFrame** ppFrame) mut => VT.[Friend]Copy(&this, copyControl, pWalker, ppFrame);
 
 	public HRESULT Free(ICallFrame* pframeArgsDest, ICallFrameWalker* pWalkerDestFree, ICallFrameWalker* pWalkerCopy, uint32 freeFlags, ICallFrameWalker* pWalkerFree, uint32 nullFlags) mut => VT.[Friend]Free(&this, pframeArgsDest, pWalkerDestFree, pWalkerCopy, freeFlags, pWalkerFree, nullFlags);
 
@@ -157,15 +157,15 @@ public static
 
 	public HRESULT WalkFrame(uint32 walkWhat, ICallFrameWalker* pWalker) mut => VT.[Friend]WalkFrame(&this, walkWhat, pWalker);
 
-	public HRESULT GetMarshalSizeMax(CALLFRAME_MARSHALCONTEXT pmshlContext, MSHLFLAGS mshlflags, uint32 pcbBufferNeeded) mut => VT.[Friend]GetMarshalSizeMax(&this, pmshlContext, mshlflags, pcbBufferNeeded);
+	public HRESULT GetMarshalSizeMax(CALLFRAME_MARSHALCONTEXT* pmshlContext, MSHLFLAGS mshlflags, uint32* pcbBufferNeeded) mut => VT.[Friend]GetMarshalSizeMax(&this, pmshlContext, mshlflags, pcbBufferNeeded);
 
-	public HRESULT Marshal(CALLFRAME_MARSHALCONTEXT pmshlContext, MSHLFLAGS mshlflags, void* pBuffer, uint32 cbBuffer, uint32 pcbBufferUsed, uint32 pdataRep, uint32 prpcFlags) mut => VT.[Friend]Marshal(&this, pmshlContext, mshlflags, pBuffer, cbBuffer, pcbBufferUsed, pdataRep, prpcFlags);
+	public HRESULT Marshal(CALLFRAME_MARSHALCONTEXT* pmshlContext, MSHLFLAGS mshlflags, void* pBuffer, uint32 cbBuffer, uint32* pcbBufferUsed, uint32* pdataRep, uint32* prpcFlags) mut => VT.[Friend]Marshal(&this, pmshlContext, mshlflags, pBuffer, cbBuffer, pcbBufferUsed, pdataRep, prpcFlags);
 
-	public HRESULT Unmarshal(void* pBuffer, uint32 cbBuffer, uint32 dataRep, CALLFRAME_MARSHALCONTEXT pcontext, uint32 pcbUnmarshalled) mut => VT.[Friend]Unmarshal(&this, pBuffer, cbBuffer, dataRep, pcontext, pcbUnmarshalled);
+	public HRESULT Unmarshal(void* pBuffer, uint32 cbBuffer, uint32 dataRep, CALLFRAME_MARSHALCONTEXT* pcontext, uint32* pcbUnmarshalled) mut => VT.[Friend]Unmarshal(&this, pBuffer, cbBuffer, dataRep, pcontext, pcbUnmarshalled);
 
-	public HRESULT ReleaseMarshalData(void* pBuffer, uint32 cbBuffer, uint32 ibFirstRelease, uint32 dataRep, CALLFRAME_MARSHALCONTEXT pcontext) mut => VT.[Friend]ReleaseMarshalData(&this, pBuffer, cbBuffer, ibFirstRelease, dataRep, pcontext);
+	public HRESULT ReleaseMarshalData(void* pBuffer, uint32 cbBuffer, uint32 ibFirstRelease, uint32 dataRep, CALLFRAME_MARSHALCONTEXT* pcontext) mut => VT.[Friend]ReleaseMarshalData(&this, pBuffer, cbBuffer, ibFirstRelease, dataRep, pcontext);
 
-	public HRESULT Invoke(void pvReceiver) mut => VT.[Friend]Invoke(&this, pvReceiver);
+	public HRESULT Invoke(void* pvReceiver) mut => VT.[Friend]Invoke(&this, pvReceiver);
 }
 
 [CRepr]struct ICallIndirect : IUnknown
@@ -176,20 +176,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallIndirect*/SelfOuter* self, HRESULT phrReturn, uint32 iMethod, void pvArgs, uint32 cbArgs) CallIndirect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallIndirect*/SelfOuter* self, uint32 iMethod, CALLFRAMEINFO pInfo, PWSTR pwszMethod) GetMethodInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallIndirect*/SelfOuter* self, uint32 iMethod, uint32 cbArgs) GetStackSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallIndirect*/SelfOuter* self, Guid piid, BOOL pfDerivesFromIDispatch, uint32 pcMethod, PWSTR pwszInterface) GetIID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallIndirect*/SelfOuter* self, HRESULT* phrReturn, uint32 iMethod, void* pvArgs, uint32* cbArgs) CallIndirect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallIndirect*/SelfOuter* self, uint32 iMethod, CALLFRAMEINFO* pInfo, PWSTR pwszMethod) GetMethodInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallIndirect*/SelfOuter* self, uint32 iMethod, uint32* cbArgs) GetStackSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallIndirect*/SelfOuter* self, Guid piid, BOOL* pfDerivesFromIDispatch, uint32* pcMethod, PWSTR pwszInterface) GetIID;
 	}
 
 
-	public HRESULT CallIndirect(HRESULT phrReturn, uint32 iMethod, void pvArgs, uint32 cbArgs) mut => VT.[Friend]CallIndirect(&this, phrReturn, iMethod, pvArgs, cbArgs);
+	public HRESULT CallIndirect(HRESULT* phrReturn, uint32 iMethod, void* pvArgs, uint32* cbArgs) mut => VT.[Friend]CallIndirect(&this, phrReturn, iMethod, pvArgs, cbArgs);
 
-	public HRESULT GetMethodInfo(uint32 iMethod, CALLFRAMEINFO pInfo, PWSTR pwszMethod) mut => VT.[Friend]GetMethodInfo(&this, iMethod, pInfo, pwszMethod);
+	public HRESULT GetMethodInfo(uint32 iMethod, CALLFRAMEINFO* pInfo, PWSTR pwszMethod) mut => VT.[Friend]GetMethodInfo(&this, iMethod, pInfo, pwszMethod);
 
-	public HRESULT GetStackSize(uint32 iMethod, uint32 cbArgs) mut => VT.[Friend]GetStackSize(&this, iMethod, cbArgs);
+	public HRESULT GetStackSize(uint32 iMethod, uint32* cbArgs) mut => VT.[Friend]GetStackSize(&this, iMethod, cbArgs);
 
-	public HRESULT GetIID(Guid piid, BOOL pfDerivesFromIDispatch, uint32 pcMethod, PWSTR pwszInterface) mut => VT.[Friend]GetIID(&this, piid, pfDerivesFromIDispatch, pcMethod, pwszInterface);
+	public HRESULT GetIID(Guid piid, BOOL* pfDerivesFromIDispatch, uint32* pcMethod, PWSTR pwszInterface) mut => VT.[Friend]GetIID(&this, piid, pfDerivesFromIDispatch, pcMethod, pwszInterface);
 }
 
 [CRepr]struct ICallInterceptor : ICallIndirect
@@ -201,13 +201,13 @@ public static
 	[CRepr]public struct VTable : ICallIndirect.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallInterceptor*/SelfOuter* self, ICallFrameEvents* psink) RegisterSink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallInterceptor*/SelfOuter* self, ICallFrameEvents* ppsink) GetRegisteredSink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallInterceptor*/SelfOuter* self, ICallFrameEvents** ppsink) GetRegisteredSink;
 	}
 
 
 	public HRESULT RegisterSink(ICallFrameEvents* psink) mut => VT.[Friend]RegisterSink(&this, psink);
 
-	public HRESULT GetRegisteredSink(ICallFrameEvents* ppsink) mut => VT.[Friend]GetRegisteredSink(&this, ppsink);
+	public HRESULT GetRegisteredSink(ICallFrameEvents** ppsink) mut => VT.[Friend]GetRegisteredSink(&this, ppsink);
 }
 
 [CRepr]struct ICallFrameEvents : IUnknown
@@ -233,14 +233,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallUnmarshal*/SelfOuter* self, uint32 iMethod, void* pBuffer, uint32 cbBuffer, BOOL fForceBufferCopy, uint32 dataRep, CALLFRAME_MARSHALCONTEXT pcontext, uint32 pcbUnmarshalled, ICallFrame* ppFrame) Unmarshal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallUnmarshal*/SelfOuter* self, uint32 iMethod, void* pBuffer, uint32 cbBuffer, uint32 ibFirstRelease, uint32 dataRep, CALLFRAME_MARSHALCONTEXT pcontext) ReleaseMarshalData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallUnmarshal*/SelfOuter* self, uint32 iMethod, void* pBuffer, uint32 cbBuffer, BOOL fForceBufferCopy, uint32 dataRep, CALLFRAME_MARSHALCONTEXT* pcontext, uint32* pcbUnmarshalled, ICallFrame** ppFrame) Unmarshal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallUnmarshal*/SelfOuter* self, uint32 iMethod, void* pBuffer, uint32 cbBuffer, uint32 ibFirstRelease, uint32 dataRep, CALLFRAME_MARSHALCONTEXT* pcontext) ReleaseMarshalData;
 	}
 
 
-	public HRESULT Unmarshal(uint32 iMethod, void* pBuffer, uint32 cbBuffer, BOOL fForceBufferCopy, uint32 dataRep, CALLFRAME_MARSHALCONTEXT pcontext, uint32 pcbUnmarshalled, ICallFrame* ppFrame) mut => VT.[Friend]Unmarshal(&this, iMethod, pBuffer, cbBuffer, fForceBufferCopy, dataRep, pcontext, pcbUnmarshalled, ppFrame);
+	public HRESULT Unmarshal(uint32 iMethod, void* pBuffer, uint32 cbBuffer, BOOL fForceBufferCopy, uint32 dataRep, CALLFRAME_MARSHALCONTEXT* pcontext, uint32* pcbUnmarshalled, ICallFrame** ppFrame) mut => VT.[Friend]Unmarshal(&this, iMethod, pBuffer, cbBuffer, fForceBufferCopy, dataRep, pcontext, pcbUnmarshalled, ppFrame);
 
-	public HRESULT ReleaseMarshalData(uint32 iMethod, void* pBuffer, uint32 cbBuffer, uint32 ibFirstRelease, uint32 dataRep, CALLFRAME_MARSHALCONTEXT pcontext) mut => VT.[Friend]ReleaseMarshalData(&this, iMethod, pBuffer, cbBuffer, ibFirstRelease, dataRep, pcontext);
+	public HRESULT ReleaseMarshalData(uint32 iMethod, void* pBuffer, uint32 cbBuffer, uint32 ibFirstRelease, uint32 dataRep, CALLFRAME_MARSHALCONTEXT* pcontext) mut => VT.[Friend]ReleaseMarshalData(&this, iMethod, pBuffer, cbBuffer, ibFirstRelease, dataRep, pcontext);
 }
 
 [CRepr]struct ICallFrameWalker : IUnknown
@@ -251,11 +251,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrameWalker*/SelfOuter* self, Guid iid, void ppvInterface, BOOL fIn, BOOL fOut) OnWalkInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICallFrameWalker*/SelfOuter* self, Guid iid, void** ppvInterface, BOOL fIn, BOOL fOut) OnWalkInterface;
 	}
 
 
-	public HRESULT OnWalkInterface(Guid iid, void ppvInterface, BOOL fIn, BOOL fOut) mut => VT.[Friend]OnWalkInterface(&this, iid, ppvInterface, fIn, fOut);
+	public HRESULT OnWalkInterface(Guid iid, void** ppvInterface, BOOL fIn, BOOL fOut) mut => VT.[Friend]OnWalkInterface(&this, iid, ppvInterface, fIn, fOut);
 }
 
 [CRepr]struct IInterfaceRelated : IUnknown
@@ -282,10 +282,10 @@ public static
 public static
 {
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetInterceptor(Guid iidIntercepted, IUnknown* punkOuter, Guid iid, void ppv);
+	public static extern HRESULT CoGetInterceptor(Guid iidIntercepted, IUnknown* punkOuter, Guid iid, void** ppv);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetInterceptorFromTypeInfo(Guid iidIntercepted, IUnknown* punkOuter, ITypeInfo* typeInfo, Guid iid, void ppv);
+	public static extern HRESULT CoGetInterceptorFromTypeInfo(Guid iidIntercepted, IUnknown* punkOuter, ITypeInfo* typeInfo, Guid iid, void** ppv);
 
 }
 #endregion

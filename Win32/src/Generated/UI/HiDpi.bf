@@ -116,16 +116,16 @@ public static
 	public static extern int32 GetSystemMetricsForDpi(int32 nIndex, uint32 dpi);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AdjustWindowRectExForDpi(RECT lpRect, uint32 dwStyle, BOOL bMenu, uint32 dwExStyle, uint32 dpi);
+	public static extern BOOL AdjustWindowRectExForDpi(RECT* lpRect, uint32 dwStyle, BOOL bMenu, uint32 dwExStyle, uint32 dpi);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL LogicalToPhysicalPointForPerMonitorDPI(HWND hWnd, POINT lpPoint);
+	public static extern BOOL LogicalToPhysicalPointForPerMonitorDPI(HWND hWnd, POINT* lpPoint);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PhysicalToLogicalPointForPerMonitorDPI(HWND hWnd, POINT lpPoint);
+	public static extern BOOL PhysicalToLogicalPointForPerMonitorDPI(HWND hWnd, POINT* lpPoint);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SystemParametersInfoForDpi(uint32 uiAction, uint32 uiParam, void pvParam, uint32 fWinIni, uint32 dpi);
+	public static extern BOOL SystemParametersInfoForDpi(uint32 uiAction, uint32 uiParam, void* pvParam, uint32 fWinIni, uint32 dpi);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern DPI_AWARENESS_CONTEXT SetThreadDpiAwarenessContext(DPI_AWARENESS_CONTEXT dpiContext);
@@ -179,10 +179,10 @@ public static
 	public static extern HRESULT SetProcessDpiAwareness(PROCESS_DPI_AWARENESS value);
 
 	[Import("api-ms-win-shcore-scaling-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetProcessDpiAwareness(HANDLE hprocess, PROCESS_DPI_AWARENESS value);
+	public static extern HRESULT GetProcessDpiAwareness(HANDLE hprocess, PROCESS_DPI_AWARENESS* value);
 
 	[Import("api-ms-win-shcore-scaling-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetDpiForMonitor(HMONITOR hmonitor, MONITOR_DPI_TYPE dpiType, uint32 dpiX, uint32 dpiY);
+	public static extern HRESULT GetDpiForMonitor(HMONITOR hmonitor, MONITOR_DPI_TYPE dpiType, uint32* dpiX, uint32* dpiY);
 
 }
 #endregion

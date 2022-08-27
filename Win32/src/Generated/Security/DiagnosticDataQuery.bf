@@ -32,9 +32,9 @@ public struct DIAGNOSTIC_DATA_RECORD
 	public PWSTR fullEventName;
 	public PWSTR providerGroupGuid;
 	public PWSTR producerName;
-	public int32 privacyTags;
+	public int32* privacyTags;
 	public uint32 privacyTagCount;
-	public int32 categoryIds;
+	public int32* categoryIds;
 	public uint32 categoryIdCount;
 	public BOOL isCoreData;
 	public PWSTR extra1;
@@ -48,9 +48,9 @@ public struct DIAGNOSTIC_DATA_SEARCH_CRITERIA
 	public PWSTR producerNames;
 	public uint32 producerNameCount;
 	public PWSTR textToMatch;
-	public int32 categoryIds;
+	public int32* categoryIds;
 	public uint32 categoryIdCount;
-	public int32 privacyTags;
+	public int32* privacyTags;
 	public uint32 privacyTagCount;
 	public BOOL coreDataOnly;
 }
@@ -161,109 +161,109 @@ public static
 public static
 {
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqCreateSession(DdqAccessLevel accessLevel, HDIAGNOSTIC_DATA_QUERY_SESSION hSession);
+	public static extern HRESULT DdqCreateSession(DdqAccessLevel accessLevel, HDIAGNOSTIC_DATA_QUERY_SESSION* hSession);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqCloseSession(HDIAGNOSTIC_DATA_QUERY_SESSION hSession);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetSessionAccessLevel(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DdqAccessLevel accessLevel);
+	public static extern HRESULT DdqGetSessionAccessLevel(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DdqAccessLevel* accessLevel);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticDataAccessLevelAllowed(DdqAccessLevel accessLevel);
+	public static extern HRESULT DdqGetDiagnosticDataAccessLevelAllowed(DdqAccessLevel* accessLevel);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordStats(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DIAGNOSTIC_DATA_SEARCH_CRITERIA searchCriteria, uint32 recordCount, int64 minRowId, int64 maxRowId);
+	public static extern HRESULT DdqGetDiagnosticRecordStats(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DIAGNOSTIC_DATA_SEARCH_CRITERIA* searchCriteria, uint32* recordCount, int64* minRowId, int64* maxRowId);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqGetDiagnosticRecordPayload(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, int64 rowId, PWSTR payload);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordLocaleTags(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR locale, HDIAGNOSTIC_EVENT_TAG_DESCRIPTION hTagDescription);
+	public static extern HRESULT DdqGetDiagnosticRecordLocaleTags(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR locale, HDIAGNOSTIC_EVENT_TAG_DESCRIPTION* hTagDescription);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqFreeDiagnosticRecordLocaleTags(HDIAGNOSTIC_EVENT_TAG_DESCRIPTION hTagDescription);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordLocaleTagAtIndex(HDIAGNOSTIC_EVENT_TAG_DESCRIPTION hTagDescription, uint32 index, DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION tagDescription);
+	public static extern HRESULT DdqGetDiagnosticRecordLocaleTagAtIndex(HDIAGNOSTIC_EVENT_TAG_DESCRIPTION hTagDescription, uint32 index, DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION* tagDescription);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordLocaleTagCount(HDIAGNOSTIC_EVENT_TAG_DESCRIPTION hTagDescription, uint32 tagDescriptionCount);
+	public static extern HRESULT DdqGetDiagnosticRecordLocaleTagCount(HDIAGNOSTIC_EVENT_TAG_DESCRIPTION hTagDescription, uint32* tagDescriptionCount);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordProducers(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION hProducerDescription);
+	public static extern HRESULT DdqGetDiagnosticRecordProducers(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION* hProducerDescription);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqFreeDiagnosticRecordProducers(HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION hProducerDescription);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordProducerAtIndex(HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION hProducerDescription, uint32 index, DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION producerDescription);
+	public static extern HRESULT DdqGetDiagnosticRecordProducerAtIndex(HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION hProducerDescription, uint32 index, DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION* producerDescription);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordProducerCount(HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION hProducerDescription, uint32 producerDescriptionCount);
+	public static extern HRESULT DdqGetDiagnosticRecordProducerCount(HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION hProducerDescription, uint32* producerDescriptionCount);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordProducerCategories(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR producerName, HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION hCategoryDescription);
+	public static extern HRESULT DdqGetDiagnosticRecordProducerCategories(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR producerName, HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION* hCategoryDescription);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqFreeDiagnosticRecordProducerCategories(HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION hCategoryDescription);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordCategoryAtIndex(HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION hCategoryDescription, uint32 index, DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION categoryDescription);
+	public static extern HRESULT DdqGetDiagnosticRecordCategoryAtIndex(HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION hCategoryDescription, uint32 index, DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION* categoryDescription);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordCategoryCount(HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION hCategoryDescription, uint32 categoryDescriptionCount);
+	public static extern HRESULT DdqGetDiagnosticRecordCategoryCount(HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION hCategoryDescription, uint32* categoryDescriptionCount);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqIsDiagnosticRecordSampledIn(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, Guid providerGroup, Guid providerId, PWSTR providerName, uint32 eventId, PWSTR eventName, uint32 eventVersion, uint64 eventKeywords, BOOL isSampledIn);
+	public static extern HRESULT DdqIsDiagnosticRecordSampledIn(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, Guid providerGroup, Guid providerId, PWSTR providerName, uint32* eventId, PWSTR eventName, uint32* eventVersion, uint64* eventKeywords, BOOL* isSampledIn);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordPage(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DIAGNOSTIC_DATA_SEARCH_CRITERIA searchCriteria, uint32 offset, uint32 pageRecordCount, int64 baseRowId, HDIAGNOSTIC_RECORD hRecord);
+	public static extern HRESULT DdqGetDiagnosticRecordPage(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DIAGNOSTIC_DATA_SEARCH_CRITERIA* searchCriteria, uint32 offset, uint32 pageRecordCount, int64 baseRowId, HDIAGNOSTIC_RECORD* hRecord);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqFreeDiagnosticRecordPage(HDIAGNOSTIC_RECORD hRecord);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordAtIndex(HDIAGNOSTIC_RECORD hRecord, uint32 index, DIAGNOSTIC_DATA_RECORD record);
+	public static extern HRESULT DdqGetDiagnosticRecordAtIndex(HDIAGNOSTIC_RECORD hRecord, uint32 index, DIAGNOSTIC_DATA_RECORD* record);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordCount(HDIAGNOSTIC_RECORD hRecord, uint32 recordCount);
+	public static extern HRESULT DdqGetDiagnosticRecordCount(HDIAGNOSTIC_RECORD hRecord, uint32* recordCount);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticReportStoreReportCount(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, uint32 reportStoreType, uint32 reportCount);
+	public static extern HRESULT DdqGetDiagnosticReportStoreReportCount(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, uint32 reportStoreType, uint32* reportCount);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqCancelDiagnosticRecordOperation(HDIAGNOSTIC_DATA_QUERY_SESSION hSession);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticReport(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, uint32 reportStoreType, HDIAGNOSTIC_REPORT hReport);
+	public static extern HRESULT DdqGetDiagnosticReport(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, uint32 reportStoreType, HDIAGNOSTIC_REPORT* hReport);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqFreeDiagnosticReport(HDIAGNOSTIC_REPORT hReport);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticReportAtIndex(HDIAGNOSTIC_REPORT hReport, uint32 index, DIAGNOSTIC_REPORT_DATA report);
+	public static extern HRESULT DdqGetDiagnosticReportAtIndex(HDIAGNOSTIC_REPORT hReport, uint32 index, DIAGNOSTIC_REPORT_DATA* report);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticReportCount(HDIAGNOSTIC_REPORT hReport, uint32 reportCount);
+	public static extern HRESULT DdqGetDiagnosticReportCount(HDIAGNOSTIC_REPORT hReport, uint32* reportCount);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqExtractDiagnosticReport(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, uint32 reportStoreType, PWSTR reportKey, PWSTR destinationPath);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordTagDistribution(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR* producerNames, uint32 producerNameCount, DIAGNOSTIC_DATA_EVENT_TAG_STATS* tagStats, uint32 statCount);
+	public static extern HRESULT DdqGetDiagnosticRecordTagDistribution(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR* producerNames, uint32 producerNameCount, DIAGNOSTIC_DATA_EVENT_TAG_STATS** tagStats, uint32* statCount);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordBinaryDistribution(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR* producerNames, uint32 producerNameCount, uint32 topNBinaries, DIAGNOSTIC_DATA_EVENT_BINARY_STATS* binaryStats, uint32 statCount);
+	public static extern HRESULT DdqGetDiagnosticRecordBinaryDistribution(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR* producerNames, uint32 producerNameCount, uint32 topNBinaries, DIAGNOSTIC_DATA_EVENT_BINARY_STATS** binaryStats, uint32* statCount);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordSummary(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR* producerNames, uint32 producerNameCount, DIAGNOSTIC_DATA_GENERAL_STATS generalStats);
+	public static extern HRESULT DdqGetDiagnosticRecordSummary(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR* producerNames, uint32 producerNameCount, DIAGNOSTIC_DATA_GENERAL_STATS* generalStats);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqSetTranscriptConfiguration(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION desiredConfig);
+	public static extern HRESULT DdqSetTranscriptConfiguration(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION* desiredConfig);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetTranscriptConfiguration(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION currentConfig);
+	public static extern HRESULT DdqGetTranscriptConfiguration(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION* currentConfig);
 
 }
 #endregion

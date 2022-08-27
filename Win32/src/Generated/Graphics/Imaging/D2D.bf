@@ -33,17 +33,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImageEncoder*/SelfOuter* self, ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters pImageParameters) WriteFrame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImageEncoder*/SelfOuter* self, ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters pImageParameters) WriteFrameThumbnail;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImageEncoder*/SelfOuter* self, ID2D1Image* pImage, IWICBitmapEncoder* pEncoder, WICImageParameters pImageParameters) WriteThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImageEncoder*/SelfOuter* self, ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters* pImageParameters) WriteFrame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImageEncoder*/SelfOuter* self, ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters* pImageParameters) WriteFrameThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImageEncoder*/SelfOuter* self, ID2D1Image* pImage, IWICBitmapEncoder* pEncoder, WICImageParameters* pImageParameters) WriteThumbnail;
 	}
 
 
-	public HRESULT WriteFrame(ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters pImageParameters) mut => VT.[Friend]WriteFrame(&this, pImage, pFrameEncode, pImageParameters);
+	public HRESULT WriteFrame(ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters* pImageParameters) mut => VT.[Friend]WriteFrame(&this, pImage, pFrameEncode, pImageParameters);
 
-	public HRESULT WriteFrameThumbnail(ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters pImageParameters) mut => VT.[Friend]WriteFrameThumbnail(&this, pImage, pFrameEncode, pImageParameters);
+	public HRESULT WriteFrameThumbnail(ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters* pImageParameters) mut => VT.[Friend]WriteFrameThumbnail(&this, pImage, pFrameEncode, pImageParameters);
 
-	public HRESULT WriteThumbnail(ID2D1Image* pImage, IWICBitmapEncoder* pEncoder, WICImageParameters pImageParameters) mut => VT.[Friend]WriteThumbnail(&this, pImage, pEncoder, pImageParameters);
+	public HRESULT WriteThumbnail(ID2D1Image* pImage, IWICBitmapEncoder* pEncoder, WICImageParameters* pImageParameters) mut => VT.[Friend]WriteThumbnail(&this, pImage, pEncoder, pImageParameters);
 }
 
 [CRepr]struct IWICImagingFactory2 : IWICImagingFactory
@@ -54,11 +54,11 @@ public static
 
 	[CRepr]public struct VTable : IWICImagingFactory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImagingFactory2*/SelfOuter* self, ID2D1Device* pD2DDevice, IWICImageEncoder* ppWICImageEncoder) CreateImageEncoder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImagingFactory2*/SelfOuter* self, ID2D1Device* pD2DDevice, IWICImageEncoder** ppWICImageEncoder) CreateImageEncoder;
 	}
 
 
-	public HRESULT CreateImageEncoder(ID2D1Device* pD2DDevice, IWICImageEncoder* ppWICImageEncoder) mut => VT.[Friend]CreateImageEncoder(&this, pD2DDevice, ppWICImageEncoder);
+	public HRESULT CreateImageEncoder(ID2D1Device* pD2DDevice, IWICImageEncoder** ppWICImageEncoder) mut => VT.[Friend]CreateImageEncoder(&this, pD2DDevice, ppWICImageEncoder);
 }
 
 #endregion

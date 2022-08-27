@@ -76,7 +76,7 @@ public enum WCM_CONNECTION_COST_SOURCE : int32
 #endregion
 
 #region Function Pointers
-public function void ONDEMAND_NOTIFICATION_CALLBACK(void param0);
+public function void ONDEMAND_NOTIFICATION_CALLBACK(void* param0);
 
 #endregion
 
@@ -161,7 +161,7 @@ public struct NET_INTERFACE_CONTEXT_TABLE
 {
 	public HANDLE InterfaceContextHandle;
 	public uint32 NumberOfEntries;
-	public NET_INTERFACE_CONTEXT InterfaceContextArray;
+	public NET_INTERFACE_CONTEXT* InterfaceContextArray;
 }
 
 #endregion
@@ -179,34 +179,34 @@ public static
 public static
 {
 	[Import("wcmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WcmQueryProperty(Guid pInterface, PWSTR strProfileName, WCM_PROPERTY Property, void pReserved, uint32 pdwDataSize, uint8 ppData);
+	public static extern uint32 WcmQueryProperty(Guid pInterface, PWSTR strProfileName, WCM_PROPERTY Property, void* pReserved, uint32* pdwDataSize, uint8** ppData);
 
 	[Import("wcmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WcmSetProperty(Guid pInterface, PWSTR strProfileName, WCM_PROPERTY Property, void pReserved, uint32 dwDataSize, uint8* pbData);
+	public static extern uint32 WcmSetProperty(Guid pInterface, PWSTR strProfileName, WCM_PROPERTY Property, void* pReserved, uint32 dwDataSize, uint8* pbData);
 
 	[Import("wcmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WcmGetProfileList(void pReserved, WCM_PROFILE_INFO_LIST ppProfileList);
+	public static extern uint32 WcmGetProfileList(void* pReserved, WCM_PROFILE_INFO_LIST** ppProfileList);
 
 	[Import("wcmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WcmSetProfileList(WCM_PROFILE_INFO_LIST pProfileList, uint32 dwPosition, BOOL fIgnoreUnknownProfiles, void pReserved);
+	public static extern uint32 WcmSetProfileList(WCM_PROFILE_INFO_LIST* pProfileList, uint32 dwPosition, BOOL fIgnoreUnknownProfiles, void* pReserved);
 
 	[Import("wcmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WcmFreeMemory(void pMemory);
+	public static extern void WcmFreeMemory(void* pMemory);
 
 	[Import("OnDemandConnRouteHelper.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OnDemandGetRoutingHint(PWSTR destinationHostName, uint32 interfaceIndex);
+	public static extern HRESULT OnDemandGetRoutingHint(PWSTR destinationHostName, uint32* interfaceIndex);
 
 	[Import("OnDemandConnRouteHelper.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OnDemandRegisterNotification(ONDEMAND_NOTIFICATION_CALLBACK callback, void callbackContext, HANDLE registrationHandle);
+	public static extern HRESULT OnDemandRegisterNotification(ONDEMAND_NOTIFICATION_CALLBACK callback, void* callbackContext, HANDLE* registrationHandle);
 
 	[Import("OnDemandConnRouteHelper.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OnDemandUnRegisterNotification(HANDLE registrationHandle);
 
 	[Import("OnDemandConnRouteHelper.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetInterfaceContextTableForHostName(PWSTR HostName, PWSTR ProxyName, uint32 Flags, uint8 ConnectionProfileFilterRawData, uint32 ConnectionProfileFilterRawDataSize, NET_INTERFACE_CONTEXT_TABLE InterfaceContextTable);
+	public static extern HRESULT GetInterfaceContextTableForHostName(PWSTR HostName, PWSTR ProxyName, uint32 Flags, uint8* ConnectionProfileFilterRawData, uint32 ConnectionProfileFilterRawDataSize, NET_INTERFACE_CONTEXT_TABLE** InterfaceContextTable);
 
 	[Import("OnDemandConnRouteHelper.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FreeInterfaceContextTable(NET_INTERFACE_CONTEXT_TABLE InterfaceContextTable);
+	public static extern void FreeInterfaceContextTable(NET_INTERFACE_CONTEXT_TABLE* InterfaceContextTable);
 
 }
 #endregion

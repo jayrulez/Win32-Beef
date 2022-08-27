@@ -34,14 +34,14 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrinting3DManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void printManager) GetForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrinting3DManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void asyncOperation) ShowPrintUIForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrinting3DManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** printManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrinting3DManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** asyncOperation) ShowPrintUIForWindowAsync;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void printManager) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, printManager);
+	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** printManager) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, printManager);
 
-	public HRESULT ShowPrintUIForWindowAsync(HWND appWindow, Guid riid, void asyncOperation) mut => VT.[Friend]ShowPrintUIForWindowAsync(&this, appWindow, riid, asyncOperation);
+	public HRESULT ShowPrintUIForWindowAsync(HWND appWindow, Guid riid, void** asyncOperation) mut => VT.[Friend]ShowPrintUIForWindowAsync(&this, appWindow, riid, asyncOperation);
 }
 
 [CRepr]struct IPrintManagerInterop : IInspectable
@@ -52,14 +52,14 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void printManager) GetForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void asyncOperation) ShowPrintUIForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** printManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** asyncOperation) ShowPrintUIForWindowAsync;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void printManager) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, printManager);
+	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** printManager) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, printManager);
 
-	public HRESULT ShowPrintUIForWindowAsync(HWND appWindow, Guid riid, void asyncOperation) mut => VT.[Friend]ShowPrintUIForWindowAsync(&this, appWindow, riid, asyncOperation);
+	public HRESULT ShowPrintUIForWindowAsync(HWND appWindow, Guid riid, void** asyncOperation) mut => VT.[Friend]ShowPrintUIForWindowAsync(&this, appWindow, riid, asyncOperation);
 }
 
 [CRepr]struct IPrintWorkflowXpsReceiver : IUnknown
@@ -113,13 +113,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowObjectModelSourceFileContentNative*/SelfOuter* self, IPrintWorkflowXpsReceiver* receiver) StartXpsOMGeneration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowObjectModelSourceFileContentNative*/SelfOuter* self, IXpsOMObjectFactory1* value) get_ObjectFactory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowObjectModelSourceFileContentNative*/SelfOuter* self, IXpsOMObjectFactory1** value) get_ObjectFactory;
 	}
 
 
 	public HRESULT StartXpsOMGeneration(IPrintWorkflowXpsReceiver* receiver) mut => VT.[Friend]StartXpsOMGeneration(&this, receiver);
 
-	public HRESULT get_ObjectFactory(IXpsOMObjectFactory1* value) mut => VT.[Friend]get_ObjectFactory(&this, value);
+	public HRESULT get_ObjectFactory(IXpsOMObjectFactory1** value) mut => VT.[Friend]get_ObjectFactory(&this, value);
 }
 
 [CRepr]struct IPrintWorkflowXpsObjectModelTargetPackageNative : IUnknown
@@ -130,11 +130,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowXpsObjectModelTargetPackageNative*/SelfOuter* self, IXpsDocumentPackageTarget* value) get_DocumentPackageTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowXpsObjectModelTargetPackageNative*/SelfOuter* self, IXpsDocumentPackageTarget** value) get_DocumentPackageTarget;
 	}
 
 
-	public HRESULT get_DocumentPackageTarget(IXpsDocumentPackageTarget* value) mut => VT.[Friend]get_DocumentPackageTarget(&this, value);
+	public HRESULT get_DocumentPackageTarget(IXpsDocumentPackageTarget** value) mut => VT.[Friend]get_DocumentPackageTarget(&this, value);
 }
 
 [CRepr]struct IPrintWorkflowConfigurationNative : IUnknown
@@ -145,17 +145,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowConfigurationNative*/SelfOuter* self, IPrinterQueue* value) get_PrinterQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowConfigurationNative*/SelfOuter* self, IPrinterPropertyBag* value) get_DriverProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowConfigurationNative*/SelfOuter* self, IPrinterPropertyBag* value) get_UserProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowConfigurationNative*/SelfOuter* self, IPrinterQueue** value) get_PrinterQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowConfigurationNative*/SelfOuter* self, IPrinterPropertyBag** value) get_DriverProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowConfigurationNative*/SelfOuter* self, IPrinterPropertyBag** value) get_UserProperties;
 	}
 
 
-	public HRESULT get_PrinterQueue(IPrinterQueue* value) mut => VT.[Friend]get_PrinterQueue(&this, value);
+	public HRESULT get_PrinterQueue(IPrinterQueue** value) mut => VT.[Friend]get_PrinterQueue(&this, value);
 
-	public HRESULT get_DriverProperties(IPrinterPropertyBag* value) mut => VT.[Friend]get_DriverProperties(&this, value);
+	public HRESULT get_DriverProperties(IPrinterPropertyBag** value) mut => VT.[Friend]get_DriverProperties(&this, value);
 
-	public HRESULT get_UserProperties(IPrinterPropertyBag* value) mut => VT.[Friend]get_UserProperties(&this, value);
+	public HRESULT get_UserProperties(IPrinterPropertyBag** value) mut => VT.[Friend]get_UserProperties(&this, value);
 }
 
 #endregion

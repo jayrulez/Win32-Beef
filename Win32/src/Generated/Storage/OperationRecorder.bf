@@ -58,10 +58,10 @@ public static
 public static
 {
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL OperationStart(OPERATION_START_PARAMETERS OperationStartParams);
+	public static extern BOOL OperationStart(OPERATION_START_PARAMETERS* OperationStartParams);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL OperationEnd(OPERATION_END_PARAMETERS OperationEndParams);
+	public static extern BOOL OperationEnd(OPERATION_END_PARAMETERS* OperationEndParams);
 
 }
 #endregion

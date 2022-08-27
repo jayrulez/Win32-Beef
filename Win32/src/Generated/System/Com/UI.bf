@@ -34,12 +34,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailExtractor*/SelfOuter* self, IStorage* pStg, uint32 ulLength, uint32 ulHeight, uint32 pulOutputLength, uint32 pulOutputHeight, HBITMAP phOutputBitmap) ExtractThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailExtractor*/SelfOuter* self, IStorage* pStg, uint32 ulLength, uint32 ulHeight, uint32* pulOutputLength, uint32* pulOutputHeight, HBITMAP* phOutputBitmap) ExtractThumbnail;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailExtractor*/SelfOuter* self, IStorage* pStg) OnFileUpdated;
 	}
 
 
-	public HRESULT ExtractThumbnail(IStorage* pStg, uint32 ulLength, uint32 ulHeight, uint32 pulOutputLength, uint32 pulOutputHeight, HBITMAP phOutputBitmap) mut => VT.[Friend]ExtractThumbnail(&this, pStg, ulLength, ulHeight, pulOutputLength, pulOutputHeight, phOutputBitmap);
+	public HRESULT ExtractThumbnail(IStorage* pStg, uint32 ulLength, uint32 ulHeight, uint32* pulOutputLength, uint32* pulOutputHeight, HBITMAP* phOutputBitmap) mut => VT.[Friend]ExtractThumbnail(&this, pStg, ulLength, ulHeight, pulOutputLength, pulOutputHeight, phOutputBitmap);
 
 	public HRESULT OnFileUpdated(IStorage* pStg) mut => VT.[Friend]OnFileUpdated(&this, pStg);
 }

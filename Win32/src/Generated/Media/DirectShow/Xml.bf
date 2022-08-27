@@ -41,14 +41,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLGraphBuilder*/SelfOuter* self, IGraphBuilder* pGraph, IXMLElement* pxml) BuildFromXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLGraphBuilder*/SelfOuter* self, IGraphBuilder* pGraph, BSTR pbstrxml) SaveToXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLGraphBuilder*/SelfOuter* self, IGraphBuilder* pGraph, BSTR* pbstrxml) SaveToXML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLGraphBuilder*/SelfOuter* self, IGraphBuilder* pGraph, PWSTR wszFileName, PWSTR wszBaseURL) BuildFromXMLFile;
 	}
 
 
 	public HRESULT BuildFromXML(IGraphBuilder* pGraph, IXMLElement* pxml) mut => VT.[Friend]BuildFromXML(&this, pGraph, pxml);
 
-	public HRESULT SaveToXML(IGraphBuilder* pGraph, BSTR pbstrxml) mut => VT.[Friend]SaveToXML(&this, pGraph, pbstrxml);
+	public HRESULT SaveToXML(IGraphBuilder* pGraph, BSTR* pbstrxml) mut => VT.[Friend]SaveToXML(&this, pGraph, pbstrxml);
 
 	public HRESULT BuildFromXMLFile(IGraphBuilder* pGraph, PWSTR wszFileName, PWSTR wszBaseURL) mut => VT.[Friend]BuildFromXMLFile(&this, pGraph, wszFileName, wszBaseURL);
 }

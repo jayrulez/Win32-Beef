@@ -89,21 +89,21 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrConnection, uint32 ulType, SENS_QOCINFO lpQOCInfo) ConnectionMade;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrConnection, uint32 ulType, SENS_QOCINFO* lpQOCInfo) ConnectionMade;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrConnection, uint32 ulType) ConnectionMadeNoQOCInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrConnection, SENS_CONNECTION_TYPE ulType) ConnectionLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrDestination, BSTR bstrConnection, uint32 ulType, SENS_QOCINFO lpQOCInfo) DestinationReachable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrDestination, BSTR bstrConnection, uint32 ulType, SENS_QOCINFO* lpQOCInfo) DestinationReachable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrDestination, BSTR bstrConnection, uint32 ulType) DestinationReachableNoQOCInfo;
 	}
 
 
-	public HRESULT ConnectionMade(BSTR bstrConnection, uint32 ulType, SENS_QOCINFO lpQOCInfo) mut => VT.[Friend]ConnectionMade(&this, bstrConnection, ulType, lpQOCInfo);
+	public HRESULT ConnectionMade(BSTR bstrConnection, uint32 ulType, SENS_QOCINFO* lpQOCInfo) mut => VT.[Friend]ConnectionMade(&this, bstrConnection, ulType, lpQOCInfo);
 
 	public HRESULT ConnectionMadeNoQOCInfo(BSTR bstrConnection, uint32 ulType) mut => VT.[Friend]ConnectionMadeNoQOCInfo(&this, bstrConnection, ulType);
 
 	public HRESULT ConnectionLost(BSTR bstrConnection, SENS_CONNECTION_TYPE ulType) mut => VT.[Friend]ConnectionLost(&this, bstrConnection, ulType);
 
-	public HRESULT DestinationReachable(BSTR bstrDestination, BSTR bstrConnection, uint32 ulType, SENS_QOCINFO lpQOCInfo) mut => VT.[Friend]DestinationReachable(&this, bstrDestination, bstrConnection, ulType, lpQOCInfo);
+	public HRESULT DestinationReachable(BSTR bstrDestination, BSTR bstrConnection, uint32 ulType, SENS_QOCINFO* lpQOCInfo) mut => VT.[Friend]DestinationReachable(&this, bstrDestination, bstrConnection, ulType, lpQOCInfo);
 
 	public HRESULT DestinationReachableNoQOCInfo(BSTR bstrDestination, BSTR bstrConnection, uint32 ulType) mut => VT.[Friend]DestinationReachableNoQOCInfo(&this, bstrDestination, bstrConnection, ulType);
 }
@@ -195,14 +195,14 @@ public static
 public static
 {
 	[Import("SensApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsDestinationReachableA(PSTR lpszDestination, QOCINFO lpQOCInfo);
-	public static BOOL IsDestinationReachable(PSTR lpszDestination, QOCINFO lpQOCInfo) => IsDestinationReachableA(lpszDestination, lpQOCInfo);
+	public static extern BOOL IsDestinationReachableA(PSTR lpszDestination, QOCINFO* lpQOCInfo);
+	public static BOOL IsDestinationReachable(PSTR lpszDestination, QOCINFO* lpQOCInfo) => IsDestinationReachableA(lpszDestination, lpQOCInfo);
 
 	[Import("SensApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsDestinationReachableW(PWSTR lpszDestination, QOCINFO lpQOCInfo);
+	public static extern BOOL IsDestinationReachableW(PWSTR lpszDestination, QOCINFO* lpQOCInfo);
 
 	[Import("SensApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsNetworkAlive(uint32 lpdwFlags);
+	public static extern BOOL IsNetworkAlive(uint32* lpdwFlags);
 
 }
 #endregion

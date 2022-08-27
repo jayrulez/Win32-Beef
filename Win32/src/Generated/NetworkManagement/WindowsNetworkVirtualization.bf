@@ -68,7 +68,7 @@ public struct WNV_NOTIFICATION_PARAM
 	public WNV_OBJECT_HEADER Header;
 	public WNV_NOTIFICATION_TYPE NotificationType;
 	public uint32 PendingNotifications;
-	public uint8 Buffer;
+	public uint8* Buffer;
 }
 
 [CRepr]
@@ -159,7 +159,7 @@ public static
 	public static extern HANDLE WnvOpen();
 
 	[Import("wnvapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WnvRequestNotification(HANDLE WnvHandle, WNV_NOTIFICATION_PARAM NotificationParam, OVERLAPPED Overlapped, uint32 BytesTransferred);
+	public static extern uint32 WnvRequestNotification(HANDLE WnvHandle, WNV_NOTIFICATION_PARAM* NotificationParam, OVERLAPPED* Overlapped, uint32* BytesTransferred);
 
 }
 #endregion

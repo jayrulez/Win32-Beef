@@ -13772,13 +13772,13 @@ public static
 	public static extern BSTR SysAllocString(PWSTR psz);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SysReAllocString(BSTR pbstr, PWSTR psz);
+	public static extern int32 SysReAllocString(BSTR* pbstr, PWSTR psz);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BSTR SysAllocStringLen(char16* strIn, uint32 ui);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SysReAllocStringLen(BSTR pbstr, PWSTR psz, uint32 len);
+	public static extern int32 SysReAllocStringLen(BSTR* pbstr, PWSTR psz, uint32 len);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SysAddRefString(BSTR bstrString);
@@ -13802,13 +13802,13 @@ public static
 	public static extern BOOL CloseHandle(HANDLE hObject);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DuplicateHandle(HANDLE hSourceProcessHandle, HANDLE hSourceHandle, HANDLE hTargetProcessHandle, HANDLE lpTargetHandle, uint32 dwDesiredAccess, BOOL bInheritHandle, DUPLICATE_HANDLE_OPTIONS dwOptions);
+	public static extern BOOL DuplicateHandle(HANDLE hSourceProcessHandle, HANDLE hSourceHandle, HANDLE hTargetProcessHandle, HANDLE* lpTargetHandle, uint32 dwDesiredAccess, BOOL bInheritHandle, DUPLICATE_HANDLE_OPTIONS dwOptions);
 
 	[Import("api-ms-win-core-handle-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CompareObjectHandles(HANDLE hFirstObjectHandle, HANDLE hSecondObjectHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetHandleInformation(HANDLE hObject, uint32 lpdwFlags);
+	public static extern BOOL GetHandleInformation(HANDLE hObject, uint32* lpdwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetHandleInformation(HANDLE hObject, uint32 dwMask, HANDLE_FLAGS dwFlags);

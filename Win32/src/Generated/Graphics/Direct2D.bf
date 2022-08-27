@@ -1997,11 +1997,11 @@ public enum D2D1_COLOR_CONTEXT_TYPE : uint32
 #endregion
 
 #region Function Pointers
-public function HRESULT PD2D1_EFFECT_FACTORY(IUnknown* effectImpl);
+public function HRESULT PD2D1_EFFECT_FACTORY(IUnknown** effectImpl);
 
 public function HRESULT PD2D1_PROPERTY_SET_FUNCTION(IUnknown* effect, uint8* data, uint32 dataSize);
 
-public function HRESULT PD2D1_PROPERTY_GET_FUNCTION(IUnknown* effect, uint8* data, uint32 dataSize, uint32 actualSize);
+public function HRESULT PD2D1_PROPERTY_GET_FUNCTION(IUnknown* effect, uint8* data, uint32 dataSize, uint32* actualSize);
 
 #endregion
 
@@ -2166,7 +2166,7 @@ public struct D2D1_BITMAP_PROPERTIES1
 public struct D2D1_MAPPED_RECT
 {
 	public uint32 pitch;
-	public uint8 bits;
+	public uint8* bits;
 }
 
 [CRepr]
@@ -2293,12 +2293,12 @@ public struct D2D1_PROPERTY_BINDING
 [CRepr]
 public struct D2D1_RESOURCE_TEXTURE_PROPERTIES
 {
-	public uint32 extents;
+	public uint32* extents;
 	public uint32 dimensions;
 	public D2D1_BUFFER_PRECISION bufferPrecision;
 	public D2D1_CHANNEL_DEPTH channelDepth;
 	public D2D1_FILTER filter;
-	public D2D1_EXTEND_MODE extendModes;
+	public D2D1_EXTEND_MODE* extendModes;
 }
 
 [CRepr]
@@ -2316,16 +2316,16 @@ public struct D2D1_VERTEX_BUFFER_PROPERTIES
 {
 	public uint32 inputCount;
 	public D2D1_VERTEX_USAGE usage;
-	public uint8 data;
+	public uint8* data;
 	public uint32 byteWidth;
 }
 
 [CRepr]
 public struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES
 {
-	public uint8 shaderBufferWithInputSignature;
+	public uint8* shaderBufferWithInputSignature;
 	public uint32 shaderBufferSize;
-	public D2D1_INPUT_ELEMENT_DESC inputElements;
+	public D2D1_INPUT_ELEMENT_DESC* inputElements;
 	public uint32 elementCount;
 	public uint32 stride;
 }
@@ -2481,11 +2481,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Resource*/SelfOuter* self, ID2D1Factory* factory) GetFactory;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Resource*/SelfOuter* self, ID2D1Factory** factory) GetFactory;
 	}
 
 
-	public void GetFactory(ID2D1Factory* factory) mut => VT.[Friend]GetFactory(&this, factory);
+	public void GetFactory(ID2D1Factory** factory) mut => VT.[Friend]GetFactory(&this, factory);
 }
 
 [CRepr]struct ID2D1Image : ID2D1Resource
@@ -2511,10 +2511,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_F(/*ID2D1Bitmap*/SelfOuter* self) GetSize;
 		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_U(/*ID2D1Bitmap*/SelfOuter* self) GetPixelSize;
 		protected new function [CallingConvention(.Stdcall)] D2D1_PIXEL_FORMAT(/*ID2D1Bitmap*/SelfOuter* self) GetPixelFormat;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Bitmap*/SelfOuter* self, float dpiX, float dpiY) GetDpi;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap*/SelfOuter* self, D2D_POINT_2U destPoint, ID2D1Bitmap* bitmap, D2D_RECT_U srcRect) CopyFromBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap*/SelfOuter* self, D2D_POINT_2U destPoint, ID2D1RenderTarget* renderTarget, D2D_RECT_U srcRect) CopyFromRenderTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap*/SelfOuter* self, D2D_RECT_U dstRect, void srcData, uint32 pitch) CopyFromMemory;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Bitmap*/SelfOuter* self, float* dpiX, float* dpiY) GetDpi;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap*/SelfOuter* self, D2D_POINT_2U* destPoint, ID2D1Bitmap* bitmap, D2D_RECT_U* srcRect) CopyFromBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap*/SelfOuter* self, D2D_POINT_2U* destPoint, ID2D1RenderTarget* renderTarget, D2D_RECT_U* srcRect) CopyFromRenderTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap*/SelfOuter* self, D2D_RECT_U* dstRect, void* srcData, uint32 pitch) CopyFromMemory;
 	}
 
 
@@ -2524,13 +2524,13 @@ public static
 
 	public D2D1_PIXEL_FORMAT GetPixelFormat() mut => VT.[Friend]GetPixelFormat(&this);
 
-	public void GetDpi(float dpiX, float dpiY) mut => VT.[Friend]GetDpi(&this, dpiX, dpiY);
+	public void GetDpi(float* dpiX, float* dpiY) mut => VT.[Friend]GetDpi(&this, dpiX, dpiY);
 
-	public HRESULT CopyFromBitmap(D2D_POINT_2U destPoint, ID2D1Bitmap* bitmap, D2D_RECT_U srcRect) mut => VT.[Friend]CopyFromBitmap(&this, destPoint, bitmap, srcRect);
+	public HRESULT CopyFromBitmap(D2D_POINT_2U* destPoint, ID2D1Bitmap* bitmap, D2D_RECT_U* srcRect) mut => VT.[Friend]CopyFromBitmap(&this, destPoint, bitmap, srcRect);
 
-	public HRESULT CopyFromRenderTarget(D2D_POINT_2U destPoint, ID2D1RenderTarget* renderTarget, D2D_RECT_U srcRect) mut => VT.[Friend]CopyFromRenderTarget(&this, destPoint, renderTarget, srcRect);
+	public HRESULT CopyFromRenderTarget(D2D_POINT_2U* destPoint, ID2D1RenderTarget* renderTarget, D2D_RECT_U* srcRect) mut => VT.[Friend]CopyFromRenderTarget(&this, destPoint, renderTarget, srcRect);
 
-	public HRESULT CopyFromMemory(D2D_RECT_U dstRect, void srcData, uint32 pitch) mut => VT.[Friend]CopyFromMemory(&this, dstRect, srcData, pitch);
+	public HRESULT CopyFromMemory(D2D_RECT_U* dstRect, void* srcData, uint32 pitch) mut => VT.[Friend]CopyFromMemory(&this, dstRect, srcData, pitch);
 }
 
 [CRepr]struct ID2D1GradientStopCollection : ID2D1Resource
@@ -2566,19 +2566,19 @@ public static
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Brush*/SelfOuter* self, float opacity) SetOpacity;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Brush*/SelfOuter* self, D2D_MATRIX_3X2_F transform) SetTransform;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Brush*/SelfOuter* self, D2D_MATRIX_3X2_F* transform) SetTransform;
 		protected new function [CallingConvention(.Stdcall)] float(/*ID2D1Brush*/SelfOuter* self) GetOpacity;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Brush*/SelfOuter* self, D2D_MATRIX_3X2_F transform) GetTransform;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Brush*/SelfOuter* self, D2D_MATRIX_3X2_F* transform) GetTransform;
 	}
 
 
 	public void SetOpacity(float opacity) mut => VT.[Friend]SetOpacity(&this, opacity);
 
-	public void SetTransform(D2D_MATRIX_3X2_F transform) mut => VT.[Friend]SetTransform(&this, transform);
+	public void SetTransform(D2D_MATRIX_3X2_F* transform) mut => VT.[Friend]SetTransform(&this, transform);
 
 	public float GetOpacity() mut => VT.[Friend]GetOpacity(&this);
 
-	public void GetTransform(D2D_MATRIX_3X2_F transform) mut => VT.[Friend]GetTransform(&this, transform);
+	public void GetTransform(D2D_MATRIX_3X2_F* transform) mut => VT.[Friend]GetTransform(&this, transform);
 }
 
 [CRepr]struct ID2D1BitmapBrush : ID2D1Brush
@@ -2596,7 +2596,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] D2D1_EXTEND_MODE(/*ID2D1BitmapBrush*/SelfOuter* self) GetExtendModeX;
 		protected new function [CallingConvention(.Stdcall)] D2D1_EXTEND_MODE(/*ID2D1BitmapBrush*/SelfOuter* self) GetExtendModeY;
 		protected new function [CallingConvention(.Stdcall)] D2D1_BITMAP_INTERPOLATION_MODE(/*ID2D1BitmapBrush*/SelfOuter* self) GetInterpolationMode;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1BitmapBrush*/SelfOuter* self, ID2D1Bitmap* bitmap) GetBitmap;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1BitmapBrush*/SelfOuter* self, ID2D1Bitmap** bitmap) GetBitmap;
 	}
 
 
@@ -2614,7 +2614,7 @@ public static
 
 	public D2D1_BITMAP_INTERPOLATION_MODE GetInterpolationMode() mut => VT.[Friend]GetInterpolationMode(&this);
 
-	public void GetBitmap(ID2D1Bitmap* bitmap) mut => VT.[Friend]GetBitmap(&this, bitmap);
+	public void GetBitmap(ID2D1Bitmap** bitmap) mut => VT.[Friend]GetBitmap(&this, bitmap);
 }
 
 [CRepr]struct ID2D1SolidColorBrush : ID2D1Brush
@@ -2625,12 +2625,12 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Brush.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SolidColorBrush*/SelfOuter* self, D2D1_COLOR_F color) SetColor;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SolidColorBrush*/SelfOuter* self, D2D1_COLOR_F* color) SetColor;
 		protected new function [CallingConvention(.Stdcall)] D2D1_COLOR_F(/*ID2D1SolidColorBrush*/SelfOuter* self) GetColor;
 	}
 
 
-	public void SetColor(D2D1_COLOR_F color) mut => VT.[Friend]SetColor(&this, color);
+	public void SetColor(D2D1_COLOR_F* color) mut => VT.[Friend]SetColor(&this, color);
 
 	public D2D1_COLOR_F GetColor() mut => VT.[Friend]GetColor(&this);
 }
@@ -2647,7 +2647,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1LinearGradientBrush*/SelfOuter* self, D2D_POINT_2F endPoint) SetEndPoint;
 		protected new function [CallingConvention(.Stdcall)] D2D_POINT_2F(/*ID2D1LinearGradientBrush*/SelfOuter* self) GetStartPoint;
 		protected new function [CallingConvention(.Stdcall)] D2D_POINT_2F(/*ID2D1LinearGradientBrush*/SelfOuter* self) GetEndPoint;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1LinearGradientBrush*/SelfOuter* self, ID2D1GradientStopCollection* gradientStopCollection) GetGradientStopCollection;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1LinearGradientBrush*/SelfOuter* self, ID2D1GradientStopCollection** gradientStopCollection) GetGradientStopCollection;
 	}
 
 
@@ -2659,7 +2659,7 @@ public static
 
 	public D2D_POINT_2F GetEndPoint() mut => VT.[Friend]GetEndPoint(&this);
 
-	public void GetGradientStopCollection(ID2D1GradientStopCollection* gradientStopCollection) mut => VT.[Friend]GetGradientStopCollection(&this, gradientStopCollection);
+	public void GetGradientStopCollection(ID2D1GradientStopCollection** gradientStopCollection) mut => VT.[Friend]GetGradientStopCollection(&this, gradientStopCollection);
 }
 
 [CRepr]struct ID2D1RadialGradientBrush : ID2D1Brush
@@ -2678,7 +2678,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] D2D_POINT_2F(/*ID2D1RadialGradientBrush*/SelfOuter* self) GetGradientOriginOffset;
 		protected new function [CallingConvention(.Stdcall)] float(/*ID2D1RadialGradientBrush*/SelfOuter* self) GetRadiusX;
 		protected new function [CallingConvention(.Stdcall)] float(/*ID2D1RadialGradientBrush*/SelfOuter* self) GetRadiusY;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RadialGradientBrush*/SelfOuter* self, ID2D1GradientStopCollection* gradientStopCollection) GetGradientStopCollection;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RadialGradientBrush*/SelfOuter* self, ID2D1GradientStopCollection** gradientStopCollection) GetGradientStopCollection;
 	}
 
 
@@ -2698,7 +2698,7 @@ public static
 
 	public float GetRadiusY() mut => VT.[Friend]GetRadiusY(&this);
 
-	public void GetGradientStopCollection(ID2D1GradientStopCollection* gradientStopCollection) mut => VT.[Friend]GetGradientStopCollection(&this, gradientStopCollection);
+	public void GetGradientStopCollection(ID2D1GradientStopCollection** gradientStopCollection) mut => VT.[Friend]GetGradientStopCollection(&this, gradientStopCollection);
 }
 
 [CRepr]struct ID2D1StrokeStyle : ID2D1Resource
@@ -2748,47 +2748,47 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_MATRIX_3X2_F worldTransform, D2D_RECT_F bounds) GetBounds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, D2D_RECT_F bounds) GetWidenedBounds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_POINT_2F point, float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, BOOL contains) StrokeContainsPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_POINT_2F point, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, BOOL contains) FillContainsPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, ID2D1Geometry* inputGeometry, D2D_MATRIX_3X2_F inputGeometryTransform, float flatteningTolerance, D2D1_GEOMETRY_RELATION relation) CompareWithGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D1_GEOMETRY_SIMPLIFICATION_OPTION simplificationOption, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) Simplify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, ID2D1TessellationSink* tessellationSink) Tessellate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, ID2D1Geometry* inputGeometry, D2D1_COMBINE_MODE combineMode, D2D_MATRIX_3X2_F inputGeometryTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) CombineWithGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) Outline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, float area) ComputeArea;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, float length) ComputeLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, float length, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, D2D_POINT_2F point, D2D_POINT_2F unitTangentVector) ComputePointAtLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) Widen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_MATRIX_3X2_F* worldTransform, D2D_RECT_F* bounds) GetBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, D2D_RECT_F* bounds) GetWidenedBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_POINT_2F point, float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, BOOL* contains) StrokeContainsPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_POINT_2F point, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, BOOL* contains) FillContainsPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, ID2D1Geometry* inputGeometry, D2D_MATRIX_3X2_F* inputGeometryTransform, float flatteningTolerance, D2D1_GEOMETRY_RELATION* relation) CompareWithGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D1_GEOMETRY_SIMPLIFICATION_OPTION simplificationOption, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) Simplify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, ID2D1TessellationSink* tessellationSink) Tessellate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, ID2D1Geometry* inputGeometry, D2D1_COMBINE_MODE combineMode, D2D_MATRIX_3X2_F* inputGeometryTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) CombineWithGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) Outline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, float* area) ComputeArea;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, float* length) ComputeLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, float length, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, D2D_POINT_2F* point, D2D_POINT_2F* unitTangentVector) ComputePointAtLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Geometry*/SelfOuter* self, float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) Widen;
 	}
 
 
-	public HRESULT GetBounds(D2D_MATRIX_3X2_F worldTransform, D2D_RECT_F bounds) mut => VT.[Friend]GetBounds(&this, worldTransform, bounds);
+	public HRESULT GetBounds(D2D_MATRIX_3X2_F* worldTransform, D2D_RECT_F* bounds) mut => VT.[Friend]GetBounds(&this, worldTransform, bounds);
 
-	public HRESULT GetWidenedBounds(float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, D2D_RECT_F bounds) mut => VT.[Friend]GetWidenedBounds(&this, strokeWidth, strokeStyle, worldTransform, flatteningTolerance, bounds);
+	public HRESULT GetWidenedBounds(float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, D2D_RECT_F* bounds) mut => VT.[Friend]GetWidenedBounds(&this, strokeWidth, strokeStyle, worldTransform, flatteningTolerance, bounds);
 
-	public HRESULT StrokeContainsPoint(D2D_POINT_2F point, float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, BOOL contains) mut => VT.[Friend]StrokeContainsPoint(&this, point, strokeWidth, strokeStyle, worldTransform, flatteningTolerance, contains);
+	public HRESULT StrokeContainsPoint(D2D_POINT_2F point, float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, BOOL* contains) mut => VT.[Friend]StrokeContainsPoint(&this, point, strokeWidth, strokeStyle, worldTransform, flatteningTolerance, contains);
 
-	public HRESULT FillContainsPoint(D2D_POINT_2F point, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, BOOL contains) mut => VT.[Friend]FillContainsPoint(&this, point, worldTransform, flatteningTolerance, contains);
+	public HRESULT FillContainsPoint(D2D_POINT_2F point, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, BOOL* contains) mut => VT.[Friend]FillContainsPoint(&this, point, worldTransform, flatteningTolerance, contains);
 
-	public HRESULT CompareWithGeometry(ID2D1Geometry* inputGeometry, D2D_MATRIX_3X2_F inputGeometryTransform, float flatteningTolerance, D2D1_GEOMETRY_RELATION relation) mut => VT.[Friend]CompareWithGeometry(&this, inputGeometry, inputGeometryTransform, flatteningTolerance, relation);
+	public HRESULT CompareWithGeometry(ID2D1Geometry* inputGeometry, D2D_MATRIX_3X2_F* inputGeometryTransform, float flatteningTolerance, D2D1_GEOMETRY_RELATION* relation) mut => VT.[Friend]CompareWithGeometry(&this, inputGeometry, inputGeometryTransform, flatteningTolerance, relation);
 
-	public HRESULT Simplify(D2D1_GEOMETRY_SIMPLIFICATION_OPTION simplificationOption, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) mut => VT.[Friend]Simplify(&this, simplificationOption, worldTransform, flatteningTolerance, geometrySink);
+	public HRESULT Simplify(D2D1_GEOMETRY_SIMPLIFICATION_OPTION simplificationOption, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) mut => VT.[Friend]Simplify(&this, simplificationOption, worldTransform, flatteningTolerance, geometrySink);
 
-	public HRESULT Tessellate(D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, ID2D1TessellationSink* tessellationSink) mut => VT.[Friend]Tessellate(&this, worldTransform, flatteningTolerance, tessellationSink);
+	public HRESULT Tessellate(D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, ID2D1TessellationSink* tessellationSink) mut => VT.[Friend]Tessellate(&this, worldTransform, flatteningTolerance, tessellationSink);
 
-	public HRESULT CombineWithGeometry(ID2D1Geometry* inputGeometry, D2D1_COMBINE_MODE combineMode, D2D_MATRIX_3X2_F inputGeometryTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) mut => VT.[Friend]CombineWithGeometry(&this, inputGeometry, combineMode, inputGeometryTransform, flatteningTolerance, geometrySink);
+	public HRESULT CombineWithGeometry(ID2D1Geometry* inputGeometry, D2D1_COMBINE_MODE combineMode, D2D_MATRIX_3X2_F* inputGeometryTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) mut => VT.[Friend]CombineWithGeometry(&this, inputGeometry, combineMode, inputGeometryTransform, flatteningTolerance, geometrySink);
 
-	public HRESULT Outline(D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) mut => VT.[Friend]Outline(&this, worldTransform, flatteningTolerance, geometrySink);
+	public HRESULT Outline(D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) mut => VT.[Friend]Outline(&this, worldTransform, flatteningTolerance, geometrySink);
 
-	public HRESULT ComputeArea(D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, float area) mut => VT.[Friend]ComputeArea(&this, worldTransform, flatteningTolerance, area);
+	public HRESULT ComputeArea(D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, float* area) mut => VT.[Friend]ComputeArea(&this, worldTransform, flatteningTolerance, area);
 
-	public HRESULT ComputeLength(D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, float length) mut => VT.[Friend]ComputeLength(&this, worldTransform, flatteningTolerance, length);
+	public HRESULT ComputeLength(D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, float* length) mut => VT.[Friend]ComputeLength(&this, worldTransform, flatteningTolerance, length);
 
-	public HRESULT ComputePointAtLength(float length, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, D2D_POINT_2F point, D2D_POINT_2F unitTangentVector) mut => VT.[Friend]ComputePointAtLength(&this, length, worldTransform, flatteningTolerance, point, unitTangentVector);
+	public HRESULT ComputePointAtLength(float length, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, D2D_POINT_2F* point, D2D_POINT_2F* unitTangentVector) mut => VT.[Friend]ComputePointAtLength(&this, length, worldTransform, flatteningTolerance, point, unitTangentVector);
 
-	public HRESULT Widen(float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) mut => VT.[Friend]Widen(&this, strokeWidth, strokeStyle, worldTransform, flatteningTolerance, geometrySink);
+	public HRESULT Widen(float strokeWidth, ID2D1StrokeStyle* strokeStyle, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) mut => VT.[Friend]Widen(&this, strokeWidth, strokeStyle, worldTransform, flatteningTolerance, geometrySink);
 }
 
 [CRepr]struct ID2D1RectangleGeometry : ID2D1Geometry
@@ -2799,11 +2799,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Geometry.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RectangleGeometry*/SelfOuter* self, D2D_RECT_F rect) GetRect;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RectangleGeometry*/SelfOuter* self, D2D_RECT_F* rect) GetRect;
 	}
 
 
-	public void GetRect(D2D_RECT_F rect) mut => VT.[Friend]GetRect(&this, rect);
+	public void GetRect(D2D_RECT_F* rect) mut => VT.[Friend]GetRect(&this, rect);
 }
 
 [CRepr]struct ID2D1RoundedRectangleGeometry : ID2D1Geometry
@@ -2814,11 +2814,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Geometry.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RoundedRectangleGeometry*/SelfOuter* self, D2D1_ROUNDED_RECT roundedRect) GetRoundedRect;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RoundedRectangleGeometry*/SelfOuter* self, D2D1_ROUNDED_RECT* roundedRect) GetRoundedRect;
 	}
 
 
-	public void GetRoundedRect(D2D1_ROUNDED_RECT roundedRect) mut => VT.[Friend]GetRoundedRect(&this, roundedRect);
+	public void GetRoundedRect(D2D1_ROUNDED_RECT* roundedRect) mut => VT.[Friend]GetRoundedRect(&this, roundedRect);
 }
 
 [CRepr]struct ID2D1EllipseGeometry : ID2D1Geometry
@@ -2829,11 +2829,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Geometry.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1EllipseGeometry*/SelfOuter* self, D2D1_ELLIPSE ellipse) GetEllipse;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1EllipseGeometry*/SelfOuter* self, D2D1_ELLIPSE* ellipse) GetEllipse;
 	}
 
 
-	public void GetEllipse(D2D1_ELLIPSE ellipse) mut => VT.[Friend]GetEllipse(&this, ellipse);
+	public void GetEllipse(D2D1_ELLIPSE* ellipse) mut => VT.[Friend]GetEllipse(&this, ellipse);
 }
 
 [CRepr]struct ID2D1GeometryGroup : ID2D1Geometry
@@ -2865,14 +2865,14 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Geometry.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1TransformedGeometry*/SelfOuter* self, ID2D1Geometry* sourceGeometry) GetSourceGeometry;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1TransformedGeometry*/SelfOuter* self, D2D_MATRIX_3X2_F transform) GetTransform;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1TransformedGeometry*/SelfOuter* self, ID2D1Geometry** sourceGeometry) GetSourceGeometry;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1TransformedGeometry*/SelfOuter* self, D2D_MATRIX_3X2_F* transform) GetTransform;
 	}
 
 
-	public void GetSourceGeometry(ID2D1Geometry* sourceGeometry) mut => VT.[Friend]GetSourceGeometry(&this, sourceGeometry);
+	public void GetSourceGeometry(ID2D1Geometry** sourceGeometry) mut => VT.[Friend]GetSourceGeometry(&this, sourceGeometry);
 
-	public void GetTransform(D2D_MATRIX_3X2_F transform) mut => VT.[Friend]GetTransform(&this, transform);
+	public void GetTransform(D2D_MATRIX_3X2_F* transform) mut => VT.[Friend]GetTransform(&this, transform);
 }
 
 [CRepr]struct ID2D1GeometrySink : ID2D1SimplifiedGeometrySink
@@ -2884,22 +2884,22 @@ public static
 	[CRepr]public struct VTable : ID2D1SimplifiedGeometrySink.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1GeometrySink*/SelfOuter* self, D2D_POINT_2F point) AddLine;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1GeometrySink*/SelfOuter* self, D2D1_BEZIER_SEGMENT bezier) AddBezier;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1GeometrySink*/SelfOuter* self, D2D1_QUADRATIC_BEZIER_SEGMENT bezier) AddQuadraticBezier;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1GeometrySink*/SelfOuter* self, D2D1_BEZIER_SEGMENT* bezier) AddBezier;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1GeometrySink*/SelfOuter* self, D2D1_QUADRATIC_BEZIER_SEGMENT* bezier) AddQuadraticBezier;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1GeometrySink*/SelfOuter* self, D2D1_QUADRATIC_BEZIER_SEGMENT* beziers, uint32 beziersCount) AddQuadraticBeziers;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1GeometrySink*/SelfOuter* self, D2D1_ARC_SEGMENT arc) AddArc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1GeometrySink*/SelfOuter* self, D2D1_ARC_SEGMENT* arc) AddArc;
 	}
 
 
 	public void AddLine(D2D_POINT_2F point) mut => VT.[Friend]AddLine(&this, point);
 
-	public void AddBezier(D2D1_BEZIER_SEGMENT bezier) mut => VT.[Friend]AddBezier(&this, bezier);
+	public void AddBezier(D2D1_BEZIER_SEGMENT* bezier) mut => VT.[Friend]AddBezier(&this, bezier);
 
-	public void AddQuadraticBezier(D2D1_QUADRATIC_BEZIER_SEGMENT bezier) mut => VT.[Friend]AddQuadraticBezier(&this, bezier);
+	public void AddQuadraticBezier(D2D1_QUADRATIC_BEZIER_SEGMENT* bezier) mut => VT.[Friend]AddQuadraticBezier(&this, bezier);
 
 	public void AddQuadraticBeziers(D2D1_QUADRATIC_BEZIER_SEGMENT* beziers, uint32 beziersCount) mut => VT.[Friend]AddQuadraticBeziers(&this, beziers, beziersCount);
 
-	public void AddArc(D2D1_ARC_SEGMENT arc) mut => VT.[Friend]AddArc(&this, arc);
+	public void AddArc(D2D1_ARC_SEGMENT* arc) mut => VT.[Friend]AddArc(&this, arc);
 }
 
 [CRepr]struct ID2D1TessellationSink : IUnknown
@@ -2928,20 +2928,20 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Geometry.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PathGeometry*/SelfOuter* self, ID2D1GeometrySink* geometrySink) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PathGeometry*/SelfOuter* self, ID2D1GeometrySink** geometrySink) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PathGeometry*/SelfOuter* self, ID2D1GeometrySink* geometrySink) Stream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PathGeometry*/SelfOuter* self, uint32 count) GetSegmentCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PathGeometry*/SelfOuter* self, uint32 count) GetFigureCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PathGeometry*/SelfOuter* self, uint32* count) GetSegmentCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PathGeometry*/SelfOuter* self, uint32* count) GetFigureCount;
 	}
 
 
-	public HRESULT Open(ID2D1GeometrySink* geometrySink) mut => VT.[Friend]Open(&this, geometrySink);
+	public HRESULT Open(ID2D1GeometrySink** geometrySink) mut => VT.[Friend]Open(&this, geometrySink);
 
 	public HRESULT Stream(ID2D1GeometrySink* geometrySink) mut => VT.[Friend]Stream(&this, geometrySink);
 
-	public HRESULT GetSegmentCount(uint32 count) mut => VT.[Friend]GetSegmentCount(&this, count);
+	public HRESULT GetSegmentCount(uint32* count) mut => VT.[Friend]GetSegmentCount(&this, count);
 
-	public HRESULT GetFigureCount(uint32 count) mut => VT.[Friend]GetFigureCount(&this, count);
+	public HRESULT GetFigureCount(uint32* count) mut => VT.[Friend]GetFigureCount(&this, count);
 }
 
 [CRepr]struct ID2D1Mesh : ID2D1Resource
@@ -2952,11 +2952,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Mesh*/SelfOuter* self, ID2D1TessellationSink* tessellationSink) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Mesh*/SelfOuter* self, ID2D1TessellationSink** tessellationSink) Open;
 	}
 
 
-	public HRESULT Open(ID2D1TessellationSink* tessellationSink) mut => VT.[Friend]Open(&this, tessellationSink);
+	public HRESULT Open(ID2D1TessellationSink** tessellationSink) mut => VT.[Friend]Open(&this, tessellationSink);
 }
 
 [CRepr]struct ID2D1Layer : ID2D1Resource
@@ -2982,20 +2982,20 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION stateDescription) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION stateDescription) SetDescription;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION* stateDescription) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION* stateDescription) SetDescription;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock*/SelfOuter* self, IDWriteRenderingParams* textRenderingParams) SetTextRenderingParams;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock*/SelfOuter* self, IDWriteRenderingParams* textRenderingParams) GetTextRenderingParams;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock*/SelfOuter* self, IDWriteRenderingParams** textRenderingParams) GetTextRenderingParams;
 	}
 
 
-	public void GetDescription(D2D1_DRAWING_STATE_DESCRIPTION stateDescription) mut => VT.[Friend]GetDescription(&this, stateDescription);
+	public void GetDescription(D2D1_DRAWING_STATE_DESCRIPTION* stateDescription) mut => VT.[Friend]GetDescription(&this, stateDescription);
 
-	public void SetDescription(D2D1_DRAWING_STATE_DESCRIPTION stateDescription) mut => VT.[Friend]SetDescription(&this, stateDescription);
+	public void SetDescription(D2D1_DRAWING_STATE_DESCRIPTION* stateDescription) mut => VT.[Friend]SetDescription(&this, stateDescription);
 
 	public void SetTextRenderingParams(IDWriteRenderingParams* textRenderingParams) mut => VT.[Friend]SetTextRenderingParams(&this, textRenderingParams);
 
-	public void GetTextRenderingParams(IDWriteRenderingParams* textRenderingParams) mut => VT.[Friend]GetTextRenderingParams(&this, textRenderingParams);
+	public void GetTextRenderingParams(IDWriteRenderingParams** textRenderingParams) mut => VT.[Friend]GetTextRenderingParams(&this, textRenderingParams);
 }
 
 [CRepr]struct ID2D1RenderTarget : ID2D1Resource
@@ -3006,97 +3006,97 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D_SIZE_U size, void srcData, uint32 pitch, D2D1_BITMAP_PROPERTIES bitmapProperties, ID2D1Bitmap* bitmap) CreateBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, IWICBitmapSource* wicBitmapSource, D2D1_BITMAP_PROPERTIES bitmapProperties, ID2D1Bitmap* bitmap) CreateBitmapFromWicBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, Guid riid, void data, D2D1_BITMAP_PROPERTIES bitmapProperties, ID2D1Bitmap* bitmap) CreateSharedBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES bitmapBrushProperties, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1BitmapBrush* bitmapBrush) CreateBitmapBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_COLOR_F color, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1SolidColorBrush* solidColorBrush) CreateSolidColorBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_GRADIENT_STOP* gradientStops, uint32 gradientStopsCount, D2D1_GAMMA colorInterpolationGamma, D2D1_EXTEND_MODE extendMode, ID2D1GradientStopCollection* gradientStopCollection) CreateGradientStopCollection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES linearGradientBrushProperties, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1GradientStopCollection* gradientStopCollection, ID2D1LinearGradientBrush* linearGradientBrush) CreateLinearGradientBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES radialGradientBrushProperties, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1GradientStopCollection* gradientStopCollection, ID2D1RadialGradientBrush* radialGradientBrush) CreateRadialGradientBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D_SIZE_F desiredSize, D2D_SIZE_U desiredPixelSize, D2D1_PIXEL_FORMAT desiredFormat, D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS options, ID2D1BitmapRenderTarget* bitmapRenderTarget) CreateCompatibleRenderTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D_SIZE_F size, ID2D1Layer* layer) CreateLayer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Mesh* mesh) CreateMesh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D_SIZE_U size, void* srcData, uint32 pitch, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) CreateBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, IWICBitmapSource* wicBitmapSource, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) CreateBitmapFromWicBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, Guid riid, void* data, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) CreateSharedBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES* bitmapBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1BitmapBrush** bitmapBrush) CreateBitmapBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_COLOR_F* color, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1SolidColorBrush** solidColorBrush) CreateSolidColorBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_GRADIENT_STOP* gradientStops, uint32 gradientStopsCount, D2D1_GAMMA colorInterpolationGamma, D2D1_EXTEND_MODE extendMode, ID2D1GradientStopCollection** gradientStopCollection) CreateGradientStopCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES* linearGradientBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1GradientStopCollection* gradientStopCollection, ID2D1LinearGradientBrush** linearGradientBrush) CreateLinearGradientBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES* radialGradientBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1GradientStopCollection* gradientStopCollection, ID2D1RadialGradientBrush** radialGradientBrush) CreateRadialGradientBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D_SIZE_F* desiredSize, D2D_SIZE_U* desiredPixelSize, D2D1_PIXEL_FORMAT* desiredFormat, D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS options, ID2D1BitmapRenderTarget** bitmapRenderTarget) CreateCompatibleRenderTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, D2D_SIZE_F* size, ID2D1Layer** layer) CreateLayer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Mesh** mesh) CreateMesh;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_POINT_2F point0, D2D_POINT_2F point1, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawLine;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_RECT_F rect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawRectangle;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_RECT_F rect, ID2D1Brush* brush) FillRectangle;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_ROUNDED_RECT roundedRect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawRoundedRectangle;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_ROUNDED_RECT roundedRect, ID2D1Brush* brush) FillRoundedRectangle;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_ELLIPSE ellipse, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawEllipse;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_ELLIPSE ellipse, ID2D1Brush* brush) FillEllipse;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_RECT_F* rect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawRectangle;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_RECT_F* rect, ID2D1Brush* brush) FillRectangle;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_ROUNDED_RECT* roundedRect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawRoundedRectangle;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_ROUNDED_RECT* roundedRect, ID2D1Brush* brush) FillRoundedRectangle;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_ELLIPSE* ellipse, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawEllipse;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_ELLIPSE* ellipse, ID2D1Brush* brush) FillEllipse;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Geometry* geometry, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawGeometry;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Geometry* geometry, ID2D1Brush* brush, ID2D1Brush* opacityBrush) FillGeometry;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Mesh* mesh, ID2D1Brush* brush) FillMesh;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D1_OPACITY_MASK_CONTENT content, D2D_RECT_F destinationRectangle, D2D_RECT_F sourceRectangle) FillOpacityMask;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D_RECT_F destinationRectangle, float opacity, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode, D2D_RECT_F sourceRectangle) DrawBitmap;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F layoutRect, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) DrawText;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D1_OPACITY_MASK_CONTENT content, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) FillOpacityMask;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D_RECT_F* destinationRectangle, float opacity, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode, D2D_RECT_F* sourceRectangle) DrawBitmap;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) DrawText;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_POINT_2F origin, IDWriteTextLayout* textLayout, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options) DrawTextLayout;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) DrawGlyphRun;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_MATRIX_3X2_F transform) SetTransform;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_MATRIX_3X2_F transform) GetTransform;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) DrawGlyphRun;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_MATRIX_3X2_F* transform) SetTransform;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_MATRIX_3X2_F* transform) GetTransform;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_ANTIALIAS_MODE antialiasMode) SetAntialiasMode;
 		protected new function [CallingConvention(.Stdcall)] D2D1_ANTIALIAS_MODE(/*ID2D1RenderTarget*/SelfOuter* self) GetAntialiasMode;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_TEXT_ANTIALIAS_MODE textAntialiasMode) SetTextAntialiasMode;
 		protected new function [CallingConvention(.Stdcall)] D2D1_TEXT_ANTIALIAS_MODE(/*ID2D1RenderTarget*/SelfOuter* self) GetTextAntialiasMode;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, IDWriteRenderingParams* textRenderingParams) SetTextRenderingParams;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, IDWriteRenderingParams* textRenderingParams) GetTextRenderingParams;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, IDWriteRenderingParams** textRenderingParams) GetTextRenderingParams;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, uint64 tag1, uint64 tag2) SetTags;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, uint64 tag1, uint64 tag2) GetTags;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_LAYER_PARAMETERS layerParameters, ID2D1Layer* layer) PushLayer;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, uint64* tag1, uint64* tag2) GetTags;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_LAYER_PARAMETERS* layerParameters, ID2D1Layer* layer) PushLayer;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self) PopLayer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, uint64 tag1, uint64 tag2) Flush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, uint64* tag1, uint64* tag2) Flush;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1DrawingStateBlock* drawingStateBlock) SaveDrawingState;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1DrawingStateBlock* drawingStateBlock) RestoreDrawingState;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_RECT_F clipRect, D2D1_ANTIALIAS_MODE antialiasMode) PushAxisAlignedClip;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_RECT_F* clipRect, D2D1_ANTIALIAS_MODE antialiasMode) PushAxisAlignedClip;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self) PopAxisAlignedClip;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_COLOR_F clearColor) Clear;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_COLOR_F* clearColor) Clear;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self) BeginDraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, uint64 tag1, uint64 tag2) EndDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1RenderTarget*/SelfOuter* self, uint64* tag1, uint64* tag2) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] D2D1_PIXEL_FORMAT(/*ID2D1RenderTarget*/SelfOuter* self) GetPixelFormat;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, float dpiX, float dpiY) SetDpi;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, float dpiX, float dpiY) GetDpi;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, float* dpiX, float* dpiY) GetDpi;
 		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_F(/*ID2D1RenderTarget*/SelfOuter* self) GetSize;
 		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_U(/*ID2D1RenderTarget*/SelfOuter* self) GetPixelSize;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1RenderTarget*/SelfOuter* self) GetMaximumBitmapSize;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties) IsSupported;
+		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1RenderTarget*/SelfOuter* self, D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties) IsSupported;
 	}
 
 
-	public HRESULT CreateBitmap(D2D_SIZE_U size, void srcData, uint32 pitch, D2D1_BITMAP_PROPERTIES bitmapProperties, ID2D1Bitmap* bitmap) mut => VT.[Friend]CreateBitmap(&this, size, srcData, pitch, bitmapProperties, bitmap);
+	public HRESULT CreateBitmap(D2D_SIZE_U size, void* srcData, uint32 pitch, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) mut => VT.[Friend]CreateBitmap(&this, size, srcData, pitch, bitmapProperties, bitmap);
 
-	public HRESULT CreateBitmapFromWicBitmap(IWICBitmapSource* wicBitmapSource, D2D1_BITMAP_PROPERTIES bitmapProperties, ID2D1Bitmap* bitmap) mut => VT.[Friend]CreateBitmapFromWicBitmap(&this, wicBitmapSource, bitmapProperties, bitmap);
+	public HRESULT CreateBitmapFromWicBitmap(IWICBitmapSource* wicBitmapSource, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) mut => VT.[Friend]CreateBitmapFromWicBitmap(&this, wicBitmapSource, bitmapProperties, bitmap);
 
-	public HRESULT CreateSharedBitmap(Guid riid, void data, D2D1_BITMAP_PROPERTIES bitmapProperties, ID2D1Bitmap* bitmap) mut => VT.[Friend]CreateSharedBitmap(&this, riid, data, bitmapProperties, bitmap);
+	public HRESULT CreateSharedBitmap(Guid riid, void* data, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) mut => VT.[Friend]CreateSharedBitmap(&this, riid, data, bitmapProperties, bitmap);
 
-	public HRESULT CreateBitmapBrush(ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES bitmapBrushProperties, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1BitmapBrush* bitmapBrush) mut => VT.[Friend]CreateBitmapBrush(&this, bitmap, bitmapBrushProperties, brushProperties, bitmapBrush);
+	public HRESULT CreateBitmapBrush(ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES* bitmapBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1BitmapBrush** bitmapBrush) mut => VT.[Friend]CreateBitmapBrush(&this, bitmap, bitmapBrushProperties, brushProperties, bitmapBrush);
 
-	public HRESULT CreateSolidColorBrush(D2D1_COLOR_F color, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1SolidColorBrush* solidColorBrush) mut => VT.[Friend]CreateSolidColorBrush(&this, color, brushProperties, solidColorBrush);
+	public HRESULT CreateSolidColorBrush(D2D1_COLOR_F* color, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1SolidColorBrush** solidColorBrush) mut => VT.[Friend]CreateSolidColorBrush(&this, color, brushProperties, solidColorBrush);
 
-	public HRESULT CreateGradientStopCollection(D2D1_GRADIENT_STOP* gradientStops, uint32 gradientStopsCount, D2D1_GAMMA colorInterpolationGamma, D2D1_EXTEND_MODE extendMode, ID2D1GradientStopCollection* gradientStopCollection) mut => VT.[Friend]CreateGradientStopCollection(&this, gradientStops, gradientStopsCount, colorInterpolationGamma, extendMode, gradientStopCollection);
+	public HRESULT CreateGradientStopCollection(D2D1_GRADIENT_STOP* gradientStops, uint32 gradientStopsCount, D2D1_GAMMA colorInterpolationGamma, D2D1_EXTEND_MODE extendMode, ID2D1GradientStopCollection** gradientStopCollection) mut => VT.[Friend]CreateGradientStopCollection(&this, gradientStops, gradientStopsCount, colorInterpolationGamma, extendMode, gradientStopCollection);
 
-	public HRESULT CreateLinearGradientBrush(D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES linearGradientBrushProperties, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1GradientStopCollection* gradientStopCollection, ID2D1LinearGradientBrush* linearGradientBrush) mut => VT.[Friend]CreateLinearGradientBrush(&this, linearGradientBrushProperties, brushProperties, gradientStopCollection, linearGradientBrush);
+	public HRESULT CreateLinearGradientBrush(D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES* linearGradientBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1GradientStopCollection* gradientStopCollection, ID2D1LinearGradientBrush** linearGradientBrush) mut => VT.[Friend]CreateLinearGradientBrush(&this, linearGradientBrushProperties, brushProperties, gradientStopCollection, linearGradientBrush);
 
-	public HRESULT CreateRadialGradientBrush(D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES radialGradientBrushProperties, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1GradientStopCollection* gradientStopCollection, ID2D1RadialGradientBrush* radialGradientBrush) mut => VT.[Friend]CreateRadialGradientBrush(&this, radialGradientBrushProperties, brushProperties, gradientStopCollection, radialGradientBrush);
+	public HRESULT CreateRadialGradientBrush(D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES* radialGradientBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1GradientStopCollection* gradientStopCollection, ID2D1RadialGradientBrush** radialGradientBrush) mut => VT.[Friend]CreateRadialGradientBrush(&this, radialGradientBrushProperties, brushProperties, gradientStopCollection, radialGradientBrush);
 
-	public HRESULT CreateCompatibleRenderTarget(D2D_SIZE_F desiredSize, D2D_SIZE_U desiredPixelSize, D2D1_PIXEL_FORMAT desiredFormat, D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS options, ID2D1BitmapRenderTarget* bitmapRenderTarget) mut => VT.[Friend]CreateCompatibleRenderTarget(&this, desiredSize, desiredPixelSize, desiredFormat, options, bitmapRenderTarget);
+	public HRESULT CreateCompatibleRenderTarget(D2D_SIZE_F* desiredSize, D2D_SIZE_U* desiredPixelSize, D2D1_PIXEL_FORMAT* desiredFormat, D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS options, ID2D1BitmapRenderTarget** bitmapRenderTarget) mut => VT.[Friend]CreateCompatibleRenderTarget(&this, desiredSize, desiredPixelSize, desiredFormat, options, bitmapRenderTarget);
 
-	public HRESULT CreateLayer(D2D_SIZE_F size, ID2D1Layer* layer) mut => VT.[Friend]CreateLayer(&this, size, layer);
+	public HRESULT CreateLayer(D2D_SIZE_F* size, ID2D1Layer** layer) mut => VT.[Friend]CreateLayer(&this, size, layer);
 
-	public HRESULT CreateMesh(ID2D1Mesh* mesh) mut => VT.[Friend]CreateMesh(&this, mesh);
+	public HRESULT CreateMesh(ID2D1Mesh** mesh) mut => VT.[Friend]CreateMesh(&this, mesh);
 
 	public void DrawLine(D2D_POINT_2F point0, D2D_POINT_2F point1, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawLine(&this, point0, point1, brush, strokeWidth, strokeStyle);
 
-	public void DrawRectangle(D2D_RECT_F rect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawRectangle(&this, rect, brush, strokeWidth, strokeStyle);
+	public void DrawRectangle(D2D_RECT_F* rect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawRectangle(&this, rect, brush, strokeWidth, strokeStyle);
 
-	public void FillRectangle(D2D_RECT_F rect, ID2D1Brush* brush) mut => VT.[Friend]FillRectangle(&this, rect, brush);
+	public void FillRectangle(D2D_RECT_F* rect, ID2D1Brush* brush) mut => VT.[Friend]FillRectangle(&this, rect, brush);
 
-	public void DrawRoundedRectangle(D2D1_ROUNDED_RECT roundedRect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawRoundedRectangle(&this, roundedRect, brush, strokeWidth, strokeStyle);
+	public void DrawRoundedRectangle(D2D1_ROUNDED_RECT* roundedRect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawRoundedRectangle(&this, roundedRect, brush, strokeWidth, strokeStyle);
 
-	public void FillRoundedRectangle(D2D1_ROUNDED_RECT roundedRect, ID2D1Brush* brush) mut => VT.[Friend]FillRoundedRectangle(&this, roundedRect, brush);
+	public void FillRoundedRectangle(D2D1_ROUNDED_RECT* roundedRect, ID2D1Brush* brush) mut => VT.[Friend]FillRoundedRectangle(&this, roundedRect, brush);
 
-	public void DrawEllipse(D2D1_ELLIPSE ellipse, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawEllipse(&this, ellipse, brush, strokeWidth, strokeStyle);
+	public void DrawEllipse(D2D1_ELLIPSE* ellipse, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawEllipse(&this, ellipse, brush, strokeWidth, strokeStyle);
 
-	public void FillEllipse(D2D1_ELLIPSE ellipse, ID2D1Brush* brush) mut => VT.[Friend]FillEllipse(&this, ellipse, brush);
+	public void FillEllipse(D2D1_ELLIPSE* ellipse, ID2D1Brush* brush) mut => VT.[Friend]FillEllipse(&this, ellipse, brush);
 
 	public void DrawGeometry(ID2D1Geometry* geometry, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawGeometry(&this, geometry, brush, strokeWidth, strokeStyle);
 
@@ -3104,19 +3104,19 @@ public static
 
 	public void FillMesh(ID2D1Mesh* mesh, ID2D1Brush* brush) mut => VT.[Friend]FillMesh(&this, mesh, brush);
 
-	public void FillOpacityMask(ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D1_OPACITY_MASK_CONTENT content, D2D_RECT_F destinationRectangle, D2D_RECT_F sourceRectangle) mut => VT.[Friend]FillOpacityMask(&this, opacityMask, brush, content, destinationRectangle, sourceRectangle);
+	public void FillOpacityMask(ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D1_OPACITY_MASK_CONTENT content, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) mut => VT.[Friend]FillOpacityMask(&this, opacityMask, brush, content, destinationRectangle, sourceRectangle);
 
-	public void DrawBitmap(ID2D1Bitmap* bitmap, D2D_RECT_F destinationRectangle, float opacity, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode, D2D_RECT_F sourceRectangle) mut => VT.[Friend]DrawBitmap(&this, bitmap, destinationRectangle, opacity, interpolationMode, sourceRectangle);
+	public void DrawBitmap(ID2D1Bitmap* bitmap, D2D_RECT_F* destinationRectangle, float opacity, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode, D2D_RECT_F* sourceRectangle) mut => VT.[Friend]DrawBitmap(&this, bitmap, destinationRectangle, opacity, interpolationMode, sourceRectangle);
 
-	public void DrawText(char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F layoutRect, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawText(&this, string, stringLength, textFormat, layoutRect, defaultFillBrush, options, measuringMode);
+	public void DrawText(char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawText(&this, string, stringLength, textFormat, layoutRect, defaultFillBrush, options, measuringMode);
 
 	public void DrawTextLayout(D2D_POINT_2F origin, IDWriteTextLayout* textLayout, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options) mut => VT.[Friend]DrawTextLayout(&this, origin, textLayout, defaultFillBrush, options);
 
-	public void DrawGlyphRun(D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawGlyphRun(&this, baselineOrigin, glyphRun, foregroundBrush, measuringMode);
+	public void DrawGlyphRun(D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawGlyphRun(&this, baselineOrigin, glyphRun, foregroundBrush, measuringMode);
 
-	public void SetTransform(D2D_MATRIX_3X2_F transform) mut => VT.[Friend]SetTransform(&this, transform);
+	public void SetTransform(D2D_MATRIX_3X2_F* transform) mut => VT.[Friend]SetTransform(&this, transform);
 
-	public void GetTransform(D2D_MATRIX_3X2_F transform) mut => VT.[Friend]GetTransform(&this, transform);
+	public void GetTransform(D2D_MATRIX_3X2_F* transform) mut => VT.[Friend]GetTransform(&this, transform);
 
 	public void SetAntialiasMode(D2D1_ANTIALIAS_MODE antialiasMode) mut => VT.[Friend]SetAntialiasMode(&this, antialiasMode);
 
@@ -3128,37 +3128,37 @@ public static
 
 	public void SetTextRenderingParams(IDWriteRenderingParams* textRenderingParams) mut => VT.[Friend]SetTextRenderingParams(&this, textRenderingParams);
 
-	public void GetTextRenderingParams(IDWriteRenderingParams* textRenderingParams) mut => VT.[Friend]GetTextRenderingParams(&this, textRenderingParams);
+	public void GetTextRenderingParams(IDWriteRenderingParams** textRenderingParams) mut => VT.[Friend]GetTextRenderingParams(&this, textRenderingParams);
 
 	public void SetTags(uint64 tag1, uint64 tag2) mut => VT.[Friend]SetTags(&this, tag1, tag2);
 
-	public void GetTags(uint64 tag1, uint64 tag2) mut => VT.[Friend]GetTags(&this, tag1, tag2);
+	public void GetTags(uint64* tag1, uint64* tag2) mut => VT.[Friend]GetTags(&this, tag1, tag2);
 
-	public void PushLayer(D2D1_LAYER_PARAMETERS layerParameters, ID2D1Layer* layer) mut => VT.[Friend]PushLayer(&this, layerParameters, layer);
+	public void PushLayer(D2D1_LAYER_PARAMETERS* layerParameters, ID2D1Layer* layer) mut => VT.[Friend]PushLayer(&this, layerParameters, layer);
 
 	public void PopLayer() mut => VT.[Friend]PopLayer(&this);
 
-	public HRESULT Flush(uint64 tag1, uint64 tag2) mut => VT.[Friend]Flush(&this, tag1, tag2);
+	public HRESULT Flush(uint64* tag1, uint64* tag2) mut => VT.[Friend]Flush(&this, tag1, tag2);
 
 	public void SaveDrawingState(ID2D1DrawingStateBlock* drawingStateBlock) mut => VT.[Friend]SaveDrawingState(&this, drawingStateBlock);
 
 	public void RestoreDrawingState(ID2D1DrawingStateBlock* drawingStateBlock) mut => VT.[Friend]RestoreDrawingState(&this, drawingStateBlock);
 
-	public void PushAxisAlignedClip(D2D_RECT_F clipRect, D2D1_ANTIALIAS_MODE antialiasMode) mut => VT.[Friend]PushAxisAlignedClip(&this, clipRect, antialiasMode);
+	public void PushAxisAlignedClip(D2D_RECT_F* clipRect, D2D1_ANTIALIAS_MODE antialiasMode) mut => VT.[Friend]PushAxisAlignedClip(&this, clipRect, antialiasMode);
 
 	public void PopAxisAlignedClip() mut => VT.[Friend]PopAxisAlignedClip(&this);
 
-	public void Clear(D2D1_COLOR_F clearColor) mut => VT.[Friend]Clear(&this, clearColor);
+	public void Clear(D2D1_COLOR_F* clearColor) mut => VT.[Friend]Clear(&this, clearColor);
 
 	public void BeginDraw() mut => VT.[Friend]BeginDraw(&this);
 
-	public HRESULT EndDraw(uint64 tag1, uint64 tag2) mut => VT.[Friend]EndDraw(&this, tag1, tag2);
+	public HRESULT EndDraw(uint64* tag1, uint64* tag2) mut => VT.[Friend]EndDraw(&this, tag1, tag2);
 
 	public D2D1_PIXEL_FORMAT GetPixelFormat() mut => VT.[Friend]GetPixelFormat(&this);
 
 	public void SetDpi(float dpiX, float dpiY) mut => VT.[Friend]SetDpi(&this, dpiX, dpiY);
 
-	public void GetDpi(float dpiX, float dpiY) mut => VT.[Friend]GetDpi(&this, dpiX, dpiY);
+	public void GetDpi(float* dpiX, float* dpiY) mut => VT.[Friend]GetDpi(&this, dpiX, dpiY);
 
 	public D2D_SIZE_F GetSize() mut => VT.[Friend]GetSize(&this);
 
@@ -3166,7 +3166,7 @@ public static
 
 	public uint32 GetMaximumBitmapSize() mut => VT.[Friend]GetMaximumBitmapSize(&this);
 
-	public BOOL IsSupported(D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties) mut => VT.[Friend]IsSupported(&this, renderTargetProperties);
+	public BOOL IsSupported(D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties) mut => VT.[Friend]IsSupported(&this, renderTargetProperties);
 }
 
 [CRepr]struct ID2D1BitmapRenderTarget : ID2D1RenderTarget
@@ -3177,11 +3177,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1RenderTarget.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1BitmapRenderTarget*/SelfOuter* self, ID2D1Bitmap* bitmap) GetBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1BitmapRenderTarget*/SelfOuter* self, ID2D1Bitmap** bitmap) GetBitmap;
 	}
 
 
-	public HRESULT GetBitmap(ID2D1Bitmap* bitmap) mut => VT.[Friend]GetBitmap(&this, bitmap);
+	public HRESULT GetBitmap(ID2D1Bitmap** bitmap) mut => VT.[Friend]GetBitmap(&this, bitmap);
 }
 
 [CRepr]struct ID2D1HwndRenderTarget : ID2D1RenderTarget
@@ -3193,14 +3193,14 @@ public static
 	[CRepr]public struct VTable : ID2D1RenderTarget.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] D2D1_WINDOW_STATE(/*ID2D1HwndRenderTarget*/SelfOuter* self) CheckWindowState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1HwndRenderTarget*/SelfOuter* self, D2D_SIZE_U pixelSize) Resize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1HwndRenderTarget*/SelfOuter* self, D2D_SIZE_U* pixelSize) Resize;
 		protected new function [CallingConvention(.Stdcall)] HWND(/*ID2D1HwndRenderTarget*/SelfOuter* self) GetHwnd;
 	}
 
 
 	public D2D1_WINDOW_STATE CheckWindowState() mut => VT.[Friend]CheckWindowState(&this);
 
-	public HRESULT Resize(D2D_SIZE_U pixelSize) mut => VT.[Friend]Resize(&this, pixelSize);
+	public HRESULT Resize(D2D_SIZE_U* pixelSize) mut => VT.[Friend]Resize(&this, pixelSize);
 
 	public HWND GetHwnd() mut => VT.[Friend]GetHwnd(&this);
 }
@@ -3213,14 +3213,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiInteropRenderTarget*/SelfOuter* self, D2D1_DC_INITIALIZE_MODE mode, HDC hdc) GetDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiInteropRenderTarget*/SelfOuter* self, RECT update) ReleaseDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiInteropRenderTarget*/SelfOuter* self, D2D1_DC_INITIALIZE_MODE mode, HDC* hdc) GetDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiInteropRenderTarget*/SelfOuter* self, RECT* update) ReleaseDC;
 	}
 
 
-	public HRESULT GetDC(D2D1_DC_INITIALIZE_MODE mode, HDC hdc) mut => VT.[Friend]GetDC(&this, mode, hdc);
+	public HRESULT GetDC(D2D1_DC_INITIALIZE_MODE mode, HDC* hdc) mut => VT.[Friend]GetDC(&this, mode, hdc);
 
-	public HRESULT ReleaseDC(RECT update) mut => VT.[Friend]ReleaseDC(&this, update);
+	public HRESULT ReleaseDC(RECT* update) mut => VT.[Friend]ReleaseDC(&this, update);
 }
 
 [CRepr]struct ID2D1DCRenderTarget : ID2D1RenderTarget
@@ -3231,11 +3231,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1RenderTarget.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DCRenderTarget*/SelfOuter* self, HDC hDC, RECT pSubRect) BindDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DCRenderTarget*/SelfOuter* self, HDC hDC, RECT* pSubRect) BindDC;
 	}
 
 
-	public HRESULT BindDC(HDC hDC, RECT pSubRect) mut => VT.[Friend]BindDC(&this, hDC, pSubRect);
+	public HRESULT BindDC(HDC hDC, RECT* pSubRect) mut => VT.[Friend]BindDC(&this, hDC, pSubRect);
 }
 
 [CRepr]struct ID2D1Factory : IUnknown
@@ -3247,49 +3247,49 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self) ReloadSystemMetrics;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Factory*/SelfOuter* self, float dpiX, float dpiY) GetDesktopDpi;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D_RECT_F rectangle, ID2D1RectangleGeometry* rectangleGeometry) CreateRectangleGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_ROUNDED_RECT roundedRectangle, ID2D1RoundedRectangleGeometry* roundedRectangleGeometry) CreateRoundedRectangleGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_ELLIPSE ellipse, ID2D1EllipseGeometry* ellipseGeometry) CreateEllipseGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_FILL_MODE fillMode, ID2D1Geometry** geometries, uint32 geometriesCount, ID2D1GeometryGroup* geometryGroup) CreateGeometryGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, ID2D1Geometry* sourceGeometry, D2D_MATRIX_3X2_F transform, ID2D1TransformedGeometry* transformedGeometry) CreateTransformedGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, ID2D1PathGeometry* pathGeometry) CreatePathGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_STROKE_STYLE_PROPERTIES strokeStyleProperties, float* dashes, uint32 dashesCount, ID2D1StrokeStyle* strokeStyle) CreateStrokeStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION drawingStateDescription, IDWriteRenderingParams* textRenderingParams, ID2D1DrawingStateBlock* drawingStateBlock) CreateDrawingStateBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, IWICBitmap* target, D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties, ID2D1RenderTarget* renderTarget) CreateWicBitmapRenderTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties, D2D1_HWND_RENDER_TARGET_PROPERTIES hwndRenderTargetProperties, ID2D1HwndRenderTarget* hwndRenderTarget) CreateHwndRenderTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, IDXGISurface* dxgiSurface, D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties, ID2D1RenderTarget* renderTarget) CreateDxgiSurfaceRenderTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties, ID2D1DCRenderTarget* dcRenderTarget) CreateDCRenderTarget;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Factory*/SelfOuter* self, float* dpiX, float* dpiY) GetDesktopDpi;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D_RECT_F* rectangle, ID2D1RectangleGeometry** rectangleGeometry) CreateRectangleGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_ROUNDED_RECT* roundedRectangle, ID2D1RoundedRectangleGeometry** roundedRectangleGeometry) CreateRoundedRectangleGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_ELLIPSE* ellipse, ID2D1EllipseGeometry** ellipseGeometry) CreateEllipseGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_FILL_MODE fillMode, ID2D1Geometry** geometries, uint32 geometriesCount, ID2D1GeometryGroup** geometryGroup) CreateGeometryGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, ID2D1Geometry* sourceGeometry, D2D_MATRIX_3X2_F* transform, ID2D1TransformedGeometry** transformedGeometry) CreateTransformedGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, ID2D1PathGeometry** pathGeometry) CreatePathGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_STROKE_STYLE_PROPERTIES* strokeStyleProperties, float* dashes, uint32 dashesCount, ID2D1StrokeStyle** strokeStyle) CreateStrokeStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION* drawingStateDescription, IDWriteRenderingParams* textRenderingParams, ID2D1DrawingStateBlock** drawingStateBlock) CreateDrawingStateBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, IWICBitmap* target, D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties, ID2D1RenderTarget** renderTarget) CreateWicBitmapRenderTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties, D2D1_HWND_RENDER_TARGET_PROPERTIES* hwndRenderTargetProperties, ID2D1HwndRenderTarget** hwndRenderTarget) CreateHwndRenderTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, IDXGISurface* dxgiSurface, D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties, ID2D1RenderTarget** renderTarget) CreateDxgiSurfaceRenderTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory*/SelfOuter* self, D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties, ID2D1DCRenderTarget** dcRenderTarget) CreateDCRenderTarget;
 	}
 
 
 	public HRESULT ReloadSystemMetrics() mut => VT.[Friend]ReloadSystemMetrics(&this);
 
-	public void GetDesktopDpi(float dpiX, float dpiY) mut => VT.[Friend]GetDesktopDpi(&this, dpiX, dpiY);
+	public void GetDesktopDpi(float* dpiX, float* dpiY) mut => VT.[Friend]GetDesktopDpi(&this, dpiX, dpiY);
 
-	public HRESULT CreateRectangleGeometry(D2D_RECT_F rectangle, ID2D1RectangleGeometry* rectangleGeometry) mut => VT.[Friend]CreateRectangleGeometry(&this, rectangle, rectangleGeometry);
+	public HRESULT CreateRectangleGeometry(D2D_RECT_F* rectangle, ID2D1RectangleGeometry** rectangleGeometry) mut => VT.[Friend]CreateRectangleGeometry(&this, rectangle, rectangleGeometry);
 
-	public HRESULT CreateRoundedRectangleGeometry(D2D1_ROUNDED_RECT roundedRectangle, ID2D1RoundedRectangleGeometry* roundedRectangleGeometry) mut => VT.[Friend]CreateRoundedRectangleGeometry(&this, roundedRectangle, roundedRectangleGeometry);
+	public HRESULT CreateRoundedRectangleGeometry(D2D1_ROUNDED_RECT* roundedRectangle, ID2D1RoundedRectangleGeometry** roundedRectangleGeometry) mut => VT.[Friend]CreateRoundedRectangleGeometry(&this, roundedRectangle, roundedRectangleGeometry);
 
-	public HRESULT CreateEllipseGeometry(D2D1_ELLIPSE ellipse, ID2D1EllipseGeometry* ellipseGeometry) mut => VT.[Friend]CreateEllipseGeometry(&this, ellipse, ellipseGeometry);
+	public HRESULT CreateEllipseGeometry(D2D1_ELLIPSE* ellipse, ID2D1EllipseGeometry** ellipseGeometry) mut => VT.[Friend]CreateEllipseGeometry(&this, ellipse, ellipseGeometry);
 
-	public HRESULT CreateGeometryGroup(D2D1_FILL_MODE fillMode, ID2D1Geometry** geometries, uint32 geometriesCount, ID2D1GeometryGroup* geometryGroup) mut => VT.[Friend]CreateGeometryGroup(&this, fillMode, geometries, geometriesCount, geometryGroup);
+	public HRESULT CreateGeometryGroup(D2D1_FILL_MODE fillMode, ID2D1Geometry** geometries, uint32 geometriesCount, ID2D1GeometryGroup** geometryGroup) mut => VT.[Friend]CreateGeometryGroup(&this, fillMode, geometries, geometriesCount, geometryGroup);
 
-	public HRESULT CreateTransformedGeometry(ID2D1Geometry* sourceGeometry, D2D_MATRIX_3X2_F transform, ID2D1TransformedGeometry* transformedGeometry) mut => VT.[Friend]CreateTransformedGeometry(&this, sourceGeometry, transform, transformedGeometry);
+	public HRESULT CreateTransformedGeometry(ID2D1Geometry* sourceGeometry, D2D_MATRIX_3X2_F* transform, ID2D1TransformedGeometry** transformedGeometry) mut => VT.[Friend]CreateTransformedGeometry(&this, sourceGeometry, transform, transformedGeometry);
 
-	public HRESULT CreatePathGeometry(ID2D1PathGeometry* pathGeometry) mut => VT.[Friend]CreatePathGeometry(&this, pathGeometry);
+	public HRESULT CreatePathGeometry(ID2D1PathGeometry** pathGeometry) mut => VT.[Friend]CreatePathGeometry(&this, pathGeometry);
 
-	public HRESULT CreateStrokeStyle(D2D1_STROKE_STYLE_PROPERTIES strokeStyleProperties, float* dashes, uint32 dashesCount, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]CreateStrokeStyle(&this, strokeStyleProperties, dashes, dashesCount, strokeStyle);
+	public HRESULT CreateStrokeStyle(D2D1_STROKE_STYLE_PROPERTIES* strokeStyleProperties, float* dashes, uint32 dashesCount, ID2D1StrokeStyle** strokeStyle) mut => VT.[Friend]CreateStrokeStyle(&this, strokeStyleProperties, dashes, dashesCount, strokeStyle);
 
-	public HRESULT CreateDrawingStateBlock(D2D1_DRAWING_STATE_DESCRIPTION drawingStateDescription, IDWriteRenderingParams* textRenderingParams, ID2D1DrawingStateBlock* drawingStateBlock) mut => VT.[Friend]CreateDrawingStateBlock(&this, drawingStateDescription, textRenderingParams, drawingStateBlock);
+	public HRESULT CreateDrawingStateBlock(D2D1_DRAWING_STATE_DESCRIPTION* drawingStateDescription, IDWriteRenderingParams* textRenderingParams, ID2D1DrawingStateBlock** drawingStateBlock) mut => VT.[Friend]CreateDrawingStateBlock(&this, drawingStateDescription, textRenderingParams, drawingStateBlock);
 
-	public HRESULT CreateWicBitmapRenderTarget(IWICBitmap* target, D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties, ID2D1RenderTarget* renderTarget) mut => VT.[Friend]CreateWicBitmapRenderTarget(&this, target, renderTargetProperties, renderTarget);
+	public HRESULT CreateWicBitmapRenderTarget(IWICBitmap* target, D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties, ID2D1RenderTarget** renderTarget) mut => VT.[Friend]CreateWicBitmapRenderTarget(&this, target, renderTargetProperties, renderTarget);
 
-	public HRESULT CreateHwndRenderTarget(D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties, D2D1_HWND_RENDER_TARGET_PROPERTIES hwndRenderTargetProperties, ID2D1HwndRenderTarget* hwndRenderTarget) mut => VT.[Friend]CreateHwndRenderTarget(&this, renderTargetProperties, hwndRenderTargetProperties, hwndRenderTarget);
+	public HRESULT CreateHwndRenderTarget(D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties, D2D1_HWND_RENDER_TARGET_PROPERTIES* hwndRenderTargetProperties, ID2D1HwndRenderTarget** hwndRenderTarget) mut => VT.[Friend]CreateHwndRenderTarget(&this, renderTargetProperties, hwndRenderTargetProperties, hwndRenderTarget);
 
-	public HRESULT CreateDxgiSurfaceRenderTarget(IDXGISurface* dxgiSurface, D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties, ID2D1RenderTarget* renderTarget) mut => VT.[Friend]CreateDxgiSurfaceRenderTarget(&this, dxgiSurface, renderTargetProperties, renderTarget);
+	public HRESULT CreateDxgiSurfaceRenderTarget(IDXGISurface* dxgiSurface, D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties, ID2D1RenderTarget** renderTarget) mut => VT.[Friend]CreateDxgiSurfaceRenderTarget(&this, dxgiSurface, renderTargetProperties, renderTarget);
 
-	public HRESULT CreateDCRenderTarget(D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties, ID2D1DCRenderTarget* dcRenderTarget) mut => VT.[Friend]CreateDCRenderTarget(&this, renderTargetProperties, dcRenderTarget);
+	public HRESULT CreateDCRenderTarget(D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties, ID2D1DCRenderTarget** dcRenderTarget) mut => VT.[Friend]CreateDCRenderTarget(&this, renderTargetProperties, dcRenderTarget);
 }
 
 [CRepr]struct ID2D1GdiMetafileSink : IUnknown
@@ -3300,11 +3300,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafileSink*/SelfOuter* self, uint32 recordType, void recordData, uint32 recordDataSize) ProcessRecord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafileSink*/SelfOuter* self, uint32 recordType, void* recordData, uint32 recordDataSize) ProcessRecord;
 	}
 
 
-	public HRESULT ProcessRecord(uint32 recordType, void recordData, uint32 recordDataSize) mut => VT.[Friend]ProcessRecord(&this, recordType, recordData, recordDataSize);
+	public HRESULT ProcessRecord(uint32 recordType, void* recordData, uint32 recordDataSize) mut => VT.[Friend]ProcessRecord(&this, recordType, recordData, recordDataSize);
 }
 
 [CRepr]struct ID2D1GdiMetafile : ID2D1Resource
@@ -3316,13 +3316,13 @@ public static
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafile*/SelfOuter* self, ID2D1GdiMetafileSink* sink) Stream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafile*/SelfOuter* self, D2D_RECT_F bounds) GetBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafile*/SelfOuter* self, D2D_RECT_F* bounds) GetBounds;
 	}
 
 
 	public HRESULT Stream(ID2D1GdiMetafileSink* sink) mut => VT.[Friend]Stream(&this, sink);
 
-	public HRESULT GetBounds(D2D_RECT_F bounds) mut => VT.[Friend]GetBounds(&this, bounds);
+	public HRESULT GetBounds(D2D_RECT_F* bounds) mut => VT.[Friend]GetBounds(&this, bounds);
 }
 
 [CRepr]struct ID2D1CommandSink : IUnknown
@@ -3339,23 +3339,23 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, uint64 tag1, uint64 tag2) SetTags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D1_TEXT_ANTIALIAS_MODE textAntialiasMode) SetTextAntialiasMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, IDWriteRenderingParams* textRenderingParams) SetTextRenderingParams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_MATRIX_3X2_F transform) SetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_MATRIX_3X2_F* transform) SetTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D1_PRIMITIVE_BLEND primitiveBlend) SetPrimitiveBlend;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D1_UNIT_MODE unitMode) SetUnitMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D1_COLOR_F color) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, DWRITE_GLYPH_RUN_DESCRIPTION glyphRunDescription, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) DrawGlyphRun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D1_COLOR_F* color) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, DWRITE_GLYPH_RUN_DESCRIPTION* glyphRunDescription, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) DrawGlyphRun;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_POINT_2F point0, D2D_POINT_2F point1, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1Geometry* geometry, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_RECT_F rect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D_RECT_F destinationRectangle, float opacity, D2D1_INTERPOLATION_MODE interpolationMode, D2D_RECT_F sourceRectangle, D2D_MATRIX_4X4_F perspectiveTransform) DrawBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1Image* image, D2D_POINT_2F targetOffset, D2D_RECT_F imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode, D2D1_COMPOSITE_MODE compositeMode) DrawImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1GdiMetafile* gdiMetafile, D2D_POINT_2F targetOffset) DrawGdiMetafile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_RECT_F* rect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) DrawRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D_RECT_F* destinationRectangle, float opacity, D2D1_INTERPOLATION_MODE interpolationMode, D2D_RECT_F* sourceRectangle, D2D_MATRIX_4X4_F* perspectiveTransform) DrawBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1Image* image, D2D_POINT_2F* targetOffset, D2D_RECT_F* imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode, D2D1_COMPOSITE_MODE compositeMode) DrawImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1GdiMetafile* gdiMetafile, D2D_POINT_2F* targetOffset) DrawGdiMetafile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1Mesh* mesh, ID2D1Brush* brush) FillMesh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D_RECT_F destinationRectangle, D2D_RECT_F sourceRectangle) FillOpacityMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) FillOpacityMask;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, ID2D1Geometry* geometry, ID2D1Brush* brush, ID2D1Brush* opacityBrush) FillGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_RECT_F rect, ID2D1Brush* brush) FillRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_RECT_F clipRect, D2D1_ANTIALIAS_MODE antialiasMode) PushAxisAlignedClip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D1_LAYER_PARAMETERS1 layerParameters1, ID2D1Layer* layer) PushLayer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_RECT_F* rect, ID2D1Brush* brush) FillRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D_RECT_F* clipRect, D2D1_ANTIALIAS_MODE antialiasMode) PushAxisAlignedClip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self, D2D1_LAYER_PARAMETERS1* layerParameters1, ID2D1Layer* layer) PushLayer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self) PopAxisAlignedClip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink*/SelfOuter* self) PopLayer;
 	}
@@ -3373,39 +3373,39 @@ public static
 
 	public HRESULT SetTextRenderingParams(IDWriteRenderingParams* textRenderingParams) mut => VT.[Friend]SetTextRenderingParams(&this, textRenderingParams);
 
-	public HRESULT SetTransform(D2D_MATRIX_3X2_F transform) mut => VT.[Friend]SetTransform(&this, transform);
+	public HRESULT SetTransform(D2D_MATRIX_3X2_F* transform) mut => VT.[Friend]SetTransform(&this, transform);
 
 	public HRESULT SetPrimitiveBlend(D2D1_PRIMITIVE_BLEND primitiveBlend) mut => VT.[Friend]SetPrimitiveBlend(&this, primitiveBlend);
 
 	public HRESULT SetUnitMode(D2D1_UNIT_MODE unitMode) mut => VT.[Friend]SetUnitMode(&this, unitMode);
 
-	public HRESULT Clear(D2D1_COLOR_F color) mut => VT.[Friend]Clear(&this, color);
+	public HRESULT Clear(D2D1_COLOR_F* color) mut => VT.[Friend]Clear(&this, color);
 
-	public HRESULT DrawGlyphRun(D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, DWRITE_GLYPH_RUN_DESCRIPTION glyphRunDescription, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawGlyphRun(&this, baselineOrigin, glyphRun, glyphRunDescription, foregroundBrush, measuringMode);
+	public HRESULT DrawGlyphRun(D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, DWRITE_GLYPH_RUN_DESCRIPTION* glyphRunDescription, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawGlyphRun(&this, baselineOrigin, glyphRun, glyphRunDescription, foregroundBrush, measuringMode);
 
 	public HRESULT DrawLine(D2D_POINT_2F point0, D2D_POINT_2F point1, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawLine(&this, point0, point1, brush, strokeWidth, strokeStyle);
 
 	public HRESULT DrawGeometry(ID2D1Geometry* geometry, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawGeometry(&this, geometry, brush, strokeWidth, strokeStyle);
 
-	public HRESULT DrawRectangle(D2D_RECT_F rect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawRectangle(&this, rect, brush, strokeWidth, strokeStyle);
+	public HRESULT DrawRectangle(D2D_RECT_F* rect, ID2D1Brush* brush, float strokeWidth, ID2D1StrokeStyle* strokeStyle) mut => VT.[Friend]DrawRectangle(&this, rect, brush, strokeWidth, strokeStyle);
 
-	public HRESULT DrawBitmap(ID2D1Bitmap* bitmap, D2D_RECT_F destinationRectangle, float opacity, D2D1_INTERPOLATION_MODE interpolationMode, D2D_RECT_F sourceRectangle, D2D_MATRIX_4X4_F perspectiveTransform) mut => VT.[Friend]DrawBitmap(&this, bitmap, destinationRectangle, opacity, interpolationMode, sourceRectangle, perspectiveTransform);
+	public HRESULT DrawBitmap(ID2D1Bitmap* bitmap, D2D_RECT_F* destinationRectangle, float opacity, D2D1_INTERPOLATION_MODE interpolationMode, D2D_RECT_F* sourceRectangle, D2D_MATRIX_4X4_F* perspectiveTransform) mut => VT.[Friend]DrawBitmap(&this, bitmap, destinationRectangle, opacity, interpolationMode, sourceRectangle, perspectiveTransform);
 
-	public HRESULT DrawImage(ID2D1Image* image, D2D_POINT_2F targetOffset, D2D_RECT_F imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode, D2D1_COMPOSITE_MODE compositeMode) mut => VT.[Friend]DrawImage(&this, image, targetOffset, imageRectangle, interpolationMode, compositeMode);
+	public HRESULT DrawImage(ID2D1Image* image, D2D_POINT_2F* targetOffset, D2D_RECT_F* imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode, D2D1_COMPOSITE_MODE compositeMode) mut => VT.[Friend]DrawImage(&this, image, targetOffset, imageRectangle, interpolationMode, compositeMode);
 
-	public HRESULT DrawGdiMetafile(ID2D1GdiMetafile* gdiMetafile, D2D_POINT_2F targetOffset) mut => VT.[Friend]DrawGdiMetafile(&this, gdiMetafile, targetOffset);
+	public HRESULT DrawGdiMetafile(ID2D1GdiMetafile* gdiMetafile, D2D_POINT_2F* targetOffset) mut => VT.[Friend]DrawGdiMetafile(&this, gdiMetafile, targetOffset);
 
 	public HRESULT FillMesh(ID2D1Mesh* mesh, ID2D1Brush* brush) mut => VT.[Friend]FillMesh(&this, mesh, brush);
 
-	public HRESULT FillOpacityMask(ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D_RECT_F destinationRectangle, D2D_RECT_F sourceRectangle) mut => VT.[Friend]FillOpacityMask(&this, opacityMask, brush, destinationRectangle, sourceRectangle);
+	public HRESULT FillOpacityMask(ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) mut => VT.[Friend]FillOpacityMask(&this, opacityMask, brush, destinationRectangle, sourceRectangle);
 
 	public HRESULT FillGeometry(ID2D1Geometry* geometry, ID2D1Brush* brush, ID2D1Brush* opacityBrush) mut => VT.[Friend]FillGeometry(&this, geometry, brush, opacityBrush);
 
-	public HRESULT FillRectangle(D2D_RECT_F rect, ID2D1Brush* brush) mut => VT.[Friend]FillRectangle(&this, rect, brush);
+	public HRESULT FillRectangle(D2D_RECT_F* rect, ID2D1Brush* brush) mut => VT.[Friend]FillRectangle(&this, rect, brush);
 
-	public HRESULT PushAxisAlignedClip(D2D_RECT_F clipRect, D2D1_ANTIALIAS_MODE antialiasMode) mut => VT.[Friend]PushAxisAlignedClip(&this, clipRect, antialiasMode);
+	public HRESULT PushAxisAlignedClip(D2D_RECT_F* clipRect, D2D1_ANTIALIAS_MODE antialiasMode) mut => VT.[Friend]PushAxisAlignedClip(&this, clipRect, antialiasMode);
 
-	public HRESULT PushLayer(D2D1_LAYER_PARAMETERS1 layerParameters1, ID2D1Layer* layer) mut => VT.[Friend]PushLayer(&this, layerParameters1, layer);
+	public HRESULT PushLayer(D2D1_LAYER_PARAMETERS1* layerParameters1, ID2D1Layer* layer) mut => VT.[Friend]PushLayer(&this, layerParameters1, layer);
 
 	public HRESULT PopAxisAlignedClip() mut => VT.[Friend]PopAxisAlignedClip(&this);
 
@@ -3438,12 +3438,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PrintControl*/SelfOuter* self, ID2D1CommandList* commandList, D2D_SIZE_F pageSize, IStream* pagePrintTicketStream, uint64 tag1, uint64 tag2) AddPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PrintControl*/SelfOuter* self, ID2D1CommandList* commandList, D2D_SIZE_F pageSize, IStream* pagePrintTicketStream, uint64* tag1, uint64* tag2) AddPage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PrintControl*/SelfOuter* self) Close;
 	}
 
 
-	public HRESULT AddPage(ID2D1CommandList* commandList, D2D_SIZE_F pageSize, IStream* pagePrintTicketStream, uint64 tag1, uint64 tag2) mut => VT.[Friend]AddPage(&this, commandList, pageSize, pagePrintTicketStream, tag1, tag2);
+	public HRESULT AddPage(ID2D1CommandList* commandList, D2D_SIZE_F pageSize, IStream* pagePrintTicketStream, uint64* tag1, uint64* tag2) mut => VT.[Friend]AddPage(&this, commandList, pageSize, pagePrintTicketStream, tag1, tag2);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 }
@@ -3460,12 +3460,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageBrush*/SelfOuter* self, D2D1_EXTEND_MODE extendModeX) SetExtendModeX;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageBrush*/SelfOuter* self, D2D1_EXTEND_MODE extendModeY) SetExtendModeY;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageBrush*/SelfOuter* self, D2D1_INTERPOLATION_MODE interpolationMode) SetInterpolationMode;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageBrush*/SelfOuter* self, D2D_RECT_F sourceRectangle) SetSourceRectangle;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageBrush*/SelfOuter* self, ID2D1Image* image) GetImage;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageBrush*/SelfOuter* self, D2D_RECT_F* sourceRectangle) SetSourceRectangle;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageBrush*/SelfOuter* self, ID2D1Image** image) GetImage;
 		protected new function [CallingConvention(.Stdcall)] D2D1_EXTEND_MODE(/*ID2D1ImageBrush*/SelfOuter* self) GetExtendModeX;
 		protected new function [CallingConvention(.Stdcall)] D2D1_EXTEND_MODE(/*ID2D1ImageBrush*/SelfOuter* self) GetExtendModeY;
 		protected new function [CallingConvention(.Stdcall)] D2D1_INTERPOLATION_MODE(/*ID2D1ImageBrush*/SelfOuter* self) GetInterpolationMode;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageBrush*/SelfOuter* self, D2D_RECT_F sourceRectangle) GetSourceRectangle;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageBrush*/SelfOuter* self, D2D_RECT_F* sourceRectangle) GetSourceRectangle;
 	}
 
 
@@ -3477,9 +3477,9 @@ public static
 
 	public void SetInterpolationMode(D2D1_INTERPOLATION_MODE interpolationMode) mut => VT.[Friend]SetInterpolationMode(&this, interpolationMode);
 
-	public void SetSourceRectangle(D2D_RECT_F sourceRectangle) mut => VT.[Friend]SetSourceRectangle(&this, sourceRectangle);
+	public void SetSourceRectangle(D2D_RECT_F* sourceRectangle) mut => VT.[Friend]SetSourceRectangle(&this, sourceRectangle);
 
-	public void GetImage(ID2D1Image* image) mut => VT.[Friend]GetImage(&this, image);
+	public void GetImage(ID2D1Image** image) mut => VT.[Friend]GetImage(&this, image);
 
 	public D2D1_EXTEND_MODE GetExtendModeX() mut => VT.[Friend]GetExtendModeX(&this);
 
@@ -3487,7 +3487,7 @@ public static
 
 	public D2D1_INTERPOLATION_MODE GetInterpolationMode() mut => VT.[Friend]GetInterpolationMode(&this);
 
-	public void GetSourceRectangle(D2D_RECT_F sourceRectangle) mut => VT.[Friend]GetSourceRectangle(&this, sourceRectangle);
+	public void GetSourceRectangle(D2D_RECT_F* sourceRectangle) mut => VT.[Friend]GetSourceRectangle(&this, sourceRectangle);
 }
 
 [CRepr]struct ID2D1BitmapBrush1 : ID2D1BitmapBrush
@@ -3531,11 +3531,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1PathGeometry.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PathGeometry1*/SelfOuter* self, float length, uint32 startSegment, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, D2D1_POINT_DESCRIPTION pointDescription) ComputePointAndSegmentAtLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1PathGeometry1*/SelfOuter* self, float length, uint32 startSegment, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, D2D1_POINT_DESCRIPTION* pointDescription) ComputePointAndSegmentAtLength;
 	}
 
 
-	public HRESULT ComputePointAndSegmentAtLength(float length, uint32 startSegment, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, D2D1_POINT_DESCRIPTION pointDescription) mut => VT.[Friend]ComputePointAndSegmentAtLength(&this, length, startSegment, worldTransform, flatteningTolerance, pointDescription);
+	public HRESULT ComputePointAndSegmentAtLength(float length, uint32 startSegment, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, D2D1_POINT_DESCRIPTION* pointDescription) mut => VT.[Friend]ComputePointAndSegmentAtLength(&this, length, startSegment, worldTransform, flatteningTolerance, pointDescription);
 }
 
 [CRepr]struct ID2D1Properties : IUnknown
@@ -3556,7 +3556,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Properties*/SelfOuter* self, PWSTR name, D2D1_PROPERTY_TYPE type, uint8* data, uint32 dataSize) GetValueByName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Properties*/SelfOuter* self, uint32 index, D2D1_PROPERTY_TYPE type, uint8* data, uint32 dataSize) GetValue;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1Properties*/SelfOuter* self, uint32 index) GetValueSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Properties*/SelfOuter* self, uint32 index, ID2D1Properties* subProperties) GetSubProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Properties*/SelfOuter* self, uint32 index, ID2D1Properties** subProperties) GetSubProperties;
 	}
 
 
@@ -3580,7 +3580,7 @@ public static
 
 	public uint32 GetValueSize(uint32 index) mut => VT.[Friend]GetValueSize(&this, index);
 
-	public HRESULT GetSubProperties(uint32 index, ID2D1Properties* subProperties) mut => VT.[Friend]GetSubProperties(&this, index, subProperties);
+	public HRESULT GetSubProperties(uint32 index, ID2D1Properties** subProperties) mut => VT.[Friend]GetSubProperties(&this, index, subProperties);
 }
 
 [CRepr]struct ID2D1Effect : ID2D1Properties
@@ -3593,9 +3593,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Effect*/SelfOuter* self, uint32 index, ID2D1Image* input, BOOL invalidate) SetInput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Effect*/SelfOuter* self, uint32 inputCount) SetInputCount;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Effect*/SelfOuter* self, uint32 index, ID2D1Image* input) GetInput;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Effect*/SelfOuter* self, uint32 index, ID2D1Image** input) GetInput;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1Effect*/SelfOuter* self) GetInputCount;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Effect*/SelfOuter* self, ID2D1Image* outputImage) GetOutput;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Effect*/SelfOuter* self, ID2D1Image** outputImage) GetOutput;
 	}
 
 
@@ -3603,11 +3603,11 @@ public static
 
 	public HRESULT SetInputCount(uint32 inputCount) mut => VT.[Friend]SetInputCount(&this, inputCount);
 
-	public void GetInput(uint32 index, ID2D1Image* input) mut => VT.[Friend]GetInput(&this, index, input);
+	public void GetInput(uint32 index, ID2D1Image** input) mut => VT.[Friend]GetInput(&this, index, input);
 
 	public uint32 GetInputCount() mut => VT.[Friend]GetInputCount(&this);
 
-	public void GetOutput(ID2D1Image* outputImage) mut => VT.[Friend]GetOutput(&this, outputImage);
+	public void GetOutput(ID2D1Image** outputImage) mut => VT.[Friend]GetOutput(&this, outputImage);
 }
 
 [CRepr]struct ID2D1Bitmap1 : ID2D1Bitmap
@@ -3618,21 +3618,21 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Bitmap.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Bitmap1*/SelfOuter* self, ID2D1ColorContext* colorContext) GetColorContext;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Bitmap1*/SelfOuter* self, ID2D1ColorContext** colorContext) GetColorContext;
 		protected new function [CallingConvention(.Stdcall)] D2D1_BITMAP_OPTIONS(/*ID2D1Bitmap1*/SelfOuter* self) GetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap1*/SelfOuter* self, IDXGISurface* dxgiSurface) GetSurface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap1*/SelfOuter* self, D2D1_MAP_OPTIONS options, D2D1_MAPPED_RECT mappedRect) Map;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap1*/SelfOuter* self, IDXGISurface** dxgiSurface) GetSurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap1*/SelfOuter* self, D2D1_MAP_OPTIONS options, D2D1_MAPPED_RECT* mappedRect) Map;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Bitmap1*/SelfOuter* self) Unmap;
 	}
 
 
-	public void GetColorContext(ID2D1ColorContext* colorContext) mut => VT.[Friend]GetColorContext(&this, colorContext);
+	public void GetColorContext(ID2D1ColorContext** colorContext) mut => VT.[Friend]GetColorContext(&this, colorContext);
 
 	public D2D1_BITMAP_OPTIONS GetOptions() mut => VT.[Friend]GetOptions(&this);
 
-	public HRESULT GetSurface(IDXGISurface* dxgiSurface) mut => VT.[Friend]GetSurface(&this, dxgiSurface);
+	public HRESULT GetSurface(IDXGISurface** dxgiSurface) mut => VT.[Friend]GetSurface(&this, dxgiSurface);
 
-	public HRESULT Map(D2D1_MAP_OPTIONS options, D2D1_MAPPED_RECT mappedRect) mut => VT.[Friend]Map(&this, options, mappedRect);
+	public HRESULT Map(D2D1_MAP_OPTIONS options, D2D1_MAPPED_RECT* mappedRect) mut => VT.[Friend]Map(&this, options, mappedRect);
 
 	public HRESULT Unmap() mut => VT.[Friend]Unmap(&this);
 }
@@ -3693,14 +3693,14 @@ public static
 
 	[CRepr]public struct VTable : ID2D1DrawingStateBlock.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock1*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION1 stateDescription) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock1*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION1 stateDescription) SetDescription;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock1*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION1* stateDescription) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DrawingStateBlock1*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION1* stateDescription) SetDescription;
 	}
 
 
-	public void GetDescription(D2D1_DRAWING_STATE_DESCRIPTION1 stateDescription) mut => VT.[Friend]GetDescription(&this, stateDescription);
+	public void GetDescription(D2D1_DRAWING_STATE_DESCRIPTION1* stateDescription) mut => VT.[Friend]GetDescription(&this, stateDescription);
 
-	public void SetDescription(D2D1_DRAWING_STATE_DESCRIPTION1 stateDescription) mut => VT.[Friend]SetDescription(&this, stateDescription);
+	public void SetDescription(D2D1_DRAWING_STATE_DESCRIPTION1* stateDescription) mut => VT.[Friend]SetDescription(&this, stateDescription);
 }
 
 [CRepr]struct ID2D1DeviceContext : ID2D1RenderTarget
@@ -3711,85 +3711,85 @@ public static
 
 	[CRepr]public struct VTable : ID2D1RenderTarget.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, D2D_SIZE_U size, void sourceData, uint32 pitch, D2D1_BITMAP_PROPERTIES1 bitmapProperties, ID2D1Bitmap1* bitmap) CreateBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, IWICBitmapSource* wicBitmapSource, D2D1_BITMAP_PROPERTIES1 bitmapProperties, ID2D1Bitmap1* bitmap) CreateBitmapFromWicBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_COLOR_SPACE space, uint8* profile, uint32 profileSize, ID2D1ColorContext* colorContext) CreateColorContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, PWSTR filename, ID2D1ColorContext* colorContext) CreateColorContextFromFilename;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, IWICColorContext* wicColorContext, ID2D1ColorContext* colorContext) CreateColorContextFromWicColorContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, IDXGISurface* surface, D2D1_BITMAP_PROPERTIES1 bitmapProperties, ID2D1Bitmap1* bitmap) CreateBitmapFromDxgiSurface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, Guid effectId, ID2D1Effect* effect) CreateEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_GRADIENT_STOP* straightAlphaGradientStops, uint32 straightAlphaGradientStopsCount, D2D1_COLOR_SPACE preInterpolationSpace, D2D1_COLOR_SPACE postInterpolationSpace, D2D1_BUFFER_PRECISION bufferPrecision, D2D1_EXTEND_MODE extendMode, D2D1_COLOR_INTERPOLATION_MODE colorInterpolationMode, ID2D1GradientStopCollection1* gradientStopCollection1) CreateGradientStopCollection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image* image, D2D1_IMAGE_BRUSH_PROPERTIES imageBrushProperties, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1ImageBrush* imageBrush) CreateImageBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES1 bitmapBrushProperties, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1BitmapBrush1* bitmapBrush) CreateBitmapBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1CommandList* commandList) CreateCommandList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, D2D_SIZE_U size, void* sourceData, uint32 pitch, D2D1_BITMAP_PROPERTIES1* bitmapProperties, ID2D1Bitmap1** bitmap) CreateBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, IWICBitmapSource* wicBitmapSource, D2D1_BITMAP_PROPERTIES1* bitmapProperties, ID2D1Bitmap1** bitmap) CreateBitmapFromWicBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_COLOR_SPACE space, uint8* profile, uint32 profileSize, ID2D1ColorContext** colorContext) CreateColorContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, PWSTR filename, ID2D1ColorContext** colorContext) CreateColorContextFromFilename;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, IWICColorContext* wicColorContext, ID2D1ColorContext** colorContext) CreateColorContextFromWicColorContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, IDXGISurface* surface, D2D1_BITMAP_PROPERTIES1* bitmapProperties, ID2D1Bitmap1** bitmap) CreateBitmapFromDxgiSurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, Guid effectId, ID2D1Effect** effect) CreateEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_GRADIENT_STOP* straightAlphaGradientStops, uint32 straightAlphaGradientStopsCount, D2D1_COLOR_SPACE preInterpolationSpace, D2D1_COLOR_SPACE postInterpolationSpace, D2D1_BUFFER_PRECISION bufferPrecision, D2D1_EXTEND_MODE extendMode, D2D1_COLOR_INTERPOLATION_MODE colorInterpolationMode, ID2D1GradientStopCollection1** gradientStopCollection1) CreateGradientStopCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image* image, D2D1_IMAGE_BRUSH_PROPERTIES* imageBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1ImageBrush** imageBrush) CreateImageBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES1* bitmapBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1BitmapBrush1** bitmapBrush) CreateBitmapBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1CommandList** commandList) CreateCommandList;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1DeviceContext*/SelfOuter* self, DXGI_FORMAT format) IsDxgiFormatSupported;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_BUFFER_PRECISION bufferPrecision) IsBufferPrecisionSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image* image, D2D_RECT_F localBounds) GetImageLocalBounds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image* image, D2D_RECT_F worldBounds) GetImageWorldBounds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, DWRITE_MEASURING_MODE measuringMode, D2D_RECT_F bounds) GetGlyphRunWorldBounds;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Device* device) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image* image, D2D_RECT_F* localBounds) GetImageLocalBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image* image, D2D_RECT_F* worldBounds) GetImageWorldBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, DWRITE_MEASURING_MODE measuringMode, D2D_RECT_F* bounds) GetGlyphRunWorldBounds;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Device** device) GetDevice;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image* image) SetTarget;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image* image) GetTarget;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_RENDERING_CONTROLS renderingControls) SetRenderingControls;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_RENDERING_CONTROLS renderingControls) GetRenderingControls;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image** image) GetTarget;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_RENDERING_CONTROLS* renderingControls) SetRenderingControls;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_RENDERING_CONTROLS* renderingControls) GetRenderingControls;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_PRIMITIVE_BLEND primitiveBlend) SetPrimitiveBlend;
 		protected new function [CallingConvention(.Stdcall)] D2D1_PRIMITIVE_BLEND(/*ID2D1DeviceContext*/SelfOuter* self) GetPrimitiveBlend;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_UNIT_MODE unitMode) SetUnitMode;
 		protected new function [CallingConvention(.Stdcall)] D2D1_UNIT_MODE(/*ID2D1DeviceContext*/SelfOuter* self) GetUnitMode;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, DWRITE_GLYPH_RUN_DESCRIPTION glyphRunDescription, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) DrawGlyphRun;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image* image, D2D_POINT_2F targetOffset, D2D_RECT_F imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode, D2D1_COMPOSITE_MODE compositeMode) DrawImage;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1GdiMetafile* gdiMetafile, D2D_POINT_2F targetOffset) DrawGdiMetafile;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D_RECT_F destinationRectangle, float opacity, D2D1_INTERPOLATION_MODE interpolationMode, D2D_RECT_F sourceRectangle, D2D_MATRIX_4X4_F perspectiveTransform) DrawBitmap;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_LAYER_PARAMETERS1 layerParameters, ID2D1Layer* layer) PushLayer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Effect* effect, uint32 input, D2D_RECT_F inputRectangle) InvalidateEffectInputRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Effect* effect, uint32 rectangleCount) GetEffectInvalidRectangleCount;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, DWRITE_GLYPH_RUN_DESCRIPTION* glyphRunDescription, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) DrawGlyphRun;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Image* image, D2D_POINT_2F* targetOffset, D2D_RECT_F* imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode, D2D1_COMPOSITE_MODE compositeMode) DrawImage;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1GdiMetafile* gdiMetafile, D2D_POINT_2F* targetOffset) DrawGdiMetafile;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D_RECT_F* destinationRectangle, float opacity, D2D1_INTERPOLATION_MODE interpolationMode, D2D_RECT_F* sourceRectangle, D2D_MATRIX_4X4_F* perspectiveTransform) DrawBitmap;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, D2D1_LAYER_PARAMETERS1* layerParameters, ID2D1Layer* layer) PushLayer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Effect* effect, uint32 input, D2D_RECT_F* inputRectangle) InvalidateEffectInputRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Effect* effect, uint32* rectangleCount) GetEffectInvalidRectangleCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Effect* effect, D2D_RECT_F* rectangles, uint32 rectanglesCount) GetEffectInvalidRectangles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Effect* renderEffect, D2D_RECT_F renderImageRectangle, D2D1_EFFECT_INPUT_DESCRIPTION* inputDescriptions, D2D_RECT_F* requiredInputRects, uint32 inputCount) GetEffectRequiredInputRectangles;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D_RECT_F destinationRectangle, D2D_RECT_F sourceRectangle) FillOpacityMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Effect* renderEffect, D2D_RECT_F* renderImageRectangle, D2D1_EFFECT_INPUT_DESCRIPTION* inputDescriptions, D2D_RECT_F* requiredInputRects, uint32 inputCount) GetEffectRequiredInputRectangles;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext*/SelfOuter* self, ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) FillOpacityMask;
 	}
 
 
-	public HRESULT CreateBitmap(D2D_SIZE_U size, void sourceData, uint32 pitch, D2D1_BITMAP_PROPERTIES1 bitmapProperties, ID2D1Bitmap1* bitmap) mut => VT.[Friend]CreateBitmap(&this, size, sourceData, pitch, bitmapProperties, bitmap);
+	public HRESULT CreateBitmap(D2D_SIZE_U size, void* sourceData, uint32 pitch, D2D1_BITMAP_PROPERTIES1* bitmapProperties, ID2D1Bitmap1** bitmap) mut => VT.[Friend]CreateBitmap(&this, size, sourceData, pitch, bitmapProperties, bitmap);
 
-	public HRESULT CreateBitmapFromWicBitmap(IWICBitmapSource* wicBitmapSource, D2D1_BITMAP_PROPERTIES1 bitmapProperties, ID2D1Bitmap1* bitmap) mut => VT.[Friend]CreateBitmapFromWicBitmap(&this, wicBitmapSource, bitmapProperties, bitmap);
+	public HRESULT CreateBitmapFromWicBitmap(IWICBitmapSource* wicBitmapSource, D2D1_BITMAP_PROPERTIES1* bitmapProperties, ID2D1Bitmap1** bitmap) mut => VT.[Friend]CreateBitmapFromWicBitmap(&this, wicBitmapSource, bitmapProperties, bitmap);
 
-	public HRESULT CreateColorContext(D2D1_COLOR_SPACE space, uint8* profile, uint32 profileSize, ID2D1ColorContext* colorContext) mut => VT.[Friend]CreateColorContext(&this, space, profile, profileSize, colorContext);
+	public HRESULT CreateColorContext(D2D1_COLOR_SPACE space, uint8* profile, uint32 profileSize, ID2D1ColorContext** colorContext) mut => VT.[Friend]CreateColorContext(&this, space, profile, profileSize, colorContext);
 
-	public HRESULT CreateColorContextFromFilename(PWSTR filename, ID2D1ColorContext* colorContext) mut => VT.[Friend]CreateColorContextFromFilename(&this, filename, colorContext);
+	public HRESULT CreateColorContextFromFilename(PWSTR filename, ID2D1ColorContext** colorContext) mut => VT.[Friend]CreateColorContextFromFilename(&this, filename, colorContext);
 
-	public HRESULT CreateColorContextFromWicColorContext(IWICColorContext* wicColorContext, ID2D1ColorContext* colorContext) mut => VT.[Friend]CreateColorContextFromWicColorContext(&this, wicColorContext, colorContext);
+	public HRESULT CreateColorContextFromWicColorContext(IWICColorContext* wicColorContext, ID2D1ColorContext** colorContext) mut => VT.[Friend]CreateColorContextFromWicColorContext(&this, wicColorContext, colorContext);
 
-	public HRESULT CreateBitmapFromDxgiSurface(IDXGISurface* surface, D2D1_BITMAP_PROPERTIES1 bitmapProperties, ID2D1Bitmap1* bitmap) mut => VT.[Friend]CreateBitmapFromDxgiSurface(&this, surface, bitmapProperties, bitmap);
+	public HRESULT CreateBitmapFromDxgiSurface(IDXGISurface* surface, D2D1_BITMAP_PROPERTIES1* bitmapProperties, ID2D1Bitmap1** bitmap) mut => VT.[Friend]CreateBitmapFromDxgiSurface(&this, surface, bitmapProperties, bitmap);
 
-	public HRESULT CreateEffect(Guid effectId, ID2D1Effect* effect) mut => VT.[Friend]CreateEffect(&this, effectId, effect);
+	public HRESULT CreateEffect(Guid effectId, ID2D1Effect** effect) mut => VT.[Friend]CreateEffect(&this, effectId, effect);
 
-	public HRESULT CreateGradientStopCollection(D2D1_GRADIENT_STOP* straightAlphaGradientStops, uint32 straightAlphaGradientStopsCount, D2D1_COLOR_SPACE preInterpolationSpace, D2D1_COLOR_SPACE postInterpolationSpace, D2D1_BUFFER_PRECISION bufferPrecision, D2D1_EXTEND_MODE extendMode, D2D1_COLOR_INTERPOLATION_MODE colorInterpolationMode, ID2D1GradientStopCollection1* gradientStopCollection1) mut => VT.[Friend]CreateGradientStopCollection(&this, straightAlphaGradientStops, straightAlphaGradientStopsCount, preInterpolationSpace, postInterpolationSpace, bufferPrecision, extendMode, colorInterpolationMode, gradientStopCollection1);
+	public HRESULT CreateGradientStopCollection(D2D1_GRADIENT_STOP* straightAlphaGradientStops, uint32 straightAlphaGradientStopsCount, D2D1_COLOR_SPACE preInterpolationSpace, D2D1_COLOR_SPACE postInterpolationSpace, D2D1_BUFFER_PRECISION bufferPrecision, D2D1_EXTEND_MODE extendMode, D2D1_COLOR_INTERPOLATION_MODE colorInterpolationMode, ID2D1GradientStopCollection1** gradientStopCollection1) mut => VT.[Friend]CreateGradientStopCollection(&this, straightAlphaGradientStops, straightAlphaGradientStopsCount, preInterpolationSpace, postInterpolationSpace, bufferPrecision, extendMode, colorInterpolationMode, gradientStopCollection1);
 
-	public HRESULT CreateImageBrush(ID2D1Image* image, D2D1_IMAGE_BRUSH_PROPERTIES imageBrushProperties, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1ImageBrush* imageBrush) mut => VT.[Friend]CreateImageBrush(&this, image, imageBrushProperties, brushProperties, imageBrush);
+	public HRESULT CreateImageBrush(ID2D1Image* image, D2D1_IMAGE_BRUSH_PROPERTIES* imageBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1ImageBrush** imageBrush) mut => VT.[Friend]CreateImageBrush(&this, image, imageBrushProperties, brushProperties, imageBrush);
 
-	public HRESULT CreateBitmapBrush(ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES1 bitmapBrushProperties, D2D1_BRUSH_PROPERTIES brushProperties, ID2D1BitmapBrush1* bitmapBrush) mut => VT.[Friend]CreateBitmapBrush(&this, bitmap, bitmapBrushProperties, brushProperties, bitmapBrush);
+	public HRESULT CreateBitmapBrush(ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES1* bitmapBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1BitmapBrush1** bitmapBrush) mut => VT.[Friend]CreateBitmapBrush(&this, bitmap, bitmapBrushProperties, brushProperties, bitmapBrush);
 
-	public HRESULT CreateCommandList(ID2D1CommandList* commandList) mut => VT.[Friend]CreateCommandList(&this, commandList);
+	public HRESULT CreateCommandList(ID2D1CommandList** commandList) mut => VT.[Friend]CreateCommandList(&this, commandList);
 
 	public BOOL IsDxgiFormatSupported(DXGI_FORMAT format) mut => VT.[Friend]IsDxgiFormatSupported(&this, format);
 
 	public BOOL IsBufferPrecisionSupported(D2D1_BUFFER_PRECISION bufferPrecision) mut => VT.[Friend]IsBufferPrecisionSupported(&this, bufferPrecision);
 
-	public HRESULT GetImageLocalBounds(ID2D1Image* image, D2D_RECT_F localBounds) mut => VT.[Friend]GetImageLocalBounds(&this, image, localBounds);
+	public HRESULT GetImageLocalBounds(ID2D1Image* image, D2D_RECT_F* localBounds) mut => VT.[Friend]GetImageLocalBounds(&this, image, localBounds);
 
-	public HRESULT GetImageWorldBounds(ID2D1Image* image, D2D_RECT_F worldBounds) mut => VT.[Friend]GetImageWorldBounds(&this, image, worldBounds);
+	public HRESULT GetImageWorldBounds(ID2D1Image* image, D2D_RECT_F* worldBounds) mut => VT.[Friend]GetImageWorldBounds(&this, image, worldBounds);
 
-	public HRESULT GetGlyphRunWorldBounds(D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, DWRITE_MEASURING_MODE measuringMode, D2D_RECT_F bounds) mut => VT.[Friend]GetGlyphRunWorldBounds(&this, baselineOrigin, glyphRun, measuringMode, bounds);
+	public HRESULT GetGlyphRunWorldBounds(D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, DWRITE_MEASURING_MODE measuringMode, D2D_RECT_F* bounds) mut => VT.[Friend]GetGlyphRunWorldBounds(&this, baselineOrigin, glyphRun, measuringMode, bounds);
 
-	public void GetDevice(ID2D1Device* device) mut => VT.[Friend]GetDevice(&this, device);
+	public void GetDevice(ID2D1Device** device) mut => VT.[Friend]GetDevice(&this, device);
 
 	public void SetTarget(ID2D1Image* image) mut => VT.[Friend]SetTarget(&this, image);
 
-	public void GetTarget(ID2D1Image* image) mut => VT.[Friend]GetTarget(&this, image);
+	public void GetTarget(ID2D1Image** image) mut => VT.[Friend]GetTarget(&this, image);
 
-	public void SetRenderingControls(D2D1_RENDERING_CONTROLS renderingControls) mut => VT.[Friend]SetRenderingControls(&this, renderingControls);
+	public void SetRenderingControls(D2D1_RENDERING_CONTROLS* renderingControls) mut => VT.[Friend]SetRenderingControls(&this, renderingControls);
 
-	public void GetRenderingControls(D2D1_RENDERING_CONTROLS renderingControls) mut => VT.[Friend]GetRenderingControls(&this, renderingControls);
+	public void GetRenderingControls(D2D1_RENDERING_CONTROLS* renderingControls) mut => VT.[Friend]GetRenderingControls(&this, renderingControls);
 
 	public void SetPrimitiveBlend(D2D1_PRIMITIVE_BLEND primitiveBlend) mut => VT.[Friend]SetPrimitiveBlend(&this, primitiveBlend);
 
@@ -3799,25 +3799,25 @@ public static
 
 	public D2D1_UNIT_MODE GetUnitMode() mut => VT.[Friend]GetUnitMode(&this);
 
-	public void DrawGlyphRun(D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, DWRITE_GLYPH_RUN_DESCRIPTION glyphRunDescription, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawGlyphRun(&this, baselineOrigin, glyphRun, glyphRunDescription, foregroundBrush, measuringMode);
+	public void DrawGlyphRun(D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, DWRITE_GLYPH_RUN_DESCRIPTION* glyphRunDescription, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawGlyphRun(&this, baselineOrigin, glyphRun, glyphRunDescription, foregroundBrush, measuringMode);
 
-	public void DrawImage(ID2D1Image* image, D2D_POINT_2F targetOffset, D2D_RECT_F imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode, D2D1_COMPOSITE_MODE compositeMode) mut => VT.[Friend]DrawImage(&this, image, targetOffset, imageRectangle, interpolationMode, compositeMode);
+	public void DrawImage(ID2D1Image* image, D2D_POINT_2F* targetOffset, D2D_RECT_F* imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode, D2D1_COMPOSITE_MODE compositeMode) mut => VT.[Friend]DrawImage(&this, image, targetOffset, imageRectangle, interpolationMode, compositeMode);
 
-	public void DrawGdiMetafile(ID2D1GdiMetafile* gdiMetafile, D2D_POINT_2F targetOffset) mut => VT.[Friend]DrawGdiMetafile(&this, gdiMetafile, targetOffset);
+	public void DrawGdiMetafile(ID2D1GdiMetafile* gdiMetafile, D2D_POINT_2F* targetOffset) mut => VT.[Friend]DrawGdiMetafile(&this, gdiMetafile, targetOffset);
 
-	public void DrawBitmap(ID2D1Bitmap* bitmap, D2D_RECT_F destinationRectangle, float opacity, D2D1_INTERPOLATION_MODE interpolationMode, D2D_RECT_F sourceRectangle, D2D_MATRIX_4X4_F perspectiveTransform) mut => VT.[Friend]DrawBitmap(&this, bitmap, destinationRectangle, opacity, interpolationMode, sourceRectangle, perspectiveTransform);
+	public void DrawBitmap(ID2D1Bitmap* bitmap, D2D_RECT_F* destinationRectangle, float opacity, D2D1_INTERPOLATION_MODE interpolationMode, D2D_RECT_F* sourceRectangle, D2D_MATRIX_4X4_F* perspectiveTransform) mut => VT.[Friend]DrawBitmap(&this, bitmap, destinationRectangle, opacity, interpolationMode, sourceRectangle, perspectiveTransform);
 
-	public void PushLayer(D2D1_LAYER_PARAMETERS1 layerParameters, ID2D1Layer* layer) mut => VT.[Friend]PushLayer(&this, layerParameters, layer);
+	public void PushLayer(D2D1_LAYER_PARAMETERS1* layerParameters, ID2D1Layer* layer) mut => VT.[Friend]PushLayer(&this, layerParameters, layer);
 
-	public HRESULT InvalidateEffectInputRectangle(ID2D1Effect* effect, uint32 input, D2D_RECT_F inputRectangle) mut => VT.[Friend]InvalidateEffectInputRectangle(&this, effect, input, inputRectangle);
+	public HRESULT InvalidateEffectInputRectangle(ID2D1Effect* effect, uint32 input, D2D_RECT_F* inputRectangle) mut => VT.[Friend]InvalidateEffectInputRectangle(&this, effect, input, inputRectangle);
 
-	public HRESULT GetEffectInvalidRectangleCount(ID2D1Effect* effect, uint32 rectangleCount) mut => VT.[Friend]GetEffectInvalidRectangleCount(&this, effect, rectangleCount);
+	public HRESULT GetEffectInvalidRectangleCount(ID2D1Effect* effect, uint32* rectangleCount) mut => VT.[Friend]GetEffectInvalidRectangleCount(&this, effect, rectangleCount);
 
 	public HRESULT GetEffectInvalidRectangles(ID2D1Effect* effect, D2D_RECT_F* rectangles, uint32 rectanglesCount) mut => VT.[Friend]GetEffectInvalidRectangles(&this, effect, rectangles, rectanglesCount);
 
-	public HRESULT GetEffectRequiredInputRectangles(ID2D1Effect* renderEffect, D2D_RECT_F renderImageRectangle, D2D1_EFFECT_INPUT_DESCRIPTION* inputDescriptions, D2D_RECT_F* requiredInputRects, uint32 inputCount) mut => VT.[Friend]GetEffectRequiredInputRectangles(&this, renderEffect, renderImageRectangle, inputDescriptions, requiredInputRects, inputCount);
+	public HRESULT GetEffectRequiredInputRectangles(ID2D1Effect* renderEffect, D2D_RECT_F* renderImageRectangle, D2D1_EFFECT_INPUT_DESCRIPTION* inputDescriptions, D2D_RECT_F* requiredInputRects, uint32 inputCount) mut => VT.[Friend]GetEffectRequiredInputRectangles(&this, renderEffect, renderImageRectangle, inputDescriptions, requiredInputRects, inputCount);
 
-	public void FillOpacityMask(ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D_RECT_F destinationRectangle, D2D_RECT_F sourceRectangle) mut => VT.[Friend]FillOpacityMask(&this, opacityMask, brush, destinationRectangle, sourceRectangle);
+	public void FillOpacityMask(ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) mut => VT.[Friend]FillOpacityMask(&this, opacityMask, brush, destinationRectangle, sourceRectangle);
 }
 
 [CRepr]struct ID2D1Device : ID2D1Resource
@@ -3828,17 +3828,17 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext* deviceContext) CreateDeviceContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device*/SelfOuter* self, IWICImagingFactory* wicFactory, IPrintDocumentPackageTarget* documentTarget, D2D1_PRINT_CONTROL_PROPERTIES printControlProperties, ID2D1PrintControl* printControl) CreatePrintControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext** deviceContext) CreateDeviceContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device*/SelfOuter* self, IWICImagingFactory* wicFactory, IPrintDocumentPackageTarget* documentTarget, D2D1_PRINT_CONTROL_PROPERTIES* printControlProperties, ID2D1PrintControl** printControl) CreatePrintControl;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Device*/SelfOuter* self, uint64 maximumInBytes) SetMaximumTextureMemory;
 		protected new function [CallingConvention(.Stdcall)] uint64(/*ID2D1Device*/SelfOuter* self) GetMaximumTextureMemory;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Device*/SelfOuter* self, uint32 millisecondsSinceUse) ClearResources;
 	}
 
 
-	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext* deviceContext) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext);
+	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext** deviceContext) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext);
 
-	public HRESULT CreatePrintControl(IWICImagingFactory* wicFactory, IPrintDocumentPackageTarget* documentTarget, D2D1_PRINT_CONTROL_PROPERTIES printControlProperties, ID2D1PrintControl* printControl) mut => VT.[Friend]CreatePrintControl(&this, wicFactory, documentTarget, printControlProperties, printControl);
+	public HRESULT CreatePrintControl(IWICImagingFactory* wicFactory, IPrintDocumentPackageTarget* documentTarget, D2D1_PRINT_CONTROL_PROPERTIES* printControlProperties, ID2D1PrintControl** printControl) mut => VT.[Friend]CreatePrintControl(&this, wicFactory, documentTarget, printControlProperties, printControl);
 
 	public void SetMaximumTextureMemory(uint64 maximumInBytes) mut => VT.[Friend]SetMaximumTextureMemory(&this, maximumInBytes);
 
@@ -3855,28 +3855,28 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Factory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device* d2dDevice) CreateDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, D2D1_STROKE_STYLE_PROPERTIES1 strokeStyleProperties, float* dashes, uint32 dashesCount, ID2D1StrokeStyle1* strokeStyle) CreateStrokeStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, ID2D1PathGeometry1* pathGeometry) CreatePathGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION1 drawingStateDescription, IDWriteRenderingParams* textRenderingParams, ID2D1DrawingStateBlock1* drawingStateBlock) CreateDrawingStateBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, IStream* metafileStream, ID2D1GdiMetafile* metafile) CreateGdiMetafile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device** d2dDevice) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, D2D1_STROKE_STYLE_PROPERTIES1* strokeStyleProperties, float* dashes, uint32 dashesCount, ID2D1StrokeStyle1** strokeStyle) CreateStrokeStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, ID2D1PathGeometry1** pathGeometry) CreatePathGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION1* drawingStateDescription, IDWriteRenderingParams* textRenderingParams, ID2D1DrawingStateBlock1** drawingStateBlock) CreateDrawingStateBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, IStream* metafileStream, ID2D1GdiMetafile** metafile) CreateGdiMetafile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, Guid classId, IStream* propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) RegisterEffectFromStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, Guid classId, PWSTR propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) RegisterEffectFromString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, Guid classId) UnregisterEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, Guid* effects, uint32 effectsCount, uint32 effectsReturned, uint32 effectsRegistered) GetRegisteredEffects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, Guid effectId, ID2D1Properties* properties) GetEffectProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, Guid* effects, uint32 effectsCount, uint32* effectsReturned, uint32* effectsRegistered) GetRegisteredEffects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory1*/SelfOuter* self, Guid effectId, ID2D1Properties** properties) GetEffectProperties;
 	}
 
 
-	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device* d2dDevice) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice);
+	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device** d2dDevice) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice);
 
-	public HRESULT CreateStrokeStyle(D2D1_STROKE_STYLE_PROPERTIES1 strokeStyleProperties, float* dashes, uint32 dashesCount, ID2D1StrokeStyle1* strokeStyle) mut => VT.[Friend]CreateStrokeStyle(&this, strokeStyleProperties, dashes, dashesCount, strokeStyle);
+	public HRESULT CreateStrokeStyle(D2D1_STROKE_STYLE_PROPERTIES1* strokeStyleProperties, float* dashes, uint32 dashesCount, ID2D1StrokeStyle1** strokeStyle) mut => VT.[Friend]CreateStrokeStyle(&this, strokeStyleProperties, dashes, dashesCount, strokeStyle);
 
-	public HRESULT CreatePathGeometry(ID2D1PathGeometry1* pathGeometry) mut => VT.[Friend]CreatePathGeometry(&this, pathGeometry);
+	public HRESULT CreatePathGeometry(ID2D1PathGeometry1** pathGeometry) mut => VT.[Friend]CreatePathGeometry(&this, pathGeometry);
 
-	public HRESULT CreateDrawingStateBlock(D2D1_DRAWING_STATE_DESCRIPTION1 drawingStateDescription, IDWriteRenderingParams* textRenderingParams, ID2D1DrawingStateBlock1* drawingStateBlock) mut => VT.[Friend]CreateDrawingStateBlock(&this, drawingStateDescription, textRenderingParams, drawingStateBlock);
+	public HRESULT CreateDrawingStateBlock(D2D1_DRAWING_STATE_DESCRIPTION1* drawingStateDescription, IDWriteRenderingParams* textRenderingParams, ID2D1DrawingStateBlock1** drawingStateBlock) mut => VT.[Friend]CreateDrawingStateBlock(&this, drawingStateDescription, textRenderingParams, drawingStateBlock);
 
-	public HRESULT CreateGdiMetafile(IStream* metafileStream, ID2D1GdiMetafile* metafile) mut => VT.[Friend]CreateGdiMetafile(&this, metafileStream, metafile);
+	public HRESULT CreateGdiMetafile(IStream* metafileStream, ID2D1GdiMetafile** metafile) mut => VT.[Friend]CreateGdiMetafile(&this, metafileStream, metafile);
 
 	public HRESULT RegisterEffectFromStream(Guid classId, IStream* propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) mut => VT.[Friend]RegisterEffectFromStream(&this, classId, propertyXml, bindings, bindingsCount, effectFactory);
 
@@ -3884,9 +3884,9 @@ public static
 
 	public HRESULT UnregisterEffect(Guid classId) mut => VT.[Friend]UnregisterEffect(&this, classId);
 
-	public HRESULT GetRegisteredEffects(Guid* effects, uint32 effectsCount, uint32 effectsReturned, uint32 effectsRegistered) mut => VT.[Friend]GetRegisteredEffects(&this, effects, effectsCount, effectsReturned, effectsRegistered);
+	public HRESULT GetRegisteredEffects(Guid* effects, uint32 effectsCount, uint32* effectsReturned, uint32* effectsRegistered) mut => VT.[Friend]GetRegisteredEffects(&this, effects, effectsCount, effectsReturned, effectsRegistered);
 
-	public HRESULT GetEffectProperties(Guid effectId, ID2D1Properties* properties) mut => VT.[Friend]GetEffectProperties(&this, effectId, properties);
+	public HRESULT GetEffectProperties(Guid effectId, ID2D1Properties** properties) mut => VT.[Friend]GetEffectProperties(&this, effectId, properties);
 }
 
 [CRepr]struct ID2D1Multithread : IUnknown
@@ -3918,12 +3918,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1VertexBuffer*/SelfOuter* self, uint8 data, uint32 bufferSize) Map;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1VertexBuffer*/SelfOuter* self, uint8** data, uint32 bufferSize) Map;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1VertexBuffer*/SelfOuter* self) Unmap;
 	}
 
 
-	public HRESULT Map(uint8 data, uint32 bufferSize) mut => VT.[Friend]Map(&this, data, bufferSize);
+	public HRESULT Map(uint8** data, uint32 bufferSize) mut => VT.[Friend]Map(&this, data, bufferSize);
 
 	public HRESULT Unmap() mut => VT.[Friend]Unmap(&this);
 }
@@ -3936,11 +3936,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ResourceTexture*/SelfOuter* self, uint32* minimumExtents, uint32* maximimumExtents, uint32 strides, uint32 dimensions, uint8* data, uint32 dataCount) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ResourceTexture*/SelfOuter* self, uint32* minimumExtents, uint32* maximimumExtents, uint32* strides, uint32 dimensions, uint8* data, uint32 dataCount) Update;
 	}
 
 
-	public HRESULT Update(uint32* minimumExtents, uint32* maximimumExtents, uint32 strides, uint32 dimensions, uint8* data, uint32 dataCount) mut => VT.[Friend]Update(&this, minimumExtents, maximimumExtents, strides, dimensions, data, dataCount);
+	public HRESULT Update(uint32* minimumExtents, uint32* maximimumExtents, uint32* strides, uint32 dimensions, uint8* data, uint32 dataCount) mut => VT.[Friend]Update(&this, minimumExtents, maximimumExtents, strides, dimensions, data, dataCount);
 }
 
 [CRepr]struct ID2D1RenderInfo : IUnknown
@@ -3979,7 +3979,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DrawInfo*/SelfOuter* self, uint32 textureIndex, ID2D1ResourceTexture* resourceTexture) SetResourceTexture;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DrawInfo*/SelfOuter* self, uint8* buffer, uint32 bufferCount) SetVertexShaderConstantBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DrawInfo*/SelfOuter* self, Guid shaderId, D2D1_PIXEL_OPTIONS pixelOptions) SetPixelShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DrawInfo*/SelfOuter* self, ID2D1VertexBuffer* vertexBuffer, D2D1_VERTEX_OPTIONS vertexOptions, D2D1_BLEND_DESCRIPTION blendDescription, D2D1_VERTEX_RANGE vertexRange, Guid vertexShader) SetVertexProcessing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DrawInfo*/SelfOuter* self, ID2D1VertexBuffer* vertexBuffer, D2D1_VERTEX_OPTIONS vertexOptions, D2D1_BLEND_DESCRIPTION* blendDescription, D2D1_VERTEX_RANGE* vertexRange, Guid vertexShader) SetVertexProcessing;
 	}
 
 
@@ -3991,7 +3991,7 @@ public static
 
 	public HRESULT SetPixelShader(Guid shaderId, D2D1_PIXEL_OPTIONS pixelOptions) mut => VT.[Friend]SetPixelShader(&this, shaderId, pixelOptions);
 
-	public HRESULT SetVertexProcessing(ID2D1VertexBuffer* vertexBuffer, D2D1_VERTEX_OPTIONS vertexOptions, D2D1_BLEND_DESCRIPTION blendDescription, D2D1_VERTEX_RANGE vertexRange, Guid vertexShader) mut => VT.[Friend]SetVertexProcessing(&this, vertexBuffer, vertexOptions, blendDescription, vertexRange, vertexShader);
+	public HRESULT SetVertexProcessing(ID2D1VertexBuffer* vertexBuffer, D2D1_VERTEX_OPTIONS vertexOptions, D2D1_BLEND_DESCRIPTION* blendDescription, D2D1_VERTEX_RANGE* vertexRange, Guid vertexShader) mut => VT.[Friend]SetVertexProcessing(&this, vertexBuffer, vertexOptions, blendDescription, vertexRange, vertexShader);
 }
 
 [CRepr]struct ID2D1ComputeInfo : ID2D1RenderInfo
@@ -4077,17 +4077,17 @@ public static
 
 	[CRepr]public struct VTable : ID2D1TransformNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Transform*/SelfOuter* self, RECT outputRect, RECT* inputRects, uint32 inputRectsCount) MapOutputRectToInputRects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Transform*/SelfOuter* self, RECT* inputRects, RECT* inputOpaqueSubRects, uint32 inputRectCount, RECT outputRect, RECT outputOpaqueSubRect) MapInputRectsToOutputRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Transform*/SelfOuter* self, uint32 inputIndex, RECT invalidInputRect, RECT invalidOutputRect) MapInvalidRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Transform*/SelfOuter* self, RECT* outputRect, RECT* inputRects, uint32 inputRectsCount) MapOutputRectToInputRects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Transform*/SelfOuter* self, RECT* inputRects, RECT* inputOpaqueSubRects, uint32 inputRectCount, RECT* outputRect, RECT* outputOpaqueSubRect) MapInputRectsToOutputRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Transform*/SelfOuter* self, uint32 inputIndex, RECT invalidInputRect, RECT* invalidOutputRect) MapInvalidRect;
 	}
 
 
-	public HRESULT MapOutputRectToInputRects(RECT outputRect, RECT* inputRects, uint32 inputRectsCount) mut => VT.[Friend]MapOutputRectToInputRects(&this, outputRect, inputRects, inputRectsCount);
+	public HRESULT MapOutputRectToInputRects(RECT* outputRect, RECT* inputRects, uint32 inputRectsCount) mut => VT.[Friend]MapOutputRectToInputRects(&this, outputRect, inputRects, inputRectsCount);
 
-	public HRESULT MapInputRectsToOutputRect(RECT* inputRects, RECT* inputOpaqueSubRects, uint32 inputRectCount, RECT outputRect, RECT outputOpaqueSubRect) mut => VT.[Friend]MapInputRectsToOutputRect(&this, inputRects, inputOpaqueSubRects, inputRectCount, outputRect, outputOpaqueSubRect);
+	public HRESULT MapInputRectsToOutputRect(RECT* inputRects, RECT* inputOpaqueSubRects, uint32 inputRectCount, RECT* outputRect, RECT* outputOpaqueSubRect) mut => VT.[Friend]MapInputRectsToOutputRect(&this, inputRects, inputOpaqueSubRects, inputRectCount, outputRect, outputOpaqueSubRect);
 
-	public HRESULT MapInvalidRect(uint32 inputIndex, RECT invalidInputRect, RECT invalidOutputRect) mut => VT.[Friend]MapInvalidRect(&this, inputIndex, invalidInputRect, invalidOutputRect);
+	public HRESULT MapInvalidRect(uint32 inputIndex, RECT invalidInputRect, RECT* invalidOutputRect) mut => VT.[Friend]MapInvalidRect(&this, inputIndex, invalidInputRect, invalidOutputRect);
 }
 
 [CRepr]struct ID2D1DrawTransform : ID2D1Transform
@@ -4114,13 +4114,13 @@ public static
 	[CRepr]public struct VTable : ID2D1Transform.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ComputeTransform*/SelfOuter* self, ID2D1ComputeInfo* computeInfo) SetComputeInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ComputeTransform*/SelfOuter* self, RECT outputRect, uint32 dimensionX, uint32 dimensionY, uint32 dimensionZ) CalculateThreadgroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ComputeTransform*/SelfOuter* self, RECT* outputRect, uint32* dimensionX, uint32* dimensionY, uint32* dimensionZ) CalculateThreadgroups;
 	}
 
 
 	public HRESULT SetComputeInfo(ID2D1ComputeInfo* computeInfo) mut => VT.[Friend]SetComputeInfo(&this, computeInfo);
 
-	public HRESULT CalculateThreadgroups(RECT outputRect, uint32 dimensionX, uint32 dimensionY, uint32 dimensionZ) mut => VT.[Friend]CalculateThreadgroups(&this, outputRect, dimensionX, dimensionY, dimensionZ);
+	public HRESULT CalculateThreadgroups(RECT* outputRect, uint32* dimensionX, uint32* dimensionY, uint32* dimensionZ) mut => VT.[Friend]CalculateThreadgroups(&this, outputRect, dimensionX, dimensionY, dimensionZ);
 }
 
 [CRepr]struct ID2D1AnalysisTransform : IUnknown
@@ -4147,13 +4147,13 @@ public static
 	[CRepr]public struct VTable : ID2D1Transform.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SourceTransform*/SelfOuter* self, ID2D1RenderInfo* renderInfo) SetRenderInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SourceTransform*/SelfOuter* self, ID2D1Bitmap1* target, RECT drawRect, D2D_POINT_2U targetOrigin) Draw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SourceTransform*/SelfOuter* self, ID2D1Bitmap1* target, RECT* drawRect, D2D_POINT_2U targetOrigin) Draw;
 	}
 
 
 	public HRESULT SetRenderInfo(ID2D1RenderInfo* renderInfo) mut => VT.[Friend]SetRenderInfo(&this, renderInfo);
 
-	public HRESULT Draw(ID2D1Bitmap1* target, RECT drawRect, D2D_POINT_2U targetOrigin) mut => VT.[Friend]Draw(&this, target, drawRect, targetOrigin);
+	public HRESULT Draw(ID2D1Bitmap1* target, RECT* drawRect, D2D_POINT_2U targetOrigin) mut => VT.[Friend]Draw(&this, target, drawRect, targetOrigin);
 }
 
 [CRepr]struct ID2D1ConcreteTransform : ID2D1TransformNode
@@ -4182,14 +4182,14 @@ public static
 
 	[CRepr]public struct VTable : ID2D1ConcreteTransform.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1BlendTransform*/SelfOuter* self, D2D1_BLEND_DESCRIPTION description) SetDescription;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1BlendTransform*/SelfOuter* self, D2D1_BLEND_DESCRIPTION description) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1BlendTransform*/SelfOuter* self, D2D1_BLEND_DESCRIPTION* description) SetDescription;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1BlendTransform*/SelfOuter* self, D2D1_BLEND_DESCRIPTION* description) GetDescription;
 	}
 
 
-	public void SetDescription(D2D1_BLEND_DESCRIPTION description) mut => VT.[Friend]SetDescription(&this, description);
+	public void SetDescription(D2D1_BLEND_DESCRIPTION* description) mut => VT.[Friend]SetDescription(&this, description);
 
-	public void GetDescription(D2D1_BLEND_DESCRIPTION description) mut => VT.[Friend]GetDescription(&this, description);
+	public void GetDescription(D2D1_BLEND_DESCRIPTION* description) mut => VT.[Friend]GetDescription(&this, description);
 }
 
 [CRepr]struct ID2D1BorderTransform : ID2D1ConcreteTransform
@@ -4242,14 +4242,14 @@ public static
 
 	[CRepr]public struct VTable : ID2D1TransformNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1BoundsAdjustmentTransform*/SelfOuter* self, RECT outputBounds) SetOutputBounds;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1BoundsAdjustmentTransform*/SelfOuter* self, RECT outputBounds) GetOutputBounds;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1BoundsAdjustmentTransform*/SelfOuter* self, RECT* outputBounds) SetOutputBounds;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1BoundsAdjustmentTransform*/SelfOuter* self, RECT* outputBounds) GetOutputBounds;
 	}
 
 
-	public void SetOutputBounds(RECT outputBounds) mut => VT.[Friend]SetOutputBounds(&this, outputBounds);
+	public void SetOutputBounds(RECT* outputBounds) mut => VT.[Friend]SetOutputBounds(&this, outputBounds);
 
-	public void GetOutputBounds(RECT outputBounds) mut => VT.[Friend]GetOutputBounds(&this, outputBounds);
+	public void GetOutputBounds(RECT* outputBounds) mut => VT.[Friend]GetOutputBounds(&this, outputBounds);
 }
 
 [CRepr]struct ID2D1EffectImpl : IUnknown
@@ -4281,45 +4281,45 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1EffectContext*/SelfOuter* self, float dpiX, float dpiY) GetDpi;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid effectId, ID2D1Effect* effect) CreateEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, D3D_FEATURE_LEVEL* featureLevels, uint32 featureLevelsCount, D3D_FEATURE_LEVEL maximumSupportedFeatureLevel) GetMaximumSupportedFeatureLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, ID2D1Effect* effect, ID2D1TransformNode* transformNode) CreateTransformNodeFromEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, uint32 numInputs, D2D1_BLEND_DESCRIPTION blendDescription, ID2D1BlendTransform* transform) CreateBlendTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, D2D1_EXTEND_MODE extendModeX, D2D1_EXTEND_MODE extendModeY, ID2D1BorderTransform* transform) CreateBorderTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, POINT offset, ID2D1OffsetTransform* transform) CreateOffsetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, RECT outputRectangle, ID2D1BoundsAdjustmentTransform* transform) CreateBoundsAdjustmentTransform;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1EffectContext*/SelfOuter* self, float* dpiX, float* dpiY) GetDpi;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid effectId, ID2D1Effect** effect) CreateEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, D3D_FEATURE_LEVEL* featureLevels, uint32 featureLevelsCount, D3D_FEATURE_LEVEL* maximumSupportedFeatureLevel) GetMaximumSupportedFeatureLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, ID2D1Effect* effect, ID2D1TransformNode** transformNode) CreateTransformNodeFromEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, uint32 numInputs, D2D1_BLEND_DESCRIPTION* blendDescription, ID2D1BlendTransform** transform) CreateBlendTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, D2D1_EXTEND_MODE extendModeX, D2D1_EXTEND_MODE extendModeY, ID2D1BorderTransform** transform) CreateBorderTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, POINT offset, ID2D1OffsetTransform** transform) CreateOffsetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, RECT* outputRectangle, ID2D1BoundsAdjustmentTransform** transform) CreateBoundsAdjustmentTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid shaderId, uint8* shaderBuffer, uint32 shaderBufferCount) LoadPixelShader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid resourceId, uint8* shaderBuffer, uint32 shaderBufferCount) LoadVertexShader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid resourceId, uint8* shaderBuffer, uint32 shaderBufferCount) LoadComputeShader;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1EffectContext*/SelfOuter* self, Guid shaderId) IsShaderLoaded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid resourceId, D2D1_RESOURCE_TEXTURE_PROPERTIES resourceTextureProperties, uint8* data, uint32 strides, uint32 dataSize, ID2D1ResourceTexture* resourceTexture) CreateResourceTexture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid resourceId, ID2D1ResourceTexture* resourceTexture) FindResourceTexture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, D2D1_VERTEX_BUFFER_PROPERTIES vertexBufferProperties, Guid resourceId, D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES customVertexBufferProperties, ID2D1VertexBuffer* buffer) CreateVertexBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid resourceId, ID2D1VertexBuffer* buffer) FindVertexBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, D2D1_COLOR_SPACE space, uint8* profile, uint32 profileSize, ID2D1ColorContext* colorContext) CreateColorContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, PWSTR filename, ID2D1ColorContext* colorContext) CreateColorContextFromFilename;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, IWICColorContext* wicColorContext, ID2D1ColorContext* colorContext) CreateColorContextFromWicColorContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, D2D1_FEATURE feature, void featureSupportData, uint32 featureSupportDataSize) CheckFeatureSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid resourceId, D2D1_RESOURCE_TEXTURE_PROPERTIES* resourceTextureProperties, uint8* data, uint32* strides, uint32 dataSize, ID2D1ResourceTexture** resourceTexture) CreateResourceTexture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid resourceId, ID2D1ResourceTexture** resourceTexture) FindResourceTexture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, D2D1_VERTEX_BUFFER_PROPERTIES* vertexBufferProperties, Guid resourceId, D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES* customVertexBufferProperties, ID2D1VertexBuffer** buffer) CreateVertexBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, Guid resourceId, ID2D1VertexBuffer** buffer) FindVertexBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, D2D1_COLOR_SPACE space, uint8* profile, uint32 profileSize, ID2D1ColorContext** colorContext) CreateColorContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, PWSTR filename, ID2D1ColorContext** colorContext) CreateColorContextFromFilename;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, IWICColorContext* wicColorContext, ID2D1ColorContext** colorContext) CreateColorContextFromWicColorContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext*/SelfOuter* self, D2D1_FEATURE feature, void* featureSupportData, uint32 featureSupportDataSize) CheckFeatureSupport;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1EffectContext*/SelfOuter* self, D2D1_BUFFER_PRECISION bufferPrecision) IsBufferPrecisionSupported;
 	}
 
 
-	public void GetDpi(float dpiX, float dpiY) mut => VT.[Friend]GetDpi(&this, dpiX, dpiY);
+	public void GetDpi(float* dpiX, float* dpiY) mut => VT.[Friend]GetDpi(&this, dpiX, dpiY);
 
-	public HRESULT CreateEffect(Guid effectId, ID2D1Effect* effect) mut => VT.[Friend]CreateEffect(&this, effectId, effect);
+	public HRESULT CreateEffect(Guid effectId, ID2D1Effect** effect) mut => VT.[Friend]CreateEffect(&this, effectId, effect);
 
-	public HRESULT GetMaximumSupportedFeatureLevel(D3D_FEATURE_LEVEL* featureLevels, uint32 featureLevelsCount, D3D_FEATURE_LEVEL maximumSupportedFeatureLevel) mut => VT.[Friend]GetMaximumSupportedFeatureLevel(&this, featureLevels, featureLevelsCount, maximumSupportedFeatureLevel);
+	public HRESULT GetMaximumSupportedFeatureLevel(D3D_FEATURE_LEVEL* featureLevels, uint32 featureLevelsCount, D3D_FEATURE_LEVEL* maximumSupportedFeatureLevel) mut => VT.[Friend]GetMaximumSupportedFeatureLevel(&this, featureLevels, featureLevelsCount, maximumSupportedFeatureLevel);
 
-	public HRESULT CreateTransformNodeFromEffect(ID2D1Effect* effect, ID2D1TransformNode* transformNode) mut => VT.[Friend]CreateTransformNodeFromEffect(&this, effect, transformNode);
+	public HRESULT CreateTransformNodeFromEffect(ID2D1Effect* effect, ID2D1TransformNode** transformNode) mut => VT.[Friend]CreateTransformNodeFromEffect(&this, effect, transformNode);
 
-	public HRESULT CreateBlendTransform(uint32 numInputs, D2D1_BLEND_DESCRIPTION blendDescription, ID2D1BlendTransform* transform) mut => VT.[Friend]CreateBlendTransform(&this, numInputs, blendDescription, transform);
+	public HRESULT CreateBlendTransform(uint32 numInputs, D2D1_BLEND_DESCRIPTION* blendDescription, ID2D1BlendTransform** transform) mut => VT.[Friend]CreateBlendTransform(&this, numInputs, blendDescription, transform);
 
-	public HRESULT CreateBorderTransform(D2D1_EXTEND_MODE extendModeX, D2D1_EXTEND_MODE extendModeY, ID2D1BorderTransform* transform) mut => VT.[Friend]CreateBorderTransform(&this, extendModeX, extendModeY, transform);
+	public HRESULT CreateBorderTransform(D2D1_EXTEND_MODE extendModeX, D2D1_EXTEND_MODE extendModeY, ID2D1BorderTransform** transform) mut => VT.[Friend]CreateBorderTransform(&this, extendModeX, extendModeY, transform);
 
-	public HRESULT CreateOffsetTransform(POINT offset, ID2D1OffsetTransform* transform) mut => VT.[Friend]CreateOffsetTransform(&this, offset, transform);
+	public HRESULT CreateOffsetTransform(POINT offset, ID2D1OffsetTransform** transform) mut => VT.[Friend]CreateOffsetTransform(&this, offset, transform);
 
-	public HRESULT CreateBoundsAdjustmentTransform(RECT outputRectangle, ID2D1BoundsAdjustmentTransform* transform) mut => VT.[Friend]CreateBoundsAdjustmentTransform(&this, outputRectangle, transform);
+	public HRESULT CreateBoundsAdjustmentTransform(RECT* outputRectangle, ID2D1BoundsAdjustmentTransform** transform) mut => VT.[Friend]CreateBoundsAdjustmentTransform(&this, outputRectangle, transform);
 
 	public HRESULT LoadPixelShader(Guid shaderId, uint8* shaderBuffer, uint32 shaderBufferCount) mut => VT.[Friend]LoadPixelShader(&this, shaderId, shaderBuffer, shaderBufferCount);
 
@@ -4329,21 +4329,21 @@ public static
 
 	public BOOL IsShaderLoaded(Guid shaderId) mut => VT.[Friend]IsShaderLoaded(&this, shaderId);
 
-	public HRESULT CreateResourceTexture(Guid resourceId, D2D1_RESOURCE_TEXTURE_PROPERTIES resourceTextureProperties, uint8* data, uint32 strides, uint32 dataSize, ID2D1ResourceTexture* resourceTexture) mut => VT.[Friend]CreateResourceTexture(&this, resourceId, resourceTextureProperties, data, strides, dataSize, resourceTexture);
+	public HRESULT CreateResourceTexture(Guid resourceId, D2D1_RESOURCE_TEXTURE_PROPERTIES* resourceTextureProperties, uint8* data, uint32* strides, uint32 dataSize, ID2D1ResourceTexture** resourceTexture) mut => VT.[Friend]CreateResourceTexture(&this, resourceId, resourceTextureProperties, data, strides, dataSize, resourceTexture);
 
-	public HRESULT FindResourceTexture(Guid resourceId, ID2D1ResourceTexture* resourceTexture) mut => VT.[Friend]FindResourceTexture(&this, resourceId, resourceTexture);
+	public HRESULT FindResourceTexture(Guid resourceId, ID2D1ResourceTexture** resourceTexture) mut => VT.[Friend]FindResourceTexture(&this, resourceId, resourceTexture);
 
-	public HRESULT CreateVertexBuffer(D2D1_VERTEX_BUFFER_PROPERTIES vertexBufferProperties, Guid resourceId, D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES customVertexBufferProperties, ID2D1VertexBuffer* buffer) mut => VT.[Friend]CreateVertexBuffer(&this, vertexBufferProperties, resourceId, customVertexBufferProperties, buffer);
+	public HRESULT CreateVertexBuffer(D2D1_VERTEX_BUFFER_PROPERTIES* vertexBufferProperties, Guid resourceId, D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES* customVertexBufferProperties, ID2D1VertexBuffer** buffer) mut => VT.[Friend]CreateVertexBuffer(&this, vertexBufferProperties, resourceId, customVertexBufferProperties, buffer);
 
-	public HRESULT FindVertexBuffer(Guid resourceId, ID2D1VertexBuffer* buffer) mut => VT.[Friend]FindVertexBuffer(&this, resourceId, buffer);
+	public HRESULT FindVertexBuffer(Guid resourceId, ID2D1VertexBuffer** buffer) mut => VT.[Friend]FindVertexBuffer(&this, resourceId, buffer);
 
-	public HRESULT CreateColorContext(D2D1_COLOR_SPACE space, uint8* profile, uint32 profileSize, ID2D1ColorContext* colorContext) mut => VT.[Friend]CreateColorContext(&this, space, profile, profileSize, colorContext);
+	public HRESULT CreateColorContext(D2D1_COLOR_SPACE space, uint8* profile, uint32 profileSize, ID2D1ColorContext** colorContext) mut => VT.[Friend]CreateColorContext(&this, space, profile, profileSize, colorContext);
 
-	public HRESULT CreateColorContextFromFilename(PWSTR filename, ID2D1ColorContext* colorContext) mut => VT.[Friend]CreateColorContextFromFilename(&this, filename, colorContext);
+	public HRESULT CreateColorContextFromFilename(PWSTR filename, ID2D1ColorContext** colorContext) mut => VT.[Friend]CreateColorContextFromFilename(&this, filename, colorContext);
 
-	public HRESULT CreateColorContextFromWicColorContext(IWICColorContext* wicColorContext, ID2D1ColorContext* colorContext) mut => VT.[Friend]CreateColorContextFromWicColorContext(&this, wicColorContext, colorContext);
+	public HRESULT CreateColorContextFromWicColorContext(IWICColorContext* wicColorContext, ID2D1ColorContext** colorContext) mut => VT.[Friend]CreateColorContextFromWicColorContext(&this, wicColorContext, colorContext);
 
-	public HRESULT CheckFeatureSupport(D2D1_FEATURE feature, void featureSupportData, uint32 featureSupportDataSize) mut => VT.[Friend]CheckFeatureSupport(&this, feature, featureSupportData, featureSupportDataSize);
+	public HRESULT CheckFeatureSupport(D2D1_FEATURE feature, void* featureSupportData, uint32 featureSupportDataSize) mut => VT.[Friend]CheckFeatureSupport(&this, feature, featureSupportData, featureSupportDataSize);
 
 	public BOOL IsBufferPrecisionSupported(D2D1_BUFFER_PRECISION bufferPrecision) mut => VT.[Friend]IsBufferPrecisionSupported(&this, bufferPrecision);
 }
@@ -4368,15 +4368,15 @@ public static
 
 	[CRepr]public struct VTable : ID2D1DeviceContext.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext1*/SelfOuter* self, ID2D1Geometry* geometry, float flatteningTolerance, ID2D1GeometryRealization* geometryRealization) CreateFilledGeometryRealization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext1*/SelfOuter* self, ID2D1Geometry* geometry, float flatteningTolerance, float strokeWidth, ID2D1StrokeStyle* strokeStyle, ID2D1GeometryRealization* geometryRealization) CreateStrokedGeometryRealization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext1*/SelfOuter* self, ID2D1Geometry* geometry, float flatteningTolerance, ID2D1GeometryRealization** geometryRealization) CreateFilledGeometryRealization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext1*/SelfOuter* self, ID2D1Geometry* geometry, float flatteningTolerance, float strokeWidth, ID2D1StrokeStyle* strokeStyle, ID2D1GeometryRealization** geometryRealization) CreateStrokedGeometryRealization;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext1*/SelfOuter* self, ID2D1GeometryRealization* geometryRealization, ID2D1Brush* brush) DrawGeometryRealization;
 	}
 
 
-	public HRESULT CreateFilledGeometryRealization(ID2D1Geometry* geometry, float flatteningTolerance, ID2D1GeometryRealization* geometryRealization) mut => VT.[Friend]CreateFilledGeometryRealization(&this, geometry, flatteningTolerance, geometryRealization);
+	public HRESULT CreateFilledGeometryRealization(ID2D1Geometry* geometry, float flatteningTolerance, ID2D1GeometryRealization** geometryRealization) mut => VT.[Friend]CreateFilledGeometryRealization(&this, geometry, flatteningTolerance, geometryRealization);
 
-	public HRESULT CreateStrokedGeometryRealization(ID2D1Geometry* geometry, float flatteningTolerance, float strokeWidth, ID2D1StrokeStyle* strokeStyle, ID2D1GeometryRealization* geometryRealization) mut => VT.[Friend]CreateStrokedGeometryRealization(&this, geometry, flatteningTolerance, strokeWidth, strokeStyle, geometryRealization);
+	public HRESULT CreateStrokedGeometryRealization(ID2D1Geometry* geometry, float flatteningTolerance, float strokeWidth, ID2D1StrokeStyle* strokeStyle, ID2D1GeometryRealization** geometryRealization) mut => VT.[Friend]CreateStrokedGeometryRealization(&this, geometry, flatteningTolerance, strokeWidth, strokeStyle, geometryRealization);
 
 	public void DrawGeometryRealization(ID2D1GeometryRealization* geometryRealization, ID2D1Brush* brush) mut => VT.[Friend]DrawGeometryRealization(&this, geometryRealization, brush);
 }
@@ -4391,7 +4391,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] D2D1_RENDERING_PRIORITY(/*ID2D1Device1*/SelfOuter* self) GetRenderingPriority;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Device1*/SelfOuter* self, D2D1_RENDERING_PRIORITY renderingPriority) SetRenderingPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device1*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext1* deviceContext1) CreateDeviceContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device1*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext1** deviceContext1) CreateDeviceContext;
 	}
 
 
@@ -4399,7 +4399,7 @@ public static
 
 	public void SetRenderingPriority(D2D1_RENDERING_PRIORITY renderingPriority) mut => VT.[Friend]SetRenderingPriority(&this, renderingPriority);
 
-	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext1* deviceContext1) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext1);
+	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext1** deviceContext1) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext1);
 }
 
 [CRepr]struct ID2D1Factory2 : ID2D1Factory1
@@ -4410,11 +4410,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Factory1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory2*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device1* d2dDevice1) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory2*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device1** d2dDevice1) CreateDevice;
 	}
 
 
-	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device1* d2dDevice1) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice1);
+	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device1** d2dDevice1) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice1);
 }
 
 [CRepr]struct ID2D1CommandSink1 : ID2D1CommandSink
@@ -4440,14 +4440,14 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgAttribute*/SelfOuter* self, ID2D1SvgElement* element) GetElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgAttribute*/SelfOuter* self, ID2D1SvgAttribute* attribute) Clone;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgAttribute*/SelfOuter* self, ID2D1SvgElement** element) GetElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgAttribute*/SelfOuter* self, ID2D1SvgAttribute** attribute) Clone;
 	}
 
 
-	public void GetElement(ID2D1SvgElement* element) mut => VT.[Friend]GetElement(&this, element);
+	public void GetElement(ID2D1SvgElement** element) mut => VT.[Friend]GetElement(&this, element);
 
-	public HRESULT Clone(ID2D1SvgAttribute* attribute) mut => VT.[Friend]Clone(&this, attribute);
+	public HRESULT Clone(ID2D1SvgAttribute** attribute) mut => VT.[Friend]Clone(&this, attribute);
 }
 
 [CRepr]struct ID2D1SvgPaint : ID2D1SvgAttribute
@@ -4460,8 +4460,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPaint*/SelfOuter* self, D2D1_SVG_PAINT_TYPE paintType) SetPaintType;
 		protected new function [CallingConvention(.Stdcall)] D2D1_SVG_PAINT_TYPE(/*ID2D1SvgPaint*/SelfOuter* self) GetPaintType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPaint*/SelfOuter* self, D2D1_COLOR_F color) SetColor;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgPaint*/SelfOuter* self, D2D1_COLOR_F color) GetColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPaint*/SelfOuter* self, D2D1_COLOR_F* color) SetColor;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgPaint*/SelfOuter* self, D2D1_COLOR_F* color) GetColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPaint*/SelfOuter* self, PWSTR id) SetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPaint*/SelfOuter* self, char16* id, uint32 idCount) GetId;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SvgPaint*/SelfOuter* self) GetIdLength;
@@ -4472,9 +4472,9 @@ public static
 
 	public D2D1_SVG_PAINT_TYPE GetPaintType() mut => VT.[Friend]GetPaintType(&this);
 
-	public HRESULT SetColor(D2D1_COLOR_F color) mut => VT.[Friend]SetColor(&this, color);
+	public HRESULT SetColor(D2D1_COLOR_F* color) mut => VT.[Friend]SetColor(&this, color);
 
-	public void GetColor(D2D1_COLOR_F color) mut => VT.[Friend]GetColor(&this, color);
+	public void GetColor(D2D1_COLOR_F* color) mut => VT.[Friend]GetColor(&this, color);
 
 	public HRESULT SetId(PWSTR id) mut => VT.[Friend]SetId(&this, id);
 
@@ -4553,7 +4553,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPathData*/SelfOuter* self, D2D1_SVG_PATH_COMMAND* commands, uint32 commandsCount, uint32 startIndex) UpdateCommands;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPathData*/SelfOuter* self, D2D1_SVG_PATH_COMMAND* commands, uint32 commandsCount, uint32 startIndex) GetCommands;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SvgPathData*/SelfOuter* self) GetCommandsCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPathData*/SelfOuter* self, D2D1_FILL_MODE fillMode, ID2D1PathGeometry1* pathGeometry) CreatePathGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPathData*/SelfOuter* self, D2D1_FILL_MODE fillMode, ID2D1PathGeometry1** pathGeometry) CreatePathGeometry;
 	}
 
 
@@ -4573,7 +4573,7 @@ public static
 
 	public uint32 GetCommandsCount() mut => VT.[Friend]GetCommandsCount(&this);
 
-	public HRESULT CreatePathGeometry(D2D1_FILL_MODE fillMode, ID2D1PathGeometry1* pathGeometry) mut => VT.[Friend]CreatePathGeometry(&this, fillMode, pathGeometry);
+	public HRESULT CreatePathGeometry(D2D1_FILL_MODE fillMode, ID2D1PathGeometry1** pathGeometry) mut => VT.[Friend]CreatePathGeometry(&this, fillMode, pathGeometry);
 }
 
 [CRepr]struct ID2D1SvgElement : ID2D1Resource
@@ -4584,40 +4584,40 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgDocument* document) GetDocument;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgDocument** document) GetDocument;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, char16* name, uint32 nameCount) GetTagName;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SvgElement*/SelfOuter* self) GetTagNameLength;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1SvgElement*/SelfOuter* self) IsTextContent;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* parent) GetParent;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement** parent) GetParent;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1SvgElement*/SelfOuter* self) HasChildren;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* child) GetFirstChild;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* child) GetLastChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* referenceChild, ID2D1SvgElement* previousChild) GetPreviousChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* referenceChild, ID2D1SvgElement* nextChild) GetNextChild;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement** child) GetFirstChild;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement** child) GetLastChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* referenceChild, ID2D1SvgElement** previousChild) GetPreviousChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* referenceChild, ID2D1SvgElement** nextChild) GetNextChild;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* newChild, ID2D1SvgElement* referenceChild) InsertChildBefore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* newChild) AppendChild;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* newChild, ID2D1SvgElement* oldChild) ReplaceChild;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement* oldChild) RemoveChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR tagName, ID2D1SvgElement* newChild) CreateChild;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, BOOL inherited) IsAttributeSpecified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR tagName, ID2D1SvgElement** newChild) CreateChild;
+		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, BOOL* inherited) IsAttributeSpecified;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SvgElement*/SelfOuter* self) GetSpecifiedAttributeCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, uint32 index, char16* name, uint32 nameCount, BOOL inherited) GetSpecifiedAttributeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, uint32 index, uint32 nameLength, BOOL inherited) GetSpecifiedAttributeNameLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, uint32 index, char16* name, uint32 nameCount, BOOL* inherited) GetSpecifiedAttributeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, uint32 index, uint32* nameLength, BOOL* inherited) GetSpecifiedAttributeNameLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name) RemoveAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, char16* name, uint32 nameCount) SetTextValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, char16* name, uint32 nameCount) GetTextValue;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SvgElement*/SelfOuter* self) GetTextValueLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, ID2D1SvgAttribute* value) SetAttributeValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void value, uint32 valueSizeInBytes) SetAttributeValue0;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void* value, uint32 valueSizeInBytes) SetAttributeValue0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, PWSTR value) SetAttributeValue1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, Guid riid, void value) GetAttributeValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void value, uint32 valueSizeInBytes) GetAttributeValue0;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, Guid riid, void** value) GetAttributeValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void* value, uint32 valueSizeInBytes) GetAttributeValue0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, char16* value, uint32 valueCount) GetAttributeValue1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, uint32 valueLength) GetAttributeValueLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, uint32* valueLength) GetAttributeValueLength;
 	}
 
 
-	public void GetDocument(ID2D1SvgDocument* document) mut => VT.[Friend]GetDocument(&this, document);
+	public void GetDocument(ID2D1SvgDocument** document) mut => VT.[Friend]GetDocument(&this, document);
 
 	public HRESULT GetTagName(char16* name, uint32 nameCount) mut => VT.[Friend]GetTagName(&this, name, nameCount);
 
@@ -4625,17 +4625,17 @@ public static
 
 	public BOOL IsTextContent() mut => VT.[Friend]IsTextContent(&this);
 
-	public void GetParent(ID2D1SvgElement* parent) mut => VT.[Friend]GetParent(&this, parent);
+	public void GetParent(ID2D1SvgElement** parent) mut => VT.[Friend]GetParent(&this, parent);
 
 	public BOOL HasChildren() mut => VT.[Friend]HasChildren(&this);
 
-	public void GetFirstChild(ID2D1SvgElement* child) mut => VT.[Friend]GetFirstChild(&this, child);
+	public void GetFirstChild(ID2D1SvgElement** child) mut => VT.[Friend]GetFirstChild(&this, child);
 
-	public void GetLastChild(ID2D1SvgElement* child) mut => VT.[Friend]GetLastChild(&this, child);
+	public void GetLastChild(ID2D1SvgElement** child) mut => VT.[Friend]GetLastChild(&this, child);
 
-	public HRESULT GetPreviousChild(ID2D1SvgElement* referenceChild, ID2D1SvgElement* previousChild) mut => VT.[Friend]GetPreviousChild(&this, referenceChild, previousChild);
+	public HRESULT GetPreviousChild(ID2D1SvgElement* referenceChild, ID2D1SvgElement** previousChild) mut => VT.[Friend]GetPreviousChild(&this, referenceChild, previousChild);
 
-	public HRESULT GetNextChild(ID2D1SvgElement* referenceChild, ID2D1SvgElement* nextChild) mut => VT.[Friend]GetNextChild(&this, referenceChild, nextChild);
+	public HRESULT GetNextChild(ID2D1SvgElement* referenceChild, ID2D1SvgElement** nextChild) mut => VT.[Friend]GetNextChild(&this, referenceChild, nextChild);
 
 	public HRESULT InsertChildBefore(ID2D1SvgElement* newChild, ID2D1SvgElement* referenceChild) mut => VT.[Friend]InsertChildBefore(&this, newChild, referenceChild);
 
@@ -4645,15 +4645,15 @@ public static
 
 	public HRESULT RemoveChild(ID2D1SvgElement* oldChild) mut => VT.[Friend]RemoveChild(&this, oldChild);
 
-	public HRESULT CreateChild(PWSTR tagName, ID2D1SvgElement* newChild) mut => VT.[Friend]CreateChild(&this, tagName, newChild);
+	public HRESULT CreateChild(PWSTR tagName, ID2D1SvgElement** newChild) mut => VT.[Friend]CreateChild(&this, tagName, newChild);
 
-	public BOOL IsAttributeSpecified(PWSTR name, BOOL inherited) mut => VT.[Friend]IsAttributeSpecified(&this, name, inherited);
+	public BOOL IsAttributeSpecified(PWSTR name, BOOL* inherited) mut => VT.[Friend]IsAttributeSpecified(&this, name, inherited);
 
 	public uint32 GetSpecifiedAttributeCount() mut => VT.[Friend]GetSpecifiedAttributeCount(&this);
 
-	public HRESULT GetSpecifiedAttributeName(uint32 index, char16* name, uint32 nameCount, BOOL inherited) mut => VT.[Friend]GetSpecifiedAttributeName(&this, index, name, nameCount, inherited);
+	public HRESULT GetSpecifiedAttributeName(uint32 index, char16* name, uint32 nameCount, BOOL* inherited) mut => VT.[Friend]GetSpecifiedAttributeName(&this, index, name, nameCount, inherited);
 
-	public HRESULT GetSpecifiedAttributeNameLength(uint32 index, uint32 nameLength, BOOL inherited) mut => VT.[Friend]GetSpecifiedAttributeNameLength(&this, index, nameLength, inherited);
+	public HRESULT GetSpecifiedAttributeNameLength(uint32 index, uint32* nameLength, BOOL* inherited) mut => VT.[Friend]GetSpecifiedAttributeNameLength(&this, index, nameLength, inherited);
 
 	public HRESULT RemoveAttribute(PWSTR name) mut => VT.[Friend]RemoveAttribute(&this, name);
 
@@ -4665,17 +4665,17 @@ public static
 
 	public HRESULT SetAttributeValue(PWSTR name, ID2D1SvgAttribute* value) mut => VT.[Friend]SetAttributeValue(&this, name, value);
 
-	public HRESULT SetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void value, uint32 valueSizeInBytes) mut => VT.[Friend]SetAttributeValue0(&this, name, type, value, valueSizeInBytes);
+	public HRESULT SetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void* value, uint32 valueSizeInBytes) mut => VT.[Friend]SetAttributeValue0(&this, name, type, value, valueSizeInBytes);
 
 	public HRESULT SetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, PWSTR value) mut => VT.[Friend]SetAttributeValue1(&this, name, type, value);
 
-	public HRESULT GetAttributeValue(PWSTR name, Guid riid, void value) mut => VT.[Friend]GetAttributeValue(&this, name, riid, value);
+	public HRESULT GetAttributeValue(PWSTR name, Guid riid, void** value) mut => VT.[Friend]GetAttributeValue(&this, name, riid, value);
 
-	public HRESULT GetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void value, uint32 valueSizeInBytes) mut => VT.[Friend]GetAttributeValue0(&this, name, type, value, valueSizeInBytes);
+	public HRESULT GetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void* value, uint32 valueSizeInBytes) mut => VT.[Friend]GetAttributeValue0(&this, name, type, value, valueSizeInBytes);
 
 	public HRESULT GetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, char16* value, uint32 valueCount) mut => VT.[Friend]GetAttributeValue1(&this, name, type, value, valueCount);
 
-	public HRESULT GetAttributeValueLength(PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, uint32 valueLength) mut => VT.[Friend]GetAttributeValueLength(&this, name, type, valueLength);
+	public HRESULT GetAttributeValueLength(PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, uint32* valueLength) mut => VT.[Friend]GetAttributeValueLength(&this, name, type, valueLength);
 }
 
 [CRepr]struct ID2D1SvgDocument : ID2D1Resource
@@ -4689,14 +4689,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, D2D_SIZE_F viewportSize) SetViewportSize;
 		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_F(/*ID2D1SvgDocument*/SelfOuter* self) GetViewportSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, ID2D1SvgElement* root) SetRoot;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgDocument*/SelfOuter* self, ID2D1SvgElement* root) GetRoot;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, PWSTR id, ID2D1SvgElement* svgElement) FindElementById;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgDocument*/SelfOuter* self, ID2D1SvgElement** root) GetRoot;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, PWSTR id, ID2D1SvgElement** svgElement) FindElementById;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, IStream* outputXmlStream, ID2D1SvgElement* subtree) Serialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, IStream* inputXmlStream, ID2D1SvgElement* subtree) Deserialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, D2D1_SVG_PAINT_TYPE paintType, D2D1_COLOR_F color, PWSTR id, ID2D1SvgPaint* paint) CreatePaint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, D2D1_SVG_LENGTH* dashes, uint32 dashesCount, ID2D1SvgStrokeDashArray* strokeDashArray) CreateStrokeDashArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, D2D_POINT_2F* points, uint32 pointsCount, ID2D1SvgPointCollection* pointCollection) CreatePointCollection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, float* segmentData, uint32 segmentDataCount, D2D1_SVG_PATH_COMMAND* commands, uint32 commandsCount, ID2D1SvgPathData* pathData) CreatePathData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, IStream* inputXmlStream, ID2D1SvgElement** subtree) Deserialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, D2D1_SVG_PAINT_TYPE paintType, D2D1_COLOR_F* color, PWSTR id, ID2D1SvgPaint** paint) CreatePaint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, D2D1_SVG_LENGTH* dashes, uint32 dashesCount, ID2D1SvgStrokeDashArray** strokeDashArray) CreateStrokeDashArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, D2D_POINT_2F* points, uint32 pointsCount, ID2D1SvgPointCollection** pointCollection) CreatePointCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgDocument*/SelfOuter* self, float* segmentData, uint32 segmentDataCount, D2D1_SVG_PATH_COMMAND* commands, uint32 commandsCount, ID2D1SvgPathData** pathData) CreatePathData;
 	}
 
 
@@ -4706,21 +4706,21 @@ public static
 
 	public HRESULT SetRoot(ID2D1SvgElement* root) mut => VT.[Friend]SetRoot(&this, root);
 
-	public void GetRoot(ID2D1SvgElement* root) mut => VT.[Friend]GetRoot(&this, root);
+	public void GetRoot(ID2D1SvgElement** root) mut => VT.[Friend]GetRoot(&this, root);
 
-	public HRESULT FindElementById(PWSTR id, ID2D1SvgElement* svgElement) mut => VT.[Friend]FindElementById(&this, id, svgElement);
+	public HRESULT FindElementById(PWSTR id, ID2D1SvgElement** svgElement) mut => VT.[Friend]FindElementById(&this, id, svgElement);
 
 	public HRESULT Serialize(IStream* outputXmlStream, ID2D1SvgElement* subtree) mut => VT.[Friend]Serialize(&this, outputXmlStream, subtree);
 
-	public HRESULT Deserialize(IStream* inputXmlStream, ID2D1SvgElement* subtree) mut => VT.[Friend]Deserialize(&this, inputXmlStream, subtree);
+	public HRESULT Deserialize(IStream* inputXmlStream, ID2D1SvgElement** subtree) mut => VT.[Friend]Deserialize(&this, inputXmlStream, subtree);
 
-	public HRESULT CreatePaint(D2D1_SVG_PAINT_TYPE paintType, D2D1_COLOR_F color, PWSTR id, ID2D1SvgPaint* paint) mut => VT.[Friend]CreatePaint(&this, paintType, color, id, paint);
+	public HRESULT CreatePaint(D2D1_SVG_PAINT_TYPE paintType, D2D1_COLOR_F* color, PWSTR id, ID2D1SvgPaint** paint) mut => VT.[Friend]CreatePaint(&this, paintType, color, id, paint);
 
-	public HRESULT CreateStrokeDashArray(D2D1_SVG_LENGTH* dashes, uint32 dashesCount, ID2D1SvgStrokeDashArray* strokeDashArray) mut => VT.[Friend]CreateStrokeDashArray(&this, dashes, dashesCount, strokeDashArray);
+	public HRESULT CreateStrokeDashArray(D2D1_SVG_LENGTH* dashes, uint32 dashesCount, ID2D1SvgStrokeDashArray** strokeDashArray) mut => VT.[Friend]CreateStrokeDashArray(&this, dashes, dashesCount, strokeDashArray);
 
-	public HRESULT CreatePointCollection(D2D_POINT_2F* points, uint32 pointsCount, ID2D1SvgPointCollection* pointCollection) mut => VT.[Friend]CreatePointCollection(&this, points, pointsCount, pointCollection);
+	public HRESULT CreatePointCollection(D2D_POINT_2F* points, uint32 pointsCount, ID2D1SvgPointCollection** pointCollection) mut => VT.[Friend]CreatePointCollection(&this, points, pointsCount, pointCollection);
 
-	public HRESULT CreatePathData(float* segmentData, uint32 segmentDataCount, D2D1_SVG_PATH_COMMAND* commands, uint32 commandsCount, ID2D1SvgPathData* pathData) mut => VT.[Friend]CreatePathData(&this, segmentData, segmentDataCount, commands, commandsCount, pathData);
+	public HRESULT CreatePathData(float* segmentData, uint32 segmentDataCount, D2D1_SVG_PATH_COMMAND* commands, uint32 commandsCount, ID2D1SvgPathData** pathData) mut => VT.[Friend]CreatePathData(&this, segmentData, segmentDataCount, commands, commandsCount, pathData);
 }
 
 [CRepr]struct ID2D1InkStyle : ID2D1Resource
@@ -4731,16 +4731,16 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1InkStyle*/SelfOuter* self, D2D_MATRIX_3X2_F transform) SetNibTransform;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1InkStyle*/SelfOuter* self, D2D_MATRIX_3X2_F transform) GetNibTransform;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1InkStyle*/SelfOuter* self, D2D_MATRIX_3X2_F* transform) SetNibTransform;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1InkStyle*/SelfOuter* self, D2D_MATRIX_3X2_F* transform) GetNibTransform;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1InkStyle*/SelfOuter* self, D2D1_INK_NIB_SHAPE nibShape) SetNibShape;
 		protected new function [CallingConvention(.Stdcall)] D2D1_INK_NIB_SHAPE(/*ID2D1InkStyle*/SelfOuter* self) GetNibShape;
 	}
 
 
-	public void SetNibTransform(D2D_MATRIX_3X2_F transform) mut => VT.[Friend]SetNibTransform(&this, transform);
+	public void SetNibTransform(D2D_MATRIX_3X2_F* transform) mut => VT.[Friend]SetNibTransform(&this, transform);
 
-	public void GetNibTransform(D2D_MATRIX_3X2_F transform) mut => VT.[Friend]GetNibTransform(&this, transform);
+	public void GetNibTransform(D2D_MATRIX_3X2_F* transform) mut => VT.[Friend]GetNibTransform(&this, transform);
 
 	public void SetNibShape(D2D1_INK_NIB_SHAPE nibShape) mut => VT.[Friend]SetNibShape(&this, nibShape);
 
@@ -4755,20 +4755,20 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Ink*/SelfOuter* self, D2D1_INK_POINT startPoint) SetStartPoint;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Ink*/SelfOuter* self, D2D1_INK_POINT* startPoint) SetStartPoint;
 		protected new function [CallingConvention(.Stdcall)] D2D1_INK_POINT(/*ID2D1Ink*/SelfOuter* self) GetStartPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Ink*/SelfOuter* self, D2D1_INK_BEZIER_SEGMENT* segments, uint32 segmentsCount) AddSegments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Ink*/SelfOuter* self, uint32 segmentsCount) RemoveSegmentsAtEnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Ink*/SelfOuter* self, uint32 startSegment, D2D1_INK_BEZIER_SEGMENT* segments, uint32 segmentsCount) SetSegments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Ink*/SelfOuter* self, D2D1_INK_BEZIER_SEGMENT segment) SetSegmentAtEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Ink*/SelfOuter* self, D2D1_INK_BEZIER_SEGMENT* segment) SetSegmentAtEnd;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1Ink*/SelfOuter* self) GetSegmentCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Ink*/SelfOuter* self, uint32 startSegment, D2D1_INK_BEZIER_SEGMENT* segments, uint32 segmentsCount) GetSegments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Ink*/SelfOuter* self, ID2D1InkStyle* inkStyle, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) StreamAsGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Ink*/SelfOuter* self, ID2D1InkStyle* inkStyle, D2D_MATRIX_3X2_F worldTransform, D2D_RECT_F bounds) GetBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Ink*/SelfOuter* self, ID2D1InkStyle* inkStyle, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) StreamAsGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Ink*/SelfOuter* self, ID2D1InkStyle* inkStyle, D2D_MATRIX_3X2_F* worldTransform, D2D_RECT_F* bounds) GetBounds;
 	}
 
 
-	public void SetStartPoint(D2D1_INK_POINT startPoint) mut => VT.[Friend]SetStartPoint(&this, startPoint);
+	public void SetStartPoint(D2D1_INK_POINT* startPoint) mut => VT.[Friend]SetStartPoint(&this, startPoint);
 
 	public D2D1_INK_POINT GetStartPoint() mut => VT.[Friend]GetStartPoint(&this);
 
@@ -4778,15 +4778,15 @@ public static
 
 	public HRESULT SetSegments(uint32 startSegment, D2D1_INK_BEZIER_SEGMENT* segments, uint32 segmentsCount) mut => VT.[Friend]SetSegments(&this, startSegment, segments, segmentsCount);
 
-	public HRESULT SetSegmentAtEnd(D2D1_INK_BEZIER_SEGMENT segment) mut => VT.[Friend]SetSegmentAtEnd(&this, segment);
+	public HRESULT SetSegmentAtEnd(D2D1_INK_BEZIER_SEGMENT* segment) mut => VT.[Friend]SetSegmentAtEnd(&this, segment);
 
 	public uint32 GetSegmentCount() mut => VT.[Friend]GetSegmentCount(&this);
 
 	public HRESULT GetSegments(uint32 startSegment, D2D1_INK_BEZIER_SEGMENT* segments, uint32 segmentsCount) mut => VT.[Friend]GetSegments(&this, startSegment, segments, segmentsCount);
 
-	public HRESULT StreamAsGeometry(ID2D1InkStyle* inkStyle, D2D_MATRIX_3X2_F worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) mut => VT.[Friend]StreamAsGeometry(&this, inkStyle, worldTransform, flatteningTolerance, geometrySink);
+	public HRESULT StreamAsGeometry(ID2D1InkStyle* inkStyle, D2D_MATRIX_3X2_F* worldTransform, float flatteningTolerance, ID2D1SimplifiedGeometrySink* geometrySink) mut => VT.[Friend]StreamAsGeometry(&this, inkStyle, worldTransform, flatteningTolerance, geometrySink);
 
-	public HRESULT GetBounds(ID2D1InkStyle* inkStyle, D2D_MATRIX_3X2_F worldTransform, D2D_RECT_F bounds) mut => VT.[Friend]GetBounds(&this, inkStyle, worldTransform, bounds);
+	public HRESULT GetBounds(ID2D1InkStyle* inkStyle, D2D_MATRIX_3X2_F* worldTransform, D2D_RECT_F* bounds) mut => VT.[Friend]GetBounds(&this, inkStyle, worldTransform, bounds);
 }
 
 [CRepr]struct ID2D1GradientMesh : ID2D1Resource
@@ -4816,13 +4816,13 @@ public static
 	[CRepr]public struct VTable : ID2D1Image.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ImageSource*/SelfOuter* self) OfferResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ImageSource*/SelfOuter* self, BOOL resourcesDiscarded) TryReclaimResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ImageSource*/SelfOuter* self, BOOL* resourcesDiscarded) TryReclaimResources;
 	}
 
 
 	public HRESULT OfferResources() mut => VT.[Friend]OfferResources(&this);
 
-	public HRESULT TryReclaimResources(BOOL resourcesDiscarded) mut => VT.[Friend]TryReclaimResources(&this, resourcesDiscarded);
+	public HRESULT TryReclaimResources(BOOL* resourcesDiscarded) mut => VT.[Friend]TryReclaimResources(&this, resourcesDiscarded);
 }
 
 [CRepr]struct ID2D1ImageSourceFromWic : ID2D1ImageSource
@@ -4833,17 +4833,17 @@ public static
 
 	[CRepr]public struct VTable : ID2D1ImageSource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ImageSourceFromWic*/SelfOuter* self, D2D_RECT_U rectangleToFill) EnsureCached;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ImageSourceFromWic*/SelfOuter* self, D2D_RECT_U rectangleToPreserve) TrimCache;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageSourceFromWic*/SelfOuter* self, IWICBitmapSource* wicBitmapSource) GetSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ImageSourceFromWic*/SelfOuter* self, D2D_RECT_U* rectangleToFill) EnsureCached;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ImageSourceFromWic*/SelfOuter* self, D2D_RECT_U* rectangleToPreserve) TrimCache;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1ImageSourceFromWic*/SelfOuter* self, IWICBitmapSource** wicBitmapSource) GetSource;
 	}
 
 
-	public HRESULT EnsureCached(D2D_RECT_U rectangleToFill) mut => VT.[Friend]EnsureCached(&this, rectangleToFill);
+	public HRESULT EnsureCached(D2D_RECT_U* rectangleToFill) mut => VT.[Friend]EnsureCached(&this, rectangleToFill);
 
-	public HRESULT TrimCache(D2D_RECT_U rectangleToPreserve) mut => VT.[Friend]TrimCache(&this, rectangleToPreserve);
+	public HRESULT TrimCache(D2D_RECT_U* rectangleToPreserve) mut => VT.[Friend]TrimCache(&this, rectangleToPreserve);
 
-	public void GetSource(IWICBitmapSource* wicBitmapSource) mut => VT.[Friend]GetSource(&this, wicBitmapSource);
+	public void GetSource(IWICBitmapSource** wicBitmapSource) mut => VT.[Friend]GetSource(&this, wicBitmapSource);
 }
 
 [CRepr]struct ID2D1TransformedImageSource : ID2D1Image
@@ -4854,14 +4854,14 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Image.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1TransformedImageSource*/SelfOuter* self, ID2D1ImageSource* imageSource) GetSource;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1TransformedImageSource*/SelfOuter* self, D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES properties) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1TransformedImageSource*/SelfOuter* self, ID2D1ImageSource** imageSource) GetSource;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1TransformedImageSource*/SelfOuter* self, D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES* properties) GetProperties;
 	}
 
 
-	public void GetSource(ID2D1ImageSource* imageSource) mut => VT.[Friend]GetSource(&this, imageSource);
+	public void GetSource(ID2D1ImageSource** imageSource) mut => VT.[Friend]GetSource(&this, imageSource);
 
-	public void GetProperties(D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES properties) mut => VT.[Friend]GetProperties(&this, properties);
+	public void GetProperties(D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES* properties) mut => VT.[Friend]GetProperties(&this, properties);
 }
 
 [CRepr]struct ID2D1LookupTable3D : ID2D1Resource
@@ -4884,41 +4884,41 @@ public static
 
 	[CRepr]public struct VTable : ID2D1DeviceContext1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, D2D1_INK_POINT startPoint, ID2D1Ink* ink) CreateInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, D2D1_INK_STYLE_PROPERTIES inkStyleProperties, ID2D1InkStyle* inkStyle) CreateInkStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, D2D1_GRADIENT_MESH_PATCH* patches, uint32 patchesCount, ID2D1GradientMesh* gradientMesh) CreateGradientMesh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, IWICBitmapSource* wicBitmapSource, D2D1_IMAGE_SOURCE_LOADING_OPTIONS loadingOptions, D2D1_ALPHA_MODE alphaMode, ID2D1ImageSourceFromWic* imageSource) CreateImageSourceFromWic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, D2D1_BUFFER_PRECISION precision, uint32* extents, uint8* data, uint32 dataCount, uint32* strides, ID2D1LookupTable3D* lookupTable) CreateLookupTable3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, IDXGISurface** surfaces, uint32 surfaceCount, DXGI_COLOR_SPACE_TYPE colorSpace, D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS options, ID2D1ImageSource* imageSource) CreateImageSourceFromDxgi;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, ID2D1GradientMesh* gradientMesh, D2D_RECT_F pBounds) GetGradientMeshWorldBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, D2D1_INK_POINT* startPoint, ID2D1Ink** ink) CreateInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, D2D1_INK_STYLE_PROPERTIES* inkStyleProperties, ID2D1InkStyle** inkStyle) CreateInkStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, D2D1_GRADIENT_MESH_PATCH* patches, uint32 patchesCount, ID2D1GradientMesh** gradientMesh) CreateGradientMesh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, IWICBitmapSource* wicBitmapSource, D2D1_IMAGE_SOURCE_LOADING_OPTIONS loadingOptions, D2D1_ALPHA_MODE alphaMode, ID2D1ImageSourceFromWic** imageSource) CreateImageSourceFromWic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, D2D1_BUFFER_PRECISION precision, uint32* extents, uint8* data, uint32 dataCount, uint32* strides, ID2D1LookupTable3D** lookupTable) CreateLookupTable3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, IDXGISurface** surfaces, uint32 surfaceCount, DXGI_COLOR_SPACE_TYPE colorSpace, D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS options, ID2D1ImageSource** imageSource) CreateImageSourceFromDxgi;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, ID2D1GradientMesh* gradientMesh, D2D_RECT_F* pBounds) GetGradientMeshWorldBounds;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext2*/SelfOuter* self, ID2D1Ink* ink, ID2D1Brush* brush, ID2D1InkStyle* inkStyle) DrawInk;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext2*/SelfOuter* self, ID2D1GradientMesh* gradientMesh) DrawGradientMesh;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext2*/SelfOuter* self, ID2D1GdiMetafile* gdiMetafile, D2D_RECT_F destinationRectangle, D2D_RECT_F sourceRectangle) DrawGdiMetafile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, ID2D1ImageSource* imageSource, D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES properties, ID2D1TransformedImageSource* transformedImageSource) CreateTransformedImageSource;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext2*/SelfOuter* self, ID2D1GdiMetafile* gdiMetafile, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) DrawGdiMetafile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext2*/SelfOuter* self, ID2D1ImageSource* imageSource, D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES* properties, ID2D1TransformedImageSource** transformedImageSource) CreateTransformedImageSource;
 	}
 
 
-	public HRESULT CreateInk(D2D1_INK_POINT startPoint, ID2D1Ink* ink) mut => VT.[Friend]CreateInk(&this, startPoint, ink);
+	public HRESULT CreateInk(D2D1_INK_POINT* startPoint, ID2D1Ink** ink) mut => VT.[Friend]CreateInk(&this, startPoint, ink);
 
-	public HRESULT CreateInkStyle(D2D1_INK_STYLE_PROPERTIES inkStyleProperties, ID2D1InkStyle* inkStyle) mut => VT.[Friend]CreateInkStyle(&this, inkStyleProperties, inkStyle);
+	public HRESULT CreateInkStyle(D2D1_INK_STYLE_PROPERTIES* inkStyleProperties, ID2D1InkStyle** inkStyle) mut => VT.[Friend]CreateInkStyle(&this, inkStyleProperties, inkStyle);
 
-	public HRESULT CreateGradientMesh(D2D1_GRADIENT_MESH_PATCH* patches, uint32 patchesCount, ID2D1GradientMesh* gradientMesh) mut => VT.[Friend]CreateGradientMesh(&this, patches, patchesCount, gradientMesh);
+	public HRESULT CreateGradientMesh(D2D1_GRADIENT_MESH_PATCH* patches, uint32 patchesCount, ID2D1GradientMesh** gradientMesh) mut => VT.[Friend]CreateGradientMesh(&this, patches, patchesCount, gradientMesh);
 
-	public HRESULT CreateImageSourceFromWic(IWICBitmapSource* wicBitmapSource, D2D1_IMAGE_SOURCE_LOADING_OPTIONS loadingOptions, D2D1_ALPHA_MODE alphaMode, ID2D1ImageSourceFromWic* imageSource) mut => VT.[Friend]CreateImageSourceFromWic(&this, wicBitmapSource, loadingOptions, alphaMode, imageSource);
+	public HRESULT CreateImageSourceFromWic(IWICBitmapSource* wicBitmapSource, D2D1_IMAGE_SOURCE_LOADING_OPTIONS loadingOptions, D2D1_ALPHA_MODE alphaMode, ID2D1ImageSourceFromWic** imageSource) mut => VT.[Friend]CreateImageSourceFromWic(&this, wicBitmapSource, loadingOptions, alphaMode, imageSource);
 
-	public HRESULT CreateLookupTable3D(D2D1_BUFFER_PRECISION precision, uint32* extents, uint8* data, uint32 dataCount, uint32* strides, ID2D1LookupTable3D* lookupTable) mut => VT.[Friend]CreateLookupTable3D(&this, precision, extents, data, dataCount, strides, lookupTable);
+	public HRESULT CreateLookupTable3D(D2D1_BUFFER_PRECISION precision, uint32* extents, uint8* data, uint32 dataCount, uint32* strides, ID2D1LookupTable3D** lookupTable) mut => VT.[Friend]CreateLookupTable3D(&this, precision, extents, data, dataCount, strides, lookupTable);
 
-	public HRESULT CreateImageSourceFromDxgi(IDXGISurface** surfaces, uint32 surfaceCount, DXGI_COLOR_SPACE_TYPE colorSpace, D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS options, ID2D1ImageSource* imageSource) mut => VT.[Friend]CreateImageSourceFromDxgi(&this, surfaces, surfaceCount, colorSpace, options, imageSource);
+	public HRESULT CreateImageSourceFromDxgi(IDXGISurface** surfaces, uint32 surfaceCount, DXGI_COLOR_SPACE_TYPE colorSpace, D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS options, ID2D1ImageSource** imageSource) mut => VT.[Friend]CreateImageSourceFromDxgi(&this, surfaces, surfaceCount, colorSpace, options, imageSource);
 
-	public HRESULT GetGradientMeshWorldBounds(ID2D1GradientMesh* gradientMesh, D2D_RECT_F pBounds) mut => VT.[Friend]GetGradientMeshWorldBounds(&this, gradientMesh, pBounds);
+	public HRESULT GetGradientMeshWorldBounds(ID2D1GradientMesh* gradientMesh, D2D_RECT_F* pBounds) mut => VT.[Friend]GetGradientMeshWorldBounds(&this, gradientMesh, pBounds);
 
 	public void DrawInk(ID2D1Ink* ink, ID2D1Brush* brush, ID2D1InkStyle* inkStyle) mut => VT.[Friend]DrawInk(&this, ink, brush, inkStyle);
 
 	public void DrawGradientMesh(ID2D1GradientMesh* gradientMesh) mut => VT.[Friend]DrawGradientMesh(&this, gradientMesh);
 
-	public void DrawGdiMetafile(ID2D1GdiMetafile* gdiMetafile, D2D_RECT_F destinationRectangle, D2D_RECT_F sourceRectangle) mut => VT.[Friend]DrawGdiMetafile(&this, gdiMetafile, destinationRectangle, sourceRectangle);
+	public void DrawGdiMetafile(ID2D1GdiMetafile* gdiMetafile, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) mut => VT.[Friend]DrawGdiMetafile(&this, gdiMetafile, destinationRectangle, sourceRectangle);
 
-	public HRESULT CreateTransformedImageSource(ID2D1ImageSource* imageSource, D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES properties, ID2D1TransformedImageSource* transformedImageSource) mut => VT.[Friend]CreateTransformedImageSource(&this, imageSource, properties, transformedImageSource);
+	public HRESULT CreateTransformedImageSource(ID2D1ImageSource* imageSource, D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES* properties, ID2D1TransformedImageSource** transformedImageSource) mut => VT.[Friend]CreateTransformedImageSource(&this, imageSource, properties, transformedImageSource);
 }
 
 [CRepr]struct ID2D1Device2 : ID2D1Device1
@@ -4929,17 +4929,17 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Device1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device2*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext2* deviceContext2) CreateDeviceContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device2*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext2** deviceContext2) CreateDeviceContext;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Device2*/SelfOuter* self, ID2D1Bitmap* bitmap) FlushDeviceContexts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device2*/SelfOuter* self, IDXGIDevice* dxgiDevice) GetDxgiDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device2*/SelfOuter* self, IDXGIDevice** dxgiDevice) GetDxgiDevice;
 	}
 
 
-	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext2* deviceContext2) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext2);
+	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext2** deviceContext2) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext2);
 
 	public void FlushDeviceContexts(ID2D1Bitmap* bitmap) mut => VT.[Friend]FlushDeviceContexts(&this, bitmap);
 
-	public HRESULT GetDxgiDevice(IDXGIDevice* dxgiDevice) mut => VT.[Friend]GetDxgiDevice(&this, dxgiDevice);
+	public HRESULT GetDxgiDevice(IDXGIDevice** dxgiDevice) mut => VT.[Friend]GetDxgiDevice(&this, dxgiDevice);
 }
 
 [CRepr]struct ID2D1Factory3 : ID2D1Factory2
@@ -4950,11 +4950,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Factory2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory3*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device2* d2dDevice2) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory3*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device2** d2dDevice2) CreateDevice;
 	}
 
 
-	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device2* d2dDevice2) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice2);
+	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device2** d2dDevice2) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice2);
 }
 
 [CRepr]struct ID2D1CommandSink2 : ID2D1CommandSink1
@@ -4967,7 +4967,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink2*/SelfOuter* self, ID2D1Ink* ink, ID2D1Brush* brush, ID2D1InkStyle* inkStyle) DrawInk;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink2*/SelfOuter* self, ID2D1GradientMesh* gradientMesh) DrawGradientMesh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink2*/SelfOuter* self, ID2D1GdiMetafile* gdiMetafile, D2D_RECT_F destinationRectangle, D2D_RECT_F sourceRectangle) DrawGdiMetafile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink2*/SelfOuter* self, ID2D1GdiMetafile* gdiMetafile, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) DrawGdiMetafile;
 	}
 
 
@@ -4975,7 +4975,7 @@ public static
 
 	public HRESULT DrawGradientMesh(ID2D1GradientMesh* gradientMesh) mut => VT.[Friend]DrawGradientMesh(&this, gradientMesh);
 
-	public HRESULT DrawGdiMetafile(ID2D1GdiMetafile* gdiMetafile, D2D_RECT_F destinationRectangle, D2D_RECT_F sourceRectangle) mut => VT.[Friend]DrawGdiMetafile(&this, gdiMetafile, destinationRectangle, sourceRectangle);
+	public HRESULT DrawGdiMetafile(ID2D1GdiMetafile* gdiMetafile, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) mut => VT.[Friend]DrawGdiMetafile(&this, gdiMetafile, destinationRectangle, sourceRectangle);
 }
 
 [CRepr]struct ID2D1GdiMetafile1 : ID2D1GdiMetafile
@@ -4986,14 +4986,14 @@ public static
 
 	[CRepr]public struct VTable : ID2D1GdiMetafile.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafile1*/SelfOuter* self, float dpiX, float dpiY) GetDpi;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafile1*/SelfOuter* self, D2D_RECT_F bounds) GetSourceBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafile1*/SelfOuter* self, float* dpiX, float* dpiY) GetDpi;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafile1*/SelfOuter* self, D2D_RECT_F* bounds) GetSourceBounds;
 	}
 
 
-	public HRESULT GetDpi(float dpiX, float dpiY) mut => VT.[Friend]GetDpi(&this, dpiX, dpiY);
+	public HRESULT GetDpi(float* dpiX, float* dpiY) mut => VT.[Friend]GetDpi(&this, dpiX, dpiY);
 
-	public HRESULT GetSourceBounds(D2D_RECT_F bounds) mut => VT.[Friend]GetSourceBounds(&this, bounds);
+	public HRESULT GetSourceBounds(D2D_RECT_F* bounds) mut => VT.[Friend]GetSourceBounds(&this, bounds);
 }
 
 [CRepr]struct ID2D1GdiMetafileSink1 : ID2D1GdiMetafileSink
@@ -5004,11 +5004,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1GdiMetafileSink.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafileSink1*/SelfOuter* self, uint32 recordType, void recordData, uint32 recordDataSize, uint32 flags) ProcessRecord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1GdiMetafileSink1*/SelfOuter* self, uint32 recordType, void* recordData, uint32 recordDataSize, uint32 flags) ProcessRecord;
 	}
 
 
-	public HRESULT ProcessRecord(uint32 recordType, void recordData, uint32 recordDataSize, uint32 flags) mut => VT.[Friend]ProcessRecord(&this, recordType, recordData, recordDataSize, flags);
+	public HRESULT ProcessRecord(uint32 recordType, void* recordData, uint32 recordDataSize, uint32 flags) mut => VT.[Friend]ProcessRecord(&this, recordType, recordData, recordDataSize, flags);
 }
 
 [CRepr]struct ID2D1SpriteBatch : ID2D1Resource
@@ -5019,17 +5019,17 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SpriteBatch*/SelfOuter* self, uint32 spriteCount, D2D_RECT_F destinationRectangles, D2D_RECT_U sourceRectangles, D2D1_COLOR_F colors, D2D_MATRIX_3X2_F transforms, uint32 destinationRectanglesStride, uint32 sourceRectanglesStride, uint32 colorsStride, uint32 transformsStride) AddSprites;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SpriteBatch*/SelfOuter* self, uint32 startIndex, uint32 spriteCount, D2D_RECT_F destinationRectangles, D2D_RECT_U sourceRectangles, D2D1_COLOR_F colors, D2D_MATRIX_3X2_F transforms, uint32 destinationRectanglesStride, uint32 sourceRectanglesStride, uint32 colorsStride, uint32 transformsStride) SetSprites;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SpriteBatch*/SelfOuter* self, uint32 spriteCount, D2D_RECT_F* destinationRectangles, D2D_RECT_U* sourceRectangles, D2D1_COLOR_F* colors, D2D_MATRIX_3X2_F* transforms, uint32 destinationRectanglesStride, uint32 sourceRectanglesStride, uint32 colorsStride, uint32 transformsStride) AddSprites;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SpriteBatch*/SelfOuter* self, uint32 startIndex, uint32 spriteCount, D2D_RECT_F* destinationRectangles, D2D_RECT_U* sourceRectangles, D2D1_COLOR_F* colors, D2D_MATRIX_3X2_F* transforms, uint32 destinationRectanglesStride, uint32 sourceRectanglesStride, uint32 colorsStride, uint32 transformsStride) SetSprites;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SpriteBatch*/SelfOuter* self, uint32 startIndex, uint32 spriteCount, D2D_RECT_F* destinationRectangles, D2D_RECT_U* sourceRectangles, D2D1_COLOR_F* colors, D2D_MATRIX_3X2_F* transforms) GetSprites;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SpriteBatch*/SelfOuter* self) GetSpriteCount;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SpriteBatch*/SelfOuter* self) Clear;
 	}
 
 
-	public HRESULT AddSprites(uint32 spriteCount, D2D_RECT_F destinationRectangles, D2D_RECT_U sourceRectangles, D2D1_COLOR_F colors, D2D_MATRIX_3X2_F transforms, uint32 destinationRectanglesStride, uint32 sourceRectanglesStride, uint32 colorsStride, uint32 transformsStride) mut => VT.[Friend]AddSprites(&this, spriteCount, destinationRectangles, sourceRectangles, colors, transforms, destinationRectanglesStride, sourceRectanglesStride, colorsStride, transformsStride);
+	public HRESULT AddSprites(uint32 spriteCount, D2D_RECT_F* destinationRectangles, D2D_RECT_U* sourceRectangles, D2D1_COLOR_F* colors, D2D_MATRIX_3X2_F* transforms, uint32 destinationRectanglesStride, uint32 sourceRectanglesStride, uint32 colorsStride, uint32 transformsStride) mut => VT.[Friend]AddSprites(&this, spriteCount, destinationRectangles, sourceRectangles, colors, transforms, destinationRectanglesStride, sourceRectanglesStride, colorsStride, transformsStride);
 
-	public HRESULT SetSprites(uint32 startIndex, uint32 spriteCount, D2D_RECT_F destinationRectangles, D2D_RECT_U sourceRectangles, D2D1_COLOR_F colors, D2D_MATRIX_3X2_F transforms, uint32 destinationRectanglesStride, uint32 sourceRectanglesStride, uint32 colorsStride, uint32 transformsStride) mut => VT.[Friend]SetSprites(&this, startIndex, spriteCount, destinationRectangles, sourceRectangles, colors, transforms, destinationRectanglesStride, sourceRectanglesStride, colorsStride, transformsStride);
+	public HRESULT SetSprites(uint32 startIndex, uint32 spriteCount, D2D_RECT_F* destinationRectangles, D2D_RECT_U* sourceRectangles, D2D1_COLOR_F* colors, D2D_MATRIX_3X2_F* transforms, uint32 destinationRectanglesStride, uint32 sourceRectanglesStride, uint32 colorsStride, uint32 transformsStride) mut => VT.[Friend]SetSprites(&this, startIndex, spriteCount, destinationRectangles, sourceRectangles, colors, transforms, destinationRectanglesStride, sourceRectanglesStride, colorsStride, transformsStride);
 
 	public HRESULT GetSprites(uint32 startIndex, uint32 spriteCount, D2D_RECT_F* destinationRectangles, D2D_RECT_U* sourceRectangles, D2D1_COLOR_F* colors, D2D_MATRIX_3X2_F* transforms) mut => VT.[Friend]GetSprites(&this, startIndex, spriteCount, destinationRectangles, sourceRectangles, colors, transforms);
 
@@ -5046,12 +5046,12 @@ public static
 
 	[CRepr]public struct VTable : ID2D1DeviceContext2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext3*/SelfOuter* self, ID2D1SpriteBatch* spriteBatch) CreateSpriteBatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext3*/SelfOuter* self, ID2D1SpriteBatch** spriteBatch) CreateSpriteBatch;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext3*/SelfOuter* self, ID2D1SpriteBatch* spriteBatch, uint32 startIndex, uint32 spriteCount, ID2D1Bitmap* bitmap, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode, D2D1_SPRITE_OPTIONS spriteOptions) DrawSpriteBatch;
 	}
 
 
-	public HRESULT CreateSpriteBatch(ID2D1SpriteBatch* spriteBatch) mut => VT.[Friend]CreateSpriteBatch(&this, spriteBatch);
+	public HRESULT CreateSpriteBatch(ID2D1SpriteBatch** spriteBatch) mut => VT.[Friend]CreateSpriteBatch(&this, spriteBatch);
 
 	public void DrawSpriteBatch(ID2D1SpriteBatch* spriteBatch, uint32 startIndex, uint32 spriteCount, ID2D1Bitmap* bitmap, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode, D2D1_SPRITE_OPTIONS spriteOptions) mut => VT.[Friend]DrawSpriteBatch(&this, spriteBatch, startIndex, spriteCount, bitmap, interpolationMode, spriteOptions);
 }
@@ -5064,11 +5064,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Device2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device3*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext3* deviceContext3) CreateDeviceContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device3*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext3** deviceContext3) CreateDeviceContext;
 	}
 
 
-	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext3* deviceContext3) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext3);
+	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext3** deviceContext3) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext3);
 }
 
 [CRepr]struct ID2D1Factory4 : ID2D1Factory3
@@ -5079,11 +5079,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Factory3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory4*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device3* d2dDevice3) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory4*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device3** d2dDevice3) CreateDevice;
 	}
 
 
-	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device3* d2dDevice3) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice3);
+	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device3** d2dDevice3) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice3);
 }
 
 [CRepr]struct ID2D1CommandSink3 : ID2D1CommandSink2
@@ -5110,22 +5110,22 @@ public static
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgGlyphStyle*/SelfOuter* self, ID2D1Brush* brush) SetFill;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgGlyphStyle*/SelfOuter* self, ID2D1Brush* brush) GetFill;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgGlyphStyle*/SelfOuter* self, ID2D1Brush** brush) GetFill;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgGlyphStyle*/SelfOuter* self, ID2D1Brush* brush, float strokeWidth, float* dashes, uint32 dashesCount, float dashOffset) SetStroke;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SvgGlyphStyle*/SelfOuter* self) GetStrokeDashesCount;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgGlyphStyle*/SelfOuter* self, ID2D1Brush* brush, float strokeWidth, float* dashes, uint32 dashesCount, float dashOffset) GetStroke;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgGlyphStyle*/SelfOuter* self, ID2D1Brush** brush, float* strokeWidth, float* dashes, uint32 dashesCount, float* dashOffset) GetStroke;
 	}
 
 
 	public HRESULT SetFill(ID2D1Brush* brush) mut => VT.[Friend]SetFill(&this, brush);
 
-	public void GetFill(ID2D1Brush* brush) mut => VT.[Friend]GetFill(&this, brush);
+	public void GetFill(ID2D1Brush** brush) mut => VT.[Friend]GetFill(&this, brush);
 
 	public HRESULT SetStroke(ID2D1Brush* brush, float strokeWidth, float* dashes, uint32 dashesCount, float dashOffset) mut => VT.[Friend]SetStroke(&this, brush, strokeWidth, dashes, dashesCount, dashOffset);
 
 	public uint32 GetStrokeDashesCount() mut => VT.[Friend]GetStrokeDashesCount(&this);
 
-	public void GetStroke(ID2D1Brush* brush, float strokeWidth, float* dashes, uint32 dashesCount, float dashOffset) mut => VT.[Friend]GetStroke(&this, brush, strokeWidth, dashes, dashesCount, dashOffset);
+	public void GetStroke(ID2D1Brush** brush, float* strokeWidth, float* dashes, uint32 dashesCount, float* dashOffset) mut => VT.[Friend]GetStroke(&this, brush, strokeWidth, dashes, dashesCount, dashOffset);
 }
 
 [CRepr]struct ID2D1DeviceContext4 : ID2D1DeviceContext3
@@ -5136,29 +5136,29 @@ public static
 
 	[CRepr]public struct VTable : ID2D1DeviceContext3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext4*/SelfOuter* self, ID2D1SvgGlyphStyle* svgGlyphStyle) CreateSvgGlyphStyle;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F layoutRect, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) DrawText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext4*/SelfOuter* self, ID2D1SvgGlyphStyle** svgGlyphStyle) CreateSvgGlyphStyle;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) DrawText;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, D2D_POINT_2F origin, IDWriteTextLayout* textLayout, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options) DrawTextLayout;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, DWRITE_GLYPH_IMAGE_FORMATS glyphImageFormat, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, DWRITE_MEASURING_MODE measuringMode, D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION bitmapSnapOption) DrawColorBitmapGlyphRun;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, DWRITE_MEASURING_MODE measuringMode) DrawSvgGlyphRun;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext4*/SelfOuter* self, DWRITE_GLYPH_IMAGE_FORMATS glyphImageFormat, D2D_POINT_2F glyphOrigin, IDWriteFontFace* fontFace, float fontEmSize, uint16 glyphIndex, BOOL isSideways, D2D_MATRIX_3X2_F worldTransform, float dpiX, float dpiY, D2D_MATRIX_3X2_F glyphTransform, ID2D1Image* glyphImage) GetColorBitmapGlyphImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext4*/SelfOuter* self, D2D_POINT_2F glyphOrigin, IDWriteFontFace* fontFace, float fontEmSize, uint16 glyphIndex, BOOL isSideways, D2D_MATRIX_3X2_F worldTransform, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D_MATRIX_3X2_F glyphTransform, ID2D1CommandList* glyphImage) GetSvgGlyphImage;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, DWRITE_GLYPH_IMAGE_FORMATS glyphImageFormat, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, DWRITE_MEASURING_MODE measuringMode, D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION bitmapSnapOption) DrawColorBitmapGlyphRun;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, DWRITE_MEASURING_MODE measuringMode) DrawSvgGlyphRun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext4*/SelfOuter* self, DWRITE_GLYPH_IMAGE_FORMATS glyphImageFormat, D2D_POINT_2F glyphOrigin, IDWriteFontFace* fontFace, float fontEmSize, uint16 glyphIndex, BOOL isSideways, D2D_MATRIX_3X2_F* worldTransform, float dpiX, float dpiY, D2D_MATRIX_3X2_F* glyphTransform, ID2D1Image** glyphImage) GetColorBitmapGlyphImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext4*/SelfOuter* self, D2D_POINT_2F glyphOrigin, IDWriteFontFace* fontFace, float fontEmSize, uint16 glyphIndex, BOOL isSideways, D2D_MATRIX_3X2_F* worldTransform, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D_MATRIX_3X2_F* glyphTransform, ID2D1CommandList** glyphImage) GetSvgGlyphImage;
 	}
 
 
-	public HRESULT CreateSvgGlyphStyle(ID2D1SvgGlyphStyle* svgGlyphStyle) mut => VT.[Friend]CreateSvgGlyphStyle(&this, svgGlyphStyle);
+	public HRESULT CreateSvgGlyphStyle(ID2D1SvgGlyphStyle** svgGlyphStyle) mut => VT.[Friend]CreateSvgGlyphStyle(&this, svgGlyphStyle);
 
-	public void DrawText(char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F layoutRect, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawText(&this, string, stringLength, textFormat, layoutRect, defaultFillBrush, svgGlyphStyle, colorPaletteIndex, options, measuringMode);
+	public void DrawText(char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawText(&this, string, stringLength, textFormat, layoutRect, defaultFillBrush, svgGlyphStyle, colorPaletteIndex, options, measuringMode);
 
 	public void DrawTextLayout(D2D_POINT_2F origin, IDWriteTextLayout* textLayout, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options) mut => VT.[Friend]DrawTextLayout(&this, origin, textLayout, defaultFillBrush, svgGlyphStyle, colorPaletteIndex, options);
 
-	public void DrawColorBitmapGlyphRun(DWRITE_GLYPH_IMAGE_FORMATS glyphImageFormat, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, DWRITE_MEASURING_MODE measuringMode, D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION bitmapSnapOption) mut => VT.[Friend]DrawColorBitmapGlyphRun(&this, glyphImageFormat, baselineOrigin, glyphRun, measuringMode, bitmapSnapOption);
+	public void DrawColorBitmapGlyphRun(DWRITE_GLYPH_IMAGE_FORMATS glyphImageFormat, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, DWRITE_MEASURING_MODE measuringMode, D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION bitmapSnapOption) mut => VT.[Friend]DrawColorBitmapGlyphRun(&this, glyphImageFormat, baselineOrigin, glyphRun, measuringMode, bitmapSnapOption);
 
-	public void DrawSvgGlyphRun(D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN glyphRun, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawSvgGlyphRun(&this, baselineOrigin, glyphRun, defaultFillBrush, svgGlyphStyle, colorPaletteIndex, measuringMode);
+	public void DrawSvgGlyphRun(D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawSvgGlyphRun(&this, baselineOrigin, glyphRun, defaultFillBrush, svgGlyphStyle, colorPaletteIndex, measuringMode);
 
-	public HRESULT GetColorBitmapGlyphImage(DWRITE_GLYPH_IMAGE_FORMATS glyphImageFormat, D2D_POINT_2F glyphOrigin, IDWriteFontFace* fontFace, float fontEmSize, uint16 glyphIndex, BOOL isSideways, D2D_MATRIX_3X2_F worldTransform, float dpiX, float dpiY, D2D_MATRIX_3X2_F glyphTransform, ID2D1Image* glyphImage) mut => VT.[Friend]GetColorBitmapGlyphImage(&this, glyphImageFormat, glyphOrigin, fontFace, fontEmSize, glyphIndex, isSideways, worldTransform, dpiX, dpiY, glyphTransform, glyphImage);
+	public HRESULT GetColorBitmapGlyphImage(DWRITE_GLYPH_IMAGE_FORMATS glyphImageFormat, D2D_POINT_2F glyphOrigin, IDWriteFontFace* fontFace, float fontEmSize, uint16 glyphIndex, BOOL isSideways, D2D_MATRIX_3X2_F* worldTransform, float dpiX, float dpiY, D2D_MATRIX_3X2_F* glyphTransform, ID2D1Image** glyphImage) mut => VT.[Friend]GetColorBitmapGlyphImage(&this, glyphImageFormat, glyphOrigin, fontFace, fontEmSize, glyphIndex, isSideways, worldTransform, dpiX, dpiY, glyphTransform, glyphImage);
 
-	public HRESULT GetSvgGlyphImage(D2D_POINT_2F glyphOrigin, IDWriteFontFace* fontFace, float fontEmSize, uint16 glyphIndex, BOOL isSideways, D2D_MATRIX_3X2_F worldTransform, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D_MATRIX_3X2_F glyphTransform, ID2D1CommandList* glyphImage) mut => VT.[Friend]GetSvgGlyphImage(&this, glyphOrigin, fontFace, fontEmSize, glyphIndex, isSideways, worldTransform, defaultFillBrush, svgGlyphStyle, colorPaletteIndex, glyphTransform, glyphImage);
+	public HRESULT GetSvgGlyphImage(D2D_POINT_2F glyphOrigin, IDWriteFontFace* fontFace, float fontEmSize, uint16 glyphIndex, BOOL isSideways, D2D_MATRIX_3X2_F* worldTransform, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D_MATRIX_3X2_F* glyphTransform, ID2D1CommandList** glyphImage) mut => VT.[Friend]GetSvgGlyphImage(&this, glyphOrigin, fontFace, fontEmSize, glyphIndex, isSideways, worldTransform, defaultFillBrush, svgGlyphStyle, colorPaletteIndex, glyphTransform, glyphImage);
 }
 
 [CRepr]struct ID2D1Device4 : ID2D1Device3
@@ -5169,13 +5169,13 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Device3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device4*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext4* deviceContext4) CreateDeviceContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device4*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext4** deviceContext4) CreateDeviceContext;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1Device4*/SelfOuter* self, uint64 maximumInBytes) SetMaximumColorGlyphCacheMemory;
 		protected new function [CallingConvention(.Stdcall)] uint64(/*ID2D1Device4*/SelfOuter* self) GetMaximumColorGlyphCacheMemory;
 	}
 
 
-	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext4* deviceContext4) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext4);
+	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext4** deviceContext4) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext4);
 
 	public void SetMaximumColorGlyphCacheMemory(uint64 maximumInBytes) mut => VT.[Friend]SetMaximumColorGlyphCacheMemory(&this, maximumInBytes);
 
@@ -5190,11 +5190,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Factory4.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory5*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device4* d2dDevice4) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory5*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device4** d2dDevice4) CreateDevice;
 	}
 
 
-	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device4* d2dDevice4) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice4);
+	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device4** d2dDevice4) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice4);
 }
 
 [CRepr]struct ID2D1CommandSink4 : ID2D1CommandSink3
@@ -5222,7 +5222,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] D2D1_COLOR_CONTEXT_TYPE(/*ID2D1ColorContext1*/SelfOuter* self) GetColorContextType;
 		protected new function [CallingConvention(.Stdcall)] DXGI_COLOR_SPACE_TYPE(/*ID2D1ColorContext1*/SelfOuter* self) GetDXGIColorSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ColorContext1*/SelfOuter* self, D2D1_SIMPLE_COLOR_PROFILE simpleProfile) GetSimpleColorProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1ColorContext1*/SelfOuter* self, D2D1_SIMPLE_COLOR_PROFILE* simpleProfile) GetSimpleColorProfile;
 	}
 
 
@@ -5230,7 +5230,7 @@ public static
 
 	public DXGI_COLOR_SPACE_TYPE GetDXGIColorSpace() mut => VT.[Friend]GetDXGIColorSpace(&this);
 
-	public HRESULT GetSimpleColorProfile(D2D1_SIMPLE_COLOR_PROFILE simpleProfile) mut => VT.[Friend]GetSimpleColorProfile(&this, simpleProfile);
+	public HRESULT GetSimpleColorProfile(D2D1_SIMPLE_COLOR_PROFILE* simpleProfile) mut => VT.[Friend]GetSimpleColorProfile(&this, simpleProfile);
 }
 
 [CRepr]struct ID2D1DeviceContext5 : ID2D1DeviceContext4
@@ -5241,20 +5241,20 @@ public static
 
 	[CRepr]public struct VTable : ID2D1DeviceContext4.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext5*/SelfOuter* self, IStream* inputXmlStream, D2D_SIZE_F viewportSize, ID2D1SvgDocument* svgDocument) CreateSvgDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext5*/SelfOuter* self, IStream* inputXmlStream, D2D_SIZE_F viewportSize, ID2D1SvgDocument** svgDocument) CreateSvgDocument;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext5*/SelfOuter* self, ID2D1SvgDocument* svgDocument) DrawSvgDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext5*/SelfOuter* self, DXGI_COLOR_SPACE_TYPE colorSpace, ID2D1ColorContext1* colorContext) CreateColorContextFromDxgiColorSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext5*/SelfOuter* self, D2D1_SIMPLE_COLOR_PROFILE simpleProfile, ID2D1ColorContext1* colorContext) CreateColorContextFromSimpleColorProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext5*/SelfOuter* self, DXGI_COLOR_SPACE_TYPE colorSpace, ID2D1ColorContext1** colorContext) CreateColorContextFromDxgiColorSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext5*/SelfOuter* self, D2D1_SIMPLE_COLOR_PROFILE* simpleProfile, ID2D1ColorContext1** colorContext) CreateColorContextFromSimpleColorProfile;
 	}
 
 
-	public HRESULT CreateSvgDocument(IStream* inputXmlStream, D2D_SIZE_F viewportSize, ID2D1SvgDocument* svgDocument) mut => VT.[Friend]CreateSvgDocument(&this, inputXmlStream, viewportSize, svgDocument);
+	public HRESULT CreateSvgDocument(IStream* inputXmlStream, D2D_SIZE_F viewportSize, ID2D1SvgDocument** svgDocument) mut => VT.[Friend]CreateSvgDocument(&this, inputXmlStream, viewportSize, svgDocument);
 
 	public void DrawSvgDocument(ID2D1SvgDocument* svgDocument) mut => VT.[Friend]DrawSvgDocument(&this, svgDocument);
 
-	public HRESULT CreateColorContextFromDxgiColorSpace(DXGI_COLOR_SPACE_TYPE colorSpace, ID2D1ColorContext1* colorContext) mut => VT.[Friend]CreateColorContextFromDxgiColorSpace(&this, colorSpace, colorContext);
+	public HRESULT CreateColorContextFromDxgiColorSpace(DXGI_COLOR_SPACE_TYPE colorSpace, ID2D1ColorContext1** colorContext) mut => VT.[Friend]CreateColorContextFromDxgiColorSpace(&this, colorSpace, colorContext);
 
-	public HRESULT CreateColorContextFromSimpleColorProfile(D2D1_SIMPLE_COLOR_PROFILE simpleProfile, ID2D1ColorContext1* colorContext) mut => VT.[Friend]CreateColorContextFromSimpleColorProfile(&this, simpleProfile, colorContext);
+	public HRESULT CreateColorContextFromSimpleColorProfile(D2D1_SIMPLE_COLOR_PROFILE* simpleProfile, ID2D1ColorContext1** colorContext) mut => VT.[Friend]CreateColorContextFromSimpleColorProfile(&this, simpleProfile, colorContext);
 }
 
 [CRepr]struct ID2D1Device5 : ID2D1Device4
@@ -5265,11 +5265,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Device4.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device5*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext5* deviceContext5) CreateDeviceContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device5*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext5** deviceContext5) CreateDeviceContext;
 	}
 
 
-	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext5* deviceContext5) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext5);
+	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext5** deviceContext5) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext5);
 }
 
 [CRepr]struct ID2D1Factory6 : ID2D1Factory5
@@ -5280,11 +5280,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Factory5.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory6*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device5* d2dDevice5) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory6*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device5** d2dDevice5) CreateDevice;
 	}
 
 
-	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device5* d2dDevice5) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice5);
+	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device5** d2dDevice5) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice5);
 }
 
 [CRepr]struct ID2D1CommandSink5 : ID2D1CommandSink4
@@ -5295,11 +5295,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1CommandSink4.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink5*/SelfOuter* self, ID2D1Image* image, D2D1_BLEND_MODE blendMode, D2D_POINT_2F targetOffset, D2D_RECT_F imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode) BlendImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1CommandSink5*/SelfOuter* self, ID2D1Image* image, D2D1_BLEND_MODE blendMode, D2D_POINT_2F* targetOffset, D2D_RECT_F* imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode) BlendImage;
 	}
 
 
-	public HRESULT BlendImage(ID2D1Image* image, D2D1_BLEND_MODE blendMode, D2D_POINT_2F targetOffset, D2D_RECT_F imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode) mut => VT.[Friend]BlendImage(&this, image, blendMode, targetOffset, imageRectangle, interpolationMode);
+	public HRESULT BlendImage(ID2D1Image* image, D2D1_BLEND_MODE blendMode, D2D_POINT_2F* targetOffset, D2D_RECT_F* imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode) mut => VT.[Friend]BlendImage(&this, image, blendMode, targetOffset, imageRectangle, interpolationMode);
 }
 
 [CRepr]struct ID2D1DeviceContext6 : ID2D1DeviceContext5
@@ -5310,11 +5310,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1DeviceContext5.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext6*/SelfOuter* self, ID2D1Image* image, D2D1_BLEND_MODE blendMode, D2D_POINT_2F targetOffset, D2D_RECT_F imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode) BlendImage;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext6*/SelfOuter* self, ID2D1Image* image, D2D1_BLEND_MODE blendMode, D2D_POINT_2F* targetOffset, D2D_RECT_F* imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode) BlendImage;
 	}
 
 
-	public void BlendImage(ID2D1Image* image, D2D1_BLEND_MODE blendMode, D2D_POINT_2F targetOffset, D2D_RECT_F imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode) mut => VT.[Friend]BlendImage(&this, image, blendMode, targetOffset, imageRectangle, interpolationMode);
+	public void BlendImage(ID2D1Image* image, D2D1_BLEND_MODE blendMode, D2D_POINT_2F* targetOffset, D2D_RECT_F* imageRectangle, D2D1_INTERPOLATION_MODE interpolationMode) mut => VT.[Friend]BlendImage(&this, image, blendMode, targetOffset, imageRectangle, interpolationMode);
 }
 
 [CRepr]struct ID2D1Device6 : ID2D1Device5
@@ -5325,11 +5325,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Device5.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device6*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext6* deviceContext6) CreateDeviceContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Device6*/SelfOuter* self, D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext6** deviceContext6) CreateDeviceContext;
 	}
 
 
-	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext6* deviceContext6) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext6);
+	public HRESULT CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS options, ID2D1DeviceContext6** deviceContext6) mut => VT.[Friend]CreateDeviceContext(&this, options, deviceContext6);
 }
 
 [CRepr]struct ID2D1Factory7 : ID2D1Factory6
@@ -5340,11 +5340,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1Factory6.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory7*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device6* d2dDevice6) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Factory7*/SelfOuter* self, IDXGIDevice* dxgiDevice, ID2D1Device6** d2dDevice6) CreateDevice;
 	}
 
 
-	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device6* d2dDevice6) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice6);
+	public HRESULT CreateDevice(IDXGIDevice* dxgiDevice, ID2D1Device6** d2dDevice6) mut => VT.[Friend]CreateDevice(&this, dxgiDevice, d2dDevice6);
 }
 
 [CRepr]struct ID2D1EffectContext1 : ID2D1EffectContext
@@ -5355,11 +5355,11 @@ public static
 
 	[CRepr]public struct VTable : ID2D1EffectContext.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext1*/SelfOuter* self, D2D1_BUFFER_PRECISION precision, uint32* extents, uint8* data, uint32 dataCount, uint32* strides, ID2D1LookupTable3D* lookupTable) CreateLookupTable3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext1*/SelfOuter* self, D2D1_BUFFER_PRECISION precision, uint32* extents, uint8* data, uint32 dataCount, uint32* strides, ID2D1LookupTable3D** lookupTable) CreateLookupTable3D;
 	}
 
 
-	public HRESULT CreateLookupTable3D(D2D1_BUFFER_PRECISION precision, uint32* extents, uint8* data, uint32 dataCount, uint32* strides, ID2D1LookupTable3D* lookupTable) mut => VT.[Friend]CreateLookupTable3D(&this, precision, extents, data, dataCount, strides, lookupTable);
+	public HRESULT CreateLookupTable3D(D2D1_BUFFER_PRECISION precision, uint32* extents, uint8* data, uint32 dataCount, uint32* strides, ID2D1LookupTable3D** lookupTable) mut => VT.[Friend]CreateLookupTable3D(&this, precision, extents, data, dataCount, strides, lookupTable);
 }
 
 [CRepr]struct ID2D1EffectContext2 : ID2D1EffectContext1
@@ -5370,14 +5370,14 @@ public static
 
 	[CRepr]public struct VTable : ID2D1EffectContext1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext2*/SelfOuter* self, DXGI_COLOR_SPACE_TYPE colorSpace, ID2D1ColorContext1* colorContext) CreateColorContextFromDxgiColorSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext2*/SelfOuter* self, D2D1_SIMPLE_COLOR_PROFILE simpleProfile, ID2D1ColorContext1* colorContext) CreateColorContextFromSimpleColorProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext2*/SelfOuter* self, DXGI_COLOR_SPACE_TYPE colorSpace, ID2D1ColorContext1** colorContext) CreateColorContextFromDxgiColorSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1EffectContext2*/SelfOuter* self, D2D1_SIMPLE_COLOR_PROFILE* simpleProfile, ID2D1ColorContext1** colorContext) CreateColorContextFromSimpleColorProfile;
 	}
 
 
-	public HRESULT CreateColorContextFromDxgiColorSpace(DXGI_COLOR_SPACE_TYPE colorSpace, ID2D1ColorContext1* colorContext) mut => VT.[Friend]CreateColorContextFromDxgiColorSpace(&this, colorSpace, colorContext);
+	public HRESULT CreateColorContextFromDxgiColorSpace(DXGI_COLOR_SPACE_TYPE colorSpace, ID2D1ColorContext1** colorContext) mut => VT.[Friend]CreateColorContextFromDxgiColorSpace(&this, colorSpace, colorContext);
 
-	public HRESULT CreateColorContextFromSimpleColorProfile(D2D1_SIMPLE_COLOR_PROFILE simpleProfile, ID2D1ColorContext1* colorContext) mut => VT.[Friend]CreateColorContextFromSimpleColorProfile(&this, simpleProfile, colorContext);
+	public HRESULT CreateColorContextFromSimpleColorProfile(D2D1_SIMPLE_COLOR_PROFILE* simpleProfile, ID2D1ColorContext1** colorContext) mut => VT.[Friend]CreateColorContextFromSimpleColorProfile(&this, simpleProfile, colorContext);
 }
 
 #endregion
@@ -5386,31 +5386,31 @@ public static
 public static
 {
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D2D1CreateFactory(D2D1_FACTORY_TYPE factoryType, Guid riid, D2D1_FACTORY_OPTIONS pFactoryOptions, void ppIFactory);
+	public static extern HRESULT D2D1CreateFactory(D2D1_FACTORY_TYPE factoryType, Guid riid, D2D1_FACTORY_OPTIONS* pFactoryOptions, void** ppIFactory);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void D2D1MakeRotateMatrix(float angle, D2D_POINT_2F center, D2D_MATRIX_3X2_F matrix);
+	public static extern void D2D1MakeRotateMatrix(float angle, D2D_POINT_2F center, D2D_MATRIX_3X2_F* matrix);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void D2D1MakeSkewMatrix(float angleX, float angleY, D2D_POINT_2F center, D2D_MATRIX_3X2_F matrix);
+	public static extern void D2D1MakeSkewMatrix(float angleX, float angleY, D2D_POINT_2F center, D2D_MATRIX_3X2_F* matrix);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL D2D1IsMatrixInvertible(D2D_MATRIX_3X2_F matrix);
+	public static extern BOOL D2D1IsMatrixInvertible(D2D_MATRIX_3X2_F* matrix);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL D2D1InvertMatrix(D2D_MATRIX_3X2_F matrix);
+	public static extern BOOL D2D1InvertMatrix(D2D_MATRIX_3X2_F* matrix);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D2D1CreateDevice(IDXGIDevice* dxgiDevice, D2D1_CREATION_PROPERTIES creationProperties, ID2D1Device* d2dDevice);
+	public static extern HRESULT D2D1CreateDevice(IDXGIDevice* dxgiDevice, D2D1_CREATION_PROPERTIES* creationProperties, ID2D1Device** d2dDevice);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D2D1CreateDeviceContext(IDXGISurface* dxgiSurface, D2D1_CREATION_PROPERTIES creationProperties, ID2D1DeviceContext* d2dDeviceContext);
+	public static extern HRESULT D2D1CreateDeviceContext(IDXGISurface* dxgiSurface, D2D1_CREATION_PROPERTIES* creationProperties, ID2D1DeviceContext** d2dDeviceContext);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern D2D1_COLOR_F D2D1ConvertColorSpace(D2D1_COLOR_SPACE sourceColorSpace, D2D1_COLOR_SPACE destinationColorSpace, D2D1_COLOR_F color);
+	public static extern D2D1_COLOR_F D2D1ConvertColorSpace(D2D1_COLOR_SPACE sourceColorSpace, D2D1_COLOR_SPACE destinationColorSpace, D2D1_COLOR_F* color);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void D2D1SinCos(float angle, float s, float c);
+	public static extern void D2D1SinCos(float angle, float* s, float* c);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern float D2D1Tan(float angle);
@@ -5419,10 +5419,10 @@ public static
 	public static extern float D2D1Vec3Length(float x, float y, float z);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern float D2D1ComputeMaximumScaleFactor(D2D_MATRIX_3X2_F matrix);
+	public static extern float D2D1ComputeMaximumScaleFactor(D2D_MATRIX_3X2_F* matrix);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void D2D1GetGradientMeshInteriorPointsFromCoonsPatch(D2D_POINT_2F pPoint0, D2D_POINT_2F pPoint1, D2D_POINT_2F pPoint2, D2D_POINT_2F pPoint3, D2D_POINT_2F pPoint4, D2D_POINT_2F pPoint5, D2D_POINT_2F pPoint6, D2D_POINT_2F pPoint7, D2D_POINT_2F pPoint8, D2D_POINT_2F pPoint9, D2D_POINT_2F pPoint10, D2D_POINT_2F pPoint11, D2D_POINT_2F pTensorPoint11, D2D_POINT_2F pTensorPoint12, D2D_POINT_2F pTensorPoint21, D2D_POINT_2F pTensorPoint22);
+	public static extern void D2D1GetGradientMeshInteriorPointsFromCoonsPatch(D2D_POINT_2F* pPoint0, D2D_POINT_2F* pPoint1, D2D_POINT_2F* pPoint2, D2D_POINT_2F* pPoint3, D2D_POINT_2F* pPoint4, D2D_POINT_2F* pPoint5, D2D_POINT_2F* pPoint6, D2D_POINT_2F* pPoint7, D2D_POINT_2F* pPoint8, D2D_POINT_2F* pPoint9, D2D_POINT_2F* pPoint10, D2D_POINT_2F* pPoint11, D2D_POINT_2F* pTensorPoint11, D2D_POINT_2F* pTensorPoint12, D2D_POINT_2F* pTensorPoint21, D2D_POINT_2F* pTensorPoint22);
 
 }
 #endregion

@@ -1827,15 +1827,15 @@ public enum HTTP_TRACE_TYPE : int32
 #endregion
 
 #region Function Pointers
-public function void PFN_HSE_IO_COMPLETION(EXTENSION_CONTROL_BLOCK pECB, void pContext, uint32 cbIO, uint32 dwError);
+public function void PFN_HSE_IO_COMPLETION(EXTENSION_CONTROL_BLOCK* pECB, void* pContext, uint32 cbIO, uint32 dwError);
 
 public function HRESULT PFN_HSE_CACHE_INVALIDATION_CALLBACK(PWSTR pszUrl);
 
-public function HRESULT PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK(PWSTR pszProtocolManagerDll, PWSTR pszProtocolManagerDllInitFunction, uint32 dwCustomInterfaceId, void ppCustomInterface);
+public function HRESULT PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK(PWSTR pszProtocolManagerDll, PWSTR pszProtocolManagerDllInitFunction, uint32 dwCustomInterfaceId, void** ppCustomInterface);
 
-public function BOOL PFN_GETEXTENSIONVERSION(HSE_VERSION_INFO pVer);
+public function BOOL PFN_GETEXTENSIONVERSION(HSE_VERSION_INFO* pVer);
 
-public function uint32 PFN_HTTPEXTENSIONPROC(EXTENSION_CONTROL_BLOCK pECB);
+public function uint32 PFN_HTTPEXTENSIONPROC(EXTENSION_CONTROL_BLOCK* pECB);
 
 public function BOOL PFN_TERMINATEEXTENSION(uint32 dwFlags);
 
@@ -1929,7 +1929,7 @@ public struct METADATA_RECORD
 	public uint32 dwMDUserType;
 	public uint32 dwMDDataType;
 	public uint32 dwMDDataLen;
-	public uint8 pbMDData;
+	public uint8* pbMDData;
 	public uint32 dwMDDataTag;
 }
 
@@ -1952,7 +1952,7 @@ public struct METADATA_GETALL_INTERNAL_RECORD
 	public struct _Anonymous_e__Union
 	{
 		public uint dwMDDataOffset;
-		public uint8 pbMDData;
+		public uint8* pbMDData;
 	}
 
 	public uint32 dwMDIdentifier;
@@ -1977,7 +1977,7 @@ public struct MD_CHANGE_OBJECT_W
 	public PWSTR pszMDPath;
 	public uint32 dwMDChangeType;
 	public uint32 dwMDNumDataIDs;
-	public uint32 pdwMDDataIDs;
+	public uint32* pdwMDDataIDs;
 }
 
 [CRepr]
@@ -1997,7 +1997,7 @@ public struct EXTENSION_CONTROL_BLOCK
 {
 	public uint32 cbSize;
 	public uint32 dwVersion;
-	public void ConnID;
+	public void* ConnID;
 	public uint32 dwHttpStatusCode;
 	public CHAR[80] lpszLogData;
 	public PSTR lpszMethod;
@@ -2006,7 +2006,7 @@ public struct EXTENSION_CONTROL_BLOCK
 	public PSTR lpszPathTranslated;
 	public uint32 cbTotalBytes;
 	public uint32 cbAvailable;
-	public uint8 lpbData;
+	public uint8* lpbData;
 	public PSTR lpszContentType;
 	public int GetServerVariable;
 	public int WriteClient;
@@ -2038,14 +2038,14 @@ public struct HSE_UNICODE_URL_MAPEX_INFO
 public struct HSE_TF_INFO
 {
 	public PFN_HSE_IO_COMPLETION pfnHseIO;
-	public void pContext;
+	public void* pContext;
 	public HANDLE hFile;
 	public PSTR pszStatusCode;
 	public uint32 BytesToWrite;
 	public uint32 Offset;
-	public void pHead;
+	public void* pHead;
 	public uint32 HeadLength;
-	public void pTail;
+	public void* pTail;
 	public uint32 TailLength;
 	public uint32 dwFlags;
 }
@@ -2072,7 +2072,7 @@ public struct HSE_EXEC_URL_USER_INFO
 public struct HSE_EXEC_URL_ENTITY_INFO
 {
 	public uint32 cbAvailable;
-	public void lpbData;
+	public void* lpbData;
 }
 
 [CRepr]
@@ -2089,8 +2089,8 @@ public struct HSE_EXEC_URL_INFO
 	public PSTR pszUrl;
 	public PSTR pszMethod;
 	public PSTR pszChildHeaders;
-	public HSE_EXEC_URL_USER_INFO pUserInfo;
-	public HSE_EXEC_URL_ENTITY_INFO pEntity;
+	public HSE_EXEC_URL_USER_INFO* pUserInfo;
+	public HSE_EXEC_URL_ENTITY_INFO* pEntity;
 	public uint32 dwExecUrlFlags;
 }
 
@@ -2108,8 +2108,8 @@ public struct HSE_EXEC_UNICODE_URL_INFO
 	public PWSTR pszUrl;
 	public PSTR pszMethod;
 	public PSTR pszChildHeaders;
-	public HSE_EXEC_UNICODE_URL_USER_INFO pUserInfo;
-	public HSE_EXEC_URL_ENTITY_INFO pEntity;
+	public HSE_EXEC_UNICODE_URL_USER_INFO* pUserInfo;
+	public HSE_EXEC_URL_ENTITY_INFO* pEntity;
 	public uint32 dwExecUrlFlags;
 }
 
@@ -2125,7 +2125,7 @@ public struct HSE_CUSTOM_ERROR_INFO
 public struct HSE_VECTOR_ELEMENT
 {
 	public uint32 ElementType;
-	public void pvContext;
+	public void* pvContext;
 	public uint64 cbOffset;
 	public uint64 cbSize;
 }
@@ -2137,7 +2137,7 @@ public struct HSE_RESPONSE_VECTOR
 	public PSTR pszStatus;
 	public PSTR pszHeaders;
 	public uint32 nElementCount;
-	public HSE_VECTOR_ELEMENT lpElementArray;
+	public HSE_VECTOR_ELEMENT* lpElementArray;
 }
 
 [CRepr]
@@ -2162,10 +2162,10 @@ public struct HTTP_FILTER_CONTEXT
 {
 	public uint32 cbSize;
 	public uint32 Revision;
-	public void ServerContext;
+	public void* ServerContext;
 	public uint32 ulReserved;
 	public BOOL fIsSecurePort;
-	public void pFilterContext;
+	public void* pFilterContext;
 	public int GetServerVariable;
 	public int AddResponseHeaders;
 	public int WriteClient;
@@ -2176,7 +2176,7 @@ public struct HTTP_FILTER_CONTEXT
 [CRepr]
 public struct HTTP_FILTER_RAW_DATA
 {
-	public void pvInData;
+	public void* pvInData;
 	public uint32 cbInData;
 	public uint32 cbInBuffer;
 	public uint32 dwReserved;
@@ -2281,7 +2281,7 @@ public struct HTTP_TRACE_EVENT
 	public uint32 dwTimeStamp;
 	public uint32 dwFlags;
 	public uint32 cEventItems;
-	public HTTP_TRACE_EVENT_ITEM pEventItems;
+	public HTTP_TRACE_EVENT_ITEM* pEventItems;
 }
 
 [CRepr]
@@ -2289,7 +2289,7 @@ public struct HTTP_TRACE_EVENT_ITEM
 {
 	public PWSTR pszName;
 	public HTTP_TRACE_TYPE dwDataType;
-	public uint8 pbData;
+	public uint8* pbData;
 	public uint32 cbData;
 	public PWSTR pszDataDescription;
 }
@@ -2323,11 +2323,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpProviderConstruct*/SelfOuter* self, SAFEARRAY configurationEntries) Construct;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpProviderConstruct*/SelfOuter* self, SAFEARRAY* configurationEntries) Construct;
 	}
 
 
-	public HRESULT Construct(SAFEARRAY configurationEntries) mut => VT.[Friend]Construct(&this, configurationEntries);
+	public HRESULT Construct(SAFEARRAY* configurationEntries) mut => VT.[Friend]Construct(&this, configurationEntries);
 }
 
 [CRepr]struct IFtpAuthenticationProvider : IUnknown
@@ -2338,11 +2338,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpAuthenticationProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword, PWSTR ppszCanonicalUserName, BOOL pfAuthenticated) AuthenticateUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpAuthenticationProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword, PWSTR ppszCanonicalUserName, BOOL* pfAuthenticated) AuthenticateUser;
 	}
 
 
-	public HRESULT AuthenticateUser(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword, PWSTR ppszCanonicalUserName, BOOL pfAuthenticated) mut => VT.[Friend]AuthenticateUser(&this, pszSessionId, pszSiteName, pszUserName, pszPassword, ppszCanonicalUserName, pfAuthenticated);
+	public HRESULT AuthenticateUser(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword, PWSTR ppszCanonicalUserName, BOOL* pfAuthenticated) mut => VT.[Friend]AuthenticateUser(&this, pszSessionId, pszSiteName, pszUserName, pszPassword, ppszCanonicalUserName, pfAuthenticated);
 }
 
 [CRepr]struct AsyncIFtpAuthenticationProvider : IUnknown
@@ -2354,13 +2354,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpAuthenticationProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword) Begin_AuthenticateUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpAuthenticationProvider*/SelfOuter* self, PWSTR ppszCanonicalUserName, BOOL pfAuthenticated) Finish_AuthenticateUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpAuthenticationProvider*/SelfOuter* self, PWSTR ppszCanonicalUserName, BOOL* pfAuthenticated) Finish_AuthenticateUser;
 	}
 
 
 	public HRESULT Begin_AuthenticateUser(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword) mut => VT.[Friend]Begin_AuthenticateUser(&this, pszSessionId, pszSiteName, pszUserName, pszPassword);
 
-	public HRESULT Finish_AuthenticateUser(PWSTR ppszCanonicalUserName, BOOL pfAuthenticated) mut => VT.[Friend]Finish_AuthenticateUser(&this, ppszCanonicalUserName, pfAuthenticated);
+	public HRESULT Finish_AuthenticateUser(PWSTR ppszCanonicalUserName, BOOL* pfAuthenticated) mut => VT.[Friend]Finish_AuthenticateUser(&this, ppszCanonicalUserName, pfAuthenticated);
 }
 
 [CRepr]struct IFtpRoleProvider : IUnknown
@@ -2371,11 +2371,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpRoleProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszRole, BOOL pfIsInRole) IsUserInRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpRoleProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszRole, BOOL* pfIsInRole) IsUserInRole;
 	}
 
 
-	public HRESULT IsUserInRole(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszRole, BOOL pfIsInRole) mut => VT.[Friend]IsUserInRole(&this, pszSessionId, pszSiteName, pszUserName, pszRole, pfIsInRole);
+	public HRESULT IsUserInRole(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszRole, BOOL* pfIsInRole) mut => VT.[Friend]IsUserInRole(&this, pszSessionId, pszSiteName, pszUserName, pszRole, pfIsInRole);
 }
 
 [CRepr]struct AsyncIFtpRoleProvider : IUnknown
@@ -2387,13 +2387,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpRoleProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszRole) Begin_IsUserInRole;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpRoleProvider*/SelfOuter* self, BOOL pfIsInRole) Finish_IsUserInRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpRoleProvider*/SelfOuter* self, BOOL* pfIsInRole) Finish_IsUserInRole;
 	}
 
 
 	public HRESULT Begin_IsUserInRole(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszRole) mut => VT.[Friend]Begin_IsUserInRole(&this, pszSessionId, pszSiteName, pszUserName, pszRole);
 
-	public HRESULT Finish_IsUserInRole(BOOL pfIsInRole) mut => VT.[Friend]Finish_IsUserInRole(&this, pfIsInRole);
+	public HRESULT Finish_IsUserInRole(BOOL* pfIsInRole) mut => VT.[Friend]Finish_IsUserInRole(&this, pfIsInRole);
 }
 
 [CRepr]struct IFtpHomeDirectoryProvider : IUnknown
@@ -2437,11 +2437,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpLogProvider*/SelfOuter* self, LOGGING_PARAMETERS pLoggingParameters) Log;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpLogProvider*/SelfOuter* self, LOGGING_PARAMETERS* pLoggingParameters) Log;
 	}
 
 
-	public HRESULT Log(LOGGING_PARAMETERS pLoggingParameters) mut => VT.[Friend]Log(&this, pLoggingParameters);
+	public HRESULT Log(LOGGING_PARAMETERS* pLoggingParameters) mut => VT.[Friend]Log(&this, pLoggingParameters);
 }
 
 [CRepr]struct AsyncIFtpLogProvider : IUnknown
@@ -2452,12 +2452,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpLogProvider*/SelfOuter* self, LOGGING_PARAMETERS pLoggingParameters) Begin_Log;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpLogProvider*/SelfOuter* self, LOGGING_PARAMETERS* pLoggingParameters) Begin_Log;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpLogProvider*/SelfOuter* self) Finish_Log;
 	}
 
 
-	public HRESULT Begin_Log(LOGGING_PARAMETERS pLoggingParameters) mut => VT.[Friend]Begin_Log(&this, pLoggingParameters);
+	public HRESULT Begin_Log(LOGGING_PARAMETERS* pLoggingParameters) mut => VT.[Friend]Begin_Log(&this, pLoggingParameters);
 
 	public HRESULT Finish_Log() mut => VT.[Friend]Finish_Log(&this);
 }
@@ -2470,11 +2470,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpAuthorizationProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszVirtualPath, PWSTR pszUserName, FTP_ACCESS pFtpAccess) GetUserAccessPermission;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpAuthorizationProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszVirtualPath, PWSTR pszUserName, FTP_ACCESS* pFtpAccess) GetUserAccessPermission;
 	}
 
 
-	public HRESULT GetUserAccessPermission(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszVirtualPath, PWSTR pszUserName, FTP_ACCESS pFtpAccess) mut => VT.[Friend]GetUserAccessPermission(&this, pszSessionId, pszSiteName, pszVirtualPath, pszUserName, pFtpAccess);
+	public HRESULT GetUserAccessPermission(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszVirtualPath, PWSTR pszUserName, FTP_ACCESS* pFtpAccess) mut => VT.[Friend]GetUserAccessPermission(&this, pszSessionId, pszSiteName, pszVirtualPath, pszUserName, pFtpAccess);
 }
 
 [CRepr]struct AsyncIFtpAuthorizationProvider : IUnknown
@@ -2486,13 +2486,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpAuthorizationProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszVirtualPath, PWSTR pszUserName) Begin_GetUserAccessPermission;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpAuthorizationProvider*/SelfOuter* self, FTP_ACCESS pFtpAccess) Finish_GetUserAccessPermission;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpAuthorizationProvider*/SelfOuter* self, FTP_ACCESS* pFtpAccess) Finish_GetUserAccessPermission;
 	}
 
 
 	public HRESULT Begin_GetUserAccessPermission(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszVirtualPath, PWSTR pszUserName) mut => VT.[Friend]Begin_GetUserAccessPermission(&this, pszSessionId, pszSiteName, pszVirtualPath, pszUserName);
 
-	public HRESULT Finish_GetUserAccessPermission(FTP_ACCESS pFtpAccess) mut => VT.[Friend]Finish_GetUserAccessPermission(&this, pFtpAccess);
+	public HRESULT Finish_GetUserAccessPermission(FTP_ACCESS* pFtpAccess) mut => VT.[Friend]Finish_GetUserAccessPermission(&this, pFtpAccess);
 }
 
 [CRepr]struct IFtpPreprocessProvider : IUnknown
@@ -2503,11 +2503,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpPreprocessProvider*/SelfOuter* self, PRE_PROCESS_PARAMETERS pPreProcessParameters, FTP_PROCESS_STATUS pFtpProcessStatus) HandlePreprocess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpPreprocessProvider*/SelfOuter* self, PRE_PROCESS_PARAMETERS* pPreProcessParameters, FTP_PROCESS_STATUS* pFtpProcessStatus) HandlePreprocess;
 	}
 
 
-	public HRESULT HandlePreprocess(PRE_PROCESS_PARAMETERS pPreProcessParameters, FTP_PROCESS_STATUS pFtpProcessStatus) mut => VT.[Friend]HandlePreprocess(&this, pPreProcessParameters, pFtpProcessStatus);
+	public HRESULT HandlePreprocess(PRE_PROCESS_PARAMETERS* pPreProcessParameters, FTP_PROCESS_STATUS* pFtpProcessStatus) mut => VT.[Friend]HandlePreprocess(&this, pPreProcessParameters, pFtpProcessStatus);
 }
 
 [CRepr]struct AsyncIFtpPreprocessProvider : IUnknown
@@ -2518,14 +2518,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpPreprocessProvider*/SelfOuter* self, PRE_PROCESS_PARAMETERS pPreProcessParameters) Begin_HandlePreprocess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpPreprocessProvider*/SelfOuter* self, FTP_PROCESS_STATUS pFtpProcessStatus) Finish_HandlePreprocess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpPreprocessProvider*/SelfOuter* self, PRE_PROCESS_PARAMETERS* pPreProcessParameters) Begin_HandlePreprocess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpPreprocessProvider*/SelfOuter* self, FTP_PROCESS_STATUS* pFtpProcessStatus) Finish_HandlePreprocess;
 	}
 
 
-	public HRESULT Begin_HandlePreprocess(PRE_PROCESS_PARAMETERS pPreProcessParameters) mut => VT.[Friend]Begin_HandlePreprocess(&this, pPreProcessParameters);
+	public HRESULT Begin_HandlePreprocess(PRE_PROCESS_PARAMETERS* pPreProcessParameters) mut => VT.[Friend]Begin_HandlePreprocess(&this, pPreProcessParameters);
 
-	public HRESULT Finish_HandlePreprocess(FTP_PROCESS_STATUS pFtpProcessStatus) mut => VT.[Friend]Finish_HandlePreprocess(&this, pFtpProcessStatus);
+	public HRESULT Finish_HandlePreprocess(FTP_PROCESS_STATUS* pFtpProcessStatus) mut => VT.[Friend]Finish_HandlePreprocess(&this, pFtpProcessStatus);
 }
 
 [CRepr]struct IFtpPostprocessProvider : IUnknown
@@ -2536,11 +2536,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpPostprocessProvider*/SelfOuter* self, POST_PROCESS_PARAMETERS pPostProcessParameters, FTP_PROCESS_STATUS pFtpProcessStatus) HandlePostprocess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpPostprocessProvider*/SelfOuter* self, POST_PROCESS_PARAMETERS* pPostProcessParameters, FTP_PROCESS_STATUS* pFtpProcessStatus) HandlePostprocess;
 	}
 
 
-	public HRESULT HandlePostprocess(POST_PROCESS_PARAMETERS pPostProcessParameters, FTP_PROCESS_STATUS pFtpProcessStatus) mut => VT.[Friend]HandlePostprocess(&this, pPostProcessParameters, pFtpProcessStatus);
+	public HRESULT HandlePostprocess(POST_PROCESS_PARAMETERS* pPostProcessParameters, FTP_PROCESS_STATUS* pFtpProcessStatus) mut => VT.[Friend]HandlePostprocess(&this, pPostProcessParameters, pFtpProcessStatus);
 }
 
 [CRepr]struct AsyncIFtpPostprocessProvider : IUnknown
@@ -2551,14 +2551,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpPostprocessProvider*/SelfOuter* self, POST_PROCESS_PARAMETERS pPostProcessParameters) Begin_HandlePostprocess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpPostprocessProvider*/SelfOuter* self, FTP_PROCESS_STATUS pFtpProcessStatus) Finish_HandlePostprocess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpPostprocessProvider*/SelfOuter* self, POST_PROCESS_PARAMETERS* pPostProcessParameters) Begin_HandlePostprocess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpPostprocessProvider*/SelfOuter* self, FTP_PROCESS_STATUS* pFtpProcessStatus) Finish_HandlePostprocess;
 	}
 
 
-	public HRESULT Begin_HandlePostprocess(POST_PROCESS_PARAMETERS pPostProcessParameters) mut => VT.[Friend]Begin_HandlePostprocess(&this, pPostProcessParameters);
+	public HRESULT Begin_HandlePostprocess(POST_PROCESS_PARAMETERS* pPostProcessParameters) mut => VT.[Friend]Begin_HandlePostprocess(&this, pPostProcessParameters);
 
-	public HRESULT Finish_HandlePostprocess(FTP_PROCESS_STATUS pFtpProcessStatus) mut => VT.[Friend]Finish_HandlePostprocess(&this, pFtpProcessStatus);
+	public HRESULT Finish_HandlePostprocess(FTP_PROCESS_STATUS* pFtpProcessStatus) mut => VT.[Friend]Finish_HandlePostprocess(&this, pFtpProcessStatus);
 }
 
 [CRepr]struct IADMEXT : IUnknown
@@ -2596,30 +2596,30 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, char16* pszMDName, uint32 dwMDEnumObjectIndex) EnumKeys;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDSourceHandle, PWSTR pszMDSourcePath, uint32 hMDDestHandle, PWSTR pszMDDestPath, BOOL bMDOverwriteFlag, BOOL bMDCopyFlag) CopyKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, PWSTR pszMDNewName) RenameKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD pmdrMDData) SetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD pmdrMDData, uint32 pdwMDRequiredDataLen) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD* pmdrMDData) SetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD* pmdrMDData, uint32* pdwMDRequiredDataLen) GetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDIdentifier, uint32 dwMDDataType) DeleteData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD pmdrMDData, uint32 dwMDEnumDataIndex, uint32 pdwMDRequiredDataLen) EnumData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAttributes, uint32 dwMDUserType, uint32 dwMDDataType, uint32 pdwMDNumDataEntries, uint32 pdwMDDataSetNumber, uint32 dwMDBufferSize, uint8 pbMDBuffer, uint32 pdwMDRequiredBufferSize) GetAllData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD* pmdrMDData, uint32 dwMDEnumDataIndex, uint32* pdwMDRequiredDataLen) EnumData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAttributes, uint32 dwMDUserType, uint32 dwMDDataType, uint32* pdwMDNumDataEntries, uint32* pdwMDDataSetNumber, uint32 dwMDBufferSize, uint8* pbMDBuffer, uint32* pdwMDRequiredBufferSize) GetAllData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDUserType, uint32 dwMDDataType) DeleteAllData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDSourceHandle, PWSTR pszMDSourcePath, uint32 hMDDestHandle, PWSTR pszMDDestPath, uint32 dwMDAttributes, uint32 dwMDUserType, uint32 dwMDDataType, BOOL bMDCopyFlag) CopyData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDIdentifier, uint32 dwMDDataType, uint32 dwMDBufferSize, char16* pszBuffer, uint32 pdwMDRequiredBufferSize) GetDataPaths;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAccessRequested, uint32 dwMDTimeOut, uint32 phMDNewHandle) OpenKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDIdentifier, uint32 dwMDDataType, uint32 dwMDBufferSize, char16* pszBuffer, uint32* pdwMDRequiredBufferSize) GetDataPaths;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAccessRequested, uint32 dwMDTimeOut, uint32* phMDNewHandle) OpenKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle) CloseKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, uint32 dwMDTimeOut, uint32 dwMDAccessRequested) ChangePermissions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self) SaveData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, METADATA_HANDLE_INFO pmdhiInfo) GetHandleInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 pdwSystemChangeNumber) GetSystemChangeNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 pdwMDDataSetNumber) GetDataSetNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, FILETIME pftMDLastChangeTime, BOOL bLocalTime) SetLastChangeTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, FILETIME pftMDLastChangeTime, BOOL bLocalTime) GetLastChangeTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, METADATA_HANDLE_INFO* pmdhiInfo) GetHandleInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32* pdwSystemChangeNumber) GetSystemChangeNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32* pdwMDDataSetNumber) GetDataSetNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, FILETIME* pftMDLastChangeTime, BOOL bLocalTime) SetLastChangeTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, FILETIME* pftMDLastChangeTime, BOOL bLocalTime) GetLastChangeTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self) KeyExchangePhase1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self) KeyExchangePhase2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, PWSTR pszMDBackupLocation, uint32 dwMDVersion, uint32 dwMDFlags) Backup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, PWSTR pszMDBackupLocation, uint32 dwMDVersion, uint32 dwMDFlags) Restore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, char16* pszMDBackupLocation, uint32 pdwMDVersion, FILETIME pftMDBackupTime, uint32 dwMDEnumIndex) EnumBackups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, char16* pszMDBackupLocation, uint32* pdwMDVersion, FILETIME* pftMDBackupTime, uint32 dwMDEnumIndex) EnumBackups;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, PWSTR pszMDBackupLocation, uint32 dwMDVersion) DeleteBackup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, IMSAdminBaseW* piadmbwInterface) UnmarshalInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, IMSAdminBaseW** piadmbwInterface) UnmarshalInterface;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self) GetServerGuid;
 	}
 
@@ -2636,23 +2636,23 @@ public static
 
 	public HRESULT RenameKey(uint32 hMDHandle, PWSTR pszMDPath, PWSTR pszMDNewName) mut => VT.[Friend]RenameKey(&this, hMDHandle, pszMDPath, pszMDNewName);
 
-	public HRESULT SetData(uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD pmdrMDData) mut => VT.[Friend]SetData(&this, hMDHandle, pszMDPath, pmdrMDData);
+	public HRESULT SetData(uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD* pmdrMDData) mut => VT.[Friend]SetData(&this, hMDHandle, pszMDPath, pmdrMDData);
 
-	public HRESULT GetData(uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD pmdrMDData, uint32 pdwMDRequiredDataLen) mut => VT.[Friend]GetData(&this, hMDHandle, pszMDPath, pmdrMDData, pdwMDRequiredDataLen);
+	public HRESULT GetData(uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD* pmdrMDData, uint32* pdwMDRequiredDataLen) mut => VT.[Friend]GetData(&this, hMDHandle, pszMDPath, pmdrMDData, pdwMDRequiredDataLen);
 
 	public HRESULT DeleteData(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDIdentifier, uint32 dwMDDataType) mut => VT.[Friend]DeleteData(&this, hMDHandle, pszMDPath, dwMDIdentifier, dwMDDataType);
 
-	public HRESULT EnumData(uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD pmdrMDData, uint32 dwMDEnumDataIndex, uint32 pdwMDRequiredDataLen) mut => VT.[Friend]EnumData(&this, hMDHandle, pszMDPath, pmdrMDData, dwMDEnumDataIndex, pdwMDRequiredDataLen);
+	public HRESULT EnumData(uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD* pmdrMDData, uint32 dwMDEnumDataIndex, uint32* pdwMDRequiredDataLen) mut => VT.[Friend]EnumData(&this, hMDHandle, pszMDPath, pmdrMDData, dwMDEnumDataIndex, pdwMDRequiredDataLen);
 
-	public HRESULT GetAllData(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAttributes, uint32 dwMDUserType, uint32 dwMDDataType, uint32 pdwMDNumDataEntries, uint32 pdwMDDataSetNumber, uint32 dwMDBufferSize, uint8 pbMDBuffer, uint32 pdwMDRequiredBufferSize) mut => VT.[Friend]GetAllData(&this, hMDHandle, pszMDPath, dwMDAttributes, dwMDUserType, dwMDDataType, pdwMDNumDataEntries, pdwMDDataSetNumber, dwMDBufferSize, pbMDBuffer, pdwMDRequiredBufferSize);
+	public HRESULT GetAllData(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAttributes, uint32 dwMDUserType, uint32 dwMDDataType, uint32* pdwMDNumDataEntries, uint32* pdwMDDataSetNumber, uint32 dwMDBufferSize, uint8* pbMDBuffer, uint32* pdwMDRequiredBufferSize) mut => VT.[Friend]GetAllData(&this, hMDHandle, pszMDPath, dwMDAttributes, dwMDUserType, dwMDDataType, pdwMDNumDataEntries, pdwMDDataSetNumber, dwMDBufferSize, pbMDBuffer, pdwMDRequiredBufferSize);
 
 	public HRESULT DeleteAllData(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDUserType, uint32 dwMDDataType) mut => VT.[Friend]DeleteAllData(&this, hMDHandle, pszMDPath, dwMDUserType, dwMDDataType);
 
 	public HRESULT CopyData(uint32 hMDSourceHandle, PWSTR pszMDSourcePath, uint32 hMDDestHandle, PWSTR pszMDDestPath, uint32 dwMDAttributes, uint32 dwMDUserType, uint32 dwMDDataType, BOOL bMDCopyFlag) mut => VT.[Friend]CopyData(&this, hMDSourceHandle, pszMDSourcePath, hMDDestHandle, pszMDDestPath, dwMDAttributes, dwMDUserType, dwMDDataType, bMDCopyFlag);
 
-	public HRESULT GetDataPaths(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDIdentifier, uint32 dwMDDataType, uint32 dwMDBufferSize, char16* pszBuffer, uint32 pdwMDRequiredBufferSize) mut => VT.[Friend]GetDataPaths(&this, hMDHandle, pszMDPath, dwMDIdentifier, dwMDDataType, dwMDBufferSize, pszBuffer, pdwMDRequiredBufferSize);
+	public HRESULT GetDataPaths(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDIdentifier, uint32 dwMDDataType, uint32 dwMDBufferSize, char16* pszBuffer, uint32* pdwMDRequiredBufferSize) mut => VT.[Friend]GetDataPaths(&this, hMDHandle, pszMDPath, dwMDIdentifier, dwMDDataType, dwMDBufferSize, pszBuffer, pdwMDRequiredBufferSize);
 
-	public HRESULT OpenKey(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAccessRequested, uint32 dwMDTimeOut, uint32 phMDNewHandle) mut => VT.[Friend]OpenKey(&this, hMDHandle, pszMDPath, dwMDAccessRequested, dwMDTimeOut, phMDNewHandle);
+	public HRESULT OpenKey(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAccessRequested, uint32 dwMDTimeOut, uint32* phMDNewHandle) mut => VT.[Friend]OpenKey(&this, hMDHandle, pszMDPath, dwMDAccessRequested, dwMDTimeOut, phMDNewHandle);
 
 	public HRESULT CloseKey(uint32 hMDHandle) mut => VT.[Friend]CloseKey(&this, hMDHandle);
 
@@ -2660,15 +2660,15 @@ public static
 
 	public HRESULT SaveData() mut => VT.[Friend]SaveData(&this);
 
-	public HRESULT GetHandleInfo(uint32 hMDHandle, METADATA_HANDLE_INFO pmdhiInfo) mut => VT.[Friend]GetHandleInfo(&this, hMDHandle, pmdhiInfo);
+	public HRESULT GetHandleInfo(uint32 hMDHandle, METADATA_HANDLE_INFO* pmdhiInfo) mut => VT.[Friend]GetHandleInfo(&this, hMDHandle, pmdhiInfo);
 
-	public HRESULT GetSystemChangeNumber(uint32 pdwSystemChangeNumber) mut => VT.[Friend]GetSystemChangeNumber(&this, pdwSystemChangeNumber);
+	public HRESULT GetSystemChangeNumber(uint32* pdwSystemChangeNumber) mut => VT.[Friend]GetSystemChangeNumber(&this, pdwSystemChangeNumber);
 
-	public HRESULT GetDataSetNumber(uint32 hMDHandle, PWSTR pszMDPath, uint32 pdwMDDataSetNumber) mut => VT.[Friend]GetDataSetNumber(&this, hMDHandle, pszMDPath, pdwMDDataSetNumber);
+	public HRESULT GetDataSetNumber(uint32 hMDHandle, PWSTR pszMDPath, uint32* pdwMDDataSetNumber) mut => VT.[Friend]GetDataSetNumber(&this, hMDHandle, pszMDPath, pdwMDDataSetNumber);
 
-	public HRESULT SetLastChangeTime(uint32 hMDHandle, PWSTR pszMDPath, FILETIME pftMDLastChangeTime, BOOL bLocalTime) mut => VT.[Friend]SetLastChangeTime(&this, hMDHandle, pszMDPath, pftMDLastChangeTime, bLocalTime);
+	public HRESULT SetLastChangeTime(uint32 hMDHandle, PWSTR pszMDPath, FILETIME* pftMDLastChangeTime, BOOL bLocalTime) mut => VT.[Friend]SetLastChangeTime(&this, hMDHandle, pszMDPath, pftMDLastChangeTime, bLocalTime);
 
-	public HRESULT GetLastChangeTime(uint32 hMDHandle, PWSTR pszMDPath, FILETIME pftMDLastChangeTime, BOOL bLocalTime) mut => VT.[Friend]GetLastChangeTime(&this, hMDHandle, pszMDPath, pftMDLastChangeTime, bLocalTime);
+	public HRESULT GetLastChangeTime(uint32 hMDHandle, PWSTR pszMDPath, FILETIME* pftMDLastChangeTime, BOOL bLocalTime) mut => VT.[Friend]GetLastChangeTime(&this, hMDHandle, pszMDPath, pftMDLastChangeTime, bLocalTime);
 
 	public HRESULT KeyExchangePhase1() mut => VT.[Friend]KeyExchangePhase1(&this);
 
@@ -2678,11 +2678,11 @@ public static
 
 	public HRESULT Restore(PWSTR pszMDBackupLocation, uint32 dwMDVersion, uint32 dwMDFlags) mut => VT.[Friend]Restore(&this, pszMDBackupLocation, dwMDVersion, dwMDFlags);
 
-	public HRESULT EnumBackups(char16* pszMDBackupLocation, uint32 pdwMDVersion, FILETIME pftMDBackupTime, uint32 dwMDEnumIndex) mut => VT.[Friend]EnumBackups(&this, pszMDBackupLocation, pdwMDVersion, pftMDBackupTime, dwMDEnumIndex);
+	public HRESULT EnumBackups(char16* pszMDBackupLocation, uint32* pdwMDVersion, FILETIME* pftMDBackupTime, uint32 dwMDEnumIndex) mut => VT.[Friend]EnumBackups(&this, pszMDBackupLocation, pdwMDVersion, pftMDBackupTime, dwMDEnumIndex);
 
 	public HRESULT DeleteBackup(PWSTR pszMDBackupLocation, uint32 dwMDVersion) mut => VT.[Friend]DeleteBackup(&this, pszMDBackupLocation, dwMDVersion);
 
-	public HRESULT UnmarshalInterface(IMSAdminBaseW* piadmbwInterface) mut => VT.[Friend]UnmarshalInterface(&this, piadmbwInterface);
+	public HRESULT UnmarshalInterface(IMSAdminBaseW** piadmbwInterface) mut => VT.[Friend]UnmarshalInterface(&this, piadmbwInterface);
 
 	public HRESULT GetServerGuid() mut => VT.[Friend]GetServerGuid(&this);
 }
@@ -2700,7 +2700,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase2W*/SelfOuter* self, PWSTR pszPasswd, PWSTR pszFileName, PWSTR pszSourcePath, uint32 dwMDFlags) Export;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase2W*/SelfOuter* self, PWSTR pszPasswd, PWSTR pszFileName, PWSTR pszSourcePath, PWSTR pszDestPath, uint32 dwMDFlags) Import;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase2W*/SelfOuter* self, PWSTR pszMDHistoryLocation, uint32 dwMDMajorVersion, uint32 dwMDMinorVersion, uint32 dwMDFlags) RestoreHistory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase2W*/SelfOuter* self, char16* pszMDHistoryLocation, uint32 pdwMDMajorVersion, uint32 pdwMDMinorVersion, FILETIME pftMDHistoryTime, uint32 dwMDEnumIndex) EnumHistory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase2W*/SelfOuter* self, char16* pszMDHistoryLocation, uint32* pdwMDMajorVersion, uint32* pdwMDMinorVersion, FILETIME* pftMDHistoryTime, uint32 dwMDEnumIndex) EnumHistory;
 	}
 
 
@@ -2714,7 +2714,7 @@ public static
 
 	public HRESULT RestoreHistory(PWSTR pszMDHistoryLocation, uint32 dwMDMajorVersion, uint32 dwMDMinorVersion, uint32 dwMDFlags) mut => VT.[Friend]RestoreHistory(&this, pszMDHistoryLocation, dwMDMajorVersion, dwMDMinorVersion, dwMDFlags);
 
-	public HRESULT EnumHistory(char16* pszMDHistoryLocation, uint32 pdwMDMajorVersion, uint32 pdwMDMinorVersion, FILETIME pftMDHistoryTime, uint32 dwMDEnumIndex) mut => VT.[Friend]EnumHistory(&this, pszMDHistoryLocation, pdwMDMajorVersion, pdwMDMinorVersion, pftMDHistoryTime, dwMDEnumIndex);
+	public HRESULT EnumHistory(char16* pszMDHistoryLocation, uint32* pdwMDMajorVersion, uint32* pdwMDMinorVersion, FILETIME* pftMDHistoryTime, uint32 dwMDEnumIndex) mut => VT.[Friend]EnumHistory(&this, pszMDHistoryLocation, pdwMDMajorVersion, pdwMDMinorVersion, pftMDHistoryTime, dwMDEnumIndex);
 }
 
 [CRepr]struct IMSAdminBase3W : IMSAdminBase2W
@@ -2725,11 +2725,11 @@ public static
 
 	[CRepr]public struct VTable : IMSAdminBase2W.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase3W*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 cchMDBufferSize, char16* pszBuffer, uint32 pcchMDRequiredBufferSize) GetChildPaths;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase3W*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 cchMDBufferSize, char16* pszBuffer, uint32* pcchMDRequiredBufferSize) GetChildPaths;
 	}
 
 
-	public HRESULT GetChildPaths(uint32 hMDHandle, PWSTR pszMDPath, uint32 cchMDBufferSize, char16* pszBuffer, uint32 pcchMDRequiredBufferSize) mut => VT.[Friend]GetChildPaths(&this, hMDHandle, pszMDPath, cchMDBufferSize, pszBuffer, pcchMDRequiredBufferSize);
+	public HRESULT GetChildPaths(uint32 hMDHandle, PWSTR pszMDPath, uint32 cchMDBufferSize, char16* pszBuffer, uint32* pcchMDRequiredBufferSize) mut => VT.[Friend]GetChildPaths(&this, hMDHandle, pszMDPath, cchMDBufferSize, pszBuffer, pcchMDRequiredBufferSize);
 }
 
 [CRepr]struct IMSImpExpHelpW : IUnknown
@@ -2740,11 +2740,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSImpExpHelpW*/SelfOuter* self, PWSTR pszFileName, PWSTR pszKeyType, uint32 dwMDBufferSize, char16* pszBuffer, uint32 pdwMDRequiredBufferSize) EnumeratePathsInFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSImpExpHelpW*/SelfOuter* self, PWSTR pszFileName, PWSTR pszKeyType, uint32 dwMDBufferSize, char16* pszBuffer, uint32* pdwMDRequiredBufferSize) EnumeratePathsInFile;
 	}
 
 
-	public HRESULT EnumeratePathsInFile(PWSTR pszFileName, PWSTR pszKeyType, uint32 dwMDBufferSize, char16* pszBuffer, uint32 pdwMDRequiredBufferSize) mut => VT.[Friend]EnumeratePathsInFile(&this, pszFileName, pszKeyType, dwMDBufferSize, pszBuffer, pdwMDRequiredBufferSize);
+	public HRESULT EnumeratePathsInFile(PWSTR pszFileName, PWSTR pszKeyType, uint32 dwMDBufferSize, char16* pszBuffer, uint32* pdwMDRequiredBufferSize) mut => VT.[Friend]EnumeratePathsInFile(&this, pszFileName, pszKeyType, dwMDBufferSize, pszBuffer, pdwMDRequiredBufferSize);
 }
 
 [CRepr]struct IMSAdminBaseSinkW : IUnknown
@@ -2795,16 +2795,16 @@ public static
 public static
 {
 	[Import("RpcProxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetExtensionVersion(HSE_VERSION_INFO pVer);
+	public static extern BOOL GetExtensionVersion(HSE_VERSION_INFO* pVer);
 
 	[Import("RpcProxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpExtensionProc(EXTENSION_CONTROL_BLOCK pECB);
+	public static extern uint32 HttpExtensionProc(EXTENSION_CONTROL_BLOCK* pECB);
 
 	[Import("RpcProxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpFilterProc(HTTP_FILTER_CONTEXT pfc, uint32 NotificationType, void pvNotification);
+	public static extern uint32 HttpFilterProc(HTTP_FILTER_CONTEXT* pfc, uint32 NotificationType, void* pvNotification);
 
 	[Import("RpcProxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetFilterVersion(HTTP_FILTER_VERSION pVer);
+	public static extern BOOL GetFilterVersion(HTTP_FILTER_VERSION* pVer);
 
 }
 #endregion

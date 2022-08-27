@@ -122,7 +122,7 @@ public function uint32 PNS_CONTEXT_COMMIT_FN(uint32 dwAction);
 
 public function uint32 PNS_CONTEXT_CONNECT_FN(PWSTR pwszMachine);
 
-public function uint32 PNS_CONTEXT_DUMP_FN(PWSTR pwszRouter, PWSTR* ppwcArguments, uint32 dwArgCount, void pvData);
+public function uint32 PNS_CONTEXT_DUMP_FN(PWSTR pwszRouter, PWSTR* ppwcArguments, uint32 dwArgCount, void* pvData);
 
 public function uint32 PNS_DLL_STOP_FN(uint32 dwReserved);
 
@@ -130,11 +130,11 @@ public function uint32 PNS_HELPER_START_FN(Guid pguidParent, uint32 dwVersion);
 
 public function uint32 PNS_HELPER_STOP_FN(uint32 dwReserved);
 
-public function uint32 PFN_HANDLE_CMD(PWSTR pwszMachine, PWSTR* ppwcArguments, uint32 dwCurrentIndex, uint32 dwArgCount, uint32 dwFlags, void pvData, BOOL pbDone);
+public function uint32 PFN_HANDLE_CMD(PWSTR pwszMachine, PWSTR* ppwcArguments, uint32 dwCurrentIndex, uint32 dwArgCount, uint32 dwFlags, void* pvData, BOOL* pbDone);
 
 public function BOOL PNS_OSVERSIONCHECK(uint32 CIMOSType, uint32 CIMOSProductSuite, PWSTR CIMOSVersion, PWSTR CIMOSBuildNumber, PWSTR CIMServicePackMajorVersion, PWSTR CIMServicePackMinorVersion, uint32 uiReserved, uint32 dwReserved);
 
-public function uint32 PNS_DLL_INIT_FN(uint32 dwNetshVersion, void pReserved);
+public function uint32 PNS_DLL_INIT_FN(uint32 dwNetshVersion, void* pReserved);
 
 #endregion
 
@@ -187,7 +187,7 @@ public struct CMD_GROUP_ENTRY
 	public uint32 dwShortCmdHelpToken;
 	public uint32 ulCmdGroupSize;
 	public uint32 dwFlags;
-	public CMD_ENTRY pCmdGroup;
+	public CMD_ENTRY* pCmdGroup;
 	public PNS_OSVERSIONCHECK pOsVersionCheck;
 }
 
@@ -214,13 +214,13 @@ public struct NS_CONTEXT_ATTRIBUTES
 	public uint32 dwFlags;
 	public uint32 ulPriority;
 	public uint32 ulNumTopCmds;
-	public CMD_ENTRY pTopCmds;
+	public CMD_ENTRY* pTopCmds;
 	public uint32 ulNumGroups;
-	public CMD_GROUP_ENTRY pCmdGroups;
+	public CMD_GROUP_ENTRY* pCmdGroups;
 	public PNS_CONTEXT_COMMIT_FN pfnCommitFn;
 	public PNS_CONTEXT_DUMP_FN pfnDumpFn;
 	public PNS_CONTEXT_CONNECT_FN pfnConnectFn;
-	public void pReserved;
+	public void* pReserved;
 	public PNS_OSVERSIONCHECK pfnOsVersionCheck;
 }
 
@@ -247,13 +247,13 @@ public static
 public static
 {
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MatchEnumTag(HANDLE hModule, PWSTR pwcArg, uint32 dwNumArg, TOKEN_VALUE pEnumTable, uint32 pdwValue);
+	public static extern uint32 MatchEnumTag(HANDLE hModule, PWSTR pwcArg, uint32 dwNumArg, TOKEN_VALUE* pEnumTable, uint32* pdwValue);
 
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MatchToken(PWSTR pwszUserToken, PWSTR pwszCmdToken);
 
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PreprocessCommand(HANDLE hModule, PWSTR* ppwcArguments, uint32 dwCurrentIndex, uint32 dwArgCount, TAG_TYPE* pttTags, uint32 dwTagCount, uint32 dwMinArgs, uint32 dwMaxArgs, uint32 pdwTagType);
+	public static extern uint32 PreprocessCommand(HANDLE hModule, PWSTR* ppwcArguments, uint32 dwCurrentIndex, uint32 dwArgCount, TAG_TYPE* pttTags, uint32 dwTagCount, uint32 dwMinArgs, uint32 dwMaxArgs, uint32* pdwTagType);
 
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PrintError(HANDLE hModule, uint32 dwErrId);
@@ -265,10 +265,10 @@ public static
 	public static extern uint32 PrintMessage(PWSTR pwszFormat);
 
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterContext(NS_CONTEXT_ATTRIBUTES pChildContext);
+	public static extern uint32 RegisterContext(NS_CONTEXT_ATTRIBUTES* pChildContext);
 
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterHelper(Guid pguidParentContext, NS_HELPER_ATTRIBUTES pfnRegisterSubContext);
+	public static extern uint32 RegisterHelper(Guid pguidParentContext, NS_HELPER_ATTRIBUTES* pfnRegisterSubContext);
 
 }
 #endregion

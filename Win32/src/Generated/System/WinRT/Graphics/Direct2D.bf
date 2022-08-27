@@ -50,25 +50,25 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, Guid id) GetEffectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, PWSTR name, uint32 index, GRAPHICS_EFFECT_PROPERTY_MAPPING mapping) GetNamedPropertyMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, uint32 count) GetPropertyCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, uint32 index, void* value) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, uint32 index, void* source) GetSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, uint32 count) GetSourceCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, PWSTR name, uint32* index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) GetNamedPropertyMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, uint32* count) GetPropertyCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, uint32 index, void** value) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, uint32 index, void** source) GetSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, uint32* count) GetSourceCount;
 	}
 
 
 	public HRESULT GetEffectId(Guid id) mut => VT.[Friend]GetEffectId(&this, id);
 
-	public HRESULT GetNamedPropertyMapping(PWSTR name, uint32 index, GRAPHICS_EFFECT_PROPERTY_MAPPING mapping) mut => VT.[Friend]GetNamedPropertyMapping(&this, name, index, mapping);
+	public HRESULT GetNamedPropertyMapping(PWSTR name, uint32* index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) mut => VT.[Friend]GetNamedPropertyMapping(&this, name, index, mapping);
 
-	public HRESULT GetPropertyCount(uint32 count) mut => VT.[Friend]GetPropertyCount(&this, count);
+	public HRESULT GetPropertyCount(uint32* count) mut => VT.[Friend]GetPropertyCount(&this, count);
 
-	public HRESULT GetProperty(uint32 index, void* value) mut => VT.[Friend]GetProperty(&this, index, value);
+	public HRESULT GetProperty(uint32 index, void** value) mut => VT.[Friend]GetProperty(&this, index, value);
 
-	public HRESULT GetSource(uint32 index, void* source) mut => VT.[Friend]GetSource(&this, index, source);
+	public HRESULT GetSource(uint32 index, void** source) mut => VT.[Friend]GetSource(&this, index, source);
 
-	public HRESULT GetSourceCount(uint32 count) mut => VT.[Friend]GetSourceCount(&this, count);
+	public HRESULT GetSourceCount(uint32* count) mut => VT.[Friend]GetSourceCount(&this, count);
 }
 
 [CRepr]struct IGeometrySource2DInterop : IUnknown
@@ -79,14 +79,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGeometrySource2DInterop*/SelfOuter* self, ID2D1Geometry* value) GetGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGeometrySource2DInterop*/SelfOuter* self, ID2D1Factory* factory, ID2D1Geometry* value) TryGetGeometryUsingFactory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGeometrySource2DInterop*/SelfOuter* self, ID2D1Geometry** value) GetGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGeometrySource2DInterop*/SelfOuter* self, ID2D1Factory* factory, ID2D1Geometry** value) TryGetGeometryUsingFactory;
 	}
 
 
-	public HRESULT GetGeometry(ID2D1Geometry* value) mut => VT.[Friend]GetGeometry(&this, value);
+	public HRESULT GetGeometry(ID2D1Geometry** value) mut => VT.[Friend]GetGeometry(&this, value);
 
-	public HRESULT TryGetGeometryUsingFactory(ID2D1Factory* factory, ID2D1Geometry* value) mut => VT.[Friend]TryGetGeometryUsingFactory(&this, factory, value);
+	public HRESULT TryGetGeometryUsingFactory(ID2D1Factory* factory, ID2D1Geometry** value) mut => VT.[Friend]TryGetGeometryUsingFactory(&this, factory, value);
 }
 
 #endregion

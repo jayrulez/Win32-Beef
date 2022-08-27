@@ -147,7 +147,7 @@ public struct SAFER_CODE_PROPERTIES_V1
 	public uint32 dwImageHashSize;
 	public LARGE_INTEGER ImageSize;
 	public uint32 HashAlgorithm;
-	public uint8 pByteBlock;
+	public uint8* pByteBlock;
 	public HWND hWndParent;
 	public uint32 dwWVTUIChoice;
 }
@@ -164,7 +164,7 @@ public struct SAFER_CODE_PROPERTIES_V2
 	public uint32 dwImageHashSize;
 	public LARGE_INTEGER ImageSize;
 	public uint32 HashAlgorithm;
-	public uint8 pByteBlock;
+	public uint8* pByteBlock;
 	public HWND hWndParent;
 	public uint32 dwWVTUIChoice;
 	public PWSTR PackageMoniker;
@@ -237,31 +237,31 @@ public static
 public static
 {
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SaferGetPolicyInformation(uint32 dwScopeId, SAFER_POLICY_INFO_CLASS SaferPolicyInfoClass, uint32 InfoBufferSize, void InfoBuffer, uint32 InfoBufferRetSize, void lpReserved);
+	public static extern BOOL SaferGetPolicyInformation(uint32 dwScopeId, SAFER_POLICY_INFO_CLASS SaferPolicyInfoClass, uint32 InfoBufferSize, void* InfoBuffer, uint32* InfoBufferRetSize, void* lpReserved);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SaferSetPolicyInformation(uint32 dwScopeId, SAFER_POLICY_INFO_CLASS SaferPolicyInfoClass, uint32 InfoBufferSize, void InfoBuffer, void lpReserved);
+	public static extern BOOL SaferSetPolicyInformation(uint32 dwScopeId, SAFER_POLICY_INFO_CLASS SaferPolicyInfoClass, uint32 InfoBufferSize, void* InfoBuffer, void* lpReserved);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SaferCreateLevel(uint32 dwScopeId, uint32 dwLevelId, uint32 OpenFlags, SAFER_LEVEL_HANDLE pLevelHandle, void lpReserved);
+	public static extern BOOL SaferCreateLevel(uint32 dwScopeId, uint32 dwLevelId, uint32 OpenFlags, SAFER_LEVEL_HANDLE* pLevelHandle, void* lpReserved);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SaferCloseLevel(SAFER_LEVEL_HANDLE hLevelHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SaferIdentifyLevel(uint32 dwNumProperties, SAFER_CODE_PROPERTIES_V2* pCodeProperties, SAFER_LEVEL_HANDLE pLevelHandle, void lpReserved);
+	public static extern BOOL SaferIdentifyLevel(uint32 dwNumProperties, SAFER_CODE_PROPERTIES_V2* pCodeProperties, SAFER_LEVEL_HANDLE* pLevelHandle, void* lpReserved);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SaferComputeTokenFromLevel(SAFER_LEVEL_HANDLE LevelHandle, HANDLE InAccessToken, HANDLE OutAccessToken, SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS dwFlags, void lpReserved);
+	public static extern BOOL SaferComputeTokenFromLevel(SAFER_LEVEL_HANDLE LevelHandle, HANDLE InAccessToken, HANDLE* OutAccessToken, SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS dwFlags, void* lpReserved);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SaferGetLevelInformation(SAFER_LEVEL_HANDLE LevelHandle, SAFER_OBJECT_INFO_CLASS dwInfoType, void lpQueryBuffer, uint32 dwInBufferSize, uint32 lpdwOutBufferSize);
+	public static extern BOOL SaferGetLevelInformation(SAFER_LEVEL_HANDLE LevelHandle, SAFER_OBJECT_INFO_CLASS dwInfoType, void* lpQueryBuffer, uint32 dwInBufferSize, uint32* lpdwOutBufferSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SaferSetLevelInformation(SAFER_LEVEL_HANDLE LevelHandle, SAFER_OBJECT_INFO_CLASS dwInfoType, void lpQueryBuffer, uint32 dwInBufferSize);
+	public static extern BOOL SaferSetLevelInformation(SAFER_LEVEL_HANDLE LevelHandle, SAFER_OBJECT_INFO_CLASS dwInfoType, void* lpQueryBuffer, uint32 dwInBufferSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SaferRecordEventLogEntry(SAFER_LEVEL_HANDLE hLevel, PWSTR szTargetPath, void lpReserved);
+	public static extern BOOL SaferRecordEventLogEntry(SAFER_LEVEL_HANDLE hLevel, PWSTR szTargetPath, void* lpReserved);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SaferiIsExecutableFileType(PWSTR szFullPathname, BOOLEAN bFromShellExecute);

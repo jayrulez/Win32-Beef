@@ -89,14 +89,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationBuffer*/SelfOuter* self, HANDLE availableEventHandle) GetAvailableEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationBuffer*/SelfOuter* self, uint8 isAvailable) IsAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationBuffer*/SelfOuter* self, HANDLE* availableEventHandle) GetAvailableEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationBuffer*/SelfOuter* self, uint8* isAvailable) IsAvailable;
 	}
 
 
-	public HRESULT GetAvailableEvent(HANDLE availableEventHandle) mut => VT.[Friend]GetAvailableEvent(&this, availableEventHandle);
+	public HRESULT GetAvailableEvent(HANDLE* availableEventHandle) mut => VT.[Friend]GetAvailableEvent(&this, availableEventHandle);
 
-	public HRESULT IsAvailable(uint8 isAvailable) mut => VT.[Friend]IsAvailable(&this, isAvailable);
+	public HRESULT IsAvailable(uint8* isAvailable) mut => VT.[Friend]IsAvailable(&this, isAvailable);
 }
 
 [CRepr]struct IPresentationContent : IUnknown
@@ -125,8 +125,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, IPresentationBuffer* presentationBuffer) SetBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, DXGI_COLOR_SPACE_TYPE colorSpace) SetColorSpace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, DXGI_ALPHA_MODE alphaMode) SetAlphaMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, RECT sourceRect) SetSourceRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, PresentationTransform transform) SetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, RECT* sourceRect) SetSourceRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, PresentationTransform* transform) SetTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, IUnknown* output) RestrictToOutput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, uint8 value) SetDisableReadback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, float leftLetterboxSize, float topLetterboxSize, float rightLetterboxSize, float bottomLetterboxSize) SetLetterboxingMargins;
@@ -139,9 +139,9 @@ public static
 
 	public HRESULT SetAlphaMode(DXGI_ALPHA_MODE alphaMode) mut => VT.[Friend]SetAlphaMode(&this, alphaMode);
 
-	public HRESULT SetSourceRect(RECT sourceRect) mut => VT.[Friend]SetSourceRect(&this, sourceRect);
+	public HRESULT SetSourceRect(RECT* sourceRect) mut => VT.[Friend]SetSourceRect(&this, sourceRect);
 
-	public HRESULT SetTransform(PresentationTransform transform) mut => VT.[Friend]SetTransform(&this, transform);
+	public HRESULT SetTransform(PresentationTransform* transform) mut => VT.[Friend]SetTransform(&this, transform);
 
 	public HRESULT RestrictToOutput(IUnknown* output) mut => VT.[Friend]RestrictToOutput(&this, output);
 
@@ -176,25 +176,25 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, IUnknown* resource, IPresentationBuffer* presentationBuffer) AddBufferFromResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, HANDLE compositionSurfaceHandle, IPresentationSurface* presentationSurface) CreatePresentationSurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, IUnknown* resource, IPresentationBuffer** presentationBuffer) AddBufferFromResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, HANDLE compositionSurfaceHandle, IPresentationSurface** presentationSurface) CreatePresentationSurface;
 		protected new function [CallingConvention(.Stdcall)] uint64(/*IPresentationManager*/SelfOuter* self) GetNextPresentId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, SystemInterruptTime targetTime) SetTargetTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, SystemInterruptTime preferredDuration, SystemInterruptTime deviationTolerance) SetPreferredPresentDuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, uint8 forceVsyncInterrupt) ForceVSyncInterrupt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self) Present;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, Guid riid, void fence) GetPresentRetiringFence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, Guid riid, void** fence) GetPresentRetiringFence;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, uint64 presentIdToCancelFrom) CancelPresentsFrom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, HANDLE lostEventHandle) GetLostEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, HANDLE presentStatisticsAvailableEventHandle) GetPresentStatisticsAvailableEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, HANDLE* lostEventHandle) GetLostEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, HANDLE* presentStatisticsAvailableEventHandle) GetPresentStatisticsAvailableEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, PresentStatisticsKind presentStatisticsKind, uint8 enabled) EnablePresentStatisticsKind;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, IPresentStatistics* nextPresentStatistics) GetNextPresentStatistics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, IPresentStatistics** nextPresentStatistics) GetNextPresentStatistics;
 	}
 
 
-	public HRESULT AddBufferFromResource(IUnknown* resource, IPresentationBuffer* presentationBuffer) mut => VT.[Friend]AddBufferFromResource(&this, resource, presentationBuffer);
+	public HRESULT AddBufferFromResource(IUnknown* resource, IPresentationBuffer** presentationBuffer) mut => VT.[Friend]AddBufferFromResource(&this, resource, presentationBuffer);
 
-	public HRESULT CreatePresentationSurface(HANDLE compositionSurfaceHandle, IPresentationSurface* presentationSurface) mut => VT.[Friend]CreatePresentationSurface(&this, compositionSurfaceHandle, presentationSurface);
+	public HRESULT CreatePresentationSurface(HANDLE compositionSurfaceHandle, IPresentationSurface** presentationSurface) mut => VT.[Friend]CreatePresentationSurface(&this, compositionSurfaceHandle, presentationSurface);
 
 	public uint64 GetNextPresentId() mut => VT.[Friend]GetNextPresentId(&this);
 
@@ -206,17 +206,17 @@ public static
 
 	public HRESULT Present() mut => VT.[Friend]Present(&this);
 
-	public HRESULT GetPresentRetiringFence(Guid riid, void fence) mut => VT.[Friend]GetPresentRetiringFence(&this, riid, fence);
+	public HRESULT GetPresentRetiringFence(Guid riid, void** fence) mut => VT.[Friend]GetPresentRetiringFence(&this, riid, fence);
 
 	public HRESULT CancelPresentsFrom(uint64 presentIdToCancelFrom) mut => VT.[Friend]CancelPresentsFrom(&this, presentIdToCancelFrom);
 
-	public HRESULT GetLostEvent(HANDLE lostEventHandle) mut => VT.[Friend]GetLostEvent(&this, lostEventHandle);
+	public HRESULT GetLostEvent(HANDLE* lostEventHandle) mut => VT.[Friend]GetLostEvent(&this, lostEventHandle);
 
-	public HRESULT GetPresentStatisticsAvailableEvent(HANDLE presentStatisticsAvailableEventHandle) mut => VT.[Friend]GetPresentStatisticsAvailableEvent(&this, presentStatisticsAvailableEventHandle);
+	public HRESULT GetPresentStatisticsAvailableEvent(HANDLE* presentStatisticsAvailableEventHandle) mut => VT.[Friend]GetPresentStatisticsAvailableEvent(&this, presentStatisticsAvailableEventHandle);
 
 	public HRESULT EnablePresentStatisticsKind(PresentStatisticsKind presentStatisticsKind, uint8 enabled) mut => VT.[Friend]EnablePresentStatisticsKind(&this, presentStatisticsKind, enabled);
 
-	public HRESULT GetNextPresentStatistics(IPresentStatistics* nextPresentStatistics) mut => VT.[Friend]GetNextPresentStatistics(&this, nextPresentStatistics);
+	public HRESULT GetNextPresentStatistics(IPresentStatistics** nextPresentStatistics) mut => VT.[Friend]GetNextPresentStatistics(&this, nextPresentStatistics);
 }
 
 [CRepr]struct IPresentationFactory : IUnknown
@@ -229,7 +229,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] uint8(/*IPresentationFactory*/SelfOuter* self) IsPresentationSupported;
 		protected new function [CallingConvention(.Stdcall)] uint8(/*IPresentationFactory*/SelfOuter* self) IsPresentationSupportedWithIndependentFlip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationFactory*/SelfOuter* self, IPresentationManager* ppPresentationManager) CreatePresentationManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationFactory*/SelfOuter* self, IPresentationManager** ppPresentationManager) CreatePresentationManager;
 	}
 
 
@@ -237,7 +237,7 @@ public static
 
 	public uint8 IsPresentationSupportedWithIndependentFlip() mut => VT.[Friend]IsPresentationSupportedWithIndependentFlip(&this);
 
-	public HRESULT CreatePresentationManager(IPresentationManager* ppPresentationManager) mut => VT.[Friend]CreatePresentationManager(&this, ppPresentationManager);
+	public HRESULT CreatePresentationManager(IPresentationManager** ppPresentationManager) mut => VT.[Friend]CreatePresentationManager(&this, ppPresentationManager);
 }
 
 [CRepr]struct IPresentStatusPresentStatistics : IPresentStatistics
@@ -268,7 +268,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] uint(/*ICompositionFramePresentStatistics*/SelfOuter* self) GetContentTag;
 		protected new function [CallingConvention(.Stdcall)] uint64(/*ICompositionFramePresentStatistics*/SelfOuter* self) GetCompositionFrameId;
-		protected new function [CallingConvention(.Stdcall)] void(/*ICompositionFramePresentStatistics*/SelfOuter* self, uint32 displayInstanceArrayCount, CompositionFrameDisplayInstance displayInstanceArray) GetDisplayInstanceArray;
+		protected new function [CallingConvention(.Stdcall)] void(/*ICompositionFramePresentStatistics*/SelfOuter* self, uint32* displayInstanceArrayCount, CompositionFrameDisplayInstance** displayInstanceArray) GetDisplayInstanceArray;
 	}
 
 
@@ -276,7 +276,7 @@ public static
 
 	public uint64 GetCompositionFrameId() mut => VT.[Friend]GetCompositionFrameId(&this);
 
-	public void GetDisplayInstanceArray(uint32 displayInstanceArrayCount, CompositionFrameDisplayInstance displayInstanceArray) mut => VT.[Friend]GetDisplayInstanceArray(&this, displayInstanceArrayCount, displayInstanceArray);
+	public void GetDisplayInstanceArray(uint32* displayInstanceArrayCount, CompositionFrameDisplayInstance** displayInstanceArray) mut => VT.[Friend]GetDisplayInstanceArray(&this, displayInstanceArrayCount, displayInstanceArray);
 }
 
 [CRepr]struct IIndependentFlipFramePresentStatistics : IPresentStatistics
@@ -312,7 +312,7 @@ public static
 public static
 {
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreatePresentationFactory(IUnknown* d3dDevice, Guid riid, void presentationFactory);
+	public static extern HRESULT CreatePresentationFactory(IUnknown* d3dDevice, Guid riid, void** presentationFactory);
 
 }
 #endregion

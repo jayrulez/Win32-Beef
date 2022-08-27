@@ -3192,7 +3192,7 @@ public enum FS_BPIO_OUTFLAGS : int32
 #endregion
 
 #region Function Pointers
-public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRACK_OFFSET_HEADER SourceContext, IO_IRP_EXT_TRACK_OFFSET_HEADER TargetContext, int64 RelativeOffset);
+public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRACK_OFFSET_HEADER* SourceContext, IO_IRP_EXT_TRACK_OFFSET_HEADER* TargetContext, int64 RelativeOffset);
 
 #endregion
 
@@ -5631,7 +5631,7 @@ public struct DISK_HISTOGRAM
 	public uint32 Size;
 	public uint32 ReadCount;
 	public uint32 WriteCount;
-	public HISTOGRAM_BUCKET Histogram;
+	public HISTOGRAM_BUCKET* Histogram;
 }
 
 [CRepr]
@@ -5657,7 +5657,7 @@ public struct DISK_RECORD
 	public LARGE_INTEGER ByteOffset;
 	public LARGE_INTEGER StartTime;
 	public LARGE_INTEGER EndTime;
-	public void VirtualAddress;
+	public void* VirtualAddress;
 	public uint32 NumberOfBytes;
 	public uint8 DeviceNumber;
 	public BOOLEAN ReadRequest;
@@ -5667,7 +5667,7 @@ public struct DISK_RECORD
 public struct DISK_LOGGING
 {
 	public uint8 Function;
-	public void BufferAddress;
+	public void* BufferAddress;
 	public uint32 BufferSize;
 }
 
@@ -6363,7 +6363,7 @@ public struct FILE_PREFETCH_EX
 {
 	public uint32 Type;
 	public uint32 Count;
-	public void Context;
+	public void* Context;
 	public uint64[1] Prefetch;
 }
 

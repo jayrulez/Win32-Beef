@@ -2120,23 +2120,23 @@ public enum HTTP_POLICY_EXTENSION_VERSION : int32
 #endregion
 
 #region Function Pointers
-public function void LPINTERNET_STATUS_CALLBACK(void hInternet, uint dwContext, uint32 dwInternetStatus, void lpvStatusInformation, uint32 dwStatusInformationLength);
+public function void LPINTERNET_STATUS_CALLBACK(void* hInternet, uint dwContext, uint32 dwInternetStatus, void* lpvStatusInformation, uint32 dwStatusInformationLength);
 
-public function BOOL GOPHER_ATTRIBUTE_ENUMERATOR(GOPHER_ATTRIBUTE_TYPE lpAttributeInfo, uint32 dwError);
+public function BOOL GOPHER_ATTRIBUTE_ENUMERATOR(GOPHER_ATTRIBUTE_TYPE* lpAttributeInfo, uint32 dwError);
 
-public function uint32 PFN_AUTH_NOTIFY(uint param0, uint32 param1, void param2);
+public function uint32 PFN_AUTH_NOTIFY(uint param0, uint32 param1, void* param2);
 
-public function BOOL pfnInternetInitializeAutoProxyDll(uint32 dwVersion, PSTR lpszDownloadedTempFile, PSTR lpszMime, AutoProxyHelperFunctions lpAutoProxyCallbacks, AUTO_PROXY_SCRIPT_BUFFER lpAutoProxyScriptBuffer);
+public function BOOL pfnInternetInitializeAutoProxyDll(uint32 dwVersion, PSTR lpszDownloadedTempFile, PSTR lpszMime, AutoProxyHelperFunctions* lpAutoProxyCallbacks, AUTO_PROXY_SCRIPT_BUFFER* lpAutoProxyScriptBuffer);
 
 public function BOOL pfnInternetDeInitializeAutoProxyDll(PSTR lpszMime, uint32 dwReserved);
 
-public function BOOL pfnInternetGetProxyInfo(PSTR lpszUrl, uint32 dwUrlLength, PSTR lpszUrlHostName, uint32 dwUrlHostNameLength, PSTR lplpszProxyHostName, uint32 lpdwProxyHostNameLength);
+public function BOOL pfnInternetGetProxyInfo(PSTR lpszUrl, uint32 dwUrlLength, PSTR lpszUrlHostName, uint32 dwUrlHostNameLength, PSTR* lplpszProxyHostName, uint32* lpdwProxyHostNameLength);
 
-public function uint32 PFN_DIAL_HANDLER(HWND param0, PSTR param1, uint32 param2, uint32 param3);
+public function uint32 PFN_DIAL_HANDLER(HWND param0, PSTR param1, uint32 param2, uint32* param3);
 
-public function BOOL CACHE_OPERATOR(INTERNET_CACHE_ENTRY_INFOA pcei, uint32 pcbcei, void pOpData);
+public function BOOL CACHE_OPERATOR(INTERNET_CACHE_ENTRY_INFOA* pcei, uint32* pcbcei, void* pOpData);
 
-public function uint32 HTTP_POLICY_EXTENSION_INIT(HTTP_POLICY_EXTENSION_VERSION Version, HTTP_POLICY_EXTENSION_TYPE Type, void pvData, uint32 cbData);
+public function uint32 HTTP_POLICY_EXTENSION_INIT(HTTP_POLICY_EXTENSION_VERSION Version, HTTP_POLICY_EXTENSION_TYPE Type, void* pvData, uint32 cbData);
 
 public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE Type);
 
@@ -2163,8 +2163,8 @@ public struct INTERNET_DIAGNOSTIC_SOCKET_INFO
 public struct INTERNET_PROXY_INFO
 {
 	public INTERNET_ACCESS_TYPE dwAccessType;
-	public int8 lpszProxy;
-	public int8 lpszProxyBypass;
+	public int8* lpszProxy;
+	public int8* lpszProxyBypass;
 }
 
 [CRepr]
@@ -2204,7 +2204,7 @@ public struct INTERNET_PER_CONN_OPTION_LISTA
 	public PSTR pszConnection;
 	public uint32 dwOptionCount;
 	public uint32 dwOptionError;
-	public INTERNET_PER_CONN_OPTIONA pOptions;
+	public INTERNET_PER_CONN_OPTIONA* pOptions;
 }
 
 [CRepr]
@@ -2214,7 +2214,7 @@ public struct INTERNET_PER_CONN_OPTION_LISTW
 	public PWSTR pszConnection;
 	public uint32 dwOptionCount;
 	public uint32 dwOptionError;
-	public INTERNET_PER_CONN_OPTIONW pOptions;
+	public INTERNET_PER_CONN_OPTIONW* pOptions;
 }
 
 [CRepr]
@@ -2276,11 +2276,11 @@ public struct INTERNET_CERTIFICATE_INFO
 {
 	public FILETIME ftExpiry;
 	public FILETIME ftStart;
-	public int8 lpszSubjectInfo;
-	public int8 lpszIssuerInfo;
-	public int8 lpszProtocolName;
-	public int8 lpszSignatureAlgName;
-	public int8 lpszEncryptionAlgName;
+	public int8* lpszSubjectInfo;
+	public int8* lpszIssuerInfo;
+	public int8* lpszProtocolName;
+	public int8* lpszSignatureAlgName;
+	public int8* lpszEncryptionAlgName;
 	public uint32 dwKeySize;
 }
 
@@ -2288,11 +2288,11 @@ public struct INTERNET_CERTIFICATE_INFO
 public struct INTERNET_BUFFERSA
 {
 	public uint32 dwStructSize;
-	public INTERNET_BUFFERSA Next;
+	public INTERNET_BUFFERSA* Next;
 	public PSTR lpcszHeader;
 	public uint32 dwHeadersLength;
 	public uint32 dwHeadersTotal;
-	public void lpvBuffer;
+	public void* lpvBuffer;
 	public uint32 dwBufferLength;
 	public uint32 dwBufferTotal;
 	public uint32 dwOffsetLow;
@@ -2303,11 +2303,11 @@ public struct INTERNET_BUFFERSA
 public struct INTERNET_BUFFERSW
 {
 	public uint32 dwStructSize;
-	public INTERNET_BUFFERSW Next;
+	public INTERNET_BUFFERSW* Next;
 	public PWSTR lpcszHeader;
 	public uint32 dwHeadersLength;
 	public uint32 dwHeadersTotal;
-	public void lpvBuffer;
+	public void* lpvBuffer;
 	public uint32 dwBufferLength;
 	public uint32 dwBufferTotal;
 	public uint32 dwOffsetLow;
@@ -2375,8 +2375,8 @@ public struct GOPHER_FIND_DATAW
 [CRepr]
 public struct GOPHER_ADMIN_ATTRIBUTE_TYPE
 {
-	public int8 Comment;
-	public int8 EmailAddress;
+	public int8* Comment;
+	public int8* EmailAddress;
 }
 
 [CRepr]
@@ -2407,19 +2407,19 @@ public struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE
 [CRepr]
 public struct GOPHER_SITE_ATTRIBUTE_TYPE
 {
-	public int8 Site;
+	public int8* Site;
 }
 
 [CRepr]
 public struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE
 {
-	public int8 Organization;
+	public int8* Organization;
 }
 
 [CRepr]
 public struct GOPHER_LOCATION_ATTRIBUTE_TYPE
 {
-	public int8 Location;
+	public int8* Location;
 }
 
 [CRepr]
@@ -2442,27 +2442,27 @@ public struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE
 [CRepr]
 public struct GOPHER_PROVIDER_ATTRIBUTE_TYPE
 {
-	public int8 Provider;
+	public int8* Provider;
 }
 
 [CRepr]
 public struct GOPHER_VERSION_ATTRIBUTE_TYPE
 {
-	public int8 Version;
+	public int8* Version;
 }
 
 [CRepr]
 public struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE
 {
-	public int8 ShortAbstract;
-	public int8 AbstractFile;
+	public int8* ShortAbstract;
+	public int8* AbstractFile;
 }
 
 [CRepr]
 public struct GOPHER_VIEW_ATTRIBUTE_TYPE
 {
-	public int8 ContentType;
-	public int8 Language;
+	public int8* ContentType;
+	public int8* Language;
 	public uint32 Size;
 }
 
@@ -2475,14 +2475,14 @@ public struct GOPHER_VERONICA_ATTRIBUTE_TYPE
 [CRepr]
 public struct GOPHER_ASK_ATTRIBUTE_TYPE
 {
-	public int8 QuestionType;
-	public int8 QuestionText;
+	public int8* QuestionType;
+	public int8* QuestionText;
 }
 
 [CRepr]
 public struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE
 {
-	public int8 Text;
+	public int8* Text;
 }
 
 [CRepr]
@@ -2648,7 +2648,7 @@ public struct AUTO_PROXY_SCRIPT_BUFFER
 [CRepr]
 public struct AutoProxyHelperFunctions
 {
-	public AutoProxyHelperVtbl lpVtbl;
+	public AutoProxyHelperVtbl* lpVtbl;
 }
 
 [CRepr]
@@ -2662,11 +2662,11 @@ public struct INTERNET_PREFETCH_STATUS
 public struct INTERNET_SECURITY_INFO
 {
 	public uint32 dwSize;
-	public CERT_CONTEXT pCertificate;
-	public CERT_CHAIN_CONTEXT pcCertChain;
+	public CERT_CONTEXT* pCertificate;
+	public CERT_CHAIN_CONTEXT* pcCertChain;
 	public SecPkgContext_ConnectionInfo connectionInfo;
 	public SecPkgContext_CipherInfo cipherInfo;
-	public CERT_CHAIN_CONTEXT pcUnverifiedCertChain;
+	public CERT_CHAIN_CONTEXT* pcUnverifiedCertChain;
 	public SecPkgContext_Bindings channelBindingToken;
 }
 
@@ -2683,7 +2683,7 @@ public struct INTERNET_SECURITY_CONNECTION_INFO
 public struct INTERNET_DOWNLOAD_MODE_HANDLE
 {
 	public PWSTR pcwszFileName;
-	public HANDLE phFile;
+	public HANDLE* phFile;
 }
 
 [CRepr]
@@ -2709,7 +2709,7 @@ public struct INTERNET_SERVER_CONNECTION_STATE
 [CRepr]
 public struct INTERNET_END_BROWSER_SESSION_DATA
 {
-	public void lpBuffer;
+	public void* lpBuffer;
 	public uint32 dwBufferLength;
 }
 
@@ -2738,7 +2738,7 @@ public struct INTERNET_CREDENTIALS
 		}
 
 		public using _Anonymous_e__Struct Anonymous;
-		public void pAuthIdentityOpaque;
+		public void* pAuthIdentityOpaque;
 	}
 
 	public PWSTR lpcwszHostName;
@@ -2772,7 +2772,7 @@ public struct INTERNET_COOKIE
 	public PSTR pszData;
 	public PSTR pszDomain;
 	public PSTR pszPath;
-	public FILETIME pftExpires;
+	public FILETIME* pftExpires;
 	public uint32 dwFlags;
 	public PSTR pszUrl;
 	public PSTR pszP3PPolicy;
@@ -2782,7 +2782,7 @@ public struct INTERNET_COOKIE
 public struct COOKIE_DLG_INFO
 {
 	public PWSTR pszServer;
-	public INTERNET_COOKIE pic;
+	public INTERNET_COOKIE* pic;
 	public uint32 dwStopWarning;
 	public int32 cx;
 	public int32 cy;
@@ -2893,7 +2893,7 @@ public struct APP_CACHE_DOWNLOAD_ENTRY
 public struct APP_CACHE_DOWNLOAD_LIST
 {
 	public uint32 dwEntryCount;
-	public APP_CACHE_DOWNLOAD_ENTRY pEntries;
+	public APP_CACHE_DOWNLOAD_ENTRY* pEntries;
 }
 
 [CRepr]
@@ -2908,7 +2908,7 @@ public struct APP_CACHE_GROUP_INFO
 public struct APP_CACHE_GROUP_LIST
 {
 	public uint32 dwAppCacheGroupCount;
-	public APP_CACHE_GROUP_INFO pAppCacheGroups;
+	public APP_CACHE_GROUP_INFO* pAppCacheGroups;
 }
 
 [CRepr]
@@ -2925,9 +2925,9 @@ public struct URLCACHE_ENTRY_INFO
 	public FILETIME ftExpireTime;
 	public FILETIME ftLastAccessTime;
 	public FILETIME ftLastSyncTime;
-	public uint8 pbHeaderInfo;
+	public uint8* pbHeaderInfo;
 	public uint32 cbHeaderInfoSize;
-	public uint8 pbExtraData;
+	public uint8* pbExtraData;
 	public uint32 cbExtraDataSize;
 }
 
@@ -2945,7 +2945,7 @@ public struct WININET_PROXY_INFO
 public struct WININET_PROXY_INFO_LIST
 {
 	public uint32 dwProxyInfoCount;
-	public WININET_PROXY_INFO pProxyInfo;
+	public WININET_PROXY_INFO* pProxyInfo;
 }
 
 [CRepr]
@@ -3006,8 +3006,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self, PWSTR pwzProperty, PWSTR pwzValue) SetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self) Dial;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self) HangUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self, uint32 pdwState) GetConnectedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self, uint pdwHandle) GetConnectHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self, uint32* pdwState) GetConnectedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self, uint* pdwHandle) GetConnectHandle;
 	}
 
 
@@ -3021,9 +3021,9 @@ public static
 
 	public HRESULT HangUp() mut => VT.[Friend]HangUp(&this);
 
-	public HRESULT GetConnectedState(uint32 pdwState) mut => VT.[Friend]GetConnectedState(&this, pdwState);
+	public HRESULT GetConnectedState(uint32* pdwState) mut => VT.[Friend]GetConnectedState(&this, pdwState);
 
-	public HRESULT GetConnectHandle(uint pdwHandle) mut => VT.[Friend]GetConnectHandle(&this, pdwHandle);
+	public HRESULT GetConnectHandle(uint* pdwHandle) mut => VT.[Friend]GetConnectHandle(&this, pdwHandle);
 }
 
 [CRepr]struct IDialBranding : IUnknown
@@ -3035,13 +3035,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialBranding*/SelfOuter* self, PWSTR pwzConnectoid) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialBranding*/SelfOuter* self, uint32 dwIndex, HBITMAP phBitmap) GetBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialBranding*/SelfOuter* self, uint32 dwIndex, HBITMAP* phBitmap) GetBitmap;
 	}
 
 
 	public HRESULT Initialize(PWSTR pwzConnectoid) mut => VT.[Friend]Initialize(&this, pwzConnectoid);
 
-	public HRESULT GetBitmap(uint32 dwIndex, HBITMAP phBitmap) mut => VT.[Friend]GetBitmap(&this, dwIndex, phBitmap);
+	public HRESULT GetBitmap(uint32 dwIndex, HBITMAP* phBitmap) mut => VT.[Friend]GetBitmap(&this, dwIndex, phBitmap);
 }
 
 [CRepr]struct IProofOfPossessionCookieInfoManager : IUnknown
@@ -3052,11 +3052,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProofOfPossessionCookieInfoManager*/SelfOuter* self, PWSTR uri, uint32 cookieInfoCount, ProofOfPossessionCookieInfo* cookieInfo) GetCookieInfoForUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProofOfPossessionCookieInfoManager*/SelfOuter* self, PWSTR uri, uint32* cookieInfoCount, ProofOfPossessionCookieInfo** cookieInfo) GetCookieInfoForUri;
 	}
 
 
-	public HRESULT GetCookieInfoForUri(PWSTR uri, uint32 cookieInfoCount, ProofOfPossessionCookieInfo* cookieInfo) mut => VT.[Friend]GetCookieInfoForUri(&this, uri, cookieInfoCount, cookieInfo);
+	public HRESULT GetCookieInfoForUri(PWSTR uri, uint32* cookieInfoCount, ProofOfPossessionCookieInfo** cookieInfo) mut => VT.[Friend]GetCookieInfoForUri(&this, uri, cookieInfoCount, cookieInfo);
 }
 
 [CRepr]struct IProofOfPossessionCookieInfoManager2 : IUnknown
@@ -3067,11 +3067,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProofOfPossessionCookieInfoManager2*/SelfOuter* self, IInspectable* webAccount, PWSTR uri, uint32 cookieInfoCount, ProofOfPossessionCookieInfo* cookieInfo) GetCookieInfoWithUriForAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProofOfPossessionCookieInfoManager2*/SelfOuter* self, IInspectable* webAccount, PWSTR uri, uint32* cookieInfoCount, ProofOfPossessionCookieInfo** cookieInfo) GetCookieInfoWithUriForAccount;
 	}
 
 
-	public HRESULT GetCookieInfoWithUriForAccount(IInspectable* webAccount, PWSTR uri, uint32 cookieInfoCount, ProofOfPossessionCookieInfo* cookieInfo) mut => VT.[Friend]GetCookieInfoWithUriForAccount(&this, webAccount, uri, cookieInfoCount, cookieInfo);
+	public HRESULT GetCookieInfoWithUriForAccount(IInspectable* webAccount, PWSTR uri, uint32* cookieInfoCount, ProofOfPossessionCookieInfo** cookieInfo) mut => VT.[Friend]GetCookieInfoWithUriForAccount(&this, webAccount, uri, cookieInfoCount, cookieInfo);
 }
 
 #endregion
@@ -3080,306 +3080,306 @@ public static
 public static
 {
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetTimeFromSystemTimeA(SYSTEMTIME pst, uint32 dwRFC, PSTR lpszTime, uint32 cbTime);
+	public static extern BOOL InternetTimeFromSystemTimeA(SYSTEMTIME* pst, uint32 dwRFC, PSTR lpszTime, uint32 cbTime);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetTimeFromSystemTimeW(SYSTEMTIME pst, uint32 dwRFC, PWSTR lpszTime, uint32 cbTime);
+	public static extern BOOL InternetTimeFromSystemTimeW(SYSTEMTIME* pst, uint32 dwRFC, PWSTR lpszTime, uint32 cbTime);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetTimeFromSystemTime(SYSTEMTIME pst, uint32 dwRFC, PSTR lpszTime, uint32 cbTime);
+	public static extern BOOL InternetTimeFromSystemTime(SYSTEMTIME* pst, uint32 dwRFC, PSTR lpszTime, uint32 cbTime);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetTimeToSystemTimeA(PSTR lpszTime, SYSTEMTIME pst, uint32 dwReserved);
+	public static extern BOOL InternetTimeToSystemTimeA(PSTR lpszTime, SYSTEMTIME* pst, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetTimeToSystemTimeW(PWSTR lpszTime, SYSTEMTIME pst, uint32 dwReserved);
+	public static extern BOOL InternetTimeToSystemTimeW(PWSTR lpszTime, SYSTEMTIME* pst, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetTimeToSystemTime(PSTR lpszTime, SYSTEMTIME pst, uint32 dwReserved);
+	public static extern BOOL InternetTimeToSystemTime(PSTR lpszTime, SYSTEMTIME* pst, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetCrackUrlA(uint8* lpszUrl, uint32 dwUrlLength, WIN_HTTP_CREATE_URL_FLAGS dwFlags, URL_COMPONENTSA lpUrlComponents);
-	public static BOOL InternetCrackUrl(uint8* lpszUrl, uint32 dwUrlLength, WIN_HTTP_CREATE_URL_FLAGS dwFlags, URL_COMPONENTSA lpUrlComponents) => InternetCrackUrlA(lpszUrl, dwUrlLength, dwFlags, lpUrlComponents);
+	public static extern BOOL InternetCrackUrlA(uint8* lpszUrl, uint32 dwUrlLength, WIN_HTTP_CREATE_URL_FLAGS dwFlags, URL_COMPONENTSA* lpUrlComponents);
+	public static BOOL InternetCrackUrl(uint8* lpszUrl, uint32 dwUrlLength, WIN_HTTP_CREATE_URL_FLAGS dwFlags, URL_COMPONENTSA* lpUrlComponents) => InternetCrackUrlA(lpszUrl, dwUrlLength, dwFlags, lpUrlComponents);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetCrackUrlW(char16* lpszUrl, uint32 dwUrlLength, WIN_HTTP_CREATE_URL_FLAGS dwFlags, URL_COMPONENTSW lpUrlComponents);
+	public static extern BOOL InternetCrackUrlW(char16* lpszUrl, uint32 dwUrlLength, WIN_HTTP_CREATE_URL_FLAGS dwFlags, URL_COMPONENTSW* lpUrlComponents);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetCreateUrlA(URL_COMPONENTSA lpUrlComponents, uint32 dwFlags, uint8* lpszUrl, uint32 lpdwUrlLength);
-	public static BOOL InternetCreateUrl(URL_COMPONENTSA lpUrlComponents, uint32 dwFlags, uint8* lpszUrl, uint32 lpdwUrlLength) => InternetCreateUrlA(lpUrlComponents, dwFlags, lpszUrl, lpdwUrlLength);
+	public static extern BOOL InternetCreateUrlA(URL_COMPONENTSA* lpUrlComponents, uint32 dwFlags, uint8* lpszUrl, uint32* lpdwUrlLength);
+	public static BOOL InternetCreateUrl(URL_COMPONENTSA* lpUrlComponents, uint32 dwFlags, uint8* lpszUrl, uint32* lpdwUrlLength) => InternetCreateUrlA(lpUrlComponents, dwFlags, lpszUrl, lpdwUrlLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetCreateUrlW(URL_COMPONENTSW lpUrlComponents, uint32 dwFlags, char16* lpszUrl, uint32 lpdwUrlLength);
+	public static extern BOOL InternetCreateUrlW(URL_COMPONENTSW* lpUrlComponents, uint32 dwFlags, char16* lpszUrl, uint32* lpdwUrlLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetCanonicalizeUrlA(PSTR lpszUrl, uint8* lpszBuffer, uint32 lpdwBufferLength, uint32 dwFlags);
-	public static BOOL InternetCanonicalizeUrl(PSTR lpszUrl, uint8* lpszBuffer, uint32 lpdwBufferLength, uint32 dwFlags) => InternetCanonicalizeUrlA(lpszUrl, lpszBuffer, lpdwBufferLength, dwFlags);
+	public static extern BOOL InternetCanonicalizeUrlA(PSTR lpszUrl, uint8* lpszBuffer, uint32* lpdwBufferLength, uint32 dwFlags);
+	public static BOOL InternetCanonicalizeUrl(PSTR lpszUrl, uint8* lpszBuffer, uint32* lpdwBufferLength, uint32 dwFlags) => InternetCanonicalizeUrlA(lpszUrl, lpszBuffer, lpdwBufferLength, dwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetCanonicalizeUrlW(PWSTR lpszUrl, char16* lpszBuffer, uint32 lpdwBufferLength, uint32 dwFlags);
+	public static extern BOOL InternetCanonicalizeUrlW(PWSTR lpszUrl, char16* lpszBuffer, uint32* lpdwBufferLength, uint32 dwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetCombineUrlA(PSTR lpszBaseUrl, PSTR lpszRelativeUrl, uint8* lpszBuffer, uint32 lpdwBufferLength, uint32 dwFlags);
-	public static BOOL InternetCombineUrl(PSTR lpszBaseUrl, PSTR lpszRelativeUrl, uint8* lpszBuffer, uint32 lpdwBufferLength, uint32 dwFlags) => InternetCombineUrlA(lpszBaseUrl, lpszRelativeUrl, lpszBuffer, lpdwBufferLength, dwFlags);
+	public static extern BOOL InternetCombineUrlA(PSTR lpszBaseUrl, PSTR lpszRelativeUrl, uint8* lpszBuffer, uint32* lpdwBufferLength, uint32 dwFlags);
+	public static BOOL InternetCombineUrl(PSTR lpszBaseUrl, PSTR lpszRelativeUrl, uint8* lpszBuffer, uint32* lpdwBufferLength, uint32 dwFlags) => InternetCombineUrlA(lpszBaseUrl, lpszRelativeUrl, lpszBuffer, lpdwBufferLength, dwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetCombineUrlW(PWSTR lpszBaseUrl, PWSTR lpszRelativeUrl, char16* lpszBuffer, uint32 lpdwBufferLength, uint32 dwFlags);
+	public static extern BOOL InternetCombineUrlW(PWSTR lpszBaseUrl, PWSTR lpszRelativeUrl, char16* lpszBuffer, uint32* lpdwBufferLength, uint32 dwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void InternetOpenA(PSTR lpszAgent, uint32 dwAccessType, PSTR lpszProxy, PSTR lpszProxyBypass, uint32 dwFlags);
-	public static void InternetOpen(PSTR lpszAgent, uint32 dwAccessType, PSTR lpszProxy, PSTR lpszProxyBypass, uint32 dwFlags) => InternetOpenA(lpszAgent, dwAccessType, lpszProxy, lpszProxyBypass, dwFlags);
+	public static extern void* InternetOpenA(PSTR lpszAgent, uint32 dwAccessType, PSTR lpszProxy, PSTR lpszProxyBypass, uint32 dwFlags);
+	public static void* InternetOpen(PSTR lpszAgent, uint32 dwAccessType, PSTR lpszProxy, PSTR lpszProxyBypass, uint32 dwFlags) => InternetOpenA(lpszAgent, dwAccessType, lpszProxy, lpszProxyBypass, dwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void InternetOpenW(PWSTR lpszAgent, uint32 dwAccessType, PWSTR lpszProxy, PWSTR lpszProxyBypass, uint32 dwFlags);
+	public static extern void* InternetOpenW(PWSTR lpszAgent, uint32 dwAccessType, PWSTR lpszProxy, PWSTR lpszProxyBypass, uint32 dwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetCloseHandle(void hInternet);
+	public static extern BOOL InternetCloseHandle(void* hInternet);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void InternetConnectA(void hInternet, PSTR lpszServerName, uint16 nServerPort, PSTR lpszUserName, PSTR lpszPassword, uint32 dwService, uint32 dwFlags, uint dwContext);
-	public static void InternetConnect(void hInternet, PSTR lpszServerName, uint16 nServerPort, PSTR lpszUserName, PSTR lpszPassword, uint32 dwService, uint32 dwFlags, uint dwContext) => InternetConnectA(hInternet, lpszServerName, nServerPort, lpszUserName, lpszPassword, dwService, dwFlags, dwContext);
+	public static extern void* InternetConnectA(void* hInternet, PSTR lpszServerName, uint16 nServerPort, PSTR lpszUserName, PSTR lpszPassword, uint32 dwService, uint32 dwFlags, uint dwContext);
+	public static void* InternetConnect(void* hInternet, PSTR lpszServerName, uint16 nServerPort, PSTR lpszUserName, PSTR lpszPassword, uint32 dwService, uint32 dwFlags, uint dwContext) => InternetConnectA(hInternet, lpszServerName, nServerPort, lpszUserName, lpszPassword, dwService, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void InternetConnectW(void hInternet, PWSTR lpszServerName, uint16 nServerPort, PWSTR lpszUserName, PWSTR lpszPassword, uint32 dwService, uint32 dwFlags, uint dwContext);
+	public static extern void* InternetConnectW(void* hInternet, PWSTR lpszServerName, uint16 nServerPort, PWSTR lpszUserName, PWSTR lpszPassword, uint32 dwService, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void InternetOpenUrlA(void hInternet, PSTR lpszUrl, uint8* lpszHeaders, uint32 dwHeadersLength, uint32 dwFlags, uint dwContext);
-	public static void InternetOpenUrl(void hInternet, PSTR lpszUrl, uint8* lpszHeaders, uint32 dwHeadersLength, uint32 dwFlags, uint dwContext) => InternetOpenUrlA(hInternet, lpszUrl, lpszHeaders, dwHeadersLength, dwFlags, dwContext);
+	public static extern void* InternetOpenUrlA(void* hInternet, PSTR lpszUrl, uint8* lpszHeaders, uint32 dwHeadersLength, uint32 dwFlags, uint dwContext);
+	public static void* InternetOpenUrl(void* hInternet, PSTR lpszUrl, uint8* lpszHeaders, uint32 dwHeadersLength, uint32 dwFlags, uint dwContext) => InternetOpenUrlA(hInternet, lpszUrl, lpszHeaders, dwHeadersLength, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void InternetOpenUrlW(void hInternet, PWSTR lpszUrl, char16* lpszHeaders, uint32 dwHeadersLength, uint32 dwFlags, uint dwContext);
+	public static extern void* InternetOpenUrlW(void* hInternet, PWSTR lpszUrl, char16* lpszHeaders, uint32 dwHeadersLength, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetReadFile(void hFile, void lpBuffer, uint32 dwNumberOfBytesToRead, uint32 lpdwNumberOfBytesRead);
+	public static extern BOOL InternetReadFile(void* hFile, void* lpBuffer, uint32 dwNumberOfBytesToRead, uint32* lpdwNumberOfBytesRead);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetReadFileExA(void hFile, INTERNET_BUFFERSA lpBuffersOut, uint32 dwFlags, uint dwContext);
-	public static BOOL InternetReadFileEx(void hFile, INTERNET_BUFFERSA lpBuffersOut, uint32 dwFlags, uint dwContext) => InternetReadFileExA(hFile, lpBuffersOut, dwFlags, dwContext);
+	public static extern BOOL InternetReadFileExA(void* hFile, INTERNET_BUFFERSA* lpBuffersOut, uint32 dwFlags, uint dwContext);
+	public static BOOL InternetReadFileEx(void* hFile, INTERNET_BUFFERSA* lpBuffersOut, uint32 dwFlags, uint dwContext) => InternetReadFileExA(hFile, lpBuffersOut, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetReadFileExW(void hFile, INTERNET_BUFFERSW lpBuffersOut, uint32 dwFlags, uint dwContext);
+	public static extern BOOL InternetReadFileExW(void* hFile, INTERNET_BUFFERSW* lpBuffersOut, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InternetSetFilePointer(void hFile, int32 lDistanceToMove, int32 lpDistanceToMoveHigh, uint32 dwMoveMethod, uint dwContext);
+	public static extern uint32 InternetSetFilePointer(void* hFile, int32 lDistanceToMove, int32* lpDistanceToMoveHigh, uint32 dwMoveMethod, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetWriteFile(void hFile, void lpBuffer, uint32 dwNumberOfBytesToWrite, uint32 lpdwNumberOfBytesWritten);
+	public static extern BOOL InternetWriteFile(void* hFile, void* lpBuffer, uint32 dwNumberOfBytesToWrite, uint32* lpdwNumberOfBytesWritten);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetQueryDataAvailable(void hFile, uint32 lpdwNumberOfBytesAvailable, uint32 dwFlags, uint dwContext);
+	public static extern BOOL InternetQueryDataAvailable(void* hFile, uint32* lpdwNumberOfBytesAvailable, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetFindNextFileA(void hFind, void lpvFindData);
-	public static BOOL InternetFindNextFile(void hFind, void lpvFindData) => InternetFindNextFileA(hFind, lpvFindData);
+	public static extern BOOL InternetFindNextFileA(void* hFind, void* lpvFindData);
+	public static BOOL InternetFindNextFile(void* hFind, void* lpvFindData) => InternetFindNextFileA(hFind, lpvFindData);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetFindNextFileW(void hFind, void lpvFindData);
+	public static extern BOOL InternetFindNextFileW(void* hFind, void* lpvFindData);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetQueryOptionA(void hInternet, uint32 dwOption, void lpBuffer, uint32 lpdwBufferLength);
-	public static BOOL InternetQueryOption(void hInternet, uint32 dwOption, void lpBuffer, uint32 lpdwBufferLength) => InternetQueryOptionA(hInternet, dwOption, lpBuffer, lpdwBufferLength);
+	public static extern BOOL InternetQueryOptionA(void* hInternet, uint32 dwOption, void* lpBuffer, uint32* lpdwBufferLength);
+	public static BOOL InternetQueryOption(void* hInternet, uint32 dwOption, void* lpBuffer, uint32* lpdwBufferLength) => InternetQueryOptionA(hInternet, dwOption, lpBuffer, lpdwBufferLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetQueryOptionW(void hInternet, uint32 dwOption, void lpBuffer, uint32 lpdwBufferLength);
+	public static extern BOOL InternetQueryOptionW(void* hInternet, uint32 dwOption, void* lpBuffer, uint32* lpdwBufferLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetSetOptionA(void hInternet, uint32 dwOption, void lpBuffer, uint32 dwBufferLength);
-	public static BOOL InternetSetOption(void hInternet, uint32 dwOption, void lpBuffer, uint32 dwBufferLength) => InternetSetOptionA(hInternet, dwOption, lpBuffer, dwBufferLength);
+	public static extern BOOL InternetSetOptionA(void* hInternet, uint32 dwOption, void* lpBuffer, uint32 dwBufferLength);
+	public static BOOL InternetSetOption(void* hInternet, uint32 dwOption, void* lpBuffer, uint32 dwBufferLength) => InternetSetOptionA(hInternet, dwOption, lpBuffer, dwBufferLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetSetOptionW(void hInternet, uint32 dwOption, void lpBuffer, uint32 dwBufferLength);
+	public static extern BOOL InternetSetOptionW(void* hInternet, uint32 dwOption, void* lpBuffer, uint32 dwBufferLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetSetOptionExA(void hInternet, uint32 dwOption, void lpBuffer, uint32 dwBufferLength, uint32 dwFlags);
-	public static BOOL InternetSetOptionEx(void hInternet, uint32 dwOption, void lpBuffer, uint32 dwBufferLength, uint32 dwFlags) => InternetSetOptionExA(hInternet, dwOption, lpBuffer, dwBufferLength, dwFlags);
+	public static extern BOOL InternetSetOptionExA(void* hInternet, uint32 dwOption, void* lpBuffer, uint32 dwBufferLength, uint32 dwFlags);
+	public static BOOL InternetSetOptionEx(void* hInternet, uint32 dwOption, void* lpBuffer, uint32 dwBufferLength, uint32 dwFlags) => InternetSetOptionExA(hInternet, dwOption, lpBuffer, dwBufferLength, dwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetSetOptionExW(void hInternet, uint32 dwOption, void lpBuffer, uint32 dwBufferLength, uint32 dwFlags);
+	public static extern BOOL InternetSetOptionExW(void* hInternet, uint32 dwOption, void* lpBuffer, uint32 dwBufferLength, uint32 dwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetLockRequestFile(void hInternet, HANDLE lphLockRequestInfo);
+	public static extern BOOL InternetLockRequestFile(void* hInternet, HANDLE* lphLockRequestInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InternetUnlockRequestFile(HANDLE hLockRequestInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetLastResponseInfoA(uint32 lpdwError, uint8* lpszBuffer, uint32 lpdwBufferLength);
-	public static BOOL InternetGetLastResponseInfo(uint32 lpdwError, uint8* lpszBuffer, uint32 lpdwBufferLength) => InternetGetLastResponseInfoA(lpdwError, lpszBuffer, lpdwBufferLength);
+	public static extern BOOL InternetGetLastResponseInfoA(uint32* lpdwError, uint8* lpszBuffer, uint32* lpdwBufferLength);
+	public static BOOL InternetGetLastResponseInfo(uint32* lpdwError, uint8* lpszBuffer, uint32* lpdwBufferLength) => InternetGetLastResponseInfoA(lpdwError, lpszBuffer, lpdwBufferLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetLastResponseInfoW(uint32 lpdwError, char16* lpszBuffer, uint32 lpdwBufferLength);
+	public static extern BOOL InternetGetLastResponseInfoW(uint32* lpdwError, char16* lpszBuffer, uint32* lpdwBufferLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LPINTERNET_STATUS_CALLBACK InternetSetStatusCallbackA(void hInternet, LPINTERNET_STATUS_CALLBACK lpfnInternetCallback);
+	public static extern LPINTERNET_STATUS_CALLBACK InternetSetStatusCallbackA(void* hInternet, LPINTERNET_STATUS_CALLBACK lpfnInternetCallback);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LPINTERNET_STATUS_CALLBACK InternetSetStatusCallbackW(void hInternet, LPINTERNET_STATUS_CALLBACK lpfnInternetCallback);
+	public static extern LPINTERNET_STATUS_CALLBACK InternetSetStatusCallbackW(void* hInternet, LPINTERNET_STATUS_CALLBACK lpfnInternetCallback);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LPINTERNET_STATUS_CALLBACK InternetSetStatusCallback(void hInternet, LPINTERNET_STATUS_CALLBACK lpfnInternetCallback);
+	public static extern LPINTERNET_STATUS_CALLBACK InternetSetStatusCallback(void* hInternet, LPINTERNET_STATUS_CALLBACK lpfnInternetCallback);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FtpFindFirstFileA(void hConnect, PSTR lpszSearchFile, WIN32_FIND_DATAA lpFindFileData, uint32 dwFlags, uint dwContext);
-	public static void FtpFindFirstFile(void hConnect, PSTR lpszSearchFile, WIN32_FIND_DATAA lpFindFileData, uint32 dwFlags, uint dwContext) => FtpFindFirstFileA(hConnect, lpszSearchFile, lpFindFileData, dwFlags, dwContext);
+	public static extern void* FtpFindFirstFileA(void* hConnect, PSTR lpszSearchFile, WIN32_FIND_DATAA* lpFindFileData, uint32 dwFlags, uint dwContext);
+	public static void* FtpFindFirstFile(void* hConnect, PSTR lpszSearchFile, WIN32_FIND_DATAA* lpFindFileData, uint32 dwFlags, uint dwContext) => FtpFindFirstFileA(hConnect, lpszSearchFile, lpFindFileData, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FtpFindFirstFileW(void hConnect, PWSTR lpszSearchFile, WIN32_FIND_DATAW lpFindFileData, uint32 dwFlags, uint dwContext);
+	public static extern void* FtpFindFirstFileW(void* hConnect, PWSTR lpszSearchFile, WIN32_FIND_DATAW* lpFindFileData, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpGetFileA(void hConnect, PSTR lpszRemoteFile, PSTR lpszNewFile, BOOL fFailIfExists, uint32 dwFlagsAndAttributes, uint32 dwFlags, uint dwContext);
-	public static BOOL FtpGetFile(void hConnect, PSTR lpszRemoteFile, PSTR lpszNewFile, BOOL fFailIfExists, uint32 dwFlagsAndAttributes, uint32 dwFlags, uint dwContext) => FtpGetFileA(hConnect, lpszRemoteFile, lpszNewFile, fFailIfExists, dwFlagsAndAttributes, dwFlags, dwContext);
+	public static extern BOOL FtpGetFileA(void* hConnect, PSTR lpszRemoteFile, PSTR lpszNewFile, BOOL fFailIfExists, uint32 dwFlagsAndAttributes, uint32 dwFlags, uint dwContext);
+	public static BOOL FtpGetFile(void* hConnect, PSTR lpszRemoteFile, PSTR lpszNewFile, BOOL fFailIfExists, uint32 dwFlagsAndAttributes, uint32 dwFlags, uint dwContext) => FtpGetFileA(hConnect, lpszRemoteFile, lpszNewFile, fFailIfExists, dwFlagsAndAttributes, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpGetFileW(void hConnect, PWSTR lpszRemoteFile, PWSTR lpszNewFile, BOOL fFailIfExists, uint32 dwFlagsAndAttributes, uint32 dwFlags, uint dwContext);
+	public static extern BOOL FtpGetFileW(void* hConnect, PWSTR lpszRemoteFile, PWSTR lpszNewFile, BOOL fFailIfExists, uint32 dwFlagsAndAttributes, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpPutFileA(void hConnect, PSTR lpszLocalFile, PSTR lpszNewRemoteFile, FTP_FLAGS dwFlags, uint dwContext);
-	public static BOOL FtpPutFile(void hConnect, PSTR lpszLocalFile, PSTR lpszNewRemoteFile, FTP_FLAGS dwFlags, uint dwContext) => FtpPutFileA(hConnect, lpszLocalFile, lpszNewRemoteFile, dwFlags, dwContext);
+	public static extern BOOL FtpPutFileA(void* hConnect, PSTR lpszLocalFile, PSTR lpszNewRemoteFile, FTP_FLAGS dwFlags, uint dwContext);
+	public static BOOL FtpPutFile(void* hConnect, PSTR lpszLocalFile, PSTR lpszNewRemoteFile, FTP_FLAGS dwFlags, uint dwContext) => FtpPutFileA(hConnect, lpszLocalFile, lpszNewRemoteFile, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpPutFileW(void hConnect, PWSTR lpszLocalFile, PWSTR lpszNewRemoteFile, FTP_FLAGS dwFlags, uint dwContext);
+	public static extern BOOL FtpPutFileW(void* hConnect, PWSTR lpszLocalFile, PWSTR lpszNewRemoteFile, FTP_FLAGS dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpGetFileEx(void hFtpSession, PSTR lpszRemoteFile, PWSTR lpszNewFile, BOOL fFailIfExists, uint32 dwFlagsAndAttributes, uint32 dwFlags, uint dwContext);
+	public static extern BOOL FtpGetFileEx(void* hFtpSession, PSTR lpszRemoteFile, PWSTR lpszNewFile, BOOL fFailIfExists, uint32 dwFlagsAndAttributes, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpPutFileEx(void hFtpSession, PWSTR lpszLocalFile, PSTR lpszNewRemoteFile, uint32 dwFlags, uint dwContext);
+	public static extern BOOL FtpPutFileEx(void* hFtpSession, PWSTR lpszLocalFile, PSTR lpszNewRemoteFile, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpDeleteFileA(void hConnect, PSTR lpszFileName);
-	public static BOOL FtpDeleteFile(void hConnect, PSTR lpszFileName) => FtpDeleteFileA(hConnect, lpszFileName);
+	public static extern BOOL FtpDeleteFileA(void* hConnect, PSTR lpszFileName);
+	public static BOOL FtpDeleteFile(void* hConnect, PSTR lpszFileName) => FtpDeleteFileA(hConnect, lpszFileName);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpDeleteFileW(void hConnect, PWSTR lpszFileName);
+	public static extern BOOL FtpDeleteFileW(void* hConnect, PWSTR lpszFileName);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpRenameFileA(void hConnect, PSTR lpszExisting, PSTR lpszNew);
-	public static BOOL FtpRenameFile(void hConnect, PSTR lpszExisting, PSTR lpszNew) => FtpRenameFileA(hConnect, lpszExisting, lpszNew);
+	public static extern BOOL FtpRenameFileA(void* hConnect, PSTR lpszExisting, PSTR lpszNew);
+	public static BOOL FtpRenameFile(void* hConnect, PSTR lpszExisting, PSTR lpszNew) => FtpRenameFileA(hConnect, lpszExisting, lpszNew);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpRenameFileW(void hConnect, PWSTR lpszExisting, PWSTR lpszNew);
+	public static extern BOOL FtpRenameFileW(void* hConnect, PWSTR lpszExisting, PWSTR lpszNew);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FtpOpenFileA(void hConnect, PSTR lpszFileName, uint32 dwAccess, FTP_FLAGS dwFlags, uint dwContext);
-	public static void FtpOpenFile(void hConnect, PSTR lpszFileName, uint32 dwAccess, FTP_FLAGS dwFlags, uint dwContext) => FtpOpenFileA(hConnect, lpszFileName, dwAccess, dwFlags, dwContext);
+	public static extern void* FtpOpenFileA(void* hConnect, PSTR lpszFileName, uint32 dwAccess, FTP_FLAGS dwFlags, uint dwContext);
+	public static void* FtpOpenFile(void* hConnect, PSTR lpszFileName, uint32 dwAccess, FTP_FLAGS dwFlags, uint dwContext) => FtpOpenFileA(hConnect, lpszFileName, dwAccess, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FtpOpenFileW(void hConnect, PWSTR lpszFileName, uint32 dwAccess, FTP_FLAGS dwFlags, uint dwContext);
+	public static extern void* FtpOpenFileW(void* hConnect, PWSTR lpszFileName, uint32 dwAccess, FTP_FLAGS dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpCreateDirectoryA(void hConnect, PSTR lpszDirectory);
-	public static BOOL FtpCreateDirectory(void hConnect, PSTR lpszDirectory) => FtpCreateDirectoryA(hConnect, lpszDirectory);
+	public static extern BOOL FtpCreateDirectoryA(void* hConnect, PSTR lpszDirectory);
+	public static BOOL FtpCreateDirectory(void* hConnect, PSTR lpszDirectory) => FtpCreateDirectoryA(hConnect, lpszDirectory);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpCreateDirectoryW(void hConnect, PWSTR lpszDirectory);
+	public static extern BOOL FtpCreateDirectoryW(void* hConnect, PWSTR lpszDirectory);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpRemoveDirectoryA(void hConnect, PSTR lpszDirectory);
-	public static BOOL FtpRemoveDirectory(void hConnect, PSTR lpszDirectory) => FtpRemoveDirectoryA(hConnect, lpszDirectory);
+	public static extern BOOL FtpRemoveDirectoryA(void* hConnect, PSTR lpszDirectory);
+	public static BOOL FtpRemoveDirectory(void* hConnect, PSTR lpszDirectory) => FtpRemoveDirectoryA(hConnect, lpszDirectory);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpRemoveDirectoryW(void hConnect, PWSTR lpszDirectory);
+	public static extern BOOL FtpRemoveDirectoryW(void* hConnect, PWSTR lpszDirectory);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpSetCurrentDirectoryA(void hConnect, PSTR lpszDirectory);
-	public static BOOL FtpSetCurrentDirectory(void hConnect, PSTR lpszDirectory) => FtpSetCurrentDirectoryA(hConnect, lpszDirectory);
+	public static extern BOOL FtpSetCurrentDirectoryA(void* hConnect, PSTR lpszDirectory);
+	public static BOOL FtpSetCurrentDirectory(void* hConnect, PSTR lpszDirectory) => FtpSetCurrentDirectoryA(hConnect, lpszDirectory);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpSetCurrentDirectoryW(void hConnect, PWSTR lpszDirectory);
+	public static extern BOOL FtpSetCurrentDirectoryW(void* hConnect, PWSTR lpszDirectory);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpGetCurrentDirectoryA(void hConnect, uint8* lpszCurrentDirectory, uint32 lpdwCurrentDirectory);
-	public static BOOL FtpGetCurrentDirectory(void hConnect, uint8* lpszCurrentDirectory, uint32 lpdwCurrentDirectory) => FtpGetCurrentDirectoryA(hConnect, lpszCurrentDirectory, lpdwCurrentDirectory);
+	public static extern BOOL FtpGetCurrentDirectoryA(void* hConnect, uint8* lpszCurrentDirectory, uint32* lpdwCurrentDirectory);
+	public static BOOL FtpGetCurrentDirectory(void* hConnect, uint8* lpszCurrentDirectory, uint32* lpdwCurrentDirectory) => FtpGetCurrentDirectoryA(hConnect, lpszCurrentDirectory, lpdwCurrentDirectory);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpGetCurrentDirectoryW(void hConnect, char16* lpszCurrentDirectory, uint32 lpdwCurrentDirectory);
+	public static extern BOOL FtpGetCurrentDirectoryW(void* hConnect, char16* lpszCurrentDirectory, uint32* lpdwCurrentDirectory);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpCommandA(void hConnect, BOOL fExpectResponse, FTP_FLAGS dwFlags, PSTR lpszCommand, uint dwContext, void phFtpCommand);
-	public static BOOL FtpCommand(void hConnect, BOOL fExpectResponse, FTP_FLAGS dwFlags, PSTR lpszCommand, uint dwContext, void phFtpCommand) => FtpCommandA(hConnect, fExpectResponse, dwFlags, lpszCommand, dwContext, phFtpCommand);
+	public static extern BOOL FtpCommandA(void* hConnect, BOOL fExpectResponse, FTP_FLAGS dwFlags, PSTR lpszCommand, uint dwContext, void** phFtpCommand);
+	public static BOOL FtpCommand(void* hConnect, BOOL fExpectResponse, FTP_FLAGS dwFlags, PSTR lpszCommand, uint dwContext, void** phFtpCommand) => FtpCommandA(hConnect, fExpectResponse, dwFlags, lpszCommand, dwContext, phFtpCommand);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FtpCommandW(void hConnect, BOOL fExpectResponse, FTP_FLAGS dwFlags, PWSTR lpszCommand, uint dwContext, void phFtpCommand);
+	public static extern BOOL FtpCommandW(void* hConnect, BOOL fExpectResponse, FTP_FLAGS dwFlags, PWSTR lpszCommand, uint dwContext, void** phFtpCommand);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FtpGetFileSize(void hFile, uint32 lpdwFileSizeHigh);
+	public static extern uint32 FtpGetFileSize(void* hFile, uint32* lpdwFileSizeHigh);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GopherCreateLocatorA(PSTR lpszHost, uint16 nServerPort, PSTR lpszDisplayString, PSTR lpszSelectorString, uint32 dwGopherType, uint8* lpszLocator, uint32 lpdwBufferLength);
-	public static BOOL GopherCreateLocator(PSTR lpszHost, uint16 nServerPort, PSTR lpszDisplayString, PSTR lpszSelectorString, uint32 dwGopherType, uint8* lpszLocator, uint32 lpdwBufferLength) => GopherCreateLocatorA(lpszHost, nServerPort, lpszDisplayString, lpszSelectorString, dwGopherType, lpszLocator, lpdwBufferLength);
+	public static extern BOOL GopherCreateLocatorA(PSTR lpszHost, uint16 nServerPort, PSTR lpszDisplayString, PSTR lpszSelectorString, uint32 dwGopherType, uint8* lpszLocator, uint32* lpdwBufferLength);
+	public static BOOL GopherCreateLocator(PSTR lpszHost, uint16 nServerPort, PSTR lpszDisplayString, PSTR lpszSelectorString, uint32 dwGopherType, uint8* lpszLocator, uint32* lpdwBufferLength) => GopherCreateLocatorA(lpszHost, nServerPort, lpszDisplayString, lpszSelectorString, dwGopherType, lpszLocator, lpdwBufferLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GopherCreateLocatorW(PWSTR lpszHost, uint16 nServerPort, PWSTR lpszDisplayString, PWSTR lpszSelectorString, uint32 dwGopherType, char16* lpszLocator, uint32 lpdwBufferLength);
+	public static extern BOOL GopherCreateLocatorW(PWSTR lpszHost, uint16 nServerPort, PWSTR lpszDisplayString, PWSTR lpszSelectorString, uint32 dwGopherType, char16* lpszLocator, uint32* lpdwBufferLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GopherGetLocatorTypeA(PSTR lpszLocator, uint32 lpdwGopherType);
-	public static BOOL GopherGetLocatorType(PSTR lpszLocator, uint32 lpdwGopherType) => GopherGetLocatorTypeA(lpszLocator, lpdwGopherType);
+	public static extern BOOL GopherGetLocatorTypeA(PSTR lpszLocator, uint32* lpdwGopherType);
+	public static BOOL GopherGetLocatorType(PSTR lpszLocator, uint32* lpdwGopherType) => GopherGetLocatorTypeA(lpszLocator, lpdwGopherType);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GopherGetLocatorTypeW(PWSTR lpszLocator, uint32 lpdwGopherType);
+	public static extern BOOL GopherGetLocatorTypeW(PWSTR lpszLocator, uint32* lpdwGopherType);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void GopherFindFirstFileA(void hConnect, PSTR lpszLocator, PSTR lpszSearchString, GOPHER_FIND_DATAA lpFindData, uint32 dwFlags, uint dwContext);
-	public static void GopherFindFirstFile(void hConnect, PSTR lpszLocator, PSTR lpszSearchString, GOPHER_FIND_DATAA lpFindData, uint32 dwFlags, uint dwContext) => GopherFindFirstFileA(hConnect, lpszLocator, lpszSearchString, lpFindData, dwFlags, dwContext);
+	public static extern void* GopherFindFirstFileA(void* hConnect, PSTR lpszLocator, PSTR lpszSearchString, GOPHER_FIND_DATAA* lpFindData, uint32 dwFlags, uint dwContext);
+	public static void* GopherFindFirstFile(void* hConnect, PSTR lpszLocator, PSTR lpszSearchString, GOPHER_FIND_DATAA* lpFindData, uint32 dwFlags, uint dwContext) => GopherFindFirstFileA(hConnect, lpszLocator, lpszSearchString, lpFindData, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void GopherFindFirstFileW(void hConnect, PWSTR lpszLocator, PWSTR lpszSearchString, GOPHER_FIND_DATAW lpFindData, uint32 dwFlags, uint dwContext);
+	public static extern void* GopherFindFirstFileW(void* hConnect, PWSTR lpszLocator, PWSTR lpszSearchString, GOPHER_FIND_DATAW* lpFindData, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void GopherOpenFileA(void hConnect, PSTR lpszLocator, PSTR lpszView, uint32 dwFlags, uint dwContext);
-	public static void GopherOpenFile(void hConnect, PSTR lpszLocator, PSTR lpszView, uint32 dwFlags, uint dwContext) => GopherOpenFileA(hConnect, lpszLocator, lpszView, dwFlags, dwContext);
+	public static extern void* GopherOpenFileA(void* hConnect, PSTR lpszLocator, PSTR lpszView, uint32 dwFlags, uint dwContext);
+	public static void* GopherOpenFile(void* hConnect, PSTR lpszLocator, PSTR lpszView, uint32 dwFlags, uint dwContext) => GopherOpenFileA(hConnect, lpszLocator, lpszView, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void GopherOpenFileW(void hConnect, PWSTR lpszLocator, PWSTR lpszView, uint32 dwFlags, uint dwContext);
+	public static extern void* GopherOpenFileW(void* hConnect, PWSTR lpszLocator, PWSTR lpszView, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GopherGetAttributeA(void hConnect, PSTR lpszLocator, PSTR lpszAttributeName, uint8* lpBuffer, uint32 dwBufferLength, uint32 lpdwCharactersReturned, GOPHER_ATTRIBUTE_ENUMERATOR lpfnEnumerator, uint dwContext);
-	public static BOOL GopherGetAttribute(void hConnect, PSTR lpszLocator, PSTR lpszAttributeName, uint8* lpBuffer, uint32 dwBufferLength, uint32 lpdwCharactersReturned, GOPHER_ATTRIBUTE_ENUMERATOR lpfnEnumerator, uint dwContext) => GopherGetAttributeA(hConnect, lpszLocator, lpszAttributeName, lpBuffer, dwBufferLength, lpdwCharactersReturned, lpfnEnumerator, dwContext);
+	public static extern BOOL GopherGetAttributeA(void* hConnect, PSTR lpszLocator, PSTR lpszAttributeName, uint8* lpBuffer, uint32 dwBufferLength, uint32* lpdwCharactersReturned, GOPHER_ATTRIBUTE_ENUMERATOR lpfnEnumerator, uint dwContext);
+	public static BOOL GopherGetAttribute(void* hConnect, PSTR lpszLocator, PSTR lpszAttributeName, uint8* lpBuffer, uint32 dwBufferLength, uint32* lpdwCharactersReturned, GOPHER_ATTRIBUTE_ENUMERATOR lpfnEnumerator, uint dwContext) => GopherGetAttributeA(hConnect, lpszLocator, lpszAttributeName, lpBuffer, dwBufferLength, lpdwCharactersReturned, lpfnEnumerator, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GopherGetAttributeW(void hConnect, PWSTR lpszLocator, PWSTR lpszAttributeName, uint8* lpBuffer, uint32 dwBufferLength, uint32 lpdwCharactersReturned, GOPHER_ATTRIBUTE_ENUMERATOR lpfnEnumerator, uint dwContext);
+	public static extern BOOL GopherGetAttributeW(void* hConnect, PWSTR lpszLocator, PWSTR lpszAttributeName, uint8* lpBuffer, uint32 dwBufferLength, uint32* lpdwCharactersReturned, GOPHER_ATTRIBUTE_ENUMERATOR lpfnEnumerator, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void HttpOpenRequestA(void hConnect, PSTR lpszVerb, PSTR lpszObjectName, PSTR lpszVersion, PSTR lpszReferrer, PSTR lplpszAcceptTypes, uint32 dwFlags, uint dwContext);
-	public static void HttpOpenRequest(void hConnect, PSTR lpszVerb, PSTR lpszObjectName, PSTR lpszVersion, PSTR lpszReferrer, PSTR lplpszAcceptTypes, uint32 dwFlags, uint dwContext) => HttpOpenRequestA(hConnect, lpszVerb, lpszObjectName, lpszVersion, lpszReferrer, lplpszAcceptTypes, dwFlags, dwContext);
+	public static extern void* HttpOpenRequestA(void* hConnect, PSTR lpszVerb, PSTR lpszObjectName, PSTR lpszVersion, PSTR lpszReferrer, PSTR* lplpszAcceptTypes, uint32 dwFlags, uint dwContext);
+	public static void* HttpOpenRequest(void* hConnect, PSTR lpszVerb, PSTR lpszObjectName, PSTR lpszVersion, PSTR lpszReferrer, PSTR* lplpszAcceptTypes, uint32 dwFlags, uint dwContext) => HttpOpenRequestA(hConnect, lpszVerb, lpszObjectName, lpszVersion, lpszReferrer, lplpszAcceptTypes, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void HttpOpenRequestW(void hConnect, PWSTR lpszVerb, PWSTR lpszObjectName, PWSTR lpszVersion, PWSTR lpszReferrer, PWSTR lplpszAcceptTypes, uint32 dwFlags, uint dwContext);
+	public static extern void* HttpOpenRequestW(void* hConnect, PWSTR lpszVerb, PWSTR lpszObjectName, PWSTR lpszVersion, PWSTR lpszReferrer, PWSTR lplpszAcceptTypes, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpAddRequestHeadersA(void hRequest, uint8* lpszHeaders, uint32 dwHeadersLength, HTTP_ADDREQ_FLAG dwModifiers);
-	public static BOOL HttpAddRequestHeaders(void hRequest, uint8* lpszHeaders, uint32 dwHeadersLength, HTTP_ADDREQ_FLAG dwModifiers) => HttpAddRequestHeadersA(hRequest, lpszHeaders, dwHeadersLength, dwModifiers);
+	public static extern BOOL HttpAddRequestHeadersA(void* hRequest, uint8* lpszHeaders, uint32 dwHeadersLength, HTTP_ADDREQ_FLAG dwModifiers);
+	public static BOOL HttpAddRequestHeaders(void* hRequest, uint8* lpszHeaders, uint32 dwHeadersLength, HTTP_ADDREQ_FLAG dwModifiers) => HttpAddRequestHeadersA(hRequest, lpszHeaders, dwHeadersLength, dwModifiers);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpAddRequestHeadersW(void hRequest, char16* lpszHeaders, uint32 dwHeadersLength, HTTP_ADDREQ_FLAG dwModifiers);
+	public static extern BOOL HttpAddRequestHeadersW(void* hRequest, char16* lpszHeaders, uint32 dwHeadersLength, HTTP_ADDREQ_FLAG dwModifiers);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpSendRequestA(void hRequest, uint8* lpszHeaders, uint32 dwHeadersLength, void lpOptional, uint32 dwOptionalLength);
-	public static BOOL HttpSendRequest(void hRequest, uint8* lpszHeaders, uint32 dwHeadersLength, void lpOptional, uint32 dwOptionalLength) => HttpSendRequestA(hRequest, lpszHeaders, dwHeadersLength, lpOptional, dwOptionalLength);
+	public static extern BOOL HttpSendRequestA(void* hRequest, uint8* lpszHeaders, uint32 dwHeadersLength, void* lpOptional, uint32 dwOptionalLength);
+	public static BOOL HttpSendRequest(void* hRequest, uint8* lpszHeaders, uint32 dwHeadersLength, void* lpOptional, uint32 dwOptionalLength) => HttpSendRequestA(hRequest, lpszHeaders, dwHeadersLength, lpOptional, dwOptionalLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpSendRequestW(void hRequest, char16* lpszHeaders, uint32 dwHeadersLength, void lpOptional, uint32 dwOptionalLength);
+	public static extern BOOL HttpSendRequestW(void* hRequest, char16* lpszHeaders, uint32 dwHeadersLength, void* lpOptional, uint32 dwOptionalLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpSendRequestExA(void hRequest, INTERNET_BUFFERSA lpBuffersIn, INTERNET_BUFFERSA lpBuffersOut, uint32 dwFlags, uint dwContext);
-	public static BOOL HttpSendRequestEx(void hRequest, INTERNET_BUFFERSA lpBuffersIn, INTERNET_BUFFERSA lpBuffersOut, uint32 dwFlags, uint dwContext) => HttpSendRequestExA(hRequest, lpBuffersIn, lpBuffersOut, dwFlags, dwContext);
+	public static extern BOOL HttpSendRequestExA(void* hRequest, INTERNET_BUFFERSA* lpBuffersIn, INTERNET_BUFFERSA* lpBuffersOut, uint32 dwFlags, uint dwContext);
+	public static BOOL HttpSendRequestEx(void* hRequest, INTERNET_BUFFERSA* lpBuffersIn, INTERNET_BUFFERSA* lpBuffersOut, uint32 dwFlags, uint dwContext) => HttpSendRequestExA(hRequest, lpBuffersIn, lpBuffersOut, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpSendRequestExW(void hRequest, INTERNET_BUFFERSW lpBuffersIn, INTERNET_BUFFERSW lpBuffersOut, uint32 dwFlags, uint dwContext);
+	public static extern BOOL HttpSendRequestExW(void* hRequest, INTERNET_BUFFERSW* lpBuffersIn, INTERNET_BUFFERSW* lpBuffersOut, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpEndRequestA(void hRequest, INTERNET_BUFFERSA lpBuffersOut, uint32 dwFlags, uint dwContext);
-	public static BOOL HttpEndRequest(void hRequest, INTERNET_BUFFERSA lpBuffersOut, uint32 dwFlags, uint dwContext) => HttpEndRequestA(hRequest, lpBuffersOut, dwFlags, dwContext);
+	public static extern BOOL HttpEndRequestA(void* hRequest, INTERNET_BUFFERSA* lpBuffersOut, uint32 dwFlags, uint dwContext);
+	public static BOOL HttpEndRequest(void* hRequest, INTERNET_BUFFERSA* lpBuffersOut, uint32 dwFlags, uint dwContext) => HttpEndRequestA(hRequest, lpBuffersOut, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpEndRequestW(void hRequest, INTERNET_BUFFERSW lpBuffersOut, uint32 dwFlags, uint dwContext);
+	public static extern BOOL HttpEndRequestW(void* hRequest, INTERNET_BUFFERSW* lpBuffersOut, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpQueryInfoA(void hRequest, uint32 dwInfoLevel, void lpBuffer, uint32 lpdwBufferLength, uint32 lpdwIndex);
-	public static BOOL HttpQueryInfo(void hRequest, uint32 dwInfoLevel, void lpBuffer, uint32 lpdwBufferLength, uint32 lpdwIndex) => HttpQueryInfoA(hRequest, dwInfoLevel, lpBuffer, lpdwBufferLength, lpdwIndex);
+	public static extern BOOL HttpQueryInfoA(void* hRequest, uint32 dwInfoLevel, void* lpBuffer, uint32* lpdwBufferLength, uint32* lpdwIndex);
+	public static BOOL HttpQueryInfo(void* hRequest, uint32 dwInfoLevel, void* lpBuffer, uint32* lpdwBufferLength, uint32* lpdwIndex) => HttpQueryInfoA(hRequest, dwInfoLevel, lpBuffer, lpdwBufferLength, lpdwIndex);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpQueryInfoW(void hRequest, uint32 dwInfoLevel, void lpBuffer, uint32 lpdwBufferLength, uint32 lpdwIndex);
+	public static extern BOOL HttpQueryInfoW(void* hRequest, uint32 dwInfoLevel, void* lpBuffer, uint32* lpdwBufferLength, uint32* lpdwIndex);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InternetSetCookieA(PSTR lpszUrl, PSTR lpszCookieName, PSTR lpszCookieData);
@@ -3389,11 +3389,11 @@ public static
 	public static extern BOOL InternetSetCookieW(PWSTR lpszUrl, PWSTR lpszCookieName, PWSTR lpszCookieData);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetCookieA(PSTR lpszUrl, PSTR lpszCookieName, uint8* lpszCookieData, uint32 lpdwSize);
-	public static BOOL InternetGetCookie(PSTR lpszUrl, PSTR lpszCookieName, uint8* lpszCookieData, uint32 lpdwSize) => InternetGetCookieA(lpszUrl, lpszCookieName, lpszCookieData, lpdwSize);
+	public static extern BOOL InternetGetCookieA(PSTR lpszUrl, PSTR lpszCookieName, uint8* lpszCookieData, uint32* lpdwSize);
+	public static BOOL InternetGetCookie(PSTR lpszUrl, PSTR lpszCookieName, uint8* lpszCookieData, uint32* lpdwSize) => InternetGetCookieA(lpszUrl, lpszCookieName, lpszCookieData, lpdwSize);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetCookieW(PWSTR lpszUrl, PWSTR lpszCookieName, char16* lpszCookieData, uint32 lpdwSize);
+	public static extern BOOL InternetGetCookieW(PWSTR lpszUrl, PWSTR lpszCookieName, char16* lpszCookieData, uint32* lpdwSize);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 InternetSetCookieExA(PSTR lpszUrl, PSTR lpszCookieName, PSTR lpszCookieData, uint32 dwFlags, uint dwReserved);
@@ -3403,20 +3403,20 @@ public static
 	public static extern uint32 InternetSetCookieExW(PWSTR lpszUrl, PWSTR lpszCookieName, PWSTR lpszCookieData, uint32 dwFlags, uint dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetCookieExA(PSTR lpszUrl, PSTR lpszCookieName, uint8* lpszCookieData, uint32 lpdwSize, INTERNET_COOKIE_FLAGS dwFlags, void lpReserved);
-	public static BOOL InternetGetCookieEx(PSTR lpszUrl, PSTR lpszCookieName, uint8* lpszCookieData, uint32 lpdwSize, INTERNET_COOKIE_FLAGS dwFlags, void lpReserved) => InternetGetCookieExA(lpszUrl, lpszCookieName, lpszCookieData, lpdwSize, dwFlags, lpReserved);
+	public static extern BOOL InternetGetCookieExA(PSTR lpszUrl, PSTR lpszCookieName, uint8* lpszCookieData, uint32* lpdwSize, INTERNET_COOKIE_FLAGS dwFlags, void* lpReserved);
+	public static BOOL InternetGetCookieEx(PSTR lpszUrl, PSTR lpszCookieName, uint8* lpszCookieData, uint32* lpdwSize, INTERNET_COOKIE_FLAGS dwFlags, void* lpReserved) => InternetGetCookieExA(lpszUrl, lpszCookieName, lpszCookieData, lpdwSize, dwFlags, lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetCookieExW(PWSTR lpszUrl, PWSTR lpszCookieName, char16* lpszCookieData, uint32 lpdwSize, INTERNET_COOKIE_FLAGS dwFlags, void lpReserved);
+	public static extern BOOL InternetGetCookieExW(PWSTR lpszUrl, PWSTR lpszCookieName, char16* lpszCookieData, uint32* lpdwSize, INTERNET_COOKIE_FLAGS dwFlags, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void InternetFreeCookies(INTERNET_COOKIE2 pCookies, uint32 dwCookieCount);
+	public static extern void InternetFreeCookies(INTERNET_COOKIE2* pCookies, uint32 dwCookieCount);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InternetGetCookieEx2(PWSTR pcwszUrl, PWSTR pcwszCookieName, uint32 dwFlags, INTERNET_COOKIE2 ppCookies, uint32 pdwCookieCount);
+	public static extern uint32 InternetGetCookieEx2(PWSTR pcwszUrl, PWSTR pcwszCookieName, uint32 dwFlags, INTERNET_COOKIE2** ppCookies, uint32* pdwCookieCount);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InternetSetCookieEx2(PWSTR pcwszUrl, INTERNET_COOKIE2 pCookie, PWSTR pcwszP3PPolicy, uint32 dwFlags, uint32 pdwCookieState);
+	public static extern uint32 InternetSetCookieEx2(PWSTR pcwszUrl, INTERNET_COOKIE2* pCookie, PWSTR pcwszP3PPolicy, uint32 dwFlags, uint32* pdwCookieState);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 InternetAttemptConnect(uint32 dwReserved);
@@ -3429,10 +3429,10 @@ public static
 	public static extern BOOL InternetCheckConnectionW(PWSTR lpszUrl, uint32 dwFlags, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ResumeSuspendedDownload(void hRequest, uint32 dwResultCode);
+	public static extern BOOL ResumeSuspendedDownload(void* hRequest, uint32 dwResultCode);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InternetErrorDlg(HWND hWnd, void hRequest, uint32 dwError, uint32 dwFlags, void lppvData);
+	public static extern uint32 InternetErrorDlg(HWND hWnd, void* hRequest, uint32 dwError, uint32 dwFlags, void** lppvData);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 InternetConfirmZoneCrossingA(HWND hWnd, PSTR szUrlPrev, PSTR szUrlNew, BOOL bPost);
@@ -3458,11 +3458,11 @@ public static
 	public static extern BOOL CommitUrlCacheEntryW(PWSTR lpszUrlName, PWSTR lpszLocalFileName, FILETIME ExpireTime, FILETIME LastModifiedTime, uint32 CacheEntryType, char16* lpszHeaderInfo, uint32 cchHeaderInfo, PWSTR lpszFileExtension, PWSTR lpszOriginalUrl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL RetrieveUrlCacheEntryFileA(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA lpCacheEntryInfo, uint32 lpcbCacheEntryInfo, uint32 dwReserved);
-	public static BOOL RetrieveUrlCacheEntryFile(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA lpCacheEntryInfo, uint32 lpcbCacheEntryInfo, uint32 dwReserved) => RetrieveUrlCacheEntryFileA(lpszUrlName, lpCacheEntryInfo, lpcbCacheEntryInfo, dwReserved);
+	public static extern BOOL RetrieveUrlCacheEntryFileA(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo, uint32 dwReserved);
+	public static BOOL RetrieveUrlCacheEntryFile(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo, uint32 dwReserved) => RetrieveUrlCacheEntryFileA(lpszUrlName, lpCacheEntryInfo, lpcbCacheEntryInfo, dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL RetrieveUrlCacheEntryFileW(PWSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOW lpCacheEntryInfo, uint32 lpcbCacheEntryInfo, uint32 dwReserved);
+	public static extern BOOL RetrieveUrlCacheEntryFileW(PWSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOW* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UnlockUrlCacheEntryFileA(PSTR lpszUrlName, uint32 dwReserved);
@@ -3474,104 +3474,104 @@ public static
 	public static extern BOOL UnlockUrlCacheEntryFile(PSTR lpszUrlName, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE RetrieveUrlCacheEntryStreamA(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA lpCacheEntryInfo, uint32 lpcbCacheEntryInfo, BOOL fRandomRead, uint32 dwReserved);
-	public static HANDLE RetrieveUrlCacheEntryStream(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA lpCacheEntryInfo, uint32 lpcbCacheEntryInfo, BOOL fRandomRead, uint32 dwReserved) => RetrieveUrlCacheEntryStreamA(lpszUrlName, lpCacheEntryInfo, lpcbCacheEntryInfo, fRandomRead, dwReserved);
+	public static extern HANDLE RetrieveUrlCacheEntryStreamA(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo, BOOL fRandomRead, uint32 dwReserved);
+	public static HANDLE RetrieveUrlCacheEntryStream(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo, BOOL fRandomRead, uint32 dwReserved) => RetrieveUrlCacheEntryStreamA(lpszUrlName, lpCacheEntryInfo, lpcbCacheEntryInfo, fRandomRead, dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE RetrieveUrlCacheEntryStreamW(PWSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOW lpCacheEntryInfo, uint32 lpcbCacheEntryInfo, BOOL fRandomRead, uint32 dwReserved);
+	public static extern HANDLE RetrieveUrlCacheEntryStreamW(PWSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOW* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo, BOOL fRandomRead, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ReadUrlCacheEntryStream(HANDLE hUrlCacheStream, uint32 dwLocation, void lpBuffer, uint32 lpdwLen, uint32 Reserved);
+	public static extern BOOL ReadUrlCacheEntryStream(HANDLE hUrlCacheStream, uint32 dwLocation, void* lpBuffer, uint32* lpdwLen, uint32 Reserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ReadUrlCacheEntryStreamEx(HANDLE hUrlCacheStream, uint64 qwLocation, void lpBuffer, uint32 lpdwLen);
+	public static extern BOOL ReadUrlCacheEntryStreamEx(HANDLE hUrlCacheStream, uint64 qwLocation, void* lpBuffer, uint32* lpdwLen);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UnlockUrlCacheEntryStream(HANDLE hUrlCacheStream, uint32 Reserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUrlCacheEntryInfoA(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA lpCacheEntryInfo, uint32 lpcbCacheEntryInfo);
-	public static BOOL GetUrlCacheEntryInfo(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA lpCacheEntryInfo, uint32 lpcbCacheEntryInfo) => GetUrlCacheEntryInfoA(lpszUrlName, lpCacheEntryInfo, lpcbCacheEntryInfo);
+	public static extern BOOL GetUrlCacheEntryInfoA(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo);
+	public static BOOL GetUrlCacheEntryInfo(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo) => GetUrlCacheEntryInfoA(lpszUrlName, lpCacheEntryInfo, lpcbCacheEntryInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUrlCacheEntryInfoW(PWSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOW lpCacheEntryInfo, uint32 lpcbCacheEntryInfo);
+	public static extern BOOL GetUrlCacheEntryInfoW(PWSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOW* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE FindFirstUrlCacheGroup(uint32 dwFlags, uint32 dwFilter, void lpSearchCondition, uint32 dwSearchCondition, int64 lpGroupId, void lpReserved);
+	public static extern HANDLE FindFirstUrlCacheGroup(uint32 dwFlags, uint32 dwFilter, void* lpSearchCondition, uint32 dwSearchCondition, int64* lpGroupId, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextUrlCacheGroup(HANDLE hFind, int64 lpGroupId, void lpReserved);
+	public static extern BOOL FindNextUrlCacheGroup(HANDLE hFind, int64* lpGroupId, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUrlCacheGroupAttributeA(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOA lpGroupInfo, uint32 lpcbGroupInfo, void lpReserved);
-	public static BOOL GetUrlCacheGroupAttribute(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOA lpGroupInfo, uint32 lpcbGroupInfo, void lpReserved) => GetUrlCacheGroupAttributeA(gid, dwFlags, dwAttributes, lpGroupInfo, lpcbGroupInfo, lpReserved);
+	public static extern BOOL GetUrlCacheGroupAttributeA(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOA* lpGroupInfo, uint32* lpcbGroupInfo, void* lpReserved);
+	public static BOOL GetUrlCacheGroupAttribute(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOA* lpGroupInfo, uint32* lpcbGroupInfo, void* lpReserved) => GetUrlCacheGroupAttributeA(gid, dwFlags, dwAttributes, lpGroupInfo, lpcbGroupInfo, lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUrlCacheGroupAttributeW(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOW lpGroupInfo, uint32 lpcbGroupInfo, void lpReserved);
+	public static extern BOOL GetUrlCacheGroupAttributeW(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOW* lpGroupInfo, uint32* lpcbGroupInfo, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUrlCacheGroupAttributeA(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOA lpGroupInfo, void lpReserved);
-	public static BOOL SetUrlCacheGroupAttribute(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOA lpGroupInfo, void lpReserved) => SetUrlCacheGroupAttributeA(gid, dwFlags, dwAttributes, lpGroupInfo, lpReserved);
+	public static extern BOOL SetUrlCacheGroupAttributeA(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOA* lpGroupInfo, void* lpReserved);
+	public static BOOL SetUrlCacheGroupAttribute(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOA* lpGroupInfo, void* lpReserved) => SetUrlCacheGroupAttributeA(gid, dwFlags, dwAttributes, lpGroupInfo, lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUrlCacheGroupAttributeW(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOW lpGroupInfo, void lpReserved);
+	public static extern BOOL SetUrlCacheGroupAttributeW(int64 gid, uint32 dwFlags, uint32 dwAttributes, INTERNET_CACHE_GROUP_INFOW* lpGroupInfo, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUrlCacheEntryInfoExA(PSTR lpszUrl, INTERNET_CACHE_ENTRY_INFOA lpCacheEntryInfo, uint32 lpcbCacheEntryInfo, PSTR lpszRedirectUrl, uint32 lpcbRedirectUrl, void lpReserved, uint32 dwFlags);
-	public static BOOL GetUrlCacheEntryInfoEx(PSTR lpszUrl, INTERNET_CACHE_ENTRY_INFOA lpCacheEntryInfo, uint32 lpcbCacheEntryInfo, PSTR lpszRedirectUrl, uint32 lpcbRedirectUrl, void lpReserved, uint32 dwFlags) => GetUrlCacheEntryInfoExA(lpszUrl, lpCacheEntryInfo, lpcbCacheEntryInfo, lpszRedirectUrl, lpcbRedirectUrl, lpReserved, dwFlags);
+	public static extern BOOL GetUrlCacheEntryInfoExA(PSTR lpszUrl, INTERNET_CACHE_ENTRY_INFOA* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo, PSTR lpszRedirectUrl, uint32* lpcbRedirectUrl, void* lpReserved, uint32 dwFlags);
+	public static BOOL GetUrlCacheEntryInfoEx(PSTR lpszUrl, INTERNET_CACHE_ENTRY_INFOA* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo, PSTR lpszRedirectUrl, uint32* lpcbRedirectUrl, void* lpReserved, uint32 dwFlags) => GetUrlCacheEntryInfoExA(lpszUrl, lpCacheEntryInfo, lpcbCacheEntryInfo, lpszRedirectUrl, lpcbRedirectUrl, lpReserved, dwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUrlCacheEntryInfoExW(PWSTR lpszUrl, INTERNET_CACHE_ENTRY_INFOW lpCacheEntryInfo, uint32 lpcbCacheEntryInfo, PWSTR lpszRedirectUrl, uint32 lpcbRedirectUrl, void lpReserved, uint32 dwFlags);
+	public static extern BOOL GetUrlCacheEntryInfoExW(PWSTR lpszUrl, INTERNET_CACHE_ENTRY_INFOW* lpCacheEntryInfo, uint32* lpcbCacheEntryInfo, PWSTR lpszRedirectUrl, uint32* lpcbRedirectUrl, void* lpReserved, uint32 dwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUrlCacheEntryInfoA(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA lpCacheEntryInfo, uint32 dwFieldControl);
-	public static BOOL SetUrlCacheEntryInfo(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA lpCacheEntryInfo, uint32 dwFieldControl) => SetUrlCacheEntryInfoA(lpszUrlName, lpCacheEntryInfo, dwFieldControl);
+	public static extern BOOL SetUrlCacheEntryInfoA(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA* lpCacheEntryInfo, uint32 dwFieldControl);
+	public static BOOL SetUrlCacheEntryInfo(PSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOA* lpCacheEntryInfo, uint32 dwFieldControl) => SetUrlCacheEntryInfoA(lpszUrlName, lpCacheEntryInfo, dwFieldControl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUrlCacheEntryInfoW(PWSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOW lpCacheEntryInfo, uint32 dwFieldControl);
+	public static extern BOOL SetUrlCacheEntryInfoW(PWSTR lpszUrlName, INTERNET_CACHE_ENTRY_INFOW* lpCacheEntryInfo, uint32 dwFieldControl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int64 CreateUrlCacheGroup(uint32 dwFlags, void lpReserved);
+	public static extern int64 CreateUrlCacheGroup(uint32 dwFlags, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DeleteUrlCacheGroup(int64 GroupId, uint32 dwFlags, void lpReserved);
+	public static extern BOOL DeleteUrlCacheGroup(int64 GroupId, uint32 dwFlags, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUrlCacheEntryGroupA(PSTR lpszUrlName, uint32 dwFlags, int64 GroupId, uint8 pbGroupAttributes, uint32 cbGroupAttributes, void lpReserved);
+	public static extern BOOL SetUrlCacheEntryGroupA(PSTR lpszUrlName, uint32 dwFlags, int64 GroupId, uint8* pbGroupAttributes, uint32 cbGroupAttributes, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUrlCacheEntryGroupW(PWSTR lpszUrlName, uint32 dwFlags, int64 GroupId, uint8 pbGroupAttributes, uint32 cbGroupAttributes, void lpReserved);
+	public static extern BOOL SetUrlCacheEntryGroupW(PWSTR lpszUrlName, uint32 dwFlags, int64 GroupId, uint8* pbGroupAttributes, uint32 cbGroupAttributes, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUrlCacheEntryGroup(PSTR lpszUrlName, uint32 dwFlags, int64 GroupId, uint8 pbGroupAttributes, uint32 cbGroupAttributes, void lpReserved);
+	public static extern BOOL SetUrlCacheEntryGroup(PSTR lpszUrlName, uint32 dwFlags, int64 GroupId, uint8* pbGroupAttributes, uint32 cbGroupAttributes, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE FindFirstUrlCacheEntryExA(PSTR lpszUrlSearchPattern, uint32 dwFlags, uint32 dwFilter, int64 GroupId, INTERNET_CACHE_ENTRY_INFOA lpFirstCacheEntryInfo, uint32 lpcbCacheEntryInfo, void lpGroupAttributes, uint32 lpcbGroupAttributes, void lpReserved);
-	public static HANDLE FindFirstUrlCacheEntryEx(PSTR lpszUrlSearchPattern, uint32 dwFlags, uint32 dwFilter, int64 GroupId, INTERNET_CACHE_ENTRY_INFOA lpFirstCacheEntryInfo, uint32 lpcbCacheEntryInfo, void lpGroupAttributes, uint32 lpcbGroupAttributes, void lpReserved) => FindFirstUrlCacheEntryExA(lpszUrlSearchPattern, dwFlags, dwFilter, GroupId, lpFirstCacheEntryInfo, lpcbCacheEntryInfo, lpGroupAttributes, lpcbGroupAttributes, lpReserved);
+	public static extern HANDLE FindFirstUrlCacheEntryExA(PSTR lpszUrlSearchPattern, uint32 dwFlags, uint32 dwFilter, int64 GroupId, INTERNET_CACHE_ENTRY_INFOA* lpFirstCacheEntryInfo, uint32* lpcbCacheEntryInfo, void* lpGroupAttributes, uint32* lpcbGroupAttributes, void* lpReserved);
+	public static HANDLE FindFirstUrlCacheEntryEx(PSTR lpszUrlSearchPattern, uint32 dwFlags, uint32 dwFilter, int64 GroupId, INTERNET_CACHE_ENTRY_INFOA* lpFirstCacheEntryInfo, uint32* lpcbCacheEntryInfo, void* lpGroupAttributes, uint32* lpcbGroupAttributes, void* lpReserved) => FindFirstUrlCacheEntryExA(lpszUrlSearchPattern, dwFlags, dwFilter, GroupId, lpFirstCacheEntryInfo, lpcbCacheEntryInfo, lpGroupAttributes, lpcbGroupAttributes, lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE FindFirstUrlCacheEntryExW(PWSTR lpszUrlSearchPattern, uint32 dwFlags, uint32 dwFilter, int64 GroupId, INTERNET_CACHE_ENTRY_INFOW lpFirstCacheEntryInfo, uint32 lpcbCacheEntryInfo, void lpGroupAttributes, uint32 lpcbGroupAttributes, void lpReserved);
+	public static extern HANDLE FindFirstUrlCacheEntryExW(PWSTR lpszUrlSearchPattern, uint32 dwFlags, uint32 dwFilter, int64 GroupId, INTERNET_CACHE_ENTRY_INFOW* lpFirstCacheEntryInfo, uint32* lpcbCacheEntryInfo, void* lpGroupAttributes, uint32* lpcbGroupAttributes, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextUrlCacheEntryExA(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOA lpNextCacheEntryInfo, uint32 lpcbCacheEntryInfo, void lpGroupAttributes, uint32 lpcbGroupAttributes, void lpReserved);
-	public static BOOL FindNextUrlCacheEntryEx(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOA lpNextCacheEntryInfo, uint32 lpcbCacheEntryInfo, void lpGroupAttributes, uint32 lpcbGroupAttributes, void lpReserved) => FindNextUrlCacheEntryExA(hEnumHandle, lpNextCacheEntryInfo, lpcbCacheEntryInfo, lpGroupAttributes, lpcbGroupAttributes, lpReserved);
+	public static extern BOOL FindNextUrlCacheEntryExA(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOA* lpNextCacheEntryInfo, uint32* lpcbCacheEntryInfo, void* lpGroupAttributes, uint32* lpcbGroupAttributes, void* lpReserved);
+	public static BOOL FindNextUrlCacheEntryEx(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOA* lpNextCacheEntryInfo, uint32* lpcbCacheEntryInfo, void* lpGroupAttributes, uint32* lpcbGroupAttributes, void* lpReserved) => FindNextUrlCacheEntryExA(hEnumHandle, lpNextCacheEntryInfo, lpcbCacheEntryInfo, lpGroupAttributes, lpcbGroupAttributes, lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextUrlCacheEntryExW(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOW lpNextCacheEntryInfo, uint32 lpcbCacheEntryInfo, void lpGroupAttributes, uint32 lpcbGroupAttributes, void lpReserved);
+	public static extern BOOL FindNextUrlCacheEntryExW(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOW* lpNextCacheEntryInfo, uint32* lpcbCacheEntryInfo, void* lpGroupAttributes, uint32* lpcbGroupAttributes, void* lpReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE FindFirstUrlCacheEntryA(PSTR lpszUrlSearchPattern, INTERNET_CACHE_ENTRY_INFOA lpFirstCacheEntryInfo, uint32 lpcbCacheEntryInfo);
-	public static HANDLE FindFirstUrlCacheEntry(PSTR lpszUrlSearchPattern, INTERNET_CACHE_ENTRY_INFOA lpFirstCacheEntryInfo, uint32 lpcbCacheEntryInfo) => FindFirstUrlCacheEntryA(lpszUrlSearchPattern, lpFirstCacheEntryInfo, lpcbCacheEntryInfo);
+	public static extern HANDLE FindFirstUrlCacheEntryA(PSTR lpszUrlSearchPattern, INTERNET_CACHE_ENTRY_INFOA* lpFirstCacheEntryInfo, uint32* lpcbCacheEntryInfo);
+	public static HANDLE FindFirstUrlCacheEntry(PSTR lpszUrlSearchPattern, INTERNET_CACHE_ENTRY_INFOA* lpFirstCacheEntryInfo, uint32* lpcbCacheEntryInfo) => FindFirstUrlCacheEntryA(lpszUrlSearchPattern, lpFirstCacheEntryInfo, lpcbCacheEntryInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE FindFirstUrlCacheEntryW(PWSTR lpszUrlSearchPattern, INTERNET_CACHE_ENTRY_INFOW lpFirstCacheEntryInfo, uint32 lpcbCacheEntryInfo);
+	public static extern HANDLE FindFirstUrlCacheEntryW(PWSTR lpszUrlSearchPattern, INTERNET_CACHE_ENTRY_INFOW* lpFirstCacheEntryInfo, uint32* lpcbCacheEntryInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextUrlCacheEntryA(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOA lpNextCacheEntryInfo, uint32 lpcbCacheEntryInfo);
-	public static BOOL FindNextUrlCacheEntry(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOA lpNextCacheEntryInfo, uint32 lpcbCacheEntryInfo) => FindNextUrlCacheEntryA(hEnumHandle, lpNextCacheEntryInfo, lpcbCacheEntryInfo);
+	public static extern BOOL FindNextUrlCacheEntryA(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOA* lpNextCacheEntryInfo, uint32* lpcbCacheEntryInfo);
+	public static BOOL FindNextUrlCacheEntry(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOA* lpNextCacheEntryInfo, uint32* lpcbCacheEntryInfo) => FindNextUrlCacheEntryA(hEnumHandle, lpNextCacheEntryInfo, lpcbCacheEntryInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextUrlCacheEntryW(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOW lpNextCacheEntryInfo, uint32 lpcbCacheEntryInfo);
+	public static extern BOOL FindNextUrlCacheEntryW(HANDLE hEnumHandle, INTERNET_CACHE_ENTRY_INFOW* lpNextCacheEntryInfo, uint32* lpcbCacheEntryInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FindCloseUrlCache(HANDLE hEnumHandle);
@@ -3586,13 +3586,13 @@ public static
 	public static extern BOOL DeleteUrlCacheEntry(PSTR lpszUrlName);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InternetDialA(HWND hwndParent, PSTR lpszConnectoid, uint32 dwFlags, uint lpdwConnection, uint32 dwReserved);
+	public static extern uint32 InternetDialA(HWND hwndParent, PSTR lpszConnectoid, uint32 dwFlags, uint* lpdwConnection, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InternetDialW(HWND hwndParent, PWSTR lpszConnectoid, uint32 dwFlags, uint lpdwConnection, uint32 dwReserved);
+	public static extern uint32 InternetDialW(HWND hwndParent, PWSTR lpszConnectoid, uint32 dwFlags, uint* lpdwConnection, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InternetDial(HWND hwndParent, PSTR lpszConnectoid, uint32 dwFlags, uint32 lpdwConnection, uint32 dwReserved);
+	public static extern uint32 InternetDial(HWND hwndParent, PSTR lpszConnectoid, uint32 dwFlags, uint32* lpdwConnection, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 InternetHangUp(uint dwConnection, uint32 dwReserved);
@@ -3613,13 +3613,13 @@ public static
 	public static extern BOOL InternetAutodialHangup(uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetConnectedState(INTERNET_CONNECTION lpdwFlags, uint32 dwReserved);
+	public static extern BOOL InternetGetConnectedState(INTERNET_CONNECTION* lpdwFlags, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetConnectedStateExA(INTERNET_CONNECTION lpdwFlags, uint8* lpszConnectionName, uint32 cchNameLen, uint32 dwReserved);
+	public static extern BOOL InternetGetConnectedStateExA(INTERNET_CONNECTION* lpdwFlags, uint8* lpszConnectionName, uint32 cchNameLen, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetConnectedStateExW(INTERNET_CONNECTION lpdwFlags, char16* lpszConnectionName, uint32 cchNameLen, uint32 dwReserved);
+	public static extern BOOL InternetGetConnectedStateExW(INTERNET_CONNECTION* lpdwFlags, char16* lpszConnectionName, uint32 cchNameLen, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteWpadCacheForNetworks(WPAD_CACHE_DELETE param0);
@@ -3631,10 +3631,10 @@ public static
 	public static extern BOOL DetectAutoProxyUrl(uint8* pszAutoProxyUrl, uint32 cchAutoProxyUrl, PROXY_AUTO_DETECT_TYPE dwDetectFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CreateMD5SSOHash(PWSTR pszChallengeInfo, PWSTR pwszRealm, PWSTR pwszTarget, uint8 pbHexHash);
+	public static extern BOOL CreateMD5SSOHash(PWSTR pszChallengeInfo, PWSTR pwszRealm, PWSTR pwszTarget, uint8* pbHexHash);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetConnectedStateEx(INTERNET_CONNECTION lpdwFlags, uint8* lpszConnectionName, uint32 dwNameLen, uint32 dwReserved);
+	public static extern BOOL InternetGetConnectedStateEx(INTERNET_CONNECTION* lpdwFlags, uint8* lpszConnectionName, uint32 dwNameLen, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InternetSetDialStateA(PSTR lpszConnectoid, uint32 dwState, uint32 dwReserved);
@@ -3653,65 +3653,65 @@ public static
 	public static extern BOOL InternetSetPerSiteCookieDecisionW(PWSTR pchHostName, uint32 dwDecision);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetPerSiteCookieDecisionA(PSTR pchHostName, uint32 pResult);
-	public static BOOL InternetGetPerSiteCookieDecision(PSTR pchHostName, uint32 pResult) => InternetGetPerSiteCookieDecisionA(pchHostName, pResult);
+	public static extern BOOL InternetGetPerSiteCookieDecisionA(PSTR pchHostName, uint32* pResult);
+	public static BOOL InternetGetPerSiteCookieDecision(PSTR pchHostName, uint32* pResult) => InternetGetPerSiteCookieDecisionA(pchHostName, pResult);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetPerSiteCookieDecisionW(PWSTR pchHostName, uint32 pResult);
+	public static extern BOOL InternetGetPerSiteCookieDecisionW(PWSTR pchHostName, uint32* pResult);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InternetClearAllPerSiteCookieDecisions();
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetEnumPerSiteCookieDecisionA(uint8* pszSiteName, uint32 pcSiteNameSize, uint32 pdwDecision, uint32 dwIndex);
-	public static BOOL InternetEnumPerSiteCookieDecision(uint8* pszSiteName, uint32 pcSiteNameSize, uint32 pdwDecision, uint32 dwIndex) => InternetEnumPerSiteCookieDecisionA(pszSiteName, pcSiteNameSize, pdwDecision, dwIndex);
+	public static extern BOOL InternetEnumPerSiteCookieDecisionA(uint8* pszSiteName, uint32* pcSiteNameSize, uint32* pdwDecision, uint32 dwIndex);
+	public static BOOL InternetEnumPerSiteCookieDecision(uint8* pszSiteName, uint32* pcSiteNameSize, uint32* pdwDecision, uint32 dwIndex) => InternetEnumPerSiteCookieDecisionA(pszSiteName, pcSiteNameSize, pdwDecision, dwIndex);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetEnumPerSiteCookieDecisionW(char16* pszSiteName, uint32 pcSiteNameSize, uint32 pdwDecision, uint32 dwIndex);
+	public static extern BOOL InternetEnumPerSiteCookieDecisionW(char16* pszSiteName, uint32* pcSiteNameSize, uint32* pdwDecision, uint32 dwIndex);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PrivacySetZonePreferenceW(uint32 dwZone, uint32 dwType, uint32 dwTemplate, PWSTR pszPreference);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PrivacyGetZonePreferenceW(uint32 dwZone, uint32 dwType, uint32 pdwTemplate, char16* pszBuffer, uint32 pdwBufferLength);
+	public static extern uint32 PrivacyGetZonePreferenceW(uint32 dwZone, uint32 dwType, uint32* pdwTemplate, char16* pszBuffer, uint32* pdwBufferLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpIsHostHstsEnabled(PWSTR pcwszUrl, BOOL pfIsHsts);
+	public static extern uint32 HttpIsHostHstsEnabled(PWSTR pcwszUrl, BOOL* pfIsHsts);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetAlgIdToStringA(uint32 ai, uint8* lpstr, uint32 lpdwstrLength, uint32 dwReserved);
-	public static BOOL InternetAlgIdToString(uint32 ai, uint8* lpstr, uint32 lpdwstrLength, uint32 dwReserved) => InternetAlgIdToStringA(ai, lpstr, lpdwstrLength, dwReserved);
+	public static extern BOOL InternetAlgIdToStringA(uint32 ai, uint8* lpstr, uint32* lpdwstrLength, uint32 dwReserved);
+	public static BOOL InternetAlgIdToString(uint32 ai, uint8* lpstr, uint32* lpdwstrLength, uint32 dwReserved) => InternetAlgIdToStringA(ai, lpstr, lpdwstrLength, dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetAlgIdToStringW(uint32 ai, char16* lpstr, uint32 lpdwstrLength, uint32 dwReserved);
+	public static extern BOOL InternetAlgIdToStringW(uint32 ai, char16* lpstr, uint32* lpdwstrLength, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetSecurityProtocolToStringA(uint32 dwProtocol, uint8* lpstr, uint32 lpdwstrLength, uint32 dwReserved);
-	public static BOOL InternetSecurityProtocolToString(uint32 dwProtocol, uint8* lpstr, uint32 lpdwstrLength, uint32 dwReserved) => InternetSecurityProtocolToStringA(dwProtocol, lpstr, lpdwstrLength, dwReserved);
+	public static extern BOOL InternetSecurityProtocolToStringA(uint32 dwProtocol, uint8* lpstr, uint32* lpdwstrLength, uint32 dwReserved);
+	public static BOOL InternetSecurityProtocolToString(uint32 dwProtocol, uint8* lpstr, uint32* lpdwstrLength, uint32 dwReserved) => InternetSecurityProtocolToStringA(dwProtocol, lpstr, lpdwstrLength, dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetSecurityProtocolToStringW(uint32 dwProtocol, char16* lpstr, uint32 lpdwstrLength, uint32 dwReserved);
+	public static extern BOOL InternetSecurityProtocolToStringW(uint32 dwProtocol, char16* lpstr, uint32* lpdwstrLength, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetSecurityInfoByURLA(PSTR lpszURL, CERT_CHAIN_CONTEXT ppCertChain, uint32 pdwSecureFlags);
+	public static extern BOOL InternetGetSecurityInfoByURLA(PSTR lpszURL, CERT_CHAIN_CONTEXT** ppCertChain, uint32* pdwSecureFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetSecurityInfoByURLW(PWSTR lpszURL, CERT_CHAIN_CONTEXT ppCertChain, uint32 pdwSecureFlags);
+	public static extern BOOL InternetGetSecurityInfoByURLW(PWSTR lpszURL, CERT_CHAIN_CONTEXT** ppCertChain, uint32* pdwSecureFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetGetSecurityInfoByURL(PSTR lpszURL, CERT_CHAIN_CONTEXT ppCertChain, uint32 pdwSecureFlags);
+	public static extern BOOL InternetGetSecurityInfoByURL(PSTR lpszURL, CERT_CHAIN_CONTEXT** ppCertChain, uint32* pdwSecureFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ShowSecurityInfo(HWND hWndParent, INTERNET_SECURITY_INFO pSecurityInfo);
+	public static extern uint32 ShowSecurityInfo(HWND hWndParent, INTERNET_SECURITY_INFO* pSecurityInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ShowX509EncodedCertificate(HWND hWndParent, uint8 lpCert, uint32 cbCert);
+	public static extern uint32 ShowX509EncodedCertificate(HWND hWndParent, uint8* lpCert, uint32 cbCert);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ShowClientAuthCerts(HWND hWndParent);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ParseX509EncodedCertificateForListBoxEntry(uint8 lpCert, uint32 cbCert, uint8* lpszListBoxEntry, uint32 lpdwListBoxEntry);
+	public static extern uint32 ParseX509EncodedCertificateForListBoxEntry(uint8* lpCert, uint32 cbCert, uint8* lpszListBoxEntry, uint32* lpdwListBoxEntry);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InternetShowSecurityInfoByURLA(PSTR lpszURL, HWND hwndParent);
@@ -3726,14 +3726,14 @@ public static
 	public static extern BOOL InternetFortezzaCommand(uint32 dwCommand, HWND hwnd, uint dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetQueryFortezzaStatus(uint32 pdwStatus, uint dwReserved);
+	public static extern BOOL InternetQueryFortezzaStatus(uint32* pdwStatus, uint dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetWriteFileExA(void hFile, INTERNET_BUFFERSA lpBuffersIn, uint32 dwFlags, uint dwContext);
-	public static BOOL InternetWriteFileEx(void hFile, INTERNET_BUFFERSA lpBuffersIn, uint32 dwFlags, uint dwContext) => InternetWriteFileExA(hFile, lpBuffersIn, dwFlags, dwContext);
+	public static extern BOOL InternetWriteFileExA(void* hFile, INTERNET_BUFFERSA* lpBuffersIn, uint32 dwFlags, uint dwContext);
+	public static BOOL InternetWriteFileEx(void* hFile, INTERNET_BUFFERSA* lpBuffersIn, uint32 dwFlags, uint dwContext) => InternetWriteFileExA(hFile, lpBuffersIn, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL InternetWriteFileExW(void hFile, INTERNET_BUFFERSW lpBuffersIn, uint32 dwFlags, uint dwContext);
+	public static extern BOOL InternetWriteFileExW(void* hFile, INTERNET_BUFFERSW* lpBuffersIn, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 FindP3PPolicySymbol(PSTR pszSymbol);
@@ -3742,43 +3742,43 @@ public static
 	public static extern uint32 HttpGetServerCredentials(PWSTR pwszUrl, PWSTR ppwszUserName, PWSTR ppwszPassword);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpPushEnable(void hRequest, HTTP_PUSH_TRANSPORT_SETTING pTransportSetting, HTTP_PUSH_WAIT_HANDLE phWait);
+	public static extern uint32 HttpPushEnable(void* hRequest, HTTP_PUSH_TRANSPORT_SETTING* pTransportSetting, HTTP_PUSH_WAIT_HANDLE* phWait);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpPushWait(HTTP_PUSH_WAIT_HANDLE hWait, HTTP_PUSH_WAIT_TYPE eType, HTTP_PUSH_NOTIFICATION_STATUS pNotificationStatus);
+	public static extern uint32 HttpPushWait(HTTP_PUSH_WAIT_HANDLE hWait, HTTP_PUSH_WAIT_TYPE eType, HTTP_PUSH_NOTIFICATION_STATUS* pNotificationStatus);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void HttpPushClose(HTTP_PUSH_WAIT_HANDLE hWait);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpCheckDavComplianceA(PSTR lpszUrl, PSTR lpszComplianceToken, int32 lpfFound, HWND hWnd, void lpvReserved);
-	public static BOOL HttpCheckDavCompliance(PSTR lpszUrl, PSTR lpszComplianceToken, int32 lpfFound, HWND hWnd, void lpvReserved) => HttpCheckDavComplianceA(lpszUrl, lpszComplianceToken, lpfFound, hWnd, lpvReserved);
+	public static extern BOOL HttpCheckDavComplianceA(PSTR lpszUrl, PSTR lpszComplianceToken, int32* lpfFound, HWND hWnd, void* lpvReserved);
+	public static BOOL HttpCheckDavCompliance(PSTR lpszUrl, PSTR lpszComplianceToken, int32* lpfFound, HWND hWnd, void* lpvReserved) => HttpCheckDavComplianceA(lpszUrl, lpszComplianceToken, lpfFound, hWnd, lpvReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpCheckDavComplianceW(PWSTR lpszUrl, PWSTR lpszComplianceToken, int32 lpfFound, HWND hWnd, void lpvReserved);
+	public static extern BOOL HttpCheckDavComplianceW(PWSTR lpszUrl, PWSTR lpszComplianceToken, int32* lpfFound, HWND hWnd, void* lpvReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsUrlCacheEntryExpiredA(PSTR lpszUrlName, uint32 dwFlags, FILETIME pftLastModified);
-	public static BOOL IsUrlCacheEntryExpired(PSTR lpszUrlName, uint32 dwFlags, FILETIME pftLastModified) => IsUrlCacheEntryExpiredA(lpszUrlName, dwFlags, pftLastModified);
+	public static extern BOOL IsUrlCacheEntryExpiredA(PSTR lpszUrlName, uint32 dwFlags, FILETIME* pftLastModified);
+	public static BOOL IsUrlCacheEntryExpired(PSTR lpszUrlName, uint32 dwFlags, FILETIME* pftLastModified) => IsUrlCacheEntryExpiredA(lpszUrlName, dwFlags, pftLastModified);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsUrlCacheEntryExpiredW(PWSTR lpszUrlName, uint32 dwFlags, FILETIME pftLastModified);
+	public static extern BOOL IsUrlCacheEntryExpiredW(PWSTR lpszUrlName, uint32 dwFlags, FILETIME* pftLastModified);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CreateUrlCacheEntryExW(PWSTR lpszUrlName, uint32 dwExpectedFileSize, PWSTR lpszFileExtension, char16* lpszFileName, uint32 dwReserved, BOOL fPreserveIncomingFileName);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetUrlCacheEntryBinaryBlob(PWSTR pwszUrlName, uint32 dwType, FILETIME pftExpireTime, FILETIME pftAccessTime, FILETIME pftModifiedTime, uint8* ppbBlob, uint32 pcbBlob);
+	public static extern uint32 GetUrlCacheEntryBinaryBlob(PWSTR pwszUrlName, uint32* dwType, FILETIME* pftExpireTime, FILETIME* pftAccessTime, FILETIME* pftModifiedTime, uint8** ppbBlob, uint32* pcbBlob);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CommitUrlCacheEntryBinaryBlob(PWSTR pwszUrlName, uint32 dwType, FILETIME ftExpireTime, FILETIME ftModifiedTime, uint8* pbBlob, uint32 cbBlob);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CreateUrlCacheContainerA(PSTR Name, PSTR lpCachePrefix, PSTR lpszCachePath, uint32 KBCacheLimit, uint32 dwContainerType, uint32 dwOptions, void pvBuffer, uint32 cbBuffer);
-	public static BOOL CreateUrlCacheContainer(PSTR Name, PSTR lpCachePrefix, PSTR lpszCachePath, uint32 KBCacheLimit, uint32 dwContainerType, uint32 dwOptions, void pvBuffer, uint32 cbBuffer) => CreateUrlCacheContainerA(Name, lpCachePrefix, lpszCachePath, KBCacheLimit, dwContainerType, dwOptions, pvBuffer, cbBuffer);
+	public static extern BOOL CreateUrlCacheContainerA(PSTR Name, PSTR lpCachePrefix, PSTR lpszCachePath, uint32 KBCacheLimit, uint32 dwContainerType, uint32 dwOptions, void* pvBuffer, uint32* cbBuffer);
+	public static BOOL CreateUrlCacheContainer(PSTR Name, PSTR lpCachePrefix, PSTR lpszCachePath, uint32 KBCacheLimit, uint32 dwContainerType, uint32 dwOptions, void* pvBuffer, uint32* cbBuffer) => CreateUrlCacheContainerA(Name, lpCachePrefix, lpszCachePath, KBCacheLimit, dwContainerType, dwOptions, pvBuffer, cbBuffer);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CreateUrlCacheContainerW(PWSTR Name, PWSTR lpCachePrefix, PWSTR lpszCachePath, uint32 KBCacheLimit, uint32 dwContainerType, uint32 dwOptions, void pvBuffer, uint32 cbBuffer);
+	public static extern BOOL CreateUrlCacheContainerW(PWSTR Name, PWSTR lpCachePrefix, PWSTR lpszCachePath, uint32 KBCacheLimit, uint32 dwContainerType, uint32 dwOptions, void* pvBuffer, uint32* cbBuffer);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteUrlCacheContainerA(PSTR Name, uint32 dwOptions);
@@ -3788,18 +3788,18 @@ public static
 	public static extern BOOL DeleteUrlCacheContainerW(PWSTR Name, uint32 dwOptions);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE FindFirstUrlCacheContainerA(uint32 pdwModified, INTERNET_CACHE_CONTAINER_INFOA lpContainerInfo, uint32 lpcbContainerInfo, uint32 dwOptions);
-	public static HANDLE FindFirstUrlCacheContainer(uint32 pdwModified, INTERNET_CACHE_CONTAINER_INFOA lpContainerInfo, uint32 lpcbContainerInfo, uint32 dwOptions) => FindFirstUrlCacheContainerA(pdwModified, lpContainerInfo, lpcbContainerInfo, dwOptions);
+	public static extern HANDLE FindFirstUrlCacheContainerA(uint32* pdwModified, INTERNET_CACHE_CONTAINER_INFOA* lpContainerInfo, uint32* lpcbContainerInfo, uint32 dwOptions);
+	public static HANDLE FindFirstUrlCacheContainer(uint32* pdwModified, INTERNET_CACHE_CONTAINER_INFOA* lpContainerInfo, uint32* lpcbContainerInfo, uint32 dwOptions) => FindFirstUrlCacheContainerA(pdwModified, lpContainerInfo, lpcbContainerInfo, dwOptions);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE FindFirstUrlCacheContainerW(uint32 pdwModified, INTERNET_CACHE_CONTAINER_INFOW lpContainerInfo, uint32 lpcbContainerInfo, uint32 dwOptions);
+	public static extern HANDLE FindFirstUrlCacheContainerW(uint32* pdwModified, INTERNET_CACHE_CONTAINER_INFOW* lpContainerInfo, uint32* lpcbContainerInfo, uint32 dwOptions);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextUrlCacheContainerA(HANDLE hEnumHandle, INTERNET_CACHE_CONTAINER_INFOA lpContainerInfo, uint32 lpcbContainerInfo);
-	public static BOOL FindNextUrlCacheContainer(HANDLE hEnumHandle, INTERNET_CACHE_CONTAINER_INFOA lpContainerInfo, uint32 lpcbContainerInfo) => FindNextUrlCacheContainerA(hEnumHandle, lpContainerInfo, lpcbContainerInfo);
+	public static extern BOOL FindNextUrlCacheContainerA(HANDLE hEnumHandle, INTERNET_CACHE_CONTAINER_INFOA* lpContainerInfo, uint32* lpcbContainerInfo);
+	public static BOOL FindNextUrlCacheContainer(HANDLE hEnumHandle, INTERNET_CACHE_CONTAINER_INFOA* lpContainerInfo, uint32* lpcbContainerInfo) => FindNextUrlCacheContainerA(hEnumHandle, lpContainerInfo, lpcbContainerInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextUrlCacheContainerW(HANDLE hEnumHandle, INTERNET_CACHE_CONTAINER_INFOW lpContainerInfo, uint32 lpcbContainerInfo);
+	public static extern BOOL FindNextUrlCacheContainerW(HANDLE hEnumHandle, INTERNET_CACHE_CONTAINER_INFOW* lpContainerInfo, uint32* lpcbContainerInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FreeUrlCacheSpaceA(PSTR lpszCachePath, uint32 dwSize, uint32 dwFilter);
@@ -3812,21 +3812,21 @@ public static
 	public static extern uint32 UrlCacheFreeGlobalSpace(uint64 ullTargetSize, uint32 dwFilter);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheGetGlobalCacheSize(uint32 dwFilter, uint64 pullSize, uint64 pullLimit);
+	public static extern uint32 UrlCacheGetGlobalCacheSize(uint32 dwFilter, uint64* pullSize, uint64* pullLimit);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUrlCacheConfigInfoA(INTERNET_CACHE_CONFIG_INFOA lpCacheConfigInfo, uint32 lpcbCacheConfigInfo, CACHE_CONFIG dwFieldControl);
-	public static BOOL GetUrlCacheConfigInfo(INTERNET_CACHE_CONFIG_INFOA lpCacheConfigInfo, uint32 lpcbCacheConfigInfo, CACHE_CONFIG dwFieldControl) => GetUrlCacheConfigInfoA(lpCacheConfigInfo, lpcbCacheConfigInfo, dwFieldControl);
+	public static extern BOOL GetUrlCacheConfigInfoA(INTERNET_CACHE_CONFIG_INFOA* lpCacheConfigInfo, uint32* lpcbCacheConfigInfo, CACHE_CONFIG dwFieldControl);
+	public static BOOL GetUrlCacheConfigInfo(INTERNET_CACHE_CONFIG_INFOA* lpCacheConfigInfo, uint32* lpcbCacheConfigInfo, CACHE_CONFIG dwFieldControl) => GetUrlCacheConfigInfoA(lpCacheConfigInfo, lpcbCacheConfigInfo, dwFieldControl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUrlCacheConfigInfoW(INTERNET_CACHE_CONFIG_INFOW lpCacheConfigInfo, uint32 lpcbCacheConfigInfo, CACHE_CONFIG dwFieldControl);
+	public static extern BOOL GetUrlCacheConfigInfoW(INTERNET_CACHE_CONFIG_INFOW* lpCacheConfigInfo, uint32* lpcbCacheConfigInfo, CACHE_CONFIG dwFieldControl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUrlCacheConfigInfoA(INTERNET_CACHE_CONFIG_INFOA lpCacheConfigInfo, uint32 dwFieldControl);
-	public static BOOL SetUrlCacheConfigInfo(INTERNET_CACHE_CONFIG_INFOA lpCacheConfigInfo, uint32 dwFieldControl) => SetUrlCacheConfigInfoA(lpCacheConfigInfo, dwFieldControl);
+	public static extern BOOL SetUrlCacheConfigInfoA(INTERNET_CACHE_CONFIG_INFOA* lpCacheConfigInfo, uint32 dwFieldControl);
+	public static BOOL SetUrlCacheConfigInfo(INTERNET_CACHE_CONFIG_INFOA* lpCacheConfigInfo, uint32 dwFieldControl) => SetUrlCacheConfigInfoA(lpCacheConfigInfo, dwFieldControl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUrlCacheConfigInfoW(INTERNET_CACHE_CONFIG_INFOW lpCacheConfigInfo, uint32 dwFieldControl);
+	public static extern BOOL SetUrlCacheConfigInfoW(INTERNET_CACHE_CONFIG_INFOW* lpCacheConfigInfo, uint32 dwFieldControl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RunOnceUrlCache(HWND hwnd, HINSTANCE hinst, PSTR lpszCmd, int32 nCmdShow);
@@ -3841,52 +3841,52 @@ public static
 	public static extern BOOL RegisterUrlCacheNotification(HWND hWnd, uint32 uMsg, int64 gid, uint32 dwOpsFilter, uint32 dwReserved);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUrlCacheHeaderData(uint32 nIdx, uint32 lpdwData);
+	public static extern BOOL GetUrlCacheHeaderData(uint32 nIdx, uint32* lpdwData);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetUrlCacheHeaderData(uint32 nIdx, uint32 dwData);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IncrementUrlCacheHeaderData(uint32 nIdx, uint32 lpdwData);
+	public static extern BOOL IncrementUrlCacheHeaderData(uint32 nIdx, uint32* lpdwData);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LoadUrlCacheContent();
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheLookup(PWSTR pwszUrl, uint32 dwFlags, void phAppCache);
+	public static extern uint32 AppCacheLookup(PWSTR pwszUrl, uint32 dwFlags, void** phAppCache);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheCheckManifest(PWSTR pwszMasterUrl, PWSTR pwszManifestUrl, uint8 pbManifestData, uint32 dwManifestDataSize, uint8 pbManifestResponseHeaders, uint32 dwManifestResponseHeadersSize, APP_CACHE_STATE peState, void phNewAppCache);
+	public static extern uint32 AppCacheCheckManifest(PWSTR pwszMasterUrl, PWSTR pwszManifestUrl, uint8* pbManifestData, uint32 dwManifestDataSize, uint8* pbManifestResponseHeaders, uint32 dwManifestResponseHeadersSize, APP_CACHE_STATE* peState, void** phNewAppCache);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheGetDownloadList(void hAppCache, APP_CACHE_DOWNLOAD_LIST pDownloadList);
+	public static extern uint32 AppCacheGetDownloadList(void* hAppCache, APP_CACHE_DOWNLOAD_LIST* pDownloadList);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void AppCacheFreeDownloadList(APP_CACHE_DOWNLOAD_LIST pDownloadList);
+	public static extern void AppCacheFreeDownloadList(APP_CACHE_DOWNLOAD_LIST* pDownloadList);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheFinalize(void hAppCache, uint8 pbManifestData, uint32 dwManifestDataSize, APP_CACHE_FINALIZE_STATE peState);
+	public static extern uint32 AppCacheFinalize(void* hAppCache, uint8* pbManifestData, uint32 dwManifestDataSize, APP_CACHE_FINALIZE_STATE* peState);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheGetFallbackUrl(void hAppCache, PWSTR pwszUrl, PWSTR ppwszFallbackUrl);
+	public static extern uint32 AppCacheGetFallbackUrl(void* hAppCache, PWSTR pwszUrl, PWSTR ppwszFallbackUrl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheGetManifestUrl(void hAppCache, PWSTR ppwszManifestUrl);
+	public static extern uint32 AppCacheGetManifestUrl(void* hAppCache, PWSTR ppwszManifestUrl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheDuplicateHandle(void hAppCache, void phDuplicatedAppCache);
+	public static extern uint32 AppCacheDuplicateHandle(void* hAppCache, void** phDuplicatedAppCache);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void AppCacheCloseHandle(void hAppCache);
+	public static extern void AppCacheCloseHandle(void* hAppCache);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void AppCacheFreeGroupList(APP_CACHE_GROUP_LIST pAppCacheGroupList);
+	public static extern void AppCacheFreeGroupList(APP_CACHE_GROUP_LIST* pAppCacheGroupList);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheGetGroupList(APP_CACHE_GROUP_LIST pAppCacheGroupList);
+	public static extern uint32 AppCacheGetGroupList(APP_CACHE_GROUP_LIST* pAppCacheGroupList);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheGetInfo(void hAppCache, APP_CACHE_GROUP_INFO pAppCacheInfo);
+	public static extern uint32 AppCacheGetInfo(void* hAppCache, APP_CACHE_GROUP_INFO* pAppCacheInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 AppCacheDeleteGroup(PWSTR pwszManifestUrl);
@@ -3895,7 +3895,7 @@ public static
 	public static extern uint32 AppCacheFreeSpace(FILETIME ftCutOff);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheGetIEGroupList(APP_CACHE_GROUP_LIST pAppCacheGroupList);
+	public static extern uint32 AppCacheGetIEGroupList(APP_CACHE_GROUP_LIST* pAppCacheGroupList);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 AppCacheDeleteIEGroup(PWSTR pwszManifestUrl);
@@ -3904,40 +3904,40 @@ public static
 	public static extern uint32 AppCacheFreeIESpace(FILETIME ftCutOff);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheCreateAndCommitFile(void hAppCache, PWSTR pwszSourceFilePath, PWSTR pwszUrl, uint8 pbResponseHeaders, uint32 dwResponseHeadersSize);
+	public static extern uint32 AppCacheCreateAndCommitFile(void* hAppCache, PWSTR pwszSourceFilePath, PWSTR pwszUrl, uint8* pbResponseHeaders, uint32 dwResponseHeadersSize);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpOpenDependencyHandle(void hRequestHandle, BOOL fBackground, void phDependencyHandle);
+	public static extern uint32 HttpOpenDependencyHandle(void* hRequestHandle, BOOL fBackground, void** phDependencyHandle);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void HttpCloseDependencyHandle(void hDependencyHandle);
+	public static extern void HttpCloseDependencyHandle(void* hDependencyHandle);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpDuplicateDependencyHandle(void hDependencyHandle, void phDuplicatedDependencyHandle);
+	public static extern uint32 HttpDuplicateDependencyHandle(void* hDependencyHandle, void** phDuplicatedDependencyHandle);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpIndicatePageLoadComplete(void hDependencyHandle);
+	public static extern uint32 HttpIndicatePageLoadComplete(void* hDependencyHandle);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UrlCacheFreeEntryInfo(URLCACHE_ENTRY_INFO pCacheEntryInfo);
+	public static extern void UrlCacheFreeEntryInfo(URLCACHE_ENTRY_INFO* pCacheEntryInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheGetEntryInfo(void hAppCache, PWSTR pcwszUrl, URLCACHE_ENTRY_INFO pCacheEntryInfo);
+	public static extern uint32 UrlCacheGetEntryInfo(void* hAppCache, PWSTR pcwszUrl, URLCACHE_ENTRY_INFO* pCacheEntryInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UrlCacheCloseEntryHandle(void hEntryFile);
+	public static extern void UrlCacheCloseEntryHandle(void* hEntryFile);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheRetrieveEntryFile(void hAppCache, PWSTR pcwszUrl, URLCACHE_ENTRY_INFO pCacheEntryInfo, void phEntryFile);
+	public static extern uint32 UrlCacheRetrieveEntryFile(void* hAppCache, PWSTR pcwszUrl, URLCACHE_ENTRY_INFO* pCacheEntryInfo, void** phEntryFile);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheReadEntryStream(void hUrlCacheStream, uint64 ullLocation, void pBuffer, uint32 dwBufferLen, uint32 pdwBufferLen);
+	public static extern uint32 UrlCacheReadEntryStream(void* hUrlCacheStream, uint64 ullLocation, void* pBuffer, uint32 dwBufferLen, uint32* pdwBufferLen);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheRetrieveEntryStream(void hAppCache, PWSTR pcwszUrl, BOOL fRandomRead, URLCACHE_ENTRY_INFO pCacheEntryInfo, void phEntryStream);
+	public static extern uint32 UrlCacheRetrieveEntryStream(void* hAppCache, PWSTR pcwszUrl, BOOL fRandomRead, URLCACHE_ENTRY_INFO* pCacheEntryInfo, void** phEntryStream);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheUpdateEntryExtraData(void hAppCache, PWSTR pcwszUrl, uint8 pbExtraData, uint32 cbExtraData);
+	public static extern uint32 UrlCacheUpdateEntryExtraData(void* hAppCache, PWSTR pcwszUrl, uint8* pbExtraData, uint32 cbExtraData);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 UrlCacheCreateContainer(PWSTR pwszName, PWSTR pwszPrefix, PWSTR pwszDirectory, uint64 ullLimit, uint32 dwOptions);
@@ -3946,10 +3946,10 @@ public static
 	public static extern uint32 UrlCacheCheckEntriesExist(PWSTR* rgpwszUrls, uint32 cEntries, BOOL* rgfExist);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheGetContentPaths(PWSTR pppwszDirectories, uint32 pcDirectories);
+	public static extern uint32 UrlCacheGetContentPaths(PWSTR pppwszDirectories, uint32* pcDirectories);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheGetGlobalLimit(URL_CACHE_LIMIT_TYPE limitType, uint64 pullLimit);
+	public static extern uint32 UrlCacheGetGlobalLimit(URL_CACHE_LIMIT_TYPE limitType, uint64* pullLimit);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 UrlCacheSetGlobalLimit(URL_CACHE_LIMIT_TYPE limitType, uint64 ullLimit);
@@ -3961,40 +3961,40 @@ public static
 	public static extern uint32 UrlCacheContainerSetEntryMaximumAge(PWSTR pwszPrefix, uint32 dwEntryMaxAge);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheFindFirstEntry(PWSTR pwszPrefix, uint32 dwFlags, uint32 dwFilter, int64 GroupId, URLCACHE_ENTRY_INFO pCacheEntryInfo, HANDLE phFind);
+	public static extern uint32 UrlCacheFindFirstEntry(PWSTR pwszPrefix, uint32 dwFlags, uint32 dwFilter, int64 GroupId, URLCACHE_ENTRY_INFO* pCacheEntryInfo, HANDLE* phFind);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheFindNextEntry(HANDLE hFind, URLCACHE_ENTRY_INFO pCacheEntryInfo);
+	public static extern uint32 UrlCacheFindNextEntry(HANDLE hFind, URLCACHE_ENTRY_INFO* pCacheEntryInfo);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 UrlCacheServer();
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ReadGuidsForConnectedNetworks(uint32 pcNetworks, PWSTR pppwszNetworkGuids, BSTR pppbstrNetworkNames, PWSTR pppwszGWMacs, uint32 pcGatewayMacs, uint32 pdwFlags);
+	public static extern BOOL ReadGuidsForConnectedNetworks(uint32* pcNetworks, PWSTR pppwszNetworkGuids, BSTR** pppbstrNetworkNames, PWSTR pppwszGWMacs, uint32* pcGatewayMacs, uint32* pdwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsHostInProxyBypassList(INTERNET_SCHEME tScheme, uint8* lpszHost, uint32 cchHost);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void InternetFreeProxyInfoList(WININET_PROXY_INFO_LIST pProxyInfoList);
+	public static extern void InternetFreeProxyInfoList(WININET_PROXY_INFO_LIST* pProxyInfoList);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InternetGetProxyForUrl(void hInternet, PWSTR pcwszUrl, WININET_PROXY_INFO_LIST pProxyInfoList);
+	public static extern uint32 InternetGetProxyForUrl(void* hInternet, PWSTR pcwszUrl, WININET_PROXY_INFO_LIST* pProxyInfoList);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DoConnectoidsExist();
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetDiskInfoA(PSTR pszPath, uint32 pdwClusterSize, uint64 pdlAvail, uint64 pdlTotal);
+	public static extern BOOL GetDiskInfoA(PSTR pszPath, uint32* pdwClusterSize, uint64* pdlAvail, uint64* pdlTotal);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PerformOperationOverUrlCacheA(PSTR pszUrlSearchPattern, uint32 dwFlags, uint32 dwFilter, int64 GroupId, void pReserved1, uint32 pdwReserved2, void pReserved3, CACHE_OPERATOR op, void pOperatorData);
+	public static extern BOOL PerformOperationOverUrlCacheA(PSTR pszUrlSearchPattern, uint32 dwFlags, uint32 dwFilter, int64 GroupId, void* pReserved1, uint32* pdwReserved2, void* pReserved3, CACHE_OPERATOR op, void* pOperatorData);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsProfilesEnabled();
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InternalInternetGetCookie(PSTR lpszUrl, uint8* lpszCookieData, uint32 lpdwDataSize);
+	public static extern uint32 InternalInternetGetCookie(PSTR lpszUrl, uint8* lpszCookieData, uint32* lpdwDataSize);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImportCookieFileA(PSTR szFilename);
@@ -4018,22 +4018,22 @@ public static
 	public static extern BOOL IsDomainLegalCookieDomainW(PWSTR pchDomain, PWSTR pchFullDomain);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void HttpWebSocketCompleteUpgrade(void hRequest, uint dwContext);
+	public static extern void* HttpWebSocketCompleteUpgrade(void* hRequest, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpWebSocketSend(void hWebSocket, HTTP_WEB_SOCKET_BUFFER_TYPE BufferType, void pvBuffer, uint32 dwBufferLength);
+	public static extern BOOL HttpWebSocketSend(void* hWebSocket, HTTP_WEB_SOCKET_BUFFER_TYPE BufferType, void* pvBuffer, uint32 dwBufferLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpWebSocketReceive(void hWebSocket, void pvBuffer, uint32 dwBufferLength, uint32 pdwBytesRead, HTTP_WEB_SOCKET_BUFFER_TYPE pBufferType);
+	public static extern BOOL HttpWebSocketReceive(void* hWebSocket, void* pvBuffer, uint32 dwBufferLength, uint32* pdwBytesRead, HTTP_WEB_SOCKET_BUFFER_TYPE* pBufferType);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpWebSocketClose(void hWebSocket, uint16 usStatus, void pvReason, uint32 dwReasonLength);
+	public static extern BOOL HttpWebSocketClose(void* hWebSocket, uint16 usStatus, void* pvReason, uint32 dwReasonLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpWebSocketShutdown(void hWebSocket, uint16 usStatus, void pvReason, uint32 dwReasonLength);
+	public static extern BOOL HttpWebSocketShutdown(void* hWebSocket, uint16 usStatus, void* pvReason, uint32 dwReasonLength);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL HttpWebSocketQueryCloseStatus(void hWebSocket, uint16 pusStatus, void pvReason, uint32 dwReasonLength, uint32 pdwReasonLengthConsumed);
+	public static extern BOOL HttpWebSocketQueryCloseStatus(void* hWebSocket, uint16* pusStatus, void* pvReason, uint32 dwReasonLength, uint32* pdwReasonLengthConsumed);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 InternetConvertUrlFromWireToWideChar(uint8* pcszUrl, uint32 cchUrl, PWSTR pcwszBaseUrl, uint32 dwCodePageHost, uint32 dwCodePagePath, BOOL fEncodePathExtra, uint32 dwCodePageExtra, PWSTR ppwszConvertedUrl);

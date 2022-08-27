@@ -75,9 +75,9 @@ public function BOOL ENUMRESTYPEPROCA(HINSTANCE hModule, PSTR lpType, int lParam
 
 public function BOOL ENUMRESTYPEPROCW(HINSTANCE hModule, PWSTR lpType, int lParam);
 
-public function BOOL PGET_MODULE_HANDLE_EXA(uint32 dwFlags, PSTR lpModuleName, HINSTANCE phModule);
+public function BOOL PGET_MODULE_HANDLE_EXA(uint32 dwFlags, PSTR lpModuleName, HINSTANCE* phModule);
 
-public function BOOL PGET_MODULE_HANDLE_EXW(uint32 dwFlags, PWSTR lpModuleName, HINSTANCE phModule);
+public function BOOL PGET_MODULE_HANDLE_EXW(uint32 dwFlags, PWSTR lpModuleName, HINSTANCE* phModule);
 
 #endregion
 
@@ -87,7 +87,7 @@ public struct ENUMUILANG
 {
 	public uint32 NumOfEnumUILang;
 	public uint32 SizeOfEnumUIBuffer;
-	public uint16 pEnumUIBuffer;
+	public uint16* pEnumUIBuffer;
 }
 
 [CRepr]
@@ -95,7 +95,7 @@ public struct REDIRECTION_FUNCTION_DESCRIPTOR
 {
 	public PSTR DllName;
 	public PSTR FunctionName;
-	public void RedirectionTarget;
+	public void* RedirectionTarget;
 }
 
 [CRepr]
@@ -103,7 +103,7 @@ public struct REDIRECTION_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 FunctionCount;
-	public REDIRECTION_FUNCTION_DESCRIPTOR Redirections;
+	public REDIRECTION_FUNCTION_DESCRIPTOR* Redirections;
 }
 
 #endregion
@@ -150,11 +150,11 @@ public static
 	public static extern HINSTANCE GetModuleHandleW(PWSTR lpModuleName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetModuleHandleExA(uint32 dwFlags, PSTR lpModuleName, HINSTANCE phModule);
-	public static BOOL GetModuleHandleEx(uint32 dwFlags, PSTR lpModuleName, HINSTANCE phModule) => GetModuleHandleExA(dwFlags, lpModuleName, phModule);
+	public static extern BOOL GetModuleHandleExA(uint32 dwFlags, PSTR lpModuleName, HINSTANCE* phModule);
+	public static BOOL GetModuleHandleEx(uint32 dwFlags, PSTR lpModuleName, HINSTANCE* phModule) => GetModuleHandleExA(dwFlags, lpModuleName, phModule);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetModuleHandleExW(uint32 dwFlags, PWSTR lpModuleName, HINSTANCE phModule);
+	public static extern BOOL GetModuleHandleExW(uint32 dwFlags, PWSTR lpModuleName, HINSTANCE* phModule);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern FARPROC GetProcAddress(HINSTANCE hModule, PSTR lpProcName);
@@ -170,16 +170,16 @@ public static
 	public static extern int LoadResource(HINSTANCE hModule, HRSRC hResInfo);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void LockResource(int hResData);
+	public static extern void* LockResource(int hResData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SizeofResource(HINSTANCE hModule, HRSRC hResInfo);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void AddDllDirectory(PWSTR NewDirectory);
+	public static extern void* AddDllDirectory(PWSTR NewDirectory);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL RemoveDllDirectory(void Cookie);
+	public static extern BOOL RemoveDllDirectory(void* Cookie);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetDefaultDllDirectories(LOAD_LIBRARY_FLAGS DirectoryFlags);
@@ -223,7 +223,7 @@ public static
 	public static BOOL EnumResourceNames(HINSTANCE hModule, PSTR lpType, ENUMRESNAMEPROCA lpEnumFunc, int lParam) => EnumResourceNamesA(hModule, lpType, lpEnumFunc, lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 LoadModule(PSTR lpModuleName, void lpParameterBlock);
+	public static extern uint32 LoadModule(PSTR lpModuleName, void* lpParameterBlock);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE LoadPackagedLibrary(PWSTR lpwLibFileName, uint32 Reserved);
@@ -258,11 +258,11 @@ public static
 	public static extern HANDLE BeginUpdateResourceW(PWSTR pFileName, BOOL bDeleteExistingResources);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL UpdateResourceA(HANDLE hUpdate, PSTR lpType, PSTR lpName, uint16 wLanguage, void lpData, uint32 cb);
-	public static BOOL UpdateResource(HANDLE hUpdate, PSTR lpType, PSTR lpName, uint16 wLanguage, void lpData, uint32 cb) => UpdateResourceA(hUpdate, lpType, lpName, wLanguage, lpData, cb);
+	public static extern BOOL UpdateResourceA(HANDLE hUpdate, PSTR lpType, PSTR lpName, uint16 wLanguage, void* lpData, uint32 cb);
+	public static BOOL UpdateResource(HANDLE hUpdate, PSTR lpType, PSTR lpName, uint16 wLanguage, void* lpData, uint32 cb) => UpdateResourceA(hUpdate, lpType, lpName, wLanguage, lpData, cb);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL UpdateResourceW(HANDLE hUpdate, PWSTR lpType, PWSTR lpName, uint16 wLanguage, void lpData, uint32 cb);
+	public static extern BOOL UpdateResourceW(HANDLE hUpdate, PWSTR lpType, PWSTR lpName, uint16 wLanguage, void* lpData, uint32 cb);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EndUpdateResourceA(HANDLE hUpdate, BOOL fDiscard);

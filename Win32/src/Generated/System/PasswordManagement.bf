@@ -52,10 +52,10 @@ public static
 public static
 {
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MSChapSrvChangePassword(PWSTR ServerName, PWSTR UserName, BOOLEAN LmOldPresent, LM_OWF_PASSWORD LmOldOwfPassword, LM_OWF_PASSWORD LmNewOwfPassword, LM_OWF_PASSWORD NtOldOwfPassword, LM_OWF_PASSWORD NtNewOwfPassword);
+	public static extern uint32 MSChapSrvChangePassword(PWSTR ServerName, PWSTR UserName, BOOLEAN LmOldPresent, LM_OWF_PASSWORD* LmOldOwfPassword, LM_OWF_PASSWORD* LmNewOwfPassword, LM_OWF_PASSWORD* NtOldOwfPassword, LM_OWF_PASSWORD* NtNewOwfPassword);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MSChapSrvChangePassword2(PWSTR ServerName, PWSTR UserName, SAMPR_ENCRYPTED_USER_PASSWORD NewPasswordEncryptedWithOldNt, ENCRYPTED_LM_OWF_PASSWORD OldNtOwfPasswordEncryptedWithNewNt, BOOLEAN LmPresent, SAMPR_ENCRYPTED_USER_PASSWORD NewPasswordEncryptedWithOldLm, ENCRYPTED_LM_OWF_PASSWORD OldLmOwfPasswordEncryptedWithNewLmOrNt);
+	public static extern uint32 MSChapSrvChangePassword2(PWSTR ServerName, PWSTR UserName, SAMPR_ENCRYPTED_USER_PASSWORD* NewPasswordEncryptedWithOldNt, ENCRYPTED_LM_OWF_PASSWORD* OldNtOwfPasswordEncryptedWithNewNt, BOOLEAN LmPresent, SAMPR_ENCRYPTED_USER_PASSWORD* NewPasswordEncryptedWithOldLm, ENCRYPTED_LM_OWF_PASSWORD* OldLmOwfPasswordEncryptedWithNewLmOrNt);
 
 }
 #endregion
