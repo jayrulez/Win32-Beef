@@ -4817,7 +4817,7 @@ public struct CORE_PRINTER_DRIVERW
 	public Guid CoreDriverGUID;
 	public FILETIME ftDriverDate;
 	public uint64 dwlDriverVersion;
-	public char8[260] szPackageID;
+	public char16[260] szPackageID;
 }
 
 [CRepr]
@@ -4877,7 +4877,7 @@ public struct MxdcEscapeHeader
 public struct MxdcGetFileNameData
 {
 	public uint32 cbOutput;
-	public char8[1] wszData;
+	public char16[1] wszData;
 }
 
 [CRepr, Packed(1)]
@@ -5297,10 +5297,10 @@ public struct PRINTIFI32
 	public uint8 chLastChar;
 	public uint8 chDefaultChar;
 	public uint8 chBreakChar;
-	public char8 wcFirstChar;
-	public char8 wcLastChar;
-	public char8 wcDefaultChar;
-	public char8 wcBreakChar;
+	public char16 wcFirstChar;
+	public char16 wcLastChar;
+	public char16 wcDefaultChar;
+	public char16 wcBreakChar;
 	public POINTL ptlBaseline;
 	public POINTL ptlAspect;
 	public POINTL ptlCaret;
@@ -5393,7 +5393,7 @@ public struct UNI_CODEPAGEINFO
 [CRepr]
 public struct GLYPHRUN
 {
-	public char8 wcLow;
+	public char16 wcLow;
 	public uint16 wGlyphCount;
 }
 
@@ -5475,16 +5475,16 @@ public struct OEMFONTINSTPARAM
 [CRepr]
 public struct PORT_DATA_1
 {
-	public char8[64] sztPortName;
+	public char16[64] sztPortName;
 	public uint32 dwVersion;
 	public uint32 dwProtocol;
 	public uint32 cbSize;
 	public uint32 dwReserved;
-	public char8[49] sztHostAddress;
-	public char8[33] sztSNMPCommunity;
+	public char16[49] sztHostAddress;
+	public char16[33] sztSNMPCommunity;
 	public uint32 dwDoubleSpool;
-	public char8[33] sztQueue;
-	public char8[16] sztIPAddress;
+	public char16[33] sztQueue;
+	public char16[16] sztIPAddress;
 	public uint8[540] Reserved;
 	public uint32 dwPortNumber;
 	public uint32 dwSNMPEnabled;
@@ -5494,15 +5494,15 @@ public struct PORT_DATA_1
 [CRepr]
 public struct PORT_DATA_2
 {
-	public char8[64] sztPortName;
+	public char16[64] sztPortName;
 	public uint32 dwVersion;
 	public uint32 dwProtocol;
 	public uint32 cbSize;
 	public uint32 dwReserved;
-	public char8[128] sztHostAddress;
-	public char8[33] sztSNMPCommunity;
+	public char16[128] sztHostAddress;
+	public char16[33] sztSNMPCommunity;
 	public uint32 dwDoubleSpool;
-	public char8[33] sztQueue;
+	public char16[33] sztQueue;
 	public uint8[514] Reserved;
 	public uint32 dwPortNumber;
 	public uint32 dwSNMPEnabled;
@@ -5521,7 +5521,7 @@ public struct PORT_DATA_LIST_1
 [CRepr]
 public struct DELETE_PORT_DATA_1
 {
-	public char8[64] psztPortName;
+	public char16[64] psztPortName;
 	public uint8[98] Reserved;
 	public uint32 dwVersion;
 	public uint32 dwReserved;
@@ -7817,7 +7817,7 @@ public static
 	public static BOOL GetDefaultPrinter(uint8* pszBuffer, uint32* pcchBuffer) => GetDefaultPrinterA(pszBuffer, pcchBuffer);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetDefaultPrinterW(char8* pszBuffer, uint32* pcchBuffer);
+	public static extern BOOL GetDefaultPrinterW(char16* pszBuffer, uint32* pcchBuffer);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetDefaultPrinterA(PSTR pszPrinter);
@@ -7897,7 +7897,7 @@ public static
 	public static HRESULT UploadPrinterDriverPackage(PSTR pszServer, PSTR pszInfPath, PSTR pszEnvironment, uint32 dwFlags, HWND hwnd, uint8* pszDestInfPath, uint32* pcchDestInfPath) => UploadPrinterDriverPackageA(pszServer, pszInfPath, pszEnvironment, dwFlags, hwnd, pszDestInfPath, pcchDestInfPath);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UploadPrinterDriverPackageW(PWSTR pszServer, PWSTR pszInfPath, PWSTR pszEnvironment, uint32 dwFlags, HWND hwnd, char8* pszDestInfPath, uint32* pcchDestInfPath);
+	public static extern HRESULT UploadPrinterDriverPackageW(PWSTR pszServer, PWSTR pszInfPath, PWSTR pszEnvironment, uint32 dwFlags, HWND hwnd, char16* pszDestInfPath, uint32* pcchDestInfPath);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetCorePrinterDriversA(PSTR pszServer, PSTR pszEnvironment, PSTR pszzCoreDriverDependencies, uint32 cCorePrinterDrivers, CORE_PRINTER_DRIVERA* pCorePrinterDrivers);
@@ -7918,7 +7918,7 @@ public static
 	public static HRESULT GetPrinterDriverPackagePath(PSTR pszServer, PSTR pszEnvironment, PSTR pszLanguage, PSTR pszPackageID, uint8* pszDriverPackageCab, uint32 cchDriverPackageCab, uint32* pcchRequiredSize) => GetPrinterDriverPackagePathA(pszServer, pszEnvironment, pszLanguage, pszPackageID, pszDriverPackageCab, cchDriverPackageCab, pcchRequiredSize);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetPrinterDriverPackagePathW(PWSTR pszServer, PWSTR pszEnvironment, PWSTR pszLanguage, PWSTR pszPackageID, char8* pszDriverPackageCab, uint32 cchDriverPackageCab, uint32* pcchRequiredSize);
+	public static extern HRESULT GetPrinterDriverPackagePathW(PWSTR pszServer, PWSTR pszEnvironment, PWSTR pszLanguage, PWSTR pszPackageID, char16* pszDriverPackageCab, uint32 cchDriverPackageCab, uint32* pcchRequiredSize);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DeletePrinterDriverPackageA(PSTR pszServer, PSTR pszInfPath, PSTR pszEnvironment);
@@ -8091,7 +8091,7 @@ public static
 	public static extern BOOL SpoolerCopyFileEvent(PWSTR pszPrinterName, PWSTR pszKey, uint32 dwCopyFileEvent);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GenerateCopyFilePaths(PWSTR pszPrinterName, PWSTR pszDirectory, uint8* pSplClientInfo, uint32 dwLevel, char8* pszSourceDir, uint32* pcchSourceDirSize, char8* pszTargetDir, uint32* pcchTargetDirSize, uint32 dwFlags);
+	public static extern uint32 GenerateCopyFilePaths(PWSTR pszPrinterName, PWSTR pszDirectory, uint8* pSplClientInfo, uint32 dwLevel, char16* pszSourceDir, uint32* pcchSourceDirSize, char16* pszTargetDir, uint32* pcchTargetDirSize, uint32 dwFlags);
 
 	[Import("SPOOLSS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SplPromptUIInUsersSession(HANDLE hPrinter, uint32 JobId, SHOWUIPARAMS* pUIParams, uint32* pResponse);

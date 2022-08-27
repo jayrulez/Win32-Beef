@@ -678,7 +678,7 @@ public struct GNSS_ERRORINFO
 	public uint32 Version;
 	public uint32 ErrorCode;
 	public BOOL IsRecoverable;
-	public char8[256] ErrorDescription;
+	public char16[256] ErrorDescription;
 	public uint8[512] Unused;
 }
 
@@ -704,8 +704,8 @@ public struct GNSS_SUPL_NI_INFO
 {
 	public uint32 Size;
 	public uint32 Version;
-	public char8[260] RequestorId;
-	public char8[260] ClientName;
+	public char16[260] RequestorId;
+	public char16[260] ClientName;
 	public CHAR[260] SuplNiUrl;
 }
 
@@ -714,8 +714,8 @@ public struct GNSS_CP_NI_INFO
 {
 	public uint32 Size;
 	public uint32 Version;
-	public char8[260] RequestorId;
-	public char8[260] NotificationText;
+	public char16[260] RequestorId;
+	public char16[260] NotificationText;
 }
 
 [CRepr]
@@ -723,7 +723,7 @@ public struct GNSS_V2UPL_NI_INFO
 {
 	public uint32 Size;
 	public uint32 Version;
-	public char8[260] RequestorId;
+	public char16[260] RequestorId;
 }
 
 [CRepr]
@@ -944,9 +944,9 @@ public struct GNSS_CHIPSETINFO
 {
 	public uint32 Size;
 	public uint32 Version;
-	public char8[25] ManufacturerID;
-	public char8[25] HardwareID;
-	public char8[20] FirmwareVersion;
+	public char16[25] ManufacturerID;
+	public char16[25] HardwareID;
+	public char16[20] FirmwareVersion;
 	public uint8[512] Unused;
 }
 

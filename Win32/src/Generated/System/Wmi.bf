@@ -3134,13 +3134,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, uint32* puKeyCount) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, PWSTR wszName, uint32 uFlags, uint32 uCimType, void* pKeyVal) SetKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, PWSTR wszName, uint32 uFlags, uint32 uCimType, VARIANT* pKeyVal) SetKey2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, uint32 uKeyIx, uint32 uFlags, uint32* puNameBufSize, char8* pszKeyName, uint32* puKeyValBufSize, void* pKeyVal, uint32* puApparentCimType) GetKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, uint32 uKeyIx, uint32 uFlags, uint32* puNameBufSize, char8* pszKeyName, VARIANT* pKeyValue, uint32* puApparentCimType) GetKey2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, uint32 uKeyIx, uint32 uFlags, uint32* puNameBufSize, char16* pszKeyName, uint32* puKeyValBufSize, void* pKeyVal, uint32* puApparentCimType) GetKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, uint32 uKeyIx, uint32 uFlags, uint32* puNameBufSize, char16* pszKeyName, VARIANT* pKeyValue, uint32* puApparentCimType) GetKey2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, PWSTR wszName, uint32 uFlags) RemoveKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, uint32 uFlags) RemoveAllKeys;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, uint8 bSet) MakeSingleton;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, uint32 uRequestedInfo, uint64* puResponse) GetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, int32 lFlags, uint32* puBuffLength, char8* pszText) GetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPathKeyList*/SelfOuter* self, int32 lFlags, uint32* puBuffLength, char16* pszText) GetText;
 	}
 
 
@@ -3150,9 +3150,9 @@ public static
 
 	public HRESULT SetKey2(PWSTR wszName, uint32 uFlags, uint32 uCimType, VARIANT* pKeyVal) mut => VT.[Friend]SetKey2(&this, wszName, uFlags, uCimType, pKeyVal);
 
-	public HRESULT GetKey(uint32 uKeyIx, uint32 uFlags, uint32* puNameBufSize, char8* pszKeyName, uint32* puKeyValBufSize, void* pKeyVal, uint32* puApparentCimType) mut => VT.[Friend]GetKey(&this, uKeyIx, uFlags, puNameBufSize, pszKeyName, puKeyValBufSize, pKeyVal, puApparentCimType);
+	public HRESULT GetKey(uint32 uKeyIx, uint32 uFlags, uint32* puNameBufSize, char16* pszKeyName, uint32* puKeyValBufSize, void* pKeyVal, uint32* puApparentCimType) mut => VT.[Friend]GetKey(&this, uKeyIx, uFlags, puNameBufSize, pszKeyName, puKeyValBufSize, pKeyVal, puApparentCimType);
 
-	public HRESULT GetKey2(uint32 uKeyIx, uint32 uFlags, uint32* puNameBufSize, char8* pszKeyName, VARIANT* pKeyValue, uint32* puApparentCimType) mut => VT.[Friend]GetKey2(&this, uKeyIx, uFlags, puNameBufSize, pszKeyName, pKeyValue, puApparentCimType);
+	public HRESULT GetKey2(uint32 uKeyIx, uint32 uFlags, uint32* puNameBufSize, char16* pszKeyName, VARIANT* pKeyValue, uint32* puApparentCimType) mut => VT.[Friend]GetKey2(&this, uKeyIx, uFlags, puNameBufSize, pszKeyName, pKeyValue, puApparentCimType);
 
 	public HRESULT RemoveKey(PWSTR wszName, uint32 uFlags) mut => VT.[Friend]RemoveKey(&this, wszName, uFlags);
 
@@ -3162,7 +3162,7 @@ public static
 
 	public HRESULT GetInfo(uint32 uRequestedInfo, uint64* puResponse) mut => VT.[Friend]GetInfo(&this, uRequestedInfo, puResponse);
 
-	public HRESULT GetText(int32 lFlags, uint32* puBuffLength, char8* pszText) mut => VT.[Friend]GetText(&this, lFlags, puBuffLength, pszText);
+	public HRESULT GetText(int32 lFlags, uint32* puBuffLength, char16* pszText) mut => VT.[Friend]GetText(&this, lFlags, puBuffLength, pszText);
 }
 
 [CRepr]struct IWbemPath : IUnknown
@@ -3174,24 +3174,24 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uMode, PWSTR pszPath) SetText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, int32 lFlags, uint32* puBuffLength, char8* pszText) GetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, int32 lFlags, uint32* puBuffLength, char16* pszText) GetText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uRequestedInfo, uint64* puResponse) GetInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, PWSTR Name) SetServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32* puNameBufLength, char8* pName) GetServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32* puNameBufLength, char16* pName) GetServer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32* puCount) GetNamespaceCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex, PWSTR pszName) SetNamespaceAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex, uint32* puNameBufLength, char8* pName) GetNamespaceAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex, uint32* puNameBufLength, char16* pName) GetNamespaceAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex) RemoveNamespaceAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self) RemoveAllNamespaces;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32* puCount) GetScopeCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex, PWSTR pszClass) SetScope;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex, PWSTR pszText) SetScopeFromText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex, uint32* puClassNameBufSize, char8* pszClass, IWbemPathKeyList** pKeyList) GetScope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex, uint32* puTextBufSize, char8* pszText) GetScopeAsText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex, uint32* puClassNameBufSize, char16* pszClass, IWbemPathKeyList** pKeyList) GetScope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex, uint32* puTextBufSize, char16* pszText) GetScopeAsText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32 uIndex) RemoveScope;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self) RemoveAllScopes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, PWSTR Name) SetClassName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32* puBuffLength, char8* pszName) GetClassName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, uint32* puBuffLength, char16* pszName) GetClassName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, IWbemPathKeyList** pOut) GetKeyList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, int32 lFlags, PWSTR Name) CreateClassPart;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemPath*/SelfOuter* self, int32 lFlags) DeleteClassPart;
@@ -3204,19 +3204,19 @@ public static
 
 	public HRESULT SetText(uint32 uMode, PWSTR pszPath) mut => VT.[Friend]SetText(&this, uMode, pszPath);
 
-	public HRESULT GetText(int32 lFlags, uint32* puBuffLength, char8* pszText) mut => VT.[Friend]GetText(&this, lFlags, puBuffLength, pszText);
+	public HRESULT GetText(int32 lFlags, uint32* puBuffLength, char16* pszText) mut => VT.[Friend]GetText(&this, lFlags, puBuffLength, pszText);
 
 	public HRESULT GetInfo(uint32 uRequestedInfo, uint64* puResponse) mut => VT.[Friend]GetInfo(&this, uRequestedInfo, puResponse);
 
 	public HRESULT SetServer(PWSTR Name) mut => VT.[Friend]SetServer(&this, Name);
 
-	public HRESULT GetServer(uint32* puNameBufLength, char8* pName) mut => VT.[Friend]GetServer(&this, puNameBufLength, pName);
+	public HRESULT GetServer(uint32* puNameBufLength, char16* pName) mut => VT.[Friend]GetServer(&this, puNameBufLength, pName);
 
 	public HRESULT GetNamespaceCount(uint32* puCount) mut => VT.[Friend]GetNamespaceCount(&this, puCount);
 
 	public HRESULT SetNamespaceAt(uint32 uIndex, PWSTR pszName) mut => VT.[Friend]SetNamespaceAt(&this, uIndex, pszName);
 
-	public HRESULT GetNamespaceAt(uint32 uIndex, uint32* puNameBufLength, char8* pName) mut => VT.[Friend]GetNamespaceAt(&this, uIndex, puNameBufLength, pName);
+	public HRESULT GetNamespaceAt(uint32 uIndex, uint32* puNameBufLength, char16* pName) mut => VT.[Friend]GetNamespaceAt(&this, uIndex, puNameBufLength, pName);
 
 	public HRESULT RemoveNamespaceAt(uint32 uIndex) mut => VT.[Friend]RemoveNamespaceAt(&this, uIndex);
 
@@ -3228,9 +3228,9 @@ public static
 
 	public HRESULT SetScopeFromText(uint32 uIndex, PWSTR pszText) mut => VT.[Friend]SetScopeFromText(&this, uIndex, pszText);
 
-	public HRESULT GetScope(uint32 uIndex, uint32* puClassNameBufSize, char8* pszClass, IWbemPathKeyList** pKeyList) mut => VT.[Friend]GetScope(&this, uIndex, puClassNameBufSize, pszClass, pKeyList);
+	public HRESULT GetScope(uint32 uIndex, uint32* puClassNameBufSize, char16* pszClass, IWbemPathKeyList** pKeyList) mut => VT.[Friend]GetScope(&this, uIndex, puClassNameBufSize, pszClass, pKeyList);
 
-	public HRESULT GetScopeAsText(uint32 uIndex, uint32* puTextBufSize, char8* pszText) mut => VT.[Friend]GetScopeAsText(&this, uIndex, puTextBufSize, pszText);
+	public HRESULT GetScopeAsText(uint32 uIndex, uint32* puTextBufSize, char16* pszText) mut => VT.[Friend]GetScopeAsText(&this, uIndex, puTextBufSize, pszText);
 
 	public HRESULT RemoveScope(uint32 uIndex) mut => VT.[Friend]RemoveScope(&this, uIndex);
 
@@ -3238,7 +3238,7 @@ public static
 
 	public HRESULT SetClassName(PWSTR Name) mut => VT.[Friend]SetClassName(&this, Name);
 
-	public HRESULT GetClassName(uint32* puBuffLength, char8* pszName) mut => VT.[Friend]GetClassName(&this, puBuffLength, pszName);
+	public HRESULT GetClassName(uint32* puBuffLength, char16* pszName) mut => VT.[Friend]GetClassName(&this, puBuffLength, pszName);
 
 	public HRESULT GetKeyList(IWbemPathKeyList** pOut) mut => VT.[Friend]GetKeyList(&this, pOut);
 

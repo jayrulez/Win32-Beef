@@ -2332,7 +2332,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStringTable*/SelfOuter* self, PWSTR pszAdd, uint32* pStringID) AddString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStringTable*/SelfOuter* self, uint32 StringID, uint32 cchBuffer, char8* lpBuffer, uint32* pcchOut) GetString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStringTable*/SelfOuter* self, uint32 StringID, uint32 cchBuffer, char16* lpBuffer, uint32* pcchOut) GetString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStringTable*/SelfOuter* self, uint32 StringID, uint32* pcchString) GetStringLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStringTable*/SelfOuter* self, uint32 StringID) DeleteString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStringTable*/SelfOuter* self) DeleteAllStrings;
@@ -2343,7 +2343,7 @@ public static
 
 	public HRESULT AddString(PWSTR pszAdd, uint32* pStringID) mut => VT.[Friend]AddString(&this, pszAdd, pStringID);
 
-	public HRESULT GetString(uint32 StringID, uint32 cchBuffer, char8* lpBuffer, uint32* pcchOut) mut => VT.[Friend]GetString(&this, StringID, cchBuffer, lpBuffer, pcchOut);
+	public HRESULT GetString(uint32 StringID, uint32 cchBuffer, char16* lpBuffer, uint32* pcchOut) mut => VT.[Friend]GetString(&this, StringID, cchBuffer, lpBuffer, pcchOut);
 
 	public HRESULT GetStringLength(uint32 StringID, uint32* pcchString) mut => VT.[Friend]GetStringLength(&this, StringID, pcchString);
 

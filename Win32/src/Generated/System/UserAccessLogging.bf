@@ -21,7 +21,7 @@ public struct UAL_DATA_BLOB
 	public Guid RoleGuid;
 	public Guid TenantId;
 	public SOCKADDR_STORAGE Address;
-	public char8[260] UserName;
+	public char16[260] UserName;
 }
 
 #endregion

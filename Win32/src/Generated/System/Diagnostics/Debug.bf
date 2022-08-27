@@ -4815,7 +4815,7 @@ public function HRESULT PDEBUG_EXTENSION_KNOWN_STRUCT(uint32 Flags, uint64 Offse
 
 public function HRESULT PDEBUG_EXTENSION_KNOWN_STRUCT_EX(IDebugClient* Client, uint32 Flags, uint64 Offset, PSTR TypeName, uint8* Buffer, uint32* BufferChars);
 
-public function HRESULT PDEBUG_EXTENSION_QUERY_VALUE_NAMES(IDebugClient* Client, uint32 Flags, char8* Buffer, uint32 BufferChars, uint32* BufferNeeded);
+public function HRESULT PDEBUG_EXTENSION_QUERY_VALUE_NAMES(IDebugClient* Client, uint32 Flags, char16* Buffer, uint32 BufferChars, uint32* BufferNeeded);
 
 public function HRESULT PDEBUG_EXTENSION_PROVIDE_VALUE(IDebugClient* Client, uint32 Flags, PWSTR Name, uint64* Value, uint64* TypeModBase, uint32* TypeId, uint32* TypeFlags);
 
@@ -7598,7 +7598,7 @@ public struct WAITCHAIN_NODE_INFO
 		[CRepr]
 		public struct _LockObject_e__Struct
 		{
-			public char8[128] ObjectName;
+			public char16[128] ObjectName;
 			public LARGE_INTEGER Timeout;
 			public BOOL Alertable;
 		}
@@ -7679,7 +7679,7 @@ public struct MINIDUMP_DIRECTORY
 public struct MINIDUMP_STRING
 {
 	public uint32 Length;
-	public char8[1] Buffer;
+	public char16[1] Buffer;
 }
 
 [CRepr, Union]
@@ -8029,8 +8029,8 @@ public struct MINIDUMP_MISC_INFO_4
 	public uint32 ProtectedProcess;
 	public uint32 TimeZoneId;
 	public TIME_ZONE_INFORMATION TimeZone;
-	public char8[260] BuildString;
-	public char8[40] DbgBldStr;
+	public char16[260] BuildString;
+	public char16[40] DbgBldStr;
 }
 
 [CRepr]
@@ -8052,8 +8052,8 @@ public struct MINIDUMP_MISC_INFO_5
 	public uint32 ProtectedProcess;
 	public uint32 TimeZoneId;
 	public TIME_ZONE_INFORMATION TimeZone;
-	public char8[260] BuildString;
-	public char8[40] DbgBldStr;
+	public char16[260] BuildString;
+	public char16[40] DbgBldStr;
 	public XSTATE_CONFIG_FEATURE_MSC_INFO XStateData;
 	public uint32 ProcessCookie;
 }
@@ -8802,14 +8802,14 @@ public struct IMAGEHLP_SYMBOLW64
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
-	public char8[1] Name;
+	public char16[1] Name;
 }
 
 [CRepr]
 public struct IMAGEHLP_SYMBOLW64_PACKAGE
 {
 	public IMAGEHLP_SYMBOLW64 sym;
-	public char8[2001] name;
+	public char16[2001] name;
 }
 
 [CRepr]
@@ -8859,12 +8859,12 @@ public struct IMAGEHLP_MODULEW64
 	public uint32 CheckSum;
 	public uint32 NumSyms;
 	public SYM_TYPE SymType;
-	public char8[32] ModuleName;
-	public char8[256] ImageName;
-	public char8[256] LoadedImageName;
-	public char8[256] LoadedPdbName;
+	public char16[32] ModuleName;
+	public char16[256] ImageName;
+	public char16[256] LoadedImageName;
+	public char16[256] LoadedPdbName;
 	public uint32 CVSig;
-	public char8[780] CVData;
+	public char16[780] CVData;
 	public uint32 PdbSig;
 	public Guid PdbSig70;
 	public uint32 PdbAge;
@@ -8967,7 +8967,7 @@ public struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64
 	public uint64 BaseOfImage;
 	public uint32 CheckSum;
 	public uint32 TimeDateStamp;
-	public char8[261] FileName;
+	public char16[261] FileName;
 	public BOOLEAN Reparse;
 	public HANDLE hFile;
 	public uint32 Flags;
@@ -9015,8 +9015,8 @@ public struct SRCCODEINFOW
 	public uint32 SizeOfStruct;
 	public void* Key;
 	public uint64 ModBase;
-	public char8[261] Obj;
-	public char8[261] FileName;
+	public char16[261] Obj;
+	public char16[261] FileName;
 	public uint32 LineNumber;
 	public uint64 Address;
 }
@@ -9081,14 +9081,14 @@ public struct SYMBOL_INFOW
 	public uint32 Tag;
 	public uint32 NameLen;
 	public uint32 MaxNameLen;
-	public char8[1] Name;
+	public char16[1] Name;
 }
 
 [CRepr]
 public struct SYMBOL_INFO_PACKAGEW
 {
 	public SYMBOL_INFOW si;
-	public char8[2001] name;
+	public char16[2001] name;
 }
 
 [CRepr]
@@ -9156,12 +9156,12 @@ public struct SYMSRV_INDEX_INFO
 public struct SYMSRV_INDEX_INFOW
 {
 	public uint32 sizeofstruct;
-	public char8[261] file;
+	public char16[261] file;
 	public BOOL stripped;
 	public uint32 timestamp;
 	public uint32 size;
-	public char8[261] dbgfile;
-	public char8[261] pdbfile;
+	public char16[261] dbgfile;
+	public char16[261] pdbfile;
 	public Guid guid;
 	public uint32 sig;
 	public uint32 age;
@@ -9172,7 +9172,7 @@ public struct SYMSRV_EXTENDED_OUTPUT_DATA
 {
 	public uint32 sizeOfStruct;
 	public uint32 version;
-	public char8[261] filePtrMsg;
+	public char16[261] filePtrMsg;
 }
 
 [CRepr]
@@ -10062,7 +10062,7 @@ public struct IMAGEHLP_SYMBOLW
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
-	public char8[1] Name;
+	public char16[1] Name;
 }
 #endif
 
@@ -10071,7 +10071,7 @@ public struct IMAGEHLP_SYMBOLW
 public struct IMAGEHLP_SYMBOLW_PACKAGE
 {
 	public IMAGEHLP_SYMBOLW sym;
-	public char8[2001] name;
+	public char16[2001] name;
 }
 #endif
 
@@ -10103,9 +10103,9 @@ public struct IMAGEHLP_MODULEW
 	public uint32 CheckSum;
 	public uint32 NumSyms;
 	public SYM_TYPE SymType;
-	public char8[32] ModuleName;
-	public char8[256] ImageName;
-	public char8[256] LoadedImageName;
+	public char16[32] ModuleName;
+	public char16[256] ImageName;
+	public char16[256] LoadedImageName;
 }
 #endif
 
@@ -10252,8 +10252,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced3*/SelfOuter* self, uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, uint8* StringBuffer, uint32 StringBufferSize, uint32* StringSize) GetSymbolInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced3*/SelfOuter* self, uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize) GetSystemObjectInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced3*/SelfOuter* self, uint32 Which, PWSTR SourceFile, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize) GetSourceFileInformationWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced3*/SelfOuter* self, uint32 StartElement, uint64 ModAddr, PWSTR File, uint32 Flags, void* FileToken, uint32 FileTokenSize, uint32* FoundElement, char8* Buffer, uint32 BufferSize, uint32* FoundSize) FindSourceFileAndTokenWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced3*/SelfOuter* self, uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char8* StringBuffer, uint32 StringBufferSize, uint32* StringSize) GetSymbolInformationWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced3*/SelfOuter* self, uint32 StartElement, uint64 ModAddr, PWSTR File, uint32 Flags, void* FileToken, uint32 FileTokenSize, uint32* FoundElement, char16* Buffer, uint32 BufferSize, uint32* FoundSize) FindSourceFileAndTokenWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced3*/SelfOuter* self, uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char16* StringBuffer, uint32 StringBufferSize, uint32* StringSize) GetSymbolInformationWide;
 	}
 
 
@@ -10273,9 +10273,9 @@ public static
 
 	public HRESULT GetSourceFileInformationWide(uint32 Which, PWSTR SourceFile, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize) mut => VT.[Friend]GetSourceFileInformationWide(&this, Which, SourceFile, Arg64, Arg32, Buffer, BufferSize, InfoSize);
 
-	public HRESULT FindSourceFileAndTokenWide(uint32 StartElement, uint64 ModAddr, PWSTR File, uint32 Flags, void* FileToken, uint32 FileTokenSize, uint32* FoundElement, char8* Buffer, uint32 BufferSize, uint32* FoundSize) mut => VT.[Friend]FindSourceFileAndTokenWide(&this, StartElement, ModAddr, File, Flags, FileToken, FileTokenSize, FoundElement, Buffer, BufferSize, FoundSize);
+	public HRESULT FindSourceFileAndTokenWide(uint32 StartElement, uint64 ModAddr, PWSTR File, uint32 Flags, void* FileToken, uint32 FileTokenSize, uint32* FoundElement, char16* Buffer, uint32 BufferSize, uint32* FoundSize) mut => VT.[Friend]FindSourceFileAndTokenWide(&this, StartElement, ModAddr, File, Flags, FileToken, FileTokenSize, FoundElement, Buffer, BufferSize, FoundSize);
 
-	public HRESULT GetSymbolInformationWide(uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char8* StringBuffer, uint32 StringBufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolInformationWide(&this, Which, Arg64, Arg32, Buffer, BufferSize, InfoSize, StringBuffer, StringBufferSize, StringSize);
+	public HRESULT GetSymbolInformationWide(uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char16* StringBuffer, uint32 StringBufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolInformationWide(&this, Which, Arg64, Arg32, Buffer, BufferSize, InfoSize, StringBuffer, StringBufferSize, StringSize);
 }
 
 [CRepr]struct IDebugAdvanced4 : IUnknown
@@ -10294,9 +10294,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced4*/SelfOuter* self, uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, uint8* StringBuffer, uint32 StringBufferSize, uint32* StringSize) GetSymbolInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced4*/SelfOuter* self, uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize) GetSystemObjectInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced4*/SelfOuter* self, uint32 Which, PWSTR SourceFile, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize) GetSourceFileInformationWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced4*/SelfOuter* self, uint32 StartElement, uint64 ModAddr, PWSTR File, uint32 Flags, void* FileToken, uint32 FileTokenSize, uint32* FoundElement, char8* Buffer, uint32 BufferSize, uint32* FoundSize) FindSourceFileAndTokenWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced4*/SelfOuter* self, uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char8* StringBuffer, uint32 StringBufferSize, uint32* StringSize) GetSymbolInformationWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced4*/SelfOuter* self, uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char8* StringBuffer, uint32 StringBufferSize, uint32* StringSize, SYMBOL_INFO_EX* pInfoEx) GetSymbolInformationWideEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced4*/SelfOuter* self, uint32 StartElement, uint64 ModAddr, PWSTR File, uint32 Flags, void* FileToken, uint32 FileTokenSize, uint32* FoundElement, char16* Buffer, uint32 BufferSize, uint32* FoundSize) FindSourceFileAndTokenWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced4*/SelfOuter* self, uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char16* StringBuffer, uint32 StringBufferSize, uint32* StringSize) GetSymbolInformationWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugAdvanced4*/SelfOuter* self, uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char16* StringBuffer, uint32 StringBufferSize, uint32* StringSize, SYMBOL_INFO_EX* pInfoEx) GetSymbolInformationWideEx;
 	}
 
 
@@ -10316,11 +10316,11 @@ public static
 
 	public HRESULT GetSourceFileInformationWide(uint32 Which, PWSTR SourceFile, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize) mut => VT.[Friend]GetSourceFileInformationWide(&this, Which, SourceFile, Arg64, Arg32, Buffer, BufferSize, InfoSize);
 
-	public HRESULT FindSourceFileAndTokenWide(uint32 StartElement, uint64 ModAddr, PWSTR File, uint32 Flags, void* FileToken, uint32 FileTokenSize, uint32* FoundElement, char8* Buffer, uint32 BufferSize, uint32* FoundSize) mut => VT.[Friend]FindSourceFileAndTokenWide(&this, StartElement, ModAddr, File, Flags, FileToken, FileTokenSize, FoundElement, Buffer, BufferSize, FoundSize);
+	public HRESULT FindSourceFileAndTokenWide(uint32 StartElement, uint64 ModAddr, PWSTR File, uint32 Flags, void* FileToken, uint32 FileTokenSize, uint32* FoundElement, char16* Buffer, uint32 BufferSize, uint32* FoundSize) mut => VT.[Friend]FindSourceFileAndTokenWide(&this, StartElement, ModAddr, File, Flags, FileToken, FileTokenSize, FoundElement, Buffer, BufferSize, FoundSize);
 
-	public HRESULT GetSymbolInformationWide(uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char8* StringBuffer, uint32 StringBufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolInformationWide(&this, Which, Arg64, Arg32, Buffer, BufferSize, InfoSize, StringBuffer, StringBufferSize, StringSize);
+	public HRESULT GetSymbolInformationWide(uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char16* StringBuffer, uint32 StringBufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolInformationWide(&this, Which, Arg64, Arg32, Buffer, BufferSize, InfoSize, StringBuffer, StringBufferSize, StringSize);
 
-	public HRESULT GetSymbolInformationWideEx(uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char8* StringBuffer, uint32 StringBufferSize, uint32* StringSize, SYMBOL_INFO_EX* pInfoEx) mut => VT.[Friend]GetSymbolInformationWideEx(&this, Which, Arg64, Arg32, Buffer, BufferSize, InfoSize, StringBuffer, StringBufferSize, StringSize, pInfoEx);
+	public HRESULT GetSymbolInformationWideEx(uint32 Which, uint64 Arg64, uint32 Arg32, void* Buffer, uint32 BufferSize, uint32* InfoSize, char16* StringBuffer, uint32 StringBufferSize, uint32* StringSize, SYMBOL_INFO_EX* pInfoEx) mut => VT.[Friend]GetSymbolInformationWideEx(&this, Which, Arg64, Arg32, Buffer, BufferSize, InfoSize, StringBuffer, StringBufferSize, StringSize, pInfoEx);
 }
 
 [CRepr]struct IDebugBreakpoint : IUnknown
@@ -10427,9 +10427,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint2*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* ExpressionSize) GetOffsetExpression;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint2*/SelfOuter* self, PSTR Expression) SetOffsetExpression;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint2*/SelfOuter* self, DEBUG_BREAKPOINT_PARAMETERS* Params) GetParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint2*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* CommandSize) GetCommandWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint2*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* CommandSize) GetCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint2*/SelfOuter* self, PWSTR Command) SetCommandWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint2*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* ExpressionSize) GetOffsetExpressionWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint2*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* ExpressionSize) GetOffsetExpressionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint2*/SelfOuter* self, PWSTR Expression) SetOffsetExpressionWide;
 	}
 
@@ -10476,11 +10476,11 @@ public static
 
 	public HRESULT GetParameters(DEBUG_BREAKPOINT_PARAMETERS* Params) mut => VT.[Friend]GetParameters(&this, Params);
 
-	public HRESULT GetCommandWide(char8* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetCommandWide(&this, Buffer, BufferSize, CommandSize);
+	public HRESULT GetCommandWide(char16* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetCommandWide(&this, Buffer, BufferSize, CommandSize);
 
 	public HRESULT SetCommandWide(PWSTR Command) mut => VT.[Friend]SetCommandWide(&this, Command);
 
-	public HRESULT GetOffsetExpressionWide(char8* Buffer, uint32 BufferSize, uint32* ExpressionSize) mut => VT.[Friend]GetOffsetExpressionWide(&this, Buffer, BufferSize, ExpressionSize);
+	public HRESULT GetOffsetExpressionWide(char16* Buffer, uint32 BufferSize, uint32* ExpressionSize) mut => VT.[Friend]GetOffsetExpressionWide(&this, Buffer, BufferSize, ExpressionSize);
 
 	public HRESULT SetOffsetExpressionWide(PWSTR Expression) mut => VT.[Friend]SetOffsetExpressionWide(&this, Expression);
 }
@@ -10514,9 +10514,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* ExpressionSize) GetOffsetExpression;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, PSTR Expression) SetOffsetExpression;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, DEBUG_BREAKPOINT_PARAMETERS* Params) GetParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* CommandSize) GetCommandWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* CommandSize) GetCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, PWSTR Command) SetCommandWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* ExpressionSize) GetOffsetExpressionWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* ExpressionSize) GetOffsetExpressionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, PWSTR Expression) SetOffsetExpressionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, Guid* Guid) GetGuid;
 	}
@@ -10564,11 +10564,11 @@ public static
 
 	public HRESULT GetParameters(DEBUG_BREAKPOINT_PARAMETERS* Params) mut => VT.[Friend]GetParameters(&this, Params);
 
-	public HRESULT GetCommandWide(char8* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetCommandWide(&this, Buffer, BufferSize, CommandSize);
+	public HRESULT GetCommandWide(char16* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetCommandWide(&this, Buffer, BufferSize, CommandSize);
 
 	public HRESULT SetCommandWide(PWSTR Command) mut => VT.[Friend]SetCommandWide(&this, Command);
 
-	public HRESULT GetOffsetExpressionWide(char8* Buffer, uint32 BufferSize, uint32* ExpressionSize) mut => VT.[Friend]GetOffsetExpressionWide(&this, Buffer, BufferSize, ExpressionSize);
+	public HRESULT GetOffsetExpressionWide(char16* Buffer, uint32 BufferSize, uint32* ExpressionSize) mut => VT.[Friend]GetOffsetExpressionWide(&this, Buffer, BufferSize, ExpressionSize);
 
 	public HRESULT SetOffsetExpressionWide(PWSTR Expression) mut => VT.[Friend]SetOffsetExpressionWide(&this, Expression);
 
@@ -10955,7 +10955,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient3*/SelfOuter* self) DetachCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient3*/SelfOuter* self) AbandonCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient3*/SelfOuter* self, uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) GetRunningProcessSystemIdByExecutableNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient3*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient3*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient3*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags) CreateProcessWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient3*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags, uint32 ProcessId, uint32 AttachFlags) CreateProcessAndAttachWide;
 	}
@@ -11069,7 +11069,7 @@ public static
 
 	public HRESULT GetRunningProcessSystemIdByExecutableNameWide(uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) mut => VT.[Friend]GetRunningProcessSystemIdByExecutableNameWide(&this, Server, ExeName, Flags, Id);
 
-	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
+	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
 
 	public HRESULT CreateProcessWide(uint64 Server, PWSTR CommandLine, uint32 CreateFlags) mut => VT.[Friend]CreateProcessWide(&this, Server, CommandLine, CreateFlags);
 
@@ -11138,7 +11138,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self) DetachCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self) AbandonCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) GetRunningProcessSystemIdByExecutableNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags) CreateProcessWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags, uint32 ProcessId, uint32 AttachFlags) CreateProcessAndAttachWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, PWSTR FileName, uint64 FileHandle) OpenDumpFileWide;
@@ -11146,7 +11146,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, PWSTR FileName, uint64 FileHandle, uint32 Type) AddDumpInformationFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, uint32* Number) GetNumberDumpFiles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient4*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFileWide;
 	}
 
 
@@ -11258,7 +11258,7 @@ public static
 
 	public HRESULT GetRunningProcessSystemIdByExecutableNameWide(uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) mut => VT.[Friend]GetRunningProcessSystemIdByExecutableNameWide(&this, Server, ExeName, Flags, Id);
 
-	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
+	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
 
 	public HRESULT CreateProcessWide(uint64 Server, PWSTR CommandLine, uint32 CreateFlags) mut => VT.[Friend]CreateProcessWide(&this, Server, CommandLine, CreateFlags);
 
@@ -11274,7 +11274,7 @@ public static
 
 	public HRESULT GetDumpFile(uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFile(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
 
-	public HRESULT GetDumpFileWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFileWide(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
+	public HRESULT GetDumpFileWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFileWide(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
 }
 
 [CRepr]struct IDebugClient5 : IUnknown
@@ -11339,7 +11339,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self) DetachCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self) AbandonCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) GetRunningProcessSystemIdByExecutableNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags) CreateProcessWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags, uint32 ProcessId, uint32 AttachFlags) CreateProcessAndAttachWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, PWSTR FileName, uint64 FileHandle) OpenDumpFileWide;
@@ -11347,9 +11347,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, PWSTR FileName, uint64 FileHandle, uint32 Type) AddDumpInformationFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint32* Number) GetNumberDumpFiles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint32 Flags, PWSTR ConnectOptions) AttachKernelWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* OptionsSize) GetKernelConnectionOptionsWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* OptionsSize) GetKernelConnectionOptionsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, PWSTR Options) SetKernelConnectionOptionsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint32 Flags, PWSTR Options, void* Reserved) StartProcessServerWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, PWSTR RemoteOptions, uint64* Server) ConnectProcessServerWide;
@@ -11357,9 +11357,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint32 OutputControl, PWSTR Machine, uint32 Flags) OutputServersWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, IDebugOutputCallbacksWide** Callbacks) GetOutputCallbacksWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, IDebugOutputCallbacksWide* Callbacks) SetOutputCallbacksWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PrefixSize) GetOutputLinePrefixWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PrefixSize) GetOutputLinePrefixWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, PWSTR Prefix) SetOutputLinePrefixWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* IdentitySize) GetIdentityWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* IdentitySize) GetIdentityWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint32 OutputControl, uint32 Flags, PWSTR Format) OutputIdentityWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, IDebugEventCallbacksWide** Callbacks) GetEventCallbacksWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, IDebugEventCallbacksWide* Callbacks) SetEventCallbacksWide;
@@ -11375,7 +11375,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint32 EventFlags, uint32* Count) GetNumberEventCallbacks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, PSTR String) SetQuitLockString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient5*/SelfOuter* self, PWSTR String) SetQuitLockStringWide;
 	}
 
@@ -11488,7 +11488,7 @@ public static
 
 	public HRESULT GetRunningProcessSystemIdByExecutableNameWide(uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) mut => VT.[Friend]GetRunningProcessSystemIdByExecutableNameWide(&this, Server, ExeName, Flags, Id);
 
-	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
+	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
 
 	public HRESULT CreateProcessWide(uint64 Server, PWSTR CommandLine, uint32 CreateFlags) mut => VT.[Friend]CreateProcessWide(&this, Server, CommandLine, CreateFlags);
 
@@ -11504,11 +11504,11 @@ public static
 
 	public HRESULT GetDumpFile(uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFile(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
 
-	public HRESULT GetDumpFileWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFileWide(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
+	public HRESULT GetDumpFileWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFileWide(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
 
 	public HRESULT AttachKernelWide(uint32 Flags, PWSTR ConnectOptions) mut => VT.[Friend]AttachKernelWide(&this, Flags, ConnectOptions);
 
-	public HRESULT GetKernelConnectionOptionsWide(char8* Buffer, uint32 BufferSize, uint32* OptionsSize) mut => VT.[Friend]GetKernelConnectionOptionsWide(&this, Buffer, BufferSize, OptionsSize);
+	public HRESULT GetKernelConnectionOptionsWide(char16* Buffer, uint32 BufferSize, uint32* OptionsSize) mut => VT.[Friend]GetKernelConnectionOptionsWide(&this, Buffer, BufferSize, OptionsSize);
 
 	public HRESULT SetKernelConnectionOptionsWide(PWSTR Options) mut => VT.[Friend]SetKernelConnectionOptionsWide(&this, Options);
 
@@ -11524,11 +11524,11 @@ public static
 
 	public HRESULT SetOutputCallbacksWide(IDebugOutputCallbacksWide* Callbacks) mut => VT.[Friend]SetOutputCallbacksWide(&this, Callbacks);
 
-	public HRESULT GetOutputLinePrefixWide(char8* Buffer, uint32 BufferSize, uint32* PrefixSize) mut => VT.[Friend]GetOutputLinePrefixWide(&this, Buffer, BufferSize, PrefixSize);
+	public HRESULT GetOutputLinePrefixWide(char16* Buffer, uint32 BufferSize, uint32* PrefixSize) mut => VT.[Friend]GetOutputLinePrefixWide(&this, Buffer, BufferSize, PrefixSize);
 
 	public HRESULT SetOutputLinePrefixWide(PWSTR Prefix) mut => VT.[Friend]SetOutputLinePrefixWide(&this, Prefix);
 
-	public HRESULT GetIdentityWide(char8* Buffer, uint32 BufferSize, uint32* IdentitySize) mut => VT.[Friend]GetIdentityWide(&this, Buffer, BufferSize, IdentitySize);
+	public HRESULT GetIdentityWide(char16* Buffer, uint32 BufferSize, uint32* IdentitySize) mut => VT.[Friend]GetIdentityWide(&this, Buffer, BufferSize, IdentitySize);
 
 	public HRESULT OutputIdentityWide(uint32 OutputControl, uint32 Flags, PWSTR Format) mut => VT.[Friend]OutputIdentityWide(&this, OutputControl, Flags, Format);
 
@@ -11560,7 +11560,7 @@ public static
 
 	public HRESULT SetQuitLockString(PSTR String) mut => VT.[Friend]SetQuitLockString(&this, String);
 
-	public HRESULT GetQuitLockStringWide(char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetQuitLockStringWide(&this, Buffer, BufferSize, StringSize);
+	public HRESULT GetQuitLockStringWide(char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetQuitLockStringWide(&this, Buffer, BufferSize, StringSize);
 
 	public HRESULT SetQuitLockStringWide(PWSTR String) mut => VT.[Friend]SetQuitLockStringWide(&this, String);
 }
@@ -11627,7 +11627,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self) DetachCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self) AbandonCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) GetRunningProcessSystemIdByExecutableNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags) CreateProcessWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags, uint32 ProcessId, uint32 AttachFlags) CreateProcessAndAttachWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, PWSTR FileName, uint64 FileHandle) OpenDumpFileWide;
@@ -11635,9 +11635,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, PWSTR FileName, uint64 FileHandle, uint32 Type) AddDumpInformationFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint32* Number) GetNumberDumpFiles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint32 Flags, PWSTR ConnectOptions) AttachKernelWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* OptionsSize) GetKernelConnectionOptionsWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* OptionsSize) GetKernelConnectionOptionsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, PWSTR Options) SetKernelConnectionOptionsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint32 Flags, PWSTR Options, void* Reserved) StartProcessServerWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, PWSTR RemoteOptions, uint64* Server) ConnectProcessServerWide;
@@ -11645,9 +11645,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint32 OutputControl, PWSTR Machine, uint32 Flags) OutputServersWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, IDebugOutputCallbacksWide** Callbacks) GetOutputCallbacksWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, IDebugOutputCallbacksWide* Callbacks) SetOutputCallbacksWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PrefixSize) GetOutputLinePrefixWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PrefixSize) GetOutputLinePrefixWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, PWSTR Prefix) SetOutputLinePrefixWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* IdentitySize) GetIdentityWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* IdentitySize) GetIdentityWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint32 OutputControl, uint32 Flags, PWSTR Format) OutputIdentityWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, IDebugEventCallbacksWide** Callbacks) GetEventCallbacksWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, IDebugEventCallbacksWide* Callbacks) SetEventCallbacksWide;
@@ -11663,7 +11663,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint32 EventFlags, uint32* Count) GetNumberEventCallbacks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, PSTR String) SetQuitLockString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, PWSTR String) SetQuitLockStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient6*/SelfOuter* self, IDebugEventContextCallbacks* Callbacks) SetEventContextCallbacks;
 	}
@@ -11777,7 +11777,7 @@ public static
 
 	public HRESULT GetRunningProcessSystemIdByExecutableNameWide(uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) mut => VT.[Friend]GetRunningProcessSystemIdByExecutableNameWide(&this, Server, ExeName, Flags, Id);
 
-	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
+	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
 
 	public HRESULT CreateProcessWide(uint64 Server, PWSTR CommandLine, uint32 CreateFlags) mut => VT.[Friend]CreateProcessWide(&this, Server, CommandLine, CreateFlags);
 
@@ -11793,11 +11793,11 @@ public static
 
 	public HRESULT GetDumpFile(uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFile(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
 
-	public HRESULT GetDumpFileWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFileWide(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
+	public HRESULT GetDumpFileWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFileWide(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
 
 	public HRESULT AttachKernelWide(uint32 Flags, PWSTR ConnectOptions) mut => VT.[Friend]AttachKernelWide(&this, Flags, ConnectOptions);
 
-	public HRESULT GetKernelConnectionOptionsWide(char8* Buffer, uint32 BufferSize, uint32* OptionsSize) mut => VT.[Friend]GetKernelConnectionOptionsWide(&this, Buffer, BufferSize, OptionsSize);
+	public HRESULT GetKernelConnectionOptionsWide(char16* Buffer, uint32 BufferSize, uint32* OptionsSize) mut => VT.[Friend]GetKernelConnectionOptionsWide(&this, Buffer, BufferSize, OptionsSize);
 
 	public HRESULT SetKernelConnectionOptionsWide(PWSTR Options) mut => VT.[Friend]SetKernelConnectionOptionsWide(&this, Options);
 
@@ -11813,11 +11813,11 @@ public static
 
 	public HRESULT SetOutputCallbacksWide(IDebugOutputCallbacksWide* Callbacks) mut => VT.[Friend]SetOutputCallbacksWide(&this, Callbacks);
 
-	public HRESULT GetOutputLinePrefixWide(char8* Buffer, uint32 BufferSize, uint32* PrefixSize) mut => VT.[Friend]GetOutputLinePrefixWide(&this, Buffer, BufferSize, PrefixSize);
+	public HRESULT GetOutputLinePrefixWide(char16* Buffer, uint32 BufferSize, uint32* PrefixSize) mut => VT.[Friend]GetOutputLinePrefixWide(&this, Buffer, BufferSize, PrefixSize);
 
 	public HRESULT SetOutputLinePrefixWide(PWSTR Prefix) mut => VT.[Friend]SetOutputLinePrefixWide(&this, Prefix);
 
-	public HRESULT GetIdentityWide(char8* Buffer, uint32 BufferSize, uint32* IdentitySize) mut => VT.[Friend]GetIdentityWide(&this, Buffer, BufferSize, IdentitySize);
+	public HRESULT GetIdentityWide(char16* Buffer, uint32 BufferSize, uint32* IdentitySize) mut => VT.[Friend]GetIdentityWide(&this, Buffer, BufferSize, IdentitySize);
 
 	public HRESULT OutputIdentityWide(uint32 OutputControl, uint32 Flags, PWSTR Format) mut => VT.[Friend]OutputIdentityWide(&this, OutputControl, Flags, Format);
 
@@ -11849,7 +11849,7 @@ public static
 
 	public HRESULT SetQuitLockString(PSTR String) mut => VT.[Friend]SetQuitLockString(&this, String);
 
-	public HRESULT GetQuitLockStringWide(char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetQuitLockStringWide(&this, Buffer, BufferSize, StringSize);
+	public HRESULT GetQuitLockStringWide(char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetQuitLockStringWide(&this, Buffer, BufferSize, StringSize);
 
 	public HRESULT SetQuitLockStringWide(PWSTR String) mut => VT.[Friend]SetQuitLockStringWide(&this, String);
 
@@ -11918,7 +11918,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self) DetachCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self) AbandonCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) GetRunningProcessSystemIdByExecutableNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags) CreateProcessWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags, uint32 ProcessId, uint32 AttachFlags) CreateProcessAndAttachWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, PWSTR FileName, uint64 FileHandle) OpenDumpFileWide;
@@ -11926,9 +11926,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, PWSTR FileName, uint64 FileHandle, uint32 Type) AddDumpInformationFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint32* Number) GetNumberDumpFiles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint32 Flags, PWSTR ConnectOptions) AttachKernelWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* OptionsSize) GetKernelConnectionOptionsWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* OptionsSize) GetKernelConnectionOptionsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, PWSTR Options) SetKernelConnectionOptionsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint32 Flags, PWSTR Options, void* Reserved) StartProcessServerWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, PWSTR RemoteOptions, uint64* Server) ConnectProcessServerWide;
@@ -11936,9 +11936,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint32 OutputControl, PWSTR Machine, uint32 Flags) OutputServersWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, IDebugOutputCallbacksWide** Callbacks) GetOutputCallbacksWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, IDebugOutputCallbacksWide* Callbacks) SetOutputCallbacksWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PrefixSize) GetOutputLinePrefixWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PrefixSize) GetOutputLinePrefixWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, PWSTR Prefix) SetOutputLinePrefixWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* IdentitySize) GetIdentityWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* IdentitySize) GetIdentityWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint32 OutputControl, uint32 Flags, PWSTR Format) OutputIdentityWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, IDebugEventCallbacksWide** Callbacks) GetEventCallbacksWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, IDebugEventCallbacksWide* Callbacks) SetEventCallbacksWide;
@@ -11954,7 +11954,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint32 EventFlags, uint32* Count) GetNumberEventCallbacks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, PSTR String) SetQuitLockString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, PWSTR String) SetQuitLockStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, IDebugEventContextCallbacks* Callbacks) SetEventContextCallbacks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient7*/SelfOuter* self, void* Context, uint32 ContextSize) SetClientContext;
@@ -12069,7 +12069,7 @@ public static
 
 	public HRESULT GetRunningProcessSystemIdByExecutableNameWide(uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) mut => VT.[Friend]GetRunningProcessSystemIdByExecutableNameWide(&this, Server, ExeName, Flags, Id);
 
-	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
+	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
 
 	public HRESULT CreateProcessWide(uint64 Server, PWSTR CommandLine, uint32 CreateFlags) mut => VT.[Friend]CreateProcessWide(&this, Server, CommandLine, CreateFlags);
 
@@ -12085,11 +12085,11 @@ public static
 
 	public HRESULT GetDumpFile(uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFile(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
 
-	public HRESULT GetDumpFileWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFileWide(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
+	public HRESULT GetDumpFileWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFileWide(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
 
 	public HRESULT AttachKernelWide(uint32 Flags, PWSTR ConnectOptions) mut => VT.[Friend]AttachKernelWide(&this, Flags, ConnectOptions);
 
-	public HRESULT GetKernelConnectionOptionsWide(char8* Buffer, uint32 BufferSize, uint32* OptionsSize) mut => VT.[Friend]GetKernelConnectionOptionsWide(&this, Buffer, BufferSize, OptionsSize);
+	public HRESULT GetKernelConnectionOptionsWide(char16* Buffer, uint32 BufferSize, uint32* OptionsSize) mut => VT.[Friend]GetKernelConnectionOptionsWide(&this, Buffer, BufferSize, OptionsSize);
 
 	public HRESULT SetKernelConnectionOptionsWide(PWSTR Options) mut => VT.[Friend]SetKernelConnectionOptionsWide(&this, Options);
 
@@ -12105,11 +12105,11 @@ public static
 
 	public HRESULT SetOutputCallbacksWide(IDebugOutputCallbacksWide* Callbacks) mut => VT.[Friend]SetOutputCallbacksWide(&this, Callbacks);
 
-	public HRESULT GetOutputLinePrefixWide(char8* Buffer, uint32 BufferSize, uint32* PrefixSize) mut => VT.[Friend]GetOutputLinePrefixWide(&this, Buffer, BufferSize, PrefixSize);
+	public HRESULT GetOutputLinePrefixWide(char16* Buffer, uint32 BufferSize, uint32* PrefixSize) mut => VT.[Friend]GetOutputLinePrefixWide(&this, Buffer, BufferSize, PrefixSize);
 
 	public HRESULT SetOutputLinePrefixWide(PWSTR Prefix) mut => VT.[Friend]SetOutputLinePrefixWide(&this, Prefix);
 
-	public HRESULT GetIdentityWide(char8* Buffer, uint32 BufferSize, uint32* IdentitySize) mut => VT.[Friend]GetIdentityWide(&this, Buffer, BufferSize, IdentitySize);
+	public HRESULT GetIdentityWide(char16* Buffer, uint32 BufferSize, uint32* IdentitySize) mut => VT.[Friend]GetIdentityWide(&this, Buffer, BufferSize, IdentitySize);
 
 	public HRESULT OutputIdentityWide(uint32 OutputControl, uint32 Flags, PWSTR Format) mut => VT.[Friend]OutputIdentityWide(&this, OutputControl, Flags, Format);
 
@@ -12141,7 +12141,7 @@ public static
 
 	public HRESULT SetQuitLockString(PSTR String) mut => VT.[Friend]SetQuitLockString(&this, String);
 
-	public HRESULT GetQuitLockStringWide(char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetQuitLockStringWide(&this, Buffer, BufferSize, StringSize);
+	public HRESULT GetQuitLockStringWide(char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetQuitLockStringWide(&this, Buffer, BufferSize, StringSize);
 
 	public HRESULT SetQuitLockStringWide(PWSTR String) mut => VT.[Friend]SetQuitLockStringWide(&this, String);
 
@@ -12212,7 +12212,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self) DetachCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self) AbandonCurrentProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) GetRunningProcessSystemIdByExecutableNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) GetRunningProcessDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags) CreateProcessWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint64 Server, PWSTR CommandLine, uint32 CreateFlags, uint32 ProcessId, uint32 AttachFlags) CreateProcessAndAttachWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, PWSTR FileName, uint64 FileHandle) OpenDumpFileWide;
@@ -12220,9 +12220,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, PWSTR FileName, uint64 FileHandle, uint32 Type) AddDumpInformationFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint32* Number) GetNumberDumpFiles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) GetDumpFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint32 Flags, PWSTR ConnectOptions) AttachKernelWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* OptionsSize) GetKernelConnectionOptionsWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* OptionsSize) GetKernelConnectionOptionsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, PWSTR Options) SetKernelConnectionOptionsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint32 Flags, PWSTR Options, void* Reserved) StartProcessServerWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, PWSTR RemoteOptions, uint64* Server) ConnectProcessServerWide;
@@ -12230,9 +12230,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint32 OutputControl, PWSTR Machine, uint32 Flags) OutputServersWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, IDebugOutputCallbacksWide** Callbacks) GetOutputCallbacksWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, IDebugOutputCallbacksWide* Callbacks) SetOutputCallbacksWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PrefixSize) GetOutputLinePrefixWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PrefixSize) GetOutputLinePrefixWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, PWSTR Prefix) SetOutputLinePrefixWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* IdentitySize) GetIdentityWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* IdentitySize) GetIdentityWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint32 OutputControl, uint32 Flags, PWSTR Format) OutputIdentityWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, IDebugEventCallbacksWide** Callbacks) GetEventCallbacksWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, IDebugEventCallbacksWide* Callbacks) SetEventCallbacksWide;
@@ -12248,7 +12248,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint32 EventFlags, uint32* Count) GetNumberEventCallbacks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, PSTR String) SetQuitLockString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetQuitLockStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, PWSTR String) SetQuitLockStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, IDebugEventContextCallbacks* Callbacks) SetEventContextCallbacks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugClient8*/SelfOuter* self, void* Context, uint32 ContextSize) SetClientContext;
@@ -12364,7 +12364,7 @@ public static
 
 	public HRESULT GetRunningProcessSystemIdByExecutableNameWide(uint64 Server, PWSTR ExeName, uint32 Flags, uint32* Id) mut => VT.[Friend]GetRunningProcessSystemIdByExecutableNameWide(&this, Server, ExeName, Flags, Id);
 
-	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char8* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char8* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
+	public HRESULT GetRunningProcessDescriptionWide(uint64 Server, uint32 SystemId, uint32 Flags, char16* ExeName, uint32 ExeNameSize, uint32* ActualExeNameSize, char16* Description, uint32 DescriptionSize, uint32* ActualDescriptionSize) mut => VT.[Friend]GetRunningProcessDescriptionWide(&this, Server, SystemId, Flags, ExeName, ExeNameSize, ActualExeNameSize, Description, DescriptionSize, ActualDescriptionSize);
 
 	public HRESULT CreateProcessWide(uint64 Server, PWSTR CommandLine, uint32 CreateFlags) mut => VT.[Friend]CreateProcessWide(&this, Server, CommandLine, CreateFlags);
 
@@ -12380,11 +12380,11 @@ public static
 
 	public HRESULT GetDumpFile(uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFile(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
 
-	public HRESULT GetDumpFileWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFileWide(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
+	public HRESULT GetDumpFileWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize, uint64* Handle, uint32* Type) mut => VT.[Friend]GetDumpFileWide(&this, Index, Buffer, BufferSize, NameSize, Handle, Type);
 
 	public HRESULT AttachKernelWide(uint32 Flags, PWSTR ConnectOptions) mut => VT.[Friend]AttachKernelWide(&this, Flags, ConnectOptions);
 
-	public HRESULT GetKernelConnectionOptionsWide(char8* Buffer, uint32 BufferSize, uint32* OptionsSize) mut => VT.[Friend]GetKernelConnectionOptionsWide(&this, Buffer, BufferSize, OptionsSize);
+	public HRESULT GetKernelConnectionOptionsWide(char16* Buffer, uint32 BufferSize, uint32* OptionsSize) mut => VT.[Friend]GetKernelConnectionOptionsWide(&this, Buffer, BufferSize, OptionsSize);
 
 	public HRESULT SetKernelConnectionOptionsWide(PWSTR Options) mut => VT.[Friend]SetKernelConnectionOptionsWide(&this, Options);
 
@@ -12400,11 +12400,11 @@ public static
 
 	public HRESULT SetOutputCallbacksWide(IDebugOutputCallbacksWide* Callbacks) mut => VT.[Friend]SetOutputCallbacksWide(&this, Callbacks);
 
-	public HRESULT GetOutputLinePrefixWide(char8* Buffer, uint32 BufferSize, uint32* PrefixSize) mut => VT.[Friend]GetOutputLinePrefixWide(&this, Buffer, BufferSize, PrefixSize);
+	public HRESULT GetOutputLinePrefixWide(char16* Buffer, uint32 BufferSize, uint32* PrefixSize) mut => VT.[Friend]GetOutputLinePrefixWide(&this, Buffer, BufferSize, PrefixSize);
 
 	public HRESULT SetOutputLinePrefixWide(PWSTR Prefix) mut => VT.[Friend]SetOutputLinePrefixWide(&this, Prefix);
 
-	public HRESULT GetIdentityWide(char8* Buffer, uint32 BufferSize, uint32* IdentitySize) mut => VT.[Friend]GetIdentityWide(&this, Buffer, BufferSize, IdentitySize);
+	public HRESULT GetIdentityWide(char16* Buffer, uint32 BufferSize, uint32* IdentitySize) mut => VT.[Friend]GetIdentityWide(&this, Buffer, BufferSize, IdentitySize);
 
 	public HRESULT OutputIdentityWide(uint32 OutputControl, uint32 Flags, PWSTR Format) mut => VT.[Friend]OutputIdentityWide(&this, OutputControl, Flags, Format);
 
@@ -12436,7 +12436,7 @@ public static
 
 	public HRESULT SetQuitLockString(PSTR String) mut => VT.[Friend]SetQuitLockString(&this, String);
 
-	public HRESULT GetQuitLockStringWide(char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetQuitLockStringWide(&this, Buffer, BufferSize, StringSize);
+	public HRESULT GetQuitLockStringWide(char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetQuitLockStringWide(&this, Buffer, BufferSize, StringSize);
 
 	public HRESULT SetQuitLockStringWide(PWSTR String) mut => VT.[Friend]SetQuitLockStringWide(&this, String);
 
@@ -13612,9 +13612,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, uint32 Which, PSTR Buffer, uint32 BufferSize, uint32* DescSize) GetEventIndexDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32* Index) GetCurrentEventIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Relation, uint32 Value, uint32* NextIndex) SetNextEventIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) GetLogFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) GetLogFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, PWSTR File, BOOL Append) OpenLogFileWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* InputSize) InputWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* InputSize) InputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, PWSTR Buffer) ReturnInputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Mask, PWSTR Format) OutputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Mask, PWSTR Format, int8* Args) OutputVaListWide;
@@ -13622,11 +13622,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 OutputControl, uint32 Mask, PWSTR Format, int8* Args) ControlledOutputVaListWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 OutputControl, PWSTR Format) OutputPromptWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 OutputControl, PWSTR Format, int8* Args) OutputPromptVaListWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* TextSize) GetPromptTextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* TextSize) GetPromptTextWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint64 Offset, PWSTR Instr, uint64* EndOffset) AssembleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint64 Offset, uint32 Flags, char8* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) DisassembleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Type, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetProcessorTypeNamesWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Slot, char8* Buffer, uint32 BufferSize, uint32* MacroSize) GetTextMacroWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint64 Offset, uint32 Flags, char16* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) DisassembleWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Type, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetProcessorTypeNamesWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Slot, char16* Buffer, uint32 BufferSize, uint32* MacroSize) GetTextMacroWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Slot, PWSTR Macro) SetTextMacroWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, PWSTR Expression, uint32 DesiredType, DEBUG_VALUE* Value, uint32* RemainderIndex) EvaluateWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 OutputControl, PWSTR Command, uint32 Flags) ExecuteWide;
@@ -13639,31 +13639,31 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, PWSTR Path, uint64* Handle) GetExtensionByPathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint64 Handle, PWSTR Function, PWSTR Arguments) CallExtensionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint64 Handle, PWSTR FuncName, FARPROC* Function) GetExtensionFunctionWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* TextSize) GetEventFilterTextWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) GetEventFilterCommandWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* TextSize) GetEventFilterTextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) GetEventFilterCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, PWSTR Command) SetEventFilterCommandWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ArgumentSize) GetSpecificFilterArgumentWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ArgumentSize) GetSpecificFilterArgumentWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, PWSTR Argument) SetSpecificFilterArgumentWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) GetExceptionFilterSecondCommandWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) GetExceptionFilterSecondCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, PWSTR Command) SetExceptionFilterSecondCommandWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char8* Description, uint32 DescriptionSize, uint32* DescriptionUsed) GetLastEventInformationWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, PWSTR SrcText, uint32 Index, char8* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char8* DstBuffer, uint32 DstBufferSize, uint32* DstSize) GetTextReplacementWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char16* Description, uint32 DescriptionSize, uint32* DescriptionUsed) GetLastEventInformationWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, PWSTR SrcText, uint32 Index, char16* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char16* DstBuffer, uint32 DstBufferSize, uint32* DstSize) GetTextReplacementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, PWSTR SrcText, PWSTR DstText) SetTextReplacementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, PWSTR AbbrevName) SetExpressionSyntaxByNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetExpressionSyntaxNamesWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetExpressionSyntaxNamesWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Index, uint32 Which, PWSTR Buffer, uint32 BufferSize, uint32* DescSize) GetEventIndexDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, PSTR File, uint32 Flags) OpenLogFile2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2Wide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2Wide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, PWSTR File, uint32 Flags) OpenLogFile2Wide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32* PlatformId, uint32* Win32Major, uint32* Win32Minor, uint32* KdMajor, uint32* KdMinor) GetSystemVersionValues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) GetContextStackTrace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) OutputContextStackTrace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* Context, uint32 ContextSize, uint32* ContextUsed, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed) GetStoredEventInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32* Flags, uint32 WhichString, uint8* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32* Flags, uint32 WhichString, char8* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatusWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32* Flags, uint32 WhichString, char16* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatusWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl4*/SelfOuter* self, uint32 Flags) ResetManagedStatus;
 	}
 
@@ -13894,11 +13894,11 @@ public static
 
 	public HRESULT SetNextEventIndex(uint32 Relation, uint32 Value, uint32* NextIndex) mut => VT.[Friend]SetNextEventIndex(&this, Relation, Value, NextIndex);
 
-	public HRESULT GetLogFileWide(char8* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) mut => VT.[Friend]GetLogFileWide(&this, Buffer, BufferSize, FileSize, Append);
+	public HRESULT GetLogFileWide(char16* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) mut => VT.[Friend]GetLogFileWide(&this, Buffer, BufferSize, FileSize, Append);
 
 	public HRESULT OpenLogFileWide(PWSTR File, BOOL Append) mut => VT.[Friend]OpenLogFileWide(&this, File, Append);
 
-	public HRESULT InputWide(char8* Buffer, uint32 BufferSize, uint32* InputSize) mut => VT.[Friend]InputWide(&this, Buffer, BufferSize, InputSize);
+	public HRESULT InputWide(char16* Buffer, uint32 BufferSize, uint32* InputSize) mut => VT.[Friend]InputWide(&this, Buffer, BufferSize, InputSize);
 
 	public HRESULT ReturnInputWide(PWSTR Buffer) mut => VT.[Friend]ReturnInputWide(&this, Buffer);
 
@@ -13914,15 +13914,15 @@ public static
 
 	public HRESULT OutputPromptVaListWide(uint32 OutputControl, PWSTR Format, int8* Args) mut => VT.[Friend]OutputPromptVaListWide(&this, OutputControl, Format, Args);
 
-	public HRESULT GetPromptTextWide(char8* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetPromptTextWide(&this, Buffer, BufferSize, TextSize);
+	public HRESULT GetPromptTextWide(char16* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetPromptTextWide(&this, Buffer, BufferSize, TextSize);
 
 	public HRESULT AssembleWide(uint64 Offset, PWSTR Instr, uint64* EndOffset) mut => VT.[Friend]AssembleWide(&this, Offset, Instr, EndOffset);
 
-	public HRESULT DisassembleWide(uint64 Offset, uint32 Flags, char8* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) mut => VT.[Friend]DisassembleWide(&this, Offset, Flags, Buffer, BufferSize, DisassemblySize, EndOffset);
+	public HRESULT DisassembleWide(uint64 Offset, uint32 Flags, char16* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) mut => VT.[Friend]DisassembleWide(&this, Offset, Flags, Buffer, BufferSize, DisassemblySize, EndOffset);
 
-	public HRESULT GetProcessorTypeNamesWide(uint32 Type, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetProcessorTypeNamesWide(&this, Type, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
+	public HRESULT GetProcessorTypeNamesWide(uint32 Type, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetProcessorTypeNamesWide(&this, Type, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
 
-	public HRESULT GetTextMacroWide(uint32 Slot, char8* Buffer, uint32 BufferSize, uint32* MacroSize) mut => VT.[Friend]GetTextMacroWide(&this, Slot, Buffer, BufferSize, MacroSize);
+	public HRESULT GetTextMacroWide(uint32 Slot, char16* Buffer, uint32 BufferSize, uint32* MacroSize) mut => VT.[Friend]GetTextMacroWide(&this, Slot, Buffer, BufferSize, MacroSize);
 
 	public HRESULT SetTextMacroWide(uint32 Slot, PWSTR Macro) mut => VT.[Friend]SetTextMacroWide(&this, Slot, Macro);
 
@@ -13948,29 +13948,29 @@ public static
 
 	public HRESULT GetExtensionFunctionWide(uint64 Handle, PWSTR FuncName, FARPROC* Function) mut => VT.[Friend]GetExtensionFunctionWide(&this, Handle, FuncName, Function);
 
-	public HRESULT GetEventFilterTextWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetEventFilterTextWide(&this, Index, Buffer, BufferSize, TextSize);
+	public HRESULT GetEventFilterTextWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetEventFilterTextWide(&this, Index, Buffer, BufferSize, TextSize);
 
-	public HRESULT GetEventFilterCommandWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetEventFilterCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
+	public HRESULT GetEventFilterCommandWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetEventFilterCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
 
 	public HRESULT SetEventFilterCommandWide(uint32 Index, PWSTR Command) mut => VT.[Friend]SetEventFilterCommandWide(&this, Index, Command);
 
-	public HRESULT GetSpecificFilterArgumentWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ArgumentSize) mut => VT.[Friend]GetSpecificFilterArgumentWide(&this, Index, Buffer, BufferSize, ArgumentSize);
+	public HRESULT GetSpecificFilterArgumentWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ArgumentSize) mut => VT.[Friend]GetSpecificFilterArgumentWide(&this, Index, Buffer, BufferSize, ArgumentSize);
 
 	public HRESULT SetSpecificFilterArgumentWide(uint32 Index, PWSTR Argument) mut => VT.[Friend]SetSpecificFilterArgumentWide(&this, Index, Argument);
 
-	public HRESULT GetExceptionFilterSecondCommandWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetExceptionFilterSecondCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
+	public HRESULT GetExceptionFilterSecondCommandWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetExceptionFilterSecondCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
 
 	public HRESULT SetExceptionFilterSecondCommandWide(uint32 Index, PWSTR Command) mut => VT.[Friend]SetExceptionFilterSecondCommandWide(&this, Index, Command);
 
-	public HRESULT GetLastEventInformationWide(uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char8* Description, uint32 DescriptionSize, uint32* DescriptionUsed) mut => VT.[Friend]GetLastEventInformationWide(&this, Type, ProcessId, ThreadId, ExtraInformation, ExtraInformationSize, ExtraInformationUsed, Description, DescriptionSize, DescriptionUsed);
+	public HRESULT GetLastEventInformationWide(uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char16* Description, uint32 DescriptionSize, uint32* DescriptionUsed) mut => VT.[Friend]GetLastEventInformationWide(&this, Type, ProcessId, ThreadId, ExtraInformation, ExtraInformationSize, ExtraInformationUsed, Description, DescriptionSize, DescriptionUsed);
 
-	public HRESULT GetTextReplacementWide(PWSTR SrcText, uint32 Index, char8* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char8* DstBuffer, uint32 DstBufferSize, uint32* DstSize) mut => VT.[Friend]GetTextReplacementWide(&this, SrcText, Index, SrcBuffer, SrcBufferSize, SrcSize, DstBuffer, DstBufferSize, DstSize);
+	public HRESULT GetTextReplacementWide(PWSTR SrcText, uint32 Index, char16* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char16* DstBuffer, uint32 DstBufferSize, uint32* DstSize) mut => VT.[Friend]GetTextReplacementWide(&this, SrcText, Index, SrcBuffer, SrcBufferSize, SrcSize, DstBuffer, DstBufferSize, DstSize);
 
 	public HRESULT SetTextReplacementWide(PWSTR SrcText, PWSTR DstText) mut => VT.[Friend]SetTextReplacementWide(&this, SrcText, DstText);
 
 	public HRESULT SetExpressionSyntaxByNameWide(PWSTR AbbrevName) mut => VT.[Friend]SetExpressionSyntaxByNameWide(&this, AbbrevName);
 
-	public HRESULT GetExpressionSyntaxNamesWide(uint32 Index, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetExpressionSyntaxNamesWide(&this, Index, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
+	public HRESULT GetExpressionSyntaxNamesWide(uint32 Index, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetExpressionSyntaxNamesWide(&this, Index, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
 
 	public HRESULT GetEventIndexDescriptionWide(uint32 Index, uint32 Which, PWSTR Buffer, uint32 BufferSize, uint32* DescSize) mut => VT.[Friend]GetEventIndexDescriptionWide(&this, Index, Which, Buffer, BufferSize, DescSize);
 
@@ -13978,7 +13978,7 @@ public static
 
 	public HRESULT OpenLogFile2(PSTR File, uint32 Flags) mut => VT.[Friend]OpenLogFile2(&this, File, Flags);
 
-	public HRESULT GetLogFile2Wide(char8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) mut => VT.[Friend]GetLogFile2Wide(&this, Buffer, BufferSize, FileSize, Flags);
+	public HRESULT GetLogFile2Wide(char16* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) mut => VT.[Friend]GetLogFile2Wide(&this, Buffer, BufferSize, FileSize, Flags);
 
 	public HRESULT OpenLogFile2Wide(PWSTR File, uint32 Flags) mut => VT.[Friend]OpenLogFile2Wide(&this, File, Flags);
 
@@ -13986,7 +13986,7 @@ public static
 
 	public HRESULT GetSystemVersionString(uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionString(&this, Which, Buffer, BufferSize, StringSize);
 
-	public HRESULT GetSystemVersionStringWide(uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionStringWide(&this, Which, Buffer, BufferSize, StringSize);
+	public HRESULT GetSystemVersionStringWide(uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionStringWide(&this, Which, Buffer, BufferSize, StringSize);
 
 	public HRESULT GetContextStackTrace(void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) mut => VT.[Friend]GetContextStackTrace(&this, StartContext, StartContextSize, Frames, FramesSize, FrameContexts, FrameContextsSize, FrameContextsEntrySize, FramesFilled);
 
@@ -13996,7 +13996,7 @@ public static
 
 	public HRESULT GetManagedStatus(uint32* Flags, uint32 WhichString, uint8* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatus(&this, Flags, WhichString, String, StringSize, StringNeeded);
 
-	public HRESULT GetManagedStatusWide(uint32* Flags, uint32 WhichString, char8* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatusWide(&this, Flags, WhichString, String, StringSize, StringNeeded);
+	public HRESULT GetManagedStatusWide(uint32* Flags, uint32 WhichString, char16* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatusWide(&this, Flags, WhichString, String, StringSize, StringNeeded);
 
 	public HRESULT ResetManagedStatus(uint32 Flags) mut => VT.[Friend]ResetManagedStatus(&this, Flags);
 }
@@ -14122,9 +14122,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, uint32 Which, PSTR Buffer, uint32 BufferSize, uint32* DescSize) GetEventIndexDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32* Index) GetCurrentEventIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Relation, uint32 Value, uint32* NextIndex) SetNextEventIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) GetLogFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) GetLogFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, PWSTR File, BOOL Append) OpenLogFileWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* InputSize) InputWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* InputSize) InputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, PWSTR Buffer) ReturnInputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Mask, PWSTR Format) OutputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Mask, PWSTR Format, int8* Args) OutputVaListWide;
@@ -14132,11 +14132,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 OutputControl, uint32 Mask, PWSTR Format, int8* Args) ControlledOutputVaListWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 OutputControl, PWSTR Format) OutputPromptWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 OutputControl, PWSTR Format, int8* Args) OutputPromptVaListWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* TextSize) GetPromptTextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* TextSize) GetPromptTextWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint64 Offset, PWSTR Instr, uint64* EndOffset) AssembleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint64 Offset, uint32 Flags, char8* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) DisassembleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Type, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetProcessorTypeNamesWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Slot, char8* Buffer, uint32 BufferSize, uint32* MacroSize) GetTextMacroWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint64 Offset, uint32 Flags, char16* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) DisassembleWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Type, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetProcessorTypeNamesWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Slot, char16* Buffer, uint32 BufferSize, uint32* MacroSize) GetTextMacroWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Slot, PWSTR Macro) SetTextMacroWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, PWSTR Expression, uint32 DesiredType, DEBUG_VALUE* Value, uint32* RemainderIndex) EvaluateWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 OutputControl, PWSTR Command, uint32 Flags) ExecuteWide;
@@ -14149,31 +14149,31 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, PWSTR Path, uint64* Handle) GetExtensionByPathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint64 Handle, PWSTR Function, PWSTR Arguments) CallExtensionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint64 Handle, PWSTR FuncName, FARPROC* Function) GetExtensionFunctionWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* TextSize) GetEventFilterTextWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) GetEventFilterCommandWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* TextSize) GetEventFilterTextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) GetEventFilterCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, PWSTR Command) SetEventFilterCommandWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ArgumentSize) GetSpecificFilterArgumentWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ArgumentSize) GetSpecificFilterArgumentWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, PWSTR Argument) SetSpecificFilterArgumentWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) GetExceptionFilterSecondCommandWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) GetExceptionFilterSecondCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, PWSTR Command) SetExceptionFilterSecondCommandWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char8* Description, uint32 DescriptionSize, uint32* DescriptionUsed) GetLastEventInformationWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, PWSTR SrcText, uint32 Index, char8* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char8* DstBuffer, uint32 DstBufferSize, uint32* DstSize) GetTextReplacementWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char16* Description, uint32 DescriptionSize, uint32* DescriptionUsed) GetLastEventInformationWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, PWSTR SrcText, uint32 Index, char16* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char16* DstBuffer, uint32 DstBufferSize, uint32* DstSize) GetTextReplacementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, PWSTR SrcText, PWSTR DstText) SetTextReplacementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, PWSTR AbbrevName) SetExpressionSyntaxByNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetExpressionSyntaxNamesWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetExpressionSyntaxNamesWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Index, uint32 Which, PWSTR Buffer, uint32 BufferSize, uint32* DescSize) GetEventIndexDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, PSTR File, uint32 Flags) OpenLogFile2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2Wide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2Wide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, PWSTR File, uint32 Flags) OpenLogFile2Wide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32* PlatformId, uint32* Win32Major, uint32* Win32Minor, uint32* KdMajor, uint32* KdMinor) GetSystemVersionValues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) GetContextStackTrace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) OutputContextStackTrace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* Context, uint32 ContextSize, uint32* ContextUsed, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed) GetStoredEventInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32* Flags, uint32 WhichString, uint8* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32* Flags, uint32 WhichString, char8* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatusWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32* Flags, uint32 WhichString, char16* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatusWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 Flags) ResetManagedStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint64 FrameOffset, uint64 StackOffset, uint64 InstructionOffset, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, uint32* FramesFilled) GetStackTraceEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, uint32 Flags) OutputStackTraceEx;
@@ -14409,11 +14409,11 @@ public static
 
 	public HRESULT SetNextEventIndex(uint32 Relation, uint32 Value, uint32* NextIndex) mut => VT.[Friend]SetNextEventIndex(&this, Relation, Value, NextIndex);
 
-	public HRESULT GetLogFileWide(char8* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) mut => VT.[Friend]GetLogFileWide(&this, Buffer, BufferSize, FileSize, Append);
+	public HRESULT GetLogFileWide(char16* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) mut => VT.[Friend]GetLogFileWide(&this, Buffer, BufferSize, FileSize, Append);
 
 	public HRESULT OpenLogFileWide(PWSTR File, BOOL Append) mut => VT.[Friend]OpenLogFileWide(&this, File, Append);
 
-	public HRESULT InputWide(char8* Buffer, uint32 BufferSize, uint32* InputSize) mut => VT.[Friend]InputWide(&this, Buffer, BufferSize, InputSize);
+	public HRESULT InputWide(char16* Buffer, uint32 BufferSize, uint32* InputSize) mut => VT.[Friend]InputWide(&this, Buffer, BufferSize, InputSize);
 
 	public HRESULT ReturnInputWide(PWSTR Buffer) mut => VT.[Friend]ReturnInputWide(&this, Buffer);
 
@@ -14429,15 +14429,15 @@ public static
 
 	public HRESULT OutputPromptVaListWide(uint32 OutputControl, PWSTR Format, int8* Args) mut => VT.[Friend]OutputPromptVaListWide(&this, OutputControl, Format, Args);
 
-	public HRESULT GetPromptTextWide(char8* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetPromptTextWide(&this, Buffer, BufferSize, TextSize);
+	public HRESULT GetPromptTextWide(char16* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetPromptTextWide(&this, Buffer, BufferSize, TextSize);
 
 	public HRESULT AssembleWide(uint64 Offset, PWSTR Instr, uint64* EndOffset) mut => VT.[Friend]AssembleWide(&this, Offset, Instr, EndOffset);
 
-	public HRESULT DisassembleWide(uint64 Offset, uint32 Flags, char8* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) mut => VT.[Friend]DisassembleWide(&this, Offset, Flags, Buffer, BufferSize, DisassemblySize, EndOffset);
+	public HRESULT DisassembleWide(uint64 Offset, uint32 Flags, char16* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) mut => VT.[Friend]DisassembleWide(&this, Offset, Flags, Buffer, BufferSize, DisassemblySize, EndOffset);
 
-	public HRESULT GetProcessorTypeNamesWide(uint32 Type, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetProcessorTypeNamesWide(&this, Type, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
+	public HRESULT GetProcessorTypeNamesWide(uint32 Type, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetProcessorTypeNamesWide(&this, Type, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
 
-	public HRESULT GetTextMacroWide(uint32 Slot, char8* Buffer, uint32 BufferSize, uint32* MacroSize) mut => VT.[Friend]GetTextMacroWide(&this, Slot, Buffer, BufferSize, MacroSize);
+	public HRESULT GetTextMacroWide(uint32 Slot, char16* Buffer, uint32 BufferSize, uint32* MacroSize) mut => VT.[Friend]GetTextMacroWide(&this, Slot, Buffer, BufferSize, MacroSize);
 
 	public HRESULT SetTextMacroWide(uint32 Slot, PWSTR Macro) mut => VT.[Friend]SetTextMacroWide(&this, Slot, Macro);
 
@@ -14463,29 +14463,29 @@ public static
 
 	public HRESULT GetExtensionFunctionWide(uint64 Handle, PWSTR FuncName, FARPROC* Function) mut => VT.[Friend]GetExtensionFunctionWide(&this, Handle, FuncName, Function);
 
-	public HRESULT GetEventFilterTextWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetEventFilterTextWide(&this, Index, Buffer, BufferSize, TextSize);
+	public HRESULT GetEventFilterTextWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetEventFilterTextWide(&this, Index, Buffer, BufferSize, TextSize);
 
-	public HRESULT GetEventFilterCommandWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetEventFilterCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
+	public HRESULT GetEventFilterCommandWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetEventFilterCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
 
 	public HRESULT SetEventFilterCommandWide(uint32 Index, PWSTR Command) mut => VT.[Friend]SetEventFilterCommandWide(&this, Index, Command);
 
-	public HRESULT GetSpecificFilterArgumentWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ArgumentSize) mut => VT.[Friend]GetSpecificFilterArgumentWide(&this, Index, Buffer, BufferSize, ArgumentSize);
+	public HRESULT GetSpecificFilterArgumentWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ArgumentSize) mut => VT.[Friend]GetSpecificFilterArgumentWide(&this, Index, Buffer, BufferSize, ArgumentSize);
 
 	public HRESULT SetSpecificFilterArgumentWide(uint32 Index, PWSTR Argument) mut => VT.[Friend]SetSpecificFilterArgumentWide(&this, Index, Argument);
 
-	public HRESULT GetExceptionFilterSecondCommandWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetExceptionFilterSecondCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
+	public HRESULT GetExceptionFilterSecondCommandWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetExceptionFilterSecondCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
 
 	public HRESULT SetExceptionFilterSecondCommandWide(uint32 Index, PWSTR Command) mut => VT.[Friend]SetExceptionFilterSecondCommandWide(&this, Index, Command);
 
-	public HRESULT GetLastEventInformationWide(uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char8* Description, uint32 DescriptionSize, uint32* DescriptionUsed) mut => VT.[Friend]GetLastEventInformationWide(&this, Type, ProcessId, ThreadId, ExtraInformation, ExtraInformationSize, ExtraInformationUsed, Description, DescriptionSize, DescriptionUsed);
+	public HRESULT GetLastEventInformationWide(uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char16* Description, uint32 DescriptionSize, uint32* DescriptionUsed) mut => VT.[Friend]GetLastEventInformationWide(&this, Type, ProcessId, ThreadId, ExtraInformation, ExtraInformationSize, ExtraInformationUsed, Description, DescriptionSize, DescriptionUsed);
 
-	public HRESULT GetTextReplacementWide(PWSTR SrcText, uint32 Index, char8* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char8* DstBuffer, uint32 DstBufferSize, uint32* DstSize) mut => VT.[Friend]GetTextReplacementWide(&this, SrcText, Index, SrcBuffer, SrcBufferSize, SrcSize, DstBuffer, DstBufferSize, DstSize);
+	public HRESULT GetTextReplacementWide(PWSTR SrcText, uint32 Index, char16* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char16* DstBuffer, uint32 DstBufferSize, uint32* DstSize) mut => VT.[Friend]GetTextReplacementWide(&this, SrcText, Index, SrcBuffer, SrcBufferSize, SrcSize, DstBuffer, DstBufferSize, DstSize);
 
 	public HRESULT SetTextReplacementWide(PWSTR SrcText, PWSTR DstText) mut => VT.[Friend]SetTextReplacementWide(&this, SrcText, DstText);
 
 	public HRESULT SetExpressionSyntaxByNameWide(PWSTR AbbrevName) mut => VT.[Friend]SetExpressionSyntaxByNameWide(&this, AbbrevName);
 
-	public HRESULT GetExpressionSyntaxNamesWide(uint32 Index, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetExpressionSyntaxNamesWide(&this, Index, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
+	public HRESULT GetExpressionSyntaxNamesWide(uint32 Index, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetExpressionSyntaxNamesWide(&this, Index, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
 
 	public HRESULT GetEventIndexDescriptionWide(uint32 Index, uint32 Which, PWSTR Buffer, uint32 BufferSize, uint32* DescSize) mut => VT.[Friend]GetEventIndexDescriptionWide(&this, Index, Which, Buffer, BufferSize, DescSize);
 
@@ -14493,7 +14493,7 @@ public static
 
 	public HRESULT OpenLogFile2(PSTR File, uint32 Flags) mut => VT.[Friend]OpenLogFile2(&this, File, Flags);
 
-	public HRESULT GetLogFile2Wide(char8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) mut => VT.[Friend]GetLogFile2Wide(&this, Buffer, BufferSize, FileSize, Flags);
+	public HRESULT GetLogFile2Wide(char16* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) mut => VT.[Friend]GetLogFile2Wide(&this, Buffer, BufferSize, FileSize, Flags);
 
 	public HRESULT OpenLogFile2Wide(PWSTR File, uint32 Flags) mut => VT.[Friend]OpenLogFile2Wide(&this, File, Flags);
 
@@ -14501,7 +14501,7 @@ public static
 
 	public HRESULT GetSystemVersionString(uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionString(&this, Which, Buffer, BufferSize, StringSize);
 
-	public HRESULT GetSystemVersionStringWide(uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionStringWide(&this, Which, Buffer, BufferSize, StringSize);
+	public HRESULT GetSystemVersionStringWide(uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionStringWide(&this, Which, Buffer, BufferSize, StringSize);
 
 	public HRESULT GetContextStackTrace(void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) mut => VT.[Friend]GetContextStackTrace(&this, StartContext, StartContextSize, Frames, FramesSize, FrameContexts, FrameContextsSize, FrameContextsEntrySize, FramesFilled);
 
@@ -14511,7 +14511,7 @@ public static
 
 	public HRESULT GetManagedStatus(uint32* Flags, uint32 WhichString, uint8* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatus(&this, Flags, WhichString, String, StringSize, StringNeeded);
 
-	public HRESULT GetManagedStatusWide(uint32* Flags, uint32 WhichString, char8* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatusWide(&this, Flags, WhichString, String, StringSize, StringNeeded);
+	public HRESULT GetManagedStatusWide(uint32* Flags, uint32 WhichString, char16* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatusWide(&this, Flags, WhichString, String, StringSize, StringNeeded);
 
 	public HRESULT ResetManagedStatus(uint32 Flags) mut => VT.[Friend]ResetManagedStatus(&this, Flags);
 
@@ -14647,9 +14647,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, uint32 Which, PSTR Buffer, uint32 BufferSize, uint32* DescSize) GetEventIndexDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32* Index) GetCurrentEventIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Relation, uint32 Value, uint32* NextIndex) SetNextEventIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) GetLogFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) GetLogFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, PWSTR File, BOOL Append) OpenLogFileWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* InputSize) InputWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* InputSize) InputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, PWSTR Buffer) ReturnInputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Mask, PWSTR Format) OutputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Mask, PWSTR Format, int8* Args) OutputVaListWide;
@@ -14657,11 +14657,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 OutputControl, uint32 Mask, PWSTR Format, int8* Args) ControlledOutputVaListWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 OutputControl, PWSTR Format) OutputPromptWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 OutputControl, PWSTR Format, int8* Args) OutputPromptVaListWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* TextSize) GetPromptTextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* TextSize) GetPromptTextWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint64 Offset, PWSTR Instr, uint64* EndOffset) AssembleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint64 Offset, uint32 Flags, char8* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) DisassembleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Type, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetProcessorTypeNamesWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Slot, char8* Buffer, uint32 BufferSize, uint32* MacroSize) GetTextMacroWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint64 Offset, uint32 Flags, char16* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) DisassembleWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Type, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetProcessorTypeNamesWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Slot, char16* Buffer, uint32 BufferSize, uint32* MacroSize) GetTextMacroWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Slot, PWSTR Macro) SetTextMacroWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, PWSTR Expression, uint32 DesiredType, DEBUG_VALUE* Value, uint32* RemainderIndex) EvaluateWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 OutputControl, PWSTR Command, uint32 Flags) ExecuteWide;
@@ -14674,31 +14674,31 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, PWSTR Path, uint64* Handle) GetExtensionByPathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint64 Handle, PWSTR Function, PWSTR Arguments) CallExtensionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint64 Handle, PWSTR FuncName, FARPROC* Function) GetExtensionFunctionWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* TextSize) GetEventFilterTextWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) GetEventFilterCommandWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* TextSize) GetEventFilterTextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) GetEventFilterCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, PWSTR Command) SetEventFilterCommandWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ArgumentSize) GetSpecificFilterArgumentWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ArgumentSize) GetSpecificFilterArgumentWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, PWSTR Argument) SetSpecificFilterArgumentWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) GetExceptionFilterSecondCommandWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) GetExceptionFilterSecondCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, PWSTR Command) SetExceptionFilterSecondCommandWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char8* Description, uint32 DescriptionSize, uint32* DescriptionUsed) GetLastEventInformationWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, PWSTR SrcText, uint32 Index, char8* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char8* DstBuffer, uint32 DstBufferSize, uint32* DstSize) GetTextReplacementWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char16* Description, uint32 DescriptionSize, uint32* DescriptionUsed) GetLastEventInformationWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, PWSTR SrcText, uint32 Index, char16* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char16* DstBuffer, uint32 DstBufferSize, uint32* DstSize) GetTextReplacementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, PWSTR SrcText, PWSTR DstText) SetTextReplacementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, PWSTR AbbrevName) SetExpressionSyntaxByNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetExpressionSyntaxNamesWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetExpressionSyntaxNamesWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Index, uint32 Which, PWSTR Buffer, uint32 BufferSize, uint32* DescSize) GetEventIndexDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, PSTR File, uint32 Flags) OpenLogFile2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2Wide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2Wide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, PWSTR File, uint32 Flags) OpenLogFile2Wide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32* PlatformId, uint32* Win32Major, uint32* Win32Minor, uint32* KdMajor, uint32* KdMinor) GetSystemVersionValues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) GetContextStackTrace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) OutputContextStackTrace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* Context, uint32 ContextSize, uint32* ContextUsed, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed) GetStoredEventInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32* Flags, uint32 WhichString, uint8* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32* Flags, uint32 WhichString, char8* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatusWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32* Flags, uint32 WhichString, char16* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatusWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 Flags) ResetManagedStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint64 FrameOffset, uint64 StackOffset, uint64 InstructionOffset, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, uint32* FramesFilled) GetStackTraceEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, uint32 Flags) OutputStackTraceEx;
@@ -14936,11 +14936,11 @@ public static
 
 	public HRESULT SetNextEventIndex(uint32 Relation, uint32 Value, uint32* NextIndex) mut => VT.[Friend]SetNextEventIndex(&this, Relation, Value, NextIndex);
 
-	public HRESULT GetLogFileWide(char8* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) mut => VT.[Friend]GetLogFileWide(&this, Buffer, BufferSize, FileSize, Append);
+	public HRESULT GetLogFileWide(char16* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) mut => VT.[Friend]GetLogFileWide(&this, Buffer, BufferSize, FileSize, Append);
 
 	public HRESULT OpenLogFileWide(PWSTR File, BOOL Append) mut => VT.[Friend]OpenLogFileWide(&this, File, Append);
 
-	public HRESULT InputWide(char8* Buffer, uint32 BufferSize, uint32* InputSize) mut => VT.[Friend]InputWide(&this, Buffer, BufferSize, InputSize);
+	public HRESULT InputWide(char16* Buffer, uint32 BufferSize, uint32* InputSize) mut => VT.[Friend]InputWide(&this, Buffer, BufferSize, InputSize);
 
 	public HRESULT ReturnInputWide(PWSTR Buffer) mut => VT.[Friend]ReturnInputWide(&this, Buffer);
 
@@ -14956,15 +14956,15 @@ public static
 
 	public HRESULT OutputPromptVaListWide(uint32 OutputControl, PWSTR Format, int8* Args) mut => VT.[Friend]OutputPromptVaListWide(&this, OutputControl, Format, Args);
 
-	public HRESULT GetPromptTextWide(char8* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetPromptTextWide(&this, Buffer, BufferSize, TextSize);
+	public HRESULT GetPromptTextWide(char16* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetPromptTextWide(&this, Buffer, BufferSize, TextSize);
 
 	public HRESULT AssembleWide(uint64 Offset, PWSTR Instr, uint64* EndOffset) mut => VT.[Friend]AssembleWide(&this, Offset, Instr, EndOffset);
 
-	public HRESULT DisassembleWide(uint64 Offset, uint32 Flags, char8* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) mut => VT.[Friend]DisassembleWide(&this, Offset, Flags, Buffer, BufferSize, DisassemblySize, EndOffset);
+	public HRESULT DisassembleWide(uint64 Offset, uint32 Flags, char16* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) mut => VT.[Friend]DisassembleWide(&this, Offset, Flags, Buffer, BufferSize, DisassemblySize, EndOffset);
 
-	public HRESULT GetProcessorTypeNamesWide(uint32 Type, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetProcessorTypeNamesWide(&this, Type, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
+	public HRESULT GetProcessorTypeNamesWide(uint32 Type, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetProcessorTypeNamesWide(&this, Type, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
 
-	public HRESULT GetTextMacroWide(uint32 Slot, char8* Buffer, uint32 BufferSize, uint32* MacroSize) mut => VT.[Friend]GetTextMacroWide(&this, Slot, Buffer, BufferSize, MacroSize);
+	public HRESULT GetTextMacroWide(uint32 Slot, char16* Buffer, uint32 BufferSize, uint32* MacroSize) mut => VT.[Friend]GetTextMacroWide(&this, Slot, Buffer, BufferSize, MacroSize);
 
 	public HRESULT SetTextMacroWide(uint32 Slot, PWSTR Macro) mut => VT.[Friend]SetTextMacroWide(&this, Slot, Macro);
 
@@ -14990,29 +14990,29 @@ public static
 
 	public HRESULT GetExtensionFunctionWide(uint64 Handle, PWSTR FuncName, FARPROC* Function) mut => VT.[Friend]GetExtensionFunctionWide(&this, Handle, FuncName, Function);
 
-	public HRESULT GetEventFilterTextWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetEventFilterTextWide(&this, Index, Buffer, BufferSize, TextSize);
+	public HRESULT GetEventFilterTextWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetEventFilterTextWide(&this, Index, Buffer, BufferSize, TextSize);
 
-	public HRESULT GetEventFilterCommandWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetEventFilterCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
+	public HRESULT GetEventFilterCommandWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetEventFilterCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
 
 	public HRESULT SetEventFilterCommandWide(uint32 Index, PWSTR Command) mut => VT.[Friend]SetEventFilterCommandWide(&this, Index, Command);
 
-	public HRESULT GetSpecificFilterArgumentWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ArgumentSize) mut => VT.[Friend]GetSpecificFilterArgumentWide(&this, Index, Buffer, BufferSize, ArgumentSize);
+	public HRESULT GetSpecificFilterArgumentWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ArgumentSize) mut => VT.[Friend]GetSpecificFilterArgumentWide(&this, Index, Buffer, BufferSize, ArgumentSize);
 
 	public HRESULT SetSpecificFilterArgumentWide(uint32 Index, PWSTR Argument) mut => VT.[Friend]SetSpecificFilterArgumentWide(&this, Index, Argument);
 
-	public HRESULT GetExceptionFilterSecondCommandWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetExceptionFilterSecondCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
+	public HRESULT GetExceptionFilterSecondCommandWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetExceptionFilterSecondCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
 
 	public HRESULT SetExceptionFilterSecondCommandWide(uint32 Index, PWSTR Command) mut => VT.[Friend]SetExceptionFilterSecondCommandWide(&this, Index, Command);
 
-	public HRESULT GetLastEventInformationWide(uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char8* Description, uint32 DescriptionSize, uint32* DescriptionUsed) mut => VT.[Friend]GetLastEventInformationWide(&this, Type, ProcessId, ThreadId, ExtraInformation, ExtraInformationSize, ExtraInformationUsed, Description, DescriptionSize, DescriptionUsed);
+	public HRESULT GetLastEventInformationWide(uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char16* Description, uint32 DescriptionSize, uint32* DescriptionUsed) mut => VT.[Friend]GetLastEventInformationWide(&this, Type, ProcessId, ThreadId, ExtraInformation, ExtraInformationSize, ExtraInformationUsed, Description, DescriptionSize, DescriptionUsed);
 
-	public HRESULT GetTextReplacementWide(PWSTR SrcText, uint32 Index, char8* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char8* DstBuffer, uint32 DstBufferSize, uint32* DstSize) mut => VT.[Friend]GetTextReplacementWide(&this, SrcText, Index, SrcBuffer, SrcBufferSize, SrcSize, DstBuffer, DstBufferSize, DstSize);
+	public HRESULT GetTextReplacementWide(PWSTR SrcText, uint32 Index, char16* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char16* DstBuffer, uint32 DstBufferSize, uint32* DstSize) mut => VT.[Friend]GetTextReplacementWide(&this, SrcText, Index, SrcBuffer, SrcBufferSize, SrcSize, DstBuffer, DstBufferSize, DstSize);
 
 	public HRESULT SetTextReplacementWide(PWSTR SrcText, PWSTR DstText) mut => VT.[Friend]SetTextReplacementWide(&this, SrcText, DstText);
 
 	public HRESULT SetExpressionSyntaxByNameWide(PWSTR AbbrevName) mut => VT.[Friend]SetExpressionSyntaxByNameWide(&this, AbbrevName);
 
-	public HRESULT GetExpressionSyntaxNamesWide(uint32 Index, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetExpressionSyntaxNamesWide(&this, Index, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
+	public HRESULT GetExpressionSyntaxNamesWide(uint32 Index, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetExpressionSyntaxNamesWide(&this, Index, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
 
 	public HRESULT GetEventIndexDescriptionWide(uint32 Index, uint32 Which, PWSTR Buffer, uint32 BufferSize, uint32* DescSize) mut => VT.[Friend]GetEventIndexDescriptionWide(&this, Index, Which, Buffer, BufferSize, DescSize);
 
@@ -15020,7 +15020,7 @@ public static
 
 	public HRESULT OpenLogFile2(PSTR File, uint32 Flags) mut => VT.[Friend]OpenLogFile2(&this, File, Flags);
 
-	public HRESULT GetLogFile2Wide(char8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) mut => VT.[Friend]GetLogFile2Wide(&this, Buffer, BufferSize, FileSize, Flags);
+	public HRESULT GetLogFile2Wide(char16* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) mut => VT.[Friend]GetLogFile2Wide(&this, Buffer, BufferSize, FileSize, Flags);
 
 	public HRESULT OpenLogFile2Wide(PWSTR File, uint32 Flags) mut => VT.[Friend]OpenLogFile2Wide(&this, File, Flags);
 
@@ -15028,7 +15028,7 @@ public static
 
 	public HRESULT GetSystemVersionString(uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionString(&this, Which, Buffer, BufferSize, StringSize);
 
-	public HRESULT GetSystemVersionStringWide(uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionStringWide(&this, Which, Buffer, BufferSize, StringSize);
+	public HRESULT GetSystemVersionStringWide(uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionStringWide(&this, Which, Buffer, BufferSize, StringSize);
 
 	public HRESULT GetContextStackTrace(void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) mut => VT.[Friend]GetContextStackTrace(&this, StartContext, StartContextSize, Frames, FramesSize, FrameContexts, FrameContextsSize, FrameContextsEntrySize, FramesFilled);
 
@@ -15038,7 +15038,7 @@ public static
 
 	public HRESULT GetManagedStatus(uint32* Flags, uint32 WhichString, uint8* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatus(&this, Flags, WhichString, String, StringSize, StringNeeded);
 
-	public HRESULT GetManagedStatusWide(uint32* Flags, uint32 WhichString, char8* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatusWide(&this, Flags, WhichString, String, StringSize, StringNeeded);
+	public HRESULT GetManagedStatusWide(uint32* Flags, uint32 WhichString, char16* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatusWide(&this, Flags, WhichString, String, StringSize, StringNeeded);
 
 	public HRESULT ResetManagedStatus(uint32 Flags) mut => VT.[Friend]ResetManagedStatus(&this, Flags);
 
@@ -15178,9 +15178,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, uint32 Which, PSTR Buffer, uint32 BufferSize, uint32* DescSize) GetEventIndexDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32* Index) GetCurrentEventIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Relation, uint32 Value, uint32* NextIndex) SetNextEventIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) GetLogFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) GetLogFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, PWSTR File, BOOL Append) OpenLogFileWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* InputSize) InputWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* InputSize) InputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, PWSTR Buffer) ReturnInputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Mask, PWSTR Format) OutputWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Mask, PWSTR Format, int8* Args) OutputVaListWide;
@@ -15188,11 +15188,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 OutputControl, uint32 Mask, PWSTR Format, int8* Args) ControlledOutputVaListWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 OutputControl, PWSTR Format) OutputPromptWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 OutputControl, PWSTR Format, int8* Args) OutputPromptVaListWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* TextSize) GetPromptTextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* TextSize) GetPromptTextWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint64 Offset, PWSTR Instr, uint64* EndOffset) AssembleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint64 Offset, uint32 Flags, char8* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) DisassembleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Type, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetProcessorTypeNamesWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Slot, char8* Buffer, uint32 BufferSize, uint32* MacroSize) GetTextMacroWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint64 Offset, uint32 Flags, char16* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) DisassembleWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Type, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetProcessorTypeNamesWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Slot, char16* Buffer, uint32 BufferSize, uint32* MacroSize) GetTextMacroWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Slot, PWSTR Macro) SetTextMacroWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, PWSTR Expression, uint32 DesiredType, DEBUG_VALUE* Value, uint32* RemainderIndex) EvaluateWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 OutputControl, PWSTR Command, uint32 Flags) ExecuteWide;
@@ -15205,31 +15205,31 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, PWSTR Path, uint64* Handle) GetExtensionByPathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint64 Handle, PWSTR Function, PWSTR Arguments) CallExtensionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint64 Handle, PWSTR FuncName, FARPROC* Function) GetExtensionFunctionWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* TextSize) GetEventFilterTextWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) GetEventFilterCommandWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* TextSize) GetEventFilterTextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) GetEventFilterCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, PWSTR Command) SetEventFilterCommandWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ArgumentSize) GetSpecificFilterArgumentWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ArgumentSize) GetSpecificFilterArgumentWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, PWSTR Argument) SetSpecificFilterArgumentWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) GetExceptionFilterSecondCommandWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) GetExceptionFilterSecondCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, PWSTR Command) SetExceptionFilterSecondCommandWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char8* Description, uint32 DescriptionSize, uint32* DescriptionUsed) GetLastEventInformationWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, PWSTR SrcText, uint32 Index, char8* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char8* DstBuffer, uint32 DstBufferSize, uint32* DstSize) GetTextReplacementWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char16* Description, uint32 DescriptionSize, uint32* DescriptionUsed) GetLastEventInformationWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, PWSTR SrcText, uint32 Index, char16* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char16* DstBuffer, uint32 DstBufferSize, uint32* DstSize) GetTextReplacementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, PWSTR SrcText, PWSTR DstText) SetTextReplacementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, PWSTR AbbrevName) SetExpressionSyntaxByNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetExpressionSyntaxNamesWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) GetExpressionSyntaxNamesWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Index, uint32 Which, PWSTR Buffer, uint32 BufferSize, uint32* DescSize) GetEventIndexDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, PSTR File, uint32 Flags) OpenLogFile2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2Wide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) GetLogFile2Wide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, PWSTR File, uint32 Flags) OpenLogFile2Wide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32* PlatformId, uint32* Win32Major, uint32* Win32Minor, uint32* KdMajor, uint32* KdMinor) GetSystemVersionValues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetSystemVersionStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) GetContextStackTrace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) OutputContextStackTrace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32* Type, uint32* ProcessId, uint32* ThreadId, void* Context, uint32 ContextSize, uint32* ContextUsed, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed) GetStoredEventInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32* Flags, uint32 WhichString, uint8* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32* Flags, uint32 WhichString, char8* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatusWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32* Flags, uint32 WhichString, char16* String, uint32 StringSize, uint32* StringNeeded) GetManagedStatusWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Flags) ResetManagedStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint64 FrameOffset, uint64 StackOffset, uint64 InstructionOffset, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, uint32* FramesFilled) GetStackTraceEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, uint32 Flags) OutputStackTraceEx;
@@ -15468,11 +15468,11 @@ public static
 
 	public HRESULT SetNextEventIndex(uint32 Relation, uint32 Value, uint32* NextIndex) mut => VT.[Friend]SetNextEventIndex(&this, Relation, Value, NextIndex);
 
-	public HRESULT GetLogFileWide(char8* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) mut => VT.[Friend]GetLogFileWide(&this, Buffer, BufferSize, FileSize, Append);
+	public HRESULT GetLogFileWide(char16* Buffer, uint32 BufferSize, uint32* FileSize, BOOL* Append) mut => VT.[Friend]GetLogFileWide(&this, Buffer, BufferSize, FileSize, Append);
 
 	public HRESULT OpenLogFileWide(PWSTR File, BOOL Append) mut => VT.[Friend]OpenLogFileWide(&this, File, Append);
 
-	public HRESULT InputWide(char8* Buffer, uint32 BufferSize, uint32* InputSize) mut => VT.[Friend]InputWide(&this, Buffer, BufferSize, InputSize);
+	public HRESULT InputWide(char16* Buffer, uint32 BufferSize, uint32* InputSize) mut => VT.[Friend]InputWide(&this, Buffer, BufferSize, InputSize);
 
 	public HRESULT ReturnInputWide(PWSTR Buffer) mut => VT.[Friend]ReturnInputWide(&this, Buffer);
 
@@ -15488,15 +15488,15 @@ public static
 
 	public HRESULT OutputPromptVaListWide(uint32 OutputControl, PWSTR Format, int8* Args) mut => VT.[Friend]OutputPromptVaListWide(&this, OutputControl, Format, Args);
 
-	public HRESULT GetPromptTextWide(char8* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetPromptTextWide(&this, Buffer, BufferSize, TextSize);
+	public HRESULT GetPromptTextWide(char16* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetPromptTextWide(&this, Buffer, BufferSize, TextSize);
 
 	public HRESULT AssembleWide(uint64 Offset, PWSTR Instr, uint64* EndOffset) mut => VT.[Friend]AssembleWide(&this, Offset, Instr, EndOffset);
 
-	public HRESULT DisassembleWide(uint64 Offset, uint32 Flags, char8* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) mut => VT.[Friend]DisassembleWide(&this, Offset, Flags, Buffer, BufferSize, DisassemblySize, EndOffset);
+	public HRESULT DisassembleWide(uint64 Offset, uint32 Flags, char16* Buffer, uint32 BufferSize, uint32* DisassemblySize, uint64* EndOffset) mut => VT.[Friend]DisassembleWide(&this, Offset, Flags, Buffer, BufferSize, DisassemblySize, EndOffset);
 
-	public HRESULT GetProcessorTypeNamesWide(uint32 Type, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetProcessorTypeNamesWide(&this, Type, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
+	public HRESULT GetProcessorTypeNamesWide(uint32 Type, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetProcessorTypeNamesWide(&this, Type, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
 
-	public HRESULT GetTextMacroWide(uint32 Slot, char8* Buffer, uint32 BufferSize, uint32* MacroSize) mut => VT.[Friend]GetTextMacroWide(&this, Slot, Buffer, BufferSize, MacroSize);
+	public HRESULT GetTextMacroWide(uint32 Slot, char16* Buffer, uint32 BufferSize, uint32* MacroSize) mut => VT.[Friend]GetTextMacroWide(&this, Slot, Buffer, BufferSize, MacroSize);
 
 	public HRESULT SetTextMacroWide(uint32 Slot, PWSTR Macro) mut => VT.[Friend]SetTextMacroWide(&this, Slot, Macro);
 
@@ -15522,29 +15522,29 @@ public static
 
 	public HRESULT GetExtensionFunctionWide(uint64 Handle, PWSTR FuncName, FARPROC* Function) mut => VT.[Friend]GetExtensionFunctionWide(&this, Handle, FuncName, Function);
 
-	public HRESULT GetEventFilterTextWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetEventFilterTextWide(&this, Index, Buffer, BufferSize, TextSize);
+	public HRESULT GetEventFilterTextWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* TextSize) mut => VT.[Friend]GetEventFilterTextWide(&this, Index, Buffer, BufferSize, TextSize);
 
-	public HRESULT GetEventFilterCommandWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetEventFilterCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
+	public HRESULT GetEventFilterCommandWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetEventFilterCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
 
 	public HRESULT SetEventFilterCommandWide(uint32 Index, PWSTR Command) mut => VT.[Friend]SetEventFilterCommandWide(&this, Index, Command);
 
-	public HRESULT GetSpecificFilterArgumentWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ArgumentSize) mut => VT.[Friend]GetSpecificFilterArgumentWide(&this, Index, Buffer, BufferSize, ArgumentSize);
+	public HRESULT GetSpecificFilterArgumentWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ArgumentSize) mut => VT.[Friend]GetSpecificFilterArgumentWide(&this, Index, Buffer, BufferSize, ArgumentSize);
 
 	public HRESULT SetSpecificFilterArgumentWide(uint32 Index, PWSTR Argument) mut => VT.[Friend]SetSpecificFilterArgumentWide(&this, Index, Argument);
 
-	public HRESULT GetExceptionFilterSecondCommandWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetExceptionFilterSecondCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
+	public HRESULT GetExceptionFilterSecondCommandWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* CommandSize) mut => VT.[Friend]GetExceptionFilterSecondCommandWide(&this, Index, Buffer, BufferSize, CommandSize);
 
 	public HRESULT SetExceptionFilterSecondCommandWide(uint32 Index, PWSTR Command) mut => VT.[Friend]SetExceptionFilterSecondCommandWide(&this, Index, Command);
 
-	public HRESULT GetLastEventInformationWide(uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char8* Description, uint32 DescriptionSize, uint32* DescriptionUsed) mut => VT.[Friend]GetLastEventInformationWide(&this, Type, ProcessId, ThreadId, ExtraInformation, ExtraInformationSize, ExtraInformationUsed, Description, DescriptionSize, DescriptionUsed);
+	public HRESULT GetLastEventInformationWide(uint32* Type, uint32* ProcessId, uint32* ThreadId, void* ExtraInformation, uint32 ExtraInformationSize, uint32* ExtraInformationUsed, char16* Description, uint32 DescriptionSize, uint32* DescriptionUsed) mut => VT.[Friend]GetLastEventInformationWide(&this, Type, ProcessId, ThreadId, ExtraInformation, ExtraInformationSize, ExtraInformationUsed, Description, DescriptionSize, DescriptionUsed);
 
-	public HRESULT GetTextReplacementWide(PWSTR SrcText, uint32 Index, char8* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char8* DstBuffer, uint32 DstBufferSize, uint32* DstSize) mut => VT.[Friend]GetTextReplacementWide(&this, SrcText, Index, SrcBuffer, SrcBufferSize, SrcSize, DstBuffer, DstBufferSize, DstSize);
+	public HRESULT GetTextReplacementWide(PWSTR SrcText, uint32 Index, char16* SrcBuffer, uint32 SrcBufferSize, uint32* SrcSize, char16* DstBuffer, uint32 DstBufferSize, uint32* DstSize) mut => VT.[Friend]GetTextReplacementWide(&this, SrcText, Index, SrcBuffer, SrcBufferSize, SrcSize, DstBuffer, DstBufferSize, DstSize);
 
 	public HRESULT SetTextReplacementWide(PWSTR SrcText, PWSTR DstText) mut => VT.[Friend]SetTextReplacementWide(&this, SrcText, DstText);
 
 	public HRESULT SetExpressionSyntaxByNameWide(PWSTR AbbrevName) mut => VT.[Friend]SetExpressionSyntaxByNameWide(&this, AbbrevName);
 
-	public HRESULT GetExpressionSyntaxNamesWide(uint32 Index, char8* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char8* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetExpressionSyntaxNamesWide(&this, Index, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
+	public HRESULT GetExpressionSyntaxNamesWide(uint32 Index, char16* FullNameBuffer, uint32 FullNameBufferSize, uint32* FullNameSize, char16* AbbrevNameBuffer, uint32 AbbrevNameBufferSize, uint32* AbbrevNameSize) mut => VT.[Friend]GetExpressionSyntaxNamesWide(&this, Index, FullNameBuffer, FullNameBufferSize, FullNameSize, AbbrevNameBuffer, AbbrevNameBufferSize, AbbrevNameSize);
 
 	public HRESULT GetEventIndexDescriptionWide(uint32 Index, uint32 Which, PWSTR Buffer, uint32 BufferSize, uint32* DescSize) mut => VT.[Friend]GetEventIndexDescriptionWide(&this, Index, Which, Buffer, BufferSize, DescSize);
 
@@ -15552,7 +15552,7 @@ public static
 
 	public HRESULT OpenLogFile2(PSTR File, uint32 Flags) mut => VT.[Friend]OpenLogFile2(&this, File, Flags);
 
-	public HRESULT GetLogFile2Wide(char8* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) mut => VT.[Friend]GetLogFile2Wide(&this, Buffer, BufferSize, FileSize, Flags);
+	public HRESULT GetLogFile2Wide(char16* Buffer, uint32 BufferSize, uint32* FileSize, uint32* Flags) mut => VT.[Friend]GetLogFile2Wide(&this, Buffer, BufferSize, FileSize, Flags);
 
 	public HRESULT OpenLogFile2Wide(PWSTR File, uint32 Flags) mut => VT.[Friend]OpenLogFile2Wide(&this, File, Flags);
 
@@ -15560,7 +15560,7 @@ public static
 
 	public HRESULT GetSystemVersionString(uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionString(&this, Which, Buffer, BufferSize, StringSize);
 
-	public HRESULT GetSystemVersionStringWide(uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionStringWide(&this, Which, Buffer, BufferSize, StringSize);
+	public HRESULT GetSystemVersionStringWide(uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSystemVersionStringWide(&this, Which, Buffer, BufferSize, StringSize);
 
 	public HRESULT GetContextStackTrace(void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) mut => VT.[Friend]GetContextStackTrace(&this, StartContext, StartContextSize, Frames, FramesSize, FrameContexts, FrameContextsSize, FrameContextsEntrySize, FramesFilled);
 
@@ -15570,7 +15570,7 @@ public static
 
 	public HRESULT GetManagedStatus(uint32* Flags, uint32 WhichString, uint8* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatus(&this, Flags, WhichString, String, StringSize, StringNeeded);
 
-	public HRESULT GetManagedStatusWide(uint32* Flags, uint32 WhichString, char8* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatusWide(&this, Flags, WhichString, String, StringSize, StringNeeded);
+	public HRESULT GetManagedStatusWide(uint32* Flags, uint32 WhichString, char16* String, uint32 StringSize, uint32* StringNeeded) mut => VT.[Friend]GetManagedStatusWide(&this, Flags, WhichString, String, StringSize, StringNeeded);
 
 	public HRESULT ResetManagedStatus(uint32 Flags) mut => VT.[Friend]ResetManagedStatus(&this, Flags);
 
@@ -15902,9 +15902,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Base, uint32 Size, uint64* ValidBase, uint32* ValidSize) GetValidRegionVirtual;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, uint64 Length, uint32 Flags, void* Pattern, uint32 PatternSize, uint32 PatternGranularity, uint64* MatchOffset) SearchVirtual2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, uint32 MaxBytes, uint8* Buffer, uint32 BufferSize, uint32* StringBytes) ReadMultiByteStringVirtual;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, uint32 MaxBytes, uint32 CodePage, char8* Buffer, uint32 BufferSize, uint32* StringBytes) ReadMultiByteStringVirtualWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, uint32 MaxBytes, uint32 CodePage, char16* Buffer, uint32 BufferSize, uint32* StringBytes) ReadMultiByteStringVirtualWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, uint32 MaxBytes, uint32 CodePage, uint8* Buffer, uint32 BufferSize, uint32* StringBytes) ReadUnicodeStringVirtual;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, uint32 MaxBytes, char8* Buffer, uint32 BufferSize, uint32* StringBytes) ReadUnicodeStringVirtualWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, uint32 MaxBytes, char16* Buffer, uint32 BufferSize, uint32* StringBytes) ReadUnicodeStringVirtualWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, uint32 Flags, void* Buffer, uint32 BufferSize, uint32* BytesRead) ReadPhysical2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, uint32 Flags, void* Buffer, uint32 BufferSize, uint32* BytesWritten) WritePhysical2;
 	}
@@ -15982,11 +15982,11 @@ public static
 
 	public HRESULT ReadMultiByteStringVirtual(uint64 Offset, uint32 MaxBytes, uint8* Buffer, uint32 BufferSize, uint32* StringBytes) mut => VT.[Friend]ReadMultiByteStringVirtual(&this, Offset, MaxBytes, Buffer, BufferSize, StringBytes);
 
-	public HRESULT ReadMultiByteStringVirtualWide(uint64 Offset, uint32 MaxBytes, uint32 CodePage, char8* Buffer, uint32 BufferSize, uint32* StringBytes) mut => VT.[Friend]ReadMultiByteStringVirtualWide(&this, Offset, MaxBytes, CodePage, Buffer, BufferSize, StringBytes);
+	public HRESULT ReadMultiByteStringVirtualWide(uint64 Offset, uint32 MaxBytes, uint32 CodePage, char16* Buffer, uint32 BufferSize, uint32* StringBytes) mut => VT.[Friend]ReadMultiByteStringVirtualWide(&this, Offset, MaxBytes, CodePage, Buffer, BufferSize, StringBytes);
 
 	public HRESULT ReadUnicodeStringVirtual(uint64 Offset, uint32 MaxBytes, uint32 CodePage, uint8* Buffer, uint32 BufferSize, uint32* StringBytes) mut => VT.[Friend]ReadUnicodeStringVirtual(&this, Offset, MaxBytes, CodePage, Buffer, BufferSize, StringBytes);
 
-	public HRESULT ReadUnicodeStringVirtualWide(uint64 Offset, uint32 MaxBytes, char8* Buffer, uint32 BufferSize, uint32* StringBytes) mut => VT.[Friend]ReadUnicodeStringVirtualWide(&this, Offset, MaxBytes, Buffer, BufferSize, StringBytes);
+	public HRESULT ReadUnicodeStringVirtualWide(uint64 Offset, uint32 MaxBytes, char16* Buffer, uint32 BufferSize, uint32* StringBytes) mut => VT.[Friend]ReadUnicodeStringVirtualWide(&this, Offset, MaxBytes, Buffer, BufferSize, StringBytes);
 
 	public HRESULT ReadPhysical2(uint64 Offset, uint32 Flags, void* Buffer, uint32 BufferSize, uint32* BytesRead) mut => VT.[Friend]ReadPhysical2(&this, Offset, Flags, Buffer, BufferSize, BytesRead);
 
@@ -16288,11 +16288,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, uint64* Offset) GetInstructionOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, uint64* Offset) GetStackOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, uint64* Offset) GetFrameOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, uint32 Register, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, DEBUG_REGISTER_DESCRIPTION* Desc) GetDescriptionWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, uint32 Register, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, DEBUG_REGISTER_DESCRIPTION* Desc) GetDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, PWSTR Name, uint32* Index) GetIndexByNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, uint32* Number) GetNumberPseudoRegisters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, uint32 Register, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* TypeModule, uint32* TypeId) GetPseudoDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, uint32 Register, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* TypeModule, uint32* TypeId) GetPseudoDescriptionWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, uint32 Register, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* TypeModule, uint32* TypeId) GetPseudoDescriptionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, PSTR Name, uint32* Index) GetPseudoIndexByName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, PWSTR Name, uint32* Index) GetPseudoIndexByNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugRegisters2*/SelfOuter* self, uint32 Source, uint32 Count, uint32* Indices, uint32 Start, DEBUG_VALUE* Values) GetPseudoValues;
@@ -16328,7 +16328,7 @@ public static
 
 	public HRESULT GetFrameOffset(uint64* Offset) mut => VT.[Friend]GetFrameOffset(&this, Offset);
 
-	public HRESULT GetDescriptionWide(uint32 Register, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, DEBUG_REGISTER_DESCRIPTION* Desc) mut => VT.[Friend]GetDescriptionWide(&this, Register, NameBuffer, NameBufferSize, NameSize, Desc);
+	public HRESULT GetDescriptionWide(uint32 Register, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, DEBUG_REGISTER_DESCRIPTION* Desc) mut => VT.[Friend]GetDescriptionWide(&this, Register, NameBuffer, NameBufferSize, NameSize, Desc);
 
 	public HRESULT GetIndexByNameWide(PWSTR Name, uint32* Index) mut => VT.[Friend]GetIndexByNameWide(&this, Name, Index);
 
@@ -16336,7 +16336,7 @@ public static
 
 	public HRESULT GetPseudoDescription(uint32 Register, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* TypeModule, uint32* TypeId) mut => VT.[Friend]GetPseudoDescription(&this, Register, NameBuffer, NameBufferSize, NameSize, TypeModule, TypeId);
 
-	public HRESULT GetPseudoDescriptionWide(uint32 Register, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* TypeModule, uint32* TypeId) mut => VT.[Friend]GetPseudoDescriptionWide(&this, Register, NameBuffer, NameBufferSize, NameSize, TypeModule, TypeId);
+	public HRESULT GetPseudoDescriptionWide(uint32 Register, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* TypeModule, uint32* TypeId) mut => VT.[Friend]GetPseudoDescriptionWide(&this, Register, NameBuffer, NameBufferSize, NameSize, TypeModule, TypeId);
 
 	public HRESULT GetPseudoIndexByName(PSTR Name, uint32* Index) mut => VT.[Friend]GetPseudoIndexByName(&this, Name, Index);
 
@@ -16421,16 +16421,16 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, PSTR Type) OutputAsType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, PWSTR Name, uint32* Index) AddSymbolWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, PWSTR Name) RemoveSymbolByNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize) GetSymbolNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize) GetSymbolNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, PWSTR Value) WriteSymbolWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, PWSTR Type) OutputAsTypeWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize) GetSymbolTypeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize) GetSymbolTypeNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize) GetSymbolTypeNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, uint32* Size) GetSymbolSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, uint64* Offset) GetSymbolOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, uint32* Register) GetSymbolRegister;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize) GetSymbolValueText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize) GetSymbolValueTextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize) GetSymbolValueTextWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbolGroup2*/SelfOuter* self, uint32 Index, DEBUG_SYMBOL_ENTRY* Entry) GetSymbolEntryInformation;
 	}
 
@@ -16459,7 +16459,7 @@ public static
 
 	public HRESULT RemoveSymbolByNameWide(PWSTR Name) mut => VT.[Friend]RemoveSymbolByNameWide(&this, Name);
 
-	public HRESULT GetSymbolNameWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetSymbolNameWide(&this, Index, Buffer, BufferSize, NameSize);
+	public HRESULT GetSymbolNameWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetSymbolNameWide(&this, Index, Buffer, BufferSize, NameSize);
 
 	public HRESULT WriteSymbolWide(uint32 Index, PWSTR Value) mut => VT.[Friend]WriteSymbolWide(&this, Index, Value);
 
@@ -16467,7 +16467,7 @@ public static
 
 	public HRESULT GetSymbolTypeName(uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetSymbolTypeName(&this, Index, Buffer, BufferSize, NameSize);
 
-	public HRESULT GetSymbolTypeNameWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetSymbolTypeNameWide(&this, Index, Buffer, BufferSize, NameSize);
+	public HRESULT GetSymbolTypeNameWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetSymbolTypeNameWide(&this, Index, Buffer, BufferSize, NameSize);
 
 	public HRESULT GetSymbolSize(uint32 Index, uint32* Size) mut => VT.[Friend]GetSymbolSize(&this, Index, Size);
 
@@ -16477,7 +16477,7 @@ public static
 
 	public HRESULT GetSymbolValueText(uint32 Index, uint8* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetSymbolValueText(&this, Index, Buffer, BufferSize, NameSize);
 
-	public HRESULT GetSymbolValueTextWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetSymbolValueTextWide(&this, Index, Buffer, BufferSize, NameSize);
+	public HRESULT GetSymbolValueTextWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetSymbolValueTextWide(&this, Index, Buffer, BufferSize, NameSize);
 
 	public HRESULT GetSymbolEntryInformation(uint32 Index, DEBUG_SYMBOL_ENTRY* Entry) mut => VT.[Friend]GetSymbolEntryInformation(&this, Index, Entry);
 }
@@ -16889,38 +16889,38 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Options) AddTypeOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Options) RemoveTypeOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Options) SetTypeOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Offset, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByOffsetWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Offset, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByOffsetWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Symbol, uint64* Offset) GetOffsetByNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Offset, int32 Delta, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNearNameByOffsetWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Offset, uint32* Line, char8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByOffsetWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Offset, int32 Delta, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNearNameByOffsetWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Offset, uint32* Line, char16* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByOffsetWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Line, PWSTR File, uint64* Offset) GetOffsetByLineWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Name, uint32 StartIndex, uint32* Index, uint64* Base) GetModuleByModuleNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Symbol, uint64* Base) GetSymbolModuleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Module, uint32 TypeId, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Module, uint32 TypeId, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Module, PWSTR Name, uint32* TypeId) GetTypeIdWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Module, uint32 TypeId, PWSTR Field, uint32* Offset) GetFieldOffsetWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Symbol, uint32* TypeId, uint64* Module) GetSymbolTypeIdWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Flags, IDebugSymbolGroup2* Update, IDebugSymbolGroup2** Symbols) GetScopeSymbolGroup2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, IDebugSymbolGroup2** Group) CreateSymbolGroup2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Pattern, uint64* Handle) StartSymbolMatchWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Handle, char8* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) GetNextSymbolMatchWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Handle, char16* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) GetNextSymbolMatchWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Module) ReloadWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PathSize) GetSymbolPathWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PathSize) GetSymbolPathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Path) SetSymbolPathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Addition) AppendSymbolPathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PathSize) GetImagePathWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PathSize) GetImagePathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Path) SetImagePathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Addition) AppendImagePathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PathSize) GetSourcePathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ElementSize) GetSourcePathElementWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PathSize) GetSourcePathWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ElementSize) GetSourcePathElementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Path) SetSourcePathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Addition) AppendSourcePathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char8* Buffer, uint32 BufferSize, uint32* FoundSize) FindSourceFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char16* Buffer, uint32 BufferSize, uint32* FoundSize) FindSourceFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR File, uint64* Buffer, uint32 BufferLines, uint32* FileLines) GetSourceFileLineOffsetsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Index, uint64 Base, PWSTR Item, void* Buffer, uint32 BufferSize, uint32* VerInfoSize) GetModuleVersionInformationWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Which, uint32 Index, uint64 Base, char8* Buffer, uint32 BufferSize, uint32* NameSize) GetModuleNameStringWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Module, uint32 TypeId, uint64 Value, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetConstantNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Module, uint32 TypeId, uint32 FieldIndex, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetFieldNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Which, uint32 Index, uint64 Base, char16* Buffer, uint32 BufferSize, uint32* NameSize) GetModuleNameStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Module, uint32 TypeId, uint64 Value, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetConstantNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Module, uint32 TypeId, uint32 FieldIndex, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetFieldNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Index, uint64 Base) IsManagedModule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PSTR Name, uint32 StartIndex, uint32 Flags, uint32* Index, uint64* Base) GetModuleByModuleName2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, PWSTR Name, uint32 StartIndex, uint32 Flags, uint32* Index, uint64* Base) GetModuleByModuleName2Wide;
@@ -16945,14 +16945,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 ModuleBase, uint32 Token, DEBUG_MODULE_AND_ID* Id) GetSymbolEntryByToken;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, DEBUG_SYMBOL_ENTRY* Info) GetSymbolEntryInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetSymbolEntryString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetSymbolEntryStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetSymbolEntryStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) GetSymbolEntryOffsetRegions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_MODULE_AND_ID* FromId, uint32 Flags, DEBUG_MODULE_AND_ID* ToId) GetSymbolEntryBySymbolEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint64 Offset, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* Entries, uint32 EntriesCount, uint32* EntriesAvail) GetSourceEntriesByOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Line, PSTR File, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* Entries, uint32 EntriesCount, uint32* EntriesAvail) GetSourceEntriesByLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, uint32 Line, PWSTR File, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* Entries, uint32 EntriesCount, uint32* EntriesAvail) GetSourceEntriesByLineWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetSourceEntryString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetSourceEntryStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetSourceEntryStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) GetSourceEntryOffsetRegions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols3*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* FromEntry, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* ToEntry) GetSourceEntryBySourceEntry;
 	}
@@ -17072,13 +17072,13 @@ public static
 
 	public HRESULT SetTypeOptions(uint32 Options) mut => VT.[Friend]SetTypeOptions(&this, Options);
 
-	public HRESULT GetNameByOffsetWide(uint64 Offset, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByOffsetWide(&this, Offset, NameBuffer, NameBufferSize, NameSize, Displacement);
+	public HRESULT GetNameByOffsetWide(uint64 Offset, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByOffsetWide(&this, Offset, NameBuffer, NameBufferSize, NameSize, Displacement);
 
 	public HRESULT GetOffsetByNameWide(PWSTR Symbol, uint64* Offset) mut => VT.[Friend]GetOffsetByNameWide(&this, Symbol, Offset);
 
-	public HRESULT GetNearNameByOffsetWide(uint64 Offset, int32 Delta, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNearNameByOffsetWide(&this, Offset, Delta, NameBuffer, NameBufferSize, NameSize, Displacement);
+	public HRESULT GetNearNameByOffsetWide(uint64 Offset, int32 Delta, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNearNameByOffsetWide(&this, Offset, Delta, NameBuffer, NameBufferSize, NameSize, Displacement);
 
-	public HRESULT GetLineByOffsetWide(uint64 Offset, uint32* Line, char8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByOffsetWide(&this, Offset, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
+	public HRESULT GetLineByOffsetWide(uint64 Offset, uint32* Line, char16* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByOffsetWide(&this, Offset, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
 
 	public HRESULT GetOffsetByLineWide(uint32 Line, PWSTR File, uint64* Offset) mut => VT.[Friend]GetOffsetByLineWide(&this, Line, File, Offset);
 
@@ -17086,7 +17086,7 @@ public static
 
 	public HRESULT GetSymbolModuleWide(PWSTR Symbol, uint64* Base) mut => VT.[Friend]GetSymbolModuleWide(&this, Symbol, Base);
 
-	public HRESULT GetTypeNameWide(uint64 Module, uint32 TypeId, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeNameWide(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
+	public HRESULT GetTypeNameWide(uint64 Module, uint32 TypeId, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeNameWide(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
 
 	public HRESULT GetTypeIdWide(uint64 Module, PWSTR Name, uint32* TypeId) mut => VT.[Friend]GetTypeIdWide(&this, Module, Name, TypeId);
 
@@ -17100,41 +17100,41 @@ public static
 
 	public HRESULT StartSymbolMatchWide(PWSTR Pattern, uint64* Handle) mut => VT.[Friend]StartSymbolMatchWide(&this, Pattern, Handle);
 
-	public HRESULT GetNextSymbolMatchWide(uint64 Handle, char8* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) mut => VT.[Friend]GetNextSymbolMatchWide(&this, Handle, Buffer, BufferSize, MatchSize, Offset);
+	public HRESULT GetNextSymbolMatchWide(uint64 Handle, char16* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) mut => VT.[Friend]GetNextSymbolMatchWide(&this, Handle, Buffer, BufferSize, MatchSize, Offset);
 
 	public HRESULT ReloadWide(PWSTR Module) mut => VT.[Friend]ReloadWide(&this, Module);
 
-	public HRESULT GetSymbolPathWide(char8* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSymbolPathWide(&this, Buffer, BufferSize, PathSize);
+	public HRESULT GetSymbolPathWide(char16* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSymbolPathWide(&this, Buffer, BufferSize, PathSize);
 
 	public HRESULT SetSymbolPathWide(PWSTR Path) mut => VT.[Friend]SetSymbolPathWide(&this, Path);
 
 	public HRESULT AppendSymbolPathWide(PWSTR Addition) mut => VT.[Friend]AppendSymbolPathWide(&this, Addition);
 
-	public HRESULT GetImagePathWide(char8* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetImagePathWide(&this, Buffer, BufferSize, PathSize);
+	public HRESULT GetImagePathWide(char16* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetImagePathWide(&this, Buffer, BufferSize, PathSize);
 
 	public HRESULT SetImagePathWide(PWSTR Path) mut => VT.[Friend]SetImagePathWide(&this, Path);
 
 	public HRESULT AppendImagePathWide(PWSTR Addition) mut => VT.[Friend]AppendImagePathWide(&this, Addition);
 
-	public HRESULT GetSourcePathWide(char8* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSourcePathWide(&this, Buffer, BufferSize, PathSize);
+	public HRESULT GetSourcePathWide(char16* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSourcePathWide(&this, Buffer, BufferSize, PathSize);
 
-	public HRESULT GetSourcePathElementWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ElementSize) mut => VT.[Friend]GetSourcePathElementWide(&this, Index, Buffer, BufferSize, ElementSize);
+	public HRESULT GetSourcePathElementWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ElementSize) mut => VT.[Friend]GetSourcePathElementWide(&this, Index, Buffer, BufferSize, ElementSize);
 
 	public HRESULT SetSourcePathWide(PWSTR Path) mut => VT.[Friend]SetSourcePathWide(&this, Path);
 
 	public HRESULT AppendSourcePathWide(PWSTR Addition) mut => VT.[Friend]AppendSourcePathWide(&this, Addition);
 
-	public HRESULT FindSourceFileWide(uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char8* Buffer, uint32 BufferSize, uint32* FoundSize) mut => VT.[Friend]FindSourceFileWide(&this, StartElement, File, Flags, FoundElement, Buffer, BufferSize, FoundSize);
+	public HRESULT FindSourceFileWide(uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char16* Buffer, uint32 BufferSize, uint32* FoundSize) mut => VT.[Friend]FindSourceFileWide(&this, StartElement, File, Flags, FoundElement, Buffer, BufferSize, FoundSize);
 
 	public HRESULT GetSourceFileLineOffsetsWide(PWSTR File, uint64* Buffer, uint32 BufferLines, uint32* FileLines) mut => VT.[Friend]GetSourceFileLineOffsetsWide(&this, File, Buffer, BufferLines, FileLines);
 
 	public HRESULT GetModuleVersionInformationWide(uint32 Index, uint64 Base, PWSTR Item, void* Buffer, uint32 BufferSize, uint32* VerInfoSize) mut => VT.[Friend]GetModuleVersionInformationWide(&this, Index, Base, Item, Buffer, BufferSize, VerInfoSize);
 
-	public HRESULT GetModuleNameStringWide(uint32 Which, uint32 Index, uint64 Base, char8* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetModuleNameStringWide(&this, Which, Index, Base, Buffer, BufferSize, NameSize);
+	public HRESULT GetModuleNameStringWide(uint32 Which, uint32 Index, uint64 Base, char16* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetModuleNameStringWide(&this, Which, Index, Base, Buffer, BufferSize, NameSize);
 
-	public HRESULT GetConstantNameWide(uint64 Module, uint32 TypeId, uint64 Value, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetConstantNameWide(&this, Module, TypeId, Value, NameBuffer, NameBufferSize, NameSize);
+	public HRESULT GetConstantNameWide(uint64 Module, uint32 TypeId, uint64 Value, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetConstantNameWide(&this, Module, TypeId, Value, NameBuffer, NameBufferSize, NameSize);
 
-	public HRESULT GetFieldNameWide(uint64 Module, uint32 TypeId, uint32 FieldIndex, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetFieldNameWide(&this, Module, TypeId, FieldIndex, NameBuffer, NameBufferSize, NameSize);
+	public HRESULT GetFieldNameWide(uint64 Module, uint32 TypeId, uint32 FieldIndex, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetFieldNameWide(&this, Module, TypeId, FieldIndex, NameBuffer, NameBufferSize, NameSize);
 
 	public HRESULT IsManagedModule(uint32 Index, uint64 Base) mut => VT.[Friend]IsManagedModule(&this, Index, Base);
 
@@ -17184,7 +17184,7 @@ public static
 
 	public HRESULT GetSymbolEntryString(DEBUG_MODULE_AND_ID* Id, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolEntryString(&this, Id, Which, Buffer, BufferSize, StringSize);
 
-	public HRESULT GetSymbolEntryStringWide(DEBUG_MODULE_AND_ID* Id, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolEntryStringWide(&this, Id, Which, Buffer, BufferSize, StringSize);
+	public HRESULT GetSymbolEntryStringWide(DEBUG_MODULE_AND_ID* Id, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolEntryStringWide(&this, Id, Which, Buffer, BufferSize, StringSize);
 
 	public HRESULT GetSymbolEntryOffsetRegions(DEBUG_MODULE_AND_ID* Id, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) mut => VT.[Friend]GetSymbolEntryOffsetRegions(&this, Id, Flags, Regions, RegionsCount, RegionsAvail);
 
@@ -17198,7 +17198,7 @@ public static
 
 	public HRESULT GetSourceEntryString(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSourceEntryString(&this, Entry, Which, Buffer, BufferSize, StringSize);
 
-	public HRESULT GetSourceEntryStringWide(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSourceEntryStringWide(&this, Entry, Which, Buffer, BufferSize, StringSize);
+	public HRESULT GetSourceEntryStringWide(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSourceEntryStringWide(&this, Entry, Which, Buffer, BufferSize, StringSize);
 
 	public HRESULT GetSourceEntryOffsetRegions(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) mut => VT.[Friend]GetSourceEntryOffsetRegions(&this, Entry, Flags, Regions, RegionsCount, RegionsAvail);
 
@@ -17270,38 +17270,38 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Options) AddTypeOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Options) RemoveTypeOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Options) SetTypeOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByOffsetWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByOffsetWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Symbol, uint64* Offset) GetOffsetByNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, int32 Delta, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNearNameByOffsetWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, uint32* Line, char8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByOffsetWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, int32 Delta, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNearNameByOffsetWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, uint32* Line, char16* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByOffsetWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Line, PWSTR File, uint64* Offset) GetOffsetByLineWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Name, uint32 StartIndex, uint32* Index, uint64* Base) GetModuleByModuleNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Symbol, uint64* Base) GetSymbolModuleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Module, uint32 TypeId, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Module, uint32 TypeId, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Module, PWSTR Name, uint32* TypeId) GetTypeIdWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Module, uint32 TypeId, PWSTR Field, uint32* Offset) GetFieldOffsetWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Symbol, uint32* TypeId, uint64* Module) GetSymbolTypeIdWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Flags, IDebugSymbolGroup2* Update, IDebugSymbolGroup2** Symbols) GetScopeSymbolGroup2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, IDebugSymbolGroup2** Group) CreateSymbolGroup2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Pattern, uint64* Handle) StartSymbolMatchWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Handle, char8* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) GetNextSymbolMatchWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Handle, char16* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) GetNextSymbolMatchWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Module) ReloadWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PathSize) GetSymbolPathWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PathSize) GetSymbolPathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Path) SetSymbolPathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Addition) AppendSymbolPathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PathSize) GetImagePathWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PathSize) GetImagePathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Path) SetImagePathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Addition) AppendImagePathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PathSize) GetSourcePathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ElementSize) GetSourcePathElementWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PathSize) GetSourcePathWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ElementSize) GetSourcePathElementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Path) SetSourcePathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Addition) AppendSourcePathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char8* Buffer, uint32 BufferSize, uint32* FoundSize) FindSourceFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char16* Buffer, uint32 BufferSize, uint32* FoundSize) FindSourceFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR File, uint64* Buffer, uint32 BufferLines, uint32* FileLines) GetSourceFileLineOffsetsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Index, uint64 Base, PWSTR Item, void* Buffer, uint32 BufferSize, uint32* VerInfoSize) GetModuleVersionInformationWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Which, uint32 Index, uint64 Base, char8* Buffer, uint32 BufferSize, uint32* NameSize) GetModuleNameStringWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Module, uint32 TypeId, uint64 Value, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetConstantNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Module, uint32 TypeId, uint32 FieldIndex, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetFieldNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Which, uint32 Index, uint64 Base, char16* Buffer, uint32 BufferSize, uint32* NameSize) GetModuleNameStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Module, uint32 TypeId, uint64 Value, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetConstantNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Module, uint32 TypeId, uint32 FieldIndex, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetFieldNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Index, uint64 Base) IsManagedModule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PSTR Name, uint32 StartIndex, uint32 Flags, uint32* Index, uint64* Base) GetModuleByModuleName2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, PWSTR Name, uint32 StartIndex, uint32 Flags, uint32* Index, uint64* Base) GetModuleByModuleName2Wide;
@@ -17326,22 +17326,22 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 ModuleBase, uint32 Token, DEBUG_MODULE_AND_ID* Id) GetSymbolEntryByToken;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, DEBUG_SYMBOL_ENTRY* Info) GetSymbolEntryInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetSymbolEntryString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetSymbolEntryStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetSymbolEntryStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) GetSymbolEntryOffsetRegions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_MODULE_AND_ID* FromId, uint32 Flags, DEBUG_MODULE_AND_ID* ToId) GetSymbolEntryBySymbolEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* Entries, uint32 EntriesCount, uint32* EntriesAvail) GetSourceEntriesByOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Line, PSTR File, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* Entries, uint32 EntriesCount, uint32* EntriesAvail) GetSourceEntriesByLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 Line, PWSTR File, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* Entries, uint32 EntriesCount, uint32* EntriesAvail) GetSourceEntriesByLineWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetSourceEntryString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetSourceEntryStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetSourceEntryStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) GetSourceEntryOffsetRegions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* FromEntry, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* ToEntry) GetSourceEntryBySourceEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64* InstructionOffset, DEBUG_STACK_FRAME_EX* ScopeFrame, void* ScopeContext, uint32 ScopeContextSize) GetScopeEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 InstructionOffset, DEBUG_STACK_FRAME_EX* ScopeFrame, void* ScopeContext, uint32 ScopeContextSize) SetScopeEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, uint32 InlineContext, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByInlineContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, uint32 InlineContext, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByInlineContextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, uint32 InlineContext, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByInlineContextWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, uint32 InlineContext, uint32* Line, uint8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByInlineContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, uint32 InlineContext, uint32* Line, char8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByInlineContextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint64 Offset, uint32 InlineContext, uint32* Line, char16* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByInlineContextWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols4*/SelfOuter* self, uint32 OutputControl, uint32 Flags, uint64 Offset, uint32 InlineContext) OutputSymbolByInlineContext;
 	}
 
@@ -17460,13 +17460,13 @@ public static
 
 	public HRESULT SetTypeOptions(uint32 Options) mut => VT.[Friend]SetTypeOptions(&this, Options);
 
-	public HRESULT GetNameByOffsetWide(uint64 Offset, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByOffsetWide(&this, Offset, NameBuffer, NameBufferSize, NameSize, Displacement);
+	public HRESULT GetNameByOffsetWide(uint64 Offset, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByOffsetWide(&this, Offset, NameBuffer, NameBufferSize, NameSize, Displacement);
 
 	public HRESULT GetOffsetByNameWide(PWSTR Symbol, uint64* Offset) mut => VT.[Friend]GetOffsetByNameWide(&this, Symbol, Offset);
 
-	public HRESULT GetNearNameByOffsetWide(uint64 Offset, int32 Delta, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNearNameByOffsetWide(&this, Offset, Delta, NameBuffer, NameBufferSize, NameSize, Displacement);
+	public HRESULT GetNearNameByOffsetWide(uint64 Offset, int32 Delta, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNearNameByOffsetWide(&this, Offset, Delta, NameBuffer, NameBufferSize, NameSize, Displacement);
 
-	public HRESULT GetLineByOffsetWide(uint64 Offset, uint32* Line, char8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByOffsetWide(&this, Offset, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
+	public HRESULT GetLineByOffsetWide(uint64 Offset, uint32* Line, char16* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByOffsetWide(&this, Offset, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
 
 	public HRESULT GetOffsetByLineWide(uint32 Line, PWSTR File, uint64* Offset) mut => VT.[Friend]GetOffsetByLineWide(&this, Line, File, Offset);
 
@@ -17474,7 +17474,7 @@ public static
 
 	public HRESULT GetSymbolModuleWide(PWSTR Symbol, uint64* Base) mut => VT.[Friend]GetSymbolModuleWide(&this, Symbol, Base);
 
-	public HRESULT GetTypeNameWide(uint64 Module, uint32 TypeId, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeNameWide(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
+	public HRESULT GetTypeNameWide(uint64 Module, uint32 TypeId, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeNameWide(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
 
 	public HRESULT GetTypeIdWide(uint64 Module, PWSTR Name, uint32* TypeId) mut => VT.[Friend]GetTypeIdWide(&this, Module, Name, TypeId);
 
@@ -17488,41 +17488,41 @@ public static
 
 	public HRESULT StartSymbolMatchWide(PWSTR Pattern, uint64* Handle) mut => VT.[Friend]StartSymbolMatchWide(&this, Pattern, Handle);
 
-	public HRESULT GetNextSymbolMatchWide(uint64 Handle, char8* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) mut => VT.[Friend]GetNextSymbolMatchWide(&this, Handle, Buffer, BufferSize, MatchSize, Offset);
+	public HRESULT GetNextSymbolMatchWide(uint64 Handle, char16* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) mut => VT.[Friend]GetNextSymbolMatchWide(&this, Handle, Buffer, BufferSize, MatchSize, Offset);
 
 	public HRESULT ReloadWide(PWSTR Module) mut => VT.[Friend]ReloadWide(&this, Module);
 
-	public HRESULT GetSymbolPathWide(char8* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSymbolPathWide(&this, Buffer, BufferSize, PathSize);
+	public HRESULT GetSymbolPathWide(char16* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSymbolPathWide(&this, Buffer, BufferSize, PathSize);
 
 	public HRESULT SetSymbolPathWide(PWSTR Path) mut => VT.[Friend]SetSymbolPathWide(&this, Path);
 
 	public HRESULT AppendSymbolPathWide(PWSTR Addition) mut => VT.[Friend]AppendSymbolPathWide(&this, Addition);
 
-	public HRESULT GetImagePathWide(char8* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetImagePathWide(&this, Buffer, BufferSize, PathSize);
+	public HRESULT GetImagePathWide(char16* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetImagePathWide(&this, Buffer, BufferSize, PathSize);
 
 	public HRESULT SetImagePathWide(PWSTR Path) mut => VT.[Friend]SetImagePathWide(&this, Path);
 
 	public HRESULT AppendImagePathWide(PWSTR Addition) mut => VT.[Friend]AppendImagePathWide(&this, Addition);
 
-	public HRESULT GetSourcePathWide(char8* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSourcePathWide(&this, Buffer, BufferSize, PathSize);
+	public HRESULT GetSourcePathWide(char16* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSourcePathWide(&this, Buffer, BufferSize, PathSize);
 
-	public HRESULT GetSourcePathElementWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ElementSize) mut => VT.[Friend]GetSourcePathElementWide(&this, Index, Buffer, BufferSize, ElementSize);
+	public HRESULT GetSourcePathElementWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ElementSize) mut => VT.[Friend]GetSourcePathElementWide(&this, Index, Buffer, BufferSize, ElementSize);
 
 	public HRESULT SetSourcePathWide(PWSTR Path) mut => VT.[Friend]SetSourcePathWide(&this, Path);
 
 	public HRESULT AppendSourcePathWide(PWSTR Addition) mut => VT.[Friend]AppendSourcePathWide(&this, Addition);
 
-	public HRESULT FindSourceFileWide(uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char8* Buffer, uint32 BufferSize, uint32* FoundSize) mut => VT.[Friend]FindSourceFileWide(&this, StartElement, File, Flags, FoundElement, Buffer, BufferSize, FoundSize);
+	public HRESULT FindSourceFileWide(uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char16* Buffer, uint32 BufferSize, uint32* FoundSize) mut => VT.[Friend]FindSourceFileWide(&this, StartElement, File, Flags, FoundElement, Buffer, BufferSize, FoundSize);
 
 	public HRESULT GetSourceFileLineOffsetsWide(PWSTR File, uint64* Buffer, uint32 BufferLines, uint32* FileLines) mut => VT.[Friend]GetSourceFileLineOffsetsWide(&this, File, Buffer, BufferLines, FileLines);
 
 	public HRESULT GetModuleVersionInformationWide(uint32 Index, uint64 Base, PWSTR Item, void* Buffer, uint32 BufferSize, uint32* VerInfoSize) mut => VT.[Friend]GetModuleVersionInformationWide(&this, Index, Base, Item, Buffer, BufferSize, VerInfoSize);
 
-	public HRESULT GetModuleNameStringWide(uint32 Which, uint32 Index, uint64 Base, char8* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetModuleNameStringWide(&this, Which, Index, Base, Buffer, BufferSize, NameSize);
+	public HRESULT GetModuleNameStringWide(uint32 Which, uint32 Index, uint64 Base, char16* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetModuleNameStringWide(&this, Which, Index, Base, Buffer, BufferSize, NameSize);
 
-	public HRESULT GetConstantNameWide(uint64 Module, uint32 TypeId, uint64 Value, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetConstantNameWide(&this, Module, TypeId, Value, NameBuffer, NameBufferSize, NameSize);
+	public HRESULT GetConstantNameWide(uint64 Module, uint32 TypeId, uint64 Value, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetConstantNameWide(&this, Module, TypeId, Value, NameBuffer, NameBufferSize, NameSize);
 
-	public HRESULT GetFieldNameWide(uint64 Module, uint32 TypeId, uint32 FieldIndex, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetFieldNameWide(&this, Module, TypeId, FieldIndex, NameBuffer, NameBufferSize, NameSize);
+	public HRESULT GetFieldNameWide(uint64 Module, uint32 TypeId, uint32 FieldIndex, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetFieldNameWide(&this, Module, TypeId, FieldIndex, NameBuffer, NameBufferSize, NameSize);
 
 	public HRESULT IsManagedModule(uint32 Index, uint64 Base) mut => VT.[Friend]IsManagedModule(&this, Index, Base);
 
@@ -17572,7 +17572,7 @@ public static
 
 	public HRESULT GetSymbolEntryString(DEBUG_MODULE_AND_ID* Id, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolEntryString(&this, Id, Which, Buffer, BufferSize, StringSize);
 
-	public HRESULT GetSymbolEntryStringWide(DEBUG_MODULE_AND_ID* Id, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolEntryStringWide(&this, Id, Which, Buffer, BufferSize, StringSize);
+	public HRESULT GetSymbolEntryStringWide(DEBUG_MODULE_AND_ID* Id, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolEntryStringWide(&this, Id, Which, Buffer, BufferSize, StringSize);
 
 	public HRESULT GetSymbolEntryOffsetRegions(DEBUG_MODULE_AND_ID* Id, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) mut => VT.[Friend]GetSymbolEntryOffsetRegions(&this, Id, Flags, Regions, RegionsCount, RegionsAvail);
 
@@ -17586,7 +17586,7 @@ public static
 
 	public HRESULT GetSourceEntryString(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSourceEntryString(&this, Entry, Which, Buffer, BufferSize, StringSize);
 
-	public HRESULT GetSourceEntryStringWide(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSourceEntryStringWide(&this, Entry, Which, Buffer, BufferSize, StringSize);
+	public HRESULT GetSourceEntryStringWide(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSourceEntryStringWide(&this, Entry, Which, Buffer, BufferSize, StringSize);
 
 	public HRESULT GetSourceEntryOffsetRegions(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) mut => VT.[Friend]GetSourceEntryOffsetRegions(&this, Entry, Flags, Regions, RegionsCount, RegionsAvail);
 
@@ -17598,11 +17598,11 @@ public static
 
 	public HRESULT GetNameByInlineContext(uint64 Offset, uint32 InlineContext, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByInlineContext(&this, Offset, InlineContext, NameBuffer, NameBufferSize, NameSize, Displacement);
 
-	public HRESULT GetNameByInlineContextWide(uint64 Offset, uint32 InlineContext, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByInlineContextWide(&this, Offset, InlineContext, NameBuffer, NameBufferSize, NameSize, Displacement);
+	public HRESULT GetNameByInlineContextWide(uint64 Offset, uint32 InlineContext, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByInlineContextWide(&this, Offset, InlineContext, NameBuffer, NameBufferSize, NameSize, Displacement);
 
 	public HRESULT GetLineByInlineContext(uint64 Offset, uint32 InlineContext, uint32* Line, uint8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByInlineContext(&this, Offset, InlineContext, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
 
-	public HRESULT GetLineByInlineContextWide(uint64 Offset, uint32 InlineContext, uint32* Line, char8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByInlineContextWide(&this, Offset, InlineContext, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
+	public HRESULT GetLineByInlineContextWide(uint64 Offset, uint32 InlineContext, uint32* Line, char16* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByInlineContextWide(&this, Offset, InlineContext, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
 
 	public HRESULT OutputSymbolByInlineContext(uint32 OutputControl, uint32 Flags, uint64 Offset, uint32 InlineContext) mut => VT.[Friend]OutputSymbolByInlineContext(&this, OutputControl, Flags, Offset, InlineContext);
 }
@@ -17672,38 +17672,38 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Options) AddTypeOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Options) RemoveTypeOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Options) SetTypeOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByOffsetWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByOffsetWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Symbol, uint64* Offset) GetOffsetByNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, int32 Delta, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNearNameByOffsetWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, uint32* Line, char8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByOffsetWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, int32 Delta, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNearNameByOffsetWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, uint32* Line, char16* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByOffsetWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Line, PWSTR File, uint64* Offset) GetOffsetByLineWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Name, uint32 StartIndex, uint32* Index, uint64* Base) GetModuleByModuleNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Symbol, uint64* Base) GetSymbolModuleWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Module, uint32 TypeId, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Module, uint32 TypeId, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Module, PWSTR Name, uint32* TypeId) GetTypeIdWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Module, uint32 TypeId, PWSTR Field, uint32* Offset) GetFieldOffsetWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Symbol, uint32* TypeId, uint64* Module) GetSymbolTypeIdWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Flags, IDebugSymbolGroup2* Update, IDebugSymbolGroup2** Symbols) GetScopeSymbolGroup2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, IDebugSymbolGroup2** Group) CreateSymbolGroup2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Pattern, uint64* Handle) StartSymbolMatchWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Handle, char8* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) GetNextSymbolMatchWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Handle, char16* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) GetNextSymbolMatchWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Module) ReloadWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PathSize) GetSymbolPathWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PathSize) GetSymbolPathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Path) SetSymbolPathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Addition) AppendSymbolPathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PathSize) GetImagePathWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PathSize) GetImagePathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Path) SetImagePathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Addition) AppendImagePathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* PathSize) GetSourcePathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ElementSize) GetSourcePathElementWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* PathSize) GetSourcePathWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ElementSize) GetSourcePathElementWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Path) SetSourcePathWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Addition) AppendSourcePathWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char8* Buffer, uint32 BufferSize, uint32* FoundSize) FindSourceFileWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char16* Buffer, uint32 BufferSize, uint32* FoundSize) FindSourceFileWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR File, uint64* Buffer, uint32 BufferLines, uint32* FileLines) GetSourceFileLineOffsetsWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Index, uint64 Base, PWSTR Item, void* Buffer, uint32 BufferSize, uint32* VerInfoSize) GetModuleVersionInformationWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Which, uint32 Index, uint64 Base, char8* Buffer, uint32 BufferSize, uint32* NameSize) GetModuleNameStringWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Module, uint32 TypeId, uint64 Value, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetConstantNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Module, uint32 TypeId, uint32 FieldIndex, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetFieldNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Which, uint32 Index, uint64 Base, char16* Buffer, uint32 BufferSize, uint32* NameSize) GetModuleNameStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Module, uint32 TypeId, uint64 Value, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetConstantNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Module, uint32 TypeId, uint32 FieldIndex, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetFieldNameWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Index, uint64 Base) IsManagedModule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PSTR Name, uint32 StartIndex, uint32 Flags, uint32* Index, uint64* Base) GetModuleByModuleName2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, PWSTR Name, uint32 StartIndex, uint32 Flags, uint32* Index, uint64* Base) GetModuleByModuleName2Wide;
@@ -17728,22 +17728,22 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 ModuleBase, uint32 Token, DEBUG_MODULE_AND_ID* Id) GetSymbolEntryByToken;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, DEBUG_SYMBOL_ENTRY* Info) GetSymbolEntryInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetSymbolEntryString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetSymbolEntryStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetSymbolEntryStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_MODULE_AND_ID* Id, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) GetSymbolEntryOffsetRegions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_MODULE_AND_ID* FromId, uint32 Flags, DEBUG_MODULE_AND_ID* ToId) GetSymbolEntryBySymbolEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* Entries, uint32 EntriesCount, uint32* EntriesAvail) GetSourceEntriesByOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Line, PSTR File, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* Entries, uint32 EntriesCount, uint32* EntriesAvail) GetSourceEntriesByLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Line, PWSTR File, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* Entries, uint32 EntriesCount, uint32* EntriesAvail) GetSourceEntriesByLineWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) GetSourceEntryString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) GetSourceEntryStringWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) GetSourceEntryStringWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) GetSourceEntryOffsetRegions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, DEBUG_SYMBOL_SOURCE_ENTRY* FromEntry, uint32 Flags, DEBUG_SYMBOL_SOURCE_ENTRY* ToEntry) GetSourceEntryBySourceEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64* InstructionOffset, DEBUG_STACK_FRAME_EX* ScopeFrame, void* ScopeContext, uint32 ScopeContextSize) GetScopeEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 InstructionOffset, DEBUG_STACK_FRAME_EX* ScopeFrame, void* ScopeContext, uint32 ScopeContextSize) SetScopeEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, uint32 InlineContext, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByInlineContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, uint32 InlineContext, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByInlineContextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, uint32 InlineContext, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) GetNameByInlineContextWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, uint32 InlineContext, uint32* Line, uint8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByInlineContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, uint32 InlineContext, uint32* Line, char8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByInlineContextWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint64 Offset, uint32 InlineContext, uint32* Line, char16* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) GetLineByInlineContextWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 OutputControl, uint32 Flags, uint64 Offset, uint32 InlineContext) OutputSymbolByInlineContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Flags, uint32* Index) GetCurrentScopeFrameIndexEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSymbols5*/SelfOuter* self, uint32 Flags, uint32 Index) SetScopeFrameByIndexEx;
@@ -17864,13 +17864,13 @@ public static
 
 	public HRESULT SetTypeOptions(uint32 Options) mut => VT.[Friend]SetTypeOptions(&this, Options);
 
-	public HRESULT GetNameByOffsetWide(uint64 Offset, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByOffsetWide(&this, Offset, NameBuffer, NameBufferSize, NameSize, Displacement);
+	public HRESULT GetNameByOffsetWide(uint64 Offset, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByOffsetWide(&this, Offset, NameBuffer, NameBufferSize, NameSize, Displacement);
 
 	public HRESULT GetOffsetByNameWide(PWSTR Symbol, uint64* Offset) mut => VT.[Friend]GetOffsetByNameWide(&this, Symbol, Offset);
 
-	public HRESULT GetNearNameByOffsetWide(uint64 Offset, int32 Delta, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNearNameByOffsetWide(&this, Offset, Delta, NameBuffer, NameBufferSize, NameSize, Displacement);
+	public HRESULT GetNearNameByOffsetWide(uint64 Offset, int32 Delta, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNearNameByOffsetWide(&this, Offset, Delta, NameBuffer, NameBufferSize, NameSize, Displacement);
 
-	public HRESULT GetLineByOffsetWide(uint64 Offset, uint32* Line, char8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByOffsetWide(&this, Offset, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
+	public HRESULT GetLineByOffsetWide(uint64 Offset, uint32* Line, char16* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByOffsetWide(&this, Offset, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
 
 	public HRESULT GetOffsetByLineWide(uint32 Line, PWSTR File, uint64* Offset) mut => VT.[Friend]GetOffsetByLineWide(&this, Line, File, Offset);
 
@@ -17878,7 +17878,7 @@ public static
 
 	public HRESULT GetSymbolModuleWide(PWSTR Symbol, uint64* Base) mut => VT.[Friend]GetSymbolModuleWide(&this, Symbol, Base);
 
-	public HRESULT GetTypeNameWide(uint64 Module, uint32 TypeId, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeNameWide(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
+	public HRESULT GetTypeNameWide(uint64 Module, uint32 TypeId, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeNameWide(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
 
 	public HRESULT GetTypeIdWide(uint64 Module, PWSTR Name, uint32* TypeId) mut => VT.[Friend]GetTypeIdWide(&this, Module, Name, TypeId);
 
@@ -17892,41 +17892,41 @@ public static
 
 	public HRESULT StartSymbolMatchWide(PWSTR Pattern, uint64* Handle) mut => VT.[Friend]StartSymbolMatchWide(&this, Pattern, Handle);
 
-	public HRESULT GetNextSymbolMatchWide(uint64 Handle, char8* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) mut => VT.[Friend]GetNextSymbolMatchWide(&this, Handle, Buffer, BufferSize, MatchSize, Offset);
+	public HRESULT GetNextSymbolMatchWide(uint64 Handle, char16* Buffer, uint32 BufferSize, uint32* MatchSize, uint64* Offset) mut => VT.[Friend]GetNextSymbolMatchWide(&this, Handle, Buffer, BufferSize, MatchSize, Offset);
 
 	public HRESULT ReloadWide(PWSTR Module) mut => VT.[Friend]ReloadWide(&this, Module);
 
-	public HRESULT GetSymbolPathWide(char8* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSymbolPathWide(&this, Buffer, BufferSize, PathSize);
+	public HRESULT GetSymbolPathWide(char16* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSymbolPathWide(&this, Buffer, BufferSize, PathSize);
 
 	public HRESULT SetSymbolPathWide(PWSTR Path) mut => VT.[Friend]SetSymbolPathWide(&this, Path);
 
 	public HRESULT AppendSymbolPathWide(PWSTR Addition) mut => VT.[Friend]AppendSymbolPathWide(&this, Addition);
 
-	public HRESULT GetImagePathWide(char8* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetImagePathWide(&this, Buffer, BufferSize, PathSize);
+	public HRESULT GetImagePathWide(char16* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetImagePathWide(&this, Buffer, BufferSize, PathSize);
 
 	public HRESULT SetImagePathWide(PWSTR Path) mut => VT.[Friend]SetImagePathWide(&this, Path);
 
 	public HRESULT AppendImagePathWide(PWSTR Addition) mut => VT.[Friend]AppendImagePathWide(&this, Addition);
 
-	public HRESULT GetSourcePathWide(char8* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSourcePathWide(&this, Buffer, BufferSize, PathSize);
+	public HRESULT GetSourcePathWide(char16* Buffer, uint32 BufferSize, uint32* PathSize) mut => VT.[Friend]GetSourcePathWide(&this, Buffer, BufferSize, PathSize);
 
-	public HRESULT GetSourcePathElementWide(uint32 Index, char8* Buffer, uint32 BufferSize, uint32* ElementSize) mut => VT.[Friend]GetSourcePathElementWide(&this, Index, Buffer, BufferSize, ElementSize);
+	public HRESULT GetSourcePathElementWide(uint32 Index, char16* Buffer, uint32 BufferSize, uint32* ElementSize) mut => VT.[Friend]GetSourcePathElementWide(&this, Index, Buffer, BufferSize, ElementSize);
 
 	public HRESULT SetSourcePathWide(PWSTR Path) mut => VT.[Friend]SetSourcePathWide(&this, Path);
 
 	public HRESULT AppendSourcePathWide(PWSTR Addition) mut => VT.[Friend]AppendSourcePathWide(&this, Addition);
 
-	public HRESULT FindSourceFileWide(uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char8* Buffer, uint32 BufferSize, uint32* FoundSize) mut => VT.[Friend]FindSourceFileWide(&this, StartElement, File, Flags, FoundElement, Buffer, BufferSize, FoundSize);
+	public HRESULT FindSourceFileWide(uint32 StartElement, PWSTR File, uint32 Flags, uint32* FoundElement, char16* Buffer, uint32 BufferSize, uint32* FoundSize) mut => VT.[Friend]FindSourceFileWide(&this, StartElement, File, Flags, FoundElement, Buffer, BufferSize, FoundSize);
 
 	public HRESULT GetSourceFileLineOffsetsWide(PWSTR File, uint64* Buffer, uint32 BufferLines, uint32* FileLines) mut => VT.[Friend]GetSourceFileLineOffsetsWide(&this, File, Buffer, BufferLines, FileLines);
 
 	public HRESULT GetModuleVersionInformationWide(uint32 Index, uint64 Base, PWSTR Item, void* Buffer, uint32 BufferSize, uint32* VerInfoSize) mut => VT.[Friend]GetModuleVersionInformationWide(&this, Index, Base, Item, Buffer, BufferSize, VerInfoSize);
 
-	public HRESULT GetModuleNameStringWide(uint32 Which, uint32 Index, uint64 Base, char8* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetModuleNameStringWide(&this, Which, Index, Base, Buffer, BufferSize, NameSize);
+	public HRESULT GetModuleNameStringWide(uint32 Which, uint32 Index, uint64 Base, char16* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetModuleNameStringWide(&this, Which, Index, Base, Buffer, BufferSize, NameSize);
 
-	public HRESULT GetConstantNameWide(uint64 Module, uint32 TypeId, uint64 Value, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetConstantNameWide(&this, Module, TypeId, Value, NameBuffer, NameBufferSize, NameSize);
+	public HRESULT GetConstantNameWide(uint64 Module, uint32 TypeId, uint64 Value, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetConstantNameWide(&this, Module, TypeId, Value, NameBuffer, NameBufferSize, NameSize);
 
-	public HRESULT GetFieldNameWide(uint64 Module, uint32 TypeId, uint32 FieldIndex, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetFieldNameWide(&this, Module, TypeId, FieldIndex, NameBuffer, NameBufferSize, NameSize);
+	public HRESULT GetFieldNameWide(uint64 Module, uint32 TypeId, uint32 FieldIndex, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetFieldNameWide(&this, Module, TypeId, FieldIndex, NameBuffer, NameBufferSize, NameSize);
 
 	public HRESULT IsManagedModule(uint32 Index, uint64 Base) mut => VT.[Friend]IsManagedModule(&this, Index, Base);
 
@@ -17976,7 +17976,7 @@ public static
 
 	public HRESULT GetSymbolEntryString(DEBUG_MODULE_AND_ID* Id, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolEntryString(&this, Id, Which, Buffer, BufferSize, StringSize);
 
-	public HRESULT GetSymbolEntryStringWide(DEBUG_MODULE_AND_ID* Id, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolEntryStringWide(&this, Id, Which, Buffer, BufferSize, StringSize);
+	public HRESULT GetSymbolEntryStringWide(DEBUG_MODULE_AND_ID* Id, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSymbolEntryStringWide(&this, Id, Which, Buffer, BufferSize, StringSize);
 
 	public HRESULT GetSymbolEntryOffsetRegions(DEBUG_MODULE_AND_ID* Id, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) mut => VT.[Friend]GetSymbolEntryOffsetRegions(&this, Id, Flags, Regions, RegionsCount, RegionsAvail);
 
@@ -17990,7 +17990,7 @@ public static
 
 	public HRESULT GetSourceEntryString(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, uint8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSourceEntryString(&this, Entry, Which, Buffer, BufferSize, StringSize);
 
-	public HRESULT GetSourceEntryStringWide(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char8* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSourceEntryStringWide(&this, Entry, Which, Buffer, BufferSize, StringSize);
+	public HRESULT GetSourceEntryStringWide(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Which, char16* Buffer, uint32 BufferSize, uint32* StringSize) mut => VT.[Friend]GetSourceEntryStringWide(&this, Entry, Which, Buffer, BufferSize, StringSize);
 
 	public HRESULT GetSourceEntryOffsetRegions(DEBUG_SYMBOL_SOURCE_ENTRY* Entry, uint32 Flags, DEBUG_OFFSET_REGION* Regions, uint32 RegionsCount, uint32* RegionsAvail) mut => VT.[Friend]GetSourceEntryOffsetRegions(&this, Entry, Flags, Regions, RegionsCount, RegionsAvail);
 
@@ -18002,11 +18002,11 @@ public static
 
 	public HRESULT GetNameByInlineContext(uint64 Offset, uint32 InlineContext, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByInlineContext(&this, Offset, InlineContext, NameBuffer, NameBufferSize, NameSize, Displacement);
 
-	public HRESULT GetNameByInlineContextWide(uint64 Offset, uint32 InlineContext, char8* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByInlineContextWide(&this, Offset, InlineContext, NameBuffer, NameBufferSize, NameSize, Displacement);
+	public HRESULT GetNameByInlineContextWide(uint64 Offset, uint32 InlineContext, char16* NameBuffer, uint32 NameBufferSize, uint32* NameSize, uint64* Displacement) mut => VT.[Friend]GetNameByInlineContextWide(&this, Offset, InlineContext, NameBuffer, NameBufferSize, NameSize, Displacement);
 
 	public HRESULT GetLineByInlineContext(uint64 Offset, uint32 InlineContext, uint32* Line, uint8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByInlineContext(&this, Offset, InlineContext, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
 
-	public HRESULT GetLineByInlineContextWide(uint64 Offset, uint32 InlineContext, uint32* Line, char8* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByInlineContextWide(&this, Offset, InlineContext, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
+	public HRESULT GetLineByInlineContextWide(uint64 Offset, uint32 InlineContext, uint32* Line, char16* FileBuffer, uint32 FileBufferSize, uint32* FileSize, uint64* Displacement) mut => VT.[Friend]GetLineByInlineContextWide(&this, Offset, InlineContext, Line, FileBuffer, FileBufferSize, FileSize, Displacement);
 
 	public HRESULT OutputSymbolByInlineContext(uint32 OutputControl, uint32 Flags, uint64 Offset, uint32 InlineContext) mut => VT.[Friend]OutputSymbolByInlineContext(&this, OutputControl, Flags, Offset, InlineContext);
 
@@ -18420,8 +18420,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSystemObjects4*/SelfOuter* self, uint64* Server) GetCurrentSystemServer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSystemObjects4*/SelfOuter* self, uint64 Server, uint32* Id) GetSystemByServer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSystemObjects4*/SelfOuter* self, uint8* Buffer, uint32 BufferSize, uint32* NameSize) GetCurrentSystemServerName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSystemObjects4*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* ExeSize) GetCurrentProcessExecutableNameWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSystemObjects4*/SelfOuter* self, char8* Buffer, uint32 BufferSize, uint32* NameSize) GetCurrentSystemServerNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSystemObjects4*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* ExeSize) GetCurrentProcessExecutableNameWide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugSystemObjects4*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* NameSize) GetCurrentSystemServerNameWide;
 	}
 
 
@@ -18511,9 +18511,9 @@ public static
 
 	public HRESULT GetCurrentSystemServerName(uint8* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetCurrentSystemServerName(&this, Buffer, BufferSize, NameSize);
 
-	public HRESULT GetCurrentProcessExecutableNameWide(char8* Buffer, uint32 BufferSize, uint32* ExeSize) mut => VT.[Friend]GetCurrentProcessExecutableNameWide(&this, Buffer, BufferSize, ExeSize);
+	public HRESULT GetCurrentProcessExecutableNameWide(char16* Buffer, uint32 BufferSize, uint32* ExeSize) mut => VT.[Friend]GetCurrentProcessExecutableNameWide(&this, Buffer, BufferSize, ExeSize);
 
-	public HRESULT GetCurrentSystemServerNameWide(char8* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetCurrentSystemServerNameWide(&this, Buffer, BufferSize, NameSize);
+	public HRESULT GetCurrentSystemServerNameWide(char16* Buffer, uint32 BufferSize, uint32* NameSize) mut => VT.[Friend]GetCurrentSystemServerNameWide(&this, Buffer, BufferSize, NameSize);
 }
 
 [CRepr]struct DebugBaseEventCallbacks : IDebugEventCallbacks
@@ -20704,15 +20704,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptDebug32*/SelfOuter* self, char8* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) GetScriptTextAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptDebug32*/SelfOuter* self, char8* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) GetScriptletTextAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptDebug32*/SelfOuter* self, char16* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) GetScriptTextAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptDebug32*/SelfOuter* self, char16* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) GetScriptletTextAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptDebug32*/SelfOuter* self, uint32 dwSourceContext, uint32 uCharacterOffset, uint32 uNumChars, IEnumDebugCodeContexts** ppescc) EnumCodeContextsOfPosition;
 	}
 
 
-	public HRESULT GetScriptTextAttributes(char8* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptTextAttributes(&this, pstrCode, uNumCodeChars, pstrDelimiter, dwFlags, pattr);
+	public HRESULT GetScriptTextAttributes(char16* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptTextAttributes(&this, pstrCode, uNumCodeChars, pstrDelimiter, dwFlags, pattr);
 
-	public HRESULT GetScriptletTextAttributes(char8* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptletTextAttributes(&this, pstrCode, uNumCodeChars, pstrDelimiter, dwFlags, pattr);
+	public HRESULT GetScriptletTextAttributes(char16* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptletTextAttributes(&this, pstrCode, uNumCodeChars, pstrDelimiter, dwFlags, pattr);
 
 	public HRESULT EnumCodeContextsOfPosition(uint32 dwSourceContext, uint32 uCharacterOffset, uint32 uNumChars, IEnumDebugCodeContexts** ppescc) mut => VT.[Friend]EnumCodeContextsOfPosition(&this, dwSourceContext, uCharacterOffset, uNumChars, ppescc);
 }
@@ -20725,15 +20725,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptDebug64*/SelfOuter* self, char8* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) GetScriptTextAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptDebug64*/SelfOuter* self, char8* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) GetScriptletTextAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptDebug64*/SelfOuter* self, char16* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) GetScriptTextAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptDebug64*/SelfOuter* self, char16* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) GetScriptletTextAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptDebug64*/SelfOuter* self, uint64 dwSourceContext, uint32 uCharacterOffset, uint32 uNumChars, IEnumDebugCodeContexts** ppescc) EnumCodeContextsOfPosition;
 	}
 
 
-	public HRESULT GetScriptTextAttributes(char8* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptTextAttributes(&this, pstrCode, uNumCodeChars, pstrDelimiter, dwFlags, pattr);
+	public HRESULT GetScriptTextAttributes(char16* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptTextAttributes(&this, pstrCode, uNumCodeChars, pstrDelimiter, dwFlags, pattr);
 
-	public HRESULT GetScriptletTextAttributes(char8* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptletTextAttributes(&this, pstrCode, uNumCodeChars, pstrDelimiter, dwFlags, pattr);
+	public HRESULT GetScriptletTextAttributes(char16* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptletTextAttributes(&this, pstrCode, uNumCodeChars, pstrDelimiter, dwFlags, pattr);
 
 	public HRESULT EnumCodeContextsOfPosition(uint64 dwSourceContext, uint32 uCharacterOffset, uint32 uNumChars, IEnumDebugCodeContexts** ppescc) mut => VT.[Friend]EnumCodeContextsOfPosition(&this, dwSourceContext, uCharacterOffset, uNumChars, ppescc);
 }
@@ -21152,7 +21152,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentText*/SelfOuter* self, uint32* pcNumLines, uint32* pcNumChars) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentText*/SelfOuter* self, uint32 cLineNumber, uint32* pcCharacterPosition) GetPositionOfLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentText*/SelfOuter* self, uint32 cCharacterPosition, uint32* pcLineNumber, uint32* pcCharacterOffsetInLine) GetLineOfPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentText*/SelfOuter* self, uint32 cCharacterPosition, char8* pcharText, uint16* pstaTextAttr, uint32* pcNumChars, uint32 cMaxChars) GetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentText*/SelfOuter* self, uint32 cCharacterPosition, char16* pcharText, uint16* pstaTextAttr, uint32* pcNumChars, uint32 cMaxChars) GetText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentText*/SelfOuter* self, IDebugDocumentContext* psc, uint32* pcCharacterPosition, uint32* cNumChars) GetPositionOfContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentText*/SelfOuter* self, uint32 cCharacterPosition, uint32 cNumChars, IDebugDocumentContext** ppsc) GetContextOfPosition;
 	}
@@ -21166,7 +21166,7 @@ public static
 
 	public HRESULT GetLineOfPosition(uint32 cCharacterPosition, uint32* pcLineNumber, uint32* pcCharacterOffsetInLine) mut => VT.[Friend]GetLineOfPosition(&this, cCharacterPosition, pcLineNumber, pcCharacterOffsetInLine);
 
-	public HRESULT GetText(uint32 cCharacterPosition, char8* pcharText, uint16* pstaTextAttr, uint32* pcNumChars, uint32 cMaxChars) mut => VT.[Friend]GetText(&this, cCharacterPosition, pcharText, pstaTextAttr, pcNumChars, cMaxChars);
+	public HRESULT GetText(uint32 cCharacterPosition, char16* pcharText, uint16* pstaTextAttr, uint32* pcNumChars, uint32 cMaxChars) mut => VT.[Friend]GetText(&this, cCharacterPosition, pcharText, pstaTextAttr, pcNumChars, cMaxChars);
 
 	public HRESULT GetPositionOfContext(IDebugDocumentContext* psc, uint32* pcCharacterPosition, uint32* cNumChars) mut => VT.[Friend]GetPositionOfContext(&this, psc, pcCharacterPosition, cNumChars);
 
@@ -21211,17 +21211,17 @@ public static
 
 	[CRepr]public struct VTable : IDebugDocumentText.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentTextAuthor*/SelfOuter* self, uint32 cCharacterPosition, uint32 cNumToInsert, char8* pcharText) InsertText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentTextAuthor*/SelfOuter* self, uint32 cCharacterPosition, uint32 cNumToInsert, char16* pcharText) InsertText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentTextAuthor*/SelfOuter* self, uint32 cCharacterPosition, uint32 cNumToRemove) RemoveText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentTextAuthor*/SelfOuter* self, uint32 cCharacterPosition, uint32 cNumToReplace, char8* pcharText) ReplaceText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentTextAuthor*/SelfOuter* self, uint32 cCharacterPosition, uint32 cNumToReplace, char16* pcharText) ReplaceText;
 	}
 
 
-	public HRESULT InsertText(uint32 cCharacterPosition, uint32 cNumToInsert, char8* pcharText) mut => VT.[Friend]InsertText(&this, cCharacterPosition, cNumToInsert, pcharText);
+	public HRESULT InsertText(uint32 cCharacterPosition, uint32 cNumToInsert, char16* pcharText) mut => VT.[Friend]InsertText(&this, cCharacterPosition, cNumToInsert, pcharText);
 
 	public HRESULT RemoveText(uint32 cCharacterPosition, uint32 cNumToRemove) mut => VT.[Friend]RemoveText(&this, cCharacterPosition, cNumToRemove);
 
-	public HRESULT ReplaceText(uint32 cCharacterPosition, uint32 cNumToReplace, char8* pcharText) mut => VT.[Friend]ReplaceText(&this, cCharacterPosition, cNumToReplace, pcharText);
+	public HRESULT ReplaceText(uint32 cCharacterPosition, uint32 cNumToReplace, char16* pcharText) mut => VT.[Friend]ReplaceText(&this, cCharacterPosition, cNumToReplace, pcharText);
 }
 
 [CRepr]struct IDebugDocumentTextExternalAuthor : IUnknown
@@ -21385,8 +21385,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentHost*/SelfOuter* self, uint32 dwTextStartCookie, char8* pcharText, uint16* pstaTextAttr, uint32* pcNumChars, uint32 cMaxChars) GetDeferredText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentHost*/SelfOuter* self, char8* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) GetScriptTextAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentHost*/SelfOuter* self, uint32 dwTextStartCookie, char16* pcharText, uint16* pstaTextAttr, uint32* pcNumChars, uint32 cMaxChars) GetDeferredText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentHost*/SelfOuter* self, char16* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) GetScriptTextAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentHost*/SelfOuter* self, IUnknown** ppunkOuter) OnCreateDocumentContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentHost*/SelfOuter* self, BSTR* pbstrLongName, BOOL* pfIsOriginalFile) GetPathName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentHost*/SelfOuter* self, BSTR* pbstrShortName) GetFileName;
@@ -21394,9 +21394,9 @@ public static
 	}
 
 
-	public HRESULT GetDeferredText(uint32 dwTextStartCookie, char8* pcharText, uint16* pstaTextAttr, uint32* pcNumChars, uint32 cMaxChars) mut => VT.[Friend]GetDeferredText(&this, dwTextStartCookie, pcharText, pstaTextAttr, pcNumChars, cMaxChars);
+	public HRESULT GetDeferredText(uint32 dwTextStartCookie, char16* pcharText, uint16* pstaTextAttr, uint32* pcNumChars, uint32 cMaxChars) mut => VT.[Friend]GetDeferredText(&this, dwTextStartCookie, pcharText, pstaTextAttr, pcNumChars, cMaxChars);
 
-	public HRESULT GetScriptTextAttributes(char8* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptTextAttributes(&this, pstrCode, uNumCodeChars, pstrDelimiter, dwFlags, pattr);
+	public HRESULT GetScriptTextAttributes(char16* pstrCode, uint32 uNumCodeChars, PWSTR pstrDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptTextAttributes(&this, pstrCode, uNumCodeChars, pstrDelimiter, dwFlags, pattr);
 
 	public HRESULT OnCreateDocumentContext(IUnknown** ppunkOuter) mut => VT.[Friend]OnCreateDocumentContext(&this, ppunkOuter);
 
@@ -22525,8 +22525,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, PWSTR pszName, uint32 dwFlags, IDispatch* pdisp) AddNamedItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, PWSTR pszDefaultName, PWSTR pszCode, PWSTR pszItemName, PWSTR pszSubItemName, PWSTR pszEventName, PWSTR pszDelimiter, uint32 dwCookie, uint32 dwFlags) AddScriptlet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, PWSTR pszCode, PWSTR pszItemName, PWSTR pszDelimiter, uint32 dwCookie, uint32 dwFlags) ParseScriptText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, char8* pszCode, uint32 cch, PWSTR pszDelimiter, uint32 dwFlags, uint16* pattr) GetScriptTextAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, char8* pszCode, uint32 cch, PWSTR pszDelimiter, uint32 dwFlags, uint16* pattr) GetScriptletTextAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, char16* pszCode, uint32 cch, PWSTR pszDelimiter, uint32 dwFlags, uint16* pattr) GetScriptTextAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, char16* pszCode, uint32 cch, PWSTR pszDelimiter, uint32 dwFlags, uint16* pattr) GetScriptletTextAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, IScriptNode** ppsp) GetRoot;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, uint32* pgrfasa) GetLanguageFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, IDispatch* pdisp, PWSTR pszItem, PWSTR pszSubItem, PWSTR pszEvent, IScriptEntry** ppse) GetEventHandler;
@@ -22535,7 +22535,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, Guid* rguidTypeLib, uint32 dwMajor, uint32 dwMinor) RemoveTypeLib;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, uint32 fRequestedList, BSTR* pbstrChars) GetChars;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, PWSTR pszCode, uint32 cchCode, uint32 ichCurrentPosition, uint32 dwListTypesRequested, uint32* pdwListTypesProvided, uint32* pichListAnchorPosition, uint32* pichFuncAnchorPosition, int32* pmemid, int32* piCurrentParameter, IUnknown** ppunk) GetInfoFromContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, char8 ch, BOOL* pfcommit) IsCommitChar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, char16 ch, BOOL* pfcommit) IsCommitChar;
 	}
 
 
@@ -22545,9 +22545,9 @@ public static
 
 	public HRESULT ParseScriptText(PWSTR pszCode, PWSTR pszItemName, PWSTR pszDelimiter, uint32 dwCookie, uint32 dwFlags) mut => VT.[Friend]ParseScriptText(&this, pszCode, pszItemName, pszDelimiter, dwCookie, dwFlags);
 
-	public HRESULT GetScriptTextAttributes(char8* pszCode, uint32 cch, PWSTR pszDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptTextAttributes(&this, pszCode, cch, pszDelimiter, dwFlags, pattr);
+	public HRESULT GetScriptTextAttributes(char16* pszCode, uint32 cch, PWSTR pszDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptTextAttributes(&this, pszCode, cch, pszDelimiter, dwFlags, pattr);
 
-	public HRESULT GetScriptletTextAttributes(char8* pszCode, uint32 cch, PWSTR pszDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptletTextAttributes(&this, pszCode, cch, pszDelimiter, dwFlags, pattr);
+	public HRESULT GetScriptletTextAttributes(char16* pszCode, uint32 cch, PWSTR pszDelimiter, uint32 dwFlags, uint16* pattr) mut => VT.[Friend]GetScriptletTextAttributes(&this, pszCode, cch, pszDelimiter, dwFlags, pattr);
 
 	public HRESULT GetRoot(IScriptNode** ppsp) mut => VT.[Friend]GetRoot(&this, ppsp);
 
@@ -22565,7 +22565,7 @@ public static
 
 	public HRESULT GetInfoFromContext(PWSTR pszCode, uint32 cchCode, uint32 ichCurrentPosition, uint32 dwListTypesRequested, uint32* pdwListTypesProvided, uint32* pichListAnchorPosition, uint32* pichFuncAnchorPosition, int32* pmemid, int32* piCurrentParameter, IUnknown** ppunk) mut => VT.[Friend]GetInfoFromContext(&this, pszCode, cchCode, ichCurrentPosition, dwListTypesRequested, pdwListTypesProvided, pichListAnchorPosition, pichFuncAnchorPosition, pmemid, piCurrentParameter, ppunk);
 
-	public HRESULT IsCommitChar(char8 ch, BOOL* pfcommit) mut => VT.[Friend]IsCommitChar(&this, ch, pfcommit);
+	public HRESULT IsCommitChar(char16 ch, BOOL* pfcommit) mut => VT.[Friend]IsCommitChar(&this, ch, pfcommit);
 }
 
 [CRepr]struct IActiveScriptAuthorProcedure : IUnknown
@@ -23504,7 +23504,7 @@ public static
 	public static extern uint32 UnDecorateSymbolName(PSTR name, uint8* outputString, uint32 maxStringLength, uint32 flags);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UnDecorateSymbolNameW(PWSTR name, char8* outputString, uint32 maxStringLength, uint32 flags);
+	public static extern uint32 UnDecorateSymbolNameW(PWSTR name, char16* outputString, uint32 maxStringLength, uint32 flags);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StackWalk64(uint32 MachineType, HANDLE hProcess, HANDLE hThread, STACKFRAME64* StackFrame, void* ContextRecord, PREAD_PROCESS_MEMORY_ROUTINE64 ReadMemoryRoutine, PFUNCTION_TABLE_ACCESS_ROUTINE64 FunctionTableAccessRoutine, PGET_MODULE_BASE_ROUTINE64 GetModuleBaseRoutine, PTRANSLATE_ADDRESS_ROUTINE64 TranslateAddress);
@@ -23534,7 +23534,7 @@ public static
 	public static extern PSTR SymGetHomeDirectory(IMAGEHLP_HD_TYPE type, uint8* dir, uint size);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR SymGetHomeDirectoryW(IMAGEHLP_HD_TYPE type, char8* dir, uint size);
+	public static extern PWSTR SymGetHomeDirectoryW(IMAGEHLP_HD_TYPE type, char16* dir, uint size);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetOmaps(HANDLE hProcess, uint64 BaseOfDll, OMAP** OmapTo, uint64* cOmapTo, OMAP** OmapFrom, uint64* cOmapFrom);
@@ -23669,7 +23669,7 @@ public static
 	public static extern BOOL SymGetSourceFile(HANDLE hProcess, uint64 Base, PSTR Params, PSTR FileSpec, uint8* FilePath, uint32 Size);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetSourceFileW(HANDLE hProcess, uint64 Base, PWSTR Params, PWSTR FileSpec, char8* FilePath, uint32 Size);
+	public static extern BOOL SymGetSourceFileW(HANDLE hProcess, uint64 Base, PWSTR Params, PWSTR FileSpec, char16* FilePath, uint32 Size);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetSourceFileToken(HANDLE hProcess, uint64 Base, PSTR FileSpec, void** Token, uint32* Size);
@@ -23696,16 +23696,16 @@ public static
 	public static extern BOOL SymGetSourceFileFromTokenByTokenName(HANDLE hProcess, void* Token, PSTR TokenName, PSTR Params, uint8* FilePath, uint32 Size);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetSourceFileFromTokenW(HANDLE hProcess, void* Token, PWSTR Params, char8* FilePath, uint32 Size);
+	public static extern BOOL SymGetSourceFileFromTokenW(HANDLE hProcess, void* Token, PWSTR Params, char16* FilePath, uint32 Size);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetSourceFileFromTokenByTokenNameW(HANDLE hProcess, void* Token, PWSTR TokenName, PWSTR Params, char8* FilePath, uint32 Size);
+	public static extern BOOL SymGetSourceFileFromTokenByTokenNameW(HANDLE hProcess, void* Token, PWSTR TokenName, PWSTR Params, char16* FilePath, uint32 Size);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetSourceVarFromToken(HANDLE hProcess, void* Token, PSTR Params, PSTR VarName, uint8* Value, uint32 Size);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetSourceVarFromTokenW(HANDLE hProcess, void* Token, PWSTR Params, PWSTR VarName, char8* Value, uint32 Size);
+	public static extern BOOL SymGetSourceVarFromTokenW(HANDLE hProcess, void* Token, PWSTR Params, PWSTR VarName, char16* Value, uint32 Size);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymEnumSourceFileTokens(HANDLE hProcess, uint64 Base, PENUMSOURCEFILETOKENSCALLBACK Callback);
@@ -23720,7 +23720,7 @@ public static
 	public static extern BOOL SymGetSearchPath(HANDLE hProcess, uint8* SearchPathA, uint32 SearchPathLength);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetSearchPathW(HANDLE hProcess, char8* SearchPathA, uint32 SearchPathLength);
+	public static extern BOOL SymGetSearchPathW(HANDLE hProcess, char16* SearchPathA, uint32 SearchPathLength);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymSetSearchPath(HANDLE hProcess, PSTR SearchPathA);
@@ -23909,7 +23909,7 @@ public static
 	public static extern BOOL SymSrvGetFileIndexesW(PWSTR File, Guid* Id, uint32* Val1, uint32* Val2, uint32 Flags);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymSrvGetFileIndexStringW(HANDLE hProcess, PWSTR SrvPath, PWSTR File, char8* Index, uint Size, uint32 Flags);
+	public static extern BOOL SymSrvGetFileIndexStringW(HANDLE hProcess, PWSTR SrvPath, PWSTR File, char16* Index, uint Size, uint32 Flags);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymSrvGetFileIndexString(HANDLE hProcess, PSTR SrvPath, PSTR File, uint8* Index, uint Size, uint32 Flags);
@@ -23936,7 +23936,7 @@ public static
 	public static extern BOOL SymGetSymbolFile(HANDLE hProcess, PSTR SymPath, PSTR ImageFile, IMAGEHLP_SF_TYPE Type, uint8* SymbolFile, uint cSymbolFile, uint8* DbgFile, uint cDbgFile);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetSymbolFileW(HANDLE hProcess, PWSTR SymPath, PWSTR ImageFile, IMAGEHLP_SF_TYPE Type, char8* SymbolFile, uint cSymbolFile, char8* DbgFile, uint cDbgFile);
+	public static extern BOOL SymGetSymbolFileW(HANDLE hProcess, PWSTR SymPath, PWSTR ImageFile, IMAGEHLP_SF_TYPE Type, char16* SymbolFile, uint cSymbolFile, char16* DbgFile, uint cDbgFile);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DbgHelpCreateUserDump(PSTR FileName, PDBGHELP_CREATE_USER_DUMP_CALLBACK Callback, void* UserData);

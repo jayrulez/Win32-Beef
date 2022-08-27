@@ -2152,8 +2152,8 @@ public struct JET_COLUMNBASE_W
 	public uint16 wFiller;
 	public uint32 cbMax;
 	public uint32 grbit;
-	public char8[256] szBaseTableName;
-	public char8[256] szBaseColumnName;
+	public char16[256] szBaseTableName;
+	public char16[256] szBaseColumnName;
 }
 
 [CRepr]
@@ -3030,7 +3030,7 @@ public struct JET_ERRINFOBASIC_W
 	public JET_ERRCAT errcatMostSpecific;
 	public uint8[8] rgCategoricalHierarchy;
 	public uint32 lSourceLine;
-	public char8[64] rgszSourceFile;
+	public char16[64] rgszSourceFile;
 }
 
 #if BF_64_BIT || BF_ARM_64
@@ -3218,7 +3218,7 @@ public struct JET_LOGINFO_W
 	public uint32 cbSize;
 	public uint32 ulGenLow;
 	public uint32 ulGenHigh;
-	public char8[4] szBaseName;
+	public char16[4] szBaseName;
 }
 
 [CRepr]

@@ -1965,8 +1965,8 @@ public struct DSBITEMW
 	public uint32 dwMask;
 	public uint32 dwState;
 	public uint32 dwStateMask;
-	public char8[64] szDisplayName;
-	public char8[260] szIconLocation;
+	public char16[64] szDisplayName;
+	public char16[260] szIconLocation;
 	public int32 iIconResID;
 }
 
@@ -5588,10 +5588,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszServer, PWSTR pszUserName, PWSTR pszPassword, uint32 dwFlags) SetServer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, uint16 langid) SetLanguageID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, Guid* riid, void** ppv) GetDisplaySpecifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, uint32 dwFlags, char8* pszBuffer, int32 cchBuffer, int32* presid) GetIconLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, uint32 dwFlags, char16* pszBuffer, int32 cchBuffer, int32* presid) GetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HICON(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, uint32 dwFlags, int32 cxIcon, int32 cyIcon) GetIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, char8* pszBuffer, int32 cchBuffer) GetFriendlyClassName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, PWSTR pszAttributeName, char8* pszBuffer, uint32 cchBuffer) GetFriendlyAttributeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, char16* pszBuffer, int32 cchBuffer) GetFriendlyClassName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, PWSTR pszAttributeName, char16* pszBuffer, uint32 cchBuffer) GetFriendlyAttributeName;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, PWSTR pszADsPath, uint32 dwFlags) IsClassContainer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, DSCLASSCREATIONINFO** ppdscci) GetClassCreationInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, LPDSENUMATTRIBUTES pcbEnum, LPARAM lParam) EnumClassAttributes;
@@ -5605,13 +5605,13 @@ public static
 
 	public HRESULT GetDisplaySpecifier(PWSTR pszObjectClass, Guid* riid, void** ppv) mut => VT.[Friend]GetDisplaySpecifier(&this, pszObjectClass, riid, ppv);
 
-	public HRESULT GetIconLocation(PWSTR pszObjectClass, uint32 dwFlags, char8* pszBuffer, int32 cchBuffer, int32* presid) mut => VT.[Friend]GetIconLocation(&this, pszObjectClass, dwFlags, pszBuffer, cchBuffer, presid);
+	public HRESULT GetIconLocation(PWSTR pszObjectClass, uint32 dwFlags, char16* pszBuffer, int32 cchBuffer, int32* presid) mut => VT.[Friend]GetIconLocation(&this, pszObjectClass, dwFlags, pszBuffer, cchBuffer, presid);
 
 	public HICON GetIcon(PWSTR pszObjectClass, uint32 dwFlags, int32 cxIcon, int32 cyIcon) mut => VT.[Friend]GetIcon(&this, pszObjectClass, dwFlags, cxIcon, cyIcon);
 
-	public HRESULT GetFriendlyClassName(PWSTR pszObjectClass, char8* pszBuffer, int32 cchBuffer) mut => VT.[Friend]GetFriendlyClassName(&this, pszObjectClass, pszBuffer, cchBuffer);
+	public HRESULT GetFriendlyClassName(PWSTR pszObjectClass, char16* pszBuffer, int32 cchBuffer) mut => VT.[Friend]GetFriendlyClassName(&this, pszObjectClass, pszBuffer, cchBuffer);
 
-	public HRESULT GetFriendlyAttributeName(PWSTR pszObjectClass, PWSTR pszAttributeName, char8* pszBuffer, uint32 cchBuffer) mut => VT.[Friend]GetFriendlyAttributeName(&this, pszObjectClass, pszAttributeName, pszBuffer, cchBuffer);
+	public HRESULT GetFriendlyAttributeName(PWSTR pszObjectClass, PWSTR pszAttributeName, char16* pszBuffer, uint32 cchBuffer) mut => VT.[Friend]GetFriendlyAttributeName(&this, pszObjectClass, pszAttributeName, pszBuffer, cchBuffer);
 
 	public BOOL IsClassContainer(PWSTR pszObjectClass, PWSTR pszADsPath, uint32 dwFlags) mut => VT.[Friend]IsClassContainer(&this, pszObjectClass, pszADsPath, dwFlags);
 
@@ -5790,7 +5790,7 @@ public static
 	public static extern HRESULT ADsOpenObject(PWSTR lpszPathName, PWSTR lpszUserName, PWSTR lpszPassword, ADS_AUTHENTICATION_ENUM dwReserved, Guid* riid, void** ppObject);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ADsGetLastError(uint32* lpError, char8* lpErrorBuf, uint32 dwErrorBufLen, char8* lpNameBuf, uint32 dwNameBufLen);
+	public static extern HRESULT ADsGetLastError(uint32* lpError, char16* lpErrorBuf, uint32 dwErrorBufLen, char16* lpNameBuf, uint32 dwNameBufLen);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void ADsSetLastError(uint32 dwErr, PWSTR pszError, PWSTR pszProvider);
@@ -5845,7 +5845,7 @@ public static
 	public static extern HICON DsGetIcon(uint32 dwFlags, PWSTR pszObjectClass, int32 cxImage, int32 cyImage);
 
 	[Import("dsuiext.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DsGetFriendlyClassName(PWSTR pszObjectClass, char8* pszBuffer, uint32 cchBuffer);
+	public static extern HRESULT DsGetFriendlyClassName(PWSTR pszObjectClass, char16* pszBuffer, uint32 cchBuffer);
 
 	[Import("dsprop.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ADsPropCreateNotifyObj(IDataObject* pAppThdDataObj, PWSTR pwzADsObjName, HWND* phNotifyObj);
@@ -5869,7 +5869,7 @@ public static
 	public static extern BOOL ADsPropShowErrorDialog(HWND hNotifyObj, HWND hPage);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsMakeSpnW(PWSTR ServiceClass, PWSTR ServiceName, PWSTR InstanceName, uint16 InstancePort, PWSTR Referrer, uint32* pcSpnLength, char8* pszSpn);
+	public static extern uint32 DsMakeSpnW(PWSTR ServiceClass, PWSTR ServiceName, PWSTR InstanceName, uint16 InstancePort, PWSTR Referrer, uint32* pcSpnLength, char16* pszSpn);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsMakeSpnA(PSTR ServiceClass, PSTR ServiceName, PSTR InstanceName, uint16 InstancePort, PSTR Referrer, uint32* pcSpnLength, uint8* pszSpn);
@@ -5880,17 +5880,17 @@ public static
 	public static uint32 DsCrackSpn(PSTR pszSpn, uint32* pcServiceClass, uint8* ServiceClass, uint32* pcServiceName, uint8* ServiceName, uint32* pcInstanceName, uint8* InstanceName, uint16* pInstancePort) => DsCrackSpnA(pszSpn, pcServiceClass, ServiceClass, pcServiceName, ServiceName, pcInstanceName, InstanceName, pInstancePort);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsCrackSpnW(PWSTR pszSpn, uint32* pcServiceClass, char8* ServiceClass, uint32* pcServiceName, char8* ServiceName, uint32* pcInstanceName, char8* InstanceName, uint16* pInstancePort);
+	public static extern uint32 DsCrackSpnW(PWSTR pszSpn, uint32* pcServiceClass, char16* ServiceClass, uint32* pcServiceName, char16* ServiceName, uint32* pcInstanceName, char16* InstanceName, uint16* pInstancePort);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsQuoteRdnValueW(uint32 cUnquotedRdnValueLength, char8* psUnquotedRdnValue, uint32* pcQuotedRdnValueLength, char8* psQuotedRdnValue);
+	public static extern uint32 DsQuoteRdnValueW(uint32 cUnquotedRdnValueLength, char16* psUnquotedRdnValue, uint32* pcQuotedRdnValueLength, char16* psQuotedRdnValue);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsQuoteRdnValueA(uint32 cUnquotedRdnValueLength, uint8* psUnquotedRdnValue, uint32* pcQuotedRdnValueLength, uint8* psQuotedRdnValue);
 	public static uint32 DsQuoteRdnValue(uint32 cUnquotedRdnValueLength, uint8* psUnquotedRdnValue, uint32* pcQuotedRdnValueLength, uint8* psQuotedRdnValue) => DsQuoteRdnValueA(cUnquotedRdnValueLength, psUnquotedRdnValue, pcQuotedRdnValueLength, psQuotedRdnValue);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsUnquoteRdnValueW(uint32 cQuotedRdnValueLength, char8* psQuotedRdnValue, uint32* pcUnquotedRdnValueLength, char8* psUnquotedRdnValue);
+	public static extern uint32 DsUnquoteRdnValueW(uint32 cQuotedRdnValueLength, char16* psQuotedRdnValue, uint32* pcUnquotedRdnValueLength, char16* psUnquotedRdnValue);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsUnquoteRdnValueA(uint32 cQuotedRdnValueLength, uint8* psQuotedRdnValue, uint32* pcUnquotedRdnValueLength, uint8* psUnquotedRdnValue);
@@ -5900,14 +5900,14 @@ public static
 	public static extern uint32 DsGetRdnW(PWSTR* ppDN, uint32* pcDN, PWSTR* ppKey, uint32* pcKey, PWSTR* ppVal, uint32* pcVal);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DsCrackUnquotedMangledRdnW(char8* pszRDN, uint32 cchRDN, Guid* pGuid, DS_MANGLE_FOR* peDsMangleFor);
+	public static extern BOOL DsCrackUnquotedMangledRdnW(char16* pszRDN, uint32 cchRDN, Guid* pGuid, DS_MANGLE_FOR* peDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsCrackUnquotedMangledRdnA(uint8* pszRDN, uint32 cchRDN, Guid* pGuid, DS_MANGLE_FOR* peDsMangleFor);
 	public static BOOL DsCrackUnquotedMangledRdn(uint8* pszRDN, uint32 cchRDN, Guid* pGuid, DS_MANGLE_FOR* peDsMangleFor) => DsCrackUnquotedMangledRdnA(pszRDN, cchRDN, pGuid, peDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DsIsMangledRdnValueW(char8* pszRdn, uint32 cRdn, DS_MANGLE_FOR eDsMangleForDesired);
+	public static extern BOOL DsIsMangledRdnValueW(char16* pszRdn, uint32 cRdn, DS_MANGLE_FOR eDsMangleForDesired);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsIsMangledRdnValueA(uint8* pszRdn, uint32 cRdn, DS_MANGLE_FOR eDsMangleForDesired);
@@ -5925,13 +5925,13 @@ public static
 	public static uint32 DsCrackSpn2(uint8* pszSpn, uint32 cSpn, uint32* pcServiceClass, uint8* ServiceClass, uint32* pcServiceName, uint8* ServiceName, uint32* pcInstanceName, uint8* InstanceName, uint16* pInstancePort) => DsCrackSpn2A(pszSpn, cSpn, pcServiceClass, ServiceClass, pcServiceName, ServiceName, pcInstanceName, InstanceName, pInstancePort);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsCrackSpn2W(char8* pszSpn, uint32 cSpn, uint32* pcServiceClass, char8* ServiceClass, uint32* pcServiceName, char8* ServiceName, uint32* pcInstanceName, char8* InstanceName, uint16* pInstancePort);
+	public static extern uint32 DsCrackSpn2W(char16* pszSpn, uint32 cSpn, uint32* pcServiceClass, char16* ServiceClass, uint32* pcServiceName, char16* ServiceName, uint32* pcInstanceName, char16* InstanceName, uint16* pInstancePort);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsCrackSpn3W(PWSTR pszSpn, uint32 cSpn, uint32* pcHostName, char8* HostName, uint32* pcInstanceName, char8* InstanceName, uint16* pPortNumber, uint32* pcDomainName, char8* DomainName, uint32* pcRealmName, char8* RealmName);
+	public static extern uint32 DsCrackSpn3W(PWSTR pszSpn, uint32 cSpn, uint32* pcHostName, char16* HostName, uint32* pcInstanceName, char16* InstanceName, uint16* pPortNumber, uint32* pcDomainName, char16* DomainName, uint32* pcRealmName, char16* RealmName);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsCrackSpn4W(PWSTR pszSpn, uint32 cSpn, uint32* pcHostName, char8* HostName, uint32* pcInstanceName, char8* InstanceName, uint32* pcPortName, char8* PortName, uint32* pcDomainName, char8* DomainName, uint32* pcRealmName, char8* RealmName);
+	public static extern uint32 DsCrackSpn4W(PWSTR pszSpn, uint32 cSpn, uint32* pcHostName, char16* HostName, uint32* pcInstanceName, char16* InstanceName, uint32* pcPortName, char16* PortName, uint32* pcDomainName, char16* DomainName, uint32* pcRealmName, char16* RealmName);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindW(PWSTR DomainControllerName, PWSTR DnsDomainName, HANDLE* phDS);
@@ -6031,7 +6031,7 @@ public static
 	public static extern uint32 DsWriteAccountSpnW(HANDLE hDS, DS_SPN_WRITE_OP Operation, PWSTR pszAccount, uint32 cSpn, PWSTR* rpszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsClientMakeSpnForTargetServerW(PWSTR ServiceClass, PWSTR ServiceName, uint32* pcSpnLength, char8* pszSpn);
+	public static extern uint32 DsClientMakeSpnForTargetServerW(PWSTR ServiceClass, PWSTR ServiceName, uint32* pcSpnLength, char16* pszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsClientMakeSpnForTargetServerA(PSTR ServiceClass, PSTR ServiceName, uint32* pcSpnLength, uint8* pszSpn);

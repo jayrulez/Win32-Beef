@@ -1833,10 +1833,10 @@ public struct RASCONNW
 {
 	public uint32 dwSize;
 	public HRASCONN hrasconn;
-	public char8[257] szEntryName;
-	public char8[17] szDeviceType;
-	public char8[129] szDeviceName;
-	public char8[260] szPhonebook;
+	public char16[257] szEntryName;
+	public char16[17] szDeviceType;
+	public char16[129] szDeviceName;
+	public char16[260] szPhonebook;
 	public uint32 dwSubEntry;
 	public Guid guidEntry;
 	public uint32 dwFlags;
@@ -1866,9 +1866,9 @@ public struct RASCONNSTATUSW
 	public uint32 dwSize;
 	public RASCONNSTATE rasconnstate;
 	public uint32 dwError;
-	public char8[17] szDeviceType;
-	public char8[129] szDeviceName;
-	public char8[129] szPhoneNumber;
+	public char16[17] szDeviceType;
+	public char16[129] szDeviceName;
+	public char16[129] szPhoneNumber;
 	public RASTUNNELENDPOINT localEndPoint;
 	public RASTUNNELENDPOINT remoteEndPoint;
 	public RASCONNSUBSTATE rasconnsubstate;
@@ -1892,12 +1892,12 @@ public struct RASCONNSTATUSA
 public struct RASDIALPARAMSW
 {
 	public uint32 dwSize;
-	public char8[257] szEntryName;
-	public char8[129] szPhoneNumber;
-	public char8[129] szCallbackNumber;
-	public char8[257] szUserName;
-	public char8[257] szPassword;
-	public char8[16] szDomain;
+	public char16[257] szEntryName;
+	public char16[129] szPhoneNumber;
+	public char16[129] szCallbackNumber;
+	public char16[257] szUserName;
+	public char16[257] szPassword;
+	public char16[16] szDomain;
 	public uint32 dwSubEntry;
 	public uint dwCallbackId;
 	public uint32 dwIfIndex;
@@ -1951,9 +1951,9 @@ public struct RASDIALEXTENSIONS
 public struct RASENTRYNAMEW
 {
 	public uint32 dwSize;
-	public char8[257] szEntryName;
+	public char16[257] szEntryName;
 	public uint32 dwFlags;
-	public char8[261] szPhonebookPath;
+	public char16[261] szPhonebookPath;
 }
 
 [CRepr]
@@ -1970,7 +1970,7 @@ public struct RASAMBW
 {
 	public uint32 dwSize;
 	public uint32 dwError;
-	public char8[17] szNetBiosError;
+	public char16[17] szNetBiosError;
 	public uint8 bLana;
 }
 
@@ -1989,8 +1989,8 @@ public struct RASPPPNBFW
 	public uint32 dwSize;
 	public uint32 dwError;
 	public uint32 dwNetBiosError;
-	public char8[17] szNetBiosError;
-	public char8[17] szWorkstationName;
+	public char16[17] szNetBiosError;
+	public char16[17] szWorkstationName;
 	public uint8 bLana;
 }
 
@@ -2010,7 +2010,7 @@ public struct RASIPXW
 {
 	public uint32 dwSize;
 	public uint32 dwError;
-	public char8[22] szIpxAddress;
+	public char16[22] szIpxAddress;
 }
 
 [CRepr]
@@ -2026,8 +2026,8 @@ public struct RASPPPIPW
 {
 	public uint32 dwSize;
 	public uint32 dwError;
-	public char8[16] szIpAddress;
-	public char8[16] szServerIpAddress;
+	public char16[16] szIpAddress;
+	public char16[16] szServerIpAddress;
 	public uint32 dwOptions;
 	public uint32 dwServerOptions;
 }
@@ -2069,7 +2069,7 @@ public struct RASPPPLCPW
 	public BOOL fMultilink;
 	public uint32 dwTerminateReason;
 	public uint32 dwServerTerminateReason;
-	public char8[1024] szReplyMessage;
+	public char16[1024] szReplyMessage;
 	public uint32 dwOptions;
 	public uint32 dwServerOptions;
 }
@@ -2172,8 +2172,8 @@ public struct RAS_PROJECTION_INFO
 public struct RASDEVINFOW
 {
 	public uint32 dwSize;
-	public char8[17] szDeviceType;
-	public char8[129] szDeviceName;
+	public char16[17] szDeviceType;
+	public char16[129] szDeviceName;
 }
 
 [CRepr]
@@ -2267,8 +2267,8 @@ public struct RASENTRYW
 	public uint32 dwfOptions;
 	public uint32 dwCountryID;
 	public uint32 dwCountryCode;
-	public char8[11] szAreaCode;
-	public char8[129] szLocalPhoneNumber;
+	public char16[11] szAreaCode;
+	public char16[129] szLocalPhoneNumber;
 	public uint32 dwAlternateOffset;
 	public RASIPADDR ipaddr;
 	public RASIPADDR ipaddrDns;
@@ -2278,15 +2278,15 @@ public struct RASENTRYW
 	public uint32 dwFrameSize;
 	public uint32 dwfNetProtocols;
 	public uint32 dwFramingProtocol;
-	public char8[260] szScript;
-	public char8[260] szAutodialDll;
-	public char8[260] szAutodialFunc;
-	public char8[17] szDeviceType;
-	public char8[129] szDeviceName;
-	public char8[33] szX25PadType;
-	public char8[201] szX25Address;
-	public char8[201] szX25Facilities;
-	public char8[201] szX25UserData;
+	public char16[260] szScript;
+	public char16[260] szAutodialDll;
+	public char16[260] szAutodialFunc;
+	public char16[17] szDeviceType;
+	public char16[129] szDeviceName;
+	public char16[33] szX25PadType;
+	public char16[201] szX25Address;
+	public char16[201] szX25Facilities;
+	public char16[201] szX25UserData;
 	public uint32 dwChannels;
 	public uint32 dwReserved1;
 	public uint32 dwReserved2;
@@ -2301,14 +2301,14 @@ public struct RASENTRYW
 	public uint32 dwEncryptionType;
 	public uint32 dwCustomAuthKey;
 	public Guid guidId;
-	public char8[260] szCustomDialDll;
+	public char16[260] szCustomDialDll;
 	public uint32 dwVpnStrategy;
 	public uint32 dwfOptions2;
 	public uint32 dwfOptions3;
-	public char8[256] szDnsSuffix;
+	public char16[256] szDnsSuffix;
 	public uint32 dwTcpWindowSize;
-	public char8[260] szPrerequisitePbk;
-	public char8[257] szPrerequisiteEntry;
+	public char16[260] szPrerequisitePbk;
+	public char16[257] szPrerequisiteEntry;
 	public uint32 dwRedialCount;
 	public uint32 dwRedialPause;
 	public IN6_ADDR ipv6addrDns;
@@ -2318,8 +2318,8 @@ public struct RASENTRYW
 	public IN6_ADDR ipv6addr;
 	public uint32 dwIPv6PrefixLength;
 	public uint32 dwNetworkOutageTime;
-	public char8[257] szIDi;
-	public char8[257] szIDr;
+	public char16[257] szIDi;
+	public char16[257] szIDr;
 	public BOOL fIsImsConfig;
 	public IKEV2_ID_PAYLOAD_TYPE IdiType;
 	public IKEV2_ID_PAYLOAD_TYPE IdrType;
@@ -2352,9 +2352,9 @@ public struct RASSUBENTRYW
 {
 	public uint32 dwSize;
 	public uint32 dwfFlags;
-	public char8[17] szDeviceType;
-	public char8[129] szDeviceName;
-	public char8[129] szLocalPhoneNumber;
+	public char16[17] szDeviceType;
+	public char16[129] szDeviceName;
+	public char16[129] szLocalPhoneNumber;
 	public uint32 dwAlternateOffset;
 }
 
@@ -2373,9 +2373,9 @@ public struct RASCREDENTIALSW
 {
 	public uint32 dwSize;
 	public uint32 dwMask;
-	public char8[257] szUserName;
-	public char8[257] szPassword;
-	public char8[16] szDomain;
+	public char16[257] szUserName;
+	public char16[257] szPassword;
+	public char16[16] szDomain;
 }
 
 [CRepr]
@@ -2393,7 +2393,7 @@ public struct RASAUTODIALENTRYW
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public uint32 dwDialingLocation;
-	public char8[257] szEntry;
+	public char16[257] szEntry;
 }
 
 [CRepr]
@@ -2407,7 +2407,7 @@ public struct RASEAPUSERIDENTITYA
 [CRepr]
 public struct RASEAPUSERIDENTITYW
 {
-	public char8[257] szUserName;
+	public char16[257] szUserName;
 	public uint32 dwSizeofEapInfo;
 	public uint8[1] pbEapInfo;
 }
@@ -2466,9 +2466,9 @@ public struct RASNOUSERW
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public uint32 dwTimeoutMs;
-	public char8[257] szUserName;
-	public char8[257] szPassword;
-	public char8[16] szDomain;
+	public char16[257] szUserName;
+	public char16[257] szPassword;
+	public char16[16] szDomain;
 }
 
 [CRepr]
@@ -2520,7 +2520,7 @@ public struct RASENTRYDLGW
 	public uint32 dwFlags;
 	public int32 xDlg;
 	public int32 yDlg;
-	public char8[257] szEntry;
+	public char16[257] szEntry;
 	public uint32 dwError;
 	public uint reserved;
 	public uint reserved2;
@@ -2557,7 +2557,7 @@ public struct RASDIALDLG
 [CRepr]
 public struct MPR_INTERFACE_0
 {
-	public char8[257] wszInterfaceName;
+	public char16[257] wszInterfaceName;
 	public HANDLE hInterface;
 	public BOOL fEnabled;
 	public ROUTER_INTERFACE_TYPE dwIfType;
@@ -2569,14 +2569,14 @@ public struct MPR_INTERFACE_0
 [CRepr]
 public struct MPR_IPINIP_INTERFACE_0
 {
-	public char8[257] wszFriendlyName;
+	public char16[257] wszFriendlyName;
 	public Guid Guid;
 }
 
 [CRepr]
 public struct MPR_INTERFACE_1
 {
-	public char8[257] wszInterfaceName;
+	public char16[257] wszInterfaceName;
 	public HANDLE hInterface;
 	public BOOL fEnabled;
 	public ROUTER_INTERFACE_TYPE dwIfType;
@@ -2589,7 +2589,7 @@ public struct MPR_INTERFACE_1
 [CRepr]
 public struct MPR_INTERFACE_2
 {
-	public char8[257] wszInterfaceName;
+	public char16[257] wszInterfaceName;
 	public HANDLE hInterface;
 	public BOOL fEnabled;
 	public ROUTER_INTERFACE_TYPE dwIfType;
@@ -2597,7 +2597,7 @@ public struct MPR_INTERFACE_2
 	public uint32 fUnReachabilityReasons;
 	public uint32 dwLastError;
 	public uint32 dwfOptions;
-	public char8[129] szLocalPhoneNumber;
+	public char16[129] szLocalPhoneNumber;
 	public PWSTR szAlternates;
 	public uint32 ipaddr;
 	public uint32 ipaddrDns;
@@ -2605,12 +2605,12 @@ public struct MPR_INTERFACE_2
 	public uint32 ipaddrWins;
 	public uint32 ipaddrWinsAlt;
 	public uint32 dwfNetProtocols;
-	public char8[17] szDeviceType;
-	public char8[129] szDeviceName;
-	public char8[33] szX25PadType;
-	public char8[201] szX25Address;
-	public char8[201] szX25Facilities;
-	public char8[201] szX25UserData;
+	public char16[17] szDeviceType;
+	public char16[129] szDeviceName;
+	public char16[33] szX25PadType;
+	public char16[201] szX25Address;
+	public char16[201] szX25Facilities;
+	public char16[201] szX25UserData;
 	public uint32 dwChannels;
 	public uint32 dwSubEntries;
 	public MPR_INTERFACE_DIAL_MODE dwDialMode;
@@ -2631,7 +2631,7 @@ public struct MPR_INTERFACE_2
 [CRepr]
 public struct MPR_INTERFACE_3
 {
-	public char8[257] wszInterfaceName;
+	public char16[257] wszInterfaceName;
 	public HANDLE hInterface;
 	public BOOL fEnabled;
 	public ROUTER_INTERFACE_TYPE dwIfType;
@@ -2639,7 +2639,7 @@ public struct MPR_INTERFACE_3
 	public uint32 fUnReachabilityReasons;
 	public uint32 dwLastError;
 	public uint32 dwfOptions;
-	public char8[129] szLocalPhoneNumber;
+	public char16[129] szLocalPhoneNumber;
 	public PWSTR szAlternates;
 	public uint32 ipaddr;
 	public uint32 ipaddrDns;
@@ -2647,12 +2647,12 @@ public struct MPR_INTERFACE_3
 	public uint32 ipaddrWins;
 	public uint32 ipaddrWinsAlt;
 	public uint32 dwfNetProtocols;
-	public char8[17] szDeviceType;
-	public char8[129] szDeviceName;
-	public char8[33] szX25PadType;
-	public char8[201] szX25Address;
-	public char8[201] szX25Facilities;
-	public char8[201] szX25UserData;
+	public char16[17] szDeviceType;
+	public char16[129] szDeviceName;
+	public char16[33] szX25PadType;
+	public char16[201] szX25Address;
+	public char16[201] szX25Facilities;
+	public char16[201] szX25UserData;
 	public uint32 dwChannels;
 	public uint32 dwSubEntries;
 	public MPR_INTERFACE_DIAL_MODE dwDialMode;
@@ -2677,16 +2677,16 @@ public struct MPR_INTERFACE_3
 [CRepr]
 public struct MPR_DEVICE_0
 {
-	public char8[17] szDeviceType;
-	public char8[129] szDeviceName;
+	public char16[17] szDeviceType;
+	public char16[129] szDeviceName;
 }
 
 [CRepr]
 public struct MPR_DEVICE_1
 {
-	public char8[17] szDeviceType;
-	public char8[129] szDeviceName;
-	public char8[129] szLocalPhoneNumber;
+	public char16[17] szDeviceType;
+	public char16[129] szDeviceName;
+	public char16[129] szLocalPhoneNumber;
 	public PWSTR szAlternates;
 }
 
@@ -2709,7 +2709,7 @@ public struct MPR_TRANSPORT_0
 {
 	public uint32 dwTransportId;
 	public HANDLE hTransport;
-	public char8[41] wszTransportName;
+	public char16[41] wszTransportName;
 }
 
 [CRepr]
@@ -2717,7 +2717,7 @@ public struct MPR_IFTRANSPORT_0
 {
 	public uint32 dwTransportId;
 	public HANDLE hIfTransport;
-	public char8[41] wszIfTransportName;
+	public char16[41] wszIfTransportName;
 }
 
 [CRepr]
@@ -2757,10 +2757,10 @@ public struct RAS_PORT_0
 	public RAS_PORT_CONDITION dwPortCondition;
 	public uint32 dwTotalNumberOfCalls;
 	public uint32 dwConnectDuration;
-	public char8[17] wszPortName;
-	public char8[17] wszMediaName;
-	public char8[129] wszDeviceName;
-	public char8[17] wszDeviceType;
+	public char16[17] wszPortName;
+	public char16[17] wszMediaName;
+	public char16[129] wszDeviceName;
+	public char16[17] wszDeviceType;
 }
 
 [CRepr]
@@ -2790,10 +2790,10 @@ public struct RAS_PORT_2
 	public HANDLE hPort;
 	public HANDLE hConnection;
 	public uint32 dwConn_State;
-	public char8[17] wszPortName;
-	public char8[17] wszMediaName;
-	public char8[129] wszDeviceName;
-	public char8[17] wszDeviceType;
+	public char16[17] wszPortName;
+	public char16[17] wszMediaName;
+	public char16[129] wszDeviceName;
+	public char16[17] wszDeviceType;
 	public RAS_HARDWARE_CONDITION dwHardwareCondition;
 	public uint32 dwLineSpeed;
 	public uint32 dwCrcErr;
@@ -2820,23 +2820,23 @@ public struct RAS_PORT_2
 public struct PPP_NBFCP_INFO
 {
 	public uint32 dwError;
-	public char8[17] wszWksta;
+	public char16[17] wszWksta;
 }
 
 [CRepr]
 public struct PPP_IPCP_INFO
 {
 	public uint32 dwError;
-	public char8[16] wszAddress;
-	public char8[16] wszRemoteAddress;
+	public char16[16] wszAddress;
+	public char16[16] wszRemoteAddress;
 }
 
 [CRepr]
 public struct PPP_IPCP_INFO2
 {
 	public uint32 dwError;
-	public char8[16] wszAddress;
-	public char8[16] wszRemoteAddress;
+	public char16[16] wszAddress;
+	public char16[16] wszRemoteAddress;
 	public uint32 dwOptions;
 	public uint32 dwRemoteOptions;
 }
@@ -2845,14 +2845,14 @@ public struct PPP_IPCP_INFO2
 public struct PPP_IPXCP_INFO
 {
 	public uint32 dwError;
-	public char8[23] wszAddress;
+	public char16[23] wszAddress;
 }
 
 [CRepr]
 public struct PPP_ATCP_INFO
 {
 	public uint32 dwError;
-	public char8[33] wszAddress;
+	public char16[33] wszAddress;
 }
 
 [CRepr]
@@ -2933,10 +2933,10 @@ public struct RAS_CONNECTION_0
 	public uint32 dwConnectDuration;
 	public ROUTER_INTERFACE_TYPE dwInterfaceType;
 	public RAS_FLAGS dwConnectionFlags;
-	public char8[257] wszInterfaceName;
-	public char8[257] wszUserName;
-	public char8[16] wszLogonDomain;
-	public char8[17] wszRemoteComputer;
+	public char16[257] wszInterfaceName;
+	public char16[257] wszUserName;
+	public char16[16] wszLogonDomain;
+	public char16[17] wszRemoteComputer;
 }
 
 [CRepr]
@@ -2963,7 +2963,7 @@ public struct RAS_CONNECTION_1
 public struct RAS_CONNECTION_2
 {
 	public HANDLE hConnection;
-	public char8[257] wszUserName;
+	public char16[257] wszUserName;
 	public ROUTER_INTERFACE_TYPE dwInterfaceType;
 	public Guid guid;
 	public PPP_INFO_2 PppInfo2;
@@ -2975,7 +2975,7 @@ public struct RAS_CONNECTION_3
 	public uint32 dwVersion;
 	public uint32 dwSize;
 	public HANDLE hConnection;
-	public char8[257] wszUserName;
+	public char16[257] wszUserName;
 	public ROUTER_INTERFACE_TYPE dwInterfaceType;
 	public Guid guid;
 	public PPP_INFO_3 PppInfo3;
@@ -2987,14 +2987,14 @@ public struct RAS_CONNECTION_3
 public struct RAS_USER_0
 {
 	public uint8 bfPrivilege;
-	public char8[129] wszPhoneNumber;
+	public char16[129] wszPhoneNumber;
 }
 
 [CRepr]
 public struct RAS_USER_1
 {
 	public uint8 bfPrivilege;
-	public char8[129] wszPhoneNumber;
+	public char16[129] wszPhoneNumber;
 	public uint8 bfPrivilege2;
 }
 
@@ -3016,8 +3016,8 @@ public struct MPRAPI_OBJECT_HEADER
 public struct PPP_PROJECTION_INFO
 {
 	public uint32 dwIPv4NegotiationError;
-	public char8[16] wszAddress;
-	public char8[16] wszRemoteAddress;
+	public char16[16] wszAddress;
+	public char16[16] wszRemoteAddress;
 	public uint32 dwIPv4Options;
 	public uint32 dwIPv4RemoteOptions;
 	public uint64 IPv4SubInterfaceIndex;
@@ -3049,8 +3049,8 @@ public struct PPP_PROJECTION_INFO
 public struct PPP_PROJECTION_INFO2
 {
 	public uint32 dwIPv4NegotiationError;
-	public char8[16] wszAddress;
-	public char8[16] wszRemoteAddress;
+	public char16[16] wszAddress;
+	public char16[16] wszRemoteAddress;
 	public uint32 dwIPv4Options;
 	public uint32 dwIPv4RemoteOptions;
 	public uint64 IPv4SubInterfaceIndex;
@@ -3083,8 +3083,8 @@ public struct PPP_PROJECTION_INFO2
 public struct IKEV2_PROJECTION_INFO
 {
 	public uint32 dwIPv4NegotiationError;
-	public char8[16] wszAddress;
-	public char8[16] wszRemoteAddress;
+	public char16[16] wszAddress;
+	public char16[16] wszRemoteAddress;
 	public uint64 IPv4SubInterfaceIndex;
 	public uint32 dwIPv6NegotiationError;
 	public uint8[8] bInterfaceIdentifier;
@@ -3103,8 +3103,8 @@ public struct IKEV2_PROJECTION_INFO
 public struct IKEV2_PROJECTION_INFO2
 {
 	public uint32 dwIPv4NegotiationError;
-	public char8[16] wszAddress;
-	public char8[16] wszRemoteAddress;
+	public char16[16] wszAddress;
+	public char16[16] wszRemoteAddress;
 	public uint64 IPv4SubInterfaceIndex;
 	public uint32 dwIPv6NegotiationError;
 	public uint8[8] bInterfaceIdentifier;
@@ -3155,10 +3155,10 @@ public struct RAS_CONNECTION_EX
 	public uint32 dwConnectDuration;
 	public ROUTER_INTERFACE_TYPE dwInterfaceType;
 	public RAS_FLAGS dwConnectionFlags;
-	public char8[257] wszInterfaceName;
-	public char8[257] wszUserName;
-	public char8[16] wszLogonDomain;
-	public char8[17] wszRemoteComputer;
+	public char16[257] wszInterfaceName;
+	public char16[257] wszUserName;
+	public char16[16] wszLogonDomain;
+	public char16[17] wszRemoteComputer;
 	public Guid guid;
 	public RAS_QUARANTINE_STATE rasQuarState;
 	public FILETIME probationTime;
@@ -3175,8 +3175,8 @@ public struct RAS_CONNECTION_EX
 	public uint32 dwCompressionRatioIn;
 	public uint32 dwCompressionRatioOut;
 	public uint32 dwNumSwitchOvers;
-	public char8[65] wszRemoteEndpointAddress;
-	public char8[65] wszLocalEndpointAddress;
+	public char16[65] wszRemoteEndpointAddress;
+	public char16[65] wszLocalEndpointAddress;
 	public PROJECTION_INFO ProjectionInfo;
 	public HANDLE hConnection;
 	public HANDLE hInterface;
@@ -3188,10 +3188,10 @@ public struct RAS_CONNECTION_4
 	public uint32 dwConnectDuration;
 	public ROUTER_INTERFACE_TYPE dwInterfaceType;
 	public RAS_FLAGS dwConnectionFlags;
-	public char8[257] wszInterfaceName;
-	public char8[257] wszUserName;
-	public char8[16] wszLogonDomain;
-	public char8[17] wszRemoteComputer;
+	public char16[257] wszInterfaceName;
+	public char16[257] wszUserName;
+	public char16[16] wszLogonDomain;
+	public char16[17] wszRemoteComputer;
 	public Guid guid;
 	public RAS_QUARANTINE_STATE rasQuarState;
 	public FILETIME probationTime;
@@ -3209,8 +3209,8 @@ public struct RAS_CONNECTION_4
 	public uint32 dwCompressionRatioIn;
 	public uint32 dwCompressionRatioOut;
 	public uint32 dwNumSwitchOvers;
-	public char8[65] wszRemoteEndpointAddress;
-	public char8[65] wszLocalEndpointAddress;
+	public char16[65] wszRemoteEndpointAddress;
+	public char16[65] wszLocalEndpointAddress;
 	public PROJECTION_INFO2 ProjectionInfo;
 	public HANDLE hConnection;
 	public HANDLE hInterface;
@@ -3519,8 +3519,8 @@ public struct AUTH_VALIDATION_EX
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public HANDLE hRasConnection;
-	public char8[257] wszUserName;
-	public char8[16] wszLogonDomain;
+	public char16[257] wszUserName;
+	public char16[16] wszLogonDomain;
 	public uint32 AuthInfoSize;
 	public uint8[1] AuthInfo;
 }
@@ -3530,8 +3530,8 @@ public struct RAS_UPDATE_CONNECTION
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public uint32 dwIfIndex;
-	public char8[65] wszLocalEndpointAddress;
-	public char8[65] wszRemoteEndpointAddress;
+	public char16[65] wszLocalEndpointAddress;
+	public char16[65] wszRemoteEndpointAddress;
 }
 
 [CRepr]
@@ -3782,7 +3782,7 @@ public static
 	public static uint32 RasGetErrorString(uint32 ResourceId, uint8* lpszString, uint32 InBufSize) => RasGetErrorStringA(ResourceId, lpszString, InBufSize);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetErrorStringW(uint32 ResourceId, char8* lpszString, uint32 InBufSize);
+	public static extern uint32 RasGetErrorStringW(uint32 ResourceId, char16* lpszString, uint32 InBufSize);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasHangUpA(HRASCONN param0);

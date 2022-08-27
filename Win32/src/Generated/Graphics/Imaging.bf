@@ -1732,7 +1732,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataQueryReader*/SelfOuter* self, Guid* pguidContainerFormat) GetContainerFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataQueryReader*/SelfOuter* self, uint32 cchMaxLength, char8* wzNamespace, uint32* pcchActualLength) GetLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataQueryReader*/SelfOuter* self, uint32 cchMaxLength, char16* wzNamespace, uint32* pcchActualLength) GetLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataQueryReader*/SelfOuter* self, PWSTR wzName, PROPVARIANT* pvarValue) GetMetadataByName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataQueryReader*/SelfOuter* self, IEnumString** ppIEnumString) GetEnumerator;
 	}
@@ -1740,7 +1740,7 @@ public static
 
 	public HRESULT GetContainerFormat(Guid* pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
 
-	public HRESULT GetLocation(uint32 cchMaxLength, char8* wzNamespace, uint32* pcchActualLength) mut => VT.[Friend]GetLocation(&this, cchMaxLength, wzNamespace, pcchActualLength);
+	public HRESULT GetLocation(uint32 cchMaxLength, char16* wzNamespace, uint32* pcchActualLength) mut => VT.[Friend]GetLocation(&this, cchMaxLength, wzNamespace, pcchActualLength);
 
 	public HRESULT GetMetadataByName(PWSTR wzName, PROPVARIANT* pvarValue) mut => VT.[Friend]GetMetadataByName(&this, wzName, pvarValue);
 
@@ -2040,11 +2040,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, WICComponentType* pType) GetComponentType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, Guid* pclsid) GetCLSID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, uint32* pStatus) GetSigningStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, uint32 cchAuthor, char8* wzAuthor, uint32* pcchActual) GetAuthor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, uint32 cchAuthor, char16* wzAuthor, uint32* pcchActual) GetAuthor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, Guid* pguidVendor) GetVendorGUID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, uint32 cchVersion, char8* wzVersion, uint32* pcchActual) GetVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, uint32 cchSpecVersion, char8* wzSpecVersion, uint32* pcchActual) GetSpecVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, uint32 cchFriendlyName, char8* wzFriendlyName, uint32* pcchActual) GetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, uint32 cchVersion, char16* wzVersion, uint32* pcchActual) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, uint32 cchSpecVersion, char16* wzSpecVersion, uint32* pcchActual) GetSpecVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICComponentInfo*/SelfOuter* self, uint32 cchFriendlyName, char16* wzFriendlyName, uint32* pcchActual) GetFriendlyName;
 	}
 
 
@@ -2054,15 +2054,15 @@ public static
 
 	public HRESULT GetSigningStatus(uint32* pStatus) mut => VT.[Friend]GetSigningStatus(&this, pStatus);
 
-	public HRESULT GetAuthor(uint32 cchAuthor, char8* wzAuthor, uint32* pcchActual) mut => VT.[Friend]GetAuthor(&this, cchAuthor, wzAuthor, pcchActual);
+	public HRESULT GetAuthor(uint32 cchAuthor, char16* wzAuthor, uint32* pcchActual) mut => VT.[Friend]GetAuthor(&this, cchAuthor, wzAuthor, pcchActual);
 
 	public HRESULT GetVendorGUID(Guid* pguidVendor) mut => VT.[Friend]GetVendorGUID(&this, pguidVendor);
 
-	public HRESULT GetVersion(uint32 cchVersion, char8* wzVersion, uint32* pcchActual) mut => VT.[Friend]GetVersion(&this, cchVersion, wzVersion, pcchActual);
+	public HRESULT GetVersion(uint32 cchVersion, char16* wzVersion, uint32* pcchActual) mut => VT.[Friend]GetVersion(&this, cchVersion, wzVersion, pcchActual);
 
-	public HRESULT GetSpecVersion(uint32 cchSpecVersion, char8* wzSpecVersion, uint32* pcchActual) mut => VT.[Friend]GetSpecVersion(&this, cchSpecVersion, wzSpecVersion, pcchActual);
+	public HRESULT GetSpecVersion(uint32 cchSpecVersion, char16* wzSpecVersion, uint32* pcchActual) mut => VT.[Friend]GetSpecVersion(&this, cchSpecVersion, wzSpecVersion, pcchActual);
 
-	public HRESULT GetFriendlyName(uint32 cchFriendlyName, char8* wzFriendlyName, uint32* pcchActual) mut => VT.[Friend]GetFriendlyName(&this, cchFriendlyName, wzFriendlyName, pcchActual);
+	public HRESULT GetFriendlyName(uint32 cchFriendlyName, char16* wzFriendlyName, uint32* pcchActual) mut => VT.[Friend]GetFriendlyName(&this, cchFriendlyName, wzFriendlyName, pcchActual);
 }
 
 [CRepr]struct IWICFormatConverterInfo : IWICComponentInfo
@@ -2093,11 +2093,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, Guid* pguidContainerFormat) GetContainerFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cFormats, Guid* pguidPixelFormats, uint32* pcActual) GetPixelFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cchColorManagementVersion, char8* wzColorManagementVersion, uint32* pcchActual) GetColorManagementVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cchDeviceManufacturer, char8* wzDeviceManufacturer, uint32* pcchActual) GetDeviceManufacturer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cchDeviceModels, char8* wzDeviceModels, uint32* pcchActual) GetDeviceModels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cchMimeTypes, char8* wzMimeTypes, uint32* pcchActual) GetMimeTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cchFileExtensions, char8* wzFileExtensions, uint32* pcchActual) GetFileExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cchColorManagementVersion, char16* wzColorManagementVersion, uint32* pcchActual) GetColorManagementVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cchDeviceManufacturer, char16* wzDeviceManufacturer, uint32* pcchActual) GetDeviceManufacturer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cchDeviceModels, char16* wzDeviceModels, uint32* pcchActual) GetDeviceModels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cchMimeTypes, char16* wzMimeTypes, uint32* pcchActual) GetMimeTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, uint32 cchFileExtensions, char16* wzFileExtensions, uint32* pcchActual) GetFileExtensions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, BOOL* pfSupportAnimation) DoesSupportAnimation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, BOOL* pfSupportChromakey) DoesSupportChromakey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICBitmapCodecInfo*/SelfOuter* self, BOOL* pfSupportLossless) DoesSupportLossless;
@@ -2110,15 +2110,15 @@ public static
 
 	public HRESULT GetPixelFormats(uint32 cFormats, Guid* pguidPixelFormats, uint32* pcActual) mut => VT.[Friend]GetPixelFormats(&this, cFormats, pguidPixelFormats, pcActual);
 
-	public HRESULT GetColorManagementVersion(uint32 cchColorManagementVersion, char8* wzColorManagementVersion, uint32* pcchActual) mut => VT.[Friend]GetColorManagementVersion(&this, cchColorManagementVersion, wzColorManagementVersion, pcchActual);
+	public HRESULT GetColorManagementVersion(uint32 cchColorManagementVersion, char16* wzColorManagementVersion, uint32* pcchActual) mut => VT.[Friend]GetColorManagementVersion(&this, cchColorManagementVersion, wzColorManagementVersion, pcchActual);
 
-	public HRESULT GetDeviceManufacturer(uint32 cchDeviceManufacturer, char8* wzDeviceManufacturer, uint32* pcchActual) mut => VT.[Friend]GetDeviceManufacturer(&this, cchDeviceManufacturer, wzDeviceManufacturer, pcchActual);
+	public HRESULT GetDeviceManufacturer(uint32 cchDeviceManufacturer, char16* wzDeviceManufacturer, uint32* pcchActual) mut => VT.[Friend]GetDeviceManufacturer(&this, cchDeviceManufacturer, wzDeviceManufacturer, pcchActual);
 
-	public HRESULT GetDeviceModels(uint32 cchDeviceModels, char8* wzDeviceModels, uint32* pcchActual) mut => VT.[Friend]GetDeviceModels(&this, cchDeviceModels, wzDeviceModels, pcchActual);
+	public HRESULT GetDeviceModels(uint32 cchDeviceModels, char16* wzDeviceModels, uint32* pcchActual) mut => VT.[Friend]GetDeviceModels(&this, cchDeviceModels, wzDeviceModels, pcchActual);
 
-	public HRESULT GetMimeTypes(uint32 cchMimeTypes, char8* wzMimeTypes, uint32* pcchActual) mut => VT.[Friend]GetMimeTypes(&this, cchMimeTypes, wzMimeTypes, pcchActual);
+	public HRESULT GetMimeTypes(uint32 cchMimeTypes, char16* wzMimeTypes, uint32* pcchActual) mut => VT.[Friend]GetMimeTypes(&this, cchMimeTypes, wzMimeTypes, pcchActual);
 
-	public HRESULT GetFileExtensions(uint32 cchFileExtensions, char8* wzFileExtensions, uint32* pcchActual) mut => VT.[Friend]GetFileExtensions(&this, cchFileExtensions, wzFileExtensions, pcchActual);
+	public HRESULT GetFileExtensions(uint32 cchFileExtensions, char16* wzFileExtensions, uint32* pcchActual) mut => VT.[Friend]GetFileExtensions(&this, cchFileExtensions, wzFileExtensions, pcchActual);
 
 	public HRESULT DoesSupportAnimation(BOOL* pfSupportAnimation) mut => VT.[Friend]DoesSupportAnimation(&this, pfSupportAnimation);
 
@@ -2705,8 +2705,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataHandlerInfo*/SelfOuter* self, Guid* pguidMetadataFormat) GetMetadataFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataHandlerInfo*/SelfOuter* self, uint32 cContainerFormats, Guid* pguidContainerFormats, uint32* pcchActual) GetContainerFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataHandlerInfo*/SelfOuter* self, uint32 cchDeviceManufacturer, char8* wzDeviceManufacturer, uint32* pcchActual) GetDeviceManufacturer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataHandlerInfo*/SelfOuter* self, uint32 cchDeviceModels, char8* wzDeviceModels, uint32* pcchActual) GetDeviceModels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataHandlerInfo*/SelfOuter* self, uint32 cchDeviceManufacturer, char16* wzDeviceManufacturer, uint32* pcchActual) GetDeviceManufacturer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataHandlerInfo*/SelfOuter* self, uint32 cchDeviceModels, char16* wzDeviceModels, uint32* pcchActual) GetDeviceModels;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataHandlerInfo*/SelfOuter* self, BOOL* pfRequiresFullStream) DoesRequireFullStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataHandlerInfo*/SelfOuter* self, BOOL* pfSupportsPadding) DoesSupportPadding;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICMetadataHandlerInfo*/SelfOuter* self, BOOL* pfFixedSize) DoesRequireFixedSize;
@@ -2717,9 +2717,9 @@ public static
 
 	public HRESULT GetContainerFormats(uint32 cContainerFormats, Guid* pguidContainerFormats, uint32* pcchActual) mut => VT.[Friend]GetContainerFormats(&this, cContainerFormats, pguidContainerFormats, pcchActual);
 
-	public HRESULT GetDeviceManufacturer(uint32 cchDeviceManufacturer, char8* wzDeviceManufacturer, uint32* pcchActual) mut => VT.[Friend]GetDeviceManufacturer(&this, cchDeviceManufacturer, wzDeviceManufacturer, pcchActual);
+	public HRESULT GetDeviceManufacturer(uint32 cchDeviceManufacturer, char16* wzDeviceManufacturer, uint32* pcchActual) mut => VT.[Friend]GetDeviceManufacturer(&this, cchDeviceManufacturer, wzDeviceManufacturer, pcchActual);
 
-	public HRESULT GetDeviceModels(uint32 cchDeviceModels, char8* wzDeviceModels, uint32* pcchActual) mut => VT.[Friend]GetDeviceModels(&this, cchDeviceModels, wzDeviceModels, pcchActual);
+	public HRESULT GetDeviceModels(uint32 cchDeviceModels, char16* wzDeviceModels, uint32* pcchActual) mut => VT.[Friend]GetDeviceModels(&this, cchDeviceModels, wzDeviceModels, pcchActual);
 
 	public HRESULT DoesRequireFullStream(BOOL* pfRequiresFullStream) mut => VT.[Friend]DoesRequireFullStream(&this, pfRequiresFullStream);
 
@@ -2815,13 +2815,13 @@ public static
 	public static extern HRESULT WICCreateBitmapFromSectionEx(uint32 width, uint32 height, Guid* pixelFormat, HANDLE hSection, uint32 stride, uint32 offset, WICSectionAccessLevel desiredAccessLevel, IWICBitmap** ppIBitmap);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICMapGuidToShortName(Guid* guid, uint32 cchName, char8* wzName, uint32* pcchActual);
+	public static extern HRESULT WICMapGuidToShortName(Guid* guid, uint32 cchName, char16* wzName, uint32* pcchActual);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WICMapShortNameToGuid(PWSTR wzName, Guid* pguid);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICMapSchemaToName(Guid* guidMetadataFormat, PWSTR pwzSchema, uint32 cchName, char8* wzName, uint32* pcchActual);
+	public static extern HRESULT WICMapSchemaToName(Guid* guidMetadataFormat, PWSTR pwzSchema, uint32 cchName, char16* wzName, uint32* pcchActual);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WICMatchMetadataContent(Guid* guidContainerFormat, Guid* pguidVendor, IStream* pIStream, Guid* pguidMetadataFormat);

@@ -251,8 +251,8 @@ public struct APO_REG_PROPERTIES
 {
 	public Guid clsid;
 	public APO_FLAG Flags;
-	public char8[256] szFriendlyName;
-	public char8[256] szCopyrightInfo;
+	public char16[256] szFriendlyName;
+	public char16[256] szCopyrightInfo;
 	public uint32 u32MajorVersion;
 	public uint32 u32MinorVersion;
 	public uint32 u32MinInputConnections;

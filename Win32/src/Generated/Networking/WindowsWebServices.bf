@@ -4294,7 +4294,7 @@ public static
 	public static extern HRESULT WsReadValue(WS_XML_READER* reader, WS_VALUE_TYPE valueType, void* value, uint32 valueSize, WS_ERROR* error);
 
 	[Import("webservices.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WsReadChars(WS_XML_READER* reader, char8* chars, uint32 maxCharCount, uint32* actualCharCount, WS_ERROR* error);
+	public static extern HRESULT WsReadChars(WS_XML_READER* reader, char16* chars, uint32 maxCharCount, uint32* actualCharCount, WS_ERROR* error);
 
 	[Import("webservices.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WsReadCharsUtf8(WS_XML_READER* reader, uint8* bytes, uint32 maxByteCount, uint32* actualByteCount, WS_ERROR* error);
@@ -4369,7 +4369,7 @@ public static
 	public static extern HRESULT WsWriteQualifiedName(WS_XML_WRITER* writer, WS_XML_STRING* prefix, WS_XML_STRING* localName, WS_XML_STRING* ns, WS_ERROR* error);
 
 	[Import("webservices.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WsWriteChars(WS_XML_WRITER* writer, char8* chars, uint32 charCount, WS_ERROR* error);
+	public static extern HRESULT WsWriteChars(WS_XML_WRITER* writer, char16* chars, uint32 charCount, WS_ERROR* error);
 
 	[Import("webservices.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WsWriteCharsUtf8(WS_XML_WRITER* writer, uint8* bytes, uint32 byteCount, WS_ERROR* error);
@@ -4411,10 +4411,10 @@ public static
 	public static extern HRESULT WsMoveWriter(WS_XML_WRITER* writer, WS_MOVE_TO moveTo, BOOL* found, WS_ERROR* error);
 
 	[Import("webservices.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WsTrimXmlWhitespace(char8* chars, uint32 charCount, uint16** trimmedChars, uint32* trimmedCount, WS_ERROR* error);
+	public static extern HRESULT WsTrimXmlWhitespace(char16* chars, uint32 charCount, uint16** trimmedChars, uint32* trimmedCount, WS_ERROR* error);
 
 	[Import("webservices.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WsVerifyXmlNCName(char8* ncNameChars, uint32 ncNameCharCount, WS_ERROR* error);
+	public static extern HRESULT WsVerifyXmlNCName(char16* ncNameChars, uint32 ncNameCharCount, WS_ERROR* error);
 
 	[Import("webservices.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WsXmlStringEquals(WS_XML_STRING* string1, WS_XML_STRING* string2, WS_ERROR* error);

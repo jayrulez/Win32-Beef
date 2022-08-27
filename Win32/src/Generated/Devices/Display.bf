@@ -2239,7 +2239,7 @@ public struct DISPLAYCONFIG_DEVICE_INFO_HEADER
 public struct DISPLAYCONFIG_SOURCE_DEVICE_NAME
 {
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
-	public char8[32] viewGdiDeviceName;
+	public char16[32] viewGdiDeviceName;
 }
 
 [CRepr]
@@ -2270,8 +2270,8 @@ public struct DISPLAYCONFIG_TARGET_DEVICE_NAME
 	public uint16 edidManufactureId;
 	public uint16 edidProductCodeId;
 	public uint32 connectorInstance;
-	public char8[64] monitorFriendlyDeviceName;
-	public char8[128] monitorDevicePath;
+	public char16[64] monitorFriendlyDeviceName;
+	public char16[128] monitorDevicePath;
 }
 
 [CRepr]
@@ -2287,7 +2287,7 @@ public struct DISPLAYCONFIG_TARGET_PREFERRED_MODE
 public struct DISPLAYCONFIG_ADAPTER_NAME
 {
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
-	public char8[128] adapterDevicePath;
+	public char16[128] adapterDevicePath;
 }
 
 [CRepr]
@@ -2426,14 +2426,14 @@ public struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION
 	public using _Anonymous_e__Union Anonymous;
 	public Guid specializationType;
 	public Guid specializationSubType;
-	public char8[128] specializationApplicationName;
+	public char16[128] specializationApplicationName;
 }
 
 [CRepr, Packed(1)]
 public struct PHYSICAL_MONITOR
 {
 	public HANDLE hPhysicalMonitor;
-	public char8[128] szPhysicalMonitorDescription;
+	public char16[128] szPhysicalMonitorDescription;
 }
 
 [CRepr, Packed(1)]
@@ -2455,7 +2455,7 @@ public struct Sources
 [CRepr]
 public struct Adapter
 {
-	public char8[128] AdapterName;
+	public char16[128] AdapterName;
 	public int32 numSources;
 	public Sources[1] sources;
 }
@@ -2470,7 +2470,7 @@ public struct Adapters
 [CRepr]
 public struct DisplayMode
 {
-	public char8[32] DeviceName;
+	public char16[32] DeviceName;
 	public DEVMODEW devMode;
 }
 
@@ -2609,7 +2609,7 @@ public struct POINTQF
 [CRepr]
 public struct WCRUN
 {
-	public char8 wcLow;
+	public char16 wcLow;
 	public uint16 cGlyphs;
 	public uint32* phg;
 }
@@ -2636,8 +2636,8 @@ public struct FD_GLYPHATTR
 [CRepr]
 public struct FD_KERNINGPAIR
 {
-	public char8 wcFirst;
-	public char8 wcSecond;
+	public char16 wcFirst;
+	public char16 wcSecond;
 	public int16 fwdKern;
 }
 
@@ -2714,10 +2714,10 @@ public struct IFIMETRICS
 	public uint8 chLastChar;
 	public uint8 chDefaultChar;
 	public uint8 chBreakChar;
-	public char8 wcFirstChar;
-	public char8 wcLastChar;
-	public char8 wcDefaultChar;
-	public char8 wcBreakChar;
+	public char16 wcFirstChar;
+	public char16 wcLastChar;
+	public char16 wcDefaultChar;
+	public char16 wcBreakChar;
 	public POINTL ptlBaseline;
 	public POINTL ptlAspect;
 	public POINTL ptlCaret;
@@ -3975,7 +3975,7 @@ public struct COLORSPACE_TRANSFORM_SET_INPUT
 [CRepr]
 public struct SET_ACTIVE_COLOR_PROFILE_NAME
 {
-	public char8[1] ColorProfileName;
+	public char16[1] ColorProfileName;
 }
 
 [CRepr]
@@ -4157,10 +4157,10 @@ public struct IFIMETRICS
 	public uint8 chLastChar;
 	public uint8 chDefaultChar;
 	public uint8 chBreakChar;
-	public char8 wcFirstChar;
-	public char8 wcLastChar;
-	public char8 wcDefaultChar;
-	public char8 wcBreakChar;
+	public char16 wcFirstChar;
+	public char16 wcLastChar;
+	public char16 wcDefaultChar;
+	public char16 wcBreakChar;
 	public POINTL ptlBaseline;
 	public POINTL ptlAspect;
 	public POINTL ptlCaret;

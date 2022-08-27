@@ -960,7 +960,7 @@ public static
 	public static BOOL CredIsMarshaledCredential(PSTR MarshaledCredential) => CredIsMarshaledCredentialA(MarshaledCredential);
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CredUnPackAuthenticationBufferW(CRED_PACK_FLAGS dwFlags, void* pAuthBuffer, uint32 cbAuthBuffer, char8* pszUserName, uint32* pcchMaxUserName, char8* pszDomainName, uint32* pcchMaxDomainName, char8* pszPassword, uint32* pcchMaxPassword);
+	public static extern BOOL CredUnPackAuthenticationBufferW(CRED_PACK_FLAGS dwFlags, void* pAuthBuffer, uint32 cbAuthBuffer, char16* pszUserName, uint32* pcchMaxUserName, char16* pszDomainName, uint32* pcchMaxDomainName, char16* pszPassword, uint32* pcchMaxPassword);
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CredUnPackAuthenticationBufferA(CRED_PACK_FLAGS dwFlags, void* pAuthBuffer, uint32 cbAuthBuffer, uint8* pszUserName, uint32* pcchlMaxUserName, uint8* pszDomainName, uint32* pcchMaxDomainName, uint8* pszPassword, uint32* pcchMaxPassword);
@@ -974,14 +974,14 @@ public static
 	public static BOOL CredPackAuthenticationBuffer(CRED_PACK_FLAGS dwFlags, PSTR pszUserName, PSTR pszPassword, uint8* pPackedCredentials, uint32* pcbPackedCredentials) => CredPackAuthenticationBufferA(dwFlags, pszUserName, pszPassword, pPackedCredentials, pcbPackedCredentials);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CredProtectW(BOOL fAsSelf, char8* pszCredentials, uint32 cchCredentials, char8* pszProtectedCredentials, uint32* pcchMaxChars, CRED_PROTECTION_TYPE* ProtectionType);
+	public static extern BOOL CredProtectW(BOOL fAsSelf, char16* pszCredentials, uint32 cchCredentials, char16* pszProtectedCredentials, uint32* pcchMaxChars, CRED_PROTECTION_TYPE* ProtectionType);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CredProtectA(BOOL fAsSelf, uint8* pszCredentials, uint32 cchCredentials, uint8* pszProtectedCredentials, uint32* pcchMaxChars, CRED_PROTECTION_TYPE* ProtectionType);
 	public static BOOL CredProtect(BOOL fAsSelf, uint8* pszCredentials, uint32 cchCredentials, uint8* pszProtectedCredentials, uint32* pcchMaxChars, CRED_PROTECTION_TYPE* ProtectionType) => CredProtectA(fAsSelf, pszCredentials, cchCredentials, pszProtectedCredentials, pcchMaxChars, ProtectionType);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CredUnprotectW(BOOL fAsSelf, char8* pszProtectedCredentials, uint32 cchProtectedCredentials, char8* pszCredentials, uint32* pcchMaxChars);
+	public static extern BOOL CredUnprotectW(BOOL fAsSelf, char16* pszProtectedCredentials, uint32 cchProtectedCredentials, char16* pszCredentials, uint32* pcchMaxChars);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CredUnprotectA(BOOL fAsSelf, uint8* pszProtectedCredentials, uint32 cchProtectedCredentials, uint8* pszCredentials, uint32* pcchMaxChars);
@@ -1008,7 +1008,7 @@ public static
 	public static extern void CredFree(void* Buffer);
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CredUIPromptForCredentialsW(CREDUI_INFOW* pUiInfo, PWSTR pszTargetName, SecHandle* pContext, uint32 dwAuthError, char8* pszUserName, uint32 ulUserNameBufferSize, char8* pszPassword, uint32 ulPasswordBufferSize, BOOL* save, CREDUI_FLAGS dwFlags);
+	public static extern uint32 CredUIPromptForCredentialsW(CREDUI_INFOW* pUiInfo, PWSTR pszTargetName, SecHandle* pContext, uint32 dwAuthError, char16* pszUserName, uint32 ulUserNameBufferSize, char16* pszPassword, uint32 ulPasswordBufferSize, BOOL* save, CREDUI_FLAGS dwFlags);
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CredUIPromptForCredentialsA(CREDUI_INFOA* pUiInfo, PSTR pszTargetName, SecHandle* pContext, uint32 dwAuthError, uint8* pszUserName, uint32 ulUserNameBufferSize, uint8* pszPassword, uint32 ulPasswordBufferSize, BOOL* save, CREDUI_FLAGS dwFlags);
@@ -1022,14 +1022,14 @@ public static
 	public static uint32 CredUIPromptForWindowsCredentials(CREDUI_INFOA* pUiInfo, uint32 dwAuthError, uint32* pulAuthPackage, void* pvInAuthBuffer, uint32 ulInAuthBufferSize, void** ppvOutAuthBuffer, uint32* pulOutAuthBufferSize, BOOL* pfSave, CREDUIWIN_FLAGS dwFlags) => CredUIPromptForWindowsCredentialsA(pUiInfo, dwAuthError, pulAuthPackage, pvInAuthBuffer, ulInAuthBufferSize, ppvOutAuthBuffer, pulOutAuthBufferSize, pfSave, dwFlags);
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CredUIParseUserNameW(PWSTR UserName, char8* user, uint32 userBufferSize, char8* domain, uint32 domainBufferSize);
+	public static extern uint32 CredUIParseUserNameW(PWSTR UserName, char16* user, uint32 userBufferSize, char16* domain, uint32 domainBufferSize);
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CredUIParseUserNameA(PSTR userName, uint8* user, uint32 userBufferSize, uint8* domain, uint32 domainBufferSize);
 	public static uint32 CredUIParseUserName(PSTR userName, uint8* user, uint32 userBufferSize, uint8* domain, uint32 domainBufferSize) => CredUIParseUserNameA(userName, user, userBufferSize, domain, domainBufferSize);
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CredUICmdLinePromptForCredentialsW(PWSTR pszTargetName, SecHandle* pContext, uint32 dwAuthError, char8* UserName, uint32 ulUserBufferSize, char8* pszPassword, uint32 ulPasswordBufferSize, BOOL* pfSave, CREDUI_FLAGS dwFlags);
+	public static extern uint32 CredUICmdLinePromptForCredentialsW(PWSTR pszTargetName, SecHandle* pContext, uint32 dwAuthError, char16* UserName, uint32 ulUserBufferSize, char16* pszPassword, uint32 ulPasswordBufferSize, BOOL* pfSave, CREDUI_FLAGS dwFlags);
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CredUICmdLinePromptForCredentialsA(PSTR pszTargetName, SecHandle* pContext, uint32 dwAuthError, uint8* UserName, uint32 ulUserBufferSize, uint8* pszPassword, uint32 ulPasswordBufferSize, BOOL* pfSave, CREDUI_FLAGS dwFlags);
@@ -1062,7 +1062,7 @@ public static
 	public static int32 SCardListReaderGroups(uint hContext, uint8* mszGroups, uint32* pcchGroups) => SCardListReaderGroupsA(hContext, mszGroups, pcchGroups);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardListReaderGroupsW(uint hContext, char8* mszGroups, uint32* pcchGroups);
+	public static extern int32 SCardListReaderGroupsW(uint hContext, char16* mszGroups, uint32* pcchGroups);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardListReadersA(uint hContext, PSTR mszGroups, PSTR mszReaders, uint32* pcchReaders);
@@ -1097,7 +1097,7 @@ public static
 	public static int32 SCardGetCardTypeProviderName(uint hContext, PSTR szCardName, uint32 dwProviderId, uint8* szProvider, uint32* pcchProvider) => SCardGetCardTypeProviderNameA(hContext, szCardName, dwProviderId, szProvider, pcchProvider);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardGetCardTypeProviderNameW(uint hContext, PWSTR szCardName, uint32 dwProviderId, char8* szProvider, uint32* pcchProvider);
+	public static extern int32 SCardGetCardTypeProviderNameW(uint hContext, PWSTR szCardName, uint32 dwProviderId, char16* szProvider, uint32* pcchProvider);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardIntroduceReaderGroupA(uint hContext, PSTR szGroupName);

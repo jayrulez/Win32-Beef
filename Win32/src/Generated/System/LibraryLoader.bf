@@ -140,7 +140,7 @@ public static
 	public static uint32 GetModuleFileName(HINSTANCE hModule, uint8* lpFilename, uint32 nSize) => GetModuleFileNameA(hModule, lpFilename, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetModuleFileNameW(HINSTANCE hModule, char8* lpFilename, uint32 nSize);
+	public static extern uint32 GetModuleFileNameW(HINSTANCE hModule, char16* lpFilename, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE GetModuleHandleA(PSTR lpModuleName);
@@ -283,7 +283,7 @@ public static
 	public static uint32 GetDllDirectory(uint32 nBufferLength, uint8* lpBuffer) => GetDllDirectoryA(nBufferLength, lpBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetDllDirectoryW(uint32 nBufferLength, char8* lpBuffer);
+	public static extern uint32 GetDllDirectoryW(uint32 nBufferLength, char16* lpBuffer);
 
 }
 #endregion

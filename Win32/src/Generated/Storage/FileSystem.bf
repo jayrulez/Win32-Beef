@@ -1982,8 +1982,8 @@ public struct WIN32_FIND_DATAW
 	public uint32 nFileSizeLow;
 	public uint32 dwReserved0;
 	public uint32 dwReserved1;
-	public char8[260] cFileName;
-	public char8[14] cAlternateFileName;
+	public char16[260] cFileName;
+	public char16[14] cAlternateFileName;
 }
 
 [CRepr]
@@ -2048,7 +2048,7 @@ public struct KCRM_TRANSACTION_BLOB
 	public uint32 IsolationLevel;
 	public uint32 IsolationFlags;
 	public uint32 Timeout;
-	public char8[64] Description;
+	public char16[64] Description;
 }
 
 [CRepr]
@@ -2120,7 +2120,7 @@ public struct CREATEFILE2_EXTENDED_PARAMETERS
 public struct WIN32_FIND_STREAM_DATA
 {
 	public LARGE_INTEGER StreamSize;
-	public char8[296] cStreamName;
+	public char16[296] cStreamName;
 }
 
 [CRepr]
@@ -2195,9 +2195,9 @@ public struct NTMS_DRIVEINFORMATIONW
 	public uint32 Number;
 	public NtmsDriveState State;
 	public Guid DriveType;
-	public char8[64] szDeviceName;
-	public char8[32] szSerialNumber;
-	public char8[32] szRevision;
+	public char16[64] szDeviceName;
+	public char16[32] szSerialNumber;
+	public char16[32] szRevision;
 	public uint16 ScsiPort;
 	public uint16 ScsiBus;
 	public uint16 ScsiTarget;
@@ -2258,9 +2258,9 @@ public struct NTMS_CHANGERINFORMATIONW
 {
 	public uint32 Number;
 	public Guid ChangerType;
-	public char8[32] szSerialNumber;
-	public char8[32] szRevision;
-	public char8[64] szDeviceName;
+	public char16[32] szSerialNumber;
+	public char16[32] szRevision;
+	public char16[64] szDeviceName;
 	public uint16 ScsiPort;
 	public uint16 ScsiBus;
 	public uint16 ScsiTarget;
@@ -2323,9 +2323,9 @@ public struct NTMS_PMIDINFORMATIONW
 	public uint32 LocationType;
 	public Guid MediaType;
 	public Guid HomeSlot;
-	public char8[64] szBarCode;
+	public char16[64] szBarCode;
 	public NtmsBarCodeState BarCodeState;
-	public char8[32] szSequenceNumber;
+	public char16[32] szSequenceNumber;
 	public NtmsMediaState MediaState;
 	public uint32 dwNumberOfPartitions;
 	public uint32 dwMediaTypeCode;
@@ -2365,8 +2365,8 @@ public struct NTMS_PARTITIONINFORMATIONW
 	public uint16 Side;
 	public uint32 dwOmidLabelIdLength;
 	public uint8[255] OmidLabelId;
-	public char8[64] szOmidLabelType;
-	public char8[256] szOmidLabelInfo;
+	public char16[64] szOmidLabelType;
+	public char16[256] szOmidLabelInfo;
 	public uint32 dwMountCount;
 	public uint32 dwAllocateCount;
 	public LARGE_INTEGER Capacity;
@@ -2407,8 +2407,8 @@ public struct NTMS_DRIVETYPEINFORMATIONA
 [CRepr]
 public struct NTMS_DRIVETYPEINFORMATIONW
 {
-	public char8[128] szVendor;
-	public char8[128] szProduct;
+	public char16[128] szVendor;
+	public char16[128] szProduct;
 	public uint32 NumberOfHeads;
 	public FILE_DEVICE_TYPE DeviceType;
 }
@@ -2424,8 +2424,8 @@ public struct NTMS_CHANGERTYPEINFORMATIONA
 [CRepr]
 public struct NTMS_CHANGERTYPEINFORMATIONW
 {
-	public char8[128] szVendor;
-	public char8[128] szProduct;
+	public char16[128] szVendor;
+	public char16[128] szProduct;
 	public uint32 DeviceType;
 }
 
@@ -2463,9 +2463,9 @@ public struct NTMS_LIBREQUESTINFORMATIONW
 	public Guid SlotId;
 	public SYSTEMTIME TimeQueued;
 	public SYSTEMTIME TimeCompleted;
-	public char8[64] szApplication;
-	public char8[64] szUser;
-	public char8[64] szComputer;
+	public char16[64] szApplication;
+	public char16[64] szUser;
+	public char16[64] szComputer;
 	public uint32 dwErrorCode;
 	public Guid WorkItemId;
 	public uint32 dwPriority;
@@ -2493,14 +2493,14 @@ public struct NTMS_OPREQUESTINFORMATIONW
 	public NtmsOpreqCommand Request;
 	public SYSTEMTIME Submitted;
 	public NtmsOpreqState State;
-	public char8[256] szMessage;
+	public char16[256] szMessage;
 	public NtmsObjectsTypes Arg1Type;
 	public Guid Arg1;
 	public NtmsObjectsTypes Arg2Type;
 	public Guid Arg2;
-	public char8[64] szApplication;
-	public char8[64] szUser;
-	public char8[64] szComputer;
+	public char16[64] szApplication;
+	public char16[64] szUser;
+	public char16[64] szComputer;
 }
 
 [CRepr]
@@ -2580,8 +2580,8 @@ public struct NTMS_OBJECTINFORMATIONW
 	public Guid ObjectGuid;
 	public BOOL Enabled;
 	public NtmsOperationalState dwOperationalState;
-	public char8[64] szName;
-	public char8[127] szDescription;
+	public char16[64] szName;
+	public char16[127] szDescription;
 	public _Info_e__Union Info;
 }
 
@@ -2642,9 +2642,9 @@ public struct NTMS_I1_LIBREQUESTINFORMATIONW
 	public Guid SlotId;
 	public SYSTEMTIME TimeQueued;
 	public SYSTEMTIME TimeCompleted;
-	public char8[64] szApplication;
-	public char8[64] szUser;
-	public char8[64] szComputer;
+	public char16[64] szApplication;
+	public char16[64] szUser;
+	public char16[64] szComputer;
 }
 
 [CRepr]
@@ -2672,9 +2672,9 @@ public struct NTMS_I1_PMIDINFORMATIONW
 	public uint32 LocationType;
 	public Guid MediaType;
 	public Guid HomeSlot;
-	public char8[64] szBarCode;
+	public char16[64] szBarCode;
 	public uint32 BarCodeState;
-	public char8[32] szSequenceNumber;
+	public char16[32] szSequenceNumber;
 	public uint32 MediaState;
 	public uint32 dwNumberOfPartitions;
 }
@@ -2703,8 +2703,8 @@ public struct NTMS_I1_PARTITIONINFORMATIONW
 	public uint16 Side;
 	public uint32 dwOmidLabelIdLength;
 	public uint8[255] OmidLabelId;
-	public char8[64] szOmidLabelType;
-	public char8[256] szOmidLabelInfo;
+	public char16[64] szOmidLabelType;
+	public char16[256] szOmidLabelInfo;
 	public uint32 dwMountCount;
 	public uint32 dwAllocateCount;
 }
@@ -2731,14 +2731,14 @@ public struct NTMS_I1_OPREQUESTINFORMATIONW
 	public uint32 Request;
 	public SYSTEMTIME Submitted;
 	public uint32 State;
-	public char8[127] szMessage;
+	public char16[127] szMessage;
 	public uint32 Arg1Type;
 	public Guid Arg1;
 	public uint32 Arg2Type;
 	public Guid Arg2;
-	public char8[64] szApplication;
-	public char8[64] szUser;
-	public char8[64] szComputer;
+	public char16[64] szApplication;
+	public char16[64] szUser;
+	public char16[64] szComputer;
 }
 
 [CRepr]
@@ -2806,16 +2806,16 @@ public struct NTMS_I1_OBJECTINFORMATIONW
 	public Guid ObjectGuid;
 	public BOOL Enabled;
 	public uint32 dwOperationalState;
-	public char8[64] szName;
-	public char8[127] szDescription;
+	public char16[64] szName;
+	public char16[127] szDescription;
 	public _Info_e__Union Info;
 }
 
 [CRepr]
 public struct NTMS_FILESYSTEM_INFO
 {
-	public char8[64] FileSystemType;
-	public char8[256] VolumeName;
+	public char16[64] FileSystemType;
+	public char16[256] VolumeName;
 	public uint32 SerialNumber;
 }
 
@@ -2829,10 +2829,10 @@ public struct NTMS_NOTIFICATIONINFORMATION
 [CRepr]
 public struct MediaLabelInfo
 {
-	public char8[64] LabelType;
+	public char16[64] LabelType;
 	public uint32 LabelIDSize;
 	public uint8[256] LabelID;
-	public char8[256] LabelAppDescr;
+	public char16[256] LabelAppDescr;
 }
 
 [CRepr]
@@ -2881,7 +2881,7 @@ public struct CLS_INFORMATION
 public struct CLFS_LOG_NAME_INFORMATION
 {
 	public uint16 NameLengthInBytes;
-	public char8[1] Name;
+	public char16[1] Name;
 }
 
 [CRepr]
@@ -2908,7 +2908,7 @@ public struct CLS_CONTAINER_INFORMATION
 	public int64 ContainerSize;
 	public uint32 FileNameActualLength;
 	public uint32 FileNameLength;
-	public char8[256] FileName;
+	public char16[256] FileName;
 	public uint32 State;
 	public uint32 PhysicalContainerId;
 	public uint32 LogicalContainerId;
@@ -2964,14 +2964,14 @@ public struct CLFS_MGMT_POLICY
 		public struct _NewContainerExtension_e__Struct
 		{
 			public uint16 ExtensionLengthInBytes;
-			public char8[1] ExtensionString;
+			public char16[1] ExtensionString;
 		}
 
 		[CRepr]
 		public struct _NewContainerPrefix_e__Struct
 		{
 			public uint16 PrefixLengthInBytes;
-			public char8[1] PrefixString;
+			public char16[1] PrefixString;
 		}
 
 		[CRepr]
@@ -3297,7 +3297,7 @@ public struct VOLUME_FAILOVER_SET
 public struct VOLUME_NUMBER
 {
 	public uint32 VolumeNumber;
-	public char8[8] VolumeManagerName;
+	public char16[8] VolumeManagerName;
 }
 
 [CRepr]
@@ -3817,7 +3817,7 @@ public struct FILE_NOTIFY_INFORMATION
 	public uint32 NextEntryOffset;
 	public FILE_ACTION Action;
 	public uint32 FileNameLength;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -3836,7 +3836,7 @@ public struct FILE_NOTIFY_EXTENDED_INFORMATION
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER ParentFileId;
 	public uint32 FileNameLength;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr, Union]
@@ -3919,7 +3919,7 @@ public struct WIN32_STREAM_ID
 	public uint32 dwStreamAttributes;
 	public LARGE_INTEGER Size;
 	public uint32 dwStreamNameSize;
-	public char8[1] cStreamName;
+	public char16[1] cStreamName;
 }
 
 [CRepr]
@@ -4061,7 +4061,7 @@ public struct FILE_STANDARD_INFO
 public struct FILE_NAME_INFO
 {
 	public uint32 FileNameLength;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -4077,7 +4077,7 @@ public struct FILE_RENAME_INFO
 	public using _Anonymous_e__Union Anonymous;
 	public HANDLE RootDirectory;
 	public uint32 FileNameLength;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -4099,7 +4099,7 @@ public struct FILE_STREAM_INFO
 	public uint32 StreamNameLength;
 	public LARGE_INTEGER StreamSize;
 	public LARGE_INTEGER StreamAllocationSize;
-	public char8[1] StreamName;
+	public char16[1] StreamName;
 }
 
 [CRepr]
@@ -4141,9 +4141,9 @@ public struct FILE_ID_BOTH_DIR_INFO
 	public uint32 FileNameLength;
 	public uint32 EaSize;
 	public int8 ShortNameLength;
-	public char8[12] ShortName;
+	public char16[12] ShortName;
 	public LARGE_INTEGER FileId;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -4160,7 +4160,7 @@ public struct FILE_FULL_DIR_INFO
 	public uint32 FileAttributes;
 	public uint32 FileNameLength;
 	public uint32 EaSize;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -4210,7 +4210,7 @@ public struct FILE_ID_EXTD_DIR_INFO
 	public uint32 EaSize;
 	public uint32 ReparsePointTag;
 	public FILE_ID_128 FileId;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -4487,7 +4487,7 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SearchPathW(PWSTR lpPath, PWSTR lpFileName, PWSTR lpExtension, uint32 nBufferLength, char8* lpBuffer, PWSTR* lpFilePart);
+	public static extern uint32 SearchPathW(PWSTR lpPath, PWSTR lpFileName, PWSTR lpExtension, uint32 nBufferLength, char16* lpBuffer, PWSTR* lpFilePart);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SearchPathA(PSTR lpPath, PSTR lpFileName, PSTR lpExtension, uint32 nBufferLength, uint8* lpBuffer, PSTR* lpFilePart);
@@ -4554,7 +4554,7 @@ public static
 	public static extern FindFileHandle FindFirstFileExW(PWSTR lpFileName, FINDEX_INFO_LEVELS fInfoLevelId, void* lpFindFileData, FINDEX_SEARCH_OPS fSearchOp, void* lpSearchFilter, FIND_FIRST_EX_FLAGS dwAdditionalFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern FindVolumeHandle FindFirstVolumeW(char8* lpszVolumeName, uint32 cchBufferLength);
+	public static extern FindVolumeHandle FindFirstVolumeW(char16* lpszVolumeName, uint32 cchBufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FindNextChangeNotification(FindChangeNotificationHandle hChangeHandle);
@@ -4567,7 +4567,7 @@ public static
 	public static extern BOOL FindNextFileW(HANDLE hFindFile, WIN32_FIND_DATAW* lpFindFileData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextVolumeW(FindVolumeHandle hFindVolume, char8* lpszVolumeName, uint32 cchBufferLength);
+	public static extern BOOL FindNextVolumeW(FindVolumeHandle hFindVolume, char16* lpszVolumeName, uint32 cchBufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FindVolumeClose(FindVolumeHandle hFindVolume);
@@ -4634,13 +4634,13 @@ public static
 	public static uint32 GetFinalPathNameByHandle(HANDLE hFile, uint8* lpszFilePath, uint32 cchFilePath, FILE_NAME dwFlags) => GetFinalPathNameByHandleA(hFile, lpszFilePath, cchFilePath, dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetFinalPathNameByHandleW(HANDLE hFile, char8* lpszFilePath, uint32 cchFilePath, FILE_NAME dwFlags);
+	public static extern uint32 GetFinalPathNameByHandleW(HANDLE hFile, char16* lpszFilePath, uint32 cchFilePath, FILE_NAME dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetFileTime(HANDLE hFile, FILETIME* lpCreationTime, FILETIME* lpLastAccessTime, FILETIME* lpLastWriteTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetFullPathNameW(PWSTR lpFileName, uint32 nBufferLength, char8* lpBuffer, PWSTR* lpFilePart);
+	public static extern uint32 GetFullPathNameW(PWSTR lpFileName, uint32 nBufferLength, char16* lpBuffer, PWSTR* lpFilePart);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetFullPathNameA(PSTR lpFileName, uint32 nBufferLength, uint8* lpBuffer, PSTR* lpFilePart);
@@ -4650,32 +4650,32 @@ public static
 	public static extern uint32 GetLogicalDrives();
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetLogicalDriveStringsW(uint32 nBufferLength, char8* lpBuffer);
+	public static extern uint32 GetLogicalDriveStringsW(uint32 nBufferLength, char16* lpBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetLongPathNameA(PSTR lpszShortPath, uint8* lpszLongPath, uint32 cchBuffer);
 	public static uint32 GetLongPathName(PSTR lpszShortPath, uint8* lpszLongPath, uint32 cchBuffer) => GetLongPathNameA(lpszShortPath, lpszLongPath, cchBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetLongPathNameW(PWSTR lpszShortPath, char8* lpszLongPath, uint32 cchBuffer);
+	public static extern uint32 GetLongPathNameW(PWSTR lpszShortPath, char16* lpszLongPath, uint32 cchBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AreShortNamesEnabled(HANDLE Handle, BOOL* Enabled);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetShortPathNameW(PWSTR lpszLongPath, char8* lpszShortPath, uint32 cchBuffer);
+	public static extern uint32 GetShortPathNameW(PWSTR lpszLongPath, char16* lpszShortPath, uint32 cchBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetTempFileNameW(PWSTR lpPathName, PWSTR lpPrefixString, uint32 uUnique, char8* lpTempFileName);
+	public static extern uint32 GetTempFileNameW(PWSTR lpPathName, PWSTR lpPrefixString, uint32 uUnique, char16* lpTempFileName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetVolumeInformationByHandleW(HANDLE hFile, char8* lpVolumeNameBuffer, uint32 nVolumeNameSize, uint32* lpVolumeSerialNumber, uint32* lpMaximumComponentLength, uint32* lpFileSystemFlags, char8* lpFileSystemNameBuffer, uint32 nFileSystemNameSize);
+	public static extern BOOL GetVolumeInformationByHandleW(HANDLE hFile, char16* lpVolumeNameBuffer, uint32 nVolumeNameSize, uint32* lpVolumeSerialNumber, uint32* lpMaximumComponentLength, uint32* lpFileSystemFlags, char16* lpFileSystemNameBuffer, uint32 nFileSystemNameSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetVolumeInformationW(PWSTR lpRootPathName, char8* lpVolumeNameBuffer, uint32 nVolumeNameSize, uint32* lpVolumeSerialNumber, uint32* lpMaximumComponentLength, uint32* lpFileSystemFlags, char8* lpFileSystemNameBuffer, uint32 nFileSystemNameSize);
+	public static extern BOOL GetVolumeInformationW(PWSTR lpRootPathName, char16* lpVolumeNameBuffer, uint32 nVolumeNameSize, uint32* lpVolumeSerialNumber, uint32* lpMaximumComponentLength, uint32* lpFileSystemFlags, char16* lpFileSystemNameBuffer, uint32 nFileSystemNameSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetVolumePathNameW(PWSTR lpszFileName, char8* lpszVolumePathName, uint32 cchBufferLength);
+	public static extern BOOL GetVolumePathNameW(PWSTR lpszFileName, char16* lpszVolumePathName, uint32 cchBufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LocalFileTimeToFileTime(FILETIME* lpLocalFileTime, FILETIME* lpFileTime);
@@ -4687,7 +4687,7 @@ public static
 	public static extern BOOL LockFileEx(HANDLE hFile, LOCK_FILE_FLAGS dwFlags, uint32 dwReserved, uint32 nNumberOfBytesToLockLow, uint32 nNumberOfBytesToLockHigh, OVERLAPPED* lpOverlapped);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryDosDeviceW(PWSTR lpDeviceName, char8* lpTargetPath, uint32 ucchMax);
+	public static extern uint32 QueryDosDeviceW(PWSTR lpDeviceName, char16* lpTargetPath, uint32 ucchMax);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ReadFile(HANDLE hFile, void* lpBuffer, uint32 nNumberOfBytesToRead, uint32* lpNumberOfBytesRead, OVERLAPPED* lpOverlapped);
@@ -4746,13 +4746,13 @@ public static
 	public static extern BOOL WriteFileGather(HANDLE hFile, FILE_SEGMENT_ELEMENT* aSegmentArray, uint32 nNumberOfBytesToWrite, uint32* lpReserved, OVERLAPPED* lpOverlapped);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetTempPathW(uint32 nBufferLength, char8* lpBuffer);
+	public static extern uint32 GetTempPathW(uint32 nBufferLength, char16* lpBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetVolumeNameForVolumeMountPointW(PWSTR lpszVolumeMountPoint, char8* lpszVolumeName, uint32 cchBufferLength);
+	public static extern BOOL GetVolumeNameForVolumeMountPointW(PWSTR lpszVolumeMountPoint, char16* lpszVolumeName, uint32 cchBufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetVolumePathNamesForVolumeNameW(PWSTR lpszVolumeName, char8* lpszVolumePathNames, uint32 cchBufferLength, uint32* lpcchReturnLength);
+	public static extern BOOL GetVolumePathNamesForVolumeNameW(PWSTR lpszVolumeName, char16* lpszVolumePathNames, uint32 cchBufferLength, uint32* lpcchReturnLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateFile2(PWSTR lpFileName, FILE_ACCESS_FLAGS dwDesiredAccess, FILE_SHARE_MODE dwShareMode, FILE_CREATION_DISPOSITION dwCreationDisposition, CREATEFILE2_EXTENDED_PARAMETERS* pCreateExParams);
@@ -4781,10 +4781,10 @@ public static
 	public static uint32 GetTempPath(uint32 nBufferLength, uint8* lpBuffer) => GetTempPathA(nBufferLength, lpBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern FindFileNameHandle FindFirstFileNameW(PWSTR lpFileName, uint32 dwFlags, uint32* StringLength, char8* LinkName);
+	public static extern FindFileNameHandle FindFirstFileNameW(PWSTR lpFileName, uint32 dwFlags, uint32* StringLength, char16* LinkName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextFileNameW(FindFileNameHandle hFindStream, uint32* StringLength, char8* LinkName);
+	public static extern BOOL FindNextFileNameW(FindFileNameHandle hFindStream, uint32* StringLength, char16* LinkName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetVolumeInformationA(PSTR lpRootPathName, uint8* lpVolumeNameBuffer, uint32 nVolumeNameSize, uint32* lpVolumeSerialNumber, uint32* lpMaximumComponentLength, uint32* lpFileSystemFlags, uint8* lpFileSystemNameBuffer, uint32 nFileSystemNameSize);
@@ -4801,7 +4801,7 @@ public static
 	public static extern void SetFileApisToANSI();
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetTempPath2W(uint32 BufferLength, char8* Buffer);
+	public static extern uint32 GetTempPath2W(uint32 BufferLength, char16* Buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetTempPath2A(uint32 BufferLength, uint8* Buffer);
@@ -4845,14 +4845,14 @@ public static
 	public static VER_FIND_FILE_STATUS VerFindFile(VER_FIND_FILE_FLAGS uFlags, PSTR szFileName, PSTR szWinDir, PSTR szAppDir, uint8* szCurDir, uint32* puCurDirLen, uint8* szDestDir, uint32* puDestDirLen) => VerFindFileA(uFlags, szFileName, szWinDir, szAppDir, szCurDir, puCurDirLen, szDestDir, puDestDirLen);
 
 	[Import("VERSION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern VER_FIND_FILE_STATUS VerFindFileW(VER_FIND_FILE_FLAGS uFlags, PWSTR szFileName, PWSTR szWinDir, PWSTR szAppDir, char8* szCurDir, uint32* puCurDirLen, char8* szDestDir, uint32* puDestDirLen);
+	public static extern VER_FIND_FILE_STATUS VerFindFileW(VER_FIND_FILE_FLAGS uFlags, PWSTR szFileName, PWSTR szWinDir, PWSTR szAppDir, char16* szCurDir, uint32* puCurDirLen, char16* szDestDir, uint32* puDestDirLen);
 
 	[Import("VERSION.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern VER_INSTALL_FILE_STATUS VerInstallFileA(VER_INSTALL_FILE_FLAGS uFlags, PSTR szSrcFileName, PSTR szDestFileName, PSTR szSrcDir, PSTR szDestDir, PSTR szCurDir, uint8* szTmpFile, uint32* puTmpFileLen);
 	public static VER_INSTALL_FILE_STATUS VerInstallFile(VER_INSTALL_FILE_FLAGS uFlags, PSTR szSrcFileName, PSTR szDestFileName, PSTR szSrcDir, PSTR szDestDir, PSTR szCurDir, uint8* szTmpFile, uint32* puTmpFileLen) => VerInstallFileA(uFlags, szSrcFileName, szDestFileName, szSrcDir, szDestDir, szCurDir, szTmpFile, puTmpFileLen);
 
 	[Import("VERSION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern VER_INSTALL_FILE_STATUS VerInstallFileW(VER_INSTALL_FILE_FLAGS uFlags, PWSTR szSrcFileName, PWSTR szDestFileName, PWSTR szSrcDir, PWSTR szDestDir, PWSTR szCurDir, char8* szTmpFile, uint32* puTmpFileLen);
+	public static extern VER_INSTALL_FILE_STATUS VerInstallFileW(VER_INSTALL_FILE_FLAGS uFlags, PWSTR szSrcFileName, PWSTR szDestFileName, PWSTR szSrcDir, PWSTR szDestDir, PWSTR szCurDir, char16* szTmpFile, uint32* puTmpFileLen);
 
 	[Import("VERSION.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetFileVersionInfoSizeA(PSTR lptstrFilename, uint32* lpdwHandle);
@@ -4887,7 +4887,7 @@ public static
 	public static uint32 VerLanguageName(uint32 wLang, uint8* szLang, uint32 cchLang) => VerLanguageNameA(wLang, szLang, cchLang);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 VerLanguageNameW(uint32 wLang, char8* szLang, uint32 cchLang);
+	public static extern uint32 VerLanguageNameW(uint32 wLang, char16* szLang, uint32 cchLang);
 
 	[Import("VERSION.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL VerQueryValueA(void* pBlock, PSTR lpSubBlock, void** lplpBuffer, uint32* puLen);
@@ -5023,7 +5023,7 @@ public static
 	public static extern BOOL TerminateReadLog(void* pvCursorContext);
 
 	[Import("clfsw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PrepareLogArchive(HANDLE hLog, char8* pszBaseLogFileName, uint32 cLen, CLS_LSN* plsnLow, CLS_LSN* plsnHigh, uint32* pcActualLength, uint64* poffBaseLogFileData, uint64* pcbBaseLogFileLength, CLS_LSN* plsnBase, CLS_LSN* plsnLast, CLS_LSN* plsnCurrentArchiveTail, void** ppvArchiveContext);
+	public static extern BOOL PrepareLogArchive(HANDLE hLog, char16* pszBaseLogFileName, uint32 cLen, CLS_LSN* plsnLow, CLS_LSN* plsnHigh, uint32* pcActualLength, uint64* poffBaseLogFileData, uint64* pcbBaseLogFileLength, CLS_LSN* plsnBase, CLS_LSN* plsnLast, CLS_LSN* plsnCurrentArchiveTail, void** ppvArchiveContext);
 
 	[Import("clfsw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ReadLogArchiveMetadata(void* pvArchiveContext, uint32 cbOffset, uint32 cbBytesToRead, uint8* pbReadBuffer, uint32* pcbBytesRead);
@@ -5129,7 +5129,7 @@ public static
 	public static int32 GetExpandedName(PSTR lpszSource, uint8* lpszBuffer) => GetExpandedNameA(lpszSource, lpszBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetExpandedNameW(PWSTR lpszSource, char8* lpszBuffer);
+	public static extern int32 GetExpandedNameW(PWSTR lpszSource, char16* lpszBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 LZOpenFileA(PSTR lpFileName, OFSTRUCT* lpReOpenBuf, LZOPENFILE_STYLE wStyle);
@@ -5229,7 +5229,7 @@ public static
 	public static extern BOOL GetTransactionId(HANDLE TransactionHandle, Guid* TransactionId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTransactionInformation(HANDLE TransactionHandle, uint32* Outcome, uint32* IsolationLevel, uint32* IsolationFlags, uint32* Timeout, uint32 BufferLength, char8* Description);
+	public static extern BOOL GetTransactionInformation(HANDLE TransactionHandle, uint32* Outcome, uint32* IsolationLevel, uint32* IsolationFlags, uint32* Timeout, uint32 BufferLength, char16* Description);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetTransactionInformation(HANDLE TransactionHandle, uint32 IsolationLevel, uint32 IsolationFlags, uint32 Timeout, PWSTR Description);
@@ -5445,7 +5445,7 @@ public static
 	public static uint32 GetLongPathNameTransacted(PSTR lpszShortPath, uint8* lpszLongPath, uint32 cchBuffer, HANDLE hTransaction) => GetLongPathNameTransactedA(lpszShortPath, lpszLongPath, cchBuffer, hTransaction);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetLongPathNameTransactedW(PWSTR lpszShortPath, char8* lpszLongPath, uint32 cchBuffer, HANDLE hTransaction);
+	public static extern uint32 GetLongPathNameTransactedW(PWSTR lpszShortPath, char16* lpszLongPath, uint32 cchBuffer, HANDLE hTransaction);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetFileCompletionNotificationModes(HANDLE FileHandle, uint8 Flags);
@@ -5566,7 +5566,7 @@ public static
 	public static uint32 GetFullPathNameTransacted(PSTR lpFileName, uint32 nBufferLength, uint8* lpBuffer, PSTR* lpFilePart, HANDLE hTransaction) => GetFullPathNameTransactedA(lpFileName, nBufferLength, lpBuffer, lpFilePart, hTransaction);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetFullPathNameTransactedW(PWSTR lpFileName, uint32 nBufferLength, char8* lpBuffer, PWSTR* lpFilePart, HANDLE hTransaction);
+	public static extern uint32 GetFullPathNameTransactedW(PWSTR lpFileName, uint32 nBufferLength, char16* lpBuffer, PWSTR* lpFilePart, HANDLE hTransaction);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DefineDosDeviceA(DEFINE_DOS_DEVICE_FLAGS dwFlags, PSTR lpDeviceName, PSTR lpTargetPath);
@@ -5705,7 +5705,7 @@ public static
 	public static extern FindStreamHandle FindFirstStreamTransactedW(PWSTR lpFileName, STREAM_INFO_LEVELS InfoLevel, void* lpFindStreamData, uint32 dwFlags, HANDLE hTransaction);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern FindFileNameHandle FindFirstFileNameTransactedW(PWSTR lpFileName, uint32 dwFlags, uint32* StringLength, char8* LinkName, HANDLE hTransaction);
+	public static extern FindFileNameHandle FindFirstFileNameTransactedW(PWSTR lpFileName, uint32 dwFlags, uint32* StringLength, char16* LinkName, HANDLE hTransaction);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetVolumeLabelA(PSTR lpRootPathName, PSTR lpVolumeName);
@@ -5739,14 +5739,14 @@ public static
 	public static FindVolumeMointPointHandle FindFirstVolumeMountPoint(PSTR lpszRootPathName, uint8* lpszVolumeMountPoint, uint32 cchBufferLength) => FindFirstVolumeMountPointA(lpszRootPathName, lpszVolumeMountPoint, cchBufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern FindVolumeMointPointHandle FindFirstVolumeMountPointW(PWSTR lpszRootPathName, char8* lpszVolumeMountPoint, uint32 cchBufferLength);
+	public static extern FindVolumeMointPointHandle FindFirstVolumeMountPointW(PWSTR lpszRootPathName, char16* lpszVolumeMountPoint, uint32 cchBufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FindNextVolumeMountPointA(FindVolumeMointPointHandle hFindVolumeMountPoint, uint8* lpszVolumeMountPoint, uint32 cchBufferLength);
 	public static BOOL FindNextVolumeMountPoint(FindVolumeMointPointHandle hFindVolumeMountPoint, uint8* lpszVolumeMountPoint, uint32 cchBufferLength) => FindNextVolumeMountPointA(hFindVolumeMountPoint, lpszVolumeMountPoint, cchBufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextVolumeMountPointW(FindVolumeMointPointHandle hFindVolumeMountPoint, char8* lpszVolumeMountPoint, uint32 cchBufferLength);
+	public static extern BOOL FindNextVolumeMountPointW(FindVolumeMointPointHandle hFindVolumeMountPoint, char16* lpszVolumeMountPoint, uint32 cchBufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FindVolumeMountPointClose(FindVolumeMointPointHandle hFindVolumeMountPoint);

@@ -164,7 +164,7 @@ public struct VBS_ENCLAVE_REPORT_MODULE
 	public uint8[16] FamilyId;
 	public uint8[16] ImageId;
 	public uint32 Svn;
-	public char8[1] ModuleName;
+	public char16[1] ModuleName;
 }
 
 [CRepr]
@@ -282,7 +282,7 @@ public static
 	public static uint32 GetEnvironmentVariable(PSTR lpName, uint8* lpBuffer, uint32 nSize) => GetEnvironmentVariableA(lpName, lpBuffer, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetEnvironmentVariableW(PWSTR lpName, char8* lpBuffer, uint32 nSize);
+	public static extern uint32 GetEnvironmentVariableW(PWSTR lpName, char16* lpBuffer, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetEnvironmentVariableA(PSTR lpName, PSTR lpValue);
@@ -296,7 +296,7 @@ public static
 	public static uint32 ExpandEnvironmentStrings(PSTR lpSrc, uint8* lpDst, uint32 nSize) => ExpandEnvironmentStringsA(lpSrc, lpDst, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ExpandEnvironmentStringsW(PWSTR lpSrc, char8* lpDst, uint32 nSize);
+	public static extern uint32 ExpandEnvironmentStringsW(PWSTR lpSrc, char16* lpDst, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetCurrentDirectoryA(PSTR lpPathName);
@@ -310,7 +310,7 @@ public static
 	public static uint32 GetCurrentDirectory(uint32 nBufferLength, uint8* lpBuffer) => GetCurrentDirectoryA(nBufferLength, lpBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetCurrentDirectoryW(uint32 nBufferLength, char8* lpBuffer);
+	public static extern uint32 GetCurrentDirectoryW(uint32 nBufferLength, char16* lpBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL NeedCurrentDirectoryForExePathA(PSTR ExeName);
@@ -330,7 +330,7 @@ public static
 	public static BOOL ExpandEnvironmentStringsForUser(HANDLE hToken, PSTR lpSrc, uint8* lpDest, uint32 dwSize) => ExpandEnvironmentStringsForUserA(hToken, lpSrc, lpDest, dwSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ExpandEnvironmentStringsForUserW(HANDLE hToken, PWSTR lpSrc, char8* lpDest, uint32 dwSize);
+	public static extern BOOL ExpandEnvironmentStringsForUserW(HANDLE hToken, PWSTR lpSrc, char16* lpDest, uint32 dwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsEnclaveTypeSupported(uint32 flEnclaveType);

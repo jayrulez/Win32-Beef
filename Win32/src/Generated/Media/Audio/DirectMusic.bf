@@ -843,7 +843,7 @@ public struct DMUS_PORTCAPS
 	public uint32 dwMaxVoices;
 	public uint32 dwMaxAudioChannels;
 	public uint32 dwEffectFlags;
-	public char8[128] wszDescription;
+	public char16[128] wszDescription;
 }
 
 [CRepr]
@@ -915,7 +915,7 @@ public struct DMUS_CLOCKINFO7
 	public uint32 dwSize;
 	public DMUS_CLOCKTYPE ctType;
 	public Guid guidClock;
-	public char8[128] wszDescription;
+	public char16[128] wszDescription;
 }
 
 [CRepr]
@@ -924,7 +924,7 @@ public struct DMUS_CLOCKINFO8
 	public uint32 dwSize;
 	public DMUS_CLOCKTYPE ctType;
 	public Guid guidClock;
-	public char8[128] wszDescription;
+	public char16[128] wszDescription;
 	public uint32 dwFlags;
 }
 
@@ -956,9 +956,9 @@ public struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA
 {
 	public Guid DeviceId;
 	public CHAR[256] DescriptionA;
-	public char8[256] DescriptionW;
+	public char16[256] DescriptionW;
 	public CHAR[260] ModuleA;
-	public char8[260] ModuleW;
+	public char16[260] ModuleW;
 	public DIRECTSOUNDDEVICE_TYPE Type;
 	public DIRECTSOUNDDEVICE_DATAFLOW DataFlow;
 	public uint32 WaveDeviceId;

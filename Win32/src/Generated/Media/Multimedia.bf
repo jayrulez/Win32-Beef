@@ -10135,7 +10135,7 @@ public struct JOYCAPSW
 {
 	public uint16 wMid;
 	public uint16 wPid;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint32 wXmin;
 	public uint32 wXmax;
 	public uint32 wYmin;
@@ -10155,8 +10155,8 @@ public struct JOYCAPSW
 	public uint32 wMaxAxes;
 	public uint32 wNumAxes;
 	public uint32 wMaxButtons;
-	public char8[32] szRegKey;
-	public char8[260] szOEMVxD;
+	public char16[32] szRegKey;
+	public char16[260] szOEMVxD;
 }
 
 [CRepr, Packed(1)]
@@ -10196,7 +10196,7 @@ public struct JOYCAPS2W
 {
 	public uint16 wMid;
 	public uint16 wPid;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint32 wXmin;
 	public uint32 wXmax;
 	public uint32 wYmin;
@@ -10216,8 +10216,8 @@ public struct JOYCAPS2W
 	public uint32 wMaxAxes;
 	public uint32 wNumAxes;
 	public uint32 wMaxButtons;
-	public char8[32] szRegKey;
-	public char8[260] szOEMVxD;
+	public char16[32] szRegKey;
+	public char16[260] szOEMVxD;
 	public Guid ManufacturerGuid;
 	public Guid ProductGuid;
 	public Guid NameGuid;
@@ -10617,9 +10617,9 @@ public struct ICINFO
 	public uint32 dwFlags;
 	public uint32 dwVersion;
 	public uint32 dwVersionICM;
-	public char8[16] szName;
-	public char8[128] szDescription;
-	public char8[128] szDriver;
+	public char16[16] szName;
+	public char16[128] szDescription;
+	public char16[128] szDriver;
 }
 
 [CRepr]
@@ -10801,7 +10801,7 @@ public struct AVISTREAMINFOW
 	public RECT rcFrame;
 	public uint32 dwEditCount;
 	public uint32 dwFormatChangeCount;
-	public char8[64] szName;
+	public char16[64] szName;
 }
 
 [CRepr]
@@ -10841,7 +10841,7 @@ public struct AVIFILEINFOW
 	public uint32 dwRate;
 	public uint32 dwLength;
 	public uint32 dwEditCount;
-	public char8[64] szFileType;
+	public char16[64] szFileType;
 }
 
 [CRepr]
@@ -11225,7 +11225,7 @@ public static
 	public static uint32 mciSendString(PSTR lpstrCommand, uint8* lpstrReturnString, uint32 uReturnLength, HWND hwndCallback) => mciSendStringA(lpstrCommand, lpstrReturnString, uReturnLength, hwndCallback);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 mciSendStringW(PWSTR lpstrCommand, char8* lpstrReturnString, uint32 uReturnLength, HWND hwndCallback);
+	public static extern uint32 mciSendStringW(PWSTR lpstrCommand, char16* lpstrReturnString, uint32 uReturnLength, HWND hwndCallback);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mciGetDeviceIDA(PSTR pszDevice);
@@ -11246,7 +11246,7 @@ public static
 	public static BOOL mciGetErrorString(uint32 mcierr, uint8* pszText, uint32 cchText) => mciGetErrorStringA(mcierr, pszText, cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL mciGetErrorStringW(uint32 mcierr, char8* pszText, uint32 cchText);
+	public static extern BOOL mciGetErrorStringW(uint32 mcierr, char16* pszText, uint32 cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL mciSetYieldProc(uint32 mciId, YIELDPROC fpYieldProc, uint32 dwYieldData);
@@ -11321,7 +11321,7 @@ public static
 	public static HMMIO mmioOpen(uint8* pszFileName, MMIOINFO* pmmioinfo, uint32 fdwOpen) => mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HMMIO mmioOpenW(char8* pszFileName, MMIOINFO* pmmioinfo, uint32 fdwOpen);
+	public static extern HMMIO mmioOpenW(char16* pszFileName, MMIOINFO* pmmioinfo, uint32 fdwOpen);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mmioRenameA(PSTR pszFileName, PSTR pszNewFileName, MMIOINFO* pmmioinfo, uint32 fdwRename);
@@ -11645,7 +11645,7 @@ public static
 	public static extern HRESULT AVISaveOptionsFree(int32 nStreams, AVICOMPRESSOPTIONS** plpOptions);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AVIBuildFilterW(char8* lpszFilter, int32 cbFilter, BOOL fSaving);
+	public static extern HRESULT AVIBuildFilterW(char16* lpszFilter, int32 cbFilter, BOOL fSaving);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIBuildFilterA(uint8* lpszFilter, int32 cbFilter, BOOL fSaving);
@@ -11717,7 +11717,7 @@ public static
 	public static extern HWND capCreateCaptureWindowW(PWSTR lpszWindowName, uint32 dwStyle, int32 x, int32 y, int32 nWidth, int32 nHeight, HWND hwndParent, int32 nID);
 
 	[Import("AVICAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL capGetDriverDescriptionW(uint32 wDriverIndex, char8* lpszName, int32 cbName, char8* lpszVer, int32 cbVer);
+	public static extern BOOL capGetDriverDescriptionW(uint32 wDriverIndex, char16* lpszName, int32 cbName, char16* lpszVer, int32 cbVer);
 
 	[Import("MSVFW32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetOpenFileNamePreviewA(OPENFILENAMEA* lpofn);

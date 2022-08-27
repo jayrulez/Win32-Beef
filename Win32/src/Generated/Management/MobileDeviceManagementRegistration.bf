@@ -192,7 +192,7 @@ public static
 	public static extern HRESULT GetDeviceRegistrationInfo(REGISTRATION_INFORMATION_CLASS DeviceInformationClass, void** ppDeviceRegistrationInfo);
 
 	[Import("MDMRegistration.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IsDeviceRegisteredWithManagement(BOOL* pfIsDeviceRegisteredWithManagement, uint32 cchUPN, char8* pszUPN);
+	public static extern HRESULT IsDeviceRegisteredWithManagement(BOOL* pfIsDeviceRegisteredWithManagement, uint32 cchUPN, char16* pszUPN);
 
 	[Import("MDMRegistration.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT IsManagementRegistrationAllowed(BOOL* pfIsManagementRegistrationAllowed);
@@ -222,13 +222,13 @@ public static
 	public static extern HRESULT UnregisterDeviceWithManagement(PWSTR enrollmentID);
 
 	[Import("MDMRegistration.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetDeviceManagementConfigInfo(PWSTR providerID, uint32* configStringBufferLength, char8* configString);
+	public static extern HRESULT GetDeviceManagementConfigInfo(PWSTR providerID, uint32* configStringBufferLength, char16* configString);
 
 	[Import("MDMRegistration.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetDeviceManagementConfigInfo(PWSTR providerID, PWSTR configString);
 
 	[Import("MDMRegistration.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetManagementAppHyperlink(uint32 cchHyperlink, char8* pszHyperlink);
+	public static extern HRESULT GetManagementAppHyperlink(uint32 cchHyperlink, char16* pszHyperlink);
 
 	[Import("MDMRegistration.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DiscoverManagementServiceEx(PWSTR pszUPN, PWSTR pszDiscoveryServiceCandidate, MANAGEMENT_SERVICE_INFO** ppMgmtInfo);

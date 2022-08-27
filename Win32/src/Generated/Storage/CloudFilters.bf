@@ -923,8 +923,8 @@ public struct CF_SYNC_ROOT_BASIC_INFO
 public struct CF_SYNC_ROOT_PROVIDER_INFO
 {
 	public CF_SYNC_PROVIDER_STATUS ProviderStatus;
-	public char8[256] ProviderName;
-	public char8[256] ProviderVersion;
+	public char16[256] ProviderName;
+	public char16[256] ProviderVersion;
 }
 
 [CRepr]
@@ -936,8 +936,8 @@ public struct CF_SYNC_ROOT_STANDARD_INFO
 	public CF_INSYNC_POLICY InSyncPolicy;
 	public CF_HARDLINK_POLICY HardLinkPolicy;
 	public CF_SYNC_PROVIDER_STATUS ProviderStatus;
-	public char8[256] ProviderName;
-	public char8[256] ProviderVersion;
+	public char16[256] ProviderName;
+	public char16[256] ProviderVersion;
 	public uint32 SyncRootIdentityLength;
 	public uint8[1] SyncRootIdentity;
 }

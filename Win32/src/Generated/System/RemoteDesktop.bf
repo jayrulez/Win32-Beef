@@ -1246,11 +1246,11 @@ public struct WTSCONFIGINFOW
 	public uint32 fDisablePrinterRedirection;
 	public uint32 fDisableDefaultMainClientPrinter;
 	public uint32 ShadowSettings;
-	public char8[21] LogonUserName;
-	public char8[18] LogonDomain;
-	public char8[261] WorkDirectory;
-	public char8[261] InitialProgram;
-	public char8[261] ApplicationName;
+	public char16[21] LogonUserName;
+	public char16[18] LogonDomain;
+	public char16[261] WorkDirectory;
+	public char16[261] InitialProgram;
+	public char16[261] ApplicationName;
 }
 
 [CRepr]
@@ -1280,9 +1280,9 @@ public struct WTSINFOW
 	public uint32 OutgoingFrames;
 	public uint32 IncomingCompressedBytes;
 	public uint32 OutgoingCompressedBytes;
-	public char8[32] WinStationName;
-	public char8[17] Domain;
-	public char8[21] UserName;
+	public char16[32] WinStationName;
+	public char16[17] Domain;
+	public char16[21] UserName;
 	public LARGE_INTEGER ConnectTime;
 	public LARGE_INTEGER DisconnectTime;
 	public LARGE_INTEGER LastInputTime;
@@ -1317,9 +1317,9 @@ public struct WTSINFOEX_LEVEL1_W
 	public uint32 SessionId;
 	public WTS_CONNECTSTATE_CLASS SessionState;
 	public int32 SessionFlags;
-	public char8[33] WinStationName;
-	public char8[21] UserName;
-	public char8[18] DomainName;
+	public char16[33] WinStationName;
+	public char16[21] UserName;
+	public char16[18] DomainName;
 	public LARGE_INTEGER LogonTime;
 	public LARGE_INTEGER ConnectTime;
 	public LARGE_INTEGER DisconnectTime;
@@ -1384,25 +1384,25 @@ public struct WTSINFOEXA
 [CRepr]
 public struct WTSCLIENTW
 {
-	public char8[21] ClientName;
-	public char8[18] Domain;
-	public char8[21] UserName;
-	public char8[261] WorkDirectory;
-	public char8[261] InitialProgram;
+	public char16[21] ClientName;
+	public char16[18] Domain;
+	public char16[21] UserName;
+	public char16[261] WorkDirectory;
+	public char16[261] InitialProgram;
 	public uint8 EncryptionLevel;
 	public uint32 ClientAddressFamily;
 	public uint16[31] ClientAddress;
 	public uint16 HRes;
 	public uint16 VRes;
 	public uint16 ColorDepth;
-	public char8[261] ClientDirectory;
+	public char16[261] ClientDirectory;
 	public uint32 ClientBuildNumber;
 	public uint32 ClientHardwareId;
 	public uint16 ClientProductId;
 	public uint16 OutBufCountHost;
 	public uint16 OutBufCountClient;
 	public uint16 OutBufLength;
-	public char8[261] DeviceId;
+	public char16[261] DeviceId;
 }
 
 [CRepr]
@@ -1439,8 +1439,8 @@ public struct _WTS_PRODUCT_INFOA
 [CRepr]
 public struct _WTS_PRODUCT_INFOW
 {
-	public char8[256] CompanyName;
-	public char8[4] ProductID;
+	public char16[256] CompanyName;
+	public char16[4] ProductID;
 }
 
 [CRepr]
@@ -1517,11 +1517,11 @@ public struct WTSUSERCONFIGW
 	public uint32 ReconnectSettings;
 	public uint32 ShadowingSettings;
 	public uint32 TerminalServerRemoteHomeDir;
-	public char8[261] InitialProgram;
-	public char8[261] WorkDirectory;
-	public char8[261] TerminalServerProfilePath;
-	public char8[261] TerminalServerHomeDir;
-	public char8[4] TerminalServerHomeDirDrive;
+	public char16[261] InitialProgram;
+	public char16[261] WorkDirectory;
+	public char16[261] TerminalServerProfilePath;
+	public char16[261] TerminalServerHomeDir;
+	public char16[4] TerminalServerHomeDirDrive;
 }
 
 [CRepr]
@@ -1594,11 +1594,11 @@ public struct WTSLISTENERCONFIGW
 	public uint32 SecurityLayer;
 	public uint32 MinEncryptionLevel;
 	public uint32 UserAuthentication;
-	public char8[61] Comment;
-	public char8[21] LogonUserName;
-	public char8[18] LogonDomain;
-	public char8[261] WorkDirectory;
-	public char8[261] InitialProgram;
+	public char16[61] Comment;
+	public char16[21] LogonUserName;
+	public char16[18] LogonDomain;
+	public char16[261] WorkDirectory;
+	public char16[261] InitialProgram;
 }
 
 [CRepr]
@@ -1649,8 +1649,8 @@ public struct WTSSBX_IP_ADDRESS
 [CRepr]
 public struct WTSSBX_MACHINE_CONNECT_INFO
 {
-	public char8[257] wczMachineFQDN;
-	public char8[17] wczMachineNetBiosName;
+	public char16[257] wczMachineFQDN;
+	public char16[17] wczMachineNetBiosName;
 	public uint32 dwNumOfIPAddr;
 	public WTSSBX_IP_ADDRESS[12] IPaddr;
 }
@@ -1659,7 +1659,7 @@ public struct WTSSBX_MACHINE_CONNECT_INFO
 public struct WTSSBX_MACHINE_INFO
 {
 	public WTSSBX_MACHINE_CONNECT_INFO ClientConnectInfo;
-	public char8[257] wczFarmName;
+	public char16[257] wczFarmName;
 	public WTSSBX_IP_ADDRESS InternalIPAddress;
 	public uint32 dwMaxSessionsLimit;
 	public uint32 ServerWeight;
@@ -1671,9 +1671,9 @@ public struct WTSSBX_MACHINE_INFO
 [CRepr]
 public struct WTSSBX_SESSION_INFO
 {
-	public char8[105] wszUserName;
-	public char8[257] wszDomainName;
-	public char8[257] ApplicationType;
+	public char16[105] wszUserName;
+	public char16[257] wszDomainName;
+	public char16[257] ApplicationType;
 	public uint32 dwSessionId;
 	public FILETIME CreateTime;
 	public FILETIME DisconnectTime;
@@ -1725,8 +1725,8 @@ public struct TSSD_ConnectionPoint
 [CRepr]
 public struct VM_NOTIFY_ENTRY
 {
-	public char8[128] VmName;
-	public char8[128] VmHost;
+	public char16[128] VmName;
+	public char16[128] VmHost;
 }
 
 [CRepr]
@@ -1746,11 +1746,11 @@ public struct VM_NOTIFY_INFO
 [CRepr]
 public struct pluginResource
 {
-	public char8[256] alias;
-	public char8[256] name;
+	public char16[256] alias;
+	public char16[256] name;
 	public PWSTR resourceFileContents;
-	public char8[256] fileExtension;
-	public char8[256] resourcePluginType;
+	public char16[256] fileExtension;
+	public char16[256] resourcePluginType;
 	public uint8 isDiscoverable;
 	public int32 resourceType;
 	public uint32 pceIconSize;
@@ -1762,7 +1762,7 @@ public struct pluginResource
 [CRepr]
 public struct pluginResource2FileAssociation
 {
-	public char8[256] extName;
+	public char16[256] extName;
 	public uint8 primaryHandler;
 	public uint32 pceIconSize;
 	public uint8* iconContents;
@@ -1828,7 +1828,7 @@ public struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE
 	public uint32 reserved;
 	public uint32 monitorCount;
 	public RFX_GFX_MONITOR_INFO[16] MonitorData;
-	public char8[32] clientUniqueId;
+	public char16[32] clientUniqueId;
 }
 
 [CRepr, Packed(1)]
@@ -1933,9 +1933,9 @@ public struct WTS_SESSION_ID
 [CRepr]
 public struct WTS_USER_CREDENTIAL
 {
-	public char8[256] UserName;
-	public char8[256] Password;
-	public char8[256] Domain;
+	public char16[256] UserName;
+	public char16[256] Password;
+	public char16[256] Domain;
 }
 
 [CRepr]
@@ -1955,10 +1955,10 @@ public struct WTS_SYSTEMTIME
 public struct WTS_TIME_ZONE_INFORMATION
 {
 	public int32 Bias;
-	public char8[32] StandardName;
+	public char16[32] StandardName;
 	public WTS_SYSTEMTIME StandardDate;
 	public int32 StandardBias;
-	public char8[32] DaylightName;
+	public char16[32] DaylightName;
 	public WTS_SYSTEMTIME DaylightDate;
 	public int32 DaylightBias;
 }
@@ -1967,13 +1967,13 @@ public struct WTS_TIME_ZONE_INFORMATION
 public struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION
 {
 	public int32 Bias;
-	public char8[32] StandardName;
+	public char16[32] StandardName;
 	public WTS_SYSTEMTIME StandardDate;
 	public int32 StandardBias;
-	public char8[32] DaylightName;
+	public char16[32] DaylightName;
 	public WTS_SYSTEMTIME DaylightDate;
 	public int32 DaylightBias;
-	public char8[128] TimeZoneKeyName;
+	public char16[128] TimeZoneKeyName;
 	public uint16 DynamicDaylightTimeDisabled;
 }
 
@@ -1987,48 +1987,48 @@ public struct WTS_CLIENT_DATA
 	public BOOL fInheritAutoLogon;
 	public BOOLEAN fPromptForPassword;
 	public BOOLEAN fUsingSavedCreds;
-	public char8[256] Domain;
-	public char8[256] UserName;
-	public char8[256] Password;
+	public char16[256] Domain;
+	public char16[256] UserName;
+	public char16[256] Password;
 	public BOOLEAN fPasswordIsScPin;
 	public BOOL fInheritInitialProgram;
-	public char8[257] WorkDirectory;
-	public char8[257] InitialProgram;
+	public char16[257] WorkDirectory;
+	public char16[257] InitialProgram;
 	public BOOLEAN fMaximizeShell;
 	public uint8 EncryptionLevel;
 	public uint32 PerformanceFlags;
-	public char8[9] ProtocolName;
+	public char16[9] ProtocolName;
 	public uint16 ProtocolType;
 	public BOOL fInheritColorDepth;
 	public uint16 HRes;
 	public uint16 VRes;
 	public uint16 ColorDepth;
-	public char8[9] DisplayDriverName;
-	public char8[20] DisplayDeviceName;
+	public char16[9] DisplayDriverName;
+	public char16[20] DisplayDeviceName;
 	public BOOLEAN fMouse;
 	public uint32 KeyboardLayout;
 	public uint32 KeyboardType;
 	public uint32 KeyboardSubType;
 	public uint32 KeyboardFunctionKey;
-	public char8[33] imeFileName;
+	public char16[33] imeFileName;
 	public uint32 ActiveInputLocale;
 	public BOOLEAN fNoAudioPlayback;
 	public BOOLEAN fRemoteConsoleAudio;
-	public char8[9] AudioDriverName;
+	public char16[9] AudioDriverName;
 	public WTS_TIME_ZONE_INFORMATION ClientTimeZone;
-	public char8[21] ClientName;
+	public char16[21] ClientName;
 	public uint32 SerialNumber;
 	public uint32 ClientAddressFamily;
-	public char8[31] ClientAddress;
+	public char16[31] ClientAddress;
 	public WTS_SOCKADDR ClientSockAddress;
-	public char8[257] ClientDirectory;
+	public char16[257] ClientDirectory;
 	public uint32 ClientBuildNumber;
 	public uint16 ClientProductId;
 	public uint16 OutBufCountHost;
 	public uint16 OutBufCountClient;
 	public uint16 OutBufLength;
 	public uint32 ClientSessionId;
-	public char8[33] ClientDigProductId;
+	public char16[33] ClientDigProductId;
 	public BOOLEAN fDisableCpm;
 	public BOOLEAN fDisableCdm;
 	public BOOLEAN fDisableCcm;
@@ -2040,8 +2040,8 @@ public struct WTS_CLIENT_DATA
 [CRepr]
 public struct WTS_USER_DATA
 {
-	public char8[257] WorkDirectory;
-	public char8[257] InitialProgram;
+	public char16[257] WorkDirectory;
+	public char16[257] InitialProgram;
 	public WTS_TIME_ZONE_INFORMATION UserTimeZone;
 }
 
@@ -2235,20 +2235,20 @@ public struct WRDS_CONNECTION_SETTINGS_1
 	public uint32 ClientAddressFamily;
 	public uint32 ClientBuildNumber;
 	public uint32 ClientSessionId;
-	public char8[257] WorkDirectory;
-	public char8[257] InitialProgram;
-	public char8[256] UserName;
-	public char8[256] Domain;
-	public char8[256] Password;
-	public char8[9] ProtocolName;
-	public char8[9] DisplayDriverName;
-	public char8[20] DisplayDeviceName;
-	public char8[33] imeFileName;
-	public char8[9] AudioDriverName;
-	public char8[21] ClientName;
-	public char8[31] ClientAddress;
-	public char8[257] ClientDirectory;
-	public char8[33] ClientDigProductId;
+	public char16[257] WorkDirectory;
+	public char16[257] InitialProgram;
+	public char16[256] UserName;
+	public char16[256] Domain;
+	public char16[256] Password;
+	public char16[9] ProtocolName;
+	public char16[9] DisplayDriverName;
+	public char16[20] DisplayDeviceName;
+	public char16[33] imeFileName;
+	public char16[9] AudioDriverName;
+	public char16[21] ClientName;
+	public char16[31] ClientAddress;
+	public char16[257] ClientDirectory;
+	public char16[33] ClientDigProductId;
 	public WTS_SOCKADDR ClientSockAddress;
 	public WTS_TIME_ZONE_INFORMATION ClientTimeZone;
 	public WRDS_LISTENER_SETTINGS WRdsListenerSettings;
@@ -4657,14 +4657,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWRdsWddmIddProps*/SelfOuter* self, char8* pDisplayDriverHardwareId, uint32 Count) GetHardwareId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWRdsWddmIddProps*/SelfOuter* self, char16* pDisplayDriverHardwareId, uint32 Count) GetHardwareId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWRdsWddmIddProps*/SelfOuter* self, uint32 SessionId, HANDLE_PTR DriverHandle) OnDriverLoad;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWRdsWddmIddProps*/SelfOuter* self, uint32 SessionId) OnDriverUnload;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWRdsWddmIddProps*/SelfOuter* self, BOOL Enabled) EnableWddmIdd;
 	}
 
 
-	public HRESULT GetHardwareId(char8* pDisplayDriverHardwareId, uint32 Count) mut => VT.[Friend]GetHardwareId(&this, pDisplayDriverHardwareId, Count);
+	public HRESULT GetHardwareId(char16* pDisplayDriverHardwareId, uint32 Count) mut => VT.[Friend]GetHardwareId(&this, pDisplayDriverHardwareId, Count);
 
 	public HRESULT OnDriverLoad(uint32 SessionId, HANDLE_PTR DriverHandle) mut => VT.[Friend]OnDriverLoad(&this, SessionId, DriverHandle);
 

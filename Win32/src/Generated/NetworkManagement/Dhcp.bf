@@ -2745,7 +2745,7 @@ public static
 	public static extern uint32 DhcpAuditLogGetParams(PWSTR ServerIpAddress, uint32 Flags, PWSTR* AuditLogDir, uint32* DiskCheckInterval, uint32* MaxLogFilesSize, uint32* MinSpaceOnDisk);
 
 	[Import("DHCPSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DhcpServerQueryDnsRegCredentials(PWSTR ServerIpAddress, uint32 UnameSize, char8* Uname, uint32 DomainSize, char8* Domain);
+	public static extern uint32 DhcpServerQueryDnsRegCredentials(PWSTR ServerIpAddress, uint32 UnameSize, char16* Uname, uint32 DomainSize, char16* Domain);
 
 	[Import("DHCPSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DhcpServerSetDnsRegCredentials(PWSTR ServerIpAddress, PWSTR Uname, PWSTR Domain, PWSTR Passwd);

@@ -263,11 +263,11 @@ public enum EFaultRepRetVal : int32
 #endregion
 
 #region Function Pointers
-public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, BOOL* pbOwnershipClaimed, char8* pwszEventName, uint32* pchSize, uint32* pdwSignatureCount);
+public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, BOOL* pbOwnershipClaimed, char16* pwszEventName, uint32* pchSize, uint32* pdwSignatureCount);
 
-public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, uint32 dwIndex, char8* pwszName, uint32* pchName, char8* pwszValue, uint32* pchValue);
+public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, uint32 dwIndex, char16* pwszName, uint32* pchName, char16* pwszValue, uint32* pchValue);
 
-public function HRESULT PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, BOOL* pbIsCustomDebugger, char8* pwszDebuggerLaunch, uint32* pchDebuggerLaunch, BOOL* pbIsDebuggerAutolaunch);
+public function HRESULT PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, BOOL* pbIsCustomDebugger, char16* pwszDebuggerLaunch, uint32* pchDebuggerLaunch, BOOL* pbIsDebuggerAutolaunch);
 
 public function EFaultRepRetVal pfn_REPORTFAULT(EXCEPTION_POINTERS* param0, uint32 param1);
 
@@ -283,11 +283,11 @@ public struct WER_REPORT_INFORMATION
 {
 	public uint32 dwSize;
 	public HANDLE hProcess;
-	public char8[64] wzConsentKey;
-	public char8[128] wzFriendlyEventName;
-	public char8[128] wzApplicationName;
-	public char8[260] wzApplicationPath;
-	public char8[512] wzDescription;
+	public char16[64] wzConsentKey;
+	public char16[128] wzFriendlyEventName;
+	public char16[128] wzApplicationName;
+	public char16[260] wzApplicationPath;
+	public char16[512] wzDescription;
 	public HWND hwndParent;
 }
 
@@ -296,14 +296,14 @@ public struct WER_REPORT_INFORMATION_V3
 {
 	public uint32 dwSize;
 	public HANDLE hProcess;
-	public char8[64] wzConsentKey;
-	public char8[128] wzFriendlyEventName;
-	public char8[128] wzApplicationName;
-	public char8[260] wzApplicationPath;
-	public char8[512] wzDescription;
+	public char16[64] wzConsentKey;
+	public char16[128] wzFriendlyEventName;
+	public char16[128] wzApplicationName;
+	public char16[260] wzApplicationPath;
+	public char16[512] wzDescription;
 	public HWND hwndParent;
-	public char8[64] wzNamespacePartner;
-	public char8[64] wzNamespaceGroup;
+	public char16[64] wzNamespacePartner;
+	public char16[64] wzNamespaceGroup;
 }
 
 [CRepr]
@@ -319,7 +319,7 @@ public struct WER_DUMP_CUSTOM_OPTIONS
 	public uint32 dwOtherThreadExFlags;
 	public uint32 dwPreferredModuleFlags;
 	public uint32 dwOtherModuleFlags;
-	public char8[256] wzPreferredModuleList;
+	public char16[256] wzPreferredModuleList;
 }
 
 [CRepr]
@@ -335,7 +335,7 @@ public struct WER_DUMP_CUSTOM_OPTIONS_V2
 	public uint32 dwOtherThreadExFlags;
 	public uint32 dwPreferredModuleFlags;
 	public uint32 dwOtherModuleFlags;
-	public char8[256] wzPreferredModuleList;
+	public char16[256] wzPreferredModuleList;
 	public uint32 dwPreferredModuleResetFlags;
 	public uint32 dwOtherModuleResetFlags;
 }
@@ -345,14 +345,14 @@ public struct WER_REPORT_INFORMATION_V4
 {
 	public uint32 dwSize;
 	public HANDLE hProcess;
-	public char8[64] wzConsentKey;
-	public char8[128] wzFriendlyEventName;
-	public char8[128] wzApplicationName;
-	public char8[260] wzApplicationPath;
-	public char8[512] wzDescription;
+	public char16[64] wzConsentKey;
+	public char16[128] wzFriendlyEventName;
+	public char16[128] wzApplicationName;
+	public char16[260] wzApplicationPath;
+	public char16[512] wzDescription;
 	public HWND hwndParent;
-	public char8[64] wzNamespacePartner;
-	public char8[64] wzNamespaceGroup;
+	public char16[64] wzNamespacePartner;
+	public char16[64] wzNamespaceGroup;
 	public uint8[16] rgbApplicationIdentity;
 	public HANDLE hSnapshot;
 	public HANDLE hDeleteFilesImpersonationToken;
@@ -363,14 +363,14 @@ public struct WER_REPORT_INFORMATION_V5
 {
 	public uint32 dwSize;
 	public HANDLE hProcess;
-	public char8[64] wzConsentKey;
-	public char8[128] wzFriendlyEventName;
-	public char8[128] wzApplicationName;
-	public char8[260] wzApplicationPath;
-	public char8[512] wzDescription;
+	public char16[64] wzConsentKey;
+	public char16[128] wzFriendlyEventName;
+	public char16[128] wzApplicationName;
+	public char16[260] wzApplicationPath;
+	public char16[512] wzDescription;
 	public HWND hwndParent;
-	public char8[64] wzNamespacePartner;
-	public char8[64] wzNamespaceGroup;
+	public char16[64] wzNamespacePartner;
+	public char16[64] wzNamespaceGroup;
 	public uint8[16] rgbApplicationIdentity;
 	public HANDLE hSnapshot;
 	public HANDLE hDeleteFilesImpersonationToken;
@@ -390,7 +390,7 @@ public struct WER_DUMP_CUSTOM_OPTIONS_V3
 	public uint32 dwOtherThreadExFlags;
 	public uint32 dwPreferredModuleFlags;
 	public uint32 dwOtherModuleFlags;
-	public char8[256] wzPreferredModuleList;
+	public char16[256] wzPreferredModuleList;
 	public uint32 dwPreferredModuleResetFlags;
 	public uint32 dwOtherModuleResetFlags;
 	public void* pvDumpKey;
@@ -421,14 +421,14 @@ public struct WER_RUNTIME_EXCEPTION_INFORMATION
 [CRepr]
 public struct WER_REPORT_PARAMETER
 {
-	public char8[129] Name;
-	public char8[260] Value;
+	public char16[129] Name;
+	public char16[260] Value;
 }
 
 [CRepr]
 public struct WER_REPORT_SIGNATURE
 {
-	public char8[65] EventName;
+	public char16[65] EventName;
 	public WER_REPORT_PARAMETER[10] Parameters;
 }
 
@@ -440,7 +440,7 @@ public struct WER_REPORT_METADATA_V2
 	public Guid ReportId;
 	public FILETIME CreationTime;
 	public uint64 SizeInBytes;
-	public char8[260] CabId;
+	public char16[260] CabId;
 	public uint32 ReportStatus;
 	public Guid ReportIntegratorId;
 	public uint32 NumberOfFiles;
@@ -456,17 +456,17 @@ public struct WER_REPORT_METADATA_V3
 	public Guid ReportId;
 	public FILETIME CreationTime;
 	public uint64 SizeInBytes;
-	public char8[260] CabId;
+	public char16[260] CabId;
 	public uint32 ReportStatus;
 	public Guid ReportIntegratorId;
 	public uint32 NumberOfFiles;
 	public uint32 SizeOfFileNames;
 	public PWSTR FileNames;
-	public char8[128] FriendlyEventName;
-	public char8[128] ApplicationName;
-	public char8[260] ApplicationPath;
-	public char8[512] Description;
-	public char8[260] BucketIdString;
+	public char16[128] FriendlyEventName;
+	public char16[128] ApplicationName;
+	public char16[260] ApplicationPath;
+	public char16[512] Description;
+	public char16[260] BucketIdString;
 	public uint64 LegacyBucketId;
 }
 

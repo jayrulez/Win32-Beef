@@ -93,7 +93,7 @@ public static
 	public static extern BOOL GetNamedPipeInfo(HANDLE hNamedPipe, NAMED_PIPE_MODE* lpFlags, uint32* lpOutBufferSize, uint32* lpInBufferSize, uint32* lpMaxInstances);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetNamedPipeHandleStateW(HANDLE hNamedPipe, NAMED_PIPE_MODE* lpState, uint32* lpCurInstances, uint32* lpMaxCollectionCount, uint32* lpCollectDataTimeout, char8* lpUserName, uint32 nMaxUserNameSize);
+	public static extern BOOL GetNamedPipeHandleStateW(HANDLE hNamedPipe, NAMED_PIPE_MODE* lpState, uint32* lpCurInstances, uint32* lpMaxCollectionCount, uint32* lpCollectDataTimeout, char16* lpUserName, uint32 nMaxUserNameSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CallNamedPipeW(PWSTR lpNamedPipeName, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesRead, uint32 nTimeOut);

@@ -3627,8 +3627,8 @@ public struct STORAGE_CRYPTO_DESCRIPTOR
 public struct STORAGE_TIER
 {
 	public Guid Id;
-	public char8[256] Name;
-	public char8[256] Description;
+	public char16[256] Name;
+	public char16[256] Description;
 	public uint64 Flags;
 	public uint64 ProvisionedCapacity;
 	public STORAGE_TIER_MEDIA_TYPE MediaType;
@@ -3907,7 +3907,7 @@ public struct STORAGE_ADAPTER_SERIAL_NUMBER
 {
 	public uint32 Version;
 	public uint32 Size;
-	public char8[128] SerialNumber;
+	public char16[128] SerialNumber;
 }
 
 [CRepr]
@@ -4914,7 +4914,7 @@ public struct SCM_LOGICAL_DEVICE_INSTANCE
 	public uint32 Version;
 	public uint32 Size;
 	public Guid DeviceGuid;
-	public char8[256] SymbolicLink;
+	public char16[256] SymbolicLink;
 }
 
 [CRepr]
@@ -4932,7 +4932,7 @@ public struct SCM_PHYSICAL_DEVICE_INSTANCE
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NfitHandle;
-	public char8[256] SymbolicLink;
+	public char16[256] SymbolicLink;
 }
 
 [CRepr]
@@ -5128,7 +5128,7 @@ public struct SCM_PD_DEVICE_INFO
 [CRepr]
 public struct SCM_PD_DEVICE_SPECIFIC_PROPERTY
 {
-	public char8[128] Name;
+	public char16[128] Name;
 	public int64 Value;
 }
 
@@ -5180,7 +5180,7 @@ public struct SCM_PD_LOCATION_STRING
 {
 	public uint32 Version;
 	public uint32 Size;
-	public char8[1] Location;
+	public char16[1] Location;
 }
 
 [CRepr]
@@ -5371,7 +5371,7 @@ public struct PARTITION_INFORMATION_GPT
 	public Guid PartitionType;
 	public Guid PartitionId;
 	public GPT_ATTRIBUTES Attributes;
-	public char8[36] Name;
+	public char16[36] Name;
 }
 
 [CRepr]
@@ -5648,7 +5648,7 @@ public struct DISK_PERFORMANCE
 	public uint32 SplitCount;
 	public LARGE_INTEGER QueryTime;
 	public uint32 StorageDeviceNumber;
-	public char8[8] StorageManagerName;
+	public char16[8] StorageManagerName;
 }
 
 [CRepr]
@@ -5927,7 +5927,7 @@ public struct READ_ELEMENT_ADDRESS_INFO
 public struct PATHNAME_BUFFER
 {
 	public uint32 PathNameLength;
-	public char8[1] Name;
+	public char16[1] Name;
 }
 
 [CRepr]
@@ -6110,7 +6110,7 @@ public struct FIND_BY_SID_OUTPUT
 	public uint32 NextEntryOffset;
 	public uint32 FileIndex;
 	public uint32 FileNameLength;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -6200,7 +6200,7 @@ public struct USN_RECORD_V2
 	public uint32 FileAttributes;
 	public uint16 FileNameLength;
 	public uint16 FileNameOffset;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -6219,7 +6219,7 @@ public struct USN_RECORD_V3
 	public uint32 FileAttributes;
 	public uint16 FileNameLength;
 	public uint16 FileNameOffset;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -6758,7 +6758,7 @@ public struct SI_COPYFILE
 	public uint32 SourceFileNameLength;
 	public uint32 DestinationFileNameLength;
 	public uint32 Flags;
-	public char8[1] FileNameBuffer;
+	public char16[1] FileNameBuffer;
 }
 
 [CRepr]
@@ -6789,13 +6789,13 @@ public struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER
 	public LARGE_INTEGER FileCount;
 	public uint16 FsFormatMajVersion;
 	public uint16 FsFormatMinVersion;
-	public char8[12] FsFormatName;
+	public char16[12] FsFormatName;
 	public LARGE_INTEGER FormatTime;
 	public LARGE_INTEGER LastUpdateTime;
-	public char8[34] CopyrightInfo;
-	public char8[34] AbstractInfo;
-	public char8[34] FormattingImplementationInfo;
-	public char8[34] LastModifyingImplementationInfo;
+	public char16[34] CopyrightInfo;
+	public char16[34] AbstractInfo;
+	public char16[34] FormattingImplementationInfo;
+	public char16[34] LastModifyingImplementationInfo;
 }
 
 [CRepr]
@@ -6882,7 +6882,7 @@ public struct TXFS_START_RM_INFORMATION
 	public uint16 LoggingMode;
 	public uint16 LogPathLength;
 	public uint16 Reserved;
-	public char8[1] LogPath;
+	public char16[1] LogPath;
 }
 
 [CRepr]
@@ -6910,7 +6910,7 @@ public struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY
 	public uint32 Reserved1;
 	public uint32 Reserved2;
 	public int64 Reserved3;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -7216,7 +7216,7 @@ public struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY
 	public uint32 Flags;
 	public LARGE_INTEGER Reserved;
 	public LARGE_INTEGER Cluster;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -7277,7 +7277,7 @@ public struct CSV_QUERY_MDS_PATH
 	public uint32 MdsNodeId;
 	public uint32 DsNodeId;
 	public uint32 PathLength;
-	public char8[1] Path;
+	public char16[1] Path;
 }
 
 [CRepr]
@@ -7323,7 +7323,7 @@ public struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT
 {
 	public uint64 VetoedFromAltitudeIntegral;
 	public uint64 VetoedFromAltitudeDecimal;
-	public char8[256] Reason;
+	public char16[256] Reason;
 }
 
 [CRepr]
@@ -7423,7 +7423,7 @@ public struct FILE_LAYOUT_NAME_ENTRY
 	public uint64 ParentFileReferenceNumber;
 	public uint32 FileNameLength;
 	public uint32 Reserved;
-	public char8[1] FileName;
+	public char16[1] FileName;
 }
 
 [CRepr]
@@ -7459,7 +7459,7 @@ public struct STREAM_LAYOUT_ENTRY
 	public uint32 AttributeTypeCode;
 	public uint32 AttributeFlags;
 	public uint32 StreamIdentifierLength;
-	public char8[1] StreamIdentifier;
+	public char16[1] StreamIdentifier;
 }
 
 [CRepr]
@@ -7607,8 +7607,8 @@ public struct WRITE_USN_REASON_INPUT
 public struct FILE_STORAGE_TIER
 {
 	public Guid Id;
-	public char8[256] Name;
-	public char8[256] Description;
+	public char16[256] Name;
+	public char16[256] Description;
 	public FILE_STORAGE_TIER_FLAGS Flags;
 	public uint64 ProvisionedCapacity;
 	public FILE_STORAGE_TIER_MEDIA_TYPE MediaType;
@@ -8011,7 +8011,7 @@ public struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT
 public struct GET_FILTER_FILE_IDENTIFIER_INPUT
 {
 	public uint16 AltitudeLength;
-	public char8[1] Altitude;
+	public char16[1] Altitude;
 }
 
 [CRepr]
@@ -8035,9 +8035,9 @@ public struct FS_BPIO_RESULTS
 {
 	public uint32 OpStatus;
 	public uint16 FailingDriverNameLen;
-	public char8[32] FailingDriverName;
+	public char16[32] FailingDriverName;
 	public uint16 FailureReasonLen;
-	public char8[128] FailureReason;
+	public char16[128] FailureReason;
 }
 
 [CRepr]
@@ -8045,7 +8045,7 @@ public struct FS_BPIO_INFO
 {
 	public uint32 ActiveBypassIoCount;
 	public uint16 StorageDriverNameLen;
-	public char8[32] StorageDriverName;
+	public char16[32] StorageDriverName;
 }
 
 [CRepr]

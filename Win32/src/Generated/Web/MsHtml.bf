@@ -43983,8 +43983,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarkupPointer*/SelfOuter* self, IHTMLElement* pElement, ELEMENT_ADJACENCY eAdj) MoveAdjacentToElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarkupPointer*/SelfOuter* self, IMarkupPointer* pPointer) MoveToPointer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarkupPointer*/SelfOuter* self, IMarkupContainer* pContainer, BOOL fAtStart) MoveToContainer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarkupPointer*/SelfOuter* self, BOOL fMove, MARKUP_CONTEXT_TYPE* pContext, IHTMLElement** ppElement, int32* pcch, char8* pchText) Left;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarkupPointer*/SelfOuter* self, BOOL fMove, MARKUP_CONTEXT_TYPE* pContext, IHTMLElement** ppElement, int32* pcch, char8* pchText) Right;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarkupPointer*/SelfOuter* self, BOOL fMove, MARKUP_CONTEXT_TYPE* pContext, IHTMLElement** ppElement, int32* pcch, char16* pchText) Left;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarkupPointer*/SelfOuter* self, BOOL fMove, MARKUP_CONTEXT_TYPE* pContext, IHTMLElement** ppElement, int32* pcch, char16* pchText) Right;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarkupPointer*/SelfOuter* self, IHTMLElement** ppElemCurrent) CurrentScope;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarkupPointer*/SelfOuter* self, IMarkupPointer* pPointerThat, BOOL* pfResult) IsLeftOf;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarkupPointer*/SelfOuter* self, IMarkupPointer* pPointerThat, BOOL* pfResult) IsLeftOfOrEqualTo;
@@ -44018,9 +44018,9 @@ public static
 
 	public HRESULT MoveToContainer(IMarkupContainer* pContainer, BOOL fAtStart) mut => VT.[Friend]MoveToContainer(&this, pContainer, fAtStart);
 
-	public HRESULT Left(BOOL fMove, MARKUP_CONTEXT_TYPE* pContext, IHTMLElement** ppElement, int32* pcch, char8* pchText) mut => VT.[Friend]Left(&this, fMove, pContext, ppElement, pcch, pchText);
+	public HRESULT Left(BOOL fMove, MARKUP_CONTEXT_TYPE* pContext, IHTMLElement** ppElement, int32* pcch, char16* pchText) mut => VT.[Friend]Left(&this, fMove, pContext, ppElement, pcch, pchText);
 
-	public HRESULT Right(BOOL fMove, MARKUP_CONTEXT_TYPE* pContext, IHTMLElement** ppElement, int32* pcch, char8* pchText) mut => VT.[Friend]Right(&this, fMove, pContext, ppElement, pcch, pchText);
+	public HRESULT Right(BOOL fMove, MARKUP_CONTEXT_TYPE* pContext, IHTMLElement** ppElement, int32* pcch, char16* pchText) mut => VT.[Friend]Right(&this, fMove, pContext, ppElement, pcch, pchText);
 
 	public HRESULT CurrentScope(IHTMLElement** ppElemCurrent) mut => VT.[Friend]CurrentScope(&this, ppElemCurrent);
 

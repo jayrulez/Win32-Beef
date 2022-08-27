@@ -108,8 +108,8 @@ public struct RM_UNIQUE_PROCESS
 public struct RM_PROCESS_INFO
 {
 	public RM_UNIQUE_PROCESS Process;
-	public char8[256] strAppName;
-	public char8[64] strServiceShortName;
+	public char16[256] strAppName;
+	public char16[64] strServiceShortName;
 	public RM_APP_TYPE ApplicationType;
 	public uint32 AppStatus;
 	public uint32 TSSessionId;

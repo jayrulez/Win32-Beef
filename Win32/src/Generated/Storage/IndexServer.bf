@@ -478,7 +478,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, uint32 grfFlags, uint32 cAttributes, FULLPROPSPEC* aAttributes, uint32* pFlags) Init;
 		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, STAT_CHUNK* pStat) GetChunk;
-		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, uint32* pcwcBuffer, char8* awcBuffer) GetText;
+		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, uint32* pcwcBuffer, char16* awcBuffer) GetText;
 		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, PROPVARIANT** ppPropValue) GetValue;
 		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, FILTERREGION origPos, Guid* riid, void** ppunk) BindRegion;
 	}
@@ -488,7 +488,7 @@ public static
 
 	public int32 GetChunk(STAT_CHUNK* pStat) mut => VT.[Friend]GetChunk(&this, pStat);
 
-	public int32 GetText(uint32* pcwcBuffer, char8* awcBuffer) mut => VT.[Friend]GetText(&this, pcwcBuffer, awcBuffer);
+	public int32 GetText(uint32* pcwcBuffer, char16* awcBuffer) mut => VT.[Friend]GetText(&this, pcwcBuffer, awcBuffer);
 
 	public int32 GetValue(PROPVARIANT** ppPropValue) mut => VT.[Friend]GetValue(&this, ppPropValue);
 

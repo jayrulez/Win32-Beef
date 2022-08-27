@@ -887,88 +887,88 @@ public struct WMDM_FORMAT_CAPABILITY
 [CRepr, Union]
 public struct WMDMDetermineMaxPropStringLen
 {
-	public char8[27] sz001;
-	public char8[31] sz002;
-	public char8[14] sz003;
-	public char8[16] sz004;
-	public char8[22] sz005;
-	public char8[14] sz006;
-	public char8[20] sz007;
-	public char8[20] sz008;
-	public char8[22] sz009;
-	public char8[11] sz010;
-	public char8[12] sz011;
-	public char8[17] sz012;
-	public char8[17] sz013;
-	public char8[16] sz014;
-	public char8[17] sz015;
-	public char8[11] sz016;
-	public char8[11] sz017;
-	public char8[15] sz018;
-	public char8[22] sz019;
-	public char8[20] sz020;
-	public char8[22] sz021;
-	public char8[21] sz022;
-	public char8[24] sz023;
-	public char8[20] sz024;
-	public char8[10] sz025;
-	public char8[14] sz026;
-	public char8[11] sz027;
-	public char8[11] sz028;
-	public char8[13] sz029;
-	public char8[17] sz030;
-	public char8[16] sz031;
-	public char8[17] sz032;
-	public char8[20] sz033;
-	public char8[19] sz034;
-	public char8[18] sz035;
-	public char8[18] sz036;
-	public char8[15] sz037;
-	public char8[14] sz041;
-	public char8[22] sz043;
-	public char8[16] sz044;
-	public char8[20] sz045;
-	public char8[14] sz046;
-	public char8[14] sz047;
-	public char8[12] sz048;
-	public char8[25] sz049;
-	public char8[26] sz050;
-	public char8[25] sz051;
-	public char8[16] sz052;
-	public char8[24] sz053;
-	public char8[15] sz054;
-	public char8[21] sz055;
-	public char8[16] sz056;
-	public char8[22] sz057;
-	public char8[14] sz058;
-	public char8[25] sz059;
-	public char8[18] sz060;
-	public char8[22] sz061;
-	public char8[26] sz062;
-	public char8[36] sz063;
-	public char8[23] sz064;
-	public char8[12] sz065;
-	public char8[24] sz066;
-	public char8[11] sz067;
-	public char8[12] sz068;
-	public char8[14] sz069;
-	public char8[20] sz070;
-	public char8[15] sz071;
-	public char8[14] sz072;
-	public char8[31] sz073;
-	public char8[24] sz074;
-	public char8[22] sz075;
-	public char8[24] sz076;
-	public char8[21] sz077;
-	public char8[27] sz078;
-	public char8[27] sz079;
-	public char8[20] sz080;
-	public char8[33] sz081;
-	public char8[21] sz082;
-	public char8[32] sz083;
-	public char8[26] sz084;
-	public char8[18] sz085;
-	public char8[30] sz086;
+	public char16[27] sz001;
+	public char16[31] sz002;
+	public char16[14] sz003;
+	public char16[16] sz004;
+	public char16[22] sz005;
+	public char16[14] sz006;
+	public char16[20] sz007;
+	public char16[20] sz008;
+	public char16[22] sz009;
+	public char16[11] sz010;
+	public char16[12] sz011;
+	public char16[17] sz012;
+	public char16[17] sz013;
+	public char16[16] sz014;
+	public char16[17] sz015;
+	public char16[11] sz016;
+	public char16[11] sz017;
+	public char16[15] sz018;
+	public char16[22] sz019;
+	public char16[20] sz020;
+	public char16[22] sz021;
+	public char16[21] sz022;
+	public char16[24] sz023;
+	public char16[20] sz024;
+	public char16[10] sz025;
+	public char16[14] sz026;
+	public char16[11] sz027;
+	public char16[11] sz028;
+	public char16[13] sz029;
+	public char16[17] sz030;
+	public char16[16] sz031;
+	public char16[17] sz032;
+	public char16[20] sz033;
+	public char16[19] sz034;
+	public char16[18] sz035;
+	public char16[18] sz036;
+	public char16[15] sz037;
+	public char16[14] sz041;
+	public char16[22] sz043;
+	public char16[16] sz044;
+	public char16[20] sz045;
+	public char16[14] sz046;
+	public char16[14] sz047;
+	public char16[12] sz048;
+	public char16[25] sz049;
+	public char16[26] sz050;
+	public char16[25] sz051;
+	public char16[16] sz052;
+	public char16[24] sz053;
+	public char16[15] sz054;
+	public char16[21] sz055;
+	public char16[16] sz056;
+	public char16[22] sz057;
+	public char16[14] sz058;
+	public char16[25] sz059;
+	public char16[18] sz060;
+	public char16[22] sz061;
+	public char16[26] sz062;
+	public char16[36] sz063;
+	public char16[23] sz064;
+	public char16[12] sz065;
+	public char16[24] sz066;
+	public char16[11] sz067;
+	public char16[12] sz068;
+	public char16[14] sz069;
+	public char16[20] sz070;
+	public char16[15] sz071;
+	public char16[14] sz072;
+	public char16[31] sz073;
+	public char16[24] sz074;
+	public char16[22] sz075;
+	public char16[24] sz076;
+	public char16[21] sz077;
+	public char16[27] sz078;
+	public char16[27] sz079;
+	public char16[20] sz080;
+	public char16[33] sz081;
+	public char16[21] sz082;
+	public char16[32] sz083;
+	public char16[26] sz084;
+	public char16[18] sz085;
+	public char16[30] sz086;
 }
 
 [CRepr, Packed(1)]
@@ -1150,7 +1150,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, IWMDMStorageGlobals** ppStorageGlobals) GetStorageGlobals;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, char8* pwszName, uint32 nMaxChars) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, WMDMDATETIME* pDateTimeUTC) GetDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, uint32* pdwSizeLow, uint32* pdwSizeHigh) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, WMDMRIGHTS** ppRights, uint32* pnRightsCount, uint8* abMac) GetRights;
@@ -1165,7 +1165,7 @@ public static
 
 	public HRESULT GetAttributes(uint32* pdwAttributes, _WAVEFORMATEX* pFormat) mut => VT.[Friend]GetAttributes(&this, pdwAttributes, pFormat);
 
-	public HRESULT GetName(char8* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetName(&this, pwszName, nMaxChars);
+	public HRESULT GetName(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetName(&this, pwszName, nMaxChars);
 
 	public HRESULT GetDate(WMDMDATETIME* pDateTimeUTC) mut => VT.[Friend]GetDate(&this, pDateTimeUTC);
 
@@ -1263,8 +1263,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self) BeginRead;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self) BeginWrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, char8* pwszName, uint32 nMaxChars) GetObjectName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, char8* pwszName, uint32 nMaxChars) SetObjectName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetObjectName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) SetObjectName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetObjectAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetObjectAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, uint32* pdwSize, uint32* pdwSizeHigh) GetObjectTotalSize;
@@ -1278,9 +1278,9 @@ public static
 
 	public HRESULT BeginWrite() mut => VT.[Friend]BeginWrite(&this);
 
-	public HRESULT GetObjectName(char8* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetObjectName(&this, pwszName, nMaxChars);
+	public HRESULT GetObjectName(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetObjectName(&this, pwszName, nMaxChars);
 
-	public HRESULT SetObjectName(char8* pwszName, uint32 nMaxChars) mut => VT.[Friend]SetObjectName(&this, pwszName, nMaxChars);
+	public HRESULT SetObjectName(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]SetObjectName(&this, pwszName, nMaxChars);
 
 	public HRESULT GetObjectAttributes(uint32* pdwAttributes, _WAVEFORMATEX* pFormat) mut => VT.[Friend]GetObjectAttributes(&this, pdwAttributes, pFormat);
 
@@ -1393,8 +1393,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, char8* pwszName, uint32 nMaxChars) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, char8* pwszName, uint32 nMaxChars) GetManufacturer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetManufacturer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, uint32* pdwVersion) GetVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, uint32* pdwType) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, WMDMID* pSerialNumber, uint8* abMac) GetSerialNumber;
@@ -1407,9 +1407,9 @@ public static
 	}
 
 
-	public HRESULT GetName(char8* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetName(&this, pwszName, nMaxChars);
+	public HRESULT GetName(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetName(&this, pwszName, nMaxChars);
 
-	public HRESULT GetManufacturer(char8* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetManufacturer(&this, pwszName, nMaxChars);
+	public HRESULT GetManufacturer(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetManufacturer(&this, pwszName, nMaxChars);
 
 	public HRESULT GetVersion(uint32* pdwVersion) mut => VT.[Friend]GetVersion(&this, pdwVersion);
 
@@ -1441,7 +1441,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice2*/SelfOuter* self, PWSTR pszStorageName, IWMDMStorage** ppStorage) GetStorage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice2*/SelfOuter* self, uint32 dwFlags, _WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, _VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) GetFormatSupport2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice2*/SelfOuter* self, ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) GetSpecifyPropertyPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice2*/SelfOuter* self, char8* pwszPnPName, uint32 nMaxChars) GetCanonicalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice2*/SelfOuter* self, char16* pwszPnPName, uint32 nMaxChars) GetCanonicalName;
 	}
 
 
@@ -1451,7 +1451,7 @@ public static
 
 	public HRESULT GetSpecifyPropertyPages(ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) mut => VT.[Friend]GetSpecifyPropertyPages(&this, ppSpecifyPropPages, pppUnknowns, pcUnks);
 
-	public HRESULT GetCanonicalName(char8* pwszPnPName, uint32 nMaxChars) mut => VT.[Friend]GetCanonicalName(&this, pwszPnPName, nMaxChars);
+	public HRESULT GetCanonicalName(char16* pwszPnPName, uint32 nMaxChars) mut => VT.[Friend]GetCanonicalName(&this, pwszPnPName, nMaxChars);
 }
 
 [CRepr]struct IWMDMDevice3 : IWMDMDevice2
@@ -1783,8 +1783,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, char8* pwszName, uint32 nMaxChars) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, char8* pwszName, uint32 nMaxChars) GetManufacturer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetManufacturer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, uint32* pdwVersion) GetVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, uint32* pdwType) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, WMDMID* pSerialNumber, uint8* abMac) GetSerialNumber;
@@ -1797,9 +1797,9 @@ public static
 	}
 
 
-	public HRESULT GetName(char8* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetName(&this, pwszName, nMaxChars);
+	public HRESULT GetName(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetName(&this, pwszName, nMaxChars);
 
-	public HRESULT GetManufacturer(char8* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetManufacturer(&this, pwszName, nMaxChars);
+	public HRESULT GetManufacturer(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetManufacturer(&this, pwszName, nMaxChars);
 
 	public HRESULT GetVersion(uint32* pdwVersion) mut => VT.[Friend]GetVersion(&this, pdwVersion);
 
@@ -1831,7 +1831,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice2*/SelfOuter* self, PWSTR pszStorageName, IMDSPStorage** ppStorage) GetStorage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice2*/SelfOuter* self, uint32 dwFlags, _WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, _VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) GetFormatSupport2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice2*/SelfOuter* self, ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) GetSpecifyPropertyPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice2*/SelfOuter* self, char8* pwszPnPName, uint32 nMaxChars) GetCanonicalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice2*/SelfOuter* self, char16* pwszPnPName, uint32 nMaxChars) GetCanonicalName;
 	}
 
 
@@ -1841,7 +1841,7 @@ public static
 
 	public HRESULT GetSpecifyPropertyPages(ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) mut => VT.[Friend]GetSpecifyPropertyPages(&this, ppSpecifyPropPages, pppUnknowns, pcUnks);
 
-	public HRESULT GetCanonicalName(char8* pwszPnPName, uint32 nMaxChars) mut => VT.[Friend]GetCanonicalName(&this, pwszPnPName, nMaxChars);
+	public HRESULT GetCanonicalName(char16* pwszPnPName, uint32 nMaxChars) mut => VT.[Friend]GetCanonicalName(&this, pwszPnPName, nMaxChars);
 }
 
 [CRepr]struct IMDSPDevice3 : IMDSPDevice2
@@ -1942,7 +1942,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, IMDSPStorageGlobals** ppStorageGlobals) GetStorageGlobals;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, char8* pwszName, uint32 nMaxChars) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, WMDMDATETIME* pDateTimeUTC) GetDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, uint32* pdwSizeLow, uint32* pdwSizeHigh) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, WMDMRIGHTS** ppRights, uint32* pnRightsCount, uint8* abMac) GetRights;
@@ -1958,7 +1958,7 @@ public static
 
 	public HRESULT GetAttributes(uint32* pdwAttributes, _WAVEFORMATEX* pFormat) mut => VT.[Friend]GetAttributes(&this, pdwAttributes, pFormat);
 
-	public HRESULT GetName(char8* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetName(&this, pwszName, nMaxChars);
+	public HRESULT GetName(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetName(&this, pwszName, nMaxChars);
 
 	public HRESULT GetDate(WMDMDATETIME* pDateTimeUTC) mut => VT.[Friend]GetDate(&this, pDateTimeUTC);
 

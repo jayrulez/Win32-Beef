@@ -5482,9 +5482,9 @@ public struct SEC_FLAGS
 [CRepr]
 public struct SEC_TRAFFIC_SECRETS
 {
-	public char8[64] SymmetricAlgId;
-	public char8[64] ChainingMode;
-	public char8[64] HashAlgId;
+	public char16[64] SymmetricAlgId;
+	public char16[64] ChainingMode;
+	public char16[64] HashAlgId;
 	public uint16 KeySize;
 	public uint16 IvSize;
 	public uint16 MsgSequenceStart;
@@ -6676,11 +6676,11 @@ public struct SecPkgContext_ConnectionInfoEx
 {
 	public uint32 dwVersion;
 	public uint32 dwProtocol;
-	public char8[64] szCipher;
+	public char16[64] szCipher;
 	public uint32 dwCipherStrength;
-	public char8[64] szHash;
+	public char16[64] szHash;
 	public uint32 dwHashStrength;
-	public char8[64] szExchange;
+	public char16[64] szExchange;
 	public uint32 dwExchStrength;
 }
 
@@ -6691,16 +6691,16 @@ public struct SecPkgContext_CipherInfo
 	public uint32 dwProtocol;
 	public uint32 dwCipherSuite;
 	public uint32 dwBaseCipherSuite;
-	public char8[64] szCipherSuite;
-	public char8[64] szCipher;
+	public char16[64] szCipherSuite;
+	public char16[64] szCipher;
 	public uint32 dwCipherLen;
 	public uint32 dwCipherBlockLen;
-	public char8[64] szHash;
+	public char16[64] szHash;
 	public uint32 dwHashLen;
-	public char8[64] szExchange;
+	public char16[64] szExchange;
 	public uint32 dwMinExchangeLen;
 	public uint32 dwMaxExchangeLen;
-	public char8[64] szCertificate;
+	public char16[64] szCertificate;
 	public uint32 dwKeyType;
 }
 
@@ -6897,7 +6897,7 @@ public struct SCHANNEL_CERT_HASH_STORE
 	public uint32 dwFlags;
 	public uint hProv;
 	public uint8[20] ShaHash;
-	public char8[128] pwszStoreName;
+	public char16[128] pwszStoreName;
 }
 
 [CRepr]
@@ -7754,21 +7754,21 @@ public static
 	public static BOOLEAN GetUserNameEx(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize) => GetUserNameExA(NameFormat, lpNameBuffer, nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN GetUserNameExW(EXTENDED_NAME_FORMAT NameFormat, char8* lpNameBuffer, uint32* nSize);
+	public static extern BOOLEAN GetUserNameExW(EXTENDED_NAME_FORMAT NameFormat, char16* lpNameBuffer, uint32* nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN GetComputerObjectNameA(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize);
 	public static BOOLEAN GetComputerObjectName(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize) => GetComputerObjectNameA(NameFormat, lpNameBuffer, nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN GetComputerObjectNameW(EXTENDED_NAME_FORMAT NameFormat, char8* lpNameBuffer, uint32* nSize);
+	public static extern BOOLEAN GetComputerObjectNameW(EXTENDED_NAME_FORMAT NameFormat, char16* lpNameBuffer, uint32* nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN TranslateNameA(PSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, uint8* lpTranslatedName, uint32* nSize);
 	public static BOOLEAN TranslateName(PSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, uint8* lpTranslatedName, uint32* nSize) => TranslateNameA(lpAccountName, AccountNameFormat, DesiredNameFormat, lpTranslatedName, nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN TranslateNameW(PWSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, char8* lpTranslatedName, uint32* nSize);
+	public static extern BOOLEAN TranslateNameW(PWSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, char16* lpTranslatedName, uint32* nSize);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SLOpen(void** phSLC);

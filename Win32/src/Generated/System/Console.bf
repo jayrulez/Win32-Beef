@@ -205,7 +205,7 @@ public struct KEY_EVENT_RECORD
 	[CRepr, Union]
 	public struct _uChar_e__Union
 	{
-		public char8 UnicodeChar;
+		public char16 UnicodeChar;
 		public CHAR AsciiChar;
 	}
 
@@ -267,7 +267,7 @@ public struct CHAR_INFO
 	[CRepr, Union]
 	public struct _Char_e__Union
 	{
-		public char8 UnicodeChar;
+		public char16 UnicodeChar;
 		public CHAR AsciiChar;
 	}
 
@@ -330,7 +330,7 @@ public struct CONSOLE_FONT_INFOEX
 	public COORD dwFontSize;
 	public uint32 FontFamily;
 	public uint32 FontWeight;
-	public char8[32] FaceName;
+	public char16[32] FaceName;
 }
 
 [CRepr]
@@ -433,7 +433,7 @@ public static
 	public static BOOL FillConsoleOutputCharacter(HANDLE hConsoleOutput, CHAR cCharacter, uint32 nLength, COORD dwWriteCoord, uint32* lpNumberOfCharsWritten) => FillConsoleOutputCharacterA(hConsoleOutput, cCharacter, nLength, dwWriteCoord, lpNumberOfCharsWritten);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FillConsoleOutputCharacterW(HANDLE hConsoleOutput, char8 cCharacter, uint32 nLength, COORD dwWriteCoord, uint32* lpNumberOfCharsWritten);
+	public static extern BOOL FillConsoleOutputCharacterW(HANDLE hConsoleOutput, char16 cCharacter, uint32 nLength, COORD dwWriteCoord, uint32* lpNumberOfCharsWritten);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FillConsoleOutputAttribute(HANDLE hConsoleOutput, uint16 wAttribute, uint32 nLength, COORD dwWriteCoord, uint32* lpNumberOfAttrsWritten);
@@ -491,7 +491,7 @@ public static
 	public static BOOL WriteConsoleOutputCharacter(HANDLE hConsoleOutput, uint8* lpCharacter, uint32 nLength, COORD dwWriteCoord, uint32* lpNumberOfCharsWritten) => WriteConsoleOutputCharacterA(hConsoleOutput, lpCharacter, nLength, dwWriteCoord, lpNumberOfCharsWritten);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WriteConsoleOutputCharacterW(HANDLE hConsoleOutput, char8* lpCharacter, uint32 nLength, COORD dwWriteCoord, uint32* lpNumberOfCharsWritten);
+	public static extern BOOL WriteConsoleOutputCharacterW(HANDLE hConsoleOutput, char16* lpCharacter, uint32 nLength, COORD dwWriteCoord, uint32* lpNumberOfCharsWritten);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WriteConsoleOutputAttribute(HANDLE hConsoleOutput, uint16* lpAttribute, uint32 nLength, COORD dwWriteCoord, uint32* lpNumberOfAttrsWritten);
@@ -501,7 +501,7 @@ public static
 	public static BOOL ReadConsoleOutputCharacter(HANDLE hConsoleOutput, uint8* lpCharacter, uint32 nLength, COORD dwReadCoord, uint32* lpNumberOfCharsRead) => ReadConsoleOutputCharacterA(hConsoleOutput, lpCharacter, nLength, dwReadCoord, lpNumberOfCharsRead);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ReadConsoleOutputCharacterW(HANDLE hConsoleOutput, char8* lpCharacter, uint32 nLength, COORD dwReadCoord, uint32* lpNumberOfCharsRead);
+	public static extern BOOL ReadConsoleOutputCharacterW(HANDLE hConsoleOutput, char16* lpCharacter, uint32 nLength, COORD dwReadCoord, uint32* lpNumberOfCharsRead);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ReadConsoleOutputAttribute(HANDLE hConsoleOutput, uint16* lpAttribute, uint32 nLength, COORD dwReadCoord, uint32* lpNumberOfAttrsRead);
@@ -539,14 +539,14 @@ public static
 	public static uint32 GetConsoleTitle(uint8* lpConsoleTitle, uint32 nSize) => GetConsoleTitleA(lpConsoleTitle, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetConsoleTitleW(char8* lpConsoleTitle, uint32 nSize);
+	public static extern uint32 GetConsoleTitleW(char16* lpConsoleTitle, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetConsoleOriginalTitleA(uint8* lpConsoleTitle, uint32 nSize);
 	public static uint32 GetConsoleOriginalTitle(uint8* lpConsoleTitle, uint32 nSize) => GetConsoleOriginalTitleA(lpConsoleTitle, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetConsoleOriginalTitleW(char8* lpConsoleTitle, uint32 nSize);
+	public static extern uint32 GetConsoleOriginalTitleW(char16* lpConsoleTitle, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetConsoleTitleA(PSTR lpConsoleTitle);
@@ -600,7 +600,7 @@ public static
 	public static uint32 GetConsoleAlias(PSTR Source, uint8* TargetBuffer, uint32 TargetBufferLength, PSTR ExeName) => GetConsoleAliasA(Source, TargetBuffer, TargetBufferLength, ExeName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetConsoleAliasW(PWSTR Source, char8* TargetBuffer, uint32 TargetBufferLength, PWSTR ExeName);
+	public static extern uint32 GetConsoleAliasW(PWSTR Source, char16* TargetBuffer, uint32 TargetBufferLength, PWSTR ExeName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetConsoleAliasesLengthA(PSTR ExeName);
@@ -621,14 +621,14 @@ public static
 	public static uint32 GetConsoleAliases(uint8* AliasBuffer, uint32 AliasBufferLength, PSTR ExeName) => GetConsoleAliasesA(AliasBuffer, AliasBufferLength, ExeName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetConsoleAliasesW(char8* AliasBuffer, uint32 AliasBufferLength, PWSTR ExeName);
+	public static extern uint32 GetConsoleAliasesW(char16* AliasBuffer, uint32 AliasBufferLength, PWSTR ExeName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetConsoleAliasExesA(uint8* ExeNameBuffer, uint32 ExeNameBufferLength);
 	public static uint32 GetConsoleAliasExes(uint8* ExeNameBuffer, uint32 ExeNameBufferLength) => GetConsoleAliasExesA(ExeNameBuffer, ExeNameBufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetConsoleAliasExesW(char8* ExeNameBuffer, uint32 ExeNameBufferLength);
+	public static extern uint32 GetConsoleAliasExesW(char16* ExeNameBuffer, uint32 ExeNameBufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void ExpungeConsoleCommandHistoryA(PSTR ExeName);

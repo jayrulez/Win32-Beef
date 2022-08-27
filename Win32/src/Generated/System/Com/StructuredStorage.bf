@@ -282,7 +282,7 @@ public struct RemSNB
 {
 	public uint32 ulCntStr;
 	public uint32 ulCntChar;
-	public char8[1] rgString;
+	public char16[1] rgString;
 }
 
 [CRepr]

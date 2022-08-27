@@ -6776,14 +6776,14 @@ public static
 	public static uint32 GetRoleText(uint32 lRole, uint8* lpszRole, uint32 cchRoleMax) => GetRoleTextA(lRole, lpszRole, cchRoleMax);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetRoleTextW(uint32 lRole, char8* lpszRole, uint32 cchRoleMax);
+	public static extern uint32 GetRoleTextW(uint32 lRole, char16* lpszRole, uint32 cchRoleMax);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetStateTextA(uint32 lStateBit, uint8* lpszState, uint32 cchState);
 	public static uint32 GetStateText(uint32 lStateBit, uint8* lpszState, uint32 cchState) => GetStateTextA(lStateBit, lpszState, cchState);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetStateTextW(uint32 lStateBit, char8* lpszState, uint32 cchState);
+	public static extern uint32 GetStateTextW(uint32 lStateBit, char16* lpszState, uint32 cchState);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void GetOleaccVersionInfo(uint32* pVer, uint32* pBuild);

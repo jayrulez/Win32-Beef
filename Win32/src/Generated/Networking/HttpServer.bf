@@ -1447,7 +1447,7 @@ public struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC
 [CRepr]
 public struct HTTP_REQUEST_PROPERTY_SNI
 {
-	public char8[256] Hostname;
+	public char16[256] Hostname;
 	public uint32 Flags;
 }
 

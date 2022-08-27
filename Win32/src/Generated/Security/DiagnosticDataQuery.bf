@@ -113,14 +113,14 @@ public struct DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION
 [CRepr]
 public struct DIAGNOSTIC_REPORT_PARAMETER
 {
-	public char8[129] name;
-	public char8[260] value;
+	public char16[129] name;
+	public char16[260] value;
 }
 
 [CRepr]
 public struct DIAGNOSTIC_REPORT_SIGNATURE
 {
-	public char8[65] eventName;
+	public char16[65] eventName;
 	public DIAGNOSTIC_REPORT_PARAMETER[10] parameters;
 }
 

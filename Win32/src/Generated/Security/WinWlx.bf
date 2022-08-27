@@ -243,9 +243,9 @@ public struct WLX_MPR_NOTIFY_INFO
 [CRepr]
 public struct WLX_TERMINAL_SERVICES_DATA
 {
-	public char8[257] ProfilePath;
-	public char8[257] HomeDir;
-	public char8[4] HomeDirDrive;
+	public char16[257] ProfilePath;
+	public char16[257] HomeDir;
+	public char16[4] HomeDirDrive;
 }
 
 [CRepr]

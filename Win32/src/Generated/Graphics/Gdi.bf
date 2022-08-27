@@ -3535,10 +3535,10 @@ public struct TEXTMETRICW
 	public int32 tmOverhang;
 	public int32 tmDigitizedAspectX;
 	public int32 tmDigitizedAspectY;
-	public char8 tmFirstChar;
-	public char8 tmLastChar;
-	public char8 tmDefaultChar;
-	public char8 tmBreakChar;
+	public char16 tmFirstChar;
+	public char16 tmLastChar;
+	public char16 tmDefaultChar;
+	public char16 tmBreakChar;
 	public uint8 tmItalic;
 	public uint8 tmUnderlined;
 	public uint8 tmStruckOut;
@@ -3589,10 +3589,10 @@ public struct NEWTEXTMETRICW
 	public int32 tmOverhang;
 	public int32 tmDigitizedAspectX;
 	public int32 tmDigitizedAspectY;
-	public char8 tmFirstChar;
-	public char8 tmLastChar;
-	public char8 tmDefaultChar;
-	public char8 tmBreakChar;
+	public char16 tmFirstChar;
+	public char16 tmLastChar;
+	public char16 tmDefaultChar;
+	public char16 tmBreakChar;
 	public uint8 tmItalic;
 	public uint8 tmUnderlined;
 	public uint8 tmStruckOut;
@@ -3714,7 +3714,7 @@ public struct LOGFONTW
 	public uint8 lfClipPrecision;
 	public uint8 lfQuality;
 	public uint8 lfPitchAndFamily;
-	public char8[32] lfFaceName;
+	public char16[32] lfFaceName;
 }
 
 [CRepr]
@@ -3729,8 +3729,8 @@ public struct ENUMLOGFONTA
 public struct ENUMLOGFONTW
 {
 	public LOGFONTW elfLogFont;
-	public char8[64] elfFullName;
-	public char8[32] elfStyle;
+	public char16[64] elfFullName;
+	public char16[32] elfStyle;
 }
 
 [CRepr]
@@ -3746,9 +3746,9 @@ public struct ENUMLOGFONTEXA
 public struct ENUMLOGFONTEXW
 {
 	public LOGFONTW elfLogFont;
-	public char8[64] elfFullName;
-	public char8[32] elfStyle;
-	public char8[32] elfScript;
+	public char16[64] elfFullName;
+	public char16[32] elfStyle;
+	public char16[32] elfScript;
 }
 
 [CRepr]
@@ -3785,8 +3785,8 @@ public struct EXTLOGFONTA
 public struct EXTLOGFONTW
 {
 	public LOGFONTW elfLogFont;
-	public char8[64] elfFullName;
-	public char8[32] elfStyle;
+	public char16[64] elfFullName;
+	public char16[32] elfStyle;
 	public uint32 elfVersion;
 	public uint32 elfStyleSize;
 	public uint32 elfMatch;
@@ -3901,7 +3901,7 @@ public struct DEVMODEW
 		public uint32 dmNup;
 	}
 
-	public char8[32] dmDeviceName;
+	public char16[32] dmDeviceName;
 	public uint16 dmSpecVersion;
 	public uint16 dmDriverVersion;
 	public uint16 dmSize;
@@ -3913,7 +3913,7 @@ public struct DEVMODEW
 	public int16 dmYResolution;
 	public int16 dmTTOption;
 	public int16 dmCollate;
-	public char8[32] dmFormName;
+	public char16[32] dmFormName;
 	public uint16 dmLogPixels;
 	public uint32 dmBitsPerPel;
 	public uint32 dmPelsWidth;
@@ -3945,11 +3945,11 @@ public struct DISPLAY_DEVICEA
 public struct DISPLAY_DEVICEW
 {
 	public uint32 cb;
-	public char8[32] DeviceName;
-	public char8[128] DeviceString;
+	public char16[32] DeviceName;
+	public char16[128] DeviceString;
 	public uint32 StateFlags;
-	public char8[128] DeviceID;
-	public char8[128] DeviceKey;
+	public char16[128] DeviceID;
+	public char16[128] DeviceKey;
 }
 
 [CRepr]
@@ -4171,7 +4171,7 @@ public struct RASTERIZER_STATUS
 [CRepr]
 public struct WCRANGE
 {
-	public char8 wcLow;
+	public char16 wcLow;
 	public uint16 cGlyphs;
 }
 
@@ -4206,7 +4206,7 @@ public struct AXISINFOW
 {
 	public int32 axMinValue;
 	public int32 axMaxValue;
-	public char8[16] axAxisName;
+	public char16[16] axAxisName;
 }
 
 [CRepr]
@@ -5106,7 +5106,7 @@ public struct MONITORINFOEXA
 public struct MONITORINFOEXW
 {
 	public MONITORINFO __AnonymousBase_winuser_L13571_C43;
-	public char8[32] szDevice;
+	public char16[32] szDevice;
 }
 
 #endregion
@@ -5502,21 +5502,21 @@ public static
 	public static BOOL GetTextExtentPoint(HDC hdc, uint8* lpString, int32 c, SIZE* lpsz) => GetTextExtentPointA(hdc, lpString, c, lpsz);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTextExtentPointW(HDC hdc, char8* lpString, int32 c, SIZE* lpsz);
+	public static extern BOOL GetTextExtentPointW(HDC hdc, char16* lpString, int32 c, SIZE* lpsz);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetTextExtentPoint32A(HDC hdc, uint8* lpString, int32 c, SIZE* psizl);
 	public static BOOL GetTextExtentPoint32(HDC hdc, uint8* lpString, int32 c, SIZE* psizl) => GetTextExtentPoint32A(hdc, lpString, c, psizl);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTextExtentPoint32W(HDC hdc, char8* lpString, int32 c, SIZE* psizl);
+	public static extern BOOL GetTextExtentPoint32W(HDC hdc, char16* lpString, int32 c, SIZE* psizl);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetTextExtentExPointA(HDC hdc, uint8* lpszString, int32 cchString, int32 nMaxExtent, int32* lpnFit, int32* lpnDx, SIZE* lpSize);
 	public static BOOL GetTextExtentExPoint(HDC hdc, uint8* lpszString, int32 cchString, int32 nMaxExtent, int32* lpnFit, int32* lpnDx, SIZE* lpSize) => GetTextExtentExPointA(hdc, lpszString, cchString, nMaxExtent, lpnFit, lpnDx, lpSize);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTextExtentExPointW(HDC hdc, char8* lpszString, int32 cchString, int32 nMaxExtent, int32* lpnFit, int32* lpnDx, SIZE* lpSize);
+	public static extern BOOL GetTextExtentExPointW(HDC hdc, char16* lpszString, int32 cchString, int32 nMaxExtent, int32* lpnFit, int32* lpnDx, SIZE* lpSize);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetFontLanguageInfo(HDC hdc);
@@ -5526,7 +5526,7 @@ public static
 	public static uint32 GetCharacterPlacement(HDC hdc, uint8* lpString, int32 nCount, int32 nMexExtent, GCP_RESULTSA* lpResults, GET_CHARACTER_PLACEMENT_FLAGS dwFlags) => GetCharacterPlacementA(hdc, lpString, nCount, nMexExtent, lpResults, dwFlags);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetCharacterPlacementW(HDC hdc, char8* lpString, int32 nCount, int32 nMexExtent, GCP_RESULTSW* lpResults, GET_CHARACTER_PLACEMENT_FLAGS dwFlags);
+	public static extern uint32 GetCharacterPlacementW(HDC hdc, char16* lpString, int32 nCount, int32 nMexExtent, GCP_RESULTSW* lpResults, GET_CHARACTER_PLACEMENT_FLAGS dwFlags);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetFontUnicodeRanges(HDC hdc, GLYPHSET* lpgs);
@@ -5536,7 +5536,7 @@ public static
 	public static uint32 GetGlyphIndices(HDC hdc, uint8* lpstr, int32 c, uint16* pgi, uint32 fl) => GetGlyphIndicesA(hdc, lpstr, c, pgi, fl);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetGlyphIndicesW(HDC hdc, char8* lpstr, int32 c, uint16* pgi, uint32 fl);
+	public static extern uint32 GetGlyphIndicesW(HDC hdc, char16* lpstr, int32 c, uint16* pgi, uint32 fl);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetTextExtentPointI(HDC hdc, uint16* pgiIn, int32 cgi, SIZE* psize);
@@ -5836,7 +5836,7 @@ public static
 	public static uint32 GetEnhMetaFileDescription(HENHMETAFILE hemf, uint32 cchBuffer, uint8* lpDescription) => GetEnhMetaFileDescriptionA(hemf, cchBuffer, lpDescription);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetEnhMetaFileDescriptionW(HENHMETAFILE hemf, uint32 cchBuffer, char8* lpDescription);
+	public static extern uint32 GetEnhMetaFileDescriptionW(HENHMETAFILE hemf, uint32 cchBuffer, char16* lpDescription);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetEnhMetaFileHeader(HENHMETAFILE hemf, uint32 nSize, ENHMETAHEADER* lpEnhMetaHeader);
@@ -5970,14 +5970,14 @@ public static
 	public static BOOL TextOut(HDC hdc, int32 x, int32 y, uint8* lpString, int32 c) => TextOutA(hdc, x, y, lpString, c);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL TextOutW(HDC hdc, int32 x, int32 y, char8* lpString, int32 c);
+	public static extern BOOL TextOutW(HDC hdc, int32 x, int32 y, char16* lpString, int32 c);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ExtTextOutA(HDC hdc, int32 x, int32 y, ETO_OPTIONS options, RECT* lprect, uint8* lpString, uint32 c, int32* lpDx);
 	public static BOOL ExtTextOut(HDC hdc, int32 x, int32 y, ETO_OPTIONS options, RECT* lprect, uint8* lpString, uint32 c, int32* lpDx) => ExtTextOutA(hdc, x, y, options, lprect, lpString, c, lpDx);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ExtTextOutW(HDC hdc, int32 x, int32 y, ETO_OPTIONS options, RECT* lprect, char8* lpString, uint32 c, int32* lpDx);
+	public static extern BOOL ExtTextOutW(HDC hdc, int32 x, int32 y, ETO_OPTIONS options, RECT* lprect, char16* lpString, uint32 c, int32* lpDx);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PolyTextOutA(HDC hdc, POLYTEXTA* ppt, int32 nstrings);
@@ -6045,7 +6045,7 @@ public static
 	public static int32 GetTextFace(HDC hdc, int32 c, uint8* lpName) => GetTextFaceA(hdc, c, lpName);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetTextFaceW(HDC hdc, int32 c, char8* lpName);
+	public static extern int32 GetTextFaceW(HDC hdc, int32 c, char16* lpName);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetKerningPairsA(HDC hdc, uint32 nPairs, KERNINGPAIR* lpKernPair);
@@ -6121,7 +6121,7 @@ public static
 	public static extern int32 TTRunValidationTestsEx(HDC hDC, TTVALIDATIONTESTSPARAMSEX* pTestParam);
 
 	[Import("t2embed.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TTGetNewFontName(HANDLE* phFontReference, char8* wzWinFamilyName, int32 cchMaxWinName, uint8* szMacFamilyName, int32 cchMaxMacName);
+	public static extern int32 TTGetNewFontName(HANDLE* phFontReference, char16* wzWinFamilyName, int32 cchMaxWinName, uint8* szMacFamilyName, int32 cchMaxMacName);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DrawEdge(HDC hdc, RECT* qrc, DRAWEDGE_FLAGS edge, DRAW_EDGE_FLAGS grfFlags);
@@ -6140,14 +6140,14 @@ public static
 	public static int32 DrawText(HDC hdc, uint8* lpchText, int32 cchText, RECT* lprc, DRAW_TEXT_FORMAT format) => DrawTextA(hdc, lpchText, cchText, lprc, format);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DrawTextW(HDC hdc, char8* lpchText, int32 cchText, RECT* lprc, DRAW_TEXT_FORMAT format);
+	public static extern int32 DrawTextW(HDC hdc, char16* lpchText, int32 cchText, RECT* lprc, DRAW_TEXT_FORMAT format);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DrawTextExA(HDC hdc, uint8* lpchText, int32 cchText, RECT* lprc, DRAW_TEXT_FORMAT format, DRAWTEXTPARAMS* lpdtp);
 	public static int32 DrawTextEx(HDC hdc, uint8* lpchText, int32 cchText, RECT* lprc, DRAW_TEXT_FORMAT format, DRAWTEXTPARAMS* lpdtp) => DrawTextExA(hdc, lpchText, cchText, lprc, format, lpdtp);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DrawTextExW(HDC hdc, char8* lpchText, int32 cchText, RECT* lprc, DRAW_TEXT_FORMAT format, DRAWTEXTPARAMS* lpdtp);
+	public static extern int32 DrawTextExW(HDC hdc, char16* lpchText, int32 cchText, RECT* lprc, DRAW_TEXT_FORMAT format, DRAWTEXTPARAMS* lpdtp);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GrayStringA(HDC hDC, HBRUSH hBrush, GRAYSTRINGPROC lpOutputFunc, LPARAM lpData, int32 nCount, int32 X, int32 Y, int32 nWidth, int32 nHeight);
@@ -6168,14 +6168,14 @@ public static
 	public static int32 TabbedTextOut(HDC hdc, int32 x, int32 y, uint8* lpString, int32 chCount, int32 nTabPositions, int32* lpnTabStopPositions, int32 nTabOrigin) => TabbedTextOutA(hdc, x, y, lpString, chCount, nTabPositions, lpnTabStopPositions, nTabOrigin);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TabbedTextOutW(HDC hdc, int32 x, int32 y, char8* lpString, int32 chCount, int32 nTabPositions, int32* lpnTabStopPositions, int32 nTabOrigin);
+	public static extern int32 TabbedTextOutW(HDC hdc, int32 x, int32 y, char16* lpString, int32 chCount, int32 nTabPositions, int32* lpnTabStopPositions, int32 nTabOrigin);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetTabbedTextExtentA(HDC hdc, uint8* lpString, int32 chCount, int32 nTabPositions, int32* lpnTabStopPositions);
 	public static uint32 GetTabbedTextExtent(HDC hdc, uint8* lpString, int32 chCount, int32 nTabPositions, int32* lpnTabStopPositions) => GetTabbedTextExtentA(hdc, lpString, chCount, nTabPositions, lpnTabStopPositions);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetTabbedTextExtentW(HDC hdc, char8* lpString, int32 chCount, int32 nTabPositions, int32* lpnTabStopPositions);
+	public static extern uint32 GetTabbedTextExtentW(HDC hdc, char16* lpString, int32 chCount, int32 nTabPositions, int32* lpnTabStopPositions);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UpdateWindow(HWND hWnd);

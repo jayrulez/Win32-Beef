@@ -131,15 +131,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszPropertyName, uint32 dwFlags, char8* pszValue, uint32 cchValue, uint32* pdwcchPropertyValueRequired) GetString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszPropertyName, uint32 dwFlags, char16* pszValue, uint32 cchValue, uint32* pdwcchPropertyValueRequired) GetString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszPropertyName, uint32 dwFlags, FILETIME* pftDateTime) GetDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszPropertyName, uint32 dwFlags, char8* pszContentType, uint32 cchContentType, uint32* pdwcchContentTypeRequired, IStream** ppStream) GetBinary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszArrayElementName, uint32 dwFlags, char8* pszLabels, uint32 cchLabels, uint32* pdwcchLabelsRequired) GetLabels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszPropertyName, uint32 dwFlags, char16* pszContentType, uint32 cchContentType, uint32* pdwcchContentTypeRequired, IStream** ppStream) GetBinary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszArrayElementName, uint32 dwFlags, char16* pszLabels, uint32 cchLabels, uint32* pdwcchLabelsRequired) GetLabels;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszPropertyName, uint32 dwFlags, PWSTR pszValue) SetString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszPropertyName, uint32 dwFlags, FILETIME ftDateTime) SetDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszPropertyName, uint32 dwFlags, PWSTR pszContentType, IStream* pStream) SetBinary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszArrayElementName, uint32 dwFlags, uint32 dwLabelCount, PWSTR* ppszLabels) SetLabels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszArrayName, uint32 dwFlags, BOOL fAppend, char8* pszNewArrayElementName, uint32 cchNewArrayElementName, uint32* pdwcchNewArrayElementNameRequired) CreateArrayNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszArrayName, uint32 dwFlags, BOOL fAppend, char16* pszNewArrayElementName, uint32 cchNewArrayElementName, uint32* pdwcchNewArrayElementNameRequired) CreateArrayNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszPropertyName, uint32 dwFlags) DeleteProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszArrayElementName, uint32 dwFlags) DeleteArrayNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactProperties*/SelfOuter* self, PWSTR pszArrayElementName, uint32 dwFlags) DeleteLabels;
@@ -147,13 +147,13 @@ public static
 	}
 
 
-	public HRESULT GetString(PWSTR pszPropertyName, uint32 dwFlags, char8* pszValue, uint32 cchValue, uint32* pdwcchPropertyValueRequired) mut => VT.[Friend]GetString(&this, pszPropertyName, dwFlags, pszValue, cchValue, pdwcchPropertyValueRequired);
+	public HRESULT GetString(PWSTR pszPropertyName, uint32 dwFlags, char16* pszValue, uint32 cchValue, uint32* pdwcchPropertyValueRequired) mut => VT.[Friend]GetString(&this, pszPropertyName, dwFlags, pszValue, cchValue, pdwcchPropertyValueRequired);
 
 	public HRESULT GetDate(PWSTR pszPropertyName, uint32 dwFlags, FILETIME* pftDateTime) mut => VT.[Friend]GetDate(&this, pszPropertyName, dwFlags, pftDateTime);
 
-	public HRESULT GetBinary(PWSTR pszPropertyName, uint32 dwFlags, char8* pszContentType, uint32 cchContentType, uint32* pdwcchContentTypeRequired, IStream** ppStream) mut => VT.[Friend]GetBinary(&this, pszPropertyName, dwFlags, pszContentType, cchContentType, pdwcchContentTypeRequired, ppStream);
+	public HRESULT GetBinary(PWSTR pszPropertyName, uint32 dwFlags, char16* pszContentType, uint32 cchContentType, uint32* pdwcchContentTypeRequired, IStream** ppStream) mut => VT.[Friend]GetBinary(&this, pszPropertyName, dwFlags, pszContentType, cchContentType, pdwcchContentTypeRequired, ppStream);
 
-	public HRESULT GetLabels(PWSTR pszArrayElementName, uint32 dwFlags, char8* pszLabels, uint32 cchLabels, uint32* pdwcchLabelsRequired) mut => VT.[Friend]GetLabels(&this, pszArrayElementName, dwFlags, pszLabels, cchLabels, pdwcchLabelsRequired);
+	public HRESULT GetLabels(PWSTR pszArrayElementName, uint32 dwFlags, char16* pszLabels, uint32 cchLabels, uint32* pdwcchLabelsRequired) mut => VT.[Friend]GetLabels(&this, pszArrayElementName, dwFlags, pszLabels, cchLabels, pdwcchLabelsRequired);
 
 	public HRESULT SetString(PWSTR pszPropertyName, uint32 dwFlags, PWSTR pszValue) mut => VT.[Friend]SetString(&this, pszPropertyName, dwFlags, pszValue);
 
@@ -163,7 +163,7 @@ public static
 
 	public HRESULT SetLabels(PWSTR pszArrayElementName, uint32 dwFlags, uint32 dwLabelCount, PWSTR* ppszLabels) mut => VT.[Friend]SetLabels(&this, pszArrayElementName, dwFlags, dwLabelCount, ppszLabels);
 
-	public HRESULT CreateArrayNode(PWSTR pszArrayName, uint32 dwFlags, BOOL fAppend, char8* pszNewArrayElementName, uint32 cchNewArrayElementName, uint32* pdwcchNewArrayElementNameRequired) mut => VT.[Friend]CreateArrayNode(&this, pszArrayName, dwFlags, fAppend, pszNewArrayElementName, cchNewArrayElementName, pdwcchNewArrayElementNameRequired);
+	public HRESULT CreateArrayNode(PWSTR pszArrayName, uint32 dwFlags, BOOL fAppend, char16* pszNewArrayElementName, uint32 cchNewArrayElementName, uint32* pdwcchNewArrayElementNameRequired) mut => VT.[Friend]CreateArrayNode(&this, pszArrayName, dwFlags, fAppend, pszNewArrayElementName, cchNewArrayElementName, pdwcchNewArrayElementNameRequired);
 
 	public HRESULT DeleteProperty(PWSTR pszPropertyName, uint32 dwFlags) mut => VT.[Friend]DeleteProperty(&this, pszPropertyName, dwFlags);
 
@@ -182,15 +182,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContact*/SelfOuter* self, char8* pszContactID, uint32 cchContactID, uint32* pdwcchContactIDRequired) GetContactID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContact*/SelfOuter* self, char8* pszPath, uint32 cchPath, uint32* pdwcchPathRequired) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContact*/SelfOuter* self, char16* pszContactID, uint32 cchContactID, uint32* pdwcchContactIDRequired) GetContactID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContact*/SelfOuter* self, char16* pszPath, uint32 cchPath, uint32* pdwcchPathRequired) GetPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContact*/SelfOuter* self, uint32 dwCommitFlags) CommitChanges;
 	}
 
 
-	public HRESULT GetContactID(char8* pszContactID, uint32 cchContactID, uint32* pdwcchContactIDRequired) mut => VT.[Friend]GetContactID(&this, pszContactID, cchContactID, pdwcchContactIDRequired);
+	public HRESULT GetContactID(char16* pszContactID, uint32 cchContactID, uint32* pdwcchContactIDRequired) mut => VT.[Friend]GetContactID(&this, pszContactID, cchContactID, pdwcchContactIDRequired);
 
-	public HRESULT GetPath(char8* pszPath, uint32 cchPath, uint32* pdwcchPathRequired) mut => VT.[Friend]GetPath(&this, pszPath, cchPath, pdwcchPathRequired);
+	public HRESULT GetPath(char16* pszPath, uint32 cchPath, uint32* pdwcchPathRequired) mut => VT.[Friend]GetPath(&this, pszPath, cchPath, pdwcchPathRequired);
 
 	public HRESULT CommitChanges(uint32 dwCommitFlags) mut => VT.[Friend]CommitChanges(&this, dwCommitFlags);
 }
@@ -205,11 +205,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactPropertyCollection*/SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactPropertyCollection*/SelfOuter* self) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactPropertyCollection*/SelfOuter* self, char8* pszPropertyName, uint32 cchPropertyName, uint32* pdwcchPropertyNameRequired) GetPropertyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactPropertyCollection*/SelfOuter* self, char16* pszPropertyName, uint32 cchPropertyName, uint32* pdwcchPropertyNameRequired) GetPropertyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactPropertyCollection*/SelfOuter* self, uint32* pdwType) GetPropertyType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactPropertyCollection*/SelfOuter* self, uint32* pdwVersion) GetPropertyVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactPropertyCollection*/SelfOuter* self, FILETIME* pftModificationDate) GetPropertyModificationDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactPropertyCollection*/SelfOuter* self, char8* pszArrayElementID, uint32 cchArrayElementID, uint32* pdwcchArrayElementIDRequired) GetPropertyArrayElementID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactPropertyCollection*/SelfOuter* self, char16* pszArrayElementID, uint32 cchArrayElementID, uint32* pdwcchArrayElementIDRequired) GetPropertyArrayElementID;
 	}
 
 
@@ -217,7 +217,7 @@ public static
 
 	public HRESULT Next() mut => VT.[Friend]Next(&this);
 
-	public HRESULT GetPropertyName(char8* pszPropertyName, uint32 cchPropertyName, uint32* pdwcchPropertyNameRequired) mut => VT.[Friend]GetPropertyName(&this, pszPropertyName, cchPropertyName, pdwcchPropertyNameRequired);
+	public HRESULT GetPropertyName(char16* pszPropertyName, uint32 cchPropertyName, uint32* pdwcchPropertyNameRequired) mut => VT.[Friend]GetPropertyName(&this, pszPropertyName, cchPropertyName, pdwcchPropertyNameRequired);
 
 	public HRESULT GetPropertyType(uint32* pdwType) mut => VT.[Friend]GetPropertyType(&this, pdwType);
 
@@ -225,7 +225,7 @@ public static
 
 	public HRESULT GetPropertyModificationDate(FILETIME* pftModificationDate) mut => VT.[Friend]GetPropertyModificationDate(&this, pftModificationDate);
 
-	public HRESULT GetPropertyArrayElementID(char8* pszArrayElementID, uint32 cchArrayElementID, uint32* pdwcchArrayElementIDRequired) mut => VT.[Friend]GetPropertyArrayElementID(&this, pszArrayElementID, cchArrayElementID, pdwcchArrayElementIDRequired);
+	public HRESULT GetPropertyArrayElementID(char16* pszArrayElementID, uint32 cchArrayElementID, uint32* pdwcchArrayElementIDRequired) mut => VT.[Friend]GetPropertyArrayElementID(&this, pszArrayElementID, cchArrayElementID, pdwcchArrayElementIDRequired);
 }
 
 [CRepr]struct IContactAggregationManager : IUnknown

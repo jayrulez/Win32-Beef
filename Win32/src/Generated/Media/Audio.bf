@@ -1450,7 +1450,7 @@ public struct WAVEOUTCAPSW
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint32 dwFormats;
 	public uint16 wChannels;
 	public uint16 wReserved1;
@@ -1479,7 +1479,7 @@ public struct WAVEOUTCAPS2W
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint32 dwFormats;
 	public uint16 wChannels;
 	public uint16 wReserved1;
@@ -1507,7 +1507,7 @@ public struct WAVEINCAPSW
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint32 dwFormats;
 	public uint16 wChannels;
 	public uint16 wReserved1;
@@ -1534,7 +1534,7 @@ public struct WAVEINCAPS2W
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint32 dwFormats;
 	public uint16 wChannels;
 	public uint16 wReserved1;
@@ -1592,7 +1592,7 @@ public struct MIDIOUTCAPSW
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint16 wTechnology;
 	public uint16 wVoices;
 	public uint16 wNotes;
@@ -1623,7 +1623,7 @@ public struct MIDIOUTCAPS2W
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint16 wTechnology;
 	public uint16 wVoices;
 	public uint16 wNotes;
@@ -1650,7 +1650,7 @@ public struct MIDIINCAPSW
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint32 dwSupport;
 }
 
@@ -1673,7 +1673,7 @@ public struct MIDIINCAPS2W
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint32 dwSupport;
 	public Guid ManufacturerGuid;
 	public Guid ProductGuid;
@@ -1743,7 +1743,7 @@ public struct AUXCAPSW
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint16 wTechnology;
 	public uint16 wReserved1;
 	public uint32 dwSupport;
@@ -1770,7 +1770,7 @@ public struct AUXCAPS2W
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint16 wTechnology;
 	public uint16 wReserved1;
 	public uint32 dwSupport;
@@ -1796,7 +1796,7 @@ public struct MIXERCAPSW
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint32 fdwSupport;
 	public uint32 cDestinations;
 }
@@ -1821,7 +1821,7 @@ public struct MIXERCAPS2W
 	public uint16 wMid;
 	public uint16 wPid;
 	public uint32 vDriverVersion;
-	public char8[32] szPname;
+	public char16[32] szPname;
 	public uint32 fdwSupport;
 	public uint32 cDestinations;
 	public Guid ManufacturerGuid;
@@ -1869,7 +1869,7 @@ public struct MIXERLINEW
 		public uint16 wMid;
 		public uint16 wPid;
 		public uint32 vDriverVersion;
-		public char8[32] szPname;
+		public char16[32] szPname;
 	}
 
 	public uint32 cbStruct;
@@ -1882,8 +1882,8 @@ public struct MIXERLINEW
 	public uint32 cChannels;
 	public uint32 cConnections;
 	public uint32 cControls;
-	public char8[16] szShortName;
-	public char8[64] szName;
+	public char16[16] szShortName;
+	public char16[64] szName;
 	public _Target_e__Struct Target;
 }
 
@@ -1969,8 +1969,8 @@ public struct MIXERCONTROLW
 	public uint32 dwControlType;
 	public uint32 fdwControl;
 	public uint32 cMultipleItems;
-	public char8[16] szShortName;
-	public char8[64] szName;
+	public char16[16] szShortName;
+	public char16[64] szName;
 	public _Bounds_e__Union Bounds;
 	public _Metrics_e__Union Metrics;
 }
@@ -2042,7 +2042,7 @@ public struct MIXERCONTROLDETAILS_LISTTEXTW
 {
 	public uint32 dwParam1;
 	public uint32 dwParam2;
-	public char8[64] szName;
+	public char16[64] szName;
 }
 
 [CRepr, Packed(1)]
@@ -2320,11 +2320,11 @@ public struct ACMDRIVERDETAILSW
 	public uint32 cFormatTags;
 	public uint32 cFilterTags;
 	public HICON hicon;
-	public char8[32] szShortName;
-	public char8[128] szLongName;
-	public char8[80] szCopyright;
-	public char8[128] szLicensing;
-	public char8[512] szFeatures;
+	public char16[32] szShortName;
+	public char16[128] szLongName;
+	public char16[80] szCopyright;
+	public char16[128] szLicensing;
+	public char16[512] szFeatures;
 }
 
 [CRepr, Packed(1)]
@@ -2348,7 +2348,7 @@ public struct ACMFORMATTAGDETAILSW
 	public uint32 cbFormatSize;
 	public uint32 fdwSupport;
 	public uint32 cStandardFormats;
-	public char8[48] szFormatTag;
+	public char16[48] szFormatTag;
 }
 
 [CRepr, Packed(1)]
@@ -2372,7 +2372,7 @@ public struct tACMFORMATDETAILSW
 	public uint32 fdwSupport;
 	public WAVEFORMATEX* pwfx;
 	public uint32 cbwfx;
-	public char8[128] szFormat;
+	public char16[128] szFormat;
 }
 
 [CRepr, Packed(1)]
@@ -2405,8 +2405,8 @@ public struct ACMFORMATCHOOSEW
 	public WAVEFORMATEX* pwfx;
 	public uint32 cbwfx;
 	public PWSTR pszTitle;
-	public char8[48] szFormatTag;
-	public char8[128] szFormat;
+	public char16[48] szFormatTag;
+	public char16[128] szFormat;
 	public PWSTR pszName;
 	public uint32 cchName;
 	public uint32 fdwEnum;
@@ -2438,7 +2438,7 @@ public struct ACMFILTERTAGDETAILSW
 	public uint32 cbFilterSize;
 	public uint32 fdwSupport;
 	public uint32 cStandardFilters;
-	public char8[48] szFilterTag;
+	public char16[48] szFilterTag;
 }
 
 [CRepr, Packed(1)]
@@ -2462,7 +2462,7 @@ public struct ACMFILTERDETAILSW
 	public uint32 fdwSupport;
 	public WAVEFILTER* pwfltr;
 	public uint32 cbwfltr;
-	public char8[128] szFilter;
+	public char16[128] szFilter;
 }
 
 [CRepr, Packed(1)]
@@ -2495,8 +2495,8 @@ public struct ACMFILTERCHOOSEW
 	public WAVEFILTER* pwfltr;
 	public uint32 cbwfltr;
 	public PWSTR pszTitle;
-	public char8[48] szFilterTag;
-	public char8[128] szFilter;
+	public char16[48] szFilterTag;
+	public char16[128] szFilter;
 	public PWSTR pszName;
 	public uint32 cchName;
 	public uint32 fdwEnum;
@@ -4294,7 +4294,7 @@ public static
 	public static uint32 waveOutGetErrorText(uint32 mmrError, uint8* pszText, uint32 cchText) => waveOutGetErrorTextA(mmrError, pszText, cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveOutGetErrorTextW(uint32 mmrError, char8* pszText, uint32 cchText);
+	public static extern uint32 waveOutGetErrorTextW(uint32 mmrError, char16* pszText, uint32 cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutOpen(HWAVEOUT* phwo, uint32 uDeviceID, WAVEFORMATEX* pwfx, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
@@ -4359,7 +4359,7 @@ public static
 	public static uint32 waveInGetErrorText(uint32 mmrError, uint8* pszText, uint32 cchText) => waveInGetErrorTextA(mmrError, pszText, cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 waveInGetErrorTextW(uint32 mmrError, char8* pszText, uint32 cchText);
+	public static extern uint32 waveInGetErrorTextW(uint32 mmrError, char16* pszText, uint32 cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveInOpen(HWAVEIN* phwi, uint32 uDeviceID, WAVEFORMATEX* pwfx, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
@@ -4445,7 +4445,7 @@ public static
 	public static uint32 midiOutGetErrorText(uint32 mmrError, uint8* pszText, uint32 cchText) => midiOutGetErrorTextA(mmrError, pszText, cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiOutGetErrorTextW(uint32 mmrError, char8* pszText, uint32 cchText);
+	public static extern uint32 midiOutGetErrorTextW(uint32 mmrError, char16* pszText, uint32 cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiOutOpen(HMIDIOUT* phmo, uint32 uDeviceID, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);
@@ -4495,7 +4495,7 @@ public static
 	public static uint32 midiInGetErrorText(uint32 mmrError, uint8* pszText, uint32 cchText) => midiInGetErrorTextA(mmrError, pszText, cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 midiInGetErrorTextW(uint32 mmrError, char8* pszText, uint32 cchText);
+	public static extern uint32 midiInGetErrorTextW(uint32 mmrError, char16* pszText, uint32 cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiInOpen(HMIDIIN* phmi, uint32 uDeviceID, uint dwCallback, uint dwInstance, MIDI_WAVE_OPEN_TYPE fdwOpen);

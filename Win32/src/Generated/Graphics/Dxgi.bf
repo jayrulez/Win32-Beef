@@ -794,7 +794,7 @@ public struct DXGI_MAPPED_RECT
 [CRepr]
 public struct DXGI_ADAPTER_DESC
 {
-	public char8[128] Description;
+	public char16[128] Description;
 	public uint32 VendorId;
 	public uint32 DeviceId;
 	public uint32 SubSysId;
@@ -808,7 +808,7 @@ public struct DXGI_ADAPTER_DESC
 [CRepr]
 public struct DXGI_OUTPUT_DESC
 {
-	public char8[32] DeviceName;
+	public char16[32] DeviceName;
 	public RECT DesktopCoordinates;
 	public BOOL AttachedToDesktop;
 	public DXGI_MODE_ROTATION Rotation;
@@ -846,7 +846,7 @@ public struct DXGI_SWAP_CHAIN_DESC
 [CRepr]
 public struct DXGI_ADAPTER_DESC1
 {
-	public char8[128] Description;
+	public char16[128] Description;
 	public uint32 VendorId;
 	public uint32 DeviceId;
 	public uint32 SubSysId;
@@ -959,7 +959,7 @@ public struct DXGI_PRESENT_PARAMETERS
 [CRepr]
 public struct DXGI_ADAPTER_DESC2
 {
-	public char8[128] Description;
+	public char16[128] Description;
 	public uint32 VendorId;
 	public uint32 DeviceId;
 	public uint32 SubSysId;
@@ -1033,7 +1033,7 @@ public struct DXGI_HDR_METADATA_HDR10PLUS
 [CRepr]
 public struct DXGI_ADAPTER_DESC3
 {
-	public char8[128] Description;
+	public char16[128] Description;
 	public uint32 VendorId;
 	public uint32 DeviceId;
 	public uint32 SubSysId;
@@ -1050,7 +1050,7 @@ public struct DXGI_ADAPTER_DESC3
 [CRepr]
 public struct DXGI_OUTPUT_DESC1
 {
-	public char8[32] DeviceName;
+	public char16[32] DeviceName;
 	public RECT DesktopCoordinates;
 	public BOOL AttachedToDesktop;
 	public DXGI_MODE_ROTATION Rotation;

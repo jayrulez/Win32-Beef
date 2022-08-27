@@ -1487,7 +1487,7 @@ public struct tcp_reserve_port_range
 public struct IP_ADAPTER_INDEX_MAP
 {
 	public uint32 Index;
-	public char8[128] Name;
+	public char16[128] Name;
 }
 
 [CRepr]
@@ -1560,7 +1560,7 @@ public struct NET_PHYSICAL_LOCATION_LH
 public struct IF_COUNTED_STRING_LH
 {
 	public uint16 Length;
-	public char8[257] String;
+	public char16[257] String;
 }
 
 [CRepr]
@@ -1619,8 +1619,8 @@ public struct MIB_IF_ROW2
 	public NET_LUID_LH InterfaceLuid;
 	public uint32 InterfaceIndex;
 	public Guid InterfaceGuid;
-	public char8[257] Alias;
-	public char8[257] Description;
+	public char16[257] Alias;
+	public char16[257] Description;
 	public uint32 PhysicalAddressLength;
 	public uint8[32] PhysicalAddress;
 	public uint8[32] PermanentPhysicalAddress;
@@ -2012,7 +2012,7 @@ public struct MIB_IFNUMBER
 [CRepr]
 public struct MIB_IFROW
 {
-	public char8[256] wszName;
+	public char16[256] wszName;
 	public uint32 dwIndex;
 	public uint32 dwType;
 	public uint32 dwMtu;
@@ -3211,7 +3211,7 @@ public struct IP_ADAPTER_PREFIX_XP
 public struct IP_ADAPTER_DNS_SUFFIX
 {
 	public IP_ADAPTER_DNS_SUFFIX* Next;
-	public char8[256] String;
+	public char16[256] String;
 }
 
 [CRepr]
@@ -3849,7 +3849,7 @@ public static
 	public static NTSTATUS ConvertInterfaceLuidToName(NET_LUID_LH* InterfaceLuid, uint8* InterfaceName, uint Length) => ConvertInterfaceLuidToNameA(InterfaceLuid, InterfaceName, Length);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS ConvertInterfaceLuidToNameW(NET_LUID_LH* InterfaceLuid, char8* InterfaceName, uint Length);
+	public static extern NTSTATUS ConvertInterfaceLuidToNameW(NET_LUID_LH* InterfaceLuid, char16* InterfaceName, uint Length);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS ConvertInterfaceLuidToIndex(NET_LUID_LH* InterfaceLuid, uint32* InterfaceIndex);
@@ -3858,7 +3858,7 @@ public static
 	public static extern NTSTATUS ConvertInterfaceIndexToLuid(uint32 InterfaceIndex, NET_LUID_LH* InterfaceLuid);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS ConvertInterfaceLuidToAlias(NET_LUID_LH* InterfaceLuid, char8* InterfaceAlias, uint Length);
+	public static extern NTSTATUS ConvertInterfaceLuidToAlias(NET_LUID_LH* InterfaceLuid, char16* InterfaceAlias, uint Length);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS ConvertInterfaceAliasToLuid(PWSTR InterfaceAlias, NET_LUID_LH* InterfaceLuid);
@@ -3903,7 +3903,7 @@ public static
 	public static extern uint32 GetDefaultCompartmentId();
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS GetNetworkInformation(Guid* NetworkGuid, uint32* CompartmentId, uint32* SiteId, char8* NetworkName, uint32 Length);
+	public static extern NTSTATUS GetNetworkInformation(Guid* NetworkGuid, uint32* CompartmentId, uint32* SiteId, char16* NetworkName, uint32 Length);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS SetNetworkInformation(Guid* NetworkGuid, uint32 CompartmentId, PWSTR NetworkName);

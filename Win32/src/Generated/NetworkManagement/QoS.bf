@@ -1562,7 +1562,7 @@ public struct QOS_VERSION
 public struct QOS_FRIENDLY_NAME
 {
 	public QOS_OBJECT_HDR ObjectHdr;
-	public char8[256] FriendlyName;
+	public char16[256] FriendlyName;
 }
 
 [CRepr]
@@ -1632,7 +1632,7 @@ public struct TC_IFC_DESCRIPTOR
 public struct TC_SUPPORTED_INFO_BUFFER
 {
 	public uint16 InstanceIDLength;
-	public char8[256] InstanceID;
+	public char16[256] InstanceID;
 	public uint64 InterfaceLuid;
 	public ADDRESS_LIST_DESCRIPTOR AddrListDesc;
 }
@@ -1711,7 +1711,7 @@ public struct ENUMERATION_BUFFER
 	public uint32 Length;
 	public uint32 OwnerProcessId;
 	public uint16 FlowNameLength;
-	public char8[256] FlowName;
+	public char16[256] FlowName;
 	public TC_GEN_FLOW* pFlow;
 	public uint32 NumberOfFilters;
 	public TC_GEN_FILTER[1] GenericFilter;
@@ -2100,7 +2100,7 @@ public static
 	public static uint32 TcGetFlowName(HANDLE FlowHandle, uint32 StrSize, uint8* pFlowName) => TcGetFlowNameA(FlowHandle, StrSize, pFlowName);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TcGetFlowNameW(HANDLE FlowHandle, uint32 StrSize, char8* pFlowName);
+	public static extern uint32 TcGetFlowNameW(HANDLE FlowHandle, uint32 StrSize, char16* pFlowName);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcModifyFlow(HANDLE FlowHandle, TC_GEN_FLOW* pGenericFlow);

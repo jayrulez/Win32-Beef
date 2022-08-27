@@ -54,7 +54,7 @@ public static
 	public static extern HRESULT GetApplicationRecoveryCallback(HANDLE hProcess, APPLICATION_RECOVERY_CALLBACK* pRecoveryCallback, void** ppvParameter, uint32* pdwPingInterval, uint32* pdwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetApplicationRestartSettings(HANDLE hProcess, char8* pwzCommandline, uint32* pcchSize, uint32* pdwFlags);
+	public static extern HRESULT GetApplicationRestartSettings(HANDLE hProcess, char16* pwzCommandline, uint32* pcchSize, uint32* pdwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ApplicationRecoveryInProgress(BOOL* pbCancelled);

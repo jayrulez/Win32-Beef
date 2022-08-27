@@ -1705,7 +1705,7 @@ public static
 	public static BOOL QueryFullProcessImageName(HANDLE hProcess, PROCESS_NAME_FORMAT dwFlags, uint8* lpExeName, uint32* lpdwSize) => QueryFullProcessImageNameA(hProcess, dwFlags, lpExeName, lpdwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryFullProcessImageNameW(HANDLE hProcess, PROCESS_NAME_FORMAT dwFlags, char8* lpExeName, uint32* lpdwSize);
+	public static extern BOOL QueryFullProcessImageNameW(HANDLE hProcess, PROCESS_NAME_FORMAT dwFlags, char16* lpExeName, uint32* lpdwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void GetStartupInfoA(STARTUPINFOA* lpStartupInfo);

@@ -2034,7 +2034,7 @@ public struct WIA_BARCODE_INFO
 	public uint32 YOffset;
 	public uint32 Rotation;
 	public uint32 Length;
-	public char8[1] Text;
+	public char16[1] Text;
 }
 
 [CRepr]
@@ -2069,7 +2069,7 @@ public struct WIA_MICR_INFO
 	public uint32 Size;
 	public uint32 Page;
 	public uint32 Length;
-	public char8[1] Text;
+	public char16[1] Text;
 }
 
 [CRepr]
@@ -2078,7 +2078,7 @@ public struct WIA_MICR
 	public uint32 Tag;
 	public uint32 Version;
 	public uint32 Size;
-	public char8 Placeholder;
+	public char16 Placeholder;
 	public uint16 Reserved;
 	public uint32 Count;
 	public WIA_MICR_INFO[1] Micr;

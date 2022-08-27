@@ -1197,8 +1197,8 @@ public struct DUMP_POINTERS_EX
 public struct DUMP_DRIVER
 {
 	public void* DumpDriverList;
-	public char8[15] DriverName;
-	public char8[15] BaseName;
+	public char16[15] DriverName;
+	public char16[15] BaseName;
 }
 
 [CRepr]
@@ -1213,8 +1213,8 @@ public struct NTSCSI_UNICODE_STRING
 public struct DUMP_DRIVER_EX
 {
 	public void* DumpDriverList;
-	public char8[15] DriverName;
-	public char8[15] BaseName;
+	public char16[15] DriverName;
+	public char16[15] BaseName;
 	public NTSCSI_UNICODE_STRING DriverFullPath;
 }
 
@@ -1302,9 +1302,9 @@ public struct SCSI_LUN_LIST
 [CRepr]
 public struct ISCSI_TARGET_MAPPINGW
 {
-	public char8[256] InitiatorName;
-	public char8[224] TargetName;
-	public char8[260] OSDeviceName;
+	public char16[256] InitiatorName;
+	public char16[224] TargetName;
+	public char16[260] OSDeviceName;
 	public ISCSI_UNIQUE_SESSION_ID SessionId;
 	public uint32 OSBusNumber;
 	public uint32 OSTargetNumber;
@@ -1328,8 +1328,8 @@ public struct ISCSI_TARGET_MAPPINGA
 [CRepr]
 public struct ISCSI_TARGET_PORTALW
 {
-	public char8[256] SymbolicName;
-	public char8[256] Address;
+	public char16[256] SymbolicName;
+	public char16[256] Address;
 	public uint16 Socket;
 }
 
@@ -1344,10 +1344,10 @@ public struct ISCSI_TARGET_PORTALA
 [CRepr]
 public struct ISCSI_TARGET_PORTAL_INFOW
 {
-	public char8[256] InitiatorName;
+	public char16[256] InitiatorName;
 	public uint32 InitiatorPortNumber;
-	public char8[256] SymbolicName;
-	public char8[256] Address;
+	public char16[256] SymbolicName;
+	public char16[256] Address;
 	public uint16 Socket;
 }
 
@@ -1364,10 +1364,10 @@ public struct ISCSI_TARGET_PORTAL_INFOA
 [CRepr]
 public struct ISCSI_TARGET_PORTAL_INFO_EXW
 {
-	public char8[256] InitiatorName;
+	public char16[256] InitiatorName;
 	public uint32 InitiatorPortNumber;
-	public char8[256] SymbolicName;
-	public char8[256] Address;
+	public char16[256] SymbolicName;
+	public char16[256] Address;
 	public uint16 Socket;
 	public uint64 SecurityFlags;
 	public ISCSI_LOGIN_OPTIONS LoginOptions;
@@ -1482,12 +1482,12 @@ public struct ISCSI_SESSION_INFO_EX
 [CRepr]
 public struct ISCSI_DEVICE_ON_SESSIONW
 {
-	public char8[256] InitiatorName;
-	public char8[224] TargetName;
+	public char16[256] InitiatorName;
+	public char16[224] TargetName;
 	public SCSI_ADDRESS ScsiAddress;
 	public Guid DeviceInterfaceType;
-	public char8[260] DeviceInterfaceName;
-	public char8[260] LegacyName;
+	public char16[260] DeviceInterfaceName;
+	public char16[260] LegacyName;
 	public STORAGE_DEVICE_NUMBER StorageDeviceNumber;
 	public uint32 DeviceInstance;
 }
@@ -1508,9 +1508,9 @@ public struct ISCSI_DEVICE_ON_SESSIONA
 [CRepr]
 public struct PERSISTENT_ISCSI_LOGIN_INFOW
 {
-	public char8[224] TargetName;
+	public char16[224] TargetName;
 	public BOOLEAN IsInformationalSession;
-	public char8[256] InitiatorInstance;
+	public char16[256] InitiatorInstance;
 	public uint32 InitiatorPortNumber;
 	public ISCSI_TARGET_PORTALW TargetPortal;
 	public uint64 SecurityFlags;
@@ -1574,7 +1574,7 @@ public static
 	public static extern uint32 RemoveIScsiConnection(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, ISCSI_UNIQUE_SESSION_ID* ConnectionId);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiTargetsW(BOOLEAN ForceUpdate, uint32* BufferSize, char8* Buffer);
+	public static extern uint32 ReportIScsiTargetsW(BOOLEAN ForceUpdate, uint32* BufferSize, char16* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ReportIScsiTargetsA(BOOLEAN ForceUpdate, uint32* BufferSize, uint8* Buffer);
@@ -1663,7 +1663,7 @@ public static
 	public static extern uint32 SendScsiReportLuns(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint8* ScsiStatus, uint32* ResponseSize, uint8* ResponseBuffer, uint32* SenseSize, uint8* SenseBuffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiInitiatorListW(uint32* BufferSize, char8* Buffer);
+	public static extern uint32 ReportIScsiInitiatorListW(uint32* BufferSize, char16* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ReportIScsiInitiatorListA(uint32* BufferSize, uint8* Buffer);
@@ -1742,7 +1742,7 @@ public static
 	public static uint32 RefreshISNSServer(PSTR Address) => RefreshISNSServerA(Address);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportISNSServerListW(uint32* BufferSizeInChar, char8* Buffer);
+	public static extern uint32 ReportISNSServerListW(uint32* BufferSizeInChar, char16* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ReportISNSServerListA(uint32* BufferSizeInChar, uint8* Buffer);
@@ -1789,7 +1789,7 @@ public static
 	public static extern uint32 ClearPersistentIScsiDevices();
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportPersistentIScsiDevicesW(uint32* BufferSizeInChar, char8* Buffer);
+	public static extern uint32 ReportPersistentIScsiDevicesW(uint32* BufferSizeInChar, char16* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ReportPersistentIScsiDevicesA(uint32* BufferSizeInChar, uint8* Buffer);
@@ -1817,7 +1817,7 @@ public static
 	public static uint32 RemoveRadiusServer(PSTR Address) => RemoveRadiusServerA(Address);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportRadiusServerListW(uint32* BufferSizeInChar, char8* Buffer);
+	public static extern uint32 ReportRadiusServerListW(uint32* BufferSizeInChar, char16* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ReportRadiusServerListA(uint32* BufferSizeInChar, uint8* Buffer);

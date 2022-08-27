@@ -5026,8 +5026,8 @@ public struct MSA_INFO_0
 public struct STD_ALERT
 {
 	public uint32 alrt_timestamp;
-	public char8[17] alrt_eventname;
-	public char8[81] alrt_servicename;
+	public char16[17] alrt_eventname;
+	public char16[81] alrt_servicename;
 }
 
 [CRepr]
@@ -6921,16 +6921,16 @@ public struct RASCON_IPUI
 	public Guid guidConnection;
 	public BOOL fIPv6Cfg;
 	public uint32 dwFlags;
-	public char8[16] pszwIpAddr;
-	public char8[16] pszwDnsAddr;
-	public char8[16] pszwDns2Addr;
-	public char8[16] pszwWinsAddr;
-	public char8[16] pszwWins2Addr;
-	public char8[256] pszwDnsSuffix;
-	public char8[65] pszwIpv6Addr;
+	public char16[16] pszwIpAddr;
+	public char16[16] pszwDnsAddr;
+	public char16[16] pszwDns2Addr;
+	public char16[16] pszwWinsAddr;
+	public char16[16] pszwWins2Addr;
+	public char16[256] pszwDnsSuffix;
+	public char16[65] pszwIpv6Addr;
 	public uint32 dwIpv6PrefixLength;
-	public char8[65] pszwIpv6DnsAddr;
-	public char8[65] pszwIpv6Dns2Addr;
+	public char16[65] pszwIpv6DnsAddr;
+	public char16[65] pszwIpv6Dns2Addr;
 	public uint32 dwIPv4InfMetric;
 	public uint32 dwIPv6InfMetric;
 }
@@ -6957,8 +6957,8 @@ public struct RTR_INFO_BLOCK_HEADER
 public struct MPR_PROTOCOL_0
 {
 	public uint32 dwProtocolId;
-	public char8[41] wszProtocol;
-	public char8[49] wszDLLName;
+	public char16[41] wszProtocol;
+	public char16[49] wszDLLName;
 }
 
 #endregion
@@ -7945,7 +7945,7 @@ public static
 	public static extern uint32 NetGetJoinInformation(PWSTR lpServer, PWSTR* lpNameBuffer, NETSETUP_JOIN_STATUS* BufferType);
 
 	[Import("mstask.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetNetScheduleAccountInformation(PWSTR pwszServerName, uint32 ccAccount, char8* wszAccount);
+	public static extern HRESULT GetNetScheduleAccountInformation(PWSTR pwszServerName, uint32 ccAccount, char16* wszAccount);
 
 	[Import("mstask.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetNetScheduleAccountInformation(PWSTR pwszServerName, PWSTR pwszAccount, PWSTR pwszPassword);

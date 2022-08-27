@@ -10225,7 +10225,7 @@ typealias BOOL = int32;
 
 typealias BOOLEAN = uint8;
 
-typealias BSTR = char8*;
+typealias BSTR = char16*;
 
 typealias HANDLE = int;
 
@@ -10247,7 +10247,7 @@ typealias PSID = int;
 
 typealias PSTR = uint8*;
 
-typealias PWSTR = char8*;
+typealias PWSTR = char16*;
 
 typealias WPARAM = uint;
 
@@ -13775,7 +13775,7 @@ public static
 	public static extern int32 SysReAllocString(BSTR* pbstr, PWSTR psz);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BSTR SysAllocStringLen(char8* strIn, uint32 ui);
+	public static extern BSTR SysAllocStringLen(char16* strIn, uint32 ui);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SysReAllocStringLen(BSTR* pbstr, PWSTR psz, uint32 len);

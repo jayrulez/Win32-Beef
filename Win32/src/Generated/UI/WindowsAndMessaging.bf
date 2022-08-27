@@ -4513,7 +4513,7 @@ public struct MENUITEMTEMPLATE
 {
 	public uint16 mtOption;
 	public uint16 mtID;
-	public char8[1] mtString;
+	public char16[1] mtString;
 }
 
 [CRepr]
@@ -4562,8 +4562,8 @@ public struct ICONINFOEXW
 	public HBITMAP hbmMask;
 	public HBITMAP hbmColor;
 	public uint16 wResID;
-	public char8[260] szModName;
-	public char8[260] szResName;
+	public char16[260] szModName;
+	public char16[260] szResName;
 }
 
 [CRepr]
@@ -4847,7 +4847,7 @@ public static
 	public static int32 LoadString(HINSTANCE hInstance, uint32 uID, uint8* lpBuffer, int32 cchBufferMax) => LoadStringA(hInstance, uID, lpBuffer, cchBufferMax);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 LoadStringW(HINSTANCE hInstance, uint32 uID, char8* lpBuffer, int32 cchBufferMax);
+	public static extern int32 LoadStringW(HINSTANCE hInstance, uint32 uID, char16* lpBuffer, int32 cchBufferMax);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 wvsprintfA(PSTR param0, PSTR param1, int8* arglist);
@@ -5180,7 +5180,7 @@ public static
 	public static uint32 GetDlgItemText(HWND hDlg, int32 nIDDlgItem, uint8* lpString, int32 cchMax) => GetDlgItemTextA(hDlg, nIDDlgItem, lpString, cchMax);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetDlgItemTextW(HWND hDlg, int32 nIDDlgItem, char8* lpString, int32 cchMax);
+	public static extern uint32 GetDlgItemTextW(HWND hDlg, int32 nIDDlgItem, char16* lpString, int32 cchMax);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LRESULT SendDlgItemMessageA(HWND hDlg, int32 nIDDlgItem, uint32 Msg, WPARAM wParam, LPARAM lParam);
@@ -5241,7 +5241,7 @@ public static
 	public static BOOL OemToCharBuff(PSTR lpszSrc, uint8* lpszDst, uint32 cchDstLength) => OemToCharBuffA(lpszSrc, lpszDst, cchDstLength);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL OemToCharBuffW(PSTR lpszSrc, char8* lpszDst, uint32 cchDstLength);
+	public static extern BOOL OemToCharBuffW(PSTR lpszSrc, char16* lpszDst, uint32 cchDstLength);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR CharUpperA(PSTR lpsz);
@@ -5255,7 +5255,7 @@ public static
 	public static uint32 CharUpperBuff(uint8* lpsz, uint32 cchLength) => CharUpperBuffA(lpsz, cchLength);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CharUpperBuffW(char8* lpsz, uint32 cchLength);
+	public static extern uint32 CharUpperBuffW(char16* lpsz, uint32 cchLength);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR CharLowerA(PSTR lpsz);
@@ -5269,7 +5269,7 @@ public static
 	public static uint32 CharLowerBuff(uint8* lpsz, uint32 cchLength) => CharLowerBuffA(lpsz, cchLength);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CharLowerBuffW(char8* lpsz, uint32 cchLength);
+	public static extern uint32 CharLowerBuffW(char16* lpsz, uint32 cchLength);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR CharNextA(PSTR lpsz);
@@ -5296,21 +5296,21 @@ public static
 	public static BOOL IsCharAlpha(CHAR ch) => IsCharAlphaA(ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsCharAlphaW(char8 ch);
+	public static extern BOOL IsCharAlphaW(char16 ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsCharAlphaNumericA(CHAR ch);
 	public static BOOL IsCharAlphaNumeric(CHAR ch) => IsCharAlphaNumericA(ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsCharAlphaNumericW(char8 ch);
+	public static extern BOOL IsCharAlphaNumericW(char16 ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsCharUpperA(CHAR ch);
 	public static BOOL IsCharUpper(CHAR ch) => IsCharUpperA(ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsCharUpperW(char8 ch);
+	public static extern BOOL IsCharUpperW(char16 ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsCharLowerA(CHAR ch);
@@ -5408,7 +5408,7 @@ public static
 	public static int32 GetMenuString(HMENU hMenu, uint32 uIDItem, uint8* lpString, int32 cchMax, MENU_ITEM_FLAGS flags) => GetMenuStringA(hMenu, uIDItem, lpString, cchMax, flags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetMenuStringW(HMENU hMenu, uint32 uIDItem, char8* lpString, int32 cchMax, MENU_ITEM_FLAGS flags);
+	public static extern int32 GetMenuStringW(HMENU hMenu, uint32 uIDItem, char16* lpString, int32 cchMax, MENU_ITEM_FLAGS flags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetMenuState(HMENU hMenu, uint32 uId, MENU_ITEM_FLAGS uFlags);
@@ -5610,7 +5610,7 @@ public static
 	public static int32 GetWindowText(HWND hWnd, uint8* lpString, int32 nMaxCount) => GetWindowTextA(hWnd, lpString, nMaxCount);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetWindowTextW(HWND hWnd, char8* lpString, int32 nMaxCount);
+	public static extern int32 GetWindowTextW(HWND hWnd, char16* lpString, int32 nMaxCount);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetWindowTextLengthA(HWND hWnd);
@@ -5863,7 +5863,7 @@ public static
 	public static int32 GetClassName(HWND hWnd, uint8* lpClassName, int32 nMaxCount) => GetClassNameA(hWnd, lpClassName, nMaxCount);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetClassNameW(HWND hWnd, char8* lpClassName, int32 nMaxCount);
+	public static extern int32 GetClassNameW(HWND hWnd, char16* lpClassName, int32 nMaxCount);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND GetTopWindow(HWND hWnd);
@@ -5941,7 +5941,7 @@ public static
 	public static uint32 PrivateExtractIcons(uint8* szFileName, int32 nIconIndex, int32 cxIcon, int32 cyIcon, HICON* phicon, uint32* piconid, uint32 nIcons, uint32 flags) => PrivateExtractIconsA(szFileName, nIconIndex, cxIcon, cyIcon, phicon, piconid, nIcons, flags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PrivateExtractIconsW(char8* szFileName, int32 nIconIndex, int32 cxIcon, int32 cyIcon, HICON* phicon, uint32* piconid, uint32 nIcons, uint32 flags);
+	public static extern uint32 PrivateExtractIconsW(char16* szFileName, int32 nIconIndex, int32 cxIcon, int32 cyIcon, HICON* phicon, uint32* piconid, uint32 nIcons, uint32 flags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON CreateIcon(HINSTANCE hInstance, int32 nWidth, int32 nHeight, uint8 cPlanes, uint8 cBitsPixel, uint8* lpbANDbits, uint8* lpbXORbits);
@@ -6050,7 +6050,7 @@ public static
 	public static extern void SetDebugErrorLevel(uint32 dwLevel);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 InternalGetWindowText(HWND hWnd, char8* pString, int32 cchMaxCount);
+	public static extern int32 InternalGetWindowText(HWND hWnd, char16* pString, int32 cchMaxCount);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CancelShutdown();
@@ -6072,7 +6072,7 @@ public static
 	public static uint32 GetWindowModuleFileName(HWND hwnd, uint8* pszFileName, uint32 cchFileNameMax) => GetWindowModuleFileNameA(hwnd, pszFileName, cchFileNameMax);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetWindowModuleFileNameW(HWND hwnd, char8* pszFileName, uint32 cchFileNameMax);
+	public static extern uint32 GetWindowModuleFileNameW(HWND hwnd, char16* pszFileName, uint32 cchFileNameMax);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetCursorInfo(CURSORINFO* pci);
@@ -6100,14 +6100,14 @@ public static
 	public static uint32 RealGetWindowClass(HWND hwnd, uint8* ptszClassName, uint32 cchClassNameMax) => RealGetWindowClassA(hwnd, ptszClassName, cchClassNameMax);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RealGetWindowClassW(HWND hwnd, char8* ptszClassName, uint32 cchClassNameMax);
+	public static extern uint32 RealGetWindowClassW(HWND hwnd, char16* ptszClassName, uint32 cchClassNameMax);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetAltTabInfoA(HWND hwnd, int32 iItem, ALTTABINFO* pati, uint8* pszItemText, uint32 cchItemText);
 	public static BOOL GetAltTabInfo(HWND hwnd, int32 iItem, ALTTABINFO* pati, uint8* pszItemText, uint32 cchItemText) => GetAltTabInfoA(hwnd, iItem, pati, pszItemText, cchItemText);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetAltTabInfoW(HWND hwnd, int32 iItem, ALTTABINFO* pati, char8* pszItemText, uint32 cchItemText);
+	public static extern BOOL GetAltTabInfoW(HWND hwnd, int32 iItem, ALTTABINFO* pati, char16* pszItemText, uint32 cchItemText);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ChangeWindowMessageFilter(uint32 message, CHANGE_WINDOW_MESSAGE_FILTER_FLAGS dwFlag);

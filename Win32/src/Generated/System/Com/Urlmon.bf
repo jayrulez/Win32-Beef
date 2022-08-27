@@ -1221,9 +1221,9 @@ public struct StartParam
 public struct ZONEATTRIBUTES
 {
 	public uint32 cbSize;
-	public char8[260] szDisplayName;
-	public char8[200] szDescription;
-	public char8[260] szIconPath;
+	public char16[260] szDisplayName;
+	public char16[200] szDescription;
+	public char16[260] szIconPath;
 	public uint32 dwTemplateMinLevel;
 	public uint32 dwTemplateRecommended;
 	public uint32 dwTemplateCurrentLevel;
@@ -2366,7 +2366,7 @@ public static
 	public static HRESULT URLDownloadToCacheFile(IUnknown* param0, PSTR param1, uint8* param2, uint32 cchFileName, uint32 param4, IBindStatusCallback* param5) => URLDownloadToCacheFileA(param0, param1, param2, cchFileName, param4, param5);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT URLDownloadToCacheFileW(IUnknown* param0, PWSTR param1, char8* param2, uint32 cchFileName, uint32 param4, IBindStatusCallback* param5);
+	public static extern HRESULT URLDownloadToCacheFileW(IUnknown* param0, PWSTR param1, char16* param2, uint32 cchFileName, uint32 param4, IBindStatusCallback* param5);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLOpenBlockingStreamA(IUnknown* param0, PSTR param1, IStream** param2, uint32 param3, IBindStatusCallback* param4);
@@ -2388,13 +2388,13 @@ public static
 	public static extern HRESULT HlinkNavigateMoniker(IUnknown* pUnk, IMoniker* pmkTarget);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetParseUrl(PWSTR pwzUrl, PARSEACTION ParseAction, uint32 dwFlags, char8* pszResult, uint32 cchResult, uint32* pcchResult, uint32 dwReserved);
+	public static extern HRESULT CoInternetParseUrl(PWSTR pwzUrl, PARSEACTION ParseAction, uint32 dwFlags, char16* pszResult, uint32 cchResult, uint32* pcchResult, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetParseIUri(IUri* pIUri, PARSEACTION ParseAction, uint32 dwFlags, char8* pwzResult, uint32 cchResult, uint32* pcchResult, uint dwReserved);
+	public static extern HRESULT CoInternetParseIUri(IUri* pIUri, PARSEACTION ParseAction, uint32 dwFlags, char16* pwzResult, uint32 cchResult, uint32* pcchResult, uint dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetCombineUrl(PWSTR pwzBaseUrl, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, char8* pszResult, uint32 cchResult, uint32* pcchResult, uint32 dwReserved);
+	public static extern HRESULT CoInternetCombineUrl(PWSTR pwzBaseUrl, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, char16* pszResult, uint32 cchResult, uint32* pcchResult, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CoInternetCombineUrlEx(IUri* pBaseUri, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, IUri** ppCombinedUri, uint dwReserved);

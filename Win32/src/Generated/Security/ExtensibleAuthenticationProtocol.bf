@@ -791,7 +791,7 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 [CRepr]
 public struct NgcTicketContext
 {
-	public char8[45] wszTicket;
+	public char16[45] wszTicket;
 	public uint hKey;
 	public HANDLE hImpersonateToken;
 }

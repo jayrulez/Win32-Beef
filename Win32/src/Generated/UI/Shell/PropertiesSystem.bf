@@ -864,7 +864,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PWSTR pszCanonicalName, Guid* riid, void** ppv) GetPropertyDescriptionByName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PWSTR pszPropList, Guid* riid, void** ppv) GetPropertyDescriptionListFromString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PROPDESC_ENUMFILTER filterOn, Guid* riid, void** ppv) EnumeratePropertyDescriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, char8* pszText, uint32 cchText) FormatForDisplay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, char16* pszText, uint32 cchText) FormatForDisplay;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, PWSTR* ppszDisplay) FormatForDisplayAlloc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PWSTR pszPath) RegisterPropertySchema;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PWSTR pszPath) UnregisterPropertySchema;
@@ -880,7 +880,7 @@ public static
 
 	public HRESULT EnumeratePropertyDescriptions(PROPDESC_ENUMFILTER filterOn, Guid* riid, void** ppv) mut => VT.[Friend]EnumeratePropertyDescriptions(&this, filterOn, riid, ppv);
 
-	public HRESULT FormatForDisplay(PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, char8* pszText, uint32 cchText) mut => VT.[Friend]FormatForDisplay(&this, key, propvar, pdff, pszText, cchText);
+	public HRESULT FormatForDisplay(PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, char16* pszText, uint32 cchText) mut => VT.[Friend]FormatForDisplay(&this, key, propvar, pdff, pszText, cchText);
 
 	public HRESULT FormatForDisplayAlloc(PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, PWSTR* ppszDisplay) mut => VT.[Friend]FormatForDisplayAlloc(&this, key, propvar, pdff, ppszDisplay);
 
@@ -1020,31 +1020,31 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, PWSTR pszName, Guid* pfmtid, uint32* ppid, uint32* pchEaten) ParsePropertyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, char8* pwszText, uint32 cchText) GetCannonicalName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, PROPERTYUI_NAME_FLAGS flags, char8* pwszText, uint32 cchText) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, char8* pwszText, uint32 cchText) GetPropertyDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, char16* pwszText, uint32 cchText) GetCannonicalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, PROPERTYUI_NAME_FLAGS flags, char16* pwszText, uint32 cchText) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, char16* pwszText, uint32 cchText) GetPropertyDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, uint32* pcxChars) GetDefaultWidth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, PROPERTYUI_FLAGS* pflags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, PROPVARIANT* ppropvar, PROPERTYUI_FORMAT_FLAGS puiff, char8* pwszText, uint32 cchText) FormatForDisplay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, char8* pwszHelpFile, uint32 cch, uint32* puHelpID) GetHelpInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, PROPVARIANT* ppropvar, PROPERTYUI_FORMAT_FLAGS puiff, char16* pwszText, uint32 cchText) FormatForDisplay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, Guid* fmtid, uint32 pid, char16* pwszHelpFile, uint32 cch, uint32* puHelpID) GetHelpInfo;
 	}
 
 
 	public HRESULT ParsePropertyName(PWSTR pszName, Guid* pfmtid, uint32* ppid, uint32* pchEaten) mut => VT.[Friend]ParsePropertyName(&this, pszName, pfmtid, ppid, pchEaten);
 
-	public HRESULT GetCannonicalName(Guid* fmtid, uint32 pid, char8* pwszText, uint32 cchText) mut => VT.[Friend]GetCannonicalName(&this, fmtid, pid, pwszText, cchText);
+	public HRESULT GetCannonicalName(Guid* fmtid, uint32 pid, char16* pwszText, uint32 cchText) mut => VT.[Friend]GetCannonicalName(&this, fmtid, pid, pwszText, cchText);
 
-	public HRESULT GetDisplayName(Guid* fmtid, uint32 pid, PROPERTYUI_NAME_FLAGS flags, char8* pwszText, uint32 cchText) mut => VT.[Friend]GetDisplayName(&this, fmtid, pid, flags, pwszText, cchText);
+	public HRESULT GetDisplayName(Guid* fmtid, uint32 pid, PROPERTYUI_NAME_FLAGS flags, char16* pwszText, uint32 cchText) mut => VT.[Friend]GetDisplayName(&this, fmtid, pid, flags, pwszText, cchText);
 
-	public HRESULT GetPropertyDescription(Guid* fmtid, uint32 pid, char8* pwszText, uint32 cchText) mut => VT.[Friend]GetPropertyDescription(&this, fmtid, pid, pwszText, cchText);
+	public HRESULT GetPropertyDescription(Guid* fmtid, uint32 pid, char16* pwszText, uint32 cchText) mut => VT.[Friend]GetPropertyDescription(&this, fmtid, pid, pwszText, cchText);
 
 	public HRESULT GetDefaultWidth(Guid* fmtid, uint32 pid, uint32* pcxChars) mut => VT.[Friend]GetDefaultWidth(&this, fmtid, pid, pcxChars);
 
 	public HRESULT GetFlags(Guid* fmtid, uint32 pid, PROPERTYUI_FLAGS* pflags) mut => VT.[Friend]COM_GetFlags(&this, fmtid, pid, pflags);
 
-	public HRESULT FormatForDisplay(Guid* fmtid, uint32 pid, PROPVARIANT* ppropvar, PROPERTYUI_FORMAT_FLAGS puiff, char8* pwszText, uint32 cchText) mut => VT.[Friend]FormatForDisplay(&this, fmtid, pid, ppropvar, puiff, pwszText, cchText);
+	public HRESULT FormatForDisplay(Guid* fmtid, uint32 pid, PROPVARIANT* ppropvar, PROPERTYUI_FORMAT_FLAGS puiff, char16* pwszText, uint32 cchText) mut => VT.[Friend]FormatForDisplay(&this, fmtid, pid, ppropvar, puiff, pwszText, cchText);
 
-	public HRESULT GetHelpInfo(Guid* fmtid, uint32 pid, char8* pwszHelpFile, uint32 cch, uint32* puHelpID) mut => VT.[Friend]GetHelpInfo(&this, fmtid, pid, pwszHelpFile, cch, puHelpID);
+	public HRESULT GetHelpInfo(Guid* fmtid, uint32 pid, char16* pwszHelpFile, uint32 cch, uint32* puHelpID) mut => VT.[Friend]GetHelpInfo(&this, fmtid, pid, pwszHelpFile, cch, puHelpID);
 }
 
 #endregion
@@ -1059,7 +1059,7 @@ public static
 	public static extern HRESULT WinRTPropertyValueToPropVariant(IUnknown* punkPropertyValue, PROPVARIANT* ppropvar);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PSFormatForDisplay(PROPERTYKEY* propkey, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdfFlags, char8* pwszText, uint32 cchText);
+	public static extern HRESULT PSFormatForDisplay(PROPERTYKEY* propkey, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdfFlags, char16* pwszText, uint32 cchText);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PSFormatForDisplayAlloc(PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, PWSTR* ppszDisplay);
@@ -1071,7 +1071,7 @@ public static
 	public static extern HRESULT PSGetImageReferenceForValue(PROPERTYKEY* propkey, PROPVARIANT* propvar, PWSTR* ppszImageRes);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PSStringFromPropertyKey(PROPERTYKEY* pkey, char8* psz, uint32 cch);
+	public static extern HRESULT PSStringFromPropertyKey(PROPERTYKEY* pkey, char16* psz, uint32 cch);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PSPropertyKeyFromString(PWSTR pszString, PROPERTYKEY* pkey);
@@ -1158,7 +1158,7 @@ public static
 	public static extern HRESULT PSPropertyBag_ReadType(IPropertyBag* propBag, PWSTR propName, VARIANT* @var, uint16 type);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PSPropertyBag_ReadStr(IPropertyBag* propBag, PWSTR propName, char8* value, int32 characterCount);
+	public static extern HRESULT PSPropertyBag_ReadStr(IPropertyBag* propBag, PWSTR propName, char16* value, int32 characterCount);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PSPropertyBag_ReadStrAlloc(IPropertyBag* propBag, PWSTR propName, PWSTR* value);
@@ -1365,7 +1365,7 @@ public static
 	public static extern HRESULT PropVariantToBuffer(PROPVARIANT* propvar, void* pv, uint32 cb);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PropVariantToString(PROPVARIANT* propvar, char8* psz, uint32 cch);
+	public static extern HRESULT PropVariantToString(PROPVARIANT* propvar, char16* psz, uint32 cch);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PropVariantToGUID(PROPVARIANT* propvar, Guid* pguid);
@@ -1596,7 +1596,7 @@ public static
 	public static extern HRESULT VariantToGUID(VARIANT* varIn, Guid* pguid);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VariantToString(VARIANT* varIn, char8* pszBuf, uint32 cchBuf);
+	public static extern HRESULT VariantToString(VARIANT* varIn, char16* pszBuf, uint32 cchBuf);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT VariantToStringAlloc(VARIANT* varIn, PWSTR* ppszBuf);

@@ -773,12 +773,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAddress*/SelfOuter* self, char8* pszBuffer, uint32 cchLength, BOOL fSafe) Serialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAddress*/SelfOuter* self, char16* pszBuffer, uint32 cchLength, BOOL fSafe) Serialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAddress*/SelfOuter* self, PWSTR pszBuffer) Deserialize;
 	}
 
 
-	public HRESULT Serialize(char8* pszBuffer, uint32 cchLength, BOOL fSafe) mut => VT.[Friend]Serialize(&this, pszBuffer, cchLength, fSafe);
+	public HRESULT Serialize(char16* pszBuffer, uint32 cchLength, BOOL fSafe) mut => VT.[Friend]Serialize(&this, pszBuffer, cchLength, fSafe);
 
 	public HRESULT Deserialize(PWSTR pszBuffer) mut => VT.[Friend]Deserialize(&this, pszBuffer);
 }
@@ -1704,10 +1704,10 @@ public static
 	public static extern HRESULT WSDGenerateFaultEx(WSDXML_NAME* pCode, WSDXML_NAME* pSubCode, WSD_LOCALIZED_STRING_LIST* pReasons, PWSTR pszDetail, WSD_SOAP_FAULT** ppFault);
 
 	[Import("wsdapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WSDUriEncode(char8* source, uint32 cchSource, PWSTR* destOut, uint32* cchDestOut);
+	public static extern HRESULT WSDUriEncode(char16* source, uint32 cchSource, PWSTR* destOut, uint32* cchDestOut);
 
 	[Import("wsdapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WSDUriDecode(char8* source, uint32 cchSource, PWSTR* destOut, uint32* cchDestOut);
+	public static extern HRESULT WSDUriDecode(char16* source, uint32 cchSource, PWSTR* destOut, uint32* cchDestOut);
 
 }
 #endregion

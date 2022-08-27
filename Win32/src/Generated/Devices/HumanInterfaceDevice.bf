@@ -5137,7 +5137,7 @@ public struct DIACTIONFORMATW
 	public HINSTANCE hInstString;
 	public FILETIME ftTimeStamp;
 	public uint32 dwCRC;
-	public char8[260] tszActionMap;
+	public char16[260] tszActionMap;
 }
 
 [CRepr]
@@ -5197,7 +5197,7 @@ public struct DIDEVICEIMAGEINFOA
 [CRepr]
 public struct DIDEVICEIMAGEINFOW
 {
-	public char8[260] tszImagePath;
+	public char16[260] tszImagePath;
 	public uint32 dwFlags;
 	public uint32 dwViewID;
 	public RECT rcOverlay;
@@ -5255,7 +5255,7 @@ public struct DIDEVICEOBJECTINSTANCE_DX3W
 	public uint32 dwOfs;
 	public uint32 dwType;
 	public uint32 dwFlags;
-	public char8[260] tszName;
+	public char16[260] tszName;
 }
 
 [CRepr]
@@ -5286,7 +5286,7 @@ public struct DIDEVICEOBJECTINSTANCEW
 	public uint32 dwOfs;
 	public uint32 dwType;
 	public uint32 dwFlags;
-	public char8[260] tszName;
+	public char16[260] tszName;
 	public uint32 dwFFMaxForce;
 	public uint32 dwFFForceResolution;
 	public uint16 wCollectionNumber;
@@ -5351,14 +5351,14 @@ public struct DIPROPGUIDANDPATH
 {
 	public DIPROPHEADER diph;
 	public Guid guidClass;
-	public char8[260] wszPath;
+	public char16[260] wszPath;
 }
 
 [CRepr]
 public struct DIPROPSTRING
 {
 	public DIPROPHEADER diph;
-	public char8[260] wsz;
+	public char16[260] wsz;
 }
 
 [CRepr]
@@ -5413,8 +5413,8 @@ public struct DIDEVICEINSTANCE_DX3W
 	public Guid guidInstance;
 	public Guid guidProduct;
 	public uint32 dwDevType;
-	public char8[260] tszInstanceName;
-	public char8[260] tszProductName;
+	public char16[260] tszInstanceName;
+	public char16[260] tszProductName;
 }
 
 [CRepr]
@@ -5438,8 +5438,8 @@ public struct DIDEVICEINSTANCEW
 	public Guid guidInstance;
 	public Guid guidProduct;
 	public uint32 dwDevType;
-	public char8[260] tszInstanceName;
-	public char8[260] tszProductName;
+	public char16[260] tszInstanceName;
+	public char16[260] tszProductName;
 	public Guid guidFFDriver;
 	public uint16 wUsagePage;
 	public uint16 wUsage;
@@ -5464,7 +5464,7 @@ public struct DIEFFECTINFOW
 	public uint32 dwEffType;
 	public uint32 dwStaticParams;
 	public uint32 dwDynamicParams;
-	public char8[260] tszName;
+	public char16[260] tszName;
 }
 
 [CRepr]
@@ -5676,8 +5676,8 @@ public struct DIJOYTYPEINFO_DX5
 	public uint32 dwSize;
 	public JOYREGHWSETTINGS hws;
 	public Guid clsidConfig;
-	public char8[256] wszDisplayName;
-	public char8[260] wszCallout;
+	public char16[256] wszDisplayName;
+	public char16[260] wszCallout;
 }
 
 [CRepr]
@@ -5686,9 +5686,9 @@ public struct DIJOYTYPEINFO_DX6
 	public uint32 dwSize;
 	public JOYREGHWSETTINGS hws;
 	public Guid clsidConfig;
-	public char8[256] wszDisplayName;
-	public char8[260] wszCallout;
-	public char8[256] wszHardwareId;
+	public char16[256] wszDisplayName;
+	public char16[260] wszCallout;
+	public char16[256] wszHardwareId;
 	public uint32 dwFlags1;
 }
 
@@ -5698,12 +5698,12 @@ public struct DIJOYTYPEINFO
 	public uint32 dwSize;
 	public JOYREGHWSETTINGS hws;
 	public Guid clsidConfig;
-	public char8[256] wszDisplayName;
-	public char8[260] wszCallout;
-	public char8[256] wszHardwareId;
+	public char16[256] wszDisplayName;
+	public char16[260] wszCallout;
+	public char16[256] wszHardwareId;
 	public uint32 dwFlags1;
 	public uint32 dwFlags2;
-	public char8[256] wszMapFile;
+	public char16[256] wszMapFile;
 }
 
 [CRepr]
@@ -5713,8 +5713,8 @@ public struct DIJOYCONFIG_DX5
 	public Guid guidInstance;
 	public JOYREGHWCONFIG hwc;
 	public uint32 dwGain;
-	public char8[256] wszType;
-	public char8[256] wszCallout;
+	public char16[256] wszType;
+	public char16[256] wszCallout;
 }
 
 [CRepr]
@@ -5724,8 +5724,8 @@ public struct DIJOYCONFIG
 	public Guid guidInstance;
 	public JOYREGHWCONFIG hwc;
 	public uint32 dwGain;
-	public char8[256] wszType;
-	public char8[256] wszCallout;
+	public char16[256] wszType;
+	public char16[256] wszCallout;
 	public Guid guidGameport;
 }
 
@@ -5734,8 +5734,8 @@ public struct DIJOYUSERVALUES
 {
 	public uint32 dwSize;
 	public JOYREGUSERVALUES ruv;
-	public char8[256] wszGlobalDriver;
-	public char8[256] wszGameportEmulator;
+	public char16[256] wszGlobalDriver;
+	public char16[256] wszGameportEmulator;
 }
 
 [CRepr]

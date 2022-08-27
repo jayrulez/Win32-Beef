@@ -30,10 +30,10 @@ public static
 public struct TIME_ZONE_INFORMATION
 {
 	public int32 Bias;
-	public char8[32] StandardName;
+	public char16[32] StandardName;
 	public SYSTEMTIME StandardDate;
 	public int32 StandardBias;
-	public char8[32] DaylightName;
+	public char16[32] DaylightName;
 	public SYSTEMTIME DaylightDate;
 	public int32 DaylightBias;
 }
@@ -42,13 +42,13 @@ public struct TIME_ZONE_INFORMATION
 public struct DYNAMIC_TIME_ZONE_INFORMATION
 {
 	public int32 Bias;
-	public char8[32] StandardName;
+	public char16[32] StandardName;
 	public SYSTEMTIME StandardDate;
 	public int32 StandardBias;
-	public char8[32] DaylightName;
+	public char16[32] DaylightName;
 	public SYSTEMTIME DaylightDate;
 	public int32 DaylightBias;
-	public char8[128] TimeZoneKeyName;
+	public char16[128] TimeZoneKeyName;
 	public BOOLEAN DynamicDaylightTimeDisabled;
 }
 

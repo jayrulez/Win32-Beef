@@ -1422,7 +1422,7 @@ public struct WNODE_EVENT_REFERENCE
 	public struct _Anonymous_e__Union
 	{
 		public uint32 TargetInstanceIndex;
-		public char8[1] TargetInstanceName;
+		public char16[1] TargetInstanceName;
 	}
 
 	public WNODE_HEADER WnodeHeader;
@@ -1951,7 +1951,7 @@ public struct PROFILE_SOURCE_INFO
 	public uint32 MinInterval;
 	public uint32 MaxInterval;
 	public uint64 Reserved;
-	public char8[1] Description;
+	public char16[1] Description;
 }
 
 [CRepr]

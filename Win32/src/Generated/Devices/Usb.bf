@@ -1741,7 +1741,7 @@ public struct USB_STRING_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
-	public char8[1] bString;
+	public char16[1] bString;
 }
 
 [CRepr, Packed(1)]
@@ -2261,7 +2261,7 @@ public struct OS_STRING
 
 	public uint8 bLength;
 	public uint8 bDescriptorType;
-	public char8[7] MicrosoftString;
+	public char16[7] MicrosoftString;
 	public uint8 bVendorCode;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -2517,7 +2517,7 @@ public struct USBUSER_CONTROLLER_INFO_0
 public struct USB_UNICODE_NAME
 {
 	public uint32 Length;
-	public char8[1] String;
+	public char16[1] String;
 }
 
 [CRepr]
@@ -2805,8 +2805,8 @@ public struct USBFN_CLASS_INFORMATION_PACKET
 {
 	public USBFN_CLASS_INTERFACE FullSpeedClassInterface;
 	public USBFN_CLASS_INTERFACE HighSpeedClassInterface;
-	public char8[40] InterfaceName;
-	public char8[39] InterfaceGuid;
+	public char16[40] InterfaceName;
+	public char16[39] InterfaceGuid;
 	public BOOLEAN HasInterfaceGuid;
 	public USBFN_CLASS_INTERFACE SuperSpeedClassInterface;
 }
@@ -2826,8 +2826,8 @@ public struct USBFN_CLASS_INFORMATION_PACKET_EX
 	public USBFN_CLASS_INTERFACE_EX FullSpeedClassInterfaceEx;
 	public USBFN_CLASS_INTERFACE_EX HighSpeedClassInterfaceEx;
 	public USBFN_CLASS_INTERFACE_EX SuperSpeedClassInterfaceEx;
-	public char8[40] InterfaceName;
-	public char8[39] InterfaceGuid;
+	public char16[40] InterfaceName;
+	public char16[39] InterfaceGuid;
 	public BOOLEAN HasInterfaceGuid;
 }
 
@@ -2844,13 +2844,13 @@ public struct USBFN_INTERFACE_INFO
 public struct USBFN_USB_STRING
 {
 	public uint8 StringIndex;
-	public char8[255] UsbString;
+	public char16[255] UsbString;
 }
 
 [CRepr]
 public struct USBFN_BUS_CONFIGURATION_INFO
 {
-	public char8[40] ConfigurationName;
+	public char16[40] ConfigurationName;
 	public BOOLEAN IsCurrent;
 	public BOOLEAN IsActive;
 }

@@ -555,7 +555,7 @@ public enum DEP_SYSTEM_POLICY_TYPE : int32
 #region Function Pointers
 public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_A(uint8* lpBuffer, uint32 uSize);
 
-public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSize);
+public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char16* lpBuffer, uint32 uSize);
 
 #endregion
 
@@ -817,7 +817,7 @@ public struct OSVERSIONINFOW
 	public uint32 dwMinorVersion;
 	public uint32 dwBuildNumber;
 	public uint32 dwPlatformId;
-	public char8[128] szCSDVersion;
+	public char16[128] szCSDVersion;
 }
 
 [CRepr]
@@ -844,7 +844,7 @@ public struct OSVERSIONINFOEXW
 	public uint32 dwMinorVersion;
 	public uint32 dwBuildNumber;
 	public uint32 dwPlatformId;
-	public char8[128] szCSDVersion;
+	public char16[128] szCSDVersion;
 	public uint16 wServicePackMajor;
 	public uint16 wServicePackMinor;
 	public uint16 wSuiteMask;
@@ -923,28 +923,28 @@ public static
 	public static uint32 GetSystemDirectory(uint8* lpBuffer, uint32 uSize) => GetSystemDirectoryA(lpBuffer, uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSystemDirectoryW(char8* lpBuffer, uint32 uSize);
+	public static extern uint32 GetSystemDirectoryW(char16* lpBuffer, uint32 uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetWindowsDirectoryA(uint8* lpBuffer, uint32 uSize);
 	public static uint32 GetWindowsDirectory(uint8* lpBuffer, uint32 uSize) => GetWindowsDirectoryA(lpBuffer, uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetWindowsDirectoryW(char8* lpBuffer, uint32 uSize);
+	public static extern uint32 GetWindowsDirectoryW(char16* lpBuffer, uint32 uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSystemWindowsDirectoryA(uint8* lpBuffer, uint32 uSize);
 	public static uint32 GetSystemWindowsDirectory(uint8* lpBuffer, uint32 uSize) => GetSystemWindowsDirectoryA(lpBuffer, uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSystemWindowsDirectoryW(char8* lpBuffer, uint32 uSize);
+	public static extern uint32 GetSystemWindowsDirectoryW(char16* lpBuffer, uint32 uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetComputerNameExA(COMPUTER_NAME_FORMAT NameType, uint8* lpBuffer, uint32* nSize);
 	public static BOOL GetComputerNameEx(COMPUTER_NAME_FORMAT NameType, uint8* lpBuffer, uint32* nSize) => GetComputerNameExA(NameType, lpBuffer, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetComputerNameExW(COMPUTER_NAME_FORMAT NameType, char8* lpBuffer, uint32* nSize);
+	public static extern BOOL GetComputerNameExW(COMPUTER_NAME_FORMAT NameType, char16* lpBuffer, uint32* nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetComputerNameExW(COMPUTER_NAME_FORMAT NameType, PWSTR lpBuffer);
@@ -987,7 +987,7 @@ public static
 	public static extern uint32 GetSystemFirmwareTable(FIRMWARE_TABLE_PROVIDER FirmwareTableProviderSignature, FIRMWARE_TABLE_ID FirmwareTableID, void* pFirmwareTableBuffer, uint32 BufferSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DnsHostnameToComputerNameExW(PWSTR Hostname, char8* ComputerName, uint32* nSize);
+	public static extern BOOL DnsHostnameToComputerNameExW(PWSTR Hostname, char16* ComputerName, uint32* nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPhysicallyInstalledSystemMemory(uint64* TotalMemoryInKilobytes);
@@ -1029,14 +1029,14 @@ public static
 	public static uint32 GetSystemWow64Directory(uint8* lpBuffer, uint32 uSize) => GetSystemWow64DirectoryA(lpBuffer, uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSystemWow64DirectoryW(char8* lpBuffer, uint32 uSize);
+	public static extern uint32 GetSystemWow64DirectoryW(char16* lpBuffer, uint32 uSize);
 
 	[Import("api-ms-win-core-wow64-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSystemWow64Directory2A(uint8* lpBuffer, uint32 uSize, uint16 ImageFileMachineType);
 	public static uint32 GetSystemWow64Directory2(uint8* lpBuffer, uint32 uSize, uint16 ImageFileMachineType) => GetSystemWow64Directory2A(lpBuffer, uSize, ImageFileMachineType);
 
 	[Import("api-ms-win-core-wow64-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSystemWow64Directory2W(char8* lpBuffer, uint32 uSize, uint16 ImageFileMachineType);
+	public static extern uint32 GetSystemWow64Directory2W(char16* lpBuffer, uint32 uSize, uint16 ImageFileMachineType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT IsWow64GuestMachineSupported(uint16 WowGuestMachine, BOOL* MachineIsSupported);

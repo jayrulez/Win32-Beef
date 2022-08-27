@@ -790,8 +790,8 @@ public struct DRIVER_VER_INFO
 	public uint dwReserved2;
 	public uint32 dwPlatform;
 	public uint32 dwVersion;
-	public char8[260] wszVersion;
-	public char8[260] wszSignedBy;
+	public char16[260] wszVersion;
+	public char16[260] wszSignedBy;
 	public CERT_CONTEXT* pcSignerCertContext;
 	public DRIVER_VER_MAJORMINOR sOSVersionLow;
 	public DRIVER_VER_MAJORMINOR sOSVersionHigh;

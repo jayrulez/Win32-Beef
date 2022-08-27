@@ -1493,14 +1493,14 @@ public static
 	public static BOOL LookupAccountSid(PSTR lpSystemName, PSID Sid, uint8* Name, uint32* cchName, uint8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse) => LookupAccountSidA(lpSystemName, Sid, Name, cchName, ReferencedDomainName, cchReferencedDomainName, peUse);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL LookupAccountSidW(PWSTR lpSystemName, PSID Sid, char8* Name, uint32* cchName, char8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse);
+	public static extern BOOL LookupAccountSidW(PWSTR lpSystemName, PSID Sid, char16* Name, uint32* cchName, char16* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupAccountNameA(PSTR lpSystemName, PSTR lpAccountName, PSID Sid, uint32* cbSid, uint8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse);
 	public static BOOL LookupAccountName(PSTR lpSystemName, PSTR lpAccountName, PSID Sid, uint32* cbSid, uint8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse) => LookupAccountNameA(lpSystemName, lpAccountName, Sid, cbSid, ReferencedDomainName, cchReferencedDomainName, peUse);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL LookupAccountNameW(PWSTR lpSystemName, PWSTR lpAccountName, PSID Sid, uint32* cbSid, char8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse);
+	public static extern BOOL LookupAccountNameW(PWSTR lpSystemName, PWSTR lpAccountName, PSID Sid, uint32* cbSid, char16* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupPrivilegeValueA(PSTR lpSystemName, PSTR lpName, LUID* lpLuid);
@@ -1514,14 +1514,14 @@ public static
 	public static BOOL LookupPrivilegeName(PSTR lpSystemName, LUID* lpLuid, uint8* lpName, uint32* cchName) => LookupPrivilegeNameA(lpSystemName, lpLuid, lpName, cchName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL LookupPrivilegeNameW(PWSTR lpSystemName, LUID* lpLuid, char8* lpName, uint32* cchName);
+	public static extern BOOL LookupPrivilegeNameW(PWSTR lpSystemName, LUID* lpLuid, char16* lpName, uint32* cchName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupPrivilegeDisplayNameA(PSTR lpSystemName, PSTR lpName, uint8* lpDisplayName, uint32* cchDisplayName, uint32* lpLanguageId);
 	public static BOOL LookupPrivilegeDisplayName(PSTR lpSystemName, PSTR lpName, uint8* lpDisplayName, uint32* cchDisplayName, uint32* lpLanguageId) => LookupPrivilegeDisplayNameA(lpSystemName, lpName, lpDisplayName, cchDisplayName, lpLanguageId);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL LookupPrivilegeDisplayNameW(PWSTR lpSystemName, PWSTR lpName, char8* lpDisplayName, uint32* cchDisplayName, uint32* lpLanguageId);
+	public static extern BOOL LookupPrivilegeDisplayNameW(PWSTR lpSystemName, PWSTR lpName, char16* lpDisplayName, uint32* cchDisplayName, uint32* lpLanguageId);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LogonUserA(PSTR lpszUsername, PSTR lpszDomain, PSTR lpszPassword, LOGON32_LOGON dwLogonType, LOGON32_PROVIDER dwLogonProvider, HANDLE* phToken);

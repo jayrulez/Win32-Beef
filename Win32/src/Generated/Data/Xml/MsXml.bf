@@ -3725,9 +3725,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, IXMLDOMNode* contextNode, int16 fDeep) pushNodeContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self) popContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, PWSTR prefix, PWSTR namespaceURI) declarePrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, int32 nIndex, char8* pwchPrefix, int32* pcchPrefix) getDeclaredPrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, PWSTR pwszNamespaceURI, int32 nIndex, char8* pwchPrefix, int32* pcchPrefix) getPrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, PWSTR pwchPrefix, IXMLDOMNode* pContextNode, char8* pwchUri, int32* pcchUri) getURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) getDeclaredPrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, PWSTR pwszNamespaceURI, int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) getPrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, PWSTR pwchPrefix, IXMLDOMNode* pContextNode, char16* pwchUri, int32* pcchUri) getURI;
 	}
 
 
@@ -3745,11 +3745,11 @@ public static
 
 	public HRESULT declarePrefix(PWSTR prefix, PWSTR namespaceURI) mut => VT.[Friend]declarePrefix(&this, prefix, namespaceURI);
 
-	public HRESULT getDeclaredPrefix(int32 nIndex, char8* pwchPrefix, int32* pcchPrefix) mut => VT.[Friend]getDeclaredPrefix(&this, nIndex, pwchPrefix, pcchPrefix);
+	public HRESULT getDeclaredPrefix(int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) mut => VT.[Friend]getDeclaredPrefix(&this, nIndex, pwchPrefix, pcchPrefix);
 
-	public HRESULT getPrefix(PWSTR pwszNamespaceURI, int32 nIndex, char8* pwchPrefix, int32* pcchPrefix) mut => VT.[Friend]getPrefix(&this, pwszNamespaceURI, nIndex, pwchPrefix, pcchPrefix);
+	public HRESULT getPrefix(PWSTR pwszNamespaceURI, int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) mut => VT.[Friend]getPrefix(&this, pwszNamespaceURI, nIndex, pwchPrefix, pcchPrefix);
 
-	public HRESULT getURI(PWSTR pwchPrefix, IXMLDOMNode* pContextNode, char8* pwchUri, int32* pcchUri) mut => VT.[Friend]getURI(&this, pwchPrefix, pContextNode, pwchUri, pcchUri);
+	public HRESULT getURI(PWSTR pwchPrefix, IXMLDOMNode* pContextNode, char16* pwchUri, int32* pcchUri) mut => VT.[Friend]getURI(&this, pwchPrefix, pContextNode, pwchUri, pcchUri);
 }
 
 [CRepr]struct IMXXMLFilter : IDispatch

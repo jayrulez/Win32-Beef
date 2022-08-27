@@ -145,7 +145,7 @@ public struct NLM_SOCKADDR
 [CRepr]
 public struct NLM_SIMULATED_PROFILE_INFO
 {
-	public char8[256] ProfileName;
+	public char16[256] ProfileName;
 	public NLM_CONNECTION_COST cost;
 	public uint32 UsageInMegabytes;
 	public uint32 DataLimitInMegabytes;

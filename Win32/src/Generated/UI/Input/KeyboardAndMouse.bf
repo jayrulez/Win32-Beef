@@ -638,7 +638,7 @@ public struct VK_TO_WCHARS1
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char8[1] wch;
+	public char16[1] wch;
 }
 
 [CRepr]
@@ -646,7 +646,7 @@ public struct VK_TO_WCHARS2
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char8[2] wch;
+	public char16[2] wch;
 }
 
 [CRepr]
@@ -654,7 +654,7 @@ public struct VK_TO_WCHARS3
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char8[3] wch;
+	public char16[3] wch;
 }
 
 [CRepr]
@@ -662,7 +662,7 @@ public struct VK_TO_WCHARS4
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char8[4] wch;
+	public char16[4] wch;
 }
 
 [CRepr]
@@ -670,7 +670,7 @@ public struct VK_TO_WCHARS5
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char8[5] wch;
+	public char16[5] wch;
 }
 
 [CRepr]
@@ -678,7 +678,7 @@ public struct VK_TO_WCHARS6
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char8[6] wch;
+	public char16[6] wch;
 }
 
 [CRepr]
@@ -686,7 +686,7 @@ public struct VK_TO_WCHARS7
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char8[7] wch;
+	public char16[7] wch;
 }
 
 [CRepr]
@@ -694,7 +694,7 @@ public struct VK_TO_WCHARS8
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char8[8] wch;
+	public char16[8] wch;
 }
 
 [CRepr]
@@ -702,7 +702,7 @@ public struct VK_TO_WCHARS9
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char8[9] wch;
+	public char16[9] wch;
 }
 
 [CRepr]
@@ -710,7 +710,7 @@ public struct VK_TO_WCHARS10
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char8[10] wch;
+	public char16[10] wch;
 }
 
 [CRepr]
@@ -725,7 +725,7 @@ public struct VK_TO_WCHAR_TABLE
 public struct DEADKEY
 {
 	public uint32 dwBoth;
-	public char8 wchComposed;
+	public char16 wchComposed;
 	public uint16 uFlags;
 }
 
@@ -734,7 +734,7 @@ public struct LIGATURE1
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
-	public char8[1] wch;
+	public char16[1] wch;
 }
 
 [CRepr]
@@ -742,7 +742,7 @@ public struct LIGATURE2
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
-	public char8[2] wch;
+	public char16[2] wch;
 }
 
 [CRepr]
@@ -750,7 +750,7 @@ public struct LIGATURE3
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
-	public char8[3] wch;
+	public char16[3] wch;
 }
 
 [CRepr]
@@ -758,7 +758,7 @@ public struct LIGATURE4
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
-	public char8[4] wch;
+	public char16[4] wch;
 }
 
 [CRepr]
@@ -766,7 +766,7 @@ public struct LIGATURE5
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
-	public char8[5] wch;
+	public char16[5] wch;
 }
 
 [CRepr]
@@ -829,7 +829,7 @@ public struct tagKbdNlsLayer
 [CRepr]
 public struct KBDTABLE_DESC
 {
-	public char8[32] wszDllName;
+	public char16[32] wszDllName;
 	public uint32 dwType;
 	public uint32 dwSubType;
 }
@@ -946,7 +946,7 @@ public static
 	public static extern HKL ActivateKeyboardLayout(HKL hkl, ACTIVATE_KEYBOARD_LAYOUT_FLAGS Flags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ToUnicodeEx(uint32 wVirtKey, uint32 wScanCode, uint8* lpKeyState, char8* pwszBuff, int32 cchBuff, uint32 wFlags, HKL dwhkl);
+	public static extern int32 ToUnicodeEx(uint32 wVirtKey, uint32 wScanCode, uint8* lpKeyState, char16* pwszBuff, int32 cchBuff, uint32 wFlags, HKL dwhkl);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UnloadKeyboardLayout(HKL hkl);
@@ -956,7 +956,7 @@ public static
 	public static BOOL GetKeyboardLayoutName(uint8* pwszKLID) => GetKeyboardLayoutNameA(pwszKLID);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetKeyboardLayoutNameW(char8* pwszKLID);
+	public static extern BOOL GetKeyboardLayoutNameW(char16* pwszKLID);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetKeyboardLayoutList(int32 nBuff, HKL* lpList);
@@ -1014,7 +1014,7 @@ public static
 	public static int32 GetKeyNameText(int32 lParam, uint8* lpString, int32 cchSize) => GetKeyNameTextA(lParam, lpString, cchSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetKeyNameTextW(int32 lParam, char8* lpString, int32 cchSize);
+	public static extern int32 GetKeyNameTextW(int32 lParam, char16* lpString, int32 cchSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetKeyboardType(int32 nTypeFlag);
@@ -1026,7 +1026,7 @@ public static
 	public static extern int32 ToAsciiEx(uint32 uVirtKey, uint32 uScanCode, uint8* lpKeyState, uint16* lpChar, uint32 uFlags, HKL dwhkl);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ToUnicode(uint32 wVirtKey, uint32 wScanCode, uint8* lpKeyState, char8* pwszBuff, int32 cchBuff, uint32 wFlags);
+	public static extern int32 ToUnicode(uint32 wVirtKey, uint32 wScanCode, uint8* lpKeyState, char16* pwszBuff, int32 cchBuff, uint32 wFlags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OemKeyScan(uint16 wOemChar);
@@ -1036,14 +1036,14 @@ public static
 	public static int16 VkKeyScan(CHAR ch) => VkKeyScanA(ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 VkKeyScanW(char8 ch);
+	public static extern int16 VkKeyScanW(char16 ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 VkKeyScanExA(CHAR ch, HKL dwhkl);
 	public static int16 VkKeyScanEx(CHAR ch, HKL dwhkl) => VkKeyScanExA(ch, dwhkl);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 VkKeyScanExW(char8 ch, HKL dwhkl);
+	public static extern int16 VkKeyScanExW(char16 ch, HKL dwhkl);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void keybd_event(uint8 bVk, uint8 bScan, KEYBD_EVENT_FLAGS dwFlags, uint dwExtraInfo);

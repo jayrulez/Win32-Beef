@@ -192,7 +192,7 @@ public static
 	public static extern int EcOpenSubscriptionEnum(uint32 Flags);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EcEnumNextSubscription(int SubscriptionEnum, uint32 SubscriptionNameBufferSize, char8* SubscriptionNameBuffer, uint32* SubscriptionNameBufferUsed);
+	public static extern BOOL EcEnumNextSubscription(int SubscriptionEnum, uint32 SubscriptionNameBufferSize, char16* SubscriptionNameBuffer, uint32* SubscriptionNameBufferUsed);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EcOpenSubscription(PWSTR SubscriptionName, uint32 AccessMask, uint32 Flags);

@@ -2482,7 +2482,7 @@ public struct OLECMDTEXT
 	public uint32 cmdtextf;
 	public uint32 cwActual;
 	public uint32 cwBuf;
-	public char8[1] rgwz;
+	public char16[1] rgwz;
 }
 
 [CRepr]
@@ -2653,7 +2653,7 @@ public struct OLEUICHANGEICONW
 	public HRSRC hResource;
 	public int hMetaPict;
 	public Guid clsid;
-	public char8[260] szIconExe;
+	public char16[260] szIconExe;
 	public int32 cchIconExe;
 }
 

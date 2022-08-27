@@ -1942,7 +1942,7 @@ public struct WHV_SYNIC_EVENT_PARAMETERS
 [CRepr]
 public struct WHV_SRIOV_RESOURCE_DESCRIPTOR
 {
-	public char8[200] PnpInstanceId;
+	public char16[200] PnpInstanceId;
 	public LUID VirtualFunctionId;
 	public uint16 VirtualFunctionIndex;
 	public uint16 Reserved;

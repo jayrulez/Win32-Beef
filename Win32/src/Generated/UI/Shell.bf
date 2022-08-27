@@ -6860,8 +6860,8 @@ public struct MULTIKEYHELPA
 public struct MULTIKEYHELPW
 {
 	public uint32 mkSize;
-	public char8 mkKeylist;
-	public char8[1] szKeyphrase;
+	public char16 mkKeylist;
+	public char16[1] szKeyphrase;
 }
 
 [CRepr]
@@ -6885,7 +6885,7 @@ public struct HELPWININFOW
 	public int32 dx;
 	public int32 dy;
 	public int32 wMax;
-	public char8[2] rgchMember;
+	public char16[2] rgchMember;
 }
 
 [CRepr]
@@ -6947,8 +6947,8 @@ public struct CMINVOKECOMMANDINFOEX_REMOTE
 public struct PERSIST_FOLDER_TARGET_INFO
 {
 	public ITEMIDLIST* pidlTargetFolder;
-	public char8[260] szTargetParsingName;
-	public char8[260] szNetworkProvider;
+	public char16[260] szTargetParsingName;
+	public char16[260] szNetworkProvider;
 	public uint32 dwAttributes;
 	public int32 csidl;
 }
@@ -6957,8 +6957,8 @@ public struct PERSIST_FOLDER_TARGET_INFO
 public struct EXTRASEARCH
 {
 	public Guid guidSearch;
-	public char8[80] wszFriendlyName;
-	public char8[2084] wszUrl;
+	public char16[80] wszFriendlyName;
+	public char16[2084] wszUrl;
 }
 
 [CRepr]
@@ -6996,21 +6996,21 @@ public struct CM_COLUMNINFO
 	public uint32 uWidth;
 	public uint32 uDefaultWidth;
 	public uint32 uIdealWidth;
-	public char8[80] wszName;
+	public char16[80] wszName;
 }
 
 [CRepr]
 public struct SHELL_ITEM_RESOURCE
 {
 	public Guid guidType;
-	public char8[260] szName;
+	public char16[260] szName;
 }
 
 [CRepr]
 public struct CATEGORY_INFO
 {
 	public CATEGORYINFO_FLAGS cif;
-	public char8[260] wszName;
+	public char16[260] wszName;
 }
 
 [CRepr]
@@ -7030,7 +7030,7 @@ public struct DESKBANDINFO
 	public POINTL ptMaxSize;
 	public POINTL ptIntegral;
 	public POINTL ptActual;
-	public char8[256] wszTitle;
+	public char16[256] wszTitle;
 	public uint32 dwModeFlags;
 	public uint32 crBkgnd;
 }
@@ -7042,7 +7042,7 @@ public struct THUMBBUTTON
 	public uint32 iId;
 	public uint32 iBitmap;
 	public HICON hIcon;
-	public char8[260] szTip;
+	public char16[260] szTip;
 	public THUMBBUTTONFLAGS dwFlags;
 }
 
@@ -7164,7 +7164,7 @@ public struct NT_CONSOLE_PROPS
 	public COORD dwFontSize;
 	public uint32 uFontFamily;
 	public uint32 uFontWeight;
-	public char8[32] FaceName;
+	public char16[32] FaceName;
 	public uint32 uCursorSize;
 	public BOOL bFullScreen;
 	public BOOL bQuickEdit;
@@ -7188,7 +7188,7 @@ public struct EXP_DARWIN_LINK
 {
 	public DATABLOCK_HEADER dbh;
 	public CHAR[260] szDarwinID;
-	public char8[260] szwDarwinID;
+	public char16[260] szwDarwinID;
 }
 
 [CRepr, Packed(1)]
@@ -7206,7 +7206,7 @@ public struct EXP_SZ_LINK
 	public uint32 cbSize;
 	public uint32 dwSignature;
 	public CHAR[260] szTarget;
-	public char8[260] swzTarget;
+	public char16[260] swzTarget;
 }
 
 [CRepr, Packed(1)]
@@ -7306,7 +7306,7 @@ public struct FILEDESCRIPTORW
 	public FILETIME ftLastWriteTime;
 	public uint32 nFileSizeHigh;
 	public uint32 nFileSizeLow;
-	public char8[260] cFileName;
+	public char16[260] cFileName;
 }
 
 [CRepr, Packed(1)]
@@ -7345,8 +7345,8 @@ public struct FILE_ATTRIBUTES_ARRAY
 public struct DROPDESCRIPTION
 {
 	public DROPIMAGETYPE type;
-	public char8[260] szMessage;
-	public char8[260] szInsert;
+	public char16[260] szMessage;
+	public char16[260] szInsert;
 }
 
 [CRepr, Packed(1)]
@@ -7394,7 +7394,7 @@ public struct SHChangeUpdateImageIDList
 	public int32 iCurIndex;
 	public uint32 uFlags;
 	public uint32 dwProcessID;
-	public char8[260] szName;
+	public char16[260] szName;
 	public uint16 cbZero;
 }
 
@@ -7477,8 +7477,8 @@ public struct SFVM_PROPPAGE_DATA
 [CRepr]
 public struct SFVM_HELPTOPIC_DATA
 {
-	public char8[260] wszHelpFile;
-	public char8[260] wszHelpTopic;
+	public char16[260] wszHelpFile;
+	public char16[260] wszHelpTopic;
 }
 
 [CRepr]
@@ -7592,8 +7592,8 @@ public struct SHCOLUMNINFO
 	public uint32 fmt;
 	public uint32 cChars;
 	public uint32 csFlags;
-	public char8[80] wszTitle;
-	public char8[128] wszDescription;
+	public char16[80] wszTitle;
+	public char16[128] wszDescription;
 }
 
 [CRepr]
@@ -7601,7 +7601,7 @@ public struct SHCOLUMNINIT
 {
 	public uint32 dwFlags;
 	public uint32 dwReserved;
-	public char8[260] wszFolder;
+	public char16[260] wszFolder;
 }
 
 [CRepr]
@@ -7611,14 +7611,14 @@ public struct SHCOLUMNDATA
 	public uint32 dwFileAttributes;
 	public uint32 dwReserved;
 	public PWSTR pwszExt;
-	public char8[260] wszFile;
+	public char16[260] wszFile;
 }
 
 [CRepr, Packed(1)]
 public struct SHChangeProductKeyAsIDList
 {
 	public uint16 cb;
-	public char8[39] wszProductKey;
+	public char16[39] wszProductKey;
 	public uint16 cbZero;
 }
 
@@ -7641,7 +7641,7 @@ public struct AASHELLMENUFILENAME
 {
 	public int16 cbTotal;
 	public uint8[12] rgbReserved;
-	public char8[1] szFileName;
+	public char16[1] szFileName;
 }
 
 [CRepr]
@@ -7887,12 +7887,12 @@ public struct NOTIFYICONDATAW
 	public NOTIFY_ICON_DATA_FLAGS uFlags;
 	public uint32 uCallbackMessage;
 	public HICON hIcon;
-	public char8[128] szTip;
+	public char16[128] szTip;
 	public uint32 dwState;
 	public uint32 dwStateMask;
-	public char8[256] szInfo;
+	public char16[256] szInfo;
 	public using _Anonymous_e__Union Anonymous;
-	public char8[64] szInfoTitle;
+	public char16[64] szInfoTitle;
 	public uint32 dwInfoFlags;
 	public Guid guidItem;
 	public HICON hBalloonIcon;
@@ -7929,8 +7929,8 @@ public struct SHFILEINFOW
 	public HICON hIcon;
 	public int32 iIcon;
 	public uint32 dwAttributes;
-	public char8[260] szDisplayName;
-	public char8[80] szTypeName;
+	public char16[260] szDisplayName;
+	public char16[80] szTypeName;
 }
 #endif
 
@@ -7942,7 +7942,7 @@ public struct SHSTOCKICONINFO
 	public HICON hIcon;
 	public int32 iSysImageIndex;
 	public int32 iIcon;
-	public char8[260] szPath;
+	public char16[260] szPath;
 }
 #endif
 
@@ -8154,7 +8154,7 @@ public struct SYNCMGRITEM
 	public Guid ItemID;
 	public uint32 dwItemState;
 	public HICON hIcon;
-	public char8[128] wszItemName;
+	public char16[128] wszItemName;
 	public FILETIME ftLastUpdate;
 }
 
@@ -8164,7 +8164,7 @@ public struct SYNCMGRHANDLERINFO
 	public uint32 cbSize;
 	public HICON hIcon;
 	public uint32 SyncMgrHandlerFlags;
-	public char8[32] wszHandlerName;
+	public char16[32] wszHandlerName;
 }
 
 [CRepr]
@@ -8313,9 +8313,9 @@ public struct NEWCPLINFOW
 	public uint32 dwHelpContext;
 	public int lData;
 	public HICON hIcon;
-	public char8[32] szName;
-	public char8[64] szInfo;
-	public char8[128] szHelpFile;
+	public char16[32] szName;
+	public char16[64] szInfo;
+	public char16[128] szHelpFile;
 }
 
 [CRepr]
@@ -8595,12 +8595,12 @@ public struct NOTIFYICONDATAW
 	public NOTIFY_ICON_DATA_FLAGS uFlags;
 	public uint32 uCallbackMessage;
 	public HICON hIcon;
-	public char8[128] szTip;
+	public char16[128] szTip;
 	public uint32 dwState;
 	public uint32 dwStateMask;
-	public char8[256] szInfo;
+	public char16[256] szInfo;
 	public using _Anonymous_e__Union Anonymous;
-	public char8[64] szInfoTitle;
+	public char16[64] szInfoTitle;
 	public uint32 dwInfoFlags;
 	public Guid guidItem;
 	public HICON hBalloonIcon;
@@ -8637,8 +8637,8 @@ public struct SHFILEINFOW
 	public HICON hIcon;
 	public int32 iIcon;
 	public uint32 dwAttributes;
-	public char8[260] szDisplayName;
-	public char8[80] szTypeName;
+	public char16[260] szDisplayName;
+	public char16[80] szTypeName;
 }
 #endif
 
@@ -8650,7 +8650,7 @@ public struct SHSTOCKICONINFO
 	public HICON hIcon;
 	public int32 iSysImageIndex;
 	public int32 iIcon;
-	public char8[260] szPath;
+	public char16[260] szPath;
 }
 #endif
 
@@ -9732,7 +9732,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkFolderInternal*/SelfOuter* self, uint32* displayType) GetResourceDisplayType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkFolderInternal*/SelfOuter* self, ITEMIDLIST** idList) GetIDList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkFolderInternal*/SelfOuter* self, uint32 itemIdCount, ITEMIDLIST** itemIds, uint32 providerMaxLength, char8* provider) GetProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkFolderInternal*/SelfOuter* self, uint32 itemIdCount, ITEMIDLIST** itemIds, uint32 providerMaxLength, char16* provider) GetProvider;
 	}
 
 
@@ -9740,7 +9740,7 @@ public static
 
 	public HRESULT GetIDList(ITEMIDLIST** idList) mut => VT.[Friend]GetIDList(&this, idList);
 
-	public HRESULT GetProvider(uint32 itemIdCount, ITEMIDLIST** itemIds, uint32 providerMaxLength, char8* provider) mut => VT.[Friend]GetProvider(&this, itemIdCount, itemIds, providerMaxLength, provider);
+	public HRESULT GetProvider(uint32 itemIdCount, ITEMIDLIST** itemIds, uint32 providerMaxLength, char16* provider) mut => VT.[Friend]GetProvider(&this, itemIdCount, itemIds, providerMaxLength, provider);
 }
 
 [CRepr]struct IPreviewHandlerVisuals : IUnknown
@@ -9794,14 +9794,14 @@ public static
 	[CRepr]public struct VTable : ICommDlgBrowser.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser2*/SelfOuter* self, IShellView* ppshv, uint32 dwNotifyType) Notify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser2*/SelfOuter* self, IShellView* ppshv, char8* pszText, int32 cchMax) GetDefaultMenuText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser2*/SelfOuter* self, IShellView* ppshv, char16* pszText, int32 cchMax) GetDefaultMenuText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser2*/SelfOuter* self, uint32* pdwFlags) GetViewFlags;
 	}
 
 
 	public HRESULT Notify(IShellView* ppshv, uint32 dwNotifyType) mut => VT.[Friend]Notify(&this, ppshv, dwNotifyType);
 
-	public HRESULT GetDefaultMenuText(IShellView* ppshv, char8* pszText, int32 cchMax) mut => VT.[Friend]GetDefaultMenuText(&this, ppshv, pszText, cchMax);
+	public HRESULT GetDefaultMenuText(IShellView* ppshv, char16* pszText, int32 cchMax) mut => VT.[Friend]GetDefaultMenuText(&this, ppshv, pszText, cchMax);
 
 	public HRESULT GetViewFlags(uint32* pdwFlags) mut => VT.[Friend]GetViewFlags(&this, pdwFlags);
 }
@@ -10145,7 +10145,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, uint32 ts) UpdateTransferState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psiSource, IShellItem* psiDestParent, PWSTR pszName) ConfirmOverwrite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psiSource) ConfirmEncryptionLoss;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psi, PWSTR pszItem, HRESULT hrError, char8* pszRename, uint32 cchRename) FileFailure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psi, PWSTR pszItem, HRESULT hrError, char16* pszRename, uint32 cchRename) FileFailure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psi, PWSTR pszStreamName, HRESULT hrError) SubStreamFailure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psi, PROPERTYKEY* pkey, HRESULT hrError) PropertyFailure;
 	}
@@ -10159,7 +10159,7 @@ public static
 
 	public HRESULT ConfirmEncryptionLoss(IShellItem* psiSource) mut => VT.[Friend]ConfirmEncryptionLoss(&this, psiSource);
 
-	public HRESULT FileFailure(IShellItem* psi, PWSTR pszItem, HRESULT hrError, char8* pszRename, uint32 cchRename) mut => VT.[Friend]FileFailure(&this, psi, pszItem, hrError, pszRename, cchRename);
+	public HRESULT FileFailure(IShellItem* psi, PWSTR pszItem, HRESULT hrError, char16* pszRename, uint32 cchRename) mut => VT.[Friend]FileFailure(&this, psi, pszItem, hrError, pszRename, cchRename);
 
 	public HRESULT SubStreamFailure(IShellItem* psi, PWSTR pszStreamName, HRESULT hrError) mut => VT.[Friend]SubStreamFailure(&this, psi, pszStreamName, hrError);
 
@@ -10457,7 +10457,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, Guid* pguid, PROPERTYKEY* pscid) GetDefaultCategory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, PROPERTYKEY* pscid, Guid* pguid) GetCategoryForSCID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, IEnumGUID** penum) EnumCategories;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, Guid* pguid, char8* pszName, uint32 cch) GetCategoryName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, Guid* pguid, char16* pszName, uint32 cch) GetCategoryName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, Guid* pguid, Guid* riid, void** ppv) CreateCategory;
 	}
 
@@ -10470,7 +10470,7 @@ public static
 
 	public HRESULT EnumCategories(IEnumGUID** penum) mut => VT.[Friend]EnumCategories(&this, penum);
 
-	public HRESULT GetCategoryName(Guid* pguid, char8* pszName, uint32 cch) mut => VT.[Friend]GetCategoryName(&this, pguid, pszName, cch);
+	public HRESULT GetCategoryName(Guid* pguid, char16* pszName, uint32 cch) mut => VT.[Friend]GetCategoryName(&this, pguid, pszName, cch);
 
 	public HRESULT CreateCategory(Guid* pguid, Guid* riid, void** ppv) mut => VT.[Friend]CreateCategory(&this, pguid, riid, ppv);
 }
@@ -10483,14 +10483,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, char8* pszDesc, uint32 cch) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, char16* pszDesc, uint32 cch) GetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, uint32 cidl, ITEMIDLIST** apidl, uint32* rgCategoryIds) GetCategory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, uint32 dwCategoryId, CATEGORY_INFO* pci) GetCategoryInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, CATSORT_FLAGS csfFlags, uint32 dwCategoryId1, uint32 dwCategoryId2) CompareCategory;
 	}
 
 
-	public HRESULT GetDescription(char8* pszDesc, uint32 cch) mut => VT.[Friend]GetDescription(&this, pszDesc, cch);
+	public HRESULT GetDescription(char16* pszDesc, uint32 cch) mut => VT.[Friend]GetDescription(&this, pszDesc, cch);
 
 	public HRESULT GetCategory(uint32 cidl, ITEMIDLIST** apidl, uint32* rgCategoryIds) mut => VT.[Friend]GetCategory(&this, cidl, apidl, rgCategoryIds);
 
@@ -10618,20 +10618,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char8* pszFile, int32 cch, WIN32_FIND_DATAW* pfd, uint32 fFlags) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszFile, int32 cch, WIN32_FIND_DATAW* pfd, uint32 fFlags) GetPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, ITEMIDLIST** ppidl) GetIDList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, ITEMIDLIST* pidl) SetIDList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char8* pszName, int32 cch) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszName, int32 cch) GetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, PWSTR pszName) SetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char8* pszDir, int32 cch) GetWorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszDir, int32 cch) GetWorkingDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, PWSTR pszDir) SetWorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char8* pszArgs, int32 cch) GetArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszArgs, int32 cch) GetArguments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, PWSTR pszArgs) SetArguments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, uint16* pwHotkey) GetHotkey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, uint16 wHotkey) SetHotkey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, int32* piShowCmd) GetShowCmd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, int32 iShowCmd) SetShowCmd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char8* pszIconPath, int32 cch, int32* piIcon) GetIconLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszIconPath, int32 cch, int32* piIcon) GetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, PWSTR pszIconPath, int32 iIcon) SetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, PWSTR pszPathRel, uint32 dwReserved) SetRelativePath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, HWND hwnd, uint32 fFlags) Resolve;
@@ -10639,21 +10639,21 @@ public static
 	}
 
 
-	public HRESULT GetPath(char8* pszFile, int32 cch, WIN32_FIND_DATAW* pfd, uint32 fFlags) mut => VT.[Friend]GetPath(&this, pszFile, cch, pfd, fFlags);
+	public HRESULT GetPath(char16* pszFile, int32 cch, WIN32_FIND_DATAW* pfd, uint32 fFlags) mut => VT.[Friend]GetPath(&this, pszFile, cch, pfd, fFlags);
 
 	public HRESULT GetIDList(ITEMIDLIST** ppidl) mut => VT.[Friend]GetIDList(&this, ppidl);
 
 	public HRESULT SetIDList(ITEMIDLIST* pidl) mut => VT.[Friend]SetIDList(&this, pidl);
 
-	public HRESULT GetDescription(char8* pszName, int32 cch) mut => VT.[Friend]GetDescription(&this, pszName, cch);
+	public HRESULT GetDescription(char16* pszName, int32 cch) mut => VT.[Friend]GetDescription(&this, pszName, cch);
 
 	public HRESULT SetDescription(PWSTR pszName) mut => VT.[Friend]SetDescription(&this, pszName);
 
-	public HRESULT GetWorkingDirectory(char8* pszDir, int32 cch) mut => VT.[Friend]GetWorkingDirectory(&this, pszDir, cch);
+	public HRESULT GetWorkingDirectory(char16* pszDir, int32 cch) mut => VT.[Friend]GetWorkingDirectory(&this, pszDir, cch);
 
 	public HRESULT SetWorkingDirectory(PWSTR pszDir) mut => VT.[Friend]SetWorkingDirectory(&this, pszDir);
 
-	public HRESULT GetArguments(char8* pszArgs, int32 cch) mut => VT.[Friend]GetArguments(&this, pszArgs, cch);
+	public HRESULT GetArguments(char16* pszArgs, int32 cch) mut => VT.[Friend]GetArguments(&this, pszArgs, cch);
 
 	public HRESULT SetArguments(PWSTR pszArgs) mut => VT.[Friend]SetArguments(&this, pszArgs);
 
@@ -10665,7 +10665,7 @@ public static
 
 	public HRESULT SetShowCmd(int32 iShowCmd) mut => VT.[Friend]SetShowCmd(&this, iShowCmd);
 
-	public HRESULT GetIconLocation(char8* pszIconPath, int32 cch, int32* piIcon) mut => VT.[Friend]GetIconLocation(&this, pszIconPath, cch, piIcon);
+	public HRESULT GetIconLocation(char16* pszIconPath, int32 cch, int32* piIcon) mut => VT.[Friend]GetIconLocation(&this, pszIconPath, cch, piIcon);
 
 	public HRESULT SetIconLocation(PWSTR pszIconPath, int32 iIcon) mut => VT.[Friend]SetIconLocation(&this, pszIconPath, iIcon);
 
@@ -10945,12 +10945,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractImage*/SelfOuter* self, char8* pszPathBuffer, uint32 cch, uint32* pdwPriority, SIZE* prgSize, uint32 dwRecClrDepth, uint32* pdwFlags) GetLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractImage*/SelfOuter* self, char16* pszPathBuffer, uint32 cch, uint32* pdwPriority, SIZE* prgSize, uint32 dwRecClrDepth, uint32* pdwFlags) GetLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractImage*/SelfOuter* self, HBITMAP* phBmpThumbnail) Extract;
 	}
 
 
-	public HRESULT GetLocation(char8* pszPathBuffer, uint32 cch, uint32* pdwPriority, SIZE* prgSize, uint32 dwRecClrDepth, uint32* pdwFlags) mut => VT.[Friend]GetLocation(&this, pszPathBuffer, cch, pdwPriority, prgSize, dwRecClrDepth, pdwFlags);
+	public HRESULT GetLocation(char16* pszPathBuffer, uint32 cch, uint32* pdwPriority, SIZE* prgSize, uint32 dwRecClrDepth, uint32* pdwFlags) mut => VT.[Friend]GetLocation(&this, pszPathBuffer, cch, pdwPriority, prgSize, dwRecClrDepth, pdwFlags);
 
 	public HRESULT Extract(HBITMAP* phBmpThumbnail) mut => VT.[Friend]Extract(&this, phBmpThumbnail);
 }
@@ -11496,7 +11496,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, IUnknown* punk) AddBand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 uBand, uint32* pdwBandID) EnumBands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID, IDeskBand** ppstb, uint32* pdwState, char8* pszName, int32 cchName) QueryBand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID, IDeskBand** ppstb, uint32* pdwState, char16* pszName, int32 cchName) QueryBand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID, uint32 dwMask, uint32 dwState) SetBandState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID) RemoveBand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID, Guid* riid, void** ppv) GetBandObject;
@@ -11509,7 +11509,7 @@ public static
 
 	public HRESULT EnumBands(uint32 uBand, uint32* pdwBandID) mut => VT.[Friend]EnumBands(&this, uBand, pdwBandID);
 
-	public HRESULT QueryBand(uint32 dwBandID, IDeskBand** ppstb, uint32* pdwState, char8* pszName, int32 cchName) mut => VT.[Friend]QueryBand(&this, dwBandID, ppstb, pdwState, pszName, cchName);
+	public HRESULT QueryBand(uint32 dwBandID, IDeskBand** ppstb, uint32* pdwState, char16* pszName, int32 cchName) mut => VT.[Friend]QueryBand(&this, dwBandID, ppstb, pdwState, pszName, cchName);
 
 	public HRESULT SetBandState(uint32 dwBandID, uint32 dwMask, uint32 dwState) mut => VT.[Friend]SetBandState(&this, dwBandID, dwMask, dwState);
 
@@ -12761,14 +12761,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenControlPanel*/SelfOuter* self, PWSTR pszName, PWSTR pszPage, IUnknown* punkSite) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenControlPanel*/SelfOuter* self, PWSTR pszName, char8* pszPath, uint32 cchPath) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenControlPanel*/SelfOuter* self, PWSTR pszName, char16* pszPath, uint32 cchPath) GetPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenControlPanel*/SelfOuter* self, CPVIEW* pView) GetCurrentView;
 	}
 
 
 	public HRESULT Open(PWSTR pszName, PWSTR pszPage, IUnknown* punkSite) mut => VT.[Friend]Open(&this, pszName, pszPage, punkSite);
 
-	public HRESULT GetPath(PWSTR pszName, char8* pszPath, uint32 cchPath) mut => VT.[Friend]GetPath(&this, pszName, pszPath, cchPath);
+	public HRESULT GetPath(PWSTR pszName, char16* pszPath, uint32 cchPath) mut => VT.[Friend]GetPath(&this, pszName, pszPath, cchPath);
 
 	public HRESULT GetCurrentView(CPVIEW* pView) mut => VT.[Friend]GetCurrentView(&this, pView);
 }
@@ -13751,14 +13751,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayIdentifier*/SelfOuter* self, PWSTR pwszPath, uint32 dwAttrib) IsMemberOf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayIdentifier*/SelfOuter* self, char8* pwszIconFile, int32 cchMax, int32* pIndex, uint32* pdwFlags) GetOverlayInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayIdentifier*/SelfOuter* self, char16* pwszIconFile, int32 cchMax, int32* pIndex, uint32* pdwFlags) GetOverlayInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayIdentifier*/SelfOuter* self, int32* pPriority) GetPriority;
 	}
 
 
 	public HRESULT IsMemberOf(PWSTR pwszPath, uint32 dwAttrib) mut => VT.[Friend]IsMemberOf(&this, pwszPath, dwAttrib);
 
-	public HRESULT GetOverlayInfo(char8* pwszIconFile, int32 cchMax, int32* pIndex, uint32* pdwFlags) mut => VT.[Friend]GetOverlayInfo(&this, pwszIconFile, cchMax, pIndex, pdwFlags);
+	public HRESULT GetOverlayInfo(char16* pwszIconFile, int32 cchMax, int32* pIndex, uint32* pdwFlags) mut => VT.[Friend]GetOverlayInfo(&this, pwszIconFile, cchMax, pIndex, pdwFlags);
 
 	public HRESULT GetPriority(int32* pPriority) mut => VT.[Friend]GetPriority(&this, pPriority);
 }
@@ -13943,14 +13943,14 @@ public static
 	[CRepr]public struct VTable : ICommDlgBrowser2.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser3*/SelfOuter* self, IShellView* ppshv, int32 iColumn) OnColumnClicked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser3*/SelfOuter* self, char8* pszFileSpec, int32 cchFileSpec) GetCurrentFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser3*/SelfOuter* self, char16* pszFileSpec, int32 cchFileSpec) GetCurrentFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser3*/SelfOuter* self, IShellView* ppshv) OnPreViewCreated;
 	}
 
 
 	public HRESULT OnColumnClicked(IShellView* ppshv, int32 iColumn) mut => VT.[Friend]OnColumnClicked(&this, ppshv, iColumn);
 
-	public HRESULT GetCurrentFilter(char8* pszFileSpec, int32 cchFileSpec) mut => VT.[Friend]GetCurrentFilter(&this, pszFileSpec, cchFileSpec);
+	public HRESULT GetCurrentFilter(char16* pszFileSpec, int32 cchFileSpec) mut => VT.[Friend]GetCurrentFilter(&this, pszFileSpec, cchFileSpec);
 
 	public HRESULT OnPreViewCreated(IShellView* ppshv) mut => VT.[Friend]OnPreViewCreated(&this, ppshv);
 }
@@ -14182,13 +14182,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICDBurn*/SelfOuter* self, char8* pszDrive, uint32 cch) GetRecorderDriveLetter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICDBurn*/SelfOuter* self, char16* pszDrive, uint32 cch) GetRecorderDriveLetter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICDBurn*/SelfOuter* self, HWND hwnd) Burn;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICDBurn*/SelfOuter* self, BOOL* pfHasRecorder) HasRecordableDrive;
 	}
 
 
-	public HRESULT GetRecorderDriveLetter(char8* pszDrive, uint32 cch) mut => VT.[Friend]GetRecorderDriveLetter(&this, pszDrive, cch);
+	public HRESULT GetRecorderDriveLetter(char16* pszDrive, uint32 cch) mut => VT.[Friend]GetRecorderDriveLetter(&this, pszDrive, cch);
 
 	public HRESULT Burn(HWND hwnd) mut => VT.[Friend]Burn(&this, hwnd);
 
@@ -14591,7 +14591,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi) OnAfterExpand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi) OnBeginLabelEdit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi) OnEndLabelEdit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, char8* pszTip, int32 cchTip) OnGetToolTip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, char16* pszTip, int32 cchTip) OnGetToolTip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi) OnBeforeItemDelete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, BOOL fIsRoot) OnItemAdded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, BOOL fIsRoot) OnItemDeleted;
@@ -14622,7 +14622,7 @@ public static
 
 	public HRESULT OnEndLabelEdit(IShellItem* psi) mut => VT.[Friend]OnEndLabelEdit(&this, psi);
 
-	public HRESULT OnGetToolTip(IShellItem* psi, char8* pszTip, int32 cchTip) mut => VT.[Friend]OnGetToolTip(&this, psi, pszTip, cchTip);
+	public HRESULT OnGetToolTip(IShellItem* psi, char16* pszTip, int32 cchTip) mut => VT.[Friend]OnGetToolTip(&this, psi, pszTip, cchTip);
 
 	public HRESULT OnBeforeItemDelete(IShellItem* psi) mut => VT.[Friend]OnBeforeItemDelete(&this, psi);
 
@@ -16594,13 +16594,13 @@ public static
 
 	[CRepr]public struct VTable : IEnumString.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumACString*/SelfOuter* self, char8* pszUrl, uint32 cchMax, uint32* pulSortIndex) NextItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumACString*/SelfOuter* self, char16* pszUrl, uint32 cchMax, uint32* pulSortIndex) NextItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumACString*/SelfOuter* self, uint32 dwOptions) SetEnumOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumACString*/SelfOuter* self, uint32* pdwOptions) GetEnumOptions;
 	}
 
 
-	public HRESULT NextItem(char8* pszUrl, uint32 cchMax, uint32* pulSortIndex) mut => VT.[Friend]NextItem(&this, pszUrl, cchMax, pulSortIndex);
+	public HRESULT NextItem(char16* pszUrl, uint32 cchMax, uint32* pulSortIndex) mut => VT.[Friend]NextItem(&this, pszUrl, cchMax, pulSortIndex);
 
 	public HRESULT SetEnumOptions(uint32 dwOptions) mut => VT.[Friend]SetEnumOptions(&this, dwOptions);
 
@@ -16660,12 +16660,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconW*/SelfOuter* self, uint32 uFlags, char8* pszIconFile, uint32 cchMax, int32* piIndex, uint32* pwFlags) GetIconLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconW*/SelfOuter* self, uint32 uFlags, char16* pszIconFile, uint32 cchMax, int32* piIndex, uint32* pwFlags) GetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconW*/SelfOuter* self, PWSTR pszFile, uint32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize) Extract;
 	}
 
 
-	public HRESULT GetIconLocation(uint32 uFlags, char8* pszIconFile, uint32 cchMax, int32* piIndex, uint32* pwFlags) mut => VT.[Friend]GetIconLocation(&this, uFlags, pszIconFile, cchMax, piIndex, pwFlags);
+	public HRESULT GetIconLocation(uint32 uFlags, char16* pszIconFile, uint32 cchMax, int32* piIndex, uint32* pwFlags) mut => VT.[Friend]GetIconLocation(&this, uFlags, pszIconFile, cchMax, piIndex, pwFlags);
 
 	public HRESULT Extract(PWSTR pszFile, uint32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize) mut => VT.[Friend]Extract(&this, pszFile, nIconIndex, phiconLarge, phiconSmall, nIconSize);
 }
@@ -16723,11 +16723,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IURLSearchHook*/SelfOuter* self, char8* pwszSearchURL, uint32 cchBufferSize) Translate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IURLSearchHook*/SelfOuter* self, char16* pwszSearchURL, uint32 cchBufferSize) Translate;
 	}
 
 
-	public HRESULT Translate(char8* pwszSearchURL, uint32 cchBufferSize) mut => VT.[Friend]Translate(&this, pwszSearchURL, cchBufferSize);
+	public HRESULT Translate(char16* pwszSearchURL, uint32 cchBufferSize) mut => VT.[Friend]Translate(&this, pwszSearchURL, cchBufferSize);
 }
 
 [CRepr]struct ISearchContext : IUnknown
@@ -16759,11 +16759,11 @@ public static
 
 	[CRepr]public struct VTable : IURLSearchHook.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IURLSearchHook2*/SelfOuter* self, char8* pwszSearchURL, uint32 cchBufferSize, ISearchContext* pSearchContext) TranslateWithSearchContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IURLSearchHook2*/SelfOuter* self, char16* pwszSearchURL, uint32 cchBufferSize, ISearchContext* pSearchContext) TranslateWithSearchContext;
 	}
 
 
-	public HRESULT TranslateWithSearchContext(char8* pwszSearchURL, uint32 cchBufferSize, ISearchContext* pSearchContext) mut => VT.[Friend]TranslateWithSearchContext(&this, pwszSearchURL, cchBufferSize, pSearchContext);
+	public HRESULT TranslateWithSearchContext(char16* pwszSearchURL, uint32 cchBufferSize, ISearchContext* pSearchContext) mut => VT.[Friend]TranslateWithSearchContext(&this, pwszSearchURL, cchBufferSize, pSearchContext);
 }
 
 [CRepr]struct IShellDetails : IUnknown
@@ -17102,25 +17102,25 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewShortcutHookW*/SelfOuter* self, PWSTR pcszReferent, HWND hwnd) SetReferent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewShortcutHookW*/SelfOuter* self, char8* pszReferent, int32 cchReferent) GetReferent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewShortcutHookW*/SelfOuter* self, char16* pszReferent, int32 cchReferent) GetReferent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewShortcutHookW*/SelfOuter* self, PWSTR pcszFolder) SetFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewShortcutHookW*/SelfOuter* self, char8* pszFolder, int32 cchFolder) GetFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewShortcutHookW*/SelfOuter* self, char8* pszName, int32 cchName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewShortcutHookW*/SelfOuter* self, char8* pszExtension, int32 cchExtension) GetExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewShortcutHookW*/SelfOuter* self, char16* pszFolder, int32 cchFolder) GetFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewShortcutHookW*/SelfOuter* self, char16* pszName, int32 cchName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewShortcutHookW*/SelfOuter* self, char16* pszExtension, int32 cchExtension) GetExtension;
 	}
 
 
 	public HRESULT SetReferent(PWSTR pcszReferent, HWND hwnd) mut => VT.[Friend]SetReferent(&this, pcszReferent, hwnd);
 
-	public HRESULT GetReferent(char8* pszReferent, int32 cchReferent) mut => VT.[Friend]GetReferent(&this, pszReferent, cchReferent);
+	public HRESULT GetReferent(char16* pszReferent, int32 cchReferent) mut => VT.[Friend]GetReferent(&this, pszReferent, cchReferent);
 
 	public HRESULT SetFolder(PWSTR pcszFolder) mut => VT.[Friend]SetFolder(&this, pcszFolder);
 
-	public HRESULT GetFolder(char8* pszFolder, int32 cchFolder) mut => VT.[Friend]GetFolder(&this, pszFolder, cchFolder);
+	public HRESULT GetFolder(char16* pszFolder, int32 cchFolder) mut => VT.[Friend]GetFolder(&this, pszFolder, cchFolder);
 
-	public HRESULT GetName(char8* pszName, int32 cchName) mut => VT.[Friend]GetName(&this, pszName, cchName);
+	public HRESULT GetName(char16* pszName, int32 cchName) mut => VT.[Friend]GetName(&this, pszName, cchName);
 
-	public HRESULT GetExtension(char8* pszExtension, int32 cchExtension) mut => VT.[Friend]GetExtension(&this, pszExtension, cchExtension);
+	public HRESULT GetExtension(char16* pszExtension, int32 cchExtension) mut => VT.[Friend]GetExtension(&this, pszExtension, cchExtension);
 }
 
 [CRepr]struct ICopyHookA : IUnknown
@@ -17161,12 +17161,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICurrentWorkingDirectory*/SelfOuter* self, char8* pwzPath, uint32 cchSize) GetDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICurrentWorkingDirectory*/SelfOuter* self, char16* pwzPath, uint32 cchSize) GetDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICurrentWorkingDirectory*/SelfOuter* self, PWSTR pwzPath) SetDirectory;
 	}
 
 
-	public HRESULT GetDirectory(char8* pwzPath, uint32 cchSize) mut => VT.[Friend]GetDirectory(&this, pwzPath, cchSize);
+	public HRESULT GetDirectory(char16* pwzPath, uint32 cchSize) mut => VT.[Friend]GetDirectory(&this, pwzPath, cchSize);
 
 	public HRESULT SetDirectory(PWSTR pwzPath) mut => VT.[Friend]SetDirectory(&this, pwzPath);
 }
@@ -17336,7 +17336,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, PWSTR pszAssoc, HKEY hkProgid, HWND hwnd) Init;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCSTR str, PWSTR pszExtra, char8* pszOut, uint32* pcchOut) GetString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCSTR str, PWSTR pszExtra, char16* pszOut, uint32* pcchOut) GetString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCKEY key, PWSTR pszExtra, HKEY* phkeyOut) GetKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCDATA data, PWSTR pszExtra, void* pvOut, uint32* pcbOut) GetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCENUM assocenum, PWSTR pszExtra, Guid* riid, void** ppvOut) GetEnum;
@@ -17345,7 +17345,7 @@ public static
 
 	public HRESULT Init(uint32 flags, PWSTR pszAssoc, HKEY hkProgid, HWND hwnd) mut => VT.[Friend]Init(&this, flags, pszAssoc, hkProgid, hwnd);
 
-	public HRESULT GetString(uint32 flags, ASSOCSTR str, PWSTR pszExtra, char8* pszOut, uint32* pcchOut) mut => VT.[Friend]GetString(&this, flags, str, pszExtra, pszOut, pcchOut);
+	public HRESULT GetString(uint32 flags, ASSOCSTR str, PWSTR pszExtra, char16* pszOut, uint32* pcchOut) mut => VT.[Friend]GetString(&this, flags, str, pszExtra, pszOut, pcchOut);
 
 	public HRESULT GetKey(uint32 flags, ASSOCKEY key, PWSTR pszExtra, HKEY* phkeyOut) mut => VT.[Friend]GetKey(&this, flags, key, pszExtra, phkeyOut);
 
@@ -19267,7 +19267,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, int32 iOffset) Travel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, int32 iOffset, ITravelEntry** ppte) GetTravelEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, ITEMIDLIST* pidl, ITravelEntry** ppte) FindTravelEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, int32 iOffset, int32 idsTemplate, char8* pwzText, uint32 cchText) GetToolTipText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, int32 iOffset, int32 idsTemplate, char16* pwzText, uint32 cchText) GetToolTipText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, HMENU hmenu, int32 nPos, int32 idFirst, int32 idLast, uint32 dwFlags) InsertMenuEntries;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, ITravelLog** pptl) Clone;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ITravelLog*/SelfOuter* self, IUnknown* punk) CountEntries;
@@ -19287,7 +19287,7 @@ public static
 
 	public HRESULT FindTravelEntry(IUnknown* punk, ITEMIDLIST* pidl, ITravelEntry** ppte) mut => VT.[Friend]FindTravelEntry(&this, punk, pidl, ppte);
 
-	public HRESULT GetToolTipText(IUnknown* punk, int32 iOffset, int32 idsTemplate, char8* pwzText, uint32 cchText) mut => VT.[Friend]GetToolTipText(&this, punk, iOffset, idsTemplate, pwzText, cchText);
+	public HRESULT GetToolTipText(IUnknown* punk, int32 iOffset, int32 idsTemplate, char16* pwzText, uint32 cchText) mut => VT.[Friend]GetToolTipText(&this, punk, iOffset, idsTemplate, pwzText, cchText);
 
 	public HRESULT InsertMenuEntries(IUnknown* punk, HMENU hmenu, int32 nPos, int32 idFirst, int32 idLast, uint32 dwFlags) mut => VT.[Friend]InsertMenuEntries(&this, punk, hmenu, nPos, idFirst, idLast, dwFlags);
 
@@ -19366,7 +19366,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IOleInPlaceSite** ppipsite) GetParentSite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IShellView* psv, PWSTR pszName) SetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IShellView* psv, char8* pszName, uint32 cchName) GetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IShellView* psv, char16* pszName, uint32 cchName) GetTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IOleObject** ppobjv) GetOleObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITravelLog** pptl) GetTravelLog;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32 id, BOOL fShow) ShowControlWindow;
@@ -19401,7 +19401,7 @@ public static
 
 	public HRESULT SetTitle(IShellView* psv, PWSTR pszName) mut => VT.[Friend]SetTitle(&this, psv, pszName);
 
-	public HRESULT GetTitle(IShellView* psv, char8* pszName, uint32 cchName) mut => VT.[Friend]GetTitle(&this, psv, pszName, cchName);
+	public HRESULT GetTitle(IShellView* psv, char16* pszName, uint32 cchName) mut => VT.[Friend]GetTitle(&this, psv, pszName, cchName);
 
 	public HRESULT GetOleObject(IOleObject** ppobjv) mut => VT.[Friend]GetOleObject(&this, ppobjv);
 
@@ -19820,7 +19820,7 @@ public static
 	public static BOOL GetProfilesDirectory(uint8* lpProfileDir, uint32* lpcchSize) => GetProfilesDirectoryA(lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetProfilesDirectoryW(char8* lpProfileDir, uint32* lpcchSize);
+	public static extern BOOL GetProfilesDirectoryW(char16* lpProfileDir, uint32* lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetProfileType(uint32* dwFlags);
@@ -19833,28 +19833,28 @@ public static
 	public static extern BOOL DeleteProfileW(PWSTR lpSidString, PWSTR lpProfilePath, PWSTR lpComputerName);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateProfile(PWSTR pszUserSid, PWSTR pszUserName, char8* pszProfilePath, uint32 cchProfilePath);
+	public static extern HRESULT CreateProfile(PWSTR pszUserSid, PWSTR pszUserName, char16* pszProfilePath, uint32 cchProfilePath);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetDefaultUserProfileDirectoryA(uint8* lpProfileDir, uint32* lpcchSize);
 	public static BOOL GetDefaultUserProfileDirectory(uint8* lpProfileDir, uint32* lpcchSize) => GetDefaultUserProfileDirectoryA(lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetDefaultUserProfileDirectoryW(char8* lpProfileDir, uint32* lpcchSize);
+	public static extern BOOL GetDefaultUserProfileDirectoryW(char16* lpProfileDir, uint32* lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetAllUsersProfileDirectoryA(uint8* lpProfileDir, uint32* lpcchSize);
 	public static BOOL GetAllUsersProfileDirectory(uint8* lpProfileDir, uint32* lpcchSize) => GetAllUsersProfileDirectoryA(lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetAllUsersProfileDirectoryW(char8* lpProfileDir, uint32* lpcchSize);
+	public static extern BOOL GetAllUsersProfileDirectoryW(char16* lpProfileDir, uint32* lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetUserProfileDirectoryA(HANDLE hToken, uint8* lpProfileDir, uint32* lpcchSize);
 	public static BOOL GetUserProfileDirectory(HANDLE hToken, uint8* lpProfileDir, uint32* lpcchSize) => GetUserProfileDirectoryA(hToken, lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserProfileDirectoryW(HANDLE hToken, char8* lpProfileDir, uint32* lpcchSize);
+	public static extern BOOL GetUserProfileDirectoryW(HANDLE hToken, char16* lpProfileDir, uint32* lpcchSize);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetWindowSubclass(HWND hWnd, SUBCLASSPROC pfnSubclass, uint uIdSubclass, uint dwRefData);
@@ -20058,14 +20058,14 @@ public static
 	public static extern ITEMIDLIST* ILAppendID(ITEMIDLIST* pidl, SHITEMID* pmkid, BOOL fAppend);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetPathFromIDListEx(ITEMIDLIST* pidl, char8* pszPath, uint32 cchPath, int32 uOpts);
+	public static extern BOOL SHGetPathFromIDListEx(ITEMIDLIST* pidl, char16* pszPath, uint32 cchPath, int32 uOpts);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetPathFromIDListA(ITEMIDLIST* pidl, uint8* pszPath);
 	public static BOOL SHGetPathFromIDList(ITEMIDLIST* pidl, uint8* pszPath) => SHGetPathFromIDListA(pidl, pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetPathFromIDListW(ITEMIDLIST* pidl, char8* pszPath);
+	public static extern BOOL SHGetPathFromIDListW(ITEMIDLIST* pidl, char16* pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHCreateDirectory(HWND hwnd, PWSTR pszPath);
@@ -20094,7 +20094,7 @@ public static
 	public static BOOL SHGetSpecialFolderPath(HWND hwnd, uint8* pszPath, int32 csidl, BOOL fCreate) => SHGetSpecialFolderPathA(hwnd, pszPath, csidl, fCreate);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetSpecialFolderPathW(HWND hwnd, char8* pszPath, int32 csidl, BOOL fCreate);
+	public static extern BOOL SHGetSpecialFolderPathW(HWND hwnd, char16* pszPath, int32 csidl, BOOL fCreate);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void SHFlushSFCache();
@@ -20104,7 +20104,7 @@ public static
 	public static HRESULT SHGetFolderPath(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, uint8* pszPath) => SHGetFolderPathA(hwnd, csidl, hToken, dwFlags, pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetFolderPathW(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, char8* pszPath);
+	public static extern HRESULT SHGetFolderPathW(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, char16* pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHGetFolderLocation(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, ITEMIDLIST** ppidl);
@@ -20121,7 +20121,7 @@ public static
 	public static HRESULT SHGetFolderPathAndSubDir(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, PSTR pszSubDir, uint8* pszPath) => SHGetFolderPathAndSubDirA(hwnd, csidl, hToken, dwFlags, pszSubDir, pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetFolderPathAndSubDirW(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, PWSTR pszSubDir, char8* pszPath);
+	public static extern HRESULT SHGetFolderPathAndSubDirW(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, PWSTR pszSubDir, char16* pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHGetKnownFolderIDList(Guid* rfid, uint32 dwFlags, HANDLE hToken, ITEMIDLIST** ppidl);
@@ -20241,7 +20241,7 @@ public static
 	public static extern BOOL WriteCabinetState(CABINETSTATE* pcs);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathMakeUniqueName(char8* pszUniqueName, uint32 cchMax, PWSTR pszTemplate, PWSTR pszLongPlate, PWSTR pszDir);
+	public static extern BOOL PathMakeUniqueName(char16* pszUniqueName, uint32 cchMax, PWSTR pszTemplate, PWSTR pszLongPlate, PWSTR pszDir);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsExe(PWSTR pszPath);
@@ -20250,10 +20250,10 @@ public static
 	public static extern PCS_RET PathCleanupSpec(PWSTR pszDir, PWSTR pszSpec);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PathResolve(char8* pszPath, uint16** dirs, PRF_FLAGS fFlags);
+	public static extern int32 PathResolve(char16* pszPath, uint16** dirs, PRF_FLAGS fFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetFileNameFromBrowse(HWND hwnd, char8* pszFilePath, uint32 cchFilePath, PWSTR pszWorkingDir, PWSTR pszDefExt, PWSTR pszFilters, PWSTR pszTitle);
+	public static extern BOOL GetFileNameFromBrowse(HWND hwnd, char16* pszFilePath, uint32 cchFilePath, PWSTR pszWorkingDir, PWSTR pszDefExt, PWSTR pszFilters, PWSTR pszTitle);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DriveType(int32 iDrive);
@@ -20289,10 +20289,10 @@ public static
 	public static extern BOOL SHFindFiles(ITEMIDLIST* pidlFolder, ITEMIDLIST* pidlSaveFile);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void PathGetShortPath(char8* pszLongPath);
+	public static extern void PathGetShortPath(char16* pszLongPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathYetAnotherMakeUniqueName(char8* pszUniqueName, PWSTR pszPath, PWSTR pszShort, PWSTR pszFileSpec);
+	public static extern BOOL PathYetAnotherMakeUniqueName(char16* pszUniqueName, PWSTR pszPath, PWSTR pszShort, PWSTR pszFileSpec);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL Win32DeleteFile(PWSTR pszPath);
@@ -20402,7 +20402,7 @@ public static
 	public static extern HRESULT SHCLSIDFromString(PWSTR psz, Guid* pclsid);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PickIconDlg(HWND hwnd, char8* pszIconPath, uint32 cchIconPath, int32* piIconIndex);
+	public static extern int32 PickIconDlg(HWND hwnd, char16* pszIconPath, uint32 cchIconPath, int32* piIconIndex);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT StgMakeUniqueName(IStorage* pstgParent, PWSTR pszFileSpec, uint32 grfMode, Guid* riid, void** ppv);
@@ -20467,7 +20467,7 @@ public static
 	public static uint32 DragQueryFile(HDROP hDrop, uint32 iFile, uint8* lpszFile, uint32 cch) => DragQueryFileA(hDrop, iFile, lpszFile, cch);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DragQueryFileW(HDROP hDrop, uint32 iFile, char8* lpszFile, uint32 cch);
+	public static extern uint32 DragQueryFileW(HDROP hDrop, uint32 iFile, char16* lpszFile, uint32 cch);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DragQueryPoint(HDROP hDrop, POINT* ppt);
@@ -20490,7 +20490,7 @@ public static
 	public static HINSTANCE FindExecutable(PSTR lpFile, PSTR lpDirectory, uint8* lpResult) => FindExecutableA(lpFile, lpDirectory, lpResult);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HINSTANCE FindExecutableW(PWSTR lpFile, PWSTR lpDirectory, char8* lpResult);
+	public static extern HINSTANCE FindExecutableW(PWSTR lpFile, PWSTR lpDirectory, char16* lpResult);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ShellAboutA(HWND hWnd, PSTR szApp, PSTR szOtherStuff, HICON hIcon);
@@ -20507,14 +20507,14 @@ public static
 	public static HICON ExtractAssociatedIcon(HINSTANCE hInst, uint8* pszIconPath, uint16* piIcon) => ExtractAssociatedIconA(hInst, pszIconPath, piIcon);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HICON ExtractAssociatedIconW(HINSTANCE hInst, char8* pszIconPath, uint16* piIcon);
+	public static extern HICON ExtractAssociatedIconW(HINSTANCE hInst, char16* pszIconPath, uint16* piIcon);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON ExtractAssociatedIconExA(HINSTANCE hInst, uint8* pszIconPath, uint16* piIconIndex, uint16* piIconId);
 	public static HICON ExtractAssociatedIconEx(HINSTANCE hInst, uint8* pszIconPath, uint16* piIconIndex, uint16* piIconId) => ExtractAssociatedIconExA(hInst, pszIconPath, piIconIndex, piIconId);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HICON ExtractAssociatedIconExW(HINSTANCE hInst, char8* pszIconPath, uint16* piIconIndex, uint16* piIconId);
+	public static extern HICON ExtractAssociatedIconExW(HINSTANCE hInst, char16* pszIconPath, uint16* piIconIndex, uint16* piIconId);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON ExtractIconA(HINSTANCE hInst, PSTR pszExeFileName, uint32 nIconIndex);
@@ -20531,7 +20531,7 @@ public static
 	public static uint32 DoEnvironmentSubst(uint8* pszSrc, uint32 cchSrc) => DoEnvironmentSubstA(pszSrc, cchSrc);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DoEnvironmentSubstW(char8* pszSrc, uint32 cchSrc);
+	public static extern uint32 DoEnvironmentSubstW(char16* pszSrc, uint32 cchSrc);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ExtractIconExA(PSTR lpszFile, int32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIcons);
@@ -20615,7 +20615,7 @@ public static
 	public static BOOL SHGetNewLinkInfo(PSTR pszLinkTo, PSTR pszDir, uint8* pszName, BOOL* pfMustCopy, uint32 uFlags) => SHGetNewLinkInfoA(pszLinkTo, pszDir, pszName, pfMustCopy, uFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetNewLinkInfoW(PWSTR pszLinkTo, PWSTR pszDir, char8* pszName, BOOL* pfMustCopy, uint32 uFlags);
+	public static extern BOOL SHGetNewLinkInfoW(PWSTR pszLinkTo, PWSTR pszDir, char16* pszName, BOOL* pfMustCopy, uint32 uFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHInvokePrinterCommandA(HWND hwnd, uint32 uAction, PSTR lpBuf1, PSTR lpBuf2, BOOL fModal);
@@ -20637,7 +20637,7 @@ public static
 	public static extern HRESULT SHRemoveLocalizedName(PWSTR pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetLocalizedName(PWSTR pszPath, char8* pszResModule, uint32 cch, int32* pidsRes);
+	public static extern HRESULT SHGetLocalizedName(PWSTR pszPath, char16* pszResModule, uint32 cch, int32* pidsRes);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ShellMessageBoxA(HINSTANCE hAppInst, HWND hWnd, PSTR lpcText, PSTR lpcTitle, uint32 fuStyle);
@@ -20654,10 +20654,10 @@ public static
 	public static extern BOOL IsLFNDriveW(PWSTR pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHEnumerateUnreadMailAccountsW(HKEY hKeyUser, uint32 dwIndex, char8* pszMailAddress, int32 cchMailAddress);
+	public static extern HRESULT SHEnumerateUnreadMailAccountsW(HKEY hKeyUser, uint32 dwIndex, char16* pszMailAddress, int32 cchMailAddress);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetUnreadMailCountW(HKEY hKeyUser, PWSTR pszMailAddress, uint32* pdwCount, FILETIME* pFileTime, char8* pszShellExecuteCommand, int32 cchShellExecuteCommand);
+	public static extern HRESULT SHGetUnreadMailCountW(HKEY hKeyUser, PWSTR pszMailAddress, uint32* pdwCount, FILETIME* pFileTime, char16* pszShellExecuteCommand, int32 cchShellExecuteCommand);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHSetUnreadMailCountW(PWSTR pszMailAddress, uint32 dwCount, PWSTR pszShellExecuteCommand);
@@ -20679,20 +20679,20 @@ public static
 	public static PSTR StrChr(PSTR pszStart, uint16 wMatch) => StrChrA(pszStart, wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrChrW(PWSTR pszStart, char8 wMatch);
+	public static extern PWSTR StrChrW(PWSTR pszStart, char16 wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrChrIA(PSTR pszStart, uint16 wMatch);
 	public static PSTR StrChrI(PSTR pszStart, uint16 wMatch) => StrChrIA(pszStart, wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrChrIW(PWSTR pszStart, char8 wMatch);
+	public static extern PWSTR StrChrIW(PWSTR pszStart, char16 wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrChrNW(PWSTR pszStart, char8 wMatch, uint32 cchMax);
+	public static extern PWSTR StrChrNW(PWSTR pszStart, char16 wMatch, uint32 cchMax);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrChrNIW(PWSTR pszStart, char8 wMatch, uint32 cchMax);
+	public static extern PWSTR StrChrNIW(PWSTR pszStart, char16 wMatch, uint32 cchMax);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpNA(PSTR psz1, PSTR psz2, int32 nChar);
@@ -20730,7 +20730,7 @@ public static
 	public static extern PWSTR StrDupW(PWSTR pszSrch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StrFormatByteSizeEx(uint64 ull, SFBS_FLAGS flags, char8* pszBuf, uint32 cchBuf);
+	public static extern HRESULT StrFormatByteSizeEx(uint64 ull, SFBS_FLAGS flags, char16* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrFormatByteSizeA(uint32 dw, uint8* pszBuf, uint32 cchBuf);
@@ -20740,10 +20740,10 @@ public static
 	public static extern PSTR StrFormatByteSize64A(int64 qdw, uint8* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrFormatByteSizeW(int64 qdw, char8* pszBuf, uint32 cchBuf);
+	public static extern PWSTR StrFormatByteSizeW(int64 qdw, char16* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrFormatKBSizeW(int64 qdw, char8* pszBuf, uint32 cchBuf);
+	public static extern PWSTR StrFormatKBSizeW(int64 qdw, char16* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrFormatKBSizeA(int64 qdw, uint8* pszBuf, uint32 cchBuf);
@@ -20754,7 +20754,7 @@ public static
 	public static int32 StrFromTimeInterval(uint8* pszOut, uint32 cchMax, uint32 dwTimeMS, int32 digits) => StrFromTimeIntervalA(pszOut, cchMax, dwTimeMS, digits);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 StrFromTimeIntervalW(char8* pszOut, uint32 cchMax, uint32 dwTimeMS, int32 digits);
+	public static extern int32 StrFromTimeIntervalW(char16* pszOut, uint32 cchMax, uint32 dwTimeMS, int32 digits);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrIsIntlEqualA(BOOL fCaseSens, PSTR pszString1, PSTR pszString2, int32 nChar);
@@ -20768,7 +20768,7 @@ public static
 	public static PSTR StrNCat(uint8* psz1, PSTR psz2, int32 cchMax) => StrNCatA(psz1, psz2, cchMax);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrNCatW(char8* psz1, PWSTR psz2, int32 cchMax);
+	public static extern PWSTR StrNCatW(char16* psz1, PWSTR psz2, int32 cchMax);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrPBrkA(PSTR psz, PSTR pszSet);
@@ -20782,14 +20782,14 @@ public static
 	public static PSTR StrRChr(PSTR pszStart, PSTR pszEnd, uint16 wMatch) => StrRChrA(pszStart, pszEnd, wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrRChrW(PWSTR pszStart, PWSTR pszEnd, char8 wMatch);
+	public static extern PWSTR StrRChrW(PWSTR pszStart, PWSTR pszEnd, char16 wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrRChrIA(PSTR pszStart, PSTR pszEnd, uint16 wMatch);
 	public static PSTR StrRChrI(PSTR pszStart, PSTR pszEnd, uint16 wMatch) => StrRChrIA(pszStart, pszEnd, wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrRChrIW(PWSTR pszStart, PWSTR pszEnd, char8 wMatch);
+	public static extern PWSTR StrRChrIW(PWSTR pszStart, PWSTR pszEnd, char16 wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrRStrIA(PSTR pszSource, PSTR pszLast, PSTR pszSrch);
@@ -20866,10 +20866,10 @@ public static
 	public static extern PWSTR StrCpyW(PWSTR psz1, PWSTR psz2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrCpyNW(char8* pszDst, PWSTR pszSrc, int32 cchMax);
+	public static extern PWSTR StrCpyNW(char16* pszDst, PWSTR pszSrc, int32 cchMax);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR StrCatBuffW(char8* pszDest, PWSTR pszSrc, int32 cchDestBuffSize);
+	public static extern PWSTR StrCatBuffW(char16* pszDest, PWSTR pszSrc, int32 cchDestBuffSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrCatBuffA(uint8* pszDest, PSTR pszSrc, int32 cchDestBuffSize);
@@ -20880,21 +20880,21 @@ public static
 	public static BOOL ChrCmpI(uint16 w1, uint16 w2) => ChrCmpIA(w1, w2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ChrCmpIW(char8 w1, char8 w2);
+	public static extern BOOL ChrCmpIW(char16 w1, char16 w2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 wvnsprintfA(uint8* pszDest, int32 cchDest, PSTR pszFmt, int8* arglist);
 	public static int32 wvnsprintf(uint8* pszDest, int32 cchDest, PSTR pszFmt, int8* arglist) => wvnsprintfA(pszDest, cchDest, pszFmt, arglist);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 wvnsprintfW(char8* pszDest, int32 cchDest, PWSTR pszFmt, int8* arglist);
+	public static extern int32 wvnsprintfW(char16* pszDest, int32 cchDest, PWSTR pszFmt, int8* arglist);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 wnsprintfA(uint8* pszDest, int32 cchDest, PSTR pszFmt);
 	public static int32 wnsprintf(uint8* pszDest, int32 cchDest, PSTR pszFmt) => wnsprintfA(pszDest, cchDest, pszFmt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 wnsprintfW(char8* pszDest, int32 cchDest, PWSTR pszFmt);
+	public static extern int32 wnsprintfW(char16* pszDest, int32 cchDest, PWSTR pszFmt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT StrRetToStrA(STRRET* pstr, ITEMIDLIST* pidl, PSTR* ppsz);
@@ -20908,7 +20908,7 @@ public static
 	public static HRESULT StrRetToBuf(STRRET* pstr, ITEMIDLIST* pidl, uint8* pszBuf, uint32 cchBuf) => StrRetToBufA(pstr, pidl, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StrRetToBufW(STRRET* pstr, ITEMIDLIST* pidl, char8* pszBuf, uint32 cchBuf);
+	public static extern HRESULT StrRetToBufW(STRRET* pstr, ITEMIDLIST* pidl, char16* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHStrDupA(PSTR psz, PWSTR* ppwsz);
@@ -20921,20 +20921,20 @@ public static
 	public static extern int32 StrCmpLogicalW(PWSTR psz1, PWSTR psz2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 StrCatChainW(char8* pszDst, uint32 cchDst, uint32 ichAt, PWSTR pszSrc);
+	public static extern uint32 StrCatChainW(char16* pszDst, uint32 cchDst, uint32 ichAt, PWSTR pszSrc);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT StrRetToBSTR(STRRET* pstr, ITEMIDLIST* pidl, BSTR* pbstr);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHLoadIndirectString(PWSTR pszSource, char8* pszOutBuf, uint32 cchOutBuf, void** ppvReserved);
+	public static extern HRESULT SHLoadIndirectString(PWSTR pszSource, char16* pszOutBuf, uint32 cchOutBuf, void** ppvReserved);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsCharSpaceA(CHAR wch);
 	public static BOOL IsCharSpace(CHAR wch) => IsCharSpaceA(wch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsCharSpaceW(char8 wch);
+	public static extern BOOL IsCharSpaceW(char16 wch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpCA(PSTR pszStr1, PSTR pszStr2);
@@ -20969,70 +20969,70 @@ public static
 	public static BOOL IntlStrEqWorker(BOOL fCaseSens, uint8* lpString1, uint8* lpString2, int32 nChar) => IntlStrEqWorkerA(fCaseSens, lpString1, lpString2, nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IntlStrEqWorkerW(BOOL fCaseSens, char8* lpString1, char8* lpString2, int32 nChar);
+	public static extern BOOL IntlStrEqWorkerW(BOOL fCaseSens, char16* lpString1, char16* lpString2, int32 nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathAddBackslashA(uint8* pszPath);
 	public static PSTR PathAddBackslash(uint8* pszPath) => PathAddBackslashA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR PathAddBackslashW(char8* pszPath);
+	public static extern PWSTR PathAddBackslashW(char16* pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathAddExtensionA(uint8* pszPath, PSTR pszExt);
 	public static BOOL PathAddExtension(uint8* pszPath, PSTR pszExt) => PathAddExtensionA(pszPath, pszExt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathAddExtensionW(char8* pszPath, PWSTR pszExt);
+	public static extern BOOL PathAddExtensionW(char16* pszPath, PWSTR pszExt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathAppendA(uint8* pszPath, PSTR pszMore);
 	public static BOOL PathAppend(uint8* pszPath, PSTR pszMore) => PathAppendA(pszPath, pszMore);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathAppendW(char8* pszPath, PWSTR pszMore);
+	public static extern BOOL PathAppendW(char16* pszPath, PWSTR pszMore);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathBuildRootA(uint8* pszRoot, int32 iDrive);
 	public static PSTR PathBuildRoot(uint8* pszRoot, int32 iDrive) => PathBuildRootA(pszRoot, iDrive);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR PathBuildRootW(char8* pszRoot, int32 iDrive);
+	public static extern PWSTR PathBuildRootW(char16* pszRoot, int32 iDrive);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathCanonicalizeA(uint8* pszBuf, PSTR pszPath);
 	public static BOOL PathCanonicalize(uint8* pszBuf, PSTR pszPath) => PathCanonicalizeA(pszBuf, pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathCanonicalizeW(char8* pszBuf, PWSTR pszPath);
+	public static extern BOOL PathCanonicalizeW(char16* pszBuf, PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathCombineA(uint8* pszDest, PSTR pszDir, PSTR pszFile);
 	public static PSTR PathCombine(uint8* pszDest, PSTR pszDir, PSTR pszFile) => PathCombineA(pszDest, pszDir, pszFile);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR PathCombineW(char8* pszDest, PWSTR pszDir, PWSTR pszFile);
+	public static extern PWSTR PathCombineW(char16* pszDest, PWSTR pszDir, PWSTR pszFile);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathCompactPathA(HDC hDC, uint8* pszPath, uint32 dx);
 	public static BOOL PathCompactPath(HDC hDC, uint8* pszPath, uint32 dx) => PathCompactPathA(hDC, pszPath, dx);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathCompactPathW(HDC hDC, char8* pszPath, uint32 dx);
+	public static extern BOOL PathCompactPathW(HDC hDC, char16* pszPath, uint32 dx);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathCompactPathExA(uint8* pszOut, PSTR pszSrc, uint32 cchMax, uint32 dwFlags);
 	public static BOOL PathCompactPathEx(uint8* pszOut, PSTR pszSrc, uint32 cchMax, uint32 dwFlags) => PathCompactPathExA(pszOut, pszSrc, cchMax, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathCompactPathExW(char8* pszOut, PWSTR pszSrc, uint32 cchMax, uint32 dwFlags);
+	public static extern BOOL PathCompactPathExW(char16* pszOut, PWSTR pszSrc, uint32 cchMax, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PathCommonPrefixA(PSTR pszFile1, PSTR pszFile2, uint8* achPath);
 	public static int32 PathCommonPrefix(PSTR pszFile1, PSTR pszFile2, uint8* achPath) => PathCommonPrefixA(pszFile1, pszFile2, achPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PathCommonPrefixW(PWSTR pszFile1, PWSTR pszFile2, char8* achPath);
+	public static extern int32 PathCommonPrefixW(PWSTR pszFile1, PWSTR pszFile2, char16* achPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathFileExistsA(PSTR pszPath);
@@ -21067,7 +21067,7 @@ public static
 	public static BOOL PathFindOnPath(uint8* pszPath, int8** ppszOtherDirs) => PathFindOnPathA(pszPath, ppszOtherDirs);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathFindOnPathW(char8* pszPath, uint16** ppszOtherDirs);
+	public static extern BOOL PathFindOnPathW(char16* pszPath, uint16** ppszOtherDirs);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathFindSuffixArrayA(PSTR pszPath, PSTR* apszSuffix, int32 iArraySize);
@@ -21095,7 +21095,7 @@ public static
 	public static uint32 PathGetCharType(uint8 ch) => PathGetCharTypeA(ch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PathGetCharTypeW(char8 ch);
+	public static extern uint32 PathGetCharTypeW(char16 ch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PathGetDriveNumberA(PSTR pszPath);
@@ -21228,14 +21228,14 @@ public static
 	public static BOOL PathQuoteSpaces(uint8* lpsz) => PathQuoteSpacesA(lpsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathQuoteSpacesW(char8* lpsz);
+	public static extern BOOL PathQuoteSpacesW(char16* lpsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathRelativePathToA(uint8* pszPath, PSTR pszFrom, uint32 dwAttrFrom, PSTR pszTo, uint32 dwAttrTo);
 	public static BOOL PathRelativePathTo(uint8* pszPath, PSTR pszFrom, uint32 dwAttrFrom, PSTR pszTo, uint32 dwAttrTo) => PathRelativePathToA(pszPath, pszFrom, dwAttrFrom, pszTo, dwAttrTo);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathRelativePathToW(char8* pszPath, PWSTR pszFrom, uint32 dwAttrFrom, PWSTR pszTo, uint32 dwAttrTo);
+	public static extern BOOL PathRelativePathToW(char16* pszPath, PWSTR pszFrom, uint32 dwAttrFrom, PWSTR pszTo, uint32 dwAttrTo);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathRemoveArgsA(PSTR pszPath);
@@ -21277,14 +21277,14 @@ public static
 	public static BOOL PathRenameExtension(uint8* pszPath, PSTR pszExt) => PathRenameExtensionA(pszPath, pszExt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathRenameExtensionW(char8* pszPath, PWSTR pszExt);
+	public static extern BOOL PathRenameExtensionW(char16* pszPath, PWSTR pszExt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathSearchAndQualifyA(PSTR pszPath, uint8* pszBuf, uint32 cchBuf);
 	public static BOOL PathSearchAndQualify(PSTR pszPath, uint8* pszBuf, uint32 cchBuf) => PathSearchAndQualifyA(pszPath, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathSearchAndQualifyW(PWSTR pszPath, char8* pszBuf, uint32 cchBuf);
+	public static extern BOOL PathSearchAndQualifyW(PWSTR pszPath, char16* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathSetDlgItemPathA(HWND hDlg, int32 id, PSTR pszPath);
@@ -21354,7 +21354,7 @@ public static
 	public static BOOL PathUnExpandEnvStrings(PSTR pszPath, uint8* pszBuf, uint32 cchBuf) => PathUnExpandEnvStringsA(pszPath, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathUnExpandEnvStringsW(PWSTR pszPath, char8* pszBuf, uint32 cchBuf);
+	public static extern BOOL PathUnExpandEnvStringsW(PWSTR pszPath, char16* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 UrlCompareA(PSTR psz1, PSTR psz2, BOOL fIgnoreSlash);
@@ -21368,14 +21368,14 @@ public static
 	public static HRESULT UrlCombine(PSTR pszBase, PSTR pszRelative, uint8* pszCombined, uint32* pcchCombined, uint32 dwFlags) => UrlCombineA(pszBase, pszRelative, pszCombined, pcchCombined, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlCombineW(PWSTR pszBase, PWSTR pszRelative, char8* pszCombined, uint32* pcchCombined, uint32 dwFlags);
+	public static extern HRESULT UrlCombineW(PWSTR pszBase, PWSTR pszRelative, char16* pszCombined, uint32* pcchCombined, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlCanonicalizeA(PSTR pszUrl, uint8* pszCanonicalized, uint32* pcchCanonicalized, uint32 dwFlags);
 	public static HRESULT UrlCanonicalize(PSTR pszUrl, uint8* pszCanonicalized, uint32* pcchCanonicalized, uint32 dwFlags) => UrlCanonicalizeA(pszUrl, pszCanonicalized, pcchCanonicalized, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlCanonicalizeW(PWSTR pszUrl, char8* pszCanonicalized, uint32* pcchCanonicalized, uint32 dwFlags);
+	public static extern HRESULT UrlCanonicalizeW(PWSTR pszUrl, char16* pszCanonicalized, uint32* pcchCanonicalized, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UrlIsOpaqueA(PSTR pszURL);
@@ -21410,28 +21410,28 @@ public static
 	public static HRESULT UrlUnescape(PSTR pszUrl, uint8* pszUnescaped, uint32* pcchUnescaped, uint32 dwFlags) => UrlUnescapeA(pszUrl, pszUnescaped, pcchUnescaped, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlUnescapeW(PWSTR pszUrl, char8* pszUnescaped, uint32* pcchUnescaped, uint32 dwFlags);
+	public static extern HRESULT UrlUnescapeW(PWSTR pszUrl, char16* pszUnescaped, uint32* pcchUnescaped, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlEscapeA(PSTR pszUrl, uint8* pszEscaped, uint32* pcchEscaped, uint32 dwFlags);
 	public static HRESULT UrlEscape(PSTR pszUrl, uint8* pszEscaped, uint32* pcchEscaped, uint32 dwFlags) => UrlEscapeA(pszUrl, pszEscaped, pcchEscaped, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlEscapeW(PWSTR pszUrl, char8* pszEscaped, uint32* pcchEscaped, uint32 dwFlags);
+	public static extern HRESULT UrlEscapeW(PWSTR pszUrl, char16* pszEscaped, uint32* pcchEscaped, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlCreateFromPathA(PSTR pszPath, uint8* pszUrl, uint32* pcchUrl, uint32 dwFlags);
 	public static HRESULT UrlCreateFromPath(PSTR pszPath, uint8* pszUrl, uint32* pcchUrl, uint32 dwFlags) => UrlCreateFromPathA(pszPath, pszUrl, pcchUrl, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlCreateFromPathW(PWSTR pszPath, char8* pszUrl, uint32* pcchUrl, uint32 dwFlags);
+	public static extern HRESULT UrlCreateFromPathW(PWSTR pszPath, char16* pszUrl, uint32* pcchUrl, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCreateFromUrlA(PSTR pszUrl, uint8* pszPath, uint32* pcchPath, uint32 dwFlags);
 	public static HRESULT PathCreateFromUrl(PSTR pszUrl, uint8* pszPath, uint32* pcchPath, uint32 dwFlags) => PathCreateFromUrlA(pszUrl, pszPath, pcchPath, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCreateFromUrlW(PWSTR pszUrl, char8* pszPath, uint32* pcchPath, uint32 dwFlags);
+	public static extern HRESULT PathCreateFromUrlW(PWSTR pszUrl, char16* pszPath, uint32* pcchPath, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCreateFromUrlAlloc(PWSTR pszIn, PWSTR* ppszOut, uint32 dwFlags);
@@ -21444,7 +21444,7 @@ public static
 	public static extern HRESULT UrlHashW(PWSTR pszUrl, uint8* pbHash, uint32 cbHash);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlGetPartW(PWSTR pszIn, char8* pszOut, uint32* pcchOut, uint32 dwPart, uint32 dwFlags);
+	public static extern HRESULT UrlGetPartW(PWSTR pszIn, char16* pszOut, uint32* pcchOut, uint32 dwPart, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlGetPartA(PSTR pszIn, uint8* pszOut, uint32* pcchOut, uint32 dwPart, uint32 dwFlags);
@@ -21455,13 +21455,13 @@ public static
 	public static HRESULT UrlApplyScheme(PSTR pszIn, uint8* pszOut, uint32* pcchOut, uint32 dwFlags) => UrlApplySchemeA(pszIn, pszOut, pcchOut, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlApplySchemeW(PWSTR pszIn, char8* pszOut, uint32* pcchOut, uint32 dwFlags);
+	public static extern HRESULT UrlApplySchemeW(PWSTR pszIn, char16* pszOut, uint32* pcchOut, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HashData(uint8* pbData, uint32 cbData, uint8* pbHash, uint32 cbHash);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlFixupW(PWSTR pcszUrl, char8* pszTranslatedUrl, uint32 cchMax);
+	public static extern HRESULT UrlFixupW(PWSTR pcszUrl, char16* pszTranslatedUrl, uint32 cchMax);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ParseURLA(PSTR pcszURL, PARSEDURLA* ppu);
@@ -21530,14 +21530,14 @@ public static
 	public static LSTATUS SHEnumKeyEx(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32* pcchName) => SHEnumKeyExA(hkey, dwIndex, pszName, pcchName);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHEnumKeyExW(HKEY hkey, uint32 dwIndex, char8* pszName, uint32* pcchName);
+	public static extern LSTATUS SHEnumKeyExW(HKEY hkey, uint32 dwIndex, char16* pszName, uint32* pcchName);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHEnumValueA(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
 	public static LSTATUS SHEnumValue(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData) => SHEnumValueA(hkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHEnumValueW(HKEY hkey, uint32 dwIndex, char8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern LSTATUS SHEnumValueW(HKEY hkey, uint32 dwIndex, char16* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHQueryInfoKeyA(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen);
@@ -21558,7 +21558,7 @@ public static
 	public static LSTATUS SHRegGetPath(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, uint8* pszPath, uint32 dwFlags) => SHRegGetPathA(hKey, pcszSubKey, pcszValue, pszPath, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetPathW(HKEY hKey, PWSTR pcszSubKey, PWSTR pcszValue, char8* pszPath, uint32 dwFlags);
+	public static extern LSTATUS SHRegGetPathW(HKEY hKey, PWSTR pcszSubKey, PWSTR pcszValue, char16* pszPath, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegSetPathA(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, PSTR pcszPath, uint32 dwFlags);
@@ -21614,14 +21614,14 @@ public static
 	public static LSTATUS SHRegEnumUSKey(int hUSKey, uint32 dwIndex, uint8* pszName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSKeyA(hUSKey, dwIndex, pszName, pcchName, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegEnumUSKeyW(int hUSKey, uint32 dwIndex, char8* pwzName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags);
+	public static extern LSTATUS SHRegEnumUSKeyW(int hUSKey, uint32 dwIndex, char16* pwzName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegEnumUSValueA(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
 	public static LSTATUS SHRegEnumUSValue(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSValueA(hUSkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegEnumUSValueW(int hUSkey, uint32 dwIndex, char8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
+	public static extern LSTATUS SHRegEnumUSValueW(int hUSkey, uint32 dwIndex, char16* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegQueryInfoUSKeyA(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
@@ -21665,14 +21665,14 @@ public static
 	public static HRESULT AssocQueryString(uint32 flags, ASSOCSTR str, PSTR pszAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut) => AssocQueryStringA(flags, str, pszAssoc, pszExtra, pszOut, pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocQueryStringW(uint32 flags, ASSOCSTR str, PWSTR pszAssoc, PWSTR pszExtra, char8* pszOut, uint32* pcchOut);
+	public static extern HRESULT AssocQueryStringW(uint32 flags, ASSOCSTR str, PWSTR pszAssoc, PWSTR pszExtra, char16* pszOut, uint32* pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AssocQueryStringByKeyA(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut);
 	public static HRESULT AssocQueryStringByKey(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut) => AssocQueryStringByKeyA(flags, str, hkAssoc, pszExtra, pszOut, pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocQueryStringByKeyW(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PWSTR pszExtra, char8* pszOut, uint32* pcchOut);
+	public static extern HRESULT AssocQueryStringByKeyW(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PWSTR pszExtra, char16* pszOut, uint32* pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AssocQueryKeyA(uint32 flags, ASSOCKEY key, PSTR pszAssoc, PSTR pszExtra, HKEY* phkeyOut);
@@ -21719,7 +21719,7 @@ public static
 	public static HRESULT GetAcceptLanguages(uint8* pszLanguages, uint32* pcchLanguages) => GetAcceptLanguagesA(pszLanguages, pcchLanguages);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetAcceptLanguagesW(char8* pszLanguages, uint32* pcchLanguages);
+	public static extern HRESULT GetAcceptLanguagesW(char16* pszLanguages, uint32* pcchLanguages);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void IUnknown_Set(IUnknown** ppunk, IUnknown* punk);
@@ -21777,10 +21777,10 @@ public static
 	public static int32 SHFormatDateTime(FILETIME* pft, uint32* pdwFlags, uint8* pszBuf, uint32 cchBuf) => SHFormatDateTimeA(pft, pdwFlags, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHFormatDateTimeW(FILETIME* pft, uint32* pdwFlags, char8* pszBuf, uint32 cchBuf);
+	public static extern int32 SHFormatDateTimeW(FILETIME* pft, uint32* pdwFlags, char16* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHAnsiToUnicode(PSTR pszSrc, char8* pwszDst, int32 cwchBuf);
+	public static extern int32 SHAnsiToUnicode(PSTR pszSrc, char16* pwszDst, int32 cwchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHAnsiToAnsi(PSTR pszSrc, uint8* pszDst, int32 cchBuf);
@@ -21789,7 +21789,7 @@ public static
 	public static extern int32 SHUnicodeToAnsi(PWSTR pwszSrc, uint8* pszDst, int32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHUnicodeToUnicode(PWSTR pwzSrc, char8* pwzDst, int32 cwchBuf);
+	public static extern int32 SHUnicodeToUnicode(PWSTR pwzSrc, char16* pwzDst, int32 cwchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHMessageBoxCheckA(HWND hwnd, PSTR pszText, PSTR pszCaption, uint32 uType, int32 iDefault, PSTR pszRegVal);
@@ -21810,7 +21810,7 @@ public static
 	public static CHAR SHStripMneumonic(PSTR pszMenu) => SHStripMneumonicA(pszMenu);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern char8 SHStripMneumonicW(PWSTR pszMenu);
+	public static extern char16 SHStripMneumonicW(PWSTR pszMenu);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsOS(OS dwOS);
@@ -21981,16 +21981,16 @@ public static
 	public static extern BOOL PathCchIsRoot(PWSTR pszPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchAddBackslashEx(char8* pszPath, uint cchPath, PWSTR* ppszEnd, uint* pcchRemaining);
+	public static extern HRESULT PathCchAddBackslashEx(char16* pszPath, uint cchPath, PWSTR* ppszEnd, uint* pcchRemaining);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchAddBackslash(char8* pszPath, uint cchPath);
+	public static extern HRESULT PathCchAddBackslash(char16* pszPath, uint cchPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCchRemoveBackslashEx(PWSTR pszPath, uint cchPath, PWSTR* ppszEnd, uint* pcchRemaining);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchRemoveBackslash(char8* pszPath, uint cchPath);
+	public static extern HRESULT PathCchRemoveBackslash(char16* pszPath, uint cchPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCchSkipRoot(PWSTR pszPath, PWSTR* ppszRootEnd);
@@ -22005,34 +22005,34 @@ public static
 	public static extern HRESULT PathCchFindExtension(PWSTR pszPath, uint cchPath, PWSTR* ppszExt);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchAddExtension(char8* pszPath, uint cchPath, PWSTR pszExt);
+	public static extern HRESULT PathCchAddExtension(char16* pszPath, uint cchPath, PWSTR pszExt);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchRenameExtension(char8* pszPath, uint cchPath, PWSTR pszExt);
+	public static extern HRESULT PathCchRenameExtension(char16* pszPath, uint cchPath, PWSTR pszExt);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCchRemoveExtension(PWSTR pszPath, uint cchPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchCanonicalizeEx(char8* pszPathOut, uint cchPathOut, PWSTR pszPathIn, uint32 dwFlags);
+	public static extern HRESULT PathCchCanonicalizeEx(char16* pszPathOut, uint cchPathOut, PWSTR pszPathIn, uint32 dwFlags);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchCanonicalize(char8* pszPathOut, uint cchPathOut, PWSTR pszPathIn);
+	public static extern HRESULT PathCchCanonicalize(char16* pszPathOut, uint cchPathOut, PWSTR pszPathIn);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchCombineEx(char8* pszPathOut, uint cchPathOut, PWSTR pszPathIn, PWSTR pszMore, uint32 dwFlags);
+	public static extern HRESULT PathCchCombineEx(char16* pszPathOut, uint cchPathOut, PWSTR pszPathIn, PWSTR pszMore, uint32 dwFlags);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchCombine(char8* pszPathOut, uint cchPathOut, PWSTR pszPathIn, PWSTR pszMore);
+	public static extern HRESULT PathCchCombine(char16* pszPathOut, uint cchPathOut, PWSTR pszPathIn, PWSTR pszMore);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchAppendEx(char8* pszPath, uint cchPath, PWSTR pszMore, uint32 dwFlags);
+	public static extern HRESULT PathCchAppendEx(char16* pszPath, uint cchPath, PWSTR pszMore, uint32 dwFlags);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchAppend(char8* pszPath, uint cchPath, PWSTR pszMore);
+	public static extern HRESULT PathCchAppend(char16* pszPath, uint cchPath, PWSTR pszMore);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchStripPrefix(char8* pszPath, uint cchPath);
+	public static extern HRESULT PathCchStripPrefix(char16* pszPath, uint cchPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathAllocCombine(PWSTR pszPathIn, PWSTR pszMore, uint32 dwFlags, PWSTR* ppszPathOut);

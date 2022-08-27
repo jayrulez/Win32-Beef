@@ -11996,15 +11996,15 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, PROPSPEC* pSpec, PROPVARIANT* pVar) AddRequestParameter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char8* wszDocFormat, uint32 dwSize, uint32* pdwLength) GetDocFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char16* wszDocFormat, uint32 dwSize, uint32* pdwLength) GetDocFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, Guid* pClsid) GetCLSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char8* wszHost, uint32 dwSize, uint32* pdwLength) GetHost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char16* wszHost, uint32 dwSize, uint32* pdwLength) GetHost;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self) IsDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, uint64* pllSize) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, FILETIME* pftLastModified) GetLastModified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char8* wszFileName, uint32 dwSize, uint32* pdwLength) GetFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char16* wszFileName, uint32 dwSize, uint32* pdwLength) GetFileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, uint8* pSD, uint32 dwSize, uint32* pdwLength) GetSecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char8* wszRedirectedURL, uint32 dwSize, uint32* pdwLength) GetRedirectedURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char16* wszRedirectedURL, uint32 dwSize, uint32* pdwLength) GetRedirectedURL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, Guid* pSPClsid) GetSecurityProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, IStream** ppStream) BindToStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, IFilter** ppFilter) BindToFilter;
@@ -12013,11 +12013,11 @@ public static
 
 	public HRESULT AddRequestParameter(PROPSPEC* pSpec, PROPVARIANT* pVar) mut => VT.[Friend]AddRequestParameter(&this, pSpec, pVar);
 
-	public HRESULT GetDocFormat(char8* wszDocFormat, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetDocFormat(&this, wszDocFormat, dwSize, pdwLength);
+	public HRESULT GetDocFormat(char16* wszDocFormat, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetDocFormat(&this, wszDocFormat, dwSize, pdwLength);
 
 	public HRESULT GetCLSID(Guid* pClsid) mut => VT.[Friend]GetCLSID(&this, pClsid);
 
-	public HRESULT GetHost(char8* wszHost, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetHost(&this, wszHost, dwSize, pdwLength);
+	public HRESULT GetHost(char16* wszHost, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetHost(&this, wszHost, dwSize, pdwLength);
 
 	public HRESULT IsDirectory() mut => VT.[Friend]IsDirectory(&this);
 
@@ -12025,11 +12025,11 @@ public static
 
 	public HRESULT GetLastModified(FILETIME* pftLastModified) mut => VT.[Friend]GetLastModified(&this, pftLastModified);
 
-	public HRESULT GetFileName(char8* wszFileName, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetFileName(&this, wszFileName, dwSize, pdwLength);
+	public HRESULT GetFileName(char16* wszFileName, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetFileName(&this, wszFileName, dwSize, pdwLength);
 
 	public HRESULT GetSecurityDescriptor(uint8* pSD, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetSecurityDescriptor(&this, pSD, dwSize, pdwLength);
 
-	public HRESULT GetRedirectedURL(char8* wszRedirectedURL, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetRedirectedURL(&this, wszRedirectedURL, dwSize, pdwLength);
+	public HRESULT GetRedirectedURL(char16* wszRedirectedURL, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetRedirectedURL(&this, wszRedirectedURL, dwSize, pdwLength);
 
 	public HRESULT GetSecurityProvider(Guid* pSPClsid) mut => VT.[Friend]GetSecurityProvider(&this, pSPClsid);
 
@@ -12046,17 +12046,17 @@ public static
 
 	[CRepr]public struct VTable : IUrlAccessor.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor2*/SelfOuter* self, char8* wszDocUrl, uint32 dwSize, uint32* pdwLength) GetDisplayUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor2*/SelfOuter* self, char16* wszDocUrl, uint32 dwSize, uint32* pdwLength) GetDisplayUrl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor2*/SelfOuter* self) IsDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor2*/SelfOuter* self, char8* wszCodePage, uint32 dwSize, uint32* pdwLength) GetCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor2*/SelfOuter* self, char16* wszCodePage, uint32 dwSize, uint32* pdwLength) GetCodePage;
 	}
 
 
-	public HRESULT GetDisplayUrl(char8* wszDocUrl, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetDisplayUrl(&this, wszDocUrl, dwSize, pdwLength);
+	public HRESULT GetDisplayUrl(char16* wszDocUrl, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetDisplayUrl(&this, wszDocUrl, dwSize, pdwLength);
 
 	public HRESULT IsDocument() mut => VT.[Friend]IsDocument(&this);
 
-	public HRESULT GetCodePage(char8* wszCodePage, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetCodePage(&this, wszCodePage, dwSize, pdwLength);
+	public HRESULT GetCodePage(char16* wszCodePage, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetCodePage(&this, wszCodePage, dwSize, pdwLength);
 }
 
 [CRepr]struct IUrlAccessor3 : IUrlAccessor2
@@ -12794,7 +12794,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, BOOL* pfDiacriticSensitive) GetDiacriticSensitivity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, uint32 lcid, Guid* riid, void** ppWordBreaker, uint32* pLcidUsed) LoadWordBreaker;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, uint32 lcid, Guid* riid, void** ppStemmer, uint32* pLcidUsed) LoadStemmer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, char8* pwcsQueryToken, uint32 cwcQueryToken, char8* pwcsDocumentToken, uint32 cwcDocumentToken, uint32* pulPrefixLength) IsPrefixNormalized;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, char16* pwcsQueryToken, uint32 cwcQueryToken, char16* pwcsDocumentToken, uint32 cwcDocumentToken, uint32* pulPrefixLength) IsPrefixNormalized;
 	}
 
 
@@ -12806,7 +12806,7 @@ public static
 
 	public HRESULT LoadStemmer(uint32 lcid, Guid* riid, void** ppStemmer, uint32* pLcidUsed) mut => VT.[Friend]LoadStemmer(&this, lcid, riid, ppStemmer, pLcidUsed);
 
-	public HRESULT IsPrefixNormalized(char8* pwcsQueryToken, uint32 cwcQueryToken, char8* pwcsDocumentToken, uint32 cwcDocumentToken, uint32* pulPrefixLength) mut => VT.[Friend]IsPrefixNormalized(&this, pwcsQueryToken, cwcQueryToken, pwcsDocumentToken, cwcDocumentToken, pulPrefixLength);
+	public HRESULT IsPrefixNormalized(char16* pwcsQueryToken, uint32 cwcQueryToken, char16* pwcsDocumentToken, uint32 cwcDocumentToken, uint32* pulPrefixLength) mut => VT.[Friend]IsPrefixNormalized(&this, pwcsQueryToken, cwcQueryToken, pwcsDocumentToken, cwcDocumentToken, pulPrefixLength);
 }
 
 [CRepr]struct IEnumItemProperties : IUnknown

@@ -2028,7 +2028,7 @@ public struct HSE_URL_MAPEX_INFO
 [CRepr]
 public struct HSE_UNICODE_URL_MAPEX_INFO
 {
-	public char8[260] lpszPath;
+	public char16[260] lpszPath;
 	public uint32 dwFlags;
 	public uint32 cchMatchingPath;
 	public uint32 cchMatchingURL;
@@ -2593,7 +2593,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath) AddKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath) DeleteKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath) DeleteChildKeys;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, char8* pszMDName, uint32 dwMDEnumObjectIndex) EnumKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, char16* pszMDName, uint32 dwMDEnumObjectIndex) EnumKeys;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDSourceHandle, PWSTR pszMDSourcePath, uint32 hMDDestHandle, PWSTR pszMDDestPath, BOOL bMDOverwriteFlag, BOOL bMDCopyFlag) CopyKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, PWSTR pszMDNewName) RenameKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, METADATA_RECORD* pmdrMDData) SetData;
@@ -2603,7 +2603,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAttributes, uint32 dwMDUserType, uint32 dwMDDataType, uint32* pdwMDNumDataEntries, uint32* pdwMDDataSetNumber, uint32 dwMDBufferSize, uint8* pbMDBuffer, uint32* pdwMDRequiredBufferSize) GetAllData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDUserType, uint32 dwMDDataType) DeleteAllData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDSourceHandle, PWSTR pszMDSourcePath, uint32 hMDDestHandle, PWSTR pszMDDestPath, uint32 dwMDAttributes, uint32 dwMDUserType, uint32 dwMDDataType, BOOL bMDCopyFlag) CopyData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDIdentifier, uint32 dwMDDataType, uint32 dwMDBufferSize, char8* pszBuffer, uint32* pdwMDRequiredBufferSize) GetDataPaths;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDIdentifier, uint32 dwMDDataType, uint32 dwMDBufferSize, char16* pszBuffer, uint32* pdwMDRequiredBufferSize) GetDataPaths;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAccessRequested, uint32 dwMDTimeOut, uint32* phMDNewHandle) OpenKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle) CloseKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, uint32 hMDHandle, uint32 dwMDTimeOut, uint32 dwMDAccessRequested) ChangePermissions;
@@ -2617,7 +2617,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self) KeyExchangePhase2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, PWSTR pszMDBackupLocation, uint32 dwMDVersion, uint32 dwMDFlags) Backup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, PWSTR pszMDBackupLocation, uint32 dwMDVersion, uint32 dwMDFlags) Restore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, char8* pszMDBackupLocation, uint32* pdwMDVersion, FILETIME* pftMDBackupTime, uint32 dwMDEnumIndex) EnumBackups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, char16* pszMDBackupLocation, uint32* pdwMDVersion, FILETIME* pftMDBackupTime, uint32 dwMDEnumIndex) EnumBackups;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, PWSTR pszMDBackupLocation, uint32 dwMDVersion) DeleteBackup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self, IMSAdminBaseW** piadmbwInterface) UnmarshalInterface;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBaseW*/SelfOuter* self) GetServerGuid;
@@ -2630,7 +2630,7 @@ public static
 
 	public HRESULT DeleteChildKeys(uint32 hMDHandle, PWSTR pszMDPath) mut => VT.[Friend]DeleteChildKeys(&this, hMDHandle, pszMDPath);
 
-	public HRESULT EnumKeys(uint32 hMDHandle, PWSTR pszMDPath, char8* pszMDName, uint32 dwMDEnumObjectIndex) mut => VT.[Friend]EnumKeys(&this, hMDHandle, pszMDPath, pszMDName, dwMDEnumObjectIndex);
+	public HRESULT EnumKeys(uint32 hMDHandle, PWSTR pszMDPath, char16* pszMDName, uint32 dwMDEnumObjectIndex) mut => VT.[Friend]EnumKeys(&this, hMDHandle, pszMDPath, pszMDName, dwMDEnumObjectIndex);
 
 	public HRESULT CopyKey(uint32 hMDSourceHandle, PWSTR pszMDSourcePath, uint32 hMDDestHandle, PWSTR pszMDDestPath, BOOL bMDOverwriteFlag, BOOL bMDCopyFlag) mut => VT.[Friend]CopyKey(&this, hMDSourceHandle, pszMDSourcePath, hMDDestHandle, pszMDDestPath, bMDOverwriteFlag, bMDCopyFlag);
 
@@ -2650,7 +2650,7 @@ public static
 
 	public HRESULT CopyData(uint32 hMDSourceHandle, PWSTR pszMDSourcePath, uint32 hMDDestHandle, PWSTR pszMDDestPath, uint32 dwMDAttributes, uint32 dwMDUserType, uint32 dwMDDataType, BOOL bMDCopyFlag) mut => VT.[Friend]CopyData(&this, hMDSourceHandle, pszMDSourcePath, hMDDestHandle, pszMDDestPath, dwMDAttributes, dwMDUserType, dwMDDataType, bMDCopyFlag);
 
-	public HRESULT GetDataPaths(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDIdentifier, uint32 dwMDDataType, uint32 dwMDBufferSize, char8* pszBuffer, uint32* pdwMDRequiredBufferSize) mut => VT.[Friend]GetDataPaths(&this, hMDHandle, pszMDPath, dwMDIdentifier, dwMDDataType, dwMDBufferSize, pszBuffer, pdwMDRequiredBufferSize);
+	public HRESULT GetDataPaths(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDIdentifier, uint32 dwMDDataType, uint32 dwMDBufferSize, char16* pszBuffer, uint32* pdwMDRequiredBufferSize) mut => VT.[Friend]GetDataPaths(&this, hMDHandle, pszMDPath, dwMDIdentifier, dwMDDataType, dwMDBufferSize, pszBuffer, pdwMDRequiredBufferSize);
 
 	public HRESULT OpenKey(uint32 hMDHandle, PWSTR pszMDPath, uint32 dwMDAccessRequested, uint32 dwMDTimeOut, uint32* phMDNewHandle) mut => VT.[Friend]OpenKey(&this, hMDHandle, pszMDPath, dwMDAccessRequested, dwMDTimeOut, phMDNewHandle);
 
@@ -2678,7 +2678,7 @@ public static
 
 	public HRESULT Restore(PWSTR pszMDBackupLocation, uint32 dwMDVersion, uint32 dwMDFlags) mut => VT.[Friend]Restore(&this, pszMDBackupLocation, dwMDVersion, dwMDFlags);
 
-	public HRESULT EnumBackups(char8* pszMDBackupLocation, uint32* pdwMDVersion, FILETIME* pftMDBackupTime, uint32 dwMDEnumIndex) mut => VT.[Friend]EnumBackups(&this, pszMDBackupLocation, pdwMDVersion, pftMDBackupTime, dwMDEnumIndex);
+	public HRESULT EnumBackups(char16* pszMDBackupLocation, uint32* pdwMDVersion, FILETIME* pftMDBackupTime, uint32 dwMDEnumIndex) mut => VT.[Friend]EnumBackups(&this, pszMDBackupLocation, pdwMDVersion, pftMDBackupTime, dwMDEnumIndex);
 
 	public HRESULT DeleteBackup(PWSTR pszMDBackupLocation, uint32 dwMDVersion) mut => VT.[Friend]DeleteBackup(&this, pszMDBackupLocation, dwMDVersion);
 
@@ -2700,7 +2700,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase2W*/SelfOuter* self, PWSTR pszPasswd, PWSTR pszFileName, PWSTR pszSourcePath, uint32 dwMDFlags) Export;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase2W*/SelfOuter* self, PWSTR pszPasswd, PWSTR pszFileName, PWSTR pszSourcePath, PWSTR pszDestPath, uint32 dwMDFlags) Import;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase2W*/SelfOuter* self, PWSTR pszMDHistoryLocation, uint32 dwMDMajorVersion, uint32 dwMDMinorVersion, uint32 dwMDFlags) RestoreHistory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase2W*/SelfOuter* self, char8* pszMDHistoryLocation, uint32* pdwMDMajorVersion, uint32* pdwMDMinorVersion, FILETIME* pftMDHistoryTime, uint32 dwMDEnumIndex) EnumHistory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase2W*/SelfOuter* self, char16* pszMDHistoryLocation, uint32* pdwMDMajorVersion, uint32* pdwMDMinorVersion, FILETIME* pftMDHistoryTime, uint32 dwMDEnumIndex) EnumHistory;
 	}
 
 
@@ -2714,7 +2714,7 @@ public static
 
 	public HRESULT RestoreHistory(PWSTR pszMDHistoryLocation, uint32 dwMDMajorVersion, uint32 dwMDMinorVersion, uint32 dwMDFlags) mut => VT.[Friend]RestoreHistory(&this, pszMDHistoryLocation, dwMDMajorVersion, dwMDMinorVersion, dwMDFlags);
 
-	public HRESULT EnumHistory(char8* pszMDHistoryLocation, uint32* pdwMDMajorVersion, uint32* pdwMDMinorVersion, FILETIME* pftMDHistoryTime, uint32 dwMDEnumIndex) mut => VT.[Friend]EnumHistory(&this, pszMDHistoryLocation, pdwMDMajorVersion, pdwMDMinorVersion, pftMDHistoryTime, dwMDEnumIndex);
+	public HRESULT EnumHistory(char16* pszMDHistoryLocation, uint32* pdwMDMajorVersion, uint32* pdwMDMinorVersion, FILETIME* pftMDHistoryTime, uint32 dwMDEnumIndex) mut => VT.[Friend]EnumHistory(&this, pszMDHistoryLocation, pdwMDMajorVersion, pdwMDMinorVersion, pftMDHistoryTime, dwMDEnumIndex);
 }
 
 [CRepr]struct IMSAdminBase3W : IMSAdminBase2W
@@ -2725,11 +2725,11 @@ public static
 
 	[CRepr]public struct VTable : IMSAdminBase2W.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase3W*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 cchMDBufferSize, char8* pszBuffer, uint32* pcchMDRequiredBufferSize) GetChildPaths;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSAdminBase3W*/SelfOuter* self, uint32 hMDHandle, PWSTR pszMDPath, uint32 cchMDBufferSize, char16* pszBuffer, uint32* pcchMDRequiredBufferSize) GetChildPaths;
 	}
 
 
-	public HRESULT GetChildPaths(uint32 hMDHandle, PWSTR pszMDPath, uint32 cchMDBufferSize, char8* pszBuffer, uint32* pcchMDRequiredBufferSize) mut => VT.[Friend]GetChildPaths(&this, hMDHandle, pszMDPath, cchMDBufferSize, pszBuffer, pcchMDRequiredBufferSize);
+	public HRESULT GetChildPaths(uint32 hMDHandle, PWSTR pszMDPath, uint32 cchMDBufferSize, char16* pszBuffer, uint32* pcchMDRequiredBufferSize) mut => VT.[Friend]GetChildPaths(&this, hMDHandle, pszMDPath, cchMDBufferSize, pszBuffer, pcchMDRequiredBufferSize);
 }
 
 [CRepr]struct IMSImpExpHelpW : IUnknown
@@ -2740,11 +2740,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSImpExpHelpW*/SelfOuter* self, PWSTR pszFileName, PWSTR pszKeyType, uint32 dwMDBufferSize, char8* pszBuffer, uint32* pdwMDRequiredBufferSize) EnumeratePathsInFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSImpExpHelpW*/SelfOuter* self, PWSTR pszFileName, PWSTR pszKeyType, uint32 dwMDBufferSize, char16* pszBuffer, uint32* pdwMDRequiredBufferSize) EnumeratePathsInFile;
 	}
 
 
-	public HRESULT EnumeratePathsInFile(PWSTR pszFileName, PWSTR pszKeyType, uint32 dwMDBufferSize, char8* pszBuffer, uint32* pdwMDRequiredBufferSize) mut => VT.[Friend]EnumeratePathsInFile(&this, pszFileName, pszKeyType, dwMDBufferSize, pszBuffer, pdwMDRequiredBufferSize);
+	public HRESULT EnumeratePathsInFile(PWSTR pszFileName, PWSTR pszKeyType, uint32 dwMDBufferSize, char16* pszBuffer, uint32* pdwMDRequiredBufferSize) mut => VT.[Friend]EnumeratePathsInFile(&this, pszFileName, pszKeyType, dwMDBufferSize, pszBuffer, pdwMDRequiredBufferSize);
 }
 
 [CRepr]struct IMSAdminBaseSinkW : IUnknown

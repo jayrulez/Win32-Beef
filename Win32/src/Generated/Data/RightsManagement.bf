@@ -280,9 +280,9 @@ public struct DRM_CLIENT_VERSION_INFO
 {
 	public uint32 uStructVersion;
 	public uint32[4] dwVersion;
-	public char8[256] wszHierarchy;
-	public char8[256] wszProductId;
-	public char8[256] wszProductDescription;
+	public char16[256] wszHierarchy;
+	public char16[256] wszProductId;
+	public char16[256] wszProductDescription;
 }
 
 #endregion
@@ -351,7 +351,7 @@ public static
 	public static extern HRESULT DRMCreateEnablingBitsEncryptor(uint32 hBoundLicense, PWSTR wszRight, uint32 hAuxLib, PWSTR wszAuxPlug, uint32* phEncryptor);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMAttest(uint32 hEnablingPrincipal, PWSTR wszData, DRMATTESTTYPE eType, uint32* pcAttestedBlob, char8* wszAttestedBlob);
+	public static extern HRESULT DRMAttest(uint32 hEnablingPrincipal, PWSTR wszData, DRMATTESTTYPE eType, uint32* pcAttestedBlob, char16* wszAttestedBlob);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DRMGetTime(uint32 hEnv, DRMTIMETYPE eTimerIdType, SYSTEMTIME* poTimeObject);
@@ -387,7 +387,7 @@ public static
 	public static extern HRESULT DRMActivate(uint32 hClient, uint32 uFlags, uint32 uLangID, DRM_ACTSERV_INFO* pActServInfo, void* pvContext, HWND hParentWnd);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetServiceLocation(uint32 hClient, uint32 uServiceType, uint32 uServiceLocation, PWSTR wszIssuanceLicense, uint32* puServiceURLLength, char8* wszServiceURL);
+	public static extern HRESULT DRMGetServiceLocation(uint32 hClient, uint32 uServiceType, uint32 uServiceLocation, PWSTR wszIssuanceLicense, uint32* puServiceURLLength, char16* wszServiceURL);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DRMCreateLicenseStorageSession(uint32 hEnv, uint32 hDefaultLibrary, uint32 hClient, uint32 uFlags, PWSTR wszIssuanceLicense, uint32* phLicenseStorage);
@@ -399,7 +399,7 @@ public static
 	public static extern HRESULT DRMAcquireAdvisories(uint32 hLicenseStorage, PWSTR wszLicense, PWSTR wszURL, void* pvContext);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMEnumerateLicense(uint32 hSession, uint32 uFlags, uint32 uIndex, BOOL* pfSharedFlag, uint32* puCertificateDataLen, char8* wszCertificateData);
+	public static extern HRESULT DRMEnumerateLicense(uint32 hSession, uint32 uFlags, uint32 uIndex, BOOL* pfSharedFlag, uint32* puCertificateDataLen, char16* wszCertificateData);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DRMAcquireLicense(uint32 hSession, uint32 uFlags, PWSTR wszGroupIdentityCredential, PWSTR wszRequestedRights, PWSTR wszCustomData, PWSTR wszURL, void* pvContext);
@@ -414,16 +414,16 @@ public static
 	public static extern HRESULT DRMDuplicateSession(uint32 hSessionIn, uint32* phSessionOut);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetSecurityProvider(uint32 uFlags, uint32* puTypeLen, char8* wszType, uint32* puPathLen, char8* wszPath);
+	public static extern HRESULT DRMGetSecurityProvider(uint32 uFlags, uint32* puTypeLen, char16* wszType, uint32* puPathLen, char16* wszPath);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMEncode(PWSTR wszAlgID, uint32 uDataLen, uint8* pbDecodedData, uint32* puEncodedStringLen, char8* wszEncodedString);
+	public static extern HRESULT DRMEncode(PWSTR wszAlgID, uint32 uDataLen, uint8* pbDecodedData, uint32* puEncodedStringLen, char16* wszEncodedString);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DRMDecode(PWSTR wszAlgID, PWSTR wszEncodedString, uint32* puDecodedDataLen, uint8* pbDecodedData);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMConstructCertificateChain(uint32 cCertificates, PWSTR* rgwszCertificates, uint32* pcChain, char8* wszChain);
+	public static extern HRESULT DRMConstructCertificateChain(uint32 cCertificates, PWSTR* rgwszCertificates, uint32* pcChain, char16* wszChain);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DRMParseUnboundLicense(PWSTR wszCertificate, uint32* phQueryRoot);
@@ -447,10 +447,10 @@ public static
 	public static extern HRESULT DRMGetCertificateChainCount(PWSTR wszChain, uint32* pcCertCount);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMDeconstructCertificateChain(PWSTR wszChain, uint32 iWhich, uint32* pcCert, char8* wszCert);
+	public static extern HRESULT DRMDeconstructCertificateChain(PWSTR wszChain, uint32 iWhich, uint32* pcCert, char16* wszCert);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMVerify(PWSTR wszData, uint32* pcAttestedData, char8* wszAttestedData, DRMATTESTTYPE* peType, uint32* pcPrincipal, char8* wszPrincipal, uint32* pcManifest, char8* wszManifest);
+	public static extern HRESULT DRMVerify(PWSTR wszData, uint32* pcAttestedData, char16* wszAttestedData, DRMATTESTTYPE* peType, uint32* pcPrincipal, char16* wszPrincipal, uint32* pcManifest, char16* wszManifest);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DRMCreateUser(PWSTR wszUserName, PWSTR wszUserId, PWSTR wszUserIdType, uint32* phUser);
@@ -486,7 +486,7 @@ public static
 	public static extern HRESULT DRMSetIntervalTime(uint32 hIssuanceLicense, uint32 cDays);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetIssuanceLicenseTemplate(uint32 hIssuanceLicense, uint32* puIssuanceLicenseTemplateLength, char8* wszIssuanceLicenseTemplate);
+	public static extern HRESULT DRMGetIssuanceLicenseTemplate(uint32 hIssuanceLicense, uint32* puIssuanceLicenseTemplateLength, char16* wszIssuanceLicenseTemplate);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DRMGetSignedIssuanceLicense(uint32 hEnv, uint32 hIssuanceLicense, uint32 uFlags, uint8* pbSymKey, uint32 cbSymKey, PWSTR wszSymKeyType, PWSTR wszClientLicensorCertificate, DRMCALLBACK pfnCallback, PWSTR wszURL, void* pvContext);
@@ -501,13 +501,13 @@ public static
 	public static extern HRESULT DRMDuplicatePubHandle(uint32 hPubIn, uint32* phPubOut);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetUserInfo(uint32 hUser, uint32* puUserNameLength, char8* wszUserName, uint32* puUserIdLength, char8* wszUserId, uint32* puUserIdTypeLength, char8* wszUserIdType);
+	public static extern HRESULT DRMGetUserInfo(uint32 hUser, uint32* puUserNameLength, char16* wszUserName, uint32* puUserIdLength, char16* wszUserId, uint32* puUserIdTypeLength, char16* wszUserIdType);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetRightInfo(uint32 hRight, uint32* puRightNameLength, char8* wszRightName, SYSTEMTIME* pstFrom, SYSTEMTIME* pstUntil);
+	public static extern HRESULT DRMGetRightInfo(uint32 hRight, uint32* puRightNameLength, char16* wszRightName, SYSTEMTIME* pstFrom, SYSTEMTIME* pstUntil);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetRightExtendedInfo(uint32 hRight, uint32 uIndex, uint32* puExtendedInfoNameLength, char8* wszExtendedInfoName, uint32* puExtendedInfoValueLength, char8* wszExtendedInfoValue);
+	public static extern HRESULT DRMGetRightExtendedInfo(uint32 hRight, uint32 uIndex, uint32* puExtendedInfoNameLength, char16* wszExtendedInfoName, uint32* puExtendedInfoValueLength, char16* wszExtendedInfoValue);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DRMGetUsers(uint32 hIssuanceLicense, uint32 uIndex, uint32* phUser);
@@ -516,25 +516,25 @@ public static
 	public static extern HRESULT DRMGetUserRights(uint32 hIssuanceLicense, uint32 hUser, uint32 uIndex, uint32* phRight);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetMetaData(uint32 hIssuanceLicense, uint32* puContentIdLength, char8* wszContentId, uint32* puContentIdTypeLength, char8* wszContentIdType, uint32* puSKUIdLength, char8* wszSKUId, uint32* puSKUIdTypeLength, char8* wszSKUIdType, uint32* puContentTypeLength, char8* wszContentType, uint32* puContentNameLength, char8* wszContentName);
+	public static extern HRESULT DRMGetMetaData(uint32 hIssuanceLicense, uint32* puContentIdLength, char16* wszContentId, uint32* puContentIdTypeLength, char16* wszContentIdType, uint32* puSKUIdLength, char16* wszSKUId, uint32* puSKUIdTypeLength, char16* wszSKUIdType, uint32* puContentTypeLength, char16* wszContentType, uint32* puContentNameLength, char16* wszContentName);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetApplicationSpecificData(uint32 hIssuanceLicense, uint32 uIndex, uint32* puNameLength, char8* wszName, uint32* puValueLength, char8* wszValue);
+	public static extern HRESULT DRMGetApplicationSpecificData(uint32 hIssuanceLicense, uint32 uIndex, uint32* puNameLength, char16* wszName, uint32* puValueLength, char16* wszValue);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetIssuanceLicenseInfo(uint32 hIssuanceLicense, SYSTEMTIME* pstTimeFrom, SYSTEMTIME* pstTimeUntil, uint32 uFlags, uint32* puDistributionPointNameLength, char8* wszDistributionPointName, uint32* puDistributionPointURLLength, char8* wszDistributionPointURL, uint32* phOwner, BOOL* pfOfficial);
+	public static extern HRESULT DRMGetIssuanceLicenseInfo(uint32 hIssuanceLicense, SYSTEMTIME* pstTimeFrom, SYSTEMTIME* pstTimeUntil, uint32 uFlags, uint32* puDistributionPointNameLength, char16* wszDistributionPointName, uint32* puDistributionPointURLLength, char16* wszDistributionPointURL, uint32* phOwner, BOOL* pfOfficial);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetRevocationPoint(uint32 hIssuanceLicense, uint32* puIdLength, char8* wszId, uint32* puIdTypeLength, char8* wszIdType, uint32* puURLLength, char8* wszRL, SYSTEMTIME* pstFrequency, uint32* puNameLength, char8* wszName, uint32* puPublicKeyLength, char8* wszPublicKey);
+	public static extern HRESULT DRMGetRevocationPoint(uint32 hIssuanceLicense, uint32* puIdLength, char16* wszId, uint32* puIdTypeLength, char16* wszIdType, uint32* puURLLength, char16* wszRL, SYSTEMTIME* pstFrequency, uint32* puNameLength, char16* wszName, uint32* puPublicKeyLength, char16* wszPublicKey);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetUsagePolicy(uint32 hIssuanceLicense, uint32 uIndex, DRM_USAGEPOLICY_TYPE* peUsagePolicyType, BOOL* pfExclusion, uint32* puNameLength, char8* wszName, uint32* puMinVersionLength, char8* wszMinVersion, uint32* puMaxVersionLength, char8* wszMaxVersion, uint32* puPublicKeyLength, char8* wszPublicKey, uint32* puDigestAlgorithmLength, char8* wszDigestAlgorithm, uint32* pcbDigest, uint8* pbDigest);
+	public static extern HRESULT DRMGetUsagePolicy(uint32 hIssuanceLicense, uint32 uIndex, DRM_USAGEPOLICY_TYPE* peUsagePolicyType, BOOL* pfExclusion, uint32* puNameLength, char16* wszName, uint32* puMinVersionLength, char16* wszMinVersion, uint32* puMaxVersionLength, char16* wszMaxVersion, uint32* puPublicKeyLength, char16* wszPublicKey, uint32* puDigestAlgorithmLength, char16* wszDigestAlgorithm, uint32* pcbDigest, uint8* pbDigest);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetNameAndDescription(uint32 hIssuanceLicense, uint32 uIndex, uint32* pulcid, uint32* puNameLength, char8* wszName, uint32* puDescriptionLength, char8* wszDescription);
+	public static extern HRESULT DRMGetNameAndDescription(uint32 hIssuanceLicense, uint32 uIndex, uint32* pulcid, uint32* puNameLength, char16* wszName, uint32* puDescriptionLength, char16* wszDescription);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DRMGetOwnerLicense(uint32 hIssuanceLicense, uint32* puOwnerLicenseLength, char8* wszOwnerLicense);
+	public static extern HRESULT DRMGetOwnerLicense(uint32 hIssuanceLicense, uint32* puOwnerLicenseLength, char16* wszOwnerLicense);
 
 	[Import("msdrm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DRMGetIntervalTime(uint32 hIssuanceLicense, uint32* pcDays);

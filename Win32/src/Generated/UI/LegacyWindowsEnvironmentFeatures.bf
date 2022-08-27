@@ -205,7 +205,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveDesktopP*/SelfOuter* self, uint32 dwFlags) SetSafeMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveDesktopP*/SelfOuter* self) EnsureUpdateHTML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveDesktopP*/SelfOuter* self, PWSTR pwszSchemeName, uint32 dwFlags) SetScheme;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveDesktopP*/SelfOuter* self, char8* pwszSchemeName, uint32* pdwcchBuffer, uint32 dwFlags) GetScheme;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveDesktopP*/SelfOuter* self, char16* pwszSchemeName, uint32* pdwcchBuffer, uint32 dwFlags) GetScheme;
 	}
 
 
@@ -215,7 +215,7 @@ public static
 
 	public HRESULT SetScheme(PWSTR pwszSchemeName, uint32 dwFlags) mut => VT.[Friend]SetScheme(&this, pwszSchemeName, dwFlags);
 
-	public HRESULT GetScheme(char8* pwszSchemeName, uint32* pdwcchBuffer, uint32 dwFlags) mut => VT.[Friend]GetScheme(&this, pwszSchemeName, pdwcchBuffer, dwFlags);
+	public HRESULT GetScheme(char16* pwszSchemeName, uint32* pdwcchBuffer, uint32 dwFlags) mut => VT.[Friend]GetScheme(&this, pwszSchemeName, pdwcchBuffer, dwFlags);
 }
 
 [CRepr]struct IADesktopP2 : IUnknown

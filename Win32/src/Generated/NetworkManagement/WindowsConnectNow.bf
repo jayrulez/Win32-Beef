@@ -541,8 +541,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, IWCNConnectNotify* pNotify) Connect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32* pdwBufferUsed) GetAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32* puInteger) GetIntegerAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 cchMaxString, char8* wszString) GetStringAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, uint32 cchMaxStringLength, char8* wszProfile) GetNetworkProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 cchMaxString, char16* wszString) GetStringAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, uint32 cchMaxStringLength, char16* wszProfile) GetNetworkProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, PWSTR pszProfileXml) SetNetworkProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32* pdwBufferUsed) GetVendorExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 cbBuffer, uint8* pbBuffer) SetVendorExtension;
@@ -559,9 +559,9 @@ public static
 
 	public HRESULT GetIntegerAttribute(WCN_ATTRIBUTE_TYPE AttributeType, uint32* puInteger) mut => VT.[Friend]GetIntegerAttribute(&this, AttributeType, puInteger);
 
-	public HRESULT GetStringAttribute(WCN_ATTRIBUTE_TYPE AttributeType, uint32 cchMaxString, char8* wszString) mut => VT.[Friend]GetStringAttribute(&this, AttributeType, cchMaxString, wszString);
+	public HRESULT GetStringAttribute(WCN_ATTRIBUTE_TYPE AttributeType, uint32 cchMaxString, char16* wszString) mut => VT.[Friend]GetStringAttribute(&this, AttributeType, cchMaxString, wszString);
 
-	public HRESULT GetNetworkProfile(uint32 cchMaxStringLength, char8* wszProfile) mut => VT.[Friend]GetNetworkProfile(&this, cchMaxStringLength, wszProfile);
+	public HRESULT GetNetworkProfile(uint32 cchMaxStringLength, char16* wszProfile) mut => VT.[Friend]GetNetworkProfile(&this, cchMaxStringLength, wszProfile);
 
 	public HRESULT SetNetworkProfile(PWSTR pszProfileXml) mut => VT.[Friend]SetNetworkProfile(&this, pszProfileXml);
 

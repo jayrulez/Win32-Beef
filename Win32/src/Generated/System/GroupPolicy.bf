@@ -439,7 +439,7 @@ public struct GROUP_POLICY_OBJECTW
 	public PWSTR lpDSPath;
 	public PWSTR lpFileSysPath;
 	public PWSTR lpDisplayName;
-	public char8[50] szGPOName;
+	public char16[50] szGPOName;
 	public GPO_LINK GPOLink;
 	public LPARAM lParam;
 	public GROUP_POLICY_OBJECTW* pNext;
@@ -2158,11 +2158,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, char8* pszName, int32 cchMaxLength) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, char8* pszName, int32 cchMaxLength) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, char16* pszName, int32 cchMaxLength) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, char16* pszName, int32 cchMaxLength) GetDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, uint32 dwSection, HKEY* hKey) GetRegistryKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, uint32 dwSection, char8* pszPath, int32 cchMaxPath) GetDSPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, uint32 dwSection, char8* pszPath, int32 cchMaxPath) GetFileSysPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetDSPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetFileSysPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, uint32* dwOptions) GetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, GROUP_POLICY_OBJECT_TYPE* gpoType) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, GROUP_POLICY_HINT_TYPE* gpHint) GetHint;
@@ -2170,15 +2170,15 @@ public static
 	}
 
 
-	public HRESULT GetName(char8* pszName, int32 cchMaxLength) mut => VT.[Friend]GetName(&this, pszName, cchMaxLength);
+	public HRESULT GetName(char16* pszName, int32 cchMaxLength) mut => VT.[Friend]GetName(&this, pszName, cchMaxLength);
 
-	public HRESULT GetDisplayName(char8* pszName, int32 cchMaxLength) mut => VT.[Friend]GetDisplayName(&this, pszName, cchMaxLength);
+	public HRESULT GetDisplayName(char16* pszName, int32 cchMaxLength) mut => VT.[Friend]GetDisplayName(&this, pszName, cchMaxLength);
 
 	public HRESULT GetRegistryKey(uint32 dwSection, HKEY* hKey) mut => VT.[Friend]GetRegistryKey(&this, dwSection, hKey);
 
-	public HRESULT GetDSPath(uint32 dwSection, char8* pszPath, int32 cchMaxPath) mut => VT.[Friend]GetDSPath(&this, dwSection, pszPath, cchMaxPath);
+	public HRESULT GetDSPath(uint32 dwSection, char16* pszPath, int32 cchMaxPath) mut => VT.[Friend]GetDSPath(&this, dwSection, pszPath, cchMaxPath);
 
-	public HRESULT GetFileSysPath(uint32 dwSection, char8* pszPath, int32 cchMaxPath) mut => VT.[Friend]GetFileSysPath(&this, dwSection, pszPath, cchMaxPath);
+	public HRESULT GetFileSysPath(uint32 dwSection, char16* pszPath, int32 cchMaxPath) mut => VT.[Friend]GetFileSysPath(&this, dwSection, pszPath, cchMaxPath);
 
 	public HRESULT GetOptions(uint32* dwOptions) mut => VT.[Friend]GetOptions(&this, dwOptions);
 
@@ -2203,17 +2203,17 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, PWSTR pszComputerName, uint32 dwFlags) OpenRemoteMachineGPO;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, BOOL bMachine, BOOL bAdd, Guid* pGuidExtension, Guid* pGuid) Save;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char8* pszName, int32 cchMaxLength) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char8* pszName, int32 cchMaxLength) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char16* pszName, int32 cchMaxLength) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char16* pszName, int32 cchMaxLength) GetDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, PWSTR pszName) SetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char8* pszPath, int32 cchMaxLength) GetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwSection, char8* pszPath, int32 cchMaxPath) GetDSPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwSection, char8* pszPath, int32 cchMaxPath) GetFileSysPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char16* pszPath, int32 cchMaxLength) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetDSPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetFileSysPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwSection, HKEY* hKey) GetRegistryKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32* dwOptions) GetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwOptions, uint32 dwMask) SetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, GROUP_POLICY_OBJECT_TYPE* gpoType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char8* pszName, int32 cchMaxLength) GetMachineName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char16* pszName, int32 cchMaxLength) GetMachineName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, HPROPSHEETPAGE** hPages, uint32* uPageCount) GetPropertySheetPages;
 	}
 
@@ -2230,17 +2230,17 @@ public static
 
 	public HRESULT Delete() mut => VT.[Friend]Delete(&this);
 
-	public HRESULT GetName(char8* pszName, int32 cchMaxLength) mut => VT.[Friend]GetName(&this, pszName, cchMaxLength);
+	public HRESULT GetName(char16* pszName, int32 cchMaxLength) mut => VT.[Friend]GetName(&this, pszName, cchMaxLength);
 
-	public HRESULT GetDisplayName(char8* pszName, int32 cchMaxLength) mut => VT.[Friend]GetDisplayName(&this, pszName, cchMaxLength);
+	public HRESULT GetDisplayName(char16* pszName, int32 cchMaxLength) mut => VT.[Friend]GetDisplayName(&this, pszName, cchMaxLength);
 
 	public HRESULT SetDisplayName(PWSTR pszName) mut => VT.[Friend]SetDisplayName(&this, pszName);
 
-	public HRESULT GetPath(char8* pszPath, int32 cchMaxLength) mut => VT.[Friend]GetPath(&this, pszPath, cchMaxLength);
+	public HRESULT GetPath(char16* pszPath, int32 cchMaxLength) mut => VT.[Friend]GetPath(&this, pszPath, cchMaxLength);
 
-	public HRESULT GetDSPath(uint32 dwSection, char8* pszPath, int32 cchMaxPath) mut => VT.[Friend]GetDSPath(&this, dwSection, pszPath, cchMaxPath);
+	public HRESULT GetDSPath(uint32 dwSection, char16* pszPath, int32 cchMaxPath) mut => VT.[Friend]GetDSPath(&this, dwSection, pszPath, cchMaxPath);
 
-	public HRESULT GetFileSysPath(uint32 dwSection, char8* pszPath, int32 cchMaxPath) mut => VT.[Friend]GetFileSysPath(&this, dwSection, pszPath, cchMaxPath);
+	public HRESULT GetFileSysPath(uint32 dwSection, char16* pszPath, int32 cchMaxPath) mut => VT.[Friend]GetFileSysPath(&this, dwSection, pszPath, cchMaxPath);
 
 	public HRESULT GetRegistryKey(uint32 dwSection, HKEY* hKey) mut => VT.[Friend]GetRegistryKey(&this, dwSection, hKey);
 
@@ -2250,7 +2250,7 @@ public static
 
 	public HRESULT GetType(GROUP_POLICY_OBJECT_TYPE* gpoType) mut => VT.[Friend]COM_GetType(&this, gpoType);
 
-	public HRESULT GetMachineName(char8* pszName, int32 cchMaxLength) mut => VT.[Friend]GetMachineName(&this, pszName, cchMaxLength);
+	public HRESULT GetMachineName(char16* pszName, int32 cchMaxLength) mut => VT.[Friend]GetMachineName(&this, pszName, cchMaxLength);
 
 	public HRESULT GetPropertySheetPages(HPROPSHEETPAGE** hPages, uint32* uPageCount) mut => VT.[Friend]GetPropertySheetPages(&this, hPages, uPageCount);
 }
@@ -2263,13 +2263,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRSOPInformation*/SelfOuter* self, uint32 dwSection, char8* pszName, int32 cchMaxLength) GetNamespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRSOPInformation*/SelfOuter* self, uint32 dwSection, char16* pszName, int32 cchMaxLength) GetNamespace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRSOPInformation*/SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRSOPInformation*/SelfOuter* self, PWSTR pszEventSource, PWSTR pszEventLogName, PWSTR pszEventTime, uint32 dwEventID, PWSTR* ppszText) GetEventLogEntryText;
 	}
 
 
-	public HRESULT GetNamespace(uint32 dwSection, char8* pszName, int32 cchMaxLength) mut => VT.[Friend]GetNamespace(&this, dwSection, pszName, cchMaxLength);
+	public HRESULT GetNamespace(uint32 dwSection, char16* pszName, int32 cchMaxLength) mut => VT.[Friend]GetNamespace(&this, dwSection, pszName, cchMaxLength);
 
 	public HRESULT GetFlags(uint32* pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
 
@@ -2348,7 +2348,7 @@ public static
 	public static extern uint32 UninstallApplication(PWSTR ProductCode, uint32 dwStatus);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CommandLineFromMsiDescriptor(PWSTR Descriptor, char8* CommandLine, uint32* CommandLineLength);
+	public static extern uint32 CommandLineFromMsiDescriptor(PWSTR Descriptor, char16* CommandLine, uint32* CommandLineLength);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetManagedApplications(Guid* pCategory, uint32 dwQueryFlags, uint32 dwInfoLevel, uint32* pdwApps, MANAGEDAPPLICATION** prgManagedApps);

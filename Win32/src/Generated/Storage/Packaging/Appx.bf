@@ -2116,58 +2116,58 @@ public static
 	public static extern int32 GetCurrentPackageId(uint32* bufferLength, uint8* buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageFullName(uint32* packageFullNameLength, char8* packageFullName);
+	public static extern int32 GetCurrentPackageFullName(uint32* packageFullNameLength, char16* packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageFamilyName(uint32* packageFamilyNameLength, char8* packageFamilyName);
+	public static extern int32 GetCurrentPackageFamilyName(uint32* packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackagePath(uint32* pathLength, char8* path);
+	public static extern int32 GetCurrentPackagePath(uint32* pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetPackageId(HANDLE hProcess, uint32* bufferLength, uint8* buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFullName(HANDLE hProcess, uint32* packageFullNameLength, char8* packageFullName);
+	public static extern int32 GetPackageFullName(HANDLE hProcess, uint32* packageFullNameLength, char16* packageFullName);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFullNameFromToken(HANDLE token, uint32* packageFullNameLength, char8* packageFullName);
+	public static extern int32 GetPackageFullNameFromToken(HANDLE token, uint32* packageFullNameLength, char16* packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFamilyName(HANDLE hProcess, uint32* packageFamilyNameLength, char8* packageFamilyName);
+	public static extern int32 GetPackageFamilyName(HANDLE hProcess, uint32* packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFamilyNameFromToken(HANDLE token, uint32* packageFamilyNameLength, char8* packageFamilyName);
+	public static extern int32 GetPackageFamilyNameFromToken(HANDLE token, uint32* packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagePath(PACKAGE_ID* packageId, uint32 reserved, uint32* pathLength, char8* path);
+	public static extern int32 GetPackagePath(PACKAGE_ID* packageId, uint32 reserved, uint32* pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagePathByFullName(PWSTR packageFullName, uint32* pathLength, char8* path);
+	public static extern int32 GetPackagePathByFullName(PWSTR packageFullName, uint32* pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetStagedPackagePathByFullName(PWSTR packageFullName, uint32* pathLength, char8* path);
+	public static extern int32 GetStagedPackagePathByFullName(PWSTR packageFullName, uint32* pathLength, char16* path);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32* pathLength, char8* path);
+	public static extern int32 GetPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32* pathLength, char16* path);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetStagedPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32* pathLength, char8* path);
+	public static extern int32 GetStagedPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32* pathLength, char16* path);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetCurrentPackageInfo2(uint32 flags, PackagePathType packagePathType, uint32* bufferLength, uint8* buffer, uint32* count);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackagePath2(PackagePathType packagePathType, uint32* pathLength, char8* path);
+	public static extern int32 GetCurrentPackagePath2(PackagePathType packagePathType, uint32* pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentApplicationUserModelId(uint32* applicationUserModelIdLength, char8* applicationUserModelId);
+	public static extern int32 GetCurrentApplicationUserModelId(uint32* applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetApplicationUserModelId(HANDLE hProcess, uint32* applicationUserModelIdLength, char8* applicationUserModelId);
+	public static extern int32 GetApplicationUserModelId(HANDLE hProcess, uint32* applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetApplicationUserModelIdFromToken(HANDLE token, uint32* applicationUserModelIdLength, char8* applicationUserModelId);
+	public static extern int32 GetApplicationUserModelIdFromToken(HANDLE token, uint32* applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 VerifyPackageFullName(PWSTR packageFullName);
@@ -2188,28 +2188,28 @@ public static
 	public static extern int32 PackageIdFromFullName(PWSTR packageFullName, uint32 flags, uint32* bufferLength, uint8* buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageFullNameFromId(PACKAGE_ID* packageId, uint32* packageFullNameLength, char8* packageFullName);
+	public static extern int32 PackageFullNameFromId(PACKAGE_ID* packageId, uint32* packageFullNameLength, char16* packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageFamilyNameFromId(PACKAGE_ID* packageId, uint32* packageFamilyNameLength, char8* packageFamilyName);
+	public static extern int32 PackageFamilyNameFromId(PACKAGE_ID* packageId, uint32* packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageFamilyNameFromFullName(PWSTR packageFullName, uint32* packageFamilyNameLength, char8* packageFamilyName);
+	public static extern int32 PackageFamilyNameFromFullName(PWSTR packageFullName, uint32* packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageNameAndPublisherIdFromFamilyName(PWSTR packageFamilyName, uint32* packageNameLength, char8* packageName, uint32* packagePublisherIdLength, char8* packagePublisherId);
+	public static extern int32 PackageNameAndPublisherIdFromFamilyName(PWSTR packageFamilyName, uint32* packageNameLength, char16* packageName, uint32* packagePublisherIdLength, char16* packagePublisherId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 FormatApplicationUserModelId(PWSTR packageFamilyName, PWSTR packageRelativeApplicationId, uint32* applicationUserModelIdLength, char8* applicationUserModelId);
+	public static extern int32 FormatApplicationUserModelId(PWSTR packageFamilyName, PWSTR packageRelativeApplicationId, uint32* applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ParseApplicationUserModelId(PWSTR applicationUserModelId, uint32* packageFamilyNameLength, char8* packageFamilyName, uint32* packageRelativeApplicationIdLength, char8* packageRelativeApplicationId);
+	public static extern int32 ParseApplicationUserModelId(PWSTR applicationUserModelId, uint32* packageFamilyNameLength, char16* packageFamilyName, uint32* packageRelativeApplicationIdLength, char16* packageRelativeApplicationId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagesByPackageFamily(PWSTR packageFamilyName, uint32* count, PWSTR* packageFullNames, uint32* bufferLength, char8* buffer);
+	public static extern int32 GetPackagesByPackageFamily(PWSTR packageFamilyName, uint32* count, PWSTR* packageFullNames, uint32* bufferLength, char16* buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 FindPackagesByPackageFamily(PWSTR packageFamilyName, uint32 packageFilters, uint32* count, PWSTR* packageFullNames, uint32* bufferLength, char8* buffer, uint32* packageProperties);
+	public static extern int32 FindPackagesByPackageFamily(PWSTR packageFamilyName, uint32 packageFilters, uint32* count, PWSTR* packageFullNames, uint32* bufferLength, char16* buffer, uint32* packageProperties);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetStagedPackageOrigin(PWSTR packageFullName, PackageOrigin* origin);

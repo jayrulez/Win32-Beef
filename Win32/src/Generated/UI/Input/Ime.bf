@@ -1537,7 +1537,7 @@ public struct STYLEBUFA
 public struct STYLEBUFW
 {
 	public uint32 dwStyle;
-	public char8[32] szDescription;
+	public char16[32] szDescription;
 }
 
 [CRepr]
@@ -1564,7 +1564,7 @@ public struct IMEMENUITEMINFOW
 	public HBITMAP hbmpChecked;
 	public HBITMAP hbmpUnchecked;
 	public uint32 dwItemData;
-	public char8[80] szString;
+	public char16[80] szString;
 	public HBITMAP hbmpItem;
 }
 
@@ -1650,7 +1650,7 @@ public struct MORRSLT
 	public WDD* pWDD;
 	public int32 cWDD;
 	public void* pPrivate;
-	public char8[1] BLKBuff;
+	public char16[1] BLKBuff;
 }
 
 [CRepr, Packed(1)]
@@ -1724,8 +1724,8 @@ public struct IMEKMSKEY
 	[CRepr, Union, Packed(1)]
 	public struct _Anonymous2_e__Union
 	{
-		public char8[31] pwszDscr;
-		public char8[31] pwszNoUse;
+		public char16[31] pwszDscr;
+		public char16[31] pwszNoUse;
 	}
 
 	public uint32 dwStatus;
@@ -1778,7 +1778,7 @@ public struct IMEKMSFUNCDESC
 	public int32 cbSize;
 	public uint16 idLang;
 	public uint32 dwControl;
-	public char8[128] pwszDescription;
+	public char16[128] pwszDescription;
 }
 
 [CRepr]
@@ -1965,7 +1965,7 @@ public struct IMECOMPOSITIONSTRINGINFO
 [CRepr]
 public struct IMECHARINFO
 {
-	public char8 wch;
+	public char16 wch;
 	public uint32 dwCharInfo;
 }
 
@@ -1973,8 +1973,8 @@ public struct IMECHARINFO
 public struct IMEAPPLETCFG
 {
 	public uint32 dwConfig;
-	public char8[64] wchTitle;
-	public char8[32] wchTitleFontFace;
+	public char16[64] wchTitle;
+	public char16[32] wchTitleFontFace;
 	public uint32 dwCharSet;
 	public int32 iCategory;
 	public HICON hIcon;
@@ -2931,14 +2931,14 @@ public static
 	public static uint32 ImmGetDescription(HKL param0, uint8* lpszDescription, uint32 uBufLen) => ImmGetDescriptionA(param0, lpszDescription, uBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ImmGetDescriptionW(HKL param0, char8* lpszDescription, uint32 uBufLen);
+	public static extern uint32 ImmGetDescriptionW(HKL param0, char16* lpszDescription, uint32 uBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetIMEFileNameA(HKL param0, uint8* lpszFileName, uint32 uBufLen);
 	public static uint32 ImmGetIMEFileName(HKL param0, uint8* lpszFileName, uint32 uBufLen) => ImmGetIMEFileNameA(param0, lpszFileName, uBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ImmGetIMEFileNameW(HKL param0, char8* lpszFileName, uint32 uBufLen);
+	public static extern uint32 ImmGetIMEFileNameW(HKL param0, char16* lpszFileName, uint32 uBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetProperty(HKL param0, uint32 param1);

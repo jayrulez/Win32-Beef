@@ -910,7 +910,7 @@ public function BOOL PFAX_SEND_CALLBACK(HANDLE FaxHandle, uint32 CallHandle, uin
 
 public function BOOL PFAXDEVINITIALIZE(uint32 param0, HANDLE param1, PFAX_LINECALLBACK* param2, PFAX_SERVICE_CALLBACK param3);
 
-public function BOOL PFAXDEVVIRTUALDEVICECREATION(uint32* DeviceCount, char8* DeviceNamePrefix, uint32* DeviceIdPrefix, HANDLE CompletionPort, uint CompletionKey);
+public function BOOL PFAXDEVVIRTUALDEVICECREATION(uint32* DeviceCount, char16* DeviceNamePrefix, uint32* DeviceIdPrefix, HANDLE CompletionPort, uint CompletionKey);
 
 public function BOOL PFAXDEVSTARTJOB(uint32 param0, uint32 param1, HANDLE* param2, HANDLE param3, uint param4);
 
@@ -1381,7 +1381,7 @@ public struct FAX_CONTEXT_INFOW
 {
 	public uint32 SizeOfStruct;
 	public HDC hDC;
-	public char8[16] ServerName;
+	public char16[16] ServerName;
 }
 
 [CRepr]
@@ -1464,7 +1464,7 @@ public struct STI_DEVICE_INFORMATIONW
 {
 	public uint32 dwSize;
 	public uint32 DeviceType;
-	public char8[128] szDeviceInternalName;
+	public char16[128] szDeviceInternalName;
 	public STI_DEV_CAPS DeviceCapabilitiesA;
 	public uint32 dwHardwareConfiguration;
 	public PWSTR pszVendorDescription;
@@ -1479,7 +1479,7 @@ public struct STI_WIA_DEVICE_INFORMATIONW
 {
 	public uint32 dwSize;
 	public uint32 DeviceType;
-	public char8[128] szDeviceInternalName;
+	public char16[128] szDeviceInternalName;
 	public STI_DEV_CAPS DeviceCapabilitiesA;
 	public uint32 dwHardwareConfiguration;
 	public PWSTR pszVendorDescription;
@@ -1508,7 +1508,7 @@ public struct _ERROR_INFOW
 	public uint32 dwSize;
 	public uint32 dwGenericError;
 	public uint32 dwVendorError;
-	public char8[255] szExtendedErrorText;
+	public char16[255] szExtendedErrorText;
 }
 
 [CRepr]
@@ -4236,7 +4236,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, uint32 dwMode, IStiDevice** pDevice, IUnknown* punkOuter) CreateDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, PWSTR pValueName, uint32* pType, uint8* pData, uint32* cbData) GetDeviceValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, PWSTR pValueName, uint32 Type, uint8* pData, uint32 cbData) SetDeviceValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, char8* pwszDeviceName, uint32* pdwEventCode, char8* pwszEventName) GetSTILaunchInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, char16* pwszDeviceName, uint32* pdwEventCode, char16* pwszEventName) GetSTILaunchInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszAppName, PWSTR pwszCommandLine) RegisterLaunchApplication;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszAppName) UnregisterLaunchApplication;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, BOOL bNewState) EnableHwNotifications;
@@ -4260,7 +4260,7 @@ public static
 
 	public HRESULT SetDeviceValue(PWSTR pwszDeviceName, PWSTR pValueName, uint32 Type, uint8* pData, uint32 cbData) mut => VT.[Friend]SetDeviceValue(&this, pwszDeviceName, pValueName, Type, pData, cbData);
 
-	public HRESULT GetSTILaunchInformation(char8* pwszDeviceName, uint32* pdwEventCode, char8* pwszEventName) mut => VT.[Friend]GetSTILaunchInformation(&this, pwszDeviceName, pdwEventCode, pwszEventName);
+	public HRESULT GetSTILaunchInformation(char16* pwszDeviceName, uint32* pdwEventCode, char16* pwszEventName) mut => VT.[Friend]GetSTILaunchInformation(&this, pwszDeviceName, pdwEventCode, pwszEventName);
 
 	public HRESULT RegisterLaunchApplication(PWSTR pwszAppName, PWSTR pwszCommandLine) mut => VT.[Friend]RegisterLaunchApplication(&this, pwszAppName, pwszCommandLine);
 
@@ -4357,7 +4357,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, uint32 EscapeFunction, void* lpInData, uint32 cbInDataSize, void* pOutData, uint32 dwOutDataSize, uint32* pdwActualData) RawDeviceControl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, uint32* lpdwLastError) GetLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, char8* lpszDevicePath, uint32 cwDevicePathSize) GetMyDevicePortName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, char16* lpszDevicePath, uint32 cwDevicePathSize) GetMyDevicePortName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, HANDLE* lph) GetMyDeviceHandle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, uint32* pdwOpenMode) GetMyDeviceOpenMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, uint32 dwMessageType, PWSTR pszMessage, uint32 dwErrorCode) WriteToErrorLog;
@@ -4378,7 +4378,7 @@ public static
 
 	public HRESULT GetLastError(uint32* lpdwLastError) mut => VT.[Friend]GetLastError(&this, lpdwLastError);
 
-	public HRESULT GetMyDevicePortName(char8* lpszDevicePath, uint32 cwDevicePathSize) mut => VT.[Friend]GetMyDevicePortName(&this, lpszDevicePath, cwDevicePathSize);
+	public HRESULT GetMyDevicePortName(char16* lpszDevicePath, uint32 cwDevicePathSize) mut => VT.[Friend]GetMyDevicePortName(&this, lpszDevicePath, cwDevicePathSize);
 
 	public HRESULT GetMyDeviceHandle(HANDLE* lph) mut => VT.[Friend]GetMyDeviceHandle(&this, lph);
 

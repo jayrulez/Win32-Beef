@@ -91,7 +91,7 @@ public struct WCM_POLICY_VALUE
 [CRepr]
 public struct WCM_PROFILE_INFO
 {
-	public char8[256] strProfileName;
+	public char16[256] strProfileName;
 	public Guid AdapterGUID;
 	public WCM_MEDIA_TYPE Media;
 }

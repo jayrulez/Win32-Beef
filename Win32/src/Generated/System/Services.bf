@@ -883,14 +883,14 @@ public static
 	public static BOOL GetServiceKeyName(SC_HANDLE hSCManager, PSTR lpDisplayName, uint8* lpServiceName, uint32* lpcchBuffer) => GetServiceKeyNameA(hSCManager, lpDisplayName, lpServiceName, lpcchBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetServiceKeyNameW(SC_HANDLE hSCManager, PWSTR lpDisplayName, char8* lpServiceName, uint32* lpcchBuffer);
+	public static extern BOOL GetServiceKeyNameW(SC_HANDLE hSCManager, PWSTR lpDisplayName, char16* lpServiceName, uint32* lpcchBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetServiceDisplayNameA(SC_HANDLE hSCManager, PSTR lpServiceName, uint8* lpDisplayName, uint32* lpcchBuffer);
 	public static BOOL GetServiceDisplayName(SC_HANDLE hSCManager, PSTR lpServiceName, uint8* lpDisplayName, uint32* lpcchBuffer) => GetServiceDisplayNameA(hSCManager, lpServiceName, lpDisplayName, lpcchBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetServiceDisplayNameW(SC_HANDLE hSCManager, PWSTR lpServiceName, char8* lpDisplayName, uint32* lpcchBuffer);
+	public static extern BOOL GetServiceDisplayNameW(SC_HANDLE hSCManager, PWSTR lpServiceName, char16* lpDisplayName, uint32* lpcchBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* LockServiceDatabase(SC_HANDLE hSCManager);
@@ -1003,13 +1003,13 @@ public static
 	public static extern uint32 GetServiceRegistryStateKey(SERVICE_STATUS_HANDLE ServiceStatusHandle, SERVICE_REGISTRY_STATE_TYPE StateType, uint32 AccessMask, HKEY* ServiceStateKey);
 
 	[Import("api-ms-win-service-core-l1-1-4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetServiceDirectory(SERVICE_STATUS_HANDLE hServiceStatus, SERVICE_DIRECTORY_TYPE eDirectoryType, char8* lpPathBuffer, uint32 cchPathBufferLength, uint32* lpcchRequiredBufferLength);
+	public static extern uint32 GetServiceDirectory(SERVICE_STATUS_HANDLE hServiceStatus, SERVICE_DIRECTORY_TYPE eDirectoryType, char16* lpPathBuffer, uint32 cchPathBufferLength, uint32* lpcchRequiredBufferLength);
 
 	[Import("api-ms-win-service-core-l1-1-5.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSharedServiceRegistryStateKey(SC_HANDLE ServiceHandle, SERVICE_SHARED_REGISTRY_STATE_TYPE StateType, uint32 AccessMask, HKEY* ServiceStateKey);
 
 	[Import("api-ms-win-service-core-l1-1-5.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSharedServiceDirectory(SC_HANDLE ServiceHandle, SERVICE_SHARED_DIRECTORY_TYPE DirectoryType, char8* PathBuffer, uint32 PathBufferLength, uint32* RequiredBufferLength);
+	public static extern uint32 GetSharedServiceDirectory(SC_HANDLE ServiceHandle, SERVICE_SHARED_DIRECTORY_TYPE DirectoryType, char16* PathBuffer, uint32 PathBufferLength, uint32* RequiredBufferLength);
 
 }
 #endregion

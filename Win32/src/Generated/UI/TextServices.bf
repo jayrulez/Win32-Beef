@@ -1272,7 +1272,7 @@ public struct TF_LANGBARITEMINFO
 	public Guid guidItem;
 	public uint32 dwStyle;
 	public uint32 ulSort;
-	public char8[32] szDescription;
+	public char16[32] szDescription;
 }
 
 [CRepr]
@@ -1436,13 +1436,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, int32 acpTestStart, int32 acpTestEnd, uint32 cch, int32* pacpResultStart, int32* pacpResultEnd) QueryInsert;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, uint32 ulIndex, uint32 ulCount, TS_SELECTION_ACP* pSelection, uint32* pcFetched) GetSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, uint32 ulCount, TS_SELECTION_ACP* pSelection) SetSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, int32 acpStart, int32 acpEnd, char8* pchPlain, uint32 cchPlainReq, uint32* pcchPlainRet, TS_RUNINFO* prgRunInfo, uint32 cRunInfoReq, uint32* pcRunInfoRet, int32* pacpNext) GetText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, uint32 dwFlags, int32 acpStart, int32 acpEnd, char8* pchText, uint32 cch, TS_TEXTCHANGE* pChange) SetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, int32 acpStart, int32 acpEnd, char16* pchPlain, uint32 cchPlainReq, uint32* pcchPlainRet, TS_RUNINFO* prgRunInfo, uint32 cRunInfoReq, uint32* pcRunInfoRet, int32* pacpNext) GetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, uint32 dwFlags, int32 acpStart, int32 acpEnd, char16* pchText, uint32 cch, TS_TEXTCHANGE* pChange) SetText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, int32 acpStart, int32 acpEnd, IDataObject** ppDataObject) GetFormattedText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, int32 acpPos, Guid* rguidService, Guid* riid, IUnknown** ppunk) GetEmbedded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, Guid* pguidService, FORMATETC* pFormatEtc, BOOL* pfInsertable) QueryInsertEmbedded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, uint32 dwFlags, int32 acpStart, int32 acpEnd, IDataObject* pDataObject, TS_TEXTCHANGE* pChange) InsertEmbedded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, uint32 dwFlags, char8* pchText, uint32 cch, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) InsertTextAtSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, uint32 dwFlags, char16* pchText, uint32 cch, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) InsertTextAtSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, uint32 dwFlags, IDataObject* pDataObject, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) InsertEmbeddedAtSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, uint32 dwFlags, uint32 cFilterAttrs, Guid* paFilterAttrs) RequestSupportedAttrs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP*/SelfOuter* self, int32 acpPos, uint32 cFilterAttrs, Guid* paFilterAttrs, uint32 dwFlags) RequestAttrsAtPosition;
@@ -1472,9 +1472,9 @@ public static
 
 	public HRESULT SetSelection(uint32 ulCount, TS_SELECTION_ACP* pSelection) mut => VT.[Friend]SetSelection(&this, ulCount, pSelection);
 
-	public HRESULT GetText(int32 acpStart, int32 acpEnd, char8* pchPlain, uint32 cchPlainReq, uint32* pcchPlainRet, TS_RUNINFO* prgRunInfo, uint32 cRunInfoReq, uint32* pcRunInfoRet, int32* pacpNext) mut => VT.[Friend]GetText(&this, acpStart, acpEnd, pchPlain, cchPlainReq, pcchPlainRet, prgRunInfo, cRunInfoReq, pcRunInfoRet, pacpNext);
+	public HRESULT GetText(int32 acpStart, int32 acpEnd, char16* pchPlain, uint32 cchPlainReq, uint32* pcchPlainRet, TS_RUNINFO* prgRunInfo, uint32 cRunInfoReq, uint32* pcRunInfoRet, int32* pacpNext) mut => VT.[Friend]GetText(&this, acpStart, acpEnd, pchPlain, cchPlainReq, pcchPlainRet, prgRunInfo, cRunInfoReq, pcRunInfoRet, pacpNext);
 
-	public HRESULT SetText(uint32 dwFlags, int32 acpStart, int32 acpEnd, char8* pchText, uint32 cch, TS_TEXTCHANGE* pChange) mut => VT.[Friend]SetText(&this, dwFlags, acpStart, acpEnd, pchText, cch, pChange);
+	public HRESULT SetText(uint32 dwFlags, int32 acpStart, int32 acpEnd, char16* pchText, uint32 cch, TS_TEXTCHANGE* pChange) mut => VT.[Friend]SetText(&this, dwFlags, acpStart, acpEnd, pchText, cch, pChange);
 
 	public HRESULT GetFormattedText(int32 acpStart, int32 acpEnd, IDataObject** ppDataObject) mut => VT.[Friend]GetFormattedText(&this, acpStart, acpEnd, ppDataObject);
 
@@ -1484,7 +1484,7 @@ public static
 
 	public HRESULT InsertEmbedded(uint32 dwFlags, int32 acpStart, int32 acpEnd, IDataObject* pDataObject, TS_TEXTCHANGE* pChange) mut => VT.[Friend]InsertEmbedded(&this, dwFlags, acpStart, acpEnd, pDataObject, pChange);
 
-	public HRESULT InsertTextAtSelection(uint32 dwFlags, char8* pchText, uint32 cch, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) mut => VT.[Friend]InsertTextAtSelection(&this, dwFlags, pchText, cch, pacpStart, pacpEnd, pChange);
+	public HRESULT InsertTextAtSelection(uint32 dwFlags, char16* pchText, uint32 cch, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) mut => VT.[Friend]InsertTextAtSelection(&this, dwFlags, pchText, cch, pacpStart, pacpEnd, pChange);
 
 	public HRESULT InsertEmbeddedAtSelection(uint32 dwFlags, IDataObject* pDataObject, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) mut => VT.[Friend]InsertEmbeddedAtSelection(&this, dwFlags, pDataObject, pacpStart, pacpEnd, pChange);
 
@@ -1526,13 +1526,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, int32 acpTestStart, int32 acpTestEnd, uint32 cch, int32* pacpResultStart, int32* pacpResultEnd) QueryInsert;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, uint32 ulIndex, uint32 ulCount, TS_SELECTION_ACP* pSelection, uint32* pcFetched) GetSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, uint32 ulCount, TS_SELECTION_ACP* pSelection) SetSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, int32 acpStart, int32 acpEnd, char8* pchPlain, uint32 cchPlainReq, uint32* pcchPlainRet, TS_RUNINFO* prgRunInfo, uint32 cRunInfoReq, uint32* pcRunInfoRet, int32* pacpNext) GetText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, uint32 dwFlags, int32 acpStart, int32 acpEnd, char8* pchText, uint32 cch, TS_TEXTCHANGE* pChange) SetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, int32 acpStart, int32 acpEnd, char16* pchPlain, uint32 cchPlainReq, uint32* pcchPlainRet, TS_RUNINFO* prgRunInfo, uint32 cRunInfoReq, uint32* pcRunInfoRet, int32* pacpNext) GetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, uint32 dwFlags, int32 acpStart, int32 acpEnd, char16* pchText, uint32 cch, TS_TEXTCHANGE* pChange) SetText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, int32 acpStart, int32 acpEnd, IDataObject** ppDataObject) GetFormattedText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, int32 acpPos, Guid* rguidService, Guid* riid, IUnknown** ppunk) GetEmbedded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, Guid* pguidService, FORMATETC* pFormatEtc, BOOL* pfInsertable) QueryInsertEmbedded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, uint32 dwFlags, int32 acpStart, int32 acpEnd, IDataObject* pDataObject, TS_TEXTCHANGE* pChange) InsertEmbedded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, uint32 dwFlags, char8* pchText, uint32 cch, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) InsertTextAtSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, uint32 dwFlags, char16* pchText, uint32 cch, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) InsertTextAtSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, uint32 dwFlags, IDataObject* pDataObject, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) InsertEmbeddedAtSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, uint32 dwFlags, uint32 cFilterAttrs, Guid* paFilterAttrs) RequestSupportedAttrs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreACP2*/SelfOuter* self, int32 acpPos, uint32 cFilterAttrs, Guid* paFilterAttrs, uint32 dwFlags) RequestAttrsAtPosition;
@@ -1561,9 +1561,9 @@ public static
 
 	public HRESULT SetSelection(uint32 ulCount, TS_SELECTION_ACP* pSelection) mut => VT.[Friend]SetSelection(&this, ulCount, pSelection);
 
-	public HRESULT GetText(int32 acpStart, int32 acpEnd, char8* pchPlain, uint32 cchPlainReq, uint32* pcchPlainRet, TS_RUNINFO* prgRunInfo, uint32 cRunInfoReq, uint32* pcRunInfoRet, int32* pacpNext) mut => VT.[Friend]GetText(&this, acpStart, acpEnd, pchPlain, cchPlainReq, pcchPlainRet, prgRunInfo, cRunInfoReq, pcRunInfoRet, pacpNext);
+	public HRESULT GetText(int32 acpStart, int32 acpEnd, char16* pchPlain, uint32 cchPlainReq, uint32* pcchPlainRet, TS_RUNINFO* prgRunInfo, uint32 cRunInfoReq, uint32* pcRunInfoRet, int32* pacpNext) mut => VT.[Friend]GetText(&this, acpStart, acpEnd, pchPlain, cchPlainReq, pcchPlainRet, prgRunInfo, cRunInfoReq, pcRunInfoRet, pacpNext);
 
-	public HRESULT SetText(uint32 dwFlags, int32 acpStart, int32 acpEnd, char8* pchText, uint32 cch, TS_TEXTCHANGE* pChange) mut => VT.[Friend]SetText(&this, dwFlags, acpStart, acpEnd, pchText, cch, pChange);
+	public HRESULT SetText(uint32 dwFlags, int32 acpStart, int32 acpEnd, char16* pchText, uint32 cch, TS_TEXTCHANGE* pChange) mut => VT.[Friend]SetText(&this, dwFlags, acpStart, acpEnd, pchText, cch, pChange);
 
 	public HRESULT GetFormattedText(int32 acpStart, int32 acpEnd, IDataObject** ppDataObject) mut => VT.[Friend]GetFormattedText(&this, acpStart, acpEnd, ppDataObject);
 
@@ -1573,7 +1573,7 @@ public static
 
 	public HRESULT InsertEmbedded(uint32 dwFlags, int32 acpStart, int32 acpEnd, IDataObject* pDataObject, TS_TEXTCHANGE* pChange) mut => VT.[Friend]InsertEmbedded(&this, dwFlags, acpStart, acpEnd, pDataObject, pChange);
 
-	public HRESULT InsertTextAtSelection(uint32 dwFlags, char8* pchText, uint32 cch, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) mut => VT.[Friend]InsertTextAtSelection(&this, dwFlags, pchText, cch, pacpStart, pacpEnd, pChange);
+	public HRESULT InsertTextAtSelection(uint32 dwFlags, char16* pchText, uint32 cch, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) mut => VT.[Friend]InsertTextAtSelection(&this, dwFlags, pchText, cch, pacpStart, pacpEnd, pChange);
 
 	public HRESULT InsertEmbeddedAtSelection(uint32 dwFlags, IDataObject* pDataObject, int32* pacpStart, int32* pacpEnd, TS_TEXTCHANGE* pChange) mut => VT.[Friend]InsertEmbeddedAtSelection(&this, dwFlags, pDataObject, pacpStart, pacpEnd, pChange);
 
@@ -1694,8 +1694,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, IAnchor* paTestStart, IAnchor* paTestEnd, uint32 cch, IAnchor** ppaResultStart, IAnchor** ppaResultEnd) QueryInsert;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 ulIndex, uint32 ulCount, TS_SELECTION_ANCHOR* pSelection, uint32* pcFetched) GetSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 ulCount, TS_SELECTION_ANCHOR* pSelection) SetSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 dwFlags, IAnchor* paStart, IAnchor* paEnd, char8* pchText, uint32 cchReq, uint32* pcch, BOOL fUpdateAnchor) GetText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 dwFlags, IAnchor* paStart, IAnchor* paEnd, char8* pchText, uint32 cch) SetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 dwFlags, IAnchor* paStart, IAnchor* paEnd, char16* pchText, uint32 cchReq, uint32* pcch, BOOL fUpdateAnchor) GetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 dwFlags, IAnchor* paStart, IAnchor* paEnd, char16* pchText, uint32 cch) SetText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, IAnchor* paStart, IAnchor* paEnd, IDataObject** ppDataObject) GetFormattedText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 dwFlags, IAnchor* paPos, Guid* rguidService, Guid* riid, IUnknown** ppunk) GetEmbedded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 dwFlags, IAnchor* paStart, IAnchor* paEnd, IDataObject* pDataObject) InsertEmbedded;
@@ -1712,7 +1712,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 vcView, RECT* prc) GetScreenExt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 vcView, HWND* phwnd) GetWnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, Guid* pguidService, FORMATETC* pFormatEtc, BOOL* pfInsertable) QueryInsertEmbedded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 dwFlags, char8* pchText, uint32 cch, IAnchor** ppaStart, IAnchor** ppaEnd) InsertTextAtSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 dwFlags, char16* pchText, uint32 cch, IAnchor** ppaStart, IAnchor** ppaEnd) InsertTextAtSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextStoreAnchor*/SelfOuter* self, uint32 dwFlags, IDataObject* pDataObject, IAnchor** ppaStart, IAnchor** ppaEnd) InsertEmbeddedAtSelection;
 	}
 
@@ -1731,9 +1731,9 @@ public static
 
 	public HRESULT SetSelection(uint32 ulCount, TS_SELECTION_ANCHOR* pSelection) mut => VT.[Friend]SetSelection(&this, ulCount, pSelection);
 
-	public HRESULT GetText(uint32 dwFlags, IAnchor* paStart, IAnchor* paEnd, char8* pchText, uint32 cchReq, uint32* pcch, BOOL fUpdateAnchor) mut => VT.[Friend]GetText(&this, dwFlags, paStart, paEnd, pchText, cchReq, pcch, fUpdateAnchor);
+	public HRESULT GetText(uint32 dwFlags, IAnchor* paStart, IAnchor* paEnd, char16* pchText, uint32 cchReq, uint32* pcch, BOOL fUpdateAnchor) mut => VT.[Friend]GetText(&this, dwFlags, paStart, paEnd, pchText, cchReq, pcch, fUpdateAnchor);
 
-	public HRESULT SetText(uint32 dwFlags, IAnchor* paStart, IAnchor* paEnd, char8* pchText, uint32 cch) mut => VT.[Friend]SetText(&this, dwFlags, paStart, paEnd, pchText, cch);
+	public HRESULT SetText(uint32 dwFlags, IAnchor* paStart, IAnchor* paEnd, char16* pchText, uint32 cch) mut => VT.[Friend]SetText(&this, dwFlags, paStart, paEnd, pchText, cch);
 
 	public HRESULT GetFormattedText(IAnchor* paStart, IAnchor* paEnd, IDataObject** ppDataObject) mut => VT.[Friend]GetFormattedText(&this, paStart, paEnd, ppDataObject);
 
@@ -1767,7 +1767,7 @@ public static
 
 	public HRESULT QueryInsertEmbedded(Guid* pguidService, FORMATETC* pFormatEtc, BOOL* pfInsertable) mut => VT.[Friend]QueryInsertEmbedded(&this, pguidService, pFormatEtc, pfInsertable);
 
-	public HRESULT InsertTextAtSelection(uint32 dwFlags, char8* pchText, uint32 cch, IAnchor** ppaStart, IAnchor** ppaEnd) mut => VT.[Friend]InsertTextAtSelection(&this, dwFlags, pchText, cch, ppaStart, ppaEnd);
+	public HRESULT InsertTextAtSelection(uint32 dwFlags, char16* pchText, uint32 cch, IAnchor** ppaStart, IAnchor** ppaEnd) mut => VT.[Friend]InsertTextAtSelection(&this, dwFlags, pchText, cch, ppaStart, ppaEnd);
 
 	public HRESULT InsertEmbeddedAtSelection(uint32 dwFlags, IDataObject* pDataObject, IAnchor** ppaStart, IAnchor** ppaEnd) mut => VT.[Friend]InsertEmbeddedAtSelection(&this, dwFlags, pDataObject, ppaStart, ppaEnd);
 }
@@ -2015,13 +2015,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfSystemLangBarItem*/SelfOuter* self, HICON hIcon) SetIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfSystemLangBarItem*/SelfOuter* self, char8* pchToolTip, uint32 cch) SetTooltipString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfSystemLangBarItem*/SelfOuter* self, char16* pchToolTip, uint32 cch) SetTooltipString;
 	}
 
 
 	public HRESULT SetIcon(HICON hIcon) mut => VT.[Friend]SetIcon(&this, hIcon);
 
-	public HRESULT SetTooltipString(char8* pchToolTip, uint32 cch) mut => VT.[Friend]SetTooltipString(&this, pchToolTip, cch);
+	public HRESULT SetTooltipString(char16* pchToolTip, uint32 cch) mut => VT.[Friend]SetTooltipString(&this, pchToolTip, cch);
 }
 
 [CRepr]struct ITfSystemLangBarItemText : IUnknown
@@ -2032,12 +2032,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfSystemLangBarItemText*/SelfOuter* self, char8* pch, uint32 cch) SetItemText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfSystemLangBarItemText*/SelfOuter* self, char16* pch, uint32 cch) SetItemText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfSystemLangBarItemText*/SelfOuter* self, BSTR* pbstrText) GetItemText;
 	}
 
 
-	public HRESULT SetItemText(char8* pch, uint32 cch) mut => VT.[Friend]SetItemText(&this, pch, cch);
+	public HRESULT SetItemText(char16* pch, uint32 cch) mut => VT.[Friend]SetItemText(&this, pch, cch);
 
 	public HRESULT GetItemText(BSTR* pbstrText) mut => VT.[Friend]GetItemText(&this, pbstrText);
 }
@@ -2167,11 +2167,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfMenu*/SelfOuter* self, uint32 uId, uint32 dwFlags, HBITMAP hbmp, HBITMAP hbmpMask, char8* pch, uint32 cch, ITfMenu** ppMenu) AddMenuItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfMenu*/SelfOuter* self, uint32 uId, uint32 dwFlags, HBITMAP hbmp, HBITMAP hbmpMask, char16* pch, uint32 cch, ITfMenu** ppMenu) AddMenuItem;
 	}
 
 
-	public HRESULT AddMenuItem(uint32 uId, uint32 dwFlags, HBITMAP hbmp, HBITMAP hbmpMask, char8* pch, uint32 cch, ITfMenu** ppMenu) mut => VT.[Friend]AddMenuItem(&this, uId, dwFlags, hbmp, hbmpMask, pch, cch, ppMenu);
+	public HRESULT AddMenuItem(uint32 uId, uint32 dwFlags, HBITMAP hbmp, HBITMAP hbmpMask, char16* pch, uint32 cch, ITfMenu** ppMenu) mut => VT.[Friend]AddMenuItem(&this, uId, dwFlags, hbmp, hbmpMask, pch, cch, ppMenu);
 }
 
 [CRepr]struct ITfThreadMgr : IUnknown
@@ -2683,12 +2683,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInsertAtSelection*/SelfOuter* self, uint32 ec, INSERT_TEXT_AT_SELECTION_FLAGS dwFlags, char8* pchText, int32 cch, ITfRange** ppRange) InsertTextAtSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInsertAtSelection*/SelfOuter* self, uint32 ec, INSERT_TEXT_AT_SELECTION_FLAGS dwFlags, char16* pchText, int32 cch, ITfRange** ppRange) InsertTextAtSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInsertAtSelection*/SelfOuter* self, uint32 ec, uint32 dwFlags, IDataObject* pDataObject, ITfRange** ppRange) InsertEmbeddedAtSelection;
 	}
 
 
-	public HRESULT InsertTextAtSelection(uint32 ec, INSERT_TEXT_AT_SELECTION_FLAGS dwFlags, char8* pchText, int32 cch, ITfRange** ppRange) mut => VT.[Friend]InsertTextAtSelection(&this, ec, dwFlags, pchText, cch, ppRange);
+	public HRESULT InsertTextAtSelection(uint32 ec, INSERT_TEXT_AT_SELECTION_FLAGS dwFlags, char16* pchText, int32 cch, ITfRange** ppRange) mut => VT.[Friend]InsertTextAtSelection(&this, ec, dwFlags, pchText, cch, ppRange);
 
 	public HRESULT InsertEmbeddedAtSelection(uint32 ec, uint32 dwFlags, IDataObject* pDataObject, ITfRange** ppRange) mut => VT.[Friend]InsertEmbeddedAtSelection(&this, ec, dwFlags, pDataObject, ppRange);
 }
@@ -3016,8 +3016,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfRange*/SelfOuter* self, uint32 ec, uint32 dwFlags, char8* pchText, uint32 cchMax, uint32* pcch) GetText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfRange*/SelfOuter* self, uint32 ec, uint32 dwFlags, char8* pchText, int32 cch) SetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfRange*/SelfOuter* self, uint32 ec, uint32 dwFlags, char16* pchText, uint32 cchMax, uint32* pcch) GetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfRange*/SelfOuter* self, uint32 ec, uint32 dwFlags, char16* pchText, int32 cch) SetText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfRange*/SelfOuter* self, uint32 ec, IDataObject** ppDataObject) GetFormattedText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfRange*/SelfOuter* self, uint32 ec, Guid* rguidService, Guid* riid, IUnknown** ppunk) GetEmbedded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfRange*/SelfOuter* self, uint32 ec, uint32 dwFlags, IDataObject* pDataObject) InsertEmbedded;
@@ -3041,9 +3041,9 @@ public static
 	}
 
 
-	public HRESULT GetText(uint32 ec, uint32 dwFlags, char8* pchText, uint32 cchMax, uint32* pcch) mut => VT.[Friend]GetText(&this, ec, dwFlags, pchText, cchMax, pcch);
+	public HRESULT GetText(uint32 ec, uint32 dwFlags, char16* pchText, uint32 cchMax, uint32* pcch) mut => VT.[Friend]GetText(&this, ec, dwFlags, pchText, cchMax, pcch);
 
-	public HRESULT SetText(uint32 ec, uint32 dwFlags, char8* pchText, int32 cch) mut => VT.[Friend]SetText(&this, ec, dwFlags, pchText, cch);
+	public HRESULT SetText(uint32 ec, uint32 dwFlags, char16* pchText, int32 cch) mut => VT.[Friend]SetText(&this, ec, dwFlags, pchText, cch);
 
 	public HRESULT GetFormattedText(uint32 ec, IDataObject** ppDataObject) mut => VT.[Friend]GetFormattedText(&this, ec, ppDataObject);
 
@@ -3411,7 +3411,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfiles*/SelfOuter* self, Guid* rclsid) Register;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfiles*/SelfOuter* self, Guid* rclsid) Unregister;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfiles*/SelfOuter* self, Guid* rclsid, uint16 langid, Guid* guidProfile, char8* pchDesc, uint32 cchDesc, char8* pchIconFile, uint32 cchFile, uint32 uIconIndex) AddLanguageProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfiles*/SelfOuter* self, Guid* rclsid, uint16 langid, Guid* guidProfile, char16* pchDesc, uint32 cchDesc, char16* pchIconFile, uint32 cchFile, uint32 uIconIndex) AddLanguageProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfiles*/SelfOuter* self, Guid* rclsid, uint16 langid, Guid* guidProfile) RemoveLanguageProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfiles*/SelfOuter* self, IEnumGUID** ppEnum) EnumInputProcessorInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfiles*/SelfOuter* self, uint16 langid, Guid* catid, Guid* pclsid, Guid* pguidProfile) GetDefaultLanguageProfile;
@@ -3434,7 +3434,7 @@ public static
 
 	public HRESULT Unregister(Guid* rclsid) mut => VT.[Friend]Unregister(&this, rclsid);
 
-	public HRESULT AddLanguageProfile(Guid* rclsid, uint16 langid, Guid* guidProfile, char8* pchDesc, uint32 cchDesc, char8* pchIconFile, uint32 cchFile, uint32 uIconIndex) mut => VT.[Friend]AddLanguageProfile(&this, rclsid, langid, guidProfile, pchDesc, cchDesc, pchIconFile, cchFile, uIconIndex);
+	public HRESULT AddLanguageProfile(Guid* rclsid, uint16 langid, Guid* guidProfile, char16* pchDesc, uint32 cchDesc, char16* pchIconFile, uint32 cchFile, uint32 uIconIndex) mut => VT.[Friend]AddLanguageProfile(&this, rclsid, langid, guidProfile, pchDesc, cchDesc, pchIconFile, cchFile, uIconIndex);
 
 	public HRESULT RemoveLanguageProfile(Guid* rclsid, uint16 langid, Guid* guidProfile) mut => VT.[Friend]RemoveLanguageProfile(&this, rclsid, langid, guidProfile);
 
@@ -3475,11 +3475,11 @@ public static
 
 	[CRepr]public struct VTable : ITfInputProcessorProfiles.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfilesEx*/SelfOuter* self, Guid* rclsid, uint16 langid, Guid* guidProfile, char8* pchFile, uint32 cchFile, uint32 uResId) SetLanguageProfileDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfilesEx*/SelfOuter* self, Guid* rclsid, uint16 langid, Guid* guidProfile, char16* pchFile, uint32 cchFile, uint32 uResId) SetLanguageProfileDisplayName;
 	}
 
 
-	public HRESULT SetLanguageProfileDisplayName(Guid* rclsid, uint16 langid, Guid* guidProfile, char8* pchFile, uint32 cchFile, uint32 uResId) mut => VT.[Friend]SetLanguageProfileDisplayName(&this, rclsid, langid, guidProfile, pchFile, cchFile, uResId);
+	public HRESULT SetLanguageProfileDisplayName(Guid* rclsid, uint16 langid, Guid* guidProfile, char16* pchFile, uint32 cchFile, uint32 uResId) mut => VT.[Friend]SetLanguageProfileDisplayName(&this, rclsid, langid, guidProfile, pchFile, cchFile, uResId);
 }
 
 [CRepr]struct ITfInputProcessorProfileSubstituteLayout : IUnknown
@@ -3567,7 +3567,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfileMgr*/SelfOuter* self, uint32 dwProfileType, uint16 langid, Guid* clsid, Guid* guidProfile, HKL hkl, TF_INPUTPROCESSORPROFILE* pProfile) GetProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfileMgr*/SelfOuter* self, uint16 langid, IEnumTfInputProcessorProfiles** ppEnum) EnumProfiles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfileMgr*/SelfOuter* self, Guid* rclsid, uint32 dwFlags) ReleaseInputProcessor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfileMgr*/SelfOuter* self, Guid* rclsid, uint16 langid, Guid* guidProfile, char8* pchDesc, uint32 cchDesc, char8* pchIconFile, uint32 cchFile, uint32 uIconIndex, HKL hklsubstitute, uint32 dwPreferredLayout, BOOL bEnabledByDefault, uint32 dwFlags) RegisterProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfileMgr*/SelfOuter* self, Guid* rclsid, uint16 langid, Guid* guidProfile, char16* pchDesc, uint32 cchDesc, char16* pchIconFile, uint32 cchFile, uint32 uIconIndex, HKL hklsubstitute, uint32 dwPreferredLayout, BOOL bEnabledByDefault, uint32 dwFlags) RegisterProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfileMgr*/SelfOuter* self, Guid* rclsid, uint16 langid, Guid* guidProfile, uint32 dwFlags) UnregisterProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfInputProcessorProfileMgr*/SelfOuter* self, Guid* catid, TF_INPUTPROCESSORPROFILE* pProfile) GetActiveProfile;
 	}
@@ -3583,7 +3583,7 @@ public static
 
 	public HRESULT ReleaseInputProcessor(Guid* rclsid, uint32 dwFlags) mut => VT.[Friend]ReleaseInputProcessor(&this, rclsid, dwFlags);
 
-	public HRESULT RegisterProfile(Guid* rclsid, uint16 langid, Guid* guidProfile, char8* pchDesc, uint32 cchDesc, char8* pchIconFile, uint32 cchFile, uint32 uIconIndex, HKL hklsubstitute, uint32 dwPreferredLayout, BOOL bEnabledByDefault, uint32 dwFlags) mut => VT.[Friend]RegisterProfile(&this, rclsid, langid, guidProfile, pchDesc, cchDesc, pchIconFile, cchFile, uIconIndex, hklsubstitute, dwPreferredLayout, bEnabledByDefault, dwFlags);
+	public HRESULT RegisterProfile(Guid* rclsid, uint16 langid, Guid* guidProfile, char16* pchDesc, uint32 cchDesc, char16* pchIconFile, uint32 cchFile, uint32 uIconIndex, HKL hklsubstitute, uint32 dwPreferredLayout, BOOL bEnabledByDefault, uint32 dwFlags) mut => VT.[Friend]RegisterProfile(&this, rclsid, langid, guidProfile, pchDesc, cchDesc, pchIconFile, cchFile, uIconIndex, hklsubstitute, dwPreferredLayout, bEnabledByDefault, dwFlags);
 
 	public HRESULT UnregisterProfile(Guid* rclsid, uint16 langid, Guid* guidProfile, uint32 dwFlags) mut => VT.[Friend]UnregisterProfile(&this, rclsid, langid, guidProfile, dwFlags);
 
@@ -3646,9 +3646,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfKeystrokeMgr*/SelfOuter* self, WPARAM wParam, LPARAM lParam, BOOL* pfEaten) KeyUp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfKeystrokeMgr*/SelfOuter* self, ITfContext* pic, TF_PRESERVEDKEY* pprekey, Guid* pguid) GetPreservedKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfKeystrokeMgr*/SelfOuter* self, Guid* rguid, TF_PRESERVEDKEY* pprekey, BOOL* pfRegistered) IsPreservedKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfKeystrokeMgr*/SelfOuter* self, uint32 tid, Guid* rguid, TF_PRESERVEDKEY* prekey, char8* pchDesc, uint32 cchDesc) PreserveKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfKeystrokeMgr*/SelfOuter* self, uint32 tid, Guid* rguid, TF_PRESERVEDKEY* prekey, char16* pchDesc, uint32 cchDesc) PreserveKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfKeystrokeMgr*/SelfOuter* self, Guid* rguid, TF_PRESERVEDKEY* pprekey) UnpreserveKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfKeystrokeMgr*/SelfOuter* self, Guid* rguid, char8* pchDesc, uint32 cchDesc) SetPreservedKeyDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfKeystrokeMgr*/SelfOuter* self, Guid* rguid, char16* pchDesc, uint32 cchDesc) SetPreservedKeyDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfKeystrokeMgr*/SelfOuter* self, Guid* rguid, BSTR* pbstrDesc) GetPreservedKeyDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfKeystrokeMgr*/SelfOuter* self, ITfContext* pic, Guid* rguid, BOOL* pfEaten) SimulatePreservedKey;
 	}
@@ -3672,11 +3672,11 @@ public static
 
 	public HRESULT IsPreservedKey(Guid* rguid, TF_PRESERVEDKEY* pprekey, BOOL* pfRegistered) mut => VT.[Friend]IsPreservedKey(&this, rguid, pprekey, pfRegistered);
 
-	public HRESULT PreserveKey(uint32 tid, Guid* rguid, TF_PRESERVEDKEY* prekey, char8* pchDesc, uint32 cchDesc) mut => VT.[Friend]PreserveKey(&this, tid, rguid, prekey, pchDesc, cchDesc);
+	public HRESULT PreserveKey(uint32 tid, Guid* rguid, TF_PRESERVEDKEY* prekey, char16* pchDesc, uint32 cchDesc) mut => VT.[Friend]PreserveKey(&this, tid, rguid, prekey, pchDesc, cchDesc);
 
 	public HRESULT UnpreserveKey(Guid* rguid, TF_PRESERVEDKEY* pprekey) mut => VT.[Friend]UnpreserveKey(&this, rguid, pprekey);
 
-	public HRESULT SetPreservedKeyDescription(Guid* rguid, char8* pchDesc, uint32 cchDesc) mut => VT.[Friend]SetPreservedKeyDescription(&this, rguid, pchDesc, cchDesc);
+	public HRESULT SetPreservedKeyDescription(Guid* rguid, char16* pchDesc, uint32 cchDesc) mut => VT.[Friend]SetPreservedKeyDescription(&this, rguid, pchDesc, cchDesc);
 
 	public HRESULT GetPreservedKeyDescription(Guid* rguid, BSTR* pbstrDesc) mut => VT.[Friend]GetPreservedKeyDescription(&this, rguid, pbstrDesc);
 
@@ -3954,7 +3954,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfCategoryMgr*/SelfOuter* self, Guid* rguid, IEnumGUID** ppEnum) EnumCategoriesInItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfCategoryMgr*/SelfOuter* self, Guid* rcatid, IEnumGUID** ppEnum) EnumItemsInCategory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfCategoryMgr*/SelfOuter* self, Guid* rguid, Guid* pcatid, Guid** ppcatidList, uint32 ulCount) FindClosestCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfCategoryMgr*/SelfOuter* self, Guid* rclsid, Guid* rguid, char8* pchDesc, uint32 cch) RegisterGUIDDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfCategoryMgr*/SelfOuter* self, Guid* rclsid, Guid* rguid, char16* pchDesc, uint32 cch) RegisterGUIDDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfCategoryMgr*/SelfOuter* self, Guid* rclsid, Guid* rguid) UnregisterGUIDDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfCategoryMgr*/SelfOuter* self, Guid* rguid, BSTR* pbstrDesc) GetGUIDDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfCategoryMgr*/SelfOuter* self, Guid* rclsid, Guid* rguid, uint32 dw) RegisterGUIDDWORD;
@@ -3976,7 +3976,7 @@ public static
 
 	public HRESULT FindClosestCategory(Guid* rguid, Guid* pcatid, Guid** ppcatidList, uint32 ulCount) mut => VT.[Friend]FindClosestCategory(&this, rguid, pcatid, ppcatidList, ulCount);
 
-	public HRESULT RegisterGUIDDescription(Guid* rclsid, Guid* rguid, char8* pchDesc, uint32 cch) mut => VT.[Friend]RegisterGUIDDescription(&this, rclsid, rguid, pchDesc, cch);
+	public HRESULT RegisterGUIDDescription(Guid* rclsid, Guid* rguid, char16* pchDesc, uint32 cch) mut => VT.[Friend]RegisterGUIDDescription(&this, rclsid, rguid, pchDesc, cch);
 
 	public HRESULT UnregisterGUIDDescription(Guid* rclsid, Guid* rguid) mut => VT.[Friend]UnregisterGUIDDescription(&this, rclsid, rguid);
 
@@ -4498,11 +4498,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfFnBalloon*/SelfOuter* self, TfLBBalloonStyle style, char8* pch, uint32 cch) UpdateBalloon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfFnBalloon*/SelfOuter* self, TfLBBalloonStyle style, char16* pch, uint32 cch) UpdateBalloon;
 	}
 
 
-	public HRESULT UpdateBalloon(TfLBBalloonStyle style, char8* pch, uint32 cch) mut => VT.[Friend]UpdateBalloon(&this, style, pch, cch);
+	public HRESULT UpdateBalloon(TfLBBalloonStyle style, char16* pch, uint32 cch) mut => VT.[Friend]UpdateBalloon(&this, style, pch, cch);
 }
 
 [CRepr]struct ITfFnGetSAPIObject : ITfFunction
@@ -4571,13 +4571,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpeechCommandProvider*/SelfOuter* self, uint16 langid, IEnumSpeechCommands** ppEnum) EnumSpeechCommands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpeechCommandProvider*/SelfOuter* self, char8* pszCommand, uint32 cch, uint16 langid) ProcessCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpeechCommandProvider*/SelfOuter* self, char16* pszCommand, uint32 cch, uint16 langid) ProcessCommand;
 	}
 
 
 	public HRESULT EnumSpeechCommands(uint16 langid, IEnumSpeechCommands** ppEnum) mut => VT.[Friend]EnumSpeechCommands(&this, langid, ppEnum);
 
-	public HRESULT ProcessCommand(char8* pszCommand, uint32 cch, uint16 langid) mut => VT.[Friend]ProcessCommand(&this, pszCommand, cch, langid);
+	public HRESULT ProcessCommand(char16* pszCommand, uint32 cch, uint16 langid) mut => VT.[Friend]ProcessCommand(&this, pszCommand, cch, langid);
 }
 
 [CRepr]struct ITfFnCustomSpeechCommand : ITfFunction
@@ -4693,12 +4693,12 @@ public static
 
 	[CRepr]public struct VTable : ITfFunction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfFnAdviseText*/SelfOuter* self, ITfRange* pRange, char8* pchText, int32 cch) OnTextUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfFnAdviseText*/SelfOuter* self, ITfRange* pRange, char16* pchText, int32 cch) OnTextUpdate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfFnAdviseText*/SelfOuter* self, ITfRange* pRange, ITfLMLattice* pLattice) OnLatticeUpdate;
 	}
 
 
-	public HRESULT OnTextUpdate(ITfRange* pRange, char8* pchText, int32 cch) mut => VT.[Friend]OnTextUpdate(&this, pRange, pchText, cch);
+	public HRESULT OnTextUpdate(ITfRange* pRange, char16* pchText, int32 cch) mut => VT.[Friend]OnTextUpdate(&this, pRange, pchText, cch);
 
 	public HRESULT OnLatticeUpdate(ITfRange* pRange, ITfLMLattice* pLattice) mut => VT.[Friend]OnLatticeUpdate(&this, pRange, pLattice);
 }
@@ -5148,7 +5148,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfSpeechUIServer*/SelfOuter* self) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfSpeechUIServer*/SelfOuter* self, BOOL fShow) ShowUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfSpeechUIServer*/SelfOuter* self, TfLBBalloonStyle style, char8* pch, uint32 cch) UpdateBalloon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITfSpeechUIServer*/SelfOuter* self, TfLBBalloonStyle style, char16* pch, uint32 cch) UpdateBalloon;
 	}
 
 
@@ -5156,7 +5156,7 @@ public static
 
 	public HRESULT ShowUI(BOOL fShow) mut => VT.[Friend]ShowUI(&this, fShow);
 
-	public HRESULT UpdateBalloon(TfLBBalloonStyle style, char8* pch, uint32 cch) mut => VT.[Friend]UpdateBalloon(&this, style, pch, cch);
+	public HRESULT UpdateBalloon(TfLBBalloonStyle style, char16* pch, uint32 cch) mut => VT.[Friend]UpdateBalloon(&this, style, pch, cch);
 }
 
 #endregion

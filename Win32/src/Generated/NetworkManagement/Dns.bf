@@ -1715,7 +1715,7 @@ public struct DNS_CONNECTION_PROXY_LIST
 [CRepr]
 public struct DNS_CONNECTION_NAME
 {
-	public char8[65] wszName;
+	public char16[65] wszName;
 }
 
 [CRepr]
@@ -1822,7 +1822,7 @@ public struct DNS_SERVICE_REGISTER_REQUEST
 [CRepr]
 public struct MDNS_QUERY_HANDLE
 {
-	public char8[256] nameBuf;
+	public char16[256] nameBuf;
 	public uint16 wType;
 	public void* pSubscription;
 	public void* pWnfCallbackParams;

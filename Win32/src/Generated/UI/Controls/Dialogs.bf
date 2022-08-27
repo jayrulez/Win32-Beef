@@ -1318,16 +1318,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, DEVMODEA* pDevMode, uint32* pcbSize) GetCurrentDevMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, char8* pPrinterName, uint32* pcchSize) GetCurrentPrinterName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, char8* pPortName, uint32* pcchSize) GetCurrentPortName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, char16* pPrinterName, uint32* pcchSize) GetCurrentPrinterName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, char16* pPortName, uint32* pcchSize) GetCurrentPortName;
 	}
 
 
 	public HRESULT GetCurrentDevMode(DEVMODEA* pDevMode, uint32* pcbSize) mut => VT.[Friend]GetCurrentDevMode(&this, pDevMode, pcbSize);
 
-	public HRESULT GetCurrentPrinterName(char8* pPrinterName, uint32* pcchSize) mut => VT.[Friend]GetCurrentPrinterName(&this, pPrinterName, pcchSize);
+	public HRESULT GetCurrentPrinterName(char16* pPrinterName, uint32* pcchSize) mut => VT.[Friend]GetCurrentPrinterName(&this, pPrinterName, pcchSize);
 
-	public HRESULT GetCurrentPortName(char8* pPortName, uint32* pcchSize) mut => VT.[Friend]GetCurrentPortName(&this, pPortName, pcchSize);
+	public HRESULT GetCurrentPortName(char16* pPortName, uint32* pcchSize) mut => VT.[Friend]GetCurrentPortName(&this, pPortName, pcchSize);
 }
 
 #endregion
@@ -1354,7 +1354,7 @@ public static
 	public static int16 GetFileTitle(PSTR param0, uint8* Buf, uint16 cchSize) => GetFileTitleA(param0, Buf, cchSize);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 GetFileTitleW(PWSTR param0, char8* Buf, uint16 cchSize);
+	public static extern int16 GetFileTitleW(PWSTR param0, char16* Buf, uint16 cchSize);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ChooseColorA(CHOOSECOLORA* param0);

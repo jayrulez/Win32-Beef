@@ -1768,7 +1768,7 @@ public struct VDS_SERVICE_NOTIFICATION
 public struct VDS_DRIVE_LETTER_NOTIFICATION
 {
 	public uint32 ulEvent;
-	public char8 wcLetter;
+	public char16 wcLetter;
 	public Guid volumeId;
 }
 
@@ -1961,7 +1961,7 @@ public struct VDS_IPADDRESS
 	public uint8[16] ipv6Address;
 	public uint32 ulIpv6FlowInfo;
 	public uint32 ulIpv6ScopeId;
-	public char8[257] wszTextAddress;
+	public char16[257] wszTextAddress;
 	public uint32 ulPort;
 }
 

@@ -6058,13 +6058,13 @@ public struct PIN_INFO
 {
 	public IBaseFilter* pFilter;
 	public PIN_DIRECTION dir;
-	public char8[128] achName;
+	public char16[128] achName;
 }
 
 [CRepr]
 public struct FILTER_INFO
 {
-	public char8[128] achName;
+	public char16[128] achName;
 	public IFilterGraph* pGraph;
 }
 
@@ -6334,8 +6334,8 @@ public struct VMRMONITORINFO
 	public RECT rcMonitor;
 	public HMONITOR hMon;
 	public uint32 dwFlags;
-	public char8[32] szDevice;
-	public char8[256] szDescription;
+	public char16[32] szDevice;
+	public char16[256] szDescription;
 	public LARGE_INTEGER liDriverVersion;
 	public uint32 dwVendorId;
 	public uint32 dwDeviceId;
@@ -7227,8 +7227,8 @@ public struct VMR9MonitorInfo
 	public RECT rcMonitor;
 	public HMONITOR hMon;
 	public uint32 dwFlags;
-	public char8[32] szDevice;
-	public char8[512] szDescription;
+	public char16[32] szDevice;
+	public char16[512] szDescription;
 	public LARGE_INTEGER liDriverVersion;
 	public uint32 dwVendorId;
 	public uint32 dwDeviceId;
@@ -7780,8 +7780,8 @@ public struct MP_PARAMINFO
 	public float mpdMinValue;
 	public float mpdMaxValue;
 	public float mpdNeutralValue;
-	public char8[32] szUnitText;
-	public char8[32] szLabel;
+	public char16[32] szUnitText;
+	public char16[32] szLabel;
 }
 
 [CRepr]
@@ -8787,7 +8787,7 @@ public struct SpanningEventEmmMessage
 	public uint8 bFormatVersion;
 	public uint8 bDisplayPosition;
 	public uint16 wMessageLength;
-	public char8[1] szMessageArea;
+	public char16[1] szMessageArea;
 }
 
 [CRepr]
@@ -13566,7 +13566,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDvdInfo2*/SelfOuter* self, uint32* pulParentalLevel, uint8* pbCountryCode) GetPlayerParentalLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDvdInfo2*/SelfOuter* self, uint32 ulTitle, uint32* pulNumOfChapters) GetNumberOfChapters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDvdInfo2*/SelfOuter* self, uint32 ulTitle, uint32* pulParentalLevels) GetTitleParentalLevels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDvdInfo2*/SelfOuter* self, char8* pszwPath, uint32 ulMaxSize, uint32* pulActualSize) GetDVDDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDvdInfo2*/SelfOuter* self, char16* pszwPath, uint32 ulMaxSize, uint32* pulActualSize) GetDVDDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDvdInfo2*/SelfOuter* self, uint32 ulStreamNum, BOOL* pbEnabled) IsAudioStreamEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDvdInfo2*/SelfOuter* self, PWSTR pszwPath, uint64* pullDiscID) GetDiscID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDvdInfo2*/SelfOuter* self, IDvdState** pStateData) GetState;
@@ -13634,7 +13634,7 @@ public static
 
 	public HRESULT GetTitleParentalLevels(uint32 ulTitle, uint32* pulParentalLevels) mut => VT.[Friend]GetTitleParentalLevels(&this, ulTitle, pulParentalLevels);
 
-	public HRESULT GetDVDDirectory(char8* pszwPath, uint32 ulMaxSize, uint32* pulActualSize) mut => VT.[Friend]GetDVDDirectory(&this, pszwPath, ulMaxSize, pulActualSize);
+	public HRESULT GetDVDDirectory(char16* pszwPath, uint32 ulMaxSize, uint32* pulActualSize) mut => VT.[Friend]GetDVDDirectory(&this, pszwPath, ulMaxSize, pulActualSize);
 
 	public HRESULT IsAudioStreamEnabled(uint32 ulStreamNum, BOOL* pbEnabled) mut => VT.[Friend]IsAudioStreamEnabled(&this, ulStreamNum, pbEnabled);
 
@@ -26706,7 +26706,7 @@ public static
 	public static uint32 AMGetErrorText(HRESULT hr, uint8* pbuffer, uint32 MaxLen) => AMGetErrorTextA(hr, pbuffer, MaxLen);
 
 	[Import("QUARTZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AMGetErrorTextW(HRESULT hr, char8* pbuffer, uint32 MaxLen);
+	public static extern uint32 AMGetErrorTextW(HRESULT hr, char16* pbuffer, uint32 MaxLen);
 
 }
 #endregion

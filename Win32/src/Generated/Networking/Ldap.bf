@@ -1169,10 +1169,10 @@ public static
 	public static extern void ldap_set_dbg_routine(DBGPRINT DebugPrintRoutine);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 LdapUTF8ToUnicode(uint8* lpSrcStr, int32 cchSrc, char8* lpDestStr, int32 cchDest);
+	public static extern int32 LdapUTF8ToUnicode(uint8* lpSrcStr, int32 cchSrc, char16* lpDestStr, int32 cchDest);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 LdapUnicodeToUTF8(char8* lpSrcStr, int32 cchSrc, uint8* lpDestStr, int32 cchDest);
+	public static extern int32 LdapUnicodeToUTF8(char16* lpSrcStr, int32 cchSrc, uint8* lpDestStr, int32 cchDest);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_create_sort_controlA(ldap* ExternalHandle, ldapsortkeyA** SortKeys, uint8 IsCritical, ldapcontrolA** Control);

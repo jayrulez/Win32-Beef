@@ -3029,7 +3029,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Mesh* mesh, ID2D1Brush* brush) FillMesh;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Bitmap* opacityMask, ID2D1Brush* brush, D2D1_OPACITY_MASK_CONTENT content, D2D_RECT_F* destinationRectangle, D2D_RECT_F* sourceRectangle) FillOpacityMask;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, ID2D1Bitmap* bitmap, D2D_RECT_F* destinationRectangle, float opacity, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode, D2D_RECT_F* sourceRectangle) DrawBitmap;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, char8* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) DrawText;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) DrawText;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_POINT_2F origin, IDWriteTextLayout* textLayout, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options) DrawTextLayout;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, ID2D1Brush* foregroundBrush, DWRITE_MEASURING_MODE measuringMode) DrawGlyphRun;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1RenderTarget*/SelfOuter* self, D2D_MATRIX_3X2_F* transform) SetTransform;
@@ -3108,7 +3108,7 @@ public static
 
 	public void DrawBitmap(ID2D1Bitmap* bitmap, D2D_RECT_F* destinationRectangle, float opacity, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode, D2D_RECT_F* sourceRectangle) mut => VT.[Friend]DrawBitmap(&this, bitmap, destinationRectangle, opacity, interpolationMode, sourceRectangle);
 
-	public void DrawText(char8* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawText(&this, string, stringLength, textFormat, layoutRect, defaultFillBrush, options, measuringMode);
+	public void DrawText(char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawText(&this, string, stringLength, textFormat, layoutRect, defaultFillBrush, options, measuringMode);
 
 	public void DrawTextLayout(D2D_POINT_2F origin, IDWriteTextLayout* textLayout, ID2D1Brush* defaultFillBrush, D2D1_DRAW_TEXT_OPTIONS options) mut => VT.[Friend]DrawTextLayout(&this, origin, textLayout, defaultFillBrush, options);
 
@@ -3547,7 +3547,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1Properties*/SelfOuter* self) GetPropertyCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Properties*/SelfOuter* self, uint32 index, char8* name, uint32 nameCount) GetPropertyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1Properties*/SelfOuter* self, uint32 index, char16* name, uint32 nameCount) GetPropertyName;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1Properties*/SelfOuter* self, uint32 index) GetPropertyNameLength;
 		protected new function [CallingConvention(.Stdcall)] D2D1_PROPERTY_TYPE(/*ID2D1Properties*/SelfOuter* self, uint32 index) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1Properties*/SelfOuter* self, PWSTR name) GetPropertyIndex;
@@ -3562,7 +3562,7 @@ public static
 
 	public uint32 GetPropertyCount() mut => VT.[Friend]GetPropertyCount(&this);
 
-	public HRESULT GetPropertyName(uint32 index, char8* name, uint32 nameCount) mut => VT.[Friend]GetPropertyName(&this, index, name, nameCount);
+	public HRESULT GetPropertyName(uint32 index, char16* name, uint32 nameCount) mut => VT.[Friend]GetPropertyName(&this, index, name, nameCount);
 
 	public uint32 GetPropertyNameLength(uint32 index) mut => VT.[Friend]GetPropertyNameLength(&this, index);
 
@@ -4463,7 +4463,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPaint*/SelfOuter* self, D2D1_COLOR_F* color) SetColor;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgPaint*/SelfOuter* self, D2D1_COLOR_F* color) GetColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPaint*/SelfOuter* self, PWSTR id) SetId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPaint*/SelfOuter* self, char8* id, uint32 idCount) GetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgPaint*/SelfOuter* self, char16* id, uint32 idCount) GetId;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SvgPaint*/SelfOuter* self) GetIdLength;
 	}
 
@@ -4478,7 +4478,7 @@ public static
 
 	public HRESULT SetId(PWSTR id) mut => VT.[Friend]SetId(&this, id);
 
-	public HRESULT GetId(char8* id, uint32 idCount) mut => VT.[Friend]GetId(&this, id, idCount);
+	public HRESULT GetId(char16* id, uint32 idCount) mut => VT.[Friend]GetId(&this, id, idCount);
 
 	public uint32 GetIdLength() mut => VT.[Friend]GetIdLength(&this);
 }
@@ -4585,7 +4585,7 @@ public static
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgDocument** document) GetDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, char8* name, uint32 nameCount) GetTagName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, char16* name, uint32 nameCount) GetTagName;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SvgElement*/SelfOuter* self) GetTagNameLength;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1SvgElement*/SelfOuter* self) IsTextContent;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SvgElement*/SelfOuter* self, ID2D1SvgElement** parent) GetParent;
@@ -4601,25 +4601,25 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR tagName, ID2D1SvgElement** newChild) CreateChild;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, BOOL* inherited) IsAttributeSpecified;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SvgElement*/SelfOuter* self) GetSpecifiedAttributeCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, uint32 index, char8* name, uint32 nameCount, BOOL* inherited) GetSpecifiedAttributeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, uint32 index, char16* name, uint32 nameCount, BOOL* inherited) GetSpecifiedAttributeName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, uint32 index, uint32* nameLength, BOOL* inherited) GetSpecifiedAttributeNameLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name) RemoveAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, char8* name, uint32 nameCount) SetTextValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, char8* name, uint32 nameCount) GetTextValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, char16* name, uint32 nameCount) SetTextValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, char16* name, uint32 nameCount) GetTextValue;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID2D1SvgElement*/SelfOuter* self) GetTextValueLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, ID2D1SvgAttribute* value) SetAttributeValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void* value, uint32 valueSizeInBytes) SetAttributeValue0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, PWSTR value) SetAttributeValue1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, Guid* riid, void** value) GetAttributeValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void* value, uint32 valueSizeInBytes) GetAttributeValue0;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, char8* value, uint32 valueCount) GetAttributeValue1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, char16* value, uint32 valueCount) GetAttributeValue1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SvgElement*/SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, uint32* valueLength) GetAttributeValueLength;
 	}
 
 
 	public void GetDocument(ID2D1SvgDocument** document) mut => VT.[Friend]GetDocument(&this, document);
 
-	public HRESULT GetTagName(char8* name, uint32 nameCount) mut => VT.[Friend]GetTagName(&this, name, nameCount);
+	public HRESULT GetTagName(char16* name, uint32 nameCount) mut => VT.[Friend]GetTagName(&this, name, nameCount);
 
 	public uint32 GetTagNameLength() mut => VT.[Friend]GetTagNameLength(&this);
 
@@ -4651,15 +4651,15 @@ public static
 
 	public uint32 GetSpecifiedAttributeCount() mut => VT.[Friend]GetSpecifiedAttributeCount(&this);
 
-	public HRESULT GetSpecifiedAttributeName(uint32 index, char8* name, uint32 nameCount, BOOL* inherited) mut => VT.[Friend]GetSpecifiedAttributeName(&this, index, name, nameCount, inherited);
+	public HRESULT GetSpecifiedAttributeName(uint32 index, char16* name, uint32 nameCount, BOOL* inherited) mut => VT.[Friend]GetSpecifiedAttributeName(&this, index, name, nameCount, inherited);
 
 	public HRESULT GetSpecifiedAttributeNameLength(uint32 index, uint32* nameLength, BOOL* inherited) mut => VT.[Friend]GetSpecifiedAttributeNameLength(&this, index, nameLength, inherited);
 
 	public HRESULT RemoveAttribute(PWSTR name) mut => VT.[Friend]RemoveAttribute(&this, name);
 
-	public HRESULT SetTextValue(char8* name, uint32 nameCount) mut => VT.[Friend]SetTextValue(&this, name, nameCount);
+	public HRESULT SetTextValue(char16* name, uint32 nameCount) mut => VT.[Friend]SetTextValue(&this, name, nameCount);
 
-	public HRESULT GetTextValue(char8* name, uint32 nameCount) mut => VT.[Friend]GetTextValue(&this, name, nameCount);
+	public HRESULT GetTextValue(char16* name, uint32 nameCount) mut => VT.[Friend]GetTextValue(&this, name, nameCount);
 
 	public uint32 GetTextValueLength() mut => VT.[Friend]GetTextValueLength(&this);
 
@@ -4673,7 +4673,7 @@ public static
 
 	public HRESULT GetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void* value, uint32 valueSizeInBytes) mut => VT.[Friend]GetAttributeValue0(&this, name, type, value, valueSizeInBytes);
 
-	public HRESULT GetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, char8* value, uint32 valueCount) mut => VT.[Friend]GetAttributeValue1(&this, name, type, value, valueCount);
+	public HRESULT GetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, char16* value, uint32 valueCount) mut => VT.[Friend]GetAttributeValue1(&this, name, type, value, valueCount);
 
 	public HRESULT GetAttributeValueLength(PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, uint32* valueLength) mut => VT.[Friend]GetAttributeValueLength(&this, name, type, valueLength);
 }
@@ -5137,7 +5137,7 @@ public static
 	[CRepr]public struct VTable : ID2D1DeviceContext3.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1DeviceContext4*/SelfOuter* self, ID2D1SvgGlyphStyle** svgGlyphStyle) CreateSvgGlyphStyle;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, char8* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) DrawText;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) DrawText;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, D2D_POINT_2F origin, IDWriteTextLayout* textLayout, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options) DrawTextLayout;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, DWRITE_GLYPH_IMAGE_FORMATS glyphImageFormat, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, DWRITE_MEASURING_MODE measuringMode, D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION bitmapSnapOption) DrawColorBitmapGlyphRun;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1DeviceContext4*/SelfOuter* self, D2D_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN* glyphRun, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, DWRITE_MEASURING_MODE measuringMode) DrawSvgGlyphRun;
@@ -5148,7 +5148,7 @@ public static
 
 	public HRESULT CreateSvgGlyphStyle(ID2D1SvgGlyphStyle** svgGlyphStyle) mut => VT.[Friend]CreateSvgGlyphStyle(&this, svgGlyphStyle);
 
-	public void DrawText(char8* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawText(&this, string, stringLength, textFormat, layoutRect, defaultFillBrush, svgGlyphStyle, colorPaletteIndex, options, measuringMode);
+	public void DrawText(char16* string, uint32 stringLength, IDWriteTextFormat* textFormat, D2D_RECT_F* layoutRect, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) mut => VT.[Friend]DrawText(&this, string, stringLength, textFormat, layoutRect, defaultFillBrush, svgGlyphStyle, colorPaletteIndex, options, measuringMode);
 
 	public void DrawTextLayout(D2D_POINT_2F origin, IDWriteTextLayout* textLayout, ID2D1Brush* defaultFillBrush, ID2D1SvgGlyphStyle* svgGlyphStyle, uint32 colorPaletteIndex, D2D1_DRAW_TEXT_OPTIONS options) mut => VT.[Friend]DrawTextLayout(&this, origin, textLayout, defaultFillBrush, svgGlyphStyle, colorPaletteIndex, options);
 

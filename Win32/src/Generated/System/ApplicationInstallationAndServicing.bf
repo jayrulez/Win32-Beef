@@ -2001,7 +2001,7 @@ public struct FUSION_INSTALL_REFERENCE
 [CRepr]
 public struct PROTECTED_FILE_DATA
 {
-	public char8[260] FileName;
+	public char16[260] FileName;
 	public uint32 FileNumber;
 }
 
@@ -2717,9 +2717,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, uint32 PropertyId, void* pvProperty, uint32 cbProperty) SetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, uint32 PropertyId, void* pvProperty, uint32* pcbProperty) GetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self) Finalize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, char8* szDisplayName, uint32* pccDisplayName, uint32 dwDisplayFlags) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, char16* szDisplayName, uint32* pccDisplayName, uint32 dwDisplayFlags) GetDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, Guid* refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) Reserved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, uint32* lpcwBuffer, char8* pwzName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, uint32* lpcwBuffer, char16* pwzName) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, uint32* pdwVersionHi, uint32* pdwVersionLow) GetVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, IAssemblyName* pName, uint32 dwCmpFlags) IsEqual;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, IAssemblyName** pName) Clone;
@@ -2732,11 +2732,11 @@ public static
 
 	public HRESULT Finalize() mut => VT.[Friend]Finalize(&this);
 
-	public HRESULT GetDisplayName(char8* szDisplayName, uint32* pccDisplayName, uint32 dwDisplayFlags) mut => VT.[Friend]GetDisplayName(&this, szDisplayName, pccDisplayName, dwDisplayFlags);
+	public HRESULT GetDisplayName(char16* szDisplayName, uint32* pccDisplayName, uint32 dwDisplayFlags) mut => VT.[Friend]GetDisplayName(&this, szDisplayName, pccDisplayName, dwDisplayFlags);
 
 	public HRESULT Reserved(Guid* refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) mut => VT.[Friend]Reserved(&this, refIID, pUnkReserved1, pUnkReserved2, szReserved, llReserved, pvReserved, cbReserved, ppReserved);
 
-	public HRESULT GetName(uint32* lpcwBuffer, char8* pwzName) mut => VT.[Friend]GetName(&this, lpcwBuffer, pwzName);
+	public HRESULT GetName(uint32* lpcwBuffer, char16* pwzName) mut => VT.[Friend]GetName(&this, lpcwBuffer, pwzName);
 
 	public HRESULT GetVersion(uint32* pdwVersionHi, uint32* pdwVersionLow) mut => VT.[Friend]GetVersion(&this, pdwVersionHi, pdwVersionLow);
 
@@ -3832,14 +3832,14 @@ public static
 	public static uint32 MsiGetProductInfo(PSTR szProduct, PSTR szAttribute, uint8* lpValueBuf, uint32* pcchValueBuf) => MsiGetProductInfoA(szProduct, szAttribute, lpValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductInfoW(PWSTR szProduct, PWSTR szAttribute, char8* lpValueBuf, uint32* pcchValueBuf);
+	public static extern uint32 MsiGetProductInfoW(PWSTR szProduct, PWSTR szAttribute, char16* lpValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiGetProductInfoExA(PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* szValue, uint32* pcchValue);
 	public static uint32 MsiGetProductInfoEx(PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* szValue, uint32* pcchValue) => MsiGetProductInfoExA(szProductCode, szUserSid, dwContext, szProperty, szValue, pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductInfoExW(PWSTR szProductCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, PWSTR szProperty, char8* szValue, uint32* pcchValue);
+	public static extern uint32 MsiGetProductInfoExW(PWSTR szProductCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, PWSTR szProperty, char16* szValue, uint32* pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiInstallProductA(PSTR szPackagePath, PSTR szCommandLine);
@@ -3902,7 +3902,7 @@ public static
 	public static uint32 MsiGetProductInfoFromScript(PSTR szScriptFile, PSTR lpProductBuf39, uint16* plgidLanguage, uint32* pdwVersion, uint8* lpNameBuf, uint32* pcchNameBuf, uint8* lpPackageBuf, uint32* pcchPackageBuf) => MsiGetProductInfoFromScriptA(szScriptFile, lpProductBuf39, plgidLanguage, pdwVersion, lpNameBuf, pcchNameBuf, lpPackageBuf, pcchPackageBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductInfoFromScriptW(PWSTR szScriptFile, PWSTR lpProductBuf39, uint16* plgidLanguage, uint32* pdwVersion, char8* lpNameBuf, uint32* pcchNameBuf, char8* lpPackageBuf, uint32* pcchPackageBuf);
+	public static extern uint32 MsiGetProductInfoFromScriptW(PWSTR szScriptFile, PWSTR lpProductBuf39, uint16* plgidLanguage, uint32* pdwVersion, char16* lpNameBuf, uint32* pcchNameBuf, char16* lpPackageBuf, uint32* pcchPackageBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiGetProductCodeA(PSTR szComponent, PSTR lpBuf39);
@@ -3916,7 +3916,7 @@ public static
 	public static USERINFOSTATE MsiGetUserInfo(PSTR szProduct, uint8* lpUserNameBuf, uint32* pcchUserNameBuf, uint8* lpOrgNameBuf, uint32* pcchOrgNameBuf, uint8* lpSerialBuf, uint32* pcchSerialBuf) => MsiGetUserInfoA(szProduct, lpUserNameBuf, pcchUserNameBuf, lpOrgNameBuf, pcchOrgNameBuf, lpSerialBuf, pcchSerialBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USERINFOSTATE MsiGetUserInfoW(PWSTR szProduct, char8* lpUserNameBuf, uint32* pcchUserNameBuf, char8* lpOrgNameBuf, uint32* pcchOrgNameBuf, char8* lpSerialBuf, uint32* pcchSerialBuf);
+	public static extern USERINFOSTATE MsiGetUserInfoW(PWSTR szProduct, char16* lpUserNameBuf, uint32* pcchUserNameBuf, char16* lpOrgNameBuf, uint32* pcchOrgNameBuf, char16* lpSerialBuf, uint32* pcchSerialBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiCollectUserInfoA(PSTR szProduct);
@@ -3937,14 +3937,14 @@ public static
 	public static uint32 MsiGetPatchInfo(PSTR szPatch, PSTR szAttribute, uint8* lpValueBuf, uint32* pcchValueBuf) => MsiGetPatchInfoA(szPatch, szAttribute, lpValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPatchInfoW(PWSTR szPatch, PWSTR szAttribute, char8* lpValueBuf, uint32* pcchValueBuf);
+	public static extern uint32 MsiGetPatchInfoW(PWSTR szPatch, PWSTR szAttribute, char16* lpValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiEnumPatchesA(PSTR szProduct, uint32 iPatchIndex, PSTR lpPatchBuf, uint8* lpTransformsBuf, uint32* pcchTransformsBuf);
 	public static uint32 MsiEnumPatches(PSTR szProduct, uint32 iPatchIndex, PSTR lpPatchBuf, uint8* lpTransformsBuf, uint32* pcchTransformsBuf) => MsiEnumPatchesA(szProduct, iPatchIndex, lpPatchBuf, lpTransformsBuf, pcchTransformsBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumPatchesW(PWSTR szProduct, uint32 iPatchIndex, PWSTR lpPatchBuf, char8* lpTransformsBuf, uint32* pcchTransformsBuf);
+	public static extern uint32 MsiEnumPatchesW(PWSTR szProduct, uint32 iPatchIndex, PWSTR lpPatchBuf, char16* lpTransformsBuf, uint32* pcchTransformsBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiRemovePatchesA(PSTR szPatchList, PSTR szProductCode, INSTALLTYPE eUninstallType, PSTR szPropertyList);
@@ -3958,14 +3958,14 @@ public static
 	public static uint32 MsiExtractPatchXMLData(PSTR szPatchPath, uint32 dwReserved, uint8* szXMLData, uint32* pcchXMLData) => MsiExtractPatchXMLDataA(szPatchPath, dwReserved, szXMLData, pcchXMLData);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiExtractPatchXMLDataW(PWSTR szPatchPath, uint32 dwReserved, char8* szXMLData, uint32* pcchXMLData);
+	public static extern uint32 MsiExtractPatchXMLDataW(PWSTR szPatchPath, uint32 dwReserved, char16* szXMLData, uint32* pcchXMLData);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiGetPatchInfoExA(PSTR szPatchCode, PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* lpValue, uint32* pcchValue);
 	public static uint32 MsiGetPatchInfoEx(PSTR szPatchCode, PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* lpValue, uint32* pcchValue) => MsiGetPatchInfoExA(szPatchCode, szProductCode, szUserSid, dwContext, szProperty, lpValue, pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPatchInfoExW(PWSTR szPatchCode, PWSTR szProductCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, PWSTR szProperty, char8* lpValue, uint32* pcchValue);
+	public static extern uint32 MsiGetPatchInfoExW(PWSTR szPatchCode, PWSTR szProductCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, PWSTR szProperty, char16* lpValue, uint32* pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiApplyMultiplePatchesA(PSTR szPatchPackages, PSTR szProductCode, PSTR szPropertiesList);
@@ -3993,7 +3993,7 @@ public static
 	public static uint32 MsiEnumPatchesEx(PSTR szProductCode, PSTR szUserSid, uint32 dwContext, uint32 dwFilter, uint32 dwIndex, PSTR szPatchCode, PSTR szTargetProductCode, MSIINSTALLCONTEXT* pdwTargetProductContext, uint8* szTargetUserSid, uint32* pcchTargetUserSid) => MsiEnumPatchesExA(szProductCode, szUserSid, dwContext, dwFilter, dwIndex, szPatchCode, szTargetProductCode, pdwTargetProductContext, szTargetUserSid, pcchTargetUserSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumPatchesExW(PWSTR szProductCode, PWSTR szUserSid, uint32 dwContext, uint32 dwFilter, uint32 dwIndex, PWSTR szPatchCode, PWSTR szTargetProductCode, MSIINSTALLCONTEXT* pdwTargetProductContext, char8* szTargetUserSid, uint32* pcchTargetUserSid);
+	public static extern uint32 MsiEnumPatchesExW(PWSTR szProductCode, PWSTR szUserSid, uint32 dwContext, uint32 dwFilter, uint32 dwIndex, PWSTR szPatchCode, PWSTR szTargetProductCode, MSIINSTALLCONTEXT* pdwTargetProductContext, char16* szTargetUserSid, uint32* pcchTargetUserSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern INSTALLSTATE MsiQueryFeatureStateA(PSTR szProduct, PSTR szFeature);
@@ -4049,42 +4049,42 @@ public static
 	public static uint32 MsiProvideComponent(PSTR szProduct, PSTR szFeature, PSTR szComponent, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32* pcchPathBuf) => MsiProvideComponentA(szProduct, szFeature, szComponent, dwInstallMode, lpPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideComponentW(PWSTR szProduct, PWSTR szFeature, PWSTR szComponent, INSTALLMODE dwInstallMode, char8* lpPathBuf, uint32* pcchPathBuf);
+	public static extern uint32 MsiProvideComponentW(PWSTR szProduct, PWSTR szFeature, PWSTR szComponent, INSTALLMODE dwInstallMode, char16* lpPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiProvideQualifiedComponentA(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32* pcchPathBuf);
 	public static uint32 MsiProvideQualifiedComponent(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32* pcchPathBuf) => MsiProvideQualifiedComponentA(szCategory, szQualifier, dwInstallMode, lpPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideQualifiedComponentW(PWSTR szCategory, PWSTR szQualifier, INSTALLMODE dwInstallMode, char8* lpPathBuf, uint32* pcchPathBuf);
+	public static extern uint32 MsiProvideQualifiedComponentW(PWSTR szCategory, PWSTR szQualifier, INSTALLMODE dwInstallMode, char16* lpPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiProvideQualifiedComponentExA(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, PSTR szProduct, uint32 dwUnused1, uint32 dwUnused2, uint8* lpPathBuf, uint32* pcchPathBuf);
 	public static uint32 MsiProvideQualifiedComponentEx(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, PSTR szProduct, uint32 dwUnused1, uint32 dwUnused2, uint8* lpPathBuf, uint32* pcchPathBuf) => MsiProvideQualifiedComponentExA(szCategory, szQualifier, dwInstallMode, szProduct, dwUnused1, dwUnused2, lpPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideQualifiedComponentExW(PWSTR szCategory, PWSTR szQualifier, INSTALLMODE dwInstallMode, PWSTR szProduct, uint32 dwUnused1, uint32 dwUnused2, char8* lpPathBuf, uint32* pcchPathBuf);
+	public static extern uint32 MsiProvideQualifiedComponentExW(PWSTR szCategory, PWSTR szQualifier, INSTALLMODE dwInstallMode, PWSTR szProduct, uint32 dwUnused1, uint32 dwUnused2, char16* lpPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern INSTALLSTATE MsiGetComponentPathA(PSTR szProduct, PSTR szComponent, uint8* lpPathBuf, uint32* pcchBuf);
 	public static INSTALLSTATE MsiGetComponentPath(PSTR szProduct, PSTR szComponent, uint8* lpPathBuf, uint32* pcchBuf) => MsiGetComponentPathA(szProduct, szComponent, lpPathBuf, pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern INSTALLSTATE MsiGetComponentPathW(PWSTR szProduct, PWSTR szComponent, char8* lpPathBuf, uint32* pcchBuf);
+	public static extern INSTALLSTATE MsiGetComponentPathW(PWSTR szProduct, PWSTR szComponent, char16* lpPathBuf, uint32* pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern INSTALLSTATE MsiGetComponentPathExA(PSTR szProductCode, PSTR szComponentCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint8* lpOutPathBuffer, uint32* pcchOutPathBuffer);
 	public static INSTALLSTATE MsiGetComponentPathEx(PSTR szProductCode, PSTR szComponentCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint8* lpOutPathBuffer, uint32* pcchOutPathBuffer) => MsiGetComponentPathExA(szProductCode, szComponentCode, szUserSid, dwContext, lpOutPathBuffer, pcchOutPathBuffer);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern INSTALLSTATE MsiGetComponentPathExW(PWSTR szProductCode, PWSTR szComponentCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, char8* lpOutPathBuffer, uint32* pcchOutPathBuffer);
+	public static extern INSTALLSTATE MsiGetComponentPathExW(PWSTR szProductCode, PWSTR szComponentCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, char16* lpOutPathBuffer, uint32* pcchOutPathBuffer);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiProvideAssemblyA(PSTR szAssemblyName, PSTR szAppContext, INSTALLMODE dwInstallMode, MSIASSEMBLYINFO dwAssemblyInfo, uint8* lpPathBuf, uint32* pcchPathBuf);
 	public static uint32 MsiProvideAssembly(PSTR szAssemblyName, PSTR szAppContext, INSTALLMODE dwInstallMode, MSIASSEMBLYINFO dwAssemblyInfo, uint8* lpPathBuf, uint32* pcchPathBuf) => MsiProvideAssemblyA(szAssemblyName, szAppContext, dwInstallMode, dwAssemblyInfo, lpPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideAssemblyW(PWSTR szAssemblyName, PWSTR szAppContext, INSTALLMODE dwInstallMode, MSIASSEMBLYINFO dwAssemblyInfo, char8* lpPathBuf, uint32* pcchPathBuf);
+	public static extern uint32 MsiProvideAssemblyW(PWSTR szAssemblyName, PWSTR szAppContext, INSTALLMODE dwInstallMode, MSIASSEMBLYINFO dwAssemblyInfo, char16* lpPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiQueryComponentStateA(PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szComponentCode, INSTALLSTATE* pdwState);
@@ -4105,7 +4105,7 @@ public static
 	public static uint32 MsiEnumProductsEx(PSTR szProductCode, PSTR szUserSid, uint32 dwContext, uint32 dwIndex, PSTR szInstalledProductCode, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32* pcchSid) => MsiEnumProductsExA(szProductCode, szUserSid, dwContext, dwIndex, szInstalledProductCode, pdwInstalledContext, szSid, pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumProductsExW(PWSTR szProductCode, PWSTR szUserSid, uint32 dwContext, uint32 dwIndex, PWSTR szInstalledProductCode, MSIINSTALLCONTEXT* pdwInstalledContext, char8* szSid, uint32* pcchSid);
+	public static extern uint32 MsiEnumProductsExW(PWSTR szProductCode, PWSTR szUserSid, uint32 dwContext, uint32 dwIndex, PWSTR szInstalledProductCode, MSIINSTALLCONTEXT* pdwInstalledContext, char16* szSid, uint32* pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiEnumRelatedProductsA(PSTR lpUpgradeCode, uint32 dwReserved, uint32 iProductIndex, PSTR lpProductBuf);
@@ -4133,7 +4133,7 @@ public static
 	public static uint32 MsiEnumComponentsEx(PSTR szUserSid, uint32 dwContext, uint32 dwIndex, PSTR szInstalledComponentCode, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32* pcchSid) => MsiEnumComponentsExA(szUserSid, dwContext, dwIndex, szInstalledComponentCode, pdwInstalledContext, szSid, pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumComponentsExW(PWSTR szUserSid, uint32 dwContext, uint32 dwIndex, PWSTR szInstalledComponentCode, MSIINSTALLCONTEXT* pdwInstalledContext, char8* szSid, uint32* pcchSid);
+	public static extern uint32 MsiEnumComponentsExW(PWSTR szUserSid, uint32 dwContext, uint32 dwIndex, PWSTR szInstalledComponentCode, MSIINSTALLCONTEXT* pdwInstalledContext, char16* szSid, uint32* pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiEnumClientsA(PSTR szComponent, uint32 iProductIndex, PSTR lpProductBuf);
@@ -4147,14 +4147,14 @@ public static
 	public static uint32 MsiEnumClientsEx(PSTR szComponent, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwProductIndex, PSTR szProductBuf, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32* pcchSid) => MsiEnumClientsExA(szComponent, szUserSid, dwContext, dwProductIndex, szProductBuf, pdwInstalledContext, szSid, pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumClientsExW(PWSTR szComponent, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwProductIndex, PWSTR szProductBuf, MSIINSTALLCONTEXT* pdwInstalledContext, char8* szSid, uint32* pcchSid);
+	public static extern uint32 MsiEnumClientsExW(PWSTR szComponent, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwProductIndex, PWSTR szProductBuf, MSIINSTALLCONTEXT* pdwInstalledContext, char16* szSid, uint32* pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiEnumComponentQualifiersA(PSTR szComponent, uint32 iIndex, uint8* lpQualifierBuf, uint32* pcchQualifierBuf, uint8* lpApplicationDataBuf, uint32* pcchApplicationDataBuf);
 	public static uint32 MsiEnumComponentQualifiers(PSTR szComponent, uint32 iIndex, uint8* lpQualifierBuf, uint32* pcchQualifierBuf, uint8* lpApplicationDataBuf, uint32* pcchApplicationDataBuf) => MsiEnumComponentQualifiersA(szComponent, iIndex, lpQualifierBuf, pcchQualifierBuf, lpApplicationDataBuf, pcchApplicationDataBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumComponentQualifiersW(PWSTR szComponent, uint32 iIndex, char8* lpQualifierBuf, uint32* pcchQualifierBuf, char8* lpApplicationDataBuf, uint32* pcchApplicationDataBuf);
+	public static extern uint32 MsiEnumComponentQualifiersW(PWSTR szComponent, uint32 iIndex, char16* lpQualifierBuf, uint32* pcchQualifierBuf, char16* lpApplicationDataBuf, uint32* pcchApplicationDataBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiOpenProductA(PSTR szProduct, MSIHANDLE* hProduct);
@@ -4189,7 +4189,7 @@ public static
 	public static uint32 MsiGetProductProperty(MSIHANDLE hProduct, PSTR szProperty, uint8* lpValueBuf, uint32* pcchValueBuf) => MsiGetProductPropertyA(hProduct, szProperty, lpValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductPropertyW(MSIHANDLE hProduct, PWSTR szProperty, char8* lpValueBuf, uint32* pcchValueBuf);
+	public static extern uint32 MsiGetProductPropertyW(MSIHANDLE hProduct, PWSTR szProperty, char16* lpValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiVerifyPackageA(PSTR szPackagePath);
@@ -4203,7 +4203,7 @@ public static
 	public static uint32 MsiGetFeatureInfo(MSIHANDLE hProduct, PSTR szFeature, uint32* lpAttributes, uint8* lpTitleBuf, uint32* pcchTitleBuf, uint8* lpHelpBuf, uint32* pcchHelpBuf) => MsiGetFeatureInfoA(hProduct, szFeature, lpAttributes, lpTitleBuf, pcchTitleBuf, lpHelpBuf, pcchHelpBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFeatureInfoW(MSIHANDLE hProduct, PWSTR szFeature, uint32* lpAttributes, char8* lpTitleBuf, uint32* pcchTitleBuf, char8* lpHelpBuf, uint32* pcchHelpBuf);
+	public static extern uint32 MsiGetFeatureInfoW(MSIHANDLE hProduct, PWSTR szFeature, uint32* lpAttributes, char16* lpTitleBuf, uint32* pcchTitleBuf, char16* lpHelpBuf, uint32* pcchHelpBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiInstallMissingComponentA(PSTR szProduct, PSTR szComponent, INSTALLSTATE eInstallState);
@@ -4224,7 +4224,7 @@ public static
 	public static INSTALLSTATE MsiLocateComponent(PSTR szComponent, uint8* lpPathBuf, uint32* pcchBuf) => MsiLocateComponentA(szComponent, lpPathBuf, pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern INSTALLSTATE MsiLocateComponentW(PWSTR szComponent, char8* lpPathBuf, uint32* pcchBuf);
+	public static extern INSTALLSTATE MsiLocateComponentW(PWSTR szComponent, char16* lpPathBuf, uint32* pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSourceListClearAllA(PSTR szProduct, PSTR szUserName, uint32 dwReserved);
@@ -4301,28 +4301,28 @@ public static
 	public static uint32 MsiSourceListGetInfo(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, PSTR szProperty, uint8* szValue, uint32* pcchValue) => MsiSourceListGetInfoA(szProductCodeOrPatchCode, szUserSid, dwContext, dwOptions, szProperty, szValue, pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSourceListGetInfoW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, PWSTR szProperty, char8* szValue, uint32* pcchValue);
+	public static extern uint32 MsiSourceListGetInfoW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, PWSTR szProperty, char16* szValue, uint32* pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSourceListEnumSourcesA(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint8* szSource, uint32* pcchSource);
 	public static uint32 MsiSourceListEnumSources(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint8* szSource, uint32* pcchSource) => MsiSourceListEnumSourcesA(szProductCodeOrPatchCode, szUserSid, dwContext, dwOptions, dwIndex, szSource, pcchSource);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSourceListEnumSourcesW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, char8* szSource, uint32* pcchSource);
+	public static extern uint32 MsiSourceListEnumSourcesW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, char16* szSource, uint32* pcchSource);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSourceListEnumMediaDisksA(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint32* pdwDiskId, uint8* szVolumeLabel, uint32* pcchVolumeLabel, uint8* szDiskPrompt, uint32* pcchDiskPrompt);
 	public static uint32 MsiSourceListEnumMediaDisks(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint32* pdwDiskId, uint8* szVolumeLabel, uint32* pcchVolumeLabel, uint8* szDiskPrompt, uint32* pcchDiskPrompt) => MsiSourceListEnumMediaDisksA(szProductCodeOrPatchCode, szUserSid, dwContext, dwOptions, dwIndex, pdwDiskId, szVolumeLabel, pcchVolumeLabel, szDiskPrompt, pcchDiskPrompt);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSourceListEnumMediaDisksW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint32* pdwDiskId, char8* szVolumeLabel, uint32* pcchVolumeLabel, char8* szDiskPrompt, uint32* pcchDiskPrompt);
+	public static extern uint32 MsiSourceListEnumMediaDisksW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint32* pdwDiskId, char16* szVolumeLabel, uint32* pcchVolumeLabel, char16* szDiskPrompt, uint32* pcchDiskPrompt);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiGetFileVersionA(PSTR szFilePath, uint8* lpVersionBuf, uint32* pcchVersionBuf, uint8* lpLangBuf, uint32* pcchLangBuf);
 	public static uint32 MsiGetFileVersion(PSTR szFilePath, uint8* lpVersionBuf, uint32* pcchVersionBuf, uint8* lpLangBuf, uint32* pcchLangBuf) => MsiGetFileVersionA(szFilePath, lpVersionBuf, pcchVersionBuf, lpLangBuf, pcchLangBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFileVersionW(PWSTR szFilePath, char8* lpVersionBuf, uint32* pcchVersionBuf, char8* lpLangBuf, uint32* pcchLangBuf);
+	public static extern uint32 MsiGetFileVersionW(PWSTR szFilePath, char16* lpVersionBuf, uint32* pcchVersionBuf, char16* lpLangBuf, uint32* pcchLangBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiGetFileHashA(PSTR szFilePath, uint32 dwOptions, MSIFILEHASHINFO* pHash);
@@ -4384,7 +4384,7 @@ public static
 	public static MSIDBERROR MsiViewGetError(MSIHANDLE hView, uint8* szColumnNameBuffer, uint32* pcchBuf) => MsiViewGetErrorA(hView, szColumnNameBuffer, pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern MSIDBERROR MsiViewGetErrorW(MSIHANDLE hView, char8* szColumnNameBuffer, uint32* pcchBuf);
+	public static extern MSIDBERROR MsiViewGetErrorW(MSIHANDLE hView, char16* szColumnNameBuffer, uint32* pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiViewExecute(MSIHANDLE hView, MSIHANDLE hRecord);
@@ -4437,7 +4437,7 @@ public static
 	public static uint32 MsiSummaryInfoGetProperty(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32* puiDataType, int32* piValue, FILETIME* pftValue, uint8* szValueBuf, uint32* pcchValueBuf) => MsiSummaryInfoGetPropertyA(hSummaryInfo, uiProperty, puiDataType, piValue, pftValue, szValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSummaryInfoGetPropertyW(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32* puiDataType, int32* piValue, FILETIME* pftValue, char8* szValueBuf, uint32* pcchValueBuf);
+	public static extern uint32 MsiSummaryInfoGetPropertyW(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32* puiDataType, int32* piValue, FILETIME* pftValue, char16* szValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSummaryInfoPersist(MSIHANDLE hSummaryInfo);
@@ -4524,7 +4524,7 @@ public static
 	public static uint32 MsiRecordGetString(MSIHANDLE hRecord, uint32 iField, uint8* szValueBuf, uint32* pcchValueBuf) => MsiRecordGetStringA(hRecord, iField, szValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiRecordGetStringW(MSIHANDLE hRecord, uint32 iField, char8* szValueBuf, uint32* pcchValueBuf);
+	public static extern uint32 MsiRecordGetStringW(MSIHANDLE hRecord, uint32 iField, char16* szValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiRecordGetFieldCount(MSIHANDLE hRecord);
@@ -4557,7 +4557,7 @@ public static
 	public static uint32 MsiGetProperty(MSIHANDLE hInstall, PSTR szName, uint8* szValueBuf, uint32* pcchValueBuf) => MsiGetPropertyA(hInstall, szName, szValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPropertyW(MSIHANDLE hInstall, PWSTR szName, char8* szValueBuf, uint32* pcchValueBuf);
+	public static extern uint32 MsiGetPropertyW(MSIHANDLE hInstall, PWSTR szName, char16* szValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 MsiGetLanguage(MSIHANDLE hInstall);
@@ -4573,7 +4573,7 @@ public static
 	public static uint32 MsiFormatRecord(MSIHANDLE hInstall, MSIHANDLE hRecord, uint8* szResultBuf, uint32* pcchResultBuf) => MsiFormatRecordA(hInstall, hRecord, szResultBuf, pcchResultBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiFormatRecordW(MSIHANDLE hInstall, MSIHANDLE hRecord, char8* szResultBuf, uint32* pcchResultBuf);
+	public static extern uint32 MsiFormatRecordW(MSIHANDLE hInstall, MSIHANDLE hRecord, char16* szResultBuf, uint32* pcchResultBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiDoActionA(MSIHANDLE hInstall, PSTR szAction);
@@ -4646,7 +4646,7 @@ public static
 	public static uint32 MsiEnumComponentCosts(MSIHANDLE hInstall, PSTR szComponent, uint32 dwIndex, INSTALLSTATE iState, uint8* szDriveBuf, uint32* pcchDriveBuf, int32* piCost, int32* piTempCost) => MsiEnumComponentCostsA(hInstall, szComponent, dwIndex, iState, szDriveBuf, pcchDriveBuf, piCost, piTempCost);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumComponentCostsW(MSIHANDLE hInstall, PWSTR szComponent, uint32 dwIndex, INSTALLSTATE iState, char8* szDriveBuf, uint32* pcchDriveBuf, int32* piCost, int32* piTempCost);
+	public static extern uint32 MsiEnumComponentCostsW(MSIHANDLE hInstall, PWSTR szComponent, uint32 dwIndex, INSTALLSTATE iState, char16* szDriveBuf, uint32* pcchDriveBuf, int32* piCost, int32* piTempCost);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSetInstallLevel(MSIHANDLE hInstall, int32 iInstallLevel);
@@ -4663,14 +4663,14 @@ public static
 	public static uint32 MsiGetSourcePath(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32* pcchPathBuf) => MsiGetSourcePathA(hInstall, szFolder, szPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetSourcePathW(MSIHANDLE hInstall, PWSTR szFolder, char8* szPathBuf, uint32* pcchPathBuf);
+	public static extern uint32 MsiGetSourcePathW(MSIHANDLE hInstall, PWSTR szFolder, char16* szPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiGetTargetPathA(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32* pcchPathBuf);
 	public static uint32 MsiGetTargetPath(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32* pcchPathBuf) => MsiGetTargetPathA(hInstall, szFolder, szPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetTargetPathW(MSIHANDLE hInstall, PWSTR szFolder, char8* szPathBuf, uint32* pcchPathBuf);
+	public static extern uint32 MsiGetTargetPathW(MSIHANDLE hInstall, PWSTR szFolder, char16* szPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSetTargetPathA(MSIHANDLE hInstall, PSTR szFolder, PSTR szFolderPath);

@@ -5115,7 +5115,7 @@ public function void* PFNDPAMERGE(DPAMM_MESSAGE uMsg, void* pvDest, void* pvSrc,
 
 public function void* PFNDPAMERGECONST(DPAMM_MESSAGE uMsg, void* pvDest, void* pvSrc, LPARAM lParam);
 
-public function int32 DTT_CALLBACK_PROC(HDC hdc, char8* pszText, int32 cchText, RECT* prc, uint32 dwFlags, LPARAM lParam);
+public function int32 DTT_CALLBACK_PROC(HDC hdc, char16* pszText, int32 cchText, RECT* prc, uint32 dwFlags, LPARAM lParam);
 
 public function BOOL LPFNCCSTYLEA(HWND hwndParent, CCSTYLEA* pccs);
 
@@ -6252,7 +6252,7 @@ public struct NMTTDISPINFOW
 {
 	public NMHDR hdr;
 	public PWSTR lpszText;
-	public char8[80] szText;
+	public char16[80] szText;
 	public HINSTANCE hinst;
 	public uint32 uFlags;
 	public LPARAM lParam;
@@ -6303,8 +6303,8 @@ public struct LITEM
 	public int32 iLink;
 	public uint32 state;
 	public uint32 stateMask;
-	public char8[48] szID;
-	public char8[2084] szUrl;
+	public char16[48] szID;
+	public char16[2084] szUrl;
 }
 
 [CRepr]
@@ -6712,7 +6712,7 @@ public struct NMLVEMPTYMARKUP
 {
 	public NMHDR hdr;
 	public NMLVEMPTYMARKUP_FLAGS dwFlags;
-	public char8[2084] szMarkup;
+	public char16[2084] szMarkup;
 }
 
 [CRepr]
@@ -7003,7 +7003,7 @@ public struct NMCBEDRAGBEGINW
 {
 	public NMHDR hdr;
 	public int32 iItemid;
-	public char8[260] szText;
+	public char16[260] szText;
 }
 
 [CRepr]
@@ -7020,7 +7020,7 @@ public struct NMCBEENDEDITW
 	public NMHDR hdr;
 	public BOOL fChanged;
 	public int32 iNewSelection;
-	public char8[260] szText;
+	public char16[260] szText;
 	public int32 iWhy;
 }
 
@@ -7224,7 +7224,7 @@ public struct NMDATETIMEFORMATW
 	public PWSTR pszFormat;
 	public SYSTEMTIME st;
 	public PWSTR pszDisplay;
-	public char8[64] szDisplay;
+	public char16[64] szDisplay;
 }
 
 [CRepr]
@@ -7540,7 +7540,7 @@ public struct CCSTYLEW
 {
 	public uint32 flStyle;
 	public uint32 flExtStyle;
-	public char8[256] szText;
+	public char16[256] szText;
 	public uint16 lgid;
 	public uint16 wReserved1;
 }
@@ -7584,9 +7584,9 @@ public struct CCINFOA
 [CRepr]
 public struct CCINFOW
 {
-	public char8[32] szClass;
+	public char16[32] szClass;
 	public uint32 flOptions;
-	public char8[32] szDesc;
+	public char16[32] szDesc;
 	public uint32 cxDefault;
 	public uint32 cyDefault;
 	public uint32 flStyleDefault;
@@ -7594,7 +7594,7 @@ public struct CCINFOW
 	public uint32 flCtrlTypeMask;
 	public int32 cStyleFlags;
 	public CCSTYLEFLAGW* aStyleFlags;
-	public char8[256] szTextDefault;
+	public char16[256] szTextDefault;
 	public LPFNCCSTYLEW lpfnStyle;
 	public LPFNCCSIZETOTEXTW lpfnSizeToText;
 	public uint32 dwReserved1;
@@ -7724,7 +7724,7 @@ public struct POINTER_DEVICE_INFO
 	public HMONITOR monitor;
 	public uint32 startingCursorId;
 	public uint16 maxActiveContacts;
-	public char8[520] productString;
+	public char16[520] productString;
 }
 
 [CRepr]
@@ -8255,7 +8255,7 @@ public static
 	public static extern HRESULT LoadIconWithScaleDown(HINSTANCE hinst, PWSTR pszName, int32 cx, int32 cy, HICON* phico);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DrawShadowText(HDC hdc, char8* pszText, uint32 cch, RECT* prc, uint32 dwFlags, uint32 crText, uint32 crShadow, int32 ixOffset, int32 iyOffset);
+	public static extern int32 DrawShadowText(HDC hdc, char16* pszText, uint32 cch, RECT* prc, uint32 dwFlags, uint32 crText, uint32 crShadow, int32 ixOffset, int32 iyOffset);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ImageList_CoCreateInstance(Guid* rclsid, IUnknown* punkOuter, Guid* riid, void** ppv);
@@ -8294,7 +8294,7 @@ public static
 	public static extern HRESULT DrawThemeBackgroundEx(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, RECT* pRect, DTBGOPTS* pOptions);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DrawThemeText(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char8* pszText, int32 cchText, uint32 dwTextFlags, uint32 dwTextFlags2, RECT* pRect);
+	public static extern HRESULT DrawThemeText(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char16* pszText, int32 cchText, uint32 dwTextFlags, uint32 dwTextFlags2, RECT* pRect);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeBackgroundContentRect(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, RECT* pBoundingRect, RECT* pContentRect);
@@ -8309,7 +8309,7 @@ public static
 	public static extern HRESULT GetThemePartSize(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, RECT* prc, THEMESIZE eSize, SIZE* psz);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeTextExtent(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char8* pszText, int32 cchCharCount, uint32 dwTextFlags, RECT* pBoundingRect, RECT* pExtentRect);
+	public static extern HRESULT GetThemeTextExtent(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char16* pszText, int32 cchCharCount, uint32 dwTextFlags, RECT* pBoundingRect, RECT* pExtentRect);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeTextMetrics(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, TEXTMETRICW* ptm);
@@ -8336,7 +8336,7 @@ public static
 	public static extern HRESULT GetThemeMetric(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, int32* piVal);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeString(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, char8* pszBuff, int32 cchMaxBuffChars);
+	public static extern HRESULT GetThemeString(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, char16* pszBuff, int32 cchMaxBuffChars);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeBool(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, BOOL* pfVal);
@@ -8369,7 +8369,7 @@ public static
 	public static extern HRESULT SetWindowTheme(HWND hwnd, PWSTR pszSubAppName, PWSTR pszSubIdList);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeFilename(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, char8* pszThemeFileName, int32 cchMaxBuffChars);
+	public static extern HRESULT GetThemeFilename(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, char16* pszThemeFileName, int32 cchMaxBuffChars);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetThemeSysColor(int hTheme, int32 iColorId);
@@ -8387,7 +8387,7 @@ public static
 	public static extern HRESULT GetThemeSysFont(int hTheme, THEME_PROPERTY_SYMBOL_ID iFontId, LOGFONTW* plf);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeSysString(int hTheme, THEME_PROPERTY_SYMBOL_ID iStringId, char8* pszStringBuff, int32 cchMaxStringChars);
+	public static extern HRESULT GetThemeSysString(int hTheme, THEME_PROPERTY_SYMBOL_ID iStringId, char16* pszStringBuff, int32 cchMaxStringChars);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeSysInt(int hTheme, int32 iIntId, int32* piValue);
@@ -8414,10 +8414,10 @@ public static
 	public static extern void SetThemeAppProperties(uint32 dwFlags);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetCurrentThemeName(char8* pszThemeFileName, int32 cchMaxNameChars, char8* pszColorBuff, int32 cchMaxColorChars, char8* pszSizeBuff, int32 cchMaxSizeChars);
+	public static extern HRESULT GetCurrentThemeName(char16* pszThemeFileName, int32 cchMaxNameChars, char16* pszColorBuff, int32 cchMaxColorChars, char16* pszSizeBuff, int32 cchMaxSizeChars);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeDocumentationProperty(PWSTR pszThemeName, PWSTR pszPropertyName, char8* pszValueBuff, int32 cchMaxValChars);
+	public static extern HRESULT GetThemeDocumentationProperty(PWSTR pszThemeName, PWSTR pszPropertyName, char16* pszValueBuff, int32 cchMaxValChars);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DrawThemeParentBackground(HWND hwnd, HDC hdc, RECT* prc);
@@ -8432,7 +8432,7 @@ public static
 	public static extern HRESULT SetWindowThemeAttribute(HWND hwnd, WINDOWTHEMEATTRIBUTETYPE eAttribute, void* pvAttribute, uint32 cbAttribute);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DrawThemeTextEx(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char8* pszText, int32 cchText, uint32 dwTextFlags, RECT* pRect, DTTOPTS* pOptions);
+	public static extern HRESULT DrawThemeTextEx(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char16* pszText, int32 cchText, uint32 dwTextFlags, RECT* pRect, DTTOPTS* pOptions);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeBitmap(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, GET_THEME_BITMAP_FLAGS dwFlags, HBITMAP* phBitmap);
@@ -8498,7 +8498,7 @@ public static
 	public static extern uint32 IsDlgButtonChecked(HWND hDlg, int32 nIDButton);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsCharLowerW(char8 ch);
+	public static extern BOOL IsCharLowerW(char16 ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HSYNTHETICPOINTERDEVICE CreateSyntheticPointerDevice(POINTER_INPUT_TYPE pointerType, uint32 maxCount, POINTER_FEEDBACK_MODE mode);
@@ -8548,7 +8548,7 @@ public static
 	public static BOOL DlgDirSelectEx(HWND hwndDlg, uint8* lpString, int32 chCount, int32 idListBox) => DlgDirSelectExA(hwndDlg, lpString, chCount, idListBox);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DlgDirSelectExW(HWND hwndDlg, char8* lpString, int32 chCount, int32 idListBox);
+	public static extern BOOL DlgDirSelectExW(HWND hwndDlg, char16* lpString, int32 chCount, int32 idListBox);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DlgDirListComboBoxA(HWND hDlg, PSTR lpPathSpec, int32 nIDComboBox, int32 nIDStaticPath, DLG_DIR_LIST_FILE_TYPE uFiletype);
@@ -8562,7 +8562,7 @@ public static
 	public static BOOL DlgDirSelectComboBoxEx(HWND hwndDlg, uint8* lpString, int32 cchOut, int32 idComboBox) => DlgDirSelectComboBoxExA(hwndDlg, lpString, cchOut, idComboBox);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DlgDirSelectComboBoxExW(HWND hwndDlg, char8* lpString, int32 cchOut, int32 idComboBox);
+	public static extern BOOL DlgDirSelectComboBoxExW(HWND hwndDlg, char16* lpString, int32 cchOut, int32 idComboBox);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetScrollInfo(HWND hwnd, SCROLLBAR_CONSTANTS nBar, SCROLLINFO* lpsi, BOOL redraw);

@@ -464,7 +464,7 @@ public struct EVENTLOGRECORD
 public struct EVENTSFORLOGFILE
 {
 	public uint32 ulSize;
-	public char8[256] szLogicalLogFile;
+	public char16[256] szLogicalLogFile;
 	public uint32 ulNumRecords;
 	public EVENTLOGRECORD[1] pEventLogRecords;
 }
@@ -499,7 +499,7 @@ public static
 	public static extern BOOL EvtCancel(int Object);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EvtGetExtendedStatus(uint32 BufferSize, char8* Buffer, uint32* BufferUsed);
+	public static extern uint32 EvtGetExtendedStatus(uint32 BufferSize, char16* Buffer, uint32* BufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtQuery(int Session, PWSTR Path, PWSTR Query, uint32 Flags);
@@ -520,7 +520,7 @@ public static
 	public static extern BOOL EvtRender(int Context, int Fragment, uint32 Flags, uint32 BufferSize, void* Buffer, uint32* BufferUsed, uint32* PropertyCount);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtFormatMessage(int PublisherMetadata, int Event, uint32 MessageId, uint32 ValueCount, EVT_VARIANT* Values, uint32 Flags, uint32 BufferSize, char8* Buffer, uint32* BufferUsed);
+	public static extern BOOL EvtFormatMessage(int PublisherMetadata, int Event, uint32 MessageId, uint32 ValueCount, EVT_VARIANT* Values, uint32 Flags, uint32 BufferSize, char16* Buffer, uint32* BufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtOpenLog(int Session, PWSTR Path, uint32 Flags);
@@ -541,7 +541,7 @@ public static
 	public static extern int EvtOpenChannelEnum(int Session, uint32 Flags);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtNextChannelPath(int ChannelEnum, uint32 ChannelPathBufferSize, char8* ChannelPathBuffer, uint32* ChannelPathBufferUsed);
+	public static extern BOOL EvtNextChannelPath(int ChannelEnum, uint32 ChannelPathBufferSize, char16* ChannelPathBuffer, uint32* ChannelPathBufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtOpenChannelConfig(int Session, PWSTR ChannelPath, uint32 Flags);
@@ -559,7 +559,7 @@ public static
 	public static extern int EvtOpenPublisherEnum(int Session, uint32 Flags);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtNextPublisherId(int PublisherEnum, uint32 PublisherIdBufferSize, char8* PublisherIdBuffer, uint32* PublisherIdBufferUsed);
+	public static extern BOOL EvtNextPublisherId(int PublisherEnum, uint32 PublisherIdBufferSize, char16* PublisherIdBuffer, uint32* PublisherIdBufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtOpenPublisherMetadata(int Session, PWSTR PublisherId, PWSTR LogFilePath, uint32 Locale, uint32 Flags);

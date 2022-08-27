@@ -1488,16 +1488,16 @@ public static
 	public static extern WINHTTP_STATUS_CALLBACK WinHttpSetStatusCallback(void* hInternet, WINHTTP_STATUS_CALLBACK lpfnInternetCallback, uint32 dwNotificationFlags, uint dwReserved);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpTimeFromSystemTime(SYSTEMTIME* pst, char8* pwszTime);
+	public static extern BOOL WinHttpTimeFromSystemTime(SYSTEMTIME* pst, char16* pwszTime);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WinHttpTimeToSystemTime(PWSTR pwszTime, SYSTEMTIME* pst);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpCrackUrl(char8* pwszUrl, uint32 dwUrlLength, uint32 dwFlags, URL_COMPONENTS* lpUrlComponents);
+	public static extern BOOL WinHttpCrackUrl(char16* pwszUrl, uint32 dwUrlLength, uint32 dwFlags, URL_COMPONENTS* lpUrlComponents);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpCreateUrl(URL_COMPONENTS* lpUrlComponents, WIN_HTTP_CREATE_URL_FLAGS dwFlags, char8* pwszUrl, uint32* pdwUrlLength);
+	public static extern BOOL WinHttpCreateUrl(URL_COMPONENTS* lpUrlComponents, WIN_HTTP_CREATE_URL_FLAGS dwFlags, char16* pwszUrl, uint32* pdwUrlLength);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WinHttpCheckPlatform();
@@ -1542,13 +1542,13 @@ public static
 	public static extern void* WinHttpOpenRequest(void* hConnect, PWSTR pwszVerb, PWSTR pwszObjectName, PWSTR pwszVersion, PWSTR pwszReferrer, PWSTR* ppwszAcceptTypes, WINHTTP_OPEN_REQUEST_FLAGS dwFlags);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpAddRequestHeaders(void* hRequest, char8* lpszHeaders, uint32 dwHeadersLength, uint32 dwModifiers);
+	public static extern BOOL WinHttpAddRequestHeaders(void* hRequest, char16* lpszHeaders, uint32 dwHeadersLength, uint32 dwModifiers);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WinHttpAddRequestHeadersEx(void* hRequest, uint32 dwModifiers, uint64 ullFlags, uint64 ullExtra, uint32 cHeaders, WINHTTP_EXTENDED_HEADER* pHeaders);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpSendRequest(void* hRequest, char8* lpszHeaders, uint32 dwHeadersLength, void* lpOptional, uint32 dwOptionalLength, uint32 dwTotalLength, uint dwContext);
+	public static extern BOOL WinHttpSendRequest(void* hRequest, char16* lpszHeaders, uint32 dwHeadersLength, void* lpOptional, uint32 dwOptionalLength, uint32 dwTotalLength, uint dwContext);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WinHttpSetCredentials(void* hRequest, uint32 AuthTargets, uint32 AuthScheme, PWSTR pwszUserName, PWSTR pwszPassword, void* pAuthParams);

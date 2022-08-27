@@ -407,7 +407,7 @@ public struct DFS_GET_PKT_ENTRY_STATE_ARG
 	public uint16 ServerNameLen;
 	public uint16 ShareNameLen;
 	public uint32 Level;
-	public char8[1] Buffer;
+	public char16[1] Buffer;
 }
 
 #endregion

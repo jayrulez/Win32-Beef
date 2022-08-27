@@ -7186,7 +7186,7 @@ public struct DEV_BROADCAST_PORT_W
 	public uint32 dbcp_size;
 	public uint32 dbcp_devicetype;
 	public uint32 dbcp_reserved;
-	public char8[1] dbcp_name;
+	public char16[1] dbcp_name;
 }
 
 [CRepr]
@@ -7216,7 +7216,7 @@ public struct DEV_BROADCAST_DEVICEINTERFACE_W
 	public uint32 dbcc_devicetype;
 	public uint32 dbcc_reserved;
 	public Guid dbcc_classguid;
-	public char8[1] dbcc_name;
+	public char16[1] dbcc_name;
 }
 
 [CRepr]
@@ -8879,7 +8879,7 @@ public struct IMAGE_RESOURCE_DIRECTORY_STRING
 public struct IMAGE_RESOURCE_DIR_STRING_U
 {
 	public uint16 Length;
-	public char8[1] NameString;
+	public char16[1] NameString;
 }
 
 [CRepr]
@@ -9278,7 +9278,7 @@ public struct TRANSACTIONMANAGER_LOG_INFORMATION
 public struct TRANSACTIONMANAGER_LOGPATH_INFORMATION
 {
 	public uint32 LogPathLength;
-	public char8[1] LogPath;
+	public char16[1] LogPath;
 }
 
 [CRepr]
@@ -9301,7 +9301,7 @@ public struct TRANSACTION_PROPERTIES_INFORMATION
 	public LARGE_INTEGER Timeout;
 	public uint32 Outcome;
 	public uint32 DescriptionLength;
-	public char8[1] Description;
+	public char16[1] Description;
 }
 
 [CRepr]
@@ -9335,7 +9335,7 @@ public struct RESOURCEMANAGER_BASIC_INFORMATION
 {
 	public Guid ResourceManagerId;
 	public uint32 DescriptionLength;
-	public char8[1] Description;
+	public char16[1] Description;
 }
 
 [CRepr]

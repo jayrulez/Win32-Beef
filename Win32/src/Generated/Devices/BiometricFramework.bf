@@ -855,8 +855,8 @@ public struct WINBIO_EXTENDED_SENSOR_INFO
 			[CRepr]
 			public struct _HardwareInfo_e__Struct
 			{
-				public char8[260] ColorSensorId;
-				public char8[260] InfraredSensorId;
+				public char16[260] ColorSensorId;
+				public char16[260] InfraredSensorId;
 				public uint32 InfraredSensorRotationAngle;
 			}
 

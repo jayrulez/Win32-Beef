@@ -390,7 +390,7 @@ public struct COMMPROP
 	public uint32 dwCurrentRxQueue;
 	public uint32 dwProvSpec1;
 	public uint32 dwProvSpec2;
-	public char8[1] wcProvChar;
+	public char16[1] wcProvChar;
 }
 
 [CRepr]
@@ -441,7 +441,7 @@ public struct COMMCONFIG
 	public uint32 dwProviderSubType;
 	public uint32 dwProviderOffset;
 	public uint32 dwProviderSize;
-	public char8[1] wcProviderData;
+	public char16[1] wcProviderData;
 }
 
 #endregion

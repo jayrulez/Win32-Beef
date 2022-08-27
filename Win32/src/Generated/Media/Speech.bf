@@ -2146,7 +2146,7 @@ public struct SPPROPERTYINFO
 public struct SPRECOCONTEXTSTATUS
 {
 	public SPINTERFERENCE eInterference;
-	public char8[255] szRequestTypeOfUI;
+	public char16[255] szRequestTypeOfUI;
 	public uint32 dwReserved1;
 	public uint32 dwReserved2;
 }
@@ -3223,7 +3223,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, PWSTR pszTopicName, SPLOADOPTIONS Options) LoadDictation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self) UnloadDictation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, SPRULESTATE NewState) SetDictationState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, char8* pText, uint32 cchText, SPTEXTSELECTIONINFO* pInfo) SetWordSequenceData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, char16* pText, uint32 cchText, SPTEXTSELECTIONINFO* pInfo) SetWordSequenceData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, SPTEXTSELECTIONINFO* pInfo) SetTextSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, PWSTR pszWord, SPWORDPRONOUNCEABLE* pWordPronounceable) IsPronounceable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, SPGRAMMARSTATE eGrammarState) SetGrammarState;
@@ -3256,7 +3256,7 @@ public static
 
 	public HRESULT SetDictationState(SPRULESTATE NewState) mut => VT.[Friend]SetDictationState(&this, NewState);
 
-	public HRESULT SetWordSequenceData(char8* pText, uint32 cchText, SPTEXTSELECTIONINFO* pInfo) mut => VT.[Friend]SetWordSequenceData(&this, pText, cchText, pInfo);
+	public HRESULT SetWordSequenceData(char16* pText, uint32 cchText, SPTEXTSELECTIONINFO* pInfo) mut => VT.[Friend]SetWordSequenceData(&this, pText, cchText, pInfo);
 
 	public HRESULT SetTextSelection(SPTEXTSELECTIONINFO* pInfo) mut => VT.[Friend]SetTextSelection(&this, pInfo);
 

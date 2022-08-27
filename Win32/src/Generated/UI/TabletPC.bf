@@ -2071,7 +2071,7 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 public struct SYSTEM_EVENT_DATA
 {
 	public uint8 bModifier;
-	public char8 wKey;
+	public char16 wKey;
 	public int32 xPos;
 	public int32 yPos;
 	public uint8 bCursorMode;
@@ -2208,8 +2208,8 @@ public struct RECO_GUIDE
 public struct RECO_ATTRS
 {
 	public uint32 dwRecoCapabilityFlags;
-	public char8[32] awcVendorName;
-	public char8[64] awcFriendlyName;
+	public char16[32] awcVendorName;
+	public char16[64] awcFriendlyName;
 	public uint16[64] awLanguageId;
 }
 
@@ -2286,7 +2286,7 @@ public struct RECO_LATTICE
 [CRepr]
 public struct CHARACTER_RANGE
 {
-	public char8 wcLow;
+	public char16 wcLow;
 	public uint16 cChars;
 }
 
@@ -5350,7 +5350,7 @@ public static
 	public static extern HRESULT AddStroke(HRECOCONTEXT hrc, PACKET_DESCRIPTION* pPacketDesc, uint32 cbPacket, uint8* pPacket, XFORM* pXForm);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetBestResultString(HRECOCONTEXT hrc, uint32* pcSize, char8* pwcBestResult);
+	public static extern HRESULT GetBestResultString(HRECOCONTEXT hrc, uint32* pcSize, char16* pwcBestResult);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetGuide(HRECOCONTEXT hrc, RECO_GUIDE* pGuide, uint32 iIndex);
@@ -5374,7 +5374,7 @@ public static
 	public static extern HRESULT GetLatticePtr(HRECOCONTEXT hrc, RECO_LATTICE** ppLattice);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SetTextContext(HRECOCONTEXT hrc, uint32 cwcBefore, char8* pwcBefore, uint32 cwcAfter, char8* pwcAfter);
+	public static extern HRESULT SetTextContext(HRECOCONTEXT hrc, uint32 cwcBefore, char16* pwcBefore, uint32 cwcAfter, char16* pwcAfter);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetEnabledUnicodeRanges(HRECOCONTEXT hrc, uint32 cRanges, CHARACTER_RANGE* pcr);
@@ -5386,10 +5386,10 @@ public static
 	public static extern HRESULT SetWordList(HRECOCONTEXT hrc, HRECOWORDLIST hwl);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetRightSeparator(HRECOCONTEXT hrc, uint32* pcSize, char8* pwcRightSeparator);
+	public static extern HRESULT GetRightSeparator(HRECOCONTEXT hrc, uint32* pcSize, char16* pwcRightSeparator);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetLeftSeparator(HRECOCONTEXT hrc, uint32* pcSize, char8* pwcLeftSeparator);
+	public static extern HRESULT GetLeftSeparator(HRECOCONTEXT hrc, uint32* pcSize, char16* pwcLeftSeparator);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DestroyWordList(HRECOWORDLIST hwl);

@@ -151,7 +151,7 @@ public struct CRYPTCATCDF
 public struct CATALOG_INFO
 {
 	public uint32 cbStruct;
-	public char8[260] wszCatalogFile;
+	public char16[260] wszCatalogFile;
 }
 
 #endregion

@@ -930,11 +930,11 @@ public struct EMI_CHANNEL_MEASUREMENT_DATA
 public struct EMI_METADATA_V1
 {
 	public EMI_MEASUREMENT_UNIT MeasurementUnit;
-	public char8[16] HardwareOEM;
-	public char8[16] HardwareModel;
+	public char16[16] HardwareOEM;
+	public char16[16] HardwareModel;
 	public uint16 HardwareRevision;
 	public uint16 MeteredHardwareNameSize;
-	public char8[1] MeteredHardwareName;
+	public char16[1] MeteredHardwareName;
 }
 
 [CRepr]
@@ -942,14 +942,14 @@ public struct EMI_CHANNEL_V2
 {
 	public EMI_MEASUREMENT_UNIT MeasurementUnit;
 	public uint16 ChannelNameSize;
-	public char8[1] ChannelName;
+	public char16[1] ChannelName;
 }
 
 [CRepr]
 public struct EMI_METADATA_V2
 {
-	public char8[16] HardwareOEM;
-	public char8[16] HardwareModel;
+	public char16[16] HardwareOEM;
+	public char16[16] HardwareModel;
 	public uint16 HardwareRevision;
 	public uint16 ChannelCount;
 	public EMI_CHANNEL_V2[1] Channels;

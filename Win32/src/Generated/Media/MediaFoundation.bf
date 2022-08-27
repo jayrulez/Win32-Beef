@@ -10565,9 +10565,9 @@ public struct MFCLOCK_PROPERTIES
 public struct MFRR_COMPONENT_HASH_INFO
 {
 	public uint32 ulReason;
-	public char8[43] rgHeaderHash;
-	public char8[43] rgPublicKeyHash;
-	public char8[260] wszName;
+	public char16[43] rgHeaderHash;
+	public char16[43] rgPublicKeyHash;
+	public char16[260] wszName;
 }
 
 [CRepr]
@@ -10719,7 +10719,7 @@ public struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA
 public struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA
 {
 	public uint32 TaskIndex;
-	public char8[260] ClassName;
+	public char16[260] ClassName;
 	public int32 BasePriority;
 }
 
@@ -10800,7 +10800,7 @@ public struct ASF_INDEX_DESCRIPTOR
 {
 	public ASF_INDEX_IDENTIFIER Identifier;
 	public uint16 cPerEntryBytes;
-	public char8[32] szDescription;
+	public char16[32] szDescription;
 	public uint32 dwInterval;
 }
 
@@ -13237,14 +13237,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMCodecStrings*/SelfOuter* self, DMO_MEDIA_TYPE* pmt, uint32 cchLength, char8* szName, uint32* pcchLength) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMCodecStrings*/SelfOuter* self, DMO_MEDIA_TYPE* pmt, uint32 cchLength, char8* szDescription, uint32* pcchLength) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMCodecStrings*/SelfOuter* self, DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szName, uint32* pcchLength) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMCodecStrings*/SelfOuter* self, DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szDescription, uint32* pcchLength) GetDescription;
 	}
 
 
-	public HRESULT GetName(DMO_MEDIA_TYPE* pmt, uint32 cchLength, char8* szName, uint32* pcchLength) mut => VT.[Friend]GetName(&this, pmt, cchLength, szName, pcchLength);
+	public HRESULT GetName(DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szName, uint32* pcchLength) mut => VT.[Friend]GetName(&this, pmt, cchLength, szName, pcchLength);
 
-	public HRESULT GetDescription(DMO_MEDIA_TYPE* pmt, uint32 cchLength, char8* szDescription, uint32* pcchLength) mut => VT.[Friend]GetDescription(&this, pmt, cchLength, szDescription, pcchLength);
+	public HRESULT GetDescription(DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szDescription, uint32* pcchLength) mut => VT.[Friend]GetDescription(&this, pmt, cchLength, szDescription, pcchLength);
 }
 
 [CRepr]struct IWMCodecProps : IUnknown
@@ -13490,7 +13490,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITocEntry*/SelfOuter* self, PWSTR pwszTitle) SetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITocEntry*/SelfOuter* self, uint16* pwTitleSize, char8* pwszTitle) GetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITocEntry*/SelfOuter* self, uint16* pwTitleSize, char16* pwszTitle) GetTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITocEntry*/SelfOuter* self, TOC_ENTRY_DESCRIPTOR* pDescriptor) SetDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITocEntry*/SelfOuter* self, TOC_ENTRY_DESCRIPTOR* pDescriptor) GetDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITocEntry*/SelfOuter* self, uint32 dwNumSubEntries, uint16* pwSubEntryIndices) SetSubEntries;
@@ -13502,7 +13502,7 @@ public static
 
 	public HRESULT SetTitle(PWSTR pwszTitle) mut => VT.[Friend]SetTitle(&this, pwszTitle);
 
-	public HRESULT GetTitle(uint16* pwTitleSize, char8* pwszTitle) mut => VT.[Friend]GetTitle(&this, pwTitleSize, pwszTitle);
+	public HRESULT GetTitle(uint16* pwTitleSize, char16* pwszTitle) mut => VT.[Friend]GetTitle(&this, pwTitleSize, pwszTitle);
 
 	public HRESULT SetDescriptor(TOC_ENTRY_DESCRIPTOR* pDescriptor) mut => VT.[Friend]SetDescriptor(&this, pDescriptor);
 
@@ -13555,7 +13555,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IToc*/SelfOuter* self, TOC_DESCRIPTOR* pDescriptor) SetDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IToc*/SelfOuter* self, TOC_DESCRIPTOR* pDescriptor) GetDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IToc*/SelfOuter* self, PWSTR pwszDescription) SetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IToc*/SelfOuter* self, uint16* pwDescriptionSize, char8* pwszDescription) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IToc*/SelfOuter* self, uint16* pwDescriptionSize, char16* pwszDescription) GetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IToc*/SelfOuter* self, uint32 dwContextSize, uint8* pbtContext) SetContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IToc*/SelfOuter* self, uint32* pdwContextSize, uint8* pbtContext) GetContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IToc*/SelfOuter* self, uint16* pwCount) GetEntryListCount;
@@ -13572,7 +13572,7 @@ public static
 
 	public HRESULT SetDescription(PWSTR pwszDescription) mut => VT.[Friend]SetDescription(&this, pwszDescription);
 
-	public HRESULT GetDescription(uint16* pwDescriptionSize, char8* pwszDescription) mut => VT.[Friend]GetDescription(&this, pwDescriptionSize, pwszDescription);
+	public HRESULT GetDescription(uint16* pwDescriptionSize, char16* pwszDescription) mut => VT.[Friend]GetDescription(&this, pwDescriptionSize, pwszDescription);
 
 	public HRESULT SetContext(uint32 dwContextSize, uint8* pbtContext) mut => VT.[Friend]SetContext(&this, dwContextSize, pbtContext);
 
@@ -14029,7 +14029,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFAttributes*/SelfOuter* self, Guid* guidKey, double* pfValue) GetDouble;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFAttributes*/SelfOuter* self, Guid* guidKey, Guid* pguidValue) GetGUID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFAttributes*/SelfOuter* self, Guid* guidKey, uint32* pcchLength) GetStringLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFAttributes*/SelfOuter* self, Guid* guidKey, char8* pwszValue, uint32 cchBufSize, uint32* pcchLength) GetString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFAttributes*/SelfOuter* self, Guid* guidKey, char16* pwszValue, uint32 cchBufSize, uint32* pcchLength) GetString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFAttributes*/SelfOuter* self, Guid* guidKey, PWSTR* ppwszValue, uint32* pcchLength) GetAllocatedString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFAttributes*/SelfOuter* self, Guid* guidKey, uint32* pcbBlobSize) GetBlobSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFAttributes*/SelfOuter* self, Guid* guidKey, uint8* pBuf, uint32 cbBufSize, uint32* pcbBlobSize) GetBlob;
@@ -14071,7 +14071,7 @@ public static
 
 	public HRESULT GetStringLength(Guid* guidKey, uint32* pcchLength) mut => VT.[Friend]GetStringLength(&this, guidKey, pcchLength);
 
-	public HRESULT GetString(Guid* guidKey, char8* pwszValue, uint32 cchBufSize, uint32* pcchLength) mut => VT.[Friend]GetString(&this, guidKey, pwszValue, cchBufSize, pcchLength);
+	public HRESULT GetString(Guid* guidKey, char16* pwszValue, uint32 cchBufSize, uint32* pcchLength) mut => VT.[Friend]GetString(&this, guidKey, pwszValue, cchBufSize, pcchLength);
 
 	public HRESULT GetAllocatedString(Guid* guidKey, PWSTR* ppwszValue, uint32* pcchLength) mut => VT.[Friend]GetAllocatedString(&this, guidKey, ppwszValue, pcchLength);
 
@@ -15956,13 +15956,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, IMFAsyncResult* pResult) EndRegisterTopologyWorkQueuesWithMMCSS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, IMFAsyncCallback* pCallback, IUnknown* pState) BeginUnregisterTopologyWorkQueuesWithMMCSS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, IMFAsyncResult* pResult) EndUnregisterTopologyWorkQueuesWithMMCSS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, uint32 dwTopologyWorkQueueId, char8* pwszClass, uint32* pcchClass) GetTopologyWorkQueueMMCSSClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, uint32 dwTopologyWorkQueueId, char16* pwszClass, uint32* pcchClass) GetTopologyWorkQueueMMCSSClass;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, uint32 dwTopologyWorkQueueId, uint32* pdwTaskId) GetTopologyWorkQueueMMCSSTaskId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, uint32 dwPlatformWorkQueue, PWSTR wszClass, uint32 dwTaskId, IMFAsyncCallback* pCallback, IUnknown* pState) BeginRegisterPlatformWorkQueueWithMMCSS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, IMFAsyncResult* pResult, uint32* pdwTaskId) EndRegisterPlatformWorkQueueWithMMCSS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, uint32 dwPlatformWorkQueue, IMFAsyncCallback* pCallback, IUnknown* pState) BeginUnregisterPlatformWorkQueueWithMMCSS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, IMFAsyncResult* pResult) EndUnregisterPlatformWorkQueueWithMMCSS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, uint32 dwPlatformWorkQueueId, char8* pwszClass, uint32* pcchClass) GetPlaftormWorkQueueMMCSSClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, uint32 dwPlatformWorkQueueId, char16* pwszClass, uint32* pcchClass) GetPlaftormWorkQueueMMCSSClass;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFWorkQueueServices*/SelfOuter* self, uint32 dwPlatformWorkQueueId, uint32* pdwTaskId) GetPlatformWorkQueueMMCSSTaskId;
 	}
 
@@ -15975,7 +15975,7 @@ public static
 
 	public HRESULT EndUnregisterTopologyWorkQueuesWithMMCSS(IMFAsyncResult* pResult) mut => VT.[Friend]EndUnregisterTopologyWorkQueuesWithMMCSS(&this, pResult);
 
-	public HRESULT GetTopologyWorkQueueMMCSSClass(uint32 dwTopologyWorkQueueId, char8* pwszClass, uint32* pcchClass) mut => VT.[Friend]GetTopologyWorkQueueMMCSSClass(&this, dwTopologyWorkQueueId, pwszClass, pcchClass);
+	public HRESULT GetTopologyWorkQueueMMCSSClass(uint32 dwTopologyWorkQueueId, char16* pwszClass, uint32* pcchClass) mut => VT.[Friend]GetTopologyWorkQueueMMCSSClass(&this, dwTopologyWorkQueueId, pwszClass, pcchClass);
 
 	public HRESULT GetTopologyWorkQueueMMCSSTaskId(uint32 dwTopologyWorkQueueId, uint32* pdwTaskId) mut => VT.[Friend]GetTopologyWorkQueueMMCSSTaskId(&this, dwTopologyWorkQueueId, pdwTaskId);
 
@@ -15987,7 +15987,7 @@ public static
 
 	public HRESULT EndUnregisterPlatformWorkQueueWithMMCSS(IMFAsyncResult* pResult) mut => VT.[Friend]EndUnregisterPlatformWorkQueueWithMMCSS(&this, pResult);
 
-	public HRESULT GetPlaftormWorkQueueMMCSSClass(uint32 dwPlatformWorkQueueId, char8* pwszClass, uint32* pcchClass) mut => VT.[Friend]GetPlaftormWorkQueueMMCSSClass(&this, dwPlatformWorkQueueId, pwszClass, pcchClass);
+	public HRESULT GetPlaftormWorkQueueMMCSSClass(uint32 dwPlatformWorkQueueId, char16* pwszClass, uint32* pcchClass) mut => VT.[Friend]GetPlaftormWorkQueueMMCSSClass(&this, dwPlatformWorkQueueId, pwszClass, pcchClass);
 
 	public HRESULT GetPlatformWorkQueueMMCSSTaskId(uint32 dwPlatformWorkQueueId, uint32* pdwTaskId) mut => VT.[Friend]GetPlatformWorkQueueMMCSSTaskId(&this, dwPlatformWorkQueueId, pdwTaskId);
 }
@@ -16435,7 +16435,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFNetProxyLocator*/SelfOuter* self, PWSTR pszHost, PWSTR pszUrl, BOOL fReserved) FindFirstProxy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFNetProxyLocator*/SelfOuter* self) FindNextProxy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFNetProxyLocator*/SelfOuter* self, HRESULT hrOp) RegisterProxyResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFNetProxyLocator*/SelfOuter* self, char8* pszStr, uint32* pcchStr) GetCurrentProxy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFNetProxyLocator*/SelfOuter* self, char16* pszStr, uint32* pcchStr) GetCurrentProxy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFNetProxyLocator*/SelfOuter* self, IMFNetProxyLocator** ppProxyLocator) Clone;
 	}
 
@@ -16446,7 +16446,7 @@ public static
 
 	public HRESULT RegisterProxyResult(HRESULT hrOp) mut => VT.[Friend]RegisterProxyResult(&this, hrOp);
 
-	public HRESULT GetCurrentProxy(char8* pszStr, uint32* pcchStr) mut => VT.[Friend]GetCurrentProxy(&this, pszStr, pcchStr);
+	public HRESULT GetCurrentProxy(char16* pszStr, uint32* pcchStr) mut => VT.[Friend]GetCurrentProxy(&this, pszStr, pcchStr);
 
 	public HRESULT Clone(IMFNetProxyLocator** ppProxyLocator) mut => VT.[Friend]Clone(&this, ppProxyLocator);
 }
@@ -17323,7 +17323,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorDevice*/SelfOuter* self, uint64* pDeviceId) GetDeviceId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorDevice*/SelfOuter* self, MFSensorDeviceType* pType) GetDeviceType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorDevice*/SelfOuter* self, uint64* pFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorDevice*/SelfOuter* self, char8* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) GetSymbolicLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorDevice*/SelfOuter* self, char16* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) GetSymbolicLink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorDevice*/SelfOuter* self, IMFAttributes** ppAttributes) GetDeviceAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorDevice*/SelfOuter* self, MFSensorStreamType eType, uint32* pdwCount) GetStreamAttributesCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorDevice*/SelfOuter* self, MFSensorStreamType eType, uint32 dwIndex, IMFAttributes** ppAttributes) GetStreamAttributes;
@@ -17338,7 +17338,7 @@ public static
 
 	public HRESULT GetFlags(uint64* pFlags) mut => VT.[Friend]COM_GetFlags(&this, pFlags);
 
-	public HRESULT GetSymbolicLink(char8* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
+	public HRESULT GetSymbolicLink(char16* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
 
 	public HRESULT GetDeviceAttributes(IMFAttributes** ppAttributes) mut => VT.[Friend]GetDeviceAttributes(&this, ppAttributes);
 
@@ -17359,7 +17359,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorGroup*/SelfOuter* self, char8* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) GetSymbolicLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorGroup*/SelfOuter* self, char16* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) GetSymbolicLink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorGroup*/SelfOuter* self, uint64* pFlags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorGroup*/SelfOuter* self, IMFAttributes** ppAttributes) GetSensorGroupAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorGroup*/SelfOuter* self, uint32* pdwCount) GetSensorDeviceCount;
@@ -17370,7 +17370,7 @@ public static
 	}
 
 
-	public HRESULT GetSymbolicLink(char8* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
+	public HRESULT GetSymbolicLink(char16* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
 
 	public HRESULT GetFlags(uint64* pFlags) mut => VT.[Friend]COM_GetFlags(&this, pFlags);
 
@@ -17521,16 +17521,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorActivityReport*/SelfOuter* self, char8* FriendlyName, uint32 cchFriendlyName, uint32* pcchWritten) GetFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorActivityReport*/SelfOuter* self, char8* SymbolicLink, uint32 cchSymbolicLink, uint32* pcchWritten) GetSymbolicLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorActivityReport*/SelfOuter* self, char16* FriendlyName, uint32 cchFriendlyName, uint32* pcchWritten) GetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorActivityReport*/SelfOuter* self, char16* SymbolicLink, uint32 cchSymbolicLink, uint32* pcchWritten) GetSymbolicLink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorActivityReport*/SelfOuter* self, uint32* pcCount) GetProcessCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFSensorActivityReport*/SelfOuter* self, uint32 Index, IMFSensorProcessActivity** ppProcessActivity) GetProcessActivity;
 	}
 
 
-	public HRESULT GetFriendlyName(char8* FriendlyName, uint32 cchFriendlyName, uint32* pcchWritten) mut => VT.[Friend]GetFriendlyName(&this, FriendlyName, cchFriendlyName, pcchWritten);
+	public HRESULT GetFriendlyName(char16* FriendlyName, uint32 cchFriendlyName, uint32* pcchWritten) mut => VT.[Friend]GetFriendlyName(&this, FriendlyName, cchFriendlyName, pcchWritten);
 
-	public HRESULT GetSymbolicLink(char8* SymbolicLink, uint32 cchSymbolicLink, uint32* pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
+	public HRESULT GetSymbolicLink(char16* SymbolicLink, uint32 cchSymbolicLink, uint32* pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
 
 	public HRESULT GetProcessCount(uint32* pcCount) mut => VT.[Friend]GetProcessCount(&this, pcCount);
 
@@ -21738,7 +21738,7 @@ public static
 	public static extern HRESULT MFEndUnregisterWorkQueueWithMMCSS(IMFAsyncResult* pResult);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetWorkQueueMMCSSClass(uint32 dwWorkQueueId, char8* pwszClass, uint32* pcchClass);
+	public static extern HRESULT MFGetWorkQueueMMCSSClass(uint32 dwWorkQueueId, char16* pwszClass, uint32* pcchClass);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFGetWorkQueueMMCSSTaskId(uint32 dwWorkQueueId, uint32* pdwTaskId);

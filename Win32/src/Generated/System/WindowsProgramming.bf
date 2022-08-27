@@ -1546,8 +1546,8 @@ public struct HW_PROFILE_INFOA
 public struct HW_PROFILE_INFOW
 {
 	public uint32 dwDockInfo;
-	public char8[39] szHwProfileGuid;
-	public char8[80] szHwProfileName;
+	public char16[39] szHwProfileGuid;
+	public char16[80] szHwProfileName;
 }
 
 [CRepr]
@@ -1935,7 +1935,7 @@ public struct CABINFOW
 	public PWSTR pszCab;
 	public PWSTR pszInf;
 	public PWSTR pszSection;
-	public char8[260] szSrcPath;
+	public char16[260] szSrcPath;
 	public uint32 dwFlags;
 }
 
@@ -1955,12 +1955,12 @@ public struct PERUSERSECTIONA
 [CRepr]
 public struct PERUSERSECTIONW
 {
-	public char8[59] szGUID;
-	public char8[128] szDispName;
-	public char8[10] szLocale;
-	public char8[1040] szStub;
-	public char8[32] szVersion;
-	public char8[128] szCompID;
+	public char16[59] szGUID;
+	public char16[128] szDispName;
+	public char16[10] szLocale;
+	public char16[1040] szStub;
+	public char16[32] szVersion;
+	public char16[128] szCompID;
 	public uint32 dwIsInstalled;
 	public BOOL bRollback;
 }
@@ -2035,9 +2035,9 @@ public struct IMEPROW
 	public HWND hWnd;
 	public DATETIME InstDate;
 	public uint32 wVersion;
-	public char8[50] szDescription;
-	public char8[80] szName;
-	public char8[30] szOptions;
+	public char16[50] szDescription;
+	public char16[80] szName;
+	public char16[30] szOptions;
 }
 
 [CRepr]
@@ -2575,7 +2575,7 @@ public static
 	public static uint32 GetProfileString(PSTR lpAppName, PSTR lpKeyName, PSTR lpDefault, uint8* lpReturnedString, uint32 nSize) => GetProfileStringA(lpAppName, lpKeyName, lpDefault, lpReturnedString, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetProfileStringW(PWSTR lpAppName, PWSTR lpKeyName, PWSTR lpDefault, char8* lpReturnedString, uint32 nSize);
+	public static extern uint32 GetProfileStringW(PWSTR lpAppName, PWSTR lpKeyName, PWSTR lpDefault, char16* lpReturnedString, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WriteProfileStringA(PSTR lpAppName, PSTR lpKeyName, PSTR lpString);
@@ -2589,7 +2589,7 @@ public static
 	public static uint32 GetProfileSection(PSTR lpAppName, uint8* lpReturnedString, uint32 nSize) => GetProfileSectionA(lpAppName, lpReturnedString, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetProfileSectionW(PWSTR lpAppName, char8* lpReturnedString, uint32 nSize);
+	public static extern uint32 GetProfileSectionW(PWSTR lpAppName, char16* lpReturnedString, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WriteProfileSectionA(PSTR lpAppName, PSTR lpString);
@@ -2610,7 +2610,7 @@ public static
 	public static uint32 GetPrivateProfileString(PSTR lpAppName, PSTR lpKeyName, PSTR lpDefault, uint8* lpReturnedString, uint32 nSize, PSTR lpFileName) => GetPrivateProfileStringA(lpAppName, lpKeyName, lpDefault, lpReturnedString, nSize, lpFileName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetPrivateProfileStringW(PWSTR lpAppName, PWSTR lpKeyName, PWSTR lpDefault, char8* lpReturnedString, uint32 nSize, PWSTR lpFileName);
+	public static extern uint32 GetPrivateProfileStringW(PWSTR lpAppName, PWSTR lpKeyName, PWSTR lpDefault, char16* lpReturnedString, uint32 nSize, PWSTR lpFileName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WritePrivateProfileStringA(PSTR lpAppName, PSTR lpKeyName, PSTR lpString, PSTR lpFileName);
@@ -2624,7 +2624,7 @@ public static
 	public static uint32 GetPrivateProfileSection(PSTR lpAppName, uint8* lpReturnedString, uint32 nSize, PSTR lpFileName) => GetPrivateProfileSectionA(lpAppName, lpReturnedString, nSize, lpFileName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetPrivateProfileSectionW(PWSTR lpAppName, char8* lpReturnedString, uint32 nSize, PWSTR lpFileName);
+	public static extern uint32 GetPrivateProfileSectionW(PWSTR lpAppName, char16* lpReturnedString, uint32 nSize, PWSTR lpFileName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WritePrivateProfileSectionA(PSTR lpAppName, PSTR lpString, PSTR lpFileName);
@@ -2638,7 +2638,7 @@ public static
 	public static uint32 GetPrivateProfileSectionNames(uint8* lpszReturnBuffer, uint32 nSize, PSTR lpFileName) => GetPrivateProfileSectionNamesA(lpszReturnBuffer, nSize, lpFileName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetPrivateProfileSectionNamesW(char8* lpszReturnBuffer, uint32 nSize, PWSTR lpFileName);
+	public static extern uint32 GetPrivateProfileSectionNamesW(char16* lpszReturnBuffer, uint32 nSize, PWSTR lpFileName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrivateProfileStructA(PSTR lpszSection, PSTR lpszKey, void* lpStruct, uint32 uSizeStruct, PSTR szFile);
@@ -2665,21 +2665,21 @@ public static
 	public static BOOL GetComputerName(uint8* lpBuffer, uint32* nSize) => GetComputerNameA(lpBuffer, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetComputerNameW(char8* lpBuffer, uint32* nSize);
+	public static extern BOOL GetComputerNameW(char16* lpBuffer, uint32* nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DnsHostnameToComputerNameA(PSTR Hostname, uint8* ComputerName, uint32* nSize);
 	public static BOOL DnsHostnameToComputerName(PSTR Hostname, uint8* ComputerName, uint32* nSize) => DnsHostnameToComputerNameA(Hostname, ComputerName, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DnsHostnameToComputerNameW(PWSTR Hostname, char8* ComputerName, uint32* nSize);
+	public static extern BOOL DnsHostnameToComputerNameW(PWSTR Hostname, char16* ComputerName, uint32* nSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetUserNameA(uint8* lpBuffer, uint32* pcbBuffer);
 	public static BOOL GetUserName(uint8* lpBuffer, uint32* pcbBuffer) => GetUserNameA(lpBuffer, pcbBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserNameW(char8* lpBuffer, uint32* pcbBuffer);
+	public static extern BOOL GetUserNameW(char16* lpBuffer, uint32* pcbBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsTokenUntrusted(HANDLE TokenHandle);
@@ -2727,7 +2727,7 @@ public static
 #endif
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16* uaw_wcschr(uint16* String, char8 Character);
+	public static extern uint16* uaw_wcschr(uint16* String, char16 Character);
 
 #endif
 #if BF_64_BIT || BF_ARM_64
@@ -2747,7 +2747,7 @@ public static
 #endif
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16* uaw_wcsrchr(uint16* String, char8 Character);
+	public static extern uint16* uaw_wcsrchr(uint16* String, char16 Character);
 
 #endif
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
@@ -2943,7 +2943,7 @@ public static
 	public static HRESULT TranslateInfString(PSTR pszInfFilename, PSTR pszInstallSection, PSTR pszTranslateSection, PSTR pszTranslateKey, uint8* pszBuffer, uint32 cchBuffer, uint32* pdwRequiredSize, void* pvReserved) => TranslateInfStringA(pszInfFilename, pszInstallSection, pszTranslateSection, pszTranslateKey, pszBuffer, cchBuffer, pdwRequiredSize, pvReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT TranslateInfStringW(PWSTR pszInfFilename, PWSTR pszInstallSection, PWSTR pszTranslateSection, PWSTR pszTranslateKey, char8* pszBuffer, uint32 cchBuffer, uint32* pdwRequiredSize, void* pvReserved);
+	public static extern HRESULT TranslateInfStringW(PWSTR pszInfFilename, PWSTR pszInstallSection, PWSTR pszTranslateSection, PWSTR pszTranslateKey, char16* pszBuffer, uint32 cchBuffer, uint32* pdwRequiredSize, void* pvReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RegInstallA(HINSTANCE hmod, PSTR pszSection, STRTABLEA* pstTable);
@@ -3053,7 +3053,7 @@ public static
 	public static HRESULT TranslateInfStringEx(void* hInf, PSTR pszInfFilename, PSTR pszTranslateSection, PSTR pszTranslateKey, uint8* pszBuffer, uint32 dwBufferSize, uint32* pdwRequiredSize, void* pvReserved) => TranslateInfStringExA(hInf, pszInfFilename, pszTranslateSection, pszTranslateKey, pszBuffer, dwBufferSize, pdwRequiredSize, pvReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT TranslateInfStringExW(void* hInf, PWSTR pszInfFilename, PWSTR pszTranslateSection, PWSTR pszTranslateKey, char8* pszBuffer, uint32 dwBufferSize, uint32* pdwRequiredSize, void* pvReserved);
+	public static extern HRESULT TranslateInfStringExW(void* hInf, PWSTR pszInfFilename, PWSTR pszTranslateSection, PWSTR pszTranslateKey, char16* pszBuffer, uint32 dwBufferSize, uint32* pdwRequiredSize, void* pvReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CloseINFEngine(void* hInf);

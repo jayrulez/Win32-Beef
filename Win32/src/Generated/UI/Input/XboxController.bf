@@ -205,7 +205,7 @@ public struct XINPUT_BATTERY_INFORMATION
 public struct XINPUT_KEYSTROKE
 {
 	public XINPUT_VIRTUAL_KEY VirtualKey;
-	public char8 Unicode;
+	public char16 Unicode;
 	public uint16 Flags;
 	public uint8 UserIndex;
 	public uint8 HidCode;
@@ -238,7 +238,7 @@ public static
 	public static extern void XInputEnable(BOOL enable);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 XInputGetAudioDeviceIds(uint32 dwUserIndex, char8* pRenderDeviceId, uint32* pRenderCount, char8* pCaptureDeviceId, uint32* pCaptureCount);
+	public static extern uint32 XInputGetAudioDeviceIds(uint32 dwUserIndex, char16* pRenderDeviceId, uint32* pRenderCount, char16* pCaptureDeviceId, uint32* pCaptureCount);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 XInputGetBatteryInformation(uint32 dwUserIndex, uint8 devType, XINPUT_BATTERY_INFORMATION* pBatteryInformation);

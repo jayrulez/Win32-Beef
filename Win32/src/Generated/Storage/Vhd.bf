@@ -632,14 +632,14 @@ public struct GET_VIRTUAL_DISK_INFO
 		{
 			public BOOL Enabled;
 			public BOOL NewerChanges;
-			public char8[1] MostRecentId;
+			public char16[1] MostRecentId;
 		}
 
 		[CRepr]
 		public struct _ParentLocation_e__Struct
 		{
 			public BOOL ParentResolved;
-			public char8[1] ParentLocationBuffer;
+			public char16[1] ParentLocationBuffer;
 		}
 
 		public _Size_e__Struct Size;

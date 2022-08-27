@@ -507,8 +507,8 @@ public enum HrtfDistanceDecayType : int32
 public struct XAPO_REGISTRATION_PROPERTIES
 {
 	public Guid clsid;
-	public char8[256] FriendlyName;
-	public char8[256] CopyrightInfo;
+	public char16[256] FriendlyName;
+	public char16[256] CopyrightInfo;
 	public uint32 MajorVersion;
 	public uint32 MinorVersion;
 	public uint32 Flags;

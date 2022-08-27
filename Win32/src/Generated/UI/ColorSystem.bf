@@ -367,7 +367,7 @@ public struct LOGCOLORSPACEW
 	public uint32 lcsGammaRed;
 	public uint32 lcsGammaGreen;
 	public uint32 lcsGammaBlue;
-	public char8[260] lcsFilename;
+	public char16[260] lcsFilename;
 }
 
 [CRepr]
@@ -829,7 +829,7 @@ public static
 	public static BOOL GetICMProfile(HDC hdc, uint32* pBufSize, uint8* pszFilename) => GetICMProfileA(hdc, pBufSize, pszFilename);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetICMProfileW(HDC hdc, uint32* pBufSize, char8* pszFilename);
+	public static extern BOOL GetICMProfileW(HDC hdc, uint32* pBufSize, char16* pszFilename);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetICMProfileA(HDC hdc, PSTR lpFileName);

@@ -2005,7 +2005,7 @@ public struct CHARFORMATW
 	public uint32 crTextColor;
 	public uint8 bCharSet;
 	public uint8 bPitchAndFamily;
-	public char8[32] szFaceName;
+	public char16[32] szFaceName;
 }
 
 [CRepr]
@@ -2342,7 +2342,7 @@ public struct hyphresult
 {
 	public KHYPH khyph;
 	public int32 ichHyph;
-	public char8 chHyph;
+	public char16 chHyph;
 }
 
 [CRepr, Packed(4)]

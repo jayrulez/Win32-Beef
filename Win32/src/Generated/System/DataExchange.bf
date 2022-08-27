@@ -415,7 +415,7 @@ public struct MONHSZSTRUCTW
 	public uint32 dwTime;
 	public HSZ hsz;
 	public HANDLE hTask;
-	public char8[1] str;
+	public char16[1] str;
 }
 
 [CRepr]
@@ -591,7 +591,7 @@ public static
 	public static uint32 DdeQueryString(uint32 idInst, HSZ hsz, uint8* psz, uint32 cchMax, int32 iCodePage) => DdeQueryStringA(idInst, hsz, psz, cchMax, iCodePage);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DdeQueryStringW(uint32 idInst, HSZ hsz, char8* psz, uint32 cchMax, int32 iCodePage);
+	public static extern uint32 DdeQueryStringW(uint32 idInst, HSZ hsz, char16* psz, uint32 cchMax, int32 iCodePage);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DdeFreeStringHandle(uint32 idInst, HSZ hsz);
@@ -650,7 +650,7 @@ public static
 	public static int32 GetClipboardFormatName(uint32 format, uint8* lpszFormatName, int32 cchMaxCount) => GetClipboardFormatNameA(format, lpszFormatName, cchMaxCount);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetClipboardFormatNameW(uint32 format, char8* lpszFormatName, int32 cchMaxCount);
+	public static extern int32 GetClipboardFormatNameW(uint32 format, char16* lpszFormatName, int32 cchMaxCount);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EmptyClipboard();
@@ -708,7 +708,7 @@ public static
 	public static uint32 GlobalGetAtomName(uint16 nAtom, uint8* lpBuffer, int32 nSize) => GlobalGetAtomNameA(nAtom, lpBuffer, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GlobalGetAtomNameW(uint16 nAtom, char8* lpBuffer, int32 nSize);
+	public static extern uint32 GlobalGetAtomNameW(uint16 nAtom, char16* lpBuffer, int32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 AddAtomA(PSTR lpString);
@@ -729,7 +729,7 @@ public static
 	public static uint32 GetAtomName(uint16 nAtom, uint8* lpBuffer, int32 nSize) => GetAtomNameA(nAtom, lpBuffer, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetAtomNameW(uint16 nAtom, char8* lpBuffer, int32 nSize);
+	public static extern uint32 GetAtomNameW(uint16 nAtom, char16* lpBuffer, int32 nSize);
 
 }
 #endregion

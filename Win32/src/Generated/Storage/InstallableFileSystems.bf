@@ -275,7 +275,7 @@ public struct FILTER_FULL_INFORMATION
 	public uint32 FrameID;
 	public uint32 NumberOfInstances;
 	public uint16 FilterNameLength;
-	public char8[1] FilterNameBuffer;
+	public char16[1] FilterNameBuffer;
 }
 
 [CRepr]
@@ -352,7 +352,7 @@ public struct FILTER_AGGREGATE_STANDARD_INFORMATION
 public struct FILTER_VOLUME_BASIC_INFORMATION
 {
 	public uint16 FilterVolumeNameLength;
-	public char8[1] FilterVolumeName;
+	public char16[1] FilterVolumeName;
 }
 
 [CRepr]
@@ -363,7 +363,7 @@ public struct FILTER_VOLUME_STANDARD_INFORMATION
 	public uint32 FrameID;
 	public FLT_FILESYSTEM_TYPE FileSystemType;
 	public uint16 FilterVolumeNameLength;
-	public char8[1] FilterVolumeName;
+	public char16[1] FilterVolumeName;
 }
 
 [CRepr]
@@ -553,7 +553,7 @@ public static
 	public static extern HRESULT FilterReplyMessage(HANDLE hPort, FILTER_REPLY_HEADER* lpReplyBuffer, uint32 dwReplyBufferSize);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterGetDosName(PWSTR lpVolumeName, char8* lpDosName, uint32 dwDosNameBufferSize);
+	public static extern HRESULT FilterGetDosName(PWSTR lpVolumeName, char16* lpDosName, uint32 dwDosNameBufferSize);
 
 }
 #endregion

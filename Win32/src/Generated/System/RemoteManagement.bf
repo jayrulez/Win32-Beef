@@ -1960,7 +1960,7 @@ public static
 	public static extern uint32 WSManDeinitialize(WSMAN_API* apiHandle, uint32 flags);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManGetErrorMessage(WSMAN_API* apiHandle, uint32 flags, PWSTR languageCode, uint32 errorCode, uint32 messageLength, char8* message, uint32* messageLengthUsed);
+	public static extern uint32 WSManGetErrorMessage(WSMAN_API* apiHandle, uint32 flags, PWSTR languageCode, uint32 errorCode, uint32 messageLength, char16* message, uint32* messageLengthUsed);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WSManCreateSession(WSMAN_API* apiHandle, PWSTR connection, uint32 flags, WSMAN_AUTHENTICATION_CREDENTIALS* serverAuthenticationCredentials, WSMAN_PROXY_INFO* proxyInfo, WSMAN_SESSION** session);
@@ -1975,7 +1975,7 @@ public static
 	public static extern uint32 WSManGetSessionOptionAsDword(WSMAN_SESSION* session, WSManSessionOption option, uint32* value);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManGetSessionOptionAsString(WSMAN_SESSION* session, WSManSessionOption option, uint32 stringLength, char8* string, uint32* stringLengthUsed);
+	public static extern uint32 WSManGetSessionOptionAsString(WSMAN_SESSION* session, WSManSessionOption option, uint32 stringLength, char16* string, uint32* stringLengthUsed);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WSManCloseOperation(WSMAN_OPERATION* operationHandle, uint32 flags);

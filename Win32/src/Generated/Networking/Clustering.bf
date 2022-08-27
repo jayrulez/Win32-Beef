@@ -2186,9 +2186,9 @@ public function BOOL PCLUSAPI_CLOSE_CLUSTER(_HCLUSTER* hCluster);
 
 public function uint32 PCLUSAPI_SetClusterName(_HCLUSTER* hCluster, PWSTR lpszNewClusterName);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_INFORMATION(_HCLUSTER* hCluster, char8* lpszClusterName, uint32* lpcchClusterName, CLUSTERVERSIONINFO* lpClusterInfo);
+public function uint32 PCLUSAPI_GET_CLUSTER_INFORMATION(_HCLUSTER* hCluster, char16* lpszClusterName, uint32* lpcchClusterName, CLUSTERVERSIONINFO* lpClusterInfo);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE(_HCLUSTER* hCluster, char8* lpszResourceName, uint32* lpcchResourceName, char8* lpszDeviceName, uint32* lpcchDeviceName, uint32* lpdwMaxQuorumLogSize);
+public function uint32 PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE(_HCLUSTER* hCluster, char16* lpszResourceName, uint32* lpcchResourceName, char16* lpszDeviceName, uint32* lpcchDeviceName, uint32* lpdwMaxQuorumLogSize);
 
 public function uint32 PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE(_HRESOURCE* hResource, PWSTR lpszDeviceName, uint32 dwMaxQuoLogSize);
 
@@ -2218,7 +2218,7 @@ public function _HCHANGE* PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT(_HCHANGE* hChange,
 
 public function uint32 PCLUSAPI_REGISTER_CLUSTER_NOTIFY(_HCHANGE* hChange, uint32 dwFilterType, HANDLE hObject, uint dwNotifyKey);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_NOTIFY(_HCHANGE* hChange, uint* lpdwNotifyKey, uint32* lpdwFilterType, char8* lpszName, uint32* lpcchName, uint32 dwMilliseconds);
+public function uint32 PCLUSAPI_GET_CLUSTER_NOTIFY(_HCHANGE* hChange, uint* lpdwNotifyKey, uint32* lpdwFilterType, char16* lpszName, uint32* lpcchName, uint32 dwMilliseconds);
 
 public function BOOL PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT(_HCHANGE* hChange);
 
@@ -2226,7 +2226,7 @@ public function _HCLUSENUM* PCLUSAPI_CLUSTER_OPEN_ENUM(_HCLUSTER* hCluster, uint
 
 public function uint32 PCLUSAPI_CLUSTER_GET_ENUM_COUNT(_HCLUSENUM* hEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_ENUM(_HCLUSENUM* hEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_ENUM(_HCLUSENUM* hEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
 
 public function uint32 PCLUSAPI_CLUSTER_CLOSE_ENUM(_HCLUSENUM* hEnum);
 
@@ -2296,7 +2296,7 @@ public function BOOL PCLUSAPI_CLOSE_CLUSTER_NODE(_HNODE* hNode);
 
 public function CLUSTER_NODE_STATE PCLUSAPI_GET_CLUSTER_NODE_STATE(_HNODE* hNode);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_NODE_ID(_HNODE* hNode, char8* lpszNodeId, uint32* lpcchName);
+public function uint32 PCLUSAPI_GET_CLUSTER_NODE_ID(_HNODE* hNode, char16* lpszNodeId, uint32* lpcchName);
 
 public function _HCLUSTER* PCLUSAPI_GET_CLUSTER_FROM_NODE(_HNODE* hNode);
 
@@ -2320,7 +2320,7 @@ public function uint32 PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT(_HNODEENUM* hNodeEnu
 
 public function uint32 PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM(_HNODEENUM* hNodeEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_NODE_ENUM(_HNODEENUM* hNodeEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_NODE_ENUM(_HNODEENUM* hNodeEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
 
 public function uint32 PCLUSAPI_EVICT_CLUSTER_NODE_EX(_HNODE* hNode, uint32 dwTimeOut, HRESULT* phrCleanupStatus);
 
@@ -2360,7 +2360,7 @@ public function BOOL PCLUSAPI_CLOSE_CLUSTER_GROUP(_HGROUP* hGroup);
 
 public function _HCLUSTER* PCLUSAPI_GET_CLUSTER_FROM_GROUP(_HGROUP* hGroup);
 
-public function CLUSTER_GROUP_STATE PCLUSAPI_GET_CLUSTER_GROUP_STATE(_HGROUP* hGroup, char8* lpszNodeName, uint32* lpcchNodeName);
+public function CLUSTER_GROUP_STATE PCLUSAPI_GET_CLUSTER_GROUP_STATE(_HGROUP* hGroup, char16* lpszNodeName, uint32* lpcchNodeName);
 
 public function uint32 PCLUSAPI_SET_CLUSTER_GROUP_NAME(_HGROUP* hGroup, PWSTR lpszGroupName);
 
@@ -2380,7 +2380,7 @@ public function _HGROUPENUM* PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM(_HGROUP* hGroup, u
 
 public function uint32 PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT(_HGROUPENUM* hGroupEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_GROUP_ENUM(_HGROUPENUM* hGroupEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszResourceName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_GROUP_ENUM(_HGROUPENUM* hGroupEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszResourceName, uint32* lpcchName);
 
 public function uint32 PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM(_HGROUPENUM* hGroupEnum);
 
@@ -2396,7 +2396,7 @@ public function _HCLUSTER* PCLUSAPI_GET_CLUSTER_FROM_RESOURCE(_HRESOURCE* hResou
 
 public function uint32 PCLUSAPI_DELETE_CLUSTER_RESOURCE(_HRESOURCE* hResource);
 
-public function CLUSTER_RESOURCE_STATE PCLUSAPI_GET_CLUSTER_RESOURCE_STATE(_HRESOURCE* hResource, char8* lpszNodeName, uint32* lpcchNodeName, char8* lpszGroupName, uint32* lpcchGroupName);
+public function CLUSTER_RESOURCE_STATE PCLUSAPI_GET_CLUSTER_RESOURCE_STATE(_HRESOURCE* hResource, char16* lpszNodeName, uint32* lpcchNodeName, char16* lpszGroupName, uint32* lpcchGroupName);
 
 public function uint32 PCLUSAPI_SET_CLUSTER_RESOURCE_NAME(_HRESOURCE* hResource, PWSTR lpszResourceName);
 
@@ -2420,7 +2420,7 @@ public function uint32 PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY(_HRESOURCE* h
 
 public function uint32 PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(_HRESOURCE* hResource, PWSTR lpszDependencyExpression);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(_HRESOURCE* hResource, char8* lpszDependencyExpression, uint32* lpcchDependencyExpression);
+public function uint32 PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(_HRESOURCE* hResource, char16* lpszDependencyExpression, uint32* lpcchDependencyExpression);
 
 public function uint32 PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES(_HRESOURCE* hResource);
 
@@ -2440,13 +2440,13 @@ public function uint32 PCLUSAPI_CLUSTER_GROUP_CONTROL(_HGROUP* hGroup, _HNODE* h
 
 public function uint32 PCLUSAPI_CLUSTER_NODE_CONTROL(_HNODE* hNode, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
 
-public function BOOL PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME(_HRESOURCE* hResource, char8* lpBuffer, uint32* nSize);
+public function BOOL PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME(_HRESOURCE* hResource, char16* lpBuffer, uint32* nSize);
 
 public function _HRESENUM* PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM(_HRESOURCE* hResource, uint32 dwType);
 
 public function uint32 PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT(_HRESENUM* hResEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_ENUM(_HRESENUM* hResEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_ENUM(_HRESENUM* hResEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
 
 public function uint32 PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM(_HRESENUM* hResEnum);
 
@@ -2458,7 +2458,7 @@ public function _HRESTYPEENUM* PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM(_HCLUSTE
 
 public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT(_HRESTYPEENUM* hResTypeEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM(_HRESTYPEENUM* hResTypeEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM(_HRESTYPEENUM* hResTypeEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
 
 public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM(_HRESTYPEENUM* hResTypeEnum);
 
@@ -2474,7 +2474,7 @@ public function _HNETWORKENUM* PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM(_HNETWORK* hNe
 
 public function uint32 PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT(_HNETWORKENUM* hNetworkEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_NETWORK_ENUM(_HNETWORKENUM* hNetworkEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_NETWORK_ENUM(_HNETWORKENUM* hNetworkEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
 
 public function uint32 PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM(_HNETWORKENUM* hNetworkEnum);
 
@@ -2482,7 +2482,7 @@ public function CLUSTER_NETWORK_STATE PCLUSAPI_GET_CLUSTER_NETWORK_STATE(_HNETWO
 
 public function uint32 PCLUSAPI_SET_CLUSTER_NETWORK_NAME(_HNETWORK* hNetwork, PWSTR lpszName);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_NETWORK_ID(_HNETWORK* hNetwork, char8* lpszNetworkId, uint32* lpcchName);
+public function uint32 PCLUSAPI_GET_CLUSTER_NETWORK_ID(_HNETWORK* hNetwork, char16* lpszNetworkId, uint32* lpcchName);
 
 public function uint32 PCLUSAPI_CLUSTER_NETWORK_CONTROL(_HNETWORK* hNetwork, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
 
@@ -2490,7 +2490,7 @@ public function _HNETINTERFACE* PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE(_HCLUSTER* h
 
 public function _HNETINTERFACE* PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX(_HCLUSTER* hCluster, PWSTR lpszNetInterfaceName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_NET_INTERFACE(_HCLUSTER* hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName, char8* lpszInterfaceName, uint32* lpcchInterfaceName);
+public function uint32 PCLUSAPI_GET_CLUSTER_NET_INTERFACE(_HCLUSTER* hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName, char16* lpszInterfaceName, uint32* lpcchInterfaceName);
 
 public function BOOL PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE(_HNETINTERFACE* hNetInterface);
 
@@ -2520,7 +2520,7 @@ public function int32 PCLUSAPI_CLUSTER_REG_DELETE_KEY(HKEY hKey, PWSTR lpszSubKe
 
 public function int32 PCLUSAPI_CLUSTER_REG_CLOSE_KEY(HKEY hKey);
 
-public function int32 PCLUSAPI_CLUSTER_REG_ENUM_KEY(HKEY hKey, uint32 dwIndex, char8* lpszName, uint32* lpcchName, FILETIME* lpftLastWriteTime);
+public function int32 PCLUSAPI_CLUSTER_REG_ENUM_KEY(HKEY hKey, uint32 dwIndex, char16* lpszName, uint32* lpcchName, FILETIME* lpftLastWriteTime);
 
 public function uint32 PCLUSAPI_CLUSTER_REG_SET_VALUE(HKEY hKey, PWSTR lpszValueName, uint32 dwType, uint8* lpData, uint32 cbData);
 
@@ -2528,7 +2528,7 @@ public function uint32 PCLUSAPI_CLUSTER_REG_DELETE_VALUE(HKEY hKey, PWSTR lpszVa
 
 public function int32 PCLUSAPI_CLUSTER_REG_QUERY_VALUE(HKEY hKey, PWSTR lpszValueName, uint32* lpdwValueType, uint8* lpData, uint32* lpcbData);
 
-public function uint32 PCLUSAPI_CLUSTER_REG_ENUM_VALUE(HKEY hKey, uint32 dwIndex, char8* lpszValueName, uint32* lpcchValueName, uint32* lpdwType, uint8* lpData, uint32* lpcbData);
+public function uint32 PCLUSAPI_CLUSTER_REG_ENUM_VALUE(HKEY hKey, uint32 dwIndex, char16* lpszValueName, uint32* lpcchValueName, uint32* lpdwType, uint8* lpData, uint32* lpcbData);
 
 public function int32 PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY(HKEY hKey, uint32* lpcSubKeys, uint32* lpcbMaxSubKeyLen, uint32* lpcValues, uint32* lpcbMaxValueNameLen, uint32* lpcbMaxValueLen, uint32* lpcbSecurityDescriptor, FILETIME* lpftLastWriteTime);
 
@@ -2814,9 +2814,9 @@ public function _HRESOURCE* PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS(_HCLUSTER*
 
 public function _HRESOURCE* PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY(PWSTR lpszResourceName, PWSTR lpszResourceType);
 
-public function uint32 PRESUTIL_GET_RESOURCE_DEPENDENTIP_ADDRESS_PROPS(_HRESOURCE* hResource, char8* pszAddress, uint32* pcchAddress, char8* pszSubnetMask, uint32* pcchSubnetMask, char8* pszNetwork, uint32* pcchNetwork);
+public function uint32 PRESUTIL_GET_RESOURCE_DEPENDENTIP_ADDRESS_PROPS(_HRESOURCE* hResource, char16* pszAddress, uint32* pcchAddress, char16* pszSubnetMask, uint32* pcchSubnetMask, char16* pszNetwork, uint32* pcchNetwork);
 
-public function uint32 PRESUTIL_FIND_DEPENDENT_DISK_RESOURCE_DRIVE_LETTER(_HCLUSTER* hCluster, _HRESOURCE* hResource, char8* pszDriveLetter, uint32* pcchDriveLetter);
+public function uint32 PRESUTIL_FIND_DEPENDENT_DISK_RESOURCE_DRIVE_LETTER(_HCLUSTER* hCluster, _HRESOURCE* hResource, char16* pszDriveLetter, uint32* pcchDriveLetter);
 
 public function uint32 PRESUTIL_TERMINATE_SERVICE_PROCESS_FROM_RES_DLL(uint32 dwServicePid, BOOL bOffline, uint32* pdwResourceState, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
@@ -2824,7 +2824,7 @@ public function uint32 PRESUTIL_GET_PROPERTY_FORMATS(RESUTIL_PROPERTY_ITEM* pPro
 
 public function uint32 PRESUTIL_GET_CORE_CLUSTER_RESOURCES(_HCLUSTER* hCluster, _HRESOURCE** phClusterNameResource, _HRESOURCE** phClusterIPAddressResource, _HRESOURCE** phClusterQuorumResource);
 
-public function uint32 PRESUTIL_GET_RESOURCE_NAME(_HRESOURCE* hResource, char8* pszResourceName, uint32* pcchResourceNameInOut);
+public function uint32 PRESUTIL_GET_RESOURCE_NAME(_HRESOURCE* hResource, char16* pszResourceName, uint32* pcchResourceNameInOut);
 
 public function BOOL PCLUSTER_IS_PATH_ON_SHARED_VOLUME(PWSTR lpszPathName);
 
@@ -3009,8 +3009,8 @@ public struct CLUSTERVERSIONINFO_NT4
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
 	public uint16 BuildNumber;
-	public char8[64] szVendorId;
-	public char8[64] szCSDVersion;
+	public char16[64] szVendorId;
+	public char16[64] szCSDVersion;
 }
 
 [CRepr]
@@ -3020,8 +3020,8 @@ public struct CLUSTERVERSIONINFO
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
 	public uint16 BuildNumber;
-	public char8[64] szVendorId;
-	public char8[64] szCSDVersion;
+	public char16[64] szVendorId;
+	public char16[64] szCSDVersion;
 	public uint32 dwClusterHighestVersion;
 	public uint32 dwClusterLowestVersion;
 	public uint32 dwFlags;
@@ -3086,25 +3086,25 @@ public struct CLUSTER_CREATE_GROUP_INFO
 [CRepr]
 public struct CLUSTER_VALIDATE_PATH
 {
-	public char8[1] szPath;
+	public char16[1] szPath;
 }
 
 [CRepr]
 public struct CLUSTER_VALIDATE_DIRECTORY
 {
-	public char8[1] szPath;
+	public char16[1] szPath;
 }
 
 [CRepr]
 public struct CLUSTER_VALIDATE_NETNAME
 {
-	public char8[1] szNetworkName;
+	public char16[1] szNetworkName;
 }
 
 [CRepr]
 public struct CLUSTER_VALIDATE_CSV_FILENAME
 {
-	public char8[1] szFileName;
+	public char16[1] szFileName;
 }
 
 [CRepr]
@@ -3298,7 +3298,7 @@ public struct CLUSPROP_LONG
 public struct CLUSPROP_SZ
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5169_C37;
-	public char8[1] sz;
+	public char16[1] sz;
 }
 
 [CRepr]
@@ -3391,31 +3391,31 @@ public struct CLUS_FORCE_QUORUM_INFO
 	public uint32 dwSize;
 	public uint32 dwNodeBitMask;
 	public uint32 dwMaxNumberofNodes;
-	public char8[1] multiszNodeList;
+	public char16[1] multiszNodeList;
 }
 
 [CRepr]
 public struct CLUS_PARTITION_INFO
 {
 	public uint32 dwFlags;
-	public char8[260] szDeviceName;
-	public char8[260] szVolumeLabel;
+	public char16[260] szDeviceName;
+	public char16[260] szVolumeLabel;
 	public uint32 dwSerialNumber;
 	public uint32 rgdwMaximumComponentLength;
 	public uint32 dwFileSystemFlags;
-	public char8[32] szFileSystem;
+	public char16[32] szFileSystem;
 }
 
 [CRepr]
 public struct CLUS_PARTITION_INFO_EX
 {
 	public uint32 dwFlags;
-	public char8[260] szDeviceName;
-	public char8[260] szVolumeLabel;
+	public char16[260] szDeviceName;
+	public char16[260] szVolumeLabel;
 	public uint32 dwSerialNumber;
 	public uint32 rgdwMaximumComponentLength;
 	public uint32 dwFileSystemFlags;
-	public char8[32] szFileSystem;
+	public char16[32] szFileSystem;
 	public ULARGE_INTEGER TotalSizeInBytes;
 	public ULARGE_INTEGER FreeSizeInBytes;
 	public uint32 DeviceNumber;
@@ -3427,7 +3427,7 @@ public struct CLUS_PARTITION_INFO_EX
 public struct CLUS_PARTITION_INFO_EX2
 {
 	public Guid GptPartitionId;
-	public char8[260] szPartitionName;
+	public char16[260] szPartitionName;
 	public uint32 EncryptionFlags;
 }
 
@@ -3438,33 +3438,33 @@ public struct CLUS_CSV_VOLUME_INFO
 	public uint32 PartitionNumber;
 	public CLUSTER_CSV_VOLUME_FAULT_STATE FaultState;
 	public CLUSTER_SHARED_VOLUME_BACKUP_STATE BackupState;
-	public char8[260] szVolumeFriendlyName;
-	public char8[50] szVolumeName;
+	public char16[260] szVolumeFriendlyName;
+	public char16[50] szVolumeName;
 }
 
 [CRepr]
 public struct CLUS_CSV_VOLUME_NAME
 {
 	public LARGE_INTEGER VolumeOffset;
-	public char8[260] szVolumeName;
-	public char8[263] szRootPath;
+	public char16[260] szVolumeName;
+	public char16[263] szRootPath;
 }
 
 [CRepr]
 public struct CLUSTER_SHARED_VOLUME_STATE_INFO
 {
-	public char8[260] szVolumeName;
-	public char8[260] szNodeName;
+	public char16[260] szVolumeName;
+	public char16[260] szNodeName;
 	public CLUSTER_SHARED_VOLUME_STATE VolumeState;
 }
 
 [CRepr]
 public struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX
 {
-	public char8[260] szVolumeName;
-	public char8[260] szNodeName;
+	public char16[260] szVolumeName;
+	public char16[260] szNodeName;
 	public CLUSTER_SHARED_VOLUME_STATE VolumeState;
-	public char8[260] szVolumeFriendlyName;
+	public char16[260] szVolumeFriendlyName;
 	public uint64 RedirectedIOReason;
 	public uint64 VolumeRedirectedIOReason;
 }
@@ -3476,9 +3476,9 @@ public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME
 	public struct _Anonymous_e__Union
 	{
 		public uint64 VolumeOffset;
-		public char8[260] VolumeId;
-		public char8[260] VolumeName;
-		public char8[50] VolumeGuid;
+		public char16[260] VolumeId;
+		public char16[260] VolumeName;
+		public char16[50] VolumeGuid;
 	}
 
 	public CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE InputType;
@@ -3488,14 +3488,14 @@ public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME
 [CRepr]
 public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME
 {
-	public char8[260] NewVolumeName;
+	public char16[260] NewVolumeName;
 }
 
 [CRepr]
 public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME
 {
-	public char8[260] NewVolumeName;
-	public char8[50] NewVolumeGuid;
+	public char16[260] NewVolumeName;
+	public char16[50] NewVolumeGuid;
 }
 
 [CRepr]
@@ -3533,7 +3533,7 @@ public struct CLUS_SHARED_VOLUME_BACKUP_MODE
 {
 	public CLUSTER_SHARED_VOLUME_BACKUP_STATE BackupState;
 	public uint32 DelayTimerInSecs;
-	public char8[260] VolumeName;
+	public char16[260] VolumeName;
 }
 
 [CRepr]
@@ -3612,18 +3612,18 @@ public struct CLUS_NETNAME_VS_TOKEN_INFO
 public struct CLUS_NETNAME_PWD_INFO
 {
 	public uint32 Flags;
-	public char8[16] Password;
-	public char8[258] CreatingDC;
-	public char8[64] ObjectGuid;
+	public char16[16] Password;
+	public char16[258] CreatingDC;
+	public char16[64] ObjectGuid;
 }
 
 [CRepr]
 public struct CLUS_NETNAME_PWD_INFOEX
 {
 	public uint32 Flags;
-	public char8[128] Password;
-	public char8[258] CreatingDC;
-	public char8[64] ObjectGuid;
+	public char16[128] Password;
+	public char16[258] CreatingDC;
+	public char16[64] ObjectGuid;
 }
 
 [CRepr]
@@ -3651,7 +3651,7 @@ public struct CLUS_NETNAME_IP_INFO_ENTRY
 [CRepr]
 public struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL
 {
-	public char8[64] szName;
+	public char16[64] szName;
 	public uint32 NumEntries;
 	public CLUS_NETNAME_IP_INFO_ENTRY[1] IpInfo;
 }
@@ -3666,7 +3666,7 @@ public struct CLUS_MAINTENANCE_MODE_INFO
 public struct CLUS_CSV_MAINTENANCE_MODE_INFO
 {
 	public BOOL InMaintenance;
-	public char8[260] VolumeName;
+	public char16[260] VolumeName;
 }
 
 [CRepr]
@@ -3711,19 +3711,19 @@ public struct CLUS_PROVIDER_STATE_CHANGE_INFO
 {
 	public uint32 dwSize;
 	public CLUSTER_RESOURCE_STATE resourceState;
-	public char8[1] szProviderId;
+	public char16[1] szProviderId;
 }
 
 [CRepr]
 public struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT
 {
-	public char8[16] FileServerName;
+	public char16[16] FileServerName;
 }
 
 [CRepr]
 public struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT
 {
-	public char8[260] FileServerName;
+	public char16[260] FileServerName;
 }
 
 [CRepr]
@@ -3737,7 +3737,7 @@ public struct CLUSPROP_LIST
 public struct FILESHARE_CHANGE
 {
 	public FILESHARE_CHANGE_ENUM Change;
-	public char8[84] ShareName;
+	public char16[84] ShareName;
 }
 
 [CRepr]
@@ -3845,7 +3845,7 @@ public struct SR_RESOURCE_TYPE_REPLICATED_DISK
 	public SR_REPLICATED_DISK_TYPE Type;
 	public Guid ClusterDiskResourceGuid;
 	public Guid ReplicationGroupId;
-	public char8[260] ReplicationGroupName;
+	public char16[260] ReplicationGroupName;
 }
 
 [CRepr]
@@ -3858,25 +3858,25 @@ public struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT
 [CRepr]
 public struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP
 {
-	public char8[260] ReplicationGroupName;
-	public char8[260] Description;
-	public char8[260] LogPath;
+	public char16[260] ReplicationGroupName;
+	public char16[260] Description;
+	public char16[260] LogPath;
 	public uint64 MaxLogSizeInBytes;
 	public uint16 LogType;
 	public uint32 ReplicationMode;
 	public uint32 MinimumPartnersInSync;
 	public BOOLEAN EnableWriteConsistency;
 	public BOOLEAN EnableEncryption;
-	public char8[260] CertificateThumbprint;
+	public char16[260] CertificateThumbprint;
 	public uint32 VolumeNameCount;
-	public char8[260] VolumeNames;
+	public char16[260] VolumeNames;
 }
 
 [CRepr]
 public struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT
 {
 	public uint32 Result;
-	public char8[260] ErrorString;
+	public char16[260] ErrorString;
 }
 
 [CRepr]
@@ -5994,10 +5994,10 @@ public static
 	public static extern uint32 SetClusterName(_HCLUSTER* hCluster, PWSTR lpszNewClusterName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterInformation(_HCLUSTER* hCluster, char8* lpszClusterName, uint32* lpcchClusterName, CLUSTERVERSIONINFO* lpClusterInfo);
+	public static extern uint32 GetClusterInformation(_HCLUSTER* hCluster, char16* lpszClusterName, uint32* lpcchClusterName, CLUSTERVERSIONINFO* lpClusterInfo);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterQuorumResource(_HCLUSTER* hCluster, char8* lpszResourceName, uint32* lpcchResourceName, char8* lpszDeviceName, uint32* lpcchDeviceName, uint32* lpdwMaxQuorumLogSize);
+	public static extern uint32 GetClusterQuorumResource(_HCLUSTER* hCluster, char16* lpszResourceName, uint32* lpcchResourceName, char16* lpszDeviceName, uint32* lpcchDeviceName, uint32* lpdwMaxQuorumLogSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetClusterQuorumResource(_HRESOURCE* hResource, PWSTR lpszDeviceName, uint32 dwMaxQuoLogSize);
@@ -6030,7 +6030,7 @@ public static
 	public static extern uint32 GetNotifyEventHandle(_HCHANGE* hChange, HANDLE* lphTargetEvent);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterNotifyV2(_HCHANGE* hChange, uint* lpdwNotifyKey, NOTIFY_FILTER_AND_TYPE* pFilterAndType, uint8* buffer, uint32* lpbBufferSize, char8* lpszObjectId, uint32* lpcchObjectId, char8* lpszParentId, uint32* lpcchParentId, char8* lpszName, uint32* lpcchName, char8* lpszType, uint32* lpcchType, uint32 dwMilliseconds);
+	public static extern uint32 GetClusterNotifyV2(_HCHANGE* hChange, uint* lpdwNotifyKey, NOTIFY_FILTER_AND_TYPE* pFilterAndType, uint8* buffer, uint32* lpbBufferSize, char16* lpszObjectId, uint32* lpcchObjectId, char16* lpszParentId, uint32* lpcchParentId, char16* lpszName, uint32* lpcchName, char16* lpszType, uint32* lpcchType, uint32 dwMilliseconds);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern _HCHANGE* CreateClusterNotifyPort(_HCHANGE* hChange, _HCLUSTER* hCluster, uint32 dwFilter, uint dwNotifyKey);
@@ -6039,7 +6039,7 @@ public static
 	public static extern uint32 RegisterClusterNotify(_HCHANGE* hChange, uint32 dwFilterType, HANDLE hObject, uint dwNotifyKey);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterNotify(_HCHANGE* hChange, uint* lpdwNotifyKey, uint32* lpdwFilterType, char8* lpszName, uint32* lpcchName, uint32 dwMilliseconds);
+	public static extern uint32 GetClusterNotify(_HCHANGE* hChange, uint* lpdwNotifyKey, uint32* lpdwFilterType, char16* lpszName, uint32* lpcchName, uint32 dwMilliseconds);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CloseClusterNotifyPort(_HCHANGE* hChange);
@@ -6051,7 +6051,7 @@ public static
 	public static extern uint32 ClusterGetEnumCount(_HCLUSENUM* hEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterEnum(_HCLUSENUM* hEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterEnum(_HCLUSENUM* hEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterCloseEnum(_HCLUSENUM* hEnum);
@@ -6123,7 +6123,7 @@ public static
 	public static extern uint32 ClusterGroupSetGetEnumCount(_HGROUPSETENUM* hGroupSetEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupSetEnum(_HGROUPSETENUM* hGroupSetEnum, uint32 dwIndex, char8* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterGroupSetEnum(_HGROUPSETENUM* hGroupSetEnum, uint32 dwIndex, char16* lpszName, uint32* lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterGroupSetCloseEnum(_HGROUPSETENUM* hGroupSetEnum);
@@ -6171,7 +6171,7 @@ public static
 	public static extern CLUSTER_NODE_STATE GetClusterNodeState(_HNODE* hNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterNodeId(_HNODE* hNode, char8* lpszNodeId, uint32* lpcchName);
+	public static extern uint32 GetClusterNodeId(_HNODE* hNode, char16* lpszNodeId, uint32* lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern _HCLUSTER* GetClusterFromNode(_HNODE* hNode);
@@ -6189,7 +6189,7 @@ public static
 	public static extern _HNETINTERFACEENUM* ClusterNetInterfaceOpenEnum(_HCLUSTER* hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNetInterfaceEnum(_HNETINTERFACEENUM* hNetInterfaceEnum, uint32 dwIndex, char8* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterNetInterfaceEnum(_HNETINTERFACEENUM* hNetInterfaceEnum, uint32 dwIndex, char16* lpszName, uint32* lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterNetInterfaceCloseEnum(_HNETINTERFACEENUM* hNetInterfaceEnum);
@@ -6216,7 +6216,7 @@ public static
 	public static extern uint32 ClusterNodeCloseEnum(_HNODEENUM* hNodeEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNodeEnum(_HNODEENUM* hNodeEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterNodeEnum(_HNODEENUM* hNodeEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EvictClusterNodeEx(_HNODE* hNode, uint32 dwTimeOut, HRESULT* phrCleanupStatus);
@@ -6294,7 +6294,7 @@ public static
 	public static extern _HCLUSTER* GetClusterFromGroup(_HGROUP* hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CLUSTER_GROUP_STATE GetClusterGroupState(_HGROUP* hGroup, char8* lpszNodeName, uint32* lpcchNodeName);
+	public static extern CLUSTER_GROUP_STATE GetClusterGroupState(_HGROUP* hGroup, char16* lpszNodeName, uint32* lpcchNodeName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetClusterGroupName(_HGROUP* hGroup, PWSTR lpszGroupName);
@@ -6324,7 +6324,7 @@ public static
 	public static extern uint32 ClusterGroupGetEnumCount(_HGROUPENUM* hGroupEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupEnum(_HGROUPENUM* hGroupEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszResourceName, uint32* lpcchName);
+	public static extern uint32 ClusterGroupEnum(_HGROUPENUM* hGroupEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszResourceName, uint32* lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterGroupCloseEnum(_HGROUPENUM* hGroupEnum);
@@ -6348,7 +6348,7 @@ public static
 	public static extern uint32 DeleteClusterResource(_HRESOURCE* hResource);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CLUSTER_RESOURCE_STATE GetClusterResourceState(_HRESOURCE* hResource, char8* lpszNodeName, uint32* lpcchNodeName, char8* lpszGroupName, uint32* lpcchGroupName);
+	public static extern CLUSTER_RESOURCE_STATE GetClusterResourceState(_HRESOURCE* hResource, char16* lpszNodeName, uint32* lpcchNodeName, char16* lpszGroupName, uint32* lpcchGroupName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetClusterResourceName(_HRESOURCE* hResource, PWSTR lpszResourceName);
@@ -6384,7 +6384,7 @@ public static
 	public static extern uint32 SetClusterResourceDependencyExpression(_HRESOURCE* hResource, PWSTR lpszDependencyExpression);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterResourceDependencyExpression(_HRESOURCE* hResource, char8* lpszDependencyExpression, uint32* lpcchDependencyExpression);
+	public static extern uint32 GetClusterResourceDependencyExpression(_HRESOURCE* hResource, char16* lpszDependencyExpression, uint32* lpcchDependencyExpression);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 AddResourceToClusterSharedVolumes(_HRESOURCE* hResource);
@@ -6420,7 +6420,7 @@ public static
 	public static extern uint32 ClusterNodeControl(_HNODE* hNode, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetClusterResourceNetworkName(_HRESOURCE* hResource, char8* lpBuffer, uint32* nSize);
+	public static extern BOOL GetClusterResourceNetworkName(_HRESOURCE* hResource, char16* lpBuffer, uint32* nSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern _HRESENUM* ClusterResourceOpenEnum(_HRESOURCE* hResource, uint32 dwType);
@@ -6429,7 +6429,7 @@ public static
 	public static extern uint32 ClusterResourceGetEnumCount(_HRESENUM* hResEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceEnum(_HRESENUM* hResEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterResourceEnum(_HRESENUM* hResEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterResourceCloseEnum(_HRESENUM* hResEnum);
@@ -6447,7 +6447,7 @@ public static
 	public static extern uint32 ClusterResourceTypeGetEnumCount(_HRESTYPEENUM* hResTypeEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceTypeEnum(_HRESTYPEENUM* hResTypeEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterResourceTypeEnum(_HRESTYPEENUM* hResTypeEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterResourceTypeCloseEnum(_HRESTYPEENUM* hResTypeEnum);
@@ -6471,7 +6471,7 @@ public static
 	public static extern uint32 ClusterNetworkGetEnumCount(_HNETWORKENUM* hNetworkEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNetworkEnum(_HNETWORKENUM* hNetworkEnum, uint32 dwIndex, uint32* lpdwType, char8* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterNetworkEnum(_HNETWORKENUM* hNetworkEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterNetworkCloseEnum(_HNETWORKENUM* hNetworkEnum);
@@ -6483,7 +6483,7 @@ public static
 	public static extern uint32 SetClusterNetworkName(_HNETWORK* hNetwork, PWSTR lpszName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterNetworkId(_HNETWORK* hNetwork, char8* lpszNetworkId, uint32* lpcchName);
+	public static extern uint32 GetClusterNetworkId(_HNETWORK* hNetwork, char16* lpszNetworkId, uint32* lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterNetworkControl(_HNETWORK* hNetwork, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
@@ -6495,7 +6495,7 @@ public static
 	public static extern _HNETINTERFACE* OpenClusterNetInterfaceEx(_HCLUSTER* hCluster, PWSTR lpszInterfaceName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterNetInterface(_HCLUSTER* hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName, char8* lpszInterfaceName, uint32* lpcchInterfaceName);
+	public static extern uint32 GetClusterNetInterface(_HCLUSTER* hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName, char16* lpszInterfaceName, uint32* lpcchInterfaceName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CloseClusterNetInterface(_HNETINTERFACE* hNetInterface);
@@ -6540,7 +6540,7 @@ public static
 	public static extern int32 ClusterRegCloseKey(HKEY hKey);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegEnumKey(HKEY hKey, uint32 dwIndex, char8* lpszName, uint32* lpcchName, FILETIME* lpftLastWriteTime);
+	public static extern int32 ClusterRegEnumKey(HKEY hKey, uint32 dwIndex, char16* lpszName, uint32* lpcchName, FILETIME* lpftLastWriteTime);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterRegSetValue(HKEY hKey, PWSTR lpszValueName, uint32 dwType, uint8* lpData, uint32 cbData);
@@ -6552,7 +6552,7 @@ public static
 	public static extern int32 ClusterRegQueryValue(HKEY hKey, PWSTR lpszValueName, uint32* lpdwValueType, uint8* lpData, uint32* lpcbData);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterRegEnumValue(HKEY hKey, uint32 dwIndex, char8* lpszValueName, uint32* lpcchValueName, uint32* lpdwType, uint8* lpData, uint32* lpcbData);
+	public static extern uint32 ClusterRegEnumValue(HKEY hKey, uint32 dwIndex, char16* lpszValueName, uint32* lpcchValueName, uint32* lpdwType, uint8* lpData, uint32* lpcbData);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ClusterRegQueryInfoKey(HKEY hKey, uint32* lpcSubKeys, uint32* lpcchMaxSubKeyLen, uint32* lpcValues, uint32* lpcchMaxValueNameLen, uint32* lpcbMaxValueLen, uint32* lpcbSecurityDescriptor, FILETIME* lpftLastWriteTime);
@@ -6900,10 +6900,10 @@ public static
 	public static extern _HRESOURCE* ResUtilGetResourceNameDependency(PWSTR lpszResourceName, PWSTR lpszResourceType);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetResourceDependentIPAddressProps(_HRESOURCE* hResource, char8* pszAddress, uint32* pcchAddress, char8* pszSubnetMask, uint32* pcchSubnetMask, char8* pszNetwork, uint32* pcchNetwork);
+	public static extern uint32 ResUtilGetResourceDependentIPAddressProps(_HRESOURCE* hResource, char16* pszAddress, uint32* pcchAddress, char16* pszSubnetMask, uint32* pcchSubnetMask, char16* pszNetwork, uint32* pcchNetwork);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindDependentDiskResourceDriveLetter(_HCLUSTER* hCluster, _HRESOURCE* hResource, char8* pszDriveLetter, uint32* pcchDriveLetter);
+	public static extern uint32 ResUtilFindDependentDiskResourceDriveLetter(_HCLUSTER* hCluster, _HRESOURCE* hResource, char16* pszDriveLetter, uint32* pcchDriveLetter);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilTerminateServiceProcessFromResDll(uint32 dwServicePid, BOOL bOffline, uint32* pdwResourceState, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
@@ -6915,7 +6915,7 @@ public static
 	public static extern uint32 ResUtilGetCoreClusterResources(_HCLUSTER* hCluster, _HRESOURCE** phClusterNameResource, _HRESOURCE** phClusterIPAddressResource, _HRESOURCE** phClusterQuorumResource);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetResourceName(_HRESOURCE* hResource, char8* pszResourceName, uint32* pcchResourceNameInOut);
+	public static extern uint32 ResUtilGetResourceName(_HRESOURCE* hResource, char16* pszResourceName, uint32* pcchResourceNameInOut);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CLUSTER_ROLE_STATE ResUtilGetClusterRoleState(_HCLUSTER* hCluster, CLUSTER_ROLE eClusterRole);

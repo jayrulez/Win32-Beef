@@ -81,7 +81,7 @@ public struct PROCESSENTRY32W
 	public uint32 th32ParentProcessID;
 	public int32 pcPriClassBase;
 	public uint32 dwFlags;
-	public char8[260] szExeFile;
+	public char16[260] szExeFile;
 }
 
 [CRepr]
@@ -122,8 +122,8 @@ public struct MODULEENTRY32W
 	public uint8* modBaseAddr;
 	public uint32 modBaseSize;
 	public HINSTANCE hModule;
-	public char8[256] szModule;
-	public char8[260] szExePath;
+	public char16[256] szModule;
+	public char16[260] szExePath;
 }
 
 [CRepr]

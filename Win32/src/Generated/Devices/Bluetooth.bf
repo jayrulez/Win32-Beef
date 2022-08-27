@@ -1758,8 +1758,8 @@ public struct BLUETOOTH_LOCAL_SERVICE_INFO
 {
 	public BOOL Enabled;
 	public BLUETOOTH_ADDRESS btAddr;
-	public char8[256] szName;
-	public char8[256] szDeviceString;
+	public char16[256] szName;
+	public char16[256] szDeviceString;
 }
 
 [CRepr]
@@ -1773,7 +1773,7 @@ public struct BLUETOOTH_RADIO_INFO
 {
 	public uint32 dwSize;
 	public BLUETOOTH_ADDRESS address;
-	public char8[248] szName;
+	public char16[248] szName;
 	public uint32 ulClassofDevice;
 	public uint16 lmpSubversion;
 	public uint16 manufacturer;
@@ -1790,7 +1790,7 @@ public struct BLUETOOTH_DEVICE_INFO
 	public BOOL fAuthenticated;
 	public SYSTEMTIME stLastSeen;
 	public SYSTEMTIME stLastUsed;
-	public char8[248] szName;
+	public char16[248] szName;
 }
 
 [CRepr]
@@ -2129,7 +2129,7 @@ public static
 	public static extern BOOL BluetoothDisplayDeviceProperties(HWND hwndParent, BLUETOOTH_DEVICE_INFO* pbtdi);
 
 	[Import("bthprops.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 BluetoothAuthenticateDevice(HWND hwndParent, HANDLE hRadio, BLUETOOTH_DEVICE_INFO* pbtbi, char8* pszPasskey, uint32 ulPasskeyLength);
+	public static extern uint32 BluetoothAuthenticateDevice(HWND hwndParent, HANDLE hRadio, BLUETOOTH_DEVICE_INFO* pbtbi, char16* pszPasskey, uint32 ulPasskeyLength);
 
 	[Import("bthprops.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 BluetoothAuthenticateDeviceEx(HWND hwndParentIn, HANDLE hRadioIn, BLUETOOTH_DEVICE_INFO* pbtdiInout, BLUETOOTH_OOB_DATA_INFO* pbtOobData, AUTHENTICATION_REQUIREMENTS authenticationRequirement);
@@ -2180,7 +2180,7 @@ public static
 	public static extern uint32 BluetoothSdpGetAttributeValue(uint8* pRecordStream, uint32 cbRecordLength, uint16 usAttributeId, SDP_ELEMENT_DATA* pAttributeData);
 
 	[Import("BluetoothApis.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 BluetoothSdpGetString(uint8* pRecordStream, uint32 cbRecordLength, SDP_STRING_TYPE_DATA* pStringData, uint16 usStringOffset, char8* pszString, uint32* pcchStringLength);
+	public static extern uint32 BluetoothSdpGetString(uint8* pRecordStream, uint32 cbRecordLength, SDP_STRING_TYPE_DATA* pStringData, uint16 usStringOffset, char16* pszString, uint32* pcchStringLength);
 
 	[Import("BluetoothApis.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BluetoothSdpEnumAttributes(uint8* pSDPStream, uint32 cbStreamSize, PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK pfnCallback, void* pvParam);

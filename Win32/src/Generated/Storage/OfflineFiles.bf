@@ -810,7 +810,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItemFilter*/SelfOuter* self, uint64* pullFlags, uint64* pullMask) GetFilterFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItemFilter*/SelfOuter* self, FILETIME* pftTime, BOOL* pbEvalTimeOfDay, OFFLINEFILES_ITEM_TIME* pTimeType, OFFLINEFILES_COMPARE* pCompare) GetTimeFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItemFilter*/SelfOuter* self, char8* pszPattern, uint32 cchPattern) GetPatternFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItemFilter*/SelfOuter* self, char16* pszPattern, uint32 cchPattern) GetPatternFilter;
 	}
 
 
@@ -818,7 +818,7 @@ public static
 
 	public HRESULT GetTimeFilter(FILETIME* pftTime, BOOL* pbEvalTimeOfDay, OFFLINEFILES_ITEM_TIME* pTimeType, OFFLINEFILES_COMPARE* pCompare) mut => VT.[Friend]GetTimeFilter(&this, pftTime, pbEvalTimeOfDay, pTimeType, pCompare);
 
-	public HRESULT GetPatternFilter(char8* pszPattern, uint32 cchPattern) mut => VT.[Friend]GetPatternFilter(&this, pszPattern, cchPattern);
+	public HRESULT GetPatternFilter(char16* pszPattern, uint32 cchPattern) mut => VT.[Friend]GetPatternFilter(&this, pszPattern, cchPattern);
 }
 
 [CRepr]struct IOfflineFilesItem : IUnknown

@@ -1179,7 +1179,7 @@ public struct CATEGORYINFO
 {
 	public Guid catid;
 	public uint32 lcid;
-	public char8[128] szDescription;
+	public char16[128] szDescription;
 }
 
 [CRepr]
@@ -4477,7 +4477,7 @@ public static
 	public static extern HRESULT CLSIDFromProgID(PWSTR lpszProgID, Guid* lpclsid);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 StringFromGUID2(Guid* rguid, char8* lpsz, int32 cchMax);
+	public static extern int32 StringFromGUID2(Guid* rguid, char16* lpsz, int32 cchMax);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CoCreateGuid(Guid* pguid);

@@ -5500,7 +5500,7 @@ public struct DOT11EXT_IHV_PROFILE_PARAMS
 public struct DOT11EXT_IHV_PARAMS
 {
 	public DOT11EXT_IHV_PROFILE_PARAMS dot11ExtIhvProfileParams;
-	public char8[256] wstrProfileName;
+	public char16[256] wstrProfileName;
 	public uint32 dwProfileTypeFlags;
 	public Guid interfaceGuid;
 }
@@ -5582,7 +5582,7 @@ public struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY
 [CRepr]
 public struct WDIAG_IHV_WLAN_ID
 {
-	public char8[256] strProfileName;
+	public char16[256] strProfileName;
 	public DOT11_SSID Ssid;
 	public DOT11_BSS_TYPE BssType;
 	public uint32 dwFlags;

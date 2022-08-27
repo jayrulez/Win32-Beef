@@ -4034,10 +4034,10 @@ public struct LINEREQMAKECALL
 [CRepr, Packed(1)]
 public struct linereqmakecallW_tag
 {
-	public char8[80] szDestAddress;
-	public char8[40] szAppName;
-	public char8[40] szCalledParty;
-	public char8[80] szComment;
+	public char16[80] szDestAddress;
+	public char16[40] szAppName;
+	public char16[40] szCalledParty;
+	public char16[80] szComment;
 }
 
 [CRepr, Packed(1)]
@@ -4060,14 +4060,14 @@ public struct linereqmediacallW_tag
 {
 	public HWND hWnd;
 	public WPARAM wRequestID;
-	public char8[40] szDeviceClass;
+	public char16[40] szDeviceClass;
 	public uint8[40] ucDeviceID;
 	public uint32 dwSize;
 	public uint32 dwSecure;
-	public char8[80] szDestAddress;
-	public char8[40] szAppName;
-	public char8[40] szCalledParty;
-	public char8[80] szComment;
+	public char16[80] szDestAddress;
+	public char16[40] szAppName;
+	public char16[40] szCalledParty;
+	public char16[80] szComment;
 }
 
 [CRepr, Packed(1)]
@@ -8070,7 +8070,7 @@ public static
 	public static extern int32 lineGatherDigitsA(uint32 hCall, uint32 dwDigitModes, uint8* lpsDigits, uint32 dwNumDigits, PSTR lpszTerminationDigits, uint32 dwFirstDigitTimeout, uint32 dwInterDigitTimeout);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineGatherDigitsW(uint32 hCall, uint32 dwDigitModes, char8* lpsDigits, uint32 dwNumDigits, PWSTR lpszTerminationDigits, uint32 dwFirstDigitTimeout, uint32 dwInterDigitTimeout);
+	public static extern int32 lineGatherDigitsW(uint32 hCall, uint32 dwDigitModes, char16* lpsDigits, uint32 dwNumDigits, PWSTR lpszTerminationDigits, uint32 dwFirstDigitTimeout, uint32 dwInterDigitTimeout);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGenerateDigits(uint32 hCall, uint32 dwDigitMode, PSTR lpszDigits, uint32 dwDuration);
@@ -8693,7 +8693,7 @@ public static
 	public static extern int32 tapiGetLocationInfoA(uint8* lpszCountryCode, uint8* lpszCityCode);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 tapiGetLocationInfoW(char8* lpszCountryCodeW, char8* lpszCityCodeW);
+	public static extern int32 tapiGetLocationInfoW(char16* lpszCountryCodeW, char16* lpszCityCodeW);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 tapiRequestDrop(HWND hwnd, WPARAM wRequestID);

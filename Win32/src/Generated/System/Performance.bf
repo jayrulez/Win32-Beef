@@ -874,7 +874,7 @@ public struct PERF_COUNTER_DATA
 [CRepr]
 public struct PERF_DATA_BLOCK
 {
-	public char8[4] Signature;
+	public char16[4] Signature;
 	public uint32 LittleEndian;
 	public uint32 Version;
 	public uint32 Revision;

@@ -187,7 +187,7 @@ public struct SAFER_IDENTIFICATION_HEADER
 public struct SAFER_PATHNAME_IDENTIFICATION
 {
 	public SAFER_IDENTIFICATION_HEADER header;
-	public char8[256] Description;
+	public char16[256] Description;
 	public PWSTR ImageName;
 	public uint32 dwSaferFlags;
 }
@@ -196,8 +196,8 @@ public struct SAFER_PATHNAME_IDENTIFICATION
 public struct SAFER_HASH_IDENTIFICATION
 {
 	public SAFER_IDENTIFICATION_HEADER header;
-	public char8[256] Description;
-	public char8[256] FriendlyName;
+	public char16[256] Description;
+	public char16[256] FriendlyName;
 	public uint32 HashSize;
 	public uint8[64] ImageHash;
 	public uint32 HashAlgorithm;

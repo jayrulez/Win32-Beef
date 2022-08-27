@@ -158,7 +158,7 @@ public struct PSS_PROCESS_INFORMATION
 	public uint PeakPagefileUsage;
 	public uint PrivateUsage;
 	public uint32 ExecuteFlags;
-	public char8[260] ImageFileName;
+	public char16[260] ImageFileName;
 }
 
 [CRepr]

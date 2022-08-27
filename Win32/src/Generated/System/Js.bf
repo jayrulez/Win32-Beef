@@ -241,7 +241,7 @@ public static
 	public static extern JsErrorCode JsGetStringLength(void* stringValue, int32* length);
 
 	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern JsErrorCode JsPointerToString(char8* stringValue, uint stringLength, void** value);
+	public static extern JsErrorCode JsPointerToString(char16* stringValue, uint stringLength, void** value);
 
 	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern JsErrorCode JsStringToPointer(void* value, uint16** stringValue, uint* stringLength);

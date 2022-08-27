@@ -858,7 +858,7 @@ public static
 	public static extern void HSTRING_UserFree64(uint32* param0, HSTRING* param1);
 
 	[Import("api-ms-win-core-winrt-string-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WindowsCreateString(char8* sourceString, uint32 length, HSTRING* string);
+	public static extern HRESULT WindowsCreateString(char16* sourceString, uint32 length, HSTRING* string);
 
 	[Import("api-ms-win-core-winrt-string-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WindowsCreateStringReference(PWSTR sourceString, uint32 length, HSTRING_HEADER* hstringHeader, HSTRING* string);
@@ -966,13 +966,13 @@ public static
 	public static extern HRESULT GetRestrictedErrorInfo(IRestrictedErrorInfo** ppRestrictedErrorInfo);
 
 	[Import("api-ms-win-core-winrt-error-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL RoOriginateErrorW(HRESULT error, uint32 cchMax, char8* message);
+	public static extern BOOL RoOriginateErrorW(HRESULT error, uint32 cchMax, char16* message);
 
 	[Import("api-ms-win-core-winrt-error-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RoOriginateError(HRESULT error, HSTRING message);
 
 	[Import("api-ms-win-core-winrt-error-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL RoTransformErrorW(HRESULT oldError, HRESULT newError, uint32 cchMax, char8* message);
+	public static extern BOOL RoTransformErrorW(HRESULT oldError, HRESULT newError, uint32 cchMax, char16* message);
 
 	[Import("api-ms-win-core-winrt-error-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RoTransformError(HRESULT oldError, HRESULT newError, HSTRING message);

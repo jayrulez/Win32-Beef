@@ -639,7 +639,7 @@ public struct CAppStatistics
 public struct CAppData
 {
 	public uint32 m_idApp;
-	public char8[40] m_szAppGuid;
+	public char16[40] m_szAppGuid;
 	public uint32 m_dwAppProcessId;
 	public CAppStatistics m_AppStatistics;
 }
@@ -1836,8 +1836,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComQCEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, uint64 objid, char8* szQueue, Guid* guidMsgId, Guid* guidWorkFlowId, HRESULT msmqhr) OnQCRecord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComQCEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, char8* szQueue, uint64 QueueID, HRESULT hr) OnQCQueueOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComQCEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, uint64 objid, char16* szQueue, Guid* guidMsgId, Guid* guidWorkFlowId, HRESULT msmqhr) OnQCRecord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComQCEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, char16* szQueue, uint64 QueueID, HRESULT hr) OnQCQueueOpen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComQCEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, uint64 QueueID, Guid* guidMsgId, Guid* guidWorkFlowId, HRESULT hr) OnQCReceive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComQCEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, uint64 QueueID, HRESULT msmqhr) OnQCReceiveFail;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComQCEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, Guid* guidMsgId, Guid* guidWorkFlowId, uint32 RetryIndex) OnQCMoveToReTryQueue;
@@ -1846,9 +1846,9 @@ public static
 	}
 
 
-	public HRESULT OnQCRecord(COMSVCSEVENTINFO* pInfo, uint64 objid, char8* szQueue, Guid* guidMsgId, Guid* guidWorkFlowId, HRESULT msmqhr) mut => VT.[Friend]OnQCRecord(&this, pInfo, objid, szQueue, guidMsgId, guidWorkFlowId, msmqhr);
+	public HRESULT OnQCRecord(COMSVCSEVENTINFO* pInfo, uint64 objid, char16* szQueue, Guid* guidMsgId, Guid* guidWorkFlowId, HRESULT msmqhr) mut => VT.[Friend]OnQCRecord(&this, pInfo, objid, szQueue, guidMsgId, guidWorkFlowId, msmqhr);
 
-	public HRESULT OnQCQueueOpen(COMSVCSEVENTINFO* pInfo, char8* szQueue, uint64 QueueID, HRESULT hr) mut => VT.[Friend]OnQCQueueOpen(&this, pInfo, szQueue, QueueID, hr);
+	public HRESULT OnQCQueueOpen(COMSVCSEVENTINFO* pInfo, char16* szQueue, uint64 QueueID, HRESULT hr) mut => VT.[Friend]OnQCQueueOpen(&this, pInfo, szQueue, QueueID, hr);
 
 	public HRESULT OnQCReceive(COMSVCSEVENTINFO* pInfo, uint64 QueueID, Guid* guidMsgId, Guid* guidWorkFlowId, HRESULT hr) mut => VT.[Friend]OnQCReceive(&this, pInfo, QueueID, guidMsgId, guidWorkFlowId, hr);
 
@@ -1908,7 +1908,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComCRMEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, Guid guidApp) OnCRMRecoveryStart;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComCRMEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, Guid guidApp) OnCRMRecoveryDone;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComCRMEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, Guid guidApp) OnCRMCheckpoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComCRMEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, Guid guidClerkCLSID, Guid guidActivity, Guid guidTx, char8* szProgIdCompensator, char8* szDescription) OnCRMBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComCRMEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, Guid guidClerkCLSID, Guid guidActivity, Guid guidTx, char16* szProgIdCompensator, char16* szDescription) OnCRMBegin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComCRMEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, Guid guidClerkCLSID) OnCRMPrepare;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComCRMEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, Guid guidClerkCLSID) OnCRMCommit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComCRMEvents*/SelfOuter* self, COMSVCSEVENTINFO* pInfo, Guid guidClerkCLSID) OnCRMAbort;
@@ -1929,7 +1929,7 @@ public static
 
 	public HRESULT OnCRMCheckpoint(COMSVCSEVENTINFO* pInfo, Guid guidApp) mut => VT.[Friend]OnCRMCheckpoint(&this, pInfo, guidApp);
 
-	public HRESULT OnCRMBegin(COMSVCSEVENTINFO* pInfo, Guid guidClerkCLSID, Guid guidActivity, Guid guidTx, char8* szProgIdCompensator, char8* szDescription) mut => VT.[Friend]OnCRMBegin(&this, pInfo, guidClerkCLSID, guidActivity, guidTx, szProgIdCompensator, szDescription);
+	public HRESULT OnCRMBegin(COMSVCSEVENTINFO* pInfo, Guid guidClerkCLSID, Guid guidActivity, Guid guidTx, char16* szProgIdCompensator, char16* szDescription) mut => VT.[Friend]OnCRMBegin(&this, pInfo, guidClerkCLSID, guidActivity, guidTx, szProgIdCompensator, szDescription);
 
 	public HRESULT OnCRMPrepare(COMSVCSEVENTINFO* pInfo, Guid guidClerkCLSID) mut => VT.[Friend]OnCRMPrepare(&this, pInfo, guidClerkCLSID);
 
@@ -2921,8 +2921,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICOMLBArguments*/SelfOuter* self, Guid* pCLSID) GetCLSID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICOMLBArguments*/SelfOuter* self, Guid* pCLSID) SetCLSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICOMLBArguments*/SelfOuter* self, uint32 cchSvr, char8* szServerName) GetMachineName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICOMLBArguments*/SelfOuter* self, uint32 cchSvr, char8* szServerName) SetMachineName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICOMLBArguments*/SelfOuter* self, uint32 cchSvr, char16* szServerName) GetMachineName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICOMLBArguments*/SelfOuter* self, uint32 cchSvr, char16* szServerName) SetMachineName;
 	}
 
 
@@ -2930,9 +2930,9 @@ public static
 
 	public HRESULT SetCLSID(Guid* pCLSID) mut => VT.[Friend]SetCLSID(&this, pCLSID);
 
-	public HRESULT GetMachineName(uint32 cchSvr, char8* szServerName) mut => VT.[Friend]GetMachineName(&this, cchSvr, szServerName);
+	public HRESULT GetMachineName(uint32 cchSvr, char16* szServerName) mut => VT.[Friend]GetMachineName(&this, cchSvr, szServerName);
 
-	public HRESULT SetMachineName(uint32 cchSvr, char8* szServerName) mut => VT.[Friend]SetMachineName(&this, cchSvr, szServerName);
+	public HRESULT SetMachineName(uint32 cchSvr, char16* szServerName) mut => VT.[Friend]SetMachineName(&this, cchSvr, szServerName);
 }
 
 [CRepr]struct ICrmLogControl : IUnknown

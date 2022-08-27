@@ -619,21 +619,21 @@ public static
 	public static LSTATUS RegEnumKey(HKEY hKey, uint32 dwIndex, uint8* lpName, uint32 cchName) => RegEnumKeyA(hKey, dwIndex, lpName, cchName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS RegEnumKeyW(HKEY hKey, uint32 dwIndex, char8* lpName, uint32 cchName);
+	public static extern LSTATUS RegEnumKeyW(HKEY hKey, uint32 dwIndex, char16* lpName, uint32 cchName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS RegEnumKeyExA(HKEY hKey, uint32 dwIndex, uint8* lpName, uint32* lpcchName, uint32* lpReserved, uint8* lpClass, uint32* lpcchClass, FILETIME* lpftLastWriteTime);
 	public static LSTATUS RegEnumKeyEx(HKEY hKey, uint32 dwIndex, uint8* lpName, uint32* lpcchName, uint32* lpReserved, uint8* lpClass, uint32* lpcchClass, FILETIME* lpftLastWriteTime) => RegEnumKeyExA(hKey, dwIndex, lpName, lpcchName, lpReserved, lpClass, lpcchClass, lpftLastWriteTime);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS RegEnumKeyExW(HKEY hKey, uint32 dwIndex, char8* lpName, uint32* lpcchName, uint32* lpReserved, char8* lpClass, uint32* lpcchClass, FILETIME* lpftLastWriteTime);
+	public static extern LSTATUS RegEnumKeyExW(HKEY hKey, uint32 dwIndex, char16* lpName, uint32* lpcchName, uint32* lpReserved, char16* lpClass, uint32* lpcchClass, FILETIME* lpftLastWriteTime);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS RegEnumValueA(HKEY hKey, uint32 dwIndex, uint8* lpValueName, uint32* lpcchValueName, uint32* lpReserved, uint32* lpType, uint8* lpData, uint32* lpcbData);
 	public static LSTATUS RegEnumValue(HKEY hKey, uint32 dwIndex, uint8* lpValueName, uint32* lpcchValueName, uint32* lpReserved, uint32* lpType, uint8* lpData, uint32* lpcbData) => RegEnumValueA(hKey, dwIndex, lpValueName, lpcchValueName, lpReserved, lpType, lpData, lpcbData);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS RegEnumValueW(HKEY hKey, uint32 dwIndex, char8* lpValueName, uint32* lpcchValueName, uint32* lpReserved, uint32* lpType, uint8* lpData, uint32* lpcbData);
+	public static extern LSTATUS RegEnumValueW(HKEY hKey, uint32 dwIndex, char16* lpValueName, uint32* lpcchValueName, uint32* lpReserved, uint32* lpType, uint8* lpData, uint32* lpcbData);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS RegFlushKey(HKEY hKey);
@@ -677,7 +677,7 @@ public static
 	public static LSTATUS RegQueryInfoKey(HKEY hKey, uint8* lpClass, uint32* lpcchClass, uint32* lpReserved, uint32* lpcSubKeys, uint32* lpcbMaxSubKeyLen, uint32* lpcbMaxClassLen, uint32* lpcValues, uint32* lpcbMaxValueNameLen, uint32* lpcbMaxValueLen, uint32* lpcbSecurityDescriptor, FILETIME* lpftLastWriteTime) => RegQueryInfoKeyA(hKey, lpClass, lpcchClass, lpReserved, lpcSubKeys, lpcbMaxSubKeyLen, lpcbMaxClassLen, lpcValues, lpcbMaxValueNameLen, lpcbMaxValueLen, lpcbSecurityDescriptor, lpftLastWriteTime);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS RegQueryInfoKeyW(HKEY hKey, char8* lpClass, uint32* lpcchClass, uint32* lpReserved, uint32* lpcSubKeys, uint32* lpcbMaxSubKeyLen, uint32* lpcbMaxClassLen, uint32* lpcValues, uint32* lpcbMaxValueNameLen, uint32* lpcbMaxValueLen, uint32* lpcbSecurityDescriptor, FILETIME* lpftLastWriteTime);
+	public static extern LSTATUS RegQueryInfoKeyW(HKEY hKey, char16* lpClass, uint32* lpcchClass, uint32* lpReserved, uint32* lpcSubKeys, uint32* lpcbMaxSubKeyLen, uint32* lpcbMaxClassLen, uint32* lpcValues, uint32* lpcbMaxValueNameLen, uint32* lpcbMaxValueLen, uint32* lpcbSecurityDescriptor, FILETIME* lpftLastWriteTime);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS RegQueryValueA(HKEY hKey, PSTR lpSubKey, PSTR lpData, int32* lpcbData);

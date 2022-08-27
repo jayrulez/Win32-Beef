@@ -96,7 +96,7 @@ public struct RESTOREPOINTINFOW
 	public RESTOREPOINTINFO_EVENT_TYPE dwEventType;
 	public RESTOREPOINTINFO_TYPE dwRestorePtType;
 	public int64 llSequenceNumber;
-	public char8[256] szDescription;
+	public char16[256] szDescription;
 }
 
 [CRepr, Packed(1)]
@@ -106,7 +106,7 @@ public struct _RESTOREPTINFOEX
 	public uint32 dwEventType;
 	public uint32 dwRestorePtType;
 	public uint32 dwRPNum;
-	public char8[256] szDescription;
+	public char16[256] szDescription;
 }
 
 [CRepr, Packed(1)]

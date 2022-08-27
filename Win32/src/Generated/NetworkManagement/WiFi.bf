@@ -4604,7 +4604,7 @@ public struct L2_NOTIFICATION_DATA
 [CRepr]
 public struct WLAN_PROFILE_INFO
 {
-	public char8[256] strProfileName;
+	public char16[256] strProfileName;
 	public uint32 dwFlags;
 }
 
@@ -4647,7 +4647,7 @@ public struct WLAN_RATE_SET
 [CRepr]
 public struct WLAN_AVAILABLE_NETWORK
 {
-	public char8[256] strProfileName;
+	public char16[256] strProfileName;
 	public DOT11_SSID dot11Ssid;
 	public DOT11_BSS_TYPE dot11BssType;
 	public uint32 uNumberOfBssids;
@@ -4667,7 +4667,7 @@ public struct WLAN_AVAILABLE_NETWORK
 [CRepr]
 public struct WLAN_AVAILABLE_NETWORK_V2
 {
-	public char8[256] strProfileName;
+	public char16[256] strProfileName;
 	public DOT11_SSID dot11Ssid;
 	public DOT11_BSS_TYPE dot11BssType;
 	public uint32 uNumberOfBssids;
@@ -4720,7 +4720,7 @@ public struct WLAN_BSS_LIST
 public struct WLAN_INTERFACE_INFO
 {
 	public Guid InterfaceGuid;
-	public char8[256] strInterfaceDescription;
+	public char16[256] strInterfaceDescription;
 	public WLAN_INTERFACE_STATE isState;
 }
 
@@ -4751,7 +4751,7 @@ public struct WLAN_CONNECTION_ATTRIBUTES
 {
 	public WLAN_INTERFACE_STATE isState;
 	public WLAN_CONNECTION_MODE wlanConnectionMode;
-	public char8[256] strProfileName;
+	public char16[256] strProfileName;
 	public WLAN_ASSOCIATION_ATTRIBUTES wlanAssociationAttributes;
 	public WLAN_SECURITY_ATTRIBUTES wlanSecurityAttributes;
 }
@@ -4864,7 +4864,7 @@ public struct WLAN_CONNECTION_PARAMETERS_V2
 public struct WLAN_MSM_NOTIFICATION_DATA
 {
 	public WLAN_CONNECTION_MODE wlanConnectionMode;
-	public char8[256] strProfileName;
+	public char16[256] strProfileName;
 	public DOT11_SSID dot11Ssid;
 	public DOT11_BSS_TYPE dot11BssType;
 	public uint8[6] dot11MacAddr;
@@ -4878,13 +4878,13 @@ public struct WLAN_MSM_NOTIFICATION_DATA
 public struct WLAN_CONNECTION_NOTIFICATION_DATA
 {
 	public WLAN_CONNECTION_MODE wlanConnectionMode;
-	public char8[256] strProfileName;
+	public char16[256] strProfileName;
 	public DOT11_SSID dot11Ssid;
 	public DOT11_BSS_TYPE dot11BssType;
 	public BOOL bSecurityEnabled;
 	public uint32 wlanReasonCode;
 	public WLAN_CONNECTION_NOTIFICATION_FLAGS dwFlags;
-	public char8[1] strProfileXml;
+	public char16[1] strProfileXml;
 }
 
 [CRepr]
@@ -5471,7 +5471,7 @@ public static
 	public static extern uint32 WlanExtractPsdIEDataList(HANDLE hClientHandle, uint32 dwIeDataSize, uint8* pRawIeData, PWSTR strFormat, void* pReserved, WLAN_RAW_DATA_LIST** ppPsdIEDataList);
 
 	[Import("wlanapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WlanReasonCodeToString(uint32 dwReasonCode, uint32 dwBufferSize, char8* pStringBuffer, void* pReserved);
+	public static extern uint32 WlanReasonCodeToString(uint32 dwReasonCode, uint32 dwBufferSize, char16* pStringBuffer, void* pReserved);
 
 	[Import("wlanapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* WlanAllocateMemory(uint32 dwMemorySize);

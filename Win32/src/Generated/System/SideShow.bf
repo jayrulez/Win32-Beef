@@ -176,7 +176,7 @@ public struct APPLICATION_EVENT_DATA
 public struct DEVICE_USER_CHANGE_EVENT_DATA
 {
 	public uint32 cbDeviceUserChangeEventData;
-	public char8 wszUser;
+	public char16 wszUser;
 }
 
 [CRepr, Packed(1)]

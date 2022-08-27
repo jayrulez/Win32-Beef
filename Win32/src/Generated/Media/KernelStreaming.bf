@@ -3444,7 +3444,7 @@ public struct KSPIN_PHYSICALCONNECTION
 {
 	public uint32 Size;
 	public uint32 Pin;
-	public char8[1] SymbolicLinkName;
+	public char16[1] SymbolicLinkName;
 }
 
 [CRepr]
@@ -4176,7 +4176,7 @@ public struct KSTELEPHONY_CALLINFO
 [CRepr]
 public struct KSTOPOLOGY_ENDPOINTID
 {
-	public char8[260] TopologyName;
+	public char16[260] TopologyName;
 	public uint32 PinId;
 }
 
@@ -5929,7 +5929,7 @@ public struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO
 public struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO
 {
 	public KSCAMERA_METADATA_ITEMHEADER Header;
-	public char8[1] EventFilter;
+	public char16[1] EventFilter;
 }
 
 [CRepr]
@@ -5969,7 +5969,7 @@ public struct KSPROPERTY_EXTDEVICE_S
 		public DEVCAPS Capabilities;
 		public uint32 DevPort;
 		public uint32 PowerState;
-		public char8[260] pawchString;
+		public char16[260] pawchString;
 		public uint32[2] NodeUniqueID;
 	}
 
@@ -6237,7 +6237,7 @@ public struct KSDISPLAYCHANGE
 	public uint32 PelsWidth;
 	public uint32 PelsHeight;
 	public uint32 BitsPerPel;
-	public char8[1] DeviceID;
+	public char16[1] DeviceID;
 }
 
 [CRepr]
@@ -6388,7 +6388,7 @@ public struct KSJACK_SINK_INFORMATION
 	public BOOL HDCPCapable;
 	public BOOL AICapable;
 	public uint8 SinkDescriptionLength;
-	public char8[32] SinkDescription;
+	public char16[32] SinkDescription;
 	public LUID PortId;
 }
 
@@ -6433,7 +6433,7 @@ public struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE
 public struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP
 {
 	public BOOL ResourceGroupAcquired;
-	public char8[256] ResourceGroupName;
+	public char16[256] ResourceGroupName;
 }
 
 [CRepr]
@@ -6443,7 +6443,7 @@ public struct KSAUDIOMODULE_DESCRIPTOR
 	public uint32 InstanceId;
 	public uint32 VersionMajor;
 	public uint32 VersionMinor;
-	public char8[128] Name;
+	public char16[128] Name;
 }
 
 [CRepr]

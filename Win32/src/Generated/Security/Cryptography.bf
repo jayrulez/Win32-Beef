@@ -7247,7 +7247,7 @@ public struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS
 	public uint32 dwErrorLevel;
 	public uint32 dwErrorCategory;
 	public uint32 dwReserved;
-	public char8[256] wszErrorText;
+	public char16[256] wszErrorText;
 }
 
 [CRepr]
@@ -7272,7 +7272,7 @@ public struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS
 {
 	public uint32 cbSize;
 	public int32 lError;
-	public char8[512] wszErrorText;
+	public char16[512] wszErrorText;
 }
 
 [CRepr]
@@ -8496,7 +8496,7 @@ public static
 	public static extern BOOL CryptGetOIDFunctionAddress(void* hFuncSet, uint32 dwEncodingType, PSTR pszOID, uint32 dwFlags, void** ppvFuncAddr, void** phFuncAddr);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptGetDefaultOIDDllList(void* hFuncSet, uint32 dwEncodingType, char8* pwszDllList, uint32* pcchDllList);
+	public static extern BOOL CryptGetDefaultOIDDllList(void* hFuncSet, uint32 dwEncodingType, char16* pwszDllList, uint32* pcchDllList);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptGetDefaultOIDFunctionAddress(void* hFuncSet, uint32 dwEncodingType, PWSTR pwszDll, uint32 dwFlags, void** ppvFuncAddr, void** phFuncAddr);
@@ -8926,14 +8926,14 @@ public static
 	public static uint32 CertRDNValueToStr(uint32 dwValueType, CRYPTOAPI_BLOB* pValue, uint8* psz, uint32 csz) => CertRDNValueToStrA(dwValueType, pValue, psz, csz);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CertRDNValueToStrW(uint32 dwValueType, CRYPTOAPI_BLOB* pValue, char8* psz, uint32 csz);
+	public static extern uint32 CertRDNValueToStrW(uint32 dwValueType, CRYPTOAPI_BLOB* pValue, char16* psz, uint32 csz);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CertNameToStrA(uint32 dwCertEncodingType, CRYPTOAPI_BLOB* pName, CERT_STRING_TYPE dwStrType, uint8* psz, uint32 csz);
 	public static uint32 CertNameToStr(uint32 dwCertEncodingType, CRYPTOAPI_BLOB* pName, CERT_STRING_TYPE dwStrType, uint8* psz, uint32 csz) => CertNameToStrA(dwCertEncodingType, pName, dwStrType, psz, csz);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CertNameToStrW(uint32 dwCertEncodingType, CRYPTOAPI_BLOB* pName, CERT_STRING_TYPE dwStrType, char8* psz, uint32 csz);
+	public static extern uint32 CertNameToStrW(uint32 dwCertEncodingType, CRYPTOAPI_BLOB* pName, CERT_STRING_TYPE dwStrType, char16* psz, uint32 csz);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CertStrToNameA(uint32 dwCertEncodingType, PSTR pszX500, CERT_STRING_TYPE dwStrType, void* pvReserved, uint8* pbEncoded, uint32* pcbEncoded, PSTR* ppszError);
@@ -8947,7 +8947,7 @@ public static
 	public static uint32 CertGetNameString(CERT_CONTEXT* pCertContext, uint32 dwType, uint32 dwFlags, void* pvTypePara, uint8* pszNameString, uint32 cchNameString) => CertGetNameStringA(pCertContext, dwType, dwFlags, pvTypePara, pszNameString, cchNameString);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CertGetNameStringW(CERT_CONTEXT* pCertContext, uint32 dwType, uint32 dwFlags, void* pvTypePara, char8* pszNameString, uint32 cchNameString);
+	public static extern uint32 CertGetNameStringW(CERT_CONTEXT* pCertContext, uint32 dwType, uint32 dwFlags, void* pvTypePara, char16* pszNameString, uint32 cchNameString);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSignMessage(CRYPT_SIGN_MESSAGE_PARA* pSignPara, BOOL fDetachedSignature, uint32 cToBeSigned, uint8** rgpbToBeSigned, uint32* rgcbToBeSigned, uint8* pbSignedBlob, uint32* pcbSignedBlob);
@@ -9095,14 +9095,14 @@ public static
 	public static BOOL CryptStringToBinary(uint8* pszString, uint32 cchString, CRYPT_STRING dwFlags, uint8* pbBinary, uint32* pcbBinary, uint32* pdwSkip, uint32* pdwFlags) => CryptStringToBinaryA(pszString, cchString, dwFlags, pbBinary, pcbBinary, pdwSkip, pdwFlags);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptStringToBinaryW(char8* pszString, uint32 cchString, CRYPT_STRING dwFlags, uint8* pbBinary, uint32* pcbBinary, uint32* pdwSkip, uint32* pdwFlags);
+	public static extern BOOL CryptStringToBinaryW(char16* pszString, uint32 cchString, CRYPT_STRING dwFlags, uint8* pbBinary, uint32* pcbBinary, uint32* pdwSkip, uint32* pdwFlags);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptBinaryToStringA(uint8* pbBinary, uint32 cbBinary, CRYPT_STRING dwFlags, uint8* pszString, uint32* pcchString);
 	public static BOOL CryptBinaryToString(uint8* pbBinary, uint32 cbBinary, CRYPT_STRING dwFlags, uint8* pszString, uint32* pcchString) => CryptBinaryToStringA(pbBinary, cbBinary, dwFlags, pszString, pcchString);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptBinaryToStringW(uint8* pbBinary, uint32 cbBinary, CRYPT_STRING dwFlags, char8* pszString, uint32* pcchString);
+	public static extern BOOL CryptBinaryToStringW(uint8* pbBinary, uint32 cbBinary, CRYPT_STRING dwFlags, char16* pszString, uint32* pcchString);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* PFXImportCertStore(CRYPTOAPI_BLOB* pPFX, PWSTR szPassword, CRYPT_KEY_FLAGS dwFlags);
@@ -9174,7 +9174,7 @@ public static
 	public static extern int32 NCryptRegisterProtectionDescriptorName(PWSTR pwszName, PWSTR pwszDescriptorString, uint32 dwFlags);
 
 	[Import("ncrypt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 NCryptQueryProtectionDescriptorName(PWSTR pwszName, char8* pwszDescriptorString, uint* pcDescriptorString, uint32 dwFlags);
+	public static extern int32 NCryptQueryProtectionDescriptorName(PWSTR pwszName, char16* pwszDescriptorString, uint* pcDescriptorString, uint32 dwFlags);
 
 	[Import("ncrypt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 NCryptCreateProtectionDescriptor(PWSTR pwszDescriptorString, uint32 dwFlags, NCRYPT_DESCRIPTOR_HANDLE* phDescriptor);
