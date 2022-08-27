@@ -504,7 +504,7 @@ public struct DEVPROPERTY
 	public DEVPROPCOMPKEY CompKey;
 	public uint32 Type;
 	public uint32 BufferSize;
-	public void* Buffer;
+	public void Buffer;
 }
 
 #endregion

@@ -130,7 +130,7 @@ public enum SW_DEVICE_LIFETIME : int32
 #endregion
 
 #region Function Pointers
-public function void SW_DEVICE_CREATE_CALLBACK(HSWDEVICE hSwDevice, HRESULT CreateResult, void* pContext, PWSTR pszDeviceInstanceId);
+public function void SW_DEVICE_CREATE_CALLBACK(HSWDEVICE hSwDevice, HRESULT CreateResult, void pContext, PWSTR pszDeviceInstanceId);
 
 #endregion
 
@@ -146,7 +146,7 @@ public struct SW_DEVICE_CREATE_INFO
 	public uint32 CapabilityFlags;
 	public PWSTR pszDeviceDescription;
 	public PWSTR pszDeviceLocation;
-	public SECURITY_DESCRIPTOR* pSecurityDescriptor;
+	public SECURITY_DESCRIPTOR pSecurityDescriptor;
 }
 
 #endregion
@@ -196,23 +196,23 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceFinder*/SelfOuter* self, BSTR bstrTypeURI, uint32 dwFlags, IUPnPDevices** pDevices) FindByType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceFinder*/SelfOuter* self, BSTR bstrTypeURI, uint32 dwFlags, IUnknown* punkDeviceFinderCallback, int32* plFindData) CreateAsyncFind;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceFinder*/SelfOuter* self, BSTR bstrTypeURI, uint32 dwFlags, IUPnPDevices* pDevices) FindByType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceFinder*/SelfOuter* self, BSTR bstrTypeURI, uint32 dwFlags, IUnknown* punkDeviceFinderCallback, int32 plFindData) CreateAsyncFind;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceFinder*/SelfOuter* self, int32 lFindData) StartAsyncFind;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceFinder*/SelfOuter* self, int32 lFindData) CancelAsyncFind;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceFinder*/SelfOuter* self, BSTR bstrUDN, IUPnPDevice** pDevice) FindByUDN;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceFinder*/SelfOuter* self, BSTR bstrUDN, IUPnPDevice* pDevice) FindByUDN;
 	}
 
 
-	public HRESULT FindByType(BSTR bstrTypeURI, uint32 dwFlags, IUPnPDevices** pDevices) mut => VT.[Friend]FindByType(&this, bstrTypeURI, dwFlags, pDevices);
+	public HRESULT FindByType(BSTR bstrTypeURI, uint32 dwFlags, IUPnPDevices* pDevices) mut => VT.[Friend]FindByType(&this, bstrTypeURI, dwFlags, pDevices);
 
-	public HRESULT CreateAsyncFind(BSTR bstrTypeURI, uint32 dwFlags, IUnknown* punkDeviceFinderCallback, int32* plFindData) mut => VT.[Friend]CreateAsyncFind(&this, bstrTypeURI, dwFlags, punkDeviceFinderCallback, plFindData);
+	public HRESULT CreateAsyncFind(BSTR bstrTypeURI, uint32 dwFlags, IUnknown* punkDeviceFinderCallback, int32 plFindData) mut => VT.[Friend]CreateAsyncFind(&this, bstrTypeURI, dwFlags, punkDeviceFinderCallback, plFindData);
 
 	public HRESULT StartAsyncFind(int32 lFindData) mut => VT.[Friend]StartAsyncFind(&this, lFindData);
 
 	public HRESULT CancelAsyncFind(int32 lFindData) mut => VT.[Friend]CancelAsyncFind(&this, lFindData);
 
-	public HRESULT FindByUDN(BSTR bstrUDN, IUPnPDevice** pDevice) mut => VT.[Friend]FindByUDN(&this, bstrUDN, pDevice);
+	public HRESULT FindByUDN(BSTR bstrUDN, IUPnPDevice* pDevice) mut => VT.[Friend]FindByUDN(&this, bstrUDN, pDevice);
 }
 
 [CRepr]struct IUPnPAddressFamilyControl : IUnknown
@@ -224,13 +224,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPAddressFamilyControl*/SelfOuter* self, int32 dwFlags) SetAddressFamily;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPAddressFamilyControl*/SelfOuter* self, int32* pdwFlags) GetAddressFamily;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPAddressFamilyControl*/SelfOuter* self, int32 pdwFlags) GetAddressFamily;
 	}
 
 
 	public HRESULT SetAddressFamily(int32 dwFlags) mut => VT.[Friend]SetAddressFamily(&this, dwFlags);
 
-	public HRESULT GetAddressFamily(int32* pdwFlags) mut => VT.[Friend]GetAddressFamily(&this, pdwFlags);
+	public HRESULT GetAddressFamily(int32 pdwFlags) mut => VT.[Friend]GetAddressFamily(&this, pdwFlags);
 }
 
 [CRepr]struct IUPnPHttpHeaderControl : IUnknown
@@ -277,17 +277,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServices*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServices*/SelfOuter* self, IUnknown** ppunk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServices*/SelfOuter* self, BSTR bstrServiceId, IUPnPService** ppService) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServices*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServices*/SelfOuter* self, IUnknown* ppunk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServices*/SelfOuter* self, BSTR bstrServiceId, IUPnPService* ppService) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** ppunk) mut => VT.[Friend]get__NewEnum(&this, ppunk);
+	public HRESULT get__NewEnum(IUnknown* ppunk) mut => VT.[Friend]get__NewEnum(&this, ppunk);
 
-	public HRESULT get_Item(BSTR bstrServiceId, IUPnPService** ppService) mut => VT.[Friend]get_Item(&this, bstrServiceId, ppService);
+	public HRESULT get_Item(BSTR bstrServiceId, IUPnPService* ppService) mut => VT.[Friend]get_Item(&this, bstrServiceId, ppService);
 }
 
 [CRepr]struct IUPnPService : IDispatch
@@ -298,26 +298,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, BSTR bstrVariableName, VARIANT* pValue) QueryStateVariable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, BSTR bstrActionName, VARIANT vInActionArgs, VARIANT* pvOutActionArgs, VARIANT* pvRetVal) InvokeAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, BSTR* pVal) get_ServiceTypeIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, BSTR bstrVariableName, VARIANT pValue) QueryStateVariable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, BSTR bstrActionName, VARIANT vInActionArgs, VARIANT pvOutActionArgs, VARIANT pvRetVal) InvokeAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, BSTR pVal) get_ServiceTypeIdentifier;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, IUnknown* pUnkCallback) AddCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, BSTR* pbstrId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, int32* plValue) get_LastTransportStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, BSTR pbstrId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPService*/SelfOuter* self, int32 plValue) get_LastTransportStatus;
 	}
 
 
-	public HRESULT QueryStateVariable(BSTR bstrVariableName, VARIANT* pValue) mut => VT.[Friend]QueryStateVariable(&this, bstrVariableName, pValue);
+	public HRESULT QueryStateVariable(BSTR bstrVariableName, VARIANT pValue) mut => VT.[Friend]QueryStateVariable(&this, bstrVariableName, pValue);
 
-	public HRESULT InvokeAction(BSTR bstrActionName, VARIANT vInActionArgs, VARIANT* pvOutActionArgs, VARIANT* pvRetVal) mut => VT.[Friend]InvokeAction(&this, bstrActionName, vInActionArgs, pvOutActionArgs, pvRetVal);
+	public HRESULT InvokeAction(BSTR bstrActionName, VARIANT vInActionArgs, VARIANT pvOutActionArgs, VARIANT pvRetVal) mut => VT.[Friend]InvokeAction(&this, bstrActionName, vInActionArgs, pvOutActionArgs, pvRetVal);
 
-	public HRESULT get_ServiceTypeIdentifier(BSTR* pVal) mut => VT.[Friend]get_ServiceTypeIdentifier(&this, pVal);
+	public HRESULT get_ServiceTypeIdentifier(BSTR pVal) mut => VT.[Friend]get_ServiceTypeIdentifier(&this, pVal);
 
 	public HRESULT AddCallback(IUnknown* pUnkCallback) mut => VT.[Friend]AddCallback(&this, pUnkCallback);
 
-	public HRESULT get_Id(BSTR* pbstrId) mut => VT.[Friend]get_Id(&this, pbstrId);
+	public HRESULT get_Id(BSTR pbstrId) mut => VT.[Friend]get_Id(&this, pbstrId);
 
-	public HRESULT get_LastTransportStatus(int32* plValue) mut => VT.[Friend]get_LastTransportStatus(&this, plValue);
+	public HRESULT get_LastTransportStatus(int32 plValue) mut => VT.[Friend]get_LastTransportStatus(&this, plValue);
 }
 
 [CRepr]struct IUPnPAsyncResult : IUnknown
@@ -343,33 +343,33 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, BSTR bstrActionName, VARIANT vInActionArgs, IUPnPAsyncResult* pAsyncResult, uint64* pullRequestID) BeginInvokeAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, uint64 ullRequestID, VARIANT* pvOutActionArgs, VARIANT* pvRetVal) EndInvokeAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, BSTR bstrVariableName, IUPnPAsyncResult* pAsyncResult, uint64* pullRequestID) BeginQueryStateVariable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, uint64 ullRequestID, VARIANT* pValue) EndQueryStateVariable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, IUnknown* pUnkCallback, IUPnPAsyncResult* pAsyncResult, uint64* pullRequestID) BeginSubscribeToEvents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, BSTR bstrActionName, VARIANT vInActionArgs, IUPnPAsyncResult* pAsyncResult, uint64 pullRequestID) BeginInvokeAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, uint64 ullRequestID, VARIANT pvOutActionArgs, VARIANT pvRetVal) EndInvokeAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, BSTR bstrVariableName, IUPnPAsyncResult* pAsyncResult, uint64 pullRequestID) BeginQueryStateVariable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, uint64 ullRequestID, VARIANT pValue) EndQueryStateVariable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, IUnknown* pUnkCallback, IUPnPAsyncResult* pAsyncResult, uint64 pullRequestID) BeginSubscribeToEvents;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, uint64 ullRequestID) EndSubscribeToEvents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, IUPnPAsyncResult* pAsyncResult, uint64* pullRequestID) BeginSCPDDownload;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, uint64 ullRequestID, BSTR* pbstrSCPDDoc) EndSCPDDownload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, IUPnPAsyncResult* pAsyncResult, uint64 pullRequestID) BeginSCPDDownload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, uint64 ullRequestID, BSTR pbstrSCPDDoc) EndSCPDDownload;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceAsync*/SelfOuter* self, uint64 ullRequestID) CancelAsyncOperation;
 	}
 
 
-	public HRESULT BeginInvokeAction(BSTR bstrActionName, VARIANT vInActionArgs, IUPnPAsyncResult* pAsyncResult, uint64* pullRequestID) mut => VT.[Friend]BeginInvokeAction(&this, bstrActionName, vInActionArgs, pAsyncResult, pullRequestID);
+	public HRESULT BeginInvokeAction(BSTR bstrActionName, VARIANT vInActionArgs, IUPnPAsyncResult* pAsyncResult, uint64 pullRequestID) mut => VT.[Friend]BeginInvokeAction(&this, bstrActionName, vInActionArgs, pAsyncResult, pullRequestID);
 
-	public HRESULT EndInvokeAction(uint64 ullRequestID, VARIANT* pvOutActionArgs, VARIANT* pvRetVal) mut => VT.[Friend]EndInvokeAction(&this, ullRequestID, pvOutActionArgs, pvRetVal);
+	public HRESULT EndInvokeAction(uint64 ullRequestID, VARIANT pvOutActionArgs, VARIANT pvRetVal) mut => VT.[Friend]EndInvokeAction(&this, ullRequestID, pvOutActionArgs, pvRetVal);
 
-	public HRESULT BeginQueryStateVariable(BSTR bstrVariableName, IUPnPAsyncResult* pAsyncResult, uint64* pullRequestID) mut => VT.[Friend]BeginQueryStateVariable(&this, bstrVariableName, pAsyncResult, pullRequestID);
+	public HRESULT BeginQueryStateVariable(BSTR bstrVariableName, IUPnPAsyncResult* pAsyncResult, uint64 pullRequestID) mut => VT.[Friend]BeginQueryStateVariable(&this, bstrVariableName, pAsyncResult, pullRequestID);
 
-	public HRESULT EndQueryStateVariable(uint64 ullRequestID, VARIANT* pValue) mut => VT.[Friend]EndQueryStateVariable(&this, ullRequestID, pValue);
+	public HRESULT EndQueryStateVariable(uint64 ullRequestID, VARIANT pValue) mut => VT.[Friend]EndQueryStateVariable(&this, ullRequestID, pValue);
 
-	public HRESULT BeginSubscribeToEvents(IUnknown* pUnkCallback, IUPnPAsyncResult* pAsyncResult, uint64* pullRequestID) mut => VT.[Friend]BeginSubscribeToEvents(&this, pUnkCallback, pAsyncResult, pullRequestID);
+	public HRESULT BeginSubscribeToEvents(IUnknown* pUnkCallback, IUPnPAsyncResult* pAsyncResult, uint64 pullRequestID) mut => VT.[Friend]BeginSubscribeToEvents(&this, pUnkCallback, pAsyncResult, pullRequestID);
 
 	public HRESULT EndSubscribeToEvents(uint64 ullRequestID) mut => VT.[Friend]EndSubscribeToEvents(&this, ullRequestID);
 
-	public HRESULT BeginSCPDDownload(IUPnPAsyncResult* pAsyncResult, uint64* pullRequestID) mut => VT.[Friend]BeginSCPDDownload(&this, pAsyncResult, pullRequestID);
+	public HRESULT BeginSCPDDownload(IUPnPAsyncResult* pAsyncResult, uint64 pullRequestID) mut => VT.[Friend]BeginSCPDDownload(&this, pAsyncResult, pullRequestID);
 
-	public HRESULT EndSCPDDownload(uint64 ullRequestID, BSTR* pbstrSCPDDoc) mut => VT.[Friend]EndSCPDDownload(&this, ullRequestID, pbstrSCPDDoc);
+	public HRESULT EndSCPDDownload(uint64 ullRequestID, BSTR pbstrSCPDDoc) mut => VT.[Friend]EndSCPDDownload(&this, ullRequestID, pbstrSCPDDoc);
 
 	public HRESULT CancelAsyncOperation(uint64 ullRequestID) mut => VT.[Friend]CancelAsyncOperation(&this, ullRequestID);
 }
@@ -415,14 +415,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceDocumentAccess*/SelfOuter* self, BSTR* pbstrDocUrl) GetDocumentURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceDocumentAccess*/SelfOuter* self, BSTR* pbstrDoc) GetDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceDocumentAccess*/SelfOuter* self, BSTR pbstrDocUrl) GetDocumentURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPServiceDocumentAccess*/SelfOuter* self, BSTR pbstrDoc) GetDocument;
 	}
 
 
-	public HRESULT GetDocumentURL(BSTR* pbstrDocUrl) mut => VT.[Friend]GetDocumentURL(&this, pbstrDocUrl);
+	public HRESULT GetDocumentURL(BSTR pbstrDocUrl) mut => VT.[Friend]GetDocumentURL(&this, pbstrDocUrl);
 
-	public HRESULT GetDocument(BSTR* pbstrDoc) mut => VT.[Friend]GetDocument(&this, pbstrDoc);
+	public HRESULT GetDocument(BSTR pbstrDoc) mut => VT.[Friend]GetDocument(&this, pbstrDoc);
 }
 
 [CRepr]struct IUPnPDevices : IDispatch
@@ -433,17 +433,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevices*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevices*/SelfOuter* self, IUnknown** ppunk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevices*/SelfOuter* self, BSTR bstrUDN, IUPnPDevice** ppDevice) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevices*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevices*/SelfOuter* self, IUnknown* ppunk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevices*/SelfOuter* self, BSTR bstrUDN, IUPnPDevice* ppDevice) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** ppunk) mut => VT.[Friend]get__NewEnum(&this, ppunk);
+	public HRESULT get__NewEnum(IUnknown* ppunk) mut => VT.[Friend]get__NewEnum(&this, ppunk);
 
-	public HRESULT get_Item(BSTR bstrUDN, IUPnPDevice** ppDevice) mut => VT.[Friend]get_Item(&this, bstrUDN, ppDevice);
+	public HRESULT get_Item(BSTR bstrUDN, IUPnPDevice* ppDevice) mut => VT.[Friend]get_Item(&this, bstrUDN, ppDevice);
 }
 
 [CRepr]struct IUPnPDevice : IDispatch
@@ -454,65 +454,65 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, int16* pvarb) get_IsRootDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, IUPnPDevice** ppudRootDevice) get_RootDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, IUPnPDevice** ppudDeviceParent) get_ParentDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, int16* pvarb) get_HasChildren;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, IUPnPDevices** ppudChildren) get_Children;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_UniqueDeviceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_FriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_PresentationURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_ManufacturerName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_ManufacturerURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_ModelName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_ModelNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_ModelURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_UPC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR* pbstr) get_SerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR bstrEncodingFormat, int32 lSizeX, int32 lSizeY, int32 lBitDepth, BSTR* pbstrIconURL) IconURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, IUPnPServices** ppusServices) get_Services;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, int16 pvarb) get_IsRootDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, IUPnPDevice* ppudRootDevice) get_RootDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, IUPnPDevice* ppudDeviceParent) get_ParentDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, int16 pvarb) get_HasChildren;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, IUPnPDevices* ppudChildren) get_Children;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_UniqueDeviceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_FriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_PresentationURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_ManufacturerName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_ManufacturerURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_ModelName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_ModelNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_ModelURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_UPC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR pbstr) get_SerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, BSTR bstrEncodingFormat, int32 lSizeX, int32 lSizeY, int32 lBitDepth, BSTR pbstrIconURL) IconURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDevice*/SelfOuter* self, IUPnPServices* ppusServices) get_Services;
 	}
 
 
-	public HRESULT get_IsRootDevice(int16* pvarb) mut => VT.[Friend]get_IsRootDevice(&this, pvarb);
+	public HRESULT get_IsRootDevice(int16 pvarb) mut => VT.[Friend]get_IsRootDevice(&this, pvarb);
 
-	public HRESULT get_RootDevice(IUPnPDevice** ppudRootDevice) mut => VT.[Friend]get_RootDevice(&this, ppudRootDevice);
+	public HRESULT get_RootDevice(IUPnPDevice* ppudRootDevice) mut => VT.[Friend]get_RootDevice(&this, ppudRootDevice);
 
-	public HRESULT get_ParentDevice(IUPnPDevice** ppudDeviceParent) mut => VT.[Friend]get_ParentDevice(&this, ppudDeviceParent);
+	public HRESULT get_ParentDevice(IUPnPDevice* ppudDeviceParent) mut => VT.[Friend]get_ParentDevice(&this, ppudDeviceParent);
 
-	public HRESULT get_HasChildren(int16* pvarb) mut => VT.[Friend]get_HasChildren(&this, pvarb);
+	public HRESULT get_HasChildren(int16 pvarb) mut => VT.[Friend]get_HasChildren(&this, pvarb);
 
-	public HRESULT get_Children(IUPnPDevices** ppudChildren) mut => VT.[Friend]get_Children(&this, ppudChildren);
+	public HRESULT get_Children(IUPnPDevices* ppudChildren) mut => VT.[Friend]get_Children(&this, ppudChildren);
 
-	public HRESULT get_UniqueDeviceName(BSTR* pbstr) mut => VT.[Friend]get_UniqueDeviceName(&this, pbstr);
+	public HRESULT get_UniqueDeviceName(BSTR pbstr) mut => VT.[Friend]get_UniqueDeviceName(&this, pbstr);
 
-	public HRESULT get_FriendlyName(BSTR* pbstr) mut => VT.[Friend]get_FriendlyName(&this, pbstr);
+	public HRESULT get_FriendlyName(BSTR pbstr) mut => VT.[Friend]get_FriendlyName(&this, pbstr);
 
-	public HRESULT get_Type(BSTR* pbstr) mut => VT.[Friend]get_Type(&this, pbstr);
+	public HRESULT get_Type(BSTR pbstr) mut => VT.[Friend]get_Type(&this, pbstr);
 
-	public HRESULT get_PresentationURL(BSTR* pbstr) mut => VT.[Friend]get_PresentationURL(&this, pbstr);
+	public HRESULT get_PresentationURL(BSTR pbstr) mut => VT.[Friend]get_PresentationURL(&this, pbstr);
 
-	public HRESULT get_ManufacturerName(BSTR* pbstr) mut => VT.[Friend]get_ManufacturerName(&this, pbstr);
+	public HRESULT get_ManufacturerName(BSTR pbstr) mut => VT.[Friend]get_ManufacturerName(&this, pbstr);
 
-	public HRESULT get_ManufacturerURL(BSTR* pbstr) mut => VT.[Friend]get_ManufacturerURL(&this, pbstr);
+	public HRESULT get_ManufacturerURL(BSTR pbstr) mut => VT.[Friend]get_ManufacturerURL(&this, pbstr);
 
-	public HRESULT get_ModelName(BSTR* pbstr) mut => VT.[Friend]get_ModelName(&this, pbstr);
+	public HRESULT get_ModelName(BSTR pbstr) mut => VT.[Friend]get_ModelName(&this, pbstr);
 
-	public HRESULT get_ModelNumber(BSTR* pbstr) mut => VT.[Friend]get_ModelNumber(&this, pbstr);
+	public HRESULT get_ModelNumber(BSTR pbstr) mut => VT.[Friend]get_ModelNumber(&this, pbstr);
 
-	public HRESULT get_Description(BSTR* pbstr) mut => VT.[Friend]get_Description(&this, pbstr);
+	public HRESULT get_Description(BSTR pbstr) mut => VT.[Friend]get_Description(&this, pbstr);
 
-	public HRESULT get_ModelURL(BSTR* pbstr) mut => VT.[Friend]get_ModelURL(&this, pbstr);
+	public HRESULT get_ModelURL(BSTR pbstr) mut => VT.[Friend]get_ModelURL(&this, pbstr);
 
-	public HRESULT get_UPC(BSTR* pbstr) mut => VT.[Friend]get_UPC(&this, pbstr);
+	public HRESULT get_UPC(BSTR pbstr) mut => VT.[Friend]get_UPC(&this, pbstr);
 
-	public HRESULT get_SerialNumber(BSTR* pbstr) mut => VT.[Friend]get_SerialNumber(&this, pbstr);
+	public HRESULT get_SerialNumber(BSTR pbstr) mut => VT.[Friend]get_SerialNumber(&this, pbstr);
 
-	public HRESULT IconURL(BSTR bstrEncodingFormat, int32 lSizeX, int32 lSizeY, int32 lBitDepth, BSTR* pbstrIconURL) mut => VT.[Friend]IconURL(&this, bstrEncodingFormat, lSizeX, lSizeY, lBitDepth, pbstrIconURL);
+	public HRESULT IconURL(BSTR bstrEncodingFormat, int32 lSizeX, int32 lSizeY, int32 lBitDepth, BSTR pbstrIconURL) mut => VT.[Friend]IconURL(&this, bstrEncodingFormat, lSizeX, lSizeY, lBitDepth, pbstrIconURL);
 
-	public HRESULT get_Services(IUPnPServices** ppusServices) mut => VT.[Friend]get_Services(&this, ppusServices);
+	public HRESULT get_Services(IUPnPServices* ppusServices) mut => VT.[Friend]get_Services(&this, ppusServices);
 }
 
 [CRepr]struct IUPnPDeviceDocumentAccess : IUnknown
@@ -523,11 +523,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceDocumentAccess*/SelfOuter* self, BSTR* pbstrDocument) GetDocumentURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceDocumentAccess*/SelfOuter* self, BSTR pbstrDocument) GetDocumentURL;
 	}
 
 
-	public HRESULT GetDocumentURL(BSTR* pbstrDocument) mut => VT.[Friend]GetDocumentURL(&this, pbstrDocument);
+	public HRESULT GetDocumentURL(BSTR pbstrDocument) mut => VT.[Friend]GetDocumentURL(&this, pbstrDocument);
 }
 
 [CRepr]struct IUPnPDeviceDocumentAccessEx : IUnknown
@@ -538,11 +538,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceDocumentAccessEx*/SelfOuter* self, BSTR* pbstrDocument) GetDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceDocumentAccessEx*/SelfOuter* self, BSTR pbstrDocument) GetDocument;
 	}
 
 
-	public HRESULT GetDocument(BSTR* pbstrDocument) mut => VT.[Friend]GetDocument(&this, pbstrDocument);
+	public HRESULT GetDocument(BSTR pbstrDocument) mut => VT.[Friend]GetDocument(&this, pbstrDocument);
 }
 
 [CRepr]struct IUPnPDescriptionDocument : IDispatch
@@ -553,29 +553,29 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self, int32* plReadyState) get_ReadyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self, int32 plReadyState) get_ReadyState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self, BSTR bstrUrl) Load;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self, BSTR bstrUrl, IUnknown* punkCallback) LoadAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self, int32* phrError) get_LoadResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self, int32 phrError) get_LoadResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self) Abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self, IUPnPDevice** ppudRootDevice) RootDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self, BSTR bstrUDN, IUPnPDevice** ppudDevice) DeviceByUDN;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self, IUPnPDevice* ppudRootDevice) RootDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDescriptionDocument*/SelfOuter* self, BSTR bstrUDN, IUPnPDevice* ppudDevice) DeviceByUDN;
 	}
 
 
-	public HRESULT get_ReadyState(int32* plReadyState) mut => VT.[Friend]get_ReadyState(&this, plReadyState);
+	public HRESULT get_ReadyState(int32 plReadyState) mut => VT.[Friend]get_ReadyState(&this, plReadyState);
 
 	public HRESULT Load(BSTR bstrUrl) mut => VT.[Friend]Load(&this, bstrUrl);
 
 	public HRESULT LoadAsync(BSTR bstrUrl, IUnknown* punkCallback) mut => VT.[Friend]LoadAsync(&this, bstrUrl, punkCallback);
 
-	public HRESULT get_LoadResult(int32* phrError) mut => VT.[Friend]get_LoadResult(&this, phrError);
+	public HRESULT get_LoadResult(int32 phrError) mut => VT.[Friend]get_LoadResult(&this, phrError);
 
 	public HRESULT Abort() mut => VT.[Friend]Abort(&this);
 
-	public HRESULT RootDevice(IUPnPDevice** ppudRootDevice) mut => VT.[Friend]RootDevice(&this, ppudRootDevice);
+	public HRESULT RootDevice(IUPnPDevice* ppudRootDevice) mut => VT.[Friend]RootDevice(&this, ppudRootDevice);
 
-	public HRESULT DeviceByUDN(BSTR bstrUDN, IUPnPDevice** ppudDevice) mut => VT.[Friend]DeviceByUDN(&this, bstrUDN, ppudDevice);
+	public HRESULT DeviceByUDN(BSTR bstrUDN, IUPnPDevice* ppudDevice) mut => VT.[Friend]DeviceByUDN(&this, bstrUDN, ppudDevice);
 }
 
 [CRepr]struct IUPnPDeviceFinderAddCallbackWithInterface : IUnknown
@@ -652,22 +652,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRegistrar*/SelfOuter* self, BSTR bstrXMLDesc, BSTR bstrProgIDDeviceControlClass, BSTR bstrInitString, BSTR bstrContainerId, BSTR bstrResourcePath, int32 nLifeTime, BSTR* pbstrDeviceIdentifier) RegisterDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRegistrar*/SelfOuter* self, BSTR bstrXMLDesc, IUnknown* punkDeviceControl, BSTR bstrInitString, BSTR bstrResourcePath, int32 nLifeTime, BSTR* pbstrDeviceIdentifier) RegisterRunningDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRegistrar*/SelfOuter* self, BSTR bstrXMLDesc, BSTR bstrProgIDDeviceControlClass, BSTR bstrInitString, BSTR bstrContainerId, BSTR bstrResourcePath, int32 nLifeTime, BSTR pbstrDeviceIdentifier) RegisterDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRegistrar*/SelfOuter* self, BSTR bstrXMLDesc, IUnknown* punkDeviceControl, BSTR bstrInitString, BSTR bstrResourcePath, int32 nLifeTime, BSTR pbstrDeviceIdentifier) RegisterRunningDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRegistrar*/SelfOuter* self, BSTR bstrProviderName, BSTR bstrProgIDProviderClass, BSTR bstrInitString, BSTR bstrContainerId) RegisterDeviceProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRegistrar*/SelfOuter* self, BSTR bstrDeviceIdentifier, BSTR bstrTemplateUDN, BSTR* pbstrUDN) GetUniqueDeviceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRegistrar*/SelfOuter* self, BSTR bstrDeviceIdentifier, BSTR bstrTemplateUDN, BSTR pbstrUDN) GetUniqueDeviceName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRegistrar*/SelfOuter* self, BSTR bstrDeviceIdentifier, BOOL fPermanent) UnregisterDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRegistrar*/SelfOuter* self, BSTR bstrProviderName) UnregisterDeviceProvider;
 	}
 
 
-	public HRESULT RegisterDevice(BSTR bstrXMLDesc, BSTR bstrProgIDDeviceControlClass, BSTR bstrInitString, BSTR bstrContainerId, BSTR bstrResourcePath, int32 nLifeTime, BSTR* pbstrDeviceIdentifier) mut => VT.[Friend]RegisterDevice(&this, bstrXMLDesc, bstrProgIDDeviceControlClass, bstrInitString, bstrContainerId, bstrResourcePath, nLifeTime, pbstrDeviceIdentifier);
+	public HRESULT RegisterDevice(BSTR bstrXMLDesc, BSTR bstrProgIDDeviceControlClass, BSTR bstrInitString, BSTR bstrContainerId, BSTR bstrResourcePath, int32 nLifeTime, BSTR pbstrDeviceIdentifier) mut => VT.[Friend]RegisterDevice(&this, bstrXMLDesc, bstrProgIDDeviceControlClass, bstrInitString, bstrContainerId, bstrResourcePath, nLifeTime, pbstrDeviceIdentifier);
 
-	public HRESULT RegisterRunningDevice(BSTR bstrXMLDesc, IUnknown* punkDeviceControl, BSTR bstrInitString, BSTR bstrResourcePath, int32 nLifeTime, BSTR* pbstrDeviceIdentifier) mut => VT.[Friend]RegisterRunningDevice(&this, bstrXMLDesc, punkDeviceControl, bstrInitString, bstrResourcePath, nLifeTime, pbstrDeviceIdentifier);
+	public HRESULT RegisterRunningDevice(BSTR bstrXMLDesc, IUnknown* punkDeviceControl, BSTR bstrInitString, BSTR bstrResourcePath, int32 nLifeTime, BSTR pbstrDeviceIdentifier) mut => VT.[Friend]RegisterRunningDevice(&this, bstrXMLDesc, punkDeviceControl, bstrInitString, bstrResourcePath, nLifeTime, pbstrDeviceIdentifier);
 
 	public HRESULT RegisterDeviceProvider(BSTR bstrProviderName, BSTR bstrProgIDProviderClass, BSTR bstrInitString, BSTR bstrContainerId) mut => VT.[Friend]RegisterDeviceProvider(&this, bstrProviderName, bstrProgIDProviderClass, bstrInitString, bstrContainerId);
 
-	public HRESULT GetUniqueDeviceName(BSTR bstrDeviceIdentifier, BSTR bstrTemplateUDN, BSTR* pbstrUDN) mut => VT.[Friend]GetUniqueDeviceName(&this, bstrDeviceIdentifier, bstrTemplateUDN, pbstrUDN);
+	public HRESULT GetUniqueDeviceName(BSTR bstrDeviceIdentifier, BSTR bstrTemplateUDN, BSTR pbstrUDN) mut => VT.[Friend]GetUniqueDeviceName(&this, bstrDeviceIdentifier, bstrTemplateUDN, pbstrUDN);
 
 	public HRESULT UnregisterDevice(BSTR bstrDeviceIdentifier, BOOL fPermanent) mut => VT.[Friend]UnregisterDevice(&this, bstrDeviceIdentifier, fPermanent);
 
@@ -701,13 +701,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceControl*/SelfOuter* self, BSTR bstrXMLDesc, BSTR bstrDeviceIdentifier, BSTR bstrInitString) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceControl*/SelfOuter* self, BSTR bstrUDN, BSTR bstrServiceId, IDispatch** ppdispService) GetServiceObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceControl*/SelfOuter* self, BSTR bstrUDN, BSTR bstrServiceId, IDispatch* ppdispService) GetServiceObject;
 	}
 
 
 	public HRESULT Initialize(BSTR bstrXMLDesc, BSTR bstrDeviceIdentifier, BSTR bstrInitString) mut => VT.[Friend]Initialize(&this, bstrXMLDesc, bstrDeviceIdentifier, bstrInitString);
 
-	public HRESULT GetServiceObject(BSTR bstrUDN, BSTR bstrServiceId, IDispatch** ppdispService) mut => VT.[Friend]GetServiceObject(&this, bstrUDN, bstrServiceId, ppdispService);
+	public HRESULT GetServiceObject(BSTR bstrUDN, BSTR bstrServiceId, IDispatch* ppdispService) mut => VT.[Friend]GetServiceObject(&this, bstrUDN, bstrServiceId, ppdispService);
 }
 
 [CRepr]struct IUPnPDeviceControlHttpHeaders : IUnknown
@@ -718,11 +718,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceControlHttpHeaders*/SelfOuter* self, BSTR* bstrHttpResponseHeaders) GetAdditionalResponseHeaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPDeviceControlHttpHeaders*/SelfOuter* self, BSTR bstrHttpResponseHeaders) GetAdditionalResponseHeaders;
 	}
 
 
-	public HRESULT GetAdditionalResponseHeaders(BSTR* bstrHttpResponseHeaders) mut => VT.[Friend]GetAdditionalResponseHeaders(&this, bstrHttpResponseHeaders);
+	public HRESULT GetAdditionalResponseHeaders(BSTR bstrHttpResponseHeaders) mut => VT.[Friend]GetAdditionalResponseHeaders(&this, bstrHttpResponseHeaders);
 }
 
 [CRepr]struct IUPnPDeviceProvider : IUnknown
@@ -751,15 +751,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRemoteEndpointInfo*/SelfOuter* self, BSTR bstrValueName, uint32* pdwValue) GetDwordValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRemoteEndpointInfo*/SelfOuter* self, BSTR bstrValueName, BSTR* pbstrValue) GetStringValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRemoteEndpointInfo*/SelfOuter* self, BSTR bstrValueName, uint32 pdwValue) GetDwordValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRemoteEndpointInfo*/SelfOuter* self, BSTR bstrValueName, BSTR pbstrValue) GetStringValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUPnPRemoteEndpointInfo*/SelfOuter* self, BSTR bstrValueName, Guid pguidValue) GetGuidValue;
 	}
 
 
-	public HRESULT GetDwordValue(BSTR bstrValueName, uint32* pdwValue) mut => VT.[Friend]GetDwordValue(&this, bstrValueName, pdwValue);
+	public HRESULT GetDwordValue(BSTR bstrValueName, uint32 pdwValue) mut => VT.[Friend]GetDwordValue(&this, bstrValueName, pdwValue);
 
-	public HRESULT GetStringValue(BSTR bstrValueName, BSTR* pbstrValue) mut => VT.[Friend]GetStringValue(&this, bstrValueName, pbstrValue);
+	public HRESULT GetStringValue(BSTR bstrValueName, BSTR pbstrValue) mut => VT.[Friend]GetStringValue(&this, bstrValueName, pbstrValue);
 
 	public HRESULT GetGuidValue(BSTR bstrValueName, Guid pguidValue) mut => VT.[Friend]GetGuidValue(&this, bstrValueName, pguidValue);
 }
@@ -770,7 +770,7 @@ public static
 public static
 {
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SwDeviceCreate(PWSTR pszEnumeratorName, PWSTR pszParentDeviceInstance, SW_DEVICE_CREATE_INFO* pCreateInfo, uint32 cPropertyCount, DEVPROPERTY* pProperties, SW_DEVICE_CREATE_CALLBACK pCallback, void* pContext, int* phSwDevice);
+	public static extern HRESULT SwDeviceCreate(PWSTR pszEnumeratorName, PWSTR pszParentDeviceInstance, SW_DEVICE_CREATE_INFO pCreateInfo, uint32 cPropertyCount, DEVPROPERTY* pProperties, SW_DEVICE_CREATE_CALLBACK pCallback, void pContext, int phSwDevice);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void SwDeviceClose(HSWDEVICE hSwDevice);
@@ -779,16 +779,16 @@ public static
 	public static extern HRESULT SwDeviceSetLifetime(HSWDEVICE hSwDevice, SW_DEVICE_LIFETIME Lifetime);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SwDeviceGetLifetime(HSWDEVICE hSwDevice, SW_DEVICE_LIFETIME* pLifetime);
+	public static extern HRESULT SwDeviceGetLifetime(HSWDEVICE hSwDevice, SW_DEVICE_LIFETIME pLifetime);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SwDevicePropertySet(HSWDEVICE hSwDevice, uint32 cPropertyCount, DEVPROPERTY* pProperties);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SwDeviceInterfaceRegister(HSWDEVICE hSwDevice, Guid pInterfaceClassGuid, PWSTR pszReferenceString, uint32 cPropertyCount, DEVPROPERTY* pProperties, BOOL fEnabled, PWSTR* ppszDeviceInterfaceId);
+	public static extern HRESULT SwDeviceInterfaceRegister(HSWDEVICE hSwDevice, Guid pInterfaceClassGuid, PWSTR pszReferenceString, uint32 cPropertyCount, DEVPROPERTY* pProperties, BOOL fEnabled, PWSTR ppszDeviceInterfaceId);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SwMemFree(void* pMem);
+	public static extern void SwMemFree(void pMem);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SwDeviceInterfaceSetState(HSWDEVICE hSwDevice, PWSTR pszDeviceInterfaceId, BOOL fEnabled);

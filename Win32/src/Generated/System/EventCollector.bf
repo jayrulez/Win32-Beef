@@ -162,10 +162,10 @@ public struct EC_VARIANT
 		public uint32 UInt32Val;
 		public uint64 DateTimeVal;
 		public PWSTR StringVal;
-		public uint8* BinaryVal;
-		public BOOL* BooleanArr;
-		public int32* Int32Arr;
-		public PWSTR* StringArr;
+		public uint8 BinaryVal;
+		public BOOL BooleanArr;
+		public int32 Int32Arr;
+		public PWSTR StringArr;
 		public int PropertyHandleVal;
 	}
 
@@ -192,16 +192,16 @@ public static
 	public static extern int EcOpenSubscriptionEnum(uint32 Flags);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EcEnumNextSubscription(int SubscriptionEnum, uint32 SubscriptionNameBufferSize, char16* SubscriptionNameBuffer, uint32* SubscriptionNameBufferUsed);
+	public static extern BOOL EcEnumNextSubscription(int SubscriptionEnum, uint32 SubscriptionNameBufferSize, char16* SubscriptionNameBuffer, uint32 SubscriptionNameBufferUsed);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EcOpenSubscription(PWSTR SubscriptionName, uint32 AccessMask, uint32 Flags);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EcSetSubscriptionProperty(int Subscription, EC_SUBSCRIPTION_PROPERTY_ID PropertyId, uint32 Flags, EC_VARIANT* PropertyValue);
+	public static extern BOOL EcSetSubscriptionProperty(int Subscription, EC_SUBSCRIPTION_PROPERTY_ID PropertyId, uint32 Flags, EC_VARIANT PropertyValue);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EcGetSubscriptionProperty(int Subscription, EC_SUBSCRIPTION_PROPERTY_ID PropertyId, uint32 Flags, uint32 PropertyValueBufferSize, EC_VARIANT* PropertyValueBuffer, uint32* PropertyValueBufferUsed);
+	public static extern BOOL EcGetSubscriptionProperty(int Subscription, EC_SUBSCRIPTION_PROPERTY_ID PropertyId, uint32 Flags, uint32 PropertyValueBufferSize, EC_VARIANT PropertyValueBuffer, uint32 PropertyValueBufferUsed);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EcSaveSubscription(int Subscription, uint32 Flags);
@@ -210,13 +210,13 @@ public static
 	public static extern BOOL EcDeleteSubscription(PWSTR SubscriptionName, uint32 Flags);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EcGetObjectArraySize(int ObjectArray, uint32* ObjectArraySize);
+	public static extern BOOL EcGetObjectArraySize(int ObjectArray, uint32 ObjectArraySize);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EcSetObjectArrayProperty(int ObjectArray, EC_SUBSCRIPTION_PROPERTY_ID PropertyId, uint32 ArrayIndex, uint32 Flags, EC_VARIANT* PropertyValue);
+	public static extern BOOL EcSetObjectArrayProperty(int ObjectArray, EC_SUBSCRIPTION_PROPERTY_ID PropertyId, uint32 ArrayIndex, uint32 Flags, EC_VARIANT PropertyValue);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EcGetObjectArrayProperty(int ObjectArray, EC_SUBSCRIPTION_PROPERTY_ID PropertyId, uint32 ArrayIndex, uint32 Flags, uint32 PropertyValueBufferSize, EC_VARIANT* PropertyValueBuffer, uint32* PropertyValueBufferUsed);
+	public static extern BOOL EcGetObjectArrayProperty(int ObjectArray, EC_SUBSCRIPTION_PROPERTY_ID PropertyId, uint32 ArrayIndex, uint32 Flags, uint32 PropertyValueBufferSize, EC_VARIANT PropertyValueBuffer, uint32 PropertyValueBufferUsed);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EcInsertObjectArrayElement(int ObjectArray, uint32 ArrayIndex);
@@ -225,7 +225,7 @@ public static
 	public static extern BOOL EcRemoveObjectArrayElement(int ObjectArray, uint32 ArrayIndex);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EcGetSubscriptionRunTimeStatus(PWSTR SubscriptionName, EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID StatusInfoId, PWSTR EventSourceName, uint32 Flags, uint32 StatusValueBufferSize, EC_VARIANT* StatusValueBuffer, uint32* StatusValueBufferUsed);
+	public static extern BOOL EcGetSubscriptionRunTimeStatus(PWSTR SubscriptionName, EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID StatusInfoId, PWSTR EventSourceName, uint32 Flags, uint32 StatusValueBufferSize, EC_VARIANT StatusValueBuffer, uint32 StatusValueBufferUsed);
 
 	[Import("WecApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EcRetrySubscription(PWSTR SubscriptionName, PWSTR EventSourceName, uint32 Flags);

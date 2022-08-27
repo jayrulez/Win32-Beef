@@ -33,22 +33,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self, RECT* updateRect, Guid iid, void** updateObject, POINT* updateOffset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self, RECT updateRect, Guid iid, void updateObject, POINT updateOffset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self, SIZE sizePixels) Resize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self, RECT* scrollRect, RECT* clipRect, int32 offsetX, int32 offsetY) Scroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self, RECT scrollRect, RECT clipRect, int32 offsetX, int32 offsetY) Scroll;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self) ResumeDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self) SuspendDraw;
 	}
 
 
-	public HRESULT BeginDraw(RECT* updateRect, Guid iid, void** updateObject, POINT* updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, updateOffset);
+	public HRESULT BeginDraw(RECT updateRect, Guid iid, void updateObject, POINT updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, updateOffset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 
 	public HRESULT Resize(SIZE sizePixels) mut => VT.[Friend]Resize(&this, sizePixels);
 
-	public HRESULT Scroll(RECT* scrollRect, RECT* clipRect, int32 offsetX, int32 offsetY) mut => VT.[Friend]Scroll(&this, scrollRect, clipRect, offsetX, offsetY);
+	public HRESULT Scroll(RECT scrollRect, RECT clipRect, int32 offsetX, int32 offsetY) mut => VT.[Friend]Scroll(&this, scrollRect, clipRect, offsetX, offsetY);
 
 	public HRESULT ResumeDraw() mut => VT.[Friend]ResumeDraw(&this);
 
@@ -63,11 +63,11 @@ public static
 
 	[CRepr]public struct VTable : ICompositionDrawingSurfaceInterop.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop2*/SelfOuter* self, IUnknown* destinationResource, int32 destinationOffsetX, int32 destinationOffsetY, RECT* sourceRectangle) CopySurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop2*/SelfOuter* self, IUnknown* destinationResource, int32 destinationOffsetX, int32 destinationOffsetY, RECT sourceRectangle) CopySurface;
 	}
 
 
-	public HRESULT CopySurface(IUnknown* destinationResource, int32 destinationOffsetX, int32 destinationOffsetY, RECT* sourceRectangle) mut => VT.[Friend]CopySurface(&this, destinationResource, destinationOffsetX, destinationOffsetY, sourceRectangle);
+	public HRESULT CopySurface(IUnknown* destinationResource, int32 destinationOffsetX, int32 destinationOffsetY, RECT sourceRectangle) mut => VT.[Friend]CopySurface(&this, destinationResource, destinationOffsetX, destinationOffsetY, sourceRectangle);
 }
 
 [CRepr]struct ICompositionGraphicsDeviceInterop : IUnknown
@@ -78,12 +78,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionGraphicsDeviceInterop*/SelfOuter* self, IUnknown** value) GetRenderingDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionGraphicsDeviceInterop*/SelfOuter* self, IUnknown* value) GetRenderingDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionGraphicsDeviceInterop*/SelfOuter* self, IUnknown* value) SetRenderingDevice;
 	}
 
 
-	public HRESULT GetRenderingDevice(IUnknown** value) mut => VT.[Friend]GetRenderingDevice(&this, value);
+	public HRESULT GetRenderingDevice(IUnknown* value) mut => VT.[Friend]GetRenderingDevice(&this, value);
 
 	public HRESULT SetRenderingDevice(IUnknown* value) mut => VT.[Friend]SetRenderingDevice(&this, value);
 }
@@ -96,17 +96,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositorInterop*/SelfOuter* self, HANDLE swapChain, void** result) CreateCompositionSurfaceForHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositorInterop*/SelfOuter* self, IUnknown* swapChain, void** result) CreateCompositionSurfaceForSwapChain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositorInterop*/SelfOuter* self, IUnknown* renderingDevice, void** result) CreateGraphicsDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositorInterop*/SelfOuter* self, HANDLE swapChain, void* result) CreateCompositionSurfaceForHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositorInterop*/SelfOuter* self, IUnknown* swapChain, void* result) CreateCompositionSurfaceForSwapChain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositorInterop*/SelfOuter* self, IUnknown* renderingDevice, void* result) CreateGraphicsDevice;
 	}
 
 
-	public HRESULT CreateCompositionSurfaceForHandle(HANDLE swapChain, void** result) mut => VT.[Friend]CreateCompositionSurfaceForHandle(&this, swapChain, result);
+	public HRESULT CreateCompositionSurfaceForHandle(HANDLE swapChain, void* result) mut => VT.[Friend]CreateCompositionSurfaceForHandle(&this, swapChain, result);
 
-	public HRESULT CreateCompositionSurfaceForSwapChain(IUnknown* swapChain, void** result) mut => VT.[Friend]CreateCompositionSurfaceForSwapChain(&this, swapChain, result);
+	public HRESULT CreateCompositionSurfaceForSwapChain(IUnknown* swapChain, void* result) mut => VT.[Friend]CreateCompositionSurfaceForSwapChain(&this, swapChain, result);
 
-	public HRESULT CreateGraphicsDevice(IUnknown* renderingDevice, void** result) mut => VT.[Friend]CreateGraphicsDevice(&this, renderingDevice, result);
+	public HRESULT CreateGraphicsDevice(IUnknown* renderingDevice, void* result) mut => VT.[Friend]CreateGraphicsDevice(&this, renderingDevice, result);
 }
 
 [CRepr]struct ISwapChainInterop : IUnknown
@@ -132,11 +132,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualInteractionSourceInterop*/SelfOuter* self, POINTER_INFO* pointerInfo) TryRedirectForManipulation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualInteractionSourceInterop*/SelfOuter* self, POINTER_INFO pointerInfo) TryRedirectForManipulation;
 	}
 
 
-	public HRESULT TryRedirectForManipulation(POINTER_INFO* pointerInfo) mut => VT.[Friend]TryRedirectForManipulation(&this, pointerInfo);
+	public HRESULT TryRedirectForManipulation(POINTER_INFO pointerInfo) mut => VT.[Friend]TryRedirectForManipulation(&this, pointerInfo);
 }
 
 [CRepr]struct ICompositionCapabilitiesInteropFactory : IInspectable
@@ -147,11 +147,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionCapabilitiesInteropFactory*/SelfOuter* self, HWND hwnd, void** result) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionCapabilitiesInteropFactory*/SelfOuter* self, HWND hwnd, void* result) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND hwnd, void** result) mut => VT.[Friend]GetForWindow(&this, hwnd, result);
+	public HRESULT GetForWindow(HWND hwnd, void* result) mut => VT.[Friend]GetForWindow(&this, hwnd, result);
 }
 
 [CRepr]struct ICompositorDesktopInterop : IUnknown
@@ -162,12 +162,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositorDesktopInterop*/SelfOuter* self, HWND hwndTarget, BOOL isTopmost, void** result) CreateDesktopWindowTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositorDesktopInterop*/SelfOuter* self, HWND hwndTarget, BOOL isTopmost, void* result) CreateDesktopWindowTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositorDesktopInterop*/SelfOuter* self, uint32 threadId) EnsureOnThread;
 	}
 
 
-	public HRESULT CreateDesktopWindowTarget(HWND hwndTarget, BOOL isTopmost, void** result) mut => VT.[Friend]CreateDesktopWindowTarget(&this, hwndTarget, isTopmost, result);
+	public HRESULT CreateDesktopWindowTarget(HWND hwndTarget, BOOL isTopmost, void* result) mut => VT.[Friend]CreateDesktopWindowTarget(&this, hwndTarget, isTopmost, result);
 
 	public HRESULT EnsureOnThread(uint32 threadId) mut => VT.[Friend]EnsureOnThread(&this, threadId);
 }
@@ -180,11 +180,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWindowTargetInterop*/SelfOuter* self, HWND* value) get_Hwnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWindowTargetInterop*/SelfOuter* self, HWND value) get_Hwnd;
 	}
 
 
-	public HRESULT get_Hwnd(HWND* value) mut => VT.[Friend]get_Hwnd(&this, value);
+	public HRESULT get_Hwnd(HWND value) mut => VT.[Friend]get_Hwnd(&this, value);
 }
 
 #endregion

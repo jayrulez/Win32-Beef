@@ -39,10 +39,10 @@ public static
 public static
 {
 	[Import("licenseprotection.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RegisterLicenseKeyWithExpiration(PWSTR licenseKey, uint32 validityInDays, LicenseProtectionStatus* status);
+	public static extern HRESULT RegisterLicenseKeyWithExpiration(PWSTR licenseKey, uint32 validityInDays, LicenseProtectionStatus status);
 
 	[Import("licenseprotection.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ValidateLicenseKeyProtection(PWSTR licenseKey, FILETIME* notValidBefore, FILETIME* notValidAfter, LicenseProtectionStatus* status);
+	public static extern HRESULT ValidateLicenseKeyProtection(PWSTR licenseKey, FILETIME notValidBefore, FILETIME notValidAfter, LicenseProtectionStatus status);
 
 }
 #endregion

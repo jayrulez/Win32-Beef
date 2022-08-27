@@ -477,7 +477,7 @@ public struct OPENFILENAMEA
 	public LPARAM lCustData;
 	public LPOFNHOOKPROC lpfnHook;
 	public PSTR lpTemplateName;
-	public void* pvReserved;
+	public void pvReserved;
 	public uint32 dwReserved;
 	public OPEN_FILENAME_FLAGS_EX FlagsEx;
 }
@@ -507,7 +507,7 @@ public struct OPENFILENAMEW
 	public LPARAM lCustData;
 	public LPOFNHOOKPROC lpfnHook;
 	public PWSTR lpTemplateName;
-	public void* pvReserved;
+	public void pvReserved;
 	public uint32 dwReserved;
 	public OPEN_FILENAME_FLAGS_EX FlagsEx;
 }
@@ -518,7 +518,7 @@ public struct OPENFILENAMEW
 public struct OFNOTIFYA
 {
 	public NMHDR hdr;
-	public OPENFILENAMEA* lpOFN;
+	public OPENFILENAMEA lpOFN;
 	public PSTR pszFile;
 }
 #endif
@@ -528,7 +528,7 @@ public struct OFNOTIFYA
 public struct OFNOTIFYW
 {
 	public NMHDR hdr;
-	public OPENFILENAMEW* lpOFN;
+	public OPENFILENAMEW lpOFN;
 	public PWSTR pszFile;
 }
 #endif
@@ -538,9 +538,9 @@ public struct OFNOTIFYW
 public struct OFNOTIFYEXA
 {
 	public NMHDR hdr;
-	public OPENFILENAMEA* lpOFN;
-	public void* psf;
-	public void* pidl;
+	public OPENFILENAMEA lpOFN;
+	public void psf;
+	public void pidl;
 }
 #endif
 
@@ -549,9 +549,9 @@ public struct OFNOTIFYEXA
 public struct OFNOTIFYEXW
 {
 	public NMHDR hdr;
-	public OPENFILENAMEW* lpOFN;
-	public void* psf;
-	public void* pidl;
+	public OPENFILENAMEW lpOFN;
+	public void psf;
+	public void pidl;
 }
 #endif
 
@@ -563,7 +563,7 @@ public struct CHOOSECOLORA
 	public HWND hwndOwner;
 	public HWND hInstance;
 	public uint32 rgbResult;
-	public uint32* lpCustColors;
+	public uint32 lpCustColors;
 	public uint32 Flags;
 	public LPARAM lCustData;
 	public LPCCHOOKPROC lpfnHook;
@@ -579,7 +579,7 @@ public struct CHOOSECOLORW
 	public HWND hwndOwner;
 	public HWND hInstance;
 	public uint32 rgbResult;
-	public uint32* lpCustColors;
+	public uint32 lpCustColors;
 	public uint32 Flags;
 	public LPARAM lCustData;
 	public LPCCHOOKPROC lpfnHook;
@@ -630,7 +630,7 @@ public struct CHOOSEFONTA
 	public uint32 lStructSize;
 	public HWND hwndOwner;
 	public HDC hDC;
-	public LOGFONTA* lpLogFont;
+	public LOGFONTA lpLogFont;
 	public int32 iPointSize;
 	public CHOOSEFONT_FLAGS Flags;
 	public uint32 rgbColors;
@@ -653,7 +653,7 @@ public struct CHOOSEFONTW
 	public uint32 lStructSize;
 	public HWND hwndOwner;
 	public HDC hDC;
-	public LOGFONTW* lpLogFont;
+	public LOGFONTW lpLogFont;
 	public int32 iPointSize;
 	public CHOOSEFONT_FLAGS Flags;
 	public uint32 rgbColors;
@@ -744,7 +744,7 @@ public struct PRINTDLGEXA
 	public uint32 ExclusionFlags;
 	public uint32 nPageRanges;
 	public uint32 nMaxPageRanges;
-	public PRINTPAGERANGE* lpPageRanges;
+	public PRINTPAGERANGE lpPageRanges;
 	public uint32 nMinPage;
 	public uint32 nMaxPage;
 	public uint32 nCopies;
@@ -752,7 +752,7 @@ public struct PRINTDLGEXA
 	public PSTR lpPrintTemplateName;
 	public IUnknown* lpCallback;
 	public uint32 nPropertyPages;
-	public HPROPSHEETPAGE* lphPropertyPages;
+	public HPROPSHEETPAGE lphPropertyPages;
 	public uint32 nStartPage;
 	public uint32 dwResultAction;
 }
@@ -772,7 +772,7 @@ public struct PRINTDLGEXW
 	public uint32 ExclusionFlags;
 	public uint32 nPageRanges;
 	public uint32 nMaxPageRanges;
-	public PRINTPAGERANGE* lpPageRanges;
+	public PRINTPAGERANGE lpPageRanges;
 	public uint32 nMinPage;
 	public uint32 nMaxPage;
 	public uint32 nCopies;
@@ -780,7 +780,7 @@ public struct PRINTDLGEXW
 	public PWSTR lpPrintTemplateName;
 	public IUnknown* lpCallback;
 	public uint32 nPropertyPages;
-	public HPROPSHEETPAGE* lphPropertyPages;
+	public HPROPSHEETPAGE lphPropertyPages;
 	public uint32 nStartPage;
 	public uint32 dwResultAction;
 }
@@ -917,7 +917,7 @@ public struct OPENFILENAMEA
 	public LPARAM lCustData;
 	public LPOFNHOOKPROC lpfnHook;
 	public PSTR lpTemplateName;
-	public void* pvReserved;
+	public void pvReserved;
 	public uint32 dwReserved;
 	public OPEN_FILENAME_FLAGS_EX FlagsEx;
 }
@@ -947,7 +947,7 @@ public struct OPENFILENAMEW
 	public LPARAM lCustData;
 	public LPOFNHOOKPROC lpfnHook;
 	public PWSTR lpTemplateName;
-	public void* pvReserved;
+	public void pvReserved;
 	public uint32 dwReserved;
 	public OPEN_FILENAME_FLAGS_EX FlagsEx;
 }
@@ -958,7 +958,7 @@ public struct OPENFILENAMEW
 public struct OFNOTIFYA
 {
 	public NMHDR hdr;
-	public OPENFILENAMEA* lpOFN;
+	public OPENFILENAMEA lpOFN;
 	public PSTR pszFile;
 }
 #endif
@@ -968,7 +968,7 @@ public struct OFNOTIFYA
 public struct OFNOTIFYW
 {
 	public NMHDR hdr;
-	public OPENFILENAMEW* lpOFN;
+	public OPENFILENAMEW lpOFN;
 	public PWSTR pszFile;
 }
 #endif
@@ -978,9 +978,9 @@ public struct OFNOTIFYW
 public struct OFNOTIFYEXA
 {
 	public NMHDR hdr;
-	public OPENFILENAMEA* lpOFN;
-	public void* psf;
-	public void* pidl;
+	public OPENFILENAMEA lpOFN;
+	public void psf;
+	public void pidl;
 }
 #endif
 
@@ -989,9 +989,9 @@ public struct OFNOTIFYEXA
 public struct OFNOTIFYEXW
 {
 	public NMHDR hdr;
-	public OPENFILENAMEW* lpOFN;
-	public void* psf;
-	public void* pidl;
+	public OPENFILENAMEW lpOFN;
+	public void psf;
+	public void pidl;
 }
 #endif
 
@@ -1003,7 +1003,7 @@ public struct CHOOSECOLORA
 	public HWND hwndOwner;
 	public HWND hInstance;
 	public uint32 rgbResult;
-	public uint32* lpCustColors;
+	public uint32 lpCustColors;
 	public uint32 Flags;
 	public LPARAM lCustData;
 	public LPCCHOOKPROC lpfnHook;
@@ -1019,7 +1019,7 @@ public struct CHOOSECOLORW
 	public HWND hwndOwner;
 	public HWND hInstance;
 	public uint32 rgbResult;
-	public uint32* lpCustColors;
+	public uint32 lpCustColors;
 	public uint32 Flags;
 	public LPARAM lCustData;
 	public LPCCHOOKPROC lpfnHook;
@@ -1070,7 +1070,7 @@ public struct CHOOSEFONTA
 	public uint32 lStructSize;
 	public HWND hwndOwner;
 	public HDC hDC;
-	public LOGFONTA* lpLogFont;
+	public LOGFONTA lpLogFont;
 	public int32 iPointSize;
 	public CHOOSEFONT_FLAGS Flags;
 	public uint32 rgbColors;
@@ -1093,7 +1093,7 @@ public struct CHOOSEFONTW
 	public uint32 lStructSize;
 	public HWND hwndOwner;
 	public HDC hDC;
-	public LOGFONTW* lpLogFont;
+	public LOGFONTW lpLogFont;
 	public int32 iPointSize;
 	public CHOOSEFONT_FLAGS Flags;
 	public uint32 rgbColors;
@@ -1184,7 +1184,7 @@ public struct PRINTDLGEXA
 	public uint32 ExclusionFlags;
 	public uint32 nPageRanges;
 	public uint32 nMaxPageRanges;
-	public PRINTPAGERANGE* lpPageRanges;
+	public PRINTPAGERANGE lpPageRanges;
 	public uint32 nMinPage;
 	public uint32 nMaxPage;
 	public uint32 nCopies;
@@ -1192,7 +1192,7 @@ public struct PRINTDLGEXA
 	public PSTR lpPrintTemplateName;
 	public IUnknown* lpCallback;
 	public uint32 nPropertyPages;
-	public HPROPSHEETPAGE* lphPropertyPages;
+	public HPROPSHEETPAGE lphPropertyPages;
 	public uint32 nStartPage;
 	public uint32 dwResultAction;
 }
@@ -1212,7 +1212,7 @@ public struct PRINTDLGEXW
 	public uint32 ExclusionFlags;
 	public uint32 nPageRanges;
 	public uint32 nMaxPageRanges;
-	public PRINTPAGERANGE* lpPageRanges;
+	public PRINTPAGERANGE lpPageRanges;
 	public uint32 nMinPage;
 	public uint32 nMaxPage;
 	public uint32 nCopies;
@@ -1220,7 +1220,7 @@ public struct PRINTDLGEXW
 	public PWSTR lpPrintTemplateName;
 	public IUnknown* lpCallback;
 	public uint32 nPropertyPages;
-	public HPROPSHEETPAGE* lphPropertyPages;
+	public HPROPSHEETPAGE lphPropertyPages;
 	public uint32 nStartPage;
 	public uint32 dwResultAction;
 }
@@ -1298,7 +1298,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogCallback*/SelfOuter* self) InitDone;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogCallback*/SelfOuter* self) SelectionChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogCallback*/SelfOuter* self, HWND hDlg, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* pResult) HandleMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogCallback*/SelfOuter* self, HWND hDlg, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT pResult) HandleMessage;
 	}
 
 
@@ -1306,7 +1306,7 @@ public static
 
 	public HRESULT SelectionChange() mut => VT.[Friend]SelectionChange(&this);
 
-	public HRESULT HandleMessage(HWND hDlg, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* pResult) mut => VT.[Friend]HandleMessage(&this, hDlg, uMsg, wParam, lParam, pResult);
+	public HRESULT HandleMessage(HWND hDlg, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT pResult) mut => VT.[Friend]HandleMessage(&this, hDlg, uMsg, wParam, lParam, pResult);
 }
 
 [CRepr]struct IPrintDialogServices : IUnknown
@@ -1317,17 +1317,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, DEVMODEA* pDevMode, uint32* pcbSize) GetCurrentDevMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, char16* pPrinterName, uint32* pcchSize) GetCurrentPrinterName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, char16* pPortName, uint32* pcchSize) GetCurrentPortName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, DEVMODEA pDevMode, uint32 pcbSize) GetCurrentDevMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, char16* pPrinterName, uint32 pcchSize) GetCurrentPrinterName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, char16* pPortName, uint32 pcchSize) GetCurrentPortName;
 	}
 
 
-	public HRESULT GetCurrentDevMode(DEVMODEA* pDevMode, uint32* pcbSize) mut => VT.[Friend]GetCurrentDevMode(&this, pDevMode, pcbSize);
+	public HRESULT GetCurrentDevMode(DEVMODEA pDevMode, uint32 pcbSize) mut => VT.[Friend]GetCurrentDevMode(&this, pDevMode, pcbSize);
 
-	public HRESULT GetCurrentPrinterName(char16* pPrinterName, uint32* pcchSize) mut => VT.[Friend]GetCurrentPrinterName(&this, pPrinterName, pcchSize);
+	public HRESULT GetCurrentPrinterName(char16* pPrinterName, uint32 pcchSize) mut => VT.[Friend]GetCurrentPrinterName(&this, pPrinterName, pcchSize);
 
-	public HRESULT GetCurrentPortName(char16* pPortName, uint32* pcchSize) mut => VT.[Friend]GetCurrentPortName(&this, pPortName, pcchSize);
+	public HRESULT GetCurrentPortName(char16* pPortName, uint32 pcchSize) mut => VT.[Friend]GetCurrentPortName(&this, pPortName, pcchSize);
 }
 
 #endregion
@@ -1336,18 +1336,18 @@ public static
 public static
 {
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetOpenFileNameA(OPENFILENAMEA* param0);
-	public static BOOL GetOpenFileName(OPENFILENAMEA* param0) => GetOpenFileNameA(param0);
+	public static extern BOOL GetOpenFileNameA(OPENFILENAMEA param0);
+	public static BOOL GetOpenFileName(OPENFILENAMEA param0) => GetOpenFileNameA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetOpenFileNameW(OPENFILENAMEW* param0);
+	public static extern BOOL GetOpenFileNameW(OPENFILENAMEW param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetSaveFileNameA(OPENFILENAMEA* param0);
-	public static BOOL GetSaveFileName(OPENFILENAMEA* param0) => GetSaveFileNameA(param0);
+	public static extern BOOL GetSaveFileNameA(OPENFILENAMEA param0);
+	public static BOOL GetSaveFileName(OPENFILENAMEA param0) => GetSaveFileNameA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetSaveFileNameW(OPENFILENAMEW* param0);
+	public static extern BOOL GetSaveFileNameW(OPENFILENAMEW param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 GetFileTitleA(PSTR param0, uint8* Buf, uint16 cchSize);
@@ -1357,56 +1357,56 @@ public static
 	public static extern int16 GetFileTitleW(PWSTR param0, char16* Buf, uint16 cchSize);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ChooseColorA(CHOOSECOLORA* param0);
-	public static BOOL ChooseColor(CHOOSECOLORA* param0) => ChooseColorA(param0);
+	public static extern BOOL ChooseColorA(CHOOSECOLORA param0);
+	public static BOOL ChooseColor(CHOOSECOLORA param0) => ChooseColorA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ChooseColorW(CHOOSECOLORW* param0);
+	public static extern BOOL ChooseColorW(CHOOSECOLORW param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HWND FindTextA(FINDREPLACEA* param0);
-	public static HWND FindText(FINDREPLACEA* param0) => FindTextA(param0);
+	public static extern HWND FindTextA(FINDREPLACEA param0);
+	public static HWND FindText(FINDREPLACEA param0) => FindTextA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HWND FindTextW(FINDREPLACEW* param0);
+	public static extern HWND FindTextW(FINDREPLACEW param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HWND ReplaceTextA(FINDREPLACEA* param0);
-	public static HWND ReplaceText(FINDREPLACEA* param0) => ReplaceTextA(param0);
+	public static extern HWND ReplaceTextA(FINDREPLACEA param0);
+	public static HWND ReplaceText(FINDREPLACEA param0) => ReplaceTextA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HWND ReplaceTextW(FINDREPLACEW* param0);
+	public static extern HWND ReplaceTextW(FINDREPLACEW param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ChooseFontA(CHOOSEFONTA* param0);
-	public static BOOL ChooseFont(CHOOSEFONTA* param0) => ChooseFontA(param0);
+	public static extern BOOL ChooseFontA(CHOOSEFONTA param0);
+	public static BOOL ChooseFont(CHOOSEFONTA param0) => ChooseFontA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ChooseFontW(CHOOSEFONTW* param0);
+	public static extern BOOL ChooseFontW(CHOOSEFONTW param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PrintDlgA(PRINTDLGA* pPD);
-	public static BOOL PrintDlg(PRINTDLGA* pPD) => PrintDlgA(pPD);
+	public static extern BOOL PrintDlgA(PRINTDLGA pPD);
+	public static BOOL PrintDlg(PRINTDLGA pPD) => PrintDlgA(pPD);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PrintDlgW(PRINTDLGW* pPD);
+	public static extern BOOL PrintDlgW(PRINTDLGW pPD);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PrintDlgExA(PRINTDLGEXA* pPD);
-	public static HRESULT PrintDlgEx(PRINTDLGEXA* pPD) => PrintDlgExA(pPD);
+	public static extern HRESULT PrintDlgExA(PRINTDLGEXA pPD);
+	public static HRESULT PrintDlgEx(PRINTDLGEXA pPD) => PrintDlgExA(pPD);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PrintDlgExW(PRINTDLGEXW* pPD);
+	public static extern HRESULT PrintDlgExW(PRINTDLGEXW pPD);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern COMMON_DLG_ERRORS CommDlgExtendedError();
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PageSetupDlgA(PAGESETUPDLGA* param0);
-	public static BOOL PageSetupDlg(PAGESETUPDLGA* param0) => PageSetupDlgA(param0);
+	public static extern BOOL PageSetupDlgA(PAGESETUPDLGA param0);
+	public static BOOL PageSetupDlg(PAGESETUPDLGA param0) => PageSetupDlgA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PageSetupDlgW(PAGESETUPDLGW* param0);
+	public static extern BOOL PageSetupDlgW(PAGESETUPDLGW param0);
 
 }
 #endregion

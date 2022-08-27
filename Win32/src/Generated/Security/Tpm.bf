@@ -116,14 +116,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITpmVirtualSmartCardManager*/SelfOuter* self, PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR* ppszInstanceId, BOOL* pfNeedReboot) CreateVirtualSmartCard;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITpmVirtualSmartCardManager*/SelfOuter* self, PWSTR pszInstanceId, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, BOOL* pfNeedReboot) DestroyVirtualSmartCard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITpmVirtualSmartCardManager*/SelfOuter* self, PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR ppszInstanceId, BOOL pfNeedReboot) CreateVirtualSmartCard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITpmVirtualSmartCardManager*/SelfOuter* self, PWSTR pszInstanceId, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, BOOL pfNeedReboot) DestroyVirtualSmartCard;
 	}
 
 
-	public HRESULT CreateVirtualSmartCard(PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR* ppszInstanceId, BOOL* pfNeedReboot) mut => VT.[Friend]CreateVirtualSmartCard(&this, pszFriendlyName, bAdminAlgId, pbAdminKey, cbAdminKey, pbAdminKcv, cbAdminKcv, pbPuk, cbPuk, pbPin, cbPin, fGenerate, pStatusCallback, ppszInstanceId, pfNeedReboot);
+	public HRESULT CreateVirtualSmartCard(PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR ppszInstanceId, BOOL pfNeedReboot) mut => VT.[Friend]CreateVirtualSmartCard(&this, pszFriendlyName, bAdminAlgId, pbAdminKey, cbAdminKey, pbAdminKcv, cbAdminKcv, pbPuk, cbPuk, pbPin, cbPin, fGenerate, pStatusCallback, ppszInstanceId, pfNeedReboot);
 
-	public HRESULT DestroyVirtualSmartCard(PWSTR pszInstanceId, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, BOOL* pfNeedReboot) mut => VT.[Friend]DestroyVirtualSmartCard(&this, pszInstanceId, pStatusCallback, pfNeedReboot);
+	public HRESULT DestroyVirtualSmartCard(PWSTR pszInstanceId, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, BOOL pfNeedReboot) mut => VT.[Friend]DestroyVirtualSmartCard(&this, pszInstanceId, pStatusCallback, pfNeedReboot);
 }
 
 [CRepr]struct ITpmVirtualSmartCardManager2 : ITpmVirtualSmartCardManager
@@ -134,11 +134,11 @@ public static
 
 	[CRepr]public struct VTable : ITpmVirtualSmartCardManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITpmVirtualSmartCardManager2*/SelfOuter* self, PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, uint8* pbPinPolicy, uint32 cbPinPolicy, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR* ppszInstanceId, BOOL* pfNeedReboot) CreateVirtualSmartCardWithPinPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITpmVirtualSmartCardManager2*/SelfOuter* self, PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, uint8* pbPinPolicy, uint32 cbPinPolicy, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR ppszInstanceId, BOOL pfNeedReboot) CreateVirtualSmartCardWithPinPolicy;
 	}
 
 
-	public HRESULT CreateVirtualSmartCardWithPinPolicy(PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, uint8* pbPinPolicy, uint32 cbPinPolicy, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR* ppszInstanceId, BOOL* pfNeedReboot) mut => VT.[Friend]CreateVirtualSmartCardWithPinPolicy(&this, pszFriendlyName, bAdminAlgId, pbAdminKey, cbAdminKey, pbAdminKcv, cbAdminKcv, pbPuk, cbPuk, pbPin, cbPin, pbPinPolicy, cbPinPolicy, fGenerate, pStatusCallback, ppszInstanceId, pfNeedReboot);
+	public HRESULT CreateVirtualSmartCardWithPinPolicy(PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, uint8* pbPinPolicy, uint32 cbPinPolicy, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR ppszInstanceId, BOOL pfNeedReboot) mut => VT.[Friend]CreateVirtualSmartCardWithPinPolicy(&this, pszFriendlyName, bAdminAlgId, pbAdminKey, cbAdminKey, pbAdminKcv, cbAdminKcv, pbPuk, cbPuk, pbPin, cbPin, pbPinPolicy, cbPinPolicy, fGenerate, pStatusCallback, ppszInstanceId, pfNeedReboot);
 }
 
 [CRepr]struct ITpmVirtualSmartCardManager3 : ITpmVirtualSmartCardManager2
@@ -149,11 +149,11 @@ public static
 
 	[CRepr]public struct VTable : ITpmVirtualSmartCardManager2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITpmVirtualSmartCardManager3*/SelfOuter* self, PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, uint8* pbPinPolicy, uint32 cbPinPolicy, TPMVSC_ATTESTATION_TYPE attestationType, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR* ppszInstanceId) CreateVirtualSmartCardWithAttestation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITpmVirtualSmartCardManager3*/SelfOuter* self, PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, uint8* pbPinPolicy, uint32 cbPinPolicy, TPMVSC_ATTESTATION_TYPE attestationType, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR ppszInstanceId) CreateVirtualSmartCardWithAttestation;
 	}
 
 
-	public HRESULT CreateVirtualSmartCardWithAttestation(PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, uint8* pbPinPolicy, uint32 cbPinPolicy, TPMVSC_ATTESTATION_TYPE attestationType, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR* ppszInstanceId) mut => VT.[Friend]CreateVirtualSmartCardWithAttestation(&this, pszFriendlyName, bAdminAlgId, pbAdminKey, cbAdminKey, pbAdminKcv, cbAdminKcv, pbPuk, cbPuk, pbPin, cbPin, pbPinPolicy, cbPinPolicy, attestationType, fGenerate, pStatusCallback, ppszInstanceId);
+	public HRESULT CreateVirtualSmartCardWithAttestation(PWSTR pszFriendlyName, uint8 bAdminAlgId, uint8* pbAdminKey, uint32 cbAdminKey, uint8* pbAdminKcv, uint32 cbAdminKcv, uint8* pbPuk, uint32 cbPuk, uint8* pbPin, uint32 cbPin, uint8* pbPinPolicy, uint32 cbPinPolicy, TPMVSC_ATTESTATION_TYPE attestationType, BOOL fGenerate, ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, PWSTR ppszInstanceId) mut => VT.[Friend]CreateVirtualSmartCardWithAttestation(&this, pszFriendlyName, bAdminAlgId, pbAdminKey, cbAdminKey, pbAdminKcv, cbAdminKcv, pbPuk, cbPuk, pbPin, cbPin, pbPinPolicy, cbPinPolicy, attestationType, fGenerate, pStatusCallback, ppszInstanceId);
 }
 
 #endregion

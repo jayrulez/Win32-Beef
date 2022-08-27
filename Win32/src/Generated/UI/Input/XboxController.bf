@@ -226,25 +226,25 @@ public static
 public static
 {
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 XInputGetState(uint32 dwUserIndex, XINPUT_STATE* pState);
+	public static extern uint32 XInputGetState(uint32 dwUserIndex, XINPUT_STATE pState);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 XInputSetState(uint32 dwUserIndex, XINPUT_VIBRATION* pVibration);
+	public static extern uint32 XInputSetState(uint32 dwUserIndex, XINPUT_VIBRATION pVibration);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 XInputGetCapabilities(uint32 dwUserIndex, uint32 dwFlags, XINPUT_CAPABILITIES* pCapabilities);
+	public static extern uint32 XInputGetCapabilities(uint32 dwUserIndex, uint32 dwFlags, XINPUT_CAPABILITIES pCapabilities);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void XInputEnable(BOOL enable);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 XInputGetAudioDeviceIds(uint32 dwUserIndex, char16* pRenderDeviceId, uint32* pRenderCount, char16* pCaptureDeviceId, uint32* pCaptureCount);
+	public static extern uint32 XInputGetAudioDeviceIds(uint32 dwUserIndex, char16* pRenderDeviceId, uint32 pRenderCount, char16* pCaptureDeviceId, uint32 pCaptureCount);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 XInputGetBatteryInformation(uint32 dwUserIndex, uint8 devType, XINPUT_BATTERY_INFORMATION* pBatteryInformation);
+	public static extern uint32 XInputGetBatteryInformation(uint32 dwUserIndex, uint8 devType, XINPUT_BATTERY_INFORMATION pBatteryInformation);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 XInputGetKeystroke(uint32 dwUserIndex, uint32 dwReserved, XINPUT_KEYSTROKE* pKeystroke);
+	public static extern uint32 XInputGetKeystroke(uint32 dwUserIndex, uint32 dwReserved, XINPUT_KEYSTROKE pKeystroke);
 
 }
 #endregion

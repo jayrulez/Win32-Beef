@@ -73,19 +73,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, RENDEZVOUS_SESSION_STATE* pSessionState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, BSTR* bstrUserName) get_RemoteUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, int32* pFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, RENDEZVOUS_SESSION_STATE pSessionState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, BSTR bstrUserName) get_RemoteUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, int32 pFlags) get_Flags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, BSTR bstrData) SendContextData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, HRESULT hr, BSTR bstrAppData) Terminate;
 	}
 
 
-	public HRESULT get_State(RENDEZVOUS_SESSION_STATE* pSessionState) mut => VT.[Friend]get_State(&this, pSessionState);
+	public HRESULT get_State(RENDEZVOUS_SESSION_STATE pSessionState) mut => VT.[Friend]get_State(&this, pSessionState);
 
-	public HRESULT get_RemoteUser(BSTR* bstrUserName) mut => VT.[Friend]get_RemoteUser(&this, bstrUserName);
+	public HRESULT get_RemoteUser(BSTR bstrUserName) mut => VT.[Friend]get_RemoteUser(&this, bstrUserName);
 
-	public HRESULT get_Flags(int32* pFlags) mut => VT.[Friend]get_Flags(&this, pFlags);
+	public HRESULT get_Flags(int32 pFlags) mut => VT.[Friend]get_Flags(&this, pFlags);
 
 	public HRESULT SendContextData(BSTR bstrData) mut => VT.[Friend]SendContextData(&this, bstrData);
 

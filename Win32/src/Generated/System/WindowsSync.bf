@@ -242,8 +242,8 @@ public struct SYNC_VERSION
 [CRepr]
 public struct SYNC_RANGE
 {
-	public uint8* pbClosedLowerBound;
-	public uint8* pbClosedUpperBound;
+	public uint8 pbClosedLowerBound;
+	public uint8 pbClosedUpperBound;
 }
 
 [CRepr]
@@ -304,14 +304,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IClockVectorElement*/SelfOuter* self, uint32* pdwReplicaKey) GetReplicaKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IClockVectorElement*/SelfOuter* self, uint64* pullTickCount) GetTickCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IClockVectorElement*/SelfOuter* self, uint32 pdwReplicaKey) GetReplicaKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IClockVectorElement*/SelfOuter* self, uint64 pullTickCount) GetTickCount;
 	}
 
 
-	public HRESULT GetReplicaKey(uint32* pdwReplicaKey) mut => VT.[Friend]GetReplicaKey(&this, pdwReplicaKey);
+	public HRESULT GetReplicaKey(uint32 pdwReplicaKey) mut => VT.[Friend]GetReplicaKey(&this, pdwReplicaKey);
 
-	public HRESULT GetTickCount(uint64* pullTickCount) mut => VT.[Friend]GetTickCount(&this, pullTickCount);
+	public HRESULT GetTickCount(uint64 pullTickCount) mut => VT.[Friend]GetTickCount(&this, pullTickCount);
 }
 
 [CRepr]struct IFeedClockVectorElement : IClockVectorElement
@@ -322,14 +322,14 @@ public static
 
 	[CRepr]public struct VTable : IClockVectorElement.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFeedClockVectorElement*/SelfOuter* self, SYNC_TIME* pSyncTime) GetSyncTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFeedClockVectorElement*/SelfOuter* self, uint8* pbFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFeedClockVectorElement*/SelfOuter* self, SYNC_TIME pSyncTime) GetSyncTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFeedClockVectorElement*/SelfOuter* self, uint8 pbFlags) COM_GetFlags;
 	}
 
 
-	public HRESULT GetSyncTime(SYNC_TIME* pSyncTime) mut => VT.[Friend]GetSyncTime(&this, pSyncTime);
+	public HRESULT GetSyncTime(SYNC_TIME pSyncTime) mut => VT.[Friend]GetSyncTime(&this, pSyncTime);
 
-	public HRESULT GetFlags(uint8* pbFlags) mut => VT.[Friend]COM_GetFlags(&this, pbFlags);
+	public HRESULT GetFlags(uint8 pbFlags) mut => VT.[Friend]COM_GetFlags(&this, pbFlags);
 }
 
 [CRepr]struct IClockVector : IUnknown
@@ -340,14 +340,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IClockVector*/SelfOuter* self, Guid riid, void** ppiEnumClockVector) GetClockVectorElements;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IClockVector*/SelfOuter* self, uint32* pdwCount) GetClockVectorElementCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IClockVector*/SelfOuter* self, Guid riid, void ppiEnumClockVector) GetClockVectorElements;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IClockVector*/SelfOuter* self, uint32 pdwCount) GetClockVectorElementCount;
 	}
 
 
-	public HRESULT GetClockVectorElements(Guid riid, void** ppiEnumClockVector) mut => VT.[Friend]GetClockVectorElements(&this, riid, ppiEnumClockVector);
+	public HRESULT GetClockVectorElements(Guid riid, void ppiEnumClockVector) mut => VT.[Friend]GetClockVectorElements(&this, riid, ppiEnumClockVector);
 
-	public HRESULT GetClockVectorElementCount(uint32* pdwCount) mut => VT.[Friend]GetClockVectorElementCount(&this, pdwCount);
+	public HRESULT GetClockVectorElementCount(uint32 pdwCount) mut => VT.[Friend]GetClockVectorElementCount(&this, pdwCount);
 }
 
 [CRepr]struct IFeedClockVector : IClockVector
@@ -358,14 +358,14 @@ public static
 
 	[CRepr]public struct VTable : IClockVector.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFeedClockVector*/SelfOuter* self, uint32* pdwUpdateCount) GetUpdateCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFeedClockVector*/SelfOuter* self, BOOL* pfIsNoConflictsSpecified) IsNoConflictsSpecified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFeedClockVector*/SelfOuter* self, uint32 pdwUpdateCount) GetUpdateCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFeedClockVector*/SelfOuter* self, BOOL pfIsNoConflictsSpecified) IsNoConflictsSpecified;
 	}
 
 
-	public HRESULT GetUpdateCount(uint32* pdwUpdateCount) mut => VT.[Friend]GetUpdateCount(&this, pdwUpdateCount);
+	public HRESULT GetUpdateCount(uint32 pdwUpdateCount) mut => VT.[Friend]GetUpdateCount(&this, pdwUpdateCount);
 
-	public HRESULT IsNoConflictsSpecified(BOOL* pfIsNoConflictsSpecified) mut => VT.[Friend]IsNoConflictsSpecified(&this, pfIsNoConflictsSpecified);
+	public HRESULT IsNoConflictsSpecified(BOOL pfIsNoConflictsSpecified) mut => VT.[Friend]IsNoConflictsSpecified(&this, pfIsNoConflictsSpecified);
 }
 
 [CRepr]struct IEnumClockVector : IUnknown
@@ -376,20 +376,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumClockVector*/SelfOuter* self, uint32 cClockVectorElements, IClockVectorElement** ppiClockVectorElements, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumClockVector*/SelfOuter* self, uint32 cClockVectorElements, IClockVectorElement* ppiClockVectorElements, uint32 pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumClockVector*/SelfOuter* self, uint32 cSyncVersions) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumClockVector*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumClockVector*/SelfOuter* self, IEnumClockVector** ppiEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumClockVector*/SelfOuter* self, IEnumClockVector* ppiEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cClockVectorElements, IClockVectorElement** ppiClockVectorElements, uint32* pcFetched) mut => VT.[Friend]Next(&this, cClockVectorElements, ppiClockVectorElements, pcFetched);
+	public HRESULT Next(uint32 cClockVectorElements, IClockVectorElement* ppiClockVectorElements, uint32 pcFetched) mut => VT.[Friend]Next(&this, cClockVectorElements, ppiClockVectorElements, pcFetched);
 
 	public HRESULT Skip(uint32 cSyncVersions) mut => VT.[Friend]Skip(&this, cSyncVersions);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumClockVector** ppiEnum) mut => VT.[Friend]Clone(&this, ppiEnum);
+	public HRESULT Clone(IEnumClockVector* ppiEnum) mut => VT.[Friend]Clone(&this, ppiEnum);
 }
 
 [CRepr]struct IEnumFeedClockVector : IUnknown
@@ -400,20 +400,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFeedClockVector*/SelfOuter* self, uint32 cClockVectorElements, IFeedClockVectorElement** ppiClockVectorElements, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFeedClockVector*/SelfOuter* self, uint32 cClockVectorElements, IFeedClockVectorElement* ppiClockVectorElements, uint32 pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFeedClockVector*/SelfOuter* self, uint32 cSyncVersions) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFeedClockVector*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFeedClockVector*/SelfOuter* self, IEnumFeedClockVector** ppiEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFeedClockVector*/SelfOuter* self, IEnumFeedClockVector* ppiEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cClockVectorElements, IFeedClockVectorElement** ppiClockVectorElements, uint32* pcFetched) mut => VT.[Friend]Next(&this, cClockVectorElements, ppiClockVectorElements, pcFetched);
+	public HRESULT Next(uint32 cClockVectorElements, IFeedClockVectorElement* ppiClockVectorElements, uint32 pcFetched) mut => VT.[Friend]Next(&this, cClockVectorElements, ppiClockVectorElements, pcFetched);
 
 	public HRESULT Skip(uint32 cSyncVersions) mut => VT.[Friend]Skip(&this, cSyncVersions);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumFeedClockVector** ppiEnum) mut => VT.[Friend]Clone(&this, ppiEnum);
+	public HRESULT Clone(IEnumFeedClockVector* ppiEnum) mut => VT.[Friend]Clone(&this, ppiEnum);
 }
 
 [CRepr]struct ICoreFragment : IUnknown
@@ -424,23 +424,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragment*/SelfOuter* self, uint8* pChangeUnitId, uint32* pChangeUnitIdSize) NextColumn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragment*/SelfOuter* self, uint8* pItemId, uint32* pItemIdSize, IClockVector** piClockVector) NextRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragment*/SelfOuter* self, uint8 pChangeUnitId, uint32 pChangeUnitIdSize) NextColumn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragment*/SelfOuter* self, uint8 pItemId, uint32 pItemIdSize, IClockVector* piClockVector) NextRange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragment*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragment*/SelfOuter* self, uint32* pColumnCount) GetColumnCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragment*/SelfOuter* self, uint32* pRangeCount) GetRangeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragment*/SelfOuter* self, uint32 pColumnCount) GetColumnCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragment*/SelfOuter* self, uint32 pRangeCount) GetRangeCount;
 	}
 
 
-	public HRESULT NextColumn(uint8* pChangeUnitId, uint32* pChangeUnitIdSize) mut => VT.[Friend]NextColumn(&this, pChangeUnitId, pChangeUnitIdSize);
+	public HRESULT NextColumn(uint8 pChangeUnitId, uint32 pChangeUnitIdSize) mut => VT.[Friend]NextColumn(&this, pChangeUnitId, pChangeUnitIdSize);
 
-	public HRESULT NextRange(uint8* pItemId, uint32* pItemIdSize, IClockVector** piClockVector) mut => VT.[Friend]NextRange(&this, pItemId, pItemIdSize, piClockVector);
+	public HRESULT NextRange(uint8 pItemId, uint32 pItemIdSize, IClockVector* piClockVector) mut => VT.[Friend]NextRange(&this, pItemId, pItemIdSize, piClockVector);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT GetColumnCount(uint32* pColumnCount) mut => VT.[Friend]GetColumnCount(&this, pColumnCount);
+	public HRESULT GetColumnCount(uint32 pColumnCount) mut => VT.[Friend]GetColumnCount(&this, pColumnCount);
 
-	public HRESULT GetRangeCount(uint32* pRangeCount) mut => VT.[Friend]GetRangeCount(&this, pRangeCount);
+	public HRESULT GetRangeCount(uint32 pRangeCount) mut => VT.[Friend]GetRangeCount(&this, pRangeCount);
 }
 
 [CRepr]struct ICoreFragmentInspector : IUnknown
@@ -451,12 +451,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragmentInspector*/SelfOuter* self, uint32 requestedCount, ICoreFragment** ppiCoreFragments, uint32* pFetchedCount) NextCoreFragments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragmentInspector*/SelfOuter* self, uint32 requestedCount, ICoreFragment* ppiCoreFragments, uint32 pFetchedCount) NextCoreFragments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICoreFragmentInspector*/SelfOuter* self) Reset;
 	}
 
 
-	public HRESULT NextCoreFragments(uint32 requestedCount, ICoreFragment** ppiCoreFragments, uint32* pFetchedCount) mut => VT.[Friend]NextCoreFragments(&this, requestedCount, ppiCoreFragments, pFetchedCount);
+	public HRESULT NextCoreFragments(uint32 requestedCount, ICoreFragment* ppiCoreFragments, uint32 pFetchedCount) mut => VT.[Friend]NextCoreFragments(&this, requestedCount, ppiCoreFragments, pFetchedCount);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 }
@@ -469,17 +469,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRangeException*/SelfOuter* self, uint8* pbClosedRangeStart, uint32* pcbIdSize) GetClosedRangeStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRangeException*/SelfOuter* self, uint8* pbClosedRangeEnd, uint32* pcbIdSize) GetClosedRangeEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRangeException*/SelfOuter* self, Guid riid, void** ppUnk) GetClockVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRangeException*/SelfOuter* self, uint8 pbClosedRangeStart, uint32 pcbIdSize) GetClosedRangeStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRangeException*/SelfOuter* self, uint8 pbClosedRangeEnd, uint32 pcbIdSize) GetClosedRangeEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRangeException*/SelfOuter* self, Guid riid, void ppUnk) GetClockVector;
 	}
 
 
-	public HRESULT GetClosedRangeStart(uint8* pbClosedRangeStart, uint32* pcbIdSize) mut => VT.[Friend]GetClosedRangeStart(&this, pbClosedRangeStart, pcbIdSize);
+	public HRESULT GetClosedRangeStart(uint8 pbClosedRangeStart, uint32 pcbIdSize) mut => VT.[Friend]GetClosedRangeStart(&this, pbClosedRangeStart, pcbIdSize);
 
-	public HRESULT GetClosedRangeEnd(uint8* pbClosedRangeEnd, uint32* pcbIdSize) mut => VT.[Friend]GetClosedRangeEnd(&this, pbClosedRangeEnd, pcbIdSize);
+	public HRESULT GetClosedRangeEnd(uint8 pbClosedRangeEnd, uint32 pcbIdSize) mut => VT.[Friend]GetClosedRangeEnd(&this, pbClosedRangeEnd, pcbIdSize);
 
-	public HRESULT GetClockVector(Guid riid, void** ppUnk) mut => VT.[Friend]GetClockVector(&this, riid, ppUnk);
+	public HRESULT GetClockVector(Guid riid, void ppUnk) mut => VT.[Friend]GetClockVector(&this, riid, ppUnk);
 }
 
 [CRepr]struct IEnumRangeExceptions : IUnknown
@@ -490,20 +490,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRangeExceptions*/SelfOuter* self, uint32 cExceptions, IRangeException** ppRangeException, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRangeExceptions*/SelfOuter* self, uint32 cExceptions, IRangeException* ppRangeException, uint32 pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRangeExceptions*/SelfOuter* self, uint32 cExceptions) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRangeExceptions*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRangeExceptions*/SelfOuter* self, IEnumRangeExceptions** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRangeExceptions*/SelfOuter* self, IEnumRangeExceptions* ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cExceptions, IRangeException** ppRangeException, uint32* pcFetched) mut => VT.[Friend]Next(&this, cExceptions, ppRangeException, pcFetched);
+	public HRESULT Next(uint32 cExceptions, IRangeException* ppRangeException, uint32 pcFetched) mut => VT.[Friend]Next(&this, cExceptions, ppRangeException, pcFetched);
 
 	public HRESULT Skip(uint32 cExceptions) mut => VT.[Friend]Skip(&this, cExceptions);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumRangeExceptions** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumRangeExceptions* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct ISingleItemException : IUnknown
@@ -514,14 +514,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISingleItemException*/SelfOuter* self, uint8* pbItemId, uint32* pcbIdSize) GetItemId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISingleItemException*/SelfOuter* self, Guid riid, void** ppUnk) GetClockVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISingleItemException*/SelfOuter* self, uint8 pbItemId, uint32 pcbIdSize) GetItemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISingleItemException*/SelfOuter* self, Guid riid, void ppUnk) GetClockVector;
 	}
 
 
-	public HRESULT GetItemId(uint8* pbItemId, uint32* pcbIdSize) mut => VT.[Friend]GetItemId(&this, pbItemId, pcbIdSize);
+	public HRESULT GetItemId(uint8 pbItemId, uint32 pcbIdSize) mut => VT.[Friend]GetItemId(&this, pbItemId, pcbIdSize);
 
-	public HRESULT GetClockVector(Guid riid, void** ppUnk) mut => VT.[Friend]GetClockVector(&this, riid, ppUnk);
+	public HRESULT GetClockVector(Guid riid, void ppUnk) mut => VT.[Friend]GetClockVector(&this, riid, ppUnk);
 }
 
 [CRepr]struct IEnumSingleItemExceptions : IUnknown
@@ -532,20 +532,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSingleItemExceptions*/SelfOuter* self, uint32 cExceptions, ISingleItemException** ppSingleItemException, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSingleItemExceptions*/SelfOuter* self, uint32 cExceptions, ISingleItemException* ppSingleItemException, uint32 pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSingleItemExceptions*/SelfOuter* self, uint32 cExceptions) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSingleItemExceptions*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSingleItemExceptions*/SelfOuter* self, IEnumSingleItemExceptions** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSingleItemExceptions*/SelfOuter* self, IEnumSingleItemExceptions* ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cExceptions, ISingleItemException** ppSingleItemException, uint32* pcFetched) mut => VT.[Friend]Next(&this, cExceptions, ppSingleItemException, pcFetched);
+	public HRESULT Next(uint32 cExceptions, ISingleItemException* ppSingleItemException, uint32 pcFetched) mut => VT.[Friend]Next(&this, cExceptions, ppSingleItemException, pcFetched);
 
 	public HRESULT Skip(uint32 cExceptions) mut => VT.[Friend]Skip(&this, cExceptions);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumSingleItemExceptions** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumSingleItemExceptions* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct IChangeUnitException : IUnknown
@@ -556,17 +556,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitException*/SelfOuter* self, uint8* pbItemId, uint32* pcbIdSize) GetItemId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitException*/SelfOuter* self, uint8* pbChangeUnitId, uint32* pcbIdSize) GetChangeUnitId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitException*/SelfOuter* self, Guid riid, void** ppUnk) GetClockVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitException*/SelfOuter* self, uint8 pbItemId, uint32 pcbIdSize) GetItemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitException*/SelfOuter* self, uint8 pbChangeUnitId, uint32 pcbIdSize) GetChangeUnitId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitException*/SelfOuter* self, Guid riid, void ppUnk) GetClockVector;
 	}
 
 
-	public HRESULT GetItemId(uint8* pbItemId, uint32* pcbIdSize) mut => VT.[Friend]GetItemId(&this, pbItemId, pcbIdSize);
+	public HRESULT GetItemId(uint8 pbItemId, uint32 pcbIdSize) mut => VT.[Friend]GetItemId(&this, pbItemId, pcbIdSize);
 
-	public HRESULT GetChangeUnitId(uint8* pbChangeUnitId, uint32* pcbIdSize) mut => VT.[Friend]GetChangeUnitId(&this, pbChangeUnitId, pcbIdSize);
+	public HRESULT GetChangeUnitId(uint8 pbChangeUnitId, uint32 pcbIdSize) mut => VT.[Friend]GetChangeUnitId(&this, pbChangeUnitId, pcbIdSize);
 
-	public HRESULT GetClockVector(Guid riid, void** ppUnk) mut => VT.[Friend]GetClockVector(&this, riid, ppUnk);
+	public HRESULT GetClockVector(Guid riid, void ppUnk) mut => VT.[Friend]GetClockVector(&this, riid, ppUnk);
 }
 
 [CRepr]struct IEnumChangeUnitExceptions : IUnknown
@@ -577,20 +577,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumChangeUnitExceptions*/SelfOuter* self, uint32 cExceptions, IChangeUnitException** ppChangeUnitException, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumChangeUnitExceptions*/SelfOuter* self, uint32 cExceptions, IChangeUnitException* ppChangeUnitException, uint32 pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumChangeUnitExceptions*/SelfOuter* self, uint32 cExceptions) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumChangeUnitExceptions*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumChangeUnitExceptions*/SelfOuter* self, IEnumChangeUnitExceptions** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumChangeUnitExceptions*/SelfOuter* self, IEnumChangeUnitExceptions* ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cExceptions, IChangeUnitException** ppChangeUnitException, uint32* pcFetched) mut => VT.[Friend]Next(&this, cExceptions, ppChangeUnitException, pcFetched);
+	public HRESULT Next(uint32 cExceptions, IChangeUnitException* ppChangeUnitException, uint32 pcFetched) mut => VT.[Friend]Next(&this, cExceptions, ppChangeUnitException, pcFetched);
 
 	public HRESULT Skip(uint32 cExceptions) mut => VT.[Friend]Skip(&this, cExceptions);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumChangeUnitExceptions** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumChangeUnitExceptions* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct IReplicaKeyMap : IUnknown
@@ -601,17 +601,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReplicaKeyMap*/SelfOuter* self, uint8* pbReplicaId, uint32* pdwReplicaKey) LookupReplicaKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReplicaKeyMap*/SelfOuter* self, uint32 dwReplicaKey, uint8* pbReplicaId, uint32* pcbIdSize) LookupReplicaId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReplicaKeyMap*/SelfOuter* self, uint8* pbReplicaKeyMap, uint32* pcbReplicaKeyMap) Serialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReplicaKeyMap*/SelfOuter* self, uint8 pbReplicaId, uint32 pdwReplicaKey) LookupReplicaKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReplicaKeyMap*/SelfOuter* self, uint32 dwReplicaKey, uint8 pbReplicaId, uint32 pcbIdSize) LookupReplicaId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReplicaKeyMap*/SelfOuter* self, uint8 pbReplicaKeyMap, uint32 pcbReplicaKeyMap) Serialize;
 	}
 
 
-	public HRESULT LookupReplicaKey(uint8* pbReplicaId, uint32* pdwReplicaKey) mut => VT.[Friend]LookupReplicaKey(&this, pbReplicaId, pdwReplicaKey);
+	public HRESULT LookupReplicaKey(uint8 pbReplicaId, uint32 pdwReplicaKey) mut => VT.[Friend]LookupReplicaKey(&this, pbReplicaId, pdwReplicaKey);
 
-	public HRESULT LookupReplicaId(uint32 dwReplicaKey, uint8* pbReplicaId, uint32* pcbIdSize) mut => VT.[Friend]LookupReplicaId(&this, dwReplicaKey, pbReplicaId, pcbIdSize);
+	public HRESULT LookupReplicaId(uint32 dwReplicaKey, uint8 pbReplicaId, uint32 pcbIdSize) mut => VT.[Friend]LookupReplicaId(&this, dwReplicaKey, pbReplicaId, pcbIdSize);
 
-	public HRESULT Serialize(uint8* pbReplicaKeyMap, uint32* pcbReplicaKeyMap) mut => VT.[Friend]Serialize(&this, pbReplicaKeyMap, pcbReplicaKeyMap);
+	public HRESULT Serialize(uint8 pbReplicaKeyMap, uint32 pcbReplicaKeyMap) mut => VT.[Friend]Serialize(&this, pbReplicaKeyMap, pcbReplicaKeyMap);
 }
 
 [CRepr]struct IConstructReplicaKeyMap : IUnknown
@@ -622,11 +622,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstructReplicaKeyMap*/SelfOuter* self, uint8* pbReplicaId, uint32* pdwReplicaKey) FindOrAddReplica;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstructReplicaKeyMap*/SelfOuter* self, uint8 pbReplicaId, uint32 pdwReplicaKey) FindOrAddReplica;
 	}
 
 
-	public HRESULT FindOrAddReplica(uint8* pbReplicaId, uint32* pdwReplicaKey) mut => VT.[Friend]FindOrAddReplica(&this, pbReplicaId, pdwReplicaKey);
+	public HRESULT FindOrAddReplica(uint8 pbReplicaId, uint32 pdwReplicaKey) mut => VT.[Friend]FindOrAddReplica(&this, pbReplicaId, pdwReplicaKey);
 }
 
 [CRepr]struct ISyncKnowledge : IUnknown
@@ -637,80 +637,80 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8* pbReplicaId, uint32* pcbIdSize) GetOwnerReplicaId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, BOOL fSerializeReplicaKeyMap, uint8* pbKnowledge, uint32* pcbKnowledge) Serialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8 pbReplicaId, uint32 pcbIdSize) GetOwnerReplicaId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, BOOL fSerializeReplicaKeyMap, uint8 pbKnowledge, uint32 pcbKnowledge) Serialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint64 ullTickCount) SetLocalTickCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8* pbVersionOwnerReplicaId, uint8* pgidItemId, SYNC_VERSION* pSyncVersion) ContainsChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8* pbVersionOwnerReplicaId, uint8* pbItemId, uint8* pbChangeUnitId, SYNC_VERSION* pSyncVersion) ContainsChangeUnit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, Guid riid, void** ppUnk) GetScopeVector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, IReplicaKeyMap** ppReplicaKeyMap) GetReplicaKeyMap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, ISyncKnowledge** ppClonedKnowledge) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, ISyncKnowledge* pKnowledgeIn, uint8* pbCurrentOwnerId, SYNC_VERSION* pVersionIn, uint8* pbNewOwnerId, uint32* pcbIdSize, SYNC_VERSION* pVersionOut) ConvertVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, ISyncKnowledge* pRemoteKnowledge, ISyncKnowledge** ppMappedKnowledge) MapRemoteToLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8 pbVersionOwnerReplicaId, uint8 pgidItemId, SYNC_VERSION pSyncVersion) ContainsChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8 pbVersionOwnerReplicaId, uint8 pbItemId, uint8 pbChangeUnitId, SYNC_VERSION pSyncVersion) ContainsChangeUnit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, Guid riid, void ppUnk) GetScopeVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, IReplicaKeyMap* ppReplicaKeyMap) GetReplicaKeyMap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, ISyncKnowledge* ppClonedKnowledge) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, ISyncKnowledge* pKnowledgeIn, uint8 pbCurrentOwnerId, SYNC_VERSION pVersionIn, uint8 pbNewOwnerId, uint32 pcbIdSize, SYNC_VERSION pVersionOut) ConvertVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, ISyncKnowledge* pRemoteKnowledge, ISyncKnowledge* ppMappedKnowledge) MapRemoteToLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, ISyncKnowledge* pKnowledge) Union;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8* pbItemId, ISyncKnowledge** ppKnowledgeOut) ProjectOntoItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8* pbItemId, uint8* pbChangeUnitId, ISyncKnowledge** ppKnowledgeOut) ProjectOntoChangeUnit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, SYNC_RANGE* psrngSyncRange, ISyncKnowledge** ppKnowledgeOut) ProjectOntoRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8* pbItemId) ExcludeItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8* pbItemId, uint8* pbChangeUnitId) ExcludeChangeUnit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8 pbItemId, ISyncKnowledge* ppKnowledgeOut) ProjectOntoItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8 pbItemId, uint8 pbChangeUnitId, ISyncKnowledge* ppKnowledgeOut) ProjectOntoChangeUnit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, SYNC_RANGE psrngSyncRange, ISyncKnowledge* ppKnowledgeOut) ProjectOntoRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8 pbItemId) ExcludeItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8 pbItemId, uint8 pbChangeUnitId) ExcludeChangeUnit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, ISyncKnowledge* pKnowledge) ContainsKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8* pbReplicaId, uint64* pullReplicaTickCount) FindMinTickCountForReplica;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, Guid riid, void** ppUnk) GetRangeExceptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, Guid riid, void** ppUnk) GetSingleItemExceptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, Guid riid, void** ppUnk) GetChangeUnitExceptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8* pbItemId, Guid riid, void** ppUnk) FindClockVectorForItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8* pbItemId, uint8* pbChangeUnitId, Guid riid, void** ppUnk) FindClockVectorForChangeUnit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint32* pdwVersion) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8 pbReplicaId, uint64 pullReplicaTickCount) FindMinTickCountForReplica;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, Guid riid, void ppUnk) GetRangeExceptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, Guid riid, void ppUnk) GetSingleItemExceptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, Guid riid, void ppUnk) GetChangeUnitExceptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8 pbItemId, Guid riid, void ppUnk) FindClockVectorForItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint8 pbItemId, uint8 pbChangeUnitId, Guid riid, void ppUnk) FindClockVectorForChangeUnit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge*/SelfOuter* self, uint32 pdwVersion) GetVersion;
 	}
 
 
-	public HRESULT GetOwnerReplicaId(uint8* pbReplicaId, uint32* pcbIdSize) mut => VT.[Friend]GetOwnerReplicaId(&this, pbReplicaId, pcbIdSize);
+	public HRESULT GetOwnerReplicaId(uint8 pbReplicaId, uint32 pcbIdSize) mut => VT.[Friend]GetOwnerReplicaId(&this, pbReplicaId, pcbIdSize);
 
-	public HRESULT Serialize(BOOL fSerializeReplicaKeyMap, uint8* pbKnowledge, uint32* pcbKnowledge) mut => VT.[Friend]Serialize(&this, fSerializeReplicaKeyMap, pbKnowledge, pcbKnowledge);
+	public HRESULT Serialize(BOOL fSerializeReplicaKeyMap, uint8 pbKnowledge, uint32 pcbKnowledge) mut => VT.[Friend]Serialize(&this, fSerializeReplicaKeyMap, pbKnowledge, pcbKnowledge);
 
 	public HRESULT SetLocalTickCount(uint64 ullTickCount) mut => VT.[Friend]SetLocalTickCount(&this, ullTickCount);
 
-	public HRESULT ContainsChange(uint8* pbVersionOwnerReplicaId, uint8* pgidItemId, SYNC_VERSION* pSyncVersion) mut => VT.[Friend]ContainsChange(&this, pbVersionOwnerReplicaId, pgidItemId, pSyncVersion);
+	public HRESULT ContainsChange(uint8 pbVersionOwnerReplicaId, uint8 pgidItemId, SYNC_VERSION pSyncVersion) mut => VT.[Friend]ContainsChange(&this, pbVersionOwnerReplicaId, pgidItemId, pSyncVersion);
 
-	public HRESULT ContainsChangeUnit(uint8* pbVersionOwnerReplicaId, uint8* pbItemId, uint8* pbChangeUnitId, SYNC_VERSION* pSyncVersion) mut => VT.[Friend]ContainsChangeUnit(&this, pbVersionOwnerReplicaId, pbItemId, pbChangeUnitId, pSyncVersion);
+	public HRESULT ContainsChangeUnit(uint8 pbVersionOwnerReplicaId, uint8 pbItemId, uint8 pbChangeUnitId, SYNC_VERSION pSyncVersion) mut => VT.[Friend]ContainsChangeUnit(&this, pbVersionOwnerReplicaId, pbItemId, pbChangeUnitId, pSyncVersion);
 
-	public HRESULT GetScopeVector(Guid riid, void** ppUnk) mut => VT.[Friend]GetScopeVector(&this, riid, ppUnk);
+	public HRESULT GetScopeVector(Guid riid, void ppUnk) mut => VT.[Friend]GetScopeVector(&this, riid, ppUnk);
 
-	public HRESULT GetReplicaKeyMap(IReplicaKeyMap** ppReplicaKeyMap) mut => VT.[Friend]GetReplicaKeyMap(&this, ppReplicaKeyMap);
+	public HRESULT GetReplicaKeyMap(IReplicaKeyMap* ppReplicaKeyMap) mut => VT.[Friend]GetReplicaKeyMap(&this, ppReplicaKeyMap);
 
-	public HRESULT Clone(ISyncKnowledge** ppClonedKnowledge) mut => VT.[Friend]Clone(&this, ppClonedKnowledge);
+	public HRESULT Clone(ISyncKnowledge* ppClonedKnowledge) mut => VT.[Friend]Clone(&this, ppClonedKnowledge);
 
-	public HRESULT ConvertVersion(ISyncKnowledge* pKnowledgeIn, uint8* pbCurrentOwnerId, SYNC_VERSION* pVersionIn, uint8* pbNewOwnerId, uint32* pcbIdSize, SYNC_VERSION* pVersionOut) mut => VT.[Friend]ConvertVersion(&this, pKnowledgeIn, pbCurrentOwnerId, pVersionIn, pbNewOwnerId, pcbIdSize, pVersionOut);
+	public HRESULT ConvertVersion(ISyncKnowledge* pKnowledgeIn, uint8 pbCurrentOwnerId, SYNC_VERSION pVersionIn, uint8 pbNewOwnerId, uint32 pcbIdSize, SYNC_VERSION pVersionOut) mut => VT.[Friend]ConvertVersion(&this, pKnowledgeIn, pbCurrentOwnerId, pVersionIn, pbNewOwnerId, pcbIdSize, pVersionOut);
 
-	public HRESULT MapRemoteToLocal(ISyncKnowledge* pRemoteKnowledge, ISyncKnowledge** ppMappedKnowledge) mut => VT.[Friend]MapRemoteToLocal(&this, pRemoteKnowledge, ppMappedKnowledge);
+	public HRESULT MapRemoteToLocal(ISyncKnowledge* pRemoteKnowledge, ISyncKnowledge* ppMappedKnowledge) mut => VT.[Friend]MapRemoteToLocal(&this, pRemoteKnowledge, ppMappedKnowledge);
 
 	public HRESULT Union(ISyncKnowledge* pKnowledge) mut => VT.[Friend]Union(&this, pKnowledge);
 
-	public HRESULT ProjectOntoItem(uint8* pbItemId, ISyncKnowledge** ppKnowledgeOut) mut => VT.[Friend]ProjectOntoItem(&this, pbItemId, ppKnowledgeOut);
+	public HRESULT ProjectOntoItem(uint8 pbItemId, ISyncKnowledge* ppKnowledgeOut) mut => VT.[Friend]ProjectOntoItem(&this, pbItemId, ppKnowledgeOut);
 
-	public HRESULT ProjectOntoChangeUnit(uint8* pbItemId, uint8* pbChangeUnitId, ISyncKnowledge** ppKnowledgeOut) mut => VT.[Friend]ProjectOntoChangeUnit(&this, pbItemId, pbChangeUnitId, ppKnowledgeOut);
+	public HRESULT ProjectOntoChangeUnit(uint8 pbItemId, uint8 pbChangeUnitId, ISyncKnowledge* ppKnowledgeOut) mut => VT.[Friend]ProjectOntoChangeUnit(&this, pbItemId, pbChangeUnitId, ppKnowledgeOut);
 
-	public HRESULT ProjectOntoRange(SYNC_RANGE* psrngSyncRange, ISyncKnowledge** ppKnowledgeOut) mut => VT.[Friend]ProjectOntoRange(&this, psrngSyncRange, ppKnowledgeOut);
+	public HRESULT ProjectOntoRange(SYNC_RANGE psrngSyncRange, ISyncKnowledge* ppKnowledgeOut) mut => VT.[Friend]ProjectOntoRange(&this, psrngSyncRange, ppKnowledgeOut);
 
-	public HRESULT ExcludeItem(uint8* pbItemId) mut => VT.[Friend]ExcludeItem(&this, pbItemId);
+	public HRESULT ExcludeItem(uint8 pbItemId) mut => VT.[Friend]ExcludeItem(&this, pbItemId);
 
-	public HRESULT ExcludeChangeUnit(uint8* pbItemId, uint8* pbChangeUnitId) mut => VT.[Friend]ExcludeChangeUnit(&this, pbItemId, pbChangeUnitId);
+	public HRESULT ExcludeChangeUnit(uint8 pbItemId, uint8 pbChangeUnitId) mut => VT.[Friend]ExcludeChangeUnit(&this, pbItemId, pbChangeUnitId);
 
 	public HRESULT ContainsKnowledge(ISyncKnowledge* pKnowledge) mut => VT.[Friend]ContainsKnowledge(&this, pKnowledge);
 
-	public HRESULT FindMinTickCountForReplica(uint8* pbReplicaId, uint64* pullReplicaTickCount) mut => VT.[Friend]FindMinTickCountForReplica(&this, pbReplicaId, pullReplicaTickCount);
+	public HRESULT FindMinTickCountForReplica(uint8 pbReplicaId, uint64 pullReplicaTickCount) mut => VT.[Friend]FindMinTickCountForReplica(&this, pbReplicaId, pullReplicaTickCount);
 
-	public HRESULT GetRangeExceptions(Guid riid, void** ppUnk) mut => VT.[Friend]GetRangeExceptions(&this, riid, ppUnk);
+	public HRESULT GetRangeExceptions(Guid riid, void ppUnk) mut => VT.[Friend]GetRangeExceptions(&this, riid, ppUnk);
 
-	public HRESULT GetSingleItemExceptions(Guid riid, void** ppUnk) mut => VT.[Friend]GetSingleItemExceptions(&this, riid, ppUnk);
+	public HRESULT GetSingleItemExceptions(Guid riid, void ppUnk) mut => VT.[Friend]GetSingleItemExceptions(&this, riid, ppUnk);
 
-	public HRESULT GetChangeUnitExceptions(Guid riid, void** ppUnk) mut => VT.[Friend]GetChangeUnitExceptions(&this, riid, ppUnk);
+	public HRESULT GetChangeUnitExceptions(Guid riid, void ppUnk) mut => VT.[Friend]GetChangeUnitExceptions(&this, riid, ppUnk);
 
-	public HRESULT FindClockVectorForItem(uint8* pbItemId, Guid riid, void** ppUnk) mut => VT.[Friend]FindClockVectorForItem(&this, pbItemId, riid, ppUnk);
+	public HRESULT FindClockVectorForItem(uint8 pbItemId, Guid riid, void ppUnk) mut => VT.[Friend]FindClockVectorForItem(&this, pbItemId, riid, ppUnk);
 
-	public HRESULT FindClockVectorForChangeUnit(uint8* pbItemId, uint8* pbChangeUnitId, Guid riid, void** ppUnk) mut => VT.[Friend]FindClockVectorForChangeUnit(&this, pbItemId, pbChangeUnitId, riid, ppUnk);
+	public HRESULT FindClockVectorForChangeUnit(uint8 pbItemId, uint8 pbChangeUnitId, Guid riid, void ppUnk) mut => VT.[Friend]FindClockVectorForChangeUnit(&this, pbItemId, pbChangeUnitId, riid, ppUnk);
 
-	public HRESULT GetVersion(uint32* pdwVersion) mut => VT.[Friend]GetVersion(&this, pdwVersion);
+	public HRESULT GetVersion(uint32 pdwVersion) mut => VT.[Friend]GetVersion(&this, pdwVersion);
 }
 
 [CRepr]struct IForgottenKnowledge : ISyncKnowledge
@@ -721,11 +721,11 @@ public static
 
 	[CRepr]public struct VTable : ISyncKnowledge.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IForgottenKnowledge*/SelfOuter* self, ISyncKnowledge* pKnowledge, SYNC_VERSION* pVersion) ForgetToVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IForgottenKnowledge*/SelfOuter* self, ISyncKnowledge* pKnowledge, SYNC_VERSION pVersion) ForgetToVersion;
 	}
 
 
-	public HRESULT ForgetToVersion(ISyncKnowledge* pKnowledge, SYNC_VERSION* pVersion) mut => VT.[Friend]ForgetToVersion(&this, pKnowledge, pVersion);
+	public HRESULT ForgetToVersion(ISyncKnowledge* pKnowledge, SYNC_VERSION pVersion) mut => VT.[Friend]ForgetToVersion(&this, pKnowledge, pVersion);
 }
 
 [CRepr]struct ISyncKnowledge2 : ISyncKnowledge
@@ -736,50 +736,50 @@ public static
 
 	[CRepr]public struct VTable : ISyncKnowledge.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ID_PARAMETERS* pIdParameters) GetIdParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, uint8** ppColumns, uint32 count, ISyncKnowledge2** ppiKnowledgeOut) ProjectOntoColumnSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, SYNC_SERIALIZATION_VERSION targetFormatVersion, uint32 dwFlags, uint8* pbBuffer, uint32* pdwSerializedSize) SerializeWithOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge2* piSyncKnowledge, uint8* pbItemId, uint32* pcbItemIdSize) GetLowestUncontainedId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, Guid riid, void** ppiInspector) GetInspector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, SYNC_SERIALIZATION_VERSION* pVersion) GetMinimumSupportedVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, SYNC_STATISTICS which, uint32* pValue) GetStatistics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge* pKnowledge, uint8* pbItemId) ContainsKnowledgeForItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge* pKnowledge, uint8* pbItemId, uint8* pbChangeUnitId) ContainsKnowledgeForChangeUnit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge* pPrerequisiteKnowledge, ISyncKnowledge* pTemplateKnowledge, ISyncKnowledge** ppProjectedKnowledge) ProjectOntoKnowledgeWithPrerequisite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge* pSyncKnowledge, ISyncKnowledge** ppComplementedKnowledge) Complement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ID_PARAMETERS pIdParameters) GetIdParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, uint8 ppColumns, uint32 count, ISyncKnowledge2* ppiKnowledgeOut) ProjectOntoColumnSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, SYNC_SERIALIZATION_VERSION targetFormatVersion, uint32 dwFlags, uint8 pbBuffer, uint32 pdwSerializedSize) SerializeWithOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge2* piSyncKnowledge, uint8 pbItemId, uint32 pcbItemIdSize) GetLowestUncontainedId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, Guid riid, void ppiInspector) GetInspector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, SYNC_SERIALIZATION_VERSION pVersion) GetMinimumSupportedVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, SYNC_STATISTICS which, uint32 pValue) GetStatistics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge* pKnowledge, uint8 pbItemId) ContainsKnowledgeForItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge* pKnowledge, uint8 pbItemId, uint8 pbChangeUnitId) ContainsKnowledgeForChangeUnit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge* pPrerequisiteKnowledge, ISyncKnowledge* pTemplateKnowledge, ISyncKnowledge* ppProjectedKnowledge) ProjectOntoKnowledgeWithPrerequisite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge* pSyncKnowledge, ISyncKnowledge* ppComplementedKnowledge) Complement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, ISyncKnowledge* pSyncKnowledge) IntersectsWithKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, IUnknown** ppKnowledgeCookie) GetKnowledgeCookie;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, IUnknown* pKnowledgeCookie, KNOWLEDGE_COOKIE_COMPARISON_RESULT* pResult) CompareToKnowledgeCookie;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, IUnknown* ppKnowledgeCookie) GetKnowledgeCookie;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncKnowledge2*/SelfOuter* self, IUnknown* pKnowledgeCookie, KNOWLEDGE_COOKIE_COMPARISON_RESULT pResult) CompareToKnowledgeCookie;
 	}
 
 
-	public HRESULT GetIdParameters(ID_PARAMETERS* pIdParameters) mut => VT.[Friend]GetIdParameters(&this, pIdParameters);
+	public HRESULT GetIdParameters(ID_PARAMETERS pIdParameters) mut => VT.[Friend]GetIdParameters(&this, pIdParameters);
 
-	public HRESULT ProjectOntoColumnSet(uint8** ppColumns, uint32 count, ISyncKnowledge2** ppiKnowledgeOut) mut => VT.[Friend]ProjectOntoColumnSet(&this, ppColumns, count, ppiKnowledgeOut);
+	public HRESULT ProjectOntoColumnSet(uint8 ppColumns, uint32 count, ISyncKnowledge2* ppiKnowledgeOut) mut => VT.[Friend]ProjectOntoColumnSet(&this, ppColumns, count, ppiKnowledgeOut);
 
-	public HRESULT SerializeWithOptions(SYNC_SERIALIZATION_VERSION targetFormatVersion, uint32 dwFlags, uint8* pbBuffer, uint32* pdwSerializedSize) mut => VT.[Friend]SerializeWithOptions(&this, targetFormatVersion, dwFlags, pbBuffer, pdwSerializedSize);
+	public HRESULT SerializeWithOptions(SYNC_SERIALIZATION_VERSION targetFormatVersion, uint32 dwFlags, uint8 pbBuffer, uint32 pdwSerializedSize) mut => VT.[Friend]SerializeWithOptions(&this, targetFormatVersion, dwFlags, pbBuffer, pdwSerializedSize);
 
-	public HRESULT GetLowestUncontainedId(ISyncKnowledge2* piSyncKnowledge, uint8* pbItemId, uint32* pcbItemIdSize) mut => VT.[Friend]GetLowestUncontainedId(&this, piSyncKnowledge, pbItemId, pcbItemIdSize);
+	public HRESULT GetLowestUncontainedId(ISyncKnowledge2* piSyncKnowledge, uint8 pbItemId, uint32 pcbItemIdSize) mut => VT.[Friend]GetLowestUncontainedId(&this, piSyncKnowledge, pbItemId, pcbItemIdSize);
 
-	public HRESULT GetInspector(Guid riid, void** ppiInspector) mut => VT.[Friend]GetInspector(&this, riid, ppiInspector);
+	public HRESULT GetInspector(Guid riid, void ppiInspector) mut => VT.[Friend]GetInspector(&this, riid, ppiInspector);
 
-	public HRESULT GetMinimumSupportedVersion(SYNC_SERIALIZATION_VERSION* pVersion) mut => VT.[Friend]GetMinimumSupportedVersion(&this, pVersion);
+	public HRESULT GetMinimumSupportedVersion(SYNC_SERIALIZATION_VERSION pVersion) mut => VT.[Friend]GetMinimumSupportedVersion(&this, pVersion);
 
-	public HRESULT GetStatistics(SYNC_STATISTICS which, uint32* pValue) mut => VT.[Friend]GetStatistics(&this, which, pValue);
+	public HRESULT GetStatistics(SYNC_STATISTICS which, uint32 pValue) mut => VT.[Friend]GetStatistics(&this, which, pValue);
 
-	public HRESULT ContainsKnowledgeForItem(ISyncKnowledge* pKnowledge, uint8* pbItemId) mut => VT.[Friend]ContainsKnowledgeForItem(&this, pKnowledge, pbItemId);
+	public HRESULT ContainsKnowledgeForItem(ISyncKnowledge* pKnowledge, uint8 pbItemId) mut => VT.[Friend]ContainsKnowledgeForItem(&this, pKnowledge, pbItemId);
 
-	public HRESULT ContainsKnowledgeForChangeUnit(ISyncKnowledge* pKnowledge, uint8* pbItemId, uint8* pbChangeUnitId) mut => VT.[Friend]ContainsKnowledgeForChangeUnit(&this, pKnowledge, pbItemId, pbChangeUnitId);
+	public HRESULT ContainsKnowledgeForChangeUnit(ISyncKnowledge* pKnowledge, uint8 pbItemId, uint8 pbChangeUnitId) mut => VT.[Friend]ContainsKnowledgeForChangeUnit(&this, pKnowledge, pbItemId, pbChangeUnitId);
 
-	public HRESULT ProjectOntoKnowledgeWithPrerequisite(ISyncKnowledge* pPrerequisiteKnowledge, ISyncKnowledge* pTemplateKnowledge, ISyncKnowledge** ppProjectedKnowledge) mut => VT.[Friend]ProjectOntoKnowledgeWithPrerequisite(&this, pPrerequisiteKnowledge, pTemplateKnowledge, ppProjectedKnowledge);
+	public HRESULT ProjectOntoKnowledgeWithPrerequisite(ISyncKnowledge* pPrerequisiteKnowledge, ISyncKnowledge* pTemplateKnowledge, ISyncKnowledge* ppProjectedKnowledge) mut => VT.[Friend]ProjectOntoKnowledgeWithPrerequisite(&this, pPrerequisiteKnowledge, pTemplateKnowledge, ppProjectedKnowledge);
 
-	public HRESULT Complement(ISyncKnowledge* pSyncKnowledge, ISyncKnowledge** ppComplementedKnowledge) mut => VT.[Friend]Complement(&this, pSyncKnowledge, ppComplementedKnowledge);
+	public HRESULT Complement(ISyncKnowledge* pSyncKnowledge, ISyncKnowledge* ppComplementedKnowledge) mut => VT.[Friend]Complement(&this, pSyncKnowledge, ppComplementedKnowledge);
 
 	public HRESULT IntersectsWithKnowledge(ISyncKnowledge* pSyncKnowledge) mut => VT.[Friend]IntersectsWithKnowledge(&this, pSyncKnowledge);
 
-	public HRESULT GetKnowledgeCookie(IUnknown** ppKnowledgeCookie) mut => VT.[Friend]GetKnowledgeCookie(&this, ppKnowledgeCookie);
+	public HRESULT GetKnowledgeCookie(IUnknown* ppKnowledgeCookie) mut => VT.[Friend]GetKnowledgeCookie(&this, ppKnowledgeCookie);
 
-	public HRESULT CompareToKnowledgeCookie(IUnknown* pKnowledgeCookie, KNOWLEDGE_COOKIE_COMPARISON_RESULT* pResult) mut => VT.[Friend]CompareToKnowledgeCookie(&this, pKnowledgeCookie, pResult);
+	public HRESULT CompareToKnowledgeCookie(IUnknown* pKnowledgeCookie, KNOWLEDGE_COOKIE_COMPARISON_RESULT pResult) mut => VT.[Friend]CompareToKnowledgeCookie(&this, pKnowledgeCookie, pResult);
 }
 
 [CRepr]struct IRecoverableErrorData : IUnknown
@@ -791,16 +791,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableErrorData*/SelfOuter* self, PWSTR pcszItemDisplayName, PWSTR pcszErrorDescription) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableErrorData*/SelfOuter* self, PWSTR pszItemDisplayName, uint32* pcchItemDisplayName) GetItemDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableErrorData*/SelfOuter* self, PWSTR pszErrorDescription, uint32* pcchErrorDescription) GetErrorDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableErrorData*/SelfOuter* self, PWSTR pszItemDisplayName, uint32 pcchItemDisplayName) GetItemDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableErrorData*/SelfOuter* self, PWSTR pszErrorDescription, uint32 pcchErrorDescription) GetErrorDescription;
 	}
 
 
 	public HRESULT Initialize(PWSTR pcszItemDisplayName, PWSTR pcszErrorDescription) mut => VT.[Friend]Initialize(&this, pcszItemDisplayName, pcszErrorDescription);
 
-	public HRESULT GetItemDisplayName(PWSTR pszItemDisplayName, uint32* pcchItemDisplayName) mut => VT.[Friend]GetItemDisplayName(&this, pszItemDisplayName, pcchItemDisplayName);
+	public HRESULT GetItemDisplayName(PWSTR pszItemDisplayName, uint32 pcchItemDisplayName) mut => VT.[Friend]GetItemDisplayName(&this, pszItemDisplayName, pcchItemDisplayName);
 
-	public HRESULT GetErrorDescription(PWSTR pszErrorDescription, uint32* pcchErrorDescription) mut => VT.[Friend]GetErrorDescription(&this, pszErrorDescription, pcchErrorDescription);
+	public HRESULT GetErrorDescription(PWSTR pszErrorDescription, uint32 pcchErrorDescription) mut => VT.[Friend]GetErrorDescription(&this, pszErrorDescription, pcchErrorDescription);
 }
 
 [CRepr]struct IRecoverableError : IUnknown
@@ -811,23 +811,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableError*/SelfOuter* self, SYNC_PROGRESS_STAGE* pStage) GetStage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableError*/SelfOuter* self, SYNC_PROVIDER_ROLE* pProviderRole) GetProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableError*/SelfOuter* self, ISyncChange** ppChangeWithRecoverableError) GetChangeWithRecoverableError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableError*/SelfOuter* self, HRESULT* phrError, IRecoverableErrorData** ppErrorData) GetRecoverableErrorDataForChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableError*/SelfOuter* self, ISyncChangeUnit* pChangeUnit, HRESULT* phrError, IRecoverableErrorData** ppErrorData) GetRecoverableErrorDataForChangeUnit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableError*/SelfOuter* self, SYNC_PROGRESS_STAGE pStage) GetStage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableError*/SelfOuter* self, SYNC_PROVIDER_ROLE pProviderRole) GetProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableError*/SelfOuter* self, ISyncChange* ppChangeWithRecoverableError) GetChangeWithRecoverableError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableError*/SelfOuter* self, HRESULT phrError, IRecoverableErrorData* ppErrorData) GetRecoverableErrorDataForChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRecoverableError*/SelfOuter* self, ISyncChangeUnit* pChangeUnit, HRESULT phrError, IRecoverableErrorData* ppErrorData) GetRecoverableErrorDataForChangeUnit;
 	}
 
 
-	public HRESULT GetStage(SYNC_PROGRESS_STAGE* pStage) mut => VT.[Friend]GetStage(&this, pStage);
+	public HRESULT GetStage(SYNC_PROGRESS_STAGE pStage) mut => VT.[Friend]GetStage(&this, pStage);
 
-	public HRESULT GetProvider(SYNC_PROVIDER_ROLE* pProviderRole) mut => VT.[Friend]GetProvider(&this, pProviderRole);
+	public HRESULT GetProvider(SYNC_PROVIDER_ROLE pProviderRole) mut => VT.[Friend]GetProvider(&this, pProviderRole);
 
-	public HRESULT GetChangeWithRecoverableError(ISyncChange** ppChangeWithRecoverableError) mut => VT.[Friend]GetChangeWithRecoverableError(&this, ppChangeWithRecoverableError);
+	public HRESULT GetChangeWithRecoverableError(ISyncChange* ppChangeWithRecoverableError) mut => VT.[Friend]GetChangeWithRecoverableError(&this, ppChangeWithRecoverableError);
 
-	public HRESULT GetRecoverableErrorDataForChange(HRESULT* phrError, IRecoverableErrorData** ppErrorData) mut => VT.[Friend]GetRecoverableErrorDataForChange(&this, phrError, ppErrorData);
+	public HRESULT GetRecoverableErrorDataForChange(HRESULT phrError, IRecoverableErrorData* ppErrorData) mut => VT.[Friend]GetRecoverableErrorDataForChange(&this, phrError, ppErrorData);
 
-	public HRESULT GetRecoverableErrorDataForChangeUnit(ISyncChangeUnit* pChangeUnit, HRESULT* phrError, IRecoverableErrorData** ppErrorData) mut => VT.[Friend]GetRecoverableErrorDataForChangeUnit(&this, pChangeUnit, phrError, ppErrorData);
+	public HRESULT GetRecoverableErrorDataForChangeUnit(ISyncChangeUnit* pChangeUnit, HRESULT phrError, IRecoverableErrorData* ppErrorData) mut => VT.[Friend]GetRecoverableErrorDataForChangeUnit(&this, pChangeUnit, phrError, ppErrorData);
 }
 
 [CRepr]struct IChangeConflict : IUnknown
@@ -838,30 +838,30 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, ISyncChange** ppConflictingChange) GetDestinationProviderConflictingChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, ISyncChange** ppConflictingChange) GetSourceProviderConflictingChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, IUnknown** ppConflictingData) GetDestinationProviderConflictingData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, IUnknown** ppConflictingData) GetSourceProviderConflictingData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, SYNC_RESOLVE_ACTION* pResolveAction) GetResolveActionForChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, ISyncChange* ppConflictingChange) GetDestinationProviderConflictingChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, ISyncChange* ppConflictingChange) GetSourceProviderConflictingChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, IUnknown* ppConflictingData) GetDestinationProviderConflictingData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, IUnknown* ppConflictingData) GetSourceProviderConflictingData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, SYNC_RESOLVE_ACTION pResolveAction) GetResolveActionForChange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, SYNC_RESOLVE_ACTION resolveAction) SetResolveActionForChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, ISyncChangeUnit* pChangeUnit, SYNC_RESOLVE_ACTION* pResolveAction) GetResolveActionForChangeUnit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, ISyncChangeUnit* pChangeUnit, SYNC_RESOLVE_ACTION pResolveAction) GetResolveActionForChangeUnit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeConflict*/SelfOuter* self, ISyncChangeUnit* pChangeUnit, SYNC_RESOLVE_ACTION resolveAction) SetResolveActionForChangeUnit;
 	}
 
 
-	public HRESULT GetDestinationProviderConflictingChange(ISyncChange** ppConflictingChange) mut => VT.[Friend]GetDestinationProviderConflictingChange(&this, ppConflictingChange);
+	public HRESULT GetDestinationProviderConflictingChange(ISyncChange* ppConflictingChange) mut => VT.[Friend]GetDestinationProviderConflictingChange(&this, ppConflictingChange);
 
-	public HRESULT GetSourceProviderConflictingChange(ISyncChange** ppConflictingChange) mut => VT.[Friend]GetSourceProviderConflictingChange(&this, ppConflictingChange);
+	public HRESULT GetSourceProviderConflictingChange(ISyncChange* ppConflictingChange) mut => VT.[Friend]GetSourceProviderConflictingChange(&this, ppConflictingChange);
 
-	public HRESULT GetDestinationProviderConflictingData(IUnknown** ppConflictingData) mut => VT.[Friend]GetDestinationProviderConflictingData(&this, ppConflictingData);
+	public HRESULT GetDestinationProviderConflictingData(IUnknown* ppConflictingData) mut => VT.[Friend]GetDestinationProviderConflictingData(&this, ppConflictingData);
 
-	public HRESULT GetSourceProviderConflictingData(IUnknown** ppConflictingData) mut => VT.[Friend]GetSourceProviderConflictingData(&this, ppConflictingData);
+	public HRESULT GetSourceProviderConflictingData(IUnknown* ppConflictingData) mut => VT.[Friend]GetSourceProviderConflictingData(&this, ppConflictingData);
 
-	public HRESULT GetResolveActionForChange(SYNC_RESOLVE_ACTION* pResolveAction) mut => VT.[Friend]GetResolveActionForChange(&this, pResolveAction);
+	public HRESULT GetResolveActionForChange(SYNC_RESOLVE_ACTION pResolveAction) mut => VT.[Friend]GetResolveActionForChange(&this, pResolveAction);
 
 	public HRESULT SetResolveActionForChange(SYNC_RESOLVE_ACTION resolveAction) mut => VT.[Friend]SetResolveActionForChange(&this, resolveAction);
 
-	public HRESULT GetResolveActionForChangeUnit(ISyncChangeUnit* pChangeUnit, SYNC_RESOLVE_ACTION* pResolveAction) mut => VT.[Friend]GetResolveActionForChangeUnit(&this, pChangeUnit, pResolveAction);
+	public HRESULT GetResolveActionForChangeUnit(ISyncChangeUnit* pChangeUnit, SYNC_RESOLVE_ACTION pResolveAction) mut => VT.[Friend]GetResolveActionForChangeUnit(&this, pChangeUnit, pResolveAction);
 
 	public HRESULT SetResolveActionForChangeUnit(ISyncChangeUnit* pChangeUnit, SYNC_RESOLVE_ACTION resolveAction) mut => VT.[Friend]SetResolveActionForChangeUnit(&this, pChangeUnit, resolveAction);
 }
@@ -874,42 +874,42 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, ISyncChange** ppConflictingChange) GetDestinationProviderConflictingChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, ISyncChange** ppConflictingChange) GetSourceProviderConflictingChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, ISyncChange** ppOriginalChange) GetDestinationProviderOriginalChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, IUnknown** ppConflictingData) GetDestinationProviderConflictingData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, IUnknown** ppConflictingData) GetSourceProviderConflictingData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, IUnknown** ppOriginalData) GetDestinationProviderOriginalData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, SYNC_CONSTRAINT_RESOLVE_ACTION* pConstraintResolveAction) GetConstraintResolveActionForChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, ISyncChange* ppConflictingChange) GetDestinationProviderConflictingChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, ISyncChange* ppConflictingChange) GetSourceProviderConflictingChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, ISyncChange* ppOriginalChange) GetDestinationProviderOriginalChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, IUnknown* ppConflictingData) GetDestinationProviderConflictingData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, IUnknown* ppConflictingData) GetSourceProviderConflictingData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, IUnknown* ppOriginalData) GetDestinationProviderOriginalData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, SYNC_CONSTRAINT_RESOLVE_ACTION pConstraintResolveAction) GetConstraintResolveActionForChange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, SYNC_CONSTRAINT_RESOLVE_ACTION constraintResolveAction) SetConstraintResolveActionForChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, ISyncChangeUnit* pChangeUnit, SYNC_CONSTRAINT_RESOLVE_ACTION* pConstraintResolveAction) GetConstraintResolveActionForChangeUnit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, ISyncChangeUnit* pChangeUnit, SYNC_CONSTRAINT_RESOLVE_ACTION pConstraintResolveAction) GetConstraintResolveActionForChangeUnit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, ISyncChangeUnit* pChangeUnit, SYNC_CONSTRAINT_RESOLVE_ACTION constraintResolveAction) SetConstraintResolveActionForChangeUnit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, CONSTRAINT_CONFLICT_REASON* pConstraintConflictReason) GetConstraintConflictReason;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self, CONSTRAINT_CONFLICT_REASON pConstraintConflictReason) GetConstraintConflictReason;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConstraintConflict*/SelfOuter* self) IsTemporary;
 	}
 
 
-	public HRESULT GetDestinationProviderConflictingChange(ISyncChange** ppConflictingChange) mut => VT.[Friend]GetDestinationProviderConflictingChange(&this, ppConflictingChange);
+	public HRESULT GetDestinationProviderConflictingChange(ISyncChange* ppConflictingChange) mut => VT.[Friend]GetDestinationProviderConflictingChange(&this, ppConflictingChange);
 
-	public HRESULT GetSourceProviderConflictingChange(ISyncChange** ppConflictingChange) mut => VT.[Friend]GetSourceProviderConflictingChange(&this, ppConflictingChange);
+	public HRESULT GetSourceProviderConflictingChange(ISyncChange* ppConflictingChange) mut => VT.[Friend]GetSourceProviderConflictingChange(&this, ppConflictingChange);
 
-	public HRESULT GetDestinationProviderOriginalChange(ISyncChange** ppOriginalChange) mut => VT.[Friend]GetDestinationProviderOriginalChange(&this, ppOriginalChange);
+	public HRESULT GetDestinationProviderOriginalChange(ISyncChange* ppOriginalChange) mut => VT.[Friend]GetDestinationProviderOriginalChange(&this, ppOriginalChange);
 
-	public HRESULT GetDestinationProviderConflictingData(IUnknown** ppConflictingData) mut => VT.[Friend]GetDestinationProviderConflictingData(&this, ppConflictingData);
+	public HRESULT GetDestinationProviderConflictingData(IUnknown* ppConflictingData) mut => VT.[Friend]GetDestinationProviderConflictingData(&this, ppConflictingData);
 
-	public HRESULT GetSourceProviderConflictingData(IUnknown** ppConflictingData) mut => VT.[Friend]GetSourceProviderConflictingData(&this, ppConflictingData);
+	public HRESULT GetSourceProviderConflictingData(IUnknown* ppConflictingData) mut => VT.[Friend]GetSourceProviderConflictingData(&this, ppConflictingData);
 
-	public HRESULT GetDestinationProviderOriginalData(IUnknown** ppOriginalData) mut => VT.[Friend]GetDestinationProviderOriginalData(&this, ppOriginalData);
+	public HRESULT GetDestinationProviderOriginalData(IUnknown* ppOriginalData) mut => VT.[Friend]GetDestinationProviderOriginalData(&this, ppOriginalData);
 
-	public HRESULT GetConstraintResolveActionForChange(SYNC_CONSTRAINT_RESOLVE_ACTION* pConstraintResolveAction) mut => VT.[Friend]GetConstraintResolveActionForChange(&this, pConstraintResolveAction);
+	public HRESULT GetConstraintResolveActionForChange(SYNC_CONSTRAINT_RESOLVE_ACTION pConstraintResolveAction) mut => VT.[Friend]GetConstraintResolveActionForChange(&this, pConstraintResolveAction);
 
 	public HRESULT SetConstraintResolveActionForChange(SYNC_CONSTRAINT_RESOLVE_ACTION constraintResolveAction) mut => VT.[Friend]SetConstraintResolveActionForChange(&this, constraintResolveAction);
 
-	public HRESULT GetConstraintResolveActionForChangeUnit(ISyncChangeUnit* pChangeUnit, SYNC_CONSTRAINT_RESOLVE_ACTION* pConstraintResolveAction) mut => VT.[Friend]GetConstraintResolveActionForChangeUnit(&this, pChangeUnit, pConstraintResolveAction);
+	public HRESULT GetConstraintResolveActionForChangeUnit(ISyncChangeUnit* pChangeUnit, SYNC_CONSTRAINT_RESOLVE_ACTION pConstraintResolveAction) mut => VT.[Friend]GetConstraintResolveActionForChangeUnit(&this, pChangeUnit, pConstraintResolveAction);
 
 	public HRESULT SetConstraintResolveActionForChangeUnit(ISyncChangeUnit* pChangeUnit, SYNC_CONSTRAINT_RESOLVE_ACTION constraintResolveAction) mut => VT.[Friend]SetConstraintResolveActionForChangeUnit(&this, pChangeUnit, constraintResolveAction);
 
-	public HRESULT GetConstraintConflictReason(CONSTRAINT_CONFLICT_REASON* pConstraintConflictReason) mut => VT.[Friend]GetConstraintConflictReason(&this, pConstraintConflictReason);
+	public HRESULT GetConstraintConflictReason(CONSTRAINT_CONFLICT_REASON pConstraintConflictReason) mut => VT.[Friend]GetConstraintConflictReason(&this, pConstraintConflictReason);
 
 	public HRESULT IsTemporary() mut => VT.[Friend]IsTemporary(&this);
 }
@@ -925,7 +925,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncCallback*/SelfOuter* self, SYNC_PROVIDER_ROLE provider, SYNC_PROGRESS_STAGE syncStage, uint32 dwCompletedWork, uint32 dwTotalWork) OnProgress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncCallback*/SelfOuter* self, ISyncChange* pSyncChange) OnChange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncCallback*/SelfOuter* self, IChangeConflict* pConflict) OnConflict;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncCallback*/SelfOuter* self, SYNC_FULL_ENUMERATION_ACTION* pFullEnumerationAction) OnFullEnumerationNeeded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncCallback*/SelfOuter* self, SYNC_FULL_ENUMERATION_ACTION pFullEnumerationAction) OnFullEnumerationNeeded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncCallback*/SelfOuter* self, IRecoverableError* pRecoverableError) OnRecoverableError;
 	}
 
@@ -936,7 +936,7 @@ public static
 
 	public HRESULT OnConflict(IChangeConflict* pConflict) mut => VT.[Friend]OnConflict(&this, pConflict);
 
-	public HRESULT OnFullEnumerationNeeded(SYNC_FULL_ENUMERATION_ACTION* pFullEnumerationAction) mut => VT.[Friend]OnFullEnumerationNeeded(&this, pFullEnumerationAction);
+	public HRESULT OnFullEnumerationNeeded(SYNC_FULL_ENUMERATION_ACTION pFullEnumerationAction) mut => VT.[Friend]OnFullEnumerationNeeded(&this, pFullEnumerationAction);
 
 	public HRESULT OnRecoverableError(IRecoverableError* pRecoverableError) mut => VT.[Friend]OnRecoverableError(&this, pRecoverableError);
 }
@@ -982,11 +982,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProvider*/SelfOuter* self, ID_PARAMETERS* pIdParameters) GetIdParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProvider*/SelfOuter* self, ID_PARAMETERS pIdParameters) GetIdParameters;
 	}
 
 
-	public HRESULT GetIdParameters(ID_PARAMETERS* pIdParameters) mut => VT.[Friend]GetIdParameters(&this, pIdParameters);
+	public HRESULT GetIdParameters(ID_PARAMETERS pIdParameters) mut => VT.[Friend]GetIdParameters(&this, pIdParameters);
 }
 
 [CRepr]struct ISyncSessionState : IUnknown
@@ -997,27 +997,27 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, BOOL* pfIsCanceled) IsCanceled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, uint8* pbChangeApplierInfo, uint32* pcbChangeApplierInfo) GetInfoForChangeApplication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, uint8* pbChangeApplierInfo, uint32 cbChangeApplierInfo) LoadInfoFromChangeApplication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, uint8* pbRangeStart, uint32* pcbRangeStart) GetForgottenKnowledgeRecoveryRangeStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, uint8* pbRangeEnd, uint32* pcbRangeEnd) GetForgottenKnowledgeRecoveryRangeEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, SYNC_RANGE* pRange) SetForgottenKnowledgeRecoveryRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, BOOL pfIsCanceled) IsCanceled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, uint8 pbChangeApplierInfo, uint32 pcbChangeApplierInfo) GetInfoForChangeApplication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, uint8 pbChangeApplierInfo, uint32 cbChangeApplierInfo) LoadInfoFromChangeApplication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, uint8 pbRangeStart, uint32 pcbRangeStart) GetForgottenKnowledgeRecoveryRangeStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, uint8 pbRangeEnd, uint32 pcbRangeEnd) GetForgottenKnowledgeRecoveryRangeEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, SYNC_RANGE pRange) SetForgottenKnowledgeRecoveryRange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState*/SelfOuter* self, SYNC_PROVIDER_ROLE provider, SYNC_PROGRESS_STAGE syncStage, uint32 dwCompletedWork, uint32 dwTotalWork) OnProgress;
 	}
 
 
-	public HRESULT IsCanceled(BOOL* pfIsCanceled) mut => VT.[Friend]IsCanceled(&this, pfIsCanceled);
+	public HRESULT IsCanceled(BOOL pfIsCanceled) mut => VT.[Friend]IsCanceled(&this, pfIsCanceled);
 
-	public HRESULT GetInfoForChangeApplication(uint8* pbChangeApplierInfo, uint32* pcbChangeApplierInfo) mut => VT.[Friend]GetInfoForChangeApplication(&this, pbChangeApplierInfo, pcbChangeApplierInfo);
+	public HRESULT GetInfoForChangeApplication(uint8 pbChangeApplierInfo, uint32 pcbChangeApplierInfo) mut => VT.[Friend]GetInfoForChangeApplication(&this, pbChangeApplierInfo, pcbChangeApplierInfo);
 
-	public HRESULT LoadInfoFromChangeApplication(uint8* pbChangeApplierInfo, uint32 cbChangeApplierInfo) mut => VT.[Friend]LoadInfoFromChangeApplication(&this, pbChangeApplierInfo, cbChangeApplierInfo);
+	public HRESULT LoadInfoFromChangeApplication(uint8 pbChangeApplierInfo, uint32 cbChangeApplierInfo) mut => VT.[Friend]LoadInfoFromChangeApplication(&this, pbChangeApplierInfo, cbChangeApplierInfo);
 
-	public HRESULT GetForgottenKnowledgeRecoveryRangeStart(uint8* pbRangeStart, uint32* pcbRangeStart) mut => VT.[Friend]GetForgottenKnowledgeRecoveryRangeStart(&this, pbRangeStart, pcbRangeStart);
+	public HRESULT GetForgottenKnowledgeRecoveryRangeStart(uint8 pbRangeStart, uint32 pcbRangeStart) mut => VT.[Friend]GetForgottenKnowledgeRecoveryRangeStart(&this, pbRangeStart, pcbRangeStart);
 
-	public HRESULT GetForgottenKnowledgeRecoveryRangeEnd(uint8* pbRangeEnd, uint32* pcbRangeEnd) mut => VT.[Friend]GetForgottenKnowledgeRecoveryRangeEnd(&this, pbRangeEnd, pcbRangeEnd);
+	public HRESULT GetForgottenKnowledgeRecoveryRangeEnd(uint8 pbRangeEnd, uint32 pcbRangeEnd) mut => VT.[Friend]GetForgottenKnowledgeRecoveryRangeEnd(&this, pbRangeEnd, pcbRangeEnd);
 
-	public HRESULT SetForgottenKnowledgeRecoveryRange(SYNC_RANGE* pRange) mut => VT.[Friend]SetForgottenKnowledgeRecoveryRange(&this, pRange);
+	public HRESULT SetForgottenKnowledgeRecoveryRange(SYNC_RANGE pRange) mut => VT.[Friend]SetForgottenKnowledgeRecoveryRange(&this, pRange);
 
 	public HRESULT OnProgress(SYNC_PROVIDER_ROLE provider, SYNC_PROGRESS_STAGE syncStage, uint32 dwCompletedWork, uint32 dwTotalWork) mut => VT.[Friend]OnProgress(&this, provider, syncStage, dwCompletedWork, dwTotalWork);
 }
@@ -1030,11 +1030,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionExtendedErrorInfo*/SelfOuter* self, ISyncProvider** ppProviderWithError) GetSyncProviderWithError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionExtendedErrorInfo*/SelfOuter* self, ISyncProvider* ppProviderWithError) GetSyncProviderWithError;
 	}
 
 
-	public HRESULT GetSyncProviderWithError(ISyncProvider** ppProviderWithError) mut => VT.[Friend]GetSyncProviderWithError(&this, ppProviderWithError);
+	public HRESULT GetSyncProviderWithError(ISyncProvider* ppProviderWithError) mut => VT.[Friend]GetSyncProviderWithError(&this, ppProviderWithError);
 }
 
 [CRepr]struct ISyncSessionState2 : ISyncSessionState
@@ -1046,13 +1046,13 @@ public static
 	[CRepr]public struct VTable : ISyncSessionState.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState2*/SelfOuter* self, BOOL fSelf) SetProviderWithError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState2*/SelfOuter* self, HRESULT* phrSessionError) GetSessionErrorStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncSessionState2*/SelfOuter* self, HRESULT phrSessionError) GetSessionErrorStatus;
 	}
 
 
 	public HRESULT SetProviderWithError(BOOL fSelf) mut => VT.[Friend]SetProviderWithError(&this, fSelf);
 
-	public HRESULT GetSessionErrorStatus(HRESULT* phrSessionError) mut => VT.[Friend]GetSessionErrorStatus(&this, phrSessionError);
+	public HRESULT GetSessionErrorStatus(HRESULT phrSessionError) mut => VT.[Friend]GetSessionErrorStatus(&this, phrSessionError);
 }
 
 [CRepr]struct ISyncFilterInfo : IUnknown
@@ -1063,11 +1063,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFilterInfo*/SelfOuter* self, uint8* pbBuffer, uint32* pcbBuffer) Serialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFilterInfo*/SelfOuter* self, uint8 pbBuffer, uint32 pcbBuffer) Serialize;
 	}
 
 
-	public HRESULT Serialize(uint8* pbBuffer, uint32* pcbBuffer) mut => VT.[Friend]Serialize(&this, pbBuffer, pcbBuffer);
+	public HRESULT Serialize(uint8 pbBuffer, uint32 pcbBuffer) mut => VT.[Friend]Serialize(&this, pbBuffer, pcbBuffer);
 }
 
 [CRepr]struct ISyncFilterInfo2 : ISyncFilterInfo
@@ -1078,11 +1078,11 @@ public static
 
 	[CRepr]public struct VTable : ISyncFilterInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFilterInfo2*/SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFilterInfo2*/SelfOuter* self, uint32 pdwFlags) COM_GetFlags;
 	}
 
 
-	public HRESULT GetFlags(uint32* pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
+	public HRESULT GetFlags(uint32 pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
 }
 
 [CRepr]struct IChangeUnitListFilterInfo : ISyncFilterInfo
@@ -1093,17 +1093,17 @@ public static
 
 	[CRepr]public struct VTable : ISyncFilterInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitListFilterInfo*/SelfOuter* self, uint8** ppbChangeUnitIds, uint32 dwChangeUnitCount) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitListFilterInfo*/SelfOuter* self, uint32* pdwChangeUnitIdCount) GetChangeUnitIdCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitListFilterInfo*/SelfOuter* self, uint32 dwChangeUnitIdIndex, uint8* pbChangeUnitId, uint32* pcbIdSize) GetChangeUnitId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitListFilterInfo*/SelfOuter* self, uint8 ppbChangeUnitIds, uint32 dwChangeUnitCount) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitListFilterInfo*/SelfOuter* self, uint32 pdwChangeUnitIdCount) GetChangeUnitIdCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChangeUnitListFilterInfo*/SelfOuter* self, uint32 dwChangeUnitIdIndex, uint8 pbChangeUnitId, uint32 pcbIdSize) GetChangeUnitId;
 	}
 
 
-	public HRESULT Initialize(uint8** ppbChangeUnitIds, uint32 dwChangeUnitCount) mut => VT.[Friend]Initialize(&this, ppbChangeUnitIds, dwChangeUnitCount);
+	public HRESULT Initialize(uint8 ppbChangeUnitIds, uint32 dwChangeUnitCount) mut => VT.[Friend]Initialize(&this, ppbChangeUnitIds, dwChangeUnitCount);
 
-	public HRESULT GetChangeUnitIdCount(uint32* pdwChangeUnitIdCount) mut => VT.[Friend]GetChangeUnitIdCount(&this, pdwChangeUnitIdCount);
+	public HRESULT GetChangeUnitIdCount(uint32 pdwChangeUnitIdCount) mut => VT.[Friend]GetChangeUnitIdCount(&this, pdwChangeUnitIdCount);
 
-	public HRESULT GetChangeUnitId(uint32 dwChangeUnitIdIndex, uint8* pbChangeUnitId, uint32* pcbIdSize) mut => VT.[Friend]GetChangeUnitId(&this, dwChangeUnitIdIndex, pbChangeUnitId, pcbIdSize);
+	public HRESULT GetChangeUnitId(uint32 dwChangeUnitIdIndex, uint8 pbChangeUnitId, uint32 pcbIdSize) mut => VT.[Friend]GetChangeUnitId(&this, dwChangeUnitIdIndex, pbChangeUnitId, pcbIdSize);
 }
 
 [CRepr]struct ISyncFilter : IUnknown
@@ -1115,13 +1115,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFilter*/SelfOuter* self, ISyncFilter* pSyncFilter) IsIdentical;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFilter*/SelfOuter* self, uint8* pbSyncFilter, uint32* pcbSyncFilter) Serialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFilter*/SelfOuter* self, uint8 pbSyncFilter, uint32 pcbSyncFilter) Serialize;
 	}
 
 
 	public HRESULT IsIdentical(ISyncFilter* pSyncFilter) mut => VT.[Friend]IsIdentical(&this, pSyncFilter);
 
-	public HRESULT Serialize(uint8* pbSyncFilter, uint32* pcbSyncFilter) mut => VT.[Friend]Serialize(&this, pbSyncFilter, pcbSyncFilter);
+	public HRESULT Serialize(uint8 pbSyncFilter, uint32 pcbSyncFilter) mut => VT.[Friend]Serialize(&this, pbSyncFilter, pcbSyncFilter);
 }
 
 [CRepr]struct ISyncFilterDeserializer : IUnknown
@@ -1132,11 +1132,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFilterDeserializer*/SelfOuter* self, uint8* pbSyncFilter, uint32 dwCbSyncFilter, ISyncFilter** ppISyncFilter) DeserializeSyncFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFilterDeserializer*/SelfOuter* self, uint8 pbSyncFilter, uint32 dwCbSyncFilter, ISyncFilter* ppISyncFilter) DeserializeSyncFilter;
 	}
 
 
-	public HRESULT DeserializeSyncFilter(uint8* pbSyncFilter, uint32 dwCbSyncFilter, ISyncFilter** ppISyncFilter) mut => VT.[Friend]DeserializeSyncFilter(&this, pbSyncFilter, dwCbSyncFilter, ppISyncFilter);
+	public HRESULT DeserializeSyncFilter(uint8 pbSyncFilter, uint32 dwCbSyncFilter, ISyncFilter* ppISyncFilter) mut => VT.[Friend]DeserializeSyncFilter(&this, pbSyncFilter, dwCbSyncFilter, ppISyncFilter);
 }
 
 [CRepr]struct ICustomFilterInfo : ISyncFilterInfo
@@ -1147,11 +1147,11 @@ public static
 
 	[CRepr]public struct VTable : ISyncFilterInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomFilterInfo*/SelfOuter* self, ISyncFilter** pISyncFilter) GetSyncFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomFilterInfo*/SelfOuter* self, ISyncFilter* pISyncFilter) GetSyncFilter;
 	}
 
 
-	public HRESULT GetSyncFilter(ISyncFilter** pISyncFilter) mut => VT.[Friend]GetSyncFilter(&this, pISyncFilter);
+	public HRESULT GetSyncFilter(ISyncFilter* pISyncFilter) mut => VT.[Friend]GetSyncFilter(&this, pISyncFilter);
 }
 
 [CRepr]struct ICombinedFilterInfo : ISyncFilterInfo
@@ -1162,17 +1162,17 @@ public static
 
 	[CRepr]public struct VTable : ISyncFilterInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICombinedFilterInfo*/SelfOuter* self, uint32* pdwFilterCount) GetFilterCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICombinedFilterInfo*/SelfOuter* self, uint32 dwFilterIndex, ISyncFilterInfo** ppIFilterInfo) GetFilterInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICombinedFilterInfo*/SelfOuter* self, FILTER_COMBINATION_TYPE* pFilterCombinationType) GetFilterCombinationType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICombinedFilterInfo*/SelfOuter* self, uint32 pdwFilterCount) GetFilterCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICombinedFilterInfo*/SelfOuter* self, uint32 dwFilterIndex, ISyncFilterInfo* ppIFilterInfo) GetFilterInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICombinedFilterInfo*/SelfOuter* self, FILTER_COMBINATION_TYPE pFilterCombinationType) GetFilterCombinationType;
 	}
 
 
-	public HRESULT GetFilterCount(uint32* pdwFilterCount) mut => VT.[Friend]GetFilterCount(&this, pdwFilterCount);
+	public HRESULT GetFilterCount(uint32 pdwFilterCount) mut => VT.[Friend]GetFilterCount(&this, pdwFilterCount);
 
-	public HRESULT GetFilterInfo(uint32 dwFilterIndex, ISyncFilterInfo** ppIFilterInfo) mut => VT.[Friend]GetFilterInfo(&this, dwFilterIndex, ppIFilterInfo);
+	public HRESULT GetFilterInfo(uint32 dwFilterIndex, ISyncFilterInfo* ppIFilterInfo) mut => VT.[Friend]GetFilterInfo(&this, dwFilterIndex, ppIFilterInfo);
 
-	public HRESULT GetFilterCombinationType(FILTER_COMBINATION_TYPE* pFilterCombinationType) mut => VT.[Friend]GetFilterCombinationType(&this, pFilterCombinationType);
+	public HRESULT GetFilterCombinationType(FILTER_COMBINATION_TYPE pFilterCombinationType) mut => VT.[Friend]GetFilterCombinationType(&this, pFilterCombinationType);
 }
 
 [CRepr]struct IEnumSyncChanges : IUnknown
@@ -1183,20 +1183,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChanges*/SelfOuter* self, uint32 cChanges, ISyncChange** ppChange, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChanges*/SelfOuter* self, uint32 cChanges, ISyncChange* ppChange, uint32 pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChanges*/SelfOuter* self, uint32 cChanges) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChanges*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChanges*/SelfOuter* self, IEnumSyncChanges** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChanges*/SelfOuter* self, IEnumSyncChanges* ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cChanges, ISyncChange** ppChange, uint32* pcFetched) mut => VT.[Friend]Next(&this, cChanges, ppChange, pcFetched);
+	public HRESULT Next(uint32 cChanges, ISyncChange* ppChange, uint32 pcFetched) mut => VT.[Friend]Next(&this, cChanges, ppChange, pcFetched);
 
 	public HRESULT Skip(uint32 cChanges) mut => VT.[Friend]Skip(&this, cChanges);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumSyncChanges** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumSyncChanges* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct ISyncChangeBuilder : IUnknown
@@ -1207,11 +1207,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBuilder*/SelfOuter* self, uint8* pbChangeUnitId, SYNC_VERSION* pChangeUnitVersion) AddChangeUnitMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBuilder*/SelfOuter* self, uint8 pbChangeUnitId, SYNC_VERSION pChangeUnitVersion) AddChangeUnitMetadata;
 	}
 
 
-	public HRESULT AddChangeUnitMetadata(uint8* pbChangeUnitId, SYNC_VERSION* pChangeUnitVersion) mut => VT.[Friend]AddChangeUnitMetadata(&this, pbChangeUnitId, pChangeUnitVersion);
+	public HRESULT AddChangeUnitMetadata(uint8 pbChangeUnitId, SYNC_VERSION pChangeUnitVersion) mut => VT.[Friend]AddChangeUnitMetadata(&this, pbChangeUnitId, pChangeUnitVersion);
 }
 
 [CRepr]struct IFilterTrackingSyncChangeBuilder : IUnknown
@@ -1222,12 +1222,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterTrackingSyncChangeBuilder*/SelfOuter* self, uint32 dwFilterKey, SYNC_FILTER_CHANGE* pFilterChange) AddFilterChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterTrackingSyncChangeBuilder*/SelfOuter* self, uint32 dwFilterKey, SYNC_FILTER_CHANGE pFilterChange) AddFilterChange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterTrackingSyncChangeBuilder*/SelfOuter* self) SetAllChangeUnitsPresentFlag;
 	}
 
 
-	public HRESULT AddFilterChange(uint32 dwFilterKey, SYNC_FILTER_CHANGE* pFilterChange) mut => VT.[Friend]AddFilterChange(&this, dwFilterKey, pFilterChange);
+	public HRESULT AddFilterChange(uint32 dwFilterKey, SYNC_FILTER_CHANGE pFilterChange) mut => VT.[Friend]AddFilterChange(&this, dwFilterKey, pFilterChange);
 
 	public HRESULT SetAllChangeUnitsPresentFlag() mut => VT.[Friend]SetAllChangeUnitsPresentFlag(&this);
 }
@@ -1240,42 +1240,42 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, IEnumSyncChanges** ppEnum) GetChangeEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, BOOL* pfLastBatch) GetIsLastBatch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint32* pdwWorkForBatch) GetWorkEstimateForBatch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint32* pdwRemainingWorkForSession) GetRemainingWorkEstimateForSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint8* pbLowerBound) BeginOrderedGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint8* pbUpperBound, ISyncKnowledge* pMadeWithKnowledge) EndOrderedGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint8* pbOwnerReplicaId, uint8* pbItemId, SYNC_VERSION* pChangeVersion, SYNC_VERSION* pCreationVersion, uint32 dwFlags, uint32 dwWorkForChange, ISyncChangeBuilder** ppChangeBuilder) AddItemMetadataToGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, ISyncKnowledge** ppLearnedKnowledge) GetLearnedKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, ISyncKnowledge** ppPrerequisteKnowledge) GetPrerequisiteKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, IForgottenKnowledge** ppSourceForgottenKnowledge) GetSourceForgottenKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, IEnumSyncChanges* ppEnum) GetChangeEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, BOOL pfLastBatch) GetIsLastBatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint32 pdwWorkForBatch) GetWorkEstimateForBatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint32 pdwRemainingWorkForSession) GetRemainingWorkEstimateForSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint8 pbLowerBound) BeginOrderedGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint8 pbUpperBound, ISyncKnowledge* pMadeWithKnowledge) EndOrderedGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint8 pbOwnerReplicaId, uint8 pbItemId, SYNC_VERSION pChangeVersion, SYNC_VERSION pCreationVersion, uint32 dwFlags, uint32 dwWorkForChange, ISyncChangeBuilder* ppChangeBuilder) AddItemMetadataToGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, ISyncKnowledge* ppLearnedKnowledge) GetLearnedKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, ISyncKnowledge* ppPrerequisteKnowledge) GetPrerequisiteKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, IForgottenKnowledge* ppSourceForgottenKnowledge) GetSourceForgottenKnowledge;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self) SetLastBatch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint32 dwWorkForBatch) SetWorkEstimateForBatch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint32 dwRemainingWorkForSession) SetRemainingWorkEstimateForSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint8* pbChangeBatch, uint32* pcbChangeBatch) Serialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase*/SelfOuter* self, uint8 pbChangeBatch, uint32 pcbChangeBatch) Serialize;
 	}
 
 
-	public HRESULT GetChangeEnumerator(IEnumSyncChanges** ppEnum) mut => VT.[Friend]GetChangeEnumerator(&this, ppEnum);
+	public HRESULT GetChangeEnumerator(IEnumSyncChanges* ppEnum) mut => VT.[Friend]GetChangeEnumerator(&this, ppEnum);
 
-	public HRESULT GetIsLastBatch(BOOL* pfLastBatch) mut => VT.[Friend]GetIsLastBatch(&this, pfLastBatch);
+	public HRESULT GetIsLastBatch(BOOL pfLastBatch) mut => VT.[Friend]GetIsLastBatch(&this, pfLastBatch);
 
-	public HRESULT GetWorkEstimateForBatch(uint32* pdwWorkForBatch) mut => VT.[Friend]GetWorkEstimateForBatch(&this, pdwWorkForBatch);
+	public HRESULT GetWorkEstimateForBatch(uint32 pdwWorkForBatch) mut => VT.[Friend]GetWorkEstimateForBatch(&this, pdwWorkForBatch);
 
-	public HRESULT GetRemainingWorkEstimateForSession(uint32* pdwRemainingWorkForSession) mut => VT.[Friend]GetRemainingWorkEstimateForSession(&this, pdwRemainingWorkForSession);
+	public HRESULT GetRemainingWorkEstimateForSession(uint32 pdwRemainingWorkForSession) mut => VT.[Friend]GetRemainingWorkEstimateForSession(&this, pdwRemainingWorkForSession);
 
-	public HRESULT BeginOrderedGroup(uint8* pbLowerBound) mut => VT.[Friend]BeginOrderedGroup(&this, pbLowerBound);
+	public HRESULT BeginOrderedGroup(uint8 pbLowerBound) mut => VT.[Friend]BeginOrderedGroup(&this, pbLowerBound);
 
-	public HRESULT EndOrderedGroup(uint8* pbUpperBound, ISyncKnowledge* pMadeWithKnowledge) mut => VT.[Friend]EndOrderedGroup(&this, pbUpperBound, pMadeWithKnowledge);
+	public HRESULT EndOrderedGroup(uint8 pbUpperBound, ISyncKnowledge* pMadeWithKnowledge) mut => VT.[Friend]EndOrderedGroup(&this, pbUpperBound, pMadeWithKnowledge);
 
-	public HRESULT AddItemMetadataToGroup(uint8* pbOwnerReplicaId, uint8* pbItemId, SYNC_VERSION* pChangeVersion, SYNC_VERSION* pCreationVersion, uint32 dwFlags, uint32 dwWorkForChange, ISyncChangeBuilder** ppChangeBuilder) mut => VT.[Friend]AddItemMetadataToGroup(&this, pbOwnerReplicaId, pbItemId, pChangeVersion, pCreationVersion, dwFlags, dwWorkForChange, ppChangeBuilder);
+	public HRESULT AddItemMetadataToGroup(uint8 pbOwnerReplicaId, uint8 pbItemId, SYNC_VERSION pChangeVersion, SYNC_VERSION pCreationVersion, uint32 dwFlags, uint32 dwWorkForChange, ISyncChangeBuilder* ppChangeBuilder) mut => VT.[Friend]AddItemMetadataToGroup(&this, pbOwnerReplicaId, pbItemId, pChangeVersion, pCreationVersion, dwFlags, dwWorkForChange, ppChangeBuilder);
 
-	public HRESULT GetLearnedKnowledge(ISyncKnowledge** ppLearnedKnowledge) mut => VT.[Friend]GetLearnedKnowledge(&this, ppLearnedKnowledge);
+	public HRESULT GetLearnedKnowledge(ISyncKnowledge* ppLearnedKnowledge) mut => VT.[Friend]GetLearnedKnowledge(&this, ppLearnedKnowledge);
 
-	public HRESULT GetPrerequisiteKnowledge(ISyncKnowledge** ppPrerequisteKnowledge) mut => VT.[Friend]GetPrerequisiteKnowledge(&this, ppPrerequisteKnowledge);
+	public HRESULT GetPrerequisiteKnowledge(ISyncKnowledge* ppPrerequisteKnowledge) mut => VT.[Friend]GetPrerequisiteKnowledge(&this, ppPrerequisteKnowledge);
 
-	public HRESULT GetSourceForgottenKnowledge(IForgottenKnowledge** ppSourceForgottenKnowledge) mut => VT.[Friend]GetSourceForgottenKnowledge(&this, ppSourceForgottenKnowledge);
+	public HRESULT GetSourceForgottenKnowledge(IForgottenKnowledge* ppSourceForgottenKnowledge) mut => VT.[Friend]GetSourceForgottenKnowledge(&this, ppSourceForgottenKnowledge);
 
 	public HRESULT SetLastBatch() mut => VT.[Friend]SetLastBatch(&this);
 
@@ -1283,7 +1283,7 @@ public static
 
 	public HRESULT SetRemainingWorkEstimateForSession(uint32 dwRemainingWorkForSession) mut => VT.[Friend]SetRemainingWorkEstimateForSession(&this, dwRemainingWorkForSession);
 
-	public HRESULT Serialize(uint8* pbChangeBatch, uint32* pcbChangeBatch) mut => VT.[Friend]Serialize(&this, pbChangeBatch, pcbChangeBatch);
+	public HRESULT Serialize(uint8 pbChangeBatch, uint32 pcbChangeBatch) mut => VT.[Friend]Serialize(&this, pbChangeBatch, pcbChangeBatch);
 }
 
 [CRepr]struct ISyncChangeBatch : ISyncChangeBatchBase
@@ -1296,7 +1296,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatch*/SelfOuter* self) BeginUnorderedGroup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatch*/SelfOuter* self, ISyncKnowledge* pMadeWithKnowledge, BOOL fAllChangesForKnowledge) EndUnorderedGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatch*/SelfOuter* self, uint8* pbOwnerReplicaId, uint8* pbItemId, SYNC_VERSION* pChangeVersion, SYNC_VERSION* pCreationVersion, uint32 dwFlags, uint32 dwWorkForChange, ISyncKnowledge* pConflictKnowledge, ISyncChangeBuilder** ppChangeBuilder) AddLoggedConflict;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatch*/SelfOuter* self, uint8 pbOwnerReplicaId, uint8 pbItemId, SYNC_VERSION pChangeVersion, SYNC_VERSION pCreationVersion, uint32 dwFlags, uint32 dwWorkForChange, ISyncKnowledge* pConflictKnowledge, ISyncChangeBuilder* ppChangeBuilder) AddLoggedConflict;
 	}
 
 
@@ -1304,7 +1304,7 @@ public static
 
 	public HRESULT EndUnorderedGroup(ISyncKnowledge* pMadeWithKnowledge, BOOL fAllChangesForKnowledge) mut => VT.[Friend]EndUnorderedGroup(&this, pMadeWithKnowledge, fAllChangesForKnowledge);
 
-	public HRESULT AddLoggedConflict(uint8* pbOwnerReplicaId, uint8* pbItemId, SYNC_VERSION* pChangeVersion, SYNC_VERSION* pCreationVersion, uint32 dwFlags, uint32 dwWorkForChange, ISyncKnowledge* pConflictKnowledge, ISyncChangeBuilder** ppChangeBuilder) mut => VT.[Friend]AddLoggedConflict(&this, pbOwnerReplicaId, pbItemId, pChangeVersion, pCreationVersion, dwFlags, dwWorkForChange, pConflictKnowledge, ppChangeBuilder);
+	public HRESULT AddLoggedConflict(uint8 pbOwnerReplicaId, uint8 pbItemId, SYNC_VERSION pChangeVersion, SYNC_VERSION pCreationVersion, uint32 dwFlags, uint32 dwWorkForChange, ISyncKnowledge* pConflictKnowledge, ISyncChangeBuilder* ppChangeBuilder) mut => VT.[Friend]AddLoggedConflict(&this, pbOwnerReplicaId, pbItemId, pChangeVersion, pCreationVersion, dwFlags, dwWorkForChange, pConflictKnowledge, ppChangeBuilder);
 }
 
 [CRepr]struct ISyncFullEnumerationChangeBatch : ISyncChangeBatchBase
@@ -1315,17 +1315,17 @@ public static
 
 	[CRepr]public struct VTable : ISyncChangeBatchBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChangeBatch*/SelfOuter* self, ISyncKnowledge** ppLearnedKnowledgeAfterRecoveryComplete) GetLearnedKnowledgeAfterRecoveryComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChangeBatch*/SelfOuter* self, uint8* pbClosedLowerBoundItemId, uint32* pcbIdSize) GetClosedLowerBoundItemId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChangeBatch*/SelfOuter* self, uint8* pbClosedUpperBoundItemId, uint32* pcbIdSize) GetClosedUpperBoundItemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChangeBatch*/SelfOuter* self, ISyncKnowledge* ppLearnedKnowledgeAfterRecoveryComplete) GetLearnedKnowledgeAfterRecoveryComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChangeBatch*/SelfOuter* self, uint8 pbClosedLowerBoundItemId, uint32 pcbIdSize) GetClosedLowerBoundItemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChangeBatch*/SelfOuter* self, uint8 pbClosedUpperBoundItemId, uint32 pcbIdSize) GetClosedUpperBoundItemId;
 	}
 
 
-	public HRESULT GetLearnedKnowledgeAfterRecoveryComplete(ISyncKnowledge** ppLearnedKnowledgeAfterRecoveryComplete) mut => VT.[Friend]GetLearnedKnowledgeAfterRecoveryComplete(&this, ppLearnedKnowledgeAfterRecoveryComplete);
+	public HRESULT GetLearnedKnowledgeAfterRecoveryComplete(ISyncKnowledge* ppLearnedKnowledgeAfterRecoveryComplete) mut => VT.[Friend]GetLearnedKnowledgeAfterRecoveryComplete(&this, ppLearnedKnowledgeAfterRecoveryComplete);
 
-	public HRESULT GetClosedLowerBoundItemId(uint8* pbClosedLowerBoundItemId, uint32* pcbIdSize) mut => VT.[Friend]GetClosedLowerBoundItemId(&this, pbClosedLowerBoundItemId, pcbIdSize);
+	public HRESULT GetClosedLowerBoundItemId(uint8 pbClosedLowerBoundItemId, uint32 pcbIdSize) mut => VT.[Friend]GetClosedLowerBoundItemId(&this, pbClosedLowerBoundItemId, pcbIdSize);
 
-	public HRESULT GetClosedUpperBoundItemId(uint8* pbClosedUpperBoundItemId, uint32* pcbIdSize) mut => VT.[Friend]GetClosedUpperBoundItemId(&this, pbClosedUpperBoundItemId, pcbIdSize);
+	public HRESULT GetClosedUpperBoundItemId(uint8 pbClosedUpperBoundItemId, uint32 pcbIdSize) mut => VT.[Friend]GetClosedUpperBoundItemId(&this, pbClosedUpperBoundItemId, pcbIdSize);
 }
 
 [CRepr]struct ISyncChangeBatchWithPrerequisite : ISyncChangeBatchBase
@@ -1337,16 +1337,16 @@ public static
 	[CRepr]public struct VTable : ISyncChangeBatchBase.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithPrerequisite*/SelfOuter* self, ISyncKnowledge* pPrerequisiteKnowledge) SetPrerequisiteKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithPrerequisite*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, ISyncKnowledge** ppLearnedWithPrerequisiteKnowledge) GetLearnedKnowledgeWithPrerequisite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithPrerequisite*/SelfOuter* self, IForgottenKnowledge** ppLearnedForgottenKnowledge) GetLearnedForgottenKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithPrerequisite*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, ISyncKnowledge* ppLearnedWithPrerequisiteKnowledge) GetLearnedKnowledgeWithPrerequisite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithPrerequisite*/SelfOuter* self, IForgottenKnowledge* ppLearnedForgottenKnowledge) GetLearnedForgottenKnowledge;
 	}
 
 
 	public HRESULT SetPrerequisiteKnowledge(ISyncKnowledge* pPrerequisiteKnowledge) mut => VT.[Friend]SetPrerequisiteKnowledge(&this, pPrerequisiteKnowledge);
 
-	public HRESULT GetLearnedKnowledgeWithPrerequisite(ISyncKnowledge* pDestinationKnowledge, ISyncKnowledge** ppLearnedWithPrerequisiteKnowledge) mut => VT.[Friend]GetLearnedKnowledgeWithPrerequisite(&this, pDestinationKnowledge, ppLearnedWithPrerequisiteKnowledge);
+	public HRESULT GetLearnedKnowledgeWithPrerequisite(ISyncKnowledge* pDestinationKnowledge, ISyncKnowledge* ppLearnedWithPrerequisiteKnowledge) mut => VT.[Friend]GetLearnedKnowledgeWithPrerequisite(&this, pDestinationKnowledge, ppLearnedWithPrerequisiteKnowledge);
 
-	public HRESULT GetLearnedForgottenKnowledge(IForgottenKnowledge** ppLearnedForgottenKnowledge) mut => VT.[Friend]GetLearnedForgottenKnowledge(&this, ppLearnedForgottenKnowledge);
+	public HRESULT GetLearnedForgottenKnowledge(IForgottenKnowledge* ppLearnedForgottenKnowledge) mut => VT.[Friend]GetLearnedForgottenKnowledge(&this, ppLearnedForgottenKnowledge);
 }
 
 [CRepr]struct ISyncChangeBatchBase2 : ISyncChangeBatchBase
@@ -1357,11 +1357,11 @@ public static
 
 	[CRepr]public struct VTable : ISyncChangeBatchBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase2*/SelfOuter* self, SYNC_SERIALIZATION_VERSION targetFormatVersion, uint32 dwFlags, uint8* pbBuffer, uint32* pdwSerializedSize) SerializeWithOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchBase2*/SelfOuter* self, SYNC_SERIALIZATION_VERSION targetFormatVersion, uint32 dwFlags, uint8 pbBuffer, uint32 pdwSerializedSize) SerializeWithOptions;
 	}
 
 
-	public HRESULT SerializeWithOptions(SYNC_SERIALIZATION_VERSION targetFormatVersion, uint32 dwFlags, uint8* pbBuffer, uint32* pdwSerializedSize) mut => VT.[Friend]SerializeWithOptions(&this, targetFormatVersion, dwFlags, pbBuffer, pdwSerializedSize);
+	public HRESULT SerializeWithOptions(SYNC_SERIALIZATION_VERSION targetFormatVersion, uint32 dwFlags, uint8 pbBuffer, uint32 pdwSerializedSize) mut => VT.[Friend]SerializeWithOptions(&this, targetFormatVersion, dwFlags, pbBuffer, pdwSerializedSize);
 }
 
 [CRepr]struct ISyncChangeBatchAdvanced : IUnknown
@@ -1372,20 +1372,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchAdvanced*/SelfOuter* self, ISyncFilterInfo** ppFilterInfo) GetFilterInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchAdvanced*/SelfOuter* self, ISyncChangeBatch** ppChangeBatch) ConvertFullEnumerationChangeBatchToRegularChangeBatch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchAdvanced*/SelfOuter* self, uint8* pbItemId, uint32* pcbIdSize) GetUpperBoundItemId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchAdvanced*/SelfOuter* self, BOOL* pfBatchKnowledgeShouldBeApplied) GetBatchLevelKnowledgeShouldBeApplied;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchAdvanced*/SelfOuter* self, ISyncFilterInfo* ppFilterInfo) GetFilterInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchAdvanced*/SelfOuter* self, ISyncChangeBatch* ppChangeBatch) ConvertFullEnumerationChangeBatchToRegularChangeBatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchAdvanced*/SelfOuter* self, uint8 pbItemId, uint32 pcbIdSize) GetUpperBoundItemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchAdvanced*/SelfOuter* self, BOOL pfBatchKnowledgeShouldBeApplied) GetBatchLevelKnowledgeShouldBeApplied;
 	}
 
 
-	public HRESULT GetFilterInfo(ISyncFilterInfo** ppFilterInfo) mut => VT.[Friend]GetFilterInfo(&this, ppFilterInfo);
+	public HRESULT GetFilterInfo(ISyncFilterInfo* ppFilterInfo) mut => VT.[Friend]GetFilterInfo(&this, ppFilterInfo);
 
-	public HRESULT ConvertFullEnumerationChangeBatchToRegularChangeBatch(ISyncChangeBatch** ppChangeBatch) mut => VT.[Friend]ConvertFullEnumerationChangeBatchToRegularChangeBatch(&this, ppChangeBatch);
+	public HRESULT ConvertFullEnumerationChangeBatchToRegularChangeBatch(ISyncChangeBatch* ppChangeBatch) mut => VT.[Friend]ConvertFullEnumerationChangeBatchToRegularChangeBatch(&this, ppChangeBatch);
 
-	public HRESULT GetUpperBoundItemId(uint8* pbItemId, uint32* pcbIdSize) mut => VT.[Friend]GetUpperBoundItemId(&this, pbItemId, pcbIdSize);
+	public HRESULT GetUpperBoundItemId(uint8 pbItemId, uint32 pcbIdSize) mut => VT.[Friend]GetUpperBoundItemId(&this, pbItemId, pcbIdSize);
 
-	public HRESULT GetBatchLevelKnowledgeShouldBeApplied(BOOL* pfBatchKnowledgeShouldBeApplied) mut => VT.[Friend]GetBatchLevelKnowledgeShouldBeApplied(&this, pfBatchKnowledgeShouldBeApplied);
+	public HRESULT GetBatchLevelKnowledgeShouldBeApplied(BOOL pfBatchKnowledgeShouldBeApplied) mut => VT.[Friend]GetBatchLevelKnowledgeShouldBeApplied(&this, pfBatchKnowledgeShouldBeApplied);
 }
 
 [CRepr]struct ISyncChangeBatch2 : ISyncChangeBatch
@@ -1396,14 +1396,14 @@ public static
 
 	[CRepr]public struct VTable : ISyncChangeBatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatch2*/SelfOuter* self, uint8* pbOwnerReplicaId, uint8* pbWinnerItemId, uint8* pbItemId, SYNC_VERSION* pChangeVersion, SYNC_VERSION* pCreationVersion, uint32 dwWorkForChange, ISyncChangeBuilder** ppChangeBuilder) AddMergeTombstoneMetadataToGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatch2*/SelfOuter* self, uint8* pbOwnerReplicaId, uint8* pbWinnerItemId, uint8* pbItemId, SYNC_VERSION* pChangeVersion, SYNC_VERSION* pCreationVersion, uint32 dwWorkForChange, ISyncKnowledge* pConflictKnowledge, ISyncChangeBuilder** ppChangeBuilder) AddMergeTombstoneLoggedConflict;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatch2*/SelfOuter* self, uint8 pbOwnerReplicaId, uint8 pbWinnerItemId, uint8 pbItemId, SYNC_VERSION pChangeVersion, SYNC_VERSION pCreationVersion, uint32 dwWorkForChange, ISyncChangeBuilder* ppChangeBuilder) AddMergeTombstoneMetadataToGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatch2*/SelfOuter* self, uint8 pbOwnerReplicaId, uint8 pbWinnerItemId, uint8 pbItemId, SYNC_VERSION pChangeVersion, SYNC_VERSION pCreationVersion, uint32 dwWorkForChange, ISyncKnowledge* pConflictKnowledge, ISyncChangeBuilder* ppChangeBuilder) AddMergeTombstoneLoggedConflict;
 	}
 
 
-	public HRESULT AddMergeTombstoneMetadataToGroup(uint8* pbOwnerReplicaId, uint8* pbWinnerItemId, uint8* pbItemId, SYNC_VERSION* pChangeVersion, SYNC_VERSION* pCreationVersion, uint32 dwWorkForChange, ISyncChangeBuilder** ppChangeBuilder) mut => VT.[Friend]AddMergeTombstoneMetadataToGroup(&this, pbOwnerReplicaId, pbWinnerItemId, pbItemId, pChangeVersion, pCreationVersion, dwWorkForChange, ppChangeBuilder);
+	public HRESULT AddMergeTombstoneMetadataToGroup(uint8 pbOwnerReplicaId, uint8 pbWinnerItemId, uint8 pbItemId, SYNC_VERSION pChangeVersion, SYNC_VERSION pCreationVersion, uint32 dwWorkForChange, ISyncChangeBuilder* ppChangeBuilder) mut => VT.[Friend]AddMergeTombstoneMetadataToGroup(&this, pbOwnerReplicaId, pbWinnerItemId, pbItemId, pChangeVersion, pCreationVersion, dwWorkForChange, ppChangeBuilder);
 
-	public HRESULT AddMergeTombstoneLoggedConflict(uint8* pbOwnerReplicaId, uint8* pbWinnerItemId, uint8* pbItemId, SYNC_VERSION* pChangeVersion, SYNC_VERSION* pCreationVersion, uint32 dwWorkForChange, ISyncKnowledge* pConflictKnowledge, ISyncChangeBuilder** ppChangeBuilder) mut => VT.[Friend]AddMergeTombstoneLoggedConflict(&this, pbOwnerReplicaId, pbWinnerItemId, pbItemId, pChangeVersion, pCreationVersion, dwWorkForChange, pConflictKnowledge, ppChangeBuilder);
+	public HRESULT AddMergeTombstoneLoggedConflict(uint8 pbOwnerReplicaId, uint8 pbWinnerItemId, uint8 pbItemId, SYNC_VERSION pChangeVersion, SYNC_VERSION pCreationVersion, uint32 dwWorkForChange, ISyncKnowledge* pConflictKnowledge, ISyncChangeBuilder* ppChangeBuilder) mut => VT.[Friend]AddMergeTombstoneLoggedConflict(&this, pbOwnerReplicaId, pbWinnerItemId, pbItemId, pChangeVersion, pCreationVersion, dwWorkForChange, pConflictKnowledge, ppChangeBuilder);
 }
 
 [CRepr]struct ISyncFullEnumerationChangeBatch2 : ISyncFullEnumerationChangeBatch
@@ -1414,11 +1414,11 @@ public static
 
 	[CRepr]public struct VTable : ISyncFullEnumerationChangeBatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChangeBatch2*/SelfOuter* self, uint8* pbOwnerReplicaId, uint8* pbWinnerItemId, uint8* pbItemId, SYNC_VERSION* pChangeVersion, SYNC_VERSION* pCreationVersion, uint32 dwWorkForChange, ISyncChangeBuilder** ppChangeBuilder) AddMergeTombstoneMetadataToGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChangeBatch2*/SelfOuter* self, uint8 pbOwnerReplicaId, uint8 pbWinnerItemId, uint8 pbItemId, SYNC_VERSION pChangeVersion, SYNC_VERSION pCreationVersion, uint32 dwWorkForChange, ISyncChangeBuilder* ppChangeBuilder) AddMergeTombstoneMetadataToGroup;
 	}
 
 
-	public HRESULT AddMergeTombstoneMetadataToGroup(uint8* pbOwnerReplicaId, uint8* pbWinnerItemId, uint8* pbItemId, SYNC_VERSION* pChangeVersion, SYNC_VERSION* pCreationVersion, uint32 dwWorkForChange, ISyncChangeBuilder** ppChangeBuilder) mut => VT.[Friend]AddMergeTombstoneMetadataToGroup(&this, pbOwnerReplicaId, pbWinnerItemId, pbItemId, pChangeVersion, pCreationVersion, dwWorkForChange, ppChangeBuilder);
+	public HRESULT AddMergeTombstoneMetadataToGroup(uint8 pbOwnerReplicaId, uint8 pbWinnerItemId, uint8 pbItemId, SYNC_VERSION pChangeVersion, SYNC_VERSION pCreationVersion, uint32 dwWorkForChange, ISyncChangeBuilder* ppChangeBuilder) mut => VT.[Friend]AddMergeTombstoneMetadataToGroup(&this, pbOwnerReplicaId, pbWinnerItemId, pbItemId, pChangeVersion, pCreationVersion, dwWorkForChange, ppChangeBuilder);
 }
 
 [CRepr]struct IKnowledgeSyncProvider : ISyncProvider
@@ -1430,26 +1430,26 @@ public static
 	[CRepr]public struct VTable : ISyncProvider.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, SYNC_PROVIDER_ROLE role, ISyncSessionState* pSessionState) BeginSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, ISyncKnowledge** ppSyncKnowledge, uint32* pdwRequestedBatchSize) GetSyncBatchParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, uint32 dwBatchSize, ISyncKnowledge* pSyncKnowledge, ISyncChangeBatch** ppSyncChangeBatch, IUnknown** ppUnkDataRetriever) GetChangeBatch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, uint32 dwBatchSize, uint8* pbLowerEnumerationBound, ISyncKnowledge* pSyncKnowledge, ISyncFullEnumerationChangeBatch** ppSyncChangeBatch, IUnknown** ppUnkDataRetriever) GetFullEnumerationChangeBatch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, CONFLICT_RESOLUTION_POLICY resolutionPolicy, ISyncChangeBatch* pSourceChangeBatch, IUnknown* pUnkDataRetriever, ISyncCallback* pCallback, SYNC_SESSION_STATISTICS* pSyncSessionStatistics) ProcessChangeBatch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, CONFLICT_RESOLUTION_POLICY resolutionPolicy, ISyncFullEnumerationChangeBatch* pSourceChangeBatch, IUnknown* pUnkDataRetriever, ISyncCallback* pCallback, SYNC_SESSION_STATISTICS* pSyncSessionStatistics) ProcessFullEnumerationChangeBatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, ISyncKnowledge* ppSyncKnowledge, uint32 pdwRequestedBatchSize) GetSyncBatchParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, uint32 dwBatchSize, ISyncKnowledge* pSyncKnowledge, ISyncChangeBatch* ppSyncChangeBatch, IUnknown* ppUnkDataRetriever) GetChangeBatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, uint32 dwBatchSize, uint8 pbLowerEnumerationBound, ISyncKnowledge* pSyncKnowledge, ISyncFullEnumerationChangeBatch* ppSyncChangeBatch, IUnknown* ppUnkDataRetriever) GetFullEnumerationChangeBatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, CONFLICT_RESOLUTION_POLICY resolutionPolicy, ISyncChangeBatch* pSourceChangeBatch, IUnknown* pUnkDataRetriever, ISyncCallback* pCallback, SYNC_SESSION_STATISTICS pSyncSessionStatistics) ProcessChangeBatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, CONFLICT_RESOLUTION_POLICY resolutionPolicy, ISyncFullEnumerationChangeBatch* pSourceChangeBatch, IUnknown* pUnkDataRetriever, ISyncCallback* pCallback, SYNC_SESSION_STATISTICS pSyncSessionStatistics) ProcessFullEnumerationChangeBatch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnowledgeSyncProvider*/SelfOuter* self, ISyncSessionState* pSessionState) EndSession;
 	}
 
 
 	public HRESULT BeginSession(SYNC_PROVIDER_ROLE role, ISyncSessionState* pSessionState) mut => VT.[Friend]BeginSession(&this, role, pSessionState);
 
-	public HRESULT GetSyncBatchParameters(ISyncKnowledge** ppSyncKnowledge, uint32* pdwRequestedBatchSize) mut => VT.[Friend]GetSyncBatchParameters(&this, ppSyncKnowledge, pdwRequestedBatchSize);
+	public HRESULT GetSyncBatchParameters(ISyncKnowledge* ppSyncKnowledge, uint32 pdwRequestedBatchSize) mut => VT.[Friend]GetSyncBatchParameters(&this, ppSyncKnowledge, pdwRequestedBatchSize);
 
-	public HRESULT GetChangeBatch(uint32 dwBatchSize, ISyncKnowledge* pSyncKnowledge, ISyncChangeBatch** ppSyncChangeBatch, IUnknown** ppUnkDataRetriever) mut => VT.[Friend]GetChangeBatch(&this, dwBatchSize, pSyncKnowledge, ppSyncChangeBatch, ppUnkDataRetriever);
+	public HRESULT GetChangeBatch(uint32 dwBatchSize, ISyncKnowledge* pSyncKnowledge, ISyncChangeBatch* ppSyncChangeBatch, IUnknown* ppUnkDataRetriever) mut => VT.[Friend]GetChangeBatch(&this, dwBatchSize, pSyncKnowledge, ppSyncChangeBatch, ppUnkDataRetriever);
 
-	public HRESULT GetFullEnumerationChangeBatch(uint32 dwBatchSize, uint8* pbLowerEnumerationBound, ISyncKnowledge* pSyncKnowledge, ISyncFullEnumerationChangeBatch** ppSyncChangeBatch, IUnknown** ppUnkDataRetriever) mut => VT.[Friend]GetFullEnumerationChangeBatch(&this, dwBatchSize, pbLowerEnumerationBound, pSyncKnowledge, ppSyncChangeBatch, ppUnkDataRetriever);
+	public HRESULT GetFullEnumerationChangeBatch(uint32 dwBatchSize, uint8 pbLowerEnumerationBound, ISyncKnowledge* pSyncKnowledge, ISyncFullEnumerationChangeBatch* ppSyncChangeBatch, IUnknown* ppUnkDataRetriever) mut => VT.[Friend]GetFullEnumerationChangeBatch(&this, dwBatchSize, pbLowerEnumerationBound, pSyncKnowledge, ppSyncChangeBatch, ppUnkDataRetriever);
 
-	public HRESULT ProcessChangeBatch(CONFLICT_RESOLUTION_POLICY resolutionPolicy, ISyncChangeBatch* pSourceChangeBatch, IUnknown* pUnkDataRetriever, ISyncCallback* pCallback, SYNC_SESSION_STATISTICS* pSyncSessionStatistics) mut => VT.[Friend]ProcessChangeBatch(&this, resolutionPolicy, pSourceChangeBatch, pUnkDataRetriever, pCallback, pSyncSessionStatistics);
+	public HRESULT ProcessChangeBatch(CONFLICT_RESOLUTION_POLICY resolutionPolicy, ISyncChangeBatch* pSourceChangeBatch, IUnknown* pUnkDataRetriever, ISyncCallback* pCallback, SYNC_SESSION_STATISTICS pSyncSessionStatistics) mut => VT.[Friend]ProcessChangeBatch(&this, resolutionPolicy, pSourceChangeBatch, pUnkDataRetriever, pCallback, pSyncSessionStatistics);
 
-	public HRESULT ProcessFullEnumerationChangeBatch(CONFLICT_RESOLUTION_POLICY resolutionPolicy, ISyncFullEnumerationChangeBatch* pSourceChangeBatch, IUnknown* pUnkDataRetriever, ISyncCallback* pCallback, SYNC_SESSION_STATISTICS* pSyncSessionStatistics) mut => VT.[Friend]ProcessFullEnumerationChangeBatch(&this, resolutionPolicy, pSourceChangeBatch, pUnkDataRetriever, pCallback, pSyncSessionStatistics);
+	public HRESULT ProcessFullEnumerationChangeBatch(CONFLICT_RESOLUTION_POLICY resolutionPolicy, ISyncFullEnumerationChangeBatch* pSourceChangeBatch, IUnknown* pUnkDataRetriever, ISyncCallback* pCallback, SYNC_SESSION_STATISTICS pSyncSessionStatistics) mut => VT.[Friend]ProcessFullEnumerationChangeBatch(&this, resolutionPolicy, pSourceChangeBatch, pUnkDataRetriever, pCallback, pSyncSessionStatistics);
 
 	public HRESULT EndSession(ISyncSessionState* pSessionState) mut => VT.[Friend]EndSession(&this, pSessionState);
 }
@@ -1462,17 +1462,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeUnit*/SelfOuter* self, ISyncChange** ppSyncChange) GetItemChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeUnit*/SelfOuter* self, uint8* pbChangeUnitId, uint32* pcbIdSize) GetChangeUnitId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeUnit*/SelfOuter* self, uint8* pbCurrentReplicaId, SYNC_VERSION* pVersion) GetChangeUnitVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeUnit*/SelfOuter* self, ISyncChange* ppSyncChange) GetItemChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeUnit*/SelfOuter* self, uint8 pbChangeUnitId, uint32 pcbIdSize) GetChangeUnitId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeUnit*/SelfOuter* self, uint8 pbCurrentReplicaId, SYNC_VERSION pVersion) GetChangeUnitVersion;
 	}
 
 
-	public HRESULT GetItemChange(ISyncChange** ppSyncChange) mut => VT.[Friend]GetItemChange(&this, ppSyncChange);
+	public HRESULT GetItemChange(ISyncChange* ppSyncChange) mut => VT.[Friend]GetItemChange(&this, ppSyncChange);
 
-	public HRESULT GetChangeUnitId(uint8* pbChangeUnitId, uint32* pcbIdSize) mut => VT.[Friend]GetChangeUnitId(&this, pbChangeUnitId, pcbIdSize);
+	public HRESULT GetChangeUnitId(uint8 pbChangeUnitId, uint32 pcbIdSize) mut => VT.[Friend]GetChangeUnitId(&this, pbChangeUnitId, pcbIdSize);
 
-	public HRESULT GetChangeUnitVersion(uint8* pbCurrentReplicaId, SYNC_VERSION* pVersion) mut => VT.[Friend]GetChangeUnitVersion(&this, pbCurrentReplicaId, pVersion);
+	public HRESULT GetChangeUnitVersion(uint8 pbCurrentReplicaId, SYNC_VERSION pVersion) mut => VT.[Friend]GetChangeUnitVersion(&this, pbCurrentReplicaId, pVersion);
 }
 
 [CRepr]struct IEnumSyncChangeUnits : IUnknown
@@ -1483,20 +1483,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChangeUnits*/SelfOuter* self, uint32 cChanges, ISyncChangeUnit** ppChangeUnit, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChangeUnits*/SelfOuter* self, uint32 cChanges, ISyncChangeUnit* ppChangeUnit, uint32 pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChangeUnits*/SelfOuter* self, uint32 cChanges) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChangeUnits*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChangeUnits*/SelfOuter* self, IEnumSyncChangeUnits** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncChangeUnits*/SelfOuter* self, IEnumSyncChangeUnits* ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cChanges, ISyncChangeUnit** ppChangeUnit, uint32* pcFetched) mut => VT.[Friend]Next(&this, cChanges, ppChangeUnit, pcFetched);
+	public HRESULT Next(uint32 cChanges, ISyncChangeUnit* ppChangeUnit, uint32 pcFetched) mut => VT.[Friend]Next(&this, cChanges, ppChangeUnit, pcFetched);
 
 	public HRESULT Skip(uint32 cChanges) mut => VT.[Friend]Skip(&this, cChanges);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumSyncChangeUnits** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumSyncChangeUnits* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct ISyncChange : IUnknown
@@ -1507,36 +1507,36 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint8* pbReplicaId, uint32* pcbIdSize) GetOwnerReplicaId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint8* pbRootItemId, uint32* pcbIdSize) GetRootItemId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint8* pbCurrentReplicaId, SYNC_VERSION* pVersion) GetChangeVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint8* pbCurrentReplicaId, SYNC_VERSION* pVersion) GetCreationVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint32* pdwWork) GetWorkEstimate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, IEnumSyncChangeUnits** ppEnum) GetChangeUnits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, ISyncKnowledge** ppMadeWithKnowledge) GetMadeWithKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, ISyncKnowledge** ppLearnedKnowledge) GetLearnedKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint8 pbReplicaId, uint32 pcbIdSize) GetOwnerReplicaId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint8 pbRootItemId, uint32 pcbIdSize) GetRootItemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint8 pbCurrentReplicaId, SYNC_VERSION pVersion) GetChangeVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint8 pbCurrentReplicaId, SYNC_VERSION pVersion) GetCreationVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint32 pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint32 pdwWork) GetWorkEstimate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, IEnumSyncChangeUnits* ppEnum) GetChangeUnits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, ISyncKnowledge* ppMadeWithKnowledge) GetMadeWithKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, ISyncKnowledge* ppLearnedKnowledge) GetLearnedKnowledge;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChange*/SelfOuter* self, uint32 dwWork) SetWorkEstimate;
 	}
 
 
-	public HRESULT GetOwnerReplicaId(uint8* pbReplicaId, uint32* pcbIdSize) mut => VT.[Friend]GetOwnerReplicaId(&this, pbReplicaId, pcbIdSize);
+	public HRESULT GetOwnerReplicaId(uint8 pbReplicaId, uint32 pcbIdSize) mut => VT.[Friend]GetOwnerReplicaId(&this, pbReplicaId, pcbIdSize);
 
-	public HRESULT GetRootItemId(uint8* pbRootItemId, uint32* pcbIdSize) mut => VT.[Friend]GetRootItemId(&this, pbRootItemId, pcbIdSize);
+	public HRESULT GetRootItemId(uint8 pbRootItemId, uint32 pcbIdSize) mut => VT.[Friend]GetRootItemId(&this, pbRootItemId, pcbIdSize);
 
-	public HRESULT GetChangeVersion(uint8* pbCurrentReplicaId, SYNC_VERSION* pVersion) mut => VT.[Friend]GetChangeVersion(&this, pbCurrentReplicaId, pVersion);
+	public HRESULT GetChangeVersion(uint8 pbCurrentReplicaId, SYNC_VERSION pVersion) mut => VT.[Friend]GetChangeVersion(&this, pbCurrentReplicaId, pVersion);
 
-	public HRESULT GetCreationVersion(uint8* pbCurrentReplicaId, SYNC_VERSION* pVersion) mut => VT.[Friend]GetCreationVersion(&this, pbCurrentReplicaId, pVersion);
+	public HRESULT GetCreationVersion(uint8 pbCurrentReplicaId, SYNC_VERSION pVersion) mut => VT.[Friend]GetCreationVersion(&this, pbCurrentReplicaId, pVersion);
 
-	public HRESULT GetFlags(uint32* pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
+	public HRESULT GetFlags(uint32 pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
 
-	public HRESULT GetWorkEstimate(uint32* pdwWork) mut => VT.[Friend]GetWorkEstimate(&this, pdwWork);
+	public HRESULT GetWorkEstimate(uint32 pdwWork) mut => VT.[Friend]GetWorkEstimate(&this, pdwWork);
 
-	public HRESULT GetChangeUnits(IEnumSyncChangeUnits** ppEnum) mut => VT.[Friend]GetChangeUnits(&this, ppEnum);
+	public HRESULT GetChangeUnits(IEnumSyncChangeUnits* ppEnum) mut => VT.[Friend]GetChangeUnits(&this, ppEnum);
 
-	public HRESULT GetMadeWithKnowledge(ISyncKnowledge** ppMadeWithKnowledge) mut => VT.[Friend]GetMadeWithKnowledge(&this, ppMadeWithKnowledge);
+	public HRESULT GetMadeWithKnowledge(ISyncKnowledge* ppMadeWithKnowledge) mut => VT.[Friend]GetMadeWithKnowledge(&this, ppMadeWithKnowledge);
 
-	public HRESULT GetLearnedKnowledge(ISyncKnowledge** ppLearnedKnowledge) mut => VT.[Friend]GetLearnedKnowledge(&this, ppLearnedKnowledge);
+	public HRESULT GetLearnedKnowledge(ISyncKnowledge* ppLearnedKnowledge) mut => VT.[Friend]GetLearnedKnowledge(&this, ppLearnedKnowledge);
 
 	public HRESULT SetWorkEstimate(uint32 dwWork) mut => VT.[Friend]SetWorkEstimate(&this, dwWork);
 }
@@ -1549,14 +1549,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithPrerequisite*/SelfOuter* self, ISyncKnowledge** ppPrerequisiteKnowledge) GetPrerequisiteKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithPrerequisite*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, ISyncKnowledge** ppLearnedKnowledgeWithPrerequisite) GetLearnedKnowledgeWithPrerequisite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithPrerequisite*/SelfOuter* self, ISyncKnowledge* ppPrerequisiteKnowledge) GetPrerequisiteKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithPrerequisite*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, ISyncKnowledge* ppLearnedKnowledgeWithPrerequisite) GetLearnedKnowledgeWithPrerequisite;
 	}
 
 
-	public HRESULT GetPrerequisiteKnowledge(ISyncKnowledge** ppPrerequisiteKnowledge) mut => VT.[Friend]GetPrerequisiteKnowledge(&this, ppPrerequisiteKnowledge);
+	public HRESULT GetPrerequisiteKnowledge(ISyncKnowledge* ppPrerequisiteKnowledge) mut => VT.[Friend]GetPrerequisiteKnowledge(&this, ppPrerequisiteKnowledge);
 
-	public HRESULT GetLearnedKnowledgeWithPrerequisite(ISyncKnowledge* pDestinationKnowledge, ISyncKnowledge** ppLearnedKnowledgeWithPrerequisite) mut => VT.[Friend]GetLearnedKnowledgeWithPrerequisite(&this, pDestinationKnowledge, ppLearnedKnowledgeWithPrerequisite);
+	public HRESULT GetLearnedKnowledgeWithPrerequisite(ISyncKnowledge* pDestinationKnowledge, ISyncKnowledge* ppLearnedKnowledgeWithPrerequisite) mut => VT.[Friend]GetLearnedKnowledgeWithPrerequisite(&this, pDestinationKnowledge, ppLearnedKnowledgeWithPrerequisite);
 }
 
 [CRepr]struct ISyncFullEnumerationChange : IUnknown
@@ -1567,14 +1567,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChange*/SelfOuter* self, ISyncKnowledge** ppLearnedKnowledge) GetLearnedKnowledgeAfterRecoveryComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChange*/SelfOuter* self, IForgottenKnowledge** ppLearnedForgottenKnowledge) GetLearnedForgottenKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChange*/SelfOuter* self, ISyncKnowledge* ppLearnedKnowledge) GetLearnedKnowledgeAfterRecoveryComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncFullEnumerationChange*/SelfOuter* self, IForgottenKnowledge* ppLearnedForgottenKnowledge) GetLearnedForgottenKnowledge;
 	}
 
 
-	public HRESULT GetLearnedKnowledgeAfterRecoveryComplete(ISyncKnowledge** ppLearnedKnowledge) mut => VT.[Friend]GetLearnedKnowledgeAfterRecoveryComplete(&this, ppLearnedKnowledge);
+	public HRESULT GetLearnedKnowledgeAfterRecoveryComplete(ISyncKnowledge* ppLearnedKnowledge) mut => VT.[Friend]GetLearnedKnowledgeAfterRecoveryComplete(&this, ppLearnedKnowledge);
 
-	public HRESULT GetLearnedForgottenKnowledge(IForgottenKnowledge** ppLearnedForgottenKnowledge) mut => VT.[Friend]GetLearnedForgottenKnowledge(&this, ppLearnedForgottenKnowledge);
+	public HRESULT GetLearnedForgottenKnowledge(IForgottenKnowledge* ppLearnedForgottenKnowledge) mut => VT.[Friend]GetLearnedForgottenKnowledge(&this, ppLearnedForgottenKnowledge);
 }
 
 [CRepr]struct ISyncMergeTombstoneChange : IUnknown
@@ -1585,11 +1585,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMergeTombstoneChange*/SelfOuter* self, uint8* pbWinnerItemId, uint32* pcbIdSize) GetWinnerItemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMergeTombstoneChange*/SelfOuter* self, uint8 pbWinnerItemId, uint32 pcbIdSize) GetWinnerItemId;
 	}
 
 
-	public HRESULT GetWinnerItemId(uint8* pbWinnerItemId, uint32* pcbIdSize) mut => VT.[Friend]GetWinnerItemId(&this, pbWinnerItemId, pcbIdSize);
+	public HRESULT GetWinnerItemId(uint8 pbWinnerItemId, uint32 pcbIdSize) mut => VT.[Friend]GetWinnerItemId(&this, pbWinnerItemId, pcbIdSize);
 }
 
 [CRepr]struct IEnumItemIds : IUnknown
@@ -1600,11 +1600,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumItemIds*/SelfOuter* self, uint8* pbItemId, uint32* pcbItemIdSize) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumItemIds*/SelfOuter* self, uint8 pbItemId, uint32 pcbItemIdSize) Next;
 	}
 
 
-	public HRESULT Next(uint8* pbItemId, uint32* pcbItemIdSize) mut => VT.[Friend]Next(&this, pbItemId, pcbItemIdSize);
+	public HRESULT Next(uint8 pbItemId, uint32 pcbItemIdSize) mut => VT.[Friend]Next(&this, pbItemId, pcbItemIdSize);
 }
 
 [CRepr]struct IFilterKeyMap : IUnknown
@@ -1615,20 +1615,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterKeyMap*/SelfOuter* self, uint32* pdwCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterKeyMap*/SelfOuter* self, ISyncFilter* pISyncFilter, uint32* pdwFilterKey) AddFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterKeyMap*/SelfOuter* self, uint32 dwFilterKey, ISyncFilter** ppISyncFilter) GetFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterKeyMap*/SelfOuter* self, uint8* pbFilterKeyMap, uint32* pcbFilterKeyMap) Serialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterKeyMap*/SelfOuter* self, uint32 pdwCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterKeyMap*/SelfOuter* self, ISyncFilter* pISyncFilter, uint32 pdwFilterKey) AddFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterKeyMap*/SelfOuter* self, uint32 dwFilterKey, ISyncFilter* ppISyncFilter) GetFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFilterKeyMap*/SelfOuter* self, uint8 pbFilterKeyMap, uint32 pcbFilterKeyMap) Serialize;
 	}
 
 
-	public HRESULT GetCount(uint32* pdwCount) mut => VT.[Friend]GetCount(&this, pdwCount);
+	public HRESULT GetCount(uint32 pdwCount) mut => VT.[Friend]GetCount(&this, pdwCount);
 
-	public HRESULT AddFilter(ISyncFilter* pISyncFilter, uint32* pdwFilterKey) mut => VT.[Friend]AddFilter(&this, pISyncFilter, pdwFilterKey);
+	public HRESULT AddFilter(ISyncFilter* pISyncFilter, uint32 pdwFilterKey) mut => VT.[Friend]AddFilter(&this, pISyncFilter, pdwFilterKey);
 
-	public HRESULT GetFilter(uint32 dwFilterKey, ISyncFilter** ppISyncFilter) mut => VT.[Friend]GetFilter(&this, dwFilterKey, ppISyncFilter);
+	public HRESULT GetFilter(uint32 dwFilterKey, ISyncFilter* ppISyncFilter) mut => VT.[Friend]GetFilter(&this, dwFilterKey, ppISyncFilter);
 
-	public HRESULT Serialize(uint8* pbFilterKeyMap, uint32* pcbFilterKeyMap) mut => VT.[Friend]Serialize(&this, pbFilterKeyMap, pcbFilterKeyMap);
+	public HRESULT Serialize(uint8 pbFilterKeyMap, uint32 pcbFilterKeyMap) mut => VT.[Friend]Serialize(&this, pbFilterKeyMap, pcbFilterKeyMap);
 }
 
 [CRepr]struct ISyncChangeWithFilterKeyMap : IUnknown
@@ -1639,35 +1639,35 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, uint32* pdwFilterCount) GetFilterCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, uint32 dwFilterKey, SYNC_FILTER_CHANGE* pFilterChange) GetFilterChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, BOOL* pfAllChangeUnitsPresent) GetAllChangeUnitsPresentFlag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, uint32 dwFilterKey, ISyncKnowledge** ppIFilterForgottenKnowledge) GetFilterForgottenKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedKnowledge) GetFilteredReplicaLearnedKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge** ppLearnedFilterForgottenKnowledge) GetLearnedFilterForgottenKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedForgottenKnowledge) GetFilteredReplicaLearnedForgottenKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedForgottenKnowledge) GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge** ppLearnedFilterForgottenKnowledge) GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, uint32 pdwFilterCount) GetFilterCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, uint32 dwFilterKey, SYNC_FILTER_CHANGE pFilterChange) GetFilterChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, BOOL pfAllChangeUnitsPresent) GetAllChangeUnitsPresentFlag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, uint32 dwFilterKey, ISyncKnowledge* ppIFilterForgottenKnowledge) GetFilterForgottenKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedKnowledge) GetFilteredReplicaLearnedKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge* ppLearnedFilterForgottenKnowledge) GetLearnedFilterForgottenKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedForgottenKnowledge) GetFilteredReplicaLearnedForgottenKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedForgottenKnowledge) GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge* ppLearnedFilterForgottenKnowledge) GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete;
 	}
 
 
-	public HRESULT GetFilterCount(uint32* pdwFilterCount) mut => VT.[Friend]GetFilterCount(&this, pdwFilterCount);
+	public HRESULT GetFilterCount(uint32 pdwFilterCount) mut => VT.[Friend]GetFilterCount(&this, pdwFilterCount);
 
-	public HRESULT GetFilterChange(uint32 dwFilterKey, SYNC_FILTER_CHANGE* pFilterChange) mut => VT.[Friend]GetFilterChange(&this, dwFilterKey, pFilterChange);
+	public HRESULT GetFilterChange(uint32 dwFilterKey, SYNC_FILTER_CHANGE pFilterChange) mut => VT.[Friend]GetFilterChange(&this, dwFilterKey, pFilterChange);
 
-	public HRESULT GetAllChangeUnitsPresentFlag(BOOL* pfAllChangeUnitsPresent) mut => VT.[Friend]GetAllChangeUnitsPresentFlag(&this, pfAllChangeUnitsPresent);
+	public HRESULT GetAllChangeUnitsPresentFlag(BOOL pfAllChangeUnitsPresent) mut => VT.[Friend]GetAllChangeUnitsPresentFlag(&this, pfAllChangeUnitsPresent);
 
-	public HRESULT GetFilterForgottenKnowledge(uint32 dwFilterKey, ISyncKnowledge** ppIFilterForgottenKnowledge) mut => VT.[Friend]GetFilterForgottenKnowledge(&this, dwFilterKey, ppIFilterForgottenKnowledge);
+	public HRESULT GetFilterForgottenKnowledge(uint32 dwFilterKey, ISyncKnowledge* ppIFilterForgottenKnowledge) mut => VT.[Friend]GetFilterForgottenKnowledge(&this, dwFilterKey, ppIFilterForgottenKnowledge);
 
-	public HRESULT GetFilteredReplicaLearnedKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedKnowledge(&this, pDestinationKnowledge, pNewMoveins, ppLearnedKnowledge);
+	public HRESULT GetFilteredReplicaLearnedKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedKnowledge(&this, pDestinationKnowledge, pNewMoveins, ppLearnedKnowledge);
 
-	public HRESULT GetLearnedFilterForgottenKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge** ppLearnedFilterForgottenKnowledge) mut => VT.[Friend]GetLearnedFilterForgottenKnowledge(&this, pDestinationKnowledge, pNewMoveins, dwFilterKey, ppLearnedFilterForgottenKnowledge);
+	public HRESULT GetLearnedFilterForgottenKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge* ppLearnedFilterForgottenKnowledge) mut => VT.[Friend]GetLearnedFilterForgottenKnowledge(&this, pDestinationKnowledge, pNewMoveins, dwFilterKey, ppLearnedFilterForgottenKnowledge);
 
-	public HRESULT GetFilteredReplicaLearnedForgottenKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedForgottenKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedForgottenKnowledge(&this, pDestinationKnowledge, pNewMoveins, ppLearnedForgottenKnowledge);
+	public HRESULT GetFilteredReplicaLearnedForgottenKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedForgottenKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedForgottenKnowledge(&this, pDestinationKnowledge, pNewMoveins, ppLearnedForgottenKnowledge);
 
-	public HRESULT GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedForgottenKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(&this, pDestinationKnowledge, pNewMoveins, ppLearnedForgottenKnowledge);
+	public HRESULT GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedForgottenKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(&this, pDestinationKnowledge, pNewMoveins, ppLearnedForgottenKnowledge);
 
-	public HRESULT GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge** ppLearnedFilterForgottenKnowledge) mut => VT.[Friend]GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(&this, pDestinationKnowledge, pNewMoveins, dwFilterKey, ppLearnedFilterForgottenKnowledge);
+	public HRESULT GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge* ppLearnedFilterForgottenKnowledge) mut => VT.[Friend]GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(&this, pDestinationKnowledge, pNewMoveins, dwFilterKey, ppLearnedFilterForgottenKnowledge);
 }
 
 [CRepr]struct ISyncChangeBatchWithFilterKeyMap : IUnknown
@@ -1678,32 +1678,32 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, IFilterKeyMap** ppIFilterKeyMap) GetFilterKeyMap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, IFilterKeyMap* ppIFilterKeyMap) GetFilterKeyMap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, IFilterKeyMap* pIFilterKeyMap) SetFilterKeyMap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, uint32 dwFilterKey, ISyncKnowledge* pFilterForgottenKnowledge) SetFilterForgottenKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedForgottenKnowledge) GetFilteredReplicaLearnedKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge** ppLearnedFilterForgottenKnowledge) GetLearnedFilterForgottenKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedForgottenKnowledge) GetFilteredReplicaLearnedForgottenKnowledge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedForgottenKnowledge) GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge** ppLearnedFilterForgottenKnowledge) GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedForgottenKnowledge) GetFilteredReplicaLearnedKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge* ppLearnedFilterForgottenKnowledge) GetLearnedFilterForgottenKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedForgottenKnowledge) GetFilteredReplicaLearnedForgottenKnowledge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedForgottenKnowledge) GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncChangeBatchWithFilterKeyMap*/SelfOuter* self, ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge* ppLearnedFilterForgottenKnowledge) GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete;
 	}
 
 
-	public HRESULT GetFilterKeyMap(IFilterKeyMap** ppIFilterKeyMap) mut => VT.[Friend]GetFilterKeyMap(&this, ppIFilterKeyMap);
+	public HRESULT GetFilterKeyMap(IFilterKeyMap* ppIFilterKeyMap) mut => VT.[Friend]GetFilterKeyMap(&this, ppIFilterKeyMap);
 
 	public HRESULT SetFilterKeyMap(IFilterKeyMap* pIFilterKeyMap) mut => VT.[Friend]SetFilterKeyMap(&this, pIFilterKeyMap);
 
 	public HRESULT SetFilterForgottenKnowledge(uint32 dwFilterKey, ISyncKnowledge* pFilterForgottenKnowledge) mut => VT.[Friend]SetFilterForgottenKnowledge(&this, dwFilterKey, pFilterForgottenKnowledge);
 
-	public HRESULT GetFilteredReplicaLearnedKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedForgottenKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedKnowledge(&this, pDestinationKnowledge, pNewMoveins, ppLearnedForgottenKnowledge);
+	public HRESULT GetFilteredReplicaLearnedKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedForgottenKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedKnowledge(&this, pDestinationKnowledge, pNewMoveins, ppLearnedForgottenKnowledge);
 
-	public HRESULT GetLearnedFilterForgottenKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge** ppLearnedFilterForgottenKnowledge) mut => VT.[Friend]GetLearnedFilterForgottenKnowledge(&this, pDestinationKnowledge, pNewMoveins, dwFilterKey, ppLearnedFilterForgottenKnowledge);
+	public HRESULT GetLearnedFilterForgottenKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge* ppLearnedFilterForgottenKnowledge) mut => VT.[Friend]GetLearnedFilterForgottenKnowledge(&this, pDestinationKnowledge, pNewMoveins, dwFilterKey, ppLearnedFilterForgottenKnowledge);
 
-	public HRESULT GetFilteredReplicaLearnedForgottenKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedForgottenKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedForgottenKnowledge(&this, pDestinationKnowledge, pNewMoveins, ppLearnedForgottenKnowledge);
+	public HRESULT GetFilteredReplicaLearnedForgottenKnowledge(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedForgottenKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedForgottenKnowledge(&this, pDestinationKnowledge, pNewMoveins, ppLearnedForgottenKnowledge);
 
-	public HRESULT GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge** ppLearnedForgottenKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(&this, pDestinationKnowledge, pNewMoveins, ppLearnedForgottenKnowledge);
+	public HRESULT GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, ISyncKnowledge* ppLearnedForgottenKnowledge) mut => VT.[Friend]GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(&this, pDestinationKnowledge, pNewMoveins, ppLearnedForgottenKnowledge);
 
-	public HRESULT GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge** ppLearnedFilterForgottenKnowledge) mut => VT.[Friend]GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(&this, pDestinationKnowledge, pNewMoveins, dwFilterKey, ppLearnedFilterForgottenKnowledge);
+	public HRESULT GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(ISyncKnowledge* pDestinationKnowledge, IEnumItemIds* pNewMoveins, uint32 dwFilterKey, ISyncKnowledge* ppLearnedFilterForgottenKnowledge) mut => VT.[Friend]GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(&this, pDestinationKnowledge, pNewMoveins, dwFilterKey, ppLearnedFilterForgottenKnowledge);
 }
 
 [CRepr]struct IDataRetrieverCallback : IUnknown
@@ -1732,13 +1732,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadChangeContext*/SelfOuter* self, ISyncChange** ppSyncChange) GetSyncChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadChangeContext*/SelfOuter* self, ISyncChange* ppSyncChange) GetSyncChange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadChangeContext*/SelfOuter* self, HRESULT hrError, IRecoverableErrorData* pErrorData) SetRecoverableErrorOnChange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadChangeContext*/SelfOuter* self, HRESULT hrError, ISyncChangeUnit* pChangeUnit, IRecoverableErrorData* pErrorData) SetRecoverableErrorOnChangeUnit;
 	}
 
 
-	public HRESULT GetSyncChange(ISyncChange** ppSyncChange) mut => VT.[Friend]GetSyncChange(&this, ppSyncChange);
+	public HRESULT GetSyncChange(ISyncChange* ppSyncChange) mut => VT.[Friend]GetSyncChange(&this, ppSyncChange);
 
 	public HRESULT SetRecoverableErrorOnChange(HRESULT hrError, IRecoverableErrorData* pErrorData) mut => VT.[Friend]SetRecoverableErrorOnChange(&this, hrError, pErrorData);
 
@@ -1753,14 +1753,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISynchronousDataRetriever*/SelfOuter* self, ID_PARAMETERS* pIdParameters) GetIdParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISynchronousDataRetriever*/SelfOuter* self, ILoadChangeContext* pLoadChangeContext, IUnknown** ppUnkData) LoadChangeData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISynchronousDataRetriever*/SelfOuter* self, ID_PARAMETERS pIdParameters) GetIdParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISynchronousDataRetriever*/SelfOuter* self, ILoadChangeContext* pLoadChangeContext, IUnknown* ppUnkData) LoadChangeData;
 	}
 
 
-	public HRESULT GetIdParameters(ID_PARAMETERS* pIdParameters) mut => VT.[Friend]GetIdParameters(&this, pIdParameters);
+	public HRESULT GetIdParameters(ID_PARAMETERS pIdParameters) mut => VT.[Friend]GetIdParameters(&this, pIdParameters);
 
-	public HRESULT LoadChangeData(ILoadChangeContext* pLoadChangeContext, IUnknown** ppUnkData) mut => VT.[Friend]LoadChangeData(&this, pLoadChangeContext, ppUnkData);
+	public HRESULT LoadChangeData(ILoadChangeContext* pLoadChangeContext, IUnknown* ppUnkData) mut => VT.[Friend]LoadChangeData(&this, pLoadChangeContext, ppUnkData);
 }
 
 [CRepr]struct IAsynchronousDataRetriever : IUnknown
@@ -1771,14 +1771,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAsynchronousDataRetriever*/SelfOuter* self, ID_PARAMETERS* pIdParameters) GetIdParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAsynchronousDataRetriever*/SelfOuter* self, ID_PARAMETERS pIdParameters) GetIdParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAsynchronousDataRetriever*/SelfOuter* self, IDataRetrieverCallback* pDataRetrieverCallback) RegisterCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAsynchronousDataRetriever*/SelfOuter* self, IDataRetrieverCallback* pDataRetrieverCallback) RevokeCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAsynchronousDataRetriever*/SelfOuter* self, ILoadChangeContext* pLoadChangeContext) LoadChangeData;
 	}
 
 
-	public HRESULT GetIdParameters(ID_PARAMETERS* pIdParameters) mut => VT.[Friend]GetIdParameters(&this, pIdParameters);
+	public HRESULT GetIdParameters(ID_PARAMETERS pIdParameters) mut => VT.[Friend]GetIdParameters(&this, pIdParameters);
 
 	public HRESULT RegisterCallback(IDataRetrieverCallback* pDataRetrieverCallback) mut => VT.[Friend]RegisterCallback(&this, pDataRetrieverCallback);
 
@@ -1873,14 +1873,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISupportLastWriteTime*/SelfOuter* self, uint8* pbItemId, uint64* pullTimestamp) GetItemChangeTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISupportLastWriteTime*/SelfOuter* self, uint8* pbItemId, uint8* pbChangeUnitId, uint64* pullTimestamp) GetChangeUnitChangeTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISupportLastWriteTime*/SelfOuter* self, uint8 pbItemId, uint64 pullTimestamp) GetItemChangeTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISupportLastWriteTime*/SelfOuter* self, uint8 pbItemId, uint8 pbChangeUnitId, uint64 pullTimestamp) GetChangeUnitChangeTime;
 	}
 
 
-	public HRESULT GetItemChangeTime(uint8* pbItemId, uint64* pullTimestamp) mut => VT.[Friend]GetItemChangeTime(&this, pbItemId, pullTimestamp);
+	public HRESULT GetItemChangeTime(uint8 pbItemId, uint64 pullTimestamp) mut => VT.[Friend]GetItemChangeTime(&this, pbItemId, pullTimestamp);
 
-	public HRESULT GetChangeUnitChangeTime(uint8* pbItemId, uint8* pbChangeUnitId, uint64* pullTimestamp) mut => VT.[Friend]GetChangeUnitChangeTime(&this, pbItemId, pbChangeUnitId, pullTimestamp);
+	public HRESULT GetChangeUnitChangeTime(uint8 pbItemId, uint8 pbChangeUnitId, uint64 pullTimestamp) mut => VT.[Friend]GetChangeUnitChangeTime(&this, pbItemId, pbChangeUnitId, pullTimestamp);
 }
 
 [CRepr]struct IProviderConverter : IUnknown
@@ -1906,20 +1906,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncDataConverter*/SelfOuter* self, IUnknown* pUnkDataRetrieverIn, IEnumSyncChanges* pEnumSyncChanges, IUnknown** ppUnkDataOut) ConvertDataRetrieverFromProviderFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncDataConverter*/SelfOuter* self, IUnknown* pUnkDataRetrieverIn, IEnumSyncChanges* pEnumSyncChanges, IUnknown** ppUnkDataOut) ConvertDataRetrieverToProviderFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncDataConverter*/SelfOuter* self, ILoadChangeContext* pDataContext, IUnknown* pUnkDataIn, IUnknown** ppUnkDataOut) ConvertDataFromProviderFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncDataConverter*/SelfOuter* self, ILoadChangeContext* pDataContext, IUnknown* pUnkDataOut, IUnknown** ppUnkDataout) ConvertDataToProviderFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncDataConverter*/SelfOuter* self, IUnknown* pUnkDataRetrieverIn, IEnumSyncChanges* pEnumSyncChanges, IUnknown* ppUnkDataOut) ConvertDataRetrieverFromProviderFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncDataConverter*/SelfOuter* self, IUnknown* pUnkDataRetrieverIn, IEnumSyncChanges* pEnumSyncChanges, IUnknown* ppUnkDataOut) ConvertDataRetrieverToProviderFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncDataConverter*/SelfOuter* self, ILoadChangeContext* pDataContext, IUnknown* pUnkDataIn, IUnknown* ppUnkDataOut) ConvertDataFromProviderFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncDataConverter*/SelfOuter* self, ILoadChangeContext* pDataContext, IUnknown* pUnkDataOut, IUnknown* ppUnkDataout) ConvertDataToProviderFormat;
 	}
 
 
-	public HRESULT ConvertDataRetrieverFromProviderFormat(IUnknown* pUnkDataRetrieverIn, IEnumSyncChanges* pEnumSyncChanges, IUnknown** ppUnkDataOut) mut => VT.[Friend]ConvertDataRetrieverFromProviderFormat(&this, pUnkDataRetrieverIn, pEnumSyncChanges, ppUnkDataOut);
+	public HRESULT ConvertDataRetrieverFromProviderFormat(IUnknown* pUnkDataRetrieverIn, IEnumSyncChanges* pEnumSyncChanges, IUnknown* ppUnkDataOut) mut => VT.[Friend]ConvertDataRetrieverFromProviderFormat(&this, pUnkDataRetrieverIn, pEnumSyncChanges, ppUnkDataOut);
 
-	public HRESULT ConvertDataRetrieverToProviderFormat(IUnknown* pUnkDataRetrieverIn, IEnumSyncChanges* pEnumSyncChanges, IUnknown** ppUnkDataOut) mut => VT.[Friend]ConvertDataRetrieverToProviderFormat(&this, pUnkDataRetrieverIn, pEnumSyncChanges, ppUnkDataOut);
+	public HRESULT ConvertDataRetrieverToProviderFormat(IUnknown* pUnkDataRetrieverIn, IEnumSyncChanges* pEnumSyncChanges, IUnknown* ppUnkDataOut) mut => VT.[Friend]ConvertDataRetrieverToProviderFormat(&this, pUnkDataRetrieverIn, pEnumSyncChanges, ppUnkDataOut);
 
-	public HRESULT ConvertDataFromProviderFormat(ILoadChangeContext* pDataContext, IUnknown* pUnkDataIn, IUnknown** ppUnkDataOut) mut => VT.[Friend]ConvertDataFromProviderFormat(&this, pDataContext, pUnkDataIn, ppUnkDataOut);
+	public HRESULT ConvertDataFromProviderFormat(ILoadChangeContext* pDataContext, IUnknown* pUnkDataIn, IUnknown* ppUnkDataOut) mut => VT.[Friend]ConvertDataFromProviderFormat(&this, pDataContext, pUnkDataIn, ppUnkDataOut);
 
-	public HRESULT ConvertDataToProviderFormat(ILoadChangeContext* pDataContext, IUnknown* pUnkDataOut, IUnknown** ppUnkDataout) mut => VT.[Friend]ConvertDataToProviderFormat(&this, pDataContext, pUnkDataOut, ppUnkDataout);
+	public HRESULT ConvertDataToProviderFormat(ILoadChangeContext* pDataContext, IUnknown* pUnkDataOut, IUnknown* ppUnkDataout) mut => VT.[Friend]ConvertDataToProviderFormat(&this, pDataContext, pUnkDataOut, ppUnkDataout);
 }
 
 [CRepr]struct ISyncProviderRegistration : IUnknown
@@ -1930,56 +1930,56 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, SyncProviderConfigUIConfiguration* pConfigUIConfig, ISyncProviderConfigUIInfo** ppConfigUIInfo) CreateSyncProviderConfigUIRegistrationInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, SyncProviderConfigUIConfiguration pConfigUIConfig, ISyncProviderConfigUIInfo* ppConfigUIInfo) CreateSyncProviderConfigUIRegistrationInstance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId) UnregisterSyncProviderConfigUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidContentType, uint32 dwSupportedArchitecture, IEnumSyncProviderConfigUIInfos** ppEnumSyncProviderConfigUIInfos) EnumerateSyncProviderConfigUIs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, SyncProviderConfiguration* pProviderConfiguration, ISyncProviderInfo** ppProviderInfo) CreateSyncProviderRegistrationInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidContentType, uint32 dwSupportedArchitecture, IEnumSyncProviderConfigUIInfos* ppEnumSyncProviderConfigUIInfos) EnumerateSyncProviderConfigUIs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, SyncProviderConfiguration pProviderConfiguration, ISyncProviderInfo* ppProviderInfo) CreateSyncProviderRegistrationInstance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId) UnregisterSyncProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidProviderInstanceId, ISyncProviderConfigUIInfo** ppProviderConfigUIInfo) GetSyncProviderConfigUIInfoforProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidContentType, uint32 dwStateFlagsToFilterMask, uint32 dwStateFlagsToFilter, Guid refProviderClsId, uint32 dwSupportedArchitecture, IEnumSyncProviderInfos** ppEnumSyncProviderInfos) EnumerateSyncProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, ISyncProviderInfo** ppProviderInfo) GetSyncProviderInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, uint32 dwClsContext, IRegisteredSyncProvider** ppSyncProvider) GetSyncProviderFromInstanceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, ISyncProviderConfigUIInfo** ppConfigUIInfo) GetSyncProviderConfigUIInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, uint32 dwClsContext, ISyncProviderConfigUI** ppConfigUI) GetSyncProviderConfigUIFromInstanceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, uint32* pdwStateFlags) GetSyncProviderState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidProviderInstanceId, ISyncProviderConfigUIInfo* ppProviderConfigUIInfo) GetSyncProviderConfigUIInfoforProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidContentType, uint32 dwStateFlagsToFilterMask, uint32 dwStateFlagsToFilter, Guid refProviderClsId, uint32 dwSupportedArchitecture, IEnumSyncProviderInfos* ppEnumSyncProviderInfos) EnumerateSyncProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, ISyncProviderInfo* ppProviderInfo) GetSyncProviderInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, uint32 dwClsContext, IRegisteredSyncProvider* ppSyncProvider) GetSyncProviderFromInstanceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, ISyncProviderConfigUIInfo* ppConfigUIInfo) GetSyncProviderConfigUIInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, uint32 dwClsContext, ISyncProviderConfigUI* ppConfigUI) GetSyncProviderConfigUIFromInstanceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, uint32 pdwStateFlags) GetSyncProviderState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, Guid pguidInstanceId, uint32 dwStateFlagsMask, uint32 dwStateFlags) SetSyncProviderState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, HANDLE* phEvent) RegisterForEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, HANDLE phEvent) RegisterForEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, HANDLE hEvent) RevokeEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, HANDLE hEvent, ISyncRegistrationChange** ppChange) GetChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderRegistration*/SelfOuter* self, HANDLE hEvent, ISyncRegistrationChange* ppChange) GetChange;
 	}
 
 
-	public HRESULT CreateSyncProviderConfigUIRegistrationInstance(SyncProviderConfigUIConfiguration* pConfigUIConfig, ISyncProviderConfigUIInfo** ppConfigUIInfo) mut => VT.[Friend]CreateSyncProviderConfigUIRegistrationInstance(&this, pConfigUIConfig, ppConfigUIInfo);
+	public HRESULT CreateSyncProviderConfigUIRegistrationInstance(SyncProviderConfigUIConfiguration pConfigUIConfig, ISyncProviderConfigUIInfo* ppConfigUIInfo) mut => VT.[Friend]CreateSyncProviderConfigUIRegistrationInstance(&this, pConfigUIConfig, ppConfigUIInfo);
 
 	public HRESULT UnregisterSyncProviderConfigUI(Guid pguidInstanceId) mut => VT.[Friend]UnregisterSyncProviderConfigUI(&this, pguidInstanceId);
 
-	public HRESULT EnumerateSyncProviderConfigUIs(Guid pguidContentType, uint32 dwSupportedArchitecture, IEnumSyncProviderConfigUIInfos** ppEnumSyncProviderConfigUIInfos) mut => VT.[Friend]EnumerateSyncProviderConfigUIs(&this, pguidContentType, dwSupportedArchitecture, ppEnumSyncProviderConfigUIInfos);
+	public HRESULT EnumerateSyncProviderConfigUIs(Guid pguidContentType, uint32 dwSupportedArchitecture, IEnumSyncProviderConfigUIInfos* ppEnumSyncProviderConfigUIInfos) mut => VT.[Friend]EnumerateSyncProviderConfigUIs(&this, pguidContentType, dwSupportedArchitecture, ppEnumSyncProviderConfigUIInfos);
 
-	public HRESULT CreateSyncProviderRegistrationInstance(SyncProviderConfiguration* pProviderConfiguration, ISyncProviderInfo** ppProviderInfo) mut => VT.[Friend]CreateSyncProviderRegistrationInstance(&this, pProviderConfiguration, ppProviderInfo);
+	public HRESULT CreateSyncProviderRegistrationInstance(SyncProviderConfiguration pProviderConfiguration, ISyncProviderInfo* ppProviderInfo) mut => VT.[Friend]CreateSyncProviderRegistrationInstance(&this, pProviderConfiguration, ppProviderInfo);
 
 	public HRESULT UnregisterSyncProvider(Guid pguidInstanceId) mut => VT.[Friend]UnregisterSyncProvider(&this, pguidInstanceId);
 
-	public HRESULT GetSyncProviderConfigUIInfoforProvider(Guid pguidProviderInstanceId, ISyncProviderConfigUIInfo** ppProviderConfigUIInfo) mut => VT.[Friend]GetSyncProviderConfigUIInfoforProvider(&this, pguidProviderInstanceId, ppProviderConfigUIInfo);
+	public HRESULT GetSyncProviderConfigUIInfoforProvider(Guid pguidProviderInstanceId, ISyncProviderConfigUIInfo* ppProviderConfigUIInfo) mut => VT.[Friend]GetSyncProviderConfigUIInfoforProvider(&this, pguidProviderInstanceId, ppProviderConfigUIInfo);
 
-	public HRESULT EnumerateSyncProviders(Guid pguidContentType, uint32 dwStateFlagsToFilterMask, uint32 dwStateFlagsToFilter, Guid refProviderClsId, uint32 dwSupportedArchitecture, IEnumSyncProviderInfos** ppEnumSyncProviderInfos) mut => VT.[Friend]EnumerateSyncProviders(&this, pguidContentType, dwStateFlagsToFilterMask, dwStateFlagsToFilter, refProviderClsId, dwSupportedArchitecture, ppEnumSyncProviderInfos);
+	public HRESULT EnumerateSyncProviders(Guid pguidContentType, uint32 dwStateFlagsToFilterMask, uint32 dwStateFlagsToFilter, Guid refProviderClsId, uint32 dwSupportedArchitecture, IEnumSyncProviderInfos* ppEnumSyncProviderInfos) mut => VT.[Friend]EnumerateSyncProviders(&this, pguidContentType, dwStateFlagsToFilterMask, dwStateFlagsToFilter, refProviderClsId, dwSupportedArchitecture, ppEnumSyncProviderInfos);
 
-	public HRESULT GetSyncProviderInfo(Guid pguidInstanceId, ISyncProviderInfo** ppProviderInfo) mut => VT.[Friend]GetSyncProviderInfo(&this, pguidInstanceId, ppProviderInfo);
+	public HRESULT GetSyncProviderInfo(Guid pguidInstanceId, ISyncProviderInfo* ppProviderInfo) mut => VT.[Friend]GetSyncProviderInfo(&this, pguidInstanceId, ppProviderInfo);
 
-	public HRESULT GetSyncProviderFromInstanceId(Guid pguidInstanceId, uint32 dwClsContext, IRegisteredSyncProvider** ppSyncProvider) mut => VT.[Friend]GetSyncProviderFromInstanceId(&this, pguidInstanceId, dwClsContext, ppSyncProvider);
+	public HRESULT GetSyncProviderFromInstanceId(Guid pguidInstanceId, uint32 dwClsContext, IRegisteredSyncProvider* ppSyncProvider) mut => VT.[Friend]GetSyncProviderFromInstanceId(&this, pguidInstanceId, dwClsContext, ppSyncProvider);
 
-	public HRESULT GetSyncProviderConfigUIInfo(Guid pguidInstanceId, ISyncProviderConfigUIInfo** ppConfigUIInfo) mut => VT.[Friend]GetSyncProviderConfigUIInfo(&this, pguidInstanceId, ppConfigUIInfo);
+	public HRESULT GetSyncProviderConfigUIInfo(Guid pguidInstanceId, ISyncProviderConfigUIInfo* ppConfigUIInfo) mut => VT.[Friend]GetSyncProviderConfigUIInfo(&this, pguidInstanceId, ppConfigUIInfo);
 
-	public HRESULT GetSyncProviderConfigUIFromInstanceId(Guid pguidInstanceId, uint32 dwClsContext, ISyncProviderConfigUI** ppConfigUI) mut => VT.[Friend]GetSyncProviderConfigUIFromInstanceId(&this, pguidInstanceId, dwClsContext, ppConfigUI);
+	public HRESULT GetSyncProviderConfigUIFromInstanceId(Guid pguidInstanceId, uint32 dwClsContext, ISyncProviderConfigUI* ppConfigUI) mut => VT.[Friend]GetSyncProviderConfigUIFromInstanceId(&this, pguidInstanceId, dwClsContext, ppConfigUI);
 
-	public HRESULT GetSyncProviderState(Guid pguidInstanceId, uint32* pdwStateFlags) mut => VT.[Friend]GetSyncProviderState(&this, pguidInstanceId, pdwStateFlags);
+	public HRESULT GetSyncProviderState(Guid pguidInstanceId, uint32 pdwStateFlags) mut => VT.[Friend]GetSyncProviderState(&this, pguidInstanceId, pdwStateFlags);
 
 	public HRESULT SetSyncProviderState(Guid pguidInstanceId, uint32 dwStateFlagsMask, uint32 dwStateFlags) mut => VT.[Friend]SetSyncProviderState(&this, pguidInstanceId, dwStateFlagsMask, dwStateFlags);
 
-	public HRESULT RegisterForEvent(HANDLE* phEvent) mut => VT.[Friend]RegisterForEvent(&this, phEvent);
+	public HRESULT RegisterForEvent(HANDLE phEvent) mut => VT.[Friend]RegisterForEvent(&this, phEvent);
 
 	public HRESULT RevokeEvent(HANDLE hEvent) mut => VT.[Friend]RevokeEvent(&this, hEvent);
 
-	public HRESULT GetChange(HANDLE hEvent, ISyncRegistrationChange** ppChange) mut => VT.[Friend]GetChange(&this, hEvent, ppChange);
+	public HRESULT GetChange(HANDLE hEvent, ISyncRegistrationChange* ppChange) mut => VT.[Friend]GetChange(&this, hEvent, ppChange);
 }
 
 [CRepr]struct IEnumSyncProviderConfigUIInfos : IUnknown
@@ -1990,20 +1990,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderConfigUIInfos*/SelfOuter* self, uint32 cFactories, ISyncProviderConfigUIInfo** ppSyncProviderConfigUIInfo, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderConfigUIInfos*/SelfOuter* self, uint32 cFactories, ISyncProviderConfigUIInfo** ppSyncProviderConfigUIInfo, uint32 pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderConfigUIInfos*/SelfOuter* self, uint32 cFactories) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderConfigUIInfos*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderConfigUIInfos*/SelfOuter* self, IEnumSyncProviderConfigUIInfos** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderConfigUIInfos*/SelfOuter* self, IEnumSyncProviderConfigUIInfos* ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cFactories, ISyncProviderConfigUIInfo** ppSyncProviderConfigUIInfo, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFactories, ppSyncProviderConfigUIInfo, pcFetched);
+	public HRESULT Next(uint32 cFactories, ISyncProviderConfigUIInfo** ppSyncProviderConfigUIInfo, uint32 pcFetched) mut => VT.[Friend]Next(&this, cFactories, ppSyncProviderConfigUIInfo, pcFetched);
 
 	public HRESULT Skip(uint32 cFactories) mut => VT.[Friend]Skip(&this, cFactories);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumSyncProviderConfigUIInfos** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumSyncProviderConfigUIInfos* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct IEnumSyncProviderInfos : IUnknown
@@ -2014,20 +2014,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderInfos*/SelfOuter* self, uint32 cInstances, ISyncProviderInfo** ppSyncProviderInfo, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderInfos*/SelfOuter* self, uint32 cInstances, ISyncProviderInfo** ppSyncProviderInfo, uint32 pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderInfos*/SelfOuter* self, uint32 cInstances) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderInfos*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderInfos*/SelfOuter* self, IEnumSyncProviderInfos** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncProviderInfos*/SelfOuter* self, IEnumSyncProviderInfos* ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cInstances, ISyncProviderInfo** ppSyncProviderInfo, uint32* pcFetched) mut => VT.[Friend]Next(&this, cInstances, ppSyncProviderInfo, pcFetched);
+	public HRESULT Next(uint32 cInstances, ISyncProviderInfo** ppSyncProviderInfo, uint32 pcFetched) mut => VT.[Friend]Next(&this, cInstances, ppSyncProviderInfo, pcFetched);
 
 	public HRESULT Skip(uint32 cInstances) mut => VT.[Friend]Skip(&this, cInstances);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumSyncProviderInfos** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumSyncProviderInfos* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct ISyncProviderInfo : IPropertyStore
@@ -2038,11 +2038,11 @@ public static
 
 	[CRepr]public struct VTable : IPropertyStore.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderInfo*/SelfOuter* self, uint32 dwClsContext, IRegisteredSyncProvider** ppSyncProvider) GetSyncProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderInfo*/SelfOuter* self, uint32 dwClsContext, IRegisteredSyncProvider* ppSyncProvider) GetSyncProvider;
 	}
 
 
-	public HRESULT GetSyncProvider(uint32 dwClsContext, IRegisteredSyncProvider** ppSyncProvider) mut => VT.[Friend]GetSyncProvider(&this, dwClsContext, ppSyncProvider);
+	public HRESULT GetSyncProvider(uint32 dwClsContext, IRegisteredSyncProvider* ppSyncProvider) mut => VT.[Friend]GetSyncProvider(&this, dwClsContext, ppSyncProvider);
 }
 
 [CRepr]struct ISyncProviderConfigUIInfo : IPropertyStore
@@ -2053,11 +2053,11 @@ public static
 
 	[CRepr]public struct VTable : IPropertyStore.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderConfigUIInfo*/SelfOuter* self, uint32 dwClsContext, ISyncProviderConfigUI** ppSyncProviderConfigUI) GetSyncProviderConfigUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderConfigUIInfo*/SelfOuter* self, uint32 dwClsContext, ISyncProviderConfigUI* ppSyncProviderConfigUI) GetSyncProviderConfigUI;
 	}
 
 
-	public HRESULT GetSyncProviderConfigUI(uint32 dwClsContext, ISyncProviderConfigUI** ppSyncProviderConfigUI) mut => VT.[Friend]GetSyncProviderConfigUI(&this, dwClsContext, ppSyncProviderConfigUI);
+	public HRESULT GetSyncProviderConfigUI(uint32 dwClsContext, ISyncProviderConfigUI* ppSyncProviderConfigUI) mut => VT.[Friend]GetSyncProviderConfigUI(&this, dwClsContext, ppSyncProviderConfigUI);
 }
 
 [CRepr]struct ISyncProviderConfigUI : IUnknown
@@ -2069,17 +2069,17 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderConfigUI*/SelfOuter* self, Guid pguidInstanceId, Guid pguidContentType, IPropertyStore* pConfigurationProperties) Init;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderConfigUI*/SelfOuter* self, IPropertyStore** ppConfigUIProperties) GetRegisteredProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderConfigUI*/SelfOuter* self, HWND hwndParent, IUnknown* pUnkContext, ISyncProviderInfo** ppProviderInfo) CreateAndRegisterNewSyncProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderConfigUI*/SelfOuter* self, IPropertyStore* ppConfigUIProperties) GetRegisteredProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderConfigUI*/SelfOuter* self, HWND hwndParent, IUnknown* pUnkContext, ISyncProviderInfo* ppProviderInfo) CreateAndRegisterNewSyncProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncProviderConfigUI*/SelfOuter* self, HWND hwndParent, IUnknown* pUnkContext, ISyncProviderInfo* pProviderInfo) ModifySyncProvider;
 	}
 
 
 	public HRESULT Init(Guid pguidInstanceId, Guid pguidContentType, IPropertyStore* pConfigurationProperties) mut => VT.[Friend]Init(&this, pguidInstanceId, pguidContentType, pConfigurationProperties);
 
-	public HRESULT GetRegisteredProperties(IPropertyStore** ppConfigUIProperties) mut => VT.[Friend]GetRegisteredProperties(&this, ppConfigUIProperties);
+	public HRESULT GetRegisteredProperties(IPropertyStore* ppConfigUIProperties) mut => VT.[Friend]GetRegisteredProperties(&this, ppConfigUIProperties);
 
-	public HRESULT CreateAndRegisterNewSyncProvider(HWND hwndParent, IUnknown* pUnkContext, ISyncProviderInfo** ppProviderInfo) mut => VT.[Friend]CreateAndRegisterNewSyncProvider(&this, hwndParent, pUnkContext, ppProviderInfo);
+	public HRESULT CreateAndRegisterNewSyncProvider(HWND hwndParent, IUnknown* pUnkContext, ISyncProviderInfo* ppProviderInfo) mut => VT.[Friend]CreateAndRegisterNewSyncProvider(&this, hwndParent, pUnkContext, ppProviderInfo);
 
 	public HRESULT ModifySyncProvider(HWND hwndParent, IUnknown* pUnkContext, ISyncProviderInfo* pProviderInfo) mut => VT.[Friend]ModifySyncProvider(&this, hwndParent, pUnkContext, pProviderInfo);
 }
@@ -2113,12 +2113,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncRegistrationChange*/SelfOuter* self, SYNC_REGISTRATION_EVENT* psreEvent) GetEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncRegistrationChange*/SelfOuter* self, SYNC_REGISTRATION_EVENT psreEvent) GetEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncRegistrationChange*/SelfOuter* self, Guid pguidInstanceId) GetInstanceId;
 	}
 
 
-	public HRESULT GetEvent(SYNC_REGISTRATION_EVENT* psreEvent) mut => VT.[Friend]GetEvent(&this, psreEvent);
+	public HRESULT GetEvent(SYNC_REGISTRATION_EVENT psreEvent) mut => VT.[Friend]GetEvent(&this, psreEvent);
 
 	public HRESULT GetInstanceId(Guid pguidInstanceId) mut => VT.[Friend]GetInstanceId(&this, pguidInstanceId);
 }

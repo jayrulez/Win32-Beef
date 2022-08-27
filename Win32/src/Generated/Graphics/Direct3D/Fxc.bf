@@ -141,11 +141,11 @@ public enum D3D_BLOB_PART : int32
 #endregion
 
 #region Function Pointers
-public function HRESULT pD3DCompile(void* pSrcData, uint SrcDataSize, PSTR pFileName, D3D_SHADER_MACRO* pDefines, ID3DInclude* pInclude, PSTR pEntrypoint, PSTR pTarget, uint32 Flags1, uint32 Flags2, ID3DBlob** ppCode, ID3DBlob** ppErrorMsgs);
+public function HRESULT pD3DCompile(void pSrcData, uint SrcDataSize, PSTR pFileName, D3D_SHADER_MACRO pDefines, ID3DInclude* pInclude, PSTR pEntrypoint, PSTR pTarget, uint32 Flags1, uint32 Flags2, ID3DBlob* ppCode, ID3DBlob* ppErrorMsgs);
 
-public function HRESULT pD3DPreprocess(void* pSrcData, uint SrcDataSize, PSTR pFileName, D3D_SHADER_MACRO* pDefines, ID3DInclude* pInclude, ID3DBlob** ppCodeText, ID3DBlob** ppErrorMsgs);
+public function HRESULT pD3DPreprocess(void pSrcData, uint SrcDataSize, PSTR pFileName, D3D_SHADER_MACRO pDefines, ID3DInclude* pInclude, ID3DBlob* ppCodeText, ID3DBlob* ppErrorMsgs);
 
-public function HRESULT pD3DDisassemble(void* pSrcData, uint SrcDataSize, uint32 Flags, PSTR szComments, ID3DBlob** ppDisassembly);
+public function HRESULT pD3DDisassemble(void pSrcData, uint SrcDataSize, uint32 Flags, PSTR szComments, ID3DBlob* ppDisassembly);
 
 #endregion
 
@@ -153,7 +153,7 @@ public function HRESULT pD3DDisassemble(void* pSrcData, uint SrcDataSize, uint32
 [CRepr]
 public struct D3D_SHADER_DATA
 {
-	public void* pBytecode;
+	public void pBytecode;
 	public uint BytecodeLength;
 }
 
@@ -172,79 +172,79 @@ public static
 public static
 {
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DReadFileToBlob(PWSTR pFileName, ID3DBlob** ppContents);
+	public static extern HRESULT D3DReadFileToBlob(PWSTR pFileName, ID3DBlob* ppContents);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT D3DWriteBlobToFile(ID3DBlob* pBlob, PWSTR pFileName, BOOL bOverwrite);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DCompile(void* pSrcData, uint SrcDataSize, PSTR pSourceName, D3D_SHADER_MACRO* pDefines, ID3DInclude* pInclude, PSTR pEntrypoint, PSTR pTarget, uint32 Flags1, uint32 Flags2, ID3DBlob** ppCode, ID3DBlob** ppErrorMsgs);
+	public static extern HRESULT D3DCompile(void pSrcData, uint SrcDataSize, PSTR pSourceName, D3D_SHADER_MACRO pDefines, ID3DInclude* pInclude, PSTR pEntrypoint, PSTR pTarget, uint32 Flags1, uint32 Flags2, ID3DBlob* ppCode, ID3DBlob* ppErrorMsgs);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DCompile2(void* pSrcData, uint SrcDataSize, PSTR pSourceName, D3D_SHADER_MACRO* pDefines, ID3DInclude* pInclude, PSTR pEntrypoint, PSTR pTarget, uint32 Flags1, uint32 Flags2, uint32 SecondaryDataFlags, void* pSecondaryData, uint SecondaryDataSize, ID3DBlob** ppCode, ID3DBlob** ppErrorMsgs);
+	public static extern HRESULT D3DCompile2(void pSrcData, uint SrcDataSize, PSTR pSourceName, D3D_SHADER_MACRO pDefines, ID3DInclude* pInclude, PSTR pEntrypoint, PSTR pTarget, uint32 Flags1, uint32 Flags2, uint32 SecondaryDataFlags, void pSecondaryData, uint SecondaryDataSize, ID3DBlob* ppCode, ID3DBlob* ppErrorMsgs);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DCompileFromFile(PWSTR pFileName, D3D_SHADER_MACRO* pDefines, ID3DInclude* pInclude, PSTR pEntrypoint, PSTR pTarget, uint32 Flags1, uint32 Flags2, ID3DBlob** ppCode, ID3DBlob** ppErrorMsgs);
+	public static extern HRESULT D3DCompileFromFile(PWSTR pFileName, D3D_SHADER_MACRO pDefines, ID3DInclude* pInclude, PSTR pEntrypoint, PSTR pTarget, uint32 Flags1, uint32 Flags2, ID3DBlob* ppCode, ID3DBlob* ppErrorMsgs);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DPreprocess(void* pSrcData, uint SrcDataSize, PSTR pSourceName, D3D_SHADER_MACRO* pDefines, ID3DInclude* pInclude, ID3DBlob** ppCodeText, ID3DBlob** ppErrorMsgs);
+	public static extern HRESULT D3DPreprocess(void pSrcData, uint SrcDataSize, PSTR pSourceName, D3D_SHADER_MACRO pDefines, ID3DInclude* pInclude, ID3DBlob* ppCodeText, ID3DBlob* ppErrorMsgs);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DGetDebugInfo(void* pSrcData, uint SrcDataSize, ID3DBlob** ppDebugInfo);
+	public static extern HRESULT D3DGetDebugInfo(void pSrcData, uint SrcDataSize, ID3DBlob* ppDebugInfo);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DReflect(void* pSrcData, uint SrcDataSize, Guid pInterface, void** ppReflector);
+	public static extern HRESULT D3DReflect(void pSrcData, uint SrcDataSize, Guid pInterface, void ppReflector);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DReflectLibrary(void* pSrcData, uint SrcDataSize, Guid riid, void** ppReflector);
+	public static extern HRESULT D3DReflectLibrary(void pSrcData, uint SrcDataSize, Guid riid, void ppReflector);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DDisassemble(void* pSrcData, uint SrcDataSize, uint32 Flags, PSTR szComments, ID3DBlob** ppDisassembly);
+	public static extern HRESULT D3DDisassemble(void pSrcData, uint SrcDataSize, uint32 Flags, PSTR szComments, ID3DBlob* ppDisassembly);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DDisassembleRegion(void* pSrcData, uint SrcDataSize, uint32 Flags, PSTR szComments, uint StartByteOffset, uint NumInsts, uint* pFinishByteOffset, ID3DBlob** ppDisassembly);
+	public static extern HRESULT D3DDisassembleRegion(void pSrcData, uint SrcDataSize, uint32 Flags, PSTR szComments, uint StartByteOffset, uint NumInsts, uint pFinishByteOffset, ID3DBlob* ppDisassembly);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DCreateLinker(ID3D11Linker** ppLinker);
+	public static extern HRESULT D3DCreateLinker(ID3D11Linker* ppLinker);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DLoadModule(void* pSrcData, uint cbSrcDataSize, ID3D11Module** ppModule);
+	public static extern HRESULT D3DLoadModule(void pSrcData, uint cbSrcDataSize, ID3D11Module* ppModule);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DCreateFunctionLinkingGraph(uint32 uFlags, ID3D11FunctionLinkingGraph** ppFunctionLinkingGraph);
+	public static extern HRESULT D3DCreateFunctionLinkingGraph(uint32 uFlags, ID3D11FunctionLinkingGraph* ppFunctionLinkingGraph);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DGetTraceInstructionOffsets(void* pSrcData, uint SrcDataSize, uint32 Flags, uint StartInstIndex, uint NumInsts, uint* pOffsets, uint* pTotalInsts);
+	public static extern HRESULT D3DGetTraceInstructionOffsets(void pSrcData, uint SrcDataSize, uint32 Flags, uint StartInstIndex, uint NumInsts, uint* pOffsets, uint pTotalInsts);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DGetInputSignatureBlob(void* pSrcData, uint SrcDataSize, ID3DBlob** ppSignatureBlob);
+	public static extern HRESULT D3DGetInputSignatureBlob(void pSrcData, uint SrcDataSize, ID3DBlob* ppSignatureBlob);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DGetOutputSignatureBlob(void* pSrcData, uint SrcDataSize, ID3DBlob** ppSignatureBlob);
+	public static extern HRESULT D3DGetOutputSignatureBlob(void pSrcData, uint SrcDataSize, ID3DBlob* ppSignatureBlob);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DGetInputAndOutputSignatureBlob(void* pSrcData, uint SrcDataSize, ID3DBlob** ppSignatureBlob);
+	public static extern HRESULT D3DGetInputAndOutputSignatureBlob(void pSrcData, uint SrcDataSize, ID3DBlob* ppSignatureBlob);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DStripShader(void* pShaderBytecode, uint BytecodeLength, uint32 uStripFlags, ID3DBlob** ppStrippedBlob);
+	public static extern HRESULT D3DStripShader(void pShaderBytecode, uint BytecodeLength, uint32 uStripFlags, ID3DBlob* ppStrippedBlob);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DGetBlobPart(void* pSrcData, uint SrcDataSize, D3D_BLOB_PART Part, uint32 Flags, ID3DBlob** ppPart);
+	public static extern HRESULT D3DGetBlobPart(void pSrcData, uint SrcDataSize, D3D_BLOB_PART Part, uint32 Flags, ID3DBlob* ppPart);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DSetBlobPart(void* pSrcData, uint SrcDataSize, D3D_BLOB_PART Part, uint32 Flags, void* pPart, uint PartSize, ID3DBlob** ppNewShader);
+	public static extern HRESULT D3DSetBlobPart(void pSrcData, uint SrcDataSize, D3D_BLOB_PART Part, uint32 Flags, void pPart, uint PartSize, ID3DBlob* ppNewShader);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DCreateBlob(uint Size, ID3DBlob** ppBlob);
+	public static extern HRESULT D3DCreateBlob(uint Size, ID3DBlob* ppBlob);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DCompressShaders(uint32 uNumShaders, D3D_SHADER_DATA* pShaderData, uint32 uFlags, ID3DBlob** ppCompressedData);
+	public static extern HRESULT D3DCompressShaders(uint32 uNumShaders, D3D_SHADER_DATA* pShaderData, uint32 uFlags, ID3DBlob* ppCompressedData);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DDecompressShaders(void* pSrcData, uint SrcDataSize, uint32 uNumShaders, uint32 uStartIndex, uint32* pIndices, uint32 uFlags, ID3DBlob** ppShaders, uint32* pTotalShaders);
+	public static extern HRESULT D3DDecompressShaders(void pSrcData, uint SrcDataSize, uint32 uNumShaders, uint32 uStartIndex, uint32* pIndices, uint32 uFlags, ID3DBlob** ppShaders, uint32 pTotalShaders);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DDisassemble10Effect(ID3D10Effect* pEffect, uint32 Flags, ID3DBlob** ppDisassembly);
+	public static extern HRESULT D3DDisassemble10Effect(ID3D10Effect* pEffect, uint32 Flags, ID3DBlob* ppDisassembly);
 
 }
 #endregion

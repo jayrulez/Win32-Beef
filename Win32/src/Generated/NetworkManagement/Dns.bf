@@ -773,17 +773,17 @@ public enum DNS_CONNECTION_POLICY_TAG : int32
 #endregion
 
 #region Function Pointers
-public function void DNS_PROXY_COMPLETION_ROUTINE(void* completionContext, int32 status);
+public function void DNS_PROXY_COMPLETION_ROUTINE(void completionContext, int32 status);
 
-public function void PDNS_QUERY_COMPLETION_ROUTINE(void* pQueryContext, DNS_QUERY_RESULT* pQueryResults);
+public function void PDNS_QUERY_COMPLETION_ROUTINE(void pQueryContext, DNS_QUERY_RESULT pQueryResults);
 
-public function void PDNS_SERVICE_BROWSE_CALLBACK(uint32 Status, void* pQueryContext, DNS_RECORDA* pDnsRecord);
+public function void PDNS_SERVICE_BROWSE_CALLBACK(uint32 Status, void pQueryContext, DNS_RECORDA pDnsRecord);
 
-public function void PDNS_SERVICE_RESOLVE_COMPLETE(uint32 Status, void* pQueryContext, DNS_SERVICE_INSTANCE* pInstance);
+public function void PDNS_SERVICE_RESOLVE_COMPLETE(uint32 Status, void pQueryContext, DNS_SERVICE_INSTANCE pInstance);
 
-public function void PDNS_SERVICE_REGISTER_COMPLETE(uint32 Status, void* pQueryContext, DNS_SERVICE_INSTANCE* pInstance);
+public function void PDNS_SERVICE_REGISTER_COMPLETE(uint32 Status, void pQueryContext, DNS_SERVICE_INSTANCE pInstance);
 
-public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE* pQueryHandle, DNS_QUERY_RESULT* pQueryResults);
+public function void PMDNS_QUERY_CALLBACK(void pQueryContext, MDNS_QUERY_HANDLE pQueryHandle, DNS_QUERY_RESULT pQueryResults);
 
 #endregion
 
@@ -1177,9 +1177,9 @@ public struct DNS_ATMA_DATA
 public struct DNS_TKEY_DATAW
 {
 	public PWSTR pNameAlgorithm;
-	public uint8* pAlgorithmPacket;
-	public uint8* pKey;
-	public uint8* pOtherData;
+	public uint8 pAlgorithmPacket;
+	public uint8 pKey;
+	public uint8 pOtherData;
 	public uint32 dwCreateTime;
 	public uint32 dwExpireTime;
 	public uint16 wMode;
@@ -1194,9 +1194,9 @@ public struct DNS_TKEY_DATAW
 public struct DNS_TKEY_DATAA
 {
 	public PSTR pNameAlgorithm;
-	public uint8* pAlgorithmPacket;
-	public uint8* pKey;
-	public uint8* pOtherData;
+	public uint8 pAlgorithmPacket;
+	public uint8 pKey;
+	public uint8 pOtherData;
 	public uint32 dwCreateTime;
 	public uint32 dwExpireTime;
 	public uint16 wMode;
@@ -1211,9 +1211,9 @@ public struct DNS_TKEY_DATAA
 public struct DNS_TSIG_DATAW
 {
 	public PWSTR pNameAlgorithm;
-	public uint8* pAlgorithmPacket;
-	public uint8* pSignature;
-	public uint8* pOtherData;
+	public uint8 pAlgorithmPacket;
+	public uint8 pSignature;
+	public uint8 pOtherData;
 	public int64 i64CreateTime;
 	public uint16 wFudgeTime;
 	public uint16 wOriginalXid;
@@ -1228,9 +1228,9 @@ public struct DNS_TSIG_DATAW
 public struct DNS_TSIG_DATAA
 {
 	public PSTR pNameAlgorithm;
-	public uint8* pAlgorithmPacket;
-	public uint8* pSignature;
-	public uint8* pOtherData;
+	public uint8 pAlgorithmPacket;
+	public uint8 pSignature;
+	public uint8 pOtherData;
 	public int64 i64CreateTime;
 	public uint16 wFudgeTime;
 	public uint16 wOriginalXid;
@@ -1378,10 +1378,10 @@ public struct DNS_RECORDW
 		public DNS_TLSA_DATA Tlsa;
 		public DNS_UNKNOWN_DATA UNKNOWN;
 		public DNS_UNKNOWN_DATA Unknown;
-		public uint8* pDataPtr;
+		public uint8 pDataPtr;
 	}
 
-	public DNS_RECORDW* pNext;
+	public DNS_RECORDW pNext;
 	public PWSTR pName;
 	public uint16 wType;
 	public uint16 wDataLength;
@@ -1408,7 +1408,7 @@ public struct _DnsRecordOptW
 		public DNS_OPT_DATA Opt;
 	}
 
-	public DNS_RECORDW* pNext;
+	public DNS_RECORDW pNext;
 	public PWSTR pName;
 	public uint16 wType;
 	public uint16 wDataLength;
@@ -1515,10 +1515,10 @@ public struct DNS_RECORDA
 		public DNS_TLSA_DATA Tlsa;
 		public DNS_UNKNOWN_DATA UNKNOWN;
 		public DNS_UNKNOWN_DATA Unknown;
-		public uint8* pDataPtr;
+		public uint8 pDataPtr;
 	}
 
-	public DNS_RECORDA* pNext;
+	public DNS_RECORDA pNext;
 	public PSTR pName;
 	public uint16 wType;
 	public uint16 wDataLength;
@@ -1545,7 +1545,7 @@ public struct _DnsRecordOptA
 		public DNS_OPT_DATA Opt;
 	}
 
-	public DNS_RECORDA* pNext;
+	public DNS_RECORDA pNext;
 	public PSTR pName;
 	public uint16 wType;
 	public uint16 wDataLength;
@@ -1559,8 +1559,8 @@ public struct _DnsRecordOptA
 [CRepr]
 public struct DNS_RRSET
 {
-	public DNS_RECORDA* pFirstRR;
-	public DNS_RECORDA* pLastRR;
+	public DNS_RECORDA pFirstRR;
+	public DNS_RECORDA pLastRR;
 }
 
 [CRepr]
@@ -1577,8 +1577,8 @@ public struct DNS_QUERY_RESULT
 	public uint32 Version;
 	public int32 QueryStatus;
 	public uint64 QueryOptions;
-	public DNS_RECORDA* pQueryRecords;
-	public void* Reserved;
+	public DNS_RECORDA pQueryRecords;
+	public void Reserved;
 }
 
 [CRepr]
@@ -1588,10 +1588,10 @@ public struct DNS_QUERY_REQUEST
 	public PWSTR QueryName;
 	public uint16 QueryType;
 	public uint64 QueryOptions;
-	public DNS_ADDR_ARRAY* pDnsServerList;
+	public DNS_ADDR_ARRAY pDnsServerList;
 	public uint32 InterfaceIndex;
 	public PDNS_QUERY_COMPLETION_ROUTINE pQueryCompletionCallback;
-	public void* pQueryContext;
+	public void pQueryContext;
 }
 
 [CRepr]
@@ -1628,14 +1628,14 @@ public struct DNS_QUERY_REQUEST3
 	public PWSTR QueryName;
 	public uint16 QueryType;
 	public uint64 QueryOptions;
-	public DNS_ADDR_ARRAY* pDnsServerList;
+	public DNS_ADDR_ARRAY pDnsServerList;
 	public uint32 InterfaceIndex;
 	public PDNS_QUERY_COMPLETION_ROUTINE pQueryCompletionCallback;
-	public void* pQueryContext;
+	public void pQueryContext;
 	public BOOL IsNetworkQueryRequired;
 	public uint32 RequiredNetworkIndex;
 	public uint32 cCustomServers;
-	public DNS_CUSTOM_SERVER* pCustomServers;
+	public DNS_CUSTOM_SERVER pCustomServers;
 }
 
 [CRepr]
@@ -1709,7 +1709,7 @@ public struct DNS_CONNECTION_PROXY_ELEMENT
 public struct DNS_CONNECTION_PROXY_LIST
 {
 	public uint32 cProxies;
-	public DNS_CONNECTION_PROXY_ELEMENT* pProxies;
+	public DNS_CONNECTION_PROXY_ELEMENT pProxies;
 }
 
 [CRepr]
@@ -1722,7 +1722,7 @@ public struct DNS_CONNECTION_NAME
 public struct DNS_CONNECTION_NAME_LIST
 {
 	public uint32 cNames;
-	public DNS_CONNECTION_NAME* pNames;
+	public DNS_CONNECTION_NAME pNames;
 }
 
 [CRepr]
@@ -1735,7 +1735,7 @@ public struct DNS_CONNECTION_IFINDEX_ENTRY
 [CRepr]
 public struct DNS_CONNECTION_IFINDEX_LIST
 {
-	public DNS_CONNECTION_IFINDEX_ENTRY* pConnectionIfIndexEntries;
+	public DNS_CONNECTION_IFINDEX_ENTRY pConnectionIfIndexEntries;
 	public uint32 nEntries;
 }
 
@@ -1745,16 +1745,16 @@ public struct DNS_CONNECTION_POLICY_ENTRY
 	public PWSTR pwszHost;
 	public PWSTR pwszAppId;
 	public uint32 cbAppSid;
-	public uint8* pbAppSid;
+	public uint8 pbAppSid;
 	public uint32 nConnections;
-	public PWSTR* ppwszConnections;
+	public PWSTR ppwszConnections;
 	public uint32 dwPolicyEntryFlags;
 }
 
 [CRepr]
 public struct DNS_CONNECTION_POLICY_ENTRY_LIST
 {
-	public DNS_CONNECTION_POLICY_ENTRY* pPolicyEntries;
+	public DNS_CONNECTION_POLICY_ENTRY pPolicyEntries;
 	public uint32 nEntries;
 }
 
@@ -1763,21 +1763,21 @@ public struct DNS_SERVICE_INSTANCE
 {
 	public PWSTR pszInstanceName;
 	public PWSTR pszHostName;
-	public uint32* ip4Address;
-	public IP6_ADDRESS* ip6Address;
+	public uint32 ip4Address;
+	public IP6_ADDRESS ip6Address;
 	public uint16 wPort;
 	public uint16 wPriority;
 	public uint16 wWeight;
 	public uint32 dwPropertyCount;
-	public PWSTR* keys;
-	public PWSTR* values;
+	public PWSTR keys;
+	public PWSTR values;
 	public uint32 dwInterfaceIndex;
 }
 
 [CRepr]
 public struct DNS_SERVICE_CANCEL
 {
-	public void* reserved;
+	public void reserved;
 }
 
 [CRepr]
@@ -1794,7 +1794,7 @@ public struct DNS_SERVICE_BROWSE_REQUEST
 	public uint32 InterfaceIndex;
 	public PWSTR QueryName;
 	public using _Anonymous_e__Union Anonymous;
-	public void* pQueryContext;
+	public void pQueryContext;
 }
 
 [CRepr]
@@ -1804,7 +1804,7 @@ public struct DNS_SERVICE_RESOLVE_REQUEST
 	public uint32 InterfaceIndex;
 	public PWSTR QueryName;
 	public PDNS_SERVICE_RESOLVE_COMPLETE pResolveCompletionCallback;
-	public void* pQueryContext;
+	public void pQueryContext;
 }
 
 [CRepr]
@@ -1812,9 +1812,9 @@ public struct DNS_SERVICE_REGISTER_REQUEST
 {
 	public uint32 Version;
 	public uint32 InterfaceIndex;
-	public DNS_SERVICE_INSTANCE* pServiceInstance;
+	public DNS_SERVICE_INSTANCE pServiceInstance;
 	public PDNS_SERVICE_REGISTER_COMPLETE pRegisterCompletionCallback;
-	public void* pQueryContext;
+	public void pQueryContext;
 	public HANDLE hCredentials;
 	public BOOL unicastEnabled;
 }
@@ -1824,8 +1824,8 @@ public struct MDNS_QUERY_HANDLE
 {
 	public char16[256] nameBuf;
 	public uint16 wType;
-	public void* pSubscription;
-	public void* pWnfCallbackParams;
+	public void pSubscription;
+	public void pWnfCallbackParams;
 	public uint32[2] stateNameData;
 }
 
@@ -1839,7 +1839,7 @@ public struct MDNS_QUERY_REQUEST
 	public uint64 QueryOptions;
 	public uint32 InterfaceIndex;
 	public PMDNS_QUERY_CALLBACK pQueryCallback;
-	public void* pQueryContext;
+	public void pQueryContext;
 	public BOOL fAnswerReceived;
 	public uint32 ulResendCount;
 }
@@ -1869,80 +1869,80 @@ public static
 public static
 {
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsQueryConfig(DNS_CONFIG_TYPE Config, uint32 Flag, PWSTR pwsAdapterName, void* pReserved, void* pBuffer, uint32* pBufLen);
+	public static extern int32 DnsQueryConfig(DNS_CONFIG_TYPE Config, uint32 Flag, PWSTR pwsAdapterName, void pReserved, void pBuffer, uint32 pBufLen);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern DNS_RECORDA* DnsRecordCopyEx(DNS_RECORDA* pRecord, DNS_CHARSET CharSetIn, DNS_CHARSET CharSetOut);
+	public static extern DNS_RECORDA DnsRecordCopyEx(DNS_RECORDA pRecord, DNS_CHARSET CharSetIn, DNS_CHARSET CharSetOut);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern DNS_RECORDA* DnsRecordSetCopyEx(DNS_RECORDA* pRecordSet, DNS_CHARSET CharSetIn, DNS_CHARSET CharSetOut);
+	public static extern DNS_RECORDA DnsRecordSetCopyEx(DNS_RECORDA pRecordSet, DNS_CHARSET CharSetIn, DNS_CHARSET CharSetOut);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DnsRecordCompare(DNS_RECORDA* pRecord1, DNS_RECORDA* pRecord2);
+	public static extern BOOL DnsRecordCompare(DNS_RECORDA pRecord1, DNS_RECORDA pRecord2);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DnsRecordSetCompare(DNS_RECORDA* pRR1, DNS_RECORDA* pRR2, DNS_RECORDA** ppDiff1, DNS_RECORDA** ppDiff2);
+	public static extern BOOL DnsRecordSetCompare(DNS_RECORDA pRR1, DNS_RECORDA pRR2, DNS_RECORDA ppDiff1, DNS_RECORDA ppDiff2);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern DNS_RECORDA* DnsRecordSetDetach(DNS_RECORDA* pRecordList);
+	public static extern DNS_RECORDA DnsRecordSetDetach(DNS_RECORDA pRecordList);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void DnsFree(void* pData, DNS_FREE_TYPE FreeType);
+	public static extern void DnsFree(void pData, DNS_FREE_TYPE FreeType);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsQuery_A(PSTR pszName, uint16 wType, uint32 Options, void* pExtra, DNS_RECORDA** ppQueryResults, void** pReserved);
-	public static int32 DnsQuery_(PSTR pszName, uint16 wType, uint32 Options, void* pExtra, DNS_RECORDA** ppQueryResults, void** pReserved) => DnsQuery_A(pszName, wType, Options, pExtra, ppQueryResults, pReserved);
+	public static extern int32 DnsQuery_A(PSTR pszName, uint16 wType, uint32 Options, void pExtra, DNS_RECORDA ppQueryResults, void pReserved);
+	public static int32 DnsQuery_(PSTR pszName, uint16 wType, uint32 Options, void pExtra, DNS_RECORDA ppQueryResults, void pReserved) => DnsQuery_A(pszName, wType, Options, pExtra, ppQueryResults, pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsQuery_UTF8(PSTR pszName, uint16 wType, uint32 Options, void* pExtra, DNS_RECORDA** ppQueryResults, void** pReserved);
+	public static extern int32 DnsQuery_UTF8(PSTR pszName, uint16 wType, uint32 Options, void pExtra, DNS_RECORDA ppQueryResults, void pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsQuery_W(PWSTR pszName, uint16 wType, uint32 Options, void* pExtra, DNS_RECORDA** ppQueryResults, void** pReserved);
+	public static extern int32 DnsQuery_W(PWSTR pszName, uint16 wType, uint32 Options, void pExtra, DNS_RECORDA ppQueryResults, void pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsQueryEx(DNS_QUERY_REQUEST* pQueryRequest, DNS_QUERY_RESULT* pQueryResults, DNS_QUERY_CANCEL* pCancelHandle);
+	public static extern int32 DnsQueryEx(DNS_QUERY_REQUEST pQueryRequest, DNS_QUERY_RESULT pQueryResults, DNS_QUERY_CANCEL pCancelHandle);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsCancelQuery(DNS_QUERY_CANCEL* pCancelHandle);
+	public static extern int32 DnsCancelQuery(DNS_QUERY_CANCEL pCancelHandle);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void DnsFreeCustomServers(uint32* pcServers, DNS_CUSTOM_SERVER** ppServers);
+	public static extern void DnsFreeCustomServers(uint32 pcServers, DNS_CUSTOM_SERVER ppServers);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsGetApplicationSettings(uint32* pcServers, DNS_CUSTOM_SERVER** ppDefaultServers, DNS_APPLICATION_SETTINGS* pSettings);
+	public static extern uint32 DnsGetApplicationSettings(uint32 pcServers, DNS_CUSTOM_SERVER ppDefaultServers, DNS_APPLICATION_SETTINGS pSettings);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsSetApplicationSettings(uint32 cServers, DNS_CUSTOM_SERVER* pServers, DNS_APPLICATION_SETTINGS* pSettings);
+	public static extern uint32 DnsSetApplicationSettings(uint32 cServers, DNS_CUSTOM_SERVER* pServers, DNS_APPLICATION_SETTINGS pSettings);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsAcquireContextHandle_W(uint32 CredentialFlags, void* Credentials, DnsContextHandle* pContext);
+	public static extern int32 DnsAcquireContextHandle_W(uint32 CredentialFlags, void Credentials, DnsContextHandle pContext);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsAcquireContextHandle_A(uint32 CredentialFlags, void* Credentials, DnsContextHandle* pContext);
-	public static int32 DnsAcquireContextHandle_(uint32 CredentialFlags, void* Credentials, DnsContextHandle* pContext) => DnsAcquireContextHandle_A(CredentialFlags, Credentials, pContext);
+	public static extern int32 DnsAcquireContextHandle_A(uint32 CredentialFlags, void Credentials, DnsContextHandle pContext);
+	public static int32 DnsAcquireContextHandle_(uint32 CredentialFlags, void Credentials, DnsContextHandle pContext) => DnsAcquireContextHandle_A(CredentialFlags, Credentials, pContext);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DnsReleaseContextHandle(HANDLE hContext);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsModifyRecordsInSet_W(DNS_RECORDA* pAddRecords, DNS_RECORDA* pDeleteRecords, uint32 Options, HANDLE hCredentials, void* pExtraList, void* pReserved);
+	public static extern int32 DnsModifyRecordsInSet_W(DNS_RECORDA pAddRecords, DNS_RECORDA pDeleteRecords, uint32 Options, HANDLE hCredentials, void pExtraList, void pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsModifyRecordsInSet_A(DNS_RECORDA* pAddRecords, DNS_RECORDA* pDeleteRecords, uint32 Options, HANDLE hCredentials, void* pExtraList, void* pReserved);
-	public static int32 DnsModifyRecordsInSet_(DNS_RECORDA* pAddRecords, DNS_RECORDA* pDeleteRecords, uint32 Options, HANDLE hCredentials, void* pExtraList, void* pReserved) => DnsModifyRecordsInSet_A(pAddRecords, pDeleteRecords, Options, hCredentials, pExtraList, pReserved);
+	public static extern int32 DnsModifyRecordsInSet_A(DNS_RECORDA pAddRecords, DNS_RECORDA pDeleteRecords, uint32 Options, HANDLE hCredentials, void pExtraList, void pReserved);
+	public static int32 DnsModifyRecordsInSet_(DNS_RECORDA pAddRecords, DNS_RECORDA pDeleteRecords, uint32 Options, HANDLE hCredentials, void pExtraList, void pReserved) => DnsModifyRecordsInSet_A(pAddRecords, pDeleteRecords, Options, hCredentials, pExtraList, pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsModifyRecordsInSet_UTF8(DNS_RECORDA* pAddRecords, DNS_RECORDA* pDeleteRecords, uint32 Options, HANDLE hCredentials, void* pExtraList, void* pReserved);
+	public static extern int32 DnsModifyRecordsInSet_UTF8(DNS_RECORDA pAddRecords, DNS_RECORDA pDeleteRecords, uint32 Options, HANDLE hCredentials, void pExtraList, void pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsReplaceRecordSetW(DNS_RECORDA* pReplaceSet, uint32 Options, HANDLE hContext, void* pExtraInfo, void* pReserved);
+	public static extern int32 DnsReplaceRecordSetW(DNS_RECORDA pReplaceSet, uint32 Options, HANDLE hContext, void pExtraInfo, void pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsReplaceRecordSetA(DNS_RECORDA* pReplaceSet, uint32 Options, HANDLE hContext, void* pExtraInfo, void* pReserved);
-	public static int32 DnsReplaceRecordSet(DNS_RECORDA* pReplaceSet, uint32 Options, HANDLE hContext, void* pExtraInfo, void* pReserved) => DnsReplaceRecordSetA(pReplaceSet, Options, hContext, pExtraInfo, pReserved);
+	public static extern int32 DnsReplaceRecordSetA(DNS_RECORDA pReplaceSet, uint32 Options, HANDLE hContext, void pExtraInfo, void pReserved);
+	public static int32 DnsReplaceRecordSet(DNS_RECORDA pReplaceSet, uint32 Options, HANDLE hContext, void pExtraInfo, void pReserved) => DnsReplaceRecordSetA(pReplaceSet, Options, hContext, pExtraInfo, pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsReplaceRecordSetUTF8(DNS_RECORDA* pReplaceSet, uint32 Options, HANDLE hContext, void* pExtraInfo, void* pReserved);
+	public static extern int32 DnsReplaceRecordSetUTF8(DNS_RECORDA pReplaceSet, uint32 Options, HANDLE hContext, void pExtraInfo, void pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsValidateName_W(PWSTR pszName, DNS_NAME_FORMAT Format);
@@ -1962,97 +1962,97 @@ public static
 	public static extern BOOL DnsNameCompare_W(PWSTR pName1, PWSTR pName2);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DnsWriteQuestionToBuffer_W(DNS_MESSAGE_BUFFER* pDnsBuffer, uint32* pdwBufferSize, PWSTR pszName, uint16 wType, uint16 Xid, BOOL fRecursionDesired);
+	public static extern BOOL DnsWriteQuestionToBuffer_W(DNS_MESSAGE_BUFFER pDnsBuffer, uint32 pdwBufferSize, PWSTR pszName, uint16 wType, uint16 Xid, BOOL fRecursionDesired);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DnsWriteQuestionToBuffer_UTF8(DNS_MESSAGE_BUFFER* pDnsBuffer, uint32* pdwBufferSize, PSTR pszName, uint16 wType, uint16 Xid, BOOL fRecursionDesired);
+	public static extern BOOL DnsWriteQuestionToBuffer_UTF8(DNS_MESSAGE_BUFFER pDnsBuffer, uint32 pdwBufferSize, PSTR pszName, uint16 wType, uint16 Xid, BOOL fRecursionDesired);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsExtractRecordsFromMessage_W(DNS_MESSAGE_BUFFER* pDnsBuffer, uint16 wMessageLength, DNS_RECORDA** ppRecord);
+	public static extern int32 DnsExtractRecordsFromMessage_W(DNS_MESSAGE_BUFFER pDnsBuffer, uint16 wMessageLength, DNS_RECORDA ppRecord);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsExtractRecordsFromMessage_UTF8(DNS_MESSAGE_BUFFER* pDnsBuffer, uint16 wMessageLength, DNS_RECORDA** ppRecord);
+	public static extern int32 DnsExtractRecordsFromMessage_UTF8(DNS_MESSAGE_BUFFER pDnsBuffer, uint16 wMessageLength, DNS_RECORDA ppRecord);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsGetProxyInformation(PWSTR hostName, DNS_PROXY_INFORMATION* proxyInformation, DNS_PROXY_INFORMATION* defaultProxyInformation, DNS_PROXY_COMPLETION_ROUTINE completionRoutine, void* completionContext);
+	public static extern uint32 DnsGetProxyInformation(PWSTR hostName, DNS_PROXY_INFORMATION proxyInformation, DNS_PROXY_INFORMATION defaultProxyInformation, DNS_PROXY_COMPLETION_ROUTINE completionRoutine, void completionContext);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DnsFreeProxyName(PWSTR proxyName);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsConnectionGetProxyInfoForHostUrl(PWSTR pwszHostUrl, uint8* pSelectionContext, uint32 dwSelectionContextLength, uint32 dwExplicitInterfaceIndex, DNS_CONNECTION_PROXY_INFO_EX* pProxyInfoEx);
+	public static extern uint32 DnsConnectionGetProxyInfoForHostUrl(PWSTR pwszHostUrl, uint8* pSelectionContext, uint32 dwSelectionContextLength, uint32 dwExplicitInterfaceIndex, DNS_CONNECTION_PROXY_INFO_EX pProxyInfoEx);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void DnsConnectionFreeProxyInfoEx(DNS_CONNECTION_PROXY_INFO_EX* pProxyInfoEx);
+	public static extern void DnsConnectionFreeProxyInfoEx(DNS_CONNECTION_PROXY_INFO_EX pProxyInfoEx);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsConnectionGetProxyInfo(PWSTR pwszConnectionName, DNS_CONNECTION_PROXY_TYPE Type, DNS_CONNECTION_PROXY_INFO* pProxyInfo);
+	public static extern uint32 DnsConnectionGetProxyInfo(PWSTR pwszConnectionName, DNS_CONNECTION_PROXY_TYPE Type, DNS_CONNECTION_PROXY_INFO pProxyInfo);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void DnsConnectionFreeProxyInfo(DNS_CONNECTION_PROXY_INFO* pProxyInfo);
+	public static extern void DnsConnectionFreeProxyInfo(DNS_CONNECTION_PROXY_INFO pProxyInfo);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsConnectionSetProxyInfo(PWSTR pwszConnectionName, DNS_CONNECTION_PROXY_TYPE Type, DNS_CONNECTION_PROXY_INFO* pProxyInfo);
+	public static extern uint32 DnsConnectionSetProxyInfo(PWSTR pwszConnectionName, DNS_CONNECTION_PROXY_TYPE Type, DNS_CONNECTION_PROXY_INFO pProxyInfo);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DnsConnectionDeleteProxyInfo(PWSTR pwszConnectionName, DNS_CONNECTION_PROXY_TYPE Type);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsConnectionGetProxyList(PWSTR pwszConnectionName, DNS_CONNECTION_PROXY_LIST* pProxyList);
+	public static extern uint32 DnsConnectionGetProxyList(PWSTR pwszConnectionName, DNS_CONNECTION_PROXY_LIST pProxyList);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void DnsConnectionFreeProxyList(DNS_CONNECTION_PROXY_LIST* pProxyList);
+	public static extern void DnsConnectionFreeProxyList(DNS_CONNECTION_PROXY_LIST pProxyList);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsConnectionGetNameList(DNS_CONNECTION_NAME_LIST* pNameList);
+	public static extern uint32 DnsConnectionGetNameList(DNS_CONNECTION_NAME_LIST pNameList);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void DnsConnectionFreeNameList(DNS_CONNECTION_NAME_LIST* pNameList);
+	public static extern void DnsConnectionFreeNameList(DNS_CONNECTION_NAME_LIST pNameList);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsConnectionUpdateIfIndexTable(DNS_CONNECTION_IFINDEX_LIST* pConnectionIfIndexEntries);
+	public static extern uint32 DnsConnectionUpdateIfIndexTable(DNS_CONNECTION_IFINDEX_LIST pConnectionIfIndexEntries);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsConnectionSetPolicyEntries(DNS_CONNECTION_POLICY_TAG PolicyEntryTag, DNS_CONNECTION_POLICY_ENTRY_LIST* pPolicyEntryList);
+	public static extern uint32 DnsConnectionSetPolicyEntries(DNS_CONNECTION_POLICY_TAG PolicyEntryTag, DNS_CONNECTION_POLICY_ENTRY_LIST pPolicyEntryList);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DnsConnectionDeletePolicyEntries(DNS_CONNECTION_POLICY_TAG PolicyEntryTag);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern DNS_SERVICE_INSTANCE* DnsServiceConstructInstance(PWSTR pServiceName, PWSTR pHostName, uint32* pIp4, IP6_ADDRESS* pIp6, uint16 wPort, uint16 wPriority, uint16 wWeight, uint32 dwPropertiesCount, PWSTR* keys, PWSTR* values);
+	public static extern DNS_SERVICE_INSTANCE DnsServiceConstructInstance(PWSTR pServiceName, PWSTR pHostName, uint32 pIp4, IP6_ADDRESS pIp6, uint16 wPort, uint16 wPriority, uint16 wWeight, uint32 dwPropertiesCount, PWSTR* keys, PWSTR* values);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern DNS_SERVICE_INSTANCE* DnsServiceCopyInstance(DNS_SERVICE_INSTANCE* pOrig);
+	public static extern DNS_SERVICE_INSTANCE DnsServiceCopyInstance(DNS_SERVICE_INSTANCE pOrig);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void DnsServiceFreeInstance(DNS_SERVICE_INSTANCE* pInstance);
+	public static extern void DnsServiceFreeInstance(DNS_SERVICE_INSTANCE pInstance);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsServiceBrowse(DNS_SERVICE_BROWSE_REQUEST* pRequest, DNS_SERVICE_CANCEL* pCancel);
+	public static extern int32 DnsServiceBrowse(DNS_SERVICE_BROWSE_REQUEST pRequest, DNS_SERVICE_CANCEL pCancel);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsServiceBrowseCancel(DNS_SERVICE_CANCEL* pCancelHandle);
+	public static extern int32 DnsServiceBrowseCancel(DNS_SERVICE_CANCEL pCancelHandle);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsServiceResolve(DNS_SERVICE_RESOLVE_REQUEST* pRequest, DNS_SERVICE_CANCEL* pCancel);
+	public static extern int32 DnsServiceResolve(DNS_SERVICE_RESOLVE_REQUEST pRequest, DNS_SERVICE_CANCEL pCancel);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsServiceResolveCancel(DNS_SERVICE_CANCEL* pCancelHandle);
+	public static extern int32 DnsServiceResolveCancel(DNS_SERVICE_CANCEL pCancelHandle);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsServiceRegister(DNS_SERVICE_REGISTER_REQUEST* pRequest, DNS_SERVICE_CANCEL* pCancel);
+	public static extern uint32 DnsServiceRegister(DNS_SERVICE_REGISTER_REQUEST pRequest, DNS_SERVICE_CANCEL pCancel);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsServiceDeRegister(DNS_SERVICE_REGISTER_REQUEST* pRequest, DNS_SERVICE_CANCEL* pCancel);
+	public static extern uint32 DnsServiceDeRegister(DNS_SERVICE_REGISTER_REQUEST pRequest, DNS_SERVICE_CANCEL pCancel);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DnsServiceRegisterCancel(DNS_SERVICE_CANCEL* pCancelHandle);
+	public static extern uint32 DnsServiceRegisterCancel(DNS_SERVICE_CANCEL pCancelHandle);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsStartMulticastQuery(MDNS_QUERY_REQUEST* pQueryRequest, MDNS_QUERY_HANDLE* pHandle);
+	public static extern int32 DnsStartMulticastQuery(MDNS_QUERY_REQUEST pQueryRequest, MDNS_QUERY_HANDLE pHandle);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DnsStopMulticastQuery(MDNS_QUERY_HANDLE* pHandle);
+	public static extern int32 DnsStopMulticastQuery(MDNS_QUERY_HANDLE pHandle);
 
 }
 #endregion

@@ -32,17 +32,17 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12Resource** ppCreatedTexture2DResource) CreateDirect3D12BackBufferResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource** ppCreatedTexture2DResource) CreateDirect3D12HardwareProtectedBackBufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC pTexture2DDesc, ID3D12Resource* ppCreatedTexture2DResource) CreateDirect3D12BackBufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource* ppCreatedTexture2DResource) CreateDirect3D12HardwareProtectedBackBufferResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue) AcquireDirect3D12BufferResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue, uint64 duration) AcquireDirect3D12BufferResourceWithTimeout;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Resource* pResourceToUnacquire) UnacquireDirect3D12BufferResource;
 	}
 
 
-	public HRESULT CreateDirect3D12BackBufferResource(ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12Resource** ppCreatedTexture2DResource) mut => VT.[Friend]CreateDirect3D12BackBufferResource(&this, pDevice, pTexture2DDesc, ppCreatedTexture2DResource);
+	public HRESULT CreateDirect3D12BackBufferResource(ID3D12Device* pDevice, D3D12_RESOURCE_DESC pTexture2DDesc, ID3D12Resource* ppCreatedTexture2DResource) mut => VT.[Friend]CreateDirect3D12BackBufferResource(&this, pDevice, pTexture2DDesc, ppCreatedTexture2DResource);
 
-	public HRESULT CreateDirect3D12HardwareProtectedBackBufferResource(ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource** ppCreatedTexture2DResource) mut => VT.[Friend]CreateDirect3D12HardwareProtectedBackBufferResource(&this, pDevice, pTexture2DDesc, pProtectedResourceSession, ppCreatedTexture2DResource);
+	public HRESULT CreateDirect3D12HardwareProtectedBackBufferResource(ID3D12Device* pDevice, D3D12_RESOURCE_DESC pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource* ppCreatedTexture2DResource) mut => VT.[Friend]CreateDirect3D12HardwareProtectedBackBufferResource(&this, pDevice, pTexture2DDesc, pProtectedResourceSession, ppCreatedTexture2DResource);
 
 	public HRESULT AcquireDirect3D12BufferResource(ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue) mut => VT.[Friend]AcquireDirect3D12BufferResource(&this, pResourceToAcquire, pCommandQueue);
 
@@ -77,17 +77,17 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12Resource** ppTexture2DResource) CreateDirect3D12ContentBufferResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource** ppCreatedTexture2DResource) CreateDirect3D12HardwareProtectedContentBufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC pTexture2DDesc, ID3D12Resource* ppTexture2DResource) CreateDirect3D12ContentBufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource* ppCreatedTexture2DResource) CreateDirect3D12HardwareProtectedContentBufferResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue) AcquireDirect3D12BufferResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue, uint64 duration) AcquireDirect3D12BufferResourceWithTimeout;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Resource* pResourceToUnacquire) UnacquireDirect3D12BufferResource;
 	}
 
 
-	public HRESULT CreateDirect3D12ContentBufferResource(ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12Resource** ppTexture2DResource) mut => VT.[Friend]CreateDirect3D12ContentBufferResource(&this, pDevice, pTexture2DDesc, ppTexture2DResource);
+	public HRESULT CreateDirect3D12ContentBufferResource(ID3D12Device* pDevice, D3D12_RESOURCE_DESC pTexture2DDesc, ID3D12Resource* ppTexture2DResource) mut => VT.[Friend]CreateDirect3D12ContentBufferResource(&this, pDevice, pTexture2DDesc, ppTexture2DResource);
 
-	public HRESULT CreateDirect3D12HardwareProtectedContentBufferResource(ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource** ppCreatedTexture2DResource) mut => VT.[Friend]CreateDirect3D12HardwareProtectedContentBufferResource(&this, pDevice, pTexture2DDesc, pProtectedResourceSession, ppCreatedTexture2DResource);
+	public HRESULT CreateDirect3D12HardwareProtectedContentBufferResource(ID3D12Device* pDevice, D3D12_RESOURCE_DESC pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource* ppCreatedTexture2DResource) mut => VT.[Friend]CreateDirect3D12HardwareProtectedContentBufferResource(&this, pDevice, pTexture2DDesc, pProtectedResourceSession, ppCreatedTexture2DResource);
 
 	public HRESULT AcquireDirect3D12BufferResource(ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue) mut => VT.[Friend]AcquireDirect3D12BufferResource(&this, pResourceToAcquire, pCommandQueue);
 

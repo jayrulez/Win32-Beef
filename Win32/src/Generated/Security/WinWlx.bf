@@ -147,7 +147,7 @@ public enum WLX_SHUTDOWN_TYPE : uint32
 #region Function Pointers
 public function void PWLX_USE_CTRL_ALT_DEL(HANDLE hWlx);
 
-public function void PWLX_SET_CONTEXT_POINTER(HANDLE hWlx, void* pWlxContext);
+public function void PWLX_SET_CONTEXT_POINTER(HANDLE hWlx, void pWlxContext);
 
 public function void PWLX_SAS_NOTIFY(HANDLE hWlx, uint32 dwSasType);
 
@@ -159,45 +159,45 @@ public function int32 PWLX_MESSAGE_BOX(HANDLE hWlx, HWND hwndOwner, PWSTR lpszTe
 
 public function int32 PWLX_DIALOG_BOX(HANDLE hWlx, HANDLE hInst, PWSTR lpszTemplate, HWND hwndOwner, DLGPROC dlgprc);
 
-public function int32 PWLX_DIALOG_BOX_INDIRECT(HANDLE hWlx, HANDLE hInst, DLGTEMPLATE* hDialogTemplate, HWND hwndOwner, DLGPROC dlgprc);
+public function int32 PWLX_DIALOG_BOX_INDIRECT(HANDLE hWlx, HANDLE hInst, DLGTEMPLATE hDialogTemplate, HWND hwndOwner, DLGPROC dlgprc);
 
 public function int32 PWLX_DIALOG_BOX_PARAM(HANDLE hWlx, HANDLE hInst, PWSTR lpszTemplate, HWND hwndOwner, DLGPROC dlgprc, LPARAM dwInitParam);
 
-public function int32 PWLX_DIALOG_BOX_INDIRECT_PARAM(HANDLE hWlx, HANDLE hInst, DLGTEMPLATE* hDialogTemplate, HWND hwndOwner, DLGPROC dlgprc, LPARAM dwInitParam);
+public function int32 PWLX_DIALOG_BOX_INDIRECT_PARAM(HANDLE hWlx, HANDLE hInst, DLGTEMPLATE hDialogTemplate, HWND hwndOwner, DLGPROC dlgprc, LPARAM dwInitParam);
 
 public function int32 PWLX_SWITCH_DESKTOP_TO_USER(HANDLE hWlx);
 
 public function int32 PWLX_SWITCH_DESKTOP_TO_WINLOGON(HANDLE hWlx);
 
-public function int32 PWLX_CHANGE_PASSWORD_NOTIFY(HANDLE hWlx, WLX_MPR_NOTIFY_INFO* pMprInfo, uint32 dwChangeInfo);
+public function int32 PWLX_CHANGE_PASSWORD_NOTIFY(HANDLE hWlx, WLX_MPR_NOTIFY_INFO pMprInfo, uint32 dwChangeInfo);
 
-public function BOOL PWLX_GET_SOURCE_DESKTOP(HANDLE hWlx, WLX_DESKTOP** ppDesktop);
+public function BOOL PWLX_GET_SOURCE_DESKTOP(HANDLE hWlx, WLX_DESKTOP ppDesktop);
 
-public function BOOL PWLX_SET_RETURN_DESKTOP(HANDLE hWlx, WLX_DESKTOP* pDesktop);
+public function BOOL PWLX_SET_RETURN_DESKTOP(HANDLE hWlx, WLX_DESKTOP pDesktop);
 
-public function BOOL PWLX_CREATE_USER_DESKTOP(HANDLE hWlx, HANDLE hToken, uint32 Flags, PWSTR pszDesktopName, WLX_DESKTOP** ppDesktop);
+public function BOOL PWLX_CREATE_USER_DESKTOP(HANDLE hWlx, HANDLE hToken, uint32 Flags, PWSTR pszDesktopName, WLX_DESKTOP ppDesktop);
 
-public function int32 PWLX_CHANGE_PASSWORD_NOTIFY_EX(HANDLE hWlx, WLX_MPR_NOTIFY_INFO* pMprInfo, uint32 dwChangeInfo, PWSTR ProviderName, void* Reserved);
+public function int32 PWLX_CHANGE_PASSWORD_NOTIFY_EX(HANDLE hWlx, WLX_MPR_NOTIFY_INFO pMprInfo, uint32 dwChangeInfo, PWSTR ProviderName, void Reserved);
 
-public function BOOL PWLX_CLOSE_USER_DESKTOP(HANDLE hWlx, WLX_DESKTOP* pDesktop, HANDLE hToken);
+public function BOOL PWLX_CLOSE_USER_DESKTOP(HANDLE hWlx, WLX_DESKTOP pDesktop, HANDLE hToken);
 
-public function BOOL PWLX_SET_OPTION(HANDLE hWlx, uint32 Option, uint Value, uint* OldValue);
+public function BOOL PWLX_SET_OPTION(HANDLE hWlx, uint32 Option, uint Value, uint OldValue);
 
-public function BOOL PWLX_GET_OPTION(HANDLE hWlx, uint32 Option, uint* Value);
+public function BOOL PWLX_GET_OPTION(HANDLE hWlx, uint32 Option, uint Value);
 
 public function void PWLX_WIN31_MIGRATE(HANDLE hWlx);
 
-public function BOOL PWLX_QUERY_CLIENT_CREDENTIALS(WLX_CLIENT_CREDENTIALS_INFO_V1_0* pCred);
+public function BOOL PWLX_QUERY_CLIENT_CREDENTIALS(WLX_CLIENT_CREDENTIALS_INFO_V1_0 pCred);
 
-public function BOOL PWLX_QUERY_IC_CREDENTIALS(WLX_CLIENT_CREDENTIALS_INFO_V1_0* pCred);
+public function BOOL PWLX_QUERY_IC_CREDENTIALS(WLX_CLIENT_CREDENTIALS_INFO_V1_0 pCred);
 
-public function BOOL PWLX_QUERY_TS_LOGON_CREDENTIALS(WLX_CLIENT_CREDENTIALS_INFO_V2_0* pCred);
+public function BOOL PWLX_QUERY_TS_LOGON_CREDENTIALS(WLX_CLIENT_CREDENTIALS_INFO_V2_0 pCred);
 
 public function BOOL PWLX_DISCONNECT();
 
-public function uint32 PWLX_QUERY_TERMINAL_SERVICES_DATA(HANDLE hWlx, WLX_TERMINAL_SERVICES_DATA* pTSData, PWSTR UserName, PWSTR Domain);
+public function uint32 PWLX_QUERY_TERMINAL_SERVICES_DATA(HANDLE hWlx, WLX_TERMINAL_SERVICES_DATA pTSData, PWSTR UserName, PWSTR Domain);
 
-public function uint32 PWLX_QUERY_CONSOLESWITCH_CREDENTIALS(WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0* pCred);
+public function uint32 PWLX_QUERY_CONSOLESWITCH_CREDENTIALS(WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 pCred);
 
 public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 
@@ -298,7 +298,7 @@ public struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0
 	public PWSTR LogonServer;
 	public uint32 UserFlags;
 	public uint32 PrivateDataLen;
-	public uint8* PrivateData;
+	public uint8 PrivateData;
 }
 
 [CRepr]

@@ -104,7 +104,7 @@ public struct CRYPTCATSTORE
 	public CRYPTCAT_OPEN_FLAGS fdwStoreFlags;
 	public HANDLE hReserved;
 	public HANDLE hAttrs;
-	public void* hCryptMsg;
+	public void hCryptMsg;
 	public HANDLE hSorted;
 }
 
@@ -116,7 +116,7 @@ public struct CRYPTCATMEMBER
 	public PWSTR pwszFileName;
 	public Guid gSubjectType;
 	public uint32 fdwMemberFlags;
-	public SIP_INDIRECT_DATA* pIndirectData;
+	public SIP_INDIRECT_DATA pIndirectData;
 	public uint32 dwCertVersion;
 	public uint32 dwReserved;
 	public HANDLE hReserved;
@@ -131,7 +131,7 @@ public struct CRYPTCATATTRIBUTE
 	public PWSTR pwszReferenceTag;
 	public uint32 dwAttrTypeAndAction;
 	public uint32 cbValue;
-	public uint8* pbValue;
+	public uint8 pbValue;
 	public uint32 dwReserved;
 }
 
@@ -175,70 +175,70 @@ public static
 	public static extern BOOL CryptCATClose(HANDLE hCatalog);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATSTORE* CryptCATStoreFromHandle(HANDLE hCatalog);
+	public static extern CRYPTCATSTORE CryptCATStoreFromHandle(HANDLE hCatalog);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE CryptCATHandleFromStore(CRYPTCATSTORE* pCatStore);
+	public static extern HANDLE CryptCATHandleFromStore(CRYPTCATSTORE pCatStore);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptCATPersistStore(HANDLE hCatalog);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATATTRIBUTE* CryptCATGetCatAttrInfo(HANDLE hCatalog, PWSTR pwszReferenceTag);
+	public static extern CRYPTCATATTRIBUTE CryptCATGetCatAttrInfo(HANDLE hCatalog, PWSTR pwszReferenceTag);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATATTRIBUTE* CryptCATPutCatAttrInfo(HANDLE hCatalog, PWSTR pwszReferenceTag, uint32 dwAttrTypeAndAction, uint32 cbData, uint8* pbData);
+	public static extern CRYPTCATATTRIBUTE CryptCATPutCatAttrInfo(HANDLE hCatalog, PWSTR pwszReferenceTag, uint32 dwAttrTypeAndAction, uint32 cbData, uint8 pbData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATATTRIBUTE* CryptCATEnumerateCatAttr(HANDLE hCatalog, CRYPTCATATTRIBUTE* pPrevAttr);
+	public static extern CRYPTCATATTRIBUTE CryptCATEnumerateCatAttr(HANDLE hCatalog, CRYPTCATATTRIBUTE pPrevAttr);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATMEMBER* CryptCATGetMemberInfo(HANDLE hCatalog, PWSTR pwszReferenceTag);
+	public static extern CRYPTCATMEMBER CryptCATGetMemberInfo(HANDLE hCatalog, PWSTR pwszReferenceTag);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATMEMBER* CryptCATAllocSortedMemberInfo(HANDLE hCatalog, PWSTR pwszReferenceTag);
+	public static extern CRYPTCATMEMBER CryptCATAllocSortedMemberInfo(HANDLE hCatalog, PWSTR pwszReferenceTag);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void CryptCATFreeSortedMemberInfo(HANDLE hCatalog, CRYPTCATMEMBER* pCatMember);
+	public static extern void CryptCATFreeSortedMemberInfo(HANDLE hCatalog, CRYPTCATMEMBER pCatMember);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATATTRIBUTE* CryptCATGetAttrInfo(HANDLE hCatalog, CRYPTCATMEMBER* pCatMember, PWSTR pwszReferenceTag);
+	public static extern CRYPTCATATTRIBUTE CryptCATGetAttrInfo(HANDLE hCatalog, CRYPTCATMEMBER pCatMember, PWSTR pwszReferenceTag);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATMEMBER* CryptCATPutMemberInfo(HANDLE hCatalog, PWSTR pwszFileName, PWSTR pwszReferenceTag, Guid pgSubjectType, uint32 dwCertVersion, uint32 cbSIPIndirectData, uint8* pbSIPIndirectData);
+	public static extern CRYPTCATMEMBER CryptCATPutMemberInfo(HANDLE hCatalog, PWSTR pwszFileName, PWSTR pwszReferenceTag, Guid pgSubjectType, uint32 dwCertVersion, uint32 cbSIPIndirectData, uint8 pbSIPIndirectData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATATTRIBUTE* CryptCATPutAttrInfo(HANDLE hCatalog, CRYPTCATMEMBER* pCatMember, PWSTR pwszReferenceTag, uint32 dwAttrTypeAndAction, uint32 cbData, uint8* pbData);
+	public static extern CRYPTCATATTRIBUTE CryptCATPutAttrInfo(HANDLE hCatalog, CRYPTCATMEMBER pCatMember, PWSTR pwszReferenceTag, uint32 dwAttrTypeAndAction, uint32 cbData, uint8 pbData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATMEMBER* CryptCATEnumerateMember(HANDLE hCatalog, CRYPTCATMEMBER* pPrevMember);
+	public static extern CRYPTCATMEMBER CryptCATEnumerateMember(HANDLE hCatalog, CRYPTCATMEMBER pPrevMember);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATATTRIBUTE* CryptCATEnumerateAttr(HANDLE hCatalog, CRYPTCATMEMBER* pCatMember, CRYPTCATATTRIBUTE* pPrevAttr);
+	public static extern CRYPTCATATTRIBUTE CryptCATEnumerateAttr(HANDLE hCatalog, CRYPTCATMEMBER pCatMember, CRYPTCATATTRIBUTE pPrevAttr);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATCDF* CryptCATCDFOpen(PWSTR pwszFilePath, PFN_CDF_PARSE_ERROR_CALLBACK pfnParseError);
+	public static extern CRYPTCATCDF CryptCATCDFOpen(PWSTR pwszFilePath, PFN_CDF_PARSE_ERROR_CALLBACK pfnParseError);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptCATCDFClose(CRYPTCATCDF* pCDF);
+	public static extern BOOL CryptCATCDFClose(CRYPTCATCDF pCDF);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATATTRIBUTE* CryptCATCDFEnumCatAttributes(CRYPTCATCDF* pCDF, CRYPTCATATTRIBUTE* pPrevAttr, PFN_CDF_PARSE_ERROR_CALLBACK pfnParseError);
+	public static extern CRYPTCATATTRIBUTE CryptCATCDFEnumCatAttributes(CRYPTCATCDF pCDF, CRYPTCATATTRIBUTE pPrevAttr, PFN_CDF_PARSE_ERROR_CALLBACK pfnParseError);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATMEMBER* CryptCATCDFEnumMembers(CRYPTCATCDF* pCDF, CRYPTCATMEMBER* pPrevMember, PFN_CDF_PARSE_ERROR_CALLBACK pfnParseError);
+	public static extern CRYPTCATMEMBER CryptCATCDFEnumMembers(CRYPTCATCDF pCDF, CRYPTCATMEMBER pPrevMember, PFN_CDF_PARSE_ERROR_CALLBACK pfnParseError);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPTCATATTRIBUTE* CryptCATCDFEnumAttributes(CRYPTCATCDF* pCDF, CRYPTCATMEMBER* pMember, CRYPTCATATTRIBUTE* pPrevAttr, PFN_CDF_PARSE_ERROR_CALLBACK pfnParseError);
+	public static extern CRYPTCATATTRIBUTE CryptCATCDFEnumAttributes(CRYPTCATCDF pCDF, CRYPTCATMEMBER pMember, CRYPTCATATTRIBUTE pPrevAttr, PFN_CDF_PARSE_ERROR_CALLBACK pfnParseError);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsCatalogFile(HANDLE hFile, PWSTR pwszFileName);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptCATAdminAcquireContext(int* phCatAdmin, Guid pgSubsystem, uint32 dwFlags);
+	public static extern BOOL CryptCATAdminAcquireContext(int phCatAdmin, Guid pgSubsystem, uint32 dwFlags);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptCATAdminAcquireContext2(int* phCatAdmin, Guid pgSubsystem, PWSTR pwszHashAlgorithm, CERT_STRONG_SIGN_PARA* pStrongHashPolicy, uint32 dwFlags);
+	public static extern BOOL CryptCATAdminAcquireContext2(int phCatAdmin, Guid pgSubsystem, PWSTR pwszHashAlgorithm, CERT_STRONG_SIGN_PARA pStrongHashPolicy, uint32 dwFlags);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptCATAdminReleaseContext(int hCatAdmin, uint32 dwFlags);
@@ -247,13 +247,13 @@ public static
 	public static extern BOOL CryptCATAdminReleaseCatalogContext(int hCatAdmin, int hCatInfo, uint32 dwFlags);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int CryptCATAdminEnumCatalogFromHash(int hCatAdmin, uint8* pbHash, uint32 cbHash, uint32 dwFlags, int* phPrevCatInfo);
+	public static extern int CryptCATAdminEnumCatalogFromHash(int hCatAdmin, uint8 pbHash, uint32 cbHash, uint32 dwFlags, int phPrevCatInfo);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptCATAdminCalcHashFromFileHandle(HANDLE hFile, uint32* pcbHash, uint8* pbHash, uint32 dwFlags);
+	public static extern BOOL CryptCATAdminCalcHashFromFileHandle(HANDLE hFile, uint32 pcbHash, uint8 pbHash, uint32 dwFlags);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptCATAdminCalcHashFromFileHandle2(int hCatAdmin, HANDLE hFile, uint32* pcbHash, uint8* pbHash, uint32 dwFlags);
+	public static extern BOOL CryptCATAdminCalcHashFromFileHandle2(int hCatAdmin, HANDLE hFile, uint32 pcbHash, uint8 pbHash, uint32 dwFlags);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int CryptCATAdminAddCatalog(int hCatAdmin, PWSTR pwszCatalogFile, PWSTR pwszSelectBaseName, uint32 dwFlags);
@@ -262,10 +262,10 @@ public static
 	public static extern BOOL CryptCATAdminRemoveCatalog(int hCatAdmin, PWSTR pwszCatalogFile, uint32 dwFlags);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptCATCatalogInfoFromContext(int hCatInfo, CATALOG_INFO* psCatInfo, uint32 dwFlags);
+	public static extern BOOL CryptCATCatalogInfoFromContext(int hCatInfo, CATALOG_INFO psCatInfo, uint32 dwFlags);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptCATAdminResolveCatalogPath(int hCatAdmin, PWSTR pwszCatalogFile, CATALOG_INFO* psCatInfo, uint32 dwFlags);
+	public static extern BOOL CryptCATAdminResolveCatalogPath(int hCatAdmin, PWSTR pwszCatalogFile, CATALOG_INFO psCatInfo, uint32 dwFlags);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptCATAdminPauseServiceForBackup(uint32 dwFlags, BOOL fResume);

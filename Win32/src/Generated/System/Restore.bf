@@ -131,11 +131,11 @@ public static
 public static
 {
 	[Import("sfc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SRSetRestorePointA(RESTOREPOINTINFOA* pRestorePtSpec, STATEMGRSTATUS* pSMgrStatus);
-	public static BOOL SRSetRestorePoint(RESTOREPOINTINFOA* pRestorePtSpec, STATEMGRSTATUS* pSMgrStatus) => SRSetRestorePointA(pRestorePtSpec, pSMgrStatus);
+	public static extern BOOL SRSetRestorePointA(RESTOREPOINTINFOA pRestorePtSpec, STATEMGRSTATUS pSMgrStatus);
+	public static BOOL SRSetRestorePoint(RESTOREPOINTINFOA pRestorePtSpec, STATEMGRSTATUS pSMgrStatus) => SRSetRestorePointA(pRestorePtSpec, pSMgrStatus);
 
 	[Import("sfc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SRSetRestorePointW(RESTOREPOINTINFOW* pRestorePtSpec, STATEMGRSTATUS* pSMgrStatus);
+	public static extern BOOL SRSetRestorePointW(RESTOREPOINTINFOW pRestorePtSpec, STATEMGRSTATUS pSMgrStatus);
 
 }
 #endregion

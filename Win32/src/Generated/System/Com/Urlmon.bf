@@ -1205,7 +1205,7 @@ public struct PROTOCOLDATA
 {
 	public uint32 grfFlags;
 	public uint32 dwState;
-	public void* pData;
+	public void pData;
 	public uint32 cbData;
 }
 
@@ -1325,7 +1325,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistMoniker*/SelfOuter* self, BOOL fFullyAvailable, IMoniker* pimkName, IBindCtx* pibc, uint32 grfMode) Load;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistMoniker*/SelfOuter* self, IMoniker* pimkName, IBindCtx* pbc, BOOL fRemember) Save;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistMoniker*/SelfOuter* self, IMoniker* pimkName, IBindCtx* pibc) SaveCompleted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistMoniker*/SelfOuter* self, IMoniker** ppimkName) GetCurMoniker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistMoniker*/SelfOuter* self, IMoniker* ppimkName) GetCurMoniker;
 	}
 
 
@@ -1339,7 +1339,7 @@ public static
 
 	public HRESULT SaveCompleted(IMoniker* pimkName, IBindCtx* pibc) mut => VT.[Friend]SaveCompleted(&this, pimkName, pibc);
 
-	public HRESULT GetCurMoniker(IMoniker** ppimkName) mut => VT.[Friend]GetCurMoniker(&this, ppimkName);
+	public HRESULT GetCurMoniker(IMoniker* ppimkName) mut => VT.[Friend]GetCurMoniker(&this, ppimkName);
 }
 
 [CRepr]struct IMonikerProp : IUnknown
@@ -1365,11 +1365,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBindProtocol*/SelfOuter* self, PWSTR szUrl, IBindCtx* pbc, IBinding** ppb) CreateBinding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBindProtocol*/SelfOuter* self, PWSTR szUrl, IBindCtx* pbc, IBinding* ppb) CreateBinding;
 	}
 
 
-	public HRESULT CreateBinding(PWSTR szUrl, IBindCtx* pbc, IBinding** ppb) mut => VT.[Friend]CreateBinding(&this, szUrl, pbc, ppb);
+	public HRESULT CreateBinding(PWSTR szUrl, IBindCtx* pbc, IBinding* ppb) mut => VT.[Friend]CreateBinding(&this, szUrl, pbc, ppb);
 }
 
 [CRepr]struct IHttpNegotiate : IUnknown
@@ -1380,14 +1380,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHttpNegotiate*/SelfOuter* self, PWSTR szURL, PWSTR szHeaders, uint32 dwReserved, PWSTR* pszAdditionalHeaders) BeginningTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHttpNegotiate*/SelfOuter* self, uint32 dwResponseCode, PWSTR szResponseHeaders, PWSTR szRequestHeaders, PWSTR* pszAdditionalRequestHeaders) OnResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHttpNegotiate*/SelfOuter* self, PWSTR szURL, PWSTR szHeaders, uint32 dwReserved, PWSTR pszAdditionalHeaders) BeginningTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHttpNegotiate*/SelfOuter* self, uint32 dwResponseCode, PWSTR szResponseHeaders, PWSTR szRequestHeaders, PWSTR pszAdditionalRequestHeaders) OnResponse;
 	}
 
 
-	public HRESULT BeginningTransaction(PWSTR szURL, PWSTR szHeaders, uint32 dwReserved, PWSTR* pszAdditionalHeaders) mut => VT.[Friend]BeginningTransaction(&this, szURL, szHeaders, dwReserved, pszAdditionalHeaders);
+	public HRESULT BeginningTransaction(PWSTR szURL, PWSTR szHeaders, uint32 dwReserved, PWSTR pszAdditionalHeaders) mut => VT.[Friend]BeginningTransaction(&this, szURL, szHeaders, dwReserved, pszAdditionalHeaders);
 
-	public HRESULT OnResponse(uint32 dwResponseCode, PWSTR szResponseHeaders, PWSTR szRequestHeaders, PWSTR* pszAdditionalRequestHeaders) mut => VT.[Friend]OnResponse(&this, dwResponseCode, szResponseHeaders, szRequestHeaders, pszAdditionalRequestHeaders);
+	public HRESULT OnResponse(uint32 dwResponseCode, PWSTR szResponseHeaders, PWSTR szRequestHeaders, PWSTR pszAdditionalRequestHeaders) mut => VT.[Friend]OnResponse(&this, dwResponseCode, szResponseHeaders, szRequestHeaders, pszAdditionalRequestHeaders);
 }
 
 [CRepr]struct IHttpNegotiate2 : IHttpNegotiate
@@ -1398,11 +1398,11 @@ public static
 
 	[CRepr]public struct VTable : IHttpNegotiate.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHttpNegotiate2*/SelfOuter* self, uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) GetRootSecurityId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHttpNegotiate2*/SelfOuter* self, uint8* pbSecurityId, uint32 pcbSecurityId, uint dwReserved) GetRootSecurityId;
 	}
 
 
-	public HRESULT GetRootSecurityId(uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) mut => VT.[Friend]GetRootSecurityId(&this, pbSecurityId, pcbSecurityId, dwReserved);
+	public HRESULT GetRootSecurityId(uint8* pbSecurityId, uint32 pcbSecurityId, uint dwReserved) mut => VT.[Friend]GetRootSecurityId(&this, pbSecurityId, pcbSecurityId, dwReserved);
 }
 
 [CRepr]struct IHttpNegotiate3 : IHttpNegotiate2
@@ -1413,11 +1413,11 @@ public static
 
 	[CRepr]public struct VTable : IHttpNegotiate2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHttpNegotiate3*/SelfOuter* self, uint8** ppbCert, uint32* pcbCert) GetSerializedClientCertContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHttpNegotiate3*/SelfOuter* self, uint8* ppbCert, uint32 pcbCert) GetSerializedClientCertContext;
 	}
 
 
-	public HRESULT GetSerializedClientCertContext(uint8** ppbCert, uint32* pcbCert) mut => VT.[Friend]GetSerializedClientCertContext(&this, ppbCert, pcbCert);
+	public HRESULT GetSerializedClientCertContext(uint8* ppbCert, uint32 pcbCert) mut => VT.[Friend]GetSerializedClientCertContext(&this, ppbCert, pcbCert);
 }
 
 [CRepr]struct IWinInetFileStream : IUnknown
@@ -1446,11 +1446,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowForBindingUI*/SelfOuter* self, Guid rguidReason, HWND* phwnd) GetWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowForBindingUI*/SelfOuter* self, Guid rguidReason, HWND phwnd) GetWindow;
 	}
 
 
-	public HRESULT GetWindow(Guid rguidReason, HWND* phwnd) mut => VT.[Friend]GetWindow(&this, rguidReason, phwnd);
+	public HRESULT GetWindow(Guid rguidReason, HWND phwnd) mut => VT.[Friend]GetWindow(&this, rguidReason, phwnd);
 }
 
 [CRepr]struct ICodeInstall : IWindowForBindingUI
@@ -1476,11 +1476,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUriContainer*/SelfOuter* self, IUri** ppIUri) GetIUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUriContainer*/SelfOuter* self, IUri* ppIUri) GetIUri;
 	}
 
 
-	public HRESULT GetIUri(IUri** ppIUri) mut => VT.[Friend]GetIUri(&this, ppIUri);
+	public HRESULT GetIUri(IUri* ppIUri) mut => VT.[Friend]GetIUri(&this, ppIUri);
 }
 
 [CRepr]struct IUriBuilderFactory : IUnknown
@@ -1491,14 +1491,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUriBuilderFactory*/SelfOuter* self, uint32 dwFlags, uint dwReserved, IUriBuilder** ppIUriBuilder) CreateIUriBuilder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUriBuilderFactory*/SelfOuter* self, uint32 dwFlags, uint dwReserved, IUriBuilder** ppIUriBuilder) CreateInitializedIUriBuilder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUriBuilderFactory*/SelfOuter* self, uint32 dwFlags, uint dwReserved, IUriBuilder* ppIUriBuilder) CreateIUriBuilder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUriBuilderFactory*/SelfOuter* self, uint32 dwFlags, uint dwReserved, IUriBuilder* ppIUriBuilder) CreateInitializedIUriBuilder;
 	}
 
 
-	public HRESULT CreateIUriBuilder(uint32 dwFlags, uint dwReserved, IUriBuilder** ppIUriBuilder) mut => VT.[Friend]CreateIUriBuilder(&this, dwFlags, dwReserved, ppIUriBuilder);
+	public HRESULT CreateIUriBuilder(uint32 dwFlags, uint dwReserved, IUriBuilder* ppIUriBuilder) mut => VT.[Friend]CreateIUriBuilder(&this, dwFlags, dwReserved, ppIUriBuilder);
 
-	public HRESULT CreateInitializedIUriBuilder(uint32 dwFlags, uint dwReserved, IUriBuilder** ppIUriBuilder) mut => VT.[Friend]CreateInitializedIUriBuilder(&this, dwFlags, dwReserved, ppIUriBuilder);
+	public HRESULT CreateInitializedIUriBuilder(uint32 dwFlags, uint dwReserved, IUriBuilder* ppIUriBuilder) mut => VT.[Friend]CreateInitializedIUriBuilder(&this, dwFlags, dwReserved, ppIUriBuilder);
 }
 
 [CRepr]struct IWinInetInfo : IUnknown
@@ -1509,11 +1509,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinInetInfo*/SelfOuter* self, uint32 dwOption, void* pBuffer, uint32* pcbBuf) QueryOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinInetInfo*/SelfOuter* self, uint32 dwOption, void* pBuffer, uint32 pcbBuf) QueryOption;
 	}
 
 
-	public HRESULT QueryOption(uint32 dwOption, void* pBuffer, uint32* pcbBuf) mut => VT.[Friend]QueryOption(&this, dwOption, pBuffer, pcbBuf);
+	public HRESULT QueryOption(uint32 dwOption, void* pBuffer, uint32 pcbBuf) mut => VT.[Friend]QueryOption(&this, dwOption, pBuffer, pcbBuf);
 }
 
 [CRepr]struct IHttpSecurity : IWindowForBindingUI
@@ -1539,11 +1539,11 @@ public static
 
 	[CRepr]public struct VTable : IWinInetInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinInetHttpInfo*/SelfOuter* self, uint32 dwOption, void* pBuffer, uint32* pcbBuf, uint32* pdwFlags, uint32* pdwReserved) QueryInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinInetHttpInfo*/SelfOuter* self, uint32 dwOption, void* pBuffer, uint32 pcbBuf, uint32 pdwFlags, uint32 pdwReserved) QueryInfo;
 	}
 
 
-	public HRESULT QueryInfo(uint32 dwOption, void* pBuffer, uint32* pcbBuf, uint32* pdwFlags, uint32* pdwReserved) mut => VT.[Friend]QueryInfo(&this, dwOption, pBuffer, pcbBuf, pdwFlags, pdwReserved);
+	public HRESULT QueryInfo(uint32 dwOption, void* pBuffer, uint32 pcbBuf, uint32 pdwFlags, uint32 pdwReserved) mut => VT.[Friend]QueryInfo(&this, dwOption, pBuffer, pcbBuf, pdwFlags, pdwReserved);
 }
 
 [CRepr]struct IWinInetHttpTimeouts : IUnknown
@@ -1554,11 +1554,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinInetHttpTimeouts*/SelfOuter* self, uint32* pdwConnectTimeout, uint32* pdwSendTimeout, uint32* pdwReceiveTimeout) GetRequestTimeouts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinInetHttpTimeouts*/SelfOuter* self, uint32 pdwConnectTimeout, uint32 pdwSendTimeout, uint32 pdwReceiveTimeout) GetRequestTimeouts;
 	}
 
 
-	public HRESULT GetRequestTimeouts(uint32* pdwConnectTimeout, uint32* pdwSendTimeout, uint32* pdwReceiveTimeout) mut => VT.[Friend]GetRequestTimeouts(&this, pdwConnectTimeout, pdwSendTimeout, pdwReceiveTimeout);
+	public HRESULT GetRequestTimeouts(uint32 pdwConnectTimeout, uint32 pdwSendTimeout, uint32 pdwReceiveTimeout) mut => VT.[Friend]GetRequestTimeouts(&this, pdwConnectTimeout, pdwSendTimeout, pdwReceiveTimeout);
 }
 
 [CRepr]struct IWinInetCacheHints : IUnknown
@@ -1569,11 +1569,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinInetCacheHints*/SelfOuter* self, PWSTR pwzExt, void* pszCacheFile, uint32* pcbCacheFile, uint32* pdwWinInetError, uint32* pdwReserved) SetCacheExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinInetCacheHints*/SelfOuter* self, PWSTR pwzExt, void* pszCacheFile, uint32 pcbCacheFile, uint32 pdwWinInetError, uint32 pdwReserved) SetCacheExtension;
 	}
 
 
-	public HRESULT SetCacheExtension(PWSTR pwzExt, void* pszCacheFile, uint32* pcbCacheFile, uint32* pdwWinInetError, uint32* pdwReserved) mut => VT.[Friend]SetCacheExtension(&this, pwzExt, pszCacheFile, pcbCacheFile, pdwWinInetError, pdwReserved);
+	public HRESULT SetCacheExtension(PWSTR pwzExt, void* pszCacheFile, uint32 pcbCacheFile, uint32 pdwWinInetError, uint32 pdwReserved) mut => VT.[Friend]SetCacheExtension(&this, pwzExt, pszCacheFile, pcbCacheFile, pdwWinInetError, pdwReserved);
 }
 
 [CRepr]struct IWinInetCacheHints2 : IWinInetCacheHints
@@ -1584,11 +1584,11 @@ public static
 
 	[CRepr]public struct VTable : IWinInetCacheHints.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinInetCacheHints2*/SelfOuter* self, PWSTR pwzExt, PWSTR pwzCacheFile, uint32* pcchCacheFile, uint32* pdwWinInetError, uint32* pdwReserved) SetCacheExtension2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinInetCacheHints2*/SelfOuter* self, PWSTR pwzExt, PWSTR pwzCacheFile, uint32 pcchCacheFile, uint32 pdwWinInetError, uint32 pdwReserved) SetCacheExtension2;
 	}
 
 
-	public HRESULT SetCacheExtension2(PWSTR pwzExt, PWSTR pwzCacheFile, uint32* pcchCacheFile, uint32* pdwWinInetError, uint32* pdwReserved) mut => VT.[Friend]SetCacheExtension2(&this, pwzExt, pwzCacheFile, pcchCacheFile, pdwWinInetError, pdwReserved);
+	public HRESULT SetCacheExtension2(PWSTR pwzExt, PWSTR pwzCacheFile, uint32 pcchCacheFile, uint32 pdwWinInetError, uint32 pdwReserved) mut => VT.[Friend]SetCacheExtension2(&this, pwzExt, pwzCacheFile, pcchCacheFile, pdwWinInetError, pdwReserved);
 }
 
 [CRepr]struct IInternet : IUnknown
@@ -1611,14 +1611,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetBindInfo*/SelfOuter* self, uint32* grfBINDF, BINDINFO* pbindinfo) GetBindInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetBindInfo*/SelfOuter* self, uint32 ulStringType, PWSTR* ppwzStr, uint32 cEl, uint32* pcElFetched) GetBindString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetBindInfo*/SelfOuter* self, uint32 grfBINDF, BINDINFO pbindinfo) GetBindInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetBindInfo*/SelfOuter* self, uint32 ulStringType, PWSTR ppwzStr, uint32 cEl, uint32 pcElFetched) GetBindString;
 	}
 
 
-	public HRESULT GetBindInfo(uint32* grfBINDF, BINDINFO* pbindinfo) mut => VT.[Friend]GetBindInfo(&this, grfBINDF, pbindinfo);
+	public HRESULT GetBindInfo(uint32 grfBINDF, BINDINFO pbindinfo) mut => VT.[Friend]GetBindInfo(&this, grfBINDF, pbindinfo);
 
-	public HRESULT GetBindString(uint32 ulStringType, PWSTR* ppwzStr, uint32 cEl, uint32* pcElFetched) mut => VT.[Friend]GetBindString(&this, ulStringType, ppwzStr, cEl, pcElFetched);
+	public HRESULT GetBindString(uint32 ulStringType, PWSTR ppwzStr, uint32 cEl, uint32 pcElFetched) mut => VT.[Friend]GetBindString(&this, ulStringType, ppwzStr, cEl, pcElFetched);
 }
 
 [CRepr]struct IInternetBindInfoEx : IInternetBindInfo
@@ -1629,11 +1629,11 @@ public static
 
 	[CRepr]public struct VTable : IInternetBindInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetBindInfoEx*/SelfOuter* self, uint32* grfBINDF, BINDINFO* pbindinfo, uint32* grfBINDF2, uint32* pdwReserved) GetBindInfoEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetBindInfoEx*/SelfOuter* self, uint32 grfBINDF, BINDINFO pbindinfo, uint32 grfBINDF2, uint32 pdwReserved) GetBindInfoEx;
 	}
 
 
-	public HRESULT GetBindInfoEx(uint32* grfBINDF, BINDINFO* pbindinfo, uint32* grfBINDF2, uint32* pdwReserved) mut => VT.[Friend]GetBindInfoEx(&this, grfBINDF, pbindinfo, grfBINDF2, pdwReserved);
+	public HRESULT GetBindInfoEx(uint32 grfBINDF, BINDINFO pbindinfo, uint32 grfBINDF2, uint32 pdwReserved) mut => VT.[Friend]GetBindInfoEx(&this, grfBINDF, pbindinfo, grfBINDF2, pdwReserved);
 }
 
 [CRepr]struct IInternetProtocolRoot : IUnknown
@@ -1645,7 +1645,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolRoot*/SelfOuter* self, PWSTR szUrl, IInternetProtocolSink* pOIProtSink, IInternetBindInfo* pOIBindInfo, uint32 grfPI, HANDLE_PTR dwReserved) Start;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolRoot*/SelfOuter* self, PROTOCOLDATA* pProtocolData) Continue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolRoot*/SelfOuter* self, PROTOCOLDATA pProtocolData) Continue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolRoot*/SelfOuter* self, HRESULT hrReason, uint32 dwOptions) Abort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolRoot*/SelfOuter* self, uint32 dwOptions) Terminate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolRoot*/SelfOuter* self) Suspend;
@@ -1655,7 +1655,7 @@ public static
 
 	public HRESULT Start(PWSTR szUrl, IInternetProtocolSink* pOIProtSink, IInternetBindInfo* pOIBindInfo, uint32 grfPI, HANDLE_PTR dwReserved) mut => VT.[Friend]Start(&this, szUrl, pOIProtSink, pOIBindInfo, grfPI, dwReserved);
 
-	public HRESULT Continue(PROTOCOLDATA* pProtocolData) mut => VT.[Friend]Continue(&this, pProtocolData);
+	public HRESULT Continue(PROTOCOLDATA pProtocolData) mut => VT.[Friend]Continue(&this, pProtocolData);
 
 	public HRESULT Abort(HRESULT hrReason, uint32 dwOptions) mut => VT.[Friend]Abort(&this, hrReason, dwOptions);
 
@@ -1674,16 +1674,16 @@ public static
 
 	[CRepr]public struct VTable : IInternetProtocolRoot.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocol*/SelfOuter* self, void* pv, uint32 cb, uint32* pcbRead) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocol*/SelfOuter* self, LARGE_INTEGER dlibMove, uint32 dwOrigin, ULARGE_INTEGER* plibNewPosition) Seek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocol*/SelfOuter* self, void* pv, uint32 cb, uint32 pcbRead) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocol*/SelfOuter* self, LARGE_INTEGER dlibMove, uint32 dwOrigin, ULARGE_INTEGER plibNewPosition) Seek;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocol*/SelfOuter* self, uint32 dwOptions) LockRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocol*/SelfOuter* self) UnlockRequest;
 	}
 
 
-	public HRESULT Read(void* pv, uint32 cb, uint32* pcbRead) mut => VT.[Friend]Read(&this, pv, cb, pcbRead);
+	public HRESULT Read(void* pv, uint32 cb, uint32 pcbRead) mut => VT.[Friend]Read(&this, pv, cb, pcbRead);
 
-	public HRESULT Seek(LARGE_INTEGER dlibMove, uint32 dwOrigin, ULARGE_INTEGER* plibNewPosition) mut => VT.[Friend]Seek(&this, dlibMove, dwOrigin, plibNewPosition);
+	public HRESULT Seek(LARGE_INTEGER dlibMove, uint32 dwOrigin, ULARGE_INTEGER plibNewPosition) mut => VT.[Friend]Seek(&this, dlibMove, dwOrigin, plibNewPosition);
 
 	public HRESULT LockRequest(uint32 dwOptions) mut => VT.[Friend]LockRequest(&this, dwOptions);
 
@@ -1713,14 +1713,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolSink*/SelfOuter* self, PROTOCOLDATA* pProtocolData) Switch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolSink*/SelfOuter* self, PROTOCOLDATA pProtocolData) Switch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolSink*/SelfOuter* self, uint32 ulStatusCode, PWSTR szStatusText) ReportProgress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolSink*/SelfOuter* self, uint32 grfBSCF, uint32 ulProgress, uint32 ulProgressMax) ReportData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolSink*/SelfOuter* self, HRESULT hrResult, uint32 dwError, PWSTR szResult) ReportResult;
 	}
 
 
-	public HRESULT Switch(PROTOCOLDATA* pProtocolData) mut => VT.[Friend]Switch(&this, pProtocolData);
+	public HRESULT Switch(PROTOCOLDATA pProtocolData) mut => VT.[Friend]Switch(&this, pProtocolData);
 
 	public HRESULT ReportProgress(uint32 ulStatusCode, PWSTR szStatusText) mut => VT.[Friend]ReportProgress(&this, ulStatusCode, szStatusText);
 
@@ -1758,17 +1758,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, IClassFactory* pCF, Guid rclsid, PWSTR pwzProtocol, uint32 cPatterns, PWSTR* ppwzPatterns, uint32 dwReserved) RegisterNameSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, IClassFactory* pCF, Guid rclsid, PWSTR pwzProtocol, uint32 cPatterns, PWSTR ppwzPatterns, uint32 dwReserved) RegisterNameSpace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, IClassFactory* pCF, PWSTR pszProtocol) UnregisterNameSpace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, IClassFactory* pCF, Guid rclsid, PWSTR pwzType) RegisterMimeFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, IClassFactory* pCF, PWSTR pwzType) UnregisterMimeFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, IBindCtx* pBC, PWSTR szUrl, IUnknown* pUnkOuter, IUnknown** ppUnk, IInternetProtocol** ppOInetProt, uint32 dwOption) CreateBinding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, uint32 dwOption, void* pBuffer, uint32 dwBufferLength, uint32 dwReserved) SetSessionOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, uint32 dwOption, void* pBuffer, uint32* pdwBufferLength, uint32 dwReserved) GetSessionOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, IBindCtx* pBC, PWSTR szUrl, IUnknown* pUnkOuter, IUnknown* ppUnk, IInternetProtocol* ppOInetProt, uint32 dwOption) CreateBinding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, uint32 dwOption, void pBuffer, uint32 dwBufferLength, uint32 dwReserved) SetSessionOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSession*/SelfOuter* self, uint32 dwOption, void pBuffer, uint32 pdwBufferLength, uint32 dwReserved) GetSessionOption;
 	}
 
 
-	public HRESULT RegisterNameSpace(IClassFactory* pCF, Guid rclsid, PWSTR pwzProtocol, uint32 cPatterns, PWSTR* ppwzPatterns, uint32 dwReserved) mut => VT.[Friend]RegisterNameSpace(&this, pCF, rclsid, pwzProtocol, cPatterns, ppwzPatterns, dwReserved);
+	public HRESULT RegisterNameSpace(IClassFactory* pCF, Guid rclsid, PWSTR pwzProtocol, uint32 cPatterns, PWSTR ppwzPatterns, uint32 dwReserved) mut => VT.[Friend]RegisterNameSpace(&this, pCF, rclsid, pwzProtocol, cPatterns, ppwzPatterns, dwReserved);
 
 	public HRESULT UnregisterNameSpace(IClassFactory* pCF, PWSTR pszProtocol) mut => VT.[Friend]UnregisterNameSpace(&this, pCF, pszProtocol);
 
@@ -1776,11 +1776,11 @@ public static
 
 	public HRESULT UnregisterMimeFilter(IClassFactory* pCF, PWSTR pwzType) mut => VT.[Friend]UnregisterMimeFilter(&this, pCF, pwzType);
 
-	public HRESULT CreateBinding(IBindCtx* pBC, PWSTR szUrl, IUnknown* pUnkOuter, IUnknown** ppUnk, IInternetProtocol** ppOInetProt, uint32 dwOption) mut => VT.[Friend]CreateBinding(&this, pBC, szUrl, pUnkOuter, ppUnk, ppOInetProt, dwOption);
+	public HRESULT CreateBinding(IBindCtx* pBC, PWSTR szUrl, IUnknown* pUnkOuter, IUnknown* ppUnk, IInternetProtocol* ppOInetProt, uint32 dwOption) mut => VT.[Friend]CreateBinding(&this, pBC, szUrl, pUnkOuter, ppUnk, ppOInetProt, dwOption);
 
-	public HRESULT SetSessionOption(uint32 dwOption, void* pBuffer, uint32 dwBufferLength, uint32 dwReserved) mut => VT.[Friend]SetSessionOption(&this, dwOption, pBuffer, dwBufferLength, dwReserved);
+	public HRESULT SetSessionOption(uint32 dwOption, void pBuffer, uint32 dwBufferLength, uint32 dwReserved) mut => VT.[Friend]SetSessionOption(&this, dwOption, pBuffer, dwBufferLength, dwReserved);
 
-	public HRESULT GetSessionOption(uint32 dwOption, void* pBuffer, uint32* pdwBufferLength, uint32 dwReserved) mut => VT.[Friend]GetSessionOption(&this, dwOption, pBuffer, pdwBufferLength, dwReserved);
+	public HRESULT GetSessionOption(uint32 dwOption, void pBuffer, uint32 pdwBufferLength, uint32 dwReserved) mut => VT.[Friend]GetSessionOption(&this, dwOption, pBuffer, pdwBufferLength, dwReserved);
 }
 
 [CRepr]struct IInternetThreadSwitch : IUnknown
@@ -1810,13 +1810,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetPriority*/SelfOuter* self, int32 nPriority) SetPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetPriority*/SelfOuter* self, int32* pnPriority) GetPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetPriority*/SelfOuter* self, int32 pnPriority) GetPriority;
 	}
 
 
 	public HRESULT SetPriority(int32 nPriority) mut => VT.[Friend]SetPriority(&this, nPriority);
 
-	public HRESULT GetPriority(int32* pnPriority) mut => VT.[Friend]GetPriority(&this, pnPriority);
+	public HRESULT GetPriority(int32 pnPriority) mut => VT.[Friend]GetPriority(&this, pnPriority);
 }
 
 [CRepr]struct IInternetProtocolInfo : IUnknown
@@ -1827,20 +1827,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolInfo*/SelfOuter* self, PWSTR pwzUrl, PARSEACTION ParseAction, uint32 dwParseFlags, PWSTR pwzResult, uint32 cchResult, uint32* pcchResult, uint32 dwReserved) ParseUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolInfo*/SelfOuter* self, PWSTR pwzBaseUrl, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, PWSTR pwzResult, uint32 cchResult, uint32* pcchResult, uint32 dwReserved) CombineUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolInfo*/SelfOuter* self, PWSTR pwzUrl, PARSEACTION ParseAction, uint32 dwParseFlags, PWSTR pwzResult, uint32 cchResult, uint32 pcchResult, uint32 dwReserved) ParseUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolInfo*/SelfOuter* self, PWSTR pwzBaseUrl, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, PWSTR pwzResult, uint32 cchResult, uint32 pcchResult, uint32 dwReserved) CombineUrl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolInfo*/SelfOuter* self, PWSTR pwzUrl1, PWSTR pwzUrl2, uint32 dwCompareFlags) CompareUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolInfo*/SelfOuter* self, PWSTR pwzUrl, QUERYOPTION OueryOption, uint32 dwQueryFlags, void* pBuffer, uint32 cbBuffer, uint32* pcbBuf, uint32 dwReserved) QueryInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetProtocolInfo*/SelfOuter* self, PWSTR pwzUrl, QUERYOPTION OueryOption, uint32 dwQueryFlags, void* pBuffer, uint32 cbBuffer, uint32 pcbBuf, uint32 dwReserved) QueryInfo;
 	}
 
 
-	public HRESULT ParseUrl(PWSTR pwzUrl, PARSEACTION ParseAction, uint32 dwParseFlags, PWSTR pwzResult, uint32 cchResult, uint32* pcchResult, uint32 dwReserved) mut => VT.[Friend]ParseUrl(&this, pwzUrl, ParseAction, dwParseFlags, pwzResult, cchResult, pcchResult, dwReserved);
+	public HRESULT ParseUrl(PWSTR pwzUrl, PARSEACTION ParseAction, uint32 dwParseFlags, PWSTR pwzResult, uint32 cchResult, uint32 pcchResult, uint32 dwReserved) mut => VT.[Friend]ParseUrl(&this, pwzUrl, ParseAction, dwParseFlags, pwzResult, cchResult, pcchResult, dwReserved);
 
-	public HRESULT CombineUrl(PWSTR pwzBaseUrl, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, PWSTR pwzResult, uint32 cchResult, uint32* pcchResult, uint32 dwReserved) mut => VT.[Friend]CombineUrl(&this, pwzBaseUrl, pwzRelativeUrl, dwCombineFlags, pwzResult, cchResult, pcchResult, dwReserved);
+	public HRESULT CombineUrl(PWSTR pwzBaseUrl, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, PWSTR pwzResult, uint32 cchResult, uint32 pcchResult, uint32 dwReserved) mut => VT.[Friend]CombineUrl(&this, pwzBaseUrl, pwzRelativeUrl, dwCombineFlags, pwzResult, cchResult, pcchResult, dwReserved);
 
 	public HRESULT CompareUrl(PWSTR pwzUrl1, PWSTR pwzUrl2, uint32 dwCompareFlags) mut => VT.[Friend]CompareUrl(&this, pwzUrl1, pwzUrl2, dwCompareFlags);
 
-	public HRESULT QueryInfo(PWSTR pwzUrl, QUERYOPTION OueryOption, uint32 dwQueryFlags, void* pBuffer, uint32 cbBuffer, uint32* pcbBuf, uint32 dwReserved) mut => VT.[Friend]QueryInfo(&this, pwzUrl, OueryOption, dwQueryFlags, pBuffer, cbBuffer, pcbBuf, dwReserved);
+	public HRESULT QueryInfo(PWSTR pwzUrl, QUERYOPTION OueryOption, uint32 dwQueryFlags, void* pBuffer, uint32 cbBuffer, uint32 pcbBuf, uint32 dwReserved) mut => VT.[Friend]QueryInfo(&this, pwzUrl, OueryOption, dwQueryFlags, pBuffer, cbBuffer, pcbBuf, dwReserved);
 }
 
 [CRepr]struct IInternetSecurityMgrSite : IUnknown
@@ -1851,12 +1851,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityMgrSite*/SelfOuter* self, HWND* phwnd) GetWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityMgrSite*/SelfOuter* self, HWND phwnd) GetWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityMgrSite*/SelfOuter* self, BOOL fEnable) EnableModeless;
 	}
 
 
-	public HRESULT GetWindow(HWND* phwnd) mut => VT.[Friend]GetWindow(&this, phwnd);
+	public HRESULT GetWindow(HWND phwnd) mut => VT.[Friend]GetWindow(&this, phwnd);
 
 	public HRESULT EnableModeless(BOOL fEnable) mut => VT.[Friend]EnableModeless(&this, fEnable);
 }
@@ -1870,31 +1870,31 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, IInternetSecurityMgrSite* pSite) SetSecuritySite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, IInternetSecurityMgrSite** ppSite) GetSecuritySite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, PWSTR pwszUrl, uint32* pdwZone, uint32 dwFlags) MapUrlToZone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, PWSTR pwszUrl, uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) GetSecurityId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, PWSTR pwszUrl, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) ProcessUrlAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, PWSTR pwszUrl, Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) QueryCustomPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, IInternetSecurityMgrSite* ppSite) GetSecuritySite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, PWSTR pwszUrl, uint32 pdwZone, uint32 dwFlags) MapUrlToZone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, PWSTR pwszUrl, uint8* pbSecurityId, uint32 pcbSecurityId, uint dwReserved) GetSecurityId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, PWSTR pwszUrl, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8 pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) ProcessUrlAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, PWSTR pwszUrl, Guid guidKey, uint8* ppPolicy, uint32 pcbPolicy, uint8 pContext, uint32 cbContext, uint32 dwReserved) QueryCustomPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, uint32 dwZone, PWSTR lpszPattern, uint32 dwFlags) SetZoneMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, uint32 dwZone, IEnumString** ppenumString, uint32 dwFlags) GetZoneMappings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManager*/SelfOuter* self, uint32 dwZone, IEnumString* ppenumString, uint32 dwFlags) GetZoneMappings;
 	}
 
 
 	public HRESULT SetSecuritySite(IInternetSecurityMgrSite* pSite) mut => VT.[Friend]SetSecuritySite(&this, pSite);
 
-	public HRESULT GetSecuritySite(IInternetSecurityMgrSite** ppSite) mut => VT.[Friend]GetSecuritySite(&this, ppSite);
+	public HRESULT GetSecuritySite(IInternetSecurityMgrSite* ppSite) mut => VT.[Friend]GetSecuritySite(&this, ppSite);
 
-	public HRESULT MapUrlToZone(PWSTR pwszUrl, uint32* pdwZone, uint32 dwFlags) mut => VT.[Friend]MapUrlToZone(&this, pwszUrl, pdwZone, dwFlags);
+	public HRESULT MapUrlToZone(PWSTR pwszUrl, uint32 pdwZone, uint32 dwFlags) mut => VT.[Friend]MapUrlToZone(&this, pwszUrl, pdwZone, dwFlags);
 
-	public HRESULT GetSecurityId(PWSTR pwszUrl, uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) mut => VT.[Friend]GetSecurityId(&this, pwszUrl, pbSecurityId, pcbSecurityId, dwReserved);
+	public HRESULT GetSecurityId(PWSTR pwszUrl, uint8* pbSecurityId, uint32 pcbSecurityId, uint dwReserved) mut => VT.[Friend]GetSecurityId(&this, pwszUrl, pbSecurityId, pcbSecurityId, dwReserved);
 
-	public HRESULT ProcessUrlAction(PWSTR pwszUrl, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) mut => VT.[Friend]ProcessUrlAction(&this, pwszUrl, dwAction, pPolicy, cbPolicy, pContext, cbContext, dwFlags, dwReserved);
+	public HRESULT ProcessUrlAction(PWSTR pwszUrl, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8 pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) mut => VT.[Friend]ProcessUrlAction(&this, pwszUrl, dwAction, pPolicy, cbPolicy, pContext, cbContext, dwFlags, dwReserved);
 
-	public HRESULT QueryCustomPolicy(PWSTR pwszUrl, Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) mut => VT.[Friend]QueryCustomPolicy(&this, pwszUrl, guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
+	public HRESULT QueryCustomPolicy(PWSTR pwszUrl, Guid guidKey, uint8* ppPolicy, uint32 pcbPolicy, uint8 pContext, uint32 cbContext, uint32 dwReserved) mut => VT.[Friend]QueryCustomPolicy(&this, pwszUrl, guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
 
 	public HRESULT SetZoneMapping(uint32 dwZone, PWSTR lpszPattern, uint32 dwFlags) mut => VT.[Friend]SetZoneMapping(&this, dwZone, lpszPattern, dwFlags);
 
-	public HRESULT GetZoneMappings(uint32 dwZone, IEnumString** ppenumString, uint32 dwFlags) mut => VT.[Friend]GetZoneMappings(&this, dwZone, ppenumString, dwFlags);
+	public HRESULT GetZoneMappings(uint32 dwZone, IEnumString* ppenumString, uint32 dwFlags) mut => VT.[Friend]GetZoneMappings(&this, dwZone, ppenumString, dwFlags);
 }
 
 [CRepr]struct IInternetSecurityManagerEx : IInternetSecurityManager
@@ -1905,11 +1905,11 @@ public static
 
 	[CRepr]public struct VTable : IInternetSecurityManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManagerEx*/SelfOuter* self, PWSTR pwszUrl, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved, uint32* pdwOutFlags) ProcessUrlActionEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManagerEx*/SelfOuter* self, PWSTR pwszUrl, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8 pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved, uint32 pdwOutFlags) ProcessUrlActionEx;
 	}
 
 
-	public HRESULT ProcessUrlActionEx(PWSTR pwszUrl, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved, uint32* pdwOutFlags) mut => VT.[Friend]ProcessUrlActionEx(&this, pwszUrl, dwAction, pPolicy, cbPolicy, pContext, cbContext, dwFlags, dwReserved, pdwOutFlags);
+	public HRESULT ProcessUrlActionEx(PWSTR pwszUrl, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8 pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved, uint32 pdwOutFlags) mut => VT.[Friend]ProcessUrlActionEx(&this, pwszUrl, dwAction, pPolicy, cbPolicy, pContext, cbContext, dwFlags, dwReserved, pdwOutFlags);
 }
 
 [CRepr]struct IInternetSecurityManagerEx2 : IInternetSecurityManagerEx
@@ -1920,20 +1920,20 @@ public static
 
 	[CRepr]public struct VTable : IInternetSecurityManagerEx.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManagerEx2*/SelfOuter* self, IUri* pUri, uint32* pdwZone, uint32 dwFlags, PWSTR* ppwszMappedUrl, uint32* pdwOutFlags) MapUrlToZoneEx2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManagerEx2*/SelfOuter* self, IUri* pUri, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint dwReserved, uint32* pdwOutFlags) ProcessUrlActionEx2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManagerEx2*/SelfOuter* self, IUri* pUri, uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) GetSecurityIdEx2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManagerEx2*/SelfOuter* self, IUri* pUri, Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint dwReserved) QueryCustomPolicyEx2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManagerEx2*/SelfOuter* self, IUri* pUri, uint32 pdwZone, uint32 dwFlags, PWSTR ppwszMappedUrl, uint32 pdwOutFlags) MapUrlToZoneEx2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManagerEx2*/SelfOuter* self, IUri* pUri, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8 pContext, uint32 cbContext, uint32 dwFlags, uint dwReserved, uint32 pdwOutFlags) ProcessUrlActionEx2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManagerEx2*/SelfOuter* self, IUri* pUri, uint8* pbSecurityId, uint32 pcbSecurityId, uint dwReserved) GetSecurityIdEx2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetSecurityManagerEx2*/SelfOuter* self, IUri* pUri, Guid guidKey, uint8* ppPolicy, uint32 pcbPolicy, uint8 pContext, uint32 cbContext, uint dwReserved) QueryCustomPolicyEx2;
 	}
 
 
-	public HRESULT MapUrlToZoneEx2(IUri* pUri, uint32* pdwZone, uint32 dwFlags, PWSTR* ppwszMappedUrl, uint32* pdwOutFlags) mut => VT.[Friend]MapUrlToZoneEx2(&this, pUri, pdwZone, dwFlags, ppwszMappedUrl, pdwOutFlags);
+	public HRESULT MapUrlToZoneEx2(IUri* pUri, uint32 pdwZone, uint32 dwFlags, PWSTR ppwszMappedUrl, uint32 pdwOutFlags) mut => VT.[Friend]MapUrlToZoneEx2(&this, pUri, pdwZone, dwFlags, ppwszMappedUrl, pdwOutFlags);
 
-	public HRESULT ProcessUrlActionEx2(IUri* pUri, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint dwReserved, uint32* pdwOutFlags) mut => VT.[Friend]ProcessUrlActionEx2(&this, pUri, dwAction, pPolicy, cbPolicy, pContext, cbContext, dwFlags, dwReserved, pdwOutFlags);
+	public HRESULT ProcessUrlActionEx2(IUri* pUri, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8 pContext, uint32 cbContext, uint32 dwFlags, uint dwReserved, uint32 pdwOutFlags) mut => VT.[Friend]ProcessUrlActionEx2(&this, pUri, dwAction, pPolicy, cbPolicy, pContext, cbContext, dwFlags, dwReserved, pdwOutFlags);
 
-	public HRESULT GetSecurityIdEx2(IUri* pUri, uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) mut => VT.[Friend]GetSecurityIdEx2(&this, pUri, pbSecurityId, pcbSecurityId, dwReserved);
+	public HRESULT GetSecurityIdEx2(IUri* pUri, uint8* pbSecurityId, uint32 pcbSecurityId, uint dwReserved) mut => VT.[Friend]GetSecurityIdEx2(&this, pUri, pbSecurityId, pcbSecurityId, dwReserved);
 
-	public HRESULT QueryCustomPolicyEx2(IUri* pUri, Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint dwReserved) mut => VT.[Friend]QueryCustomPolicyEx2(&this, pUri, guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
+	public HRESULT QueryCustomPolicyEx2(IUri* pUri, Guid guidKey, uint8* ppPolicy, uint32 pcbPolicy, uint8 pContext, uint32 cbContext, uint dwReserved) mut => VT.[Friend]QueryCustomPolicyEx2(&this, pUri, guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
 }
 
 [CRepr]struct IZoneIdentifier : IUnknown
@@ -1944,13 +1944,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier*/SelfOuter* self, uint32* pdwZone) GetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier*/SelfOuter* self, uint32 pdwZone) GetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier*/SelfOuter* self, uint32 dwZone) SetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier*/SelfOuter* self) Remove;
 	}
 
 
-	public HRESULT GetId(uint32* pdwZone) mut => VT.[Friend]GetId(&this, pdwZone);
+	public HRESULT GetId(uint32 pdwZone) mut => VT.[Friend]GetId(&this, pdwZone);
 
 	public HRESULT SetId(uint32 dwZone) mut => VT.[Friend]SetId(&this, dwZone);
 
@@ -1965,22 +1965,22 @@ public static
 
 	[CRepr]public struct VTable : IZoneIdentifier.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier2*/SelfOuter* self, PWSTR* packageFamilyName) GetLastWriterPackageFamilyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier2*/SelfOuter* self, PWSTR packageFamilyName) GetLastWriterPackageFamilyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier2*/SelfOuter* self, PWSTR packageFamilyName) SetLastWriterPackageFamilyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier2*/SelfOuter* self) RemoveLastWriterPackageFamilyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier2*/SelfOuter* self, uint32* zone) GetAppZoneId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier2*/SelfOuter* self, uint32 zone) GetAppZoneId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier2*/SelfOuter* self, uint32 zone) SetAppZoneId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IZoneIdentifier2*/SelfOuter* self) RemoveAppZoneId;
 	}
 
 
-	public HRESULT GetLastWriterPackageFamilyName(PWSTR* packageFamilyName) mut => VT.[Friend]GetLastWriterPackageFamilyName(&this, packageFamilyName);
+	public HRESULT GetLastWriterPackageFamilyName(PWSTR packageFamilyName) mut => VT.[Friend]GetLastWriterPackageFamilyName(&this, packageFamilyName);
 
 	public HRESULT SetLastWriterPackageFamilyName(PWSTR packageFamilyName) mut => VT.[Friend]SetLastWriterPackageFamilyName(&this, packageFamilyName);
 
 	public HRESULT RemoveLastWriterPackageFamilyName() mut => VT.[Friend]RemoveLastWriterPackageFamilyName(&this);
 
-	public HRESULT GetAppZoneId(uint32* zone) mut => VT.[Friend]GetAppZoneId(&this, zone);
+	public HRESULT GetAppZoneId(uint32 zone) mut => VT.[Friend]GetAppZoneId(&this, zone);
 
 	public HRESULT SetAppZoneId(uint32 zone) mut => VT.[Friend]SetAppZoneId(&this, zone);
 
@@ -1995,17 +1995,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetHostSecurityManager*/SelfOuter* self, uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) GetSecurityId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetHostSecurityManager*/SelfOuter* self, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) ProcessUrlAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetHostSecurityManager*/SelfOuter* self, Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) QueryCustomPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetHostSecurityManager*/SelfOuter* self, uint8* pbSecurityId, uint32 pcbSecurityId, uint dwReserved) GetSecurityId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetHostSecurityManager*/SelfOuter* self, uint32 dwAction, uint8 pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) ProcessUrlAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetHostSecurityManager*/SelfOuter* self, Guid guidKey, uint8* ppPolicy, uint32 pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) QueryCustomPolicy;
 	}
 
 
-	public HRESULT GetSecurityId(uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) mut => VT.[Friend]GetSecurityId(&this, pbSecurityId, pcbSecurityId, dwReserved);
+	public HRESULT GetSecurityId(uint8* pbSecurityId, uint32 pcbSecurityId, uint dwReserved) mut => VT.[Friend]GetSecurityId(&this, pbSecurityId, pcbSecurityId, dwReserved);
 
-	public HRESULT ProcessUrlAction(uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) mut => VT.[Friend]ProcessUrlAction(&this, dwAction, pPolicy, cbPolicy, pContext, cbContext, dwFlags, dwReserved);
+	public HRESULT ProcessUrlAction(uint32 dwAction, uint8 pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) mut => VT.[Friend]ProcessUrlAction(&this, dwAction, pPolicy, cbPolicy, pContext, cbContext, dwFlags, dwReserved);
 
-	public HRESULT QueryCustomPolicy(Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) mut => VT.[Friend]QueryCustomPolicy(&this, guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
+	public HRESULT QueryCustomPolicy(Guid guidKey, uint8* ppPolicy, uint32 pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) mut => VT.[Friend]QueryCustomPolicy(&this, guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
 }
 
 [CRepr]struct IInternetZoneManager : IUnknown
@@ -2016,26 +2016,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwZone, ZONEATTRIBUTES* pZoneAttributes) GetZoneAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwZone, ZONEATTRIBUTES* pZoneAttributes) SetZoneAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwZone, Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, URLZONEREG urlZoneReg) GetZoneCustomPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwZone, ZONEATTRIBUTES pZoneAttributes) GetZoneAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwZone, ZONEATTRIBUTES pZoneAttributes) SetZoneAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwZone, Guid guidKey, uint8 ppPolicy, uint32 pcbPolicy, URLZONEREG urlZoneReg) GetZoneCustomPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwZone, Guid guidKey, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) SetZoneCustomPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwZone, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) GetZoneActionPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwZone, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) SetZoneActionPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwAction, HWND hwndParent, PWSTR pwszUrl, PWSTR pwszText, uint32 dwPromptFlags) PromptAction;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwAction, PWSTR pwszUrl, PWSTR pwszText, uint32 dwLogFlags) LogAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32* pdwEnum, uint32* pdwCount, uint32 dwFlags) CreateZoneEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwEnum, uint32 dwIndex, uint32* pdwZone) GetZoneAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 pdwEnum, uint32 pdwCount, uint32 dwFlags) CreateZoneEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwEnum, uint32 dwIndex, uint32 pdwZone) GetZoneAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwEnum) DestroyZoneEnumerator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManager*/SelfOuter* self, uint32 dwTemplate, uint32 dwZone, uint32 dwReserved) CopyTemplatePoliciesToZone;
 	}
 
 
-	public HRESULT GetZoneAttributes(uint32 dwZone, ZONEATTRIBUTES* pZoneAttributes) mut => VT.[Friend]GetZoneAttributes(&this, dwZone, pZoneAttributes);
+	public HRESULT GetZoneAttributes(uint32 dwZone, ZONEATTRIBUTES pZoneAttributes) mut => VT.[Friend]GetZoneAttributes(&this, dwZone, pZoneAttributes);
 
-	public HRESULT SetZoneAttributes(uint32 dwZone, ZONEATTRIBUTES* pZoneAttributes) mut => VT.[Friend]SetZoneAttributes(&this, dwZone, pZoneAttributes);
+	public HRESULT SetZoneAttributes(uint32 dwZone, ZONEATTRIBUTES pZoneAttributes) mut => VT.[Friend]SetZoneAttributes(&this, dwZone, pZoneAttributes);
 
-	public HRESULT GetZoneCustomPolicy(uint32 dwZone, Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, URLZONEREG urlZoneReg) mut => VT.[Friend]GetZoneCustomPolicy(&this, dwZone, guidKey, ppPolicy, pcbPolicy, urlZoneReg);
+	public HRESULT GetZoneCustomPolicy(uint32 dwZone, Guid guidKey, uint8 ppPolicy, uint32 pcbPolicy, URLZONEREG urlZoneReg) mut => VT.[Friend]GetZoneCustomPolicy(&this, dwZone, guidKey, ppPolicy, pcbPolicy, urlZoneReg);
 
 	public HRESULT SetZoneCustomPolicy(uint32 dwZone, Guid guidKey, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) mut => VT.[Friend]SetZoneCustomPolicy(&this, dwZone, guidKey, pPolicy, cbPolicy, urlZoneReg);
 
@@ -2047,9 +2047,9 @@ public static
 
 	public HRESULT LogAction(uint32 dwAction, PWSTR pwszUrl, PWSTR pwszText, uint32 dwLogFlags) mut => VT.[Friend]LogAction(&this, dwAction, pwszUrl, pwszText, dwLogFlags);
 
-	public HRESULT CreateZoneEnumerator(uint32* pdwEnum, uint32* pdwCount, uint32 dwFlags) mut => VT.[Friend]CreateZoneEnumerator(&this, pdwEnum, pdwCount, dwFlags);
+	public HRESULT CreateZoneEnumerator(uint32 pdwEnum, uint32 pdwCount, uint32 dwFlags) mut => VT.[Friend]CreateZoneEnumerator(&this, pdwEnum, pdwCount, dwFlags);
 
-	public HRESULT GetZoneAt(uint32 dwEnum, uint32 dwIndex, uint32* pdwZone) mut => VT.[Friend]GetZoneAt(&this, dwEnum, dwIndex, pdwZone);
+	public HRESULT GetZoneAt(uint32 dwEnum, uint32 dwIndex, uint32 pdwZone) mut => VT.[Friend]GetZoneAt(&this, dwEnum, dwIndex, pdwZone);
 
 	public HRESULT DestroyZoneEnumerator(uint32 dwEnum) mut => VT.[Friend]DestroyZoneEnumerator(&this, dwEnum);
 
@@ -2082,18 +2082,18 @@ public static
 
 	[CRepr]public struct VTable : IInternetZoneManagerEx.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManagerEx2*/SelfOuter* self, uint32 dwZone, ZONEATTRIBUTES* pZoneAttributes, uint32 dwFlags) GetZoneAttributesEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManagerEx2*/SelfOuter* self, uint32 dwZoneIndex, BOOL fRespectPolicy, uint32* pdwState, BOOL* pfPolicyEncountered) GetZoneSecurityState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManagerEx2*/SelfOuter* self, BOOL fRespectPolicy, uint32* pdwState, BOOL* pfPolicyEncountered, BOOL fNoCache) GetIESecurityState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManagerEx2*/SelfOuter* self, uint32 dwZone, ZONEATTRIBUTES pZoneAttributes, uint32 dwFlags) GetZoneAttributesEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManagerEx2*/SelfOuter* self, uint32 dwZoneIndex, BOOL fRespectPolicy, uint32 pdwState, BOOL pfPolicyEncountered) GetZoneSecurityState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManagerEx2*/SelfOuter* self, BOOL fRespectPolicy, uint32 pdwState, BOOL pfPolicyEncountered, BOOL fNoCache) GetIESecurityState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInternetZoneManagerEx2*/SelfOuter* self) FixUnsecureSettings;
 	}
 
 
-	public HRESULT GetZoneAttributesEx(uint32 dwZone, ZONEATTRIBUTES* pZoneAttributes, uint32 dwFlags) mut => VT.[Friend]GetZoneAttributesEx(&this, dwZone, pZoneAttributes, dwFlags);
+	public HRESULT GetZoneAttributesEx(uint32 dwZone, ZONEATTRIBUTES pZoneAttributes, uint32 dwFlags) mut => VT.[Friend]GetZoneAttributesEx(&this, dwZone, pZoneAttributes, dwFlags);
 
-	public HRESULT GetZoneSecurityState(uint32 dwZoneIndex, BOOL fRespectPolicy, uint32* pdwState, BOOL* pfPolicyEncountered) mut => VT.[Friend]GetZoneSecurityState(&this, dwZoneIndex, fRespectPolicy, pdwState, pfPolicyEncountered);
+	public HRESULT GetZoneSecurityState(uint32 dwZoneIndex, BOOL fRespectPolicy, uint32 pdwState, BOOL pfPolicyEncountered) mut => VT.[Friend]GetZoneSecurityState(&this, dwZoneIndex, fRespectPolicy, pdwState, pfPolicyEncountered);
 
-	public HRESULT GetIESecurityState(BOOL fRespectPolicy, uint32* pdwState, BOOL* pfPolicyEncountered, BOOL fNoCache) mut => VT.[Friend]GetIESecurityState(&this, fRespectPolicy, pdwState, pfPolicyEncountered, fNoCache);
+	public HRESULT GetIESecurityState(BOOL fRespectPolicy, uint32 pdwState, BOOL pfPolicyEncountered, BOOL fNoCache) mut => VT.[Friend]GetIESecurityState(&this, fRespectPolicy, pdwState, pfPolicyEncountered, fNoCache);
 
 	public HRESULT FixUnsecureSettings() mut => VT.[Friend]FixUnsecureSettings(&this);
 }
@@ -2106,20 +2106,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftDistExt*/SelfOuter* self, PWSTR szCDFURL, IXMLElement* pSoftDistElement, SOFTDISTINFO* lpsdi) ProcessSoftDist;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftDistExt*/SelfOuter* self, PWSTR* szCodeBase, uint32* dwMaxSize) GetFirstCodeBase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftDistExt*/SelfOuter* self, PWSTR* szCodeBase, uint32* dwMaxSize) GetNextCodeBase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftDistExt*/SelfOuter* self, IBindCtx* pbc, void* pvReserved, uint32 flags, CODEBASEHOLD* lpcbh) AsyncInstallDistributionUnit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftDistExt*/SelfOuter* self, PWSTR szCDFURL, IXMLElement* pSoftDistElement, SOFTDISTINFO lpsdi) ProcessSoftDist;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftDistExt*/SelfOuter* self, PWSTR szCodeBase, uint32 dwMaxSize) GetFirstCodeBase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftDistExt*/SelfOuter* self, PWSTR szCodeBase, uint32 dwMaxSize) GetNextCodeBase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftDistExt*/SelfOuter* self, IBindCtx* pbc, void pvReserved, uint32 flags, CODEBASEHOLD lpcbh) AsyncInstallDistributionUnit;
 	}
 
 
-	public HRESULT ProcessSoftDist(PWSTR szCDFURL, IXMLElement* pSoftDistElement, SOFTDISTINFO* lpsdi) mut => VT.[Friend]ProcessSoftDist(&this, szCDFURL, pSoftDistElement, lpsdi);
+	public HRESULT ProcessSoftDist(PWSTR szCDFURL, IXMLElement* pSoftDistElement, SOFTDISTINFO lpsdi) mut => VT.[Friend]ProcessSoftDist(&this, szCDFURL, pSoftDistElement, lpsdi);
 
-	public HRESULT GetFirstCodeBase(PWSTR* szCodeBase, uint32* dwMaxSize) mut => VT.[Friend]GetFirstCodeBase(&this, szCodeBase, dwMaxSize);
+	public HRESULT GetFirstCodeBase(PWSTR szCodeBase, uint32 dwMaxSize) mut => VT.[Friend]GetFirstCodeBase(&this, szCodeBase, dwMaxSize);
 
-	public HRESULT GetNextCodeBase(PWSTR* szCodeBase, uint32* dwMaxSize) mut => VT.[Friend]GetNextCodeBase(&this, szCodeBase, dwMaxSize);
+	public HRESULT GetNextCodeBase(PWSTR szCodeBase, uint32 dwMaxSize) mut => VT.[Friend]GetNextCodeBase(&this, szCodeBase, dwMaxSize);
 
-	public HRESULT AsyncInstallDistributionUnit(IBindCtx* pbc, void* pvReserved, uint32 flags, CODEBASEHOLD* lpcbh) mut => VT.[Friend]AsyncInstallDistributionUnit(&this, pbc, pvReserved, flags, lpcbh);
+	public HRESULT AsyncInstallDistributionUnit(IBindCtx* pbc, void pvReserved, uint32 flags, CODEBASEHOLD lpcbh) mut => VT.[Friend]AsyncInstallDistributionUnit(&this, pbc, pvReserved, flags, lpcbh);
 }
 
 [CRepr]struct ICatalogFileInfo : IUnknown
@@ -2130,14 +2130,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalogFileInfo*/SelfOuter* self, PSTR* ppszCatalogFile) GetCatalogFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalogFileInfo*/SelfOuter* self, void** ppJavaTrust) GetJavaTrust;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalogFileInfo*/SelfOuter* self, PSTR ppszCatalogFile) GetCatalogFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalogFileInfo*/SelfOuter* self, void ppJavaTrust) GetJavaTrust;
 	}
 
 
-	public HRESULT GetCatalogFile(PSTR* ppszCatalogFile) mut => VT.[Friend]GetCatalogFile(&this, ppszCatalogFile);
+	public HRESULT GetCatalogFile(PSTR ppszCatalogFile) mut => VT.[Friend]GetCatalogFile(&this, ppszCatalogFile);
 
-	public HRESULT GetJavaTrust(void** ppJavaTrust) mut => VT.[Friend]GetJavaTrust(&this, ppJavaTrust);
+	public HRESULT GetJavaTrust(void ppJavaTrust) mut => VT.[Friend]GetJavaTrust(&this, ppJavaTrust);
 }
 
 [CRepr]struct IDataFilter : IUnknown
@@ -2148,15 +2148,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataFilter*/SelfOuter* self, uint32 dwFlags, int32 lInBufferSize, uint8* pbInBuffer, int32 lOutBufferSize, uint8* pbOutBuffer, int32 lInBytesAvailable, int32* plInBytesRead, int32* plOutBytesWritten, uint32 dwReserved) DoEncode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataFilter*/SelfOuter* self, uint32 dwFlags, int32 lInBufferSize, uint8* pbInBuffer, int32 lOutBufferSize, uint8* pbOutBuffer, int32 lInBytesAvailable, int32* plInBytesRead, int32* plOutBytesWritten, uint32 dwReserved) DoDecode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataFilter*/SelfOuter* self, uint32 dwFlags, int32 lInBufferSize, uint8* pbInBuffer, int32 lOutBufferSize, uint8* pbOutBuffer, int32 lInBytesAvailable, int32 plInBytesRead, int32 plOutBytesWritten, uint32 dwReserved) DoEncode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataFilter*/SelfOuter* self, uint32 dwFlags, int32 lInBufferSize, uint8* pbInBuffer, int32 lOutBufferSize, uint8* pbOutBuffer, int32 lInBytesAvailable, int32 plInBytesRead, int32 plOutBytesWritten, uint32 dwReserved) DoDecode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataFilter*/SelfOuter* self, uint32 dwEncLevel) SetEncodingLevel;
 	}
 
 
-	public HRESULT DoEncode(uint32 dwFlags, int32 lInBufferSize, uint8* pbInBuffer, int32 lOutBufferSize, uint8* pbOutBuffer, int32 lInBytesAvailable, int32* plInBytesRead, int32* plOutBytesWritten, uint32 dwReserved) mut => VT.[Friend]DoEncode(&this, dwFlags, lInBufferSize, pbInBuffer, lOutBufferSize, pbOutBuffer, lInBytesAvailable, plInBytesRead, plOutBytesWritten, dwReserved);
+	public HRESULT DoEncode(uint32 dwFlags, int32 lInBufferSize, uint8* pbInBuffer, int32 lOutBufferSize, uint8* pbOutBuffer, int32 lInBytesAvailable, int32 plInBytesRead, int32 plOutBytesWritten, uint32 dwReserved) mut => VT.[Friend]DoEncode(&this, dwFlags, lInBufferSize, pbInBuffer, lOutBufferSize, pbOutBuffer, lInBytesAvailable, plInBytesRead, plOutBytesWritten, dwReserved);
 
-	public HRESULT DoDecode(uint32 dwFlags, int32 lInBufferSize, uint8* pbInBuffer, int32 lOutBufferSize, uint8* pbOutBuffer, int32 lInBytesAvailable, int32* plInBytesRead, int32* plOutBytesWritten, uint32 dwReserved) mut => VT.[Friend]DoDecode(&this, dwFlags, lInBufferSize, pbInBuffer, lOutBufferSize, pbOutBuffer, lInBytesAvailable, plInBytesRead, plOutBytesWritten, dwReserved);
+	public HRESULT DoDecode(uint32 dwFlags, int32 lInBufferSize, uint8* pbInBuffer, int32 lOutBufferSize, uint8* pbOutBuffer, int32 lInBytesAvailable, int32 plInBytesRead, int32 plOutBytesWritten, uint32 dwReserved) mut => VT.[Friend]DoDecode(&this, dwFlags, lInBufferSize, pbInBuffer, lOutBufferSize, pbOutBuffer, lInBytesAvailable, plInBytesRead, plOutBytesWritten, dwReserved);
 
 	public HRESULT SetEncodingLevel(uint32 dwEncLevel) mut => VT.[Friend]SetEncodingLevel(&this, dwEncLevel);
 }
@@ -2169,14 +2169,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEncodingFilterFactory*/SelfOuter* self, PWSTR pwzCodeIn, PWSTR pwzCodeOut, DATAINFO info, IDataFilter** ppDF) FindBestFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEncodingFilterFactory*/SelfOuter* self, PWSTR pwzCodeIn, PWSTR pwzCodeOut, IDataFilter** ppDF) GetDefaultFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEncodingFilterFactory*/SelfOuter* self, PWSTR pwzCodeIn, PWSTR pwzCodeOut, DATAINFO info, IDataFilter* ppDF) FindBestFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEncodingFilterFactory*/SelfOuter* self, PWSTR pwzCodeIn, PWSTR pwzCodeOut, IDataFilter* ppDF) GetDefaultFilter;
 	}
 
 
-	public HRESULT FindBestFilter(PWSTR pwzCodeIn, PWSTR pwzCodeOut, DATAINFO info, IDataFilter** ppDF) mut => VT.[Friend]FindBestFilter(&this, pwzCodeIn, pwzCodeOut, info, ppDF);
+	public HRESULT FindBestFilter(PWSTR pwzCodeIn, PWSTR pwzCodeOut, DATAINFO info, IDataFilter* ppDF) mut => VT.[Friend]FindBestFilter(&this, pwzCodeIn, pwzCodeOut, info, ppDF);
 
-	public HRESULT GetDefaultFilter(PWSTR pwzCodeIn, PWSTR pwzCodeOut, IDataFilter** ppDF) mut => VT.[Friend]GetDefaultFilter(&this, pwzCodeIn, pwzCodeOut, ppDF);
+	public HRESULT GetDefaultFilter(PWSTR pwzCodeIn, PWSTR pwzCodeOut, IDataFilter* ppDF) mut => VT.[Friend]GetDefaultFilter(&this, pwzCodeIn, pwzCodeOut, ppDF);
 }
 
 [CRepr]struct IWrappedProtocol : IUnknown
@@ -2187,11 +2187,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWrappedProtocol*/SelfOuter* self, int32* pnCode, uint dwReserved) GetWrapperCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWrappedProtocol*/SelfOuter* self, int32 pnCode, uint dwReserved) GetWrapperCode;
 	}
 
 
-	public HRESULT GetWrapperCode(int32* pnCode, uint dwReserved) mut => VT.[Friend]GetWrapperCode(&this, pnCode, dwReserved);
+	public HRESULT GetWrapperCode(int32 pnCode, uint dwReserved) mut => VT.[Friend]GetWrapperCode(&this, pnCode, dwReserved);
 }
 
 [CRepr]struct IGetBindHandle : IUnknown
@@ -2202,11 +2202,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetBindHandle*/SelfOuter* self, BINDHANDLETYPES enumRequestedHandle, HANDLE* pRetHandle) GetBindHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetBindHandle*/SelfOuter* self, BINDHANDLETYPES enumRequestedHandle, HANDLE pRetHandle) GetBindHandle;
 	}
 
 
-	public HRESULT GetBindHandle(BINDHANDLETYPES enumRequestedHandle, HANDLE* pRetHandle) mut => VT.[Friend]GetBindHandle(&this, enumRequestedHandle, pRetHandle);
+	public HRESULT GetBindHandle(BINDHANDLETYPES enumRequestedHandle, HANDLE pRetHandle) mut => VT.[Friend]GetBindHandle(&this, enumRequestedHandle, pRetHandle);
 }
 
 [CRepr]struct IBindCallbackRedirect : IUnknown
@@ -2217,11 +2217,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBindCallbackRedirect*/SelfOuter* self, PWSTR lpcUrl, int16* vbCancel) Redirect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBindCallbackRedirect*/SelfOuter* self, PWSTR lpcUrl, int16 vbCancel) Redirect;
 	}
 
 
-	public HRESULT Redirect(PWSTR lpcUrl, int16* vbCancel) mut => VT.[Friend]Redirect(&this, lpcUrl, vbCancel);
+	public HRESULT Redirect(PWSTR lpcUrl, int16 vbCancel) mut => VT.[Friend]Redirect(&this, lpcUrl, vbCancel);
 }
 
 [CRepr]struct IBindHttpSecurity : IUnknown
@@ -2232,11 +2232,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBindHttpSecurity*/SelfOuter* self, uint32* pdwIgnoreCertMask) GetIgnoreCertMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBindHttpSecurity*/SelfOuter* self, uint32 pdwIgnoreCertMask) GetIgnoreCertMask;
 	}
 
 
-	public HRESULT GetIgnoreCertMask(uint32* pdwIgnoreCertMask) mut => VT.[Friend]GetIgnoreCertMask(&this, pdwIgnoreCertMask);
+	public HRESULT GetIgnoreCertMask(uint32 pdwIgnoreCertMask) mut => VT.[Friend]GetIgnoreCertMask(&this, pdwIgnoreCertMask);
 }
 
 #endregion
@@ -2245,49 +2245,49 @@ public static
 public static
 {
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateURLMoniker(IMoniker* pMkCtx, PWSTR szURL, IMoniker** ppmk);
+	public static extern HRESULT CreateURLMoniker(IMoniker* pMkCtx, PWSTR szURL, IMoniker* ppmk);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateURLMonikerEx(IMoniker* pMkCtx, PWSTR szURL, IMoniker** ppmk, uint32 dwFlags);
+	public static extern HRESULT CreateURLMonikerEx(IMoniker* pMkCtx, PWSTR szURL, IMoniker* ppmk, uint32 dwFlags);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetClassURL(PWSTR szURL, Guid pClsID);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateAsyncBindCtx(uint32 reserved, IBindStatusCallback* pBSCb, IEnumFORMATETC* pEFetc, IBindCtx** ppBC);
+	public static extern HRESULT CreateAsyncBindCtx(uint32 reserved, IBindStatusCallback* pBSCb, IEnumFORMATETC* pEFetc, IBindCtx* ppBC);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateURLMonikerEx2(IMoniker* pMkCtx, IUri* pUri, IMoniker** ppmk, uint32 dwFlags);
+	public static extern HRESULT CreateURLMonikerEx2(IMoniker* pMkCtx, IUri* pUri, IMoniker* ppmk, uint32 dwFlags);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateAsyncBindCtxEx(IBindCtx* pbc, uint32 dwOptions, IBindStatusCallback* pBSCb, IEnumFORMATETC* pEnum, IBindCtx** ppBC, uint32 reserved);
+	public static extern HRESULT CreateAsyncBindCtxEx(IBindCtx* pbc, uint32 dwOptions, IBindStatusCallback* pBSCb, IEnumFORMATETC* pEnum, IBindCtx* ppBC, uint32 reserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MkParseDisplayNameEx(IBindCtx* pbc, PWSTR szDisplayName, uint32* pchEaten, IMoniker** ppmk);
+	public static extern HRESULT MkParseDisplayNameEx(IBindCtx* pbc, PWSTR szDisplayName, uint32 pchEaten, IMoniker* ppmk);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RegisterBindStatusCallback(IBindCtx* pBC, IBindStatusCallback* pBSCb, IBindStatusCallback** ppBSCBPrev, uint32 dwReserved);
+	public static extern HRESULT RegisterBindStatusCallback(IBindCtx* pBC, IBindStatusCallback* pBSCb, IBindStatusCallback* ppBSCBPrev, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RevokeBindStatusCallback(IBindCtx* pBC, IBindStatusCallback* pBSCb);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetClassFileOrMime(IBindCtx* pBC, PWSTR szFilename, void* pBuffer, uint32 cbSize, PWSTR szMime, uint32 dwReserved, Guid pclsid);
+	public static extern HRESULT GetClassFileOrMime(IBindCtx* pBC, PWSTR szFilename, void pBuffer, uint32 cbSize, PWSTR szMime, uint32 dwReserved, Guid pclsid);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT IsValidURL(IBindCtx* pBC, PWSTR szURL, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetClassObjectFromURL(Guid rCLASSID, PWSTR szCODE, uint32 dwFileVersionMS, uint32 dwFileVersionLS, PWSTR szTYPE, IBindCtx* pBindCtx, CLSCTX dwClsContext, void* pvReserved, Guid riid, void** ppv);
+	public static extern HRESULT CoGetClassObjectFromURL(Guid rCLASSID, PWSTR szCODE, uint32 dwFileVersionMS, uint32 dwFileVersionLS, PWSTR szTYPE, IBindCtx* pBindCtx, CLSCTX dwClsContext, void pvReserved, Guid riid, void ppv);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IEInstallScope(uint32* pdwScope);
+	public static extern HRESULT IEInstallScope(uint32 pdwScope);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FaultInIEFeature(HWND hWnd, uCLSSPEC* pClassSpec, QUERYCONTEXT* pQuery, uint32 dwFlags);
+	public static extern HRESULT FaultInIEFeature(HWND hWnd, uCLSSPEC pClassSpec, QUERYCONTEXT pQuery, uint32 dwFlags);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetComponentIDFromCLSSPEC(uCLSSPEC* pClassspec, PSTR* ppszComponentID);
+	public static extern HRESULT GetComponentIDFromCLSSPEC(uCLSSPEC pClassspec, PSTR ppszComponentID);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT IsAsyncMoniker(IMoniker* pmk);
@@ -2296,10 +2296,10 @@ public static
 	public static extern HRESULT RegisterMediaTypes(uint32 ctypes, PSTR* rgszTypes, uint16* rgcfTypes);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FindMediaType(PSTR rgszTypes, uint16* rgcfTypes);
+	public static extern HRESULT FindMediaType(PSTR rgszTypes, uint16 rgcfTypes);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateFormatEnumerator(uint32 cfmtetc, FORMATETC* rgfmtetc, IEnumFORMATETC** ppenumfmtetc);
+	public static extern HRESULT CreateFormatEnumerator(uint32 cfmtetc, FORMATETC* rgfmtetc, IEnumFORMATETC* ppenumfmtetc);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RegisterFormatEnumerator(IBindCtx* pBC, IEnumFORMATETC* pEFetc, uint32 reserved);
@@ -2314,22 +2314,22 @@ public static
 	public static extern HRESULT FindMediaTypeClass(IBindCtx* pBC, PSTR szType, Guid pclsID, uint32 reserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlMkSetSessionOption(uint32 dwOption, void* pBuffer, uint32 dwBufferLength, uint32 dwReserved);
+	public static extern HRESULT UrlMkSetSessionOption(uint32 dwOption, void pBuffer, uint32 dwBufferLength, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlMkGetSessionOption(uint32 dwOption, void* pBuffer, uint32 dwBufferLength, uint32* pdwBufferLengthOut, uint32 dwReserved);
+	public static extern HRESULT UrlMkGetSessionOption(uint32 dwOption, void pBuffer, uint32 dwBufferLength, uint32 pdwBufferLengthOut, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FindMimeFromData(IBindCtx* pBC, PWSTR pwzUrl, void* pBuffer, uint32 cbSize, PWSTR pwzMimeProposed, uint32 dwMimeFlags, PWSTR* ppwzMimeOut, uint32 dwReserved);
+	public static extern HRESULT FindMimeFromData(IBindCtx* pBC, PWSTR pwzUrl, void pBuffer, uint32 cbSize, PWSTR pwzMimeProposed, uint32 dwMimeFlags, PWSTR ppwzMimeOut, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ObtainUserAgentString(uint32 dwOption, uint8* pszUAOut, uint32* cbSize);
+	public static extern HRESULT ObtainUserAgentString(uint32 dwOption, uint8* pszUAOut, uint32 cbSize);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CompareSecurityIds(uint8* pbSecurityId1, uint32 dwLen1, uint8* pbSecurityId2, uint32 dwLen2, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CompatFlagsFromClsid(Guid pclsid, uint32* pdwCompatFlags, uint32* pdwMiscStatusFlags);
+	public static extern HRESULT CompatFlagsFromClsid(Guid pclsid, uint32 pdwCompatFlags, uint32 pdwMiscStatusFlags);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetAccessForIEAppContainer(HANDLE hObject, IEObjectType ieObjectType, uint32 dwAccessMask);
@@ -2369,11 +2369,11 @@ public static
 	public static extern HRESULT URLDownloadToCacheFileW(IUnknown* param0, PWSTR param1, char16* param2, uint32 cchFileName, uint32 param4, IBindStatusCallback* param5);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT URLOpenBlockingStreamA(IUnknown* param0, PSTR param1, IStream** param2, uint32 param3, IBindStatusCallback* param4);
-	public static HRESULT URLOpenBlockingStream(IUnknown* param0, PSTR param1, IStream** param2, uint32 param3, IBindStatusCallback* param4) => URLOpenBlockingStreamA(param0, param1, param2, param3, param4);
+	public static extern HRESULT URLOpenBlockingStreamA(IUnknown* param0, PSTR param1, IStream* param2, uint32 param3, IBindStatusCallback* param4);
+	public static HRESULT URLOpenBlockingStream(IUnknown* param0, PSTR param1, IStream* param2, uint32 param3, IBindStatusCallback* param4) => URLOpenBlockingStreamA(param0, param1, param2, param3, param4);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT URLOpenBlockingStreamW(IUnknown* param0, PWSTR param1, IStream** param2, uint32 param3, IBindStatusCallback* param4);
+	public static extern HRESULT URLOpenBlockingStreamW(IUnknown* param0, PWSTR param1, IStream* param2, uint32 param3, IBindStatusCallback* param4);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HlinkGoBack(IUnknown* pUnk);
@@ -2388,37 +2388,37 @@ public static
 	public static extern HRESULT HlinkNavigateMoniker(IUnknown* pUnk, IMoniker* pmkTarget);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetParseUrl(PWSTR pwzUrl, PARSEACTION ParseAction, uint32 dwFlags, char16* pszResult, uint32 cchResult, uint32* pcchResult, uint32 dwReserved);
+	public static extern HRESULT CoInternetParseUrl(PWSTR pwzUrl, PARSEACTION ParseAction, uint32 dwFlags, char16* pszResult, uint32 cchResult, uint32 pcchResult, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetParseIUri(IUri* pIUri, PARSEACTION ParseAction, uint32 dwFlags, char16* pwzResult, uint32 cchResult, uint32* pcchResult, uint dwReserved);
+	public static extern HRESULT CoInternetParseIUri(IUri* pIUri, PARSEACTION ParseAction, uint32 dwFlags, char16* pwzResult, uint32 cchResult, uint32 pcchResult, uint dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetCombineUrl(PWSTR pwzBaseUrl, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, char16* pszResult, uint32 cchResult, uint32* pcchResult, uint32 dwReserved);
+	public static extern HRESULT CoInternetCombineUrl(PWSTR pwzBaseUrl, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, char16* pszResult, uint32 cchResult, uint32 pcchResult, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetCombineUrlEx(IUri* pBaseUri, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, IUri** ppCombinedUri, uint dwReserved);
+	public static extern HRESULT CoInternetCombineUrlEx(IUri* pBaseUri, PWSTR pwzRelativeUrl, uint32 dwCombineFlags, IUri* ppCombinedUri, uint dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetCombineIUri(IUri* pBaseUri, IUri* pRelativeUri, uint32 dwCombineFlags, IUri** ppCombinedUri, uint dwReserved);
+	public static extern HRESULT CoInternetCombineIUri(IUri* pBaseUri, IUri* pRelativeUri, uint32 dwCombineFlags, IUri* ppCombinedUri, uint dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CoInternetCompareUrl(PWSTR pwzUrl1, PWSTR pwzUrl2, uint32 dwFlags);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetGetProtocolFlags(PWSTR pwzUrl, uint32* pdwFlags, uint32 dwReserved);
+	public static extern HRESULT CoInternetGetProtocolFlags(PWSTR pwzUrl, uint32 pdwFlags, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetQueryInfo(PWSTR pwzUrl, QUERYOPTION QueryOptions, uint32 dwQueryFlags, void* pvBuffer, uint32 cbBuffer, uint32* pcbBuffer, uint32 dwReserved);
+	public static extern HRESULT CoInternetQueryInfo(PWSTR pwzUrl, QUERYOPTION QueryOptions, uint32 dwQueryFlags, void pvBuffer, uint32 cbBuffer, uint32 pcbBuffer, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetGetSession(uint32 dwSessionMode, IInternetSession** ppIInternetSession, uint32 dwReserved);
+	public static extern HRESULT CoInternetGetSession(uint32 dwSessionMode, IInternetSession* ppIInternetSession, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetGetSecurityUrl(PWSTR pwszUrl, PWSTR* ppwszSecUrl, PSUACTION psuAction, uint32 dwReserved);
+	public static extern HRESULT CoInternetGetSecurityUrl(PWSTR pwszUrl, PWSTR ppwszSecUrl, PSUACTION psuAction, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetGetSecurityUrlEx(IUri* pUri, IUri** ppSecUri, PSUACTION psuAction, uint dwReserved);
+	public static extern HRESULT CoInternetGetSecurityUrlEx(IUri* pUri, IUri* ppSecUri, PSUACTION psuAction, uint dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CoInternetSetFeatureEnabled(INTERNETFEATURELIST FeatureEntry, uint32 dwFlags, BOOL fEnable);
@@ -2436,25 +2436,25 @@ public static
 	public static extern HRESULT CoInternetIsFeatureZoneElevationEnabled(PWSTR szFromURL, PWSTR szToURL, IInternetSecurityManager* pSecMgr, uint32 dwFlags);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CopyStgMedium(STGMEDIUM* pcstgmedSrc, STGMEDIUM* pstgmedDest);
+	public static extern HRESULT CopyStgMedium(STGMEDIUM pcstgmedSrc, STGMEDIUM pstgmedDest);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CopyBindInfo(BINDINFO* pcbiSrc, BINDINFO* pbiDest);
+	public static extern HRESULT CopyBindInfo(BINDINFO pcbiSrc, BINDINFO pbiDest);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ReleaseBindInfo(BINDINFO* pbindinfo);
+	public static extern void ReleaseBindInfo(BINDINFO pbindinfo);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR IEGetUserPrivateNamespaceName();
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetCreateSecurityManager(IServiceProvider* pSP, IInternetSecurityManager** ppSM, uint32 dwReserved);
+	public static extern HRESULT CoInternetCreateSecurityManager(IServiceProvider* pSP, IInternetSecurityManager* ppSM, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInternetCreateZoneManager(IServiceProvider* pSP, IInternetZoneManager** ppZM, uint32 dwReserved);
+	public static extern HRESULT CoInternetCreateZoneManager(IServiceProvider* pSP, IInternetZoneManager* ppZM, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetSoftwareUpdateInfo(PWSTR szDistUnit, SOFTDISTINFO* psdi);
+	public static extern HRESULT GetSoftwareUpdateInfo(PWSTR szDistUnit, SOFTDISTINFO psdi);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetSoftwareUpdateAdvertisementState(PWSTR szDistUnit, uint32 dwAdState, uint32 dwAdvertisedVersionMS, uint32 dwAdvertisedVersionLS);
@@ -2467,7 +2467,7 @@ public static
 	public static extern BOOL IsLoggingEnabledW(PWSTR pwszUrl);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WriteHitLogging(HIT_LOGGING_INFO* lpLogginginfo);
+	public static extern BOOL WriteHitLogging(HIT_LOGGING_INFO lpLogginginfo);
 
 }
 #endregion

@@ -241,10 +241,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, HWND window) Activate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, HWND window) Deactivate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, HWND window, HWND hitTestWindow, DIRECTMANIPULATION_HITTEST_TYPE type) RegisterHitTestTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, MSG* message, BOOL* handled) ProcessInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, Guid riid, void** object) GetUpdateManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, IDirectManipulationFrameInfoProvider* frameInfo, HWND window, Guid riid, void** object) CreateViewport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, IDirectManipulationFrameInfoProvider* frameInfo, Guid clsid, Guid riid, void** object) CreateContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, MSG message, BOOL handled) ProcessInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, Guid riid, void object) GetUpdateManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, IDirectManipulationFrameInfoProvider* frameInfo, HWND window, Guid riid, void object) CreateViewport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager*/SelfOuter* self, IDirectManipulationFrameInfoProvider* frameInfo, Guid clsid, Guid riid, void object) CreateContent;
 	}
 
 
@@ -254,13 +254,13 @@ public static
 
 	public HRESULT RegisterHitTestTarget(HWND window, HWND hitTestWindow, DIRECTMANIPULATION_HITTEST_TYPE type) mut => VT.[Friend]RegisterHitTestTarget(&this, window, hitTestWindow, type);
 
-	public HRESULT ProcessInput(MSG* message, BOOL* handled) mut => VT.[Friend]ProcessInput(&this, message, handled);
+	public HRESULT ProcessInput(MSG message, BOOL handled) mut => VT.[Friend]ProcessInput(&this, message, handled);
 
-	public HRESULT GetUpdateManager(Guid riid, void** object) mut => VT.[Friend]GetUpdateManager(&this, riid, object);
+	public HRESULT GetUpdateManager(Guid riid, void object) mut => VT.[Friend]GetUpdateManager(&this, riid, object);
 
-	public HRESULT CreateViewport(IDirectManipulationFrameInfoProvider* frameInfo, HWND window, Guid riid, void** object) mut => VT.[Friend]CreateViewport(&this, frameInfo, window, riid, object);
+	public HRESULT CreateViewport(IDirectManipulationFrameInfoProvider* frameInfo, HWND window, Guid riid, void object) mut => VT.[Friend]CreateViewport(&this, frameInfo, window, riid, object);
 
-	public HRESULT CreateContent(IDirectManipulationFrameInfoProvider* frameInfo, Guid clsid, Guid riid, void** object) mut => VT.[Friend]CreateContent(&this, frameInfo, clsid, riid, object);
+	public HRESULT CreateContent(IDirectManipulationFrameInfoProvider* frameInfo, Guid clsid, Guid riid, void object) mut => VT.[Friend]CreateContent(&this, frameInfo, clsid, riid, object);
 }
 
 [CRepr]struct IDirectManipulationManager2 : IDirectManipulationManager
@@ -271,11 +271,11 @@ public static
 
 	[CRepr]public struct VTable : IDirectManipulationManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager2*/SelfOuter* self, Guid clsid, Guid riid, void** object) CreateBehavior;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager2*/SelfOuter* self, Guid clsid, Guid riid, void object) CreateBehavior;
 	}
 
 
-	public HRESULT CreateBehavior(Guid clsid, Guid riid, void** object) mut => VT.[Friend]CreateBehavior(&this, clsid, riid, object);
+	public HRESULT CreateBehavior(Guid clsid, Guid riid, void object) mut => VT.[Friend]CreateBehavior(&this, clsid, riid, object);
 }
 
 [CRepr]struct IDirectManipulationManager3 : IDirectManipulationManager2
@@ -286,11 +286,11 @@ public static
 
 	[CRepr]public struct VTable : IDirectManipulationManager2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager3*/SelfOuter* self, Guid clsid, Guid riid, void** object) GetService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationManager3*/SelfOuter* self, Guid clsid, Guid riid, void object) GetService;
 	}
 
 
-	public HRESULT GetService(Guid clsid, Guid riid, void** object) mut => VT.[Friend]GetService(&this, clsid, riid, object);
+	public HRESULT GetService(Guid clsid, Guid riid, void object) mut => VT.[Friend]GetService(&this, clsid, riid, object);
 }
 
 [CRepr]struct IDirectManipulationViewport : IUnknown
@@ -306,15 +306,15 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, uint32 pointerId) SetContact;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, uint32 pointerId) ReleaseContact;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self) ReleaseAllContacts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, DIRECTMANIPULATION_STATUS* status) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, Guid riid, void** object, uint32* id) GetTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, DIRECTMANIPULATION_STATUS status) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, Guid riid, void object, uint32 id) GetTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, IUnknown* object, uint32 id) SetTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, RECT* viewport) GetViewportRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, RECT* viewport) SetViewportRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, RECT viewport) GetViewportRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, RECT viewport) SetViewportRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, float left, float top, float right, float bottom, BOOL animate) ZoomToRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, float* matrix, uint32 pointCount) SetViewportTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, float* matrix, uint32 pointCount) SyncDisplayTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, Guid riid, void** object) GetPrimaryContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, Guid riid, void object) GetPrimaryContent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, IDirectManipulationContent* content) AddContent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, IDirectManipulationContent* content) RemoveContent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, DIRECTMANIPULATION_VIEWPORT_OPTIONS options) SetViewportOptions;
@@ -323,7 +323,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, DIRECTMANIPULATION_CONFIGURATION configuration) ActivateConfiguration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, DIRECTMANIPULATION_GESTURE_CONFIGURATION configuration) SetManualGesture;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, DIRECTMANIPULATION_MOTION_TYPES enabledTypes) SetChaining;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, HWND window, IDirectManipulationViewportEventHandler* eventHandler, uint32* cookie) AddEventHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, HWND window, IDirectManipulationViewportEventHandler* eventHandler, uint32 cookie) AddEventHandler;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, uint32 cookie) RemoveEventHandler;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, DIRECTMANIPULATION_INPUT_MODE mode) SetInputMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport*/SelfOuter* self, DIRECTMANIPULATION_INPUT_MODE mode) SetUpdateMode;
@@ -342,15 +342,15 @@ public static
 
 	public HRESULT ReleaseAllContacts() mut => VT.[Friend]ReleaseAllContacts(&this);
 
-	public HRESULT GetStatus(DIRECTMANIPULATION_STATUS* status) mut => VT.[Friend]GetStatus(&this, status);
+	public HRESULT GetStatus(DIRECTMANIPULATION_STATUS status) mut => VT.[Friend]GetStatus(&this, status);
 
-	public HRESULT GetTag(Guid riid, void** object, uint32* id) mut => VT.[Friend]GetTag(&this, riid, object, id);
+	public HRESULT GetTag(Guid riid, void object, uint32 id) mut => VT.[Friend]GetTag(&this, riid, object, id);
 
 	public HRESULT SetTag(IUnknown* object, uint32 id) mut => VT.[Friend]SetTag(&this, object, id);
 
-	public HRESULT GetViewportRect(RECT* viewport) mut => VT.[Friend]GetViewportRect(&this, viewport);
+	public HRESULT GetViewportRect(RECT viewport) mut => VT.[Friend]GetViewportRect(&this, viewport);
 
-	public HRESULT SetViewportRect(RECT* viewport) mut => VT.[Friend]SetViewportRect(&this, viewport);
+	public HRESULT SetViewportRect(RECT viewport) mut => VT.[Friend]SetViewportRect(&this, viewport);
 
 	public HRESULT ZoomToRect(float left, float top, float right, float bottom, BOOL animate) mut => VT.[Friend]ZoomToRect(&this, left, top, right, bottom, animate);
 
@@ -358,7 +358,7 @@ public static
 
 	public HRESULT SyncDisplayTransform(float* matrix, uint32 pointCount) mut => VT.[Friend]SyncDisplayTransform(&this, matrix, pointCount);
 
-	public HRESULT GetPrimaryContent(Guid riid, void** object) mut => VT.[Friend]GetPrimaryContent(&this, riid, object);
+	public HRESULT GetPrimaryContent(Guid riid, void object) mut => VT.[Friend]GetPrimaryContent(&this, riid, object);
 
 	public HRESULT AddContent(IDirectManipulationContent* content) mut => VT.[Friend]AddContent(&this, content);
 
@@ -376,7 +376,7 @@ public static
 
 	public HRESULT SetChaining(DIRECTMANIPULATION_MOTION_TYPES enabledTypes) mut => VT.[Friend]SetChaining(&this, enabledTypes);
 
-	public HRESULT AddEventHandler(HWND window, IDirectManipulationViewportEventHandler* eventHandler, uint32* cookie) mut => VT.[Friend]AddEventHandler(&this, window, eventHandler, cookie);
+	public HRESULT AddEventHandler(HWND window, IDirectManipulationViewportEventHandler* eventHandler, uint32 cookie) mut => VT.[Friend]AddEventHandler(&this, window, eventHandler, cookie);
 
 	public HRESULT RemoveEventHandler(uint32 cookie) mut => VT.[Friend]RemoveEventHandler(&this, cookie);
 
@@ -397,13 +397,13 @@ public static
 
 	[CRepr]public struct VTable : IDirectManipulationViewport.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport2*/SelfOuter* self, IUnknown* behavior, uint32* cookie) AddBehavior;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport2*/SelfOuter* self, IUnknown* behavior, uint32 cookie) AddBehavior;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport2*/SelfOuter* self, uint32 cookie) RemoveBehavior;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationViewport2*/SelfOuter* self) RemoveAllBehaviors;
 	}
 
 
-	public HRESULT AddBehavior(IUnknown* behavior, uint32* cookie) mut => VT.[Friend]AddBehavior(&this, behavior, cookie);
+	public HRESULT AddBehavior(IUnknown* behavior, uint32 cookie) mut => VT.[Friend]AddBehavior(&this, behavior, cookie);
 
 	public HRESULT RemoveBehavior(uint32 cookie) mut => VT.[Friend]RemoveBehavior(&this, cookie);
 
@@ -439,10 +439,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, RECT* contentSize) GetContentRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, RECT* contentSize) SetContentRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, Guid riid, void** object) GetViewport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, Guid riid, void** object, uint32* id) GetTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, RECT contentSize) GetContentRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, RECT contentSize) SetContentRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, Guid riid, void object) GetViewport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, Guid riid, void object, uint32 id) GetTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, IUnknown* object, uint32 id) SetTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, float* matrix, uint32 pointCount) GetOutputTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationContent*/SelfOuter* self, float* matrix, uint32 pointCount) GetContentTransform;
@@ -450,13 +450,13 @@ public static
 	}
 
 
-	public HRESULT GetContentRect(RECT* contentSize) mut => VT.[Friend]GetContentRect(&this, contentSize);
+	public HRESULT GetContentRect(RECT contentSize) mut => VT.[Friend]GetContentRect(&this, contentSize);
 
-	public HRESULT SetContentRect(RECT* contentSize) mut => VT.[Friend]SetContentRect(&this, contentSize);
+	public HRESULT SetContentRect(RECT contentSize) mut => VT.[Friend]SetContentRect(&this, contentSize);
 
-	public HRESULT GetViewport(Guid riid, void** object) mut => VT.[Friend]GetViewport(&this, riid, object);
+	public HRESULT GetViewport(Guid riid, void object) mut => VT.[Friend]GetViewport(&this, riid, object);
 
-	public HRESULT GetTag(Guid riid, void** object, uint32* id) mut => VT.[Friend]GetTag(&this, riid, object, id);
+	public HRESULT GetTag(Guid riid, void object, uint32 id) mut => VT.[Friend]GetTag(&this, riid, object, id);
 
 	public HRESULT SetTag(IUnknown* object, uint32 id) mut => VT.[Friend]SetTag(&this, object, id);
 
@@ -483,7 +483,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationPrimaryContent*/SelfOuter* self, DIRECTMANIPULATION_HORIZONTALALIGNMENT alignment) SetHorizontalAlignment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationPrimaryContent*/SelfOuter* self, DIRECTMANIPULATION_VERTICALALIGNMENT alignment) SetVerticalAlignment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationPrimaryContent*/SelfOuter* self, float* matrix, uint32 pointCount) GetInertiaEndTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationPrimaryContent*/SelfOuter* self, float* centerX, float* centerY) GetCenterPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationPrimaryContent*/SelfOuter* self, float centerX, float centerY) GetCenterPoint;
 	}
 
 
@@ -503,7 +503,7 @@ public static
 
 	public HRESULT GetInertiaEndTransform(float* matrix, uint32 pointCount) mut => VT.[Friend]GetInertiaEndTransform(&this, matrix, pointCount);
 
-	public HRESULT GetCenterPoint(float* centerX, float* centerY) mut => VT.[Friend]GetCenterPoint(&this, centerX, centerY);
+	public HRESULT GetCenterPoint(float centerX, float centerY) mut => VT.[Friend]GetCenterPoint(&this, centerX, centerY);
 }
 
 [CRepr]struct IDirectManipulationDragDropEventHandler : IUnknown
@@ -530,13 +530,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationDragDropBehavior*/SelfOuter* self, DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION configuration) SetConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationDragDropBehavior*/SelfOuter* self, DIRECTMANIPULATION_DRAG_DROP_STATUS* status) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationDragDropBehavior*/SelfOuter* self, DIRECTMANIPULATION_DRAG_DROP_STATUS status) GetStatus;
 	}
 
 
 	public HRESULT SetConfiguration(DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION configuration) mut => VT.[Friend]SetConfiguration(&this, configuration);
 
-	public HRESULT GetStatus(DIRECTMANIPULATION_DRAG_DROP_STATUS* status) mut => VT.[Friend]GetStatus(&this, status);
+	public HRESULT GetStatus(DIRECTMANIPULATION_DRAG_DROP_STATUS status) mut => VT.[Friend]GetStatus(&this, status);
 }
 
 [CRepr]struct IDirectManipulationInteractionEventHandler : IUnknown
@@ -562,11 +562,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationFrameInfoProvider*/SelfOuter* self, uint64* time, uint64* processTime, uint64* compositionTime) GetNextFrameInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationFrameInfoProvider*/SelfOuter* self, uint64 time, uint64 processTime, uint64 compositionTime) GetNextFrameInfo;
 	}
 
 
-	public HRESULT GetNextFrameInfo(uint64* time, uint64* processTime, uint64* compositionTime) mut => VT.[Friend]GetNextFrameInfo(&this, time, processTime, compositionTime);
+	public HRESULT GetNextFrameInfo(uint64 time, uint64 processTime, uint64 compositionTime) mut => VT.[Friend]GetNextFrameInfo(&this, time, processTime, compositionTime);
 }
 
 [CRepr]struct IDirectManipulationCompositor : IUnknown
@@ -631,13 +631,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationUpdateManager*/SelfOuter* self, HANDLE handle, IDirectManipulationUpdateHandler* eventHandler, uint32* cookie) RegisterWaitHandleCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationUpdateManager*/SelfOuter* self, HANDLE handle, IDirectManipulationUpdateHandler* eventHandler, uint32 cookie) RegisterWaitHandleCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationUpdateManager*/SelfOuter* self, uint32 cookie) UnregisterWaitHandleCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectManipulationUpdateManager*/SelfOuter* self, IDirectManipulationFrameInfoProvider* frameInfo) Update;
 	}
 
 
-	public HRESULT RegisterWaitHandleCallback(HANDLE handle, IDirectManipulationUpdateHandler* eventHandler, uint32* cookie) mut => VT.[Friend]RegisterWaitHandleCallback(&this, handle, eventHandler, cookie);
+	public HRESULT RegisterWaitHandleCallback(HANDLE handle, IDirectManipulationUpdateHandler* eventHandler, uint32 cookie) mut => VT.[Friend]RegisterWaitHandleCallback(&this, handle, eventHandler, cookie);
 
 	public HRESULT UnregisterWaitHandleCallback(uint32 cookie) mut => VT.[Friend]UnregisterWaitHandleCallback(&this, cookie);
 

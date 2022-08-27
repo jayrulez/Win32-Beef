@@ -333,13 +333,13 @@ public enum CTL_MODIFY_REQUEST_OPERATION : uint32
 #endregion
 
 #region Function Pointers
-public function BOOL PFNCMFILTERPROC(CERT_CONTEXT* pCertContext, LPARAM param1, uint32 param2, uint32 param3);
+public function BOOL PFNCMFILTERPROC(CERT_CONTEXT pCertContext, LPARAM param1, uint32 param2, uint32 param3);
 
 public function uint32 PFNCMHOOKPROC(HWND hwndDialog, uint32 message, WPARAM wParam, LPARAM lParam);
 
-public function HRESULT PFNTRUSTHELPER(CERT_CONTEXT* pCertContext, LPARAM lCustData, BOOL fLeafCertificate, uint8* pbTrustBlob);
+public function HRESULT PFNTRUSTHELPER(CERT_CONTEXT pCertContext, LPARAM lCustData, BOOL fLeafCertificate, uint8 pbTrustBlob);
 
-public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialSelectedCert, void* pvCallbackData);
+public function BOOL PFNCFILTERPROC(CERT_CONTEXT pCertContext, BOOL pfInitialSelectedCert, void pvCallbackData);
 
 #endregion
 
@@ -354,10 +354,10 @@ public struct CERT_SELECT_STRUCT_A
 	public CERT_SELECT_STRUCT_FLAGS dwFlags;
 	public PSTR szTitle;
 	public uint32 cCertStore;
-	public void** arrayCertStore;
+	public void arrayCertStore;
 	public PSTR szPurposeOid;
 	public uint32 cCertContext;
-	public CERT_CONTEXT** arrayCertContext;
+	public CERT_CONTEXT arrayCertContext;
 	public LPARAM lCustData;
 	public PFNCMHOOKPROC pfnHook;
 	public PFNCMFILTERPROC pfnFilter;
@@ -376,10 +376,10 @@ public struct CERT_SELECT_STRUCT_W
 	public CERT_SELECT_STRUCT_FLAGS dwFlags;
 	public PWSTR szTitle;
 	public uint32 cCertStore;
-	public void** arrayCertStore;
+	public void arrayCertStore;
 	public PSTR szPurposeOid;
 	public uint32 cCertContext;
-	public CERT_CONTEXT** arrayCertContext;
+	public CERT_CONTEXT arrayCertContext;
 	public LPARAM lCustData;
 	public PFNCMHOOKPROC pfnHook;
 	public PFNCMFILTERPROC pfnFilter;
@@ -396,15 +396,15 @@ public struct CERT_VIEWPROPERTIES_STRUCT_A
 	public HINSTANCE hInstance;
 	public CERT_VIEWPROPERTIES_STRUCT_FLAGS dwFlags;
 	public PSTR szTitle;
-	public CERT_CONTEXT* pCertContext;
-	public PSTR* arrayPurposes;
+	public CERT_CONTEXT pCertContext;
+	public PSTR arrayPurposes;
 	public uint32 cArrayPurposes;
 	public uint32 cRootStores;
-	public void** rghstoreRoots;
+	public void rghstoreRoots;
 	public uint32 cStores;
-	public void** rghstoreCAs;
+	public void rghstoreCAs;
 	public uint32 cTrustStores;
-	public void** rghstoreTrust;
+	public void rghstoreTrust;
 	public uint hprov;
 	public LPARAM lCustData;
 	public uint32 dwPad;
@@ -412,7 +412,7 @@ public struct CERT_VIEWPROPERTIES_STRUCT_A
 	public uint32 dwHelpId;
 	public uint32 nStartPage;
 	public uint32 cArrayPropSheetPages;
-	public PROPSHEETPAGEA* arrayPropSheetPages;
+	public PROPSHEETPAGEA arrayPropSheetPages;
 }
 
 [CRepr]
@@ -423,15 +423,15 @@ public struct CERT_VIEWPROPERTIES_STRUCT_W
 	public HINSTANCE hInstance;
 	public CERT_VIEWPROPERTIES_STRUCT_FLAGS dwFlags;
 	public PWSTR szTitle;
-	public CERT_CONTEXT* pCertContext;
-	public PSTR* arrayPurposes;
+	public CERT_CONTEXT pCertContext;
+	public PSTR arrayPurposes;
 	public uint32 cArrayPurposes;
 	public uint32 cRootStores;
-	public void** rghstoreRoots;
+	public void rghstoreRoots;
 	public uint32 cStores;
-	public void** rghstoreCAs;
+	public void rghstoreCAs;
 	public uint32 cTrustStores;
-	public void** rghstoreTrust;
+	public void rghstoreTrust;
 	public uint hprov;
 	public LPARAM lCustData;
 	public uint32 dwPad;
@@ -439,7 +439,7 @@ public struct CERT_VIEWPROPERTIES_STRUCT_W
 	public uint32 dwHelpId;
 	public uint32 nStartPage;
 	public uint32 cArrayPropSheetPages;
-	public PROPSHEETPAGEA* arrayPropSheetPages;
+	public PROPSHEETPAGEA arrayPropSheetPages;
 }
 
 [CRepr]
@@ -447,7 +447,7 @@ public struct CMOID
 {
 	public PSTR szExtensionOID;
 	public uint32 dwTestOperation;
-	public uint8* pbTestData;
+	public uint8 pbTestData;
 	public uint32 cbTestData;
 }
 
@@ -456,7 +456,7 @@ public struct CMFLTR
 {
 	public uint32 dwSize;
 	public uint32 cExtensionChecks;
-	public CMOID* arrayExtensionChecks;
+	public CMOID arrayExtensionChecks;
 	public uint32 dwCheckingFlags;
 }
 
@@ -464,30 +464,30 @@ public struct CMFLTR
 public struct CERT_VERIFY_CERTIFICATE_TRUST
 {
 	public uint32 cbSize;
-	public CERT_CONTEXT* pccert;
+	public CERT_CONTEXT pccert;
 	public uint32 dwFlags;
 	public uint32 dwIgnoreErr;
-	public uint32* pdwErrors;
+	public uint32 pdwErrors;
 	public PSTR pszUsageOid;
 	public uint hprov;
 	public uint32 cRootStores;
-	public void** rghstoreRoots;
+	public void rghstoreRoots;
 	public uint32 cStores;
-	public void** rghstoreCAs;
+	public void rghstoreCAs;
 	public uint32 cTrustStores;
-	public void** rghstoreTrust;
+	public void rghstoreTrust;
 	public LPARAM lCustData;
 	public PFNTRUSTHELPER pfnTrustHelper;
-	public uint32* pcChain;
-	public CERT_CONTEXT*** prgChain;
-	public uint32** prgdwErrors;
-	public CRYPTOAPI_BLOB** prgpbTrustInfo;
+	public uint32 pcChain;
+	public CERT_CONTEXT prgChain;
+	public uint32 prgdwErrors;
+	public CRYPTOAPI_BLOB prgpbTrustInfo;
 }
 
 [CRepr]
 public struct CTL_MODIFY_REQUEST
 {
-	public CERT_CONTEXT* pccert;
+	public CERT_CONTEXT pccert;
 	public CTL_MODIFY_REQUEST_OPERATION dwOperation;
 	public uint32 dwError;
 }
@@ -495,8 +495,8 @@ public struct CTL_MODIFY_REQUEST
 [CRepr]
 public struct CERT_SELECTUI_INPUT
 {
-	public void* hStore;
-	public CERT_CHAIN_CONTEXT** prgpChain;
+	public void hStore;
+	public CERT_CHAIN_CONTEXT prgpChain;
 	public uint32 cChain;
 }
 
@@ -516,7 +516,7 @@ public struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO
 	public uint32 dwSize;
 	public Guid pGuidSubject;
 	public uint32 cbBlob;
-	public uint8* pbBlob;
+	public uint8 pbBlob;
 	public PWSTR pwszDisplayName;
 }
 
@@ -525,9 +525,9 @@ public struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO
 {
 	public uint32 dwSize;
 	public uint32 cCertStore;
-	public void** rghCertStore;
+	public void rghCertStore;
 	public PFNCFILTERPROC pFilterCallback;
-	public void* pvCallbackData;
+	public void pvCallbackData;
 }
 
 [CRepr]
@@ -545,8 +545,8 @@ public struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO* pPvkFileInfo;
-		public CRYPT_KEY_PROV_INFO* pPvkProvInfo;
+		public CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO pPvkFileInfo;
+		public CRYPT_KEY_PROV_INFO pPvkProvInfo;
 	}
 
 	public uint32 dwSize;
@@ -564,9 +564,9 @@ public struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO
 	public PWSTR pwszMoreInfoLocation;
 	public PSTR pszHashAlg;
 	public PWSTR pwszSigningCertDisplayString;
-	public void* hAdditionalCertStore;
-	public CRYPT_ATTRIBUTES* psAuthenticated;
-	public CRYPT_ATTRIBUTES* psUnauthenticated;
+	public void hAdditionalCertStore;
+	public CRYPT_ATTRIBUTES psAuthenticated;
+	public CRYPT_ATTRIBUTES psUnauthenticated;
 }
 
 [CRepr]
@@ -575,16 +575,16 @@ public struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
-		public CERT_CONTEXT* pSigningCertContext;
-		public CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO* pSigningCertStore;
-		public CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO* pSigningCertPvkInfo;
+		public CERT_CONTEXT pSigningCertContext;
+		public CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO pSigningCertStore;
+		public CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO pSigningCertPvkInfo;
 	}
 
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pwszFileName;
-		public CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO* pSignBlobInfo;
+		public CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO pSignBlobInfo;
 	}
 
 	public uint32 dwSize;
@@ -594,7 +594,7 @@ public struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO
 	public _Anonymous2_e__Union Anonymous2;
 	public PWSTR pwszTimestampURL;
 	public CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE dwAdditionalCertChoice;
-	public CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO* pSignExtInfo;
+	public CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO pSignExtInfo;
 }
 
 [CRepr]
@@ -602,14 +602,14 @@ public struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT
 {
 	public uint32 dwSize;
 	public uint32 cbBlob;
-	public uint8* pbBlob;
+	public uint8 pbBlob;
 }
 
 [CRepr]
 public struct CRYPTUI_INITDIALOG_STRUCT
 {
 	public LPARAM lParam;
-	public CERT_CONTEXT* pCertContext;
+	public CERT_CONTEXT pCertContext;
 }
 
 [CRepr]
@@ -618,7 +618,7 @@ public struct CRYPTUI_VIEWCERTIFICATE_STRUCTW
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public CRYPT_PROVIDER_DATA* pCryptProviderData;
+		public CRYPT_PROVIDER_DATA pCryptProviderData;
 		public HANDLE hWVTStateData;
 	}
 
@@ -626,8 +626,8 @@ public struct CRYPTUI_VIEWCERTIFICATE_STRUCTW
 	public HWND hwndParent;
 	public CRYPTUI_VIEWCERTIFICATE_FLAGS dwFlags;
 	public PWSTR szTitle;
-	public CERT_CONTEXT* pCertContext;
-	public PSTR* rgszPurposes;
+	public CERT_CONTEXT pCertContext;
+	public PSTR rgszPurposes;
 	public uint32 cPurposes;
 	public using _Anonymous_e__Union Anonymous;
 	public BOOL fpCryptProviderDataTrustedUsage;
@@ -636,9 +636,9 @@ public struct CRYPTUI_VIEWCERTIFICATE_STRUCTW
 	public BOOL fCounterSigner;
 	public uint32 idxCounterSigner;
 	public uint32 cStores;
-	public void** rghStores;
+	public void rghStores;
 	public uint32 cPropSheetPages;
-	public PROPSHEETPAGEW* rgPropSheetPages;
+	public PROPSHEETPAGEW rgPropSheetPages;
 	public uint32 nStartPage;
 }
 
@@ -648,7 +648,7 @@ public struct CRYPTUI_VIEWCERTIFICATE_STRUCTA
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public CRYPT_PROVIDER_DATA* pCryptProviderData;
+		public CRYPT_PROVIDER_DATA pCryptProviderData;
 		public HANDLE hWVTStateData;
 	}
 
@@ -656,8 +656,8 @@ public struct CRYPTUI_VIEWCERTIFICATE_STRUCTA
 	public HWND hwndParent;
 	public CRYPTUI_VIEWCERTIFICATE_FLAGS dwFlags;
 	public PSTR szTitle;
-	public CERT_CONTEXT* pCertContext;
-	public PSTR* rgszPurposes;
+	public CERT_CONTEXT pCertContext;
+	public PSTR rgszPurposes;
 	public uint32 cPurposes;
 	public using _Anonymous_e__Union Anonymous;
 	public BOOL fpCryptProviderDataTrustedUsage;
@@ -666,9 +666,9 @@ public struct CRYPTUI_VIEWCERTIFICATE_STRUCTA
 	public BOOL fCounterSigner;
 	public uint32 idxCounterSigner;
 	public uint32 cStores;
-	public void** rghStores;
+	public void rghStores;
 	public uint32 cPropSheetPages;
-	public PROPSHEETPAGEA* rgPropSheetPages;
+	public PROPSHEETPAGEA rgPropSheetPages;
 	public uint32 nStartPage;
 }
 
@@ -678,10 +678,10 @@ public struct CRYPTUI_WIZ_EXPORT_INFO
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public CERT_CONTEXT* pCertContext;
-		public CTL_CONTEXT* pCTLContext;
-		public CRL_CONTEXT* pCRLContext;
-		public void* hCertStore;
+		public CERT_CONTEXT pCertContext;
+		public CTL_CONTEXT pCTLContext;
+		public CRL_CONTEXT pCRLContext;
+		public void hCertStore;
 	}
 
 	public uint32 dwSize;
@@ -689,7 +689,7 @@ public struct CRYPTUI_WIZ_EXPORT_INFO
 	public CRYPTUI_WIZ_EXPORT_SUBJECT dwSubjectChoice;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 cStores;
-	public void** rghStores;
+	public void rghStores;
 }
 
 [CRepr]
@@ -710,10 +710,10 @@ public struct CRYPTUI_WIZ_IMPORT_SRC_INFO
 	public struct _Anonymous_e__Union
 	{
 		public PWSTR pwszFileName;
-		public CERT_CONTEXT* pCertContext;
-		public CTL_CONTEXT* pCTLContext;
-		public CRL_CONTEXT* pCRLContext;
-		public void* hCertStore;
+		public CERT_CONTEXT pCertContext;
+		public CTL_CONTEXT pCTLContext;
+		public CRL_CONTEXT pCRLContext;
+		public void hCertStore;
 	}
 
 	public uint32 dwSize;
@@ -738,35 +738,35 @@ public static
 public static
 {
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptUIDlgViewContext(uint32 dwContextType, void* pvContext, HWND hwnd, PWSTR pwszTitle, uint32 dwFlags, void* pvReserved);
+	public static extern BOOL CryptUIDlgViewContext(uint32 dwContextType, void pvContext, HWND hwnd, PWSTR pwszTitle, uint32 dwFlags, void pvReserved);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CERT_CONTEXT* CryptUIDlgSelectCertificateFromStore(void* hCertStore, HWND hwnd, PWSTR pwszTitle, PWSTR pwszDisplayString, uint32 dwDontUseColumn, uint32 dwFlags, void* pvReserved);
+	public static extern CERT_CONTEXT CryptUIDlgSelectCertificateFromStore(void hCertStore, HWND hwnd, PWSTR pwszTitle, PWSTR pwszDisplayString, uint32 dwDontUseColumn, uint32 dwFlags, void pvReserved);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSelectionGetSerializedBlob(CERT_SELECTUI_INPUT* pcsi, void** ppOutBuffer, uint32* pulOutBufferSize);
+	public static extern HRESULT CertSelectionGetSerializedBlob(CERT_SELECTUI_INPUT pcsi, void ppOutBuffer, uint32 pulOutBufferSize);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptUIDlgCertMgr(CRYPTUI_CERT_MGR_STRUCT* pCryptUICertMgr);
+	public static extern BOOL CryptUIDlgCertMgr(CRYPTUI_CERT_MGR_STRUCT pCryptUICertMgr);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptUIWizDigitalSign(uint32 dwFlags, HWND hwndParent, PWSTR pwszWizardTitle, CRYPTUI_WIZ_DIGITAL_SIGN_INFO* pDigitalSignInfo, CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT** ppSignContext);
+	public static extern BOOL CryptUIWizDigitalSign(uint32 dwFlags, HWND hwndParent, PWSTR pwszWizardTitle, CRYPTUI_WIZ_DIGITAL_SIGN_INFO pDigitalSignInfo, CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT ppSignContext);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptUIWizFreeDigitalSignContext(CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT* pSignContext);
+	public static extern BOOL CryptUIWizFreeDigitalSignContext(CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT pSignContext);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptUIDlgViewCertificateW(CRYPTUI_VIEWCERTIFICATE_STRUCTW* pCertViewInfo, BOOL* pfPropertiesChanged);
+	public static extern BOOL CryptUIDlgViewCertificateW(CRYPTUI_VIEWCERTIFICATE_STRUCTW pCertViewInfo, BOOL pfPropertiesChanged);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptUIDlgViewCertificateA(CRYPTUI_VIEWCERTIFICATE_STRUCTA* pCertViewInfo, BOOL* pfPropertiesChanged);
-	public static BOOL CryptUIDlgViewCertificate(CRYPTUI_VIEWCERTIFICATE_STRUCTA* pCertViewInfo, BOOL* pfPropertiesChanged) => CryptUIDlgViewCertificateA(pCertViewInfo, pfPropertiesChanged);
+	public static extern BOOL CryptUIDlgViewCertificateA(CRYPTUI_VIEWCERTIFICATE_STRUCTA pCertViewInfo, BOOL pfPropertiesChanged);
+	public static BOOL CryptUIDlgViewCertificate(CRYPTUI_VIEWCERTIFICATE_STRUCTA pCertViewInfo, BOOL pfPropertiesChanged) => CryptUIDlgViewCertificateA(pCertViewInfo, pfPropertiesChanged);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptUIWizExport(CRYPTUI_WIZ_FLAGS dwFlags, HWND hwndParent, PWSTR pwszWizardTitle, CRYPTUI_WIZ_EXPORT_INFO* pExportInfo, void* pvoid);
+	public static extern BOOL CryptUIWizExport(CRYPTUI_WIZ_FLAGS dwFlags, HWND hwndParent, PWSTR pwszWizardTitle, CRYPTUI_WIZ_EXPORT_INFO pExportInfo, void pvoid);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptUIWizImport(CRYPTUI_WIZ_FLAGS dwFlags, HWND hwndParent, PWSTR pwszWizardTitle, CRYPTUI_WIZ_IMPORT_SRC_INFO* pImportSrc, void* hDestCertStore);
+	public static extern BOOL CryptUIWizImport(CRYPTUI_WIZ_FLAGS dwFlags, HWND hwndParent, PWSTR pwszWizardTitle, CRYPTUI_WIZ_IMPORT_SRC_INFO pImportSrc, void hDestCertStore);
 
 }
 #endregion

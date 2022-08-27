@@ -33,11 +33,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILearningModelOperatorProviderNative*/SelfOuter* self, IMLOperatorRegistry** ppOperatorRegistry) GetRegistry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILearningModelOperatorProviderNative*/SelfOuter* self, IMLOperatorRegistry* ppOperatorRegistry) GetRegistry;
 	}
 
 
-	public HRESULT GetRegistry(IMLOperatorRegistry** ppOperatorRegistry) mut => VT.[Friend]GetRegistry(&this, ppOperatorRegistry);
+	public HRESULT GetRegistry(IMLOperatorRegistry* ppOperatorRegistry) mut => VT.[Friend]GetRegistry(&this, ppOperatorRegistry);
 }
 
 [CRepr]struct ITensorNative : IUnknown
@@ -48,14 +48,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITensorNative*/SelfOuter* self, uint8** value, uint32* capacity) GetBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITensorNative*/SelfOuter* self, ID3D12Resource** result) GetD3D12Resource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITensorNative*/SelfOuter* self, uint8* value, uint32 capacity) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITensorNative*/SelfOuter* self, ID3D12Resource* result) GetD3D12Resource;
 	}
 
 
-	public HRESULT GetBuffer(uint8** value, uint32* capacity) mut => VT.[Friend]GetBuffer(&this, value, capacity);
+	public HRESULT GetBuffer(uint8* value, uint32 capacity) mut => VT.[Friend]GetBuffer(&this, value, capacity);
 
-	public HRESULT GetD3D12Resource(ID3D12Resource** result) mut => VT.[Friend]GetD3D12Resource(&this, result);
+	public HRESULT GetD3D12Resource(ID3D12Resource* result) mut => VT.[Friend]GetD3D12Resource(&this, result);
 }
 
 [CRepr]struct ITensorStaticsNative : IUnknown
@@ -66,11 +66,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITensorStaticsNative*/SelfOuter* self, ID3D12Resource* value, int64* shape, int32 shapeCount, IUnknown** result) CreateFromD3D12Resource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITensorStaticsNative*/SelfOuter* self, ID3D12Resource* value, int64 shape, int32 shapeCount, IUnknown* result) CreateFromD3D12Resource;
 	}
 
 
-	public HRESULT CreateFromD3D12Resource(ID3D12Resource* value, int64* shape, int32 shapeCount, IUnknown** result) mut => VT.[Friend]CreateFromD3D12Resource(&this, value, shape, shapeCount, result);
+	public HRESULT CreateFromD3D12Resource(ID3D12Resource* value, int64 shape, int32 shapeCount, IUnknown* result) mut => VT.[Friend]CreateFromD3D12Resource(&this, value, shape, shapeCount, result);
 }
 
 [CRepr]struct ILearningModelDeviceFactoryNative : IUnknown
@@ -81,11 +81,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILearningModelDeviceFactoryNative*/SelfOuter* self, ID3D12CommandQueue* value, IUnknown** result) CreateFromD3D12CommandQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILearningModelDeviceFactoryNative*/SelfOuter* self, ID3D12CommandQueue* value, IUnknown* result) CreateFromD3D12CommandQueue;
 	}
 
 
-	public HRESULT CreateFromD3D12CommandQueue(ID3D12CommandQueue* value, IUnknown** result) mut => VT.[Friend]CreateFromD3D12CommandQueue(&this, value, result);
+	public HRESULT CreateFromD3D12CommandQueue(ID3D12CommandQueue* value, IUnknown* result) mut => VT.[Friend]CreateFromD3D12CommandQueue(&this, value, result);
 }
 
 [CRepr]struct ILearningModelSessionOptionsNative : IUnknown

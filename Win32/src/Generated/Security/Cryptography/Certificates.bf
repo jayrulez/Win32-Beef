@@ -2380,43 +2380,43 @@ public enum ENUM_CATYPES : int32
 #endregion
 
 #region Function Pointers
-public function HRESULT FNCERTSRVISSERVERONLINEW(PWSTR pwszServerName, BOOL* pfServerOnline);
+public function HRESULT FNCERTSRVISSERVERONLINEW(PWSTR pwszServerName, BOOL pfServerOnline);
 
-public function HRESULT FNCERTSRVBACKUPGETDYNAMICFILELISTW(void* hbc, uint16** ppwszzFileList, uint32* pcbSize);
+public function HRESULT FNCERTSRVBACKUPGETDYNAMICFILELISTW(void hbc, uint16 ppwszzFileList, uint32 pcbSize);
 
-public function HRESULT FNCERTSRVBACKUPPREPAREW(PWSTR pwszServerName, uint32 grbitJet, uint32 dwBackupFlags, void** phbc);
+public function HRESULT FNCERTSRVBACKUPPREPAREW(PWSTR pwszServerName, uint32 grbitJet, uint32 dwBackupFlags, void phbc);
 
-public function HRESULT FNCERTSRVBACKUPGETDATABASENAMESW(void* hbc, uint16** ppwszzAttachmentInformation, uint32* pcbSize);
+public function HRESULT FNCERTSRVBACKUPGETDATABASENAMESW(void hbc, uint16 ppwszzAttachmentInformation, uint32 pcbSize);
 
-public function HRESULT FNCERTSRVBACKUPOPENFILEW(void* hbc, PWSTR pwszAttachmentName, uint32 cbReadHintSize, LARGE_INTEGER* pliFileSize);
+public function HRESULT FNCERTSRVBACKUPOPENFILEW(void hbc, PWSTR pwszAttachmentName, uint32 cbReadHintSize, LARGE_INTEGER pliFileSize);
 
-public function HRESULT FNCERTSRVBACKUPREAD(void* hbc, void* pvBuffer, uint32 cbBuffer, uint32* pcbRead);
+public function HRESULT FNCERTSRVBACKUPREAD(void hbc, void pvBuffer, uint32 cbBuffer, uint32 pcbRead);
 
-public function HRESULT FNCERTSRVBACKUPCLOSE(void* hbc);
+public function HRESULT FNCERTSRVBACKUPCLOSE(void hbc);
 
-public function HRESULT FNCERTSRVBACKUPGETBACKUPLOGSW(void* hbc, uint16** ppwszzBackupLogFiles, uint32* pcbSize);
+public function HRESULT FNCERTSRVBACKUPGETBACKUPLOGSW(void hbc, uint16 ppwszzBackupLogFiles, uint32 pcbSize);
 
-public function HRESULT FNCERTSRVBACKUPTRUNCATELOGS(void* hbc);
+public function HRESULT FNCERTSRVBACKUPTRUNCATELOGS(void hbc);
 
-public function HRESULT FNCERTSRVBACKUPEND(void* hbc);
+public function HRESULT FNCERTSRVBACKUPEND(void hbc);
 
-public function void FNCERTSRVBACKUPFREE(void* pv);
+public function void FNCERTSRVBACKUPFREE(void pv);
 
-public function HRESULT FNCERTSRVRESTOREGETDATABASELOCATIONSW(void* hbc, uint16** ppwszzDatabaseLocationList, uint32* pcbSize);
+public function HRESULT FNCERTSRVRESTOREGETDATABASELOCATIONSW(void hbc, uint16 ppwszzDatabaseLocationList, uint32 pcbSize);
 
-public function HRESULT FNCERTSRVRESTOREPREPAREW(PWSTR pwszServerName, uint32 dwRestoreFlags, void** phbc);
+public function HRESULT FNCERTSRVRESTOREPREPAREW(PWSTR pwszServerName, uint32 dwRestoreFlags, void phbc);
 
-public function HRESULT FNCERTSRVRESTOREREGISTERW(void* hbc, PWSTR pwszCheckPointFilePath, PWSTR pwszLogPath, CSEDB_RSTMAPW* rgrstmap, int32 crstmap, PWSTR pwszBackupLogPath, uint32 genLow, uint32 genHigh);
+public function HRESULT FNCERTSRVRESTOREREGISTERW(void hbc, PWSTR pwszCheckPointFilePath, PWSTR pwszLogPath, CSEDB_RSTMAPW rgrstmap, int32 crstmap, PWSTR pwszBackupLogPath, uint32 genLow, uint32 genHigh);
 
-public function HRESULT FNCERTSRVRESTOREREGISTERCOMPLETE(void* hbc, HRESULT hrRestoreState);
+public function HRESULT FNCERTSRVRESTOREREGISTERCOMPLETE(void hbc, HRESULT hrRestoreState);
 
-public function HRESULT FNCERTSRVRESTOREEND(void* hbc);
+public function HRESULT FNCERTSRVRESTOREEND(void hbc);
 
-public function HRESULT FNCERTSRVSERVERCONTROLW(PWSTR pwszServerName, uint32 dwControlFlags, uint32* pcbOut, uint8** ppbOut);
+public function HRESULT FNCERTSRVSERVERCONTROLW(PWSTR pwszServerName, uint32 dwControlFlags, uint32 pcbOut, uint8 ppbOut);
 
-public function HRESULT FNIMPORTPFXTOPROVIDER(HWND hWndParent, uint8* pbPFX, uint32 cbPFX, ImportPFXFlags ImportFlags, PWSTR pwszPassword, PWSTR pwszProviderName, PWSTR pwszReaderName, PWSTR pwszContainerNamePrefix, PWSTR pwszPin, PWSTR pwszFriendlyName, uint32* pcCertOut, CERT_CONTEXT*** prgpCertOut);
+public function HRESULT FNIMPORTPFXTOPROVIDER(HWND hWndParent, uint8 pbPFX, uint32 cbPFX, ImportPFXFlags ImportFlags, PWSTR pwszPassword, PWSTR pwszProviderName, PWSTR pwszReaderName, PWSTR pwszContainerNamePrefix, PWSTR pwszPin, PWSTR pwszFriendlyName, uint32 pcCertOut, CERT_CONTEXT prgpCertOut);
 
-public function void FNIMPORTPFXTOPROVIDERFREEDATA(uint32 cCert, CERT_CONTEXT** rgpCert);
+public function void FNIMPORTPFXTOPROVIDERFREEDATA(uint32 cCert, CERT_CONTEXT* rgpCert);
 
 #endregion
 
@@ -2432,7 +2432,7 @@ public struct CSEDB_RSTMAPW
 public struct CERTTRANSBLOB
 {
 	public uint32 cb;
-	public uint8* pb;
+	public uint8 pb;
 }
 
 [CRepr]
@@ -2441,7 +2441,7 @@ public struct CERTVIEWRESTRICTION
 	public uint32 ColumnIndex;
 	public int32 SeekOperator;
 	public int32 SortOrder;
-	public uint8* pbValue;
+	public uint8 pbValue;
 	public uint32 cbValue;
 }
 
@@ -2759,38 +2759,38 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, int32* pIndex) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, BSTR* pstrOut) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, BSTR* pstrOut) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, int32* pType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, int32* pIndexed) IsIndexed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, int32* pMaxLength) GetMaxLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, ENUM_CERT_COLUMN_VALUE_FLAGS Flags, VARIANT* pvarValue) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, int32 pIndex) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, BSTR pstrOut) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, BSTR pstrOut) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, int32 pType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, int32 pIndexed) IsIndexed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, int32 pMaxLength) GetMaxLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, ENUM_CERT_COLUMN_VALUE_FLAGS Flags, VARIANT pvarValue) GetValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, int32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, IEnumCERTVIEWCOLUMN** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWCOLUMN*/SelfOuter* self, IEnumCERTVIEWCOLUMN* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(int32* pIndex) mut => VT.[Friend]Next(&this, pIndex);
+	public HRESULT Next(int32 pIndex) mut => VT.[Friend]Next(&this, pIndex);
 
-	public HRESULT GetName(BSTR* pstrOut) mut => VT.[Friend]GetName(&this, pstrOut);
+	public HRESULT GetName(BSTR pstrOut) mut => VT.[Friend]GetName(&this, pstrOut);
 
-	public HRESULT GetDisplayName(BSTR* pstrOut) mut => VT.[Friend]GetDisplayName(&this, pstrOut);
+	public HRESULT GetDisplayName(BSTR pstrOut) mut => VT.[Friend]GetDisplayName(&this, pstrOut);
 
-	public HRESULT GetType(int32* pType) mut => VT.[Friend]COM_GetType(&this, pType);
+	public HRESULT GetType(int32 pType) mut => VT.[Friend]COM_GetType(&this, pType);
 
-	public HRESULT IsIndexed(int32* pIndexed) mut => VT.[Friend]IsIndexed(&this, pIndexed);
+	public HRESULT IsIndexed(int32 pIndexed) mut => VT.[Friend]IsIndexed(&this, pIndexed);
 
-	public HRESULT GetMaxLength(int32* pMaxLength) mut => VT.[Friend]GetMaxLength(&this, pMaxLength);
+	public HRESULT GetMaxLength(int32 pMaxLength) mut => VT.[Friend]GetMaxLength(&this, pMaxLength);
 
-	public HRESULT GetValue(ENUM_CERT_COLUMN_VALUE_FLAGS Flags, VARIANT* pvarValue) mut => VT.[Friend]GetValue(&this, Flags, pvarValue);
+	public HRESULT GetValue(ENUM_CERT_COLUMN_VALUE_FLAGS Flags, VARIANT pvarValue) mut => VT.[Friend]GetValue(&this, Flags, pvarValue);
 
 	public HRESULT Skip(int32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumCERTVIEWCOLUMN** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumCERTVIEWCOLUMN* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct IEnumCERTVIEWATTRIBUTE : IDispatch
@@ -2801,26 +2801,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWATTRIBUTE*/SelfOuter* self, int32* pIndex) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWATTRIBUTE*/SelfOuter* self, BSTR* pstrOut) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWATTRIBUTE*/SelfOuter* self, BSTR* pstrOut) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWATTRIBUTE*/SelfOuter* self, int32 pIndex) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWATTRIBUTE*/SelfOuter* self, BSTR pstrOut) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWATTRIBUTE*/SelfOuter* self, BSTR pstrOut) GetValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWATTRIBUTE*/SelfOuter* self, int32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWATTRIBUTE*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWATTRIBUTE*/SelfOuter* self, IEnumCERTVIEWATTRIBUTE** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWATTRIBUTE*/SelfOuter* self, IEnumCERTVIEWATTRIBUTE* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(int32* pIndex) mut => VT.[Friend]Next(&this, pIndex);
+	public HRESULT Next(int32 pIndex) mut => VT.[Friend]Next(&this, pIndex);
 
-	public HRESULT GetName(BSTR* pstrOut) mut => VT.[Friend]GetName(&this, pstrOut);
+	public HRESULT GetName(BSTR pstrOut) mut => VT.[Friend]GetName(&this, pstrOut);
 
-	public HRESULT GetValue(BSTR* pstrOut) mut => VT.[Friend]GetValue(&this, pstrOut);
+	public HRESULT GetValue(BSTR pstrOut) mut => VT.[Friend]GetValue(&this, pstrOut);
 
 	public HRESULT Skip(int32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumCERTVIEWATTRIBUTE** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumCERTVIEWATTRIBUTE* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct IEnumCERTVIEWEXTENSION : IDispatch
@@ -2831,29 +2831,29 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, int32* pIndex) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, BSTR* pstrOut) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, int32* pFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, CERT_PROPERTY_TYPE Type, ENUM_CERT_COLUMN_VALUE_FLAGS Flags, VARIANT* pvarValue) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, int32 pIndex) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, BSTR pstrOut) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, int32 pFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, CERT_PROPERTY_TYPE Type, ENUM_CERT_COLUMN_VALUE_FLAGS Flags, VARIANT pvarValue) GetValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, int32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, IEnumCERTVIEWEXTENSION** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWEXTENSION*/SelfOuter* self, IEnumCERTVIEWEXTENSION* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(int32* pIndex) mut => VT.[Friend]Next(&this, pIndex);
+	public HRESULT Next(int32 pIndex) mut => VT.[Friend]Next(&this, pIndex);
 
-	public HRESULT GetName(BSTR* pstrOut) mut => VT.[Friend]GetName(&this, pstrOut);
+	public HRESULT GetName(BSTR pstrOut) mut => VT.[Friend]GetName(&this, pstrOut);
 
-	public HRESULT GetFlags(int32* pFlags) mut => VT.[Friend]COM_GetFlags(&this, pFlags);
+	public HRESULT GetFlags(int32 pFlags) mut => VT.[Friend]COM_GetFlags(&this, pFlags);
 
-	public HRESULT GetValue(CERT_PROPERTY_TYPE Type, ENUM_CERT_COLUMN_VALUE_FLAGS Flags, VARIANT* pvarValue) mut => VT.[Friend]GetValue(&this, Type, Flags, pvarValue);
+	public HRESULT GetValue(CERT_PROPERTY_TYPE Type, ENUM_CERT_COLUMN_VALUE_FLAGS Flags, VARIANT pvarValue) mut => VT.[Friend]GetValue(&this, Type, Flags, pvarValue);
 
 	public HRESULT Skip(int32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumCERTVIEWEXTENSION** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumCERTVIEWEXTENSION* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct IEnumCERTVIEWROW : IDispatch
@@ -2864,32 +2864,32 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, int32* pIndex) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, IEnumCERTVIEWCOLUMN** ppenum) EnumCertViewColumn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, int32 Flags, IEnumCERTVIEWATTRIBUTE** ppenum) EnumCertViewAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, int32 Flags, IEnumCERTVIEWEXTENSION** ppenum) EnumCertViewExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, int32 pIndex) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, IEnumCERTVIEWCOLUMN* ppenum) EnumCertViewColumn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, int32 Flags, IEnumCERTVIEWATTRIBUTE* ppenum) EnumCertViewAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, int32 Flags, IEnumCERTVIEWEXTENSION* ppenum) EnumCertViewExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, int32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, IEnumCERTVIEWROW** ppenum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, int32* pIndex) GetMaxIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, IEnumCERTVIEWROW* ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCERTVIEWROW*/SelfOuter* self, int32 pIndex) GetMaxIndex;
 	}
 
 
-	public HRESULT Next(int32* pIndex) mut => VT.[Friend]Next(&this, pIndex);
+	public HRESULT Next(int32 pIndex) mut => VT.[Friend]Next(&this, pIndex);
 
-	public HRESULT EnumCertViewColumn(IEnumCERTVIEWCOLUMN** ppenum) mut => VT.[Friend]EnumCertViewColumn(&this, ppenum);
+	public HRESULT EnumCertViewColumn(IEnumCERTVIEWCOLUMN* ppenum) mut => VT.[Friend]EnumCertViewColumn(&this, ppenum);
 
-	public HRESULT EnumCertViewAttribute(int32 Flags, IEnumCERTVIEWATTRIBUTE** ppenum) mut => VT.[Friend]EnumCertViewAttribute(&this, Flags, ppenum);
+	public HRESULT EnumCertViewAttribute(int32 Flags, IEnumCERTVIEWATTRIBUTE* ppenum) mut => VT.[Friend]EnumCertViewAttribute(&this, Flags, ppenum);
 
-	public HRESULT EnumCertViewExtension(int32 Flags, IEnumCERTVIEWEXTENSION** ppenum) mut => VT.[Friend]EnumCertViewExtension(&this, Flags, ppenum);
+	public HRESULT EnumCertViewExtension(int32 Flags, IEnumCERTVIEWEXTENSION* ppenum) mut => VT.[Friend]EnumCertViewExtension(&this, Flags, ppenum);
 
 	public HRESULT Skip(int32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumCERTVIEWROW** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumCERTVIEWROW* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 
-	public HRESULT GetMaxIndex(int32* pIndex) mut => VT.[Friend]GetMaxIndex(&this, pIndex);
+	public HRESULT GetMaxIndex(int32 pIndex) mut => VT.[Friend]GetMaxIndex(&this, pIndex);
 }
 
 [CRepr]struct ICertView : IDispatch
@@ -2901,31 +2901,31 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, BSTR strConfig) OpenConnection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, CVRC_COLUMN fResultColumn, IEnumCERTVIEWCOLUMN** ppenum) EnumCertViewColumn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, CVRC_COLUMN fResultColumn, int32* pcColumn) GetColumnCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, CVRC_COLUMN fResultColumn, BSTR strColumnName, int32* pColumnIndex) GetColumnIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, CVRC_COLUMN fResultColumn, IEnumCERTVIEWCOLUMN* ppenum) EnumCertViewColumn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, CVRC_COLUMN fResultColumn, int32 pcColumn) GetColumnCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, CVRC_COLUMN fResultColumn, BSTR strColumnName, int32 pColumnIndex) GetColumnIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, int32 cResultColumn) SetResultColumnCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, int32 ColumnIndex) SetResultColumn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, CERT_VIEW_COLUMN_INDEX ColumnIndex, CERT_VIEW_SEEK_OPERATOR_FLAGS SeekOperator, int32 SortOrder, VARIANT* pvarValue) SetRestriction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, IEnumCERTVIEWROW** ppenum) OpenView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, CERT_VIEW_COLUMN_INDEX ColumnIndex, CERT_VIEW_SEEK_OPERATOR_FLAGS SeekOperator, int32 SortOrder, VARIANT pvarValue) SetRestriction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertView*/SelfOuter* self, IEnumCERTVIEWROW* ppenum) OpenView;
 	}
 
 
 	public HRESULT OpenConnection(BSTR strConfig) mut => VT.[Friend]OpenConnection(&this, strConfig);
 
-	public HRESULT EnumCertViewColumn(CVRC_COLUMN fResultColumn, IEnumCERTVIEWCOLUMN** ppenum) mut => VT.[Friend]EnumCertViewColumn(&this, fResultColumn, ppenum);
+	public HRESULT EnumCertViewColumn(CVRC_COLUMN fResultColumn, IEnumCERTVIEWCOLUMN* ppenum) mut => VT.[Friend]EnumCertViewColumn(&this, fResultColumn, ppenum);
 
-	public HRESULT GetColumnCount(CVRC_COLUMN fResultColumn, int32* pcColumn) mut => VT.[Friend]GetColumnCount(&this, fResultColumn, pcColumn);
+	public HRESULT GetColumnCount(CVRC_COLUMN fResultColumn, int32 pcColumn) mut => VT.[Friend]GetColumnCount(&this, fResultColumn, pcColumn);
 
-	public HRESULT GetColumnIndex(CVRC_COLUMN fResultColumn, BSTR strColumnName, int32* pColumnIndex) mut => VT.[Friend]GetColumnIndex(&this, fResultColumn, strColumnName, pColumnIndex);
+	public HRESULT GetColumnIndex(CVRC_COLUMN fResultColumn, BSTR strColumnName, int32 pColumnIndex) mut => VT.[Friend]GetColumnIndex(&this, fResultColumn, strColumnName, pColumnIndex);
 
 	public HRESULT SetResultColumnCount(int32 cResultColumn) mut => VT.[Friend]SetResultColumnCount(&this, cResultColumn);
 
 	public HRESULT SetResultColumn(int32 ColumnIndex) mut => VT.[Friend]SetResultColumn(&this, ColumnIndex);
 
-	public HRESULT SetRestriction(CERT_VIEW_COLUMN_INDEX ColumnIndex, CERT_VIEW_SEEK_OPERATOR_FLAGS SeekOperator, int32 SortOrder, VARIANT* pvarValue) mut => VT.[Friend]SetRestriction(&this, ColumnIndex, SeekOperator, SortOrder, pvarValue);
+	public HRESULT SetRestriction(CERT_VIEW_COLUMN_INDEX ColumnIndex, CERT_VIEW_SEEK_OPERATOR_FLAGS SeekOperator, int32 SortOrder, VARIANT pvarValue) mut => VT.[Friend]SetRestriction(&this, ColumnIndex, SeekOperator, SortOrder, pvarValue);
 
-	public HRESULT OpenView(IEnumCERTVIEWROW** ppenum) mut => VT.[Friend]OpenView(&this, ppenum);
+	public HRESULT OpenView(IEnumCERTVIEWROW* ppenum) mut => VT.[Friend]OpenView(&this, ppenum);
 }
 
 [CRepr]struct ICertView2 : ICertView
@@ -2951,38 +2951,38 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, BSTR strSerialNumber, int32* pDisposition) IsValidCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, int32* pReason) GetRevocationReason;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, BSTR strSerialNumber, int32 pDisposition) IsValidCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, int32 pReason) GetRevocationReason;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, BSTR strSerialNumber, int32 Reason, double Date) RevokeCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, int32 RequestId, BSTR strAttributes) SetRequestAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, int32 RequestId, BSTR strExtensionName, CERT_PROPERTY_TYPE Type, int32 Flags, VARIANT* pvarValue) SetCertificateExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, int32 RequestId, BSTR strExtensionName, CERT_PROPERTY_TYPE Type, int32 Flags, VARIANT pvarValue) SetCertificateExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, int32 RequestId) DenyRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, int32 RequestId, int32* pDisposition) ResubmitRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, int32 RequestId, int32 pDisposition) ResubmitRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, double Date) PublishCRL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, int32 Flags, BSTR* pstrCRL) GetCRL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, BSTR strCertificate, CERT_IMPORT_FLAGS Flags, int32* pRequestId) ImportCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, int32 Flags, BSTR pstrCRL) GetCRL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin*/SelfOuter* self, BSTR strConfig, BSTR strCertificate, CERT_IMPORT_FLAGS Flags, int32 pRequestId) ImportCertificate;
 	}
 
 
-	public HRESULT IsValidCertificate(BSTR strConfig, BSTR strSerialNumber, int32* pDisposition) mut => VT.[Friend]IsValidCertificate(&this, strConfig, strSerialNumber, pDisposition);
+	public HRESULT IsValidCertificate(BSTR strConfig, BSTR strSerialNumber, int32 pDisposition) mut => VT.[Friend]IsValidCertificate(&this, strConfig, strSerialNumber, pDisposition);
 
-	public HRESULT GetRevocationReason(int32* pReason) mut => VT.[Friend]GetRevocationReason(&this, pReason);
+	public HRESULT GetRevocationReason(int32 pReason) mut => VT.[Friend]GetRevocationReason(&this, pReason);
 
 	public HRESULT RevokeCertificate(BSTR strConfig, BSTR strSerialNumber, int32 Reason, double Date) mut => VT.[Friend]RevokeCertificate(&this, strConfig, strSerialNumber, Reason, Date);
 
 	public HRESULT SetRequestAttributes(BSTR strConfig, int32 RequestId, BSTR strAttributes) mut => VT.[Friend]SetRequestAttributes(&this, strConfig, RequestId, strAttributes);
 
-	public HRESULT SetCertificateExtension(BSTR strConfig, int32 RequestId, BSTR strExtensionName, CERT_PROPERTY_TYPE Type, int32 Flags, VARIANT* pvarValue) mut => VT.[Friend]SetCertificateExtension(&this, strConfig, RequestId, strExtensionName, Type, Flags, pvarValue);
+	public HRESULT SetCertificateExtension(BSTR strConfig, int32 RequestId, BSTR strExtensionName, CERT_PROPERTY_TYPE Type, int32 Flags, VARIANT pvarValue) mut => VT.[Friend]SetCertificateExtension(&this, strConfig, RequestId, strExtensionName, Type, Flags, pvarValue);
 
 	public HRESULT DenyRequest(BSTR strConfig, int32 RequestId) mut => VT.[Friend]DenyRequest(&this, strConfig, RequestId);
 
-	public HRESULT ResubmitRequest(BSTR strConfig, int32 RequestId, int32* pDisposition) mut => VT.[Friend]ResubmitRequest(&this, strConfig, RequestId, pDisposition);
+	public HRESULT ResubmitRequest(BSTR strConfig, int32 RequestId, int32 pDisposition) mut => VT.[Friend]ResubmitRequest(&this, strConfig, RequestId, pDisposition);
 
 	public HRESULT PublishCRL(BSTR strConfig, double Date) mut => VT.[Friend]PublishCRL(&this, strConfig, Date);
 
-	public HRESULT GetCRL(BSTR strConfig, int32 Flags, BSTR* pstrCRL) mut => VT.[Friend]GetCRL(&this, strConfig, Flags, pstrCRL);
+	public HRESULT GetCRL(BSTR strConfig, int32 Flags, BSTR pstrCRL) mut => VT.[Friend]GetCRL(&this, strConfig, Flags, pstrCRL);
 
-	public HRESULT ImportCertificate(BSTR strConfig, BSTR strCertificate, CERT_IMPORT_FLAGS Flags, int32* pRequestId) mut => VT.[Friend]ImportCertificate(&this, strConfig, strCertificate, Flags, pRequestId);
+	public HRESULT ImportCertificate(BSTR strConfig, BSTR strCertificate, CERT_IMPORT_FLAGS Flags, int32 pRequestId) mut => VT.[Friend]ImportCertificate(&this, strConfig, strCertificate, Flags, pRequestId);
 }
 
 [CRepr]struct ICertAdmin2 : ICertAdmin
@@ -2994,40 +2994,40 @@ public static
 	[CRepr]public struct VTable : ICertAdmin.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, double Date, int32 CRLFlags) PublishCRLs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 PropId, int32 PropIndex, int32 PropType, int32 Flags, VARIANT* pvarPropertyValue) GetCAProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 PropId, int32 PropIndex, CERT_PROPERTY_TYPE PropType, VARIANT* pvarPropertyValue) SetCAProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 PropId, int32* pPropFlags) GetCAPropertyFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 PropId, BSTR* pstrDisplayName) GetCAPropertyDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 RequestId, int32 Flags, BSTR* pstrArchivedKey) GetArchivedKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, BSTR strNodePath, BSTR strEntryName, VARIANT* pvarEntry) GetConfigEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, BSTR strNodePath, BSTR strEntryName, VARIANT* pvarEntry) SetConfigEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 PropId, int32 PropIndex, int32 PropType, int32 Flags, VARIANT pvarPropertyValue) GetCAProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 PropId, int32 PropIndex, CERT_PROPERTY_TYPE PropType, VARIANT pvarPropertyValue) SetCAProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 PropId, int32 pPropFlags) GetCAPropertyFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 PropId, BSTR pstrDisplayName) GetCAPropertyDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 RequestId, int32 Flags, BSTR pstrArchivedKey) GetArchivedKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, BSTR strNodePath, BSTR strEntryName, VARIANT pvarEntry) GetConfigEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, BSTR strNodePath, BSTR strEntryName, VARIANT pvarEntry) SetConfigEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, int32 RequestId, BSTR strCertHash, CERT_IMPORT_FLAGS Flags, BSTR strKey) ImportKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, CERTADMIN_GET_ROLES_FLAGS* pRoles) GetMyRoles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, CERT_DELETE_ROW_FLAGS Flags, double Date, CVRC_TABLE Table, int32 RowId, int32* pcDeleted) DeleteRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, CERTADMIN_GET_ROLES_FLAGS pRoles) GetMyRoles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertAdmin2*/SelfOuter* self, BSTR strConfig, CERT_DELETE_ROW_FLAGS Flags, double Date, CVRC_TABLE Table, int32 RowId, int32 pcDeleted) DeleteRow;
 	}
 
 
 	public HRESULT PublishCRLs(BSTR strConfig, double Date, int32 CRLFlags) mut => VT.[Friend]PublishCRLs(&this, strConfig, Date, CRLFlags);
 
-	public HRESULT GetCAProperty(BSTR strConfig, int32 PropId, int32 PropIndex, int32 PropType, int32 Flags, VARIANT* pvarPropertyValue) mut => VT.[Friend]GetCAProperty(&this, strConfig, PropId, PropIndex, PropType, Flags, pvarPropertyValue);
+	public HRESULT GetCAProperty(BSTR strConfig, int32 PropId, int32 PropIndex, int32 PropType, int32 Flags, VARIANT pvarPropertyValue) mut => VT.[Friend]GetCAProperty(&this, strConfig, PropId, PropIndex, PropType, Flags, pvarPropertyValue);
 
-	public HRESULT SetCAProperty(BSTR strConfig, int32 PropId, int32 PropIndex, CERT_PROPERTY_TYPE PropType, VARIANT* pvarPropertyValue) mut => VT.[Friend]SetCAProperty(&this, strConfig, PropId, PropIndex, PropType, pvarPropertyValue);
+	public HRESULT SetCAProperty(BSTR strConfig, int32 PropId, int32 PropIndex, CERT_PROPERTY_TYPE PropType, VARIANT pvarPropertyValue) mut => VT.[Friend]SetCAProperty(&this, strConfig, PropId, PropIndex, PropType, pvarPropertyValue);
 
-	public HRESULT GetCAPropertyFlags(BSTR strConfig, int32 PropId, int32* pPropFlags) mut => VT.[Friend]GetCAPropertyFlags(&this, strConfig, PropId, pPropFlags);
+	public HRESULT GetCAPropertyFlags(BSTR strConfig, int32 PropId, int32 pPropFlags) mut => VT.[Friend]GetCAPropertyFlags(&this, strConfig, PropId, pPropFlags);
 
-	public HRESULT GetCAPropertyDisplayName(BSTR strConfig, int32 PropId, BSTR* pstrDisplayName) mut => VT.[Friend]GetCAPropertyDisplayName(&this, strConfig, PropId, pstrDisplayName);
+	public HRESULT GetCAPropertyDisplayName(BSTR strConfig, int32 PropId, BSTR pstrDisplayName) mut => VT.[Friend]GetCAPropertyDisplayName(&this, strConfig, PropId, pstrDisplayName);
 
-	public HRESULT GetArchivedKey(BSTR strConfig, int32 RequestId, int32 Flags, BSTR* pstrArchivedKey) mut => VT.[Friend]GetArchivedKey(&this, strConfig, RequestId, Flags, pstrArchivedKey);
+	public HRESULT GetArchivedKey(BSTR strConfig, int32 RequestId, int32 Flags, BSTR pstrArchivedKey) mut => VT.[Friend]GetArchivedKey(&this, strConfig, RequestId, Flags, pstrArchivedKey);
 
-	public HRESULT GetConfigEntry(BSTR strConfig, BSTR strNodePath, BSTR strEntryName, VARIANT* pvarEntry) mut => VT.[Friend]GetConfigEntry(&this, strConfig, strNodePath, strEntryName, pvarEntry);
+	public HRESULT GetConfigEntry(BSTR strConfig, BSTR strNodePath, BSTR strEntryName, VARIANT pvarEntry) mut => VT.[Friend]GetConfigEntry(&this, strConfig, strNodePath, strEntryName, pvarEntry);
 
-	public HRESULT SetConfigEntry(BSTR strConfig, BSTR strNodePath, BSTR strEntryName, VARIANT* pvarEntry) mut => VT.[Friend]SetConfigEntry(&this, strConfig, strNodePath, strEntryName, pvarEntry);
+	public HRESULT SetConfigEntry(BSTR strConfig, BSTR strNodePath, BSTR strEntryName, VARIANT pvarEntry) mut => VT.[Friend]SetConfigEntry(&this, strConfig, strNodePath, strEntryName, pvarEntry);
 
 	public HRESULT ImportKey(BSTR strConfig, int32 RequestId, BSTR strCertHash, CERT_IMPORT_FLAGS Flags, BSTR strKey) mut => VT.[Friend]ImportKey(&this, strConfig, RequestId, strCertHash, Flags, strKey);
 
-	public HRESULT GetMyRoles(BSTR strConfig, CERTADMIN_GET_ROLES_FLAGS* pRoles) mut => VT.[Friend]GetMyRoles(&this, strConfig, pRoles);
+	public HRESULT GetMyRoles(BSTR strConfig, CERTADMIN_GET_ROLES_FLAGS pRoles) mut => VT.[Friend]GetMyRoles(&this, strConfig, pRoles);
 
-	public HRESULT DeleteRow(BSTR strConfig, CERT_DELETE_ROW_FLAGS Flags, double Date, CVRC_TABLE Table, int32 RowId, int32* pcDeleted) mut => VT.[Friend]DeleteRow(&this, strConfig, Flags, Date, Table, RowId, pcDeleted);
+	public HRESULT DeleteRow(BSTR strConfig, CERT_DELETE_ROW_FLAGS Flags, double Date, CVRC_TABLE Table, int32 RowId, int32 pcDeleted) mut => VT.[Friend]DeleteRow(&this, strConfig, Flags, Date, Table, RowId, pcDeleted);
 }
 
 [CRepr]struct IOCSPProperty : IDispatch
@@ -3038,20 +3038,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPProperty*/SelfOuter* self, BSTR* pVal) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPProperty*/SelfOuter* self, VARIANT* pVal) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPProperty*/SelfOuter* self, BSTR pVal) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPProperty*/SelfOuter* self, VARIANT pVal) get_Value;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPProperty*/SelfOuter* self, VARIANT newVal) put_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPProperty*/SelfOuter* self, int16* pVal) get_Modified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPProperty*/SelfOuter* self, int16 pVal) get_Modified;
 	}
 
 
-	public HRESULT get_Name(BSTR* pVal) mut => VT.[Friend]get_Name(&this, pVal);
+	public HRESULT get_Name(BSTR pVal) mut => VT.[Friend]get_Name(&this, pVal);
 
-	public HRESULT get_Value(VARIANT* pVal) mut => VT.[Friend]get_Value(&this, pVal);
+	public HRESULT get_Value(VARIANT pVal) mut => VT.[Friend]get_Value(&this, pVal);
 
 	public HRESULT put_Value(VARIANT newVal) mut => VT.[Friend]put_Value(&this, newVal);
 
-	public HRESULT get_Modified(int16* pVal) mut => VT.[Friend]get_Modified(&this, pVal);
+	public HRESULT get_Modified(int16 pVal) mut => VT.[Friend]get_Modified(&this, pVal);
 }
 
 [CRepr]struct IOCSPPropertyCollection : IDispatch
@@ -3062,32 +3062,32 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, IUnknown** ppVal) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, int32 Index, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, BSTR bstrPropName, VARIANT* pVal) get_ItemByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, BSTR bstrPropName, VARIANT* pVarPropValue, IOCSPProperty** ppVal) CreateProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, IUnknown* ppVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, int32 Index, VARIANT pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, BSTR bstrPropName, VARIANT pVal) get_ItemByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, BSTR bstrPropName, VARIANT pVarPropValue, IOCSPProperty* ppVal) CreateProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, BSTR bstrPropName) DeleteProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, VARIANT* pVarProperties) InitializeFromProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, VARIANT* pVarProperties) GetAllProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, VARIANT pVarProperties) InitializeFromProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPPropertyCollection*/SelfOuter* self, VARIANT pVarProperties) GetAllProperties;
 	}
 
 
-	public HRESULT get__NewEnum(IUnknown** ppVal) mut => VT.[Friend]get__NewEnum(&this, ppVal);
+	public HRESULT get__NewEnum(IUnknown* ppVal) mut => VT.[Friend]get__NewEnum(&this, ppVal);
 
-	public HRESULT get_Item(int32 Index, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, Index, pVal);
+	public HRESULT get_Item(int32 Index, VARIANT pVal) mut => VT.[Friend]get_Item(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get_ItemByName(BSTR bstrPropName, VARIANT* pVal) mut => VT.[Friend]get_ItemByName(&this, bstrPropName, pVal);
+	public HRESULT get_ItemByName(BSTR bstrPropName, VARIANT pVal) mut => VT.[Friend]get_ItemByName(&this, bstrPropName, pVal);
 
-	public HRESULT CreateProperty(BSTR bstrPropName, VARIANT* pVarPropValue, IOCSPProperty** ppVal) mut => VT.[Friend]CreateProperty(&this, bstrPropName, pVarPropValue, ppVal);
+	public HRESULT CreateProperty(BSTR bstrPropName, VARIANT pVarPropValue, IOCSPProperty* ppVal) mut => VT.[Friend]CreateProperty(&this, bstrPropName, pVarPropValue, ppVal);
 
 	public HRESULT DeleteProperty(BSTR bstrPropName) mut => VT.[Friend]DeleteProperty(&this, bstrPropName);
 
-	public HRESULT InitializeFromProperties(VARIANT* pVarProperties) mut => VT.[Friend]InitializeFromProperties(&this, pVarProperties);
+	public HRESULT InitializeFromProperties(VARIANT pVarProperties) mut => VT.[Friend]InitializeFromProperties(&this, pVarProperties);
 
-	public HRESULT GetAllProperties(VARIANT* pVarProperties) mut => VT.[Friend]GetAllProperties(&this, pVarProperties);
+	public HRESULT GetAllProperties(VARIANT pVarProperties) mut => VT.[Friend]GetAllProperties(&this, pVarProperties);
 }
 
 [CRepr]struct IOCSPCAConfiguration : IDispatch
@@ -3098,78 +3098,78 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR* pVal) get_Identifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT* pVal) get_CACertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR* pVal) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR pVal) get_Identifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT pVal) get_CACertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR pVal) get_HashAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR newVal) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, uint32* pVal) get_SigningFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, uint32 pVal) get_SigningFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, uint32 newVal) put_SigningFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT* pVal) get_SigningCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT pVal) get_SigningCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT newVal) put_SigningCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, uint32* pVal) get_ReminderDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, uint32 pVal) get_ReminderDuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, uint32 newVal) put_ReminderDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, uint32* pVal) get_ErrorCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR* pVal) get_CSPName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, uint32* pVal) get_KeySpec;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR* pVal) get_ProviderCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, uint32 pVal) get_ErrorCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR pVal) get_CSPName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, uint32 pVal) get_KeySpec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR pVal) get_ProviderCLSID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR newVal) put_ProviderCLSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT* pVal) get_ProviderProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT pVal) get_ProviderProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT newVal) put_ProviderProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, int16* pVal) get_Modified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT* pVal) get_LocalRevocationInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, int16 pVal) get_Modified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT pVal) get_LocalRevocationInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, VARIANT newVal) put_LocalRevocationInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR* pVal) get_SigningCertificateTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR pVal) get_SigningCertificateTemplate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR newVal) put_SigningCertificateTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR* pVal) get_CAConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR pVal) get_CAConfig;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfiguration*/SelfOuter* self, BSTR newVal) put_CAConfig;
 	}
 
 
-	public HRESULT get_Identifier(BSTR* pVal) mut => VT.[Friend]get_Identifier(&this, pVal);
+	public HRESULT get_Identifier(BSTR pVal) mut => VT.[Friend]get_Identifier(&this, pVal);
 
-	public HRESULT get_CACertificate(VARIANT* pVal) mut => VT.[Friend]get_CACertificate(&this, pVal);
+	public HRESULT get_CACertificate(VARIANT pVal) mut => VT.[Friend]get_CACertificate(&this, pVal);
 
-	public HRESULT get_HashAlgorithm(BSTR* pVal) mut => VT.[Friend]get_HashAlgorithm(&this, pVal);
+	public HRESULT get_HashAlgorithm(BSTR pVal) mut => VT.[Friend]get_HashAlgorithm(&this, pVal);
 
 	public HRESULT put_HashAlgorithm(BSTR newVal) mut => VT.[Friend]put_HashAlgorithm(&this, newVal);
 
-	public HRESULT get_SigningFlags(uint32* pVal) mut => VT.[Friend]get_SigningFlags(&this, pVal);
+	public HRESULT get_SigningFlags(uint32 pVal) mut => VT.[Friend]get_SigningFlags(&this, pVal);
 
 	public HRESULT put_SigningFlags(uint32 newVal) mut => VT.[Friend]put_SigningFlags(&this, newVal);
 
-	public HRESULT get_SigningCertificate(VARIANT* pVal) mut => VT.[Friend]get_SigningCertificate(&this, pVal);
+	public HRESULT get_SigningCertificate(VARIANT pVal) mut => VT.[Friend]get_SigningCertificate(&this, pVal);
 
 	public HRESULT put_SigningCertificate(VARIANT newVal) mut => VT.[Friend]put_SigningCertificate(&this, newVal);
 
-	public HRESULT get_ReminderDuration(uint32* pVal) mut => VT.[Friend]get_ReminderDuration(&this, pVal);
+	public HRESULT get_ReminderDuration(uint32 pVal) mut => VT.[Friend]get_ReminderDuration(&this, pVal);
 
 	public HRESULT put_ReminderDuration(uint32 newVal) mut => VT.[Friend]put_ReminderDuration(&this, newVal);
 
-	public HRESULT get_ErrorCode(uint32* pVal) mut => VT.[Friend]get_ErrorCode(&this, pVal);
+	public HRESULT get_ErrorCode(uint32 pVal) mut => VT.[Friend]get_ErrorCode(&this, pVal);
 
-	public HRESULT get_CSPName(BSTR* pVal) mut => VT.[Friend]get_CSPName(&this, pVal);
+	public HRESULT get_CSPName(BSTR pVal) mut => VT.[Friend]get_CSPName(&this, pVal);
 
-	public HRESULT get_KeySpec(uint32* pVal) mut => VT.[Friend]get_KeySpec(&this, pVal);
+	public HRESULT get_KeySpec(uint32 pVal) mut => VT.[Friend]get_KeySpec(&this, pVal);
 
-	public HRESULT get_ProviderCLSID(BSTR* pVal) mut => VT.[Friend]get_ProviderCLSID(&this, pVal);
+	public HRESULT get_ProviderCLSID(BSTR pVal) mut => VT.[Friend]get_ProviderCLSID(&this, pVal);
 
 	public HRESULT put_ProviderCLSID(BSTR newVal) mut => VT.[Friend]put_ProviderCLSID(&this, newVal);
 
-	public HRESULT get_ProviderProperties(VARIANT* pVal) mut => VT.[Friend]get_ProviderProperties(&this, pVal);
+	public HRESULT get_ProviderProperties(VARIANT pVal) mut => VT.[Friend]get_ProviderProperties(&this, pVal);
 
 	public HRESULT put_ProviderProperties(VARIANT newVal) mut => VT.[Friend]put_ProviderProperties(&this, newVal);
 
-	public HRESULT get_Modified(int16* pVal) mut => VT.[Friend]get_Modified(&this, pVal);
+	public HRESULT get_Modified(int16 pVal) mut => VT.[Friend]get_Modified(&this, pVal);
 
-	public HRESULT get_LocalRevocationInformation(VARIANT* pVal) mut => VT.[Friend]get_LocalRevocationInformation(&this, pVal);
+	public HRESULT get_LocalRevocationInformation(VARIANT pVal) mut => VT.[Friend]get_LocalRevocationInformation(&this, pVal);
 
 	public HRESULT put_LocalRevocationInformation(VARIANT newVal) mut => VT.[Friend]put_LocalRevocationInformation(&this, newVal);
 
-	public HRESULT get_SigningCertificateTemplate(BSTR* pVal) mut => VT.[Friend]get_SigningCertificateTemplate(&this, pVal);
+	public HRESULT get_SigningCertificateTemplate(BSTR pVal) mut => VT.[Friend]get_SigningCertificateTemplate(&this, pVal);
 
 	public HRESULT put_SigningCertificateTemplate(BSTR newVal) mut => VT.[Friend]put_SigningCertificateTemplate(&this, newVal);
 
-	public HRESULT get_CAConfig(BSTR* pVal) mut => VT.[Friend]get_CAConfig(&this, pVal);
+	public HRESULT get_CAConfig(BSTR pVal) mut => VT.[Friend]get_CAConfig(&this, pVal);
 
 	public HRESULT put_CAConfig(BSTR newVal) mut => VT.[Friend]put_CAConfig(&this, newVal);
 }
@@ -3182,24 +3182,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, int32 Index, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, BSTR bstrIdentifier, VARIANT* pVal) get_ItemByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, BSTR bstrIdentifier, VARIANT varCACert, IOCSPCAConfiguration** ppVal) CreateCAConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, int32 Index, VARIANT pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, BSTR bstrIdentifier, VARIANT pVal) get_ItemByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, BSTR bstrIdentifier, VARIANT varCACert, IOCSPCAConfiguration* ppVal) CreateCAConfiguration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPCAConfigurationCollection*/SelfOuter* self, BSTR bstrIdentifier) DeleteCAConfiguration;
 	}
 
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
-	public HRESULT get_Item(int32 Index, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, Index, pVal);
+	public HRESULT get_Item(int32 Index, VARIANT pVal) mut => VT.[Friend]get_Item(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get_ItemByName(BSTR bstrIdentifier, VARIANT* pVal) mut => VT.[Friend]get_ItemByName(&this, bstrIdentifier, pVal);
+	public HRESULT get_ItemByName(BSTR bstrIdentifier, VARIANT pVal) mut => VT.[Friend]get_ItemByName(&this, bstrIdentifier, pVal);
 
-	public HRESULT CreateCAConfiguration(BSTR bstrIdentifier, VARIANT varCACert, IOCSPCAConfiguration** ppVal) mut => VT.[Friend]CreateCAConfiguration(&this, bstrIdentifier, varCACert, ppVal);
+	public HRESULT CreateCAConfiguration(BSTR bstrIdentifier, VARIANT varCACert, IOCSPCAConfiguration* ppVal) mut => VT.[Friend]CreateCAConfiguration(&this, bstrIdentifier, varCACert, ppVal);
 
 	public HRESULT DeleteCAConfiguration(BSTR bstrIdentifier) mut => VT.[Friend]DeleteCAConfiguration(&this, bstrIdentifier);
 }
@@ -3212,38 +3212,38 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, IOCSPPropertyCollection** ppVal) get_OCSPServiceProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, IOCSPCAConfigurationCollection** pVal) get_OCSPCAConfigurationCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, IOCSPPropertyCollection* ppVal) get_OCSPServiceProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, IOCSPCAConfigurationCollection* pVal) get_OCSPCAConfigurationCollection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, int16 bForce) GetConfiguration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, int16 bForce) SetConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, int32* pRoles) GetMyRoles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, int32 pRoles) GetMyRoles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName) Ping;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, BSTR bstrVal) SetSecurity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, BSTR* pVal) GetSecurity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, VARIANT* pCACertVar, VARIANT* pVal) GetSigningCertificates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, BSTR bstrCAId, VARIANT* pVal) GetHashAlgorithms;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, BSTR pVal) GetSecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, VARIANT pCACertVar, VARIANT pVal) GetSigningCertificates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOCSPAdmin*/SelfOuter* self, BSTR bstrServerName, BSTR bstrCAId, VARIANT pVal) GetHashAlgorithms;
 	}
 
 
-	public HRESULT get_OCSPServiceProperties(IOCSPPropertyCollection** ppVal) mut => VT.[Friend]get_OCSPServiceProperties(&this, ppVal);
+	public HRESULT get_OCSPServiceProperties(IOCSPPropertyCollection* ppVal) mut => VT.[Friend]get_OCSPServiceProperties(&this, ppVal);
 
-	public HRESULT get_OCSPCAConfigurationCollection(IOCSPCAConfigurationCollection** pVal) mut => VT.[Friend]get_OCSPCAConfigurationCollection(&this, pVal);
+	public HRESULT get_OCSPCAConfigurationCollection(IOCSPCAConfigurationCollection* pVal) mut => VT.[Friend]get_OCSPCAConfigurationCollection(&this, pVal);
 
 	public HRESULT GetConfiguration(BSTR bstrServerName, int16 bForce) mut => VT.[Friend]GetConfiguration(&this, bstrServerName, bForce);
 
 	public HRESULT SetConfiguration(BSTR bstrServerName, int16 bForce) mut => VT.[Friend]SetConfiguration(&this, bstrServerName, bForce);
 
-	public HRESULT GetMyRoles(BSTR bstrServerName, int32* pRoles) mut => VT.[Friend]GetMyRoles(&this, bstrServerName, pRoles);
+	public HRESULT GetMyRoles(BSTR bstrServerName, int32 pRoles) mut => VT.[Friend]GetMyRoles(&this, bstrServerName, pRoles);
 
 	public HRESULT Ping(BSTR bstrServerName) mut => VT.[Friend]Ping(&this, bstrServerName);
 
 	public HRESULT SetSecurity(BSTR bstrServerName, BSTR bstrVal) mut => VT.[Friend]SetSecurity(&this, bstrServerName, bstrVal);
 
-	public HRESULT GetSecurity(BSTR bstrServerName, BSTR* pVal) mut => VT.[Friend]GetSecurity(&this, bstrServerName, pVal);
+	public HRESULT GetSecurity(BSTR bstrServerName, BSTR pVal) mut => VT.[Friend]GetSecurity(&this, bstrServerName, pVal);
 
-	public HRESULT GetSigningCertificates(BSTR bstrServerName, VARIANT* pCACertVar, VARIANT* pVal) mut => VT.[Friend]GetSigningCertificates(&this, bstrServerName, pCACertVar, pVal);
+	public HRESULT GetSigningCertificates(BSTR bstrServerName, VARIANT pCACertVar, VARIANT pVal) mut => VT.[Friend]GetSigningCertificates(&this, bstrServerName, pCACertVar, pVal);
 
-	public HRESULT GetHashAlgorithms(BSTR bstrServerName, BSTR bstrCAId, VARIANT* pVal) mut => VT.[Friend]GetHashAlgorithms(&this, bstrServerName, bstrCAId, pVal);
+	public HRESULT GetHashAlgorithms(BSTR bstrServerName, BSTR bstrCAId, VARIANT pVal) mut => VT.[Friend]GetHashAlgorithms(&this, bstrServerName, bstrCAId, pVal);
 }
 
 [CRepr]struct ICertServerPolicy : IDispatch
@@ -3255,47 +3255,47 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, int32 Context) SetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strPropertyName, int32 PropertyType, VARIANT* pvarPropertyValue) GetRequestProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strAttributeName, BSTR* pstrAttributeValue) GetRequestAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strPropertyName, CERT_PROPERTY_TYPE PropertyType, VARIANT* pvarPropertyValue) GetCertificateProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strPropertyName, int32 PropertyType, VARIANT* pvarPropertyValue) SetCertificateProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strExtensionName, CERT_PROPERTY_TYPE Type, VARIANT* pvarValue) GetCertificateExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, int32* pExtFlags) GetCertificateExtensionFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strExtensionName, int32 Type, int32 ExtFlags, VARIANT* pvarValue) SetCertificateExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strPropertyName, int32 PropertyType, VARIANT pvarPropertyValue) GetRequestProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strAttributeName, BSTR pstrAttributeValue) GetRequestAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strPropertyName, CERT_PROPERTY_TYPE PropertyType, VARIANT pvarPropertyValue) GetCertificateProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strPropertyName, int32 PropertyType, VARIANT pvarPropertyValue) SetCertificateProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strExtensionName, CERT_PROPERTY_TYPE Type, VARIANT pvarValue) GetCertificateExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, int32 pExtFlags) GetCertificateExtensionFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR strExtensionName, int32 Type, int32 ExtFlags, VARIANT pvarValue) SetCertificateExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, int32 Flags) EnumerateExtensionsSetup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR* pstrExtensionName) EnumerateExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR pstrExtensionName) EnumerateExtensions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self) EnumerateExtensionsClose;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, int32 Flags) EnumerateAttributesSetup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR* pstrAttributeName) EnumerateAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self, BSTR pstrAttributeName) EnumerateAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerPolicy*/SelfOuter* self) EnumerateAttributesClose;
 	}
 
 
 	public HRESULT SetContext(int32 Context) mut => VT.[Friend]SetContext(&this, Context);
 
-	public HRESULT GetRequestProperty(BSTR strPropertyName, int32 PropertyType, VARIANT* pvarPropertyValue) mut => VT.[Friend]GetRequestProperty(&this, strPropertyName, PropertyType, pvarPropertyValue);
+	public HRESULT GetRequestProperty(BSTR strPropertyName, int32 PropertyType, VARIANT pvarPropertyValue) mut => VT.[Friend]GetRequestProperty(&this, strPropertyName, PropertyType, pvarPropertyValue);
 
-	public HRESULT GetRequestAttribute(BSTR strAttributeName, BSTR* pstrAttributeValue) mut => VT.[Friend]GetRequestAttribute(&this, strAttributeName, pstrAttributeValue);
+	public HRESULT GetRequestAttribute(BSTR strAttributeName, BSTR pstrAttributeValue) mut => VT.[Friend]GetRequestAttribute(&this, strAttributeName, pstrAttributeValue);
 
-	public HRESULT GetCertificateProperty(BSTR strPropertyName, CERT_PROPERTY_TYPE PropertyType, VARIANT* pvarPropertyValue) mut => VT.[Friend]GetCertificateProperty(&this, strPropertyName, PropertyType, pvarPropertyValue);
+	public HRESULT GetCertificateProperty(BSTR strPropertyName, CERT_PROPERTY_TYPE PropertyType, VARIANT pvarPropertyValue) mut => VT.[Friend]GetCertificateProperty(&this, strPropertyName, PropertyType, pvarPropertyValue);
 
-	public HRESULT SetCertificateProperty(BSTR strPropertyName, int32 PropertyType, VARIANT* pvarPropertyValue) mut => VT.[Friend]SetCertificateProperty(&this, strPropertyName, PropertyType, pvarPropertyValue);
+	public HRESULT SetCertificateProperty(BSTR strPropertyName, int32 PropertyType, VARIANT pvarPropertyValue) mut => VT.[Friend]SetCertificateProperty(&this, strPropertyName, PropertyType, pvarPropertyValue);
 
-	public HRESULT GetCertificateExtension(BSTR strExtensionName, CERT_PROPERTY_TYPE Type, VARIANT* pvarValue) mut => VT.[Friend]GetCertificateExtension(&this, strExtensionName, Type, pvarValue);
+	public HRESULT GetCertificateExtension(BSTR strExtensionName, CERT_PROPERTY_TYPE Type, VARIANT pvarValue) mut => VT.[Friend]GetCertificateExtension(&this, strExtensionName, Type, pvarValue);
 
-	public HRESULT GetCertificateExtensionFlags(int32* pExtFlags) mut => VT.[Friend]GetCertificateExtensionFlags(&this, pExtFlags);
+	public HRESULT GetCertificateExtensionFlags(int32 pExtFlags) mut => VT.[Friend]GetCertificateExtensionFlags(&this, pExtFlags);
 
-	public HRESULT SetCertificateExtension(BSTR strExtensionName, int32 Type, int32 ExtFlags, VARIANT* pvarValue) mut => VT.[Friend]SetCertificateExtension(&this, strExtensionName, Type, ExtFlags, pvarValue);
+	public HRESULT SetCertificateExtension(BSTR strExtensionName, int32 Type, int32 ExtFlags, VARIANT pvarValue) mut => VT.[Friend]SetCertificateExtension(&this, strExtensionName, Type, ExtFlags, pvarValue);
 
 	public HRESULT EnumerateExtensionsSetup(int32 Flags) mut => VT.[Friend]EnumerateExtensionsSetup(&this, Flags);
 
-	public HRESULT EnumerateExtensions(BSTR* pstrExtensionName) mut => VT.[Friend]EnumerateExtensions(&this, pstrExtensionName);
+	public HRESULT EnumerateExtensions(BSTR pstrExtensionName) mut => VT.[Friend]EnumerateExtensions(&this, pstrExtensionName);
 
 	public HRESULT EnumerateExtensionsClose() mut => VT.[Friend]EnumerateExtensionsClose(&this);
 
 	public HRESULT EnumerateAttributesSetup(int32 Flags) mut => VT.[Friend]EnumerateAttributesSetup(&this, Flags);
 
-	public HRESULT EnumerateAttributes(BSTR* pstrAttributeName) mut => VT.[Friend]EnumerateAttributes(&this, pstrAttributeName);
+	public HRESULT EnumerateAttributes(BSTR pstrAttributeName) mut => VT.[Friend]EnumerateAttributes(&this, pstrAttributeName);
 
 	public HRESULT EnumerateAttributesClose() mut => VT.[Friend]EnumerateAttributesClose(&this);
 }
@@ -3309,41 +3309,41 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, int32 Context) SetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR strPropertyName, int32 PropertyType, VARIANT* pvarPropertyValue) GetRequestProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR strAttributeName, BSTR* pstrAttributeValue) GetRequestAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR strPropertyName, int32 PropertyType, VARIANT* pvarPropertyValue) GetCertificateProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR strExtensionName, int32 Type, VARIANT* pvarValue) GetCertificateExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, int32* pExtFlags) GetCertificateExtensionFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR strPropertyName, int32 PropertyType, VARIANT pvarPropertyValue) GetRequestProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR strAttributeName, BSTR pstrAttributeValue) GetRequestAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR strPropertyName, int32 PropertyType, VARIANT pvarPropertyValue) GetCertificateProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR strExtensionName, int32 Type, VARIANT pvarValue) GetCertificateExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, int32 pExtFlags) GetCertificateExtensionFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, int32 Flags) EnumerateExtensionsSetup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR* pstrExtensionName) EnumerateExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR pstrExtensionName) EnumerateExtensions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self) EnumerateExtensionsClose;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, int32 Flags) EnumerateAttributesSetup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR* pstrAttributeName) EnumerateAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self, BSTR pstrAttributeName) EnumerateAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertServerExit*/SelfOuter* self) EnumerateAttributesClose;
 	}
 
 
 	public HRESULT SetContext(int32 Context) mut => VT.[Friend]SetContext(&this, Context);
 
-	public HRESULT GetRequestProperty(BSTR strPropertyName, int32 PropertyType, VARIANT* pvarPropertyValue) mut => VT.[Friend]GetRequestProperty(&this, strPropertyName, PropertyType, pvarPropertyValue);
+	public HRESULT GetRequestProperty(BSTR strPropertyName, int32 PropertyType, VARIANT pvarPropertyValue) mut => VT.[Friend]GetRequestProperty(&this, strPropertyName, PropertyType, pvarPropertyValue);
 
-	public HRESULT GetRequestAttribute(BSTR strAttributeName, BSTR* pstrAttributeValue) mut => VT.[Friend]GetRequestAttribute(&this, strAttributeName, pstrAttributeValue);
+	public HRESULT GetRequestAttribute(BSTR strAttributeName, BSTR pstrAttributeValue) mut => VT.[Friend]GetRequestAttribute(&this, strAttributeName, pstrAttributeValue);
 
-	public HRESULT GetCertificateProperty(BSTR strPropertyName, int32 PropertyType, VARIANT* pvarPropertyValue) mut => VT.[Friend]GetCertificateProperty(&this, strPropertyName, PropertyType, pvarPropertyValue);
+	public HRESULT GetCertificateProperty(BSTR strPropertyName, int32 PropertyType, VARIANT pvarPropertyValue) mut => VT.[Friend]GetCertificateProperty(&this, strPropertyName, PropertyType, pvarPropertyValue);
 
-	public HRESULT GetCertificateExtension(BSTR strExtensionName, int32 Type, VARIANT* pvarValue) mut => VT.[Friend]GetCertificateExtension(&this, strExtensionName, Type, pvarValue);
+	public HRESULT GetCertificateExtension(BSTR strExtensionName, int32 Type, VARIANT pvarValue) mut => VT.[Friend]GetCertificateExtension(&this, strExtensionName, Type, pvarValue);
 
-	public HRESULT GetCertificateExtensionFlags(int32* pExtFlags) mut => VT.[Friend]GetCertificateExtensionFlags(&this, pExtFlags);
+	public HRESULT GetCertificateExtensionFlags(int32 pExtFlags) mut => VT.[Friend]GetCertificateExtensionFlags(&this, pExtFlags);
 
 	public HRESULT EnumerateExtensionsSetup(int32 Flags) mut => VT.[Friend]EnumerateExtensionsSetup(&this, Flags);
 
-	public HRESULT EnumerateExtensions(BSTR* pstrExtensionName) mut => VT.[Friend]EnumerateExtensions(&this, pstrExtensionName);
+	public HRESULT EnumerateExtensions(BSTR pstrExtensionName) mut => VT.[Friend]EnumerateExtensions(&this, pstrExtensionName);
 
 	public HRESULT EnumerateExtensionsClose() mut => VT.[Friend]EnumerateExtensionsClose(&this);
 
 	public HRESULT EnumerateAttributesSetup(int32 Flags) mut => VT.[Friend]EnumerateAttributesSetup(&this, Flags);
 
-	public HRESULT EnumerateAttributes(BSTR* pstrAttributeName) mut => VT.[Friend]EnumerateAttributes(&this, pstrAttributeName);
+	public HRESULT EnumerateAttributes(BSTR pstrAttributeName) mut => VT.[Friend]EnumerateAttributes(&this, pstrAttributeName);
 
 	public HRESULT EnumerateAttributesClose() mut => VT.[Friend]EnumerateAttributesClose(&this);
 }
@@ -3356,11 +3356,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertGetConfig*/SelfOuter* self, CERT_GET_CONFIG_FLAGS Flags, BSTR* pstrOut) GetConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertGetConfig*/SelfOuter* self, CERT_GET_CONFIG_FLAGS Flags, BSTR pstrOut) GetConfig;
 	}
 
 
-	public HRESULT GetConfig(CERT_GET_CONFIG_FLAGS Flags, BSTR* pstrOut) mut => VT.[Friend]GetConfig(&this, Flags, pstrOut);
+	public HRESULT GetConfig(CERT_GET_CONFIG_FLAGS Flags, BSTR pstrOut) mut => VT.[Friend]GetConfig(&this, Flags, pstrOut);
 }
 
 [CRepr]struct ICertConfig : IDispatch
@@ -3371,20 +3371,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertConfig*/SelfOuter* self, int32 Index, int32* pCount) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertConfig*/SelfOuter* self, int32* pIndex) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertConfig*/SelfOuter* self, BSTR strFieldName, BSTR* pstrOut) GetField;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertConfig*/SelfOuter* self, int32 Flags, BSTR* pstrOut) GetConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertConfig*/SelfOuter* self, int32 Index, int32 pCount) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertConfig*/SelfOuter* self, int32 pIndex) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertConfig*/SelfOuter* self, BSTR strFieldName, BSTR pstrOut) GetField;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertConfig*/SelfOuter* self, int32 Flags, BSTR pstrOut) GetConfig;
 	}
 
 
-	public HRESULT Reset(int32 Index, int32* pCount) mut => VT.[Friend]Reset(&this, Index, pCount);
+	public HRESULT Reset(int32 Index, int32 pCount) mut => VT.[Friend]Reset(&this, Index, pCount);
 
-	public HRESULT Next(int32* pIndex) mut => VT.[Friend]Next(&this, pIndex);
+	public HRESULT Next(int32 pIndex) mut => VT.[Friend]Next(&this, pIndex);
 
-	public HRESULT GetField(BSTR strFieldName, BSTR* pstrOut) mut => VT.[Friend]GetField(&this, strFieldName, pstrOut);
+	public HRESULT GetField(BSTR strFieldName, BSTR pstrOut) mut => VT.[Friend]GetField(&this, strFieldName, pstrOut);
 
-	public HRESULT GetConfig(int32 Flags, BSTR* pstrOut) mut => VT.[Friend]GetConfig(&this, Flags, pstrOut);
+	public HRESULT GetConfig(int32 Flags, BSTR pstrOut) mut => VT.[Friend]GetConfig(&this, Flags, pstrOut);
 }
 
 [CRepr]struct ICertConfig2 : ICertConfig
@@ -3410,29 +3410,29 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32 Flags, BSTR strRequest, BSTR strAttributes, BSTR strConfig, int32* pDisposition) Submit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32 RequestId, BSTR strConfig, int32* pDisposition) RetrievePending;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32* pStatus) GetLastStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32* pRequestId) GetRequestId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, BSTR* pstrDispositionMessage) GetDispositionMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32 fExchangeCertificate, BSTR strConfig, int32 Flags, BSTR* pstrCertificate) GetCACertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32 Flags, BSTR* pstrCertificate) GetCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32 Flags, BSTR strRequest, BSTR strAttributes, BSTR strConfig, int32 pDisposition) Submit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32 RequestId, BSTR strConfig, int32 pDisposition) RetrievePending;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32 pStatus) GetLastStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32 pRequestId) GetRequestId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, BSTR pstrDispositionMessage) GetDispositionMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32 fExchangeCertificate, BSTR strConfig, int32 Flags, BSTR pstrCertificate) GetCACertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest*/SelfOuter* self, int32 Flags, BSTR pstrCertificate) GetCertificate;
 	}
 
 
-	public HRESULT Submit(int32 Flags, BSTR strRequest, BSTR strAttributes, BSTR strConfig, int32* pDisposition) mut => VT.[Friend]Submit(&this, Flags, strRequest, strAttributes, strConfig, pDisposition);
+	public HRESULT Submit(int32 Flags, BSTR strRequest, BSTR strAttributes, BSTR strConfig, int32 pDisposition) mut => VT.[Friend]Submit(&this, Flags, strRequest, strAttributes, strConfig, pDisposition);
 
-	public HRESULT RetrievePending(int32 RequestId, BSTR strConfig, int32* pDisposition) mut => VT.[Friend]RetrievePending(&this, RequestId, strConfig, pDisposition);
+	public HRESULT RetrievePending(int32 RequestId, BSTR strConfig, int32 pDisposition) mut => VT.[Friend]RetrievePending(&this, RequestId, strConfig, pDisposition);
 
-	public HRESULT GetLastStatus(int32* pStatus) mut => VT.[Friend]GetLastStatus(&this, pStatus);
+	public HRESULT GetLastStatus(int32 pStatus) mut => VT.[Friend]GetLastStatus(&this, pStatus);
 
-	public HRESULT GetRequestId(int32* pRequestId) mut => VT.[Friend]GetRequestId(&this, pRequestId);
+	public HRESULT GetRequestId(int32 pRequestId) mut => VT.[Friend]GetRequestId(&this, pRequestId);
 
-	public HRESULT GetDispositionMessage(BSTR* pstrDispositionMessage) mut => VT.[Friend]GetDispositionMessage(&this, pstrDispositionMessage);
+	public HRESULT GetDispositionMessage(BSTR pstrDispositionMessage) mut => VT.[Friend]GetDispositionMessage(&this, pstrDispositionMessage);
 
-	public HRESULT GetCACertificate(int32 fExchangeCertificate, BSTR strConfig, int32 Flags, BSTR* pstrCertificate) mut => VT.[Friend]GetCACertificate(&this, fExchangeCertificate, strConfig, Flags, pstrCertificate);
+	public HRESULT GetCACertificate(int32 fExchangeCertificate, BSTR strConfig, int32 Flags, BSTR pstrCertificate) mut => VT.[Friend]GetCACertificate(&this, fExchangeCertificate, strConfig, Flags, pstrCertificate);
 
-	public HRESULT GetCertificate(int32 Flags, BSTR* pstrCertificate) mut => VT.[Friend]GetCertificate(&this, Flags, pstrCertificate);
+	public HRESULT GetCertificate(int32 Flags, BSTR pstrCertificate) mut => VT.[Friend]GetCertificate(&this, Flags, pstrCertificate);
 }
 
 [CRepr]struct ICertRequest2 : ICertRequest
@@ -3443,26 +3443,26 @@ public static
 
 	[CRepr]public struct VTable : ICertRequest.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, BSTR strConfig, int32 RequestId, BSTR strSerialNumber, CR_DISP* pDisposition) GetIssuedCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, int32 hrMessage, int32 Flags, BSTR* pstrErrorMessageText) GetErrorMessageText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, BSTR strConfig, int32 PropId, int32 PropIndex, int32 PropType, int32 Flags, VARIANT* pvarPropertyValue) GetCAProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, BSTR strConfig, int32 PropId, int32* pPropFlags) GetCAPropertyFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, BSTR strConfig, int32 PropId, BSTR* pstrDisplayName) GetCAPropertyDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, FULL_RESPONSE_PROPERTY_ID PropId, int32 PropIndex, CERT_PROPERTY_TYPE PropType, CERT_REQUEST_OUT_TYPE Flags, VARIANT* pvarPropertyValue) GetFullResponseProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, BSTR strConfig, int32 RequestId, BSTR strSerialNumber, CR_DISP pDisposition) GetIssuedCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, int32 hrMessage, int32 Flags, BSTR pstrErrorMessageText) GetErrorMessageText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, BSTR strConfig, int32 PropId, int32 PropIndex, int32 PropType, int32 Flags, VARIANT pvarPropertyValue) GetCAProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, BSTR strConfig, int32 PropId, int32 pPropFlags) GetCAPropertyFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, BSTR strConfig, int32 PropId, BSTR pstrDisplayName) GetCAPropertyDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest2*/SelfOuter* self, FULL_RESPONSE_PROPERTY_ID PropId, int32 PropIndex, CERT_PROPERTY_TYPE PropType, CERT_REQUEST_OUT_TYPE Flags, VARIANT pvarPropertyValue) GetFullResponseProperty;
 	}
 
 
-	public HRESULT GetIssuedCertificate(BSTR strConfig, int32 RequestId, BSTR strSerialNumber, CR_DISP* pDisposition) mut => VT.[Friend]GetIssuedCertificate(&this, strConfig, RequestId, strSerialNumber, pDisposition);
+	public HRESULT GetIssuedCertificate(BSTR strConfig, int32 RequestId, BSTR strSerialNumber, CR_DISP pDisposition) mut => VT.[Friend]GetIssuedCertificate(&this, strConfig, RequestId, strSerialNumber, pDisposition);
 
-	public HRESULT GetErrorMessageText(int32 hrMessage, int32 Flags, BSTR* pstrErrorMessageText) mut => VT.[Friend]GetErrorMessageText(&this, hrMessage, Flags, pstrErrorMessageText);
+	public HRESULT GetErrorMessageText(int32 hrMessage, int32 Flags, BSTR pstrErrorMessageText) mut => VT.[Friend]GetErrorMessageText(&this, hrMessage, Flags, pstrErrorMessageText);
 
-	public HRESULT GetCAProperty(BSTR strConfig, int32 PropId, int32 PropIndex, int32 PropType, int32 Flags, VARIANT* pvarPropertyValue) mut => VT.[Friend]GetCAProperty(&this, strConfig, PropId, PropIndex, PropType, Flags, pvarPropertyValue);
+	public HRESULT GetCAProperty(BSTR strConfig, int32 PropId, int32 PropIndex, int32 PropType, int32 Flags, VARIANT pvarPropertyValue) mut => VT.[Friend]GetCAProperty(&this, strConfig, PropId, PropIndex, PropType, Flags, pvarPropertyValue);
 
-	public HRESULT GetCAPropertyFlags(BSTR strConfig, int32 PropId, int32* pPropFlags) mut => VT.[Friend]GetCAPropertyFlags(&this, strConfig, PropId, pPropFlags);
+	public HRESULT GetCAPropertyFlags(BSTR strConfig, int32 PropId, int32 pPropFlags) mut => VT.[Friend]GetCAPropertyFlags(&this, strConfig, PropId, pPropFlags);
 
-	public HRESULT GetCAPropertyDisplayName(BSTR strConfig, int32 PropId, BSTR* pstrDisplayName) mut => VT.[Friend]GetCAPropertyDisplayName(&this, strConfig, PropId, pstrDisplayName);
+	public HRESULT GetCAPropertyDisplayName(BSTR strConfig, int32 PropId, BSTR pstrDisplayName) mut => VT.[Friend]GetCAPropertyDisplayName(&this, strConfig, PropId, pstrDisplayName);
 
-	public HRESULT GetFullResponseProperty(FULL_RESPONSE_PROPERTY_ID PropId, int32 PropIndex, CERT_PROPERTY_TYPE PropType, CERT_REQUEST_OUT_TYPE Flags, VARIANT* pvarPropertyValue) mut => VT.[Friend]GetFullResponseProperty(&this, PropId, PropIndex, PropType, Flags, pvarPropertyValue);
+	public HRESULT GetFullResponseProperty(FULL_RESPONSE_PROPERTY_ID PropId, int32 PropIndex, CERT_PROPERTY_TYPE PropType, CERT_REQUEST_OUT_TYPE Flags, VARIANT pvarPropertyValue) mut => VT.[Friend]GetFullResponseProperty(&this, PropId, PropIndex, PropType, Flags, pvarPropertyValue);
 }
 
 [CRepr]struct ICertRequest3 : ICertRequest2
@@ -3474,19 +3474,19 @@ public static
 	[CRepr]public struct VTable : ICertRequest2.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest3*/SelfOuter* self, int32 hWnd, X509EnrollmentAuthFlags AuthType, BSTR strCredential, BSTR strPassword) SetCredential;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest3*/SelfOuter* self, BSTR* pstrRequestId) GetRequestIdString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest3*/SelfOuter* self, BSTR strConfig, BSTR strRequestId, BSTR strSerialNumber, CR_DISP* pDisposition) GetIssuedCertificate2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest3*/SelfOuter* self, int16* pValue) GetRefreshPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest3*/SelfOuter* self, BSTR pstrRequestId) GetRequestIdString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest3*/SelfOuter* self, BSTR strConfig, BSTR strRequestId, BSTR strSerialNumber, CR_DISP pDisposition) GetIssuedCertificate2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequest3*/SelfOuter* self, int16 pValue) GetRefreshPolicy;
 	}
 
 
 	public HRESULT SetCredential(int32 hWnd, X509EnrollmentAuthFlags AuthType, BSTR strCredential, BSTR strPassword) mut => VT.[Friend]SetCredential(&this, hWnd, AuthType, strCredential, strPassword);
 
-	public HRESULT GetRequestIdString(BSTR* pstrRequestId) mut => VT.[Friend]GetRequestIdString(&this, pstrRequestId);
+	public HRESULT GetRequestIdString(BSTR pstrRequestId) mut => VT.[Friend]GetRequestIdString(&this, pstrRequestId);
 
-	public HRESULT GetIssuedCertificate2(BSTR strConfig, BSTR strRequestId, BSTR strSerialNumber, CR_DISP* pDisposition) mut => VT.[Friend]GetIssuedCertificate2(&this, strConfig, strRequestId, strSerialNumber, pDisposition);
+	public HRESULT GetIssuedCertificate2(BSTR strConfig, BSTR strRequestId, BSTR strSerialNumber, CR_DISP pDisposition) mut => VT.[Friend]GetIssuedCertificate2(&this, strConfig, strRequestId, strSerialNumber, pDisposition);
 
-	public HRESULT GetRefreshPolicy(int16* pValue) mut => VT.[Friend]GetRefreshPolicy(&this, pValue);
+	public HRESULT GetRefreshPolicy(int16 pValue) mut => VT.[Friend]GetRefreshPolicy(&this, pValue);
 }
 
 [CRepr]struct ICertManageModule : IDispatch
@@ -3497,15 +3497,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertManageModule*/SelfOuter* self, BSTR strConfig, BSTR strStorageLocation, BSTR strPropertyName, int32 Flags, VARIANT* pvarProperty) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertManageModule*/SelfOuter* self, BSTR strConfig, BSTR strStorageLocation, BSTR strPropertyName, int32 Flags, VARIANT* pvarProperty) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertManageModule*/SelfOuter* self, BSTR strConfig, BSTR strStorageLocation, BSTR strPropertyName, int32 Flags, VARIANT pvarProperty) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertManageModule*/SelfOuter* self, BSTR strConfig, BSTR strStorageLocation, BSTR strPropertyName, int32 Flags, VARIANT pvarProperty) SetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertManageModule*/SelfOuter* self, BSTR strConfig, BSTR strStorageLocation, int32 Flags) Configure;
 	}
 
 
-	public HRESULT GetProperty(BSTR strConfig, BSTR strStorageLocation, BSTR strPropertyName, int32 Flags, VARIANT* pvarProperty) mut => VT.[Friend]GetProperty(&this, strConfig, strStorageLocation, strPropertyName, Flags, pvarProperty);
+	public HRESULT GetProperty(BSTR strConfig, BSTR strStorageLocation, BSTR strPropertyName, int32 Flags, VARIANT pvarProperty) mut => VT.[Friend]GetProperty(&this, strConfig, strStorageLocation, strPropertyName, Flags, pvarProperty);
 
-	public HRESULT SetProperty(BSTR strConfig, BSTR strStorageLocation, BSTR strPropertyName, int32 Flags, VARIANT* pvarProperty) mut => VT.[Friend]SetProperty(&this, strConfig, strStorageLocation, strPropertyName, Flags, pvarProperty);
+	public HRESULT SetProperty(BSTR strConfig, BSTR strStorageLocation, BSTR strPropertyName, int32 Flags, VARIANT pvarProperty) mut => VT.[Friend]SetProperty(&this, strConfig, strStorageLocation, strPropertyName, Flags, pvarProperty);
 
 	public HRESULT Configure(BSTR strConfig, BSTR strStorageLocation, int32 Flags) mut => VT.[Friend]Configure(&this, strConfig, strStorageLocation, Flags);
 }
@@ -3519,17 +3519,17 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPolicy*/SelfOuter* self, BSTR strConfig) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPolicy*/SelfOuter* self, BSTR strConfig, int32 Context, int32 bNewRequest, int32 Flags, int32* pDisposition) VerifyRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPolicy*/SelfOuter* self, BSTR* pstrDescription) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPolicy*/SelfOuter* self, BSTR strConfig, int32 Context, int32 bNewRequest, int32 Flags, int32 pDisposition) VerifyRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPolicy*/SelfOuter* self, BSTR pstrDescription) GetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPolicy*/SelfOuter* self) ShutDown;
 	}
 
 
 	public HRESULT Initialize(BSTR strConfig) mut => VT.[Friend]Initialize(&this, strConfig);
 
-	public HRESULT VerifyRequest(BSTR strConfig, int32 Context, int32 bNewRequest, int32 Flags, int32* pDisposition) mut => VT.[Friend]VerifyRequest(&this, strConfig, Context, bNewRequest, Flags, pDisposition);
+	public HRESULT VerifyRequest(BSTR strConfig, int32 Context, int32 bNewRequest, int32 Flags, int32 pDisposition) mut => VT.[Friend]VerifyRequest(&this, strConfig, Context, bNewRequest, Flags, pDisposition);
 
-	public HRESULT GetDescription(BSTR* pstrDescription) mut => VT.[Friend]GetDescription(&this, pstrDescription);
+	public HRESULT GetDescription(BSTR pstrDescription) mut => VT.[Friend]GetDescription(&this, pstrDescription);
 
 	public HRESULT ShutDown() mut => VT.[Friend]ShutDown(&this);
 }
@@ -3542,11 +3542,11 @@ public static
 
 	[CRepr]public struct VTable : ICertPolicy.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPolicy2*/SelfOuter* self, ICertManageModule** ppManageModule) GetManageModule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPolicy2*/SelfOuter* self, ICertManageModule* ppManageModule) GetManageModule;
 	}
 
 
-	public HRESULT GetManageModule(ICertManageModule** ppManageModule) mut => VT.[Friend]GetManageModule(&this, ppManageModule);
+	public HRESULT GetManageModule(ICertManageModule* ppManageModule) mut => VT.[Friend]GetManageModule(&this, ppManageModule);
 }
 
 [CRepr]struct INDESPolicy : IUnknown
@@ -3559,9 +3559,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self) Uninitialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self, PWSTR pwszTemplate, PWSTR pwszParams, PWSTR* ppwszResponse) GenerateChallenge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self, CERTTRANSBLOB* pctbRequest, CERTTRANSBLOB* pctbSigningCertEncoded, PWSTR pwszTemplate, PWSTR pwszTransactionId, BOOL* pfVerified) VerifyRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self, PWSTR pwszChallenge, PWSTR pwszTransactionId, X509SCEPDisposition disposition, int32 lastHResult, CERTTRANSBLOB* pctbIssuedCertEncoded) Notify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self, PWSTR pwszTemplate, PWSTR pwszParams, PWSTR ppwszResponse) GenerateChallenge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self, CERTTRANSBLOB pctbRequest, CERTTRANSBLOB pctbSigningCertEncoded, PWSTR pwszTemplate, PWSTR pwszTransactionId, BOOL pfVerified) VerifyRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self, PWSTR pwszChallenge, PWSTR pwszTransactionId, X509SCEPDisposition disposition, int32 lastHResult, CERTTRANSBLOB pctbIssuedCertEncoded) Notify;
 	}
 
 
@@ -3569,11 +3569,11 @@ public static
 
 	public HRESULT Uninitialize() mut => VT.[Friend]Uninitialize(&this);
 
-	public HRESULT GenerateChallenge(PWSTR pwszTemplate, PWSTR pwszParams, PWSTR* ppwszResponse) mut => VT.[Friend]GenerateChallenge(&this, pwszTemplate, pwszParams, ppwszResponse);
+	public HRESULT GenerateChallenge(PWSTR pwszTemplate, PWSTR pwszParams, PWSTR ppwszResponse) mut => VT.[Friend]GenerateChallenge(&this, pwszTemplate, pwszParams, ppwszResponse);
 
-	public HRESULT VerifyRequest(CERTTRANSBLOB* pctbRequest, CERTTRANSBLOB* pctbSigningCertEncoded, PWSTR pwszTemplate, PWSTR pwszTransactionId, BOOL* pfVerified) mut => VT.[Friend]VerifyRequest(&this, pctbRequest, pctbSigningCertEncoded, pwszTemplate, pwszTransactionId, pfVerified);
+	public HRESULT VerifyRequest(CERTTRANSBLOB pctbRequest, CERTTRANSBLOB pctbSigningCertEncoded, PWSTR pwszTemplate, PWSTR pwszTransactionId, BOOL pfVerified) mut => VT.[Friend]VerifyRequest(&this, pctbRequest, pctbSigningCertEncoded, pwszTemplate, pwszTransactionId, pfVerified);
 
-	public HRESULT Notify(PWSTR pwszChallenge, PWSTR pwszTransactionId, X509SCEPDisposition disposition, int32 lastHResult, CERTTRANSBLOB* pctbIssuedCertEncoded) mut => VT.[Friend]Notify(&this, pwszChallenge, pwszTransactionId, disposition, lastHResult, pctbIssuedCertEncoded);
+	public HRESULT Notify(PWSTR pwszChallenge, PWSTR pwszTransactionId, X509SCEPDisposition disposition, int32 lastHResult, CERTTRANSBLOB pctbIssuedCertEncoded) mut => VT.[Friend]Notify(&this, pwszChallenge, pwszTransactionId, disposition, lastHResult, pctbIssuedCertEncoded);
 }
 
 [CRepr]struct IObjectId : IDispatch
@@ -3587,11 +3587,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, CERTENROLL_OBJECTID Name) InitializeFromName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, BSTR strValue) InitializeFromValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, ObjectIdGroupId GroupId, ObjectIdPublicKeyFlags KeyFlags, AlgorithmFlags AlgFlags, BSTR strAlgorithmName) InitializeFromAlgorithmName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, CERTENROLL_OBJECTID* pValue) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, BSTR* pValue) get_FriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, CERTENROLL_OBJECTID pValue) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, BSTR pValue) get_FriendlyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, BSTR Value) put_FriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, BSTR* pValue) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, ObjectIdGroupId GroupId, ObjectIdPublicKeyFlags KeyFlags, BSTR* pstrAlgorithmName) GetAlgorithmName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, BSTR pValue) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectId*/SelfOuter* self, ObjectIdGroupId GroupId, ObjectIdPublicKeyFlags KeyFlags, BSTR pstrAlgorithmName) GetAlgorithmName;
 	}
 
 
@@ -3601,15 +3601,15 @@ public static
 
 	public HRESULT InitializeFromAlgorithmName(ObjectIdGroupId GroupId, ObjectIdPublicKeyFlags KeyFlags, AlgorithmFlags AlgFlags, BSTR strAlgorithmName) mut => VT.[Friend]InitializeFromAlgorithmName(&this, GroupId, KeyFlags, AlgFlags, strAlgorithmName);
 
-	public HRESULT get_Name(CERTENROLL_OBJECTID* pValue) mut => VT.[Friend]get_Name(&this, pValue);
+	public HRESULT get_Name(CERTENROLL_OBJECTID pValue) mut => VT.[Friend]get_Name(&this, pValue);
 
-	public HRESULT get_FriendlyName(BSTR* pValue) mut => VT.[Friend]get_FriendlyName(&this, pValue);
+	public HRESULT get_FriendlyName(BSTR pValue) mut => VT.[Friend]get_FriendlyName(&this, pValue);
 
 	public HRESULT put_FriendlyName(BSTR Value) mut => VT.[Friend]put_FriendlyName(&this, Value);
 
-	public HRESULT get_Value(BSTR* pValue) mut => VT.[Friend]get_Value(&this, pValue);
+	public HRESULT get_Value(BSTR pValue) mut => VT.[Friend]get_Value(&this, pValue);
 
-	public HRESULT GetAlgorithmName(ObjectIdGroupId GroupId, ObjectIdPublicKeyFlags KeyFlags, BSTR* pstrAlgorithmName) mut => VT.[Friend]GetAlgorithmName(&this, GroupId, KeyFlags, pstrAlgorithmName);
+	public HRESULT GetAlgorithmName(ObjectIdGroupId GroupId, ObjectIdPublicKeyFlags KeyFlags, BSTR pstrAlgorithmName) mut => VT.[Friend]GetAlgorithmName(&this, GroupId, KeyFlags, pstrAlgorithmName);
 }
 
 [CRepr]struct IObjectIds : IDispatch
@@ -3620,9 +3620,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectIds*/SelfOuter* self, int32 Index, IObjectId** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectIds*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectIds*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectIds*/SelfOuter* self, int32 Index, IObjectId* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectIds*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectIds*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectIds*/SelfOuter* self, IObjectId* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectIds*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectIds*/SelfOuter* self) Clear;
@@ -3630,11 +3630,11 @@ public static
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, IObjectId** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, IObjectId* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(IObjectId* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -3653,17 +3653,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBinaryConverter*/SelfOuter* self, BSTR strEncodedIn, EncodingType EncodingIn, EncodingType Encoding, BSTR* pstrEncoded) StringToString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBinaryConverter*/SelfOuter* self, VARIANT* pvarByteArray, EncodingType Encoding, BSTR* pstrEncoded) VariantByteArrayToString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBinaryConverter*/SelfOuter* self, BSTR strEncoded, EncodingType Encoding, VARIANT* pvarByteArray) StringToVariantByteArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBinaryConverter*/SelfOuter* self, BSTR strEncodedIn, EncodingType EncodingIn, EncodingType Encoding, BSTR pstrEncoded) StringToString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBinaryConverter*/SelfOuter* self, VARIANT pvarByteArray, EncodingType Encoding, BSTR pstrEncoded) VariantByteArrayToString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBinaryConverter*/SelfOuter* self, BSTR strEncoded, EncodingType Encoding, VARIANT pvarByteArray) StringToVariantByteArray;
 	}
 
 
-	public HRESULT StringToString(BSTR strEncodedIn, EncodingType EncodingIn, EncodingType Encoding, BSTR* pstrEncoded) mut => VT.[Friend]StringToString(&this, strEncodedIn, EncodingIn, Encoding, pstrEncoded);
+	public HRESULT StringToString(BSTR strEncodedIn, EncodingType EncodingIn, EncodingType Encoding, BSTR pstrEncoded) mut => VT.[Friend]StringToString(&this, strEncodedIn, EncodingIn, Encoding, pstrEncoded);
 
-	public HRESULT VariantByteArrayToString(VARIANT* pvarByteArray, EncodingType Encoding, BSTR* pstrEncoded) mut => VT.[Friend]VariantByteArrayToString(&this, pvarByteArray, Encoding, pstrEncoded);
+	public HRESULT VariantByteArrayToString(VARIANT pvarByteArray, EncodingType Encoding, BSTR pstrEncoded) mut => VT.[Friend]VariantByteArrayToString(&this, pvarByteArray, Encoding, pstrEncoded);
 
-	public HRESULT StringToVariantByteArray(BSTR strEncoded, EncodingType Encoding, VARIANT* pvarByteArray) mut => VT.[Friend]StringToVariantByteArray(&this, strEncoded, Encoding, pvarByteArray);
+	public HRESULT StringToVariantByteArray(BSTR strEncoded, EncodingType Encoding, VARIANT pvarByteArray) mut => VT.[Friend]StringToVariantByteArray(&this, strEncoded, Encoding, pvarByteArray);
 }
 
 [CRepr]struct IBinaryConverter2 : IBinaryConverter
@@ -3674,14 +3674,14 @@ public static
 
 	[CRepr]public struct VTable : IBinaryConverter.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBinaryConverter2*/SelfOuter* self, VARIANT* pvarStringArray, VARIANT* pvarVariantArray) StringArrayToVariantArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBinaryConverter2*/SelfOuter* self, VARIANT* pvarVariantArray, VARIANT* pvarStringArray) VariantArrayToStringArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBinaryConverter2*/SelfOuter* self, VARIANT pvarStringArray, VARIANT pvarVariantArray) StringArrayToVariantArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBinaryConverter2*/SelfOuter* self, VARIANT pvarVariantArray, VARIANT pvarStringArray) VariantArrayToStringArray;
 	}
 
 
-	public HRESULT StringArrayToVariantArray(VARIANT* pvarStringArray, VARIANT* pvarVariantArray) mut => VT.[Friend]StringArrayToVariantArray(&this, pvarStringArray, pvarVariantArray);
+	public HRESULT StringArrayToVariantArray(VARIANT pvarStringArray, VARIANT pvarVariantArray) mut => VT.[Friend]StringArrayToVariantArray(&this, pvarStringArray, pvarVariantArray);
 
-	public HRESULT VariantArrayToStringArray(VARIANT* pvarVariantArray, VARIANT* pvarStringArray) mut => VT.[Friend]VariantArrayToStringArray(&this, pvarVariantArray, pvarStringArray);
+	public HRESULT VariantArrayToStringArray(VARIANT pvarVariantArray, VARIANT pvarStringArray) mut => VT.[Friend]VariantArrayToStringArray(&this, pvarVariantArray, pvarStringArray);
 }
 
 [CRepr]struct IX500DistinguishedName : IDispatch
@@ -3694,8 +3694,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX500DistinguishedName*/SelfOuter* self, BSTR strEncodedName, EncodingType Encoding, X500NameFlags NameFlags) Decode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX500DistinguishedName*/SelfOuter* self, BSTR strName, X500NameFlags NameFlags) Encode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX500DistinguishedName*/SelfOuter* self, BSTR* pValue) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX500DistinguishedName*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_EncodedName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX500DistinguishedName*/SelfOuter* self, BSTR pValue) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX500DistinguishedName*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_EncodedName;
 	}
 
 
@@ -3703,9 +3703,9 @@ public static
 
 	public HRESULT Encode(BSTR strName, X500NameFlags NameFlags) mut => VT.[Friend]Encode(&this, strName, NameFlags);
 
-	public HRESULT get_Name(BSTR* pValue) mut => VT.[Friend]get_Name(&this, pValue);
+	public HRESULT get_Name(BSTR pValue) mut => VT.[Friend]get_Name(&this, pValue);
 
-	public HRESULT get_EncodedName(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_EncodedName(&this, Encoding, pValue);
+	public HRESULT get_EncodedName(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_EncodedName(&this, Encoding, pValue);
 }
 
 [CRepr]struct IX509EnrollmentStatus : IDispatch
@@ -3717,43 +3717,43 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, BSTR strText) AppendText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, BSTR* pValue) get_Text;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, BSTR pValue) get_Text;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, BSTR Value) put_Text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, EnrollmentSelectionStatus* pValue) get_Selected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, EnrollmentSelectionStatus pValue) get_Selected;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, EnrollmentSelectionStatus Value) put_Selected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, EnrollmentDisplayStatus* pValue) get_Display;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, EnrollmentDisplayStatus pValue) get_Display;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, EnrollmentDisplayStatus Value) put_Display;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, EnrollmentEnrollStatus* pValue) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, EnrollmentEnrollStatus pValue) get_Status;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, EnrollmentEnrollStatus Value) put_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, HRESULT* pValue) get_Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, HRESULT pValue) get_Error;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, HRESULT Value) put_Error;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, BSTR* pValue) get_ErrorText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentStatus*/SelfOuter* self, BSTR pValue) get_ErrorText;
 	}
 
 
 	public HRESULT AppendText(BSTR strText) mut => VT.[Friend]AppendText(&this, strText);
 
-	public HRESULT get_Text(BSTR* pValue) mut => VT.[Friend]get_Text(&this, pValue);
+	public HRESULT get_Text(BSTR pValue) mut => VT.[Friend]get_Text(&this, pValue);
 
 	public HRESULT put_Text(BSTR Value) mut => VT.[Friend]put_Text(&this, Value);
 
-	public HRESULT get_Selected(EnrollmentSelectionStatus* pValue) mut => VT.[Friend]get_Selected(&this, pValue);
+	public HRESULT get_Selected(EnrollmentSelectionStatus pValue) mut => VT.[Friend]get_Selected(&this, pValue);
 
 	public HRESULT put_Selected(EnrollmentSelectionStatus Value) mut => VT.[Friend]put_Selected(&this, Value);
 
-	public HRESULT get_Display(EnrollmentDisplayStatus* pValue) mut => VT.[Friend]get_Display(&this, pValue);
+	public HRESULT get_Display(EnrollmentDisplayStatus pValue) mut => VT.[Friend]get_Display(&this, pValue);
 
 	public HRESULT put_Display(EnrollmentDisplayStatus Value) mut => VT.[Friend]put_Display(&this, Value);
 
-	public HRESULT get_Status(EnrollmentEnrollStatus* pValue) mut => VT.[Friend]get_Status(&this, pValue);
+	public HRESULT get_Status(EnrollmentEnrollStatus pValue) mut => VT.[Friend]get_Status(&this, pValue);
 
 	public HRESULT put_Status(EnrollmentEnrollStatus Value) mut => VT.[Friend]put_Status(&this, Value);
 
-	public HRESULT get_Error(HRESULT* pValue) mut => VT.[Friend]get_Error(&this, pValue);
+	public HRESULT get_Error(HRESULT pValue) mut => VT.[Friend]get_Error(&this, pValue);
 
 	public HRESULT put_Error(HRESULT Value) mut => VT.[Friend]put_Error(&this, Value);
 
-	public HRESULT get_ErrorText(BSTR* pValue) mut => VT.[Friend]get_ErrorText(&this, pValue);
+	public HRESULT get_ErrorText(BSTR pValue) mut => VT.[Friend]get_ErrorText(&this, pValue);
 }
 
 [CRepr]struct ICspAlgorithm : IDispatch
@@ -3764,38 +3764,38 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int32 Length, AlgorithmFlags AlgFlags, IObjectId** ppValue) GetAlgorithmOid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int32* pValue) get_DefaultLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int32* pValue) get_IncrementLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, BSTR* pValue) get_LongName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int16* pValue) get_Valid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int32* pValue) get_MaxLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int32* pValue) get_MinLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, BSTR* pValue) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, AlgorithmType* pValue) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, AlgorithmOperationFlags* pValue) get_Operations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int32 Length, AlgorithmFlags AlgFlags, IObjectId* ppValue) GetAlgorithmOid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int32 pValue) get_DefaultLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int32 pValue) get_IncrementLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, BSTR pValue) get_LongName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int16 pValue) get_Valid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int32 pValue) get_MaxLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, int32 pValue) get_MinLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, BSTR pValue) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, AlgorithmType pValue) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithm*/SelfOuter* self, AlgorithmOperationFlags pValue) get_Operations;
 	}
 
 
-	public HRESULT GetAlgorithmOid(int32 Length, AlgorithmFlags AlgFlags, IObjectId** ppValue) mut => VT.[Friend]GetAlgorithmOid(&this, Length, AlgFlags, ppValue);
+	public HRESULT GetAlgorithmOid(int32 Length, AlgorithmFlags AlgFlags, IObjectId* ppValue) mut => VT.[Friend]GetAlgorithmOid(&this, Length, AlgFlags, ppValue);
 
-	public HRESULT get_DefaultLength(int32* pValue) mut => VT.[Friend]get_DefaultLength(&this, pValue);
+	public HRESULT get_DefaultLength(int32 pValue) mut => VT.[Friend]get_DefaultLength(&this, pValue);
 
-	public HRESULT get_IncrementLength(int32* pValue) mut => VT.[Friend]get_IncrementLength(&this, pValue);
+	public HRESULT get_IncrementLength(int32 pValue) mut => VT.[Friend]get_IncrementLength(&this, pValue);
 
-	public HRESULT get_LongName(BSTR* pValue) mut => VT.[Friend]get_LongName(&this, pValue);
+	public HRESULT get_LongName(BSTR pValue) mut => VT.[Friend]get_LongName(&this, pValue);
 
-	public HRESULT get_Valid(int16* pValue) mut => VT.[Friend]get_Valid(&this, pValue);
+	public HRESULT get_Valid(int16 pValue) mut => VT.[Friend]get_Valid(&this, pValue);
 
-	public HRESULT get_MaxLength(int32* pValue) mut => VT.[Friend]get_MaxLength(&this, pValue);
+	public HRESULT get_MaxLength(int32 pValue) mut => VT.[Friend]get_MaxLength(&this, pValue);
 
-	public HRESULT get_MinLength(int32* pValue) mut => VT.[Friend]get_MinLength(&this, pValue);
+	public HRESULT get_MinLength(int32 pValue) mut => VT.[Friend]get_MinLength(&this, pValue);
 
-	public HRESULT get_Name(BSTR* pValue) mut => VT.[Friend]get_Name(&this, pValue);
+	public HRESULT get_Name(BSTR pValue) mut => VT.[Friend]get_Name(&this, pValue);
 
-	public HRESULT get_Type(AlgorithmType* pValue) mut => VT.[Friend]get_Type(&this, pValue);
+	public HRESULT get_Type(AlgorithmType pValue) mut => VT.[Friend]get_Type(&this, pValue);
 
-	public HRESULT get_Operations(AlgorithmOperationFlags* pValue) mut => VT.[Friend]get_Operations(&this, pValue);
+	public HRESULT get_Operations(AlgorithmOperationFlags pValue) mut => VT.[Friend]get_Operations(&this, pValue);
 }
 
 [CRepr]struct ICspAlgorithms : IDispatch
@@ -3806,22 +3806,22 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, int32 Index, ICspAlgorithm** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, int32 Index, ICspAlgorithm* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, ICspAlgorithm* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, BSTR strName, ICspAlgorithm** ppValue) get_ItemByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, IObjectId* pObjectId, int32* pIndex) get_IndexByObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, BSTR strName, ICspAlgorithm* ppValue) get_ItemByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspAlgorithms*/SelfOuter* self, IObjectId* pObjectId, int32 pIndex) get_IndexByObjectId;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, ICspAlgorithm** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, ICspAlgorithm* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(ICspAlgorithm* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -3829,9 +3829,9 @@ public static
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
-	public HRESULT get_ItemByName(BSTR strName, ICspAlgorithm** ppValue) mut => VT.[Friend]get_ItemByName(&this, strName, ppValue);
+	public HRESULT get_ItemByName(BSTR strName, ICspAlgorithm* ppValue) mut => VT.[Friend]get_ItemByName(&this, strName, ppValue);
 
-	public HRESULT get_IndexByObjectId(IObjectId* pObjectId, int32* pIndex) mut => VT.[Friend]get_IndexByObjectId(&this, pObjectId, pIndex);
+	public HRESULT get_IndexByObjectId(IObjectId* pObjectId, int32 pIndex) mut => VT.[Friend]get_IndexByObjectId(&this, pObjectId, pIndex);
 }
 
 [CRepr]struct ICspInformation : IDispatch
@@ -3844,21 +3844,21 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, BSTR strName) InitializeFromName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, X509ProviderType Type, IObjectId* pAlgorithm, int16 MachineContext) InitializeFromType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, ICspAlgorithms** ppValue) get_CspAlgorithms;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16* pValue) get_HasHardwareRandomNumberGenerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16* pValue) get_IsHardwareDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16* pValue) get_IsRemovable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16* pValue) get_IsSoftwareDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16* pValue) get_Valid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int32* pValue) get_MaxKeyContainerNameLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, BSTR* pValue) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, X509ProviderType* pValue) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int32* pValue) get_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, X509KeySpec* pValue) get_KeySpec;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16* pValue) get_IsSmartCard;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16 MachineContext, BSTR* pValue) GetDefaultSecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16* pValue) get_LegacyCsp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, IObjectId* pAlgorithm, AlgorithmOperationFlags Operations, ICspStatus** ppValue) GetCspStatusFromOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, ICspAlgorithms* ppValue) get_CspAlgorithms;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16 pValue) get_HasHardwareRandomNumberGenerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16 pValue) get_IsHardwareDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16 pValue) get_IsRemovable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16 pValue) get_IsSoftwareDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16 pValue) get_Valid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int32 pValue) get_MaxKeyContainerNameLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, BSTR pValue) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, X509ProviderType pValue) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int32 pValue) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, X509KeySpec pValue) get_KeySpec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16 pValue) get_IsSmartCard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16 MachineContext, BSTR pValue) GetDefaultSecurityDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, int16 pValue) get_LegacyCsp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformation*/SelfOuter* self, IObjectId* pAlgorithm, AlgorithmOperationFlags Operations, ICspStatus* ppValue) GetCspStatusFromOperations;
 	}
 
 
@@ -3866,35 +3866,35 @@ public static
 
 	public HRESULT InitializeFromType(X509ProviderType Type, IObjectId* pAlgorithm, int16 MachineContext) mut => VT.[Friend]InitializeFromType(&this, Type, pAlgorithm, MachineContext);
 
-	public HRESULT get_CspAlgorithms(ICspAlgorithms** ppValue) mut => VT.[Friend]get_CspAlgorithms(&this, ppValue);
+	public HRESULT get_CspAlgorithms(ICspAlgorithms* ppValue) mut => VT.[Friend]get_CspAlgorithms(&this, ppValue);
 
-	public HRESULT get_HasHardwareRandomNumberGenerator(int16* pValue) mut => VT.[Friend]get_HasHardwareRandomNumberGenerator(&this, pValue);
+	public HRESULT get_HasHardwareRandomNumberGenerator(int16 pValue) mut => VT.[Friend]get_HasHardwareRandomNumberGenerator(&this, pValue);
 
-	public HRESULT get_IsHardwareDevice(int16* pValue) mut => VT.[Friend]get_IsHardwareDevice(&this, pValue);
+	public HRESULT get_IsHardwareDevice(int16 pValue) mut => VT.[Friend]get_IsHardwareDevice(&this, pValue);
 
-	public HRESULT get_IsRemovable(int16* pValue) mut => VT.[Friend]get_IsRemovable(&this, pValue);
+	public HRESULT get_IsRemovable(int16 pValue) mut => VT.[Friend]get_IsRemovable(&this, pValue);
 
-	public HRESULT get_IsSoftwareDevice(int16* pValue) mut => VT.[Friend]get_IsSoftwareDevice(&this, pValue);
+	public HRESULT get_IsSoftwareDevice(int16 pValue) mut => VT.[Friend]get_IsSoftwareDevice(&this, pValue);
 
-	public HRESULT get_Valid(int16* pValue) mut => VT.[Friend]get_Valid(&this, pValue);
+	public HRESULT get_Valid(int16 pValue) mut => VT.[Friend]get_Valid(&this, pValue);
 
-	public HRESULT get_MaxKeyContainerNameLength(int32* pValue) mut => VT.[Friend]get_MaxKeyContainerNameLength(&this, pValue);
+	public HRESULT get_MaxKeyContainerNameLength(int32 pValue) mut => VT.[Friend]get_MaxKeyContainerNameLength(&this, pValue);
 
-	public HRESULT get_Name(BSTR* pValue) mut => VT.[Friend]get_Name(&this, pValue);
+	public HRESULT get_Name(BSTR pValue) mut => VT.[Friend]get_Name(&this, pValue);
 
-	public HRESULT get_Type(X509ProviderType* pValue) mut => VT.[Friend]get_Type(&this, pValue);
+	public HRESULT get_Type(X509ProviderType pValue) mut => VT.[Friend]get_Type(&this, pValue);
 
-	public HRESULT get_Version(int32* pValue) mut => VT.[Friend]get_Version(&this, pValue);
+	public HRESULT get_Version(int32 pValue) mut => VT.[Friend]get_Version(&this, pValue);
 
-	public HRESULT get_KeySpec(X509KeySpec* pValue) mut => VT.[Friend]get_KeySpec(&this, pValue);
+	public HRESULT get_KeySpec(X509KeySpec pValue) mut => VT.[Friend]get_KeySpec(&this, pValue);
 
-	public HRESULT get_IsSmartCard(int16* pValue) mut => VT.[Friend]get_IsSmartCard(&this, pValue);
+	public HRESULT get_IsSmartCard(int16 pValue) mut => VT.[Friend]get_IsSmartCard(&this, pValue);
 
-	public HRESULT GetDefaultSecurityDescriptor(int16 MachineContext, BSTR* pValue) mut => VT.[Friend]GetDefaultSecurityDescriptor(&this, MachineContext, pValue);
+	public HRESULT GetDefaultSecurityDescriptor(int16 MachineContext, BSTR pValue) mut => VT.[Friend]GetDefaultSecurityDescriptor(&this, MachineContext, pValue);
 
-	public HRESULT get_LegacyCsp(int16* pValue) mut => VT.[Friend]get_LegacyCsp(&this, pValue);
+	public HRESULT get_LegacyCsp(int16 pValue) mut => VT.[Friend]get_LegacyCsp(&this, pValue);
 
-	public HRESULT GetCspStatusFromOperations(IObjectId* pAlgorithm, AlgorithmOperationFlags Operations, ICspStatus** ppValue) mut => VT.[Friend]GetCspStatusFromOperations(&this, pAlgorithm, Operations, ppValue);
+	public HRESULT GetCspStatusFromOperations(IObjectId* pAlgorithm, AlgorithmOperationFlags Operations, ICspStatus* ppValue) mut => VT.[Friend]GetCspStatusFromOperations(&this, pAlgorithm, Operations, ppValue);
 }
 
 [CRepr]struct ICspInformations : IDispatch
@@ -3905,26 +3905,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, int32 Index, ICspInformation** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, int32 Index, ICspInformation* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, ICspInformation* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self) Clear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self) AddAvailableCsps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, BSTR strName, ICspInformation** ppCspInformation) get_ItemByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, BSTR strProviderName, X509KeySpec LegacyKeySpec, ICspStatus** ppValue) GetCspStatusFromProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, AlgorithmOperationFlags Operations, ICspInformation* pCspInformation, ICspStatuses** ppValue) GetCspStatusesFromOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, ICspInformation* pCspInformation, ICspAlgorithms** ppValue) GetEncryptionCspAlgorithms;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, ICspInformation* pCspInformation, IObjectIds** ppValue) GetHashAlgorithms;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, BSTR strName, ICspInformation* ppCspInformation) get_ItemByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, BSTR strProviderName, X509KeySpec LegacyKeySpec, ICspStatus* ppValue) GetCspStatusFromProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, AlgorithmOperationFlags Operations, ICspInformation* pCspInformation, ICspStatuses* ppValue) GetCspStatusesFromOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, ICspInformation* pCspInformation, ICspAlgorithms* ppValue) GetEncryptionCspAlgorithms;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspInformations*/SelfOuter* self, ICspInformation* pCspInformation, IObjectIds* ppValue) GetHashAlgorithms;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, ICspInformation** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, ICspInformation* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(ICspInformation* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -3934,15 +3934,15 @@ public static
 
 	public HRESULT AddAvailableCsps() mut => VT.[Friend]AddAvailableCsps(&this);
 
-	public HRESULT get_ItemByName(BSTR strName, ICspInformation** ppCspInformation) mut => VT.[Friend]get_ItemByName(&this, strName, ppCspInformation);
+	public HRESULT get_ItemByName(BSTR strName, ICspInformation* ppCspInformation) mut => VT.[Friend]get_ItemByName(&this, strName, ppCspInformation);
 
-	public HRESULT GetCspStatusFromProviderName(BSTR strProviderName, X509KeySpec LegacyKeySpec, ICspStatus** ppValue) mut => VT.[Friend]GetCspStatusFromProviderName(&this, strProviderName, LegacyKeySpec, ppValue);
+	public HRESULT GetCspStatusFromProviderName(BSTR strProviderName, X509KeySpec LegacyKeySpec, ICspStatus* ppValue) mut => VT.[Friend]GetCspStatusFromProviderName(&this, strProviderName, LegacyKeySpec, ppValue);
 
-	public HRESULT GetCspStatusesFromOperations(AlgorithmOperationFlags Operations, ICspInformation* pCspInformation, ICspStatuses** ppValue) mut => VT.[Friend]GetCspStatusesFromOperations(&this, Operations, pCspInformation, ppValue);
+	public HRESULT GetCspStatusesFromOperations(AlgorithmOperationFlags Operations, ICspInformation* pCspInformation, ICspStatuses* ppValue) mut => VT.[Friend]GetCspStatusesFromOperations(&this, Operations, pCspInformation, ppValue);
 
-	public HRESULT GetEncryptionCspAlgorithms(ICspInformation* pCspInformation, ICspAlgorithms** ppValue) mut => VT.[Friend]GetEncryptionCspAlgorithms(&this, pCspInformation, ppValue);
+	public HRESULT GetEncryptionCspAlgorithms(ICspInformation* pCspInformation, ICspAlgorithms* ppValue) mut => VT.[Friend]GetEncryptionCspAlgorithms(&this, pCspInformation, ppValue);
 
-	public HRESULT GetHashAlgorithms(ICspInformation* pCspInformation, IObjectIds** ppValue) mut => VT.[Friend]GetHashAlgorithms(&this, pCspInformation, ppValue);
+	public HRESULT GetHashAlgorithms(ICspInformation* pCspInformation, IObjectIds* ppValue) mut => VT.[Friend]GetHashAlgorithms(&this, pCspInformation, ppValue);
 }
 
 [CRepr]struct ICspStatus : IDispatch
@@ -3954,28 +3954,28 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, ICspInformation* pCsp, ICspAlgorithm* pAlgorithm) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, int32* pValue) get_Ordinal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, int32 pValue) get_Ordinal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, int32 Value) put_Ordinal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, ICspAlgorithm** ppValue) get_CspAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, ICspInformation** ppValue) get_CspInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, IX509EnrollmentStatus** ppValue) get_EnrollmentStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, BSTR* pValue) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, ICspAlgorithm* ppValue) get_CspAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, ICspInformation* ppValue) get_CspInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, IX509EnrollmentStatus* ppValue) get_EnrollmentStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatus*/SelfOuter* self, BSTR pValue) get_DisplayName;
 	}
 
 
 	public HRESULT Initialize(ICspInformation* pCsp, ICspAlgorithm* pAlgorithm) mut => VT.[Friend]Initialize(&this, pCsp, pAlgorithm);
 
-	public HRESULT get_Ordinal(int32* pValue) mut => VT.[Friend]get_Ordinal(&this, pValue);
+	public HRESULT get_Ordinal(int32 pValue) mut => VT.[Friend]get_Ordinal(&this, pValue);
 
 	public HRESULT put_Ordinal(int32 Value) mut => VT.[Friend]put_Ordinal(&this, Value);
 
-	public HRESULT get_CspAlgorithm(ICspAlgorithm** ppValue) mut => VT.[Friend]get_CspAlgorithm(&this, ppValue);
+	public HRESULT get_CspAlgorithm(ICspAlgorithm* ppValue) mut => VT.[Friend]get_CspAlgorithm(&this, ppValue);
 
-	public HRESULT get_CspInformation(ICspInformation** ppValue) mut => VT.[Friend]get_CspInformation(&this, ppValue);
+	public HRESULT get_CspInformation(ICspInformation* ppValue) mut => VT.[Friend]get_CspInformation(&this, ppValue);
 
-	public HRESULT get_EnrollmentStatus(IX509EnrollmentStatus** ppValue) mut => VT.[Friend]get_EnrollmentStatus(&this, ppValue);
+	public HRESULT get_EnrollmentStatus(IX509EnrollmentStatus* ppValue) mut => VT.[Friend]get_EnrollmentStatus(&this, ppValue);
 
-	public HRESULT get_DisplayName(BSTR* pValue) mut => VT.[Friend]get_DisplayName(&this, pValue);
+	public HRESULT get_DisplayName(BSTR pValue) mut => VT.[Friend]get_DisplayName(&this, pValue);
 }
 
 [CRepr]struct ICspStatuses : IDispatch
@@ -3986,24 +3986,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, int32 Index, ICspStatus** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, int32 Index, ICspStatus* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, ICspStatus* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, BSTR strCspName, BSTR strAlgorithmName, ICspStatus** ppValue) get_ItemByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, int32 Ordinal, ICspStatus** ppValue) get_ItemByOrdinal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, BSTR strCspName, BSTR strAlgorithmName, AlgorithmOperationFlags Operations, ICspStatus** ppValue) get_ItemByOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, ICspStatus* pCspStatus, ICspStatus** ppValue) get_ItemByProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, BSTR strCspName, BSTR strAlgorithmName, ICspStatus* ppValue) get_ItemByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, int32 Ordinal, ICspStatus* ppValue) get_ItemByOrdinal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, BSTR strCspName, BSTR strAlgorithmName, AlgorithmOperationFlags Operations, ICspStatus* ppValue) get_ItemByOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICspStatuses*/SelfOuter* self, ICspStatus* pCspStatus, ICspStatus* ppValue) get_ItemByProvider;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, ICspStatus** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, ICspStatus* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(ICspStatus* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -4011,13 +4011,13 @@ public static
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
-	public HRESULT get_ItemByName(BSTR strCspName, BSTR strAlgorithmName, ICspStatus** ppValue) mut => VT.[Friend]get_ItemByName(&this, strCspName, strAlgorithmName, ppValue);
+	public HRESULT get_ItemByName(BSTR strCspName, BSTR strAlgorithmName, ICspStatus* ppValue) mut => VT.[Friend]get_ItemByName(&this, strCspName, strAlgorithmName, ppValue);
 
-	public HRESULT get_ItemByOrdinal(int32 Ordinal, ICspStatus** ppValue) mut => VT.[Friend]get_ItemByOrdinal(&this, Ordinal, ppValue);
+	public HRESULT get_ItemByOrdinal(int32 Ordinal, ICspStatus* ppValue) mut => VT.[Friend]get_ItemByOrdinal(&this, Ordinal, ppValue);
 
-	public HRESULT get_ItemByOperations(BSTR strCspName, BSTR strAlgorithmName, AlgorithmOperationFlags Operations, ICspStatus** ppValue) mut => VT.[Friend]get_ItemByOperations(&this, strCspName, strAlgorithmName, Operations, ppValue);
+	public HRESULT get_ItemByOperations(BSTR strCspName, BSTR strAlgorithmName, AlgorithmOperationFlags Operations, ICspStatus* ppValue) mut => VT.[Friend]get_ItemByOperations(&this, strCspName, strAlgorithmName, Operations, ppValue);
 
-	public HRESULT get_ItemByProvider(ICspStatus* pCspStatus, ICspStatus** ppValue) mut => VT.[Friend]get_ItemByProvider(&this, pCspStatus, ppValue);
+	public HRESULT get_ItemByProvider(ICspStatus* pCspStatus, ICspStatus* ppValue) mut => VT.[Friend]get_ItemByProvider(&this, pCspStatus, ppValue);
 }
 
 [CRepr]struct IX509PublicKey : IDispatch
@@ -4030,11 +4030,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, IObjectId* pObjectId, BSTR strEncodedKey, BSTR strEncodedParameters, EncodingType Encoding) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, BSTR strEncodedPublicKeyInfo, EncodingType Encoding) InitializeFromEncodedPublicKeyInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, IObjectId** ppValue) get_Algorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, int32* pValue) get_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_EncodedKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_EncodedParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, KeyIdentifierHashAlgorithm Algorithm, EncodingType Encoding, BSTR* pValue) ComputeKeyIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, IObjectId* ppValue) get_Algorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, int32 pValue) get_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_EncodedKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_EncodedParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PublicKey*/SelfOuter* self, KeyIdentifierHashAlgorithm Algorithm, EncodingType Encoding, BSTR pValue) ComputeKeyIdentifier;
 	}
 
 
@@ -4042,15 +4042,15 @@ public static
 
 	public HRESULT InitializeFromEncodedPublicKeyInfo(BSTR strEncodedPublicKeyInfo, EncodingType Encoding) mut => VT.[Friend]InitializeFromEncodedPublicKeyInfo(&this, strEncodedPublicKeyInfo, Encoding);
 
-	public HRESULT get_Algorithm(IObjectId** ppValue) mut => VT.[Friend]get_Algorithm(&this, ppValue);
+	public HRESULT get_Algorithm(IObjectId* ppValue) mut => VT.[Friend]get_Algorithm(&this, ppValue);
 
-	public HRESULT get_Length(int32* pValue) mut => VT.[Friend]get_Length(&this, pValue);
+	public HRESULT get_Length(int32 pValue) mut => VT.[Friend]get_Length(&this, pValue);
 
-	public HRESULT get_EncodedKey(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_EncodedKey(&this, Encoding, pValue);
+	public HRESULT get_EncodedKey(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_EncodedKey(&this, Encoding, pValue);
 
-	public HRESULT get_EncodedParameters(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_EncodedParameters(&this, Encoding, pValue);
+	public HRESULT get_EncodedParameters(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_EncodedParameters(&this, Encoding, pValue);
 
-	public HRESULT ComputeKeyIdentifier(KeyIdentifierHashAlgorithm Algorithm, EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]ComputeKeyIdentifier(&this, Algorithm, Encoding, pValue);
+	public HRESULT ComputeKeyIdentifier(KeyIdentifierHashAlgorithm Algorithm, EncodingType Encoding, BSTR pValue) mut => VT.[Friend]ComputeKeyIdentifier(&this, Algorithm, Encoding, pValue);
 }
 
 [CRepr]struct IX509PrivateKey : IDispatch
@@ -4067,57 +4067,57 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509PrivateKeyVerify VerifyType) Verify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR strExportType, BSTR strEncodedKey, EncodingType Encoding) Import;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR strExportType, EncodingType Encoding, BSTR* pstrEncodedKey) Export;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, IX509PublicKey** ppPublicKey) ExportPublicKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR* pValue) get_ContainerName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR strExportType, EncodingType Encoding, BSTR pstrEncodedKey) Export;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, IX509PublicKey* ppPublicKey) ExportPublicKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR pValue) get_ContainerName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR Value) put_ContainerName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR* pValue) get_ContainerNamePrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR pValue) get_ContainerNamePrefix;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR Value) put_ContainerNamePrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR* pValue) get_ReaderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR pValue) get_ReaderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR Value) put_ReaderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, ICspInformations** ppValue) get_CspInformations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, ICspInformations* ppValue) get_CspInformations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, ICspInformations* pValue) put_CspInformations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, ICspStatus** ppValue) get_CspStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, ICspStatus* ppValue) get_CspStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, ICspStatus* pValue) put_CspStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR* pValue) get_ProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR pValue) get_ProviderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR Value) put_ProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509ProviderType* pValue) get_ProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509ProviderType pValue) get_ProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509ProviderType Value) put_ProviderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16* pValue) get_LegacyCsp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16 pValue) get_LegacyCsp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16 Value) put_LegacyCsp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, IObjectId** ppValue) get_Algorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, IObjectId* ppValue) get_Algorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, IObjectId* pValue) put_Algorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509KeySpec* pValue) get_KeySpec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509KeySpec pValue) get_KeySpec;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509KeySpec Value) put_KeySpec;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int32* pValue) get_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int32 pValue) get_Length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int32 Value) put_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509PrivateKeyExportFlags* pValue) get_ExportPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509PrivateKeyExportFlags pValue) get_ExportPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509PrivateKeyExportFlags Value) put_ExportPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509PrivateKeyUsageFlags* pValue) get_KeyUsage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509PrivateKeyUsageFlags pValue) get_KeyUsage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509PrivateKeyUsageFlags Value) put_KeyUsage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509PrivateKeyProtection* pValue) get_KeyProtection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509PrivateKeyProtection pValue) get_KeyProtection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, X509PrivateKeyProtection Value) put_KeyProtection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16* pValue) get_MachineContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16 pValue) get_MachineContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16 Value) put_MachineContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR* pValue) get_SecurityDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR pValue) get_SecurityDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR Value) put_SecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_Certificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_Certificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, EncodingType Encoding, BSTR Value) put_Certificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR* pValue) get_UniqueContainerName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16* pValue) get_Opened;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16* pValue) get_DefaultContainer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16* pValue) get_Existing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR pValue) get_UniqueContainerName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16 pValue) get_Opened;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16 pValue) get_DefaultContainer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16 pValue) get_Existing;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16 Value) put_Existing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16* pValue) get_Silent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16 pValue) get_Silent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int16 Value) put_Silent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int32* pValue) get_ParentWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int32 pValue) get_ParentWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, int32 Value) put_ParentWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR* pValue) get_UIContextMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR pValue) get_UIContextMessage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR Value) put_UIContextMessage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR Value) put_Pin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR* pValue) get_FriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR pValue) get_FriendlyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR Value) put_FriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR* pValue) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR pValue) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey*/SelfOuter* self, BSTR Value) put_Description;
 	}
 
@@ -4134,107 +4134,107 @@ public static
 
 	public HRESULT Import(BSTR strExportType, BSTR strEncodedKey, EncodingType Encoding) mut => VT.[Friend]Import(&this, strExportType, strEncodedKey, Encoding);
 
-	public HRESULT Export(BSTR strExportType, EncodingType Encoding, BSTR* pstrEncodedKey) mut => VT.[Friend]Export(&this, strExportType, Encoding, pstrEncodedKey);
+	public HRESULT Export(BSTR strExportType, EncodingType Encoding, BSTR pstrEncodedKey) mut => VT.[Friend]Export(&this, strExportType, Encoding, pstrEncodedKey);
 
-	public HRESULT ExportPublicKey(IX509PublicKey** ppPublicKey) mut => VT.[Friend]ExportPublicKey(&this, ppPublicKey);
+	public HRESULT ExportPublicKey(IX509PublicKey* ppPublicKey) mut => VT.[Friend]ExportPublicKey(&this, ppPublicKey);
 
-	public HRESULT get_ContainerName(BSTR* pValue) mut => VT.[Friend]get_ContainerName(&this, pValue);
+	public HRESULT get_ContainerName(BSTR pValue) mut => VT.[Friend]get_ContainerName(&this, pValue);
 
 	public HRESULT put_ContainerName(BSTR Value) mut => VT.[Friend]put_ContainerName(&this, Value);
 
-	public HRESULT get_ContainerNamePrefix(BSTR* pValue) mut => VT.[Friend]get_ContainerNamePrefix(&this, pValue);
+	public HRESULT get_ContainerNamePrefix(BSTR pValue) mut => VT.[Friend]get_ContainerNamePrefix(&this, pValue);
 
 	public HRESULT put_ContainerNamePrefix(BSTR Value) mut => VT.[Friend]put_ContainerNamePrefix(&this, Value);
 
-	public HRESULT get_ReaderName(BSTR* pValue) mut => VT.[Friend]get_ReaderName(&this, pValue);
+	public HRESULT get_ReaderName(BSTR pValue) mut => VT.[Friend]get_ReaderName(&this, pValue);
 
 	public HRESULT put_ReaderName(BSTR Value) mut => VT.[Friend]put_ReaderName(&this, Value);
 
-	public HRESULT get_CspInformations(ICspInformations** ppValue) mut => VT.[Friend]get_CspInformations(&this, ppValue);
+	public HRESULT get_CspInformations(ICspInformations* ppValue) mut => VT.[Friend]get_CspInformations(&this, ppValue);
 
 	public HRESULT put_CspInformations(ICspInformations* pValue) mut => VT.[Friend]put_CspInformations(&this, pValue);
 
-	public HRESULT get_CspStatus(ICspStatus** ppValue) mut => VT.[Friend]get_CspStatus(&this, ppValue);
+	public HRESULT get_CspStatus(ICspStatus* ppValue) mut => VT.[Friend]get_CspStatus(&this, ppValue);
 
 	public HRESULT put_CspStatus(ICspStatus* pValue) mut => VT.[Friend]put_CspStatus(&this, pValue);
 
-	public HRESULT get_ProviderName(BSTR* pValue) mut => VT.[Friend]get_ProviderName(&this, pValue);
+	public HRESULT get_ProviderName(BSTR pValue) mut => VT.[Friend]get_ProviderName(&this, pValue);
 
 	public HRESULT put_ProviderName(BSTR Value) mut => VT.[Friend]put_ProviderName(&this, Value);
 
-	public HRESULT get_ProviderType(X509ProviderType* pValue) mut => VT.[Friend]get_ProviderType(&this, pValue);
+	public HRESULT get_ProviderType(X509ProviderType pValue) mut => VT.[Friend]get_ProviderType(&this, pValue);
 
 	public HRESULT put_ProviderType(X509ProviderType Value) mut => VT.[Friend]put_ProviderType(&this, Value);
 
-	public HRESULT get_LegacyCsp(int16* pValue) mut => VT.[Friend]get_LegacyCsp(&this, pValue);
+	public HRESULT get_LegacyCsp(int16 pValue) mut => VT.[Friend]get_LegacyCsp(&this, pValue);
 
 	public HRESULT put_LegacyCsp(int16 Value) mut => VT.[Friend]put_LegacyCsp(&this, Value);
 
-	public HRESULT get_Algorithm(IObjectId** ppValue) mut => VT.[Friend]get_Algorithm(&this, ppValue);
+	public HRESULT get_Algorithm(IObjectId* ppValue) mut => VT.[Friend]get_Algorithm(&this, ppValue);
 
 	public HRESULT put_Algorithm(IObjectId* pValue) mut => VT.[Friend]put_Algorithm(&this, pValue);
 
-	public HRESULT get_KeySpec(X509KeySpec* pValue) mut => VT.[Friend]get_KeySpec(&this, pValue);
+	public HRESULT get_KeySpec(X509KeySpec pValue) mut => VT.[Friend]get_KeySpec(&this, pValue);
 
 	public HRESULT put_KeySpec(X509KeySpec Value) mut => VT.[Friend]put_KeySpec(&this, Value);
 
-	public HRESULT get_Length(int32* pValue) mut => VT.[Friend]get_Length(&this, pValue);
+	public HRESULT get_Length(int32 pValue) mut => VT.[Friend]get_Length(&this, pValue);
 
 	public HRESULT put_Length(int32 Value) mut => VT.[Friend]put_Length(&this, Value);
 
-	public HRESULT get_ExportPolicy(X509PrivateKeyExportFlags* pValue) mut => VT.[Friend]get_ExportPolicy(&this, pValue);
+	public HRESULT get_ExportPolicy(X509PrivateKeyExportFlags pValue) mut => VT.[Friend]get_ExportPolicy(&this, pValue);
 
 	public HRESULT put_ExportPolicy(X509PrivateKeyExportFlags Value) mut => VT.[Friend]put_ExportPolicy(&this, Value);
 
-	public HRESULT get_KeyUsage(X509PrivateKeyUsageFlags* pValue) mut => VT.[Friend]get_KeyUsage(&this, pValue);
+	public HRESULT get_KeyUsage(X509PrivateKeyUsageFlags pValue) mut => VT.[Friend]get_KeyUsage(&this, pValue);
 
 	public HRESULT put_KeyUsage(X509PrivateKeyUsageFlags Value) mut => VT.[Friend]put_KeyUsage(&this, Value);
 
-	public HRESULT get_KeyProtection(X509PrivateKeyProtection* pValue) mut => VT.[Friend]get_KeyProtection(&this, pValue);
+	public HRESULT get_KeyProtection(X509PrivateKeyProtection pValue) mut => VT.[Friend]get_KeyProtection(&this, pValue);
 
 	public HRESULT put_KeyProtection(X509PrivateKeyProtection Value) mut => VT.[Friend]put_KeyProtection(&this, Value);
 
-	public HRESULT get_MachineContext(int16* pValue) mut => VT.[Friend]get_MachineContext(&this, pValue);
+	public HRESULT get_MachineContext(int16 pValue) mut => VT.[Friend]get_MachineContext(&this, pValue);
 
 	public HRESULT put_MachineContext(int16 Value) mut => VT.[Friend]put_MachineContext(&this, Value);
 
-	public HRESULT get_SecurityDescriptor(BSTR* pValue) mut => VT.[Friend]get_SecurityDescriptor(&this, pValue);
+	public HRESULT get_SecurityDescriptor(BSTR pValue) mut => VT.[Friend]get_SecurityDescriptor(&this, pValue);
 
 	public HRESULT put_SecurityDescriptor(BSTR Value) mut => VT.[Friend]put_SecurityDescriptor(&this, Value);
 
-	public HRESULT get_Certificate(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_Certificate(&this, Encoding, pValue);
+	public HRESULT get_Certificate(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_Certificate(&this, Encoding, pValue);
 
 	public HRESULT put_Certificate(EncodingType Encoding, BSTR Value) mut => VT.[Friend]put_Certificate(&this, Encoding, Value);
 
-	public HRESULT get_UniqueContainerName(BSTR* pValue) mut => VT.[Friend]get_UniqueContainerName(&this, pValue);
+	public HRESULT get_UniqueContainerName(BSTR pValue) mut => VT.[Friend]get_UniqueContainerName(&this, pValue);
 
-	public HRESULT get_Opened(int16* pValue) mut => VT.[Friend]get_Opened(&this, pValue);
+	public HRESULT get_Opened(int16 pValue) mut => VT.[Friend]get_Opened(&this, pValue);
 
-	public HRESULT get_DefaultContainer(int16* pValue) mut => VT.[Friend]get_DefaultContainer(&this, pValue);
+	public HRESULT get_DefaultContainer(int16 pValue) mut => VT.[Friend]get_DefaultContainer(&this, pValue);
 
-	public HRESULT get_Existing(int16* pValue) mut => VT.[Friend]get_Existing(&this, pValue);
+	public HRESULT get_Existing(int16 pValue) mut => VT.[Friend]get_Existing(&this, pValue);
 
 	public HRESULT put_Existing(int16 Value) mut => VT.[Friend]put_Existing(&this, Value);
 
-	public HRESULT get_Silent(int16* pValue) mut => VT.[Friend]get_Silent(&this, pValue);
+	public HRESULT get_Silent(int16 pValue) mut => VT.[Friend]get_Silent(&this, pValue);
 
 	public HRESULT put_Silent(int16 Value) mut => VT.[Friend]put_Silent(&this, Value);
 
-	public HRESULT get_ParentWindow(int32* pValue) mut => VT.[Friend]get_ParentWindow(&this, pValue);
+	public HRESULT get_ParentWindow(int32 pValue) mut => VT.[Friend]get_ParentWindow(&this, pValue);
 
 	public HRESULT put_ParentWindow(int32 Value) mut => VT.[Friend]put_ParentWindow(&this, Value);
 
-	public HRESULT get_UIContextMessage(BSTR* pValue) mut => VT.[Friend]get_UIContextMessage(&this, pValue);
+	public HRESULT get_UIContextMessage(BSTR pValue) mut => VT.[Friend]get_UIContextMessage(&this, pValue);
 
 	public HRESULT put_UIContextMessage(BSTR Value) mut => VT.[Friend]put_UIContextMessage(&this, Value);
 
 	public HRESULT put_Pin(BSTR Value) mut => VT.[Friend]put_Pin(&this, Value);
 
-	public HRESULT get_FriendlyName(BSTR* pValue) mut => VT.[Friend]get_FriendlyName(&this, pValue);
+	public HRESULT get_FriendlyName(BSTR pValue) mut => VT.[Friend]get_FriendlyName(&this, pValue);
 
 	public HRESULT put_FriendlyName(BSTR Value) mut => VT.[Friend]put_FriendlyName(&this, Value);
 
-	public HRESULT get_Description(BSTR* pValue) mut => VT.[Friend]get_Description(&this, pValue);
+	public HRESULT get_Description(BSTR pValue) mut => VT.[Friend]get_Description(&this, pValue);
 
 	public HRESULT put_Description(BSTR Value) mut => VT.[Friend]put_Description(&this, Value);
 }
@@ -4247,36 +4247,36 @@ public static
 
 	[CRepr]public struct VTable : IX509PrivateKey.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, X509HardwareKeyUsageFlags* pValue) get_HardwareKeyUsage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, X509HardwareKeyUsageFlags pValue) get_HardwareKeyUsage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, X509HardwareKeyUsageFlags Value) put_HardwareKeyUsage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, BSTR* pValue) get_AlternateStorageLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, BSTR pValue) get_AlternateStorageLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, BSTR Value) put_AlternateStorageLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, BSTR* pValue) get_AlgorithmName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, BSTR pValue) get_AlgorithmName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, BSTR Value) put_AlgorithmName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_AlgorithmParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_AlgorithmParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, EncodingType Encoding, BSTR Value) put_AlgorithmParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, X509KeyParametersExportType* pValue) get_ParametersExportType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, X509KeyParametersExportType pValue) get_ParametersExportType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PrivateKey2*/SelfOuter* self, X509KeyParametersExportType Value) put_ParametersExportType;
 	}
 
 
-	public HRESULT get_HardwareKeyUsage(X509HardwareKeyUsageFlags* pValue) mut => VT.[Friend]get_HardwareKeyUsage(&this, pValue);
+	public HRESULT get_HardwareKeyUsage(X509HardwareKeyUsageFlags pValue) mut => VT.[Friend]get_HardwareKeyUsage(&this, pValue);
 
 	public HRESULT put_HardwareKeyUsage(X509HardwareKeyUsageFlags Value) mut => VT.[Friend]put_HardwareKeyUsage(&this, Value);
 
-	public HRESULT get_AlternateStorageLocation(BSTR* pValue) mut => VT.[Friend]get_AlternateStorageLocation(&this, pValue);
+	public HRESULT get_AlternateStorageLocation(BSTR pValue) mut => VT.[Friend]get_AlternateStorageLocation(&this, pValue);
 
 	public HRESULT put_AlternateStorageLocation(BSTR Value) mut => VT.[Friend]put_AlternateStorageLocation(&this, Value);
 
-	public HRESULT get_AlgorithmName(BSTR* pValue) mut => VT.[Friend]get_AlgorithmName(&this, pValue);
+	public HRESULT get_AlgorithmName(BSTR pValue) mut => VT.[Friend]get_AlgorithmName(&this, pValue);
 
 	public HRESULT put_AlgorithmName(BSTR Value) mut => VT.[Friend]put_AlgorithmName(&this, Value);
 
-	public HRESULT get_AlgorithmParameters(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_AlgorithmParameters(&this, Encoding, pValue);
+	public HRESULT get_AlgorithmParameters(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_AlgorithmParameters(&this, Encoding, pValue);
 
 	public HRESULT put_AlgorithmParameters(EncodingType Encoding, BSTR Value) mut => VT.[Friend]put_AlgorithmParameters(&this, Encoding, Value);
 
-	public HRESULT get_ParametersExportType(X509KeyParametersExportType* pValue) mut => VT.[Friend]get_ParametersExportType(&this, pValue);
+	public HRESULT get_ParametersExportType(X509KeyParametersExportType pValue) mut => VT.[Friend]get_ParametersExportType(&this, pValue);
 
 	public HRESULT put_ParametersExportType(X509KeyParametersExportType Value) mut => VT.[Friend]put_ParametersExportType(&this, Value);
 }
@@ -4289,37 +4289,37 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, BSTR* pValue) get_ProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, BSTR pValue) get_ProviderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, BSTR Value) put_ProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, int32* pValue) get_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, int16* pValue) get_Opened;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, int32 pValue) get_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, int16 pValue) get_Opened;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, EncodingType Encoding, BSTR strCertificate) AddCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, EncodingType Encoding, BSTR strCertificate) RemoveCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, int16 ManufacturerOnly, int32 dwIndex, EncodingType Encoding, BSTR* pValue) GetCertificateByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, int16 ManufacturerOnly, int32* pCount) GetCertificateCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, IX509PublicKey** ppPublicKey) ExportPublicKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, int16 ManufacturerOnly, int32 dwIndex, EncodingType Encoding, BSTR pValue) GetCertificateByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, int16 ManufacturerOnly, int32 pCount) GetCertificateCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self, IX509PublicKey* ppPublicKey) ExportPublicKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EndorsementKey*/SelfOuter* self) Close;
 	}
 
 
-	public HRESULT get_ProviderName(BSTR* pValue) mut => VT.[Friend]get_ProviderName(&this, pValue);
+	public HRESULT get_ProviderName(BSTR pValue) mut => VT.[Friend]get_ProviderName(&this, pValue);
 
 	public HRESULT put_ProviderName(BSTR Value) mut => VT.[Friend]put_ProviderName(&this, Value);
 
-	public HRESULT get_Length(int32* pValue) mut => VT.[Friend]get_Length(&this, pValue);
+	public HRESULT get_Length(int32 pValue) mut => VT.[Friend]get_Length(&this, pValue);
 
-	public HRESULT get_Opened(int16* pValue) mut => VT.[Friend]get_Opened(&this, pValue);
+	public HRESULT get_Opened(int16 pValue) mut => VT.[Friend]get_Opened(&this, pValue);
 
 	public HRESULT AddCertificate(EncodingType Encoding, BSTR strCertificate) mut => VT.[Friend]AddCertificate(&this, Encoding, strCertificate);
 
 	public HRESULT RemoveCertificate(EncodingType Encoding, BSTR strCertificate) mut => VT.[Friend]RemoveCertificate(&this, Encoding, strCertificate);
 
-	public HRESULT GetCertificateByIndex(int16 ManufacturerOnly, int32 dwIndex, EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]GetCertificateByIndex(&this, ManufacturerOnly, dwIndex, Encoding, pValue);
+	public HRESULT GetCertificateByIndex(int16 ManufacturerOnly, int32 dwIndex, EncodingType Encoding, BSTR pValue) mut => VT.[Friend]GetCertificateByIndex(&this, ManufacturerOnly, dwIndex, Encoding, pValue);
 
-	public HRESULT GetCertificateCount(int16 ManufacturerOnly, int32* pCount) mut => VT.[Friend]GetCertificateCount(&this, ManufacturerOnly, pCount);
+	public HRESULT GetCertificateCount(int16 ManufacturerOnly, int32 pCount) mut => VT.[Friend]GetCertificateCount(&this, ManufacturerOnly, pCount);
 
-	public HRESULT ExportPublicKey(IX509PublicKey** ppPublicKey) mut => VT.[Friend]ExportPublicKey(&this, ppPublicKey);
+	public HRESULT ExportPublicKey(IX509PublicKey* ppPublicKey) mut => VT.[Friend]ExportPublicKey(&this, ppPublicKey);
 
 	public HRESULT Open() mut => VT.[Friend]Open(&this);
 
@@ -4335,20 +4335,20 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extension*/SelfOuter* self, IObjectId* pObjectId, EncodingType Encoding, BSTR strEncodedData) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extension*/SelfOuter* self, IObjectId** ppValue) get_ObjectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extension*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RawData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extension*/SelfOuter* self, int16* pValue) get_Critical;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extension*/SelfOuter* self, IObjectId* ppValue) get_ObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extension*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RawData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extension*/SelfOuter* self, int16 pValue) get_Critical;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extension*/SelfOuter* self, int16 Value) put_Critical;
 	}
 
 
 	public HRESULT Initialize(IObjectId* pObjectId, EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]Initialize(&this, pObjectId, Encoding, strEncodedData);
 
-	public HRESULT get_ObjectId(IObjectId** ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
+	public HRESULT get_ObjectId(IObjectId* ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
 
-	public HRESULT get_RawData(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
+	public HRESULT get_RawData(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
 
-	public HRESULT get_Critical(int16* pValue) mut => VT.[Friend]get_Critical(&this, pValue);
+	public HRESULT get_Critical(int16 pValue) mut => VT.[Friend]get_Critical(&this, pValue);
 
 	public HRESULT put_Critical(int16 Value) mut => VT.[Friend]put_Critical(&this, Value);
 }
@@ -4361,22 +4361,22 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, int32 Index, IX509Extension** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, int32 Index, IX509Extension* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, IX509Extension* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, IObjectId* pObjectId, int32* pIndex) get_IndexByObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, IObjectId* pObjectId, int32 pIndex) get_IndexByObjectId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Extensions*/SelfOuter* self, IX509Extensions* pValue) AddRange;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, IX509Extension** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, IX509Extension* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(IX509Extension* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -4384,7 +4384,7 @@ public static
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
-	public HRESULT get_IndexByObjectId(IObjectId* pObjectId, int32* pIndex) mut => VT.[Friend]get_IndexByObjectId(&this, pObjectId, pIndex);
+	public HRESULT get_IndexByObjectId(IObjectId* pObjectId, int32 pIndex) mut => VT.[Friend]get_IndexByObjectId(&this, pObjectId, pIndex);
 
 	public HRESULT AddRange(IX509Extensions* pValue) mut => VT.[Friend]AddRange(&this, pValue);
 }
@@ -4399,7 +4399,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionKeyUsage*/SelfOuter* self, X509KeyUsageFlags UsageFlags) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionKeyUsage*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionKeyUsage*/SelfOuter* self, X509KeyUsageFlags* pValue) get_KeyUsage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionKeyUsage*/SelfOuter* self, X509KeyUsageFlags pValue) get_KeyUsage;
 	}
 
 
@@ -4407,7 +4407,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_KeyUsage(X509KeyUsageFlags* pValue) mut => VT.[Friend]get_KeyUsage(&this, pValue);
+	public HRESULT get_KeyUsage(X509KeyUsageFlags pValue) mut => VT.[Friend]get_KeyUsage(&this, pValue);
 }
 
 [CRepr]struct IX509ExtensionEnhancedKeyUsage : IX509Extension
@@ -4420,7 +4420,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionEnhancedKeyUsage*/SelfOuter* self, IObjectIds* pValue) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionEnhancedKeyUsage*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionEnhancedKeyUsage*/SelfOuter* self, IObjectIds** ppValue) get_EnhancedKeyUsage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionEnhancedKeyUsage*/SelfOuter* self, IObjectIds* ppValue) get_EnhancedKeyUsage;
 	}
 
 
@@ -4428,7 +4428,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_EnhancedKeyUsage(IObjectIds** ppValue) mut => VT.[Friend]get_EnhancedKeyUsage(&this, ppValue);
+	public HRESULT get_EnhancedKeyUsage(IObjectIds* ppValue) mut => VT.[Friend]get_EnhancedKeyUsage(&this, ppValue);
 }
 
 [CRepr]struct IX509ExtensionTemplateName : IX509Extension
@@ -4441,7 +4441,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplateName*/SelfOuter* self, BSTR strTemplateName) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplateName*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplateName*/SelfOuter* self, BSTR* pValue) get_TemplateName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplateName*/SelfOuter* self, BSTR pValue) get_TemplateName;
 	}
 
 
@@ -4449,7 +4449,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_TemplateName(BSTR* pValue) mut => VT.[Friend]get_TemplateName(&this, pValue);
+	public HRESULT get_TemplateName(BSTR pValue) mut => VT.[Friend]get_TemplateName(&this, pValue);
 }
 
 [CRepr]struct IX509ExtensionTemplate : IX509Extension
@@ -4462,9 +4462,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplate*/SelfOuter* self, IObjectId* pTemplateOid, int32 MajorVersion, int32 MinorVersion) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplate*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplate*/SelfOuter* self, IObjectId** ppValue) get_TemplateOid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplate*/SelfOuter* self, int32* pValue) get_MajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplate*/SelfOuter* self, int32* pValue) get_MinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplate*/SelfOuter* self, IObjectId* ppValue) get_TemplateOid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplate*/SelfOuter* self, int32 pValue) get_MajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionTemplate*/SelfOuter* self, int32 pValue) get_MinorVersion;
 	}
 
 
@@ -4472,11 +4472,11 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_TemplateOid(IObjectId** ppValue) mut => VT.[Friend]get_TemplateOid(&this, ppValue);
+	public HRESULT get_TemplateOid(IObjectId* ppValue) mut => VT.[Friend]get_TemplateOid(&this, ppValue);
 
-	public HRESULT get_MajorVersion(int32* pValue) mut => VT.[Friend]get_MajorVersion(&this, pValue);
+	public HRESULT get_MajorVersion(int32 pValue) mut => VT.[Friend]get_MajorVersion(&this, pValue);
 
-	public HRESULT get_MinorVersion(int32* pValue) mut => VT.[Friend]get_MinorVersion(&this, pValue);
+	public HRESULT get_MinorVersion(int32 pValue) mut => VT.[Friend]get_MinorVersion(&this, pValue);
 }
 
 [CRepr]struct IAlternativeName : IDispatch
@@ -4490,10 +4490,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, AlternativeNameType Type, BSTR strValue) InitializeFromString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, AlternativeNameType Type, EncodingType Encoding, BSTR strRawData) InitializeFromRawData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, IObjectId* pObjectId, EncodingType Encoding, BSTR strRawData, int16 ToBeWrapped) InitializeFromOtherName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, AlternativeNameType* pValue) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, BSTR* pValue) get_StrValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, IObjectId** ppValue) get_ObjectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RawData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, AlternativeNameType pValue) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, BSTR pValue) get_StrValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, IObjectId* ppValue) get_ObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeName*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RawData;
 	}
 
 
@@ -4503,13 +4503,13 @@ public static
 
 	public HRESULT InitializeFromOtherName(IObjectId* pObjectId, EncodingType Encoding, BSTR strRawData, int16 ToBeWrapped) mut => VT.[Friend]InitializeFromOtherName(&this, pObjectId, Encoding, strRawData, ToBeWrapped);
 
-	public HRESULT get_Type(AlternativeNameType* pValue) mut => VT.[Friend]get_Type(&this, pValue);
+	public HRESULT get_Type(AlternativeNameType pValue) mut => VT.[Friend]get_Type(&this, pValue);
 
-	public HRESULT get_StrValue(BSTR* pValue) mut => VT.[Friend]get_StrValue(&this, pValue);
+	public HRESULT get_StrValue(BSTR pValue) mut => VT.[Friend]get_StrValue(&this, pValue);
 
-	public HRESULT get_ObjectId(IObjectId** ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
+	public HRESULT get_ObjectId(IObjectId* ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
 
-	public HRESULT get_RawData(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
+	public HRESULT get_RawData(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
 }
 
 [CRepr]struct IAlternativeNames : IDispatch
@@ -4520,20 +4520,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeNames*/SelfOuter* self, int32 Index, IAlternativeName** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeNames*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeNames*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeNames*/SelfOuter* self, int32 Index, IAlternativeName* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeNames*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeNames*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeNames*/SelfOuter* self, IAlternativeName* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeNames*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlternativeNames*/SelfOuter* self) Clear;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, IAlternativeName** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, IAlternativeName* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(IAlternativeName* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -4552,7 +4552,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionAlternativeNames*/SelfOuter* self, IAlternativeNames* pValue) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionAlternativeNames*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionAlternativeNames*/SelfOuter* self, IAlternativeNames** ppValue) get_AlternativeNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionAlternativeNames*/SelfOuter* self, IAlternativeNames* ppValue) get_AlternativeNames;
 	}
 
 
@@ -4560,7 +4560,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_AlternativeNames(IAlternativeNames** ppValue) mut => VT.[Friend]get_AlternativeNames(&this, ppValue);
+	public HRESULT get_AlternativeNames(IAlternativeNames* ppValue) mut => VT.[Friend]get_AlternativeNames(&this, ppValue);
 }
 
 [CRepr]struct IX509ExtensionBasicConstraints : IX509Extension
@@ -4573,8 +4573,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionBasicConstraints*/SelfOuter* self, int16 IsCA, int32 PathLenConstraint) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionBasicConstraints*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionBasicConstraints*/SelfOuter* self, int16* pValue) get_IsCA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionBasicConstraints*/SelfOuter* self, int32* pValue) get_PathLenConstraint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionBasicConstraints*/SelfOuter* self, int16 pValue) get_IsCA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionBasicConstraints*/SelfOuter* self, int32 pValue) get_PathLenConstraint;
 	}
 
 
@@ -4582,9 +4582,9 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_IsCA(int16* pValue) mut => VT.[Friend]get_IsCA(&this, pValue);
+	public HRESULT get_IsCA(int16 pValue) mut => VT.[Friend]get_IsCA(&this, pValue);
 
-	public HRESULT get_PathLenConstraint(int32* pValue) mut => VT.[Friend]get_PathLenConstraint(&this, pValue);
+	public HRESULT get_PathLenConstraint(int32 pValue) mut => VT.[Friend]get_PathLenConstraint(&this, pValue);
 }
 
 [CRepr]struct IX509ExtensionSubjectKeyIdentifier : IX509Extension
@@ -4597,7 +4597,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionSubjectKeyIdentifier*/SelfOuter* self, EncodingType Encoding, BSTR strKeyIdentifier) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionSubjectKeyIdentifier*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionSubjectKeyIdentifier*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_SubjectKeyIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionSubjectKeyIdentifier*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_SubjectKeyIdentifier;
 	}
 
 
@@ -4605,7 +4605,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_SubjectKeyIdentifier(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_SubjectKeyIdentifier(&this, Encoding, pValue);
+	public HRESULT get_SubjectKeyIdentifier(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_SubjectKeyIdentifier(&this, Encoding, pValue);
 }
 
 [CRepr]struct IX509ExtensionAuthorityKeyIdentifier : IX509Extension
@@ -4618,7 +4618,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionAuthorityKeyIdentifier*/SelfOuter* self, EncodingType Encoding, BSTR strKeyIdentifier) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionAuthorityKeyIdentifier*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionAuthorityKeyIdentifier*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_AuthorityKeyIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionAuthorityKeyIdentifier*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_AuthorityKeyIdentifier;
 	}
 
 
@@ -4626,7 +4626,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_AuthorityKeyIdentifier(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_AuthorityKeyIdentifier(&this, Encoding, pValue);
+	public HRESULT get_AuthorityKeyIdentifier(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_AuthorityKeyIdentifier(&this, Encoding, pValue);
 }
 
 [CRepr]struct ISmimeCapability : IDispatch
@@ -4638,16 +4638,16 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapability*/SelfOuter* self, IObjectId* pObjectId, int32 BitCount) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapability*/SelfOuter* self, IObjectId** ppValue) get_ObjectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapability*/SelfOuter* self, int32* pValue) get_BitCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapability*/SelfOuter* self, IObjectId* ppValue) get_ObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapability*/SelfOuter* self, int32 pValue) get_BitCount;
 	}
 
 
 	public HRESULT Initialize(IObjectId* pObjectId, int32 BitCount) mut => VT.[Friend]Initialize(&this, pObjectId, BitCount);
 
-	public HRESULT get_ObjectId(IObjectId** ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
+	public HRESULT get_ObjectId(IObjectId* ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
 
-	public HRESULT get_BitCount(int32* pValue) mut => VT.[Friend]get_BitCount(&this, pValue);
+	public HRESULT get_BitCount(int32 pValue) mut => VT.[Friend]get_BitCount(&this, pValue);
 }
 
 [CRepr]struct ISmimeCapabilities : IDispatch
@@ -4658,9 +4658,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapabilities*/SelfOuter* self, int32 Index, ISmimeCapability** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapabilities*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapabilities*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapabilities*/SelfOuter* self, int32 Index, ISmimeCapability* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapabilities*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapabilities*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapabilities*/SelfOuter* self, ISmimeCapability* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapabilities*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISmimeCapabilities*/SelfOuter* self) Clear;
@@ -4669,11 +4669,11 @@ public static
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, ISmimeCapability** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, ISmimeCapability* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(ISmimeCapability* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -4696,7 +4696,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionSmimeCapabilities*/SelfOuter* self, ISmimeCapabilities* pValue) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionSmimeCapabilities*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionSmimeCapabilities*/SelfOuter* self, ISmimeCapabilities** ppValue) get_SmimeCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionSmimeCapabilities*/SelfOuter* self, ISmimeCapabilities* ppValue) get_SmimeCapabilities;
 	}
 
 
@@ -4704,7 +4704,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_SmimeCapabilities(ISmimeCapabilities** ppValue) mut => VT.[Friend]get_SmimeCapabilities(&this, ppValue);
+	public HRESULT get_SmimeCapabilities(ISmimeCapabilities* ppValue) mut => VT.[Friend]get_SmimeCapabilities(&this, ppValue);
 }
 
 [CRepr]struct IPolicyQualifier : IDispatch
@@ -4716,22 +4716,22 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifier*/SelfOuter* self, BSTR strQualifier, PolicyQualifierType Type) InitializeEncode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifier*/SelfOuter* self, IObjectId** ppValue) get_ObjectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifier*/SelfOuter* self, BSTR* pValue) get_Qualifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifier*/SelfOuter* self, PolicyQualifierType* pValue) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifier*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RawData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifier*/SelfOuter* self, IObjectId* ppValue) get_ObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifier*/SelfOuter* self, BSTR pValue) get_Qualifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifier*/SelfOuter* self, PolicyQualifierType pValue) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifier*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RawData;
 	}
 
 
 	public HRESULT InitializeEncode(BSTR strQualifier, PolicyQualifierType Type) mut => VT.[Friend]InitializeEncode(&this, strQualifier, Type);
 
-	public HRESULT get_ObjectId(IObjectId** ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
+	public HRESULT get_ObjectId(IObjectId* ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
 
-	public HRESULT get_Qualifier(BSTR* pValue) mut => VT.[Friend]get_Qualifier(&this, pValue);
+	public HRESULT get_Qualifier(BSTR pValue) mut => VT.[Friend]get_Qualifier(&this, pValue);
 
-	public HRESULT get_Type(PolicyQualifierType* pValue) mut => VT.[Friend]get_Type(&this, pValue);
+	public HRESULT get_Type(PolicyQualifierType pValue) mut => VT.[Friend]get_Type(&this, pValue);
 
-	public HRESULT get_RawData(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
+	public HRESULT get_RawData(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
 }
 
 [CRepr]struct IPolicyQualifiers : IDispatch
@@ -4742,20 +4742,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifiers*/SelfOuter* self, int32 Index, IPolicyQualifier** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifiers*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifiers*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifiers*/SelfOuter* self, int32 Index, IPolicyQualifier* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifiers*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifiers*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifiers*/SelfOuter* self, IPolicyQualifier* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifiers*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPolicyQualifiers*/SelfOuter* self) Clear;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, IPolicyQualifier** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, IPolicyQualifier* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(IPolicyQualifier* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -4773,16 +4773,16 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicy*/SelfOuter* self, IObjectId* pValue) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicy*/SelfOuter* self, IObjectId** ppValue) get_ObjectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicy*/SelfOuter* self, IPolicyQualifiers** ppValue) get_PolicyQualifiers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicy*/SelfOuter* self, IObjectId* ppValue) get_ObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicy*/SelfOuter* self, IPolicyQualifiers* ppValue) get_PolicyQualifiers;
 	}
 
 
 	public HRESULT Initialize(IObjectId* pValue) mut => VT.[Friend]Initialize(&this, pValue);
 
-	public HRESULT get_ObjectId(IObjectId** ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
+	public HRESULT get_ObjectId(IObjectId* ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
 
-	public HRESULT get_PolicyQualifiers(IPolicyQualifiers** ppValue) mut => VT.[Friend]get_PolicyQualifiers(&this, ppValue);
+	public HRESULT get_PolicyQualifiers(IPolicyQualifiers* ppValue) mut => VT.[Friend]get_PolicyQualifiers(&this, ppValue);
 }
 
 [CRepr]struct ICertificatePolicies : IDispatch
@@ -4793,20 +4793,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicies*/SelfOuter* self, int32 Index, ICertificatePolicy** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicies*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicies*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicies*/SelfOuter* self, int32 Index, ICertificatePolicy* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicies*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicies*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicies*/SelfOuter* self, ICertificatePolicy* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicies*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificatePolicies*/SelfOuter* self) Clear;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, ICertificatePolicy** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, ICertificatePolicy* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(ICertificatePolicy* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -4825,7 +4825,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionCertificatePolicies*/SelfOuter* self, ICertificatePolicies* pValue) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionCertificatePolicies*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionCertificatePolicies*/SelfOuter* self, ICertificatePolicies** ppValue) get_Policies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionCertificatePolicies*/SelfOuter* self, ICertificatePolicies* ppValue) get_Policies;
 	}
 
 
@@ -4833,7 +4833,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_Policies(ICertificatePolicies** ppValue) mut => VT.[Friend]get_Policies(&this, ppValue);
+	public HRESULT get_Policies(ICertificatePolicies* ppValue) mut => VT.[Friend]get_Policies(&this, ppValue);
 }
 
 [CRepr]struct IX509ExtensionMSApplicationPolicies : IX509Extension
@@ -4846,7 +4846,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionMSApplicationPolicies*/SelfOuter* self, ICertificatePolicies* pValue) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionMSApplicationPolicies*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionMSApplicationPolicies*/SelfOuter* self, ICertificatePolicies** ppValue) get_Policies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509ExtensionMSApplicationPolicies*/SelfOuter* self, ICertificatePolicies* ppValue) get_Policies;
 	}
 
 
@@ -4854,7 +4854,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_Policies(ICertificatePolicies** ppValue) mut => VT.[Friend]get_Policies(&this, ppValue);
+	public HRESULT get_Policies(ICertificatePolicies* ppValue) mut => VT.[Friend]get_Policies(&this, ppValue);
 }
 
 [CRepr]struct IX509Attribute : IDispatch
@@ -4866,16 +4866,16 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attribute*/SelfOuter* self, IObjectId* pObjectId, EncodingType Encoding, BSTR strEncodedData) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attribute*/SelfOuter* self, IObjectId** ppValue) get_ObjectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attribute*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RawData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attribute*/SelfOuter* self, IObjectId* ppValue) get_ObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attribute*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RawData;
 	}
 
 
 	public HRESULT Initialize(IObjectId* pObjectId, EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]Initialize(&this, pObjectId, Encoding, strEncodedData);
 
-	public HRESULT get_ObjectId(IObjectId** ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
+	public HRESULT get_ObjectId(IObjectId* ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
 
-	public HRESULT get_RawData(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
+	public HRESULT get_RawData(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
 }
 
 [CRepr]struct IX509Attributes : IDispatch
@@ -4886,20 +4886,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attributes*/SelfOuter* self, int32 Index, IX509Attribute** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attributes*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attributes*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attributes*/SelfOuter* self, int32 Index, IX509Attribute* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attributes*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attributes*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attributes*/SelfOuter* self, IX509Attribute* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attributes*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Attributes*/SelfOuter* self) Clear;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, IX509Attribute** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, IX509Attribute* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(IX509Attribute* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -4918,7 +4918,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeExtensions*/SelfOuter* self, IX509Extensions* pExtensions) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeExtensions*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeExtensions*/SelfOuter* self, IX509Extensions** ppValue) get_X509Extensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeExtensions*/SelfOuter* self, IX509Extensions* ppValue) get_X509Extensions;
 	}
 
 
@@ -4926,7 +4926,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_X509Extensions(IX509Extensions** ppValue) mut => VT.[Friend]get_X509Extensions(&this, ppValue);
+	public HRESULT get_X509Extensions(IX509Extensions* ppValue) mut => VT.[Friend]get_X509Extensions(&this, ppValue);
 }
 
 [CRepr]struct IX509AttributeClientId : IX509Attribute
@@ -4939,10 +4939,10 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeClientId*/SelfOuter* self, RequestClientInfoClientId ClientId, BSTR strMachineDnsName, BSTR strUserSamName, BSTR strProcessName) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeClientId*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeClientId*/SelfOuter* self, RequestClientInfoClientId* pValue) get_ClientId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeClientId*/SelfOuter* self, BSTR* pValue) get_MachineDnsName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeClientId*/SelfOuter* self, BSTR* pValue) get_UserSamName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeClientId*/SelfOuter* self, BSTR* pValue) get_ProcessName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeClientId*/SelfOuter* self, RequestClientInfoClientId pValue) get_ClientId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeClientId*/SelfOuter* self, BSTR pValue) get_MachineDnsName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeClientId*/SelfOuter* self, BSTR pValue) get_UserSamName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeClientId*/SelfOuter* self, BSTR pValue) get_ProcessName;
 	}
 
 
@@ -4950,13 +4950,13 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_ClientId(RequestClientInfoClientId* pValue) mut => VT.[Friend]get_ClientId(&this, pValue);
+	public HRESULT get_ClientId(RequestClientInfoClientId pValue) mut => VT.[Friend]get_ClientId(&this, pValue);
 
-	public HRESULT get_MachineDnsName(BSTR* pValue) mut => VT.[Friend]get_MachineDnsName(&this, pValue);
+	public HRESULT get_MachineDnsName(BSTR pValue) mut => VT.[Friend]get_MachineDnsName(&this, pValue);
 
-	public HRESULT get_UserSamName(BSTR* pValue) mut => VT.[Friend]get_UserSamName(&this, pValue);
+	public HRESULT get_UserSamName(BSTR pValue) mut => VT.[Friend]get_UserSamName(&this, pValue);
 
-	public HRESULT get_ProcessName(BSTR* pValue) mut => VT.[Friend]get_ProcessName(&this, pValue);
+	public HRESULT get_ProcessName(BSTR pValue) mut => VT.[Friend]get_ProcessName(&this, pValue);
 }
 
 [CRepr]struct IX509AttributeRenewalCertificate : IX509Attribute
@@ -4969,7 +4969,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeRenewalCertificate*/SelfOuter* self, EncodingType Encoding, BSTR strCert) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeRenewalCertificate*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeRenewalCertificate*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RenewalCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeRenewalCertificate*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RenewalCertificate;
 	}
 
 
@@ -4977,7 +4977,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_RenewalCertificate(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RenewalCertificate(&this, Encoding, pValue);
+	public HRESULT get_RenewalCertificate(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RenewalCertificate(&this, Encoding, pValue);
 }
 
 [CRepr]struct IX509AttributeArchiveKey : IX509Attribute
@@ -4990,9 +4990,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKey*/SelfOuter* self, IX509PrivateKey* pKey, EncodingType Encoding, BSTR strCAXCert, IObjectId* pAlgorithm, int32 EncryptionStrength) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKey*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKey*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_EncryptedKeyBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKey*/SelfOuter* self, IObjectId** ppValue) get_EncryptionAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKey*/SelfOuter* self, int32* pValue) get_EncryptionStrength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKey*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_EncryptedKeyBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKey*/SelfOuter* self, IObjectId* ppValue) get_EncryptionAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKey*/SelfOuter* self, int32 pValue) get_EncryptionStrength;
 	}
 
 
@@ -5000,11 +5000,11 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_EncryptedKeyBlob(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_EncryptedKeyBlob(&this, Encoding, pValue);
+	public HRESULT get_EncryptedKeyBlob(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_EncryptedKeyBlob(&this, Encoding, pValue);
 
-	public HRESULT get_EncryptionAlgorithm(IObjectId** ppValue) mut => VT.[Friend]get_EncryptionAlgorithm(&this, ppValue);
+	public HRESULT get_EncryptionAlgorithm(IObjectId* ppValue) mut => VT.[Friend]get_EncryptionAlgorithm(&this, ppValue);
 
-	public HRESULT get_EncryptionStrength(int32* pValue) mut => VT.[Friend]get_EncryptionStrength(&this, pValue);
+	public HRESULT get_EncryptionStrength(int32 pValue) mut => VT.[Friend]get_EncryptionStrength(&this, pValue);
 }
 
 [CRepr]struct IX509AttributeArchiveKeyHash : IX509Attribute
@@ -5017,7 +5017,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKeyHash*/SelfOuter* self, EncodingType Encoding, BSTR strEncryptedKeyBlob) InitializeEncodeFromEncryptedKeyBlob;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKeyHash*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKeyHash*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_EncryptedKeyHashBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeArchiveKeyHash*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_EncryptedKeyHashBlob;
 	}
 
 
@@ -5025,7 +5025,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_EncryptedKeyHashBlob(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_EncryptedKeyHashBlob(&this, Encoding, pValue);
+	public HRESULT get_EncryptedKeyHashBlob(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_EncryptedKeyHashBlob(&this, Encoding, pValue);
 }
 
 [CRepr]struct IX509AttributeOSVersion : IX509Attribute
@@ -5038,7 +5038,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeOSVersion*/SelfOuter* self, BSTR strOSVersion) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeOSVersion*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeOSVersion*/SelfOuter* self, BSTR* pValue) get_OSVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeOSVersion*/SelfOuter* self, BSTR pValue) get_OSVersion;
 	}
 
 
@@ -5046,7 +5046,7 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_OSVersion(BSTR* pValue) mut => VT.[Friend]get_OSVersion(&this, pValue);
+	public HRESULT get_OSVersion(BSTR pValue) mut => VT.[Friend]get_OSVersion(&this, pValue);
 }
 
 [CRepr]struct IX509AttributeCspProvider : IX509Attribute
@@ -5059,9 +5059,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeCspProvider*/SelfOuter* self, X509KeySpec KeySpec, BSTR strProviderName, EncodingType Encoding, BSTR strSignature) InitializeEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeCspProvider*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeCspProvider*/SelfOuter* self, X509KeySpec* pValue) get_KeySpec;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeCspProvider*/SelfOuter* self, BSTR* pValue) get_ProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeCspProvider*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeCspProvider*/SelfOuter* self, X509KeySpec pValue) get_KeySpec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeCspProvider*/SelfOuter* self, BSTR pValue) get_ProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509AttributeCspProvider*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_Signature;
 	}
 
 
@@ -5069,11 +5069,11 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_KeySpec(X509KeySpec* pValue) mut => VT.[Friend]get_KeySpec(&this, pValue);
+	public HRESULT get_KeySpec(X509KeySpec pValue) mut => VT.[Friend]get_KeySpec(&this, pValue);
 
-	public HRESULT get_ProviderName(BSTR* pValue) mut => VT.[Friend]get_ProviderName(&this, pValue);
+	public HRESULT get_ProviderName(BSTR pValue) mut => VT.[Friend]get_ProviderName(&this, pValue);
 
-	public HRESULT get_Signature(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_Signature(&this, Encoding, pValue);
+	public HRESULT get_Signature(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_Signature(&this, Encoding, pValue);
 }
 
 [CRepr]struct ICryptAttribute : IDispatch
@@ -5086,8 +5086,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttribute*/SelfOuter* self, IObjectId* pObjectId) InitializeFromObjectId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttribute*/SelfOuter* self, IX509Attributes* pAttributes) InitializeFromValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttribute*/SelfOuter* self, IObjectId** ppValue) get_ObjectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttribute*/SelfOuter* self, IX509Attributes** ppValue) get_Values;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttribute*/SelfOuter* self, IObjectId* ppValue) get_ObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttribute*/SelfOuter* self, IX509Attributes* ppValue) get_Values;
 	}
 
 
@@ -5095,9 +5095,9 @@ public static
 
 	public HRESULT InitializeFromValues(IX509Attributes* pAttributes) mut => VT.[Friend]InitializeFromValues(&this, pAttributes);
 
-	public HRESULT get_ObjectId(IObjectId** ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
+	public HRESULT get_ObjectId(IObjectId* ppValue) mut => VT.[Friend]get_ObjectId(&this, ppValue);
 
-	public HRESULT get_Values(IX509Attributes** ppValue) mut => VT.[Friend]get_Values(&this, ppValue);
+	public HRESULT get_Values(IX509Attributes* ppValue) mut => VT.[Friend]get_Values(&this, ppValue);
 }
 
 [CRepr]struct ICryptAttributes : IDispatch
@@ -5108,22 +5108,22 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, int32 Index, ICryptAttribute** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, int32 Index, ICryptAttribute* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, ICryptAttribute* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, IObjectId* pObjectId, int32* pIndex) get_IndexByObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, IObjectId* pObjectId, int32 pIndex) get_IndexByObjectId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICryptAttributes*/SelfOuter* self, ICryptAttributes* pValue) AddRange;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, ICryptAttribute** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, ICryptAttribute* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(ICryptAttribute* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -5131,7 +5131,7 @@ public static
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
-	public HRESULT get_IndexByObjectId(IObjectId* pObjectId, int32* pIndex) mut => VT.[Friend]get_IndexByObjectId(&this, pObjectId, pIndex);
+	public HRESULT get_IndexByObjectId(IObjectId* pObjectId, int32 pIndex) mut => VT.[Friend]get_IndexByObjectId(&this, pObjectId, pIndex);
 
 	public HRESULT AddRange(ICryptAttributes* pValue) mut => VT.[Friend]AddRange(&this, pValue);
 }
@@ -5146,9 +5146,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperty*/SelfOuter* self, int16 MachineContext, EncodingType Encoding, BSTR strCertificate) InitializeFromCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperty*/SelfOuter* self, EncodingType Encoding, BSTR strEncodedData) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperty*/SelfOuter* self, CERTENROLL_PROPERTYID* pValue) get_PropertyId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperty*/SelfOuter* self, CERTENROLL_PROPERTYID pValue) get_PropertyId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperty*/SelfOuter* self, CERTENROLL_PROPERTYID Value) put_PropertyId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperty*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RawData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperty*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RawData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperty*/SelfOuter* self, int16 MachineContext, EncodingType Encoding, BSTR strCertificate) RemoveFromCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperty*/SelfOuter* self, int16 MachineContext, EncodingType Encoding, BSTR strCertificate) SetValueOnCertificate;
 	}
@@ -5158,11 +5158,11 @@ public static
 
 	public HRESULT InitializeDecode(EncodingType Encoding, BSTR strEncodedData) mut => VT.[Friend]InitializeDecode(&this, Encoding, strEncodedData);
 
-	public HRESULT get_PropertyId(CERTENROLL_PROPERTYID* pValue) mut => VT.[Friend]get_PropertyId(&this, pValue);
+	public HRESULT get_PropertyId(CERTENROLL_PROPERTYID pValue) mut => VT.[Friend]get_PropertyId(&this, pValue);
 
 	public HRESULT put_PropertyId(CERTENROLL_PROPERTYID Value) mut => VT.[Friend]put_PropertyId(&this, Value);
 
-	public HRESULT get_RawData(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
+	public HRESULT get_RawData(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
 
 	public HRESULT RemoveFromCertificate(int16 MachineContext, EncodingType Encoding, BSTR strCertificate) mut => VT.[Friend]RemoveFromCertificate(&this, MachineContext, Encoding, strCertificate);
 
@@ -5177,9 +5177,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperties*/SelfOuter* self, int32 Index, ICertProperty** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperties*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperties*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperties*/SelfOuter* self, int32 Index, ICertProperty* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperties*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperties*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperties*/SelfOuter* self, ICertProperty* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperties*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertProperties*/SelfOuter* self) Clear;
@@ -5187,11 +5187,11 @@ public static
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, ICertProperty** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, ICertProperty* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(ICertProperty* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -5211,13 +5211,13 @@ public static
 	[CRepr]public struct VTable : ICertProperty.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyFriendlyName*/SelfOuter* self, BSTR strFriendlyName) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyFriendlyName*/SelfOuter* self, BSTR* pValue) get_FriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyFriendlyName*/SelfOuter* self, BSTR pValue) get_FriendlyName;
 	}
 
 
 	public HRESULT Initialize(BSTR strFriendlyName) mut => VT.[Friend]Initialize(&this, strFriendlyName);
 
-	public HRESULT get_FriendlyName(BSTR* pValue) mut => VT.[Friend]get_FriendlyName(&this, pValue);
+	public HRESULT get_FriendlyName(BSTR pValue) mut => VT.[Friend]get_FriendlyName(&this, pValue);
 }
 
 [CRepr]struct ICertPropertyDescription : ICertProperty
@@ -5229,13 +5229,13 @@ public static
 	[CRepr]public struct VTable : ICertProperty.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyDescription*/SelfOuter* self, BSTR strDescription) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyDescription*/SelfOuter* self, BSTR* pValue) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyDescription*/SelfOuter* self, BSTR pValue) get_Description;
 	}
 
 
 	public HRESULT Initialize(BSTR strDescription) mut => VT.[Friend]Initialize(&this, strDescription);
 
-	public HRESULT get_Description(BSTR* pValue) mut => VT.[Friend]get_Description(&this, pValue);
+	public HRESULT get_Description(BSTR pValue) mut => VT.[Friend]get_Description(&this, pValue);
 }
 
 [CRepr]struct ICertPropertyAutoEnroll : ICertProperty
@@ -5247,13 +5247,13 @@ public static
 	[CRepr]public struct VTable : ICertProperty.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyAutoEnroll*/SelfOuter* self, BSTR strTemplateName) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyAutoEnroll*/SelfOuter* self, BSTR* pValue) get_TemplateName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyAutoEnroll*/SelfOuter* self, BSTR pValue) get_TemplateName;
 	}
 
 
 	public HRESULT Initialize(BSTR strTemplateName) mut => VT.[Friend]Initialize(&this, strTemplateName);
 
-	public HRESULT get_TemplateName(BSTR* pValue) mut => VT.[Friend]get_TemplateName(&this, pValue);
+	public HRESULT get_TemplateName(BSTR pValue) mut => VT.[Friend]get_TemplateName(&this, pValue);
 }
 
 [CRepr]struct ICertPropertyRequestOriginator : ICertProperty
@@ -5266,7 +5266,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyRequestOriginator*/SelfOuter* self, BSTR strRequestOriginator) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyRequestOriginator*/SelfOuter* self) InitializeFromLocalRequestOriginator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyRequestOriginator*/SelfOuter* self, BSTR* pValue) get_RequestOriginator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyRequestOriginator*/SelfOuter* self, BSTR pValue) get_RequestOriginator;
 	}
 
 
@@ -5274,7 +5274,7 @@ public static
 
 	public HRESULT InitializeFromLocalRequestOriginator() mut => VT.[Friend]InitializeFromLocalRequestOriginator(&this);
 
-	public HRESULT get_RequestOriginator(BSTR* pValue) mut => VT.[Friend]get_RequestOriginator(&this, pValue);
+	public HRESULT get_RequestOriginator(BSTR pValue) mut => VT.[Friend]get_RequestOriginator(&this, pValue);
 }
 
 [CRepr]struct ICertPropertySHA1Hash : ICertProperty
@@ -5286,13 +5286,13 @@ public static
 	[CRepr]public struct VTable : ICertProperty.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertySHA1Hash*/SelfOuter* self, EncodingType Encoding, BSTR strRenewalValue) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertySHA1Hash*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_SHA1Hash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertySHA1Hash*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_SHA1Hash;
 	}
 
 
 	public HRESULT Initialize(EncodingType Encoding, BSTR strRenewalValue) mut => VT.[Friend]Initialize(&this, Encoding, strRenewalValue);
 
-	public HRESULT get_SHA1Hash(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_SHA1Hash(&this, Encoding, pValue);
+	public HRESULT get_SHA1Hash(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_SHA1Hash(&this, Encoding, pValue);
 }
 
 [CRepr]struct ICertPropertyKeyProvInfo : ICertProperty
@@ -5304,13 +5304,13 @@ public static
 	[CRepr]public struct VTable : ICertProperty.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyKeyProvInfo*/SelfOuter* self, IX509PrivateKey* pValue) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyKeyProvInfo*/SelfOuter* self, IX509PrivateKey** ppValue) get_PrivateKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyKeyProvInfo*/SelfOuter* self, IX509PrivateKey* ppValue) get_PrivateKey;
 	}
 
 
 	public HRESULT Initialize(IX509PrivateKey* pValue) mut => VT.[Friend]Initialize(&this, pValue);
 
-	public HRESULT get_PrivateKey(IX509PrivateKey** ppValue) mut => VT.[Friend]get_PrivateKey(&this, ppValue);
+	public HRESULT get_PrivateKey(IX509PrivateKey* ppValue) mut => VT.[Friend]get_PrivateKey(&this, ppValue);
 }
 
 [CRepr]struct ICertPropertyArchived : ICertProperty
@@ -5322,13 +5322,13 @@ public static
 	[CRepr]public struct VTable : ICertProperty.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyArchived*/SelfOuter* self, int16 ArchivedValue) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyArchived*/SelfOuter* self, int16* pValue) get_Archived;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyArchived*/SelfOuter* self, int16 pValue) get_Archived;
 	}
 
 
 	public HRESULT Initialize(int16 ArchivedValue) mut => VT.[Friend]Initialize(&this, ArchivedValue);
 
-	public HRESULT get_Archived(int16* pValue) mut => VT.[Friend]get_Archived(&this, pValue);
+	public HRESULT get_Archived(int16 pValue) mut => VT.[Friend]get_Archived(&this, pValue);
 }
 
 [CRepr]struct ICertPropertyBackedUp : ICertProperty
@@ -5341,8 +5341,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyBackedUp*/SelfOuter* self, int16 BackedUpValue) InitializeFromCurrentTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyBackedUp*/SelfOuter* self, int16 BackedUpValue, double Date) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyBackedUp*/SelfOuter* self, int16* pValue) get_BackedUpValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyBackedUp*/SelfOuter* self, double* pDate) get_BackedUpTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyBackedUp*/SelfOuter* self, int16 pValue) get_BackedUpValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyBackedUp*/SelfOuter* self, double pDate) get_BackedUpTime;
 	}
 
 
@@ -5350,9 +5350,9 @@ public static
 
 	public HRESULT Initialize(int16 BackedUpValue, double Date) mut => VT.[Friend]Initialize(&this, BackedUpValue, Date);
 
-	public HRESULT get_BackedUpValue(int16* pValue) mut => VT.[Friend]get_BackedUpValue(&this, pValue);
+	public HRESULT get_BackedUpValue(int16 pValue) mut => VT.[Friend]get_BackedUpValue(&this, pValue);
 
-	public HRESULT get_BackedUpTime(double* pDate) mut => VT.[Friend]get_BackedUpTime(&this, pDate);
+	public HRESULT get_BackedUpTime(double pDate) mut => VT.[Friend]get_BackedUpTime(&this, pDate);
 }
 
 [CRepr]struct ICertPropertyEnrollment : ICertProperty
@@ -5364,22 +5364,22 @@ public static
 	[CRepr]public struct VTable : ICertProperty.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollment*/SelfOuter* self, int32 RequestId, BSTR strCADnsName, BSTR strCAName, BSTR strFriendlyName) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollment*/SelfOuter* self, int32* pValue) get_RequestId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollment*/SelfOuter* self, BSTR* pValue) get_CADnsName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollment*/SelfOuter* self, BSTR* pValue) get_CAName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollment*/SelfOuter* self, BSTR* pValue) get_FriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollment*/SelfOuter* self, int32 pValue) get_RequestId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollment*/SelfOuter* self, BSTR pValue) get_CADnsName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollment*/SelfOuter* self, BSTR pValue) get_CAName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollment*/SelfOuter* self, BSTR pValue) get_FriendlyName;
 	}
 
 
 	public HRESULT Initialize(int32 RequestId, BSTR strCADnsName, BSTR strCAName, BSTR strFriendlyName) mut => VT.[Friend]Initialize(&this, RequestId, strCADnsName, strCAName, strFriendlyName);
 
-	public HRESULT get_RequestId(int32* pValue) mut => VT.[Friend]get_RequestId(&this, pValue);
+	public HRESULT get_RequestId(int32 pValue) mut => VT.[Friend]get_RequestId(&this, pValue);
 
-	public HRESULT get_CADnsName(BSTR* pValue) mut => VT.[Friend]get_CADnsName(&this, pValue);
+	public HRESULT get_CADnsName(BSTR pValue) mut => VT.[Friend]get_CADnsName(&this, pValue);
 
-	public HRESULT get_CAName(BSTR* pValue) mut => VT.[Friend]get_CAName(&this, pValue);
+	public HRESULT get_CAName(BSTR pValue) mut => VT.[Friend]get_CAName(&this, pValue);
 
-	public HRESULT get_FriendlyName(BSTR* pValue) mut => VT.[Friend]get_FriendlyName(&this, pValue);
+	public HRESULT get_FriendlyName(BSTR pValue) mut => VT.[Friend]get_FriendlyName(&this, pValue);
 }
 
 [CRepr]struct ICertPropertyRenewal : ICertProperty
@@ -5392,7 +5392,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyRenewal*/SelfOuter* self, EncodingType Encoding, BSTR strRenewalValue) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyRenewal*/SelfOuter* self, int16 MachineContext, EncodingType Encoding, BSTR strCertificate) InitializeFromCertificateHash;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyRenewal*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_Renewal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyRenewal*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_Renewal;
 	}
 
 
@@ -5400,7 +5400,7 @@ public static
 
 	public HRESULT InitializeFromCertificateHash(int16 MachineContext, EncodingType Encoding, BSTR strCertificate) mut => VT.[Friend]InitializeFromCertificateHash(&this, MachineContext, Encoding, strCertificate);
 
-	public HRESULT get_Renewal(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_Renewal(&this, Encoding, pValue);
+	public HRESULT get_Renewal(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_Renewal(&this, Encoding, pValue);
 }
 
 [CRepr]struct ICertPropertyArchivedKeyHash : ICertProperty
@@ -5412,13 +5412,13 @@ public static
 	[CRepr]public struct VTable : ICertProperty.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyArchivedKeyHash*/SelfOuter* self, EncodingType Encoding, BSTR strArchivedKeyHashValue) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyArchivedKeyHash*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_ArchivedKeyHash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyArchivedKeyHash*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_ArchivedKeyHash;
 	}
 
 
 	public HRESULT Initialize(EncodingType Encoding, BSTR strArchivedKeyHashValue) mut => VT.[Friend]Initialize(&this, Encoding, strArchivedKeyHashValue);
 
-	public HRESULT get_ArchivedKeyHash(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_ArchivedKeyHash(&this, Encoding, pValue);
+	public HRESULT get_ArchivedKeyHash(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_ArchivedKeyHash(&this, Encoding, pValue);
 }
 
 [CRepr]struct ICertPropertyEnrollmentPolicyServer : ICertProperty
@@ -5430,34 +5430,34 @@ public static
 	[CRepr]public struct VTable : ICertProperty.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, EnrollmentPolicyServerPropertyFlags PropertyFlags, X509EnrollmentAuthFlags AuthFlags, X509EnrollmentAuthFlags EnrollmentServerAuthFlags, PolicyServerUrlFlags UrlFlags, BSTR strRequestId, BSTR strUrl, BSTR strId, BSTR strEnrollmentServerUrl) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, BSTR* pValue) GetPolicyServerUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, BSTR* pValue) GetPolicyServerId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, BSTR* pValue) GetEnrollmentServerUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, BSTR* pValue) GetRequestIdString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, EnrollmentPolicyServerPropertyFlags* pValue) GetPropertyFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, PolicyServerUrlFlags* pValue) GetUrlFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, X509EnrollmentAuthFlags* pValue) GetAuthentication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, X509EnrollmentAuthFlags* pValue) GetEnrollmentServerAuthentication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, BSTR pValue) GetPolicyServerUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, BSTR pValue) GetPolicyServerId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, BSTR pValue) GetEnrollmentServerUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, BSTR pValue) GetRequestIdString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, EnrollmentPolicyServerPropertyFlags pValue) GetPropertyFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, PolicyServerUrlFlags pValue) GetUrlFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, X509EnrollmentAuthFlags pValue) GetAuthentication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertPropertyEnrollmentPolicyServer*/SelfOuter* self, X509EnrollmentAuthFlags pValue) GetEnrollmentServerAuthentication;
 	}
 
 
 	public HRESULT Initialize(EnrollmentPolicyServerPropertyFlags PropertyFlags, X509EnrollmentAuthFlags AuthFlags, X509EnrollmentAuthFlags EnrollmentServerAuthFlags, PolicyServerUrlFlags UrlFlags, BSTR strRequestId, BSTR strUrl, BSTR strId, BSTR strEnrollmentServerUrl) mut => VT.[Friend]Initialize(&this, PropertyFlags, AuthFlags, EnrollmentServerAuthFlags, UrlFlags, strRequestId, strUrl, strId, strEnrollmentServerUrl);
 
-	public HRESULT GetPolicyServerUrl(BSTR* pValue) mut => VT.[Friend]GetPolicyServerUrl(&this, pValue);
+	public HRESULT GetPolicyServerUrl(BSTR pValue) mut => VT.[Friend]GetPolicyServerUrl(&this, pValue);
 
-	public HRESULT GetPolicyServerId(BSTR* pValue) mut => VT.[Friend]GetPolicyServerId(&this, pValue);
+	public HRESULT GetPolicyServerId(BSTR pValue) mut => VT.[Friend]GetPolicyServerId(&this, pValue);
 
-	public HRESULT GetEnrollmentServerUrl(BSTR* pValue) mut => VT.[Friend]GetEnrollmentServerUrl(&this, pValue);
+	public HRESULT GetEnrollmentServerUrl(BSTR pValue) mut => VT.[Friend]GetEnrollmentServerUrl(&this, pValue);
 
-	public HRESULT GetRequestIdString(BSTR* pValue) mut => VT.[Friend]GetRequestIdString(&this, pValue);
+	public HRESULT GetRequestIdString(BSTR pValue) mut => VT.[Friend]GetRequestIdString(&this, pValue);
 
-	public HRESULT GetPropertyFlags(EnrollmentPolicyServerPropertyFlags* pValue) mut => VT.[Friend]GetPropertyFlags(&this, pValue);
+	public HRESULT GetPropertyFlags(EnrollmentPolicyServerPropertyFlags pValue) mut => VT.[Friend]GetPropertyFlags(&this, pValue);
 
-	public HRESULT GetUrlFlags(PolicyServerUrlFlags* pValue) mut => VT.[Friend]GetUrlFlags(&this, pValue);
+	public HRESULT GetUrlFlags(PolicyServerUrlFlags pValue) mut => VT.[Friend]GetUrlFlags(&this, pValue);
 
-	public HRESULT GetAuthentication(X509EnrollmentAuthFlags* pValue) mut => VT.[Friend]GetAuthentication(&this, pValue);
+	public HRESULT GetAuthentication(X509EnrollmentAuthFlags pValue) mut => VT.[Friend]GetAuthentication(&this, pValue);
 
-	public HRESULT GetEnrollmentServerAuthentication(X509EnrollmentAuthFlags* pValue) mut => VT.[Friend]GetEnrollmentServerAuthentication(&this, pValue);
+	public HRESULT GetEnrollmentServerAuthentication(X509EnrollmentAuthFlags pValue) mut => VT.[Friend]GetEnrollmentServerAuthentication(&this, pValue);
 }
 
 [CRepr]struct IX509SignatureInformation : IDispatch
@@ -5468,45 +5468,45 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, IObjectId** ppValue) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, IObjectId* ppValue) get_HashAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, IObjectId* pValue) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, IObjectId** ppValue) get_PublicKeyAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, IObjectId* ppValue) get_PublicKeyAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, IObjectId* pValue) put_PublicKeyAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_Parameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_Parameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, EncodingType Encoding, BSTR Value) put_Parameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, int16* pValue) get_AlternateSignatureAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, int16 pValue) get_AlternateSignatureAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, int16 Value) put_AlternateSignatureAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, int16* pValue) get_AlternateSignatureAlgorithmSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, int16* pValue) get_NullSigned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, int16 pValue) get_AlternateSignatureAlgorithmSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, int16 pValue) get_NullSigned;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, int16 Value) put_NullSigned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, int16 Pkcs7Signature, int16 SignatureKey, IObjectId** ppValue) GetSignatureAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self, int16 Pkcs7Signature, int16 SignatureKey, IObjectId* ppValue) GetSignatureAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SignatureInformation*/SelfOuter* self) SetDefaultValues;
 	}
 
 
-	public HRESULT get_HashAlgorithm(IObjectId** ppValue) mut => VT.[Friend]get_HashAlgorithm(&this, ppValue);
+	public HRESULT get_HashAlgorithm(IObjectId* ppValue) mut => VT.[Friend]get_HashAlgorithm(&this, ppValue);
 
 	public HRESULT put_HashAlgorithm(IObjectId* pValue) mut => VT.[Friend]put_HashAlgorithm(&this, pValue);
 
-	public HRESULT get_PublicKeyAlgorithm(IObjectId** ppValue) mut => VT.[Friend]get_PublicKeyAlgorithm(&this, ppValue);
+	public HRESULT get_PublicKeyAlgorithm(IObjectId* ppValue) mut => VT.[Friend]get_PublicKeyAlgorithm(&this, ppValue);
 
 	public HRESULT put_PublicKeyAlgorithm(IObjectId* pValue) mut => VT.[Friend]put_PublicKeyAlgorithm(&this, pValue);
 
-	public HRESULT get_Parameters(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_Parameters(&this, Encoding, pValue);
+	public HRESULT get_Parameters(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_Parameters(&this, Encoding, pValue);
 
 	public HRESULT put_Parameters(EncodingType Encoding, BSTR Value) mut => VT.[Friend]put_Parameters(&this, Encoding, Value);
 
-	public HRESULT get_AlternateSignatureAlgorithm(int16* pValue) mut => VT.[Friend]get_AlternateSignatureAlgorithm(&this, pValue);
+	public HRESULT get_AlternateSignatureAlgorithm(int16 pValue) mut => VT.[Friend]get_AlternateSignatureAlgorithm(&this, pValue);
 
 	public HRESULT put_AlternateSignatureAlgorithm(int16 Value) mut => VT.[Friend]put_AlternateSignatureAlgorithm(&this, Value);
 
-	public HRESULT get_AlternateSignatureAlgorithmSet(int16* pValue) mut => VT.[Friend]get_AlternateSignatureAlgorithmSet(&this, pValue);
+	public HRESULT get_AlternateSignatureAlgorithmSet(int16 pValue) mut => VT.[Friend]get_AlternateSignatureAlgorithmSet(&this, pValue);
 
-	public HRESULT get_NullSigned(int16* pValue) mut => VT.[Friend]get_NullSigned(&this, pValue);
+	public HRESULT get_NullSigned(int16 pValue) mut => VT.[Friend]get_NullSigned(&this, pValue);
 
 	public HRESULT put_NullSigned(int16 Value) mut => VT.[Friend]put_NullSigned(&this, Value);
 
-	public HRESULT GetSignatureAlgorithm(int16 Pkcs7Signature, int16 SignatureKey, IObjectId** ppValue) mut => VT.[Friend]GetSignatureAlgorithm(&this, Pkcs7Signature, SignatureKey, ppValue);
+	public HRESULT GetSignatureAlgorithm(int16 Pkcs7Signature, int16 SignatureKey, IObjectId* ppValue) mut => VT.[Friend]GetSignatureAlgorithm(&this, Pkcs7Signature, SignatureKey, ppValue);
 
 	public HRESULT SetDefaultValues() mut => VT.[Friend]SetDefaultValues(&this);
 }
@@ -5520,40 +5520,40 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, int16 MachineContext, X509PrivateKeyVerify VerifyType, EncodingType Encoding, BSTR strCertificate) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_Certificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, IX509PrivateKey** ppValue) get_PrivateKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, int16* pValue) get_Silent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_Certificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, IX509PrivateKey* ppValue) get_PrivateKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, int16 pValue) get_Silent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, int16 Value) put_Silent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, int32* pValue) get_ParentWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, int32 pValue) get_ParentWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, int32 Value) put_ParentWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, BSTR* pValue) get_UIContextMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, BSTR pValue) get_UIContextMessage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, BSTR Value) put_UIContextMessage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, BSTR Value) put_Pin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, IX509SignatureInformation** ppValue) get_SignatureInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificate*/SelfOuter* self, IX509SignatureInformation* ppValue) get_SignatureInformation;
 	}
 
 
 	public HRESULT Initialize(int16 MachineContext, X509PrivateKeyVerify VerifyType, EncodingType Encoding, BSTR strCertificate) mut => VT.[Friend]Initialize(&this, MachineContext, VerifyType, Encoding, strCertificate);
 
-	public HRESULT get_Certificate(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_Certificate(&this, Encoding, pValue);
+	public HRESULT get_Certificate(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_Certificate(&this, Encoding, pValue);
 
-	public HRESULT get_PrivateKey(IX509PrivateKey** ppValue) mut => VT.[Friend]get_PrivateKey(&this, ppValue);
+	public HRESULT get_PrivateKey(IX509PrivateKey* ppValue) mut => VT.[Friend]get_PrivateKey(&this, ppValue);
 
-	public HRESULT get_Silent(int16* pValue) mut => VT.[Friend]get_Silent(&this, pValue);
+	public HRESULT get_Silent(int16 pValue) mut => VT.[Friend]get_Silent(&this, pValue);
 
 	public HRESULT put_Silent(int16 Value) mut => VT.[Friend]put_Silent(&this, Value);
 
-	public HRESULT get_ParentWindow(int32* pValue) mut => VT.[Friend]get_ParentWindow(&this, pValue);
+	public HRESULT get_ParentWindow(int32 pValue) mut => VT.[Friend]get_ParentWindow(&this, pValue);
 
 	public HRESULT put_ParentWindow(int32 Value) mut => VT.[Friend]put_ParentWindow(&this, Value);
 
-	public HRESULT get_UIContextMessage(BSTR* pValue) mut => VT.[Friend]get_UIContextMessage(&this, pValue);
+	public HRESULT get_UIContextMessage(BSTR pValue) mut => VT.[Friend]get_UIContextMessage(&this, pValue);
 
 	public HRESULT put_UIContextMessage(BSTR Value) mut => VT.[Friend]put_UIContextMessage(&this, Value);
 
 	public HRESULT put_Pin(BSTR Value) mut => VT.[Friend]put_Pin(&this, Value);
 
-	public HRESULT get_SignatureInformation(IX509SignatureInformation** ppValue) mut => VT.[Friend]get_SignatureInformation(&this, ppValue);
+	public HRESULT get_SignatureInformation(IX509SignatureInformation* ppValue) mut => VT.[Friend]get_SignatureInformation(&this, ppValue);
 }
 
 [CRepr]struct ISignerCertificates : IDispatch
@@ -5564,21 +5564,21 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self, int32 Index, ISignerCertificate** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self, int32 Index, ISignerCertificate* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self, ISignerCertificate* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self, ISignerCertificate* pSignerCert, int32* piSignerCert) Find;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISignerCertificates*/SelfOuter* self, ISignerCertificate* pSignerCert, int32 piSignerCert) Find;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, ISignerCertificate** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, ISignerCertificate* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(ISignerCertificate* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -5586,7 +5586,7 @@ public static
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
-	public HRESULT Find(ISignerCertificate* pSignerCert, int32* piSignerCert) mut => VT.[Friend]Find(&this, pSignerCert, piSignerCert);
+	public HRESULT Find(ISignerCertificate* pSignerCert, int32 piSignerCert) mut => VT.[Friend]Find(&this, pSignerCert, piSignerCert);
 }
 
 [CRepr]struct IX509NameValuePair : IDispatch
@@ -5598,16 +5598,16 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePair*/SelfOuter* self, BSTR strName, BSTR strValue) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePair*/SelfOuter* self, BSTR* pValue) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePair*/SelfOuter* self, BSTR* pValue) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePair*/SelfOuter* self, BSTR pValue) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePair*/SelfOuter* self, BSTR pValue) get_Name;
 	}
 
 
 	public HRESULT Initialize(BSTR strName, BSTR strValue) mut => VT.[Friend]Initialize(&this, strName, strValue);
 
-	public HRESULT get_Value(BSTR* pValue) mut => VT.[Friend]get_Value(&this, pValue);
+	public HRESULT get_Value(BSTR pValue) mut => VT.[Friend]get_Value(&this, pValue);
 
-	public HRESULT get_Name(BSTR* pValue) mut => VT.[Friend]get_Name(&this, pValue);
+	public HRESULT get_Name(BSTR pValue) mut => VT.[Friend]get_Name(&this, pValue);
 }
 
 [CRepr]struct IX509NameValuePairs : IDispatch
@@ -5618,20 +5618,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePairs*/SelfOuter* self, int32 Index, IX509NameValuePair** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePairs*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePairs*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePairs*/SelfOuter* self, int32 Index, IX509NameValuePair* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePairs*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePairs*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePairs*/SelfOuter* self, IX509NameValuePair* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePairs*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509NameValuePairs*/SelfOuter* self) Clear;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, IX509NameValuePair** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, IX509NameValuePair* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(IX509NameValuePair* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -5648,11 +5648,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplate*/SelfOuter* self, EnrollmentTemplateProperty property, VARIANT* pValue) get_Property;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplate*/SelfOuter* self, EnrollmentTemplateProperty property, VARIANT pValue) get_Property;
 	}
 
 
-	public HRESULT get_Property(EnrollmentTemplateProperty property, VARIANT* pValue) mut => VT.[Friend]get_Property(&this, property, pValue);
+	public HRESULT get_Property(EnrollmentTemplateProperty property, VARIANT pValue) mut => VT.[Friend]get_Property(&this, property, pValue);
 }
 
 [CRepr]struct IX509CertificateTemplates : IDispatch
@@ -5663,22 +5663,22 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, int32 Index, IX509CertificateTemplate** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, int32 Index, IX509CertificateTemplate* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, IX509CertificateTemplate* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, BSTR bstrName, IX509CertificateTemplate** ppValue) get_ItemByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, IObjectId* pOid, IX509CertificateTemplate** ppValue) get_ItemByOid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, BSTR bstrName, IX509CertificateTemplate* ppValue) get_ItemByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplates*/SelfOuter* self, IObjectId* pOid, IX509CertificateTemplate* ppValue) get_ItemByOid;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, IX509CertificateTemplate** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, IX509CertificateTemplate* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(IX509CertificateTemplate* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -5686,9 +5686,9 @@ public static
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
-	public HRESULT get_ItemByName(BSTR bstrName, IX509CertificateTemplate** ppValue) mut => VT.[Friend]get_ItemByName(&this, bstrName, ppValue);
+	public HRESULT get_ItemByName(BSTR bstrName, IX509CertificateTemplate* ppValue) mut => VT.[Friend]get_ItemByName(&this, bstrName, ppValue);
 
-	public HRESULT get_ItemByOid(IObjectId* pOid, IX509CertificateTemplate** ppValue) mut => VT.[Friend]get_ItemByOid(&this, pOid, ppValue);
+	public HRESULT get_ItemByOid(IObjectId* pOid, IX509CertificateTemplate* ppValue) mut => VT.[Friend]get_ItemByOid(&this, pOid, ppValue);
 }
 
 [CRepr]struct IX509CertificateTemplateWritable : IDispatch
@@ -5701,9 +5701,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplateWritable*/SelfOuter* self, IX509CertificateTemplate* pValue) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplateWritable*/SelfOuter* self, CommitTemplateFlags commitFlags, BSTR strServerContext) Commit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplateWritable*/SelfOuter* self, EnrollmentTemplateProperty property, VARIANT* pValue) get_Property;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplateWritable*/SelfOuter* self, EnrollmentTemplateProperty property, VARIANT pValue) get_Property;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplateWritable*/SelfOuter* self, EnrollmentTemplateProperty property, VARIANT value) put_Property;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplateWritable*/SelfOuter* self, IX509CertificateTemplate** ppValue) get_Template;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateTemplateWritable*/SelfOuter* self, IX509CertificateTemplate* ppValue) get_Template;
 	}
 
 
@@ -5711,11 +5711,11 @@ public static
 
 	public HRESULT Commit(CommitTemplateFlags commitFlags, BSTR strServerContext) mut => VT.[Friend]Commit(&this, commitFlags, strServerContext);
 
-	public HRESULT get_Property(EnrollmentTemplateProperty property, VARIANT* pValue) mut => VT.[Friend]get_Property(&this, property, pValue);
+	public HRESULT get_Property(EnrollmentTemplateProperty property, VARIANT pValue) mut => VT.[Friend]get_Property(&this, property, pValue);
 
 	public HRESULT put_Property(EnrollmentTemplateProperty property, VARIANT value) mut => VT.[Friend]put_Property(&this, property, value);
 
-	public HRESULT get_Template(IX509CertificateTemplate** ppValue) mut => VT.[Friend]get_Template(&this, ppValue);
+	public HRESULT get_Template(IX509CertificateTemplate* ppValue) mut => VT.[Friend]get_Template(&this, ppValue);
 }
 
 [CRepr]struct ICertificationAuthority : IDispatch
@@ -5726,11 +5726,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthority*/SelfOuter* self, EnrollmentCAProperty property, VARIANT* pValue) get_Property;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthority*/SelfOuter* self, EnrollmentCAProperty property, VARIANT pValue) get_Property;
 	}
 
 
-	public HRESULT get_Property(EnrollmentCAProperty property, VARIANT* pValue) mut => VT.[Friend]get_Property(&this, property, pValue);
+	public HRESULT get_Property(EnrollmentCAProperty property, VARIANT pValue) mut => VT.[Friend]get_Property(&this, property, pValue);
 }
 
 [CRepr]struct ICertificationAuthorities : IDispatch
@@ -5741,22 +5741,22 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self, int32 Index, ICertificationAuthority** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self, int32 Index, ICertificationAuthority* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self, ICertificationAuthority* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self) Clear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self) ComputeSiteCosts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self, BSTR strName, ICertificationAuthority** ppValue) get_ItemByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificationAuthorities*/SelfOuter* self, BSTR strName, ICertificationAuthority* ppValue) get_ItemByName;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, ICertificationAuthority** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, ICertificationAuthority* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(ICertificationAuthority* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -5766,7 +5766,7 @@ public static
 
 	public HRESULT ComputeSiteCosts() mut => VT.[Friend]ComputeSiteCosts(&this);
 
-	public HRESULT get_ItemByName(BSTR strName, ICertificationAuthority** ppValue) mut => VT.[Friend]get_ItemByName(&this, strName, ppValue);
+	public HRESULT get_ItemByName(BSTR strName, ICertificationAuthority* ppValue) mut => VT.[Friend]get_ItemByName(&this, strName, ppValue);
 }
 
 [CRepr]struct IX509EnrollmentPolicyServer : IDispatch
@@ -5779,27 +5779,27 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR bstrPolicyServerUrl, BSTR bstrPolicyServerId, X509EnrollmentAuthFlags authFlags, int16 fIsUnTrusted, X509CertificateEnrollmentContext context) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, X509EnrollmentPolicyLoadOption option) LoadPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, IX509CertificateTemplates** pTemplates) GetTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, IX509CertificateTemplate* pTemplate, ICertificationAuthorities** ppCAs) GetCAsForTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, ICertificationAuthorities** ppCAs) GetCAs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, IX509CertificateTemplates* pTemplates) GetTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, IX509CertificateTemplate* pTemplate, ICertificationAuthorities* ppCAs) GetCAsForTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, ICertificationAuthorities* ppCAs) GetCAs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self) Validate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, IObjectIds** ppObjectIds) GetCustomOids;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, double* pDate) GetNextUpdateTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, double* pDate) GetLastUpdateTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR* pValue) GetPolicyServerUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR* pValue) GetPolicyServerId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR* pValue) GetFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, int16* pValue) GetIsDefaultCEP;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, int16* pValue) GetUseClientId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, int16* pValue) GetAllowUnTrustedCA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR* pValue) GetCachePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR* pValue) GetCacheDir;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, X509EnrollmentAuthFlags* pValue) GetAuthFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, IObjectIds* ppObjectIds) GetCustomOids;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, double pDate) GetNextUpdateTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, double pDate) GetLastUpdateTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR pValue) GetPolicyServerUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR pValue) GetPolicyServerId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR pValue) GetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, int16 pValue) GetIsDefaultCEP;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, int16 pValue) GetUseClientId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, int16 pValue) GetAllowUnTrustedCA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR pValue) GetCachePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, BSTR pValue) GetCacheDir;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, X509EnrollmentAuthFlags pValue) GetAuthFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, int32 hWndParent, X509EnrollmentAuthFlags flag, BSTR strCredential, BSTR strPassword) SetCredential;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, int16* pValue) QueryChanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, int16 pValue) QueryChanges;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, VARIANT val) InitializeImport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, X509EnrollmentPolicyExportFlags exportFlags, VARIANT* pVal) Export;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, uint32* pValue) get_Cost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, X509EnrollmentPolicyExportFlags exportFlags, VARIANT pVal) Export;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, uint32 pValue) get_Cost;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentPolicyServer*/SelfOuter* self, uint32 value) put_Cost;
 	}
 
@@ -5808,47 +5808,47 @@ public static
 
 	public HRESULT LoadPolicy(X509EnrollmentPolicyLoadOption option) mut => VT.[Friend]LoadPolicy(&this, option);
 
-	public HRESULT GetTemplates(IX509CertificateTemplates** pTemplates) mut => VT.[Friend]GetTemplates(&this, pTemplates);
+	public HRESULT GetTemplates(IX509CertificateTemplates* pTemplates) mut => VT.[Friend]GetTemplates(&this, pTemplates);
 
-	public HRESULT GetCAsForTemplate(IX509CertificateTemplate* pTemplate, ICertificationAuthorities** ppCAs) mut => VT.[Friend]GetCAsForTemplate(&this, pTemplate, ppCAs);
+	public HRESULT GetCAsForTemplate(IX509CertificateTemplate* pTemplate, ICertificationAuthorities* ppCAs) mut => VT.[Friend]GetCAsForTemplate(&this, pTemplate, ppCAs);
 
-	public HRESULT GetCAs(ICertificationAuthorities** ppCAs) mut => VT.[Friend]GetCAs(&this, ppCAs);
+	public HRESULT GetCAs(ICertificationAuthorities* ppCAs) mut => VT.[Friend]GetCAs(&this, ppCAs);
 
 	public HRESULT Validate() mut => VT.[Friend]Validate(&this);
 
-	public HRESULT GetCustomOids(IObjectIds** ppObjectIds) mut => VT.[Friend]GetCustomOids(&this, ppObjectIds);
+	public HRESULT GetCustomOids(IObjectIds* ppObjectIds) mut => VT.[Friend]GetCustomOids(&this, ppObjectIds);
 
-	public HRESULT GetNextUpdateTime(double* pDate) mut => VT.[Friend]GetNextUpdateTime(&this, pDate);
+	public HRESULT GetNextUpdateTime(double pDate) mut => VT.[Friend]GetNextUpdateTime(&this, pDate);
 
-	public HRESULT GetLastUpdateTime(double* pDate) mut => VT.[Friend]GetLastUpdateTime(&this, pDate);
+	public HRESULT GetLastUpdateTime(double pDate) mut => VT.[Friend]GetLastUpdateTime(&this, pDate);
 
-	public HRESULT GetPolicyServerUrl(BSTR* pValue) mut => VT.[Friend]GetPolicyServerUrl(&this, pValue);
+	public HRESULT GetPolicyServerUrl(BSTR pValue) mut => VT.[Friend]GetPolicyServerUrl(&this, pValue);
 
-	public HRESULT GetPolicyServerId(BSTR* pValue) mut => VT.[Friend]GetPolicyServerId(&this, pValue);
+	public HRESULT GetPolicyServerId(BSTR pValue) mut => VT.[Friend]GetPolicyServerId(&this, pValue);
 
-	public HRESULT GetFriendlyName(BSTR* pValue) mut => VT.[Friend]GetFriendlyName(&this, pValue);
+	public HRESULT GetFriendlyName(BSTR pValue) mut => VT.[Friend]GetFriendlyName(&this, pValue);
 
-	public HRESULT GetIsDefaultCEP(int16* pValue) mut => VT.[Friend]GetIsDefaultCEP(&this, pValue);
+	public HRESULT GetIsDefaultCEP(int16 pValue) mut => VT.[Friend]GetIsDefaultCEP(&this, pValue);
 
-	public HRESULT GetUseClientId(int16* pValue) mut => VT.[Friend]GetUseClientId(&this, pValue);
+	public HRESULT GetUseClientId(int16 pValue) mut => VT.[Friend]GetUseClientId(&this, pValue);
 
-	public HRESULT GetAllowUnTrustedCA(int16* pValue) mut => VT.[Friend]GetAllowUnTrustedCA(&this, pValue);
+	public HRESULT GetAllowUnTrustedCA(int16 pValue) mut => VT.[Friend]GetAllowUnTrustedCA(&this, pValue);
 
-	public HRESULT GetCachePath(BSTR* pValue) mut => VT.[Friend]GetCachePath(&this, pValue);
+	public HRESULT GetCachePath(BSTR pValue) mut => VT.[Friend]GetCachePath(&this, pValue);
 
-	public HRESULT GetCacheDir(BSTR* pValue) mut => VT.[Friend]GetCacheDir(&this, pValue);
+	public HRESULT GetCacheDir(BSTR pValue) mut => VT.[Friend]GetCacheDir(&this, pValue);
 
-	public HRESULT GetAuthFlags(X509EnrollmentAuthFlags* pValue) mut => VT.[Friend]GetAuthFlags(&this, pValue);
+	public HRESULT GetAuthFlags(X509EnrollmentAuthFlags pValue) mut => VT.[Friend]GetAuthFlags(&this, pValue);
 
 	public HRESULT SetCredential(int32 hWndParent, X509EnrollmentAuthFlags flag, BSTR strCredential, BSTR strPassword) mut => VT.[Friend]SetCredential(&this, hWndParent, flag, strCredential, strPassword);
 
-	public HRESULT QueryChanges(int16* pValue) mut => VT.[Friend]QueryChanges(&this, pValue);
+	public HRESULT QueryChanges(int16 pValue) mut => VT.[Friend]QueryChanges(&this, pValue);
 
 	public HRESULT InitializeImport(VARIANT val) mut => VT.[Friend]InitializeImport(&this, val);
 
-	public HRESULT Export(X509EnrollmentPolicyExportFlags exportFlags, VARIANT* pVal) mut => VT.[Friend]Export(&this, exportFlags, pVal);
+	public HRESULT Export(X509EnrollmentPolicyExportFlags exportFlags, VARIANT pVal) mut => VT.[Friend]Export(&this, exportFlags, pVal);
 
-	public HRESULT get_Cost(uint32* pValue) mut => VT.[Friend]get_Cost(&this, pValue);
+	public HRESULT get_Cost(uint32 pValue) mut => VT.[Friend]get_Cost(&this, pValue);
 
 	public HRESULT put_Cost(uint32 value) mut => VT.[Friend]put_Cost(&this, value);
 }
@@ -5862,17 +5862,17 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, X509CertificateEnrollmentContext context) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, BSTR* ppValue) get_Url;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, BSTR ppValue) get_Url;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, BSTR pValue) put_Url;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, int16* pValue) get_Default;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, int16 pValue) get_Default;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, int16 value) put_Default;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, PolicyServerUrlFlags* pValue) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, PolicyServerUrlFlags pValue) get_Flags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, PolicyServerUrlFlags Flags) put_Flags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, X509EnrollmentAuthFlags* pValue) get_AuthFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, X509EnrollmentAuthFlags pValue) get_AuthFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, X509EnrollmentAuthFlags Flags) put_AuthFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, uint32* pValue) get_Cost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, uint32 pValue) get_Cost;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, uint32 value) put_Cost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, PolicyServerUrlPropertyID propertyId, BSTR* ppValue) GetStringProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, PolicyServerUrlPropertyID propertyId, BSTR ppValue) GetStringProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, PolicyServerUrlPropertyID propertyId, BSTR pValue) SetStringProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, X509CertificateEnrollmentContext context) UpdateRegistry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerUrl*/SelfOuter* self, X509CertificateEnrollmentContext context) RemoveFromRegistry;
@@ -5881,27 +5881,27 @@ public static
 
 	public HRESULT Initialize(X509CertificateEnrollmentContext context) mut => VT.[Friend]Initialize(&this, context);
 
-	public HRESULT get_Url(BSTR* ppValue) mut => VT.[Friend]get_Url(&this, ppValue);
+	public HRESULT get_Url(BSTR ppValue) mut => VT.[Friend]get_Url(&this, ppValue);
 
 	public HRESULT put_Url(BSTR pValue) mut => VT.[Friend]put_Url(&this, pValue);
 
-	public HRESULT get_Default(int16* pValue) mut => VT.[Friend]get_Default(&this, pValue);
+	public HRESULT get_Default(int16 pValue) mut => VT.[Friend]get_Default(&this, pValue);
 
 	public HRESULT put_Default(int16 value) mut => VT.[Friend]put_Default(&this, value);
 
-	public HRESULT get_Flags(PolicyServerUrlFlags* pValue) mut => VT.[Friend]get_Flags(&this, pValue);
+	public HRESULT get_Flags(PolicyServerUrlFlags pValue) mut => VT.[Friend]get_Flags(&this, pValue);
 
 	public HRESULT put_Flags(PolicyServerUrlFlags Flags) mut => VT.[Friend]put_Flags(&this, Flags);
 
-	public HRESULT get_AuthFlags(X509EnrollmentAuthFlags* pValue) mut => VT.[Friend]get_AuthFlags(&this, pValue);
+	public HRESULT get_AuthFlags(X509EnrollmentAuthFlags pValue) mut => VT.[Friend]get_AuthFlags(&this, pValue);
 
 	public HRESULT put_AuthFlags(X509EnrollmentAuthFlags Flags) mut => VT.[Friend]put_AuthFlags(&this, Flags);
 
-	public HRESULT get_Cost(uint32* pValue) mut => VT.[Friend]get_Cost(&this, pValue);
+	public HRESULT get_Cost(uint32 pValue) mut => VT.[Friend]get_Cost(&this, pValue);
 
 	public HRESULT put_Cost(uint32 value) mut => VT.[Friend]put_Cost(&this, value);
 
-	public HRESULT GetStringProperty(PolicyServerUrlPropertyID propertyId, BSTR* ppValue) mut => VT.[Friend]GetStringProperty(&this, propertyId, ppValue);
+	public HRESULT GetStringProperty(PolicyServerUrlPropertyID propertyId, BSTR ppValue) mut => VT.[Friend]GetStringProperty(&this, propertyId, ppValue);
 
 	public HRESULT SetStringProperty(PolicyServerUrlPropertyID propertyId, BSTR pValue) mut => VT.[Friend]SetStringProperty(&this, propertyId, pValue);
 
@@ -5918,9 +5918,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerListManager*/SelfOuter* self, int32 Index, IX509PolicyServerUrl** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerListManager*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerListManager*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerListManager*/SelfOuter* self, int32 Index, IX509PolicyServerUrl* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerListManager*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerListManager*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerListManager*/SelfOuter* self, IX509PolicyServerUrl* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerListManager*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509PolicyServerListManager*/SelfOuter* self) Clear;
@@ -5928,11 +5928,11 @@ public static
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, IX509PolicyServerUrl** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, IX509PolicyServerUrl* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(IX509PolicyServerUrl* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -5954,28 +5954,28 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, X509CertificateEnrollmentContext Context) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self) Encode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self) ResetForEncode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, InnerRequestLevel Level, IX509CertificateRequest** ppValue) GetInnerRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, X509RequestType* pValue) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, X509CertificateEnrollmentContext* pValue) get_EnrollmentContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int16* pValue) get_Silent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, InnerRequestLevel Level, IX509CertificateRequest* ppValue) GetInnerRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, X509RequestType pValue) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, X509CertificateEnrollmentContext pValue) get_EnrollmentContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int16 pValue) get_Silent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int16 Value) put_Silent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int32* pValue) get_ParentWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int32 pValue) get_ParentWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int32 Value) put_ParentWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, BSTR* pValue) get_UIContextMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, BSTR pValue) get_UIContextMessage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, BSTR Value) put_UIContextMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int16* pValue) get_SuppressDefaults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int16 pValue) get_SuppressDefaults;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int16 Value) put_SuppressDefaults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RenewalCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RenewalCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, EncodingType Encoding, BSTR Value) put_RenewalCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, RequestClientInfoClientId* pValue) get_ClientId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, RequestClientInfoClientId pValue) get_ClientId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, RequestClientInfoClientId Value) put_ClientId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, ICspInformations** ppValue) get_CspInformations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, ICspInformations* ppValue) get_CspInformations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, ICspInformations* pValue) put_CspInformations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, IObjectId** ppValue) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, IObjectId* ppValue) get_HashAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, IObjectId* pValue) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int16* pValue) get_AlternateSignatureAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int16 pValue) get_AlternateSignatureAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, int16 Value) put_AlternateSignatureAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RawData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequest*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RawData;
 	}
 
 
@@ -5985,49 +5985,49 @@ public static
 
 	public HRESULT ResetForEncode() mut => VT.[Friend]ResetForEncode(&this);
 
-	public HRESULT GetInnerRequest(InnerRequestLevel Level, IX509CertificateRequest** ppValue) mut => VT.[Friend]GetInnerRequest(&this, Level, ppValue);
+	public HRESULT GetInnerRequest(InnerRequestLevel Level, IX509CertificateRequest* ppValue) mut => VT.[Friend]GetInnerRequest(&this, Level, ppValue);
 
-	public HRESULT get_Type(X509RequestType* pValue) mut => VT.[Friend]get_Type(&this, pValue);
+	public HRESULT get_Type(X509RequestType pValue) mut => VT.[Friend]get_Type(&this, pValue);
 
-	public HRESULT get_EnrollmentContext(X509CertificateEnrollmentContext* pValue) mut => VT.[Friend]get_EnrollmentContext(&this, pValue);
+	public HRESULT get_EnrollmentContext(X509CertificateEnrollmentContext pValue) mut => VT.[Friend]get_EnrollmentContext(&this, pValue);
 
-	public HRESULT get_Silent(int16* pValue) mut => VT.[Friend]get_Silent(&this, pValue);
+	public HRESULT get_Silent(int16 pValue) mut => VT.[Friend]get_Silent(&this, pValue);
 
 	public HRESULT put_Silent(int16 Value) mut => VT.[Friend]put_Silent(&this, Value);
 
-	public HRESULT get_ParentWindow(int32* pValue) mut => VT.[Friend]get_ParentWindow(&this, pValue);
+	public HRESULT get_ParentWindow(int32 pValue) mut => VT.[Friend]get_ParentWindow(&this, pValue);
 
 	public HRESULT put_ParentWindow(int32 Value) mut => VT.[Friend]put_ParentWindow(&this, Value);
 
-	public HRESULT get_UIContextMessage(BSTR* pValue) mut => VT.[Friend]get_UIContextMessage(&this, pValue);
+	public HRESULT get_UIContextMessage(BSTR pValue) mut => VT.[Friend]get_UIContextMessage(&this, pValue);
 
 	public HRESULT put_UIContextMessage(BSTR Value) mut => VT.[Friend]put_UIContextMessage(&this, Value);
 
-	public HRESULT get_SuppressDefaults(int16* pValue) mut => VT.[Friend]get_SuppressDefaults(&this, pValue);
+	public HRESULT get_SuppressDefaults(int16 pValue) mut => VT.[Friend]get_SuppressDefaults(&this, pValue);
 
 	public HRESULT put_SuppressDefaults(int16 Value) mut => VT.[Friend]put_SuppressDefaults(&this, Value);
 
-	public HRESULT get_RenewalCertificate(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RenewalCertificate(&this, Encoding, pValue);
+	public HRESULT get_RenewalCertificate(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RenewalCertificate(&this, Encoding, pValue);
 
 	public HRESULT put_RenewalCertificate(EncodingType Encoding, BSTR Value) mut => VT.[Friend]put_RenewalCertificate(&this, Encoding, Value);
 
-	public HRESULT get_ClientId(RequestClientInfoClientId* pValue) mut => VT.[Friend]get_ClientId(&this, pValue);
+	public HRESULT get_ClientId(RequestClientInfoClientId pValue) mut => VT.[Friend]get_ClientId(&this, pValue);
 
 	public HRESULT put_ClientId(RequestClientInfoClientId Value) mut => VT.[Friend]put_ClientId(&this, Value);
 
-	public HRESULT get_CspInformations(ICspInformations** ppValue) mut => VT.[Friend]get_CspInformations(&this, ppValue);
+	public HRESULT get_CspInformations(ICspInformations* ppValue) mut => VT.[Friend]get_CspInformations(&this, ppValue);
 
 	public HRESULT put_CspInformations(ICspInformations* pValue) mut => VT.[Friend]put_CspInformations(&this, pValue);
 
-	public HRESULT get_HashAlgorithm(IObjectId** ppValue) mut => VT.[Friend]get_HashAlgorithm(&this, ppValue);
+	public HRESULT get_HashAlgorithm(IObjectId* ppValue) mut => VT.[Friend]get_HashAlgorithm(&this, ppValue);
 
 	public HRESULT put_HashAlgorithm(IObjectId* pValue) mut => VT.[Friend]put_HashAlgorithm(&this, pValue);
 
-	public HRESULT get_AlternateSignatureAlgorithm(int16* pValue) mut => VT.[Friend]get_AlternateSignatureAlgorithm(&this, pValue);
+	public HRESULT get_AlternateSignatureAlgorithm(int16 pValue) mut => VT.[Friend]get_AlternateSignatureAlgorithm(&this, pValue);
 
 	public HRESULT put_AlternateSignatureAlgorithm(int16 Value) mut => VT.[Friend]put_AlternateSignatureAlgorithm(&this, Value);
 
-	public HRESULT get_RawData(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
+	public HRESULT get_RawData(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
 }
 
 [CRepr]struct IX509CertificateRequestPkcs10 : IX509CertificateRequest
@@ -6044,28 +6044,28 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, X509CertificateEnrollmentContext Context, BSTR strCertificate, EncodingType Encoding, X509RequestInheritOptions InheritOptions) InitializeFromCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, BSTR strEncodedData, EncodingType Encoding) InitializeDecode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, Pkcs10AllowedSignatureTypes AllowedSignatureTypes) CheckSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, int16* pValue) IsSmartCard;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IObjectId** ppValue) get_TemplateObjectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX509PublicKey** ppValue) get_PublicKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX509PrivateKey** ppValue) get_PrivateKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, int16* pValue) get_NullSigned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, int16* pValue) get_ReuseKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_OldCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX500DistinguishedName** ppValue) get_Subject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, int16 pValue) IsSmartCard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IObjectId* ppValue) get_TemplateObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX509PublicKey* ppValue) get_PublicKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX509PrivateKey* ppValue) get_PrivateKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, int16 pValue) get_NullSigned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, int16 pValue) get_ReuseKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_OldCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX500DistinguishedName* ppValue) get_Subject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX500DistinguishedName* pValue) put_Subject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, ICspStatuses** ppValue) get_CspStatuses;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, int16* pValue) get_SmimeCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, ICspStatuses* ppValue) get_CspStatuses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, int16 pValue) get_SmimeCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, int16 Value) put_SmimeCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX509SignatureInformation** ppValue) get_SignatureInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, BSTR* pValue) get_KeyContainerNamePrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX509SignatureInformation* ppValue) get_SignatureInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, BSTR pValue) get_KeyContainerNamePrefix;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, BSTR Value) put_KeyContainerNamePrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, ICryptAttributes** ppValue) get_CryptAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX509Extensions** ppValue) get_X509Extensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IObjectIds** ppValue) get_CriticalExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IObjectIds** ppValue) get_SuppressOids;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RawDataToBeSigned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, X509KeySpec KeySpec, ICspStatuses** ppCspStatuses) GetCspStatuses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, ICryptAttributes* ppValue) get_CryptAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IX509Extensions* ppValue) get_X509Extensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IObjectIds* ppValue) get_CriticalExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, IObjectIds* ppValue) get_SuppressOids;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RawDataToBeSigned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10*/SelfOuter* self, X509KeySpec KeySpec, ICspStatuses* ppCspStatuses) GetCspStatuses;
 	}
 
 
@@ -6081,49 +6081,49 @@ public static
 
 	public HRESULT CheckSignature(Pkcs10AllowedSignatureTypes AllowedSignatureTypes) mut => VT.[Friend]CheckSignature(&this, AllowedSignatureTypes);
 
-	public HRESULT IsSmartCard(int16* pValue) mut => VT.[Friend]IsSmartCard(&this, pValue);
+	public HRESULT IsSmartCard(int16 pValue) mut => VT.[Friend]IsSmartCard(&this, pValue);
 
-	public HRESULT get_TemplateObjectId(IObjectId** ppValue) mut => VT.[Friend]get_TemplateObjectId(&this, ppValue);
+	public HRESULT get_TemplateObjectId(IObjectId* ppValue) mut => VT.[Friend]get_TemplateObjectId(&this, ppValue);
 
-	public HRESULT get_PublicKey(IX509PublicKey** ppValue) mut => VT.[Friend]get_PublicKey(&this, ppValue);
+	public HRESULT get_PublicKey(IX509PublicKey* ppValue) mut => VT.[Friend]get_PublicKey(&this, ppValue);
 
-	public HRESULT get_PrivateKey(IX509PrivateKey** ppValue) mut => VT.[Friend]get_PrivateKey(&this, ppValue);
+	public HRESULT get_PrivateKey(IX509PrivateKey* ppValue) mut => VT.[Friend]get_PrivateKey(&this, ppValue);
 
-	public HRESULT get_NullSigned(int16* pValue) mut => VT.[Friend]get_NullSigned(&this, pValue);
+	public HRESULT get_NullSigned(int16 pValue) mut => VT.[Friend]get_NullSigned(&this, pValue);
 
-	public HRESULT get_ReuseKey(int16* pValue) mut => VT.[Friend]get_ReuseKey(&this, pValue);
+	public HRESULT get_ReuseKey(int16 pValue) mut => VT.[Friend]get_ReuseKey(&this, pValue);
 
-	public HRESULT get_OldCertificate(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_OldCertificate(&this, Encoding, pValue);
+	public HRESULT get_OldCertificate(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_OldCertificate(&this, Encoding, pValue);
 
-	public HRESULT get_Subject(IX500DistinguishedName** ppValue) mut => VT.[Friend]get_Subject(&this, ppValue);
+	public HRESULT get_Subject(IX500DistinguishedName* ppValue) mut => VT.[Friend]get_Subject(&this, ppValue);
 
 	public HRESULT put_Subject(IX500DistinguishedName* pValue) mut => VT.[Friend]put_Subject(&this, pValue);
 
-	public HRESULT get_CspStatuses(ICspStatuses** ppValue) mut => VT.[Friend]get_CspStatuses(&this, ppValue);
+	public HRESULT get_CspStatuses(ICspStatuses* ppValue) mut => VT.[Friend]get_CspStatuses(&this, ppValue);
 
-	public HRESULT get_SmimeCapabilities(int16* pValue) mut => VT.[Friend]get_SmimeCapabilities(&this, pValue);
+	public HRESULT get_SmimeCapabilities(int16 pValue) mut => VT.[Friend]get_SmimeCapabilities(&this, pValue);
 
 	public HRESULT put_SmimeCapabilities(int16 Value) mut => VT.[Friend]put_SmimeCapabilities(&this, Value);
 
-	public HRESULT get_SignatureInformation(IX509SignatureInformation** ppValue) mut => VT.[Friend]get_SignatureInformation(&this, ppValue);
+	public HRESULT get_SignatureInformation(IX509SignatureInformation* ppValue) mut => VT.[Friend]get_SignatureInformation(&this, ppValue);
 
-	public HRESULT get_KeyContainerNamePrefix(BSTR* pValue) mut => VT.[Friend]get_KeyContainerNamePrefix(&this, pValue);
+	public HRESULT get_KeyContainerNamePrefix(BSTR pValue) mut => VT.[Friend]get_KeyContainerNamePrefix(&this, pValue);
 
 	public HRESULT put_KeyContainerNamePrefix(BSTR Value) mut => VT.[Friend]put_KeyContainerNamePrefix(&this, Value);
 
-	public HRESULT get_CryptAttributes(ICryptAttributes** ppValue) mut => VT.[Friend]get_CryptAttributes(&this, ppValue);
+	public HRESULT get_CryptAttributes(ICryptAttributes* ppValue) mut => VT.[Friend]get_CryptAttributes(&this, ppValue);
 
-	public HRESULT get_X509Extensions(IX509Extensions** ppValue) mut => VT.[Friend]get_X509Extensions(&this, ppValue);
+	public HRESULT get_X509Extensions(IX509Extensions* ppValue) mut => VT.[Friend]get_X509Extensions(&this, ppValue);
 
-	public HRESULT get_CriticalExtensions(IObjectIds** ppValue) mut => VT.[Friend]get_CriticalExtensions(&this, ppValue);
+	public HRESULT get_CriticalExtensions(IObjectIds* ppValue) mut => VT.[Friend]get_CriticalExtensions(&this, ppValue);
 
-	public HRESULT get_SuppressOids(IObjectIds** ppValue) mut => VT.[Friend]get_SuppressOids(&this, ppValue);
+	public HRESULT get_SuppressOids(IObjectIds* ppValue) mut => VT.[Friend]get_SuppressOids(&this, ppValue);
 
-	public HRESULT get_RawDataToBeSigned(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RawDataToBeSigned(&this, Encoding, pValue);
+	public HRESULT get_RawDataToBeSigned(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RawDataToBeSigned(&this, Encoding, pValue);
 
-	public HRESULT get_Signature(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_Signature(&this, Encoding, pValue);
+	public HRESULT get_Signature(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_Signature(&this, Encoding, pValue);
 
-	public HRESULT GetCspStatuses(X509KeySpec KeySpec, ICspStatuses** ppCspStatuses) mut => VT.[Friend]GetCspStatuses(&this, KeySpec, ppCspStatuses);
+	public HRESULT GetCspStatuses(X509KeySpec KeySpec, ICspStatuses* ppCspStatuses) mut => VT.[Friend]GetCspStatuses(&this, KeySpec, ppCspStatuses);
 }
 
 [CRepr]struct IX509CertificateRequestPkcs10V2 : IX509CertificateRequestPkcs10
@@ -6137,8 +6137,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V2*/SelfOuter* self, X509CertificateEnrollmentContext context, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) InitializeFromTemplate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V2*/SelfOuter* self, X509CertificateEnrollmentContext Context, IX509PrivateKey* pPrivateKey, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) InitializeFromPrivateKeyTemplate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V2*/SelfOuter* self, X509CertificateEnrollmentContext Context, IX509PublicKey* pPublicKey, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) InitializeFromPublicKeyTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V2*/SelfOuter* self, IX509EnrollmentPolicyServer** ppPolicyServer) get_PolicyServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V2*/SelfOuter* self, IX509CertificateTemplate** ppTemplate) get_Template;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V2*/SelfOuter* self, IX509EnrollmentPolicyServer* ppPolicyServer) get_PolicyServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V2*/SelfOuter* self, IX509CertificateTemplate* ppTemplate) get_Template;
 	}
 
 
@@ -6148,9 +6148,9 @@ public static
 
 	public HRESULT InitializeFromPublicKeyTemplate(X509CertificateEnrollmentContext Context, IX509PublicKey* pPublicKey, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) mut => VT.[Friend]InitializeFromPublicKeyTemplate(&this, Context, pPublicKey, pPolicyServer, pTemplate);
 
-	public HRESULT get_PolicyServer(IX509EnrollmentPolicyServer** ppPolicyServer) mut => VT.[Friend]get_PolicyServer(&this, ppPolicyServer);
+	public HRESULT get_PolicyServer(IX509EnrollmentPolicyServer* ppPolicyServer) mut => VT.[Friend]get_PolicyServer(&this, ppPolicyServer);
 
-	public HRESULT get_Template(IX509CertificateTemplate** ppTemplate) mut => VT.[Friend]get_Template(&this, ppTemplate);
+	public HRESULT get_Template(IX509CertificateTemplate* ppTemplate) mut => VT.[Friend]get_Template(&this, ppTemplate);
 }
 
 [CRepr]struct IX509CertificateRequestPkcs10V3 : IX509CertificateRequestPkcs10V2
@@ -6161,41 +6161,41 @@ public static
 
 	[CRepr]public struct VTable : IX509CertificateRequestPkcs10V2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, int16* pValue) get_AttestPrivateKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, int16 pValue) get_AttestPrivateKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, int16 Value) put_AttestPrivateKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_AttestationEncryptionCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_AttestationEncryptionCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, EncodingType Encoding, BSTR Value) put_AttestationEncryptionCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, IObjectId** ppValue) get_EncryptionAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, IObjectId* ppValue) get_EncryptionAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, IObjectId* pValue) put_EncryptionAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, int32* pValue) get_EncryptionStrength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, int32 pValue) get_EncryptionStrength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, int32 Value) put_EncryptionStrength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, BSTR* pValue) get_ChallengePassword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, BSTR pValue) get_ChallengePassword;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, BSTR Value) put_ChallengePassword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, IX509NameValuePairs** ppValue) get_NameValuePairs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V3*/SelfOuter* self, IX509NameValuePairs* ppValue) get_NameValuePairs;
 	}
 
 
-	public HRESULT get_AttestPrivateKey(int16* pValue) mut => VT.[Friend]get_AttestPrivateKey(&this, pValue);
+	public HRESULT get_AttestPrivateKey(int16 pValue) mut => VT.[Friend]get_AttestPrivateKey(&this, pValue);
 
 	public HRESULT put_AttestPrivateKey(int16 Value) mut => VT.[Friend]put_AttestPrivateKey(&this, Value);
 
-	public HRESULT get_AttestationEncryptionCertificate(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_AttestationEncryptionCertificate(&this, Encoding, pValue);
+	public HRESULT get_AttestationEncryptionCertificate(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_AttestationEncryptionCertificate(&this, Encoding, pValue);
 
 	public HRESULT put_AttestationEncryptionCertificate(EncodingType Encoding, BSTR Value) mut => VT.[Friend]put_AttestationEncryptionCertificate(&this, Encoding, Value);
 
-	public HRESULT get_EncryptionAlgorithm(IObjectId** ppValue) mut => VT.[Friend]get_EncryptionAlgorithm(&this, ppValue);
+	public HRESULT get_EncryptionAlgorithm(IObjectId* ppValue) mut => VT.[Friend]get_EncryptionAlgorithm(&this, ppValue);
 
 	public HRESULT put_EncryptionAlgorithm(IObjectId* pValue) mut => VT.[Friend]put_EncryptionAlgorithm(&this, pValue);
 
-	public HRESULT get_EncryptionStrength(int32* pValue) mut => VT.[Friend]get_EncryptionStrength(&this, pValue);
+	public HRESULT get_EncryptionStrength(int32 pValue) mut => VT.[Friend]get_EncryptionStrength(&this, pValue);
 
 	public HRESULT put_EncryptionStrength(int32 Value) mut => VT.[Friend]put_EncryptionStrength(&this, Value);
 
-	public HRESULT get_ChallengePassword(BSTR* pValue) mut => VT.[Friend]get_ChallengePassword(&this, pValue);
+	public HRESULT get_ChallengePassword(BSTR pValue) mut => VT.[Friend]get_ChallengePassword(&this, pValue);
 
 	public HRESULT put_ChallengePassword(BSTR Value) mut => VT.[Friend]put_ChallengePassword(&this, Value);
 
-	public HRESULT get_NameValuePairs(IX509NameValuePairs** ppValue) mut => VT.[Friend]get_NameValuePairs(&this, ppValue);
+	public HRESULT get_NameValuePairs(IX509NameValuePairs* ppValue) mut => VT.[Friend]get_NameValuePairs(&this, ppValue);
 }
 
 [CRepr]struct IX509CertificateRequestPkcs10V4 : IX509CertificateRequestPkcs10V3
@@ -6206,18 +6206,18 @@ public static
 
 	[CRepr]public struct VTable : IX509CertificateRequestPkcs10V3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V4*/SelfOuter* self, KeyAttestationClaimType* pValue) get_ClaimType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V4*/SelfOuter* self, KeyAttestationClaimType pValue) get_ClaimType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V4*/SelfOuter* self, KeyAttestationClaimType Value) put_ClaimType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V4*/SelfOuter* self, int16* pValue) get_AttestPrivateKeyPreferred;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V4*/SelfOuter* self, int16 pValue) get_AttestPrivateKeyPreferred;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs10V4*/SelfOuter* self, int16 Value) put_AttestPrivateKeyPreferred;
 	}
 
 
-	public HRESULT get_ClaimType(KeyAttestationClaimType* pValue) mut => VT.[Friend]get_ClaimType(&this, pValue);
+	public HRESULT get_ClaimType(KeyAttestationClaimType pValue) mut => VT.[Friend]get_ClaimType(&this, pValue);
 
 	public HRESULT put_ClaimType(KeyAttestationClaimType Value) mut => VT.[Friend]put_ClaimType(&this, Value);
 
-	public HRESULT get_AttestPrivateKeyPreferred(int16* pValue) mut => VT.[Friend]get_AttestPrivateKeyPreferred(&this, pValue);
+	public HRESULT get_AttestPrivateKeyPreferred(int16 pValue) mut => VT.[Friend]get_AttestPrivateKeyPreferred(&this, pValue);
 
 	public HRESULT put_AttestPrivateKeyPreferred(int16 Value) mut => VT.[Friend]put_AttestPrivateKeyPreferred(&this, Value);
 }
@@ -6231,38 +6231,38 @@ public static
 	[CRepr]public struct VTable : IX509CertificateRequestPkcs10.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, IX509PublicKey* pPublicKey) CheckPublicKeySignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, IX500DistinguishedName** ppValue) get_Issuer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, IX500DistinguishedName* ppValue) get_Issuer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, IX500DistinguishedName* pValue) put_Issuer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, double* pValue) get_NotBefore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, double pValue) get_NotBefore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, double Value) put_NotBefore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, double* pValue) get_NotAfter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, double pValue) get_NotAfter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, double Value) put_NotAfter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_SerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_SerialNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, EncodingType Encoding, BSTR Value) put_SerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, ISignerCertificate** ppValue) get_SignerCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, ISignerCertificate* ppValue) get_SignerCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate*/SelfOuter* self, ISignerCertificate* pValue) put_SignerCertificate;
 	}
 
 
 	public HRESULT CheckPublicKeySignature(IX509PublicKey* pPublicKey) mut => VT.[Friend]CheckPublicKeySignature(&this, pPublicKey);
 
-	public HRESULT get_Issuer(IX500DistinguishedName** ppValue) mut => VT.[Friend]get_Issuer(&this, ppValue);
+	public HRESULT get_Issuer(IX500DistinguishedName* ppValue) mut => VT.[Friend]get_Issuer(&this, ppValue);
 
 	public HRESULT put_Issuer(IX500DistinguishedName* pValue) mut => VT.[Friend]put_Issuer(&this, pValue);
 
-	public HRESULT get_NotBefore(double* pValue) mut => VT.[Friend]get_NotBefore(&this, pValue);
+	public HRESULT get_NotBefore(double pValue) mut => VT.[Friend]get_NotBefore(&this, pValue);
 
 	public HRESULT put_NotBefore(double Value) mut => VT.[Friend]put_NotBefore(&this, Value);
 
-	public HRESULT get_NotAfter(double* pValue) mut => VT.[Friend]get_NotAfter(&this, pValue);
+	public HRESULT get_NotAfter(double pValue) mut => VT.[Friend]get_NotAfter(&this, pValue);
 
 	public HRESULT put_NotAfter(double Value) mut => VT.[Friend]put_NotAfter(&this, Value);
 
-	public HRESULT get_SerialNumber(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_SerialNumber(&this, Encoding, pValue);
+	public HRESULT get_SerialNumber(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_SerialNumber(&this, Encoding, pValue);
 
 	public HRESULT put_SerialNumber(EncodingType Encoding, BSTR Value) mut => VT.[Friend]put_SerialNumber(&this, Encoding, Value);
 
-	public HRESULT get_SignerCertificate(ISignerCertificate** ppValue) mut => VT.[Friend]get_SignerCertificate(&this, ppValue);
+	public HRESULT get_SignerCertificate(ISignerCertificate* ppValue) mut => VT.[Friend]get_SignerCertificate(&this, ppValue);
 
 	public HRESULT put_SignerCertificate(ISignerCertificate* pValue) mut => VT.[Friend]put_SignerCertificate(&this, pValue);
 }
@@ -6277,8 +6277,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate2*/SelfOuter* self, X509CertificateEnrollmentContext context, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) InitializeFromTemplate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate2*/SelfOuter* self, X509CertificateEnrollmentContext Context, IX509PrivateKey* pPrivateKey, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) InitializeFromPrivateKeyTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate2*/SelfOuter* self, IX509EnrollmentPolicyServer** ppPolicyServer) get_PolicyServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate2*/SelfOuter* self, IX509CertificateTemplate** ppTemplate) get_Template;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate2*/SelfOuter* self, IX509EnrollmentPolicyServer* ppPolicyServer) get_PolicyServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCertificate2*/SelfOuter* self, IX509CertificateTemplate* ppTemplate) get_Template;
 	}
 
 
@@ -6286,9 +6286,9 @@ public static
 
 	public HRESULT InitializeFromPrivateKeyTemplate(X509CertificateEnrollmentContext Context, IX509PrivateKey* pPrivateKey, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) mut => VT.[Friend]InitializeFromPrivateKeyTemplate(&this, Context, pPrivateKey, pPolicyServer, pTemplate);
 
-	public HRESULT get_PolicyServer(IX509EnrollmentPolicyServer** ppPolicyServer) mut => VT.[Friend]get_PolicyServer(&this, ppPolicyServer);
+	public HRESULT get_PolicyServer(IX509EnrollmentPolicyServer* ppPolicyServer) mut => VT.[Friend]get_PolicyServer(&this, ppPolicyServer);
 
-	public HRESULT get_Template(IX509CertificateTemplate** ppTemplate) mut => VT.[Friend]get_Template(&this, ppTemplate);
+	public HRESULT get_Template(IX509CertificateTemplate* ppTemplate) mut => VT.[Friend]get_Template(&this, ppTemplate);
 }
 
 [CRepr]struct IX509CertificateRequestPkcs7 : IX509CertificateRequest
@@ -6303,9 +6303,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7*/SelfOuter* self, X509CertificateEnrollmentContext Context, int16 RenewalRequest, BSTR strCertificate, EncodingType Encoding, X509RequestInheritOptions InheritOptions) InitializeFromCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7*/SelfOuter* self, IX509CertificateRequest* pInnerRequest) InitializeFromInnerRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7*/SelfOuter* self, BSTR strEncodedData, EncodingType Encoding) InitializeDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7*/SelfOuter* self, BSTR* pValue) get_RequesterName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7*/SelfOuter* self, BSTR pValue) get_RequesterName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7*/SelfOuter* self, BSTR Value) put_RequesterName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7*/SelfOuter* self, ISignerCertificate** ppValue) get_SignerCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7*/SelfOuter* self, ISignerCertificate* ppValue) get_SignerCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7*/SelfOuter* self, ISignerCertificate* pValue) put_SignerCertificate;
 	}
 
@@ -6318,11 +6318,11 @@ public static
 
 	public HRESULT InitializeDecode(BSTR strEncodedData, EncodingType Encoding) mut => VT.[Friend]InitializeDecode(&this, strEncodedData, Encoding);
 
-	public HRESULT get_RequesterName(BSTR* pValue) mut => VT.[Friend]get_RequesterName(&this, pValue);
+	public HRESULT get_RequesterName(BSTR pValue) mut => VT.[Friend]get_RequesterName(&this, pValue);
 
 	public HRESULT put_RequesterName(BSTR Value) mut => VT.[Friend]put_RequesterName(&this, Value);
 
-	public HRESULT get_SignerCertificate(ISignerCertificate** ppValue) mut => VT.[Friend]get_SignerCertificate(&this, ppValue);
+	public HRESULT get_SignerCertificate(ISignerCertificate* ppValue) mut => VT.[Friend]get_SignerCertificate(&this, ppValue);
 
 	public HRESULT put_SignerCertificate(ISignerCertificate* pValue) mut => VT.[Friend]put_SignerCertificate(&this, pValue);
 }
@@ -6336,17 +6336,17 @@ public static
 	[CRepr]public struct VTable : IX509CertificateRequestPkcs7.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7V2*/SelfOuter* self, X509CertificateEnrollmentContext context, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) InitializeFromTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7V2*/SelfOuter* self, IX509EnrollmentPolicyServer** ppPolicyServer) get_PolicyServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7V2*/SelfOuter* self, IX509CertificateTemplate** ppTemplate) get_Template;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7V2*/SelfOuter* self, IX509EnrollmentPolicyServer* ppPolicyServer) get_PolicyServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7V2*/SelfOuter* self, IX509CertificateTemplate* ppTemplate) get_Template;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestPkcs7V2*/SelfOuter* self, int16 ValidateCertificateChain) CheckCertificateSignature;
 	}
 
 
 	public HRESULT InitializeFromTemplate(X509CertificateEnrollmentContext context, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) mut => VT.[Friend]InitializeFromTemplate(&this, context, pPolicyServer, pTemplate);
 
-	public HRESULT get_PolicyServer(IX509EnrollmentPolicyServer** ppPolicyServer) mut => VT.[Friend]get_PolicyServer(&this, ppPolicyServer);
+	public HRESULT get_PolicyServer(IX509EnrollmentPolicyServer* ppPolicyServer) mut => VT.[Friend]get_PolicyServer(&this, ppPolicyServer);
 
-	public HRESULT get_Template(IX509CertificateTemplate** ppTemplate) mut => VT.[Friend]get_Template(&this, ppTemplate);
+	public HRESULT get_Template(IX509CertificateTemplate* ppTemplate) mut => VT.[Friend]get_Template(&this, ppTemplate);
 
 	public HRESULT CheckCertificateSignature(int16 ValidateCertificateChain) mut => VT.[Friend]CheckCertificateSignature(&this, ValidateCertificateChain);
 }
@@ -6360,76 +6360,76 @@ public static
 	[CRepr]public struct VTable : IX509CertificateRequestPkcs7.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IX509CertificateRequest* pInnerRequest, BSTR strTemplateName) InitializeFromInnerRequestTemplateName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IObjectId** ppValue) get_TemplateObjectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int16* pValue) get_NullSigned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, ICryptAttributes** ppValue) get_CryptAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IX509NameValuePairs** ppValue) get_NameValuePairs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IX509Extensions** ppValue) get_X509Extensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IObjectIds** ppValue) get_CriticalExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IObjectIds** ppValue) get_SuppressOids;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int32* pValue) get_TransactionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IObjectId* ppValue) get_TemplateObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int16 pValue) get_NullSigned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, ICryptAttributes* ppValue) get_CryptAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IX509NameValuePairs* ppValue) get_NameValuePairs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IX509Extensions* ppValue) get_X509Extensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IObjectIds* ppValue) get_CriticalExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IObjectIds* ppValue) get_SuppressOids;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int32 pValue) get_TransactionId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int32 Value) put_TransactionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_SenderNonce;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_SenderNonce;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, EncodingType Encoding, BSTR Value) put_SenderNonce;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IX509SignatureInformation** ppValue) get_SignatureInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int16* pValue) get_ArchivePrivateKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IX509SignatureInformation* ppValue) get_SignatureInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int16 pValue) get_ArchivePrivateKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int16 Value) put_ArchivePrivateKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_KeyArchivalCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_KeyArchivalCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, EncodingType Encoding, BSTR Value) put_KeyArchivalCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IObjectId** ppValue) get_EncryptionAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IObjectId* ppValue) get_EncryptionAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, IObjectId* pValue) put_EncryptionAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int32* pValue) get_EncryptionStrength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int32 pValue) get_EncryptionStrength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, int32 Value) put_EncryptionStrength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_EncryptedKeyHash;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, ISignerCertificates** ppValue) get_SignerCertificates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_EncryptedKeyHash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc*/SelfOuter* self, ISignerCertificates* ppValue) get_SignerCertificates;
 	}
 
 
 	public HRESULT InitializeFromInnerRequestTemplateName(IX509CertificateRequest* pInnerRequest, BSTR strTemplateName) mut => VT.[Friend]InitializeFromInnerRequestTemplateName(&this, pInnerRequest, strTemplateName);
 
-	public HRESULT get_TemplateObjectId(IObjectId** ppValue) mut => VT.[Friend]get_TemplateObjectId(&this, ppValue);
+	public HRESULT get_TemplateObjectId(IObjectId* ppValue) mut => VT.[Friend]get_TemplateObjectId(&this, ppValue);
 
-	public HRESULT get_NullSigned(int16* pValue) mut => VT.[Friend]get_NullSigned(&this, pValue);
+	public HRESULT get_NullSigned(int16 pValue) mut => VT.[Friend]get_NullSigned(&this, pValue);
 
-	public HRESULT get_CryptAttributes(ICryptAttributes** ppValue) mut => VT.[Friend]get_CryptAttributes(&this, ppValue);
+	public HRESULT get_CryptAttributes(ICryptAttributes* ppValue) mut => VT.[Friend]get_CryptAttributes(&this, ppValue);
 
-	public HRESULT get_NameValuePairs(IX509NameValuePairs** ppValue) mut => VT.[Friend]get_NameValuePairs(&this, ppValue);
+	public HRESULT get_NameValuePairs(IX509NameValuePairs* ppValue) mut => VT.[Friend]get_NameValuePairs(&this, ppValue);
 
-	public HRESULT get_X509Extensions(IX509Extensions** ppValue) mut => VT.[Friend]get_X509Extensions(&this, ppValue);
+	public HRESULT get_X509Extensions(IX509Extensions* ppValue) mut => VT.[Friend]get_X509Extensions(&this, ppValue);
 
-	public HRESULT get_CriticalExtensions(IObjectIds** ppValue) mut => VT.[Friend]get_CriticalExtensions(&this, ppValue);
+	public HRESULT get_CriticalExtensions(IObjectIds* ppValue) mut => VT.[Friend]get_CriticalExtensions(&this, ppValue);
 
-	public HRESULT get_SuppressOids(IObjectIds** ppValue) mut => VT.[Friend]get_SuppressOids(&this, ppValue);
+	public HRESULT get_SuppressOids(IObjectIds* ppValue) mut => VT.[Friend]get_SuppressOids(&this, ppValue);
 
-	public HRESULT get_TransactionId(int32* pValue) mut => VT.[Friend]get_TransactionId(&this, pValue);
+	public HRESULT get_TransactionId(int32 pValue) mut => VT.[Friend]get_TransactionId(&this, pValue);
 
 	public HRESULT put_TransactionId(int32 Value) mut => VT.[Friend]put_TransactionId(&this, Value);
 
-	public HRESULT get_SenderNonce(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_SenderNonce(&this, Encoding, pValue);
+	public HRESULT get_SenderNonce(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_SenderNonce(&this, Encoding, pValue);
 
 	public HRESULT put_SenderNonce(EncodingType Encoding, BSTR Value) mut => VT.[Friend]put_SenderNonce(&this, Encoding, Value);
 
-	public HRESULT get_SignatureInformation(IX509SignatureInformation** ppValue) mut => VT.[Friend]get_SignatureInformation(&this, ppValue);
+	public HRESULT get_SignatureInformation(IX509SignatureInformation* ppValue) mut => VT.[Friend]get_SignatureInformation(&this, ppValue);
 
-	public HRESULT get_ArchivePrivateKey(int16* pValue) mut => VT.[Friend]get_ArchivePrivateKey(&this, pValue);
+	public HRESULT get_ArchivePrivateKey(int16 pValue) mut => VT.[Friend]get_ArchivePrivateKey(&this, pValue);
 
 	public HRESULT put_ArchivePrivateKey(int16 Value) mut => VT.[Friend]put_ArchivePrivateKey(&this, Value);
 
-	public HRESULT get_KeyArchivalCertificate(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_KeyArchivalCertificate(&this, Encoding, pValue);
+	public HRESULT get_KeyArchivalCertificate(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_KeyArchivalCertificate(&this, Encoding, pValue);
 
 	public HRESULT put_KeyArchivalCertificate(EncodingType Encoding, BSTR Value) mut => VT.[Friend]put_KeyArchivalCertificate(&this, Encoding, Value);
 
-	public HRESULT get_EncryptionAlgorithm(IObjectId** ppValue) mut => VT.[Friend]get_EncryptionAlgorithm(&this, ppValue);
+	public HRESULT get_EncryptionAlgorithm(IObjectId* ppValue) mut => VT.[Friend]get_EncryptionAlgorithm(&this, ppValue);
 
 	public HRESULT put_EncryptionAlgorithm(IObjectId* pValue) mut => VT.[Friend]put_EncryptionAlgorithm(&this, pValue);
 
-	public HRESULT get_EncryptionStrength(int32* pValue) mut => VT.[Friend]get_EncryptionStrength(&this, pValue);
+	public HRESULT get_EncryptionStrength(int32 pValue) mut => VT.[Friend]get_EncryptionStrength(&this, pValue);
 
 	public HRESULT put_EncryptionStrength(int32 Value) mut => VT.[Friend]put_EncryptionStrength(&this, Value);
 
-	public HRESULT get_EncryptedKeyHash(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_EncryptedKeyHash(&this, Encoding, pValue);
+	public HRESULT get_EncryptedKeyHash(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_EncryptedKeyHash(&this, Encoding, pValue);
 
-	public HRESULT get_SignerCertificates(ISignerCertificates** ppValue) mut => VT.[Friend]get_SignerCertificates(&this, ppValue);
+	public HRESULT get_SignerCertificates(ISignerCertificates* ppValue) mut => VT.[Friend]get_SignerCertificates(&this, ppValue);
 }
 
 [CRepr]struct IX509CertificateRequestCmc2 : IX509CertificateRequestCmc
@@ -6442,8 +6442,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc2*/SelfOuter* self, X509CertificateEnrollmentContext context, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) InitializeFromTemplate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc2*/SelfOuter* self, IX509CertificateRequest* pInnerRequest, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) InitializeFromInnerRequestTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc2*/SelfOuter* self, IX509EnrollmentPolicyServer** ppPolicyServer) get_PolicyServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc2*/SelfOuter* self, IX509CertificateTemplate** ppTemplate) get_Template;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc2*/SelfOuter* self, IX509EnrollmentPolicyServer* ppPolicyServer) get_PolicyServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc2*/SelfOuter* self, IX509CertificateTemplate* ppTemplate) get_Template;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc2*/SelfOuter* self, Pkcs10AllowedSignatureTypes AllowedSignatureTypes) CheckSignature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRequestCmc2*/SelfOuter* self, ISignerCertificate* pSignerCertificate, int16 ValidateCertificateChain) CheckCertificateSignature;
 	}
@@ -6453,9 +6453,9 @@ public static
 
 	public HRESULT InitializeFromInnerRequestTemplate(IX509CertificateRequest* pInnerRequest, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) mut => VT.[Friend]InitializeFromInnerRequestTemplate(&this, pInnerRequest, pPolicyServer, pTemplate);
 
-	public HRESULT get_PolicyServer(IX509EnrollmentPolicyServer** ppPolicyServer) mut => VT.[Friend]get_PolicyServer(&this, ppPolicyServer);
+	public HRESULT get_PolicyServer(IX509EnrollmentPolicyServer* ppPolicyServer) mut => VT.[Friend]get_PolicyServer(&this, ppPolicyServer);
 
-	public HRESULT get_Template(IX509CertificateTemplate** ppTemplate) mut => VT.[Friend]get_Template(&this, ppTemplate);
+	public HRESULT get_Template(IX509CertificateTemplate* ppTemplate) mut => VT.[Friend]get_Template(&this, ppTemplate);
 
 	public HRESULT CheckSignature(Pkcs10AllowedSignatureTypes AllowedSignatureTypes) mut => VT.[Friend]CheckSignature(&this, AllowedSignatureTypes);
 
@@ -6473,26 +6473,26 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, X509CertificateEnrollmentContext Context) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, X509CertificateEnrollmentContext Context, BSTR strTemplateName) InitializeFromTemplateName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, IX509CertificateRequest* pRequest) InitializeFromRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) CreateRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, EncodingType Encoding, BSTR pValue) CreateRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self) Enroll;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, InstallResponseRestrictionFlags Restrictions, BSTR strResponse, EncodingType Encoding, BSTR strPassword) InstallResponse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, BSTR strPassword, PFXExportOptions ExportOptions, EncodingType Encoding, BSTR* pValue) CreatePFX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, IX509CertificateRequest** pValue) get_Request;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, int16* pValue) get_Silent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, BSTR strPassword, PFXExportOptions ExportOptions, EncodingType Encoding, BSTR pValue) CreatePFX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, IX509CertificateRequest* pValue) get_Request;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, int16 pValue) get_Silent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, int16 Value) put_Silent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, int32* pValue) get_ParentWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, int32 pValue) get_ParentWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, int32 Value) put_ParentWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, IX509NameValuePairs** ppValue) get_NameValuePairs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, X509CertificateEnrollmentContext* pValue) get_EnrollmentContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, IX509EnrollmentStatus** ppValue) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_Certificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_Response;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, BSTR* pValue) get_CertificateFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, IX509NameValuePairs* ppValue) get_NameValuePairs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, X509CertificateEnrollmentContext pValue) get_EnrollmentContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, IX509EnrollmentStatus* ppValue) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_Certificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_Response;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, BSTR pValue) get_CertificateFriendlyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, BSTR strValue) put_CertificateFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, BSTR* pValue) get_CertificateDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, BSTR pValue) get_CertificateDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, BSTR strValue) put_CertificateDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, int32* pValue) get_RequestId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, BSTR* pValue) get_CAConfigString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, int32 pValue) get_RequestId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment*/SelfOuter* self, BSTR pValue) get_CAConfigString;
 	}
 
 
@@ -6502,45 +6502,45 @@ public static
 
 	public HRESULT InitializeFromRequest(IX509CertificateRequest* pRequest) mut => VT.[Friend]InitializeFromRequest(&this, pRequest);
 
-	public HRESULT CreateRequest(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]CreateRequest(&this, Encoding, pValue);
+	public HRESULT CreateRequest(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]CreateRequest(&this, Encoding, pValue);
 
 	public HRESULT Enroll() mut => VT.[Friend]Enroll(&this);
 
 	public HRESULT InstallResponse(InstallResponseRestrictionFlags Restrictions, BSTR strResponse, EncodingType Encoding, BSTR strPassword) mut => VT.[Friend]InstallResponse(&this, Restrictions, strResponse, Encoding, strPassword);
 
-	public HRESULT CreatePFX(BSTR strPassword, PFXExportOptions ExportOptions, EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]CreatePFX(&this, strPassword, ExportOptions, Encoding, pValue);
+	public HRESULT CreatePFX(BSTR strPassword, PFXExportOptions ExportOptions, EncodingType Encoding, BSTR pValue) mut => VT.[Friend]CreatePFX(&this, strPassword, ExportOptions, Encoding, pValue);
 
-	public HRESULT get_Request(IX509CertificateRequest** pValue) mut => VT.[Friend]get_Request(&this, pValue);
+	public HRESULT get_Request(IX509CertificateRequest* pValue) mut => VT.[Friend]get_Request(&this, pValue);
 
-	public HRESULT get_Silent(int16* pValue) mut => VT.[Friend]get_Silent(&this, pValue);
+	public HRESULT get_Silent(int16 pValue) mut => VT.[Friend]get_Silent(&this, pValue);
 
 	public HRESULT put_Silent(int16 Value) mut => VT.[Friend]put_Silent(&this, Value);
 
-	public HRESULT get_ParentWindow(int32* pValue) mut => VT.[Friend]get_ParentWindow(&this, pValue);
+	public HRESULT get_ParentWindow(int32 pValue) mut => VT.[Friend]get_ParentWindow(&this, pValue);
 
 	public HRESULT put_ParentWindow(int32 Value) mut => VT.[Friend]put_ParentWindow(&this, Value);
 
-	public HRESULT get_NameValuePairs(IX509NameValuePairs** ppValue) mut => VT.[Friend]get_NameValuePairs(&this, ppValue);
+	public HRESULT get_NameValuePairs(IX509NameValuePairs* ppValue) mut => VT.[Friend]get_NameValuePairs(&this, ppValue);
 
-	public HRESULT get_EnrollmentContext(X509CertificateEnrollmentContext* pValue) mut => VT.[Friend]get_EnrollmentContext(&this, pValue);
+	public HRESULT get_EnrollmentContext(X509CertificateEnrollmentContext pValue) mut => VT.[Friend]get_EnrollmentContext(&this, pValue);
 
-	public HRESULT get_Status(IX509EnrollmentStatus** ppValue) mut => VT.[Friend]get_Status(&this, ppValue);
+	public HRESULT get_Status(IX509EnrollmentStatus* ppValue) mut => VT.[Friend]get_Status(&this, ppValue);
 
-	public HRESULT get_Certificate(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_Certificate(&this, Encoding, pValue);
+	public HRESULT get_Certificate(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_Certificate(&this, Encoding, pValue);
 
-	public HRESULT get_Response(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_Response(&this, Encoding, pValue);
+	public HRESULT get_Response(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_Response(&this, Encoding, pValue);
 
-	public HRESULT get_CertificateFriendlyName(BSTR* pValue) mut => VT.[Friend]get_CertificateFriendlyName(&this, pValue);
+	public HRESULT get_CertificateFriendlyName(BSTR pValue) mut => VT.[Friend]get_CertificateFriendlyName(&this, pValue);
 
 	public HRESULT put_CertificateFriendlyName(BSTR strValue) mut => VT.[Friend]put_CertificateFriendlyName(&this, strValue);
 
-	public HRESULT get_CertificateDescription(BSTR* pValue) mut => VT.[Friend]get_CertificateDescription(&this, pValue);
+	public HRESULT get_CertificateDescription(BSTR pValue) mut => VT.[Friend]get_CertificateDescription(&this, pValue);
 
 	public HRESULT put_CertificateDescription(BSTR strValue) mut => VT.[Friend]put_CertificateDescription(&this, strValue);
 
-	public HRESULT get_RequestId(int32* pValue) mut => VT.[Friend]get_RequestId(&this, pValue);
+	public HRESULT get_RequestId(int32 pValue) mut => VT.[Friend]get_RequestId(&this, pValue);
 
-	public HRESULT get_CAConfigString(BSTR* pValue) mut => VT.[Friend]get_CAConfigString(&this, pValue);
+	public HRESULT get_CAConfigString(BSTR pValue) mut => VT.[Friend]get_CAConfigString(&this, pValue);
 }
 
 [CRepr]struct IX509Enrollment2 : IX509Enrollment
@@ -6553,9 +6553,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment2*/SelfOuter* self, X509CertificateEnrollmentContext context, IX509EnrollmentPolicyServer* pPolicyServer, IX509CertificateTemplate* pTemplate) InitializeFromTemplate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment2*/SelfOuter* self, InstallResponseRestrictionFlags Restrictions, BSTR strResponse, EncodingType Encoding, BSTR strPassword, BSTR strEnrollmentPolicyServerUrl, BSTR strEnrollmentPolicyServerID, PolicyServerUrlFlags EnrollmentPolicyServerFlags, X509EnrollmentAuthFlags authFlags) InstallResponse2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment2*/SelfOuter* self, IX509EnrollmentPolicyServer** ppPolicyServer) get_PolicyServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment2*/SelfOuter* self, IX509CertificateTemplate** ppTemplate) get_Template;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment2*/SelfOuter* self, BSTR* pValue) get_RequestIdString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment2*/SelfOuter* self, IX509EnrollmentPolicyServer* ppPolicyServer) get_PolicyServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment2*/SelfOuter* self, IX509CertificateTemplate* ppTemplate) get_Template;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509Enrollment2*/SelfOuter* self, BSTR pValue) get_RequestIdString;
 	}
 
 
@@ -6563,11 +6563,11 @@ public static
 
 	public HRESULT InstallResponse2(InstallResponseRestrictionFlags Restrictions, BSTR strResponse, EncodingType Encoding, BSTR strPassword, BSTR strEnrollmentPolicyServerUrl, BSTR strEnrollmentPolicyServerID, PolicyServerUrlFlags EnrollmentPolicyServerFlags, X509EnrollmentAuthFlags authFlags) mut => VT.[Friend]InstallResponse2(&this, Restrictions, strResponse, Encoding, strPassword, strEnrollmentPolicyServerUrl, strEnrollmentPolicyServerID, EnrollmentPolicyServerFlags, authFlags);
 
-	public HRESULT get_PolicyServer(IX509EnrollmentPolicyServer** ppPolicyServer) mut => VT.[Friend]get_PolicyServer(&this, ppPolicyServer);
+	public HRESULT get_PolicyServer(IX509EnrollmentPolicyServer* ppPolicyServer) mut => VT.[Friend]get_PolicyServer(&this, ppPolicyServer);
 
-	public HRESULT get_Template(IX509CertificateTemplate** ppTemplate) mut => VT.[Friend]get_Template(&this, ppTemplate);
+	public HRESULT get_Template(IX509CertificateTemplate* ppTemplate) mut => VT.[Friend]get_Template(&this, ppTemplate);
 
-	public HRESULT get_RequestIdString(BSTR* pValue) mut => VT.[Friend]get_RequestIdString(&this, pValue);
+	public HRESULT get_RequestIdString(BSTR pValue) mut => VT.[Friend]get_RequestIdString(&this, pValue);
 }
 
 [CRepr]struct IX509EnrollmentHelper : IDispatch
@@ -6580,7 +6580,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentHelper*/SelfOuter* self, BSTR strEnrollmentPolicyServerURI, BSTR strEnrollmentPolicyID, PolicyServerUrlFlags EnrollmentPolicyServerFlags, X509EnrollmentAuthFlags authFlags, BSTR strCredential, BSTR strPassword) AddPolicyServer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentHelper*/SelfOuter* self, BSTR strEnrollmentServerURI, X509EnrollmentAuthFlags authFlags, BSTR strCredential, BSTR strPassword) AddEnrollmentServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentHelper*/SelfOuter* self, BSTR strEnrollmentPolicyServerURI, BSTR strTemplateName, EncodingType Encoding, WebEnrollmentFlags enrollFlags, BSTR* pstrCertificate) Enroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentHelper*/SelfOuter* self, BSTR strEnrollmentPolicyServerURI, BSTR strTemplateName, EncodingType Encoding, WebEnrollmentFlags enrollFlags, BSTR pstrCertificate) Enroll;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentHelper*/SelfOuter* self, X509CertificateEnrollmentContext Context) Initialize;
 	}
 
@@ -6589,7 +6589,7 @@ public static
 
 	public HRESULT AddEnrollmentServer(BSTR strEnrollmentServerURI, X509EnrollmentAuthFlags authFlags, BSTR strCredential, BSTR strPassword) mut => VT.[Friend]AddEnrollmentServer(&this, strEnrollmentServerURI, authFlags, strCredential, strPassword);
 
-	public HRESULT Enroll(BSTR strEnrollmentPolicyServerURI, BSTR strTemplateName, EncodingType Encoding, WebEnrollmentFlags enrollFlags, BSTR* pstrCertificate) mut => VT.[Friend]Enroll(&this, strEnrollmentPolicyServerURI, strTemplateName, Encoding, enrollFlags, pstrCertificate);
+	public HRESULT Enroll(BSTR strEnrollmentPolicyServerURI, BSTR strTemplateName, EncodingType Encoding, WebEnrollmentFlags enrollFlags, BSTR pstrCertificate) mut => VT.[Friend]Enroll(&this, strEnrollmentPolicyServerURI, strTemplateName, Encoding, enrollFlags, pstrCertificate);
 
 	public HRESULT Initialize(X509CertificateEnrollmentContext Context) mut => VT.[Friend]Initialize(&this, Context);
 }
@@ -6602,11 +6602,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentWebClassFactory*/SelfOuter* self, BSTR strProgID, IUnknown** ppIUnknown) CreateObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509EnrollmentWebClassFactory*/SelfOuter* self, BSTR strProgID, IUnknown* ppIUnknown) CreateObject;
 	}
 
 
-	public HRESULT CreateObject(BSTR strProgID, IUnknown** ppIUnknown) mut => VT.[Friend]CreateObject(&this, strProgID, ppIUnknown);
+	public HRESULT CreateObject(BSTR strProgID, IUnknown* ppIUnknown) mut => VT.[Friend]CreateObject(&this, strProgID, ppIUnknown);
 }
 
 [CRepr]struct IX509MachineEnrollmentFactory : IDispatch
@@ -6617,11 +6617,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509MachineEnrollmentFactory*/SelfOuter* self, BSTR strProgID, IX509EnrollmentHelper** ppIHelper) CreateObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509MachineEnrollmentFactory*/SelfOuter* self, BSTR strProgID, IX509EnrollmentHelper* ppIHelper) CreateObject;
 	}
 
 
-	public HRESULT CreateObject(BSTR strProgID, IX509EnrollmentHelper** ppIHelper) mut => VT.[Friend]CreateObject(&this, strProgID, ppIHelper);
+	public HRESULT CreateObject(BSTR strProgID, IX509EnrollmentHelper* ppIHelper) mut => VT.[Friend]CreateObject(&this, strProgID, ppIHelper);
 }
 
 [CRepr]struct IX509CertificateRevocationListEntry : IDispatch
@@ -6633,28 +6633,28 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, EncodingType Encoding, BSTR SerialNumber, double RevocationDate) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_SerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, double* pValue) get_RevocationDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, CRLRevocationReason* pValue) get_RevocationReason;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_SerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, double pValue) get_RevocationDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, CRLRevocationReason pValue) get_RevocationReason;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, CRLRevocationReason Value) put_RevocationReason;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, IX509Extensions** ppValue) get_X509Extensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, IObjectIds** ppValue) get_CriticalExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, IX509Extensions* ppValue) get_X509Extensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntry*/SelfOuter* self, IObjectIds* ppValue) get_CriticalExtensions;
 	}
 
 
 	public HRESULT Initialize(EncodingType Encoding, BSTR SerialNumber, double RevocationDate) mut => VT.[Friend]Initialize(&this, Encoding, SerialNumber, RevocationDate);
 
-	public HRESULT get_SerialNumber(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_SerialNumber(&this, Encoding, pValue);
+	public HRESULT get_SerialNumber(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_SerialNumber(&this, Encoding, pValue);
 
-	public HRESULT get_RevocationDate(double* pValue) mut => VT.[Friend]get_RevocationDate(&this, pValue);
+	public HRESULT get_RevocationDate(double pValue) mut => VT.[Friend]get_RevocationDate(&this, pValue);
 
-	public HRESULT get_RevocationReason(CRLRevocationReason* pValue) mut => VT.[Friend]get_RevocationReason(&this, pValue);
+	public HRESULT get_RevocationReason(CRLRevocationReason pValue) mut => VT.[Friend]get_RevocationReason(&this, pValue);
 
 	public HRESULT put_RevocationReason(CRLRevocationReason Value) mut => VT.[Friend]put_RevocationReason(&this, Value);
 
-	public HRESULT get_X509Extensions(IX509Extensions** ppValue) mut => VT.[Friend]get_X509Extensions(&this, ppValue);
+	public HRESULT get_X509Extensions(IX509Extensions* ppValue) mut => VT.[Friend]get_X509Extensions(&this, ppValue);
 
-	public HRESULT get_CriticalExtensions(IObjectIds** ppValue) mut => VT.[Friend]get_CriticalExtensions(&this, ppValue);
+	public HRESULT get_CriticalExtensions(IObjectIds* ppValue) mut => VT.[Friend]get_CriticalExtensions(&this, ppValue);
 }
 
 [CRepr]struct IX509CertificateRevocationListEntries : IDispatch
@@ -6665,22 +6665,22 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, int32 Index, IX509CertificateRevocationListEntry** pVal) get_ItemByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, IUnknown** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, int32 Index, IX509CertificateRevocationListEntry* pVal) get_ItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, IUnknown* pVal) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, IX509CertificateRevocationListEntry* pVal) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, int32 Index) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, EncodingType Encoding, BSTR SerialNumber, int32* pIndex) get_IndexBySerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, EncodingType Encoding, BSTR SerialNumber, int32 pIndex) get_IndexBySerialNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationListEntries*/SelfOuter* self, IX509CertificateRevocationListEntries* pValue) AddRange;
 	}
 
 
-	public HRESULT get_ItemByIndex(int32 Index, IX509CertificateRevocationListEntry** pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
+	public HRESULT get_ItemByIndex(int32 Index, IX509CertificateRevocationListEntry* pVal) mut => VT.[Friend]get_ItemByIndex(&this, Index, pVal);
 
-	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
-	public HRESULT get__NewEnum(IUnknown** pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
+	public HRESULT get__NewEnum(IUnknown* pVal) mut => VT.[Friend]get__NewEnum(&this, pVal);
 
 	public HRESULT Add(IX509CertificateRevocationListEntry* pVal) mut => VT.[Friend]Add(&this, pVal);
 
@@ -6688,7 +6688,7 @@ public static
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
-	public HRESULT get_IndexBySerialNumber(EncodingType Encoding, BSTR SerialNumber, int32* pIndex) mut => VT.[Friend]get_IndexBySerialNumber(&this, Encoding, SerialNumber, pIndex);
+	public HRESULT get_IndexBySerialNumber(EncodingType Encoding, BSTR SerialNumber, int32 pIndex) mut => VT.[Friend]get_IndexBySerialNumber(&this, Encoding, SerialNumber, pIndex);
 
 	public HRESULT AddRange(IX509CertificateRevocationListEntries* pValue) mut => VT.[Friend]AddRange(&this, pValue);
 }
@@ -6707,31 +6707,31 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self) ResetForEncode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IX509PublicKey* pPublicKey) CheckPublicKeySignature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self) CheckSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IX500DistinguishedName** ppValue) get_Issuer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IX500DistinguishedName* ppValue) get_Issuer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IX500DistinguishedName* pValue) put_Issuer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, double* pValue) get_ThisUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, double pValue) get_ThisUpdate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, double Value) put_ThisUpdate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, double* pValue) get_NextUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, double pValue) get_NextUpdate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, double Value) put_NextUpdate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IX509CertificateRevocationListEntries** ppValue) get_X509CRLEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IX509Extensions** ppValue) get_X509Extensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IObjectIds** ppValue) get_CriticalExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, ISignerCertificate** ppValue) get_SignerCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IX509CertificateRevocationListEntries* ppValue) get_X509CRLEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IX509Extensions* ppValue) get_X509Extensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IObjectIds* ppValue) get_CriticalExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, ISignerCertificate* ppValue) get_SignerCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, ISignerCertificate* pValue) put_SignerCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_CRLNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_CRLNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, EncodingType Encoding, BSTR Value) put_CRLNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, int32* pValue) get_CAVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, int32 pValue) get_CAVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, int32 pValue) put_CAVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, int16* pValue) get_BaseCRL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, int16* pValue) get_NullSigned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IObjectId** ppValue) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, int16 pValue) get_BaseCRL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, int16 pValue) get_NullSigned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IObjectId* ppValue) get_HashAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IObjectId* pValue) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, int16* pValue) get_AlternateSignatureAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, int16 pValue) get_AlternateSignatureAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, int16 Value) put_AlternateSignatureAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IX509SignatureInformation** ppValue) get_SignatureInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RawData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_RawDataToBeSigned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, IX509SignatureInformation* ppValue) get_SignatureInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RawData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_RawDataToBeSigned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509CertificateRevocationList*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_Signature;
 	}
 
 
@@ -6747,55 +6747,55 @@ public static
 
 	public HRESULT CheckSignature() mut => VT.[Friend]CheckSignature(&this);
 
-	public HRESULT get_Issuer(IX500DistinguishedName** ppValue) mut => VT.[Friend]get_Issuer(&this, ppValue);
+	public HRESULT get_Issuer(IX500DistinguishedName* ppValue) mut => VT.[Friend]get_Issuer(&this, ppValue);
 
 	public HRESULT put_Issuer(IX500DistinguishedName* pValue) mut => VT.[Friend]put_Issuer(&this, pValue);
 
-	public HRESULT get_ThisUpdate(double* pValue) mut => VT.[Friend]get_ThisUpdate(&this, pValue);
+	public HRESULT get_ThisUpdate(double pValue) mut => VT.[Friend]get_ThisUpdate(&this, pValue);
 
 	public HRESULT put_ThisUpdate(double Value) mut => VT.[Friend]put_ThisUpdate(&this, Value);
 
-	public HRESULT get_NextUpdate(double* pValue) mut => VT.[Friend]get_NextUpdate(&this, pValue);
+	public HRESULT get_NextUpdate(double pValue) mut => VT.[Friend]get_NextUpdate(&this, pValue);
 
 	public HRESULT put_NextUpdate(double Value) mut => VT.[Friend]put_NextUpdate(&this, Value);
 
-	public HRESULT get_X509CRLEntries(IX509CertificateRevocationListEntries** ppValue) mut => VT.[Friend]get_X509CRLEntries(&this, ppValue);
+	public HRESULT get_X509CRLEntries(IX509CertificateRevocationListEntries* ppValue) mut => VT.[Friend]get_X509CRLEntries(&this, ppValue);
 
-	public HRESULT get_X509Extensions(IX509Extensions** ppValue) mut => VT.[Friend]get_X509Extensions(&this, ppValue);
+	public HRESULT get_X509Extensions(IX509Extensions* ppValue) mut => VT.[Friend]get_X509Extensions(&this, ppValue);
 
-	public HRESULT get_CriticalExtensions(IObjectIds** ppValue) mut => VT.[Friend]get_CriticalExtensions(&this, ppValue);
+	public HRESULT get_CriticalExtensions(IObjectIds* ppValue) mut => VT.[Friend]get_CriticalExtensions(&this, ppValue);
 
-	public HRESULT get_SignerCertificate(ISignerCertificate** ppValue) mut => VT.[Friend]get_SignerCertificate(&this, ppValue);
+	public HRESULT get_SignerCertificate(ISignerCertificate* ppValue) mut => VT.[Friend]get_SignerCertificate(&this, ppValue);
 
 	public HRESULT put_SignerCertificate(ISignerCertificate* pValue) mut => VT.[Friend]put_SignerCertificate(&this, pValue);
 
-	public HRESULT get_CRLNumber(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_CRLNumber(&this, Encoding, pValue);
+	public HRESULT get_CRLNumber(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_CRLNumber(&this, Encoding, pValue);
 
 	public HRESULT put_CRLNumber(EncodingType Encoding, BSTR Value) mut => VT.[Friend]put_CRLNumber(&this, Encoding, Value);
 
-	public HRESULT get_CAVersion(int32* pValue) mut => VT.[Friend]get_CAVersion(&this, pValue);
+	public HRESULT get_CAVersion(int32 pValue) mut => VT.[Friend]get_CAVersion(&this, pValue);
 
 	public HRESULT put_CAVersion(int32 pValue) mut => VT.[Friend]put_CAVersion(&this, pValue);
 
-	public HRESULT get_BaseCRL(int16* pValue) mut => VT.[Friend]get_BaseCRL(&this, pValue);
+	public HRESULT get_BaseCRL(int16 pValue) mut => VT.[Friend]get_BaseCRL(&this, pValue);
 
-	public HRESULT get_NullSigned(int16* pValue) mut => VT.[Friend]get_NullSigned(&this, pValue);
+	public HRESULT get_NullSigned(int16 pValue) mut => VT.[Friend]get_NullSigned(&this, pValue);
 
-	public HRESULT get_HashAlgorithm(IObjectId** ppValue) mut => VT.[Friend]get_HashAlgorithm(&this, ppValue);
+	public HRESULT get_HashAlgorithm(IObjectId* ppValue) mut => VT.[Friend]get_HashAlgorithm(&this, ppValue);
 
 	public HRESULT put_HashAlgorithm(IObjectId* pValue) mut => VT.[Friend]put_HashAlgorithm(&this, pValue);
 
-	public HRESULT get_AlternateSignatureAlgorithm(int16* pValue) mut => VT.[Friend]get_AlternateSignatureAlgorithm(&this, pValue);
+	public HRESULT get_AlternateSignatureAlgorithm(int16 pValue) mut => VT.[Friend]get_AlternateSignatureAlgorithm(&this, pValue);
 
 	public HRESULT put_AlternateSignatureAlgorithm(int16 Value) mut => VT.[Friend]put_AlternateSignatureAlgorithm(&this, Value);
 
-	public HRESULT get_SignatureInformation(IX509SignatureInformation** ppValue) mut => VT.[Friend]get_SignatureInformation(&this, ppValue);
+	public HRESULT get_SignatureInformation(IX509SignatureInformation* ppValue) mut => VT.[Friend]get_SignatureInformation(&this, ppValue);
 
-	public HRESULT get_RawData(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
+	public HRESULT get_RawData(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RawData(&this, Encoding, pValue);
 
-	public HRESULT get_RawDataToBeSigned(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_RawDataToBeSigned(&this, Encoding, pValue);
+	public HRESULT get_RawDataToBeSigned(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_RawDataToBeSigned(&this, Encoding, pValue);
 
-	public HRESULT get_Signature(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_Signature(&this, Encoding, pValue);
+	public HRESULT get_Signature(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_Signature(&this, Encoding, pValue);
 }
 
 [CRepr]struct ICertificateAttestationChallenge : IDispatch
@@ -6807,16 +6807,16 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateAttestationChallenge*/SelfOuter* self, EncodingType Encoding, BSTR strPendingFullCmcResponseWithChallenge) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateAttestationChallenge*/SelfOuter* self, EncodingType Encoding, BSTR* pstrEnvelopedPkcs7ReencryptedToCA) DecryptChallenge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateAttestationChallenge*/SelfOuter* self, BSTR* pstrRequestID) get_RequestID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateAttestationChallenge*/SelfOuter* self, EncodingType Encoding, BSTR pstrEnvelopedPkcs7ReencryptedToCA) DecryptChallenge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateAttestationChallenge*/SelfOuter* self, BSTR pstrRequestID) get_RequestID;
 	}
 
 
 	public HRESULT Initialize(EncodingType Encoding, BSTR strPendingFullCmcResponseWithChallenge) mut => VT.[Friend]Initialize(&this, Encoding, strPendingFullCmcResponseWithChallenge);
 
-	public HRESULT DecryptChallenge(EncodingType Encoding, BSTR* pstrEnvelopedPkcs7ReencryptedToCA) mut => VT.[Friend]DecryptChallenge(&this, Encoding, pstrEnvelopedPkcs7ReencryptedToCA);
+	public HRESULT DecryptChallenge(EncodingType Encoding, BSTR pstrEnvelopedPkcs7ReencryptedToCA) mut => VT.[Friend]DecryptChallenge(&this, Encoding, pstrEnvelopedPkcs7ReencryptedToCA);
 
-	public HRESULT get_RequestID(BSTR* pstrRequestID) mut => VT.[Friend]get_RequestID(&this, pstrRequestID);
+	public HRESULT get_RequestID(BSTR pstrRequestID) mut => VT.[Friend]get_RequestID(&this, pstrRequestID);
 }
 
 [CRepr]struct ICertificateAttestationChallenge2 : ICertificateAttestationChallenge
@@ -6847,24 +6847,24 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, IX509CertificateRequestPkcs10* pRequest, BSTR strThumbprint, EncodingType ThumprintEncoding, BSTR strServerCertificates, EncodingType Encoding) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, X509CertificateEnrollmentContext Context) InitializeForPending;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) CreateRequestMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) CreateRetrievePendingMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, X509CertificateEnrollmentContext Context, BSTR strIssuer, EncodingType IssuerEncoding, BSTR strSerialNumber, EncodingType SerialNumberEncoding, EncodingType Encoding, BSTR* pValue) CreateRetrieveCertificateMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, BSTR strResponse, EncodingType Encoding, X509SCEPDisposition* pDisposition) ProcessResponseMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, EncodingType Encoding, BSTR pValue) CreateRequestMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, EncodingType Encoding, BSTR pValue) CreateRetrievePendingMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, X509CertificateEnrollmentContext Context, BSTR strIssuer, EncodingType IssuerEncoding, BSTR strSerialNumber, EncodingType SerialNumberEncoding, EncodingType Encoding, BSTR pValue) CreateRetrieveCertificateMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, BSTR strResponse, EncodingType Encoding, X509SCEPDisposition pDisposition) ProcessResponseMessage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, BSTR Value) put_ServerCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, X509SCEPFailInfo* pValue) get_FailInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, ISignerCertificate** ppValue) get_SignerCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, X509SCEPFailInfo pValue) get_FailInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, ISignerCertificate* ppValue) get_SignerCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, ISignerCertificate* pValue) put_SignerCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, ISignerCertificate** ppValue) get_OldCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, ISignerCertificate* ppValue) get_OldCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, ISignerCertificate* pValue) put_OldCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_TransactionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_TransactionId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, EncodingType Encoding, BSTR Value) put_TransactionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, IX509CertificateRequestPkcs10** ppValue) get_Request;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, BSTR* pValue) get_CertificateFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, IX509CertificateRequestPkcs10* ppValue) get_Request;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, BSTR pValue) get_CertificateFriendlyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, BSTR Value) put_CertificateFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, IX509EnrollmentStatus** ppValue) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) get_Certificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, int16* pValue) get_Silent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, IX509EnrollmentStatus* ppValue) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, EncodingType Encoding, BSTR pValue) get_Certificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, int16 pValue) get_Silent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self, int16 Value) put_Silent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment*/SelfOuter* self) DeleteRequest;
 	}
@@ -6874,41 +6874,41 @@ public static
 
 	public HRESULT InitializeForPending(X509CertificateEnrollmentContext Context) mut => VT.[Friend]InitializeForPending(&this, Context);
 
-	public HRESULT CreateRequestMessage(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]CreateRequestMessage(&this, Encoding, pValue);
+	public HRESULT CreateRequestMessage(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]CreateRequestMessage(&this, Encoding, pValue);
 
-	public HRESULT CreateRetrievePendingMessage(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]CreateRetrievePendingMessage(&this, Encoding, pValue);
+	public HRESULT CreateRetrievePendingMessage(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]CreateRetrievePendingMessage(&this, Encoding, pValue);
 
-	public HRESULT CreateRetrieveCertificateMessage(X509CertificateEnrollmentContext Context, BSTR strIssuer, EncodingType IssuerEncoding, BSTR strSerialNumber, EncodingType SerialNumberEncoding, EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]CreateRetrieveCertificateMessage(&this, Context, strIssuer, IssuerEncoding, strSerialNumber, SerialNumberEncoding, Encoding, pValue);
+	public HRESULT CreateRetrieveCertificateMessage(X509CertificateEnrollmentContext Context, BSTR strIssuer, EncodingType IssuerEncoding, BSTR strSerialNumber, EncodingType SerialNumberEncoding, EncodingType Encoding, BSTR pValue) mut => VT.[Friend]CreateRetrieveCertificateMessage(&this, Context, strIssuer, IssuerEncoding, strSerialNumber, SerialNumberEncoding, Encoding, pValue);
 
-	public HRESULT ProcessResponseMessage(BSTR strResponse, EncodingType Encoding, X509SCEPDisposition* pDisposition) mut => VT.[Friend]ProcessResponseMessage(&this, strResponse, Encoding, pDisposition);
+	public HRESULT ProcessResponseMessage(BSTR strResponse, EncodingType Encoding, X509SCEPDisposition pDisposition) mut => VT.[Friend]ProcessResponseMessage(&this, strResponse, Encoding, pDisposition);
 
 	public HRESULT put_ServerCapabilities(BSTR Value) mut => VT.[Friend]put_ServerCapabilities(&this, Value);
 
-	public HRESULT get_FailInfo(X509SCEPFailInfo* pValue) mut => VT.[Friend]get_FailInfo(&this, pValue);
+	public HRESULT get_FailInfo(X509SCEPFailInfo pValue) mut => VT.[Friend]get_FailInfo(&this, pValue);
 
-	public HRESULT get_SignerCertificate(ISignerCertificate** ppValue) mut => VT.[Friend]get_SignerCertificate(&this, ppValue);
+	public HRESULT get_SignerCertificate(ISignerCertificate* ppValue) mut => VT.[Friend]get_SignerCertificate(&this, ppValue);
 
 	public HRESULT put_SignerCertificate(ISignerCertificate* pValue) mut => VT.[Friend]put_SignerCertificate(&this, pValue);
 
-	public HRESULT get_OldCertificate(ISignerCertificate** ppValue) mut => VT.[Friend]get_OldCertificate(&this, ppValue);
+	public HRESULT get_OldCertificate(ISignerCertificate* ppValue) mut => VT.[Friend]get_OldCertificate(&this, ppValue);
 
 	public HRESULT put_OldCertificate(ISignerCertificate* pValue) mut => VT.[Friend]put_OldCertificate(&this, pValue);
 
-	public HRESULT get_TransactionId(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_TransactionId(&this, Encoding, pValue);
+	public HRESULT get_TransactionId(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_TransactionId(&this, Encoding, pValue);
 
 	public HRESULT put_TransactionId(EncodingType Encoding, BSTR Value) mut => VT.[Friend]put_TransactionId(&this, Encoding, Value);
 
-	public HRESULT get_Request(IX509CertificateRequestPkcs10** ppValue) mut => VT.[Friend]get_Request(&this, ppValue);
+	public HRESULT get_Request(IX509CertificateRequestPkcs10* ppValue) mut => VT.[Friend]get_Request(&this, ppValue);
 
-	public HRESULT get_CertificateFriendlyName(BSTR* pValue) mut => VT.[Friend]get_CertificateFriendlyName(&this, pValue);
+	public HRESULT get_CertificateFriendlyName(BSTR pValue) mut => VT.[Friend]get_CertificateFriendlyName(&this, pValue);
 
 	public HRESULT put_CertificateFriendlyName(BSTR Value) mut => VT.[Friend]put_CertificateFriendlyName(&this, Value);
 
-	public HRESULT get_Status(IX509EnrollmentStatus** ppValue) mut => VT.[Friend]get_Status(&this, ppValue);
+	public HRESULT get_Status(IX509EnrollmentStatus* ppValue) mut => VT.[Friend]get_Status(&this, ppValue);
 
-	public HRESULT get_Certificate(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]get_Certificate(&this, Encoding, pValue);
+	public HRESULT get_Certificate(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]get_Certificate(&this, Encoding, pValue);
 
-	public HRESULT get_Silent(int16* pValue) mut => VT.[Friend]get_Silent(&this, pValue);
+	public HRESULT get_Silent(int16 pValue) mut => VT.[Friend]get_Silent(&this, pValue);
 
 	public HRESULT put_Silent(int16 Value) mut => VT.[Friend]put_Silent(&this, Value);
 
@@ -6923,24 +6923,24 @@ public static
 
 	[CRepr]public struct VTable : IX509SCEPEnrollment.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, EncodingType Encoding, BSTR* pValue) CreateChallengeAnswerMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, X509SCEPProcessMessageFlags Flags, BSTR strResponse, EncodingType Encoding, X509SCEPDisposition* pDisposition) ProcessResponseMessage2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, BSTR* pValue) get_ResultMessageText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, DelayRetryAction* pValue) get_DelayRetry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, BSTR* pValue) get_ActivityId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, EncodingType Encoding, BSTR pValue) CreateChallengeAnswerMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, X509SCEPProcessMessageFlags Flags, BSTR strResponse, EncodingType Encoding, X509SCEPDisposition pDisposition) ProcessResponseMessage2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, BSTR pValue) get_ResultMessageText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, DelayRetryAction pValue) get_DelayRetry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, BSTR pValue) get_ActivityId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollment2*/SelfOuter* self, BSTR Value) put_ActivityId;
 	}
 
 
-	public HRESULT CreateChallengeAnswerMessage(EncodingType Encoding, BSTR* pValue) mut => VT.[Friend]CreateChallengeAnswerMessage(&this, Encoding, pValue);
+	public HRESULT CreateChallengeAnswerMessage(EncodingType Encoding, BSTR pValue) mut => VT.[Friend]CreateChallengeAnswerMessage(&this, Encoding, pValue);
 
-	public HRESULT ProcessResponseMessage2(X509SCEPProcessMessageFlags Flags, BSTR strResponse, EncodingType Encoding, X509SCEPDisposition* pDisposition) mut => VT.[Friend]ProcessResponseMessage2(&this, Flags, strResponse, Encoding, pDisposition);
+	public HRESULT ProcessResponseMessage2(X509SCEPProcessMessageFlags Flags, BSTR strResponse, EncodingType Encoding, X509SCEPDisposition pDisposition) mut => VT.[Friend]ProcessResponseMessage2(&this, Flags, strResponse, Encoding, pDisposition);
 
-	public HRESULT get_ResultMessageText(BSTR* pValue) mut => VT.[Friend]get_ResultMessageText(&this, pValue);
+	public HRESULT get_ResultMessageText(BSTR pValue) mut => VT.[Friend]get_ResultMessageText(&this, pValue);
 
-	public HRESULT get_DelayRetry(DelayRetryAction* pValue) mut => VT.[Friend]get_DelayRetry(&this, pValue);
+	public HRESULT get_DelayRetry(DelayRetryAction pValue) mut => VT.[Friend]get_DelayRetry(&this, pValue);
 
-	public HRESULT get_ActivityId(BSTR* pValue) mut => VT.[Friend]get_ActivityId(&this, pValue);
+	public HRESULT get_ActivityId(BSTR pValue) mut => VT.[Friend]get_ActivityId(&this, pValue);
 
 	public HRESULT put_ActivityId(BSTR Value) mut => VT.[Friend]put_ActivityId(&this, Value);
 }
@@ -6955,10 +6955,10 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollmentHelper*/SelfOuter* self, BSTR strServerUrl, BSTR strRequestHeaders, IX509CertificateRequestPkcs10* pRequest, BSTR strCACertificateThumbprint) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollmentHelper*/SelfOuter* self, BSTR strServerUrl, BSTR strRequestHeaders, X509CertificateEnrollmentContext Context, BSTR strTransactionId) InitializeForPending;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollmentHelper*/SelfOuter* self, X509SCEPProcessMessageFlags ProcessFlags, X509SCEPDisposition* pDisposition) Enroll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollmentHelper*/SelfOuter* self, X509SCEPProcessMessageFlags ProcessFlags, X509SCEPDisposition* pDisposition) FetchPending;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollmentHelper*/SelfOuter* self, IX509SCEPEnrollment** ppValue) get_X509SCEPEnrollment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollmentHelper*/SelfOuter* self, BSTR* pValue) get_ResultMessageText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollmentHelper*/SelfOuter* self, X509SCEPProcessMessageFlags ProcessFlags, X509SCEPDisposition pDisposition) Enroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollmentHelper*/SelfOuter* self, X509SCEPProcessMessageFlags ProcessFlags, X509SCEPDisposition pDisposition) FetchPending;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollmentHelper*/SelfOuter* self, IX509SCEPEnrollment* ppValue) get_X509SCEPEnrollment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IX509SCEPEnrollmentHelper*/SelfOuter* self, BSTR pValue) get_ResultMessageText;
 	}
 
 
@@ -6966,13 +6966,13 @@ public static
 
 	public HRESULT InitializeForPending(BSTR strServerUrl, BSTR strRequestHeaders, X509CertificateEnrollmentContext Context, BSTR strTransactionId) mut => VT.[Friend]InitializeForPending(&this, strServerUrl, strRequestHeaders, Context, strTransactionId);
 
-	public HRESULT Enroll(X509SCEPProcessMessageFlags ProcessFlags, X509SCEPDisposition* pDisposition) mut => VT.[Friend]Enroll(&this, ProcessFlags, pDisposition);
+	public HRESULT Enroll(X509SCEPProcessMessageFlags ProcessFlags, X509SCEPDisposition pDisposition) mut => VT.[Friend]Enroll(&this, ProcessFlags, pDisposition);
 
-	public HRESULT FetchPending(X509SCEPProcessMessageFlags ProcessFlags, X509SCEPDisposition* pDisposition) mut => VT.[Friend]FetchPending(&this, ProcessFlags, pDisposition);
+	public HRESULT FetchPending(X509SCEPProcessMessageFlags ProcessFlags, X509SCEPDisposition pDisposition) mut => VT.[Friend]FetchPending(&this, ProcessFlags, pDisposition);
 
-	public HRESULT get_X509SCEPEnrollment(IX509SCEPEnrollment** ppValue) mut => VT.[Friend]get_X509SCEPEnrollment(&this, ppValue);
+	public HRESULT get_X509SCEPEnrollment(IX509SCEPEnrollment* ppValue) mut => VT.[Friend]get_X509SCEPEnrollment(&this, ppValue);
 
-	public HRESULT get_ResultMessageText(BSTR* pValue) mut => VT.[Friend]get_ResultMessageText(&this, pValue);
+	public HRESULT get_ResultMessageText(BSTR pValue) mut => VT.[Friend]get_ResultMessageText(&this, pValue);
 }
 
 [CRepr]struct ICertEncodeStringArray : IDispatch
@@ -6984,28 +6984,28 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, BSTR strBinary) Decode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, int32* pStringType) GetStringType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, int32* pCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, int32 Index, BSTR* pstr) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, int32 pStringType) GetStringType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, int32 pCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, int32 Index, BSTR pstr) GetValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, int32 Count, CERT_RDN_ATTR_VALUE_TYPE StringType) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, int32 Index, BSTR str) SetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, BSTR* pstrBinary) Encode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray*/SelfOuter* self, BSTR pstrBinary) Encode;
 	}
 
 
 	public HRESULT Decode(BSTR strBinary) mut => VT.[Friend]Decode(&this, strBinary);
 
-	public HRESULT GetStringType(int32* pStringType) mut => VT.[Friend]GetStringType(&this, pStringType);
+	public HRESULT GetStringType(int32 pStringType) mut => VT.[Friend]GetStringType(&this, pStringType);
 
-	public HRESULT GetCount(int32* pCount) mut => VT.[Friend]GetCount(&this, pCount);
+	public HRESULT GetCount(int32 pCount) mut => VT.[Friend]GetCount(&this, pCount);
 
-	public HRESULT GetValue(int32 Index, BSTR* pstr) mut => VT.[Friend]GetValue(&this, Index, pstr);
+	public HRESULT GetValue(int32 Index, BSTR pstr) mut => VT.[Friend]GetValue(&this, Index, pstr);
 
 	public HRESULT Reset(int32 Count, CERT_RDN_ATTR_VALUE_TYPE StringType) mut => VT.[Friend]Reset(&this, Count, StringType);
 
 	public HRESULT SetValue(int32 Index, BSTR str) mut => VT.[Friend]SetValue(&this, Index, str);
 
-	public HRESULT Encode(BSTR* pstrBinary) mut => VT.[Friend]Encode(&this, pstrBinary);
+	public HRESULT Encode(BSTR pstrBinary) mut => VT.[Friend]Encode(&this, pstrBinary);
 }
 
 [CRepr]struct ICertEncodeStringArray2 : ICertEncodeStringArray
@@ -7017,13 +7017,13 @@ public static
 	[CRepr]public struct VTable : ICertEncodeStringArray.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray2*/SelfOuter* self, BSTR strEncodedData, EncodingType Encoding) DecodeBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray2*/SelfOuter* self, EncodingType Encoding, BSTR* pstrEncodedData) EncodeBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeStringArray2*/SelfOuter* self, EncodingType Encoding, BSTR pstrEncodedData) EncodeBlob;
 	}
 
 
 	public HRESULT DecodeBlob(BSTR strEncodedData, EncodingType Encoding) mut => VT.[Friend]DecodeBlob(&this, strEncodedData, Encoding);
 
-	public HRESULT EncodeBlob(EncodingType Encoding, BSTR* pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, Encoding, pstrEncodedData);
+	public HRESULT EncodeBlob(EncodingType Encoding, BSTR pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, Encoding, pstrEncodedData);
 }
 
 [CRepr]struct ICertEncodeLongArray : IDispatch
@@ -7035,25 +7035,25 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray*/SelfOuter* self, BSTR strBinary) Decode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray*/SelfOuter* self, int32* pCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray*/SelfOuter* self, int32 Index, int32* pValue) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray*/SelfOuter* self, int32 pCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray*/SelfOuter* self, int32 Index, int32 pValue) GetValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray*/SelfOuter* self, int32 Count) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray*/SelfOuter* self, int32 Index, int32 Value) SetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray*/SelfOuter* self, BSTR* pstrBinary) Encode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray*/SelfOuter* self, BSTR pstrBinary) Encode;
 	}
 
 
 	public HRESULT Decode(BSTR strBinary) mut => VT.[Friend]Decode(&this, strBinary);
 
-	public HRESULT GetCount(int32* pCount) mut => VT.[Friend]GetCount(&this, pCount);
+	public HRESULT GetCount(int32 pCount) mut => VT.[Friend]GetCount(&this, pCount);
 
-	public HRESULT GetValue(int32 Index, int32* pValue) mut => VT.[Friend]GetValue(&this, Index, pValue);
+	public HRESULT GetValue(int32 Index, int32 pValue) mut => VT.[Friend]GetValue(&this, Index, pValue);
 
 	public HRESULT Reset(int32 Count) mut => VT.[Friend]Reset(&this, Count);
 
 	public HRESULT SetValue(int32 Index, int32 Value) mut => VT.[Friend]SetValue(&this, Index, Value);
 
-	public HRESULT Encode(BSTR* pstrBinary) mut => VT.[Friend]Encode(&this, pstrBinary);
+	public HRESULT Encode(BSTR pstrBinary) mut => VT.[Friend]Encode(&this, pstrBinary);
 }
 
 [CRepr]struct ICertEncodeLongArray2 : ICertEncodeLongArray
@@ -7065,13 +7065,13 @@ public static
 	[CRepr]public struct VTable : ICertEncodeLongArray.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray2*/SelfOuter* self, BSTR strEncodedData, EncodingType Encoding) DecodeBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray2*/SelfOuter* self, EncodingType Encoding, BSTR* pstrEncodedData) EncodeBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeLongArray2*/SelfOuter* self, EncodingType Encoding, BSTR pstrEncodedData) EncodeBlob;
 	}
 
 
 	public HRESULT DecodeBlob(BSTR strEncodedData, EncodingType Encoding) mut => VT.[Friend]DecodeBlob(&this, strEncodedData, Encoding);
 
-	public HRESULT EncodeBlob(EncodingType Encoding, BSTR* pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, Encoding, pstrEncodedData);
+	public HRESULT EncodeBlob(EncodingType Encoding, BSTR pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, Encoding, pstrEncodedData);
 }
 
 [CRepr]struct ICertEncodeDateArray : IDispatch
@@ -7083,25 +7083,25 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray*/SelfOuter* self, BSTR strBinary) Decode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray*/SelfOuter* self, int32* pCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray*/SelfOuter* self, int32 Index, double* pValue) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray*/SelfOuter* self, int32 pCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray*/SelfOuter* self, int32 Index, double pValue) GetValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray*/SelfOuter* self, int32 Count) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray*/SelfOuter* self, int32 Index, double Value) SetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray*/SelfOuter* self, BSTR* pstrBinary) Encode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray*/SelfOuter* self, BSTR pstrBinary) Encode;
 	}
 
 
 	public HRESULT Decode(BSTR strBinary) mut => VT.[Friend]Decode(&this, strBinary);
 
-	public HRESULT GetCount(int32* pCount) mut => VT.[Friend]GetCount(&this, pCount);
+	public HRESULT GetCount(int32 pCount) mut => VT.[Friend]GetCount(&this, pCount);
 
-	public HRESULT GetValue(int32 Index, double* pValue) mut => VT.[Friend]GetValue(&this, Index, pValue);
+	public HRESULT GetValue(int32 Index, double pValue) mut => VT.[Friend]GetValue(&this, Index, pValue);
 
 	public HRESULT Reset(int32 Count) mut => VT.[Friend]Reset(&this, Count);
 
 	public HRESULT SetValue(int32 Index, double Value) mut => VT.[Friend]SetValue(&this, Index, Value);
 
-	public HRESULT Encode(BSTR* pstrBinary) mut => VT.[Friend]Encode(&this, pstrBinary);
+	public HRESULT Encode(BSTR pstrBinary) mut => VT.[Friend]Encode(&this, pstrBinary);
 }
 
 [CRepr]struct ICertEncodeDateArray2 : ICertEncodeDateArray
@@ -7113,13 +7113,13 @@ public static
 	[CRepr]public struct VTable : ICertEncodeDateArray.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray2*/SelfOuter* self, BSTR strEncodedData, EncodingType Encoding) DecodeBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray2*/SelfOuter* self, EncodingType Encoding, BSTR* pstrEncodedData) EncodeBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeDateArray2*/SelfOuter* self, EncodingType Encoding, BSTR pstrEncodedData) EncodeBlob;
 	}
 
 
 	public HRESULT DecodeBlob(BSTR strEncodedData, EncodingType Encoding) mut => VT.[Friend]DecodeBlob(&this, strEncodedData, Encoding);
 
-	public HRESULT EncodeBlob(EncodingType Encoding, BSTR* pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, Encoding, pstrEncodedData);
+	public HRESULT EncodeBlob(EncodingType Encoding, BSTR pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, Encoding, pstrEncodedData);
 }
 
 [CRepr]struct ICertEncodeCRLDistInfo : IDispatch
@@ -7131,26 +7131,26 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, BSTR strBinary) Decode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32* pDistPointCount) GetDistPointCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32 DistPointIndex, int32* pNameCount) GetNameCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32 DistPointIndex, int32 NameIndex, int32* pNameChoice) GetNameChoice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32 DistPointIndex, int32 NameIndex, BSTR* pstrName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32 pDistPointCount) GetDistPointCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32 DistPointIndex, int32 pNameCount) GetNameCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32 DistPointIndex, int32 NameIndex, int32 pNameChoice) GetNameChoice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32 DistPointIndex, int32 NameIndex, BSTR pstrName) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32 DistPointCount) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32 DistPointIndex, int32 NameCount) SetNameCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, int32 DistPointIndex, int32 NameIndex, CERT_ALT_NAME NameChoice, BSTR strName) SetNameEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, BSTR* pstrBinary) Encode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo*/SelfOuter* self, BSTR pstrBinary) Encode;
 	}
 
 
 	public HRESULT Decode(BSTR strBinary) mut => VT.[Friend]Decode(&this, strBinary);
 
-	public HRESULT GetDistPointCount(int32* pDistPointCount) mut => VT.[Friend]GetDistPointCount(&this, pDistPointCount);
+	public HRESULT GetDistPointCount(int32 pDistPointCount) mut => VT.[Friend]GetDistPointCount(&this, pDistPointCount);
 
-	public HRESULT GetNameCount(int32 DistPointIndex, int32* pNameCount) mut => VT.[Friend]GetNameCount(&this, DistPointIndex, pNameCount);
+	public HRESULT GetNameCount(int32 DistPointIndex, int32 pNameCount) mut => VT.[Friend]GetNameCount(&this, DistPointIndex, pNameCount);
 
-	public HRESULT GetNameChoice(int32 DistPointIndex, int32 NameIndex, int32* pNameChoice) mut => VT.[Friend]GetNameChoice(&this, DistPointIndex, NameIndex, pNameChoice);
+	public HRESULT GetNameChoice(int32 DistPointIndex, int32 NameIndex, int32 pNameChoice) mut => VT.[Friend]GetNameChoice(&this, DistPointIndex, NameIndex, pNameChoice);
 
-	public HRESULT GetName(int32 DistPointIndex, int32 NameIndex, BSTR* pstrName) mut => VT.[Friend]GetName(&this, DistPointIndex, NameIndex, pstrName);
+	public HRESULT GetName(int32 DistPointIndex, int32 NameIndex, BSTR pstrName) mut => VT.[Friend]GetName(&this, DistPointIndex, NameIndex, pstrName);
 
 	public HRESULT Reset(int32 DistPointCount) mut => VT.[Friend]Reset(&this, DistPointCount);
 
@@ -7158,7 +7158,7 @@ public static
 
 	public HRESULT SetNameEntry(int32 DistPointIndex, int32 NameIndex, CERT_ALT_NAME NameChoice, BSTR strName) mut => VT.[Friend]SetNameEntry(&this, DistPointIndex, NameIndex, NameChoice, strName);
 
-	public HRESULT Encode(BSTR* pstrBinary) mut => VT.[Friend]Encode(&this, pstrBinary);
+	public HRESULT Encode(BSTR pstrBinary) mut => VT.[Friend]Encode(&this, pstrBinary);
 }
 
 [CRepr]struct ICertEncodeCRLDistInfo2 : ICertEncodeCRLDistInfo
@@ -7170,13 +7170,13 @@ public static
 	[CRepr]public struct VTable : ICertEncodeCRLDistInfo.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo2*/SelfOuter* self, BSTR strEncodedData, EncodingType Encoding) DecodeBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo2*/SelfOuter* self, EncodingType Encoding, BSTR* pstrEncodedData) EncodeBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeCRLDistInfo2*/SelfOuter* self, EncodingType Encoding, BSTR pstrEncodedData) EncodeBlob;
 	}
 
 
 	public HRESULT DecodeBlob(BSTR strEncodedData, EncodingType Encoding) mut => VT.[Friend]DecodeBlob(&this, strEncodedData, Encoding);
 
-	public HRESULT EncodeBlob(EncodingType Encoding, BSTR* pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, Encoding, pstrEncodedData);
+	public HRESULT EncodeBlob(EncodingType Encoding, BSTR pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, Encoding, pstrEncodedData);
 }
 
 [CRepr]struct ICertEncodeAltName : IDispatch
@@ -7188,28 +7188,28 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, BSTR strBinary) Decode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, int32* pNameCount) GetNameCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, int32 NameIndex, int32* pNameChoice) GetNameChoice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, int32 NameIndex, BSTR* pstrName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, int32 pNameCount) GetNameCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, int32 NameIndex, int32 pNameChoice) GetNameChoice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, int32 NameIndex, BSTR pstrName) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, int32 NameCount) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, int32 NameIndex, CERT_ALT_NAME NameChoice, BSTR strName) SetNameEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, BSTR* pstrBinary) Encode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName*/SelfOuter* self, BSTR pstrBinary) Encode;
 	}
 
 
 	public HRESULT Decode(BSTR strBinary) mut => VT.[Friend]Decode(&this, strBinary);
 
-	public HRESULT GetNameCount(int32* pNameCount) mut => VT.[Friend]GetNameCount(&this, pNameCount);
+	public HRESULT GetNameCount(int32 pNameCount) mut => VT.[Friend]GetNameCount(&this, pNameCount);
 
-	public HRESULT GetNameChoice(int32 NameIndex, int32* pNameChoice) mut => VT.[Friend]GetNameChoice(&this, NameIndex, pNameChoice);
+	public HRESULT GetNameChoice(int32 NameIndex, int32 pNameChoice) mut => VT.[Friend]GetNameChoice(&this, NameIndex, pNameChoice);
 
-	public HRESULT GetName(int32 NameIndex, BSTR* pstrName) mut => VT.[Friend]GetName(&this, NameIndex, pstrName);
+	public HRESULT GetName(int32 NameIndex, BSTR pstrName) mut => VT.[Friend]GetName(&this, NameIndex, pstrName);
 
 	public HRESULT Reset(int32 NameCount) mut => VT.[Friend]Reset(&this, NameCount);
 
 	public HRESULT SetNameEntry(int32 NameIndex, CERT_ALT_NAME NameChoice, BSTR strName) mut => VT.[Friend]SetNameEntry(&this, NameIndex, NameChoice, strName);
 
-	public HRESULT Encode(BSTR* pstrBinary) mut => VT.[Friend]Encode(&this, pstrBinary);
+	public HRESULT Encode(BSTR pstrBinary) mut => VT.[Friend]Encode(&this, pstrBinary);
 }
 
 [CRepr]struct ICertEncodeAltName2 : ICertEncodeAltName
@@ -7221,17 +7221,17 @@ public static
 	[CRepr]public struct VTable : ICertEncodeAltName.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName2*/SelfOuter* self, BSTR strEncodedData, EncodingType Encoding) DecodeBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName2*/SelfOuter* self, EncodingType Encoding, BSTR* pstrEncodedData) EncodeBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName2*/SelfOuter* self, int32 NameIndex, EncodingType Encoding, BSTR* pstrName) GetNameBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName2*/SelfOuter* self, EncodingType Encoding, BSTR pstrEncodedData) EncodeBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName2*/SelfOuter* self, int32 NameIndex, EncodingType Encoding, BSTR pstrName) GetNameBlob;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeAltName2*/SelfOuter* self, int32 NameIndex, int32 NameChoice, BSTR strName, EncodingType Encoding) SetNameEntryBlob;
 	}
 
 
 	public HRESULT DecodeBlob(BSTR strEncodedData, EncodingType Encoding) mut => VT.[Friend]DecodeBlob(&this, strEncodedData, Encoding);
 
-	public HRESULT EncodeBlob(EncodingType Encoding, BSTR* pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, Encoding, pstrEncodedData);
+	public HRESULT EncodeBlob(EncodingType Encoding, BSTR pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, Encoding, pstrEncodedData);
 
-	public HRESULT GetNameBlob(int32 NameIndex, EncodingType Encoding, BSTR* pstrName) mut => VT.[Friend]GetNameBlob(&this, NameIndex, Encoding, pstrName);
+	public HRESULT GetNameBlob(int32 NameIndex, EncodingType Encoding, BSTR pstrName) mut => VT.[Friend]GetNameBlob(&this, NameIndex, Encoding, pstrName);
 
 	public HRESULT SetNameEntryBlob(int32 NameIndex, int32 NameChoice, BSTR strName, EncodingType Encoding) mut => VT.[Friend]SetNameEntryBlob(&this, NameIndex, NameChoice, strName, Encoding);
 }
@@ -7245,19 +7245,19 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString*/SelfOuter* self, BSTR strBinary) Decode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString*/SelfOuter* self, int32* pBitCount) GetBitCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString*/SelfOuter* self, BSTR* pstrBitString) GetBitString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString*/SelfOuter* self, int32 BitCount, BSTR strBitString, BSTR* pstrBinary) Encode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString*/SelfOuter* self, int32 pBitCount) GetBitCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString*/SelfOuter* self, BSTR pstrBitString) GetBitString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString*/SelfOuter* self, int32 BitCount, BSTR strBitString, BSTR pstrBinary) Encode;
 	}
 
 
 	public HRESULT Decode(BSTR strBinary) mut => VT.[Friend]Decode(&this, strBinary);
 
-	public HRESULT GetBitCount(int32* pBitCount) mut => VT.[Friend]GetBitCount(&this, pBitCount);
+	public HRESULT GetBitCount(int32 pBitCount) mut => VT.[Friend]GetBitCount(&this, pBitCount);
 
-	public HRESULT GetBitString(BSTR* pstrBitString) mut => VT.[Friend]GetBitString(&this, pstrBitString);
+	public HRESULT GetBitString(BSTR pstrBitString) mut => VT.[Friend]GetBitString(&this, pstrBitString);
 
-	public HRESULT Encode(int32 BitCount, BSTR strBitString, BSTR* pstrBinary) mut => VT.[Friend]Encode(&this, BitCount, strBitString, pstrBinary);
+	public HRESULT Encode(int32 BitCount, BSTR strBitString, BSTR pstrBinary) mut => VT.[Friend]Encode(&this, BitCount, strBitString, pstrBinary);
 }
 
 [CRepr]struct ICertEncodeBitString2 : ICertEncodeBitString
@@ -7269,16 +7269,16 @@ public static
 	[CRepr]public struct VTable : ICertEncodeBitString.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString2*/SelfOuter* self, BSTR strEncodedData, EncodingType Encoding) DecodeBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString2*/SelfOuter* self, int32 BitCount, BSTR strBitString, EncodingType EncodingIn, EncodingType Encoding, BSTR* pstrEncodedData) EncodeBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString2*/SelfOuter* self, EncodingType Encoding, BSTR* pstrBitString) GetBitStringBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString2*/SelfOuter* self, int32 BitCount, BSTR strBitString, EncodingType EncodingIn, EncodingType Encoding, BSTR pstrEncodedData) EncodeBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertEncodeBitString2*/SelfOuter* self, EncodingType Encoding, BSTR pstrBitString) GetBitStringBlob;
 	}
 
 
 	public HRESULT DecodeBlob(BSTR strEncodedData, EncodingType Encoding) mut => VT.[Friend]DecodeBlob(&this, strEncodedData, Encoding);
 
-	public HRESULT EncodeBlob(int32 BitCount, BSTR strBitString, EncodingType EncodingIn, EncodingType Encoding, BSTR* pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, BitCount, strBitString, EncodingIn, Encoding, pstrEncodedData);
+	public HRESULT EncodeBlob(int32 BitCount, BSTR strBitString, EncodingType EncodingIn, EncodingType Encoding, BSTR pstrEncodedData) mut => VT.[Friend]EncodeBlob(&this, BitCount, strBitString, EncodingIn, Encoding, pstrEncodedData);
 
-	public HRESULT GetBitStringBlob(EncodingType Encoding, BSTR* pstrBitString) mut => VT.[Friend]GetBitStringBlob(&this, Encoding, pstrBitString);
+	public HRESULT GetBitStringBlob(EncodingType Encoding, BSTR pstrBitString) mut => VT.[Friend]GetBitStringBlob(&this, Encoding, pstrBitString);
 }
 
 [CRepr]struct ICertExit : IDispatch
@@ -7289,17 +7289,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertExit*/SelfOuter* self, BSTR strConfig, CERT_EXIT_EVENT_MASK* pEventMask) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertExit*/SelfOuter* self, BSTR strConfig, CERT_EXIT_EVENT_MASK pEventMask) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertExit*/SelfOuter* self, int32 ExitEvent, int32 Context) Notify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertExit*/SelfOuter* self, BSTR* pstrDescription) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertExit*/SelfOuter* self, BSTR pstrDescription) GetDescription;
 	}
 
 
-	public HRESULT Initialize(BSTR strConfig, CERT_EXIT_EVENT_MASK* pEventMask) mut => VT.[Friend]Initialize(&this, strConfig, pEventMask);
+	public HRESULT Initialize(BSTR strConfig, CERT_EXIT_EVENT_MASK pEventMask) mut => VT.[Friend]Initialize(&this, strConfig, pEventMask);
 
 	public HRESULT Notify(int32 ExitEvent, int32 Context) mut => VT.[Friend]Notify(&this, ExitEvent, Context);
 
-	public HRESULT GetDescription(BSTR* pstrDescription) mut => VT.[Friend]GetDescription(&this, pstrDescription);
+	public HRESULT GetDescription(BSTR pstrDescription) mut => VT.[Friend]GetDescription(&this, pstrDescription);
 }
 
 [CRepr]struct ICertExit2 : ICertExit
@@ -7310,11 +7310,11 @@ public static
 
 	[CRepr]public struct VTable : ICertExit.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertExit2*/SelfOuter* self, ICertManageModule** ppManageModule) GetManageModule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertExit2*/SelfOuter* self, ICertManageModule* ppManageModule) GetManageModule;
 	}
 
 
-	public HRESULT GetManageModule(ICertManageModule** ppManageModule) mut => VT.[Friend]GetManageModule(&this, ppManageModule);
+	public HRESULT GetManageModule(ICertManageModule* ppManageModule) mut => VT.[Friend]GetManageModule(&this, ppManageModule);
 }
 
 [CRepr]struct ICEnroll : IDispatch
@@ -7327,59 +7327,59 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR DNName, BSTR Usage, BSTR wszPKCS10FileName) createFilePKCS10;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR wszPKCS7FileName) acceptFilePKCS7;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR DNName, BSTR Usage, BSTR* pPKCS10) createPKCS10;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR DNName, BSTR Usage, BSTR pPKCS10) createPKCS10;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR PKCS7) acceptPKCS7;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR wszPKCS7, BSTR* pbstrCert) getCertFromPKCS7;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwIndex, int32 dwFlags, BSTR* pbstrProvName) enumProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwIndex, BSTR* pbstr) enumContainers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR wszPKCS7, BSTR pbstrCert) getCertFromPKCS7;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwIndex, int32 dwFlags, BSTR pbstrProvName) enumProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwIndex, BSTR pbstr) enumContainers;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR PKCS7OrPKCS10) freeRequestInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstrName) get_MyStoreName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstrName) get_MyStoreName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstrName) put_MyStoreName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstrType) get_MyStoreType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstrType) get_MyStoreType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstrType) put_MyStoreType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32* pdwFlags) get_MyStoreFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 pdwFlags) get_MyStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwFlags) put_MyStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstrName) get_CAStoreName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstrName) get_CAStoreName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstrName) put_CAStoreName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstrType) get_CAStoreType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstrType) get_CAStoreType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstrType) put_CAStoreType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32* pdwFlags) get_CAStoreFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 pdwFlags) get_CAStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwFlags) put_CAStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstrName) get_RootStoreName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstrName) get_RootStoreName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstrName) put_RootStoreName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstrType) get_RootStoreType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstrType) get_RootStoreType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstrType) put_RootStoreType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32* pdwFlags) get_RootStoreFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 pdwFlags) get_RootStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwFlags) put_RootStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstrName) get_RequestStoreName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstrName) get_RequestStoreName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstrName) put_RequestStoreName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstrType) get_RequestStoreType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstrType) get_RequestStoreType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstrType) put_RequestStoreType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32* pdwFlags) get_RequestStoreFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 pdwFlags) get_RequestStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwFlags) put_RequestStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstrContainer) get_ContainerName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstrContainer) get_ContainerName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstrContainer) put_ContainerName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstrProvider) get_ProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstrProvider) get_ProviderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstrProvider) put_ProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32* pdwType) get_ProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 pdwType) get_ProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwType) put_ProviderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32* pdw) get_KeySpec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 pdw) get_KeySpec;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dw) put_KeySpec;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32* pdwFlags) get_ProviderFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 pdwFlags) get_ProviderFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwFlags) put_ProviderFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BOOL* fUseExistingKeys) get_UseExistingKeySet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BOOL fUseExistingKeys) get_UseExistingKeySet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BOOL fUseExistingKeys) put_UseExistingKeySet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32* pdwFlags) get_GenKeyFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 pdwFlags) get_GenKeyFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, int32 dwFlags) put_GenKeyFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BOOL* fDelete) get_DeleteRequestCert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BOOL fDelete) get_DeleteRequestCert;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BOOL fDelete) put_DeleteRequestCert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BOOL* fBool) get_WriteCertToCSP;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BOOL fBool) get_WriteCertToCSP;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BOOL fBool) put_WriteCertToCSP;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstr) get_SPCFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstr) get_SPCFileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstr) put_SPCFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstr) get_PVKFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstr) get_PVKFileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstr) put_PVKFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR* pbstr) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR pbstr) get_HashAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll*/SelfOuter* self, BSTR bstr) put_HashAlgorithm;
 	}
 
@@ -7388,111 +7388,111 @@ public static
 
 	public HRESULT acceptFilePKCS7(BSTR wszPKCS7FileName) mut => VT.[Friend]acceptFilePKCS7(&this, wszPKCS7FileName);
 
-	public HRESULT createPKCS10(BSTR DNName, BSTR Usage, BSTR* pPKCS10) mut => VT.[Friend]createPKCS10(&this, DNName, Usage, pPKCS10);
+	public HRESULT createPKCS10(BSTR DNName, BSTR Usage, BSTR pPKCS10) mut => VT.[Friend]createPKCS10(&this, DNName, Usage, pPKCS10);
 
 	public HRESULT acceptPKCS7(BSTR PKCS7) mut => VT.[Friend]acceptPKCS7(&this, PKCS7);
 
-	public HRESULT getCertFromPKCS7(BSTR wszPKCS7, BSTR* pbstrCert) mut => VT.[Friend]getCertFromPKCS7(&this, wszPKCS7, pbstrCert);
+	public HRESULT getCertFromPKCS7(BSTR wszPKCS7, BSTR pbstrCert) mut => VT.[Friend]getCertFromPKCS7(&this, wszPKCS7, pbstrCert);
 
-	public HRESULT enumProviders(int32 dwIndex, int32 dwFlags, BSTR* pbstrProvName) mut => VT.[Friend]enumProviders(&this, dwIndex, dwFlags, pbstrProvName);
+	public HRESULT enumProviders(int32 dwIndex, int32 dwFlags, BSTR pbstrProvName) mut => VT.[Friend]enumProviders(&this, dwIndex, dwFlags, pbstrProvName);
 
-	public HRESULT enumContainers(int32 dwIndex, BSTR* pbstr) mut => VT.[Friend]enumContainers(&this, dwIndex, pbstr);
+	public HRESULT enumContainers(int32 dwIndex, BSTR pbstr) mut => VT.[Friend]enumContainers(&this, dwIndex, pbstr);
 
 	public HRESULT freeRequestInfo(BSTR PKCS7OrPKCS10) mut => VT.[Friend]freeRequestInfo(&this, PKCS7OrPKCS10);
 
-	public HRESULT get_MyStoreName(BSTR* pbstrName) mut => VT.[Friend]get_MyStoreName(&this, pbstrName);
+	public HRESULT get_MyStoreName(BSTR pbstrName) mut => VT.[Friend]get_MyStoreName(&this, pbstrName);
 
 	public HRESULT put_MyStoreName(BSTR bstrName) mut => VT.[Friend]put_MyStoreName(&this, bstrName);
 
-	public HRESULT get_MyStoreType(BSTR* pbstrType) mut => VT.[Friend]get_MyStoreType(&this, pbstrType);
+	public HRESULT get_MyStoreType(BSTR pbstrType) mut => VT.[Friend]get_MyStoreType(&this, pbstrType);
 
 	public HRESULT put_MyStoreType(BSTR bstrType) mut => VT.[Friend]put_MyStoreType(&this, bstrType);
 
-	public HRESULT get_MyStoreFlags(int32* pdwFlags) mut => VT.[Friend]get_MyStoreFlags(&this, pdwFlags);
+	public HRESULT get_MyStoreFlags(int32 pdwFlags) mut => VT.[Friend]get_MyStoreFlags(&this, pdwFlags);
 
 	public HRESULT put_MyStoreFlags(int32 dwFlags) mut => VT.[Friend]put_MyStoreFlags(&this, dwFlags);
 
-	public HRESULT get_CAStoreName(BSTR* pbstrName) mut => VT.[Friend]get_CAStoreName(&this, pbstrName);
+	public HRESULT get_CAStoreName(BSTR pbstrName) mut => VT.[Friend]get_CAStoreName(&this, pbstrName);
 
 	public HRESULT put_CAStoreName(BSTR bstrName) mut => VT.[Friend]put_CAStoreName(&this, bstrName);
 
-	public HRESULT get_CAStoreType(BSTR* pbstrType) mut => VT.[Friend]get_CAStoreType(&this, pbstrType);
+	public HRESULT get_CAStoreType(BSTR pbstrType) mut => VT.[Friend]get_CAStoreType(&this, pbstrType);
 
 	public HRESULT put_CAStoreType(BSTR bstrType) mut => VT.[Friend]put_CAStoreType(&this, bstrType);
 
-	public HRESULT get_CAStoreFlags(int32* pdwFlags) mut => VT.[Friend]get_CAStoreFlags(&this, pdwFlags);
+	public HRESULT get_CAStoreFlags(int32 pdwFlags) mut => VT.[Friend]get_CAStoreFlags(&this, pdwFlags);
 
 	public HRESULT put_CAStoreFlags(int32 dwFlags) mut => VT.[Friend]put_CAStoreFlags(&this, dwFlags);
 
-	public HRESULT get_RootStoreName(BSTR* pbstrName) mut => VT.[Friend]get_RootStoreName(&this, pbstrName);
+	public HRESULT get_RootStoreName(BSTR pbstrName) mut => VT.[Friend]get_RootStoreName(&this, pbstrName);
 
 	public HRESULT put_RootStoreName(BSTR bstrName) mut => VT.[Friend]put_RootStoreName(&this, bstrName);
 
-	public HRESULT get_RootStoreType(BSTR* pbstrType) mut => VT.[Friend]get_RootStoreType(&this, pbstrType);
+	public HRESULT get_RootStoreType(BSTR pbstrType) mut => VT.[Friend]get_RootStoreType(&this, pbstrType);
 
 	public HRESULT put_RootStoreType(BSTR bstrType) mut => VT.[Friend]put_RootStoreType(&this, bstrType);
 
-	public HRESULT get_RootStoreFlags(int32* pdwFlags) mut => VT.[Friend]get_RootStoreFlags(&this, pdwFlags);
+	public HRESULT get_RootStoreFlags(int32 pdwFlags) mut => VT.[Friend]get_RootStoreFlags(&this, pdwFlags);
 
 	public HRESULT put_RootStoreFlags(int32 dwFlags) mut => VT.[Friend]put_RootStoreFlags(&this, dwFlags);
 
-	public HRESULT get_RequestStoreName(BSTR* pbstrName) mut => VT.[Friend]get_RequestStoreName(&this, pbstrName);
+	public HRESULT get_RequestStoreName(BSTR pbstrName) mut => VT.[Friend]get_RequestStoreName(&this, pbstrName);
 
 	public HRESULT put_RequestStoreName(BSTR bstrName) mut => VT.[Friend]put_RequestStoreName(&this, bstrName);
 
-	public HRESULT get_RequestStoreType(BSTR* pbstrType) mut => VT.[Friend]get_RequestStoreType(&this, pbstrType);
+	public HRESULT get_RequestStoreType(BSTR pbstrType) mut => VT.[Friend]get_RequestStoreType(&this, pbstrType);
 
 	public HRESULT put_RequestStoreType(BSTR bstrType) mut => VT.[Friend]put_RequestStoreType(&this, bstrType);
 
-	public HRESULT get_RequestStoreFlags(int32* pdwFlags) mut => VT.[Friend]get_RequestStoreFlags(&this, pdwFlags);
+	public HRESULT get_RequestStoreFlags(int32 pdwFlags) mut => VT.[Friend]get_RequestStoreFlags(&this, pdwFlags);
 
 	public HRESULT put_RequestStoreFlags(int32 dwFlags) mut => VT.[Friend]put_RequestStoreFlags(&this, dwFlags);
 
-	public HRESULT get_ContainerName(BSTR* pbstrContainer) mut => VT.[Friend]get_ContainerName(&this, pbstrContainer);
+	public HRESULT get_ContainerName(BSTR pbstrContainer) mut => VT.[Friend]get_ContainerName(&this, pbstrContainer);
 
 	public HRESULT put_ContainerName(BSTR bstrContainer) mut => VT.[Friend]put_ContainerName(&this, bstrContainer);
 
-	public HRESULT get_ProviderName(BSTR* pbstrProvider) mut => VT.[Friend]get_ProviderName(&this, pbstrProvider);
+	public HRESULT get_ProviderName(BSTR pbstrProvider) mut => VT.[Friend]get_ProviderName(&this, pbstrProvider);
 
 	public HRESULT put_ProviderName(BSTR bstrProvider) mut => VT.[Friend]put_ProviderName(&this, bstrProvider);
 
-	public HRESULT get_ProviderType(int32* pdwType) mut => VT.[Friend]get_ProviderType(&this, pdwType);
+	public HRESULT get_ProviderType(int32 pdwType) mut => VT.[Friend]get_ProviderType(&this, pdwType);
 
 	public HRESULT put_ProviderType(int32 dwType) mut => VT.[Friend]put_ProviderType(&this, dwType);
 
-	public HRESULT get_KeySpec(int32* pdw) mut => VT.[Friend]get_KeySpec(&this, pdw);
+	public HRESULT get_KeySpec(int32 pdw) mut => VT.[Friend]get_KeySpec(&this, pdw);
 
 	public HRESULT put_KeySpec(int32 dw) mut => VT.[Friend]put_KeySpec(&this, dw);
 
-	public HRESULT get_ProviderFlags(int32* pdwFlags) mut => VT.[Friend]get_ProviderFlags(&this, pdwFlags);
+	public HRESULT get_ProviderFlags(int32 pdwFlags) mut => VT.[Friend]get_ProviderFlags(&this, pdwFlags);
 
 	public HRESULT put_ProviderFlags(int32 dwFlags) mut => VT.[Friend]put_ProviderFlags(&this, dwFlags);
 
-	public HRESULT get_UseExistingKeySet(BOOL* fUseExistingKeys) mut => VT.[Friend]get_UseExistingKeySet(&this, fUseExistingKeys);
+	public HRESULT get_UseExistingKeySet(BOOL fUseExistingKeys) mut => VT.[Friend]get_UseExistingKeySet(&this, fUseExistingKeys);
 
 	public HRESULT put_UseExistingKeySet(BOOL fUseExistingKeys) mut => VT.[Friend]put_UseExistingKeySet(&this, fUseExistingKeys);
 
-	public HRESULT get_GenKeyFlags(int32* pdwFlags) mut => VT.[Friend]get_GenKeyFlags(&this, pdwFlags);
+	public HRESULT get_GenKeyFlags(int32 pdwFlags) mut => VT.[Friend]get_GenKeyFlags(&this, pdwFlags);
 
 	public HRESULT put_GenKeyFlags(int32 dwFlags) mut => VT.[Friend]put_GenKeyFlags(&this, dwFlags);
 
-	public HRESULT get_DeleteRequestCert(BOOL* fDelete) mut => VT.[Friend]get_DeleteRequestCert(&this, fDelete);
+	public HRESULT get_DeleteRequestCert(BOOL fDelete) mut => VT.[Friend]get_DeleteRequestCert(&this, fDelete);
 
 	public HRESULT put_DeleteRequestCert(BOOL fDelete) mut => VT.[Friend]put_DeleteRequestCert(&this, fDelete);
 
-	public HRESULT get_WriteCertToCSP(BOOL* fBool) mut => VT.[Friend]get_WriteCertToCSP(&this, fBool);
+	public HRESULT get_WriteCertToCSP(BOOL fBool) mut => VT.[Friend]get_WriteCertToCSP(&this, fBool);
 
 	public HRESULT put_WriteCertToCSP(BOOL fBool) mut => VT.[Friend]put_WriteCertToCSP(&this, fBool);
 
-	public HRESULT get_SPCFileName(BSTR* pbstr) mut => VT.[Friend]get_SPCFileName(&this, pbstr);
+	public HRESULT get_SPCFileName(BSTR pbstr) mut => VT.[Friend]get_SPCFileName(&this, pbstr);
 
 	public HRESULT put_SPCFileName(BSTR bstr) mut => VT.[Friend]put_SPCFileName(&this, bstr);
 
-	public HRESULT get_PVKFileName(BSTR* pbstr) mut => VT.[Friend]get_PVKFileName(&this, pbstr);
+	public HRESULT get_PVKFileName(BSTR pbstr) mut => VT.[Friend]get_PVKFileName(&this, pbstr);
 
 	public HRESULT put_PVKFileName(BSTR bstr) mut => VT.[Friend]put_PVKFileName(&this, bstr);
 
-	public HRESULT get_HashAlgorithm(BSTR* pbstr) mut => VT.[Friend]get_HashAlgorithm(&this, pbstr);
+	public HRESULT get_HashAlgorithm(BSTR pbstr) mut => VT.[Friend]get_HashAlgorithm(&this, pbstr);
 
 	public HRESULT put_HashAlgorithm(BSTR bstr) mut => VT.[Friend]put_HashAlgorithm(&this, bstr);
 }
@@ -7507,9 +7507,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll2*/SelfOuter* self, BSTR CertType) addCertTypeToRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll2*/SelfOuter* self, BSTR Name, BSTR Value) addNameValuePairToSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll2*/SelfOuter* self, BOOL* fBool) get_WriteCertToUserDS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll2*/SelfOuter* self, BOOL fBool) get_WriteCertToUserDS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll2*/SelfOuter* self, BOOL fBool) put_WriteCertToUserDS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll2*/SelfOuter* self, BOOL* fBool) get_EnableT61DNEncoding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll2*/SelfOuter* self, BOOL fBool) get_EnableT61DNEncoding;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll2*/SelfOuter* self, BOOL fBool) put_EnableT61DNEncoding;
 	}
 
@@ -7518,11 +7518,11 @@ public static
 
 	public HRESULT addNameValuePairToSignature(BSTR Name, BSTR Value) mut => VT.[Friend]addNameValuePairToSignature(&this, Name, Value);
 
-	public HRESULT get_WriteCertToUserDS(BOOL* fBool) mut => VT.[Friend]get_WriteCertToUserDS(&this, fBool);
+	public HRESULT get_WriteCertToUserDS(BOOL fBool) mut => VT.[Friend]get_WriteCertToUserDS(&this, fBool);
 
 	public HRESULT put_WriteCertToUserDS(BOOL fBool) mut => VT.[Friend]put_WriteCertToUserDS(&this, fBool);
 
-	public HRESULT get_EnableT61DNEncoding(BOOL* fBool) mut => VT.[Friend]get_EnableT61DNEncoding(&this, fBool);
+	public HRESULT get_EnableT61DNEncoding(BOOL fBool) mut => VT.[Friend]get_EnableT61DNEncoding(&this, fBool);
 
 	public HRESULT put_EnableT61DNEncoding(BOOL fBool) mut => VT.[Friend]put_EnableT61DNEncoding(&this, fBool);
 }
@@ -7537,18 +7537,18 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BSTR PKCS7) InstallPKCS7;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, int32* pdwKeySpec) GetSupportedKeySpec;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL fMin, BOOL fExchange, int32* pdwKeySize) GetKeyLen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, int32 dwIndex, int32 algClass, int32* pdwAlgID) EnumAlgs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, int32 algID, BSTR* pbstr) GetAlgName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, int32 pdwKeySpec) GetSupportedKeySpec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL fMin, BOOL fExchange, int32 pdwKeySize) GetKeyLen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, int32 dwIndex, int32 algClass, int32 pdwAlgID) EnumAlgs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, int32 algID, BSTR pbstr) GetAlgName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL fReuseHardwareKeyIfUnableToGenNew) put_ReuseHardwareKeyIfUnableToGenNew;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL* fReuseHardwareKeyIfUnableToGenNew) get_ReuseHardwareKeyIfUnableToGenNew;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL fReuseHardwareKeyIfUnableToGenNew) get_ReuseHardwareKeyIfUnableToGenNew;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, int32 hashAlgID) put_HashAlgID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, int32* hashAlgID) get_HashAlgID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, int32 hashAlgID) get_HashAlgID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL fLimitExchangeKeyToEncipherment) put_LimitExchangeKeyToEncipherment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL* fLimitExchangeKeyToEncipherment) get_LimitExchangeKeyToEncipherment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL fLimitExchangeKeyToEncipherment) get_LimitExchangeKeyToEncipherment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL fEnableSMIMECapabilities) put_EnableSMIMECapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL* fEnableSMIMECapabilities) get_EnableSMIMECapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll3*/SelfOuter* self, BOOL fEnableSMIMECapabilities) get_EnableSMIMECapabilities;
 	}
 
 
@@ -7556,29 +7556,29 @@ public static
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT GetSupportedKeySpec(int32* pdwKeySpec) mut => VT.[Friend]GetSupportedKeySpec(&this, pdwKeySpec);
+	public HRESULT GetSupportedKeySpec(int32 pdwKeySpec) mut => VT.[Friend]GetSupportedKeySpec(&this, pdwKeySpec);
 
-	public HRESULT GetKeyLen(BOOL fMin, BOOL fExchange, int32* pdwKeySize) mut => VT.[Friend]GetKeyLen(&this, fMin, fExchange, pdwKeySize);
+	public HRESULT GetKeyLen(BOOL fMin, BOOL fExchange, int32 pdwKeySize) mut => VT.[Friend]GetKeyLen(&this, fMin, fExchange, pdwKeySize);
 
-	public HRESULT EnumAlgs(int32 dwIndex, int32 algClass, int32* pdwAlgID) mut => VT.[Friend]EnumAlgs(&this, dwIndex, algClass, pdwAlgID);
+	public HRESULT EnumAlgs(int32 dwIndex, int32 algClass, int32 pdwAlgID) mut => VT.[Friend]EnumAlgs(&this, dwIndex, algClass, pdwAlgID);
 
-	public HRESULT GetAlgName(int32 algID, BSTR* pbstr) mut => VT.[Friend]GetAlgName(&this, algID, pbstr);
+	public HRESULT GetAlgName(int32 algID, BSTR pbstr) mut => VT.[Friend]GetAlgName(&this, algID, pbstr);
 
 	public HRESULT put_ReuseHardwareKeyIfUnableToGenNew(BOOL fReuseHardwareKeyIfUnableToGenNew) mut => VT.[Friend]put_ReuseHardwareKeyIfUnableToGenNew(&this, fReuseHardwareKeyIfUnableToGenNew);
 
-	public HRESULT get_ReuseHardwareKeyIfUnableToGenNew(BOOL* fReuseHardwareKeyIfUnableToGenNew) mut => VT.[Friend]get_ReuseHardwareKeyIfUnableToGenNew(&this, fReuseHardwareKeyIfUnableToGenNew);
+	public HRESULT get_ReuseHardwareKeyIfUnableToGenNew(BOOL fReuseHardwareKeyIfUnableToGenNew) mut => VT.[Friend]get_ReuseHardwareKeyIfUnableToGenNew(&this, fReuseHardwareKeyIfUnableToGenNew);
 
 	public HRESULT put_HashAlgID(int32 hashAlgID) mut => VT.[Friend]put_HashAlgID(&this, hashAlgID);
 
-	public HRESULT get_HashAlgID(int32* hashAlgID) mut => VT.[Friend]get_HashAlgID(&this, hashAlgID);
+	public HRESULT get_HashAlgID(int32 hashAlgID) mut => VT.[Friend]get_HashAlgID(&this, hashAlgID);
 
 	public HRESULT put_LimitExchangeKeyToEncipherment(BOOL fLimitExchangeKeyToEncipherment) mut => VT.[Friend]put_LimitExchangeKeyToEncipherment(&this, fLimitExchangeKeyToEncipherment);
 
-	public HRESULT get_LimitExchangeKeyToEncipherment(BOOL* fLimitExchangeKeyToEncipherment) mut => VT.[Friend]get_LimitExchangeKeyToEncipherment(&this, fLimitExchangeKeyToEncipherment);
+	public HRESULT get_LimitExchangeKeyToEncipherment(BOOL fLimitExchangeKeyToEncipherment) mut => VT.[Friend]get_LimitExchangeKeyToEncipherment(&this, fLimitExchangeKeyToEncipherment);
 
 	public HRESULT put_EnableSMIMECapabilities(BOOL fEnableSMIMECapabilities) mut => VT.[Friend]put_EnableSMIMECapabilities(&this, fEnableSMIMECapabilities);
 
-	public HRESULT get_EnableSMIMECapabilities(BOOL* fEnableSMIMECapabilities) mut => VT.[Friend]get_EnableSMIMECapabilities(&this, fEnableSMIMECapabilities);
+	public HRESULT get_EnableSMIMECapabilities(BOOL fEnableSMIMECapabilities) mut => VT.[Friend]get_EnableSMIMECapabilities(&this, fEnableSMIMECapabilities);
 }
 
 [CRepr]struct ICEnroll4 : ICEnroll3
@@ -7590,52 +7590,52 @@ public static
 	[CRepr]public struct VTable : ICEnroll3.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR bstrCert) put_PrivateKeyArchiveCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR* pbstrCert) get_PrivateKeyArchiveCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR pbstrCert) get_PrivateKeyArchiveCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR bstrThumbPrint) put_ThumbPrint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR* pbstrThumbPrint) get_ThumbPrint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 Flags, BSTR strBinary, BSTR* pstrEncoded) binaryToString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 Flags, BSTR strEncoded, BSTR* pstrBinary) stringToBinary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR pbstrThumbPrint) get_ThumbPrint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 Flags, BSTR strBinary, BSTR pstrEncoded) binaryToString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 Flags, BSTR strEncoded, BSTR pstrBinary) stringToBinary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 Flags, BSTR strName, BSTR strValue) addExtensionToRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 Flags, BSTR strName, BSTR strValue) addAttributeToRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 Flags, BSTR strName, BSTR strValue) addNameValuePairToRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self) resetExtensions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self) resetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, CERT_CREATE_REQUEST_FLAGS Flags, BSTR strDNName, BSTR Usage, BSTR* pstrRequest) createRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, CERT_CREATE_REQUEST_FLAGS Flags, BSTR strDNName, BSTR Usage, BSTR pstrRequest) createRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, CERT_CREATE_REQUEST_FLAGS Flags, BSTR strDNName, BSTR strUsage, BSTR strRequestFileName) createFileRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strResponse) acceptResponse;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strResponseFileName) acceptFileResponse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strResponse, BSTR* pstrCert) getCertFromResponse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strResponseFileName, BSTR* pstrCert) getCertFromFileResponse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strPassword, BSTR* pstrPFX) createPFX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strResponse, BSTR pstrCert) getCertFromResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strResponseFileName, BSTR pstrCert) getCertFromFileResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strPassword, BSTR pstrPFX) createPFX;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strPassword, BSTR strPFXFileName) createFilePFX;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 lRequestID, BSTR strCADNS, BSTR strCAName, BSTR strFriendlyName) setPendingRequestInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 lIndex, PENDING_REQUEST_DESIRED_PROPERTY lDesiredProperty, VARIANT* pvarProperty) enumPendingRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 lIndex, PENDING_REQUEST_DESIRED_PROPERTY lDesiredProperty, VARIANT pvarProperty) enumPendingRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strThumbprint) removePendingRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, XEKL_KEYSIZE lSizeSpec, XEKL_KEYSPEC lKeySpec, int32* pdwKeySize) GetKeyLenEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR PKCS7, int32* plCertInstalled) InstallPKCS7Ex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, XEKL_KEYSIZE lSizeSpec, XEKL_KEYSPEC lKeySpec, int32 pdwKeySize) GetKeyLenEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR PKCS7, int32 plCertInstalled) InstallPKCS7Ex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, ADDED_CERT_TYPE lType, BSTR bstrOIDOrName, int32 lMajorVersion, BOOL fMinorVersion, int32 lMinorVersion) addCertTypeToRequestEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strProvName, int32* plProvType) getProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR strProvName, int32 plProvType) getProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BSTR bstrCert) put_SignerCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 lClientId) put_ClientId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32* plClientId) get_ClientId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 plClientId) get_ClientId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, int32 lPropertyId, int32 lReserved, BSTR bstrProperty) addBlobPropertyToCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self) resetBlobProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BOOL fInclude) put_IncludeSubjectKeyID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BOOL* pfInclude) get_IncludeSubjectKeyID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICEnroll4*/SelfOuter* self, BOOL pfInclude) get_IncludeSubjectKeyID;
 	}
 
 
 	public HRESULT put_PrivateKeyArchiveCertificate(BSTR bstrCert) mut => VT.[Friend]put_PrivateKeyArchiveCertificate(&this, bstrCert);
 
-	public HRESULT get_PrivateKeyArchiveCertificate(BSTR* pbstrCert) mut => VT.[Friend]get_PrivateKeyArchiveCertificate(&this, pbstrCert);
+	public HRESULT get_PrivateKeyArchiveCertificate(BSTR pbstrCert) mut => VT.[Friend]get_PrivateKeyArchiveCertificate(&this, pbstrCert);
 
 	public HRESULT put_ThumbPrint(BSTR bstrThumbPrint) mut => VT.[Friend]put_ThumbPrint(&this, bstrThumbPrint);
 
-	public HRESULT get_ThumbPrint(BSTR* pbstrThumbPrint) mut => VT.[Friend]get_ThumbPrint(&this, pbstrThumbPrint);
+	public HRESULT get_ThumbPrint(BSTR pbstrThumbPrint) mut => VT.[Friend]get_ThumbPrint(&this, pbstrThumbPrint);
 
-	public HRESULT binaryToString(int32 Flags, BSTR strBinary, BSTR* pstrEncoded) mut => VT.[Friend]binaryToString(&this, Flags, strBinary, pstrEncoded);
+	public HRESULT binaryToString(int32 Flags, BSTR strBinary, BSTR pstrEncoded) mut => VT.[Friend]binaryToString(&this, Flags, strBinary, pstrEncoded);
 
-	public HRESULT stringToBinary(int32 Flags, BSTR strEncoded, BSTR* pstrBinary) mut => VT.[Friend]stringToBinary(&this, Flags, strEncoded, pstrBinary);
+	public HRESULT stringToBinary(int32 Flags, BSTR strEncoded, BSTR pstrBinary) mut => VT.[Friend]stringToBinary(&this, Flags, strEncoded, pstrBinary);
 
 	public HRESULT addExtensionToRequest(int32 Flags, BSTR strName, BSTR strValue) mut => VT.[Friend]addExtensionToRequest(&this, Flags, strName, strValue);
 
@@ -7647,7 +7647,7 @@ public static
 
 	public HRESULT resetAttributes() mut => VT.[Friend]resetAttributes(&this);
 
-	public HRESULT createRequest(CERT_CREATE_REQUEST_FLAGS Flags, BSTR strDNName, BSTR Usage, BSTR* pstrRequest) mut => VT.[Friend]createRequest(&this, Flags, strDNName, Usage, pstrRequest);
+	public HRESULT createRequest(CERT_CREATE_REQUEST_FLAGS Flags, BSTR strDNName, BSTR Usage, BSTR pstrRequest) mut => VT.[Friend]createRequest(&this, Flags, strDNName, Usage, pstrRequest);
 
 	public HRESULT createFileRequest(CERT_CREATE_REQUEST_FLAGS Flags, BSTR strDNName, BSTR strUsage, BSTR strRequestFileName) mut => VT.[Friend]createFileRequest(&this, Flags, strDNName, strUsage, strRequestFileName);
 
@@ -7655,33 +7655,33 @@ public static
 
 	public HRESULT acceptFileResponse(BSTR strResponseFileName) mut => VT.[Friend]acceptFileResponse(&this, strResponseFileName);
 
-	public HRESULT getCertFromResponse(BSTR strResponse, BSTR* pstrCert) mut => VT.[Friend]getCertFromResponse(&this, strResponse, pstrCert);
+	public HRESULT getCertFromResponse(BSTR strResponse, BSTR pstrCert) mut => VT.[Friend]getCertFromResponse(&this, strResponse, pstrCert);
 
-	public HRESULT getCertFromFileResponse(BSTR strResponseFileName, BSTR* pstrCert) mut => VT.[Friend]getCertFromFileResponse(&this, strResponseFileName, pstrCert);
+	public HRESULT getCertFromFileResponse(BSTR strResponseFileName, BSTR pstrCert) mut => VT.[Friend]getCertFromFileResponse(&this, strResponseFileName, pstrCert);
 
-	public HRESULT createPFX(BSTR strPassword, BSTR* pstrPFX) mut => VT.[Friend]createPFX(&this, strPassword, pstrPFX);
+	public HRESULT createPFX(BSTR strPassword, BSTR pstrPFX) mut => VT.[Friend]createPFX(&this, strPassword, pstrPFX);
 
 	public HRESULT createFilePFX(BSTR strPassword, BSTR strPFXFileName) mut => VT.[Friend]createFilePFX(&this, strPassword, strPFXFileName);
 
 	public HRESULT setPendingRequestInfo(int32 lRequestID, BSTR strCADNS, BSTR strCAName, BSTR strFriendlyName) mut => VT.[Friend]setPendingRequestInfo(&this, lRequestID, strCADNS, strCAName, strFriendlyName);
 
-	public HRESULT enumPendingRequest(int32 lIndex, PENDING_REQUEST_DESIRED_PROPERTY lDesiredProperty, VARIANT* pvarProperty) mut => VT.[Friend]enumPendingRequest(&this, lIndex, lDesiredProperty, pvarProperty);
+	public HRESULT enumPendingRequest(int32 lIndex, PENDING_REQUEST_DESIRED_PROPERTY lDesiredProperty, VARIANT pvarProperty) mut => VT.[Friend]enumPendingRequest(&this, lIndex, lDesiredProperty, pvarProperty);
 
 	public HRESULT removePendingRequest(BSTR strThumbprint) mut => VT.[Friend]removePendingRequest(&this, strThumbprint);
 
-	public HRESULT GetKeyLenEx(XEKL_KEYSIZE lSizeSpec, XEKL_KEYSPEC lKeySpec, int32* pdwKeySize) mut => VT.[Friend]GetKeyLenEx(&this, lSizeSpec, lKeySpec, pdwKeySize);
+	public HRESULT GetKeyLenEx(XEKL_KEYSIZE lSizeSpec, XEKL_KEYSPEC lKeySpec, int32 pdwKeySize) mut => VT.[Friend]GetKeyLenEx(&this, lSizeSpec, lKeySpec, pdwKeySize);
 
-	public HRESULT InstallPKCS7Ex(BSTR PKCS7, int32* plCertInstalled) mut => VT.[Friend]InstallPKCS7Ex(&this, PKCS7, plCertInstalled);
+	public HRESULT InstallPKCS7Ex(BSTR PKCS7, int32 plCertInstalled) mut => VT.[Friend]InstallPKCS7Ex(&this, PKCS7, plCertInstalled);
 
 	public HRESULT addCertTypeToRequestEx(ADDED_CERT_TYPE lType, BSTR bstrOIDOrName, int32 lMajorVersion, BOOL fMinorVersion, int32 lMinorVersion) mut => VT.[Friend]addCertTypeToRequestEx(&this, lType, bstrOIDOrName, lMajorVersion, fMinorVersion, lMinorVersion);
 
-	public HRESULT getProviderType(BSTR strProvName, int32* plProvType) mut => VT.[Friend]getProviderType(&this, strProvName, plProvType);
+	public HRESULT getProviderType(BSTR strProvName, int32 plProvType) mut => VT.[Friend]getProviderType(&this, strProvName, plProvType);
 
 	public HRESULT put_SignerCertificate(BSTR bstrCert) mut => VT.[Friend]put_SignerCertificate(&this, bstrCert);
 
 	public HRESULT put_ClientId(int32 lClientId) mut => VT.[Friend]put_ClientId(&this, lClientId);
 
-	public HRESULT get_ClientId(int32* plClientId) mut => VT.[Friend]get_ClientId(&this, plClientId);
+	public HRESULT get_ClientId(int32 plClientId) mut => VT.[Friend]get_ClientId(&this, plClientId);
 
 	public HRESULT addBlobPropertyToCertificate(int32 lPropertyId, int32 lReserved, BSTR bstrProperty) mut => VT.[Friend]addBlobPropertyToCertificate(&this, lPropertyId, lReserved, bstrProperty);
 
@@ -7689,7 +7689,7 @@ public static
 
 	public HRESULT put_IncludeSubjectKeyID(BOOL fInclude) mut => VT.[Friend]put_IncludeSubjectKeyID(&this, fInclude);
 
-	public HRESULT get_IncludeSubjectKeyID(BOOL* pfInclude) mut => VT.[Friend]get_IncludeSubjectKeyID(&this, pfInclude);
+	public HRESULT get_IncludeSubjectKeyID(BOOL pfInclude) mut => VT.[Friend]get_IncludeSubjectKeyID(&this, pfInclude);
 }
 
 [CRepr]struct IEnroll : IUnknown
@@ -7702,74 +7702,74 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR DNName, PWSTR Usage, PWSTR wszPKCS10FileName) createFilePKCS10WStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR wszPKCS7FileName) acceptFilePKCS7WStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR DNName, PWSTR Usage, CRYPTOAPI_BLOB* pPkcs10Blob) createPKCS10WStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CRYPTOAPI_BLOB* pBlobPKCS7) acceptPKCS7Blob;
-		protected new function [CallingConvention(.Stdcall)] CERT_CONTEXT*(/*IEnroll*/SelfOuter* self, CRYPTOAPI_BLOB* pBlobPKCS7) getCertContextFromPKCS7;
-		protected new function [CallingConvention(.Stdcall)] void*(/*IEnroll*/SelfOuter* self) getMyStore;
-		protected new function [CallingConvention(.Stdcall)] void*(/*IEnroll*/SelfOuter* self) getCAStore;
-		protected new function [CallingConvention(.Stdcall)] void*(/*IEnroll*/SelfOuter* self) getROOTHStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwIndex, int32 dwFlags, PWSTR* pbstrProvName) enumProvidersWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwIndex, PWSTR* pbstr) enumContainersWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR DNName, PWSTR Usage, CRYPTOAPI_BLOB pPkcs10Blob) createPKCS10WStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CRYPTOAPI_BLOB pBlobPKCS7) acceptPKCS7Blob;
+		protected new function [CallingConvention(.Stdcall)] CERT_CONTEXT(/*IEnroll*/SelfOuter* self, CRYPTOAPI_BLOB pBlobPKCS7) getCertContextFromPKCS7;
+		protected new function [CallingConvention(.Stdcall)] void(/*IEnroll*/SelfOuter* self) getMyStore;
+		protected new function [CallingConvention(.Stdcall)] void(/*IEnroll*/SelfOuter* self) getCAStore;
+		protected new function [CallingConvention(.Stdcall)] void(/*IEnroll*/SelfOuter* self) getROOTHStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwIndex, int32 dwFlags, PWSTR pbstrProvName) enumProvidersWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwIndex, PWSTR pbstr) enumContainersWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CRYPTOAPI_BLOB pkcs7OrPkcs10) freeRequestInfoBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwName) get_MyStoreNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) get_MyStoreNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) put_MyStoreNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwType) get_MyStoreTypeWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) get_MyStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) put_MyStoreTypeWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwFlags) get_MyStoreFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 pdwFlags) get_MyStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwFlags) put_MyStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwName) get_CAStoreNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) get_CAStoreNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) put_CAStoreNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwType) get_CAStoreTypeWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) get_CAStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) put_CAStoreTypeWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwFlags) get_CAStoreFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 pdwFlags) get_CAStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwFlags) put_CAStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwName) get_RootStoreNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) get_RootStoreNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) put_RootStoreNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwType) get_RootStoreTypeWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) get_RootStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) put_RootStoreTypeWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwFlags) get_RootStoreFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 pdwFlags) get_RootStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwFlags) put_RootStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwName) get_RequestStoreNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) get_RequestStoreNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) put_RequestStoreNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwType) get_RequestStoreTypeWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) get_RequestStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) put_RequestStoreTypeWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwFlags) get_RequestStoreFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 pdwFlags) get_RequestStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwFlags) put_RequestStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwContainer) get_ContainerNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwContainer) get_ContainerNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwContainer) put_ContainerNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwProvider) get_ProviderNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwProvider) get_ProviderNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwProvider) put_ProviderNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwType) get_ProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 pdwType) get_ProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwType) put_ProviderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdw) get_KeySpec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 pdw) get_KeySpec;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dw) put_KeySpec;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwFlags) get_ProviderFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 pdwFlags) get_ProviderFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwFlags) put_ProviderFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL* fUseExistingKeys) get_UseExistingKeySet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fUseExistingKeys) get_UseExistingKeySet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fUseExistingKeys) put_UseExistingKeySet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwFlags) get_GenKeyFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 pdwFlags) get_GenKeyFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwFlags) put_GenKeyFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL* fDelete) get_DeleteRequestCert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fDelete) get_DeleteRequestCert;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fDelete) put_DeleteRequestCert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL* fBool) get_WriteCertToUserDS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fBool) get_WriteCertToUserDS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fBool) put_WriteCertToUserDS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL* fBool) get_EnableT61DNEncoding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fBool) get_EnableT61DNEncoding;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fBool) put_EnableT61DNEncoding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL* fBool) get_WriteCertToCSP;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fBool) get_WriteCertToCSP;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fBool) put_WriteCertToCSP;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szw) get_SPCFileNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) get_SPCFileNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) put_SPCFileNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szw) get_PVKFileNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) get_PVKFileNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) put_PVKFileNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szw) get_HashAlgorithmWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) get_HashAlgorithmWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) put_HashAlgorithmWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CERT_CONTEXT** ppCertContext) get_RenewalCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CERT_CONTEXT* pCertContext) put_RenewalCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CERT_CONTEXT ppCertContext) get_RenewalCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CERT_CONTEXT pCertContext) put_RenewalCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) AddCertTypeToRequestWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR Name, PWSTR Value) AddNameValuePairToSignatureWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CERT_EXTENSIONS* pCertExtensions) AddExtensionsToRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CRYPT_ATTRIBUTES* pAttributes) AddAuthenticatedAttributesToPKCS7Request;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CRYPTOAPI_BLOB* pRequest, CERT_CONTEXT* pSigningCertContext, CRYPTOAPI_BLOB* pPkcs7Blob) CreatePKCS7RequestFromRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CERT_EXTENSIONS pCertExtensions) AddExtensionsToRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CRYPT_ATTRIBUTES pAttributes) AddAuthenticatedAttributesToPKCS7Request;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CRYPTOAPI_BLOB pRequest, CERT_CONTEXT pSigningCertContext, CRYPTOAPI_BLOB pPkcs7Blob) CreatePKCS7RequestFromRequest;
 	}
 
 
@@ -7777,141 +7777,141 @@ public static
 
 	public HRESULT acceptFilePKCS7WStr(PWSTR wszPKCS7FileName) mut => VT.[Friend]acceptFilePKCS7WStr(&this, wszPKCS7FileName);
 
-	public HRESULT createPKCS10WStr(PWSTR DNName, PWSTR Usage, CRYPTOAPI_BLOB* pPkcs10Blob) mut => VT.[Friend]createPKCS10WStr(&this, DNName, Usage, pPkcs10Blob);
+	public HRESULT createPKCS10WStr(PWSTR DNName, PWSTR Usage, CRYPTOAPI_BLOB pPkcs10Blob) mut => VT.[Friend]createPKCS10WStr(&this, DNName, Usage, pPkcs10Blob);
 
-	public HRESULT acceptPKCS7Blob(CRYPTOAPI_BLOB* pBlobPKCS7) mut => VT.[Friend]acceptPKCS7Blob(&this, pBlobPKCS7);
+	public HRESULT acceptPKCS7Blob(CRYPTOAPI_BLOB pBlobPKCS7) mut => VT.[Friend]acceptPKCS7Blob(&this, pBlobPKCS7);
 
-	public CERT_CONTEXT* getCertContextFromPKCS7(CRYPTOAPI_BLOB* pBlobPKCS7) mut => VT.[Friend]getCertContextFromPKCS7(&this, pBlobPKCS7);
+	public CERT_CONTEXT getCertContextFromPKCS7(CRYPTOAPI_BLOB pBlobPKCS7) mut => VT.[Friend]getCertContextFromPKCS7(&this, pBlobPKCS7);
 
-	public void* getMyStore() mut => VT.[Friend]getMyStore(&this);
+	public void getMyStore() mut => VT.[Friend]getMyStore(&this);
 
-	public void* getCAStore() mut => VT.[Friend]getCAStore(&this);
+	public void getCAStore() mut => VT.[Friend]getCAStore(&this);
 
-	public void* getROOTHStore() mut => VT.[Friend]getROOTHStore(&this);
+	public void getROOTHStore() mut => VT.[Friend]getROOTHStore(&this);
 
-	public HRESULT enumProvidersWStr(int32 dwIndex, int32 dwFlags, PWSTR* pbstrProvName) mut => VT.[Friend]enumProvidersWStr(&this, dwIndex, dwFlags, pbstrProvName);
+	public HRESULT enumProvidersWStr(int32 dwIndex, int32 dwFlags, PWSTR pbstrProvName) mut => VT.[Friend]enumProvidersWStr(&this, dwIndex, dwFlags, pbstrProvName);
 
-	public HRESULT enumContainersWStr(int32 dwIndex, PWSTR* pbstr) mut => VT.[Friend]enumContainersWStr(&this, dwIndex, pbstr);
+	public HRESULT enumContainersWStr(int32 dwIndex, PWSTR pbstr) mut => VT.[Friend]enumContainersWStr(&this, dwIndex, pbstr);
 
 	public HRESULT freeRequestInfoBlob(CRYPTOAPI_BLOB pkcs7OrPkcs10) mut => VT.[Friend]freeRequestInfoBlob(&this, pkcs7OrPkcs10);
 
-	public HRESULT get_MyStoreNameWStr(PWSTR* szwName) mut => VT.[Friend]get_MyStoreNameWStr(&this, szwName);
+	public HRESULT get_MyStoreNameWStr(PWSTR szwName) mut => VT.[Friend]get_MyStoreNameWStr(&this, szwName);
 
 	public HRESULT put_MyStoreNameWStr(PWSTR szwName) mut => VT.[Friend]put_MyStoreNameWStr(&this, szwName);
 
-	public HRESULT get_MyStoreTypeWStr(PWSTR* szwType) mut => VT.[Friend]get_MyStoreTypeWStr(&this, szwType);
+	public HRESULT get_MyStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]get_MyStoreTypeWStr(&this, szwType);
 
 	public HRESULT put_MyStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]put_MyStoreTypeWStr(&this, szwType);
 
-	public HRESULT get_MyStoreFlags(int32* pdwFlags) mut => VT.[Friend]get_MyStoreFlags(&this, pdwFlags);
+	public HRESULT get_MyStoreFlags(int32 pdwFlags) mut => VT.[Friend]get_MyStoreFlags(&this, pdwFlags);
 
 	public HRESULT put_MyStoreFlags(int32 dwFlags) mut => VT.[Friend]put_MyStoreFlags(&this, dwFlags);
 
-	public HRESULT get_CAStoreNameWStr(PWSTR* szwName) mut => VT.[Friend]get_CAStoreNameWStr(&this, szwName);
+	public HRESULT get_CAStoreNameWStr(PWSTR szwName) mut => VT.[Friend]get_CAStoreNameWStr(&this, szwName);
 
 	public HRESULT put_CAStoreNameWStr(PWSTR szwName) mut => VT.[Friend]put_CAStoreNameWStr(&this, szwName);
 
-	public HRESULT get_CAStoreTypeWStr(PWSTR* szwType) mut => VT.[Friend]get_CAStoreTypeWStr(&this, szwType);
+	public HRESULT get_CAStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]get_CAStoreTypeWStr(&this, szwType);
 
 	public HRESULT put_CAStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]put_CAStoreTypeWStr(&this, szwType);
 
-	public HRESULT get_CAStoreFlags(int32* pdwFlags) mut => VT.[Friend]get_CAStoreFlags(&this, pdwFlags);
+	public HRESULT get_CAStoreFlags(int32 pdwFlags) mut => VT.[Friend]get_CAStoreFlags(&this, pdwFlags);
 
 	public HRESULT put_CAStoreFlags(int32 dwFlags) mut => VT.[Friend]put_CAStoreFlags(&this, dwFlags);
 
-	public HRESULT get_RootStoreNameWStr(PWSTR* szwName) mut => VT.[Friend]get_RootStoreNameWStr(&this, szwName);
+	public HRESULT get_RootStoreNameWStr(PWSTR szwName) mut => VT.[Friend]get_RootStoreNameWStr(&this, szwName);
 
 	public HRESULT put_RootStoreNameWStr(PWSTR szwName) mut => VT.[Friend]put_RootStoreNameWStr(&this, szwName);
 
-	public HRESULT get_RootStoreTypeWStr(PWSTR* szwType) mut => VT.[Friend]get_RootStoreTypeWStr(&this, szwType);
+	public HRESULT get_RootStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]get_RootStoreTypeWStr(&this, szwType);
 
 	public HRESULT put_RootStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]put_RootStoreTypeWStr(&this, szwType);
 
-	public HRESULT get_RootStoreFlags(int32* pdwFlags) mut => VT.[Friend]get_RootStoreFlags(&this, pdwFlags);
+	public HRESULT get_RootStoreFlags(int32 pdwFlags) mut => VT.[Friend]get_RootStoreFlags(&this, pdwFlags);
 
 	public HRESULT put_RootStoreFlags(int32 dwFlags) mut => VT.[Friend]put_RootStoreFlags(&this, dwFlags);
 
-	public HRESULT get_RequestStoreNameWStr(PWSTR* szwName) mut => VT.[Friend]get_RequestStoreNameWStr(&this, szwName);
+	public HRESULT get_RequestStoreNameWStr(PWSTR szwName) mut => VT.[Friend]get_RequestStoreNameWStr(&this, szwName);
 
 	public HRESULT put_RequestStoreNameWStr(PWSTR szwName) mut => VT.[Friend]put_RequestStoreNameWStr(&this, szwName);
 
-	public HRESULT get_RequestStoreTypeWStr(PWSTR* szwType) mut => VT.[Friend]get_RequestStoreTypeWStr(&this, szwType);
+	public HRESULT get_RequestStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]get_RequestStoreTypeWStr(&this, szwType);
 
 	public HRESULT put_RequestStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]put_RequestStoreTypeWStr(&this, szwType);
 
-	public HRESULT get_RequestStoreFlags(int32* pdwFlags) mut => VT.[Friend]get_RequestStoreFlags(&this, pdwFlags);
+	public HRESULT get_RequestStoreFlags(int32 pdwFlags) mut => VT.[Friend]get_RequestStoreFlags(&this, pdwFlags);
 
 	public HRESULT put_RequestStoreFlags(int32 dwFlags) mut => VT.[Friend]put_RequestStoreFlags(&this, dwFlags);
 
-	public HRESULT get_ContainerNameWStr(PWSTR* szwContainer) mut => VT.[Friend]get_ContainerNameWStr(&this, szwContainer);
+	public HRESULT get_ContainerNameWStr(PWSTR szwContainer) mut => VT.[Friend]get_ContainerNameWStr(&this, szwContainer);
 
 	public HRESULT put_ContainerNameWStr(PWSTR szwContainer) mut => VT.[Friend]put_ContainerNameWStr(&this, szwContainer);
 
-	public HRESULT get_ProviderNameWStr(PWSTR* szwProvider) mut => VT.[Friend]get_ProviderNameWStr(&this, szwProvider);
+	public HRESULT get_ProviderNameWStr(PWSTR szwProvider) mut => VT.[Friend]get_ProviderNameWStr(&this, szwProvider);
 
 	public HRESULT put_ProviderNameWStr(PWSTR szwProvider) mut => VT.[Friend]put_ProviderNameWStr(&this, szwProvider);
 
-	public HRESULT get_ProviderType(int32* pdwType) mut => VT.[Friend]get_ProviderType(&this, pdwType);
+	public HRESULT get_ProviderType(int32 pdwType) mut => VT.[Friend]get_ProviderType(&this, pdwType);
 
 	public HRESULT put_ProviderType(int32 dwType) mut => VT.[Friend]put_ProviderType(&this, dwType);
 
-	public HRESULT get_KeySpec(int32* pdw) mut => VT.[Friend]get_KeySpec(&this, pdw);
+	public HRESULT get_KeySpec(int32 pdw) mut => VT.[Friend]get_KeySpec(&this, pdw);
 
 	public HRESULT put_KeySpec(int32 dw) mut => VT.[Friend]put_KeySpec(&this, dw);
 
-	public HRESULT get_ProviderFlags(int32* pdwFlags) mut => VT.[Friend]get_ProviderFlags(&this, pdwFlags);
+	public HRESULT get_ProviderFlags(int32 pdwFlags) mut => VT.[Friend]get_ProviderFlags(&this, pdwFlags);
 
 	public HRESULT put_ProviderFlags(int32 dwFlags) mut => VT.[Friend]put_ProviderFlags(&this, dwFlags);
 
-	public HRESULT get_UseExistingKeySet(BOOL* fUseExistingKeys) mut => VT.[Friend]get_UseExistingKeySet(&this, fUseExistingKeys);
+	public HRESULT get_UseExistingKeySet(BOOL fUseExistingKeys) mut => VT.[Friend]get_UseExistingKeySet(&this, fUseExistingKeys);
 
 	public HRESULT put_UseExistingKeySet(BOOL fUseExistingKeys) mut => VT.[Friend]put_UseExistingKeySet(&this, fUseExistingKeys);
 
-	public HRESULT get_GenKeyFlags(int32* pdwFlags) mut => VT.[Friend]get_GenKeyFlags(&this, pdwFlags);
+	public HRESULT get_GenKeyFlags(int32 pdwFlags) mut => VT.[Friend]get_GenKeyFlags(&this, pdwFlags);
 
 	public HRESULT put_GenKeyFlags(int32 dwFlags) mut => VT.[Friend]put_GenKeyFlags(&this, dwFlags);
 
-	public HRESULT get_DeleteRequestCert(BOOL* fDelete) mut => VT.[Friend]get_DeleteRequestCert(&this, fDelete);
+	public HRESULT get_DeleteRequestCert(BOOL fDelete) mut => VT.[Friend]get_DeleteRequestCert(&this, fDelete);
 
 	public HRESULT put_DeleteRequestCert(BOOL fDelete) mut => VT.[Friend]put_DeleteRequestCert(&this, fDelete);
 
-	public HRESULT get_WriteCertToUserDS(BOOL* fBool) mut => VT.[Friend]get_WriteCertToUserDS(&this, fBool);
+	public HRESULT get_WriteCertToUserDS(BOOL fBool) mut => VT.[Friend]get_WriteCertToUserDS(&this, fBool);
 
 	public HRESULT put_WriteCertToUserDS(BOOL fBool) mut => VT.[Friend]put_WriteCertToUserDS(&this, fBool);
 
-	public HRESULT get_EnableT61DNEncoding(BOOL* fBool) mut => VT.[Friend]get_EnableT61DNEncoding(&this, fBool);
+	public HRESULT get_EnableT61DNEncoding(BOOL fBool) mut => VT.[Friend]get_EnableT61DNEncoding(&this, fBool);
 
 	public HRESULT put_EnableT61DNEncoding(BOOL fBool) mut => VT.[Friend]put_EnableT61DNEncoding(&this, fBool);
 
-	public HRESULT get_WriteCertToCSP(BOOL* fBool) mut => VT.[Friend]get_WriteCertToCSP(&this, fBool);
+	public HRESULT get_WriteCertToCSP(BOOL fBool) mut => VT.[Friend]get_WriteCertToCSP(&this, fBool);
 
 	public HRESULT put_WriteCertToCSP(BOOL fBool) mut => VT.[Friend]put_WriteCertToCSP(&this, fBool);
 
-	public HRESULT get_SPCFileNameWStr(PWSTR* szw) mut => VT.[Friend]get_SPCFileNameWStr(&this, szw);
+	public HRESULT get_SPCFileNameWStr(PWSTR szw) mut => VT.[Friend]get_SPCFileNameWStr(&this, szw);
 
 	public HRESULT put_SPCFileNameWStr(PWSTR szw) mut => VT.[Friend]put_SPCFileNameWStr(&this, szw);
 
-	public HRESULT get_PVKFileNameWStr(PWSTR* szw) mut => VT.[Friend]get_PVKFileNameWStr(&this, szw);
+	public HRESULT get_PVKFileNameWStr(PWSTR szw) mut => VT.[Friend]get_PVKFileNameWStr(&this, szw);
 
 	public HRESULT put_PVKFileNameWStr(PWSTR szw) mut => VT.[Friend]put_PVKFileNameWStr(&this, szw);
 
-	public HRESULT get_HashAlgorithmWStr(PWSTR* szw) mut => VT.[Friend]get_HashAlgorithmWStr(&this, szw);
+	public HRESULT get_HashAlgorithmWStr(PWSTR szw) mut => VT.[Friend]get_HashAlgorithmWStr(&this, szw);
 
 	public HRESULT put_HashAlgorithmWStr(PWSTR szw) mut => VT.[Friend]put_HashAlgorithmWStr(&this, szw);
 
-	public HRESULT get_RenewalCertificate(CERT_CONTEXT** ppCertContext) mut => VT.[Friend]get_RenewalCertificate(&this, ppCertContext);
+	public HRESULT get_RenewalCertificate(CERT_CONTEXT ppCertContext) mut => VT.[Friend]get_RenewalCertificate(&this, ppCertContext);
 
-	public HRESULT put_RenewalCertificate(CERT_CONTEXT* pCertContext) mut => VT.[Friend]put_RenewalCertificate(&this, pCertContext);
+	public HRESULT put_RenewalCertificate(CERT_CONTEXT pCertContext) mut => VT.[Friend]put_RenewalCertificate(&this, pCertContext);
 
 	public HRESULT AddCertTypeToRequestWStr(PWSTR szw) mut => VT.[Friend]AddCertTypeToRequestWStr(&this, szw);
 
 	public HRESULT AddNameValuePairToSignatureWStr(PWSTR Name, PWSTR Value) mut => VT.[Friend]AddNameValuePairToSignatureWStr(&this, Name, Value);
 
-	public HRESULT AddExtensionsToRequest(CERT_EXTENSIONS* pCertExtensions) mut => VT.[Friend]AddExtensionsToRequest(&this, pCertExtensions);
+	public HRESULT AddExtensionsToRequest(CERT_EXTENSIONS pCertExtensions) mut => VT.[Friend]AddExtensionsToRequest(&this, pCertExtensions);
 
-	public HRESULT AddAuthenticatedAttributesToPKCS7Request(CRYPT_ATTRIBUTES* pAttributes) mut => VT.[Friend]AddAuthenticatedAttributesToPKCS7Request(&this, pAttributes);
+	public HRESULT AddAuthenticatedAttributesToPKCS7Request(CRYPT_ATTRIBUTES pAttributes) mut => VT.[Friend]AddAuthenticatedAttributesToPKCS7Request(&this, pAttributes);
 
-	public HRESULT CreatePKCS7RequestFromRequest(CRYPTOAPI_BLOB* pRequest, CERT_CONTEXT* pSigningCertContext, CRYPTOAPI_BLOB* pPkcs7Blob) mut => VT.[Friend]CreatePKCS7RequestFromRequest(&this, pRequest, pSigningCertContext, pPkcs7Blob);
+	public HRESULT CreatePKCS7RequestFromRequest(CRYPTOAPI_BLOB pRequest, CERT_CONTEXT pSigningCertContext, CRYPTOAPI_BLOB pPkcs7Blob) mut => VT.[Friend]CreatePKCS7RequestFromRequest(&this, pRequest, pSigningCertContext, pPkcs7Blob);
 }
 
 [CRepr]struct IEnroll2 : IEnroll
@@ -7922,62 +7922,62 @@ public static
 
 	[CRepr]public struct VTable : IEnroll.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, CRYPTOAPI_BLOB* pBlobPKCS7) InstallPKCS7Blob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, CRYPTOAPI_BLOB pBlobPKCS7) InstallPKCS7Blob;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32* pdwKeySpec) GetSupportedKeySpec;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL fMin, BOOL fExchange, int32* pdwKeySize) GetKeyLen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 dwIndex, int32 algClass, int32* pdwAlgID) EnumAlgs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 algID, PWSTR* ppwsz) GetAlgNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 pdwKeySpec) GetSupportedKeySpec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL fMin, BOOL fExchange, int32 pdwKeySize) GetKeyLen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 dwIndex, int32 algClass, int32 pdwAlgID) EnumAlgs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 algID, PWSTR ppwsz) GetAlgNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL fReuseHardwareKeyIfUnableToGenNew) put_ReuseHardwareKeyIfUnableToGenNew;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL* fReuseHardwareKeyIfUnableToGenNew) get_ReuseHardwareKeyIfUnableToGenNew;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL fReuseHardwareKeyIfUnableToGenNew) get_ReuseHardwareKeyIfUnableToGenNew;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 hashAlgID) put_HashAlgID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32* hashAlgID) get_HashAlgID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, void* hStore) SetHStoreMy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, void* hStore) SetHStoreCA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, void* hStore) SetHStoreROOT;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, void* hStore) SetHStoreRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 hashAlgID) get_HashAlgID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, void hStore) SetHStoreMy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, void hStore) SetHStoreCA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, void hStore) SetHStoreROOT;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, void hStore) SetHStoreRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL fLimitExchangeKeyToEncipherment) put_LimitExchangeKeyToEncipherment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL* fLimitExchangeKeyToEncipherment) get_LimitExchangeKeyToEncipherment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL fLimitExchangeKeyToEncipherment) get_LimitExchangeKeyToEncipherment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL fEnableSMIMECapabilities) put_EnableSMIMECapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL* fEnableSMIMECapabilities) get_EnableSMIMECapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL fEnableSMIMECapabilities) get_EnableSMIMECapabilities;
 	}
 
 
-	public HRESULT InstallPKCS7Blob(CRYPTOAPI_BLOB* pBlobPKCS7) mut => VT.[Friend]InstallPKCS7Blob(&this, pBlobPKCS7);
+	public HRESULT InstallPKCS7Blob(CRYPTOAPI_BLOB pBlobPKCS7) mut => VT.[Friend]InstallPKCS7Blob(&this, pBlobPKCS7);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT GetSupportedKeySpec(int32* pdwKeySpec) mut => VT.[Friend]GetSupportedKeySpec(&this, pdwKeySpec);
+	public HRESULT GetSupportedKeySpec(int32 pdwKeySpec) mut => VT.[Friend]GetSupportedKeySpec(&this, pdwKeySpec);
 
-	public HRESULT GetKeyLen(BOOL fMin, BOOL fExchange, int32* pdwKeySize) mut => VT.[Friend]GetKeyLen(&this, fMin, fExchange, pdwKeySize);
+	public HRESULT GetKeyLen(BOOL fMin, BOOL fExchange, int32 pdwKeySize) mut => VT.[Friend]GetKeyLen(&this, fMin, fExchange, pdwKeySize);
 
-	public HRESULT EnumAlgs(int32 dwIndex, int32 algClass, int32* pdwAlgID) mut => VT.[Friend]EnumAlgs(&this, dwIndex, algClass, pdwAlgID);
+	public HRESULT EnumAlgs(int32 dwIndex, int32 algClass, int32 pdwAlgID) mut => VT.[Friend]EnumAlgs(&this, dwIndex, algClass, pdwAlgID);
 
-	public HRESULT GetAlgNameWStr(int32 algID, PWSTR* ppwsz) mut => VT.[Friend]GetAlgNameWStr(&this, algID, ppwsz);
+	public HRESULT GetAlgNameWStr(int32 algID, PWSTR ppwsz) mut => VT.[Friend]GetAlgNameWStr(&this, algID, ppwsz);
 
 	public HRESULT put_ReuseHardwareKeyIfUnableToGenNew(BOOL fReuseHardwareKeyIfUnableToGenNew) mut => VT.[Friend]put_ReuseHardwareKeyIfUnableToGenNew(&this, fReuseHardwareKeyIfUnableToGenNew);
 
-	public HRESULT get_ReuseHardwareKeyIfUnableToGenNew(BOOL* fReuseHardwareKeyIfUnableToGenNew) mut => VT.[Friend]get_ReuseHardwareKeyIfUnableToGenNew(&this, fReuseHardwareKeyIfUnableToGenNew);
+	public HRESULT get_ReuseHardwareKeyIfUnableToGenNew(BOOL fReuseHardwareKeyIfUnableToGenNew) mut => VT.[Friend]get_ReuseHardwareKeyIfUnableToGenNew(&this, fReuseHardwareKeyIfUnableToGenNew);
 
 	public HRESULT put_HashAlgID(int32 hashAlgID) mut => VT.[Friend]put_HashAlgID(&this, hashAlgID);
 
-	public HRESULT get_HashAlgID(int32* hashAlgID) mut => VT.[Friend]get_HashAlgID(&this, hashAlgID);
+	public HRESULT get_HashAlgID(int32 hashAlgID) mut => VT.[Friend]get_HashAlgID(&this, hashAlgID);
 
-	public HRESULT SetHStoreMy(void* hStore) mut => VT.[Friend]SetHStoreMy(&this, hStore);
+	public HRESULT SetHStoreMy(void hStore) mut => VT.[Friend]SetHStoreMy(&this, hStore);
 
-	public HRESULT SetHStoreCA(void* hStore) mut => VT.[Friend]SetHStoreCA(&this, hStore);
+	public HRESULT SetHStoreCA(void hStore) mut => VT.[Friend]SetHStoreCA(&this, hStore);
 
-	public HRESULT SetHStoreROOT(void* hStore) mut => VT.[Friend]SetHStoreROOT(&this, hStore);
+	public HRESULT SetHStoreROOT(void hStore) mut => VT.[Friend]SetHStoreROOT(&this, hStore);
 
-	public HRESULT SetHStoreRequest(void* hStore) mut => VT.[Friend]SetHStoreRequest(&this, hStore);
+	public HRESULT SetHStoreRequest(void hStore) mut => VT.[Friend]SetHStoreRequest(&this, hStore);
 
 	public HRESULT put_LimitExchangeKeyToEncipherment(BOOL fLimitExchangeKeyToEncipherment) mut => VT.[Friend]put_LimitExchangeKeyToEncipherment(&this, fLimitExchangeKeyToEncipherment);
 
-	public HRESULT get_LimitExchangeKeyToEncipherment(BOOL* fLimitExchangeKeyToEncipherment) mut => VT.[Friend]get_LimitExchangeKeyToEncipherment(&this, fLimitExchangeKeyToEncipherment);
+	public HRESULT get_LimitExchangeKeyToEncipherment(BOOL fLimitExchangeKeyToEncipherment) mut => VT.[Friend]get_LimitExchangeKeyToEncipherment(&this, fLimitExchangeKeyToEncipherment);
 
 	public HRESULT put_EnableSMIMECapabilities(BOOL fEnableSMIMECapabilities) mut => VT.[Friend]put_EnableSMIMECapabilities(&this, fEnableSMIMECapabilities);
 
-	public HRESULT get_EnableSMIMECapabilities(BOOL* fEnableSMIMECapabilities) mut => VT.[Friend]get_EnableSMIMECapabilities(&this, fEnableSMIMECapabilities);
+	public HRESULT get_EnableSMIMECapabilities(BOOL fEnableSMIMECapabilities) mut => VT.[Friend]get_EnableSMIMECapabilities(&this, fEnableSMIMECapabilities);
 }
 
 [CRepr]struct IEnroll4 : IEnroll2
@@ -7989,55 +7989,55 @@ public static
 	[CRepr]public struct VTable : IEnroll2.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB thumbPrintBlob) put_ThumbPrintWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB* thumbPrintBlob) get_ThumbPrintWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CERT_CONTEXT* pPrivateKeyArchiveCert) SetPrivateKeyArchiveCertificate;
-		protected new function [CallingConvention(.Stdcall)] CERT_CONTEXT*(/*IEnroll4*/SelfOuter* self) GetPrivateKeyArchiveCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, CRYPTOAPI_BLOB* pblobBinary, PWSTR* ppwszString) binaryBlobToString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, PWSTR pwszString, CRYPTOAPI_BLOB* pblobBinary, int32* pdwSkip, int32* pdwFlags) stringToBinaryBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, PWSTR pwszName, CRYPTOAPI_BLOB* pblobValue) addExtensionToRequestWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, PWSTR pwszName, CRYPTOAPI_BLOB* pblobValue) addAttributeToRequestWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB thumbPrintBlob) get_ThumbPrintWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CERT_CONTEXT pPrivateKeyArchiveCert) SetPrivateKeyArchiveCertificate;
+		protected new function [CallingConvention(.Stdcall)] CERT_CONTEXT(/*IEnroll4*/SelfOuter* self) GetPrivateKeyArchiveCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, CRYPTOAPI_BLOB pblobBinary, PWSTR ppwszString) binaryBlobToString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, PWSTR pwszString, CRYPTOAPI_BLOB pblobBinary, int32 pdwSkip, int32 pdwFlags) stringToBinaryBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, PWSTR pwszName, CRYPTOAPI_BLOB pblobValue) addExtensionToRequestWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, PWSTR pwszName, CRYPTOAPI_BLOB pblobValue) addAttributeToRequestWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, PWSTR pwszName, PWSTR pwszValue) addNameValuePairToRequestWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self) resetExtensions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self) resetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CERT_CREATE_REQUEST_FLAGS Flags, PWSTR pwszDNName, PWSTR pwszUsage, CRYPTOAPI_BLOB* pblobRequest) createRequestWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CERT_CREATE_REQUEST_FLAGS Flags, PWSTR pwszDNName, PWSTR pwszUsage, CRYPTOAPI_BLOB pblobRequest) createRequestWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CERT_CREATE_REQUEST_FLAGS Flags, PWSTR pwszDNName, PWSTR pwszUsage, PWSTR pwszRequestFileName) createFileRequestWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB* pblobResponse) acceptResponseBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB pblobResponse) acceptResponseBlob;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, PWSTR pwszResponseFileName) acceptFileResponseWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB* pblobResponse, CERT_CONTEXT** ppCertContext) getCertContextFromResponseBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, PWSTR pwszResponseFileName, CERT_CONTEXT** ppCertContext) getCertContextFromFileResponseWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, PWSTR pwszPassword, CRYPTOAPI_BLOB* pblobPFX) createPFXWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB pblobResponse, CERT_CONTEXT ppCertContext) getCertContextFromResponseBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, PWSTR pwszResponseFileName, CERT_CONTEXT ppCertContext) getCertContextFromFileResponseWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, PWSTR pwszPassword, CRYPTOAPI_BLOB pblobPFX) createPFXWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, PWSTR pwszPassword, PWSTR pwszPFXFileName) createFilePFXWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 lRequestID, PWSTR pwszCADNS, PWSTR pwszCAName, PWSTR pwszFriendlyName) setPendingRequestInfoWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 lIndex, PENDING_REQUEST_DESIRED_PROPERTY lDesiredProperty, void* ppProperty) enumPendingRequestWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 lIndex, PENDING_REQUEST_DESIRED_PROPERTY lDesiredProperty, void ppProperty) enumPendingRequestWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB thumbPrintBlob) removePendingRequestWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, XEKL_KEYSIZE lSizeSpec, XEKL_KEYSPEC lKeySpec, int32* pdwKeySize) GetKeyLenEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB* pBlobPKCS7, int32* plCertInstalled) InstallPKCS7BlobEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, XEKL_KEYSIZE lSizeSpec, XEKL_KEYSPEC lKeySpec, int32 pdwKeySize) GetKeyLenEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB pBlobPKCS7, int32 plCertInstalled) InstallPKCS7BlobEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, ADDED_CERT_TYPE lType, PWSTR pwszOIDOrName, int32 lMajorVersion, BOOL fMinorVersion, int32 lMinorVersion) AddCertTypeToRequestWStrEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, PWSTR pwszProvName, int32* plProvType) getProviderTypeWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 lPropertyId, int32 lReserved, CRYPTOAPI_BLOB* pBlobProperty) addBlobPropertyToCertificateWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CERT_CONTEXT* pSignerCert) SetSignerCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, PWSTR pwszProvName, int32 plProvType) getProviderTypeWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 lPropertyId, int32 lReserved, CRYPTOAPI_BLOB pBlobProperty) addBlobPropertyToCertificateWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CERT_CONTEXT pSignerCert) SetSignerCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 lClientId) put_ClientId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32* plClientId) get_ClientId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 plClientId) get_ClientId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, BOOL fInclude) put_IncludeSubjectKeyID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, BOOL* pfInclude) get_IncludeSubjectKeyID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, BOOL pfInclude) get_IncludeSubjectKeyID;
 	}
 
 
 	public HRESULT put_ThumbPrintWStr(CRYPTOAPI_BLOB thumbPrintBlob) mut => VT.[Friend]put_ThumbPrintWStr(&this, thumbPrintBlob);
 
-	public HRESULT get_ThumbPrintWStr(CRYPTOAPI_BLOB* thumbPrintBlob) mut => VT.[Friend]get_ThumbPrintWStr(&this, thumbPrintBlob);
+	public HRESULT get_ThumbPrintWStr(CRYPTOAPI_BLOB thumbPrintBlob) mut => VT.[Friend]get_ThumbPrintWStr(&this, thumbPrintBlob);
 
-	public HRESULT SetPrivateKeyArchiveCertificate(CERT_CONTEXT* pPrivateKeyArchiveCert) mut => VT.[Friend]SetPrivateKeyArchiveCertificate(&this, pPrivateKeyArchiveCert);
+	public HRESULT SetPrivateKeyArchiveCertificate(CERT_CONTEXT pPrivateKeyArchiveCert) mut => VT.[Friend]SetPrivateKeyArchiveCertificate(&this, pPrivateKeyArchiveCert);
 
-	public CERT_CONTEXT* GetPrivateKeyArchiveCertificate() mut => VT.[Friend]GetPrivateKeyArchiveCertificate(&this);
+	public CERT_CONTEXT GetPrivateKeyArchiveCertificate() mut => VT.[Friend]GetPrivateKeyArchiveCertificate(&this);
 
-	public HRESULT binaryBlobToString(int32 Flags, CRYPTOAPI_BLOB* pblobBinary, PWSTR* ppwszString) mut => VT.[Friend]binaryBlobToString(&this, Flags, pblobBinary, ppwszString);
+	public HRESULT binaryBlobToString(int32 Flags, CRYPTOAPI_BLOB pblobBinary, PWSTR ppwszString) mut => VT.[Friend]binaryBlobToString(&this, Flags, pblobBinary, ppwszString);
 
-	public HRESULT stringToBinaryBlob(int32 Flags, PWSTR pwszString, CRYPTOAPI_BLOB* pblobBinary, int32* pdwSkip, int32* pdwFlags) mut => VT.[Friend]stringToBinaryBlob(&this, Flags, pwszString, pblobBinary, pdwSkip, pdwFlags);
+	public HRESULT stringToBinaryBlob(int32 Flags, PWSTR pwszString, CRYPTOAPI_BLOB pblobBinary, int32 pdwSkip, int32 pdwFlags) mut => VT.[Friend]stringToBinaryBlob(&this, Flags, pwszString, pblobBinary, pdwSkip, pdwFlags);
 
-	public HRESULT addExtensionToRequestWStr(int32 Flags, PWSTR pwszName, CRYPTOAPI_BLOB* pblobValue) mut => VT.[Friend]addExtensionToRequestWStr(&this, Flags, pwszName, pblobValue);
+	public HRESULT addExtensionToRequestWStr(int32 Flags, PWSTR pwszName, CRYPTOAPI_BLOB pblobValue) mut => VT.[Friend]addExtensionToRequestWStr(&this, Flags, pwszName, pblobValue);
 
-	public HRESULT addAttributeToRequestWStr(int32 Flags, PWSTR pwszName, CRYPTOAPI_BLOB* pblobValue) mut => VT.[Friend]addAttributeToRequestWStr(&this, Flags, pwszName, pblobValue);
+	public HRESULT addAttributeToRequestWStr(int32 Flags, PWSTR pwszName, CRYPTOAPI_BLOB pblobValue) mut => VT.[Friend]addAttributeToRequestWStr(&this, Flags, pwszName, pblobValue);
 
 	public HRESULT addNameValuePairToRequestWStr(int32 Flags, PWSTR pwszName, PWSTR pwszValue) mut => VT.[Friend]addNameValuePairToRequestWStr(&this, Flags, pwszName, pwszValue);
 
@@ -8045,47 +8045,47 @@ public static
 
 	public HRESULT resetAttributes() mut => VT.[Friend]resetAttributes(&this);
 
-	public HRESULT createRequestWStr(CERT_CREATE_REQUEST_FLAGS Flags, PWSTR pwszDNName, PWSTR pwszUsage, CRYPTOAPI_BLOB* pblobRequest) mut => VT.[Friend]createRequestWStr(&this, Flags, pwszDNName, pwszUsage, pblobRequest);
+	public HRESULT createRequestWStr(CERT_CREATE_REQUEST_FLAGS Flags, PWSTR pwszDNName, PWSTR pwszUsage, CRYPTOAPI_BLOB pblobRequest) mut => VT.[Friend]createRequestWStr(&this, Flags, pwszDNName, pwszUsage, pblobRequest);
 
 	public HRESULT createFileRequestWStr(CERT_CREATE_REQUEST_FLAGS Flags, PWSTR pwszDNName, PWSTR pwszUsage, PWSTR pwszRequestFileName) mut => VT.[Friend]createFileRequestWStr(&this, Flags, pwszDNName, pwszUsage, pwszRequestFileName);
 
-	public HRESULT acceptResponseBlob(CRYPTOAPI_BLOB* pblobResponse) mut => VT.[Friend]acceptResponseBlob(&this, pblobResponse);
+	public HRESULT acceptResponseBlob(CRYPTOAPI_BLOB pblobResponse) mut => VT.[Friend]acceptResponseBlob(&this, pblobResponse);
 
 	public HRESULT acceptFileResponseWStr(PWSTR pwszResponseFileName) mut => VT.[Friend]acceptFileResponseWStr(&this, pwszResponseFileName);
 
-	public HRESULT getCertContextFromResponseBlob(CRYPTOAPI_BLOB* pblobResponse, CERT_CONTEXT** ppCertContext) mut => VT.[Friend]getCertContextFromResponseBlob(&this, pblobResponse, ppCertContext);
+	public HRESULT getCertContextFromResponseBlob(CRYPTOAPI_BLOB pblobResponse, CERT_CONTEXT ppCertContext) mut => VT.[Friend]getCertContextFromResponseBlob(&this, pblobResponse, ppCertContext);
 
-	public HRESULT getCertContextFromFileResponseWStr(PWSTR pwszResponseFileName, CERT_CONTEXT** ppCertContext) mut => VT.[Friend]getCertContextFromFileResponseWStr(&this, pwszResponseFileName, ppCertContext);
+	public HRESULT getCertContextFromFileResponseWStr(PWSTR pwszResponseFileName, CERT_CONTEXT ppCertContext) mut => VT.[Friend]getCertContextFromFileResponseWStr(&this, pwszResponseFileName, ppCertContext);
 
-	public HRESULT createPFXWStr(PWSTR pwszPassword, CRYPTOAPI_BLOB* pblobPFX) mut => VT.[Friend]createPFXWStr(&this, pwszPassword, pblobPFX);
+	public HRESULT createPFXWStr(PWSTR pwszPassword, CRYPTOAPI_BLOB pblobPFX) mut => VT.[Friend]createPFXWStr(&this, pwszPassword, pblobPFX);
 
 	public HRESULT createFilePFXWStr(PWSTR pwszPassword, PWSTR pwszPFXFileName) mut => VT.[Friend]createFilePFXWStr(&this, pwszPassword, pwszPFXFileName);
 
 	public HRESULT setPendingRequestInfoWStr(int32 lRequestID, PWSTR pwszCADNS, PWSTR pwszCAName, PWSTR pwszFriendlyName) mut => VT.[Friend]setPendingRequestInfoWStr(&this, lRequestID, pwszCADNS, pwszCAName, pwszFriendlyName);
 
-	public HRESULT enumPendingRequestWStr(int32 lIndex, PENDING_REQUEST_DESIRED_PROPERTY lDesiredProperty, void* ppProperty) mut => VT.[Friend]enumPendingRequestWStr(&this, lIndex, lDesiredProperty, ppProperty);
+	public HRESULT enumPendingRequestWStr(int32 lIndex, PENDING_REQUEST_DESIRED_PROPERTY lDesiredProperty, void ppProperty) mut => VT.[Friend]enumPendingRequestWStr(&this, lIndex, lDesiredProperty, ppProperty);
 
 	public HRESULT removePendingRequestWStr(CRYPTOAPI_BLOB thumbPrintBlob) mut => VT.[Friend]removePendingRequestWStr(&this, thumbPrintBlob);
 
-	public HRESULT GetKeyLenEx(XEKL_KEYSIZE lSizeSpec, XEKL_KEYSPEC lKeySpec, int32* pdwKeySize) mut => VT.[Friend]GetKeyLenEx(&this, lSizeSpec, lKeySpec, pdwKeySize);
+	public HRESULT GetKeyLenEx(XEKL_KEYSIZE lSizeSpec, XEKL_KEYSPEC lKeySpec, int32 pdwKeySize) mut => VT.[Friend]GetKeyLenEx(&this, lSizeSpec, lKeySpec, pdwKeySize);
 
-	public HRESULT InstallPKCS7BlobEx(CRYPTOAPI_BLOB* pBlobPKCS7, int32* plCertInstalled) mut => VT.[Friend]InstallPKCS7BlobEx(&this, pBlobPKCS7, plCertInstalled);
+	public HRESULT InstallPKCS7BlobEx(CRYPTOAPI_BLOB pBlobPKCS7, int32 plCertInstalled) mut => VT.[Friend]InstallPKCS7BlobEx(&this, pBlobPKCS7, plCertInstalled);
 
 	public HRESULT AddCertTypeToRequestWStrEx(ADDED_CERT_TYPE lType, PWSTR pwszOIDOrName, int32 lMajorVersion, BOOL fMinorVersion, int32 lMinorVersion) mut => VT.[Friend]AddCertTypeToRequestWStrEx(&this, lType, pwszOIDOrName, lMajorVersion, fMinorVersion, lMinorVersion);
 
-	public HRESULT getProviderTypeWStr(PWSTR pwszProvName, int32* plProvType) mut => VT.[Friend]getProviderTypeWStr(&this, pwszProvName, plProvType);
+	public HRESULT getProviderTypeWStr(PWSTR pwszProvName, int32 plProvType) mut => VT.[Friend]getProviderTypeWStr(&this, pwszProvName, plProvType);
 
-	public HRESULT addBlobPropertyToCertificateWStr(int32 lPropertyId, int32 lReserved, CRYPTOAPI_BLOB* pBlobProperty) mut => VT.[Friend]addBlobPropertyToCertificateWStr(&this, lPropertyId, lReserved, pBlobProperty);
+	public HRESULT addBlobPropertyToCertificateWStr(int32 lPropertyId, int32 lReserved, CRYPTOAPI_BLOB pBlobProperty) mut => VT.[Friend]addBlobPropertyToCertificateWStr(&this, lPropertyId, lReserved, pBlobProperty);
 
-	public HRESULT SetSignerCertificate(CERT_CONTEXT* pSignerCert) mut => VT.[Friend]SetSignerCertificate(&this, pSignerCert);
+	public HRESULT SetSignerCertificate(CERT_CONTEXT pSignerCert) mut => VT.[Friend]SetSignerCertificate(&this, pSignerCert);
 
 	public HRESULT put_ClientId(int32 lClientId) mut => VT.[Friend]put_ClientId(&this, lClientId);
 
-	public HRESULT get_ClientId(int32* plClientId) mut => VT.[Friend]get_ClientId(&this, plClientId);
+	public HRESULT get_ClientId(int32 plClientId) mut => VT.[Friend]get_ClientId(&this, plClientId);
 
 	public HRESULT put_IncludeSubjectKeyID(BOOL fInclude) mut => VT.[Friend]put_IncludeSubjectKeyID(&this, fInclude);
 
-	public HRESULT get_IncludeSubjectKeyID(BOOL* pfInclude) mut => VT.[Friend]get_IncludeSubjectKeyID(&this, pfInclude);
+	public HRESULT get_IncludeSubjectKeyID(BOOL pfInclude) mut => VT.[Friend]get_IncludeSubjectKeyID(&this, pfInclude);
 }
 
 [CRepr]struct ICertRequestD : IUnknown
@@ -8096,15 +8096,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD*/SelfOuter* self, uint32 dwFlags, PWSTR pwszAuthority, uint32* pdwRequestId, uint32* pdwDisposition, PWSTR pwszAttributes, CERTTRANSBLOB* pctbRequest, CERTTRANSBLOB* pctbCertChain, CERTTRANSBLOB* pctbEncodedCert, CERTTRANSBLOB* pctbDispositionMessage) Request;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD*/SelfOuter* self, uint32 fchain, PWSTR pwszAuthority, CERTTRANSBLOB* pctbOut) GetCACert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD*/SelfOuter* self, uint32 dwFlags, PWSTR pwszAuthority, uint32 pdwRequestId, uint32 pdwDisposition, PWSTR pwszAttributes, CERTTRANSBLOB pctbRequest, CERTTRANSBLOB pctbCertChain, CERTTRANSBLOB pctbEncodedCert, CERTTRANSBLOB pctbDispositionMessage) Request;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD*/SelfOuter* self, uint32 fchain, PWSTR pwszAuthority, CERTTRANSBLOB pctbOut) GetCACert;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD*/SelfOuter* self, PWSTR pwszAuthority) Ping;
 	}
 
 
-	public HRESULT Request(uint32 dwFlags, PWSTR pwszAuthority, uint32* pdwRequestId, uint32* pdwDisposition, PWSTR pwszAttributes, CERTTRANSBLOB* pctbRequest, CERTTRANSBLOB* pctbCertChain, CERTTRANSBLOB* pctbEncodedCert, CERTTRANSBLOB* pctbDispositionMessage) mut => VT.[Friend]Request(&this, dwFlags, pwszAuthority, pdwRequestId, pdwDisposition, pwszAttributes, pctbRequest, pctbCertChain, pctbEncodedCert, pctbDispositionMessage);
+	public HRESULT Request(uint32 dwFlags, PWSTR pwszAuthority, uint32 pdwRequestId, uint32 pdwDisposition, PWSTR pwszAttributes, CERTTRANSBLOB pctbRequest, CERTTRANSBLOB pctbCertChain, CERTTRANSBLOB pctbEncodedCert, CERTTRANSBLOB pctbDispositionMessage) mut => VT.[Friend]Request(&this, dwFlags, pwszAuthority, pdwRequestId, pdwDisposition, pwszAttributes, pctbRequest, pctbCertChain, pctbEncodedCert, pctbDispositionMessage);
 
-	public HRESULT GetCACert(uint32 fchain, PWSTR pwszAuthority, CERTTRANSBLOB* pctbOut) mut => VT.[Friend]GetCACert(&this, fchain, pwszAuthority, pctbOut);
+	public HRESULT GetCACert(uint32 fchain, PWSTR pwszAuthority, CERTTRANSBLOB pctbOut) mut => VT.[Friend]GetCACert(&this, fchain, pwszAuthority, pctbOut);
 
 	public HRESULT Ping(PWSTR pwszAuthority) mut => VT.[Friend]Ping(&this, pwszAuthority);
 }
@@ -8117,18 +8117,18 @@ public static
 
 	[CRepr]public struct VTable : ICertRequestD.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD2*/SelfOuter* self, PWSTR pwszAuthority, uint32 dwFlags, PWSTR pwszSerialNumber, uint32* pdwRequestId, uint32* pdwDisposition, PWSTR pwszAttributes, CERTTRANSBLOB* pctbRequest, CERTTRANSBLOB* pctbFullResponse, CERTTRANSBLOB* pctbEncodedCert, CERTTRANSBLOB* pctbDispositionMessage) Request2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD2*/SelfOuter* self, PWSTR pwszAuthority, int32 PropId, int32 PropIndex, int32 PropType, CERTTRANSBLOB* pctbPropertyValue) GetCAProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD2*/SelfOuter* self, PWSTR pwszAuthority, int32* pcProperty, CERTTRANSBLOB* pctbPropInfo) GetCAPropertyInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD2*/SelfOuter* self, PWSTR pwszAuthority, uint32 dwFlags, PWSTR pwszSerialNumber, uint32 pdwRequestId, uint32 pdwDisposition, PWSTR pwszAttributes, CERTTRANSBLOB pctbRequest, CERTTRANSBLOB pctbFullResponse, CERTTRANSBLOB pctbEncodedCert, CERTTRANSBLOB pctbDispositionMessage) Request2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD2*/SelfOuter* self, PWSTR pwszAuthority, int32 PropId, int32 PropIndex, int32 PropType, CERTTRANSBLOB pctbPropertyValue) GetCAProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD2*/SelfOuter* self, PWSTR pwszAuthority, int32 pcProperty, CERTTRANSBLOB pctbPropInfo) GetCAPropertyInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertRequestD2*/SelfOuter* self, PWSTR pwszAuthority) Ping2;
 	}
 
 
-	public HRESULT Request2(PWSTR pwszAuthority, uint32 dwFlags, PWSTR pwszSerialNumber, uint32* pdwRequestId, uint32* pdwDisposition, PWSTR pwszAttributes, CERTTRANSBLOB* pctbRequest, CERTTRANSBLOB* pctbFullResponse, CERTTRANSBLOB* pctbEncodedCert, CERTTRANSBLOB* pctbDispositionMessage) mut => VT.[Friend]Request2(&this, pwszAuthority, dwFlags, pwszSerialNumber, pdwRequestId, pdwDisposition, pwszAttributes, pctbRequest, pctbFullResponse, pctbEncodedCert, pctbDispositionMessage);
+	public HRESULT Request2(PWSTR pwszAuthority, uint32 dwFlags, PWSTR pwszSerialNumber, uint32 pdwRequestId, uint32 pdwDisposition, PWSTR pwszAttributes, CERTTRANSBLOB pctbRequest, CERTTRANSBLOB pctbFullResponse, CERTTRANSBLOB pctbEncodedCert, CERTTRANSBLOB pctbDispositionMessage) mut => VT.[Friend]Request2(&this, pwszAuthority, dwFlags, pwszSerialNumber, pdwRequestId, pdwDisposition, pwszAttributes, pctbRequest, pctbFullResponse, pctbEncodedCert, pctbDispositionMessage);
 
-	public HRESULT GetCAProperty(PWSTR pwszAuthority, int32 PropId, int32 PropIndex, int32 PropType, CERTTRANSBLOB* pctbPropertyValue) mut => VT.[Friend]GetCAProperty(&this, pwszAuthority, PropId, PropIndex, PropType, pctbPropertyValue);
+	public HRESULT GetCAProperty(PWSTR pwszAuthority, int32 PropId, int32 PropIndex, int32 PropType, CERTTRANSBLOB pctbPropertyValue) mut => VT.[Friend]GetCAProperty(&this, pwszAuthority, PropId, PropIndex, PropType, pctbPropertyValue);
 
-	public HRESULT GetCAPropertyInfo(PWSTR pwszAuthority, int32* pcProperty, CERTTRANSBLOB* pctbPropInfo) mut => VT.[Friend]GetCAPropertyInfo(&this, pwszAuthority, pcProperty, pctbPropInfo);
+	public HRESULT GetCAPropertyInfo(PWSTR pwszAuthority, int32 pcProperty, CERTTRANSBLOB pctbPropInfo) mut => VT.[Friend]GetCAPropertyInfo(&this, pwszAuthority, pcProperty, pctbPropInfo);
 
 	public HRESULT Ping2(PWSTR pwszAuthority) mut => VT.[Friend]Ping2(&this, pwszAuthority);
 }
@@ -8139,82 +8139,82 @@ public static
 public static
 {
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvIsServerOnlineW(PWSTR pwszServerName, BOOL* pfServerOnline);
+	public static extern HRESULT CertSrvIsServerOnlineW(PWSTR pwszServerName, BOOL pfServerOnline);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupGetDynamicFileListW(void* hbc, PWSTR* ppwszzFileList, uint32* pcbSize);
+	public static extern HRESULT CertSrvBackupGetDynamicFileListW(void hbc, PWSTR ppwszzFileList, uint32 pcbSize);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupPrepareW(PWSTR pwszServerName, uint32 grbitJet, CSBACKUP_TYPE dwBackupFlags, void** phbc);
+	public static extern HRESULT CertSrvBackupPrepareW(PWSTR pwszServerName, uint32 grbitJet, CSBACKUP_TYPE dwBackupFlags, void phbc);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupGetDatabaseNamesW(void* hbc, PWSTR* ppwszzAttachmentInformation, uint32* pcbSize);
+	public static extern HRESULT CertSrvBackupGetDatabaseNamesW(void hbc, PWSTR ppwszzAttachmentInformation, uint32 pcbSize);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupOpenFileW(void* hbc, PWSTR pwszAttachmentName, uint32 cbReadHintSize, LARGE_INTEGER* pliFileSize);
+	public static extern HRESULT CertSrvBackupOpenFileW(void hbc, PWSTR pwszAttachmentName, uint32 cbReadHintSize, LARGE_INTEGER pliFileSize);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupRead(void* hbc, void* pvBuffer, uint32 cbBuffer, uint32* pcbRead);
+	public static extern HRESULT CertSrvBackupRead(void hbc, void pvBuffer, uint32 cbBuffer, uint32 pcbRead);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupClose(void* hbc);
+	public static extern HRESULT CertSrvBackupClose(void hbc);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupGetBackupLogsW(void* hbc, PWSTR* ppwszzBackupLogFiles, uint32* pcbSize);
+	public static extern HRESULT CertSrvBackupGetBackupLogsW(void hbc, PWSTR ppwszzBackupLogFiles, uint32 pcbSize);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupTruncateLogs(void* hbc);
+	public static extern HRESULT CertSrvBackupTruncateLogs(void hbc);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupEnd(void* hbc);
+	public static extern HRESULT CertSrvBackupEnd(void hbc);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void CertSrvBackupFree(void* pv);
+	public static extern void CertSrvBackupFree(void pv);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvRestoreGetDatabaseLocationsW(void* hbc, PWSTR* ppwszzDatabaseLocationList, uint32* pcbSize);
+	public static extern HRESULT CertSrvRestoreGetDatabaseLocationsW(void hbc, PWSTR ppwszzDatabaseLocationList, uint32 pcbSize);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvRestorePrepareW(PWSTR pwszServerName, uint32 dwRestoreFlags, void** phbc);
+	public static extern HRESULT CertSrvRestorePrepareW(PWSTR pwszServerName, uint32 dwRestoreFlags, void phbc);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvRestoreRegisterW(void* hbc, PWSTR pwszCheckPointFilePath, PWSTR pwszLogPath, CSEDB_RSTMAPW* rgrstmap, int32 crstmap, PWSTR pwszBackupLogPath, uint32 genLow, uint32 genHigh);
+	public static extern HRESULT CertSrvRestoreRegisterW(void hbc, PWSTR pwszCheckPointFilePath, PWSTR pwszLogPath, CSEDB_RSTMAPW rgrstmap, int32 crstmap, PWSTR pwszBackupLogPath, uint32 genLow, uint32 genHigh);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvRestoreRegisterThroughFile(void* hbc, PWSTR pwszCheckPointFilePath, PWSTR pwszLogPath, CSEDB_RSTMAPW* rgrstmap, int32 crstmap, PWSTR pwszBackupLogPath, uint32 genLow, uint32 genHigh);
+	public static extern HRESULT CertSrvRestoreRegisterThroughFile(void hbc, PWSTR pwszCheckPointFilePath, PWSTR pwszLogPath, CSEDB_RSTMAPW rgrstmap, int32 crstmap, PWSTR pwszBackupLogPath, uint32 genLow, uint32 genHigh);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvRestoreRegisterComplete(void* hbc, HRESULT hrRestoreState);
+	public static extern HRESULT CertSrvRestoreRegisterComplete(void hbc, HRESULT hrRestoreState);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvRestoreEnd(void* hbc);
+	public static extern HRESULT CertSrvRestoreEnd(void hbc);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvServerControlW(PWSTR pwszServerName, uint32 dwControlFlags, uint32* pcbOut, uint8** ppbOut);
+	public static extern HRESULT CertSrvServerControlW(PWSTR pwszServerName, uint32 dwControlFlags, uint32 pcbOut, uint8 ppbOut);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PstGetTrustAnchors(UNICODE_STRING* pTargetName, uint32 cCriteria, CERT_SELECT_CRITERIA* rgpCriteria, SecPkgContext_IssuerListInfoEx** ppTrustedIssuers);
+	public static extern NTSTATUS PstGetTrustAnchors(UNICODE_STRING pTargetName, uint32 cCriteria, CERT_SELECT_CRITERIA* rgpCriteria, SecPkgContext_IssuerListInfoEx ppTrustedIssuers);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PstGetTrustAnchorsEx(UNICODE_STRING* pTargetName, uint32 cCriteria, CERT_SELECT_CRITERIA* rgpCriteria, CERT_CONTEXT* pCertContext, SecPkgContext_IssuerListInfoEx** ppTrustedIssuers);
+	public static extern NTSTATUS PstGetTrustAnchorsEx(UNICODE_STRING pTargetName, uint32 cCriteria, CERT_SELECT_CRITERIA* rgpCriteria, CERT_CONTEXT pCertContext, SecPkgContext_IssuerListInfoEx ppTrustedIssuers);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PstGetCertificateChain(CERT_CONTEXT* pCert, SecPkgContext_IssuerListInfoEx* pTrustedIssuers, CERT_CHAIN_CONTEXT** ppCertChainContext);
+	public static extern NTSTATUS PstGetCertificateChain(CERT_CONTEXT pCert, SecPkgContext_IssuerListInfoEx pTrustedIssuers, CERT_CHAIN_CONTEXT ppCertChainContext);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PstGetCertificates(UNICODE_STRING* pTargetName, uint32 cCriteria, CERT_SELECT_CRITERIA* rgpCriteria, BOOL bIsClient, uint32* pdwCertChainContextCount, CERT_CHAIN_CONTEXT*** ppCertChainContexts);
+	public static extern NTSTATUS PstGetCertificates(UNICODE_STRING pTargetName, uint32 cCriteria, CERT_SELECT_CRITERIA* rgpCriteria, BOOL bIsClient, uint32 pdwCertChainContextCount, CERT_CHAIN_CONTEXT ppCertChainContexts);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PstAcquirePrivateKey(CERT_CONTEXT* pCert);
+	public static extern NTSTATUS PstAcquirePrivateKey(CERT_CONTEXT pCert);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PstValidate(UNICODE_STRING* pTargetName, BOOL bIsClient, CERT_USAGE_MATCH* pRequestedIssuancePolicy, void** phAdditionalCertStore, CERT_CONTEXT* pCert, Guid pProvGUID);
+	public static extern NTSTATUS PstValidate(UNICODE_STRING pTargetName, BOOL bIsClient, CERT_USAGE_MATCH pRequestedIssuancePolicy, void phAdditionalCertStore, CERT_CONTEXT pCert, Guid pProvGUID);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PstMapCertificate(CERT_CONTEXT* pCert, LSA_TOKEN_INFORMATION_TYPE* pTokenInformationType, void** ppTokenInformation);
+	public static extern NTSTATUS PstMapCertificate(CERT_CONTEXT pCert, LSA_TOKEN_INFORMATION_TYPE pTokenInformationType, void ppTokenInformation);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PstGetUserNameForCertificate(CERT_CONTEXT* pCertContext, UNICODE_STRING* UserName);
+	public static extern NTSTATUS PstGetUserNameForCertificate(CERT_CONTEXT pCertContext, UNICODE_STRING UserName);
 
 }
 #endregion

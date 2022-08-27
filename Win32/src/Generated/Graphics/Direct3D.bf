@@ -824,7 +824,7 @@ public enum D3D_PARAMETER_FLAGS : int32
 #endregion
 
 #region Function Pointers
-public function void PFN_DESTRUCTION_CALLBACK(void* pData);
+public function void PFN_DESTRUCTION_CALLBACK(void pData);
 
 #endregion
 
@@ -895,12 +895,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void*(/*ID3DBlob*/SelfOuter* self) GetBufferPointer;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3DBlob*/SelfOuter* self) GetBufferPointer;
 		protected new function [CallingConvention(.Stdcall)] uint(/*ID3DBlob*/SelfOuter* self) GetBufferSize;
 	}
 
 
-	public void* GetBufferPointer() mut => VT.[Friend]GetBufferPointer(&this);
+	public void GetBufferPointer() mut => VT.[Friend]GetBufferPointer(&this);
 
 	public uint GetBufferSize() mut => VT.[Friend]GetBufferSize(&this);
 }
@@ -913,12 +913,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DDestructionNotifier*/SelfOuter* self, PFN_DESTRUCTION_CALLBACK callbackFn, void* pData, uint32* pCallbackID) RegisterDestructionCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DDestructionNotifier*/SelfOuter* self, PFN_DESTRUCTION_CALLBACK callbackFn, void pData, uint32 pCallbackID) RegisterDestructionCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DDestructionNotifier*/SelfOuter* self, uint32 callbackID) UnregisterDestructionCallback;
 	}
 
 
-	public HRESULT RegisterDestructionCallback(PFN_DESTRUCTION_CALLBACK callbackFn, void* pData, uint32* pCallbackID) mut => VT.[Friend]RegisterDestructionCallback(&this, callbackFn, pData, pCallbackID);
+	public HRESULT RegisterDestructionCallback(PFN_DESTRUCTION_CALLBACK callbackFn, void pData, uint32 pCallbackID) mut => VT.[Friend]RegisterDestructionCallback(&this, callbackFn, pData, pCallbackID);
 
 	public HRESULT UnregisterDestructionCallback(uint32 callbackID) mut => VT.[Friend]UnregisterDestructionCallback(&this, callbackID);
 }
@@ -931,14 +931,14 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DInclude*/SelfOuter* self, D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void* pParentData, void** ppData, uint32* pBytes) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DInclude*/SelfOuter* self, void* pData) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DInclude*/SelfOuter* self, D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void pParentData, void ppData, uint32 pBytes) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DInclude*/SelfOuter* self, void pData) Close;
 	}
 
 
-	public HRESULT Open(D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void* pParentData, void** ppData, uint32* pBytes) mut => VT.[Friend]Open(&this, IncludeType, pFileName, pParentData, ppData, pBytes);
+	public HRESULT Open(D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void pParentData, void ppData, uint32 pBytes) mut => VT.[Friend]Open(&this, IncludeType, pFileName, pParentData, ppData, pBytes);
 
-	public HRESULT Close(void* pData) mut => VT.[Friend]Close(&this, pData);
+	public HRESULT Close(void pData) mut => VT.[Friend]Close(&this, pData);
 }
 
 #endregion

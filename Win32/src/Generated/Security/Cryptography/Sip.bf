@@ -55,23 +55,23 @@ public static
 #endregion
 
 #region Function Pointers
-public function BOOL pCryptSIPGetSignedDataMsg(SIP_SUBJECTINFO* pSubjectInfo, uint32* pdwEncodingType, uint32 dwIndex, uint32* pcbSignedDataMsg, uint8* pbSignedDataMsg);
+public function BOOL pCryptSIPGetSignedDataMsg(SIP_SUBJECTINFO pSubjectInfo, uint32 pdwEncodingType, uint32 dwIndex, uint32 pcbSignedDataMsg, uint8 pbSignedDataMsg);
 
-public function BOOL pCryptSIPPutSignedDataMsg(SIP_SUBJECTINFO* pSubjectInfo, uint32 dwEncodingType, uint32* pdwIndex, uint32 cbSignedDataMsg, uint8* pbSignedDataMsg);
+public function BOOL pCryptSIPPutSignedDataMsg(SIP_SUBJECTINFO pSubjectInfo, uint32 dwEncodingType, uint32 pdwIndex, uint32 cbSignedDataMsg, uint8 pbSignedDataMsg);
 
-public function BOOL pCryptSIPCreateIndirectData(SIP_SUBJECTINFO* pSubjectInfo, uint32* pcbIndirectData, SIP_INDIRECT_DATA* pIndirectData);
+public function BOOL pCryptSIPCreateIndirectData(SIP_SUBJECTINFO pSubjectInfo, uint32 pcbIndirectData, SIP_INDIRECT_DATA pIndirectData);
 
-public function BOOL pCryptSIPVerifyIndirectData(SIP_SUBJECTINFO* pSubjectInfo, SIP_INDIRECT_DATA* pIndirectData);
+public function BOOL pCryptSIPVerifyIndirectData(SIP_SUBJECTINFO pSubjectInfo, SIP_INDIRECT_DATA pIndirectData);
 
-public function BOOL pCryptSIPRemoveSignedDataMsg(SIP_SUBJECTINFO* pSubjectInfo, uint32 dwIndex);
+public function BOOL pCryptSIPRemoveSignedDataMsg(SIP_SUBJECTINFO pSubjectInfo, uint32 dwIndex);
 
 public function BOOL pfnIsFileSupported(HANDLE hFile, Guid pgSubject);
 
 public function BOOL pfnIsFileSupportedName(PWSTR pwszFileName, Guid pgSubject);
 
-public function BOOL pCryptSIPGetCaps(SIP_SUBJECTINFO* pSubjInfo, SIP_CAP_SET_V3* pCaps);
+public function BOOL pCryptSIPGetCaps(SIP_SUBJECTINFO pSubjInfo, SIP_CAP_SET_V3 pCaps);
 
-public function BOOL pCryptSIPGetSealedDigest(SIP_SUBJECTINFO* pSubjectInfo, uint8* pSig, uint32 dwSig, uint8* pbDigest, uint32* pcbDigest);
+public function BOOL pCryptSIPGetSealedDigest(SIP_SUBJECTINFO pSubjectInfo, uint8* pSig, uint32 dwSig, uint8* pbDigest, uint32 pcbDigest);
 
 #endregion
 
@@ -82,9 +82,9 @@ public struct SIP_SUBJECTINFO
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public MS_ADDINFO_FLAT* psFlat;
-		public MS_ADDINFO_CATALOGMEMBER* psCatMember;
-		public MS_ADDINFO_BLOB* psBlob;
+		public MS_ADDINFO_FLAT psFlat;
+		public MS_ADDINFO_CATALOGMEMBER psCatMember;
+		public MS_ADDINFO_BLOB psBlob;
 	}
 
 	public uint32 cbSize;
@@ -104,22 +104,22 @@ public struct SIP_SUBJECTINFO
 	public uint32 dwIndex;
 	public uint32 dwUnionChoice;
 	public using _Anonymous_e__Union Anonymous;
-	public void* pClientData;
+	public void pClientData;
 }
 
 [CRepr]
 public struct MS_ADDINFO_FLAT
 {
 	public uint32 cbStruct;
-	public SIP_INDIRECT_DATA* pIndirectData;
+	public SIP_INDIRECT_DATA pIndirectData;
 }
 
 [CRepr]
 public struct MS_ADDINFO_CATALOGMEMBER
 {
 	public uint32 cbStruct;
-	public CRYPTCATSTORE* pStore;
-	public CRYPTCATMEMBER* pMember;
+	public CRYPTCATSTORE pStore;
+	public CRYPTCATMEMBER pMember;
 }
 
 [CRepr]
@@ -127,9 +127,9 @@ public struct MS_ADDINFO_BLOB
 {
 	public uint32 cbStruct;
 	public uint32 cbMemObject;
-	public uint8* pbMemObject;
+	public uint8 pbMemObject;
 	public uint32 cbMemSignedMsg;
-	public uint8* pbMemSignedMsg;
+	public uint8 pbMemSignedMsg;
 }
 
 [CRepr]
@@ -209,22 +209,22 @@ public static
 public static
 {
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPGetSignedDataMsg(SIP_SUBJECTINFO* pSubjectInfo, CERT_QUERY_ENCODING_TYPE* pdwEncodingType, uint32 dwIndex, uint32* pcbSignedDataMsg, uint8* pbSignedDataMsg);
+	public static extern BOOL CryptSIPGetSignedDataMsg(SIP_SUBJECTINFO pSubjectInfo, CERT_QUERY_ENCODING_TYPE pdwEncodingType, uint32 dwIndex, uint32 pcbSignedDataMsg, uint8 pbSignedDataMsg);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPPutSignedDataMsg(SIP_SUBJECTINFO* pSubjectInfo, CERT_QUERY_ENCODING_TYPE dwEncodingType, uint32* pdwIndex, uint32 cbSignedDataMsg, uint8* pbSignedDataMsg);
+	public static extern BOOL CryptSIPPutSignedDataMsg(SIP_SUBJECTINFO pSubjectInfo, CERT_QUERY_ENCODING_TYPE dwEncodingType, uint32 pdwIndex, uint32 cbSignedDataMsg, uint8 pbSignedDataMsg);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPCreateIndirectData(SIP_SUBJECTINFO* pSubjectInfo, uint32* pcbIndirectData, SIP_INDIRECT_DATA* pIndirectData);
+	public static extern BOOL CryptSIPCreateIndirectData(SIP_SUBJECTINFO pSubjectInfo, uint32 pcbIndirectData, SIP_INDIRECT_DATA pIndirectData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPVerifyIndirectData(SIP_SUBJECTINFO* pSubjectInfo, SIP_INDIRECT_DATA* pIndirectData);
+	public static extern BOOL CryptSIPVerifyIndirectData(SIP_SUBJECTINFO pSubjectInfo, SIP_INDIRECT_DATA pIndirectData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPRemoveSignedDataMsg(SIP_SUBJECTINFO* pSubjectInfo, uint32 dwIndex);
+	public static extern BOOL CryptSIPRemoveSignedDataMsg(SIP_SUBJECTINFO pSubjectInfo, uint32 dwIndex);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPLoad(Guid pgSubject, uint32 dwFlags, SIP_DISPATCH_INFO* pSipDispatch);
+	public static extern BOOL CryptSIPLoad(Guid pgSubject, uint32 dwFlags, SIP_DISPATCH_INFO pSipDispatch);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSIPRetrieveSubjectGuid(PWSTR FileName, HANDLE hFileIn, Guid pgSubject);
@@ -233,16 +233,16 @@ public static
 	public static extern BOOL CryptSIPRetrieveSubjectGuidForCatalogFile(PWSTR FileName, HANDLE hFileIn, Guid pgSubject);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPAddProvider(SIP_ADD_NEWPROVIDER* psNewProv);
+	public static extern BOOL CryptSIPAddProvider(SIP_ADD_NEWPROVIDER psNewProv);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSIPRemoveProvider(Guid pgProv);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPGetCaps(SIP_SUBJECTINFO* pSubjInfo, SIP_CAP_SET_V3* pCaps);
+	public static extern BOOL CryptSIPGetCaps(SIP_SUBJECTINFO pSubjInfo, SIP_CAP_SET_V3 pCaps);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPGetSealedDigest(SIP_SUBJECTINFO* pSubjectInfo, uint8* pSig, uint32 dwSig, uint8* pbDigest, uint32* pcbDigest);
+	public static extern BOOL CryptSIPGetSealedDigest(SIP_SUBJECTINFO pSubjectInfo, uint8* pSig, uint32 dwSig, uint8* pbDigest, uint32 pcbDigest);
 
 }
 #endregion

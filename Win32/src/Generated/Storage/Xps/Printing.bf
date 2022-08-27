@@ -107,13 +107,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsPrintJob*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsPrintJob*/SelfOuter* self, XPS_JOB_STATUS* jobStatus) GetJobStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsPrintJob*/SelfOuter* self, XPS_JOB_STATUS jobStatus) GetJobStatus;
 	}
 
 
 	public HRESULT Cancel() mut => VT.[Friend]Cancel(&this);
 
-	public HRESULT GetJobStatus(XPS_JOB_STATUS* jobStatus) mut => VT.[Friend]GetJobStatus(&this, jobStatus);
+	public HRESULT GetJobStatus(XPS_JOB_STATUS jobStatus) mut => VT.[Friend]GetJobStatus(&this, jobStatus);
 }
 
 [CRepr]struct IPrintDocumentPackageTarget : IUnknown
@@ -124,15 +124,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTarget*/SelfOuter* self, uint32* targetCount, Guid* targetTypes) GetPackageTargetTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTarget*/SelfOuter* self, Guid guidTargetType, Guid riid, void** ppvTarget) GetPackageTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTarget*/SelfOuter* self, uint32 targetCount, Guid* targetTypes) GetPackageTargetTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTarget*/SelfOuter* self, Guid guidTargetType, Guid riid, void ppvTarget) GetPackageTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTarget*/SelfOuter* self) Cancel;
 	}
 
 
-	public HRESULT GetPackageTargetTypes(uint32* targetCount, Guid* targetTypes) mut => VT.[Friend]GetPackageTargetTypes(&this, targetCount, targetTypes);
+	public HRESULT GetPackageTargetTypes(uint32 targetCount, Guid* targetTypes) mut => VT.[Friend]GetPackageTargetTypes(&this, targetCount, targetTypes);
 
-	public HRESULT GetPackageTarget(Guid guidTargetType, Guid riid, void** ppvTarget) mut => VT.[Friend]GetPackageTarget(&this, guidTargetType, riid, ppvTarget);
+	public HRESULT GetPackageTarget(Guid guidTargetType, Guid riid, void ppvTarget) mut => VT.[Friend]GetPackageTarget(&this, guidTargetType, riid, ppvTarget);
 
 	public HRESULT Cancel() mut => VT.[Friend]Cancel(&this);
 }
@@ -145,11 +145,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageStatusEvent*/SelfOuter* self, PrintDocumentPackageStatus* packageStatus) PackageStatusUpdated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageStatusEvent*/SelfOuter* self, PrintDocumentPackageStatus packageStatus) PackageStatusUpdated;
 	}
 
 
-	public HRESULT PackageStatusUpdated(PrintDocumentPackageStatus* packageStatus) mut => VT.[Friend]PackageStatusUpdated(&this, packageStatus);
+	public HRESULT PackageStatusUpdated(PrintDocumentPackageStatus packageStatus) mut => VT.[Friend]PackageStatusUpdated(&this, packageStatus);
 }
 
 [CRepr]struct IPrintDocumentPackageTargetFactory : IUnknown
@@ -160,11 +160,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTargetFactory*/SelfOuter* self, PWSTR printerName, PWSTR jobName, IStream* jobOutputStream, IStream* jobPrintTicketStream, IPrintDocumentPackageTarget** docPackageTarget) CreateDocumentPackageTargetForPrintJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTargetFactory*/SelfOuter* self, PWSTR printerName, PWSTR jobName, IStream* jobOutputStream, IStream* jobPrintTicketStream, IPrintDocumentPackageTarget* docPackageTarget) CreateDocumentPackageTargetForPrintJob;
 	}
 
 
-	public HRESULT CreateDocumentPackageTargetForPrintJob(PWSTR printerName, PWSTR jobName, IStream* jobOutputStream, IStream* jobPrintTicketStream, IPrintDocumentPackageTarget** docPackageTarget) mut => VT.[Friend]CreateDocumentPackageTargetForPrintJob(&this, printerName, jobName, jobOutputStream, jobPrintTicketStream, docPackageTarget);
+	public HRESULT CreateDocumentPackageTargetForPrintJob(PWSTR printerName, PWSTR jobName, IStream* jobOutputStream, IStream* jobPrintTicketStream, IPrintDocumentPackageTarget* docPackageTarget) mut => VT.[Friend]CreateDocumentPackageTargetForPrintJob(&this, printerName, jobName, jobOutputStream, jobPrintTicketStream, docPackageTarget);
 }
 
 #endregion
@@ -173,10 +173,10 @@ public static
 public static
 {
 	[Import("XPSPRINT.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StartXpsPrintJob(PWSTR printerName, PWSTR jobName, PWSTR outputFileName, HANDLE progressEvent, HANDLE completionEvent, uint8* printablePagesOn, uint32 printablePagesOnCount, IXpsPrintJob** xpsPrintJob, IXpsPrintJobStream** documentStream, IXpsPrintJobStream** printTicketStream);
+	public static extern HRESULT StartXpsPrintJob(PWSTR printerName, PWSTR jobName, PWSTR outputFileName, HANDLE progressEvent, HANDLE completionEvent, uint8* printablePagesOn, uint32 printablePagesOnCount, IXpsPrintJob* xpsPrintJob, IXpsPrintJobStream* documentStream, IXpsPrintJobStream* printTicketStream);
 
 	[Import("XPSPRINT.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StartXpsPrintJob1(PWSTR printerName, PWSTR jobName, PWSTR outputFileName, HANDLE progressEvent, HANDLE completionEvent, IXpsPrintJob** xpsPrintJob, IXpsOMPackageTarget** printContentReceiver);
+	public static extern HRESULT StartXpsPrintJob1(PWSTR printerName, PWSTR jobName, PWSTR outputFileName, HANDLE progressEvent, HANDLE completionEvent, IXpsPrintJob* xpsPrintJob, IXpsOMPackageTarget* printContentReceiver);
 
 }
 #endregion

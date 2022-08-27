@@ -129,7 +129,7 @@ public enum COMPARTMENT_ID : int32
 #endregion
 
 #region Function Pointers
-public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* ExceptionRecord, void* EstablisherFrame, CONTEXT* ContextRecord, void* DispatcherContext);
+public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD ExceptionRecord, void EstablisherFrame, CONTEXT ContextRecord, void DispatcherContext);
 
 #endregion
 
@@ -137,7 +137,7 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 [CRepr]
 public struct SLIST_ENTRY
 {
-	public SLIST_ENTRY* Next;
+	public SLIST_ENTRY Next;
 }
 
 #if BF_ARM_64
@@ -203,14 +203,14 @@ public struct CSTRING
 [CRepr]
 public struct LIST_ENTRY
 {
-	public LIST_ENTRY* Flink;
-	public LIST_ENTRY* Blink;
+	public LIST_ENTRY Flink;
+	public LIST_ENTRY Blink;
 }
 
 [CRepr]
 public struct SINGLE_LIST_ENTRY
 {
-	public SINGLE_LIST_ENTRY* Next;
+	public SINGLE_LIST_ENTRY Next;
 }
 
 [CRepr]
@@ -229,11 +229,11 @@ public struct RTL_BALANCED_NODE
 		[CRepr]
 		public struct _Anonymous_e__Struct
 		{
-			public RTL_BALANCED_NODE* Left;
-			public RTL_BALANCED_NODE* Right;
+			public RTL_BALANCED_NODE Left;
+			public RTL_BALANCED_NODE Right;
 		}
 
-		public RTL_BALANCED_NODE*[2] Children;
+		public RTL_BALANCED_NODE[2] Children;
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
@@ -315,7 +315,7 @@ public struct OBJECTID
 [CRepr]
 public struct EXCEPTION_REGISTRATION_RECORD
 {
-	public EXCEPTION_REGISTRATION_RECORD* Next;
+	public EXCEPTION_REGISTRATION_RECORD Next;
 	public EXCEPTION_ROUTINE Handler;
 }
 
@@ -325,17 +325,17 @@ public struct NT_TIB
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public void* FiberData;
+		public void FiberData;
 		public uint32 Version;
 	}
 
-	public EXCEPTION_REGISTRATION_RECORD* ExceptionList;
-	public void* StackBase;
-	public void* StackLimit;
-	public void* SubSystemTib;
+	public EXCEPTION_REGISTRATION_RECORD ExceptionList;
+	public void StackBase;
+	public void StackLimit;
+	public void SubSystemTib;
 	public using _Anonymous_e__Union Anonymous;
-	public void* ArbitraryUserPointer;
-	public NT_TIB* Self;
+	public void ArbitraryUserPointer;
+	public NT_TIB Self;
 }
 
 #if BF_64_BIT
@@ -425,25 +425,25 @@ public static
 public static
 {
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void RtlInitializeSListHead(SLIST_HEADER* ListHead);
+	public static extern void RtlInitializeSListHead(SLIST_HEADER ListHead);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SLIST_ENTRY* RtlFirstEntrySList(SLIST_HEADER* ListHead);
+	public static extern SLIST_ENTRY RtlFirstEntrySList(SLIST_HEADER ListHead);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SLIST_ENTRY* RtlInterlockedPopEntrySList(SLIST_HEADER* ListHead);
+	public static extern SLIST_ENTRY RtlInterlockedPopEntrySList(SLIST_HEADER ListHead);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SLIST_ENTRY* RtlInterlockedPushEntrySList(SLIST_HEADER* ListHead, SLIST_ENTRY* ListEntry);
+	public static extern SLIST_ENTRY RtlInterlockedPushEntrySList(SLIST_HEADER ListHead, SLIST_ENTRY ListEntry);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SLIST_ENTRY* RtlInterlockedPushListSListEx(SLIST_HEADER* ListHead, SLIST_ENTRY* List, SLIST_ENTRY* ListEnd, uint32 Count);
+	public static extern SLIST_ENTRY RtlInterlockedPushListSListEx(SLIST_HEADER ListHead, SLIST_ENTRY List, SLIST_ENTRY ListEnd, uint32 Count);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SLIST_ENTRY* RtlInterlockedFlushSList(SLIST_HEADER* ListHead);
+	public static extern SLIST_ENTRY RtlInterlockedFlushSList(SLIST_HEADER ListHead);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 RtlQueryDepthSList(SLIST_HEADER* ListHead);
+	public static extern uint16 RtlQueryDepthSList(SLIST_HEADER ListHead);
 
 }
 #endregion

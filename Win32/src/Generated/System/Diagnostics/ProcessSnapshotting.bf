@@ -134,7 +134,7 @@ public enum PSS_THREAD_FLAGS : uint32
 public struct PSS_PROCESS_INFORMATION
 {
 	public uint32 ExitStatus;
-	public void* PebBaseAddress;
+	public void PebBaseAddress;
 	public uint AffinityMask;
 	public int32 BasePriority;
 	public uint32 ProcessId;
@@ -219,18 +219,18 @@ public struct PSS_PERFORMANCE_COUNTERS
 [CRepr]
 public struct PSS_AUXILIARY_PAGE_ENTRY
 {
-	public void* Address;
+	public void Address;
 	public MEMORY_BASIC_INFORMATION BasicInformation;
 	public FILETIME CaptureTime;
-	public void* PageContents;
+	public void PageContents;
 	public uint32 PageSize;
 }
 
 [CRepr]
 public struct PSS_VA_SPACE_ENTRY
 {
-	public void* BaseAddress;
-	public void* AllocationBase;
+	public void BaseAddress;
+	public void AllocationBase;
 	public uint32 AllocationProtect;
 	public uint RegionSize;
 	public uint32 State;
@@ -238,7 +238,7 @@ public struct PSS_VA_SPACE_ENTRY
 	public uint32 Type;
 	public uint32 TimeDateStamp;
 	public uint32 SizeOfImage;
-	public void* ImageBase;
+	public void ImageBase;
 	public uint32 CheckSum;
 	public uint16 MappedFileNameLength;
 	public PWSTR MappedFileName;
@@ -268,19 +268,19 @@ public struct PSS_HANDLE_ENTRY
 		public struct _Thread_e__Struct
 		{
 			public uint32 ExitStatus;
-			public void* TebBaseAddress;
+			public void TebBaseAddress;
 			public uint32 ProcessId;
 			public uint32 ThreadId;
 			public uint AffinityMask;
 			public int32 Priority;
 			public int32 BasePriority;
-			public void* Win32StartAddress;
+			public void Win32StartAddress;
 		}
 
 		[CRepr]
 		public struct _Section_e__Struct
 		{
-			public void* BaseAddress;
+			public void BaseAddress;
 			public uint32 AllocationAttributes;
 			public LARGE_INTEGER MaximumSize;
 		}
@@ -289,7 +289,7 @@ public struct PSS_HANDLE_ENTRY
 		public struct _Process_e__Struct
 		{
 			public uint32 ExitStatus;
-			public void* PebBaseAddress;
+			public void PebBaseAddress;
 			public uint AffinityMask;
 			public int32 BasePriority;
 			public uint32 ProcessId;
@@ -336,30 +336,30 @@ public struct PSS_HANDLE_ENTRY
 public struct PSS_THREAD_ENTRY
 {
 	public uint32 ExitStatus;
-	public void* TebBaseAddress;
+	public void TebBaseAddress;
 	public uint32 ProcessId;
 	public uint32 ThreadId;
 	public uint AffinityMask;
 	public int32 Priority;
 	public int32 BasePriority;
-	public void* LastSyscallFirstArgument;
+	public void LastSyscallFirstArgument;
 	public uint16 LastSyscallNumber;
 	public FILETIME CreateTime;
 	public FILETIME ExitTime;
 	public FILETIME KernelTime;
 	public FILETIME UserTime;
-	public void* Win32StartAddress;
+	public void Win32StartAddress;
 	public FILETIME CaptureTime;
 	public PSS_THREAD_FLAGS Flags;
 	public uint16 SuspendCount;
 	public uint16 SizeOfContextRecord;
-	public CONTEXT* ContextRecord;
+	public CONTEXT ContextRecord;
 }
 
 [CRepr]
 public struct PSS_ALLOCATOR
 {
-	public void* Context;
+	public void Context;
 	public int AllocRoutine;
 	public int FreeRoutine;
 }
@@ -379,28 +379,28 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PssCaptureSnapshot(HANDLE ProcessHandle, PSS_CAPTURE_FLAGS CaptureFlags, uint32 ThreadContextFlags, HPSS* SnapshotHandle);
+	public static extern uint32 PssCaptureSnapshot(HANDLE ProcessHandle, PSS_CAPTURE_FLAGS CaptureFlags, uint32 ThreadContextFlags, HPSS SnapshotHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PssFreeSnapshot(HANDLE ProcessHandle, HPSS SnapshotHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PssQuerySnapshot(HPSS SnapshotHandle, PSS_QUERY_INFORMATION_CLASS InformationClass, void* Buffer, uint32 BufferLength);
+	public static extern uint32 PssQuerySnapshot(HPSS SnapshotHandle, PSS_QUERY_INFORMATION_CLASS InformationClass, void Buffer, uint32 BufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PssWalkSnapshot(HPSS SnapshotHandle, PSS_WALK_INFORMATION_CLASS InformationClass, HPSSWALK WalkMarkerHandle, void* Buffer, uint32 BufferLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PssDuplicateSnapshot(HANDLE SourceProcessHandle, HPSS SnapshotHandle, HANDLE TargetProcessHandle, HPSS* TargetSnapshotHandle, PSS_DUPLICATE_FLAGS Flags);
+	public static extern uint32 PssDuplicateSnapshot(HANDLE SourceProcessHandle, HPSS SnapshotHandle, HANDLE TargetProcessHandle, HPSS TargetSnapshotHandle, PSS_DUPLICATE_FLAGS Flags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PssWalkMarkerCreate(PSS_ALLOCATOR* Allocator, HPSSWALK* WalkMarkerHandle);
+	public static extern uint32 PssWalkMarkerCreate(PSS_ALLOCATOR Allocator, HPSSWALK WalkMarkerHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PssWalkMarkerFree(HPSSWALK WalkMarkerHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PssWalkMarkerGetPosition(HPSSWALK WalkMarkerHandle, uint* Position);
+	public static extern uint32 PssWalkMarkerGetPosition(HPSSWALK WalkMarkerHandle, uint Position);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PssWalkMarkerSetPosition(HPSSWALK WalkMarkerHandle, uint Position);

@@ -1428,35 +1428,35 @@ public function void PFNGLARRAYELEMENTEXTPROC(int32 i);
 
 public function void PFNGLDRAWARRAYSEXTPROC(uint32 mode, int32 first, int32 count);
 
-public function void PFNGLVERTEXPOINTEREXTPROC(int32 size, uint32 type, int32 stride, int32 count, void* pointer);
+public function void PFNGLVERTEXPOINTEREXTPROC(int32 size, uint32 type, int32 stride, int32 count, void pointer);
 
-public function void PFNGLNORMALPOINTEREXTPROC(uint32 type, int32 stride, int32 count, void* pointer);
+public function void PFNGLNORMALPOINTEREXTPROC(uint32 type, int32 stride, int32 count, void pointer);
 
-public function void PFNGLCOLORPOINTEREXTPROC(int32 size, uint32 type, int32 stride, int32 count, void* pointer);
+public function void PFNGLCOLORPOINTEREXTPROC(int32 size, uint32 type, int32 stride, int32 count, void pointer);
 
-public function void PFNGLINDEXPOINTEREXTPROC(uint32 type, int32 stride, int32 count, void* pointer);
+public function void PFNGLINDEXPOINTEREXTPROC(uint32 type, int32 stride, int32 count, void pointer);
 
-public function void PFNGLTEXCOORDPOINTEREXTPROC(int32 size, uint32 type, int32 stride, int32 count, void* pointer);
+public function void PFNGLTEXCOORDPOINTEREXTPROC(int32 size, uint32 type, int32 stride, int32 count, void pointer);
 
-public function void PFNGLEDGEFLAGPOINTEREXTPROC(int32 stride, int32 count, uint8* pointer);
+public function void PFNGLEDGEFLAGPOINTEREXTPROC(int32 stride, int32 count, uint8 pointer);
 
-public function void PFNGLGETPOINTERVEXTPROC(uint32 pname, void** @params);
+public function void PFNGLGETPOINTERVEXTPROC(uint32 pname, void @params);
 
-public function void PFNGLARRAYELEMENTARRAYEXTPROC(uint32 mode, int32 count, void* pi);
+public function void PFNGLARRAYELEMENTARRAYEXTPROC(uint32 mode, int32 count, void pi);
 
-public function void PFNGLDRAWRANGEELEMENTSWINPROC(uint32 mode, uint32 start, uint32 end, int32 count, uint32 type, void* indices);
+public function void PFNGLDRAWRANGEELEMENTSWINPROC(uint32 mode, uint32 start, uint32 end, int32 count, uint32 type, void indices);
 
 public function void PFNGLADDSWAPHINTRECTWINPROC(int32 x, int32 y, int32 width, int32 height);
 
-public function void PFNGLCOLORTABLEEXTPROC(uint32 target, uint32 internalFormat, int32 width, uint32 format, uint32 type, void* data);
+public function void PFNGLCOLORTABLEEXTPROC(uint32 target, uint32 internalFormat, int32 width, uint32 format, uint32 type, void data);
 
-public function void PFNGLCOLORSUBTABLEEXTPROC(uint32 target, int32 start, int32 count, uint32 format, uint32 type, void* data);
+public function void PFNGLCOLORSUBTABLEEXTPROC(uint32 target, int32 start, int32 count, uint32 format, uint32 type, void data);
 
-public function void PFNGLGETCOLORTABLEEXTPROC(uint32 target, uint32 format, uint32 type, void* data);
+public function void PFNGLGETCOLORTABLEEXTPROC(uint32 target, uint32 format, uint32 type, void data);
 
-public function void PFNGLGETCOLORTABLEPARAMETERIVEXTPROC(uint32 target, uint32 pname, int32* @params);
+public function void PFNGLGETCOLORTABLEPARAMETERIVEXTPROC(uint32 target, uint32 pname, int32 @params);
 
-public function void PFNGLGETCOLORTABLEPARAMETERFVEXTPROC(uint32 target, uint32 pname, float* @params);
+public function void PFNGLGETCOLORTABLEPARAMETERFVEXTPROC(uint32 target, uint32 pname, float @params);
 
 public function void GLUquadricErrorProc(uint32 param0);
 
@@ -1464,25 +1464,25 @@ public function void GLUtessBeginProc(uint32 param0);
 
 public function void GLUtessEdgeFlagProc(uint8 param0);
 
-public function void GLUtessVertexProc(void* param0);
+public function void GLUtessVertexProc(void param0);
 
 public function void GLUtessEndProc();
 
 public function void GLUtessErrorProc(uint32 param0);
 
-public function void GLUtessCombineProc(double* param0, void** param1, float* param2, void** param3);
+public function void GLUtessCombineProc(double param0, void param1, float param2, void param3);
 
-public function void GLUtessBeginDataProc(uint32 param0, void* param1);
+public function void GLUtessBeginDataProc(uint32 param0, void param1);
 
-public function void GLUtessEdgeFlagDataProc(uint8 param0, void* param1);
+public function void GLUtessEdgeFlagDataProc(uint8 param0, void param1);
 
-public function void GLUtessVertexDataProc(void* param0, void* param1);
+public function void GLUtessVertexDataProc(void param0, void param1);
 
-public function void GLUtessEndDataProc(void* param0);
+public function void GLUtessEndDataProc(void param0);
 
-public function void GLUtessErrorDataProc(uint32 param0, void* param1);
+public function void GLUtessErrorDataProc(uint32 param0, void param1);
 
-public function void GLUtessCombineDataProc(double* param0, void** param1, float* param2, void** param3, void* param4);
+public function void GLUtessCombineDataProc(double param0, void param1, float param2, void param3, void param4);
 
 public function void GLUnurbsErrorProc(uint32 param0);
 
@@ -1603,19 +1603,19 @@ public static
 public static
 {
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ChoosePixelFormat(HDC hdc, PIXELFORMATDESCRIPTOR* ppfd);
+	public static extern int32 ChoosePixelFormat(HDC hdc, PIXELFORMATDESCRIPTOR ppfd);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DescribePixelFormat(HDC hdc, int32 iPixelFormat, uint32 nBytes, PIXELFORMATDESCRIPTOR* ppfd);
+	public static extern int32 DescribePixelFormat(HDC hdc, int32 iPixelFormat, uint32 nBytes, PIXELFORMATDESCRIPTOR ppfd);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetPixelFormat(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetPixelFormat(HDC hdc, int32 format, PIXELFORMATDESCRIPTOR* ppfd);
+	public static extern BOOL SetPixelFormat(HDC hdc, int32 format, PIXELFORMATDESCRIPTOR ppfd);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetEnhMetaFilePixelFormat(HENHMETAFILE hemf, uint32 cbBuffer, PIXELFORMATDESCRIPTOR* ppfd);
+	public static extern uint32 GetEnhMetaFilePixelFormat(HENHMETAFILE hemf, uint32 cbBuffer, PIXELFORMATDESCRIPTOR ppfd);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL wglCopyContext(HGLRC param0, HGLRC param1, uint32 param2);
@@ -1655,20 +1655,20 @@ public static
 	public static extern BOOL SwapBuffers(HDC param0);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL wglUseFontOutlinesA(HDC param0, uint32 param1, uint32 param2, uint32 param3, float param4, float param5, int32 param6, GLYPHMETRICSFLOAT* param7);
-	public static BOOL wglUseFontOutlines(HDC param0, uint32 param1, uint32 param2, uint32 param3, float param4, float param5, int32 param6, GLYPHMETRICSFLOAT* param7) => wglUseFontOutlinesA(param0, param1, param2, param3, param4, param5, param6, param7);
+	public static extern BOOL wglUseFontOutlinesA(HDC param0, uint32 param1, uint32 param2, uint32 param3, float param4, float param5, int32 param6, GLYPHMETRICSFLOAT param7);
+	public static BOOL wglUseFontOutlines(HDC param0, uint32 param1, uint32 param2, uint32 param3, float param4, float param5, int32 param6, GLYPHMETRICSFLOAT param7) => wglUseFontOutlinesA(param0, param1, param2, param3, param4, param5, param6, param7);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL wglUseFontOutlinesW(HDC param0, uint32 param1, uint32 param2, uint32 param3, float param4, float param5, int32 param6, GLYPHMETRICSFLOAT* param7);
+	public static extern BOOL wglUseFontOutlinesW(HDC param0, uint32 param1, uint32 param2, uint32 param3, float param4, float param5, int32 param6, GLYPHMETRICSFLOAT param7);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL wglDescribeLayerPlane(HDC param0, int32 param1, int32 param2, uint32 param3, LAYERPLANEDESCRIPTOR* param4);
+	public static extern BOOL wglDescribeLayerPlane(HDC param0, int32 param1, int32 param2, uint32 param3, LAYERPLANEDESCRIPTOR param4);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 wglSetLayerPaletteEntries(HDC param0, int32 param1, int32 param2, int32 param3, uint32* param4);
+	public static extern int32 wglSetLayerPaletteEntries(HDC param0, int32 param1, int32 param2, int32 param3, uint32 param4);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 wglGetLayerPaletteEntries(HDC param0, int32 param1, int32 param2, int32 param3, uint32* param4);
+	public static extern int32 wglGetLayerPaletteEntries(HDC param0, int32 param1, int32 param2, int32 param3, uint32 param4);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL wglRealizeLayerPalette(HDC param0, int32 param1, BOOL param2);
@@ -1683,7 +1683,7 @@ public static
 	public static extern void glAlphaFunc(uint32 func, float @ref);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8 glAreTexturesResident(int32 n, uint32* textures, uint8* residences);
+	public static extern uint8 glAreTexturesResident(int32 n, uint32 textures, uint8 residences);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glArrayElement(int32 i);
@@ -1695,7 +1695,7 @@ public static
 	public static extern void glBindTexture(uint32 target, uint32 texture);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glBitmap(int32 width, int32 height, float xorig, float yorig, float xmove, float ymove, uint8* bitmap);
+	public static extern void glBitmap(int32 width, int32 height, float xorig, float yorig, float xmove, float ymove, uint8 bitmap);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glBlendFunc(uint32 sfactor, uint32 dfactor);
@@ -1704,7 +1704,7 @@ public static
 	public static extern void glCallList(uint32 list);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glCallLists(int32 n, uint32 type, void* lists);
+	public static extern void glCallLists(int32 n, uint32 type, void lists);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glClear(uint32 mask);
@@ -1725,103 +1725,103 @@ public static
 	public static extern void glClearStencil(int32 s);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glClipPlane(uint32 plane, double* equation);
+	public static extern void glClipPlane(uint32 plane, double equation);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor3b(int8 red, int8 green, int8 blue);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor3bv(int8* v);
+	public static extern void glColor3bv(int8 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor3d(double red, double green, double blue);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor3dv(double* v);
+	public static extern void glColor3dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor3f(float red, float green, float blue);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor3fv(float* v);
+	public static extern void glColor3fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor3i(int32 red, int32 green, int32 blue);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor3iv(int32* v);
+	public static extern void glColor3iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor3s(int16 red, int16 green, int16 blue);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor3sv(int16* v);
+	public static extern void glColor3sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor3ub(uint8 red, uint8 green, uint8 blue);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor3ubv(uint8* v);
+	public static extern void glColor3ubv(uint8 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor3ui(uint32 red, uint32 green, uint32 blue);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor3uiv(uint32* v);
+	public static extern void glColor3uiv(uint32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor3us(uint16 red, uint16 green, uint16 blue);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor3usv(uint16* v);
+	public static extern void glColor3usv(uint16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor4b(int8 red, int8 green, int8 blue, int8 alpha);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor4bv(int8* v);
+	public static extern void glColor4bv(int8 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor4d(double red, double green, double blue, double alpha);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor4dv(double* v);
+	public static extern void glColor4dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor4f(float red, float green, float blue, float alpha);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor4fv(float* v);
+	public static extern void glColor4fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor4i(int32 red, int32 green, int32 blue, int32 alpha);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor4iv(int32* v);
+	public static extern void glColor4iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor4s(int16 red, int16 green, int16 blue, int16 alpha);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor4sv(int16* v);
+	public static extern void glColor4sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor4ub(uint8 red, uint8 green, uint8 blue, uint8 alpha);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor4ubv(uint8* v);
+	public static extern void glColor4ubv(uint8 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor4ui(uint32 red, uint32 green, uint32 blue, uint32 alpha);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor4uiv(uint32* v);
+	public static extern void glColor4uiv(uint32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColor4us(uint16 red, uint16 green, uint16 blue, uint16 alpha);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColor4usv(uint16* v);
+	public static extern void glColor4usv(uint16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glColorMask(uint8 red, uint8 green, uint8 blue, uint8 alpha);
@@ -1830,7 +1830,7 @@ public static
 	public static extern void glColorMaterial(uint32 face, uint32 mode);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glColorPointer(int32 size, uint32 type, int32 stride, void* pointer);
+	public static extern void glColorPointer(int32 size, uint32 type, int32 stride, void pointer);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glCopyPixels(int32 x, int32 y, int32 width, int32 height, uint32 type);
@@ -1854,7 +1854,7 @@ public static
 	public static extern void glDeleteLists(uint32 list, int32 range);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glDeleteTextures(int32 n, uint32* textures);
+	public static extern void glDeleteTextures(int32 n, uint32 textures);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glDepthFunc(uint32 func);
@@ -1878,19 +1878,19 @@ public static
 	public static extern void glDrawBuffer(uint32 mode);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glDrawElements(uint32 mode, int32 count, uint32 type, void* indices);
+	public static extern void glDrawElements(uint32 mode, int32 count, uint32 type, void indices);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glDrawPixels(int32 width, int32 height, uint32 format, uint32 type, void* pixels);
+	public static extern void glDrawPixels(int32 width, int32 height, uint32 format, uint32 type, void pixels);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glEdgeFlag(uint8 flag);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glEdgeFlagPointer(int32 stride, void* pointer);
+	public static extern void glEdgeFlagPointer(int32 stride, void pointer);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glEdgeFlagv(uint8* flag);
+	public static extern void glEdgeFlagv(uint8 flag);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glEnable(uint32 cap);
@@ -1908,25 +1908,25 @@ public static
 	public static extern void glEvalCoord1d(double u);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glEvalCoord1dv(double* u);
+	public static extern void glEvalCoord1dv(double u);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glEvalCoord1f(float u);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glEvalCoord1fv(float* u);
+	public static extern void glEvalCoord1fv(float u);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glEvalCoord2d(double u, double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glEvalCoord2dv(double* u);
+	public static extern void glEvalCoord2dv(double u);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glEvalCoord2f(float u, float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glEvalCoord2fv(float* u);
+	public static extern void glEvalCoord2fv(float u);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glEvalMesh1(uint32 mode, int32 i1, int32 i2);
@@ -1941,7 +1941,7 @@ public static
 	public static extern void glEvalPoint2(int32 i, int32 j);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glFeedbackBuffer(int32 size, uint32 type, float* buffer);
+	public static extern void glFeedbackBuffer(int32 size, uint32 type, float buffer);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glFinish();
@@ -1953,13 +1953,13 @@ public static
 	public static extern void glFogf(uint32 pname, float param1);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glFogfv(uint32 pname, float* @params);
+	public static extern void glFogfv(uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glFogi(uint32 pname, int32 param1);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glFogiv(uint32 pname, int32* @params);
+	public static extern void glFogiv(uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glFrontFace(uint32 mode);
@@ -1971,94 +1971,94 @@ public static
 	public static extern uint32 glGenLists(int32 range);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGenTextures(int32 n, uint32* textures);
+	public static extern void glGenTextures(int32 n, uint32 textures);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetBooleanv(uint32 pname, uint8* @params);
+	public static extern void glGetBooleanv(uint32 pname, uint8 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetClipPlane(uint32 plane, double* equation);
+	public static extern void glGetClipPlane(uint32 plane, double equation);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetDoublev(uint32 pname, double* @params);
+	public static extern void glGetDoublev(uint32 pname, double @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 glGetError();
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetFloatv(uint32 pname, float* @params);
+	public static extern void glGetFloatv(uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetIntegerv(uint32 pname, int32* @params);
+	public static extern void glGetIntegerv(uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetLightfv(uint32 light, uint32 pname, float* @params);
+	public static extern void glGetLightfv(uint32 light, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetLightiv(uint32 light, uint32 pname, int32* @params);
+	public static extern void glGetLightiv(uint32 light, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetMapdv(uint32 target, uint32 query, double* v);
+	public static extern void glGetMapdv(uint32 target, uint32 query, double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetMapfv(uint32 target, uint32 query, float* v);
+	public static extern void glGetMapfv(uint32 target, uint32 query, float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetMapiv(uint32 target, uint32 query, int32* v);
+	public static extern void glGetMapiv(uint32 target, uint32 query, int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetMaterialfv(uint32 face, uint32 pname, float* @params);
+	public static extern void glGetMaterialfv(uint32 face, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetMaterialiv(uint32 face, uint32 pname, int32* @params);
+	public static extern void glGetMaterialiv(uint32 face, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetPixelMapfv(uint32 map, float* values);
+	public static extern void glGetPixelMapfv(uint32 map, float values);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetPixelMapuiv(uint32 map, uint32* values);
+	public static extern void glGetPixelMapuiv(uint32 map, uint32 values);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetPixelMapusv(uint32 map, uint16* values);
+	public static extern void glGetPixelMapusv(uint32 map, uint16 values);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetPointerv(uint32 pname, void** @params);
+	public static extern void glGetPointerv(uint32 pname, void @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetPolygonStipple(uint8* mask);
+	public static extern void glGetPolygonStipple(uint8 mask);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8* glGetString(uint32 name);
+	public static extern uint8 glGetString(uint32 name);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetTexEnvfv(uint32 target, uint32 pname, float* @params);
+	public static extern void glGetTexEnvfv(uint32 target, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetTexEnviv(uint32 target, uint32 pname, int32* @params);
+	public static extern void glGetTexEnviv(uint32 target, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetTexGendv(uint32 coord, uint32 pname, double* @params);
+	public static extern void glGetTexGendv(uint32 coord, uint32 pname, double @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetTexGenfv(uint32 coord, uint32 pname, float* @params);
+	public static extern void glGetTexGenfv(uint32 coord, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetTexGeniv(uint32 coord, uint32 pname, int32* @params);
+	public static extern void glGetTexGeniv(uint32 coord, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetTexImage(uint32 target, int32 level, uint32 format, uint32 type, void* pixels);
+	public static extern void glGetTexImage(uint32 target, int32 level, uint32 format, uint32 type, void pixels);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetTexLevelParameterfv(uint32 target, int32 level, uint32 pname, float* @params);
+	public static extern void glGetTexLevelParameterfv(uint32 target, int32 level, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetTexLevelParameteriv(uint32 target, int32 level, uint32 pname, int32* @params);
+	public static extern void glGetTexLevelParameteriv(uint32 target, int32 level, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetTexParameterfv(uint32 target, uint32 pname, float* @params);
+	public static extern void glGetTexParameterfv(uint32 target, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glGetTexParameteriv(uint32 target, uint32 pname, int32* @params);
+	public static extern void glGetTexParameteriv(uint32 target, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glHint(uint32 target, uint32 mode);
@@ -2067,43 +2067,43 @@ public static
 	public static extern void glIndexMask(uint32 mask);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glIndexPointer(uint32 type, int32 stride, void* pointer);
+	public static extern void glIndexPointer(uint32 type, int32 stride, void pointer);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glIndexd(double c);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glIndexdv(double* c);
+	public static extern void glIndexdv(double c);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glIndexf(float c);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glIndexfv(float* c);
+	public static extern void glIndexfv(float c);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glIndexi(int32 c);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glIndexiv(int32* c);
+	public static extern void glIndexiv(int32 c);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glIndexs(int16 c);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glIndexsv(int16* c);
+	public static extern void glIndexsv(int16 c);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glIndexub(uint8 c);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glIndexubv(uint8* c);
+	public static extern void glIndexubv(uint8 c);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glInitNames();
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glInterleavedArrays(uint32 format, int32 stride, void* pointer);
+	public static extern void glInterleavedArrays(uint32 format, int32 stride, void pointer);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint8 glIsEnabled(uint32 cap);
@@ -2118,25 +2118,25 @@ public static
 	public static extern void glLightModelf(uint32 pname, float param1);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glLightModelfv(uint32 pname, float* @params);
+	public static extern void glLightModelfv(uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glLightModeli(uint32 pname, int32 param1);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glLightModeliv(uint32 pname, int32* @params);
+	public static extern void glLightModeliv(uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glLightf(uint32 light, uint32 pname, float param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glLightfv(uint32 light, uint32 pname, float* @params);
+	public static extern void glLightfv(uint32 light, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glLighti(uint32 light, uint32 pname, int32 param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glLightiv(uint32 light, uint32 pname, int32* @params);
+	public static extern void glLightiv(uint32 light, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glLineStipple(int32 factor, uint16 pattern);
@@ -2151,10 +2151,10 @@ public static
 	public static extern void glLoadIdentity();
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glLoadMatrixd(double* m);
+	public static extern void glLoadMatrixd(double m);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glLoadMatrixf(float* m);
+	public static extern void glLoadMatrixf(float m);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glLoadName(uint32 name);
@@ -2163,16 +2163,16 @@ public static
 	public static extern void glLogicOp(uint32 opcode);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glMap1d(uint32 target, double u1, double u2, int32 stride, int32 order, double* points);
+	public static extern void glMap1d(uint32 target, double u1, double u2, int32 stride, int32 order, double points);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glMap1f(uint32 target, float u1, float u2, int32 stride, int32 order, float* points);
+	public static extern void glMap1f(uint32 target, float u1, float u2, int32 stride, int32 order, float points);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glMap2d(uint32 target, double u1, double u2, int32 ustride, int32 uorder, double v1, double v2, int32 vstride, int32 vorder, double* points);
+	public static extern void glMap2d(uint32 target, double u1, double u2, int32 ustride, int32 uorder, double v1, double v2, int32 vstride, int32 vorder, double points);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glMap2f(uint32 target, float u1, float u2, int32 ustride, int32 uorder, float v1, float v2, int32 vstride, int32 vorder, float* points);
+	public static extern void glMap2f(uint32 target, float u1, float u2, int32 ustride, int32 uorder, float v1, float v2, int32 vstride, int32 vorder, float points);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glMapGrid1d(int32 un, double u1, double u2);
@@ -2190,22 +2190,22 @@ public static
 	public static extern void glMaterialf(uint32 face, uint32 pname, float param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glMaterialfv(uint32 face, uint32 pname, float* @params);
+	public static extern void glMaterialfv(uint32 face, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glMateriali(uint32 face, uint32 pname, int32 param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glMaterialiv(uint32 face, uint32 pname, int32* @params);
+	public static extern void glMaterialiv(uint32 face, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glMatrixMode(uint32 mode);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glMultMatrixd(double* m);
+	public static extern void glMultMatrixd(double m);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glMultMatrixf(float* m);
+	public static extern void glMultMatrixf(float m);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glNewList(uint32 list, uint32 mode);
@@ -2214,34 +2214,34 @@ public static
 	public static extern void glNormal3b(int8 nx, int8 ny, int8 nz);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glNormal3bv(int8* v);
+	public static extern void glNormal3bv(int8 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glNormal3d(double nx, double ny, double nz);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glNormal3dv(double* v);
+	public static extern void glNormal3dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glNormal3f(float nx, float ny, float nz);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glNormal3fv(float* v);
+	public static extern void glNormal3fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glNormal3i(int32 nx, int32 ny, int32 nz);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glNormal3iv(int32* v);
+	public static extern void glNormal3iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glNormal3s(int16 nx, int16 ny, int16 nz);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glNormal3sv(int16* v);
+	public static extern void glNormal3sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glNormalPointer(uint32 type, int32 stride, void* pointer);
+	public static extern void glNormalPointer(uint32 type, int32 stride, void pointer);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glOrtho(double left, double right, double bottom, double top, double zNear, double zFar);
@@ -2250,13 +2250,13 @@ public static
 	public static extern void glPassThrough(float token);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glPixelMapfv(uint32 map, int32 mapsize, float* values);
+	public static extern void glPixelMapfv(uint32 map, int32 mapsize, float values);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glPixelMapuiv(uint32 map, int32 mapsize, uint32* values);
+	public static extern void glPixelMapuiv(uint32 map, int32 mapsize, uint32 values);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glPixelMapusv(uint32 map, int32 mapsize, uint16* values);
+	public static extern void glPixelMapusv(uint32 map, int32 mapsize, uint16 values);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glPixelStoref(uint32 pname, float param1);
@@ -2283,7 +2283,7 @@ public static
 	public static extern void glPolygonOffset(float factor, float units);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glPolygonStipple(uint8* mask);
+	public static extern void glPolygonStipple(uint8 mask);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glPopAttrib();
@@ -2298,7 +2298,7 @@ public static
 	public static extern void glPopName();
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glPrioritizeTextures(int32 n, uint32* textures, float* priorities);
+	public static extern void glPrioritizeTextures(int32 n, uint32 textures, float priorities);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glPushAttrib(uint32 mask);
@@ -2316,103 +2316,103 @@ public static
 	public static extern void glRasterPos2d(double x, double y);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos2dv(double* v);
+	public static extern void glRasterPos2dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos2f(float x, float y);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos2fv(float* v);
+	public static extern void glRasterPos2fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos2i(int32 x, int32 y);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos2iv(int32* v);
+	public static extern void glRasterPos2iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos2s(int16 x, int16 y);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos2sv(int16* v);
+	public static extern void glRasterPos2sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos3d(double x, double y, double z);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos3dv(double* v);
+	public static extern void glRasterPos3dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos3f(float x, float y, float z);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos3fv(float* v);
+	public static extern void glRasterPos3fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos3i(int32 x, int32 y, int32 z);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos3iv(int32* v);
+	public static extern void glRasterPos3iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos3s(int16 x, int16 y, int16 z);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos3sv(int16* v);
+	public static extern void glRasterPos3sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos4d(double x, double y, double z, double w);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos4dv(double* v);
+	public static extern void glRasterPos4dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos4f(float x, float y, float z, float w);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos4fv(float* v);
+	public static extern void glRasterPos4fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos4i(int32 x, int32 y, int32 z, int32 w);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos4iv(int32* v);
+	public static extern void glRasterPos4iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRasterPos4s(int16 x, int16 y, int16 z, int16 w);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRasterPos4sv(int16* v);
+	public static extern void glRasterPos4sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glReadBuffer(uint32 mode);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glReadPixels(int32 x, int32 y, int32 width, int32 height, uint32 format, uint32 type, void* pixels);
+	public static extern void glReadPixels(int32 x, int32 y, int32 width, int32 height, uint32 format, uint32 type, void pixels);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRectd(double x1, double y1, double x2, double y2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRectdv(double* v1, double* v2);
+	public static extern void glRectdv(double v1, double v2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRectf(float x1, float y1, float x2, float y2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRectfv(float* v1, float* v2);
+	public static extern void glRectfv(float v1, float v2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRecti(int32 x1, int32 y1, int32 x2, int32 y2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRectiv(int32* v1, int32* v2);
+	public static extern void glRectiv(int32 v1, int32 v2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glRects(int16 x1, int16 y1, int16 x2, int16 y2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glRectsv(int16* v1, int16* v2);
+	public static extern void glRectsv(int16 v1, int16 v2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 glRenderMode(uint32 mode);
@@ -2433,7 +2433,7 @@ public static
 	public static extern void glScissor(int32 x, int32 y, int32 width, int32 height);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glSelectBuffer(int32 size, uint32* buffer);
+	public static extern void glSelectBuffer(int32 size, uint32 buffer);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glShadeModel(uint32 mode);
@@ -2451,154 +2451,154 @@ public static
 	public static extern void glTexCoord1d(double s);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord1dv(double* v);
+	public static extern void glTexCoord1dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord1f(float s);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord1fv(float* v);
+	public static extern void glTexCoord1fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord1i(int32 s);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord1iv(int32* v);
+	public static extern void glTexCoord1iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord1s(int16 s);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord1sv(int16* v);
+	public static extern void glTexCoord1sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord2d(double s, double t);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord2dv(double* v);
+	public static extern void glTexCoord2dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord2f(float s, float t);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord2fv(float* v);
+	public static extern void glTexCoord2fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord2i(int32 s, int32 t);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord2iv(int32* v);
+	public static extern void glTexCoord2iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord2s(int16 s, int16 t);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord2sv(int16* v);
+	public static extern void glTexCoord2sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord3d(double s, double t, double r);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord3dv(double* v);
+	public static extern void glTexCoord3dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord3f(float s, float t, float r);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord3fv(float* v);
+	public static extern void glTexCoord3fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord3i(int32 s, int32 t, int32 r);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord3iv(int32* v);
+	public static extern void glTexCoord3iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord3s(int16 s, int16 t, int16 r);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord3sv(int16* v);
+	public static extern void glTexCoord3sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord4d(double s, double t, double r, double q);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord4dv(double* v);
+	public static extern void glTexCoord4dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord4f(float s, float t, float r, float q);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord4fv(float* v);
+	public static extern void glTexCoord4fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord4i(int32 s, int32 t, int32 r, int32 q);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord4iv(int32* v);
+	public static extern void glTexCoord4iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexCoord4s(int16 s, int16 t, int16 r, int16 q);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoord4sv(int16* v);
+	public static extern void glTexCoord4sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexCoordPointer(int32 size, uint32 type, int32 stride, void* pointer);
+	public static extern void glTexCoordPointer(int32 size, uint32 type, int32 stride, void pointer);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexEnvf(uint32 target, uint32 pname, float param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexEnvfv(uint32 target, uint32 pname, float* @params);
+	public static extern void glTexEnvfv(uint32 target, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexEnvi(uint32 target, uint32 pname, int32 param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexEnviv(uint32 target, uint32 pname, int32* @params);
+	public static extern void glTexEnviv(uint32 target, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexGend(uint32 coord, uint32 pname, double param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexGendv(uint32 coord, uint32 pname, double* @params);
+	public static extern void glTexGendv(uint32 coord, uint32 pname, double @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexGenf(uint32 coord, uint32 pname, float param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexGenfv(uint32 coord, uint32 pname, float* @params);
+	public static extern void glTexGenfv(uint32 coord, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexGeni(uint32 coord, uint32 pname, int32 param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexGeniv(uint32 coord, uint32 pname, int32* @params);
+	public static extern void glTexGeniv(uint32 coord, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexImage1D(uint32 target, int32 level, int32 internalformat, int32 width, int32 border, uint32 format, uint32 type, void* pixels);
+	public static extern void glTexImage1D(uint32 target, int32 level, int32 internalformat, int32 width, int32 border, uint32 format, uint32 type, void pixels);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexImage2D(uint32 target, int32 level, int32 internalformat, int32 width, int32 height, int32 border, uint32 format, uint32 type, void* pixels);
+	public static extern void glTexImage2D(uint32 target, int32 level, int32 internalformat, int32 width, int32 height, int32 border, uint32 format, uint32 type, void pixels);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexParameterf(uint32 target, uint32 pname, float param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexParameterfv(uint32 target, uint32 pname, float* @params);
+	public static extern void glTexParameterfv(uint32 target, uint32 pname, float @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTexParameteri(uint32 target, uint32 pname, int32 param2);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexParameteriv(uint32 target, uint32 pname, int32* @params);
+	public static extern void glTexParameteriv(uint32 target, uint32 pname, int32 @params);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexSubImage1D(uint32 target, int32 level, int32 xoffset, int32 width, uint32 format, uint32 type, void* pixels);
+	public static extern void glTexSubImage1D(uint32 target, int32 level, int32 xoffset, int32 width, uint32 format, uint32 type, void pixels);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glTexSubImage2D(uint32 target, int32 level, int32 xoffset, int32 yoffset, int32 width, int32 height, uint32 format, uint32 type, void* pixels);
+	public static extern void glTexSubImage2D(uint32 target, int32 level, int32 xoffset, int32 yoffset, int32 width, int32 height, uint32 format, uint32 type, void pixels);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glTranslated(double x, double y, double z);
@@ -2610,88 +2610,88 @@ public static
 	public static extern void glVertex2d(double x, double y);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex2dv(double* v);
+	public static extern void glVertex2dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex2f(float x, float y);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex2fv(float* v);
+	public static extern void glVertex2fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex2i(int32 x, int32 y);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex2iv(int32* v);
+	public static extern void glVertex2iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex2s(int16 x, int16 y);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex2sv(int16* v);
+	public static extern void glVertex2sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex3d(double x, double y, double z);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex3dv(double* v);
+	public static extern void glVertex3dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex3f(float x, float y, float z);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex3fv(float* v);
+	public static extern void glVertex3fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex3i(int32 x, int32 y, int32 z);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex3iv(int32* v);
+	public static extern void glVertex3iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex3s(int16 x, int16 y, int16 z);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex3sv(int16* v);
+	public static extern void glVertex3sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex4d(double x, double y, double z, double w);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex4dv(double* v);
+	public static extern void glVertex4dv(double v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex4f(float x, float y, float z, float w);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex4fv(float* v);
+	public static extern void glVertex4fv(float v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex4i(int32 x, int32 y, int32 z, int32 w);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex4iv(int32* v);
+	public static extern void glVertex4iv(int32 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glVertex4s(int16 x, int16 y, int16 z, int16 w);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertex4sv(int16* v);
+	public static extern void glVertex4sv(int16 v);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void glVertexPointer(int32 size, uint32 type, int32 stride, void* pointer);
+	public static extern void glVertexPointer(int32 size, uint32 type, int32 stride, void pointer);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void glViewport(int32 x, int32 y, int32 width, int32 height);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8* gluErrorString(uint32 errCode);
+	public static extern uint8 gluErrorString(uint32 errCode);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR gluErrorUnicodeStringEXT(uint32 errCode);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8* gluGetString(uint32 name);
+	public static extern uint8 gluGetString(uint32 name);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void gluOrtho2D(double left, double right, double bottom, double top);
@@ -2700,145 +2700,145 @@ public static
 	public static extern void gluPerspective(double fovy, double aspect, double zNear, double zFar);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluPickMatrix(double x, double y, double width, double height, int32* viewport);
+	public static extern void gluPickMatrix(double x, double y, double width, double height, int32 viewport);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void gluLookAt(double eyex, double eyey, double eyez, double centerx, double centery, double centerz, double upx, double upy, double upz);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 gluProject(double objx, double objy, double objz, double* modelMatrix, double* projMatrix, int32* viewport, double* winx, double* winy, double* winz);
+	public static extern int32 gluProject(double objx, double objy, double objz, double modelMatrix, double projMatrix, int32 viewport, double winx, double winy, double winz);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 gluUnProject(double winx, double winy, double winz, double* modelMatrix, double* projMatrix, int32* viewport, double* objx, double* objy, double* objz);
+	public static extern int32 gluUnProject(double winx, double winy, double winz, double modelMatrix, double projMatrix, int32 viewport, double objx, double objy, double objz);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 gluScaleImage(uint32 format, int32 widthin, int32 heightin, uint32 typein, void* datain, int32 widthout, int32 heightout, uint32 typeout, void* dataout);
+	public static extern int32 gluScaleImage(uint32 format, int32 widthin, int32 heightin, uint32 typein, void datain, int32 widthout, int32 heightout, uint32 typeout, void dataout);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 gluBuild1DMipmaps(uint32 target, int32 components, int32 width, uint32 format, uint32 type, void* data);
+	public static extern int32 gluBuild1DMipmaps(uint32 target, int32 components, int32 width, uint32 format, uint32 type, void data);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 gluBuild2DMipmaps(uint32 target, int32 components, int32 width, int32 height, uint32 format, uint32 type, void* data);
+	public static extern int32 gluBuild2DMipmaps(uint32 target, int32 components, int32 width, int32 height, uint32 format, uint32 type, void data);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern GLUquadric* gluNewQuadric();
+	public static extern GLUquadric gluNewQuadric();
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluDeleteQuadric(GLUquadric* state);
+	public static extern void gluDeleteQuadric(GLUquadric state);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluQuadricNormals(GLUquadric* quadObject, uint32 normals);
+	public static extern void gluQuadricNormals(GLUquadric quadObject, uint32 normals);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluQuadricTexture(GLUquadric* quadObject, uint8 textureCoords);
+	public static extern void gluQuadricTexture(GLUquadric quadObject, uint8 textureCoords);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluQuadricOrientation(GLUquadric* quadObject, uint32 orientation);
+	public static extern void gluQuadricOrientation(GLUquadric quadObject, uint32 orientation);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluQuadricDrawStyle(GLUquadric* quadObject, uint32 drawStyle);
+	public static extern void gluQuadricDrawStyle(GLUquadric quadObject, uint32 drawStyle);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluCylinder(GLUquadric* qobj, double baseRadius, double topRadius, double height, int32 slices, int32 stacks);
+	public static extern void gluCylinder(GLUquadric qobj, double baseRadius, double topRadius, double height, int32 slices, int32 stacks);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluDisk(GLUquadric* qobj, double innerRadius, double outerRadius, int32 slices, int32 loops);
+	public static extern void gluDisk(GLUquadric qobj, double innerRadius, double outerRadius, int32 slices, int32 loops);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluPartialDisk(GLUquadric* qobj, double innerRadius, double outerRadius, int32 slices, int32 loops, double startAngle, double sweepAngle);
+	public static extern void gluPartialDisk(GLUquadric qobj, double innerRadius, double outerRadius, int32 slices, int32 loops, double startAngle, double sweepAngle);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluSphere(GLUquadric* qobj, double radius, int32 slices, int32 stacks);
+	public static extern void gluSphere(GLUquadric qobj, double radius, int32 slices, int32 stacks);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluQuadricCallback(GLUquadric* qobj, uint32 which, int fn);
+	public static extern void gluQuadricCallback(GLUquadric qobj, uint32 which, int fn);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern GLUtesselator* gluNewTess();
+	public static extern GLUtesselator gluNewTess();
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluDeleteTess(GLUtesselator* tess);
+	public static extern void gluDeleteTess(GLUtesselator tess);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluTessBeginPolygon(GLUtesselator* tess, void* polygon_data);
+	public static extern void gluTessBeginPolygon(GLUtesselator tess, void polygon_data);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluTessBeginContour(GLUtesselator* tess);
+	public static extern void gluTessBeginContour(GLUtesselator tess);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluTessVertex(GLUtesselator* tess, double* coords, void* data);
+	public static extern void gluTessVertex(GLUtesselator tess, double coords, void data);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluTessEndContour(GLUtesselator* tess);
+	public static extern void gluTessEndContour(GLUtesselator tess);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluTessEndPolygon(GLUtesselator* tess);
+	public static extern void gluTessEndPolygon(GLUtesselator tess);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluTessProperty(GLUtesselator* tess, uint32 which, double value);
+	public static extern void gluTessProperty(GLUtesselator tess, uint32 which, double value);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluTessNormal(GLUtesselator* tess, double x, double y, double z);
+	public static extern void gluTessNormal(GLUtesselator tess, double x, double y, double z);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluTessCallback(GLUtesselator* tess, uint32 which, int fn);
+	public static extern void gluTessCallback(GLUtesselator tess, uint32 which, int fn);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluGetTessProperty(GLUtesselator* tess, uint32 which, double* value);
+	public static extern void gluGetTessProperty(GLUtesselator tess, uint32 which, double value);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern GLUnurbs* gluNewNurbsRenderer();
+	public static extern GLUnurbs gluNewNurbsRenderer();
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluDeleteNurbsRenderer(GLUnurbs* nobj);
+	public static extern void gluDeleteNurbsRenderer(GLUnurbs nobj);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluBeginSurface(GLUnurbs* nobj);
+	public static extern void gluBeginSurface(GLUnurbs nobj);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluBeginCurve(GLUnurbs* nobj);
+	public static extern void gluBeginCurve(GLUnurbs nobj);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluEndCurve(GLUnurbs* nobj);
+	public static extern void gluEndCurve(GLUnurbs nobj);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluEndSurface(GLUnurbs* nobj);
+	public static extern void gluEndSurface(GLUnurbs nobj);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluBeginTrim(GLUnurbs* nobj);
+	public static extern void gluBeginTrim(GLUnurbs nobj);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluEndTrim(GLUnurbs* nobj);
+	public static extern void gluEndTrim(GLUnurbs nobj);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluPwlCurve(GLUnurbs* nobj, int32 count, float* array, int32 stride, uint32 type);
+	public static extern void gluPwlCurve(GLUnurbs nobj, int32 count, float array, int32 stride, uint32 type);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluNurbsCurve(GLUnurbs* nobj, int32 nknots, float* knot, int32 stride, float* ctlarray, int32 order, uint32 type);
+	public static extern void gluNurbsCurve(GLUnurbs nobj, int32 nknots, float knot, int32 stride, float ctlarray, int32 order, uint32 type);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluNurbsSurface(GLUnurbs* nobj, int32 sknot_count, float* sknot, int32 tknot_count, float* tknot, int32 s_stride, int32 t_stride, float* ctlarray, int32 sorder, int32 torder, uint32 type);
+	public static extern void gluNurbsSurface(GLUnurbs nobj, int32 sknot_count, float sknot, int32 tknot_count, float tknot, int32 s_stride, int32 t_stride, float ctlarray, int32 sorder, int32 torder, uint32 type);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluLoadSamplingMatrices(GLUnurbs* nobj, float* modelMatrix, float* projMatrix, int32* viewport);
+	public static extern void gluLoadSamplingMatrices(GLUnurbs nobj, float modelMatrix, float projMatrix, int32 viewport);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluNurbsProperty(GLUnurbs* nobj, uint32 property, float value);
+	public static extern void gluNurbsProperty(GLUnurbs nobj, uint32 property, float value);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluGetNurbsProperty(GLUnurbs* nobj, uint32 property, float* value);
+	public static extern void gluGetNurbsProperty(GLUnurbs nobj, uint32 property, float value);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluNurbsCallback(GLUnurbs* nobj, uint32 which, int fn);
+	public static extern void gluNurbsCallback(GLUnurbs nobj, uint32 which, int fn);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluBeginPolygon(GLUtesselator* tess);
+	public static extern void gluBeginPolygon(GLUtesselator tess);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluNextContour(GLUtesselator* tess, uint32 type);
+	public static extern void gluNextContour(GLUtesselator tess, uint32 type);
 
 	[Import("GLU32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void gluEndPolygon(GLUtesselator* tess);
+	public static extern void gluEndPolygon(GLUtesselator tess);
 
 }
 #endregion

@@ -1297,7 +1297,7 @@ public enum RAW_PIPE_TYPE : int32
 #endregion
 
 #region Function Pointers
-public function void USB_IDLE_CALLBACK(void* Context);
+public function void USB_IDLE_CALLBACK(void Context);
 
 #endregion
 
@@ -2030,7 +2030,7 @@ public struct USBD_VERSION_INFORMATION
 public struct USBD_DEVICE_INFORMATION
 {
 	public uint32 OffsetNext;
-	public void* UsbdDeviceHandle;
+	public void UsbdDeviceHandle;
 	public USB_DEVICE_DESCRIPTOR DeviceDescriptor;
 }
 
@@ -2041,7 +2041,7 @@ public struct USBD_PIPE_INFORMATION
 	public uint8 EndpointAddress;
 	public uint8 Interval;
 	public USBD_PIPE_TYPE PipeType;
-	public void* PipeHandle;
+	public void PipeHandle;
 	public uint32 MaximumTransferSize;
 	public uint32 PipeFlags;
 }
@@ -2056,12 +2056,12 @@ public struct USBD_ENDPOINT_OFFLOAD_INFORMATION
 	public uint32 _bitfield1;
 	public uint32 _bitfield2;
 	public LARGE_INTEGER TransferSegmentLA;
-	public void* TransferSegmentVA;
+	public void TransferSegmentVA;
 	public uint TransferRingSize;
 	public uint32 TransferRingInitialCycleBit;
 	public uint32 MessageNumber;
 	public LARGE_INTEGER EventRingSegmentLA;
-	public void* EventRingSegmentVA;
+	public void EventRingSegmentVA;
 	public uint EventRingSize;
 	public uint32 EventRingInitialCycleBit;
 }
@@ -2076,7 +2076,7 @@ public struct USBD_INTERFACE_INFORMATION
 	public uint8 SubClass;
 	public uint8 Protocol;
 	public uint8 Reserved;
-	public void* InterfaceHandle;
+	public void InterfaceHandle;
 	public uint32 NumberOfPipes;
 	public USBD_PIPE_INFORMATION[1] Pipes;
 }
@@ -2084,7 +2084,7 @@ public struct USBD_INTERFACE_INFORMATION
 [CRepr]
 public struct _URB_HCD_AREA
 {
-	public void*[8] Reserved8;
+	public void[8] Reserved8;
 }
 
 [CRepr]
@@ -2093,7 +2093,7 @@ public struct _URB_HEADER
 	public uint16 Length;
 	public uint16 Function;
 	public int32 Status;
-	public void* UsbdDeviceHandle;
+	public void UsbdDeviceHandle;
 	public uint32 UsbdFlags;
 }
 
@@ -2101,7 +2101,7 @@ public struct _URB_HEADER
 public struct _URB_SELECT_INTERFACE
 {
 	public _URB_HEADER Hdr;
-	public void* ConfigurationHandle;
+	public void ConfigurationHandle;
 	public USBD_INTERFACE_INFORMATION Interface;
 }
 
@@ -2109,8 +2109,8 @@ public struct _URB_SELECT_INTERFACE
 public struct _URB_SELECT_CONFIGURATION
 {
 	public _URB_HEADER Hdr;
-	public USB_CONFIGURATION_DESCRIPTOR* ConfigurationDescriptor;
-	public void* ConfigurationHandle;
+	public USB_CONFIGURATION_DESCRIPTOR ConfigurationDescriptor;
+	public void ConfigurationHandle;
 	public USBD_INTERFACE_INFORMATION Interface;
 }
 
@@ -2118,7 +2118,7 @@ public struct _URB_SELECT_CONFIGURATION
 public struct _URB_PIPE_REQUEST
 {
 	public _URB_HEADER Hdr;
-	public void* PipeHandle;
+	public void PipeHandle;
 	public uint32 Reserved;
 }
 
@@ -2154,12 +2154,12 @@ public struct _URB_GET_CURRENT_FRAME_NUMBER
 public struct _URB_CONTROL_DESCRIPTOR_REQUEST
 {
 	public _URB_HEADER Hdr;
-	public void* Reserved;
+	public void Reserved;
 	public uint32 Reserved0;
 	public uint32 TransferBufferLength;
-	public void* TransferBuffer;
-	public void* TransferBufferMDL;
-	public URB* UrbLink;
+	public void TransferBuffer;
+	public void TransferBufferMDL;
+	public URB UrbLink;
 	public _URB_HCD_AREA hca;
 	public uint16 Reserved1;
 	public uint8 Index;
@@ -2172,12 +2172,12 @@ public struct _URB_CONTROL_DESCRIPTOR_REQUEST
 public struct _URB_CONTROL_GET_STATUS_REQUEST
 {
 	public _URB_HEADER Hdr;
-	public void* Reserved;
+	public void Reserved;
 	public uint32 Reserved0;
 	public uint32 TransferBufferLength;
-	public void* TransferBuffer;
-	public void* TransferBufferMDL;
-	public URB* UrbLink;
+	public void TransferBuffer;
+	public void TransferBufferMDL;
+	public URB UrbLink;
 	public _URB_HCD_AREA hca;
 	public uint8[4] Reserved1;
 	public uint16 Index;
@@ -2188,12 +2188,12 @@ public struct _URB_CONTROL_GET_STATUS_REQUEST
 public struct _URB_CONTROL_FEATURE_REQUEST
 {
 	public _URB_HEADER Hdr;
-	public void* Reserved;
+	public void Reserved;
 	public uint32 Reserved2;
 	public uint32 Reserved3;
-	public void* Reserved4;
-	public void* Reserved5;
-	public URB* UrbLink;
+	public void Reserved4;
+	public void Reserved5;
+	public URB UrbLink;
 	public _URB_HCD_AREA hca;
 	public uint16 Reserved0;
 	public uint16 FeatureSelector;
@@ -2205,12 +2205,12 @@ public struct _URB_CONTROL_FEATURE_REQUEST
 public struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST
 {
 	public _URB_HEADER Hdr;
-	public void* Reserved;
+	public void Reserved;
 	public uint32 TransferFlags;
 	public uint32 TransferBufferLength;
-	public void* TransferBuffer;
-	public void* TransferBufferMDL;
-	public URB* UrbLink;
+	public void TransferBuffer;
+	public void TransferBufferMDL;
+	public URB UrbLink;
 	public _URB_HCD_AREA hca;
 	public uint8 RequestTypeReservedBits;
 	public uint8 Request;
@@ -2223,12 +2223,12 @@ public struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST
 public struct _URB_CONTROL_GET_INTERFACE_REQUEST
 {
 	public _URB_HEADER Hdr;
-	public void* Reserved;
+	public void Reserved;
 	public uint32 Reserved0;
 	public uint32 TransferBufferLength;
-	public void* TransferBuffer;
-	public void* TransferBufferMDL;
-	public URB* UrbLink;
+	public void TransferBuffer;
+	public void TransferBufferMDL;
+	public URB UrbLink;
 	public _URB_HCD_AREA hca;
 	public uint8[4] Reserved1;
 	public uint16 Interface;
@@ -2239,12 +2239,12 @@ public struct _URB_CONTROL_GET_INTERFACE_REQUEST
 public struct _URB_CONTROL_GET_CONFIGURATION_REQUEST
 {
 	public _URB_HEADER Hdr;
-	public void* Reserved;
+	public void Reserved;
 	public uint32 Reserved0;
 	public uint32 TransferBufferLength;
-	public void* TransferBuffer;
-	public void* TransferBufferMDL;
-	public URB* UrbLink;
+	public void TransferBuffer;
+	public void TransferBufferMDL;
+	public URB UrbLink;
 	public _URB_HCD_AREA hca;
 	public uint8[8] Reserved1;
 }
@@ -2270,12 +2270,12 @@ public struct OS_STRING
 public struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST
 {
 	public _URB_HEADER Hdr;
-	public void* Reserved;
+	public void Reserved;
 	public uint32 Reserved0;
 	public uint32 TransferBufferLength;
-	public void* TransferBuffer;
-	public void* TransferBufferMDL;
-	public URB* UrbLink;
+	public void TransferBuffer;
+	public void TransferBufferMDL;
+	public URB UrbLink;
 	public _URB_HCD_AREA hca;
 	public uint8 _bitfield;
 	public uint8 Reserved2;
@@ -2289,12 +2289,12 @@ public struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST
 public struct _URB_CONTROL_TRANSFER
 {
 	public _URB_HEADER Hdr;
-	public void* PipeHandle;
+	public void PipeHandle;
 	public uint32 TransferFlags;
 	public uint32 TransferBufferLength;
-	public void* TransferBuffer;
-	public void* TransferBufferMDL;
-	public URB* UrbLink;
+	public void TransferBuffer;
+	public void TransferBufferMDL;
+	public URB UrbLink;
 	public _URB_HCD_AREA hca;
 	public uint8[8] SetupPacket;
 }
@@ -2303,11 +2303,11 @@ public struct _URB_CONTROL_TRANSFER
 public struct _URB_CONTROL_TRANSFER_EX
 {
 	public _URB_HEADER Hdr;
-	public void* PipeHandle;
+	public void PipeHandle;
 	public uint32 TransferFlags;
 	public uint32 TransferBufferLength;
-	public void* TransferBuffer;
-	public void* TransferBufferMDL;
+	public void TransferBuffer;
+	public void TransferBufferMDL;
 	public uint32 Timeout;
 	public _URB_HCD_AREA hca;
 	public uint8[8] SetupPacket;
@@ -2317,12 +2317,12 @@ public struct _URB_CONTROL_TRANSFER_EX
 public struct _URB_BULK_OR_INTERRUPT_TRANSFER
 {
 	public _URB_HEADER Hdr;
-	public void* PipeHandle;
+	public void PipeHandle;
 	public uint32 TransferFlags;
 	public uint32 TransferBufferLength;
-	public void* TransferBuffer;
-	public void* TransferBufferMDL;
-	public URB* UrbLink;
+	public void TransferBuffer;
+	public void TransferBufferMDL;
+	public URB UrbLink;
 	public _URB_HCD_AREA hca;
 }
 
@@ -2338,12 +2338,12 @@ public struct USBD_ISO_PACKET_DESCRIPTOR
 public struct _URB_ISOCH_TRANSFER
 {
 	public _URB_HEADER Hdr;
-	public void* PipeHandle;
+	public void PipeHandle;
 	public uint32 TransferFlags;
 	public uint32 TransferBufferLength;
-	public void* TransferBuffer;
-	public void* TransferBufferMDL;
-	public URB* UrbLink;
+	public void TransferBuffer;
+	public void TransferBufferMDL;
+	public URB UrbLink;
 	public _URB_HCD_AREA hca;
 	public uint32 StartFrame;
 	public uint32 NumberOfPackets;
@@ -2354,7 +2354,7 @@ public struct _URB_ISOCH_TRANSFER
 [CRepr]
 public struct USBD_STREAM_INFORMATION
 {
-	public void* PipeHandle;
+	public void PipeHandle;
 	public uint32 StreamID;
 	public uint32 MaximumTransferSize;
 	public uint32 PipeFlags;
@@ -2364,18 +2364,18 @@ public struct USBD_STREAM_INFORMATION
 public struct _URB_OPEN_STATIC_STREAMS
 {
 	public _URB_HEADER Hdr;
-	public void* PipeHandle;
+	public void PipeHandle;
 	public uint32 NumberOfStreams;
 	public uint16 StreamInfoVersion;
 	public uint16 StreamInfoSize;
-	public USBD_STREAM_INFORMATION* Streams;
+	public USBD_STREAM_INFORMATION Streams;
 }
 
 [CRepr]
 public struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS
 {
 	public _URB_HEADER Hdr;
-	public void* PipeHandle;
+	public void PipeHandle;
 	public uint32 MaximumSendPathDelayInMilliSeconds;
 	public uint32 MaximumCompletionPathDelayInMilliSeconds;
 }
@@ -2416,7 +2416,7 @@ public struct URB
 public struct USB_IDLE_CALLBACK_INFO
 {
 	public USB_IDLE_CALLBACK IdleCallback;
-	public void* IdleContext;
+	public void IdleContext;
 }
 
 [CRepr, Packed(1)]
@@ -2868,7 +2868,7 @@ public struct IO_BLOCK
 {
 	public uint32 uOffset;
 	public uint32 uLength;
-	public uint8* pbyData;
+	public uint8 pbyData;
 	public uint32 uIndex;
 }
 
@@ -2877,7 +2877,7 @@ public struct IO_BLOCK_EX
 {
 	public uint32 uOffset;
 	public uint32 uLength;
-	public uint8* pbyData;
+	public uint8 pbyData;
 	public uint32 uIndex;
 	public uint8 bRequest;
 	public uint8 bmRequestType;
@@ -2948,106 +2948,106 @@ public static
 public static
 {
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_Initialize(HANDLE DeviceHandle, void** InterfaceHandle);
+	public static extern BOOL WinUsb_Initialize(HANDLE DeviceHandle, void InterfaceHandle);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_Free(void* InterfaceHandle);
+	public static extern BOOL WinUsb_Free(void InterfaceHandle);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_GetAssociatedInterface(void* InterfaceHandle, uint8 AssociatedInterfaceIndex, void** AssociatedInterfaceHandle);
+	public static extern BOOL WinUsb_GetAssociatedInterface(void InterfaceHandle, uint8 AssociatedInterfaceIndex, void AssociatedInterfaceHandle);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_GetDescriptor(void* InterfaceHandle, uint8 DescriptorType, uint8 Index, uint16 LanguageID, uint8* Buffer, uint32 BufferLength, uint32* LengthTransferred);
+	public static extern BOOL WinUsb_GetDescriptor(void InterfaceHandle, uint8 DescriptorType, uint8 Index, uint16 LanguageID, uint8 Buffer, uint32 BufferLength, uint32 LengthTransferred);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_QueryInterfaceSettings(void* InterfaceHandle, uint8 AlternateInterfaceNumber, USB_INTERFACE_DESCRIPTOR* UsbAltInterfaceDescriptor);
+	public static extern BOOL WinUsb_QueryInterfaceSettings(void InterfaceHandle, uint8 AlternateInterfaceNumber, USB_INTERFACE_DESCRIPTOR UsbAltInterfaceDescriptor);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_QueryDeviceInformation(void* InterfaceHandle, uint32 InformationType, uint32* BufferLength, void* Buffer);
+	public static extern BOOL WinUsb_QueryDeviceInformation(void InterfaceHandle, uint32 InformationType, uint32 BufferLength, void Buffer);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_SetCurrentAlternateSetting(void* InterfaceHandle, uint8 SettingNumber);
+	public static extern BOOL WinUsb_SetCurrentAlternateSetting(void InterfaceHandle, uint8 SettingNumber);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_GetCurrentAlternateSetting(void* InterfaceHandle, uint8* SettingNumber);
+	public static extern BOOL WinUsb_GetCurrentAlternateSetting(void InterfaceHandle, uint8 SettingNumber);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_QueryPipe(void* InterfaceHandle, uint8 AlternateInterfaceNumber, uint8 PipeIndex, WINUSB_PIPE_INFORMATION* PipeInformation);
+	public static extern BOOL WinUsb_QueryPipe(void InterfaceHandle, uint8 AlternateInterfaceNumber, uint8 PipeIndex, WINUSB_PIPE_INFORMATION PipeInformation);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_QueryPipeEx(void* InterfaceHandle, uint8 AlternateSettingNumber, uint8 PipeIndex, WINUSB_PIPE_INFORMATION_EX* PipeInformationEx);
+	public static extern BOOL WinUsb_QueryPipeEx(void InterfaceHandle, uint8 AlternateSettingNumber, uint8 PipeIndex, WINUSB_PIPE_INFORMATION_EX PipeInformationEx);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_SetPipePolicy(void* InterfaceHandle, uint8 PipeID, uint32 PolicyType, uint32 ValueLength, void* Value);
+	public static extern BOOL WinUsb_SetPipePolicy(void InterfaceHandle, uint8 PipeID, uint32 PolicyType, uint32 ValueLength, void Value);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_GetPipePolicy(void* InterfaceHandle, uint8 PipeID, uint32 PolicyType, uint32* ValueLength, void* Value);
+	public static extern BOOL WinUsb_GetPipePolicy(void InterfaceHandle, uint8 PipeID, uint32 PolicyType, uint32 ValueLength, void Value);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_ReadPipe(void* InterfaceHandle, uint8 PipeID, uint8* Buffer, uint32 BufferLength, uint32* LengthTransferred, OVERLAPPED* Overlapped);
+	public static extern BOOL WinUsb_ReadPipe(void InterfaceHandle, uint8 PipeID, uint8 Buffer, uint32 BufferLength, uint32 LengthTransferred, OVERLAPPED Overlapped);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_WritePipe(void* InterfaceHandle, uint8 PipeID, uint8* Buffer, uint32 BufferLength, uint32* LengthTransferred, OVERLAPPED* Overlapped);
+	public static extern BOOL WinUsb_WritePipe(void InterfaceHandle, uint8 PipeID, uint8 Buffer, uint32 BufferLength, uint32 LengthTransferred, OVERLAPPED Overlapped);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_ControlTransfer(void* InterfaceHandle, WINUSB_SETUP_PACKET SetupPacket, uint8* Buffer, uint32 BufferLength, uint32* LengthTransferred, OVERLAPPED* Overlapped);
+	public static extern BOOL WinUsb_ControlTransfer(void InterfaceHandle, WINUSB_SETUP_PACKET SetupPacket, uint8 Buffer, uint32 BufferLength, uint32 LengthTransferred, OVERLAPPED Overlapped);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_ResetPipe(void* InterfaceHandle, uint8 PipeID);
+	public static extern BOOL WinUsb_ResetPipe(void InterfaceHandle, uint8 PipeID);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_AbortPipe(void* InterfaceHandle, uint8 PipeID);
+	public static extern BOOL WinUsb_AbortPipe(void InterfaceHandle, uint8 PipeID);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_FlushPipe(void* InterfaceHandle, uint8 PipeID);
+	public static extern BOOL WinUsb_FlushPipe(void InterfaceHandle, uint8 PipeID);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_SetPowerPolicy(void* InterfaceHandle, uint32 PolicyType, uint32 ValueLength, void* Value);
+	public static extern BOOL WinUsb_SetPowerPolicy(void InterfaceHandle, uint32 PolicyType, uint32 ValueLength, void Value);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_GetPowerPolicy(void* InterfaceHandle, uint32 PolicyType, uint32* ValueLength, void* Value);
+	public static extern BOOL WinUsb_GetPowerPolicy(void InterfaceHandle, uint32 PolicyType, uint32 ValueLength, void Value);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_GetOverlappedResult(void* InterfaceHandle, OVERLAPPED* lpOverlapped, uint32* lpNumberOfBytesTransferred, BOOL bWait);
+	public static extern BOOL WinUsb_GetOverlappedResult(void InterfaceHandle, OVERLAPPED lpOverlapped, uint32 lpNumberOfBytesTransferred, BOOL bWait);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USB_INTERFACE_DESCRIPTOR* WinUsb_ParseConfigurationDescriptor(USB_CONFIGURATION_DESCRIPTOR* ConfigurationDescriptor, void* StartPosition, int32 InterfaceNumber, int32 AlternateSetting, int32 InterfaceClass, int32 InterfaceSubClass, int32 InterfaceProtocol);
+	public static extern USB_INTERFACE_DESCRIPTOR WinUsb_ParseConfigurationDescriptor(USB_CONFIGURATION_DESCRIPTOR ConfigurationDescriptor, void StartPosition, int32 InterfaceNumber, int32 AlternateSetting, int32 InterfaceClass, int32 InterfaceSubClass, int32 InterfaceProtocol);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USB_COMMON_DESCRIPTOR* WinUsb_ParseDescriptors(void* DescriptorBuffer, uint32 TotalLength, void* StartPosition, int32 DescriptorType);
+	public static extern USB_COMMON_DESCRIPTOR WinUsb_ParseDescriptors(void DescriptorBuffer, uint32 TotalLength, void StartPosition, int32 DescriptorType);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_GetCurrentFrameNumber(void* InterfaceHandle, uint32* CurrentFrameNumber, LARGE_INTEGER* TimeStamp);
+	public static extern BOOL WinUsb_GetCurrentFrameNumber(void InterfaceHandle, uint32 CurrentFrameNumber, LARGE_INTEGER TimeStamp);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_GetAdjustedFrameNumber(uint32* CurrentFrameNumber, LARGE_INTEGER TimeStamp);
+	public static extern BOOL WinUsb_GetAdjustedFrameNumber(uint32 CurrentFrameNumber, LARGE_INTEGER TimeStamp);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_RegisterIsochBuffer(void* InterfaceHandle, uint8 PipeID, uint8* Buffer, uint32 BufferLength, void** IsochBufferHandle);
+	public static extern BOOL WinUsb_RegisterIsochBuffer(void InterfaceHandle, uint8 PipeID, uint8 Buffer, uint32 BufferLength, void IsochBufferHandle);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_UnregisterIsochBuffer(void* IsochBufferHandle);
+	public static extern BOOL WinUsb_UnregisterIsochBuffer(void IsochBufferHandle);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_WriteIsochPipe(void* BufferHandle, uint32 Offset, uint32 Length, uint32* FrameNumber, OVERLAPPED* Overlapped);
+	public static extern BOOL WinUsb_WriteIsochPipe(void BufferHandle, uint32 Offset, uint32 Length, uint32 FrameNumber, OVERLAPPED Overlapped);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_ReadIsochPipe(void* BufferHandle, uint32 Offset, uint32 Length, uint32* FrameNumber, uint32 NumberOfPackets, USBD_ISO_PACKET_DESCRIPTOR* IsoPacketDescriptors, OVERLAPPED* Overlapped);
+	public static extern BOOL WinUsb_ReadIsochPipe(void BufferHandle, uint32 Offset, uint32 Length, uint32 FrameNumber, uint32 NumberOfPackets, USBD_ISO_PACKET_DESCRIPTOR* IsoPacketDescriptors, OVERLAPPED Overlapped);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_WriteIsochPipeAsap(void* BufferHandle, uint32 Offset, uint32 Length, BOOL ContinueStream, OVERLAPPED* Overlapped);
+	public static extern BOOL WinUsb_WriteIsochPipeAsap(void BufferHandle, uint32 Offset, uint32 Length, BOOL ContinueStream, OVERLAPPED Overlapped);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_ReadIsochPipeAsap(void* BufferHandle, uint32 Offset, uint32 Length, BOOL ContinueStream, uint32 NumberOfPackets, USBD_ISO_PACKET_DESCRIPTOR* IsoPacketDescriptors, OVERLAPPED* Overlapped);
+	public static extern BOOL WinUsb_ReadIsochPipeAsap(void BufferHandle, uint32 Offset, uint32 Length, BOOL ContinueStream, uint32 NumberOfPackets, USBD_ISO_PACKET_DESCRIPTOR* IsoPacketDescriptors, OVERLAPPED Overlapped);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_StartTrackingForTimeSync(void* InterfaceHandle, USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION* StartTrackingInfo);
+	public static extern BOOL WinUsb_StartTrackingForTimeSync(void InterfaceHandle, USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION StartTrackingInfo);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_GetCurrentFrameNumberAndQpc(void* InterfaceHandle, USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION* FrameQpcInfo);
+	public static extern BOOL WinUsb_GetCurrentFrameNumberAndQpc(void InterfaceHandle, USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION FrameQpcInfo);
 
 	[Import("WINUSB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinUsb_StopTrackingForTimeSync(void* InterfaceHandle, USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION* StopTrackingInfo);
+	public static extern BOOL WinUsb_StopTrackingForTimeSync(void InterfaceHandle, USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION StopTrackingInfo);
 
 }
 #endregion

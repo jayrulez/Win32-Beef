@@ -80,7 +80,7 @@ public enum DXCoreAdapterPreference : uint32
 #endregion
 
 #region Function Pointers
-public function void PFN_DXCORE_NOTIFICATION_CALLBACK(DXCoreNotificationType notificationType, IUnknown* object, void* context);
+public function void PFN_DXCORE_NOTIFICATION_CALLBACK(DXCoreNotificationType notificationType, IUnknown* object, void context);
 
 #endregion
 
@@ -140,13 +140,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapter*/SelfOuter* self) IsValid;
 		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapter*/SelfOuter* self, Guid attributeGUID) IsAttributeSupported;
 		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterProperty property) IsPropertySupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterProperty property, uint bufferSize, void* propertyData) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterProperty property, uint* bufferSize) GetPropertySize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterProperty property, uint bufferSize, void propertyData) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterProperty property, uint bufferSize) GetPropertySize;
 		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterState property) IsQueryStateSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterState state, uint inputStateDetailsSize, void* inputStateDetails, uint outputBufferSize, void* outputBuffer) QueryState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterState state, uint inputStateDetailsSize, void inputStateDetails, uint outputBufferSize, void outputBuffer) QueryState;
 		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterState property) IsSetStateSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterState state, uint inputStateDetailsSize, void* inputStateDetails, uint inputDataSize, void* inputData) SetState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, Guid riid, void** ppvFactory) GetFactory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterState state, uint inputStateDetailsSize, void inputStateDetails, uint inputDataSize, void inputData) SetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, Guid riid, void ppvFactory) GetFactory;
 	}
 
 
@@ -156,19 +156,19 @@ public static
 
 	public bool IsPropertySupported(DXCoreAdapterProperty property) mut => VT.[Friend]IsPropertySupported(&this, property);
 
-	public HRESULT GetProperty(DXCoreAdapterProperty property, uint bufferSize, void* propertyData) mut => VT.[Friend]GetProperty(&this, property, bufferSize, propertyData);
+	public HRESULT GetProperty(DXCoreAdapterProperty property, uint bufferSize, void propertyData) mut => VT.[Friend]GetProperty(&this, property, bufferSize, propertyData);
 
-	public HRESULT GetPropertySize(DXCoreAdapterProperty property, uint* bufferSize) mut => VT.[Friend]GetPropertySize(&this, property, bufferSize);
+	public HRESULT GetPropertySize(DXCoreAdapterProperty property, uint bufferSize) mut => VT.[Friend]GetPropertySize(&this, property, bufferSize);
 
 	public bool IsQueryStateSupported(DXCoreAdapterState property) mut => VT.[Friend]IsQueryStateSupported(&this, property);
 
-	public HRESULT QueryState(DXCoreAdapterState state, uint inputStateDetailsSize, void* inputStateDetails, uint outputBufferSize, void* outputBuffer) mut => VT.[Friend]QueryState(&this, state, inputStateDetailsSize, inputStateDetails, outputBufferSize, outputBuffer);
+	public HRESULT QueryState(DXCoreAdapterState state, uint inputStateDetailsSize, void inputStateDetails, uint outputBufferSize, void outputBuffer) mut => VT.[Friend]QueryState(&this, state, inputStateDetailsSize, inputStateDetails, outputBufferSize, outputBuffer);
 
 	public bool IsSetStateSupported(DXCoreAdapterState property) mut => VT.[Friend]IsSetStateSupported(&this, property);
 
-	public HRESULT SetState(DXCoreAdapterState state, uint inputStateDetailsSize, void* inputStateDetails, uint inputDataSize, void* inputData) mut => VT.[Friend]SetState(&this, state, inputStateDetailsSize, inputStateDetails, inputDataSize, inputData);
+	public HRESULT SetState(DXCoreAdapterState state, uint inputStateDetailsSize, void inputStateDetails, uint inputDataSize, void inputData) mut => VT.[Friend]SetState(&this, state, inputStateDetailsSize, inputStateDetails, inputDataSize, inputData);
 
-	public HRESULT GetFactory(Guid riid, void** ppvFactory) mut => VT.[Friend]GetFactory(&this, riid, ppvFactory);
+	public HRESULT GetFactory(Guid riid, void ppvFactory) mut => VT.[Friend]GetFactory(&this, riid, ppvFactory);
 }
 
 [CRepr]struct IDXCoreAdapterList : IUnknown
@@ -179,22 +179,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterList*/SelfOuter* self, uint32 index, Guid riid, void** ppvAdapter) GetAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterList*/SelfOuter* self, uint32 index, Guid riid, void ppvAdapter) GetAdapter;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IDXCoreAdapterList*/SelfOuter* self) GetAdapterCount;
 		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapterList*/SelfOuter* self) IsStale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterList*/SelfOuter* self, Guid riid, void** ppvFactory) GetFactory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterList*/SelfOuter* self, Guid riid, void ppvFactory) GetFactory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterList*/SelfOuter* self, uint32 numPreferences, DXCoreAdapterPreference* preferences) Sort;
 		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapterList*/SelfOuter* self, DXCoreAdapterPreference preference) IsAdapterPreferenceSupported;
 	}
 
 
-	public HRESULT GetAdapter(uint32 index, Guid riid, void** ppvAdapter) mut => VT.[Friend]GetAdapter(&this, index, riid, ppvAdapter);
+	public HRESULT GetAdapter(uint32 index, Guid riid, void ppvAdapter) mut => VT.[Friend]GetAdapter(&this, index, riid, ppvAdapter);
 
 	public uint32 GetAdapterCount() mut => VT.[Friend]GetAdapterCount(&this);
 
 	public bool IsStale() mut => VT.[Friend]IsStale(&this);
 
-	public HRESULT GetFactory(Guid riid, void** ppvFactory) mut => VT.[Friend]GetFactory(&this, riid, ppvFactory);
+	public HRESULT GetFactory(Guid riid, void ppvFactory) mut => VT.[Friend]GetFactory(&this, riid, ppvFactory);
 
 	public HRESULT Sort(uint32 numPreferences, DXCoreAdapterPreference* preferences) mut => VT.[Friend]Sort(&this, numPreferences, preferences);
 
@@ -209,21 +209,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, uint32 numAttributes, Guid* filterAttributes, Guid riid, void** ppvAdapterList) CreateAdapterList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, LUID* adapterLUID, Guid riid, void** ppvAdapter) GetAdapterByLuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, uint32 numAttributes, Guid* filterAttributes, Guid riid, void ppvAdapterList) CreateAdapterList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, LUID adapterLUID, Guid riid, void ppvAdapter) GetAdapterByLuid;
 		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapterFactory*/SelfOuter* self, DXCoreNotificationType notificationType) IsNotificationTypeSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, IUnknown* dxCoreObject, DXCoreNotificationType notificationType, PFN_DXCORE_NOTIFICATION_CALLBACK callbackFunction, void* callbackContext, uint32* eventCookie) RegisterEventNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, IUnknown* dxCoreObject, DXCoreNotificationType notificationType, PFN_DXCORE_NOTIFICATION_CALLBACK callbackFunction, void callbackContext, uint32 eventCookie) RegisterEventNotification;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, uint32 eventCookie) UnregisterEventNotification;
 	}
 
 
-	public HRESULT CreateAdapterList(uint32 numAttributes, Guid* filterAttributes, Guid riid, void** ppvAdapterList) mut => VT.[Friend]CreateAdapterList(&this, numAttributes, filterAttributes, riid, ppvAdapterList);
+	public HRESULT CreateAdapterList(uint32 numAttributes, Guid* filterAttributes, Guid riid, void ppvAdapterList) mut => VT.[Friend]CreateAdapterList(&this, numAttributes, filterAttributes, riid, ppvAdapterList);
 
-	public HRESULT GetAdapterByLuid(LUID* adapterLUID, Guid riid, void** ppvAdapter) mut => VT.[Friend]GetAdapterByLuid(&this, adapterLUID, riid, ppvAdapter);
+	public HRESULT GetAdapterByLuid(LUID adapterLUID, Guid riid, void ppvAdapter) mut => VT.[Friend]GetAdapterByLuid(&this, adapterLUID, riid, ppvAdapter);
 
 	public bool IsNotificationTypeSupported(DXCoreNotificationType notificationType) mut => VT.[Friend]IsNotificationTypeSupported(&this, notificationType);
 
-	public HRESULT RegisterEventNotification(IUnknown* dxCoreObject, DXCoreNotificationType notificationType, PFN_DXCORE_NOTIFICATION_CALLBACK callbackFunction, void* callbackContext, uint32* eventCookie) mut => VT.[Friend]RegisterEventNotification(&this, dxCoreObject, notificationType, callbackFunction, callbackContext, eventCookie);
+	public HRESULT RegisterEventNotification(IUnknown* dxCoreObject, DXCoreNotificationType notificationType, PFN_DXCORE_NOTIFICATION_CALLBACK callbackFunction, void callbackContext, uint32 eventCookie) mut => VT.[Friend]RegisterEventNotification(&this, dxCoreObject, notificationType, callbackFunction, callbackContext, eventCookie);
 
 	public HRESULT UnregisterEventNotification(uint32 eventCookie) mut => VT.[Friend]UnregisterEventNotification(&this, eventCookie);
 }
@@ -234,7 +234,7 @@ public static
 public static
 {
 	[Import("DXCORE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DXCoreCreateAdapterFactory(Guid riid, void** ppvFactory);
+	public static extern HRESULT DXCoreCreateAdapterFactory(Guid riid, void ppvFactory);
 
 }
 #endregion

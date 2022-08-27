@@ -33,11 +33,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDxgiInterfaceAccess*/SelfOuter* self, Guid iid, void** p) GetInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDxgiInterfaceAccess*/SelfOuter* self, Guid iid, void p) GetInterface;
 	}
 
 
-	public HRESULT GetInterface(Guid iid, void** p) mut => VT.[Friend]GetInterface(&this, iid, p);
+	public HRESULT GetInterface(Guid iid, void p) mut => VT.[Friend]GetInterface(&this, iid, p);
 }
 
 #endregion
@@ -46,10 +46,10 @@ public static
 public static
 {
 	[Import("d3d11.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateDirect3D11DeviceFromDXGIDevice(IDXGIDevice* dxgiDevice, IInspectable** graphicsDevice);
+	public static extern HRESULT CreateDirect3D11DeviceFromDXGIDevice(IDXGIDevice* dxgiDevice, IInspectable* graphicsDevice);
 
 	[Import("d3d11.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateDirect3D11SurfaceFromDXGISurface(IDXGISurface* dgxiSurface, IInspectable** graphicsSurface);
+	public static extern HRESULT CreateDirect3D11SurfaceFromDXGISurface(IDXGISurface* dgxiSurface, IInspectable* graphicsSurface);
 
 }
 #endregion

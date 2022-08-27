@@ -162,7 +162,7 @@ public struct DMO_MEDIA_TYPE
 	public Guid formattype;
 	public IUnknown* pUnk;
 	public uint32 cbFormat;
-	public uint8* pbFormat;
+	public uint8 pbFormat;
 }
 
 [CRepr]
@@ -199,16 +199,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaBuffer*/SelfOuter* self, uint32 cbLength) SetLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaBuffer*/SelfOuter* self, uint32* pcbMaxLength) GetMaxLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaBuffer*/SelfOuter* self, uint8** ppBuffer, uint32* pcbLength) GetBufferAndLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaBuffer*/SelfOuter* self, uint32 pcbMaxLength) GetMaxLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaBuffer*/SelfOuter* self, uint8 ppBuffer, uint32 pcbLength) GetBufferAndLength;
 	}
 
 
 	public HRESULT SetLength(uint32 cbLength) mut => VT.[Friend]SetLength(&this, cbLength);
 
-	public HRESULT GetMaxLength(uint32* pcbMaxLength) mut => VT.[Friend]GetMaxLength(&this, pcbMaxLength);
+	public HRESULT GetMaxLength(uint32 pcbMaxLength) mut => VT.[Friend]GetMaxLength(&this, pcbMaxLength);
 
-	public HRESULT GetBufferAndLength(uint8** ppBuffer, uint32* pcbLength) mut => VT.[Friend]GetBufferAndLength(&this, ppBuffer, pcbLength);
+	public HRESULT GetBufferAndLength(uint8 ppBuffer, uint32 pcbLength) mut => VT.[Friend]GetBufferAndLength(&this, ppBuffer, pcbLength);
 }
 
 [CRepr]struct IMediaObject : IUnknown
@@ -219,53 +219,53 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32* pcInputStreams, uint32* pcOutputStreams) GetStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, uint32* pdwFlags) GetInputStreamInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwOutputStreamIndex, uint32* pdwFlags) GetOutputStreamInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, uint32 dwTypeIndex, DMO_MEDIA_TYPE* pmt) GetInputType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwOutputStreamIndex, uint32 dwTypeIndex, DMO_MEDIA_TYPE* pmt) GetOutputType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, DMO_MEDIA_TYPE* pmt, uint32 dwFlags) SetInputType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwOutputStreamIndex, DMO_MEDIA_TYPE* pmt, uint32 dwFlags) SetOutputType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, DMO_MEDIA_TYPE* pmt) GetInputCurrentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwOutputStreamIndex, DMO_MEDIA_TYPE* pmt) GetOutputCurrentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, uint32* pcbSize, uint32* pcbMaxLookahead, uint32* pcbAlignment) GetInputSizeInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwOutputStreamIndex, uint32* pcbSize, uint32* pcbAlignment) GetOutputSizeInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, int64* prtMaxLatency) GetInputMaxLatency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 pcInputStreams, uint32 pcOutputStreams) GetStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, uint32 pdwFlags) GetInputStreamInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwOutputStreamIndex, uint32 pdwFlags) GetOutputStreamInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, uint32 dwTypeIndex, DMO_MEDIA_TYPE pmt) GetInputType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwOutputStreamIndex, uint32 dwTypeIndex, DMO_MEDIA_TYPE pmt) GetOutputType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, DMO_MEDIA_TYPE pmt, uint32 dwFlags) SetInputType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwOutputStreamIndex, DMO_MEDIA_TYPE pmt, uint32 dwFlags) SetOutputType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, DMO_MEDIA_TYPE pmt) GetInputCurrentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwOutputStreamIndex, DMO_MEDIA_TYPE pmt) GetOutputCurrentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, uint32 pcbSize, uint32 pcbMaxLookahead, uint32 pcbAlignment) GetInputSizeInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwOutputStreamIndex, uint32 pcbSize, uint32 pcbAlignment) GetOutputSizeInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, int64 prtMaxLatency) GetInputMaxLatency;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, int64 rtMaxLatency) SetInputMaxLatency;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self) Flush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex) Discontinuity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self) AllocateStreamingResources;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self) FreeStreamingResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, uint32* dwFlags) GetInputStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, uint32 dwFlags) GetInputStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwInputStreamIndex, IMediaBuffer* pBuffer, uint32 dwFlags, int64 rtTimestamp, int64 rtTimelength) ProcessInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwFlags, uint32 cOutputBufferCount, DMO_OUTPUT_DATA_BUFFER* pOutputBuffers, uint32* pdwStatus) ProcessOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, uint32 dwFlags, uint32 cOutputBufferCount, DMO_OUTPUT_DATA_BUFFER* pOutputBuffers, uint32 pdwStatus) ProcessOutput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObject*/SelfOuter* self, int32 bLock) Lock;
 	}
 
 
-	public HRESULT GetStreamCount(uint32* pcInputStreams, uint32* pcOutputStreams) mut => VT.[Friend]GetStreamCount(&this, pcInputStreams, pcOutputStreams);
+	public HRESULT GetStreamCount(uint32 pcInputStreams, uint32 pcOutputStreams) mut => VT.[Friend]GetStreamCount(&this, pcInputStreams, pcOutputStreams);
 
-	public HRESULT GetInputStreamInfo(uint32 dwInputStreamIndex, uint32* pdwFlags) mut => VT.[Friend]GetInputStreamInfo(&this, dwInputStreamIndex, pdwFlags);
+	public HRESULT GetInputStreamInfo(uint32 dwInputStreamIndex, uint32 pdwFlags) mut => VT.[Friend]GetInputStreamInfo(&this, dwInputStreamIndex, pdwFlags);
 
-	public HRESULT GetOutputStreamInfo(uint32 dwOutputStreamIndex, uint32* pdwFlags) mut => VT.[Friend]GetOutputStreamInfo(&this, dwOutputStreamIndex, pdwFlags);
+	public HRESULT GetOutputStreamInfo(uint32 dwOutputStreamIndex, uint32 pdwFlags) mut => VT.[Friend]GetOutputStreamInfo(&this, dwOutputStreamIndex, pdwFlags);
 
-	public HRESULT GetInputType(uint32 dwInputStreamIndex, uint32 dwTypeIndex, DMO_MEDIA_TYPE* pmt) mut => VT.[Friend]GetInputType(&this, dwInputStreamIndex, dwTypeIndex, pmt);
+	public HRESULT GetInputType(uint32 dwInputStreamIndex, uint32 dwTypeIndex, DMO_MEDIA_TYPE pmt) mut => VT.[Friend]GetInputType(&this, dwInputStreamIndex, dwTypeIndex, pmt);
 
-	public HRESULT GetOutputType(uint32 dwOutputStreamIndex, uint32 dwTypeIndex, DMO_MEDIA_TYPE* pmt) mut => VT.[Friend]GetOutputType(&this, dwOutputStreamIndex, dwTypeIndex, pmt);
+	public HRESULT GetOutputType(uint32 dwOutputStreamIndex, uint32 dwTypeIndex, DMO_MEDIA_TYPE pmt) mut => VT.[Friend]GetOutputType(&this, dwOutputStreamIndex, dwTypeIndex, pmt);
 
-	public HRESULT SetInputType(uint32 dwInputStreamIndex, DMO_MEDIA_TYPE* pmt, uint32 dwFlags) mut => VT.[Friend]SetInputType(&this, dwInputStreamIndex, pmt, dwFlags);
+	public HRESULT SetInputType(uint32 dwInputStreamIndex, DMO_MEDIA_TYPE pmt, uint32 dwFlags) mut => VT.[Friend]SetInputType(&this, dwInputStreamIndex, pmt, dwFlags);
 
-	public HRESULT SetOutputType(uint32 dwOutputStreamIndex, DMO_MEDIA_TYPE* pmt, uint32 dwFlags) mut => VT.[Friend]SetOutputType(&this, dwOutputStreamIndex, pmt, dwFlags);
+	public HRESULT SetOutputType(uint32 dwOutputStreamIndex, DMO_MEDIA_TYPE pmt, uint32 dwFlags) mut => VT.[Friend]SetOutputType(&this, dwOutputStreamIndex, pmt, dwFlags);
 
-	public HRESULT GetInputCurrentType(uint32 dwInputStreamIndex, DMO_MEDIA_TYPE* pmt) mut => VT.[Friend]GetInputCurrentType(&this, dwInputStreamIndex, pmt);
+	public HRESULT GetInputCurrentType(uint32 dwInputStreamIndex, DMO_MEDIA_TYPE pmt) mut => VT.[Friend]GetInputCurrentType(&this, dwInputStreamIndex, pmt);
 
-	public HRESULT GetOutputCurrentType(uint32 dwOutputStreamIndex, DMO_MEDIA_TYPE* pmt) mut => VT.[Friend]GetOutputCurrentType(&this, dwOutputStreamIndex, pmt);
+	public HRESULT GetOutputCurrentType(uint32 dwOutputStreamIndex, DMO_MEDIA_TYPE pmt) mut => VT.[Friend]GetOutputCurrentType(&this, dwOutputStreamIndex, pmt);
 
-	public HRESULT GetInputSizeInfo(uint32 dwInputStreamIndex, uint32* pcbSize, uint32* pcbMaxLookahead, uint32* pcbAlignment) mut => VT.[Friend]GetInputSizeInfo(&this, dwInputStreamIndex, pcbSize, pcbMaxLookahead, pcbAlignment);
+	public HRESULT GetInputSizeInfo(uint32 dwInputStreamIndex, uint32 pcbSize, uint32 pcbMaxLookahead, uint32 pcbAlignment) mut => VT.[Friend]GetInputSizeInfo(&this, dwInputStreamIndex, pcbSize, pcbMaxLookahead, pcbAlignment);
 
-	public HRESULT GetOutputSizeInfo(uint32 dwOutputStreamIndex, uint32* pcbSize, uint32* pcbAlignment) mut => VT.[Friend]GetOutputSizeInfo(&this, dwOutputStreamIndex, pcbSize, pcbAlignment);
+	public HRESULT GetOutputSizeInfo(uint32 dwOutputStreamIndex, uint32 pcbSize, uint32 pcbAlignment) mut => VT.[Friend]GetOutputSizeInfo(&this, dwOutputStreamIndex, pcbSize, pcbAlignment);
 
-	public HRESULT GetInputMaxLatency(uint32 dwInputStreamIndex, int64* prtMaxLatency) mut => VT.[Friend]GetInputMaxLatency(&this, dwInputStreamIndex, prtMaxLatency);
+	public HRESULT GetInputMaxLatency(uint32 dwInputStreamIndex, int64 prtMaxLatency) mut => VT.[Friend]GetInputMaxLatency(&this, dwInputStreamIndex, prtMaxLatency);
 
 	public HRESULT SetInputMaxLatency(uint32 dwInputStreamIndex, int64 rtMaxLatency) mut => VT.[Friend]SetInputMaxLatency(&this, dwInputStreamIndex, rtMaxLatency);
 
@@ -277,11 +277,11 @@ public static
 
 	public HRESULT FreeStreamingResources() mut => VT.[Friend]FreeStreamingResources(&this);
 
-	public HRESULT GetInputStatus(uint32 dwInputStreamIndex, uint32* dwFlags) mut => VT.[Friend]GetInputStatus(&this, dwInputStreamIndex, dwFlags);
+	public HRESULT GetInputStatus(uint32 dwInputStreamIndex, uint32 dwFlags) mut => VT.[Friend]GetInputStatus(&this, dwInputStreamIndex, dwFlags);
 
 	public HRESULT ProcessInput(uint32 dwInputStreamIndex, IMediaBuffer* pBuffer, uint32 dwFlags, int64 rtTimestamp, int64 rtTimelength) mut => VT.[Friend]ProcessInput(&this, dwInputStreamIndex, pBuffer, dwFlags, rtTimestamp, rtTimelength);
 
-	public HRESULT ProcessOutput(uint32 dwFlags, uint32 cOutputBufferCount, DMO_OUTPUT_DATA_BUFFER* pOutputBuffers, uint32* pdwStatus) mut => VT.[Friend]ProcessOutput(&this, dwFlags, cOutputBufferCount, pOutputBuffers, pdwStatus);
+	public HRESULT ProcessOutput(uint32 dwFlags, uint32 cOutputBufferCount, DMO_OUTPUT_DATA_BUFFER* pOutputBuffers, uint32 pdwStatus) mut => VT.[Friend]ProcessOutput(&this, dwFlags, cOutputBufferCount, pOutputBuffers, pdwStatus);
 
 	public HRESULT Lock(int32 bLock) mut => VT.[Friend]Lock(&this, bLock);
 }
@@ -294,20 +294,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self, uint32 cItemsToFetch, Guid* pCLSID, PWSTR* Names, uint32* pcItemsFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self, uint32 cItemsToFetch, Guid* pCLSID, PWSTR* Names, uint32 pcItemsFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self, uint32 cItemsToSkip) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self, IEnumDMO** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self, IEnumDMO* ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cItemsToFetch, Guid* pCLSID, PWSTR* Names, uint32* pcItemsFetched) mut => VT.[Friend]Next(&this, cItemsToFetch, pCLSID, Names, pcItemsFetched);
+	public HRESULT Next(uint32 cItemsToFetch, Guid* pCLSID, PWSTR* Names, uint32 pcItemsFetched) mut => VT.[Friend]Next(&this, cItemsToFetch, pCLSID, Names, pcItemsFetched);
 
 	public HRESULT Skip(uint32 cItemsToSkip) mut => VT.[Friend]Skip(&this, cItemsToSkip);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumDMO** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumDMO* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct IMediaObjectInPlace : IUnknown
@@ -318,17 +318,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObjectInPlace*/SelfOuter* self, uint32 ulSize, uint8* pData, int64 refTimeStart, uint32 dwFlags) Process;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObjectInPlace*/SelfOuter* self, IMediaObjectInPlace** ppMediaObject) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObjectInPlace*/SelfOuter* self, int64* pLatencyTime) GetLatency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObjectInPlace*/SelfOuter* self, uint32 ulSize, uint8 pData, int64 refTimeStart, uint32 dwFlags) Process;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObjectInPlace*/SelfOuter* self, IMediaObjectInPlace* ppMediaObject) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaObjectInPlace*/SelfOuter* self, int64 pLatencyTime) GetLatency;
 	}
 
 
-	public HRESULT Process(uint32 ulSize, uint8* pData, int64 refTimeStart, uint32 dwFlags) mut => VT.[Friend]Process(&this, ulSize, pData, refTimeStart, dwFlags);
+	public HRESULT Process(uint32 ulSize, uint8 pData, int64 refTimeStart, uint32 dwFlags) mut => VT.[Friend]Process(&this, ulSize, pData, refTimeStart, dwFlags);
 
-	public HRESULT Clone(IMediaObjectInPlace** ppMediaObject) mut => VT.[Friend]Clone(&this, ppMediaObject);
+	public HRESULT Clone(IMediaObjectInPlace* ppMediaObject) mut => VT.[Friend]Clone(&this, ppMediaObject);
 
-	public HRESULT GetLatency(int64* pLatencyTime) mut => VT.[Friend]GetLatency(&this, pLatencyTime);
+	public HRESULT GetLatency(int64 pLatencyTime) mut => VT.[Friend]GetLatency(&this, pLatencyTime);
 }
 
 [CRepr]struct IDMOQualityControl : IUnknown
@@ -341,7 +341,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOQualityControl*/SelfOuter* self, int64 rtNow) SetNow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOQualityControl*/SelfOuter* self, uint32 dwFlags) SetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOQualityControl*/SelfOuter* self, uint32* pdwFlags) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOQualityControl*/SelfOuter* self, uint32 pdwFlags) GetStatus;
 	}
 
 
@@ -349,7 +349,7 @@ public static
 
 	public HRESULT SetStatus(uint32 dwFlags) mut => VT.[Friend]SetStatus(&this, dwFlags);
 
-	public HRESULT GetStatus(uint32* pdwFlags) mut => VT.[Friend]GetStatus(&this, pdwFlags);
+	public HRESULT GetStatus(uint32 pdwFlags) mut => VT.[Friend]GetStatus(&this, pdwFlags);
 }
 
 [CRepr]struct IDMOVideoOutputOptimizations : IUnknown
@@ -360,20 +360,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOVideoOutputOptimizations*/SelfOuter* self, uint32 ulOutputStreamIndex, uint32* pdwRequestedCapabilities) QueryOperationModePreferences;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOVideoOutputOptimizations*/SelfOuter* self, uint32 ulOutputStreamIndex, uint32 pdwRequestedCapabilities) QueryOperationModePreferences;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOVideoOutputOptimizations*/SelfOuter* self, uint32 ulOutputStreamIndex, uint32 dwEnabledFeatures) SetOperationMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOVideoOutputOptimizations*/SelfOuter* self, uint32 ulOutputStreamIndex, uint32* pdwEnabledFeatures) GetCurrentOperationMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOVideoOutputOptimizations*/SelfOuter* self, uint32 ulOutputStreamIndex, uint32* pdwRequestedFeatures) GetCurrentSampleRequirements;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOVideoOutputOptimizations*/SelfOuter* self, uint32 ulOutputStreamIndex, uint32 pdwEnabledFeatures) GetCurrentOperationMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMOVideoOutputOptimizations*/SelfOuter* self, uint32 ulOutputStreamIndex, uint32 pdwRequestedFeatures) GetCurrentSampleRequirements;
 	}
 
 
-	public HRESULT QueryOperationModePreferences(uint32 ulOutputStreamIndex, uint32* pdwRequestedCapabilities) mut => VT.[Friend]QueryOperationModePreferences(&this, ulOutputStreamIndex, pdwRequestedCapabilities);
+	public HRESULT QueryOperationModePreferences(uint32 ulOutputStreamIndex, uint32 pdwRequestedCapabilities) mut => VT.[Friend]QueryOperationModePreferences(&this, ulOutputStreamIndex, pdwRequestedCapabilities);
 
 	public HRESULT SetOperationMode(uint32 ulOutputStreamIndex, uint32 dwEnabledFeatures) mut => VT.[Friend]SetOperationMode(&this, ulOutputStreamIndex, dwEnabledFeatures);
 
-	public HRESULT GetCurrentOperationMode(uint32 ulOutputStreamIndex, uint32* pdwEnabledFeatures) mut => VT.[Friend]GetCurrentOperationMode(&this, ulOutputStreamIndex, pdwEnabledFeatures);
+	public HRESULT GetCurrentOperationMode(uint32 ulOutputStreamIndex, uint32 pdwEnabledFeatures) mut => VT.[Friend]GetCurrentOperationMode(&this, ulOutputStreamIndex, pdwEnabledFeatures);
 
-	public HRESULT GetCurrentSampleRequirements(uint32 ulOutputStreamIndex, uint32* pdwRequestedFeatures) mut => VT.[Friend]GetCurrentSampleRequirements(&this, ulOutputStreamIndex, pdwRequestedFeatures);
+	public HRESULT GetCurrentSampleRequirements(uint32 ulOutputStreamIndex, uint32 pdwRequestedFeatures) mut => VT.[Friend]GetCurrentSampleRequirements(&this, ulOutputStreamIndex, pdwRequestedFeatures);
 }
 
 #endregion
@@ -382,37 +382,37 @@ public static
 public static
 {
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMORegister(PWSTR szName, Guid clsidDMO, Guid guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE* pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE* pOutTypes);
+	public static extern HRESULT DMORegister(PWSTR szName, Guid clsidDMO, Guid guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE pOutTypes);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DMOUnregister(Guid clsidDMO, Guid guidCategory);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMOEnum(Guid guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE* pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE* pOutTypes, IEnumDMO** ppEnum);
+	public static extern HRESULT DMOEnum(Guid guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE pOutTypes, IEnumDMO* ppEnum);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMOGetTypes(Guid clsidDMO, uint32 ulInputTypesRequested, uint32* pulInputTypesSupplied, DMO_PARTIAL_MEDIATYPE* pInputTypes, uint32 ulOutputTypesRequested, uint32* pulOutputTypesSupplied, DMO_PARTIAL_MEDIATYPE* pOutputTypes);
+	public static extern HRESULT DMOGetTypes(Guid clsidDMO, uint32 ulInputTypesRequested, uint32 pulInputTypesSupplied, DMO_PARTIAL_MEDIATYPE pInputTypes, uint32 ulOutputTypesRequested, uint32 pulOutputTypesSupplied, DMO_PARTIAL_MEDIATYPE pOutputTypes);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DMOGetName(Guid clsidDMO, char16* szName);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MoInitMediaType(DMO_MEDIA_TYPE* pmt, uint32 cbFormat);
+	public static extern HRESULT MoInitMediaType(DMO_MEDIA_TYPE pmt, uint32 cbFormat);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MoFreeMediaType(DMO_MEDIA_TYPE* pmt);
+	public static extern HRESULT MoFreeMediaType(DMO_MEDIA_TYPE pmt);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MoCopyMediaType(DMO_MEDIA_TYPE* pmtDest, DMO_MEDIA_TYPE* pmtSrc);
+	public static extern HRESULT MoCopyMediaType(DMO_MEDIA_TYPE pmtDest, DMO_MEDIA_TYPE pmtSrc);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MoCreateMediaType(DMO_MEDIA_TYPE** ppmt, uint32 cbFormat);
+	public static extern HRESULT MoCreateMediaType(DMO_MEDIA_TYPE ppmt, uint32 cbFormat);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MoDeleteMediaType(DMO_MEDIA_TYPE* pmt);
+	public static extern HRESULT MoDeleteMediaType(DMO_MEDIA_TYPE pmt);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MoDuplicateMediaType(DMO_MEDIA_TYPE** ppmtDest, DMO_MEDIA_TYPE* pmtSrc);
+	public static extern HRESULT MoDuplicateMediaType(DMO_MEDIA_TYPE ppmtDest, DMO_MEDIA_TYPE pmtSrc);
 
 }
 #endregion

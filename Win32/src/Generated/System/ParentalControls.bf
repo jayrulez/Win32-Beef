@@ -761,13 +761,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderConfig*/SelfOuter* self, BSTR bstrSID, BSTR* pbstrUserSummary) GetUserSummary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderConfig*/SelfOuter* self, BSTR bstrSID, BSTR pbstrUserSummary) GetUserSummary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderConfig*/SelfOuter* self, HWND hWnd, BSTR bstrSID) Configure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderConfig*/SelfOuter* self, HWND hWnd, BSTR bstrPath, WPCFLAG_RESTRICTION dwFlags) RequestOverride;
 	}
 
 
-	public HRESULT GetUserSummary(BSTR bstrSID, BSTR* pbstrUserSummary) mut => VT.[Friend]GetUserSummary(&this, bstrSID, pbstrUserSummary);
+	public HRESULT GetUserSummary(BSTR bstrSID, BSTR pbstrUserSummary) mut => VT.[Friend]GetUserSummary(&this, bstrSID, pbstrUserSummary);
 
 	public HRESULT Configure(HWND hWnd, BSTR bstrSID) mut => VT.[Friend]Configure(&this, hWnd, bstrSID);
 
@@ -782,17 +782,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCSettings*/SelfOuter* self, BOOL* pfRequired) IsLoggingRequired;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCSettings*/SelfOuter* self, SYSTEMTIME* pTime) GetLastSettingsChangeTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCSettings*/SelfOuter* self, WPCFLAG_RESTRICTION* pdwRestrictions) GetRestrictions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCSettings*/SelfOuter* self, BOOL pfRequired) IsLoggingRequired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCSettings*/SelfOuter* self, SYSTEMTIME pTime) GetLastSettingsChangeTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCSettings*/SelfOuter* self, WPCFLAG_RESTRICTION pdwRestrictions) GetRestrictions;
 	}
 
 
-	public HRESULT IsLoggingRequired(BOOL* pfRequired) mut => VT.[Friend]IsLoggingRequired(&this, pfRequired);
+	public HRESULT IsLoggingRequired(BOOL pfRequired) mut => VT.[Friend]IsLoggingRequired(&this, pfRequired);
 
-	public HRESULT GetLastSettingsChangeTime(SYSTEMTIME* pTime) mut => VT.[Friend]GetLastSettingsChangeTime(&this, pTime);
+	public HRESULT GetLastSettingsChangeTime(SYSTEMTIME pTime) mut => VT.[Friend]GetLastSettingsChangeTime(&this, pTime);
 
-	public HRESULT GetRestrictions(WPCFLAG_RESTRICTION* pdwRestrictions) mut => VT.[Friend]GetRestrictions(&this, pdwRestrictions);
+	public HRESULT GetRestrictions(WPCFLAG_RESTRICTION pdwRestrictions) mut => VT.[Friend]GetRestrictions(&this, pdwRestrictions);
 }
 
 [CRepr]struct IWPCGamesSettings : IWPCSettings
@@ -803,11 +803,11 @@ public static
 
 	[CRepr]public struct VTable : IWPCSettings.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCGamesSettings*/SelfOuter* self, Guid guidAppID, uint32* pdwReasons) IsBlocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCGamesSettings*/SelfOuter* self, Guid guidAppID, uint32 pdwReasons) IsBlocked;
 	}
 
 
-	public HRESULT IsBlocked(Guid guidAppID, uint32* pdwReasons) mut => VT.[Friend]IsBlocked(&this, guidAppID, pdwReasons);
+	public HRESULT IsBlocked(Guid guidAppID, uint32 pdwReasons) mut => VT.[Friend]IsBlocked(&this, guidAppID, pdwReasons);
 }
 
 [CRepr]struct IWPCWebSettings : IWPCSettings
@@ -818,14 +818,14 @@ public static
 
 	[CRepr]public struct VTable : IWPCSettings.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCWebSettings*/SelfOuter* self, WPCFLAG_WEB_SETTING* pdwSettings) GetSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCWebSettings*/SelfOuter* self, HWND hWnd, PWSTR pcszURL, uint32 cURLs, PWSTR* ppcszSubURLs, BOOL* pfChanged) RequestURLOverride;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCWebSettings*/SelfOuter* self, WPCFLAG_WEB_SETTING pdwSettings) GetSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCWebSettings*/SelfOuter* self, HWND hWnd, PWSTR pcszURL, uint32 cURLs, PWSTR* ppcszSubURLs, BOOL pfChanged) RequestURLOverride;
 	}
 
 
-	public HRESULT GetSettings(WPCFLAG_WEB_SETTING* pdwSettings) mut => VT.[Friend]GetSettings(&this, pdwSettings);
+	public HRESULT GetSettings(WPCFLAG_WEB_SETTING pdwSettings) mut => VT.[Friend]GetSettings(&this, pdwSettings);
 
-	public HRESULT RequestURLOverride(HWND hWnd, PWSTR pcszURL, uint32 cURLs, PWSTR* ppcszSubURLs, BOOL* pfChanged) mut => VT.[Friend]RequestURLOverride(&this, hWnd, pcszURL, cURLs, ppcszSubURLs, pfChanged);
+	public HRESULT RequestURLOverride(HWND hWnd, PWSTR pcszURL, uint32 cURLs, PWSTR* ppcszSubURLs, BOOL pfChanged) mut => VT.[Friend]RequestURLOverride(&this, hWnd, pcszURL, cURLs, ppcszSubURLs, pfChanged);
 }
 
 [CRepr]struct IWindowsParentalControlsCore : IUnknown
@@ -836,20 +836,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, WPCFLAG_VISIBILITY* peVisibility) GetVisibility;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, PWSTR pcszSID, IWPCSettings** ppSettings) GetUserSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, PWSTR pcszSID, IWPCWebSettings** ppSettings) GetWebSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, Guid pguidID, PWSTR* ppszName) GetWebFilterInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, WPCFLAG_VISIBILITY peVisibility) GetVisibility;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, PWSTR pcszSID, IWPCSettings* ppSettings) GetUserSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, PWSTR pcszSID, IWPCWebSettings* ppSettings) GetWebSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, Guid pguidID, PWSTR ppszName) GetWebFilterInfo;
 	}
 
 
-	public HRESULT GetVisibility(WPCFLAG_VISIBILITY* peVisibility) mut => VT.[Friend]GetVisibility(&this, peVisibility);
+	public HRESULT GetVisibility(WPCFLAG_VISIBILITY peVisibility) mut => VT.[Friend]GetVisibility(&this, peVisibility);
 
-	public HRESULT GetUserSettings(PWSTR pcszSID, IWPCSettings** ppSettings) mut => VT.[Friend]GetUserSettings(&this, pcszSID, ppSettings);
+	public HRESULT GetUserSettings(PWSTR pcszSID, IWPCSettings* ppSettings) mut => VT.[Friend]GetUserSettings(&this, pcszSID, ppSettings);
 
-	public HRESULT GetWebSettings(PWSTR pcszSID, IWPCWebSettings** ppSettings) mut => VT.[Friend]GetWebSettings(&this, pcszSID, ppSettings);
+	public HRESULT GetWebSettings(PWSTR pcszSID, IWPCWebSettings* ppSettings) mut => VT.[Friend]GetWebSettings(&this, pcszSID, ppSettings);
 
-	public HRESULT GetWebFilterInfo(Guid pguidID, PWSTR* ppszName) mut => VT.[Friend]GetWebFilterInfo(&this, pguidID, ppszName);
+	public HRESULT GetWebFilterInfo(Guid pguidID, PWSTR ppszName) mut => VT.[Friend]GetWebFilterInfo(&this, pguidID, ppszName);
 }
 
 [CRepr]struct IWindowsParentalControls : IWindowsParentalControlsCore
@@ -860,11 +860,11 @@ public static
 
 	[CRepr]public struct VTable : IWindowsParentalControlsCore.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControls*/SelfOuter* self, PWSTR pcszSID, IWPCGamesSettings** ppSettings) GetGamesSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControls*/SelfOuter* self, PWSTR pcszSID, IWPCGamesSettings* ppSettings) GetGamesSettings;
 	}
 
 
-	public HRESULT GetGamesSettings(PWSTR pcszSID, IWPCGamesSettings** ppSettings) mut => VT.[Friend]GetGamesSettings(&this, pcszSID, ppSettings);
+	public HRESULT GetGamesSettings(PWSTR pcszSID, IWPCGamesSettings* ppSettings) mut => VT.[Friend]GetGamesSettings(&this, pcszSID, ppSettings);
 }
 
 [CRepr]struct IWPCProviderSupport : IUnknown

@@ -31,11 +31,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadialControllerInterop*/SelfOuter* self, HWND hwnd, Guid riid, void** ppv) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadialControllerInterop*/SelfOuter* self, HWND hwnd, Guid riid, void ppv) CreateForWindow;
 	}
 
 
-	public HRESULT CreateForWindow(HWND hwnd, Guid riid, void** ppv) mut => VT.[Friend]CreateForWindow(&this, hwnd, riid, ppv);
+	public HRESULT CreateForWindow(HWND hwnd, Guid riid, void ppv) mut => VT.[Friend]CreateForWindow(&this, hwnd, riid, ppv);
 }
 
 [CRepr]struct IRadialControllerConfigurationInterop : IInspectable
@@ -46,11 +46,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadialControllerConfigurationInterop*/SelfOuter* self, HWND hwnd, Guid riid, void** ppv) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadialControllerConfigurationInterop*/SelfOuter* self, HWND hwnd, Guid riid, void ppv) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND hwnd, Guid riid, void** ppv) mut => VT.[Friend]GetForWindow(&this, hwnd, riid, ppv);
+	public HRESULT GetForWindow(HWND hwnd, Guid riid, void ppv) mut => VT.[Friend]GetForWindow(&this, hwnd, riid, ppv);
 }
 
 [CRepr]struct IRadialControllerIndependentInputSourceInterop : IInspectable
@@ -61,11 +61,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadialControllerIndependentInputSourceInterop*/SelfOuter* self, HWND hwnd, Guid riid, void** ppv) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadialControllerIndependentInputSourceInterop*/SelfOuter* self, HWND hwnd, Guid riid, void ppv) CreateForWindow;
 	}
 
 
-	public HRESULT CreateForWindow(HWND hwnd, Guid riid, void** ppv) mut => VT.[Friend]CreateForWindow(&this, hwnd, riid, ppv);
+	public HRESULT CreateForWindow(HWND hwnd, Guid riid, void ppv) mut => VT.[Friend]CreateForWindow(&this, hwnd, riid, ppv);
 }
 
 #endregion

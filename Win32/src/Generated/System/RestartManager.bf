@@ -148,10 +148,10 @@ public static
 public static
 {
 	[Import("rstrtmgr.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RmStartSession(uint32* pSessionHandle, uint32 dwSessionFlags, PWSTR strSessionKey);
+	public static extern uint32 RmStartSession(uint32 pSessionHandle, uint32 dwSessionFlags, PWSTR strSessionKey);
 
 	[Import("RstrtMgr.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RmJoinSession(uint32* pSessionHandle, PWSTR strSessionKey);
+	public static extern uint32 RmJoinSession(uint32 pSessionHandle, PWSTR strSessionKey);
 
 	[Import("rstrtmgr.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RmEndSession(uint32 dwSessionHandle);
@@ -160,7 +160,7 @@ public static
 	public static extern uint32 RmRegisterResources(uint32 dwSessionHandle, uint32 nFiles, PWSTR* rgsFileNames, uint32 nApplications, RM_UNIQUE_PROCESS* rgApplications, uint32 nServices, PWSTR* rgsServiceNames);
 
 	[Import("rstrtmgr.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RmGetList(uint32 dwSessionHandle, uint32* pnProcInfoNeeded, uint32* pnProcInfo, RM_PROCESS_INFO* rgAffectedApps, uint32* lpdwRebootReasons);
+	public static extern uint32 RmGetList(uint32 dwSessionHandle, uint32 pnProcInfoNeeded, uint32 pnProcInfo, RM_PROCESS_INFO* rgAffectedApps, uint32 lpdwRebootReasons);
 
 	[Import("rstrtmgr.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RmShutdown(uint32 dwSessionHandle, uint32 lActionFlags, RM_WRITE_STATUS_CALLBACK fnStatus);
@@ -172,13 +172,13 @@ public static
 	public static extern uint32 RmCancelCurrentTask(uint32 dwSessionHandle);
 
 	[Import("RstrtMgr.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RmAddFilter(uint32 dwSessionHandle, PWSTR strModuleName, RM_UNIQUE_PROCESS* pProcess, PWSTR strServiceShortName, RM_FILTER_ACTION FilterAction);
+	public static extern uint32 RmAddFilter(uint32 dwSessionHandle, PWSTR strModuleName, RM_UNIQUE_PROCESS pProcess, PWSTR strServiceShortName, RM_FILTER_ACTION FilterAction);
 
 	[Import("RstrtMgr.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RmRemoveFilter(uint32 dwSessionHandle, PWSTR strModuleName, RM_UNIQUE_PROCESS* pProcess, PWSTR strServiceShortName);
+	public static extern uint32 RmRemoveFilter(uint32 dwSessionHandle, PWSTR strModuleName, RM_UNIQUE_PROCESS pProcess, PWSTR strServiceShortName);
 
 	[Import("RstrtMgr.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RmGetFilterList(uint32 dwSessionHandle, uint8* pbFilterBuf, uint32 cbFilterBuf, uint32* cbFilterBufNeeded);
+	public static extern uint32 RmGetFilterList(uint32 dwSessionHandle, uint8 pbFilterBuf, uint32 cbFilterBuf, uint32 cbFilterBufNeeded);
 
 }
 #endregion

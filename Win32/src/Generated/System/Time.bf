@@ -67,49 +67,49 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SystemTimeToTzSpecificLocalTime(TIME_ZONE_INFORMATION* lpTimeZoneInformation, SYSTEMTIME* lpUniversalTime, SYSTEMTIME* lpLocalTime);
+	public static extern BOOL SystemTimeToTzSpecificLocalTime(TIME_ZONE_INFORMATION lpTimeZoneInformation, SYSTEMTIME lpUniversalTime, SYSTEMTIME lpLocalTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL TzSpecificLocalTimeToSystemTime(TIME_ZONE_INFORMATION* lpTimeZoneInformation, SYSTEMTIME* lpLocalTime, SYSTEMTIME* lpUniversalTime);
+	public static extern BOOL TzSpecificLocalTimeToSystemTime(TIME_ZONE_INFORMATION lpTimeZoneInformation, SYSTEMTIME lpLocalTime, SYSTEMTIME lpUniversalTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FileTimeToSystemTime(FILETIME* lpFileTime, SYSTEMTIME* lpSystemTime);
+	public static extern BOOL FileTimeToSystemTime(FILETIME lpFileTime, SYSTEMTIME lpSystemTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SystemTimeToFileTime(SYSTEMTIME* lpSystemTime, FILETIME* lpFileTime);
+	public static extern BOOL SystemTimeToFileTime(SYSTEMTIME lpSystemTime, FILETIME lpFileTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetTimeZoneInformation(TIME_ZONE_INFORMATION* lpTimeZoneInformation);
+	public static extern uint32 GetTimeZoneInformation(TIME_ZONE_INFORMATION lpTimeZoneInformation);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetTimeZoneInformation(TIME_ZONE_INFORMATION* lpTimeZoneInformation);
+	public static extern BOOL SetTimeZoneInformation(TIME_ZONE_INFORMATION lpTimeZoneInformation);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetDynamicTimeZoneInformation(DYNAMIC_TIME_ZONE_INFORMATION* lpTimeZoneInformation);
+	public static extern BOOL SetDynamicTimeZoneInformation(DYNAMIC_TIME_ZONE_INFORMATION lpTimeZoneInformation);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetDynamicTimeZoneInformation(DYNAMIC_TIME_ZONE_INFORMATION* pTimeZoneInformation);
+	public static extern uint32 GetDynamicTimeZoneInformation(DYNAMIC_TIME_ZONE_INFORMATION pTimeZoneInformation);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTimeZoneInformationForYear(uint16 wYear, DYNAMIC_TIME_ZONE_INFORMATION* pdtzi, TIME_ZONE_INFORMATION* ptzi);
+	public static extern BOOL GetTimeZoneInformationForYear(uint16 wYear, DYNAMIC_TIME_ZONE_INFORMATION pdtzi, TIME_ZONE_INFORMATION ptzi);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EnumDynamicTimeZoneInformation(uint32 dwIndex, DYNAMIC_TIME_ZONE_INFORMATION* lpTimeZoneInformation);
+	public static extern uint32 EnumDynamicTimeZoneInformation(uint32 dwIndex, DYNAMIC_TIME_ZONE_INFORMATION lpTimeZoneInformation);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetDynamicTimeZoneInformationEffectiveYears(DYNAMIC_TIME_ZONE_INFORMATION* lpTimeZoneInformation, uint32* FirstYear, uint32* LastYear);
+	public static extern uint32 GetDynamicTimeZoneInformationEffectiveYears(DYNAMIC_TIME_ZONE_INFORMATION lpTimeZoneInformation, uint32 FirstYear, uint32 LastYear);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SystemTimeToTzSpecificLocalTimeEx(DYNAMIC_TIME_ZONE_INFORMATION* lpTimeZoneInformation, SYSTEMTIME* lpUniversalTime, SYSTEMTIME* lpLocalTime);
+	public static extern BOOL SystemTimeToTzSpecificLocalTimeEx(DYNAMIC_TIME_ZONE_INFORMATION lpTimeZoneInformation, SYSTEMTIME lpUniversalTime, SYSTEMTIME lpLocalTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL TzSpecificLocalTimeToSystemTimeEx(DYNAMIC_TIME_ZONE_INFORMATION* lpTimeZoneInformation, SYSTEMTIME* lpLocalTime, SYSTEMTIME* lpUniversalTime);
+	public static extern BOOL TzSpecificLocalTimeToSystemTimeEx(DYNAMIC_TIME_ZONE_INFORMATION lpTimeZoneInformation, SYSTEMTIME lpLocalTime, SYSTEMTIME lpUniversalTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL LocalFileTimeToLocalSystemTime(TIME_ZONE_INFORMATION* timeZoneInformation, FILETIME* localFileTime, SYSTEMTIME* localSystemTime);
+	public static extern BOOL LocalFileTimeToLocalSystemTime(TIME_ZONE_INFORMATION timeZoneInformation, FILETIME localFileTime, SYSTEMTIME localSystemTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL LocalSystemTimeToLocalFileTime(TIME_ZONE_INFORMATION* timeZoneInformation, SYSTEMTIME* localSystemTime, FILETIME* localFileTime);
+	public static extern BOOL LocalSystemTimeToLocalFileTime(TIME_ZONE_INFORMATION timeZoneInformation, SYSTEMTIME localSystemTime, FILETIME localFileTime);
 
 }
 #endregion

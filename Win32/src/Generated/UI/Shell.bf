@@ -6801,13 +6801,13 @@ public function HRESULT PFNCANSHAREFOLDERW(PWSTR pszPath);
 
 public function HRESULT PFNSHOWSHAREFOLDERUIW(HWND hwndParent, PWSTR pszPath);
 
-public function HRESULT DLLGETVERSIONPROC(DLLVERSIONINFO* param0);
+public function HRESULT DLLGETVERSIONPROC(DLLVERSIONINFO param0);
 
 public function int32 APPLET_PROC(HWND hwndCpl, uint32 msg, LPARAM lParam1, LPARAM lParam2);
 
-public function void PAPPSTATE_CHANGE_ROUTINE(BOOLEAN Quiesced, void* Context);
+public function void PAPPSTATE_CHANGE_ROUTINE(BOOLEAN Quiesced, void Context);
 
-public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Context);
+public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void Context);
 
 #endregion
 
@@ -6834,7 +6834,7 @@ public struct APPCATEGORYINFO
 public struct APPCATEGORYINFOLIST
 {
 	public uint32 cCategory;
-	public APPCATEGORYINFO* pCategoryInfo;
+	public APPCATEGORYINFO pCategoryInfo;
 }
 
 [CRepr]
@@ -6946,7 +6946,7 @@ public struct CMINVOKECOMMANDINFOEX_REMOTE
 [CRepr]
 public struct PERSIST_FOLDER_TARGET_INFO
 {
-	public ITEMIDLIST* pidlTargetFolder;
+	public ITEMIDLIST pidlTargetFolder;
 	public char16[260] szTargetParsingName;
 	public char16[260] szNetworkProvider;
 	public uint32 dwAttributes;
@@ -6973,9 +6973,9 @@ public struct SV2CVW2_PARAMS
 {
 	public uint32 cbSize;
 	public IShellView* psvPrev;
-	public FOLDERSETTINGS* pfs;
+	public FOLDERSETTINGS pfs;
 	public IShellBrowser* psbOwner;
-	public RECT* prcView;
+	public RECT prcView;
 	public Guid pvid;
 	public HWND hwndView;
 }
@@ -7074,10 +7074,10 @@ public struct SMDATA
 	public uint32 uIdParent;
 	public uint32 uIdAncestor;
 	public IUnknown* punk;
-	public ITEMIDLIST* pidlFolder;
-	public ITEMIDLIST* pidlItem;
+	public ITEMIDLIST pidlFolder;
+	public ITEMIDLIST pidlItem;
 	public IShellFolder* psf;
-	public void* pvUserData;
+	public void pvUserData;
 }
 
 [CRepr]
@@ -7093,8 +7093,8 @@ public struct SMINFO
 public struct SMCSHCHANGENOTIFYSTRUCT
 {
 	public int32 lEvent;
-	public ITEMIDLIST* pidl1;
-	public ITEMIDLIST* pidl2;
+	public ITEMIDLIST pidl1;
+	public ITEMIDLIST pidl2;
 }
 
 [CRepr]
@@ -7241,7 +7241,7 @@ public struct SHFOLDERCUSTOMSETTINGS
 public struct BROWSEINFOA
 {
 	public HWND hwndOwner;
-	public ITEMIDLIST* pidlRoot;
+	public ITEMIDLIST pidlRoot;
 	public PSTR pszDisplayName;
 	public PSTR lpszTitle;
 	public uint32 ulFlags;
@@ -7254,7 +7254,7 @@ public struct BROWSEINFOA
 public struct BROWSEINFOW
 {
 	public HWND hwndOwner;
-	public ITEMIDLIST* pidlRoot;
+	public ITEMIDLIST pidlRoot;
 	public PWSTR pszDisplayName;
 	public PWSTR lpszTitle;
 	public uint32 ulFlags;
@@ -7352,7 +7352,7 @@ public struct DROPDESCRIPTION
 [CRepr, Packed(1)]
 public struct SHChangeNotifyEntry
 {
-	public ITEMIDLIST* pidl;
+	public ITEMIDLIST pidl;
 	public BOOL fRecursive;
 }
 
@@ -7366,7 +7366,7 @@ public struct SHARDAPPIDINFO
 [CRepr, Packed(1)]
 public struct SHARDAPPIDINFOIDLIST
 {
-	public ITEMIDLIST* pidl;
+	public ITEMIDLIST pidl;
 	public PWSTR pszAppID;
 }
 
@@ -7453,13 +7453,13 @@ public struct QCMINFO
 	public uint32 indexMenu;
 	public uint32 idCmdFirst;
 	public uint32 idCmdLast;
-	public QCMINFO_IDMAP* pIdMap;
+	public QCMINFO_IDMAP pIdMap;
 }
 
 [CRepr]
 public struct DETAILSINFO
 {
-	public ITEMIDLIST* pidl;
+	public ITEMIDLIST pidl;
 	public int32 fmt;
 	public int32 cxChar;
 	public STRRET str;
@@ -7504,13 +7504,13 @@ public struct DEFCONTEXTMENU
 {
 	public HWND hwnd;
 	public IContextMenuCB* pcmcb;
-	public ITEMIDLIST* pidlFolder;
+	public ITEMIDLIST pidlFolder;
 	public IShellFolder* psf;
 	public uint32 cidl;
-	public ITEMIDLIST** apidl;
+	public ITEMIDLIST apidl;
 	public IUnknown* punkAssociationInfo;
 	public uint32 cKeys;
-	public HKEY* aKeys;
+	public HKEY aKeys;
 }
 
 [CRepr]
@@ -7521,7 +7521,7 @@ public struct DFMICS
 	public LPARAM lParam;
 	public uint32 idCmdFirst;
 	public uint32 idDefMax;
-	public CMINVOKECOMMANDINFO* pici;
+	public CMINVOKECOMMANDINFO pici;
 	public IUnknown* punkSite;
 }
 
@@ -7531,7 +7531,7 @@ public struct CSFV
 	public uint32 cbSize;
 	public IShellFolder* pshf;
 	public IShellView* psvOuter;
-	public ITEMIDLIST* pidl;
+	public ITEMIDLIST pidl;
 	public int32 lEvents;
 	public LPFNVIEWCALLBACK pfnCallback;
 	public FOLDERVIEWMODE fvm;
@@ -7581,7 +7581,7 @@ public struct BANDINFOSFB
 	public uint16 wViewMode;
 	public uint16 wAlign;
 	public IShellFolder* psf;
-	public ITEMIDLIST* pidl;
+	public ITEMIDLIST pidl;
 }
 
 [CRepr, Packed(1)]
@@ -7632,7 +7632,7 @@ public struct TBINFO
 [CRepr]
 public struct SFV_SETITEMPOS
 {
-	public ITEMIDLIST* pidl;
+	public ITEMIDLIST pidl;
 	public POINT pt;
 }
 
@@ -7647,10 +7647,10 @@ public struct AASHELLMENUFILENAME
 [CRepr]
 public struct AASHELLMENUITEM
 {
-	public void* lpReserved1;
+	public void lpReserved1;
 	public int32 iReserved;
 	public uint32 uiReserved;
-	public AASHELLMENUFILENAME* lpName;
+	public AASHELLMENUFILENAME lpName;
 	public PWSTR psz;
 }
 
@@ -7697,11 +7697,11 @@ public struct SHFILEOPSTRUCTA
 {
 	public HWND hwnd;
 	public uint32 wFunc;
-	public int8* pFrom;
-	public int8* pTo;
+	public int8 pFrom;
+	public int8 pTo;
 	public uint16 fFlags;
 	public BOOL fAnyOperationsAborted;
-	public void* hNameMappings;
+	public void hNameMappings;
 	public PSTR lpszProgressTitle;
 }
 #endif
@@ -7716,7 +7716,7 @@ public struct SHFILEOPSTRUCTW
 	public PWSTR pTo;
 	public uint16 fFlags;
 	public BOOL fAnyOperationsAborted;
-	public void* hNameMappings;
+	public void hNameMappings;
 	public PWSTR lpszProgressTitle;
 }
 #endif
@@ -7763,7 +7763,7 @@ public struct SHELLEXECUTEINFOA
 	public PSTR lpDirectory;
 	public int32 nShow;
 	public HINSTANCE hInstApp;
-	public void* lpIDList;
+	public void lpIDList;
 	public PSTR lpClass;
 	public HKEY hkeyClass;
 	public uint32 dwHotKey;
@@ -7792,7 +7792,7 @@ public struct SHELLEXECUTEINFOW
 	public PWSTR lpDirectory;
 	public int32 nShow;
 	public HINSTANCE hInstApp;
-	public void* lpIDList;
+	public void lpIDList;
 	public PWSTR lpClass;
 	public HKEY hkeyClass;
 	public uint32 dwHotKey;
@@ -7812,12 +7812,12 @@ public struct SHCREATEPROCESSINFOW
 	public PWSTR pszParameters;
 	public PWSTR pszCurrentDirectory;
 	public HANDLE hUserToken;
-	public SECURITY_ATTRIBUTES* lpProcessAttributes;
-	public SECURITY_ATTRIBUTES* lpThreadAttributes;
+	public SECURITY_ATTRIBUTES lpProcessAttributes;
+	public SECURITY_ATTRIBUTES lpThreadAttributes;
 	public BOOL bInheritHandles;
 	public uint32 dwCreationFlags;
-	public STARTUPINFOW* lpStartupInfo;
-	public PROCESS_INFORMATION* lpProcessInformation;
+	public STARTUPINFOW lpStartupInfo;
+	public PROCESS_INFORMATION lpProcessInformation;
 }
 #endif
 
@@ -7978,7 +7978,7 @@ public struct NC_ADDRESS
 	{
 	}
 
-	public NET_ADDRESS_INFO* pAddrInfo;
+	public NET_ADDRESS_INFO pAddrInfo;
 	public uint16 PortNumber;
 	public uint8 PrefixLength;
 }
@@ -8091,14 +8091,14 @@ public struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION
 	public uint32 ulAuthenticationPackage;
 	public Guid clsidCredentialProvider;
 	public uint32 cbSerialization;
-	public uint8* rgbSerialization;
+	public uint8 rgbSerialization;
 }
 
 [CRepr]
 public struct SYNCMGR_CONFLICT_ID_INFO
 {
-	public BYTE_BLOB* pblobID;
-	public BYTE_BLOB* pblobExtra;
+	public BYTE_BLOB pblobID;
+	public BYTE_BLOB pblobExtra;
 }
 
 [CRepr]
@@ -8172,7 +8172,7 @@ public struct WINDOWDATA
 {
 	public uint32 dwWindowID;
 	public uint32 uiCP;
-	public ITEMIDLIST* pidl;
+	public ITEMIDLIST pidl;
 	public PWSTR lpszUrl;
 	public PWSTR lpszUrlLocation;
 	public PWSTR lpszTitle;
@@ -8214,14 +8214,14 @@ public struct BASEBROWSERDATAXP
 	public int32 _eSecureLockIcon;
 	public uint32 _bitfield;
 	public uint32 _uActivateState;
-	public ITEMIDLIST* _pidlViewState;
+	public ITEMIDLIST _pidlViewState;
 	public IOleCommandTarget* _pctView;
-	public ITEMIDLIST* _pidlCur;
+	public ITEMIDLIST _pidlCur;
 	public IShellView* _psv;
 	public IShellFolder* _psf;
 	public HWND _hwndView;
 	public PWSTR _pszTitleCur;
-	public ITEMIDLIST* _pidlPending;
+	public ITEMIDLIST _pidlPending;
 	public IShellView* _psvPending;
 	public IShellFolder* _psfPending;
 	public HWND _hwndViewPending;
@@ -8245,14 +8245,14 @@ public struct BASEBROWSERDATALH
 	public int32 _eSecureLockIcon;
 	public uint32 _bitfield;
 	public uint32 _uActivateState;
-	public ITEMIDLIST* _pidlViewState;
+	public ITEMIDLIST _pidlViewState;
 	public IOleCommandTarget* _pctView;
-	public ITEMIDLIST* _pidlCur;
+	public ITEMIDLIST _pidlCur;
 	public IShellView* _psv;
 	public IShellFolder* _psf;
 	public HWND _hwndView;
 	public PWSTR _pszTitleCur;
-	public ITEMIDLIST* _pidlPending;
+	public ITEMIDLIST _pidlPending;
 	public IShellView* _psvPending;
 	public IShellFolder* _psfPending;
 	public HWND _hwndViewPending;
@@ -8405,11 +8405,11 @@ public struct SHFILEOPSTRUCTA
 {
 	public HWND hwnd;
 	public uint32 wFunc;
-	public int8* pFrom;
-	public int8* pTo;
+	public int8 pFrom;
+	public int8 pTo;
 	public uint16 fFlags;
 	public BOOL fAnyOperationsAborted;
-	public void* hNameMappings;
+	public void hNameMappings;
 	public PSTR lpszProgressTitle;
 }
 #endif
@@ -8424,7 +8424,7 @@ public struct SHFILEOPSTRUCTW
 	public PWSTR pTo;
 	public uint16 fFlags;
 	public BOOL fAnyOperationsAborted;
-	public void* hNameMappings;
+	public void hNameMappings;
 	public PWSTR lpszProgressTitle;
 }
 #endif
@@ -8471,7 +8471,7 @@ public struct SHELLEXECUTEINFOA
 	public PSTR lpDirectory;
 	public int32 nShow;
 	public HINSTANCE hInstApp;
-	public void* lpIDList;
+	public void lpIDList;
 	public PSTR lpClass;
 	public HKEY hkeyClass;
 	public uint32 dwHotKey;
@@ -8500,7 +8500,7 @@ public struct SHELLEXECUTEINFOW
 	public PWSTR lpDirectory;
 	public int32 nShow;
 	public HINSTANCE hInstApp;
-	public void* lpIDList;
+	public void lpIDList;
 	public PWSTR lpClass;
 	public HKEY hkeyClass;
 	public uint32 dwHotKey;
@@ -8520,12 +8520,12 @@ public struct SHCREATEPROCESSINFOW
 	public PWSTR pszParameters;
 	public PWSTR pszCurrentDirectory;
 	public HANDLE hUserToken;
-	public SECURITY_ATTRIBUTES* lpProcessAttributes;
-	public SECURITY_ATTRIBUTES* lpThreadAttributes;
+	public SECURITY_ATTRIBUTES lpProcessAttributes;
+	public SECURITY_ATTRIBUTES lpThreadAttributes;
 	public BOOL bInheritHandles;
 	public uint32 dwCreationFlags;
-	public STARTUPINFOW* lpStartupInfo;
-	public PROCESS_INFORMATION* lpProcessInformation;
+	public STARTUPINFOW lpStartupInfo;
+	public PROCESS_INFORMATION lpProcessInformation;
 }
 #endif
 
@@ -9071,16 +9071,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContextMenu*/SelfOuter* self, HMENU hmenu, uint32 indexMenu, uint32 idCmdFirst, uint32 idCmdLast, uint32 uFlags) QueryContextMenu;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContextMenu*/SelfOuter* self, CMINVOKECOMMANDINFO* pici) InvokeCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContextMenu*/SelfOuter* self, uint idCmd, uint32 uType, uint32* pReserved, PSTR pszName, uint32 cchMax) GetCommandString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContextMenu*/SelfOuter* self, CMINVOKECOMMANDINFO pici) InvokeCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContextMenu*/SelfOuter* self, uint idCmd, uint32 uType, uint32 pReserved, PSTR pszName, uint32 cchMax) GetCommandString;
 	}
 
 
 	public HRESULT QueryContextMenu(HMENU hmenu, uint32 indexMenu, uint32 idCmdFirst, uint32 idCmdLast, uint32 uFlags) mut => VT.[Friend]QueryContextMenu(&this, hmenu, indexMenu, idCmdFirst, idCmdLast, uFlags);
 
-	public HRESULT InvokeCommand(CMINVOKECOMMANDINFO* pici) mut => VT.[Friend]InvokeCommand(&this, pici);
+	public HRESULT InvokeCommand(CMINVOKECOMMANDINFO pici) mut => VT.[Friend]InvokeCommand(&this, pici);
 
-	public HRESULT GetCommandString(uint idCmd, uint32 uType, uint32* pReserved, PSTR pszName, uint32 cchMax) mut => VT.[Friend]GetCommandString(&this, idCmd, uType, pReserved, pszName, cchMax);
+	public HRESULT GetCommandString(uint idCmd, uint32 uType, uint32 pReserved, PSTR pszName, uint32 cchMax) mut => VT.[Friend]GetCommandString(&this, idCmd, uType, pReserved, pszName, cchMax);
 }
 
 [CRepr]struct IContextMenu2 : IContextMenu
@@ -9106,11 +9106,11 @@ public static
 
 	[CRepr]public struct VTable : IContextMenu2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContextMenu3*/SelfOuter* self, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* plResult) HandleMenuMsg2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContextMenu3*/SelfOuter* self, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT plResult) HandleMenuMsg2;
 	}
 
 
-	public HRESULT HandleMenuMsg2(uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* plResult) mut => VT.[Friend]HandleMenuMsg2(&this, uMsg, wParam, lParam, plResult);
+	public HRESULT HandleMenuMsg2(uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT plResult) mut => VT.[Friend]HandleMenuMsg2(&this, uMsg, wParam, lParam, plResult);
 }
 
 [CRepr]struct IExecuteCommand : IUnknown
@@ -9154,11 +9154,11 @@ public static
 
 	[CRepr]public struct VTable : IPersist.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistFolder*/SelfOuter* self, ITEMIDLIST* pidl) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistFolder*/SelfOuter* self, ITEMIDLIST pidl) Initialize;
 	}
 
 
-	public HRESULT Initialize(ITEMIDLIST* pidl) mut => VT.[Friend]Initialize(&this, pidl);
+	public HRESULT Initialize(ITEMIDLIST pidl) mut => VT.[Friend]Initialize(&this, pidl);
 }
 
 [CRepr]struct IRunnableTask : IUnknown
@@ -9220,11 +9220,11 @@ public static
 
 	[CRepr]public struct VTable : IPersistFolder.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistFolder2*/SelfOuter* self, ITEMIDLIST** ppidl) GetCurFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistFolder2*/SelfOuter* self, ITEMIDLIST ppidl) GetCurFolder;
 	}
 
 
-	public HRESULT GetCurFolder(ITEMIDLIST** ppidl) mut => VT.[Friend]GetCurFolder(&this, ppidl);
+	public HRESULT GetCurFolder(ITEMIDLIST ppidl) mut => VT.[Friend]GetCurFolder(&this, ppidl);
 }
 
 [CRepr]struct IPersistFolder3 : IPersistFolder2
@@ -9235,14 +9235,14 @@ public static
 
 	[CRepr]public struct VTable : IPersistFolder2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistFolder3*/SelfOuter* self, IBindCtx* pbc, ITEMIDLIST* pidlRoot, PERSIST_FOLDER_TARGET_INFO* ppfti) InitializeEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistFolder3*/SelfOuter* self, PERSIST_FOLDER_TARGET_INFO* ppfti) GetFolderTargetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistFolder3*/SelfOuter* self, IBindCtx* pbc, ITEMIDLIST pidlRoot, PERSIST_FOLDER_TARGET_INFO ppfti) InitializeEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistFolder3*/SelfOuter* self, PERSIST_FOLDER_TARGET_INFO ppfti) GetFolderTargetInfo;
 	}
 
 
-	public HRESULT InitializeEx(IBindCtx* pbc, ITEMIDLIST* pidlRoot, PERSIST_FOLDER_TARGET_INFO* ppfti) mut => VT.[Friend]InitializeEx(&this, pbc, pidlRoot, ppfti);
+	public HRESULT InitializeEx(IBindCtx* pbc, ITEMIDLIST pidlRoot, PERSIST_FOLDER_TARGET_INFO ppfti) mut => VT.[Friend]InitializeEx(&this, pbc, pidlRoot, ppfti);
 
-	public HRESULT GetFolderTargetInfo(PERSIST_FOLDER_TARGET_INFO* ppfti) mut => VT.[Friend]GetFolderTargetInfo(&this, ppfti);
+	public HRESULT GetFolderTargetInfo(PERSIST_FOLDER_TARGET_INFO ppfti) mut => VT.[Friend]GetFolderTargetInfo(&this, ppfti);
 }
 
 [CRepr]struct IPersistIDList : IPersist
@@ -9253,14 +9253,14 @@ public static
 
 	[CRepr]public struct VTable : IPersist.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistIDList*/SelfOuter* self, ITEMIDLIST* pidl) SetIDList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistIDList*/SelfOuter* self, ITEMIDLIST** ppidl) GetIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistIDList*/SelfOuter* self, ITEMIDLIST pidl) SetIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistIDList*/SelfOuter* self, ITEMIDLIST ppidl) GetIDList;
 	}
 
 
-	public HRESULT SetIDList(ITEMIDLIST* pidl) mut => VT.[Friend]SetIDList(&this, pidl);
+	public HRESULT SetIDList(ITEMIDLIST pidl) mut => VT.[Friend]SetIDList(&this, pidl);
 
-	public HRESULT GetIDList(ITEMIDLIST** ppidl) mut => VT.[Friend]GetIDList(&this, ppidl);
+	public HRESULT GetIDList(ITEMIDLIST ppidl) mut => VT.[Friend]GetIDList(&this, ppidl);
 }
 
 [CRepr]struct IEnumIDList : IUnknown
@@ -9271,20 +9271,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumIDList*/SelfOuter* self, uint32 celt, ITEMIDLIST** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumIDList*/SelfOuter* self, uint32 celt, ITEMIDLIST* rgelt, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumIDList*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumIDList*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumIDList*/SelfOuter* self, IEnumIDList** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumIDList*/SelfOuter* self, IEnumIDList* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, ITEMIDLIST** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, ITEMIDLIST* rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumIDList** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumIDList* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct IEnumFullIDList : IUnknown
@@ -9295,20 +9295,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFullIDList*/SelfOuter* self, uint32 celt, ITEMIDLIST** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFullIDList*/SelfOuter* self, uint32 celt, ITEMIDLIST* rgelt, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFullIDList*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFullIDList*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFullIDList*/SelfOuter* self, IEnumFullIDList** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFullIDList*/SelfOuter* self, IEnumFullIDList* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, ITEMIDLIST** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, ITEMIDLIST* rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumFullIDList** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumFullIDList* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct IFileSyncMergeHandler : IUnknown
@@ -9319,12 +9319,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSyncMergeHandler*/SelfOuter* self, PWSTR localFilePath, PWSTR serverFilePath, MERGE_UPDATE_STATUS* updateStatus) Merge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSyncMergeHandler*/SelfOuter* self, PWSTR localFilePath, PWSTR serverFilePath, MERGE_UPDATE_STATUS updateStatus) Merge;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSyncMergeHandler*/SelfOuter* self, PWSTR localFilePath, HMONITOR monitorToDisplayOn) ShowResolveConflictUIAsync;
 	}
 
 
-	public HRESULT Merge(PWSTR localFilePath, PWSTR serverFilePath, MERGE_UPDATE_STATUS* updateStatus) mut => VT.[Friend]Merge(&this, localFilePath, serverFilePath, updateStatus);
+	public HRESULT Merge(PWSTR localFilePath, PWSTR serverFilePath, MERGE_UPDATE_STATUS updateStatus) mut => VT.[Friend]Merge(&this, localFilePath, serverFilePath, updateStatus);
 
 	public HRESULT ShowResolveConflictUIAsync(PWSTR localFilePath, HMONITOR monitorToDisplayOn) mut => VT.[Friend]ShowResolveConflictUIAsync(&this, localFilePath, monitorToDisplayOn);
 }
@@ -9338,13 +9338,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithFolderEnumMode*/SelfOuter* self, FOLDER_ENUM_MODE feMode) SetMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithFolderEnumMode*/SelfOuter* self, FOLDER_ENUM_MODE* pfeMode) GetMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithFolderEnumMode*/SelfOuter* self, FOLDER_ENUM_MODE pfeMode) GetMode;
 	}
 
 
 	public HRESULT SetMode(FOLDER_ENUM_MODE feMode) mut => VT.[Friend]SetMode(&this, feMode);
 
-	public HRESULT GetMode(FOLDER_ENUM_MODE* pfeMode) mut => VT.[Friend]GetMode(&this, pfeMode);
+	public HRESULT GetMode(FOLDER_ENUM_MODE pfeMode) mut => VT.[Friend]GetMode(&this, pfeMode);
 }
 
 [CRepr]struct IParseAndCreateItem : IUnknown
@@ -9356,13 +9356,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IParseAndCreateItem*/SelfOuter* self, IShellItem* psi) SetItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IParseAndCreateItem*/SelfOuter* self, Guid riid, void** ppv) GetItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IParseAndCreateItem*/SelfOuter* self, Guid riid, void ppv) GetItem;
 	}
 
 
 	public HRESULT SetItem(IShellItem* psi) mut => VT.[Friend]SetItem(&this, psi);
 
-	public HRESULT GetItem(Guid riid, void** ppv) mut => VT.[Friend]GetItem(&this, riid, ppv);
+	public HRESULT GetItem(Guid riid, void ppv) mut => VT.[Friend]GetItem(&this, riid, ppv);
 }
 
 [CRepr]struct IShellFolder : IUnknown
@@ -9373,38 +9373,38 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, HWND hwnd, IBindCtx* pbc, PWSTR pszDisplayName, uint32* pchEaten, ITEMIDLIST** ppidl, uint32* pdwAttributes) ParseDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, HWND hwnd, uint32 grfFlags, IEnumIDList** ppenumIDList) EnumObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, ITEMIDLIST* pidl, IBindCtx* pbc, Guid riid, void** ppv) BindToObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, ITEMIDLIST* pidl, IBindCtx* pbc, Guid riid, void** ppv) BindToStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, LPARAM lParam, ITEMIDLIST* pidl1, ITEMIDLIST* pidl2) CompareIDs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, HWND hwndOwner, Guid riid, void** ppv) CreateViewObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, uint32 cidl, ITEMIDLIST** apidl, uint32* rgfInOut) GetAttributesOf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, HWND hwndOwner, uint32 cidl, ITEMIDLIST** apidl, Guid riid, uint32* rgfReserved, void** ppv) GetUIObjectOf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, ITEMIDLIST* pidl, uint32 uFlags, STRRET* pName) GetDisplayNameOf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, HWND hwnd, ITEMIDLIST* pidl, PWSTR pszName, uint32 uFlags, ITEMIDLIST** ppidlOut) SetNameOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, HWND hwnd, IBindCtx* pbc, PWSTR pszDisplayName, uint32 pchEaten, ITEMIDLIST ppidl, uint32 pdwAttributes) ParseDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, HWND hwnd, uint32 grfFlags, IEnumIDList* ppenumIDList) EnumObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, ITEMIDLIST pidl, IBindCtx* pbc, Guid riid, void ppv) BindToObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, ITEMIDLIST pidl, IBindCtx* pbc, Guid riid, void ppv) BindToStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, LPARAM lParam, ITEMIDLIST pidl1, ITEMIDLIST pidl2) CompareIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, HWND hwndOwner, Guid riid, void ppv) CreateViewObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, uint32 cidl, ITEMIDLIST* apidl, uint32 rgfInOut) GetAttributesOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, HWND hwndOwner, uint32 cidl, ITEMIDLIST* apidl, Guid riid, uint32 rgfReserved, void ppv) GetUIObjectOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, ITEMIDLIST pidl, uint32 uFlags, STRRET pName) GetDisplayNameOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder*/SelfOuter* self, HWND hwnd, ITEMIDLIST pidl, PWSTR pszName, uint32 uFlags, ITEMIDLIST ppidlOut) SetNameOf;
 	}
 
 
-	public HRESULT ParseDisplayName(HWND hwnd, IBindCtx* pbc, PWSTR pszDisplayName, uint32* pchEaten, ITEMIDLIST** ppidl, uint32* pdwAttributes) mut => VT.[Friend]ParseDisplayName(&this, hwnd, pbc, pszDisplayName, pchEaten, ppidl, pdwAttributes);
+	public HRESULT ParseDisplayName(HWND hwnd, IBindCtx* pbc, PWSTR pszDisplayName, uint32 pchEaten, ITEMIDLIST ppidl, uint32 pdwAttributes) mut => VT.[Friend]ParseDisplayName(&this, hwnd, pbc, pszDisplayName, pchEaten, ppidl, pdwAttributes);
 
-	public HRESULT EnumObjects(HWND hwnd, uint32 grfFlags, IEnumIDList** ppenumIDList) mut => VT.[Friend]EnumObjects(&this, hwnd, grfFlags, ppenumIDList);
+	public HRESULT EnumObjects(HWND hwnd, uint32 grfFlags, IEnumIDList* ppenumIDList) mut => VT.[Friend]EnumObjects(&this, hwnd, grfFlags, ppenumIDList);
 
-	public HRESULT BindToObject(ITEMIDLIST* pidl, IBindCtx* pbc, Guid riid, void** ppv) mut => VT.[Friend]BindToObject(&this, pidl, pbc, riid, ppv);
+	public HRESULT BindToObject(ITEMIDLIST pidl, IBindCtx* pbc, Guid riid, void ppv) mut => VT.[Friend]BindToObject(&this, pidl, pbc, riid, ppv);
 
-	public HRESULT BindToStorage(ITEMIDLIST* pidl, IBindCtx* pbc, Guid riid, void** ppv) mut => VT.[Friend]BindToStorage(&this, pidl, pbc, riid, ppv);
+	public HRESULT BindToStorage(ITEMIDLIST pidl, IBindCtx* pbc, Guid riid, void ppv) mut => VT.[Friend]BindToStorage(&this, pidl, pbc, riid, ppv);
 
-	public HRESULT CompareIDs(LPARAM lParam, ITEMIDLIST* pidl1, ITEMIDLIST* pidl2) mut => VT.[Friend]CompareIDs(&this, lParam, pidl1, pidl2);
+	public HRESULT CompareIDs(LPARAM lParam, ITEMIDLIST pidl1, ITEMIDLIST pidl2) mut => VT.[Friend]CompareIDs(&this, lParam, pidl1, pidl2);
 
-	public HRESULT CreateViewObject(HWND hwndOwner, Guid riid, void** ppv) mut => VT.[Friend]CreateViewObject(&this, hwndOwner, riid, ppv);
+	public HRESULT CreateViewObject(HWND hwndOwner, Guid riid, void ppv) mut => VT.[Friend]CreateViewObject(&this, hwndOwner, riid, ppv);
 
-	public HRESULT GetAttributesOf(uint32 cidl, ITEMIDLIST** apidl, uint32* rgfInOut) mut => VT.[Friend]GetAttributesOf(&this, cidl, apidl, rgfInOut);
+	public HRESULT GetAttributesOf(uint32 cidl, ITEMIDLIST* apidl, uint32 rgfInOut) mut => VT.[Friend]GetAttributesOf(&this, cidl, apidl, rgfInOut);
 
-	public HRESULT GetUIObjectOf(HWND hwndOwner, uint32 cidl, ITEMIDLIST** apidl, Guid riid, uint32* rgfReserved, void** ppv) mut => VT.[Friend]GetUIObjectOf(&this, hwndOwner, cidl, apidl, riid, rgfReserved, ppv);
+	public HRESULT GetUIObjectOf(HWND hwndOwner, uint32 cidl, ITEMIDLIST* apidl, Guid riid, uint32 rgfReserved, void ppv) mut => VT.[Friend]GetUIObjectOf(&this, hwndOwner, cidl, apidl, riid, rgfReserved, ppv);
 
-	public HRESULT GetDisplayNameOf(ITEMIDLIST* pidl, uint32 uFlags, STRRET* pName) mut => VT.[Friend]GetDisplayNameOf(&this, pidl, uFlags, pName);
+	public HRESULT GetDisplayNameOf(ITEMIDLIST pidl, uint32 uFlags, STRRET pName) mut => VT.[Friend]GetDisplayNameOf(&this, pidl, uFlags, pName);
 
-	public HRESULT SetNameOf(HWND hwnd, ITEMIDLIST* pidl, PWSTR pszName, uint32 uFlags, ITEMIDLIST** ppidlOut) mut => VT.[Friend]SetNameOf(&this, hwnd, pidl, pszName, uFlags, ppidlOut);
+	public HRESULT SetNameOf(HWND hwnd, ITEMIDLIST pidl, PWSTR pszName, uint32 uFlags, ITEMIDLIST ppidlOut) mut => VT.[Friend]SetNameOf(&this, hwnd, pidl, pszName, uFlags, ppidlOut);
 }
 
 [CRepr]struct IEnumExtraSearch : IUnknown
@@ -9415,20 +9415,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExtraSearch*/SelfOuter* self, uint32 celt, EXTRASEARCH* rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExtraSearch*/SelfOuter* self, uint32 celt, EXTRASEARCH* rgelt, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExtraSearch*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExtraSearch*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExtraSearch*/SelfOuter* self, IEnumExtraSearch** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExtraSearch*/SelfOuter* self, IEnumExtraSearch* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, EXTRASEARCH* rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, EXTRASEARCH* rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumExtraSearch** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumExtraSearch* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct IShellFolder2 : IShellFolder
@@ -9440,28 +9440,28 @@ public static
 	[CRepr]public struct VTable : IShellFolder.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, Guid pguid) GetDefaultSearchGUID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, IEnumExtraSearch** ppenum) EnumSearches;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, uint32 dwRes, uint32* pSort, uint32* pDisplay) GetDefaultColumn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, uint32 iColumn, uint32* pcsFlags) GetDefaultColumnState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, ITEMIDLIST* pidl, PROPERTYKEY* pscid, VARIANT* pv) GetDetailsEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, ITEMIDLIST* pidl, uint32 iColumn, SHELLDETAILS* psd) GetDetailsOf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, uint32 iColumn, PROPERTYKEY* pscid) MapColumnToSCID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, IEnumExtraSearch* ppenum) EnumSearches;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, uint32 dwRes, uint32 pSort, uint32 pDisplay) GetDefaultColumn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, uint32 iColumn, uint32 pcsFlags) GetDefaultColumnState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, ITEMIDLIST pidl, PROPERTYKEY pscid, VARIANT pv) GetDetailsEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, ITEMIDLIST pidl, uint32 iColumn, SHELLDETAILS psd) GetDetailsOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolder2*/SelfOuter* self, uint32 iColumn, PROPERTYKEY pscid) MapColumnToSCID;
 	}
 
 
 	public HRESULT GetDefaultSearchGUID(Guid pguid) mut => VT.[Friend]GetDefaultSearchGUID(&this, pguid);
 
-	public HRESULT EnumSearches(IEnumExtraSearch** ppenum) mut => VT.[Friend]EnumSearches(&this, ppenum);
+	public HRESULT EnumSearches(IEnumExtraSearch* ppenum) mut => VT.[Friend]EnumSearches(&this, ppenum);
 
-	public HRESULT GetDefaultColumn(uint32 dwRes, uint32* pSort, uint32* pDisplay) mut => VT.[Friend]GetDefaultColumn(&this, dwRes, pSort, pDisplay);
+	public HRESULT GetDefaultColumn(uint32 dwRes, uint32 pSort, uint32 pDisplay) mut => VT.[Friend]GetDefaultColumn(&this, dwRes, pSort, pDisplay);
 
-	public HRESULT GetDefaultColumnState(uint32 iColumn, uint32* pcsFlags) mut => VT.[Friend]GetDefaultColumnState(&this, iColumn, pcsFlags);
+	public HRESULT GetDefaultColumnState(uint32 iColumn, uint32 pcsFlags) mut => VT.[Friend]GetDefaultColumnState(&this, iColumn, pcsFlags);
 
-	public HRESULT GetDetailsEx(ITEMIDLIST* pidl, PROPERTYKEY* pscid, VARIANT* pv) mut => VT.[Friend]GetDetailsEx(&this, pidl, pscid, pv);
+	public HRESULT GetDetailsEx(ITEMIDLIST pidl, PROPERTYKEY pscid, VARIANT pv) mut => VT.[Friend]GetDetailsEx(&this, pidl, pscid, pv);
 
-	public HRESULT GetDetailsOf(ITEMIDLIST* pidl, uint32 iColumn, SHELLDETAILS* psd) mut => VT.[Friend]GetDetailsOf(&this, pidl, iColumn, psd);
+	public HRESULT GetDetailsOf(ITEMIDLIST pidl, uint32 iColumn, SHELLDETAILS psd) mut => VT.[Friend]GetDetailsOf(&this, pidl, iColumn, psd);
 
-	public HRESULT MapColumnToSCID(uint32 iColumn, PROPERTYKEY* pscid) mut => VT.[Friend]MapColumnToSCID(&this, iColumn, pscid);
+	public HRESULT MapColumnToSCID(uint32 iColumn, PROPERTYKEY pscid) mut => VT.[Friend]MapColumnToSCID(&this, iColumn, pscid);
 }
 
 [CRepr]struct IShellView : IOleWindow
@@ -9472,21 +9472,21 @@ public static
 
 	[CRepr]public struct VTable : IOleWindow.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, MSG* pmsg) TranslateAccelerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, MSG pmsg) TranslateAccelerator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, BOOL fEnable) EnableModeless;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, uint32 uState) UIActivate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, IShellView* psvPrevious, FOLDERSETTINGS* pfs, IShellBrowser* psb, RECT* prcView, HWND* phWnd) CreateViewWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, IShellView* psvPrevious, FOLDERSETTINGS pfs, IShellBrowser* psb, RECT prcView, HWND phWnd) CreateViewWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self) DestroyViewWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, FOLDERSETTINGS* pfs) GetCurrentInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, FOLDERSETTINGS pfs) GetCurrentInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, uint32 dwReserved, LPFNSVADDPROPSHEETPAGE pfn, LPARAM lparam) AddPropertySheetPages;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self) SaveViewState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, ITEMIDLIST* pidlItem, uint32 uFlags) SelectItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, uint32 uItem, Guid riid, void** ppv) GetItemObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, ITEMIDLIST pidlItem, uint32 uFlags) SelectItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView*/SelfOuter* self, uint32 uItem, Guid riid, void ppv) GetItemObject;
 	}
 
 
-	public HRESULT TranslateAccelerator(MSG* pmsg) mut => VT.[Friend]TranslateAccelerator(&this, pmsg);
+	public HRESULT TranslateAccelerator(MSG pmsg) mut => VT.[Friend]TranslateAccelerator(&this, pmsg);
 
 	public HRESULT EnableModeless(BOOL fEnable) mut => VT.[Friend]EnableModeless(&this, fEnable);
 
@@ -9494,19 +9494,19 @@ public static
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT CreateViewWindow(IShellView* psvPrevious, FOLDERSETTINGS* pfs, IShellBrowser* psb, RECT* prcView, HWND* phWnd) mut => VT.[Friend]CreateViewWindow(&this, psvPrevious, pfs, psb, prcView, phWnd);
+	public HRESULT CreateViewWindow(IShellView* psvPrevious, FOLDERSETTINGS pfs, IShellBrowser* psb, RECT prcView, HWND phWnd) mut => VT.[Friend]CreateViewWindow(&this, psvPrevious, pfs, psb, prcView, phWnd);
 
 	public HRESULT DestroyViewWindow() mut => VT.[Friend]DestroyViewWindow(&this);
 
-	public HRESULT GetCurrentInfo(FOLDERSETTINGS* pfs) mut => VT.[Friend]GetCurrentInfo(&this, pfs);
+	public HRESULT GetCurrentInfo(FOLDERSETTINGS pfs) mut => VT.[Friend]GetCurrentInfo(&this, pfs);
 
 	public HRESULT AddPropertySheetPages(uint32 dwReserved, LPFNSVADDPROPSHEETPAGE pfn, LPARAM lparam) mut => VT.[Friend]AddPropertySheetPages(&this, dwReserved, pfn, lparam);
 
 	public HRESULT SaveViewState() mut => VT.[Friend]SaveViewState(&this);
 
-	public HRESULT SelectItem(ITEMIDLIST* pidlItem, uint32 uFlags) mut => VT.[Friend]SelectItem(&this, pidlItem, uFlags);
+	public HRESULT SelectItem(ITEMIDLIST pidlItem, uint32 uFlags) mut => VT.[Friend]SelectItem(&this, pidlItem, uFlags);
 
-	public HRESULT GetItemObject(uint32 uItem, Guid riid, void** ppv) mut => VT.[Friend]GetItemObject(&this, uItem, riid, ppv);
+	public HRESULT GetItemObject(uint32 uItem, Guid riid, void ppv) mut => VT.[Friend]GetItemObject(&this, uItem, riid, ppv);
 }
 
 [CRepr]struct IShellView2 : IShellView
@@ -9518,19 +9518,19 @@ public static
 	[CRepr]public struct VTable : IShellView.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView2*/SelfOuter* self, Guid pvid, uint32 uView) GetView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView2*/SelfOuter* self, SV2CVW2_PARAMS* lpParams) CreateViewWindow2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView2*/SelfOuter* self, ITEMIDLIST* pidlNew) HandleRename;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView2*/SelfOuter* self, ITEMIDLIST* pidlItem, uint32 uFlags, POINT* ppt) SelectAndPositionItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView2*/SelfOuter* self, SV2CVW2_PARAMS lpParams) CreateViewWindow2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView2*/SelfOuter* self, ITEMIDLIST pidlNew) HandleRename;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView2*/SelfOuter* self, ITEMIDLIST pidlItem, uint32 uFlags, POINT ppt) SelectAndPositionItem;
 	}
 
 
 	public HRESULT GetView(Guid pvid, uint32 uView) mut => VT.[Friend]GetView(&this, pvid, uView);
 
-	public HRESULT CreateViewWindow2(SV2CVW2_PARAMS* lpParams) mut => VT.[Friend]CreateViewWindow2(&this, lpParams);
+	public HRESULT CreateViewWindow2(SV2CVW2_PARAMS lpParams) mut => VT.[Friend]CreateViewWindow2(&this, lpParams);
 
-	public HRESULT HandleRename(ITEMIDLIST* pidlNew) mut => VT.[Friend]HandleRename(&this, pidlNew);
+	public HRESULT HandleRename(ITEMIDLIST pidlNew) mut => VT.[Friend]HandleRename(&this, pidlNew);
 
-	public HRESULT SelectAndPositionItem(ITEMIDLIST* pidlItem, uint32 uFlags, POINT* ppt) mut => VT.[Friend]SelectAndPositionItem(&this, pidlItem, uFlags, ppt);
+	public HRESULT SelectAndPositionItem(ITEMIDLIST pidlItem, uint32 uFlags, POINT ppt) mut => VT.[Friend]SelectAndPositionItem(&this, pidlItem, uFlags, ppt);
 }
 
 [CRepr]struct IFolderView : IUnknown
@@ -9541,50 +9541,50 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, uint32* pViewMode) GetCurrentViewMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, uint32 pViewMode) GetCurrentViewMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, uint32 ViewMode) SetCurrentViewMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, Guid riid, void** ppv) GetFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, int32 iItemIndex, ITEMIDLIST** ppidl) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, uint32 uFlags, int32* pcItems) ItemCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, uint32 uFlags, Guid riid, void** ppv) Items;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, int32* piItem) GetSelectionMarkedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, int32* piItem) GetFocusedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, ITEMIDLIST* pidl, POINT* ppt) GetItemPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, POINT* ppt) GetSpacing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, POINT* ppt) GetDefaultSpacing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, Guid riid, void ppv) GetFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, int32 iItemIndex, ITEMIDLIST ppidl) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, uint32 uFlags, int32 pcItems) ItemCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, uint32 uFlags, Guid riid, void ppv) Items;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, int32 piItem) GetSelectionMarkedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, int32 piItem) GetFocusedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, ITEMIDLIST pidl, POINT ppt) GetItemPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, POINT ppt) GetSpacing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, POINT ppt) GetDefaultSpacing;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self) GetAutoArrange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, int32 iItem, uint32 dwFlags) SelectItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, uint32 cidl, ITEMIDLIST** apidl, POINT* apt, uint32 dwFlags) SelectAndPositionItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView*/SelfOuter* self, uint32 cidl, ITEMIDLIST* apidl, POINT* apt, uint32 dwFlags) SelectAndPositionItems;
 	}
 
 
-	public HRESULT GetCurrentViewMode(uint32* pViewMode) mut => VT.[Friend]GetCurrentViewMode(&this, pViewMode);
+	public HRESULT GetCurrentViewMode(uint32 pViewMode) mut => VT.[Friend]GetCurrentViewMode(&this, pViewMode);
 
 	public HRESULT SetCurrentViewMode(uint32 ViewMode) mut => VT.[Friend]SetCurrentViewMode(&this, ViewMode);
 
-	public HRESULT GetFolder(Guid riid, void** ppv) mut => VT.[Friend]GetFolder(&this, riid, ppv);
+	public HRESULT GetFolder(Guid riid, void ppv) mut => VT.[Friend]GetFolder(&this, riid, ppv);
 
-	public HRESULT Item(int32 iItemIndex, ITEMIDLIST** ppidl) mut => VT.[Friend]Item(&this, iItemIndex, ppidl);
+	public HRESULT Item(int32 iItemIndex, ITEMIDLIST ppidl) mut => VT.[Friend]Item(&this, iItemIndex, ppidl);
 
-	public HRESULT ItemCount(uint32 uFlags, int32* pcItems) mut => VT.[Friend]ItemCount(&this, uFlags, pcItems);
+	public HRESULT ItemCount(uint32 uFlags, int32 pcItems) mut => VT.[Friend]ItemCount(&this, uFlags, pcItems);
 
-	public HRESULT Items(uint32 uFlags, Guid riid, void** ppv) mut => VT.[Friend]Items(&this, uFlags, riid, ppv);
+	public HRESULT Items(uint32 uFlags, Guid riid, void ppv) mut => VT.[Friend]Items(&this, uFlags, riid, ppv);
 
-	public HRESULT GetSelectionMarkedItem(int32* piItem) mut => VT.[Friend]GetSelectionMarkedItem(&this, piItem);
+	public HRESULT GetSelectionMarkedItem(int32 piItem) mut => VT.[Friend]GetSelectionMarkedItem(&this, piItem);
 
-	public HRESULT GetFocusedItem(int32* piItem) mut => VT.[Friend]GetFocusedItem(&this, piItem);
+	public HRESULT GetFocusedItem(int32 piItem) mut => VT.[Friend]GetFocusedItem(&this, piItem);
 
-	public HRESULT GetItemPosition(ITEMIDLIST* pidl, POINT* ppt) mut => VT.[Friend]GetItemPosition(&this, pidl, ppt);
+	public HRESULT GetItemPosition(ITEMIDLIST pidl, POINT ppt) mut => VT.[Friend]GetItemPosition(&this, pidl, ppt);
 
-	public HRESULT GetSpacing(POINT* ppt) mut => VT.[Friend]GetSpacing(&this, ppt);
+	public HRESULT GetSpacing(POINT ppt) mut => VT.[Friend]GetSpacing(&this, ppt);
 
-	public HRESULT GetDefaultSpacing(POINT* ppt) mut => VT.[Friend]GetDefaultSpacing(&this, ppt);
+	public HRESULT GetDefaultSpacing(POINT ppt) mut => VT.[Friend]GetDefaultSpacing(&this, ppt);
 
 	public HRESULT GetAutoArrange() mut => VT.[Friend]GetAutoArrange(&this);
 
 	public HRESULT SelectItem(int32 iItem, uint32 dwFlags) mut => VT.[Friend]SelectItem(&this, iItem, dwFlags);
 
-	public HRESULT SelectAndPositionItems(uint32 cidl, ITEMIDLIST** apidl, POINT* apt, uint32 dwFlags) mut => VT.[Friend]SelectAndPositionItems(&this, cidl, apidl, apt, dwFlags);
+	public HRESULT SelectAndPositionItems(uint32 cidl, ITEMIDLIST* apidl, POINT* apt, uint32 dwFlags) mut => VT.[Friend]SelectAndPositionItems(&this, cidl, apidl, apt, dwFlags);
 }
 
 [CRepr]struct IFolderView2 : IFolderView
@@ -9595,77 +9595,77 @@ public static
 
 	[CRepr]public struct VTable : IFolderView.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, PROPERTYKEY* key, BOOL fAscending) SetGroupBy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, PROPERTYKEY* pkey, BOOL* pfAscending) GetGroupBy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, ITEMIDLIST* pidl, PROPERTYKEY* propkey, PROPVARIANT* propvar) SetViewProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, ITEMIDLIST* pidl, PROPERTYKEY* propkey, PROPVARIANT* ppropvar) GetViewProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, ITEMIDLIST* pidl, PWSTR pszPropList) SetTileViewProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, ITEMIDLIST* pidl, PWSTR pszPropList) SetExtendedTileViewProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, PROPERTYKEY key, BOOL fAscending) SetGroupBy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, PROPERTYKEY pkey, BOOL pfAscending) GetGroupBy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, ITEMIDLIST pidl, PROPERTYKEY propkey, PROPVARIANT propvar) SetViewProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, ITEMIDLIST pidl, PROPERTYKEY propkey, PROPVARIANT ppropvar) GetViewProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, ITEMIDLIST pidl, PWSTR pszPropList) SetTileViewProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, ITEMIDLIST pidl, PWSTR pszPropList) SetExtendedTileViewProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, FVTEXTTYPE iType, PWSTR pwszText) SetText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, uint32 dwMask, uint32 dwFlags) SetCurrentFolderFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, uint32* pdwFlags) GetCurrentFolderFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, int32* pcColumns) GetSortColumnCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, uint32 pdwFlags) GetCurrentFolderFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, int32 pcColumns) GetSortColumnCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, SORTCOLUMN* rgSortColumns, int32 cColumns) SetSortColumns;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, SORTCOLUMN* rgSortColumns, int32 cColumns) GetSortColumns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, int32 iItem, Guid riid, void** ppv) GetItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, int32 iStart, BOOL fPrevious, int32* piItem) GetVisibleItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, int32 iStart, int32* piItem) GetSelectedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, BOOL fNoneImpliesFolder, IShellItemArray** ppsia) GetSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, ITEMIDLIST* pidl, uint32* pdwFlags) GetSelectionState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, int32 iItem, Guid riid, void ppv) GetItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, int32 iStart, BOOL fPrevious, int32 piItem) GetVisibleItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, int32 iStart, int32 piItem) GetSelectedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, BOOL fNoneImpliesFolder, IShellItemArray* ppsia) GetSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, ITEMIDLIST pidl, uint32 pdwFlags) GetSelectionState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, PSTR pszVerb) InvokeVerbOnSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, FOLDERVIEWMODE uViewMode, int32 iImageSize) SetViewModeAndIconSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, FOLDERVIEWMODE* puViewMode, int32* piImageSize) GetViewModeAndIconSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, FOLDERVIEWMODE puViewMode, int32 piImageSize) GetViewModeAndIconSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, uint32 cVisibleRows) SetGroupSubsetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, uint32* pcVisibleRows) GetGroupSubsetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, uint32 pcVisibleRows) GetGroupSubsetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self, BOOL fRedrawOn) SetRedraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self) IsMoveInSameFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderView2*/SelfOuter* self) DoRename;
 	}
 
 
-	public HRESULT SetGroupBy(PROPERTYKEY* key, BOOL fAscending) mut => VT.[Friend]SetGroupBy(&this, key, fAscending);
+	public HRESULT SetGroupBy(PROPERTYKEY key, BOOL fAscending) mut => VT.[Friend]SetGroupBy(&this, key, fAscending);
 
-	public HRESULT GetGroupBy(PROPERTYKEY* pkey, BOOL* pfAscending) mut => VT.[Friend]GetGroupBy(&this, pkey, pfAscending);
+	public HRESULT GetGroupBy(PROPERTYKEY pkey, BOOL pfAscending) mut => VT.[Friend]GetGroupBy(&this, pkey, pfAscending);
 
-	public HRESULT SetViewProperty(ITEMIDLIST* pidl, PROPERTYKEY* propkey, PROPVARIANT* propvar) mut => VT.[Friend]SetViewProperty(&this, pidl, propkey, propvar);
+	public HRESULT SetViewProperty(ITEMIDLIST pidl, PROPERTYKEY propkey, PROPVARIANT propvar) mut => VT.[Friend]SetViewProperty(&this, pidl, propkey, propvar);
 
-	public HRESULT GetViewProperty(ITEMIDLIST* pidl, PROPERTYKEY* propkey, PROPVARIANT* ppropvar) mut => VT.[Friend]GetViewProperty(&this, pidl, propkey, ppropvar);
+	public HRESULT GetViewProperty(ITEMIDLIST pidl, PROPERTYKEY propkey, PROPVARIANT ppropvar) mut => VT.[Friend]GetViewProperty(&this, pidl, propkey, ppropvar);
 
-	public HRESULT SetTileViewProperties(ITEMIDLIST* pidl, PWSTR pszPropList) mut => VT.[Friend]SetTileViewProperties(&this, pidl, pszPropList);
+	public HRESULT SetTileViewProperties(ITEMIDLIST pidl, PWSTR pszPropList) mut => VT.[Friend]SetTileViewProperties(&this, pidl, pszPropList);
 
-	public HRESULT SetExtendedTileViewProperties(ITEMIDLIST* pidl, PWSTR pszPropList) mut => VT.[Friend]SetExtendedTileViewProperties(&this, pidl, pszPropList);
+	public HRESULT SetExtendedTileViewProperties(ITEMIDLIST pidl, PWSTR pszPropList) mut => VT.[Friend]SetExtendedTileViewProperties(&this, pidl, pszPropList);
 
 	public HRESULT SetText(FVTEXTTYPE iType, PWSTR pwszText) mut => VT.[Friend]SetText(&this, iType, pwszText);
 
 	public HRESULT SetCurrentFolderFlags(uint32 dwMask, uint32 dwFlags) mut => VT.[Friend]SetCurrentFolderFlags(&this, dwMask, dwFlags);
 
-	public HRESULT GetCurrentFolderFlags(uint32* pdwFlags) mut => VT.[Friend]GetCurrentFolderFlags(&this, pdwFlags);
+	public HRESULT GetCurrentFolderFlags(uint32 pdwFlags) mut => VT.[Friend]GetCurrentFolderFlags(&this, pdwFlags);
 
-	public HRESULT GetSortColumnCount(int32* pcColumns) mut => VT.[Friend]GetSortColumnCount(&this, pcColumns);
+	public HRESULT GetSortColumnCount(int32 pcColumns) mut => VT.[Friend]GetSortColumnCount(&this, pcColumns);
 
 	public HRESULT SetSortColumns(SORTCOLUMN* rgSortColumns, int32 cColumns) mut => VT.[Friend]SetSortColumns(&this, rgSortColumns, cColumns);
 
 	public HRESULT GetSortColumns(SORTCOLUMN* rgSortColumns, int32 cColumns) mut => VT.[Friend]GetSortColumns(&this, rgSortColumns, cColumns);
 
-	public HRESULT GetItem(int32 iItem, Guid riid, void** ppv) mut => VT.[Friend]GetItem(&this, iItem, riid, ppv);
+	public HRESULT GetItem(int32 iItem, Guid riid, void ppv) mut => VT.[Friend]GetItem(&this, iItem, riid, ppv);
 
-	public HRESULT GetVisibleItem(int32 iStart, BOOL fPrevious, int32* piItem) mut => VT.[Friend]GetVisibleItem(&this, iStart, fPrevious, piItem);
+	public HRESULT GetVisibleItem(int32 iStart, BOOL fPrevious, int32 piItem) mut => VT.[Friend]GetVisibleItem(&this, iStart, fPrevious, piItem);
 
-	public HRESULT GetSelectedItem(int32 iStart, int32* piItem) mut => VT.[Friend]GetSelectedItem(&this, iStart, piItem);
+	public HRESULT GetSelectedItem(int32 iStart, int32 piItem) mut => VT.[Friend]GetSelectedItem(&this, iStart, piItem);
 
-	public HRESULT GetSelection(BOOL fNoneImpliesFolder, IShellItemArray** ppsia) mut => VT.[Friend]GetSelection(&this, fNoneImpliesFolder, ppsia);
+	public HRESULT GetSelection(BOOL fNoneImpliesFolder, IShellItemArray* ppsia) mut => VT.[Friend]GetSelection(&this, fNoneImpliesFolder, ppsia);
 
-	public HRESULT GetSelectionState(ITEMIDLIST* pidl, uint32* pdwFlags) mut => VT.[Friend]GetSelectionState(&this, pidl, pdwFlags);
+	public HRESULT GetSelectionState(ITEMIDLIST pidl, uint32 pdwFlags) mut => VT.[Friend]GetSelectionState(&this, pidl, pdwFlags);
 
 	public HRESULT InvokeVerbOnSelection(PSTR pszVerb) mut => VT.[Friend]InvokeVerbOnSelection(&this, pszVerb);
 
 	public HRESULT SetViewModeAndIconSize(FOLDERVIEWMODE uViewMode, int32 iImageSize) mut => VT.[Friend]SetViewModeAndIconSize(&this, uViewMode, iImageSize);
 
-	public HRESULT GetViewModeAndIconSize(FOLDERVIEWMODE* puViewMode, int32* piImageSize) mut => VT.[Friend]GetViewModeAndIconSize(&this, puViewMode, piImageSize);
+	public HRESULT GetViewModeAndIconSize(FOLDERVIEWMODE puViewMode, int32 piImageSize) mut => VT.[Friend]GetViewModeAndIconSize(&this, puViewMode, piImageSize);
 
 	public HRESULT SetGroupSubsetCount(uint32 cVisibleRows) mut => VT.[Friend]SetGroupSubsetCount(&this, cVisibleRows);
 
-	public HRESULT GetGroupSubsetCount(uint32* pcVisibleRows) mut => VT.[Friend]GetGroupSubsetCount(&this, pcVisibleRows);
+	public HRESULT GetGroupSubsetCount(uint32 pcVisibleRows) mut => VT.[Friend]GetGroupSubsetCount(&this, pcVisibleRows);
 
 	public HRESULT SetRedraw(BOOL fRedrawOn) mut => VT.[Friend]SetRedraw(&this, fRedrawOn);
 
@@ -9682,29 +9682,29 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, Guid riid, void** ppv) GetColumnPropertyList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, PROPERTYKEY* pkey, BOOL* pfGroupAscending) GetGroupByProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, FOLDERLOGICALVIEWMODE* plvm) GetViewMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, uint32* puIconSize) GetIconSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, FOLDERFLAGS* pfolderMask, FOLDERFLAGS* pfolderFlags) GetFolderFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, SORTCOLUMN* rgSortColumns, uint32 cColumnsIn, uint32* pcColumnsOut) GetSortColumns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, uint32* pcVisibleRows) GetGroupSubsetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, Guid riid, void ppv) GetColumnPropertyList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, PROPERTYKEY pkey, BOOL pfGroupAscending) GetGroupByProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, FOLDERLOGICALVIEWMODE plvm) GetViewMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, uint32 puIconSize) GetIconSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, FOLDERFLAGS pfolderMask, FOLDERFLAGS pfolderFlags) GetFolderFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, SORTCOLUMN* rgSortColumns, uint32 cColumnsIn, uint32 pcColumnsOut) GetSortColumns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewSettings*/SelfOuter* self, uint32 pcVisibleRows) GetGroupSubsetCount;
 	}
 
 
-	public HRESULT GetColumnPropertyList(Guid riid, void** ppv) mut => VT.[Friend]GetColumnPropertyList(&this, riid, ppv);
+	public HRESULT GetColumnPropertyList(Guid riid, void ppv) mut => VT.[Friend]GetColumnPropertyList(&this, riid, ppv);
 
-	public HRESULT GetGroupByProperty(PROPERTYKEY* pkey, BOOL* pfGroupAscending) mut => VT.[Friend]GetGroupByProperty(&this, pkey, pfGroupAscending);
+	public HRESULT GetGroupByProperty(PROPERTYKEY pkey, BOOL pfGroupAscending) mut => VT.[Friend]GetGroupByProperty(&this, pkey, pfGroupAscending);
 
-	public HRESULT GetViewMode(FOLDERLOGICALVIEWMODE* plvm) mut => VT.[Friend]GetViewMode(&this, plvm);
+	public HRESULT GetViewMode(FOLDERLOGICALVIEWMODE plvm) mut => VT.[Friend]GetViewMode(&this, plvm);
 
-	public HRESULT GetIconSize(uint32* puIconSize) mut => VT.[Friend]GetIconSize(&this, puIconSize);
+	public HRESULT GetIconSize(uint32 puIconSize) mut => VT.[Friend]GetIconSize(&this, puIconSize);
 
-	public HRESULT GetFolderFlags(FOLDERFLAGS* pfolderMask, FOLDERFLAGS* pfolderFlags) mut => VT.[Friend]GetFolderFlags(&this, pfolderMask, pfolderFlags);
+	public HRESULT GetFolderFlags(FOLDERFLAGS pfolderMask, FOLDERFLAGS pfolderFlags) mut => VT.[Friend]GetFolderFlags(&this, pfolderMask, pfolderFlags);
 
-	public HRESULT GetSortColumns(SORTCOLUMN* rgSortColumns, uint32 cColumnsIn, uint32* pcColumnsOut) mut => VT.[Friend]GetSortColumns(&this, rgSortColumns, cColumnsIn, pcColumnsOut);
+	public HRESULT GetSortColumns(SORTCOLUMN* rgSortColumns, uint32 cColumnsIn, uint32 pcColumnsOut) mut => VT.[Friend]GetSortColumns(&this, rgSortColumns, cColumnsIn, pcColumnsOut);
 
-	public HRESULT GetGroupSubsetCount(uint32* pcVisibleRows) mut => VT.[Friend]GetGroupSubsetCount(&this, pcVisibleRows);
+	public HRESULT GetGroupSubsetCount(uint32 pcVisibleRows) mut => VT.[Friend]GetGroupSubsetCount(&this, pcVisibleRows);
 }
 
 [CRepr]struct IInitializeNetworkFolder : IUnknown
@@ -9715,11 +9715,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInitializeNetworkFolder*/SelfOuter* self, ITEMIDLIST* pidl, ITEMIDLIST* pidlTarget, uint32 uDisplayType, PWSTR pszResName, PWSTR pszProvider) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInitializeNetworkFolder*/SelfOuter* self, ITEMIDLIST pidl, ITEMIDLIST pidlTarget, uint32 uDisplayType, PWSTR pszResName, PWSTR pszProvider) Initialize;
 	}
 
 
-	public HRESULT Initialize(ITEMIDLIST* pidl, ITEMIDLIST* pidlTarget, uint32 uDisplayType, PWSTR pszResName, PWSTR pszProvider) mut => VT.[Friend]Initialize(&this, pidl, pidlTarget, uDisplayType, pszResName, pszProvider);
+	public HRESULT Initialize(ITEMIDLIST pidl, ITEMIDLIST pidlTarget, uint32 uDisplayType, PWSTR pszResName, PWSTR pszProvider) mut => VT.[Friend]Initialize(&this, pidl, pidlTarget, uDisplayType, pszResName, pszProvider);
 }
 
 [CRepr]struct INetworkFolderInternal : IUnknown
@@ -9730,17 +9730,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkFolderInternal*/SelfOuter* self, uint32* displayType) GetResourceDisplayType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkFolderInternal*/SelfOuter* self, ITEMIDLIST** idList) GetIDList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkFolderInternal*/SelfOuter* self, uint32 itemIdCount, ITEMIDLIST** itemIds, uint32 providerMaxLength, char16* provider) GetProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkFolderInternal*/SelfOuter* self, uint32 displayType) GetResourceDisplayType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkFolderInternal*/SelfOuter* self, ITEMIDLIST idList) GetIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkFolderInternal*/SelfOuter* self, uint32 itemIdCount, ITEMIDLIST* itemIds, uint32 providerMaxLength, char16* provider) GetProvider;
 	}
 
 
-	public HRESULT GetResourceDisplayType(uint32* displayType) mut => VT.[Friend]GetResourceDisplayType(&this, displayType);
+	public HRESULT GetResourceDisplayType(uint32 displayType) mut => VT.[Friend]GetResourceDisplayType(&this, displayType);
 
-	public HRESULT GetIDList(ITEMIDLIST** idList) mut => VT.[Friend]GetIDList(&this, idList);
+	public HRESULT GetIDList(ITEMIDLIST idList) mut => VT.[Friend]GetIDList(&this, idList);
 
-	public HRESULT GetProvider(uint32 itemIdCount, ITEMIDLIST** itemIds, uint32 providerMaxLength, char16* provider) mut => VT.[Friend]GetProvider(&this, itemIdCount, itemIds, providerMaxLength, provider);
+	public HRESULT GetProvider(uint32 itemIdCount, ITEMIDLIST* itemIds, uint32 providerMaxLength, char16* provider) mut => VT.[Friend]GetProvider(&this, itemIdCount, itemIds, providerMaxLength, provider);
 }
 
 [CRepr]struct IPreviewHandlerVisuals : IUnknown
@@ -9752,14 +9752,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandlerVisuals*/SelfOuter* self, uint32 color) SetBackgroundColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandlerVisuals*/SelfOuter* self, LOGFONTW* plf) SetFont;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandlerVisuals*/SelfOuter* self, LOGFONTW plf) SetFont;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandlerVisuals*/SelfOuter* self, uint32 color) SetTextColor;
 	}
 
 
 	public HRESULT SetBackgroundColor(uint32 color) mut => VT.[Friend]SetBackgroundColor(&this, color);
 
-	public HRESULT SetFont(LOGFONTW* plf) mut => VT.[Friend]SetFont(&this, plf);
+	public HRESULT SetFont(LOGFONTW plf) mut => VT.[Friend]SetFont(&this, plf);
 
 	public HRESULT SetTextColor(uint32 color) mut => VT.[Friend]SetTextColor(&this, color);
 }
@@ -9774,7 +9774,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser*/SelfOuter* self, IShellView* ppshv) OnDefaultCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser*/SelfOuter* self, IShellView* ppshv, uint32 uChange) OnStateChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser*/SelfOuter* self, IShellView* ppshv, ITEMIDLIST* pidl) IncludeObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser*/SelfOuter* self, IShellView* ppshv, ITEMIDLIST pidl) IncludeObject;
 	}
 
 
@@ -9782,7 +9782,7 @@ public static
 
 	public HRESULT OnStateChange(IShellView* ppshv, uint32 uChange) mut => VT.[Friend]OnStateChange(&this, ppshv, uChange);
 
-	public HRESULT IncludeObject(IShellView* ppshv, ITEMIDLIST* pidl) mut => VT.[Friend]IncludeObject(&this, ppshv, pidl);
+	public HRESULT IncludeObject(IShellView* ppshv, ITEMIDLIST pidl) mut => VT.[Friend]IncludeObject(&this, ppshv, pidl);
 }
 
 [CRepr]struct ICommDlgBrowser2 : ICommDlgBrowser
@@ -9795,7 +9795,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser2*/SelfOuter* self, IShellView* ppshv, uint32 dwNotifyType) Notify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser2*/SelfOuter* self, IShellView* ppshv, char16* pszText, int32 cchMax) GetDefaultMenuText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser2*/SelfOuter* self, uint32* pdwFlags) GetViewFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommDlgBrowser2*/SelfOuter* self, uint32 pdwFlags) GetViewFlags;
 	}
 
 
@@ -9803,7 +9803,7 @@ public static
 
 	public HRESULT GetDefaultMenuText(IShellView* ppshv, char16* pszText, int32 cchMax) mut => VT.[Friend]GetDefaultMenuText(&this, ppshv, pszText, cchMax);
 
-	public HRESULT GetViewFlags(uint32* pdwFlags) mut => VT.[Friend]GetViewFlags(&this, pdwFlags);
+	public HRESULT GetViewFlags(uint32 pdwFlags) mut => VT.[Friend]GetViewFlags(&this, pdwFlags);
 }
 
 [CRepr]struct IColumnManager : IUnknown
@@ -9814,19 +9814,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnManager*/SelfOuter* self, PROPERTYKEY* propkey, CM_COLUMNINFO* pcmci) SetColumnInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnManager*/SelfOuter* self, PROPERTYKEY* propkey, CM_COLUMNINFO* pcmci) GetColumnInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnManager*/SelfOuter* self, CM_ENUM_FLAGS dwFlags, uint32* puCount) GetColumnCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnManager*/SelfOuter* self, PROPERTYKEY propkey, CM_COLUMNINFO pcmci) SetColumnInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnManager*/SelfOuter* self, PROPERTYKEY propkey, CM_COLUMNINFO pcmci) GetColumnInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnManager*/SelfOuter* self, CM_ENUM_FLAGS dwFlags, uint32 puCount) GetColumnCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnManager*/SelfOuter* self, CM_ENUM_FLAGS dwFlags, PROPERTYKEY* rgkeyOrder, uint32 cColumns) GetColumns;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnManager*/SelfOuter* self, PROPERTYKEY* rgkeyOrder, uint32 cVisible) SetColumns;
 	}
 
 
-	public HRESULT SetColumnInfo(PROPERTYKEY* propkey, CM_COLUMNINFO* pcmci) mut => VT.[Friend]SetColumnInfo(&this, propkey, pcmci);
+	public HRESULT SetColumnInfo(PROPERTYKEY propkey, CM_COLUMNINFO pcmci) mut => VT.[Friend]SetColumnInfo(&this, propkey, pcmci);
 
-	public HRESULT GetColumnInfo(PROPERTYKEY* propkey, CM_COLUMNINFO* pcmci) mut => VT.[Friend]GetColumnInfo(&this, propkey, pcmci);
+	public HRESULT GetColumnInfo(PROPERTYKEY propkey, CM_COLUMNINFO pcmci) mut => VT.[Friend]GetColumnInfo(&this, propkey, pcmci);
 
-	public HRESULT GetColumnCount(CM_ENUM_FLAGS dwFlags, uint32* puCount) mut => VT.[Friend]GetColumnCount(&this, dwFlags, puCount);
+	public HRESULT GetColumnCount(CM_ENUM_FLAGS dwFlags, uint32 puCount) mut => VT.[Friend]GetColumnCount(&this, dwFlags, puCount);
 
 	public HRESULT GetColumns(CM_ENUM_FLAGS dwFlags, PROPERTYKEY* rgkeyOrder, uint32 cColumns) mut => VT.[Friend]GetColumns(&this, dwFlags, rgkeyOrder, cColumns);
 
@@ -9856,14 +9856,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderFilter*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST* pidlFolder, ITEMIDLIST* pidlItem) ShouldShow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderFilter*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST* pidlFolder, HWND* phwnd, uint32* pgrfFlags) GetEnumFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderFilter*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST pidlFolder, ITEMIDLIST pidlItem) ShouldShow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderFilter*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST pidlFolder, HWND phwnd, uint32 pgrfFlags) GetEnumFlags;
 	}
 
 
-	public HRESULT ShouldShow(IShellFolder* psf, ITEMIDLIST* pidlFolder, ITEMIDLIST* pidlItem) mut => VT.[Friend]ShouldShow(&this, psf, pidlFolder, pidlItem);
+	public HRESULT ShouldShow(IShellFolder* psf, ITEMIDLIST pidlFolder, ITEMIDLIST pidlItem) mut => VT.[Friend]ShouldShow(&this, psf, pidlFolder, pidlItem);
 
-	public HRESULT GetEnumFlags(IShellFolder* psf, ITEMIDLIST* pidlFolder, HWND* phwnd, uint32* pgrfFlags) mut => VT.[Friend]GetEnumFlags(&this, psf, pidlFolder, phwnd, pgrfFlags);
+	public HRESULT GetEnumFlags(IShellFolder* psf, ITEMIDLIST pidlFolder, HWND phwnd, uint32 pgrfFlags) mut => VT.[Friend]GetEnumFlags(&this, psf, pidlFolder, phwnd, pgrfFlags);
 }
 
 [CRepr]struct IInputObjectSite : IUnknown
@@ -9889,17 +9889,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputObject*/SelfOuter* self, BOOL fActivate, MSG* pMsg) UIActivateIO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputObject*/SelfOuter* self, BOOL fActivate, MSG pMsg) UIActivateIO;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputObject*/SelfOuter* self) HasFocusIO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputObject*/SelfOuter* self, MSG* pMsg) TranslateAcceleratorIO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputObject*/SelfOuter* self, MSG pMsg) TranslateAcceleratorIO;
 	}
 
 
-	public HRESULT UIActivateIO(BOOL fActivate, MSG* pMsg) mut => VT.[Friend]UIActivateIO(&this, fActivate, pMsg);
+	public HRESULT UIActivateIO(BOOL fActivate, MSG pMsg) mut => VT.[Friend]UIActivateIO(&this, fActivate, pMsg);
 
 	public HRESULT HasFocusIO() mut => VT.[Friend]HasFocusIO(&this);
 
-	public HRESULT TranslateAcceleratorIO(MSG* pMsg) mut => VT.[Friend]TranslateAcceleratorIO(&this, pMsg);
+	public HRESULT TranslateAcceleratorIO(MSG pMsg) mut => VT.[Friend]TranslateAcceleratorIO(&this, pMsg);
 }
 
 [CRepr]struct IInputObject2 : IInputObject
@@ -9910,11 +9910,11 @@ public static
 
 	[CRepr]public struct VTable : IInputObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputObject2*/SelfOuter* self, MSG* pMsg) TranslateAcceleratorGlobal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputObject2*/SelfOuter* self, MSG pMsg) TranslateAcceleratorGlobal;
 	}
 
 
-	public HRESULT TranslateAcceleratorGlobal(MSG* pMsg) mut => VT.[Friend]TranslateAcceleratorGlobal(&this, pMsg);
+	public HRESULT TranslateAcceleratorGlobal(MSG pMsg) mut => VT.[Friend]TranslateAcceleratorGlobal(&this, pMsg);
 }
 
 [CRepr]struct IShellIcon : IUnknown
@@ -9925,11 +9925,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIcon*/SelfOuter* self, ITEMIDLIST* pidl, uint32 flags, int32* pIconIndex) GetIconOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIcon*/SelfOuter* self, ITEMIDLIST pidl, uint32 flags, int32 pIconIndex) GetIconOf;
 	}
 
 
-	public HRESULT GetIconOf(ITEMIDLIST* pidl, uint32 flags, int32* pIconIndex) mut => VT.[Friend]GetIconOf(&this, pidl, flags, pIconIndex);
+	public HRESULT GetIconOf(ITEMIDLIST pidl, uint32 flags, int32 pIconIndex) mut => VT.[Friend]GetIconOf(&this, pidl, flags, pIconIndex);
 }
 
 [CRepr]struct IShellBrowser : IOleWindow
@@ -9940,23 +9940,23 @@ public static
 
 	[CRepr]public struct VTable : IOleWindow.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, HMENU hmenuShared, OleMenuGroupWidths* lpMenuWidths) InsertMenusSB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, HMENU hmenuShared, OleMenuGroupWidths lpMenuWidths) InsertMenusSB;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, HMENU hmenuShared, int holemenuRes, HWND hwndActiveObject) SetMenuSB;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, HMENU hmenuShared) RemoveMenusSB;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, PWSTR pszStatusText) SetStatusTextSB;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, BOOL fEnable) EnableModelessSB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, MSG* pmsg, uint16 wID) TranslateAcceleratorSB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, ITEMIDLIST* pidl, uint32 wFlags) BrowseObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, uint32 grfMode, IStream** ppStrm) GetViewStateStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, uint32 id, HWND* phwnd) GetControlWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, uint32 id, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* pret) SendControlMsg;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, IShellView** ppshv) QueryActiveShellView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, MSG pmsg, uint16 wID) TranslateAcceleratorSB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, ITEMIDLIST pidl, uint32 wFlags) BrowseObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, uint32 grfMode, IStream* ppStrm) GetViewStateStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, uint32 id, HWND phwnd) GetControlWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, uint32 id, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT pret) SendControlMsg;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, IShellView* ppshv) QueryActiveShellView;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, IShellView* pshv) OnViewWindowActive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellBrowser*/SelfOuter* self, TBBUTTON* lpButtons, uint32 nButtons, uint32 uFlags) SetToolbarItems;
 	}
 
 
-	public HRESULT InsertMenusSB(HMENU hmenuShared, OleMenuGroupWidths* lpMenuWidths) mut => VT.[Friend]InsertMenusSB(&this, hmenuShared, lpMenuWidths);
+	public HRESULT InsertMenusSB(HMENU hmenuShared, OleMenuGroupWidths lpMenuWidths) mut => VT.[Friend]InsertMenusSB(&this, hmenuShared, lpMenuWidths);
 
 	public HRESULT SetMenuSB(HMENU hmenuShared, int holemenuRes, HWND hwndActiveObject) mut => VT.[Friend]SetMenuSB(&this, hmenuShared, holemenuRes, hwndActiveObject);
 
@@ -9966,17 +9966,17 @@ public static
 
 	public HRESULT EnableModelessSB(BOOL fEnable) mut => VT.[Friend]EnableModelessSB(&this, fEnable);
 
-	public HRESULT TranslateAcceleratorSB(MSG* pmsg, uint16 wID) mut => VT.[Friend]TranslateAcceleratorSB(&this, pmsg, wID);
+	public HRESULT TranslateAcceleratorSB(MSG pmsg, uint16 wID) mut => VT.[Friend]TranslateAcceleratorSB(&this, pmsg, wID);
 
-	public HRESULT BrowseObject(ITEMIDLIST* pidl, uint32 wFlags) mut => VT.[Friend]BrowseObject(&this, pidl, wFlags);
+	public HRESULT BrowseObject(ITEMIDLIST pidl, uint32 wFlags) mut => VT.[Friend]BrowseObject(&this, pidl, wFlags);
 
-	public HRESULT GetViewStateStream(uint32 grfMode, IStream** ppStrm) mut => VT.[Friend]GetViewStateStream(&this, grfMode, ppStrm);
+	public HRESULT GetViewStateStream(uint32 grfMode, IStream* ppStrm) mut => VT.[Friend]GetViewStateStream(&this, grfMode, ppStrm);
 
-	public HRESULT GetControlWindow(uint32 id, HWND* phwnd) mut => VT.[Friend]GetControlWindow(&this, id, phwnd);
+	public HRESULT GetControlWindow(uint32 id, HWND phwnd) mut => VT.[Friend]GetControlWindow(&this, id, phwnd);
 
-	public HRESULT SendControlMsg(uint32 id, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* pret) mut => VT.[Friend]SendControlMsg(&this, id, uMsg, wParam, lParam, pret);
+	public HRESULT SendControlMsg(uint32 id, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT pret) mut => VT.[Friend]SendControlMsg(&this, id, uMsg, wParam, lParam, pret);
 
-	public HRESULT QueryActiveShellView(IShellView** ppshv) mut => VT.[Friend]QueryActiveShellView(&this, ppshv);
+	public HRESULT QueryActiveShellView(IShellView* ppshv) mut => VT.[Friend]QueryActiveShellView(&this, ppshv);
 
 	public HRESULT OnViewWindowActive(IShellView* pshv) mut => VT.[Friend]OnViewWindowActive(&this, pshv);
 
@@ -9991,12 +9991,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProfferService*/SelfOuter* self, Guid serviceId, IServiceProvider* serviceProvider, uint32* cookie) ProfferService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProfferService*/SelfOuter* self, Guid serviceId, IServiceProvider* serviceProvider, uint32 cookie) ProfferService;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProfferService*/SelfOuter* self, uint32 cookie) RevokeService;
 	}
 
 
-	public HRESULT ProfferService(Guid serviceId, IServiceProvider* serviceProvider, uint32* cookie) mut => VT.[Friend]ProfferService(&this, serviceId, serviceProvider, cookie);
+	public HRESULT ProfferService(Guid serviceId, IServiceProvider* serviceProvider, uint32 cookie) mut => VT.[Friend]ProfferService(&this, serviceId, serviceProvider, cookie);
 
 	public HRESULT RevokeService(uint32 cookie) mut => VT.[Friend]RevokeService(&this, cookie);
 }
@@ -10009,11 +10009,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetServiceIds*/SelfOuter* self, uint32* serviceIdCount, Guid* serviceIds) GetServiceIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetServiceIds*/SelfOuter* self, uint32 serviceIdCount, Guid* serviceIds) GetServiceIds;
 	}
 
 
-	public HRESULT GetServiceIds(uint32* serviceIdCount, Guid* serviceIds) mut => VT.[Friend]GetServiceIds(&this, serviceIdCount, serviceIds);
+	public HRESULT GetServiceIds(uint32 serviceIdCount, Guid* serviceIds) mut => VT.[Friend]GetServiceIds(&this, serviceIdCount, serviceIds);
 }
 
 [CRepr]struct IShellItem : IUnknown
@@ -10024,23 +10024,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem*/SelfOuter* self, IBindCtx* pbc, Guid bhid, Guid riid, void** ppv) BindToHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem*/SelfOuter* self, IShellItem** ppsi) GetParent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem*/SelfOuter* self, SIGDN sigdnName, PWSTR* ppszName) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem*/SelfOuter* self, uint32 sfgaoMask, uint32* psfgaoAttribs) GetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem*/SelfOuter* self, IShellItem* psi, uint32 hint, int32* piOrder) Compare;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem*/SelfOuter* self, IBindCtx* pbc, Guid bhid, Guid riid, void ppv) BindToHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem*/SelfOuter* self, IShellItem* ppsi) GetParent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem*/SelfOuter* self, SIGDN sigdnName, PWSTR ppszName) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem*/SelfOuter* self, uint32 sfgaoMask, uint32 psfgaoAttribs) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem*/SelfOuter* self, IShellItem* psi, uint32 hint, int32 piOrder) Compare;
 	}
 
 
-	public HRESULT BindToHandler(IBindCtx* pbc, Guid bhid, Guid riid, void** ppv) mut => VT.[Friend]BindToHandler(&this, pbc, bhid, riid, ppv);
+	public HRESULT BindToHandler(IBindCtx* pbc, Guid bhid, Guid riid, void ppv) mut => VT.[Friend]BindToHandler(&this, pbc, bhid, riid, ppv);
 
-	public HRESULT GetParent(IShellItem** ppsi) mut => VT.[Friend]GetParent(&this, ppsi);
+	public HRESULT GetParent(IShellItem* ppsi) mut => VT.[Friend]GetParent(&this, ppsi);
 
-	public HRESULT GetDisplayName(SIGDN sigdnName, PWSTR* ppszName) mut => VT.[Friend]GetDisplayName(&this, sigdnName, ppszName);
+	public HRESULT GetDisplayName(SIGDN sigdnName, PWSTR ppszName) mut => VT.[Friend]GetDisplayName(&this, sigdnName, ppszName);
 
-	public HRESULT GetAttributes(uint32 sfgaoMask, uint32* psfgaoAttribs) mut => VT.[Friend]GetAttributes(&this, sfgaoMask, psfgaoAttribs);
+	public HRESULT GetAttributes(uint32 sfgaoMask, uint32 psfgaoAttribs) mut => VT.[Friend]GetAttributes(&this, sfgaoMask, psfgaoAttribs);
 
-	public HRESULT Compare(IShellItem* psi, uint32 hint, int32* piOrder) mut => VT.[Friend]Compare(&this, psi, hint, piOrder);
+	public HRESULT Compare(IShellItem* psi, uint32 hint, int32 piOrder) mut => VT.[Friend]Compare(&this, psi, hint, piOrder);
 }
 
 [CRepr]struct IShellItem2 : IShellItem
@@ -10051,47 +10051,47 @@ public static
 
 	[CRepr]public struct VTable : IShellItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, GETPROPERTYSTOREFLAGS flags, Guid riid, void** ppv) GetPropertyStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, GETPROPERTYSTOREFLAGS flags, IUnknown* punkCreateObject, Guid riid, void** ppv) GetPropertyStoreWithCreateObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* rgKeys, uint32 cKeys, GETPROPERTYSTOREFLAGS flags, Guid riid, void** ppv) GetPropertyStoreForKeys;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* keyType, Guid riid, void** ppv) GetPropertyDescriptionList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, GETPROPERTYSTOREFLAGS flags, Guid riid, void ppv) GetPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, GETPROPERTYSTOREFLAGS flags, IUnknown* punkCreateObject, Guid riid, void ppv) GetPropertyStoreWithCreateObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* rgKeys, uint32 cKeys, GETPROPERTYSTOREFLAGS flags, Guid riid, void ppv) GetPropertyStoreForKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY keyType, Guid riid, void ppv) GetPropertyDescriptionList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, IBindCtx* pbc) Update;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* ppropvar) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* key, Guid pclsid) GetCLSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* key, FILETIME* pft) GetFileTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* key, int32* pi) GetInt32;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* key, PWSTR* ppsz) GetString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* key, uint32* pui) GetUInt32;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* key, uint64* pull) GetUInt64;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY* key, BOOL* pf) GetBool;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY key, PROPVARIANT ppropvar) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY key, Guid pclsid) GetCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY key, FILETIME pft) GetFileTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY key, int32 pi) GetInt32;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY key, PWSTR ppsz) GetString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY key, uint32 pui) GetUInt32;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY key, uint64 pull) GetUInt64;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItem2*/SelfOuter* self, PROPERTYKEY key, BOOL pf) GetBool;
 	}
 
 
-	public HRESULT GetPropertyStore(GETPROPERTYSTOREFLAGS flags, Guid riid, void** ppv) mut => VT.[Friend]GetPropertyStore(&this, flags, riid, ppv);
+	public HRESULT GetPropertyStore(GETPROPERTYSTOREFLAGS flags, Guid riid, void ppv) mut => VT.[Friend]GetPropertyStore(&this, flags, riid, ppv);
 
-	public HRESULT GetPropertyStoreWithCreateObject(GETPROPERTYSTOREFLAGS flags, IUnknown* punkCreateObject, Guid riid, void** ppv) mut => VT.[Friend]GetPropertyStoreWithCreateObject(&this, flags, punkCreateObject, riid, ppv);
+	public HRESULT GetPropertyStoreWithCreateObject(GETPROPERTYSTOREFLAGS flags, IUnknown* punkCreateObject, Guid riid, void ppv) mut => VT.[Friend]GetPropertyStoreWithCreateObject(&this, flags, punkCreateObject, riid, ppv);
 
-	public HRESULT GetPropertyStoreForKeys(PROPERTYKEY* rgKeys, uint32 cKeys, GETPROPERTYSTOREFLAGS flags, Guid riid, void** ppv) mut => VT.[Friend]GetPropertyStoreForKeys(&this, rgKeys, cKeys, flags, riid, ppv);
+	public HRESULT GetPropertyStoreForKeys(PROPERTYKEY* rgKeys, uint32 cKeys, GETPROPERTYSTOREFLAGS flags, Guid riid, void ppv) mut => VT.[Friend]GetPropertyStoreForKeys(&this, rgKeys, cKeys, flags, riid, ppv);
 
-	public HRESULT GetPropertyDescriptionList(PROPERTYKEY* keyType, Guid riid, void** ppv) mut => VT.[Friend]GetPropertyDescriptionList(&this, keyType, riid, ppv);
+	public HRESULT GetPropertyDescriptionList(PROPERTYKEY keyType, Guid riid, void ppv) mut => VT.[Friend]GetPropertyDescriptionList(&this, keyType, riid, ppv);
 
 	public HRESULT Update(IBindCtx* pbc) mut => VT.[Friend]Update(&this, pbc);
 
-	public HRESULT GetProperty(PROPERTYKEY* key, PROPVARIANT* ppropvar) mut => VT.[Friend]GetProperty(&this, key, ppropvar);
+	public HRESULT GetProperty(PROPERTYKEY key, PROPVARIANT ppropvar) mut => VT.[Friend]GetProperty(&this, key, ppropvar);
 
-	public HRESULT GetCLSID(PROPERTYKEY* key, Guid pclsid) mut => VT.[Friend]GetCLSID(&this, key, pclsid);
+	public HRESULT GetCLSID(PROPERTYKEY key, Guid pclsid) mut => VT.[Friend]GetCLSID(&this, key, pclsid);
 
-	public HRESULT GetFileTime(PROPERTYKEY* key, FILETIME* pft) mut => VT.[Friend]GetFileTime(&this, key, pft);
+	public HRESULT GetFileTime(PROPERTYKEY key, FILETIME pft) mut => VT.[Friend]GetFileTime(&this, key, pft);
 
-	public HRESULT GetInt32(PROPERTYKEY* key, int32* pi) mut => VT.[Friend]GetInt32(&this, key, pi);
+	public HRESULT GetInt32(PROPERTYKEY key, int32 pi) mut => VT.[Friend]GetInt32(&this, key, pi);
 
-	public HRESULT GetString(PROPERTYKEY* key, PWSTR* ppsz) mut => VT.[Friend]GetString(&this, key, ppsz);
+	public HRESULT GetString(PROPERTYKEY key, PWSTR ppsz) mut => VT.[Friend]GetString(&this, key, ppsz);
 
-	public HRESULT GetUInt32(PROPERTYKEY* key, uint32* pui) mut => VT.[Friend]GetUInt32(&this, key, pui);
+	public HRESULT GetUInt32(PROPERTYKEY key, uint32 pui) mut => VT.[Friend]GetUInt32(&this, key, pui);
 
-	public HRESULT GetUInt64(PROPERTYKEY* key, uint64* pull) mut => VT.[Friend]GetUInt64(&this, key, pull);
+	public HRESULT GetUInt64(PROPERTYKEY key, uint64 pull) mut => VT.[Friend]GetUInt64(&this, key, pull);
 
-	public HRESULT GetBool(PROPERTYKEY* key, BOOL* pf) mut => VT.[Friend]GetBool(&this, key, pf);
+	public HRESULT GetBool(PROPERTYKEY key, BOOL pf) mut => VT.[Friend]GetBool(&this, key, pf);
 }
 
 [CRepr]struct IShellItemImageFactory : IUnknown
@@ -10102,11 +10102,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemImageFactory*/SelfOuter* self, SIZE size, SIIGBF flags, HBITMAP* phbm) GetImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemImageFactory*/SelfOuter* self, SIZE size, SIIGBF flags, HBITMAP phbm) GetImage;
 	}
 
 
-	public HRESULT GetImage(SIZE size, SIIGBF flags, HBITMAP* phbm) mut => VT.[Friend]GetImage(&this, size, flags, phbm);
+	public HRESULT GetImage(SIZE size, SIIGBF flags, HBITMAP phbm) mut => VT.[Friend]GetImage(&this, size, flags, phbm);
 }
 
 [CRepr]struct IEnumShellItems : IUnknown
@@ -10117,20 +10117,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumShellItems*/SelfOuter* self, uint32 celt, IShellItem** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumShellItems*/SelfOuter* self, uint32 celt, IShellItem** rgelt, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumShellItems*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumShellItems*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumShellItems*/SelfOuter* self, IEnumShellItems** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumShellItems*/SelfOuter* self, IEnumShellItems* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, IShellItem** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, IShellItem** rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumShellItems** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumShellItems* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct ITransferAdviseSink : IUnknown
@@ -10147,7 +10147,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psiSource) ConfirmEncryptionLoss;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psi, PWSTR pszItem, HRESULT hrError, char16* pszRename, uint32 cchRename) FileFailure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psi, PWSTR pszStreamName, HRESULT hrError) SubStreamFailure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psi, PROPERTYKEY* pkey, HRESULT hrError) PropertyFailure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferAdviseSink*/SelfOuter* self, IShellItem* psi, PROPERTYKEY pkey, HRESULT hrError) PropertyFailure;
 	}
 
 
@@ -10163,7 +10163,7 @@ public static
 
 	public HRESULT SubStreamFailure(IShellItem* psi, PWSTR pszStreamName, HRESULT hrError) mut => VT.[Friend]SubStreamFailure(&this, psi, pszStreamName, hrError);
 
-	public HRESULT PropertyFailure(IShellItem* psi, PROPERTYKEY* pkey, HRESULT hrError) mut => VT.[Friend]PropertyFailure(&this, psi, pkey, hrError);
+	public HRESULT PropertyFailure(IShellItem* psi, PROPERTYKEY pkey, HRESULT hrError) mut => VT.[Friend]PropertyFailure(&this, psi, pkey, hrError);
 }
 
 [CRepr]struct ITransferSource : IUnknown
@@ -10174,43 +10174,43 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, ITransferAdviseSink* psink, uint32* pdwCookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, ITransferAdviseSink* psink, uint32 pdwCookie) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, uint32 dwCookie) Unadvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IPropertyChangeArray* pproparray) SetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psi, uint32 flags, Guid riid, void** ppv) OpenItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psi, IShellItem* psiParentDst, PWSTR pszNameDst, uint32 flags, IShellItem** ppsiNew) MoveItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, IShellItem* psiParentDest, uint32 flags, IShellItem** ppsiNewDest) RecycleItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psi, uint32 flags, Guid riid, void ppv) OpenItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psi, IShellItem* psiParentDst, PWSTR pszNameDst, uint32 flags, IShellItem* ppsiNew) MoveItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, IShellItem* psiParentDest, uint32 flags, IShellItem* ppsiNewDest) RecycleItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, uint32 flags) RemoveItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, PWSTR pszNewName, uint32 flags, IShellItem** ppsiNewDest) RenameItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, IShellItem* psiParentDest, PWSTR pszNewName, uint32 flags, IShellItem** ppsiNewDest) LinkItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, IShellItem** ppsiNew) ApplyPropertiesToItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, IShellItem* psiParentDest, PWSTR* ppszDestinationName) GetDefaultDestinationName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, PWSTR pszNewName, uint32 flags, IShellItem* ppsiNewDest) RenameItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, IShellItem* psiParentDest, PWSTR pszNewName, uint32 flags, IShellItem* ppsiNewDest) LinkItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, IShellItem* ppsiNew) ApplyPropertiesToItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiSource, IShellItem* psiParentDest, PWSTR ppszDestinationName) GetDefaultDestinationName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiChildFolderDest) EnterFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferSource*/SelfOuter* self, IShellItem* psiChildFolderDest) LeaveFolder;
 	}
 
 
-	public HRESULT Advise(ITransferAdviseSink* psink, uint32* pdwCookie) mut => VT.[Friend]Advise(&this, psink, pdwCookie);
+	public HRESULT Advise(ITransferAdviseSink* psink, uint32 pdwCookie) mut => VT.[Friend]Advise(&this, psink, pdwCookie);
 
 	public HRESULT Unadvise(uint32 dwCookie) mut => VT.[Friend]Unadvise(&this, dwCookie);
 
 	public HRESULT SetProperties(IPropertyChangeArray* pproparray) mut => VT.[Friend]SetProperties(&this, pproparray);
 
-	public HRESULT OpenItem(IShellItem* psi, uint32 flags, Guid riid, void** ppv) mut => VT.[Friend]OpenItem(&this, psi, flags, riid, ppv);
+	public HRESULT OpenItem(IShellItem* psi, uint32 flags, Guid riid, void ppv) mut => VT.[Friend]OpenItem(&this, psi, flags, riid, ppv);
 
-	public HRESULT MoveItem(IShellItem* psi, IShellItem* psiParentDst, PWSTR pszNameDst, uint32 flags, IShellItem** ppsiNew) mut => VT.[Friend]MoveItem(&this, psi, psiParentDst, pszNameDst, flags, ppsiNew);
+	public HRESULT MoveItem(IShellItem* psi, IShellItem* psiParentDst, PWSTR pszNameDst, uint32 flags, IShellItem* ppsiNew) mut => VT.[Friend]MoveItem(&this, psi, psiParentDst, pszNameDst, flags, ppsiNew);
 
-	public HRESULT RecycleItem(IShellItem* psiSource, IShellItem* psiParentDest, uint32 flags, IShellItem** ppsiNewDest) mut => VT.[Friend]RecycleItem(&this, psiSource, psiParentDest, flags, ppsiNewDest);
+	public HRESULT RecycleItem(IShellItem* psiSource, IShellItem* psiParentDest, uint32 flags, IShellItem* ppsiNewDest) mut => VT.[Friend]RecycleItem(&this, psiSource, psiParentDest, flags, ppsiNewDest);
 
 	public HRESULT RemoveItem(IShellItem* psiSource, uint32 flags) mut => VT.[Friend]RemoveItem(&this, psiSource, flags);
 
-	public HRESULT RenameItem(IShellItem* psiSource, PWSTR pszNewName, uint32 flags, IShellItem** ppsiNewDest) mut => VT.[Friend]RenameItem(&this, psiSource, pszNewName, flags, ppsiNewDest);
+	public HRESULT RenameItem(IShellItem* psiSource, PWSTR pszNewName, uint32 flags, IShellItem* ppsiNewDest) mut => VT.[Friend]RenameItem(&this, psiSource, pszNewName, flags, ppsiNewDest);
 
-	public HRESULT LinkItem(IShellItem* psiSource, IShellItem* psiParentDest, PWSTR pszNewName, uint32 flags, IShellItem** ppsiNewDest) mut => VT.[Friend]LinkItem(&this, psiSource, psiParentDest, pszNewName, flags, ppsiNewDest);
+	public HRESULT LinkItem(IShellItem* psiSource, IShellItem* psiParentDest, PWSTR pszNewName, uint32 flags, IShellItem* ppsiNewDest) mut => VT.[Friend]LinkItem(&this, psiSource, psiParentDest, pszNewName, flags, ppsiNewDest);
 
-	public HRESULT ApplyPropertiesToItem(IShellItem* psiSource, IShellItem** ppsiNew) mut => VT.[Friend]ApplyPropertiesToItem(&this, psiSource, ppsiNew);
+	public HRESULT ApplyPropertiesToItem(IShellItem* psiSource, IShellItem* ppsiNew) mut => VT.[Friend]ApplyPropertiesToItem(&this, psiSource, ppsiNew);
 
-	public HRESULT GetDefaultDestinationName(IShellItem* psiSource, IShellItem* psiParentDest, PWSTR* ppszDestinationName) mut => VT.[Friend]GetDefaultDestinationName(&this, psiSource, psiParentDest, ppszDestinationName);
+	public HRESULT GetDefaultDestinationName(IShellItem* psiSource, IShellItem* psiParentDest, PWSTR ppszDestinationName) mut => VT.[Friend]GetDefaultDestinationName(&this, psiSource, psiParentDest, ppszDestinationName);
 
 	public HRESULT EnterFolder(IShellItem* psiChildFolderDest) mut => VT.[Friend]EnterFolder(&this, psiChildFolderDest);
 
@@ -10225,20 +10225,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumResources*/SelfOuter* self, uint32 celt, SHELL_ITEM_RESOURCE* psir, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumResources*/SelfOuter* self, uint32 celt, SHELL_ITEM_RESOURCE* psir, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumResources*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumResources*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumResources*/SelfOuter* self, IEnumResources** ppenumr) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumResources*/SelfOuter* self, IEnumResources* ppenumr) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, SHELL_ITEM_RESOURCE* psir, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, psir, pceltFetched);
+	public HRESULT Next(uint32 celt, SHELL_ITEM_RESOURCE* psir, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, psir, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumResources** ppenumr) mut => VT.[Friend]Clone(&this, ppenumr);
+	public HRESULT Clone(IEnumResources* ppenumr) mut => VT.[Friend]Clone(&this, ppenumr);
 }
 
 [CRepr]struct IShellItemResources : IUnknown
@@ -10249,36 +10249,36 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, uint32* pdwAttributes) GetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, uint64* pullSize) GetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, FILETIME* pftCreation, FILETIME* pftWrite, FILETIME* pftAccess) GetTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, FILETIME* pftCreation, FILETIME* pftWrite, FILETIME* pftAccess) SetTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, SHELL_ITEM_RESOURCE* pcsir, PWSTR* ppszDescription) GetResourceDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, IEnumResources** ppenumr) EnumResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, SHELL_ITEM_RESOURCE* pcsir) SupportsResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, SHELL_ITEM_RESOURCE* pcsir, Guid riid, void** ppv) OpenResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, SHELL_ITEM_RESOURCE* pcsir, Guid riid, void** ppv) CreateResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, uint32 pdwAttributes) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, uint64 pullSize) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, FILETIME pftCreation, FILETIME pftWrite, FILETIME pftAccess) GetTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, FILETIME pftCreation, FILETIME pftWrite, FILETIME pftAccess) SetTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, SHELL_ITEM_RESOURCE pcsir, PWSTR ppszDescription) GetResourceDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, IEnumResources* ppenumr) EnumResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, SHELL_ITEM_RESOURCE pcsir) SupportsResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, SHELL_ITEM_RESOURCE pcsir, Guid riid, void ppv) OpenResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self, SHELL_ITEM_RESOURCE pcsir, Guid riid, void ppv) CreateResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemResources*/SelfOuter* self) MarkForDelete;
 	}
 
 
-	public HRESULT GetAttributes(uint32* pdwAttributes) mut => VT.[Friend]GetAttributes(&this, pdwAttributes);
+	public HRESULT GetAttributes(uint32 pdwAttributes) mut => VT.[Friend]GetAttributes(&this, pdwAttributes);
 
-	public HRESULT GetSize(uint64* pullSize) mut => VT.[Friend]GetSize(&this, pullSize);
+	public HRESULT GetSize(uint64 pullSize) mut => VT.[Friend]GetSize(&this, pullSize);
 
-	public HRESULT GetTimes(FILETIME* pftCreation, FILETIME* pftWrite, FILETIME* pftAccess) mut => VT.[Friend]GetTimes(&this, pftCreation, pftWrite, pftAccess);
+	public HRESULT GetTimes(FILETIME pftCreation, FILETIME pftWrite, FILETIME pftAccess) mut => VT.[Friend]GetTimes(&this, pftCreation, pftWrite, pftAccess);
 
-	public HRESULT SetTimes(FILETIME* pftCreation, FILETIME* pftWrite, FILETIME* pftAccess) mut => VT.[Friend]SetTimes(&this, pftCreation, pftWrite, pftAccess);
+	public HRESULT SetTimes(FILETIME pftCreation, FILETIME pftWrite, FILETIME pftAccess) mut => VT.[Friend]SetTimes(&this, pftCreation, pftWrite, pftAccess);
 
-	public HRESULT GetResourceDescription(SHELL_ITEM_RESOURCE* pcsir, PWSTR* ppszDescription) mut => VT.[Friend]GetResourceDescription(&this, pcsir, ppszDescription);
+	public HRESULT GetResourceDescription(SHELL_ITEM_RESOURCE pcsir, PWSTR ppszDescription) mut => VT.[Friend]GetResourceDescription(&this, pcsir, ppszDescription);
 
-	public HRESULT EnumResources(IEnumResources** ppenumr) mut => VT.[Friend]EnumResources(&this, ppenumr);
+	public HRESULT EnumResources(IEnumResources* ppenumr) mut => VT.[Friend]EnumResources(&this, ppenumr);
 
-	public HRESULT SupportsResource(SHELL_ITEM_RESOURCE* pcsir) mut => VT.[Friend]SupportsResource(&this, pcsir);
+	public HRESULT SupportsResource(SHELL_ITEM_RESOURCE pcsir) mut => VT.[Friend]SupportsResource(&this, pcsir);
 
-	public HRESULT OpenResource(SHELL_ITEM_RESOURCE* pcsir, Guid riid, void** ppv) mut => VT.[Friend]OpenResource(&this, pcsir, riid, ppv);
+	public HRESULT OpenResource(SHELL_ITEM_RESOURCE pcsir, Guid riid, void ppv) mut => VT.[Friend]OpenResource(&this, pcsir, riid, ppv);
 
-	public HRESULT CreateResource(SHELL_ITEM_RESOURCE* pcsir, Guid riid, void** ppv) mut => VT.[Friend]CreateResource(&this, pcsir, riid, ppv);
+	public HRESULT CreateResource(SHELL_ITEM_RESOURCE pcsir, Guid riid, void ppv) mut => VT.[Friend]CreateResource(&this, pcsir, riid, ppv);
 
 	public HRESULT MarkForDelete() mut => VT.[Friend]MarkForDelete(&this);
 }
@@ -10291,17 +10291,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferDestination*/SelfOuter* self, ITransferAdviseSink* psink, uint32* pdwCookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferDestination*/SelfOuter* self, ITransferAdviseSink* psink, uint32 pdwCookie) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferDestination*/SelfOuter* self, uint32 dwCookie) Unadvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferDestination*/SelfOuter* self, PWSTR pszName, uint32 dwAttributes, uint64 ullSize, uint32 flags, Guid riidItem, void** ppvItem, Guid riidResources, void** ppvResources) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransferDestination*/SelfOuter* self, PWSTR pszName, uint32 dwAttributes, uint64 ullSize, uint32 flags, Guid riidItem, void ppvItem, Guid riidResources, void ppvResources) CreateItem;
 	}
 
 
-	public HRESULT Advise(ITransferAdviseSink* psink, uint32* pdwCookie) mut => VT.[Friend]Advise(&this, psink, pdwCookie);
+	public HRESULT Advise(ITransferAdviseSink* psink, uint32 pdwCookie) mut => VT.[Friend]Advise(&this, psink, pdwCookie);
 
 	public HRESULT Unadvise(uint32 dwCookie) mut => VT.[Friend]Unadvise(&this, dwCookie);
 
-	public HRESULT CreateItem(PWSTR pszName, uint32 dwAttributes, uint64 ullSize, uint32 flags, Guid riidItem, void** ppvItem, Guid riidResources, void** ppvResources) mut => VT.[Friend]CreateItem(&this, pszName, dwAttributes, ullSize, flags, riidItem, ppvItem, riidResources, ppvResources);
+	public HRESULT CreateItem(PWSTR pszName, uint32 dwAttributes, uint64 ullSize, uint32 flags, Guid riidItem, void ppvItem, Guid riidResources, void ppvResources) mut => VT.[Friend]CreateItem(&this, pszName, dwAttributes, ullSize, flags, riidItem, ppvItem, riidResources, ppvResources);
 }
 
 [CRepr]struct IFileOperationProgressSink : IUnknown
@@ -10372,29 +10372,29 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, IBindCtx* pbc, Guid bhid, Guid riid, void** ppvOut) BindToHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, GETPROPERTYSTOREFLAGS flags, Guid riid, void** ppv) GetPropertyStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, PROPERTYKEY* keyType, Guid riid, void** ppv) GetPropertyDescriptionList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, SIATTRIBFLAGS AttribFlags, uint32 sfgaoMask, uint32* psfgaoAttribs) GetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, uint32* pdwNumItems) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, uint32 dwIndex, IShellItem** ppsi) GetItemAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, IEnumShellItems** ppenumShellItems) EnumItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, IBindCtx* pbc, Guid bhid, Guid riid, void ppvOut) BindToHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, GETPROPERTYSTOREFLAGS flags, Guid riid, void ppv) GetPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, PROPERTYKEY keyType, Guid riid, void ppv) GetPropertyDescriptionList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, SIATTRIBFLAGS AttribFlags, uint32 sfgaoMask, uint32 psfgaoAttribs) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, uint32 pdwNumItems) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, uint32 dwIndex, IShellItem* ppsi) GetItemAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemArray*/SelfOuter* self, IEnumShellItems* ppenumShellItems) EnumItems;
 	}
 
 
-	public HRESULT BindToHandler(IBindCtx* pbc, Guid bhid, Guid riid, void** ppvOut) mut => VT.[Friend]BindToHandler(&this, pbc, bhid, riid, ppvOut);
+	public HRESULT BindToHandler(IBindCtx* pbc, Guid bhid, Guid riid, void ppvOut) mut => VT.[Friend]BindToHandler(&this, pbc, bhid, riid, ppvOut);
 
-	public HRESULT GetPropertyStore(GETPROPERTYSTOREFLAGS flags, Guid riid, void** ppv) mut => VT.[Friend]GetPropertyStore(&this, flags, riid, ppv);
+	public HRESULT GetPropertyStore(GETPROPERTYSTOREFLAGS flags, Guid riid, void ppv) mut => VT.[Friend]GetPropertyStore(&this, flags, riid, ppv);
 
-	public HRESULT GetPropertyDescriptionList(PROPERTYKEY* keyType, Guid riid, void** ppv) mut => VT.[Friend]GetPropertyDescriptionList(&this, keyType, riid, ppv);
+	public HRESULT GetPropertyDescriptionList(PROPERTYKEY keyType, Guid riid, void ppv) mut => VT.[Friend]GetPropertyDescriptionList(&this, keyType, riid, ppv);
 
-	public HRESULT GetAttributes(SIATTRIBFLAGS AttribFlags, uint32 sfgaoMask, uint32* psfgaoAttribs) mut => VT.[Friend]GetAttributes(&this, AttribFlags, sfgaoMask, psfgaoAttribs);
+	public HRESULT GetAttributes(SIATTRIBFLAGS AttribFlags, uint32 sfgaoMask, uint32 psfgaoAttribs) mut => VT.[Friend]GetAttributes(&this, AttribFlags, sfgaoMask, psfgaoAttribs);
 
-	public HRESULT GetCount(uint32* pdwNumItems) mut => VT.[Friend]GetCount(&this, pdwNumItems);
+	public HRESULT GetCount(uint32 pdwNumItems) mut => VT.[Friend]GetCount(&this, pdwNumItems);
 
-	public HRESULT GetItemAt(uint32 dwIndex, IShellItem** ppsi) mut => VT.[Friend]GetItemAt(&this, dwIndex, ppsi);
+	public HRESULT GetItemAt(uint32 dwIndex, IShellItem* ppsi) mut => VT.[Friend]GetItemAt(&this, dwIndex, ppsi);
 
-	public HRESULT EnumItems(IEnumShellItems** ppenumShellItems) mut => VT.[Friend]EnumItems(&this, ppenumShellItems);
+	public HRESULT EnumItems(IEnumShellItems* ppenumShellItems) mut => VT.[Friend]EnumItems(&this, ppenumShellItems);
 }
 
 [CRepr]struct IInitializeWithItem : IUnknown
@@ -10421,13 +10421,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithSelection*/SelfOuter* self, IShellItemArray* psia) SetSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithSelection*/SelfOuter* self, Guid riid, void** ppv) GetSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithSelection*/SelfOuter* self, Guid riid, void ppv) GetSelection;
 	}
 
 
 	public HRESULT SetSelection(IShellItemArray* psia) mut => VT.[Friend]SetSelection(&this, psia);
 
-	public HRESULT GetSelection(Guid riid, void** ppv) mut => VT.[Friend]GetSelection(&this, riid, ppv);
+	public HRESULT GetSelection(Guid riid, void ppv) mut => VT.[Friend]GetSelection(&this, riid, ppv);
 }
 
 [CRepr]struct IObjectWithBackReferences : IUnknown
@@ -10453,26 +10453,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, PROPERTYKEY* pscid) CanCategorizeOnSCID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, Guid pguid, PROPERTYKEY* pscid) GetDefaultCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, PROPERTYKEY* pscid, Guid pguid) GetCategoryForSCID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, IEnumGUID** penum) EnumCategories;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, PROPERTYKEY pscid) CanCategorizeOnSCID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, Guid pguid, PROPERTYKEY pscid) GetDefaultCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, PROPERTYKEY pscid, Guid pguid) GetCategoryForSCID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, IEnumGUID* penum) EnumCategories;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, Guid pguid, char16* pszName, uint32 cch) GetCategoryName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, Guid pguid, Guid riid, void** ppv) CreateCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategoryProvider*/SelfOuter* self, Guid pguid, Guid riid, void ppv) CreateCategory;
 	}
 
 
-	public HRESULT CanCategorizeOnSCID(PROPERTYKEY* pscid) mut => VT.[Friend]CanCategorizeOnSCID(&this, pscid);
+	public HRESULT CanCategorizeOnSCID(PROPERTYKEY pscid) mut => VT.[Friend]CanCategorizeOnSCID(&this, pscid);
 
-	public HRESULT GetDefaultCategory(Guid pguid, PROPERTYKEY* pscid) mut => VT.[Friend]GetDefaultCategory(&this, pguid, pscid);
+	public HRESULT GetDefaultCategory(Guid pguid, PROPERTYKEY pscid) mut => VT.[Friend]GetDefaultCategory(&this, pguid, pscid);
 
-	public HRESULT GetCategoryForSCID(PROPERTYKEY* pscid, Guid pguid) mut => VT.[Friend]GetCategoryForSCID(&this, pscid, pguid);
+	public HRESULT GetCategoryForSCID(PROPERTYKEY pscid, Guid pguid) mut => VT.[Friend]GetCategoryForSCID(&this, pscid, pguid);
 
-	public HRESULT EnumCategories(IEnumGUID** penum) mut => VT.[Friend]EnumCategories(&this, penum);
+	public HRESULT EnumCategories(IEnumGUID* penum) mut => VT.[Friend]EnumCategories(&this, penum);
 
 	public HRESULT GetCategoryName(Guid pguid, char16* pszName, uint32 cch) mut => VT.[Friend]GetCategoryName(&this, pguid, pszName, cch);
 
-	public HRESULT CreateCategory(Guid pguid, Guid riid, void** ppv) mut => VT.[Friend]CreateCategory(&this, pguid, riid, ppv);
+	public HRESULT CreateCategory(Guid pguid, Guid riid, void ppv) mut => VT.[Friend]CreateCategory(&this, pguid, riid, ppv);
 }
 
 [CRepr]struct ICategorizer : IUnknown
@@ -10484,17 +10484,17 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, char16* pszDesc, uint32 cch) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, uint32 cidl, ITEMIDLIST** apidl, uint32* rgCategoryIds) GetCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, uint32 dwCategoryId, CATEGORY_INFO* pci) GetCategoryInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, uint32 cidl, ITEMIDLIST* apidl, uint32* rgCategoryIds) GetCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, uint32 dwCategoryId, CATEGORY_INFO pci) GetCategoryInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICategorizer*/SelfOuter* self, CATSORT_FLAGS csfFlags, uint32 dwCategoryId1, uint32 dwCategoryId2) CompareCategory;
 	}
 
 
 	public HRESULT GetDescription(char16* pszDesc, uint32 cch) mut => VT.[Friend]GetDescription(&this, pszDesc, cch);
 
-	public HRESULT GetCategory(uint32 cidl, ITEMIDLIST** apidl, uint32* rgCategoryIds) mut => VT.[Friend]GetCategory(&this, cidl, apidl, rgCategoryIds);
+	public HRESULT GetCategory(uint32 cidl, ITEMIDLIST* apidl, uint32* rgCategoryIds) mut => VT.[Friend]GetCategory(&this, cidl, apidl, rgCategoryIds);
 
-	public HRESULT GetCategoryInfo(uint32 dwCategoryId, CATEGORY_INFO* pci) mut => VT.[Friend]GetCategoryInfo(&this, dwCategoryId, pci);
+	public HRESULT GetCategoryInfo(uint32 dwCategoryId, CATEGORY_INFO pci) mut => VT.[Friend]GetCategoryInfo(&this, dwCategoryId, pci);
 
 	public HRESULT CompareCategory(CATSORT_FLAGS csfFlags, uint32 dwCategoryId1, uint32 dwCategoryId2) mut => VT.[Friend]CompareCategory(&this, csfFlags, dwCategoryId1, dwCategoryId2);
 }
@@ -10507,21 +10507,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDropTargetHelper*/SelfOuter* self, HWND hwndTarget, IDataObject* pDataObject, POINT* ppt, uint32 dwEffect) DragEnter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDropTargetHelper*/SelfOuter* self, HWND hwndTarget, IDataObject* pDataObject, POINT ppt, uint32 dwEffect) DragEnter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDropTargetHelper*/SelfOuter* self) DragLeave;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDropTargetHelper*/SelfOuter* self, POINT* ppt, uint32 dwEffect) DragOver;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDropTargetHelper*/SelfOuter* self, IDataObject* pDataObject, POINT* ppt, uint32 dwEffect) Drop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDropTargetHelper*/SelfOuter* self, POINT ppt, uint32 dwEffect) DragOver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDropTargetHelper*/SelfOuter* self, IDataObject* pDataObject, POINT ppt, uint32 dwEffect) Drop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDropTargetHelper*/SelfOuter* self, BOOL fShow) Show;
 	}
 
 
-	public HRESULT DragEnter(HWND hwndTarget, IDataObject* pDataObject, POINT* ppt, uint32 dwEffect) mut => VT.[Friend]DragEnter(&this, hwndTarget, pDataObject, ppt, dwEffect);
+	public HRESULT DragEnter(HWND hwndTarget, IDataObject* pDataObject, POINT ppt, uint32 dwEffect) mut => VT.[Friend]DragEnter(&this, hwndTarget, pDataObject, ppt, dwEffect);
 
 	public HRESULT DragLeave() mut => VT.[Friend]DragLeave(&this);
 
-	public HRESULT DragOver(POINT* ppt, uint32 dwEffect) mut => VT.[Friend]DragOver(&this, ppt, dwEffect);
+	public HRESULT DragOver(POINT ppt, uint32 dwEffect) mut => VT.[Friend]DragOver(&this, ppt, dwEffect);
 
-	public HRESULT Drop(IDataObject* pDataObject, POINT* ppt, uint32 dwEffect) mut => VT.[Friend]Drop(&this, pDataObject, ppt, dwEffect);
+	public HRESULT Drop(IDataObject* pDataObject, POINT ppt, uint32 dwEffect) mut => VT.[Friend]Drop(&this, pDataObject, ppt, dwEffect);
 
 	public HRESULT Show(BOOL fShow) mut => VT.[Friend]Show(&this, fShow);
 }
@@ -10534,14 +10534,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDragSourceHelper*/SelfOuter* self, SHDRAGIMAGE* pshdi, IDataObject* pDataObject) InitializeFromBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDragSourceHelper*/SelfOuter* self, HWND hwnd, POINT* ppt, IDataObject* pDataObject) InitializeFromWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDragSourceHelper*/SelfOuter* self, SHDRAGIMAGE pshdi, IDataObject* pDataObject) InitializeFromBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDragSourceHelper*/SelfOuter* self, HWND hwnd, POINT ppt, IDataObject* pDataObject) InitializeFromWindow;
 	}
 
 
-	public HRESULT InitializeFromBitmap(SHDRAGIMAGE* pshdi, IDataObject* pDataObject) mut => VT.[Friend]InitializeFromBitmap(&this, pshdi, pDataObject);
+	public HRESULT InitializeFromBitmap(SHDRAGIMAGE pshdi, IDataObject* pDataObject) mut => VT.[Friend]InitializeFromBitmap(&this, pshdi, pDataObject);
 
-	public HRESULT InitializeFromWindow(HWND hwnd, POINT* ppt, IDataObject* pDataObject) mut => VT.[Friend]InitializeFromWindow(&this, hwnd, ppt, pDataObject);
+	public HRESULT InitializeFromWindow(HWND hwnd, POINT ppt, IDataObject* pDataObject) mut => VT.[Friend]InitializeFromWindow(&this, hwnd, ppt, pDataObject);
 }
 
 [CRepr]struct IShellLinkA : IUnknown
@@ -10552,20 +10552,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, uint8* pszFile, int32 cch, WIN32_FIND_DATAA* pfd, uint32 fFlags) GetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, ITEMIDLIST** ppidl) GetIDList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, ITEMIDLIST* pidl) SetIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, uint8* pszFile, int32 cch, WIN32_FIND_DATAA pfd, uint32 fFlags) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, ITEMIDLIST ppidl) GetIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, ITEMIDLIST pidl) SetIDList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, uint8* pszName, int32 cch) GetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, PSTR pszName) SetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, uint8* pszDir, int32 cch) GetWorkingDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, PSTR pszDir) SetWorkingDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, uint8* pszArgs, int32 cch) GetArguments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, PSTR pszArgs) SetArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, uint16* pwHotkey) GetHotkey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, uint16 pwHotkey) GetHotkey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, uint16 wHotkey) SetHotkey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, int32* piShowCmd) GetShowCmd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, int32 piShowCmd) GetShowCmd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, int32 iShowCmd) SetShowCmd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, uint8* pszIconPath, int32 cch, int32* piIcon) GetIconLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, uint8* pszIconPath, int32 cch, int32 piIcon) GetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, PSTR pszIconPath, int32 iIcon) SetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, PSTR pszPathRel, uint32 dwReserved) SetRelativePath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkA*/SelfOuter* self, HWND hwnd, uint32 fFlags) Resolve;
@@ -10573,11 +10573,11 @@ public static
 	}
 
 
-	public HRESULT GetPath(uint8* pszFile, int32 cch, WIN32_FIND_DATAA* pfd, uint32 fFlags) mut => VT.[Friend]GetPath(&this, pszFile, cch, pfd, fFlags);
+	public HRESULT GetPath(uint8* pszFile, int32 cch, WIN32_FIND_DATAA pfd, uint32 fFlags) mut => VT.[Friend]GetPath(&this, pszFile, cch, pfd, fFlags);
 
-	public HRESULT GetIDList(ITEMIDLIST** ppidl) mut => VT.[Friend]GetIDList(&this, ppidl);
+	public HRESULT GetIDList(ITEMIDLIST ppidl) mut => VT.[Friend]GetIDList(&this, ppidl);
 
-	public HRESULT SetIDList(ITEMIDLIST* pidl) mut => VT.[Friend]SetIDList(&this, pidl);
+	public HRESULT SetIDList(ITEMIDLIST pidl) mut => VT.[Friend]SetIDList(&this, pidl);
 
 	public HRESULT GetDescription(uint8* pszName, int32 cch) mut => VT.[Friend]GetDescription(&this, pszName, cch);
 
@@ -10591,15 +10591,15 @@ public static
 
 	public HRESULT SetArguments(PSTR pszArgs) mut => VT.[Friend]SetArguments(&this, pszArgs);
 
-	public HRESULT GetHotkey(uint16* pwHotkey) mut => VT.[Friend]GetHotkey(&this, pwHotkey);
+	public HRESULT GetHotkey(uint16 pwHotkey) mut => VT.[Friend]GetHotkey(&this, pwHotkey);
 
 	public HRESULT SetHotkey(uint16 wHotkey) mut => VT.[Friend]SetHotkey(&this, wHotkey);
 
-	public HRESULT GetShowCmd(int32* piShowCmd) mut => VT.[Friend]GetShowCmd(&this, piShowCmd);
+	public HRESULT GetShowCmd(int32 piShowCmd) mut => VT.[Friend]GetShowCmd(&this, piShowCmd);
 
 	public HRESULT SetShowCmd(int32 iShowCmd) mut => VT.[Friend]SetShowCmd(&this, iShowCmd);
 
-	public HRESULT GetIconLocation(uint8* pszIconPath, int32 cch, int32* piIcon) mut => VT.[Friend]GetIconLocation(&this, pszIconPath, cch, piIcon);
+	public HRESULT GetIconLocation(uint8* pszIconPath, int32 cch, int32 piIcon) mut => VT.[Friend]GetIconLocation(&this, pszIconPath, cch, piIcon);
 
 	public HRESULT SetIconLocation(PSTR pszIconPath, int32 iIcon) mut => VT.[Friend]SetIconLocation(&this, pszIconPath, iIcon);
 
@@ -10618,20 +10618,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszFile, int32 cch, WIN32_FIND_DATAW* pfd, uint32 fFlags) GetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, ITEMIDLIST** ppidl) GetIDList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, ITEMIDLIST* pidl) SetIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszFile, int32 cch, WIN32_FIND_DATAW pfd, uint32 fFlags) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, ITEMIDLIST ppidl) GetIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, ITEMIDLIST pidl) SetIDList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszName, int32 cch) GetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, PWSTR pszName) SetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszDir, int32 cch) GetWorkingDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, PWSTR pszDir) SetWorkingDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszArgs, int32 cch) GetArguments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, PWSTR pszArgs) SetArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, uint16* pwHotkey) GetHotkey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, uint16 pwHotkey) GetHotkey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, uint16 wHotkey) SetHotkey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, int32* piShowCmd) GetShowCmd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, int32 piShowCmd) GetShowCmd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, int32 iShowCmd) SetShowCmd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszIconPath, int32 cch, int32* piIcon) GetIconLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, char16* pszIconPath, int32 cch, int32 piIcon) GetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, PWSTR pszIconPath, int32 iIcon) SetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, PWSTR pszPathRel, uint32 dwReserved) SetRelativePath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkW*/SelfOuter* self, HWND hwnd, uint32 fFlags) Resolve;
@@ -10639,11 +10639,11 @@ public static
 	}
 
 
-	public HRESULT GetPath(char16* pszFile, int32 cch, WIN32_FIND_DATAW* pfd, uint32 fFlags) mut => VT.[Friend]GetPath(&this, pszFile, cch, pfd, fFlags);
+	public HRESULT GetPath(char16* pszFile, int32 cch, WIN32_FIND_DATAW pfd, uint32 fFlags) mut => VT.[Friend]GetPath(&this, pszFile, cch, pfd, fFlags);
 
-	public HRESULT GetIDList(ITEMIDLIST** ppidl) mut => VT.[Friend]GetIDList(&this, ppidl);
+	public HRESULT GetIDList(ITEMIDLIST ppidl) mut => VT.[Friend]GetIDList(&this, ppidl);
 
-	public HRESULT SetIDList(ITEMIDLIST* pidl) mut => VT.[Friend]SetIDList(&this, pidl);
+	public HRESULT SetIDList(ITEMIDLIST pidl) mut => VT.[Friend]SetIDList(&this, pidl);
 
 	public HRESULT GetDescription(char16* pszName, int32 cch) mut => VT.[Friend]GetDescription(&this, pszName, cch);
 
@@ -10657,15 +10657,15 @@ public static
 
 	public HRESULT SetArguments(PWSTR pszArgs) mut => VT.[Friend]SetArguments(&this, pszArgs);
 
-	public HRESULT GetHotkey(uint16* pwHotkey) mut => VT.[Friend]GetHotkey(&this, pwHotkey);
+	public HRESULT GetHotkey(uint16 pwHotkey) mut => VT.[Friend]GetHotkey(&this, pwHotkey);
 
 	public HRESULT SetHotkey(uint16 wHotkey) mut => VT.[Friend]SetHotkey(&this, wHotkey);
 
-	public HRESULT GetShowCmd(int32* piShowCmd) mut => VT.[Friend]GetShowCmd(&this, piShowCmd);
+	public HRESULT GetShowCmd(int32 piShowCmd) mut => VT.[Friend]GetShowCmd(&this, piShowCmd);
 
 	public HRESULT SetShowCmd(int32 iShowCmd) mut => VT.[Friend]SetShowCmd(&this, iShowCmd);
 
-	public HRESULT GetIconLocation(char16* pszIconPath, int32 cch, int32* piIcon) mut => VT.[Friend]GetIconLocation(&this, pszIconPath, cch, piIcon);
+	public HRESULT GetIconLocation(char16* pszIconPath, int32 cch, int32 piIcon) mut => VT.[Friend]GetIconLocation(&this, pszIconPath, cch, piIcon);
 
 	public HRESULT SetIconLocation(PWSTR pszIconPath, int32 iIcon) mut => VT.[Friend]SetIconLocation(&this, pszIconPath, iIcon);
 
@@ -10684,21 +10684,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDataList*/SelfOuter* self, void* pDataBlock) AddDataBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDataList*/SelfOuter* self, uint32 dwSig, void** ppDataBlock) CopyDataBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDataList*/SelfOuter* self, void pDataBlock) AddDataBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDataList*/SelfOuter* self, uint32 dwSig, void ppDataBlock) CopyDataBlock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDataList*/SelfOuter* self, uint32 dwSig) RemoveDataBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDataList*/SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDataList*/SelfOuter* self, uint32 pdwFlags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDataList*/SelfOuter* self, uint32 dwFlags) SetFlags;
 	}
 
 
-	public HRESULT AddDataBlock(void* pDataBlock) mut => VT.[Friend]AddDataBlock(&this, pDataBlock);
+	public HRESULT AddDataBlock(void pDataBlock) mut => VT.[Friend]AddDataBlock(&this, pDataBlock);
 
-	public HRESULT CopyDataBlock(uint32 dwSig, void** ppDataBlock) mut => VT.[Friend]CopyDataBlock(&this, dwSig, ppDataBlock);
+	public HRESULT CopyDataBlock(uint32 dwSig, void ppDataBlock) mut => VT.[Friend]CopyDataBlock(&this, dwSig, ppDataBlock);
 
 	public HRESULT RemoveDataBlock(uint32 dwSig) mut => VT.[Friend]RemoveDataBlock(&this, dwSig);
 
-	public HRESULT GetFlags(uint32* pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
+	public HRESULT GetFlags(uint32 pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
 
 	public HRESULT SetFlags(uint32 dwFlags) mut => VT.[Friend]SetFlags(&this, dwFlags);
 }
@@ -10747,7 +10747,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionProgress*/SelfOuter* self, SPACTION action, uint32 flags) Begin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionProgress*/SelfOuter* self, uint64 ulCompleted, uint64 ulTotal) UpdateProgress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionProgress*/SelfOuter* self, SPTEXT sptext, PWSTR pszText, BOOL fMayCompact) UpdateText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionProgress*/SelfOuter* self, BOOL* pfCancelled) QueryCancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionProgress*/SelfOuter* self, BOOL pfCancelled) QueryCancel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionProgress*/SelfOuter* self) ResetCancel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionProgress*/SelfOuter* self) End;
 	}
@@ -10759,7 +10759,7 @@ public static
 
 	public HRESULT UpdateText(SPTEXT sptext, PWSTR pszText, BOOL fMayCompact) mut => VT.[Friend]UpdateText(&this, sptext, pszText, fMayCompact);
 
-	public HRESULT QueryCancel(BOOL* pfCancelled) mut => VT.[Friend]QueryCancel(&this, pfCancelled);
+	public HRESULT QueryCancel(BOOL pfCancelled) mut => VT.[Friend]QueryCancel(&this, pfCancelled);
 
 	public HRESULT ResetCancel() mut => VT.[Friend]ResetCancel(&this);
 
@@ -10774,11 +10774,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellExtInit*/SelfOuter* self, ITEMIDLIST* pidlFolder, IDataObject* pdtobj, HKEY hkeyProgID) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellExtInit*/SelfOuter* self, ITEMIDLIST pidlFolder, IDataObject* pdtobj, HKEY hkeyProgID) Initialize;
 	}
 
 
-	public HRESULT Initialize(ITEMIDLIST* pidlFolder, IDataObject* pdtobj, HKEY hkeyProgID) mut => VT.[Friend]Initialize(&this, pidlFolder, pdtobj, hkeyProgID);
+	public HRESULT Initialize(ITEMIDLIST pidlFolder, IDataObject* pdtobj, HKEY hkeyProgID) mut => VT.[Friend]Initialize(&this, pidlFolder, pdtobj, hkeyProgID);
 }
 
 [CRepr]struct IShellPropSheetExt : IUnknown
@@ -10837,11 +10837,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithCancelEvent*/SelfOuter* self, HANDLE* phEvent) GetCancelEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithCancelEvent*/SelfOuter* self, HANDLE phEvent) GetCancelEvent;
 	}
 
 
-	public HRESULT GetCancelEvent(HANDLE* phEvent) mut => VT.[Friend]GetCancelEvent(&this, phEvent);
+	public HRESULT GetCancelEvent(HANDLE phEvent) mut => VT.[Friend]GetCancelEvent(&this, phEvent);
 }
 
 [CRepr]struct IUserNotification : IUnknown
@@ -10879,14 +10879,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IItemNameLimits*/SelfOuter* self, PWSTR* ppwszValidChars, PWSTR* ppwszInvalidChars) GetValidCharacters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IItemNameLimits*/SelfOuter* self, PWSTR pszName, int32* piMaxNameLen) GetMaxLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IItemNameLimits*/SelfOuter* self, PWSTR ppwszValidChars, PWSTR ppwszInvalidChars) GetValidCharacters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IItemNameLimits*/SelfOuter* self, PWSTR pszName, int32 piMaxNameLen) GetMaxLength;
 	}
 
 
-	public HRESULT GetValidCharacters(PWSTR* ppwszValidChars, PWSTR* ppwszInvalidChars) mut => VT.[Friend]GetValidCharacters(&this, ppwszValidChars, ppwszInvalidChars);
+	public HRESULT GetValidCharacters(PWSTR ppwszValidChars, PWSTR ppwszInvalidChars) mut => VT.[Friend]GetValidCharacters(&this, ppwszValidChars, ppwszInvalidChars);
 
-	public HRESULT GetMaxLength(PWSTR pszName, int32* piMaxNameLen) mut => VT.[Friend]GetMaxLength(&this, pszName, piMaxNameLen);
+	public HRESULT GetMaxLength(PWSTR pszName, int32 piMaxNameLen) mut => VT.[Friend]GetMaxLength(&this, pszName, piMaxNameLen);
 }
 
 [CRepr]struct ISearchFolderItemFactory : IUnknown
@@ -10903,12 +10903,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, int32 iIconSize) SetIconSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, uint32 cVisibleColumns, PROPERTYKEY* rgKey) SetVisibleColumns;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, uint32 cSortColumns, SORTCOLUMN* rgSortColumns) SetSortColumns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, PROPERTYKEY* keyGroup) SetGroupColumn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, PROPERTYKEY keyGroup) SetGroupColumn;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, uint32 cStackKeys, PROPERTYKEY* rgStackKeys) SetStacks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, IShellItemArray* psiaScope) SetScope;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, ICondition* pCondition) SetCondition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, Guid riid, void** ppv) GetShellItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, ITEMIDLIST** ppidl) GetIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, Guid riid, void ppv) GetShellItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchFolderItemFactory*/SelfOuter* self, ITEMIDLIST ppidl) GetIDList;
 	}
 
 
@@ -10924,7 +10924,7 @@ public static
 
 	public HRESULT SetSortColumns(uint32 cSortColumns, SORTCOLUMN* rgSortColumns) mut => VT.[Friend]SetSortColumns(&this, cSortColumns, rgSortColumns);
 
-	public HRESULT SetGroupColumn(PROPERTYKEY* keyGroup) mut => VT.[Friend]SetGroupColumn(&this, keyGroup);
+	public HRESULT SetGroupColumn(PROPERTYKEY keyGroup) mut => VT.[Friend]SetGroupColumn(&this, keyGroup);
 
 	public HRESULT SetStacks(uint32 cStackKeys, PROPERTYKEY* rgStackKeys) mut => VT.[Friend]SetStacks(&this, cStackKeys, rgStackKeys);
 
@@ -10932,9 +10932,9 @@ public static
 
 	public HRESULT SetCondition(ICondition* pCondition) mut => VT.[Friend]SetCondition(&this, pCondition);
 
-	public HRESULT GetShellItem(Guid riid, void** ppv) mut => VT.[Friend]GetShellItem(&this, riid, ppv);
+	public HRESULT GetShellItem(Guid riid, void ppv) mut => VT.[Friend]GetShellItem(&this, riid, ppv);
 
-	public HRESULT GetIDList(ITEMIDLIST** ppidl) mut => VT.[Friend]GetIDList(&this, ppidl);
+	public HRESULT GetIDList(ITEMIDLIST ppidl) mut => VT.[Friend]GetIDList(&this, ppidl);
 }
 
 [CRepr]struct IExtractImage : IUnknown
@@ -10945,14 +10945,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractImage*/SelfOuter* self, char16* pszPathBuffer, uint32 cch, uint32* pdwPriority, SIZE* prgSize, uint32 dwRecClrDepth, uint32* pdwFlags) GetLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractImage*/SelfOuter* self, HBITMAP* phBmpThumbnail) Extract;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractImage*/SelfOuter* self, char16* pszPathBuffer, uint32 cch, uint32 pdwPriority, SIZE prgSize, uint32 dwRecClrDepth, uint32 pdwFlags) GetLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractImage*/SelfOuter* self, HBITMAP phBmpThumbnail) Extract;
 	}
 
 
-	public HRESULT GetLocation(char16* pszPathBuffer, uint32 cch, uint32* pdwPriority, SIZE* prgSize, uint32 dwRecClrDepth, uint32* pdwFlags) mut => VT.[Friend]GetLocation(&this, pszPathBuffer, cch, pdwPriority, prgSize, dwRecClrDepth, pdwFlags);
+	public HRESULT GetLocation(char16* pszPathBuffer, uint32 cch, uint32 pdwPriority, SIZE prgSize, uint32 dwRecClrDepth, uint32 pdwFlags) mut => VT.[Friend]GetLocation(&this, pszPathBuffer, cch, pdwPriority, prgSize, dwRecClrDepth, pdwFlags);
 
-	public HRESULT Extract(HBITMAP* phBmpThumbnail) mut => VT.[Friend]Extract(&this, phBmpThumbnail);
+	public HRESULT Extract(HBITMAP phBmpThumbnail) mut => VT.[Friend]Extract(&this, phBmpThumbnail);
 }
 
 [CRepr]struct IExtractImage2 : IExtractImage
@@ -10963,11 +10963,11 @@ public static
 
 	[CRepr]public struct VTable : IExtractImage.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractImage2*/SelfOuter* self, FILETIME* pDateStamp) GetDateStamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractImage2*/SelfOuter* self, FILETIME pDateStamp) GetDateStamp;
 	}
 
 
-	public HRESULT GetDateStamp(FILETIME* pDateStamp) mut => VT.[Friend]GetDateStamp(&this, pDateStamp);
+	public HRESULT GetDateStamp(FILETIME pDateStamp) mut => VT.[Friend]GetDateStamp(&this, pDateStamp);
 }
 
 [CRepr]struct IThumbnailHandlerFactory : IUnknown
@@ -10978,11 +10978,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailHandlerFactory*/SelfOuter* self, ITEMIDLIST* pidlChild, IBindCtx* pbc, Guid riid, void** ppv) GetThumbnailHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailHandlerFactory*/SelfOuter* self, ITEMIDLIST pidlChild, IBindCtx* pbc, Guid riid, void ppv) GetThumbnailHandler;
 	}
 
 
-	public HRESULT GetThumbnailHandler(ITEMIDLIST* pidlChild, IBindCtx* pbc, Guid riid, void** ppv) mut => VT.[Friend]GetThumbnailHandler(&this, pidlChild, pbc, riid, ppv);
+	public HRESULT GetThumbnailHandler(ITEMIDLIST pidlChild, IBindCtx* pbc, Guid riid, void ppv) mut => VT.[Friend]GetThumbnailHandler(&this, pidlChild, pbc, riid, ppv);
 }
 
 [CRepr]struct IParentAndItem : IUnknown
@@ -10993,14 +10993,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IParentAndItem*/SelfOuter* self, ITEMIDLIST* pidlParent, IShellFolder* psf, ITEMIDLIST* pidlChild) SetParentAndItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IParentAndItem*/SelfOuter* self, ITEMIDLIST** ppidlParent, IShellFolder** ppsf, ITEMIDLIST** ppidlChild) GetParentAndItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IParentAndItem*/SelfOuter* self, ITEMIDLIST pidlParent, IShellFolder* psf, ITEMIDLIST pidlChild) SetParentAndItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IParentAndItem*/SelfOuter* self, ITEMIDLIST ppidlParent, IShellFolder* ppsf, ITEMIDLIST ppidlChild) GetParentAndItem;
 	}
 
 
-	public HRESULT SetParentAndItem(ITEMIDLIST* pidlParent, IShellFolder* psf, ITEMIDLIST* pidlChild) mut => VT.[Friend]SetParentAndItem(&this, pidlParent, psf, pidlChild);
+	public HRESULT SetParentAndItem(ITEMIDLIST pidlParent, IShellFolder* psf, ITEMIDLIST pidlChild) mut => VT.[Friend]SetParentAndItem(&this, pidlParent, psf, pidlChild);
 
-	public HRESULT GetParentAndItem(ITEMIDLIST** ppidlParent, IShellFolder** ppsf, ITEMIDLIST** ppidlChild) mut => VT.[Friend]GetParentAndItem(&this, ppidlParent, ppsf, ppidlChild);
+	public HRESULT GetParentAndItem(ITEMIDLIST ppidlParent, IShellFolder* ppsf, ITEMIDLIST ppidlChild) mut => VT.[Friend]GetParentAndItem(&this, ppidlParent, ppsf, ppidlChild);
 }
 
 [CRepr]struct IDockingWindow : IOleWindow
@@ -11013,7 +11013,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindow*/SelfOuter* self, BOOL fShow) ShowDW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindow*/SelfOuter* self, uint32 dwReserved) CloseDW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindow*/SelfOuter* self, RECT* prcBorder, IUnknown* punkToolbarSite, BOOL fReserved) ResizeBorderDW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindow*/SelfOuter* self, RECT prcBorder, IUnknown* punkToolbarSite, BOOL fReserved) ResizeBorderDW;
 	}
 
 
@@ -11021,7 +11021,7 @@ public static
 
 	public HRESULT CloseDW(uint32 dwReserved) mut => VT.[Friend]CloseDW(&this, dwReserved);
 
-	public HRESULT ResizeBorderDW(RECT* prcBorder, IUnknown* punkToolbarSite, BOOL fReserved) mut => VT.[Friend]ResizeBorderDW(&this, prcBorder, punkToolbarSite, fReserved);
+	public HRESULT ResizeBorderDW(RECT prcBorder, IUnknown* punkToolbarSite, BOOL fReserved) mut => VT.[Friend]ResizeBorderDW(&this, prcBorder, punkToolbarSite, fReserved);
 }
 
 [CRepr]struct IDeskBand : IDockingWindow
@@ -11032,11 +11032,11 @@ public static
 
 	[CRepr]public struct VTable : IDockingWindow.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBand*/SelfOuter* self, uint32 dwBandID, uint32 dwViewMode, DESKBANDINFO* pdbi) GetBandInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBand*/SelfOuter* self, uint32 dwBandID, uint32 dwViewMode, DESKBANDINFO pdbi) GetBandInfo;
 	}
 
 
-	public HRESULT GetBandInfo(uint32 dwBandID, uint32 dwViewMode, DESKBANDINFO* pdbi) mut => VT.[Friend]GetBandInfo(&this, dwBandID, dwViewMode, pdbi);
+	public HRESULT GetBandInfo(uint32 dwBandID, uint32 dwViewMode, DESKBANDINFO pdbi) mut => VT.[Friend]GetBandInfo(&this, dwBandID, dwViewMode, pdbi);
 }
 
 [CRepr]struct IDeskBandInfo : IUnknown
@@ -11047,11 +11047,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBandInfo*/SelfOuter* self, uint32 dwBandID, uint32 dwViewMode, int32* pnWidth) GetDefaultBandWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBandInfo*/SelfOuter* self, uint32 dwBandID, uint32 dwViewMode, int32 pnWidth) GetDefaultBandWidth;
 	}
 
 
-	public HRESULT GetDefaultBandWidth(uint32 dwBandID, uint32 dwViewMode, int32* pnWidth) mut => VT.[Friend]GetDefaultBandWidth(&this, dwBandID, dwViewMode, pnWidth);
+	public HRESULT GetDefaultBandWidth(uint32 dwBandID, uint32 dwViewMode, int32 pnWidth) mut => VT.[Friend]GetDefaultBandWidth(&this, dwBandID, dwViewMode, pnWidth);
 }
 
 [CRepr]struct ITaskbarList : IUnknown
@@ -11115,7 +11115,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskbarList3*/SelfOuter* self, HWND hwnd, HIMAGELIST himl) ThumbBarSetImageList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskbarList3*/SelfOuter* self, HWND hwnd, HICON hIcon, PWSTR pszDescription) SetOverlayIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskbarList3*/SelfOuter* self, HWND hwnd, PWSTR pszTip) SetThumbnailTooltip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskbarList3*/SelfOuter* self, HWND hwnd, RECT* prcClip) SetThumbnailClip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskbarList3*/SelfOuter* self, HWND hwnd, RECT prcClip) SetThumbnailClip;
 	}
 
 
@@ -11141,7 +11141,7 @@ public static
 
 	public HRESULT SetThumbnailTooltip(HWND hwnd, PWSTR pszTip) mut => VT.[Friend]SetThumbnailTooltip(&this, hwnd, pszTip);
 
-	public HRESULT SetThumbnailClip(HWND hwnd, RECT* prcClip) mut => VT.[Friend]SetThumbnailClip(&this, hwnd, prcClip);
+	public HRESULT SetThumbnailClip(HWND hwnd, RECT prcClip) mut => VT.[Friend]SetThumbnailClip(&this, hwnd, prcClip);
 }
 
 [CRepr]struct ITaskbarList4 : ITaskbarList3
@@ -11167,20 +11167,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowserEvents*/SelfOuter* self, ITEMIDLIST* pidlFolder) OnNavigationPending;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowserEvents*/SelfOuter* self, ITEMIDLIST pidlFolder) OnNavigationPending;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowserEvents*/SelfOuter* self, IShellView* psv) OnViewCreated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowserEvents*/SelfOuter* self, ITEMIDLIST* pidlFolder) OnNavigationComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowserEvents*/SelfOuter* self, ITEMIDLIST* pidlFolder) OnNavigationFailed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowserEvents*/SelfOuter* self, ITEMIDLIST pidlFolder) OnNavigationComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowserEvents*/SelfOuter* self, ITEMIDLIST pidlFolder) OnNavigationFailed;
 	}
 
 
-	public HRESULT OnNavigationPending(ITEMIDLIST* pidlFolder) mut => VT.[Friend]OnNavigationPending(&this, pidlFolder);
+	public HRESULT OnNavigationPending(ITEMIDLIST pidlFolder) mut => VT.[Friend]OnNavigationPending(&this, pidlFolder);
 
 	public HRESULT OnViewCreated(IShellView* psv) mut => VT.[Friend]OnViewCreated(&this, psv);
 
-	public HRESULT OnNavigationComplete(ITEMIDLIST* pidlFolder) mut => VT.[Friend]OnNavigationComplete(&this, pidlFolder);
+	public HRESULT OnNavigationComplete(ITEMIDLIST pidlFolder) mut => VT.[Friend]OnNavigationComplete(&this, pidlFolder);
 
-	public HRESULT OnNavigationFailed(ITEMIDLIST* pidlFolder) mut => VT.[Friend]OnNavigationFailed(&this, pidlFolder);
+	public HRESULT OnNavigationFailed(ITEMIDLIST pidlFolder) mut => VT.[Friend]OnNavigationFailed(&this, pidlFolder);
 }
 
 [CRepr]struct IExplorerBrowser : IUnknown
@@ -11191,45 +11191,45 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, HWND hwndParent, RECT* prc, FOLDERSETTINGS* pfs) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, HWND hwndParent, RECT prc, FOLDERSETTINGS pfs) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self) Destroy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, int* phdwp, RECT rcBrowser) SetRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, int phdwp, RECT rcBrowser) SetRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, PWSTR pszPropertyBag) SetPropertyBag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, PWSTR pszEmptyText) SetEmptyText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, FOLDERSETTINGS* pfs) SetFolderSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, IExplorerBrowserEvents* psbe, uint32* pdwCookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, FOLDERSETTINGS pfs) SetFolderSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, IExplorerBrowserEvents* psbe, uint32 pdwCookie) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, uint32 dwCookie) Unadvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, EXPLORER_BROWSER_OPTIONS dwFlag) SetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, EXPLORER_BROWSER_OPTIONS* pdwFlag) GetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, ITEMIDLIST* pidl, uint32 uFlags) BrowseToIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, EXPLORER_BROWSER_OPTIONS pdwFlag) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, ITEMIDLIST pidl, uint32 uFlags) BrowseToIDList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, IUnknown* punk, uint32 uFlags) BrowseToObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, IUnknown* punk, EXPLORER_BROWSER_FILL_FLAGS dwFlags) FillFromObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self) RemoveAll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, Guid riid, void** ppv) GetCurrentView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerBrowser*/SelfOuter* self, Guid riid, void ppv) GetCurrentView;
 	}
 
 
-	public HRESULT Initialize(HWND hwndParent, RECT* prc, FOLDERSETTINGS* pfs) mut => VT.[Friend]Initialize(&this, hwndParent, prc, pfs);
+	public HRESULT Initialize(HWND hwndParent, RECT prc, FOLDERSETTINGS pfs) mut => VT.[Friend]Initialize(&this, hwndParent, prc, pfs);
 
 	public HRESULT Destroy() mut => VT.[Friend]Destroy(&this);
 
-	public HRESULT SetRect(int* phdwp, RECT rcBrowser) mut => VT.[Friend]SetRect(&this, phdwp, rcBrowser);
+	public HRESULT SetRect(int phdwp, RECT rcBrowser) mut => VT.[Friend]SetRect(&this, phdwp, rcBrowser);
 
 	public HRESULT SetPropertyBag(PWSTR pszPropertyBag) mut => VT.[Friend]SetPropertyBag(&this, pszPropertyBag);
 
 	public HRESULT SetEmptyText(PWSTR pszEmptyText) mut => VT.[Friend]SetEmptyText(&this, pszEmptyText);
 
-	public HRESULT SetFolderSettings(FOLDERSETTINGS* pfs) mut => VT.[Friend]SetFolderSettings(&this, pfs);
+	public HRESULT SetFolderSettings(FOLDERSETTINGS pfs) mut => VT.[Friend]SetFolderSettings(&this, pfs);
 
-	public HRESULT Advise(IExplorerBrowserEvents* psbe, uint32* pdwCookie) mut => VT.[Friend]Advise(&this, psbe, pdwCookie);
+	public HRESULT Advise(IExplorerBrowserEvents* psbe, uint32 pdwCookie) mut => VT.[Friend]Advise(&this, psbe, pdwCookie);
 
 	public HRESULT Unadvise(uint32 dwCookie) mut => VT.[Friend]Unadvise(&this, dwCookie);
 
 	public HRESULT SetOptions(EXPLORER_BROWSER_OPTIONS dwFlag) mut => VT.[Friend]SetOptions(&this, dwFlag);
 
-	public HRESULT GetOptions(EXPLORER_BROWSER_OPTIONS* pdwFlag) mut => VT.[Friend]GetOptions(&this, pdwFlag);
+	public HRESULT GetOptions(EXPLORER_BROWSER_OPTIONS pdwFlag) mut => VT.[Friend]GetOptions(&this, pdwFlag);
 
-	public HRESULT BrowseToIDList(ITEMIDLIST* pidl, uint32 uFlags) mut => VT.[Friend]BrowseToIDList(&this, pidl, uFlags);
+	public HRESULT BrowseToIDList(ITEMIDLIST pidl, uint32 uFlags) mut => VT.[Friend]BrowseToIDList(&this, pidl, uFlags);
 
 	public HRESULT BrowseToObject(IUnknown* punk, uint32 uFlags) mut => VT.[Friend]BrowseToObject(&this, punk, uFlags);
 
@@ -11237,7 +11237,7 @@ public static
 
 	public HRESULT RemoveAll() mut => VT.[Friend]RemoveAll(&this);
 
-	public HRESULT GetCurrentView(Guid riid, void** ppv) mut => VT.[Friend]GetCurrentView(&this, riid, ppv);
+	public HRESULT GetCurrentView(Guid riid, void ppv) mut => VT.[Friend]GetCurrentView(&this, riid, ppv);
 }
 
 [CRepr]struct IEnumObjects : IUnknown
@@ -11248,20 +11248,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumObjects*/SelfOuter* self, uint32 celt, Guid riid, void** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumObjects*/SelfOuter* self, uint32 celt, Guid riid, void* rgelt, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumObjects*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumObjects*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumObjects*/SelfOuter* self, IEnumObjects** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumObjects*/SelfOuter* self, IEnumObjects* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, Guid riid, void** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, riid, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, Guid riid, void* rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, riid, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumObjects** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumObjects* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct IOperationsProgressDialog : IUnknown
@@ -11281,8 +11281,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOperationsProgressDialog*/SelfOuter* self) ResetTimer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOperationsProgressDialog*/SelfOuter* self) PauseTimer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOperationsProgressDialog*/SelfOuter* self) ResumeTimer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOperationsProgressDialog*/SelfOuter* self, uint64* pullElapsed, uint64* pullRemaining) GetMilliseconds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOperationsProgressDialog*/SelfOuter* self, PDOPSTATUS* popstatus) GetOperationStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOperationsProgressDialog*/SelfOuter* self, uint64 pullElapsed, uint64 pullRemaining) GetMilliseconds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOperationsProgressDialog*/SelfOuter* self, PDOPSTATUS popstatus) GetOperationStatus;
 	}
 
 
@@ -11304,9 +11304,9 @@ public static
 
 	public HRESULT ResumeTimer() mut => VT.[Friend]ResumeTimer(&this);
 
-	public HRESULT GetMilliseconds(uint64* pullElapsed, uint64* pullRemaining) mut => VT.[Friend]GetMilliseconds(&this, pullElapsed, pullRemaining);
+	public HRESULT GetMilliseconds(uint64 pullElapsed, uint64 pullRemaining) mut => VT.[Friend]GetMilliseconds(&this, pullElapsed, pullRemaining);
 
-	public HRESULT GetOperationStatus(PDOPSTATUS* popstatus) mut => VT.[Friend]GetOperationStatus(&this, popstatus);
+	public HRESULT GetOperationStatus(PDOPSTATUS popstatus) mut => VT.[Friend]GetOperationStatus(&this, popstatus);
 }
 
 [CRepr]struct IIOCancelInformation : IUnknown
@@ -11318,13 +11318,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIOCancelInformation*/SelfOuter* self, uint32 dwThreadID, uint32 uMsgCancel) SetCancelInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIOCancelInformation*/SelfOuter* self, uint32* pdwThreadID, uint32* puMsgCancel) GetCancelInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIOCancelInformation*/SelfOuter* self, uint32 pdwThreadID, uint32 puMsgCancel) GetCancelInformation;
 	}
 
 
 	public HRESULT SetCancelInformation(uint32 dwThreadID, uint32 uMsgCancel) mut => VT.[Friend]SetCancelInformation(&this, dwThreadID, uMsgCancel);
 
-	public HRESULT GetCancelInformation(uint32* pdwThreadID, uint32* puMsgCancel) mut => VT.[Friend]GetCancelInformation(&this, pdwThreadID, puMsgCancel);
+	public HRESULT GetCancelInformation(uint32 pdwThreadID, uint32 puMsgCancel) mut => VT.[Friend]GetCancelInformation(&this, pdwThreadID, puMsgCancel);
 }
 
 [CRepr]struct IFileOperation : IUnknown
@@ -11335,7 +11335,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOperation*/SelfOuter* self, IFileOperationProgressSink* pfops, uint32* pdwCookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOperation*/SelfOuter* self, IFileOperationProgressSink* pfops, uint32 pdwCookie) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOperation*/SelfOuter* self, uint32 dwCookie) Unadvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOperation*/SelfOuter* self, uint32 dwOperationFlags) SetOperationFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOperation*/SelfOuter* self, PWSTR pszMessage) SetProgressMessage;
@@ -11354,11 +11354,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOperation*/SelfOuter* self, IUnknown* punkItems) DeleteItems;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOperation*/SelfOuter* self, IShellItem* psiDestinationFolder, uint32 dwFileAttributes, PWSTR pszName, PWSTR pszTemplateName, IFileOperationProgressSink* pfopsItem) NewItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOperation*/SelfOuter* self) PerformOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOperation*/SelfOuter* self, BOOL* pfAnyOperationsAborted) GetAnyOperationsAborted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOperation*/SelfOuter* self, BOOL pfAnyOperationsAborted) GetAnyOperationsAborted;
 	}
 
 
-	public HRESULT Advise(IFileOperationProgressSink* pfops, uint32* pdwCookie) mut => VT.[Friend]Advise(&this, pfops, pdwCookie);
+	public HRESULT Advise(IFileOperationProgressSink* pfops, uint32 pdwCookie) mut => VT.[Friend]Advise(&this, pfops, pdwCookie);
 
 	public HRESULT Unadvise(uint32 dwCookie) mut => VT.[Friend]Unadvise(&this, dwCookie);
 
@@ -11396,7 +11396,7 @@ public static
 
 	public HRESULT PerformOperations() mut => VT.[Friend]PerformOperations(&this);
 
-	public HRESULT GetAnyOperationsAborted(BOOL* pfAnyOperationsAborted) mut => VT.[Friend]GetAnyOperationsAborted(&this, pfAnyOperationsAborted);
+	public HRESULT GetAnyOperationsAborted(BOOL pfAnyOperationsAborted) mut => VT.[Friend]GetAnyOperationsAborted(&this, pfAnyOperationsAborted);
 }
 
 [CRepr]struct IFileOperation2 : IFileOperation
@@ -11422,11 +11422,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectProvider*/SelfOuter* self, Guid guidObject, Guid riid, void** ppvOut) QueryObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectProvider*/SelfOuter* self, Guid guidObject, Guid riid, void ppvOut) QueryObject;
 	}
 
 
-	public HRESULT QueryObject(Guid guidObject, Guid riid, void** ppvOut) mut => VT.[Friend]QueryObject(&this, guidObject, riid, ppvOut);
+	public HRESULT QueryObject(Guid guidObject, Guid riid, void ppvOut) mut => VT.[Friend]QueryObject(&this, guidObject, riid, ppvOut);
 }
 
 [CRepr]struct INamespaceWalkCB : IUnknown
@@ -11437,20 +11437,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalkCB*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST* pidl) FoundItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalkCB*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST* pidl) EnterFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalkCB*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST* pidl) LeaveFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalkCB*/SelfOuter* self, PWSTR* ppszTitle, PWSTR* ppszCancel) InitializeProgressDialog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalkCB*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST pidl) FoundItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalkCB*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST pidl) EnterFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalkCB*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST pidl) LeaveFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalkCB*/SelfOuter* self, PWSTR ppszTitle, PWSTR ppszCancel) InitializeProgressDialog;
 	}
 
 
-	public HRESULT FoundItem(IShellFolder* psf, ITEMIDLIST* pidl) mut => VT.[Friend]FoundItem(&this, psf, pidl);
+	public HRESULT FoundItem(IShellFolder* psf, ITEMIDLIST pidl) mut => VT.[Friend]FoundItem(&this, psf, pidl);
 
-	public HRESULT EnterFolder(IShellFolder* psf, ITEMIDLIST* pidl) mut => VT.[Friend]EnterFolder(&this, psf, pidl);
+	public HRESULT EnterFolder(IShellFolder* psf, ITEMIDLIST pidl) mut => VT.[Friend]EnterFolder(&this, psf, pidl);
 
-	public HRESULT LeaveFolder(IShellFolder* psf, ITEMIDLIST* pidl) mut => VT.[Friend]LeaveFolder(&this, psf, pidl);
+	public HRESULT LeaveFolder(IShellFolder* psf, ITEMIDLIST pidl) mut => VT.[Friend]LeaveFolder(&this, psf, pidl);
 
-	public HRESULT InitializeProgressDialog(PWSTR* ppszTitle, PWSTR* ppszCancel) mut => VT.[Friend]InitializeProgressDialog(&this, ppszTitle, ppszCancel);
+	public HRESULT InitializeProgressDialog(PWSTR ppszTitle, PWSTR ppszCancel) mut => VT.[Friend]InitializeProgressDialog(&this, ppszTitle, ppszCancel);
 }
 
 [CRepr]struct INamespaceWalkCB2 : INamespaceWalkCB
@@ -11477,13 +11477,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalk*/SelfOuter* self, IUnknown* punkToWalk, uint32 dwFlags, int32 cDepth, INamespaceWalkCB* pnswcb) Walk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalk*/SelfOuter* self, uint32* pcItems, ITEMIDLIST*** prgpidl) GetIDArrayResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamespaceWalk*/SelfOuter* self, uint32 pcItems, ITEMIDLIST* prgpidl) GetIDArrayResult;
 	}
 
 
 	public HRESULT Walk(IUnknown* punkToWalk, uint32 dwFlags, int32 cDepth, INamespaceWalkCB* pnswcb) mut => VT.[Friend]Walk(&this, punkToWalk, dwFlags, cDepth, pnswcb);
 
-	public HRESULT GetIDArrayResult(uint32* pcItems, ITEMIDLIST*** prgpidl) mut => VT.[Friend]GetIDArrayResult(&this, pcItems, prgpidl);
+	public HRESULT GetIDArrayResult(uint32 pcItems, ITEMIDLIST* prgpidl) mut => VT.[Friend]GetIDArrayResult(&this, pcItems, prgpidl);
 }
 
 [CRepr]struct IBandSite : IUnknown
@@ -11495,31 +11495,31 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, IUnknown* punk) AddBand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 uBand, uint32* pdwBandID) EnumBands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID, IDeskBand** ppstb, uint32* pdwState, char16* pszName, int32 cchName) QueryBand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 uBand, uint32 pdwBandID) EnumBands;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID, IDeskBand* ppstb, uint32 pdwState, char16* pszName, int32 cchName) QueryBand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID, uint32 dwMask, uint32 dwState) SetBandState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID) RemoveBand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID, Guid riid, void** ppv) GetBandObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, BANDSITEINFO* pbsinfo) SetBandSiteInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, BANDSITEINFO* pbsinfo) GetBandSiteInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, uint32 dwBandID, Guid riid, void ppv) GetBandObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, BANDSITEINFO pbsinfo) SetBandSiteInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandSite*/SelfOuter* self, BANDSITEINFO pbsinfo) GetBandSiteInfo;
 	}
 
 
 	public HRESULT AddBand(IUnknown* punk) mut => VT.[Friend]AddBand(&this, punk);
 
-	public HRESULT EnumBands(uint32 uBand, uint32* pdwBandID) mut => VT.[Friend]EnumBands(&this, uBand, pdwBandID);
+	public HRESULT EnumBands(uint32 uBand, uint32 pdwBandID) mut => VT.[Friend]EnumBands(&this, uBand, pdwBandID);
 
-	public HRESULT QueryBand(uint32 dwBandID, IDeskBand** ppstb, uint32* pdwState, char16* pszName, int32 cchName) mut => VT.[Friend]QueryBand(&this, dwBandID, ppstb, pdwState, pszName, cchName);
+	public HRESULT QueryBand(uint32 dwBandID, IDeskBand* ppstb, uint32 pdwState, char16* pszName, int32 cchName) mut => VT.[Friend]QueryBand(&this, dwBandID, ppstb, pdwState, pszName, cchName);
 
 	public HRESULT SetBandState(uint32 dwBandID, uint32 dwMask, uint32 dwState) mut => VT.[Friend]SetBandState(&this, dwBandID, dwMask, dwState);
 
 	public HRESULT RemoveBand(uint32 dwBandID) mut => VT.[Friend]RemoveBand(&this, dwBandID);
 
-	public HRESULT GetBandObject(uint32 dwBandID, Guid riid, void** ppv) mut => VT.[Friend]GetBandObject(&this, dwBandID, riid, ppv);
+	public HRESULT GetBandObject(uint32 dwBandID, Guid riid, void ppv) mut => VT.[Friend]GetBandObject(&this, dwBandID, riid, ppv);
 
-	public HRESULT SetBandSiteInfo(BANDSITEINFO* pbsinfo) mut => VT.[Friend]SetBandSiteInfo(&this, pbsinfo);
+	public HRESULT SetBandSiteInfo(BANDSITEINFO pbsinfo) mut => VT.[Friend]SetBandSiteInfo(&this, pbsinfo);
 
-	public HRESULT GetBandSiteInfo(BANDSITEINFO* pbsinfo) mut => VT.[Friend]GetBandSiteInfo(&this, pbsinfo);
+	public HRESULT GetBandSiteInfo(BANDSITEINFO pbsinfo) mut => VT.[Friend]GetBandSiteInfo(&this, pbsinfo);
 }
 
 [CRepr]struct IModalWindow : IUnknown
@@ -11560,14 +11560,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMenuBand*/SelfOuter* self, MSG* pmsg) IsMenuMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMenuBand*/SelfOuter* self, MSG* pmsg, LRESULT* plRet) TranslateMenuMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMenuBand*/SelfOuter* self, MSG pmsg) IsMenuMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMenuBand*/SelfOuter* self, MSG pmsg, LRESULT plRet) TranslateMenuMessage;
 	}
 
 
-	public HRESULT IsMenuMessage(MSG* pmsg) mut => VT.[Friend]IsMenuMessage(&this, pmsg);
+	public HRESULT IsMenuMessage(MSG pmsg) mut => VT.[Friend]IsMenuMessage(&this, pmsg);
 
-	public HRESULT TranslateMenuMessage(MSG* pmsg, LRESULT* plRet) mut => VT.[Friend]TranslateMenuMessage(&this, pmsg, plRet);
+	public HRESULT TranslateMenuMessage(MSG pmsg, LRESULT plRet) mut => VT.[Friend]TranslateMenuMessage(&this, pmsg, plRet);
 }
 
 [CRepr]struct IRegTreeItem : IUnknown
@@ -11578,12 +11578,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegTreeItem*/SelfOuter* self, BOOL* pbCheck) GetCheckState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegTreeItem*/SelfOuter* self, BOOL pbCheck) GetCheckState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegTreeItem*/SelfOuter* self, BOOL bCheck) SetCheckState;
 	}
 
 
-	public HRESULT GetCheckState(BOOL* pbCheck) mut => VT.[Friend]GetCheckState(&this, pbCheck);
+	public HRESULT GetCheckState(BOOL pbCheck) mut => VT.[Friend]GetCheckState(&this, pbCheck);
 
 	public HRESULT SetCheckState(BOOL bCheck) mut => VT.[Friend]SetCheckState(&this, bCheck);
 }
@@ -11597,16 +11597,16 @@ public static
 	[CRepr]public struct VTable : IOleWindow.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBar*/SelfOuter* self, IUnknown* punkClient) SetClient;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBar*/SelfOuter* self, IUnknown** ppunkClient) GetClient;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBar*/SelfOuter* self, RECT* prc) OnPosRectChangeDB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBar*/SelfOuter* self, IUnknown* ppunkClient) GetClient;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBar*/SelfOuter* self, RECT prc) OnPosRectChangeDB;
 	}
 
 
 	public HRESULT SetClient(IUnknown* punkClient) mut => VT.[Friend]SetClient(&this, punkClient);
 
-	public HRESULT GetClient(IUnknown** ppunkClient) mut => VT.[Friend]GetClient(&this, ppunkClient);
+	public HRESULT GetClient(IUnknown* ppunkClient) mut => VT.[Friend]GetClient(&this, ppunkClient);
 
-	public HRESULT OnPosRectChangeDB(RECT* prc) mut => VT.[Friend]OnPosRectChangeDB(&this, prc);
+	public HRESULT OnPosRectChangeDB(RECT prc) mut => VT.[Friend]OnPosRectChangeDB(&this, prc);
 }
 
 [CRepr]struct IMenuPopup : IDeskBar
@@ -11617,13 +11617,13 @@ public static
 
 	[CRepr]public struct VTable : IDeskBar.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMenuPopup*/SelfOuter* self, POINTL* ppt, RECTL* prcExclude, int32 dwFlags) Popup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMenuPopup*/SelfOuter* self, POINTL ppt, RECTL prcExclude, int32 dwFlags) Popup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMenuPopup*/SelfOuter* self, uint32 dwSelectType) OnSelect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMenuPopup*/SelfOuter* self, IMenuPopup* pmp, BOOL fSet) SetSubMenu;
 	}
 
 
-	public HRESULT Popup(POINTL* ppt, RECTL* prcExclude, int32 dwFlags) mut => VT.[Friend]Popup(&this, ppt, prcExclude, dwFlags);
+	public HRESULT Popup(POINTL ppt, RECTL prcExclude, int32 dwFlags) mut => VT.[Friend]Popup(&this, ppt, prcExclude, dwFlags);
 
 	public HRESULT OnSelect(uint32 dwSelectType) mut => VT.[Friend]OnSelect(&this, dwSelectType);
 
@@ -11638,21 +11638,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileIsInUse*/SelfOuter* self, PWSTR* ppszName) GetAppName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileIsInUse*/SelfOuter* self, FILE_USAGE_TYPE* pfut) GetUsage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileIsInUse*/SelfOuter* self, uint32* pdwCapFlags) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileIsInUse*/SelfOuter* self, HWND* phwnd) GetSwitchToHWND;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileIsInUse*/SelfOuter* self, PWSTR ppszName) GetAppName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileIsInUse*/SelfOuter* self, FILE_USAGE_TYPE pfut) GetUsage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileIsInUse*/SelfOuter* self, uint32 pdwCapFlags) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileIsInUse*/SelfOuter* self, HWND phwnd) GetSwitchToHWND;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileIsInUse*/SelfOuter* self) CloseFile;
 	}
 
 
-	public HRESULT GetAppName(PWSTR* ppszName) mut => VT.[Friend]GetAppName(&this, ppszName);
+	public HRESULT GetAppName(PWSTR ppszName) mut => VT.[Friend]GetAppName(&this, ppszName);
 
-	public HRESULT GetUsage(FILE_USAGE_TYPE* pfut) mut => VT.[Friend]GetUsage(&this, pfut);
+	public HRESULT GetUsage(FILE_USAGE_TYPE pfut) mut => VT.[Friend]GetUsage(&this, pfut);
 
-	public HRESULT GetCapabilities(uint32* pdwCapFlags) mut => VT.[Friend]GetCapabilities(&this, pdwCapFlags);
+	public HRESULT GetCapabilities(uint32 pdwCapFlags) mut => VT.[Friend]GetCapabilities(&this, pdwCapFlags);
 
-	public HRESULT GetSwitchToHWND(HWND* phwnd) mut => VT.[Friend]GetSwitchToHWND(&this, phwnd);
+	public HRESULT GetSwitchToHWND(HWND phwnd) mut => VT.[Friend]GetSwitchToHWND(&this, phwnd);
 
 	public HRESULT CloseFile() mut => VT.[Friend]CloseFile(&this);
 }
@@ -11669,9 +11669,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogEvents*/SelfOuter* self, IFileDialog* pfd, IShellItem* psiFolder) OnFolderChanging;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogEvents*/SelfOuter* self, IFileDialog* pfd) OnFolderChange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogEvents*/SelfOuter* self, IFileDialog* pfd) OnSelectionChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogEvents*/SelfOuter* self, IFileDialog* pfd, IShellItem* psi, FDE_SHAREVIOLATION_RESPONSE* pResponse) OnShareViolation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogEvents*/SelfOuter* self, IFileDialog* pfd, IShellItem* psi, FDE_SHAREVIOLATION_RESPONSE pResponse) OnShareViolation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogEvents*/SelfOuter* self, IFileDialog* pfd) OnTypeChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogEvents*/SelfOuter* self, IFileDialog* pfd, IShellItem* psi, FDE_OVERWRITE_RESPONSE* pResponse) OnOverwrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogEvents*/SelfOuter* self, IFileDialog* pfd, IShellItem* psi, FDE_OVERWRITE_RESPONSE pResponse) OnOverwrite;
 	}
 
 
@@ -11683,11 +11683,11 @@ public static
 
 	public HRESULT OnSelectionChange(IFileDialog* pfd) mut => VT.[Friend]OnSelectionChange(&this, pfd);
 
-	public HRESULT OnShareViolation(IFileDialog* pfd, IShellItem* psi, FDE_SHAREVIOLATION_RESPONSE* pResponse) mut => VT.[Friend]OnShareViolation(&this, pfd, psi, pResponse);
+	public HRESULT OnShareViolation(IFileDialog* pfd, IShellItem* psi, FDE_SHAREVIOLATION_RESPONSE pResponse) mut => VT.[Friend]OnShareViolation(&this, pfd, psi, pResponse);
 
 	public HRESULT OnTypeChange(IFileDialog* pfd) mut => VT.[Friend]OnTypeChange(&this, pfd);
 
-	public HRESULT OnOverwrite(IFileDialog* pfd, IShellItem* psi, FDE_OVERWRITE_RESPONSE* pResponse) mut => VT.[Friend]OnOverwrite(&this, pfd, psi, pResponse);
+	public HRESULT OnOverwrite(IFileDialog* pfd, IShellItem* psi, FDE_OVERWRITE_RESPONSE pResponse) mut => VT.[Friend]OnOverwrite(&this, pfd, psi, pResponse);
 }
 
 [CRepr]struct IFileDialog : IModalWindow
@@ -11700,21 +11700,21 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, uint32 cFileTypes, COMDLG_FILTERSPEC* rgFilterSpec) SetFileTypes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, uint32 iFileType) SetFileTypeIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, uint32* piFileType) GetFileTypeIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IFileDialogEvents* pfde, uint32* pdwCookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, uint32 piFileType) GetFileTypeIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IFileDialogEvents* pfde, uint32 pdwCookie) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, uint32 dwCookie) Unadvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, uint32 fos) SetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, uint32* pfos) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, uint32 pfos) GetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IShellItem* psi) SetDefaultFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IShellItem* psi) SetFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IShellItem** ppsi) GetFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IShellItem** ppsi) GetCurrentSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IShellItem* ppsi) GetFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IShellItem* ppsi) GetCurrentSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, PWSTR pszName) SetFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, PWSTR* pszName) GetFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, PWSTR pszName) GetFileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, PWSTR pszTitle) SetTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, PWSTR pszText) SetOkButtonLabel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, PWSTR pszLabel) SetFileNameLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IShellItem** ppsi) GetResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IShellItem* ppsi) GetResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, IShellItem* psi, FDAP fdap) AddPlace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, PWSTR pszDefaultExtension) SetDefaultExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialog*/SelfOuter* self, HRESULT hr) Close;
@@ -11728,27 +11728,27 @@ public static
 
 	public HRESULT SetFileTypeIndex(uint32 iFileType) mut => VT.[Friend]SetFileTypeIndex(&this, iFileType);
 
-	public HRESULT GetFileTypeIndex(uint32* piFileType) mut => VT.[Friend]GetFileTypeIndex(&this, piFileType);
+	public HRESULT GetFileTypeIndex(uint32 piFileType) mut => VT.[Friend]GetFileTypeIndex(&this, piFileType);
 
-	public HRESULT Advise(IFileDialogEvents* pfde, uint32* pdwCookie) mut => VT.[Friend]Advise(&this, pfde, pdwCookie);
+	public HRESULT Advise(IFileDialogEvents* pfde, uint32 pdwCookie) mut => VT.[Friend]Advise(&this, pfde, pdwCookie);
 
 	public HRESULT Unadvise(uint32 dwCookie) mut => VT.[Friend]Unadvise(&this, dwCookie);
 
 	public HRESULT SetOptions(uint32 fos) mut => VT.[Friend]SetOptions(&this, fos);
 
-	public HRESULT GetOptions(uint32* pfos) mut => VT.[Friend]GetOptions(&this, pfos);
+	public HRESULT GetOptions(uint32 pfos) mut => VT.[Friend]GetOptions(&this, pfos);
 
 	public HRESULT SetDefaultFolder(IShellItem* psi) mut => VT.[Friend]SetDefaultFolder(&this, psi);
 
 	public HRESULT SetFolder(IShellItem* psi) mut => VT.[Friend]SetFolder(&this, psi);
 
-	public HRESULT GetFolder(IShellItem** ppsi) mut => VT.[Friend]GetFolder(&this, ppsi);
+	public HRESULT GetFolder(IShellItem* ppsi) mut => VT.[Friend]GetFolder(&this, ppsi);
 
-	public HRESULT GetCurrentSelection(IShellItem** ppsi) mut => VT.[Friend]GetCurrentSelection(&this, ppsi);
+	public HRESULT GetCurrentSelection(IShellItem* ppsi) mut => VT.[Friend]GetCurrentSelection(&this, ppsi);
 
 	public HRESULT SetFileName(PWSTR pszName) mut => VT.[Friend]SetFileName(&this, pszName);
 
-	public HRESULT GetFileName(PWSTR* pszName) mut => VT.[Friend]GetFileName(&this, pszName);
+	public HRESULT GetFileName(PWSTR pszName) mut => VT.[Friend]GetFileName(&this, pszName);
 
 	public HRESULT SetTitle(PWSTR pszTitle) mut => VT.[Friend]SetTitle(&this, pszTitle);
 
@@ -11756,7 +11756,7 @@ public static
 
 	public HRESULT SetFileNameLabel(PWSTR pszLabel) mut => VT.[Friend]SetFileNameLabel(&this, pszLabel);
 
-	public HRESULT GetResult(IShellItem** ppsi) mut => VT.[Friend]GetResult(&this, ppsi);
+	public HRESULT GetResult(IShellItem* ppsi) mut => VT.[Friend]GetResult(&this, ppsi);
 
 	public HRESULT AddPlace(IShellItem* psi, FDAP fdap) mut => VT.[Friend]AddPlace(&this, psi, fdap);
 
@@ -11782,7 +11782,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSaveDialog*/SelfOuter* self, IShellItem* psi) SetSaveAsItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSaveDialog*/SelfOuter* self, IPropertyStore* pStore) SetProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSaveDialog*/SelfOuter* self, IPropertyDescriptionList* pList, BOOL fAppendDefault) SetCollectedProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSaveDialog*/SelfOuter* self, IPropertyStore** ppStore) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSaveDialog*/SelfOuter* self, IPropertyStore* ppStore) GetProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSaveDialog*/SelfOuter* self, IShellItem* psi, IPropertyStore* pStore, HWND hwnd, IFileOperationProgressSink* pSink) ApplyProperties;
 	}
 
@@ -11793,7 +11793,7 @@ public static
 
 	public HRESULT SetCollectedProperties(IPropertyDescriptionList* pList, BOOL fAppendDefault) mut => VT.[Friend]SetCollectedProperties(&this, pList, fAppendDefault);
 
-	public HRESULT GetProperties(IPropertyStore** ppStore) mut => VT.[Friend]GetProperties(&this, ppStore);
+	public HRESULT GetProperties(IPropertyStore* ppStore) mut => VT.[Friend]GetProperties(&this, ppStore);
 
 	public HRESULT ApplyProperties(IShellItem* psi, IPropertyStore* pStore, HWND hwnd, IFileOperationProgressSink* pSink) mut => VT.[Friend]ApplyProperties(&this, psi, pStore, hwnd, pSink);
 }
@@ -11806,14 +11806,14 @@ public static
 
 	[CRepr]public struct VTable : IFileDialog.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOpenDialog*/SelfOuter* self, IShellItemArray** ppenum) GetResults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOpenDialog*/SelfOuter* self, IShellItemArray** ppsai) GetSelectedItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOpenDialog*/SelfOuter* self, IShellItemArray* ppenum) GetResults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileOpenDialog*/SelfOuter* self, IShellItemArray* ppsai) GetSelectedItems;
 	}
 
 
-	public HRESULT GetResults(IShellItemArray** ppenum) mut => VT.[Friend]GetResults(&this, ppenum);
+	public HRESULT GetResults(IShellItemArray* ppenum) mut => VT.[Friend]GetResults(&this, ppenum);
 
-	public HRESULT GetSelectedItems(IShellItemArray** ppsai) mut => VT.[Friend]GetSelectedItems(&this, ppsai);
+	public HRESULT GetSelectedItems(IShellItemArray* ppsai) mut => VT.[Friend]GetSelectedItems(&this, ppsai);
 }
 
 [CRepr]struct IFileDialogCustomize : IUnknown
@@ -11834,18 +11834,18 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl) AddSeparator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, PWSTR pszText) AddText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, PWSTR pszLabel) SetControlLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, CDCONTROLSTATEF* pdwState) GetControlState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, CDCONTROLSTATEF pdwState) GetControlState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, CDCONTROLSTATEF dwState) SetControlState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, uint16** ppszText) GetEditBoxText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, uint16 ppszText) GetEditBoxText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, PWSTR pszText) SetEditBoxText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, BOOL* pbChecked) GetCheckButtonState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, BOOL pbChecked) GetCheckButtonState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, BOOL bChecked) SetCheckButtonState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, uint32 dwIDItem, PWSTR pszLabel) AddControlItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, uint32 dwIDItem) RemoveControlItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl) RemoveAllControlItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, uint32 dwIDItem, CDCONTROLSTATEF* pdwState) GetControlItemState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, uint32 dwIDItem, CDCONTROLSTATEF pdwState) GetControlItemState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, uint32 dwIDItem, CDCONTROLSTATEF dwState) SetControlItemState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, uint32* pdwIDItem) GetSelectedControlItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, uint32 pdwIDItem) GetSelectedControlItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, uint32 dwIDItem) SetSelectedControlItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self, uint32 dwIDCtl, PWSTR pszLabel) StartVisualGroup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileDialogCustomize*/SelfOuter* self) EndVisualGroup;
@@ -11874,15 +11874,15 @@ public static
 
 	public HRESULT SetControlLabel(uint32 dwIDCtl, PWSTR pszLabel) mut => VT.[Friend]SetControlLabel(&this, dwIDCtl, pszLabel);
 
-	public HRESULT GetControlState(uint32 dwIDCtl, CDCONTROLSTATEF* pdwState) mut => VT.[Friend]GetControlState(&this, dwIDCtl, pdwState);
+	public HRESULT GetControlState(uint32 dwIDCtl, CDCONTROLSTATEF pdwState) mut => VT.[Friend]GetControlState(&this, dwIDCtl, pdwState);
 
 	public HRESULT SetControlState(uint32 dwIDCtl, CDCONTROLSTATEF dwState) mut => VT.[Friend]SetControlState(&this, dwIDCtl, dwState);
 
-	public HRESULT GetEditBoxText(uint32 dwIDCtl, uint16** ppszText) mut => VT.[Friend]GetEditBoxText(&this, dwIDCtl, ppszText);
+	public HRESULT GetEditBoxText(uint32 dwIDCtl, uint16 ppszText) mut => VT.[Friend]GetEditBoxText(&this, dwIDCtl, ppszText);
 
 	public HRESULT SetEditBoxText(uint32 dwIDCtl, PWSTR pszText) mut => VT.[Friend]SetEditBoxText(&this, dwIDCtl, pszText);
 
-	public HRESULT GetCheckButtonState(uint32 dwIDCtl, BOOL* pbChecked) mut => VT.[Friend]GetCheckButtonState(&this, dwIDCtl, pbChecked);
+	public HRESULT GetCheckButtonState(uint32 dwIDCtl, BOOL pbChecked) mut => VT.[Friend]GetCheckButtonState(&this, dwIDCtl, pbChecked);
 
 	public HRESULT SetCheckButtonState(uint32 dwIDCtl, BOOL bChecked) mut => VT.[Friend]SetCheckButtonState(&this, dwIDCtl, bChecked);
 
@@ -11892,11 +11892,11 @@ public static
 
 	public HRESULT RemoveAllControlItems(uint32 dwIDCtl) mut => VT.[Friend]RemoveAllControlItems(&this, dwIDCtl);
 
-	public HRESULT GetControlItemState(uint32 dwIDCtl, uint32 dwIDItem, CDCONTROLSTATEF* pdwState) mut => VT.[Friend]GetControlItemState(&this, dwIDCtl, dwIDItem, pdwState);
+	public HRESULT GetControlItemState(uint32 dwIDCtl, uint32 dwIDItem, CDCONTROLSTATEF pdwState) mut => VT.[Friend]GetControlItemState(&this, dwIDCtl, dwIDItem, pdwState);
 
 	public HRESULT SetControlItemState(uint32 dwIDCtl, uint32 dwIDItem, CDCONTROLSTATEF dwState) mut => VT.[Friend]SetControlItemState(&this, dwIDCtl, dwIDItem, dwState);
 
-	public HRESULT GetSelectedControlItem(uint32 dwIDCtl, uint32* pdwIDItem) mut => VT.[Friend]GetSelectedControlItem(&this, dwIDCtl, pdwIDItem);
+	public HRESULT GetSelectedControlItem(uint32 dwIDCtl, uint32 pdwIDItem) mut => VT.[Friend]GetSelectedControlItem(&this, dwIDCtl, pdwIDItem);
 
 	public HRESULT SetSelectedControlItem(uint32 dwIDCtl, uint32 dwIDItem) mut => VT.[Friend]SetSelectedControlItem(&this, dwIDCtl, dwIDItem);
 
@@ -11917,20 +11917,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationAssociationRegistration*/SelfOuter* self, PWSTR pszQuery, ASSOCIATIONTYPE atQueryType, ASSOCIATIONLEVEL alQueryLevel, PWSTR* ppszAssociation) QueryCurrentDefault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationAssociationRegistration*/SelfOuter* self, PWSTR pszQuery, ASSOCIATIONTYPE atQueryType, ASSOCIATIONLEVEL alQueryLevel, PWSTR pszAppRegistryName, BOOL* pfDefault) QueryAppIsDefault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationAssociationRegistration*/SelfOuter* self, ASSOCIATIONLEVEL alQueryLevel, PWSTR pszAppRegistryName, BOOL* pfDefault) QueryAppIsDefaultAll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationAssociationRegistration*/SelfOuter* self, PWSTR pszQuery, ASSOCIATIONTYPE atQueryType, ASSOCIATIONLEVEL alQueryLevel, PWSTR ppszAssociation) QueryCurrentDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationAssociationRegistration*/SelfOuter* self, PWSTR pszQuery, ASSOCIATIONTYPE atQueryType, ASSOCIATIONLEVEL alQueryLevel, PWSTR pszAppRegistryName, BOOL pfDefault) QueryAppIsDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationAssociationRegistration*/SelfOuter* self, ASSOCIATIONLEVEL alQueryLevel, PWSTR pszAppRegistryName, BOOL pfDefault) QueryAppIsDefaultAll;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationAssociationRegistration*/SelfOuter* self, PWSTR pszAppRegistryName, PWSTR pszSet, ASSOCIATIONTYPE atSetType) SetAppAsDefault;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationAssociationRegistration*/SelfOuter* self, PWSTR pszAppRegistryName) SetAppAsDefaultAll;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationAssociationRegistration*/SelfOuter* self) ClearUserAssociations;
 	}
 
 
-	public HRESULT QueryCurrentDefault(PWSTR pszQuery, ASSOCIATIONTYPE atQueryType, ASSOCIATIONLEVEL alQueryLevel, PWSTR* ppszAssociation) mut => VT.[Friend]QueryCurrentDefault(&this, pszQuery, atQueryType, alQueryLevel, ppszAssociation);
+	public HRESULT QueryCurrentDefault(PWSTR pszQuery, ASSOCIATIONTYPE atQueryType, ASSOCIATIONLEVEL alQueryLevel, PWSTR ppszAssociation) mut => VT.[Friend]QueryCurrentDefault(&this, pszQuery, atQueryType, alQueryLevel, ppszAssociation);
 
-	public HRESULT QueryAppIsDefault(PWSTR pszQuery, ASSOCIATIONTYPE atQueryType, ASSOCIATIONLEVEL alQueryLevel, PWSTR pszAppRegistryName, BOOL* pfDefault) mut => VT.[Friend]QueryAppIsDefault(&this, pszQuery, atQueryType, alQueryLevel, pszAppRegistryName, pfDefault);
+	public HRESULT QueryAppIsDefault(PWSTR pszQuery, ASSOCIATIONTYPE atQueryType, ASSOCIATIONLEVEL alQueryLevel, PWSTR pszAppRegistryName, BOOL pfDefault) mut => VT.[Friend]QueryAppIsDefault(&this, pszQuery, atQueryType, alQueryLevel, pszAppRegistryName, pfDefault);
 
-	public HRESULT QueryAppIsDefaultAll(ASSOCIATIONLEVEL alQueryLevel, PWSTR pszAppRegistryName, BOOL* pfDefault) mut => VT.[Friend]QueryAppIsDefaultAll(&this, alQueryLevel, pszAppRegistryName, pfDefault);
+	public HRESULT QueryAppIsDefaultAll(ASSOCIATIONLEVEL alQueryLevel, PWSTR pszAppRegistryName, BOOL pfDefault) mut => VT.[Friend]QueryAppIsDefaultAll(&this, alQueryLevel, pszAppRegistryName, pfDefault);
 
 	public HRESULT SetAppAsDefault(PWSTR pszAppRegistryName, PWSTR pszSet, ASSOCIATIONTYPE atSetType) mut => VT.[Friend]SetAppAsDefault(&this, pszAppRegistryName, pszSet, atSetType);
 
@@ -11962,11 +11962,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserFrameOptions*/SelfOuter* self, uint32 dwMask, uint32* pdwOptions) GetFrameOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserFrameOptions*/SelfOuter* self, uint32 dwMask, uint32 pdwOptions) GetFrameOptions;
 	}
 
 
-	public HRESULT GetFrameOptions(uint32 dwMask, uint32* pdwOptions) mut => VT.[Friend]GetFrameOptions(&this, dwMask, pdwOptions);
+	public HRESULT GetFrameOptions(uint32 dwMask, uint32 pdwOptions) mut => VT.[Friend]GetFrameOptions(&this, dwMask, pdwOptions);
 }
 
 [CRepr]struct INewWindowManager : IUnknown
@@ -11999,9 +11999,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAttachmentExecute*/SelfOuter* self, PWSTR pszSource) SetSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAttachmentExecute*/SelfOuter* self, PWSTR pszReferrer) SetReferrer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAttachmentExecute*/SelfOuter* self) CheckPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAttachmentExecute*/SelfOuter* self, HWND hwnd, ATTACHMENT_PROMPT prompt, ATTACHMENT_ACTION* paction) Prompt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAttachmentExecute*/SelfOuter* self, HWND hwnd, ATTACHMENT_PROMPT prompt, ATTACHMENT_ACTION paction) Prompt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAttachmentExecute*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAttachmentExecute*/SelfOuter* self, HWND hwnd, PWSTR pszVerb, HANDLE* phProcess) Execute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAttachmentExecute*/SelfOuter* self, HWND hwnd, PWSTR pszVerb, HANDLE phProcess) Execute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAttachmentExecute*/SelfOuter* self, HWND hwnd) SaveWithUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAttachmentExecute*/SelfOuter* self) ClearClientState;
 	}
@@ -12021,11 +12021,11 @@ public static
 
 	public HRESULT CheckPolicy() mut => VT.[Friend]CheckPolicy(&this);
 
-	public HRESULT Prompt(HWND hwnd, ATTACHMENT_PROMPT prompt, ATTACHMENT_ACTION* paction) mut => VT.[Friend]Prompt(&this, hwnd, prompt, paction);
+	public HRESULT Prompt(HWND hwnd, ATTACHMENT_PROMPT prompt, ATTACHMENT_ACTION paction) mut => VT.[Friend]Prompt(&this, hwnd, prompt, paction);
 
 	public HRESULT Save() mut => VT.[Friend]Save(&this);
 
-	public HRESULT Execute(HWND hwnd, PWSTR pszVerb, HANDLE* phProcess) mut => VT.[Friend]Execute(&this, hwnd, pszVerb, phProcess);
+	public HRESULT Execute(HWND hwnd, PWSTR pszVerb, HANDLE phProcess) mut => VT.[Friend]Execute(&this, hwnd, pszVerb, phProcess);
 
 	public HRESULT SaveWithUI(HWND hwnd) mut => VT.[Friend]SaveWithUI(&this, hwnd);
 
@@ -12040,11 +12040,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenuCallback*/SelfOuter* self, SMDATA* psmd, uint32 uMsg, WPARAM wParam, LPARAM lParam) CallbackSM;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenuCallback*/SelfOuter* self, SMDATA psmd, uint32 uMsg, WPARAM wParam, LPARAM lParam) CallbackSM;
 	}
 
 
-	public HRESULT CallbackSM(SMDATA* psmd, uint32 uMsg, WPARAM wParam, LPARAM lParam) mut => VT.[Friend]CallbackSM(&this, psmd, uMsg, wParam, lParam);
+	public HRESULT CallbackSM(SMDATA psmd, uint32 uMsg, WPARAM wParam, LPARAM lParam) mut => VT.[Friend]CallbackSM(&this, psmd, uMsg, wParam, lParam);
 }
 
 [CRepr]struct IShellMenu : IUnknown
@@ -12056,32 +12056,32 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, IShellMenuCallback* psmc, uint32 uId, uint32 uIdAncestor, uint32 dwFlags) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, IShellMenuCallback** ppsmc, uint32* puId, uint32* puIdAncestor, uint32* pdwFlags) GetMenuInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST* pidlFolder, HKEY hKey, uint32 dwFlags) SetShellFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, uint32* pdwFlags, ITEMIDLIST** ppidl, Guid riid, void** ppv) GetShellFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, IShellMenuCallback* ppsmc, uint32 puId, uint32 puIdAncestor, uint32 pdwFlags) GetMenuInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST pidlFolder, HKEY hKey, uint32 dwFlags) SetShellFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, uint32 pdwFlags, ITEMIDLIST ppidl, Guid riid, void ppv) GetShellFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, HMENU hmenu, HWND hwnd, uint32 dwFlags) SetMenu;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, HMENU* phmenu, HWND* phwnd, uint32* pdwFlags) GetMenu;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, SMDATA* psmd, uint32 dwFlags) InvalidateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, SMDATA* psmd) GetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, HMENU phmenu, HWND phwnd, uint32 pdwFlags) GetMenu;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, SMDATA psmd, uint32 dwFlags) InvalidateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, SMDATA psmd) GetState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellMenu*/SelfOuter* self, IUnknown* punk, uint32 dwFlags) SetMenuToolbar;
 	}
 
 
 	public HRESULT Initialize(IShellMenuCallback* psmc, uint32 uId, uint32 uIdAncestor, uint32 dwFlags) mut => VT.[Friend]Initialize(&this, psmc, uId, uIdAncestor, dwFlags);
 
-	public HRESULT GetMenuInfo(IShellMenuCallback** ppsmc, uint32* puId, uint32* puIdAncestor, uint32* pdwFlags) mut => VT.[Friend]GetMenuInfo(&this, ppsmc, puId, puIdAncestor, pdwFlags);
+	public HRESULT GetMenuInfo(IShellMenuCallback* ppsmc, uint32 puId, uint32 puIdAncestor, uint32 pdwFlags) mut => VT.[Friend]GetMenuInfo(&this, ppsmc, puId, puIdAncestor, pdwFlags);
 
-	public HRESULT SetShellFolder(IShellFolder* psf, ITEMIDLIST* pidlFolder, HKEY hKey, uint32 dwFlags) mut => VT.[Friend]SetShellFolder(&this, psf, pidlFolder, hKey, dwFlags);
+	public HRESULT SetShellFolder(IShellFolder* psf, ITEMIDLIST pidlFolder, HKEY hKey, uint32 dwFlags) mut => VT.[Friend]SetShellFolder(&this, psf, pidlFolder, hKey, dwFlags);
 
-	public HRESULT GetShellFolder(uint32* pdwFlags, ITEMIDLIST** ppidl, Guid riid, void** ppv) mut => VT.[Friend]GetShellFolder(&this, pdwFlags, ppidl, riid, ppv);
+	public HRESULT GetShellFolder(uint32 pdwFlags, ITEMIDLIST ppidl, Guid riid, void ppv) mut => VT.[Friend]GetShellFolder(&this, pdwFlags, ppidl, riid, ppv);
 
 	public HRESULT SetMenu(HMENU hmenu, HWND hwnd, uint32 dwFlags) mut => VT.[Friend]SetMenu(&this, hmenu, hwnd, dwFlags);
 
-	public HRESULT GetMenu(HMENU* phmenu, HWND* phwnd, uint32* pdwFlags) mut => VT.[Friend]GetMenu(&this, phmenu, phwnd, pdwFlags);
+	public HRESULT GetMenu(HMENU phmenu, HWND phwnd, uint32 pdwFlags) mut => VT.[Friend]GetMenu(&this, phmenu, phwnd, pdwFlags);
 
-	public HRESULT InvalidateItem(SMDATA* psmd, uint32 dwFlags) mut => VT.[Friend]InvalidateItem(&this, psmd, dwFlags);
+	public HRESULT InvalidateItem(SMDATA psmd, uint32 dwFlags) mut => VT.[Friend]InvalidateItem(&this, psmd, dwFlags);
 
-	public HRESULT GetState(SMDATA* psmd) mut => VT.[Friend]GetState(&this, psmd);
+	public HRESULT GetState(SMDATA psmd) mut => VT.[Friend]GetState(&this, psmd);
 
 	public HRESULT SetMenuToolbar(IUnknown* punk, uint32 dwFlags) mut => VT.[Friend]SetMenuToolbar(&this, punk, dwFlags);
 }
@@ -12095,34 +12095,34 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, Guid pkfid) GetId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, KF_CATEGORY* pCategory) GetCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, uint32 dwFlags, Guid riid, void** ppv) GetShellItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, uint32 dwFlags, PWSTR* ppszPath) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, KF_CATEGORY pCategory) GetCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, uint32 dwFlags, Guid riid, void ppv) GetShellItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, uint32 dwFlags, PWSTR ppszPath) GetPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, uint32 dwFlags, PWSTR pszPath) SetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, uint32 dwFlags, ITEMIDLIST** ppidl) GetIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, uint32 dwFlags, ITEMIDLIST ppidl) GetIDList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, Guid pftid) GetFolderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, uint32* pCapabilities) GetRedirectionCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, KNOWNFOLDER_DEFINITION* pKFD) GetFolderDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, uint32 pCapabilities) GetRedirectionCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolder*/SelfOuter* self, KNOWNFOLDER_DEFINITION pKFD) GetFolderDefinition;
 	}
 
 
 	public HRESULT GetId(Guid pkfid) mut => VT.[Friend]GetId(&this, pkfid);
 
-	public HRESULT GetCategory(KF_CATEGORY* pCategory) mut => VT.[Friend]GetCategory(&this, pCategory);
+	public HRESULT GetCategory(KF_CATEGORY pCategory) mut => VT.[Friend]GetCategory(&this, pCategory);
 
-	public HRESULT GetShellItem(uint32 dwFlags, Guid riid, void** ppv) mut => VT.[Friend]GetShellItem(&this, dwFlags, riid, ppv);
+	public HRESULT GetShellItem(uint32 dwFlags, Guid riid, void ppv) mut => VT.[Friend]GetShellItem(&this, dwFlags, riid, ppv);
 
-	public HRESULT GetPath(uint32 dwFlags, PWSTR* ppszPath) mut => VT.[Friend]GetPath(&this, dwFlags, ppszPath);
+	public HRESULT GetPath(uint32 dwFlags, PWSTR ppszPath) mut => VT.[Friend]GetPath(&this, dwFlags, ppszPath);
 
 	public HRESULT SetPath(uint32 dwFlags, PWSTR pszPath) mut => VT.[Friend]SetPath(&this, dwFlags, pszPath);
 
-	public HRESULT GetIDList(uint32 dwFlags, ITEMIDLIST** ppidl) mut => VT.[Friend]GetIDList(&this, dwFlags, ppidl);
+	public HRESULT GetIDList(uint32 dwFlags, ITEMIDLIST ppidl) mut => VT.[Friend]GetIDList(&this, dwFlags, ppidl);
 
 	public HRESULT GetFolderType(Guid pftid) mut => VT.[Friend]GetFolderType(&this, pftid);
 
-	public HRESULT GetRedirectionCapabilities(uint32* pCapabilities) mut => VT.[Friend]GetRedirectionCapabilities(&this, pCapabilities);
+	public HRESULT GetRedirectionCapabilities(uint32 pCapabilities) mut => VT.[Friend]GetRedirectionCapabilities(&this, pCapabilities);
 
-	public HRESULT GetFolderDefinition(KNOWNFOLDER_DEFINITION* pKFD) mut => VT.[Friend]GetFolderDefinition(&this, pKFD);
+	public HRESULT GetFolderDefinition(KNOWNFOLDER_DEFINITION pKFD) mut => VT.[Friend]GetFolderDefinition(&this, pKFD);
 }
 
 [CRepr]struct IKnownFolderManager : IUnknown
@@ -12134,37 +12134,37 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, int32 nCsidl, Guid pfid) FolderIdFromCsidl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid rfid, int32* pnCsidl) FolderIdToCsidl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid* ppKFId, uint32* pCount) GetFolderIds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid rfid, IKnownFolder** ppkf) GetFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, PWSTR pszCanonicalName, IKnownFolder** ppkf) GetFolderByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid rfid, KNOWNFOLDER_DEFINITION* pKFD) RegisterFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid rfid, int32 pnCsidl) FolderIdToCsidl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid* ppKFId, uint32 pCount) GetFolderIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid rfid, IKnownFolder* ppkf) GetFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, PWSTR pszCanonicalName, IKnownFolder* ppkf) GetFolderByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid rfid, KNOWNFOLDER_DEFINITION pKFD) RegisterFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid rfid) UnregisterFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, PWSTR pszPath, FFFP_MODE mode, IKnownFolder** ppkf) FindFolderFromPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, ITEMIDLIST* pidl, IKnownFolder** ppkf) FindFolderFromIDList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid rfid, HWND hwnd, uint32 flags, PWSTR pszTargetPath, uint32 cFolders, Guid* pExclusion, PWSTR* ppszError) Redirect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, PWSTR pszPath, FFFP_MODE mode, IKnownFolder* ppkf) FindFolderFromPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, ITEMIDLIST pidl, IKnownFolder* ppkf) FindFolderFromIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKnownFolderManager*/SelfOuter* self, Guid rfid, HWND hwnd, uint32 flags, PWSTR pszTargetPath, uint32 cFolders, Guid* pExclusion, PWSTR ppszError) Redirect;
 	}
 
 
 	public HRESULT FolderIdFromCsidl(int32 nCsidl, Guid pfid) mut => VT.[Friend]FolderIdFromCsidl(&this, nCsidl, pfid);
 
-	public HRESULT FolderIdToCsidl(Guid rfid, int32* pnCsidl) mut => VT.[Friend]FolderIdToCsidl(&this, rfid, pnCsidl);
+	public HRESULT FolderIdToCsidl(Guid rfid, int32 pnCsidl) mut => VT.[Friend]FolderIdToCsidl(&this, rfid, pnCsidl);
 
-	public HRESULT GetFolderIds(Guid* ppKFId, uint32* pCount) mut => VT.[Friend]GetFolderIds(&this, ppKFId, pCount);
+	public HRESULT GetFolderIds(Guid* ppKFId, uint32 pCount) mut => VT.[Friend]GetFolderIds(&this, ppKFId, pCount);
 
-	public HRESULT GetFolder(Guid rfid, IKnownFolder** ppkf) mut => VT.[Friend]GetFolder(&this, rfid, ppkf);
+	public HRESULT GetFolder(Guid rfid, IKnownFolder* ppkf) mut => VT.[Friend]GetFolder(&this, rfid, ppkf);
 
-	public HRESULT GetFolderByName(PWSTR pszCanonicalName, IKnownFolder** ppkf) mut => VT.[Friend]GetFolderByName(&this, pszCanonicalName, ppkf);
+	public HRESULT GetFolderByName(PWSTR pszCanonicalName, IKnownFolder* ppkf) mut => VT.[Friend]GetFolderByName(&this, pszCanonicalName, ppkf);
 
-	public HRESULT RegisterFolder(Guid rfid, KNOWNFOLDER_DEFINITION* pKFD) mut => VT.[Friend]RegisterFolder(&this, rfid, pKFD);
+	public HRESULT RegisterFolder(Guid rfid, KNOWNFOLDER_DEFINITION pKFD) mut => VT.[Friend]RegisterFolder(&this, rfid, pKFD);
 
 	public HRESULT UnregisterFolder(Guid rfid) mut => VT.[Friend]UnregisterFolder(&this, rfid);
 
-	public HRESULT FindFolderFromPath(PWSTR pszPath, FFFP_MODE mode, IKnownFolder** ppkf) mut => VT.[Friend]FindFolderFromPath(&this, pszPath, mode, ppkf);
+	public HRESULT FindFolderFromPath(PWSTR pszPath, FFFP_MODE mode, IKnownFolder* ppkf) mut => VT.[Friend]FindFolderFromPath(&this, pszPath, mode, ppkf);
 
-	public HRESULT FindFolderFromIDList(ITEMIDLIST* pidl, IKnownFolder** ppkf) mut => VT.[Friend]FindFolderFromIDList(&this, pidl, ppkf);
+	public HRESULT FindFolderFromIDList(ITEMIDLIST pidl, IKnownFolder* ppkf) mut => VT.[Friend]FindFolderFromIDList(&this, pidl, ppkf);
 
-	public HRESULT Redirect(Guid rfid, HWND hwnd, uint32 flags, PWSTR pszTargetPath, uint32 cFolders, Guid* pExclusion, PWSTR* ppszError) mut => VT.[Friend]Redirect(&this, rfid, hwnd, flags, pszTargetPath, cFolders, pExclusion, ppszError);
+	public HRESULT Redirect(Guid rfid, HWND hwnd, uint32 flags, PWSTR pszTargetPath, uint32 cFolders, Guid* pExclusion, PWSTR ppszError) mut => VT.[Friend]Redirect(&this, rfid, hwnd, flags, pszTargetPath, cFolders, pExclusion, ppszError);
 }
 
 [CRepr]struct ISharingConfigurationManager : IUnknown
@@ -12178,7 +12178,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharingConfigurationManager*/SelfOuter* self, DEF_SHARE_ID dsid, SHARE_ROLE role) CreateShare;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharingConfigurationManager*/SelfOuter* self, DEF_SHARE_ID dsid) DeleteShare;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharingConfigurationManager*/SelfOuter* self, DEF_SHARE_ID dsid) ShareExists;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharingConfigurationManager*/SelfOuter* self, DEF_SHARE_ID dsid, SHARE_ROLE* pRole) GetSharePermissions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharingConfigurationManager*/SelfOuter* self, DEF_SHARE_ID dsid, SHARE_ROLE pRole) GetSharePermissions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharingConfigurationManager*/SelfOuter* self) SharePrinters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharingConfigurationManager*/SelfOuter* self) StopSharingPrinters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharingConfigurationManager*/SelfOuter* self) ArePrintersShared;
@@ -12191,7 +12191,7 @@ public static
 
 	public HRESULT ShareExists(DEF_SHARE_ID dsid) mut => VT.[Friend]ShareExists(&this, dsid);
 
-	public HRESULT GetSharePermissions(DEF_SHARE_ID dsid, SHARE_ROLE* pRole) mut => VT.[Friend]GetSharePermissions(&this, dsid, pRole);
+	public HRESULT GetSharePermissions(DEF_SHARE_ID dsid, SHARE_ROLE pRole) mut => VT.[Friend]GetSharePermissions(&this, dsid, pRole);
 
 	public HRESULT SharePrinters() mut => VT.[Friend]SharePrinters(&this);
 
@@ -12208,14 +12208,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRelatedItem*/SelfOuter* self, ITEMIDLIST** ppidl) GetItemIDList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRelatedItem*/SelfOuter* self, IShellItem** ppsi) GetItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRelatedItem*/SelfOuter* self, ITEMIDLIST ppidl) GetItemIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRelatedItem*/SelfOuter* self, IShellItem* ppsi) GetItem;
 	}
 
 
-	public HRESULT GetItemIDList(ITEMIDLIST** ppidl) mut => VT.[Friend]GetItemIDList(&this, ppidl);
+	public HRESULT GetItemIDList(ITEMIDLIST ppidl) mut => VT.[Friend]GetItemIDList(&this, ppidl);
 
-	public HRESULT GetItem(IShellItem** ppsi) mut => VT.[Friend]GetItem(&this, ppsi);
+	public HRESULT GetItem(IShellItem* ppsi) mut => VT.[Friend]GetItem(&this, ppsi);
 }
 
 [CRepr]struct IIdentityName : IRelatedItem
@@ -12310,11 +12310,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDestinationStreamFactory*/SelfOuter* self, IStream** ppstm) GetDestinationStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDestinationStreamFactory*/SelfOuter* self, IStream* ppstm) GetDestinationStream;
 	}
 
 
-	public HRESULT GetDestinationStream(IStream** ppstm) mut => VT.[Friend]GetDestinationStream(&this, ppstm);
+	public HRESULT GetDestinationStream(IStream* ppstm) mut => VT.[Friend]GetDestinationStream(&this, ppstm);
 }
 
 [CRepr]struct ICreateProcessInputs : IUnknown
@@ -12325,7 +12325,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateProcessInputs*/SelfOuter* self, uint32* pdwCreationFlags) GetCreateFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateProcessInputs*/SelfOuter* self, uint32 pdwCreationFlags) GetCreateFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateProcessInputs*/SelfOuter* self, uint32 dwCreationFlags) SetCreateFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateProcessInputs*/SelfOuter* self, uint32 dwCreationFlags) AddCreateFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateProcessInputs*/SelfOuter* self, uint16 wHotKey) SetHotKey;
@@ -12335,7 +12335,7 @@ public static
 	}
 
 
-	public HRESULT GetCreateFlags(uint32* pdwCreationFlags) mut => VT.[Friend]GetCreateFlags(&this, pdwCreationFlags);
+	public HRESULT GetCreateFlags(uint32 pdwCreationFlags) mut => VT.[Friend]GetCreateFlags(&this, pdwCreationFlags);
 
 	public HRESULT SetCreateFlags(uint32 dwCreationFlags) mut => VT.[Friend]SetCreateFlags(&this, dwCreationFlags);
 
@@ -12406,14 +12406,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewMenuClient*/SelfOuter* self, int32* pflags) IncludeItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewMenuClient*/SelfOuter* self, ITEMIDLIST* pidlItem, int32 flags) SelectAndEditItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewMenuClient*/SelfOuter* self, int32 pflags) IncludeItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewMenuClient*/SelfOuter* self, ITEMIDLIST pidlItem, int32 flags) SelectAndEditItem;
 	}
 
 
-	public HRESULT IncludeItems(int32* pflags) mut => VT.[Friend]IncludeItems(&this, pflags);
+	public HRESULT IncludeItems(int32 pflags) mut => VT.[Friend]IncludeItems(&this, pflags);
 
-	public HRESULT SelectAndEditItem(ITEMIDLIST* pidlItem, int32 flags) mut => VT.[Friend]SelectAndEditItem(&this, pidlItem, flags);
+	public HRESULT SelectAndEditItem(ITEMIDLIST pidlItem, int32 flags) mut => VT.[Friend]SelectAndEditItem(&this, pidlItem, flags);
 }
 
 [CRepr]struct IInitializeWithBindCtx : IUnknown
@@ -12440,13 +12440,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemFilter*/SelfOuter* self, IShellItem* psi) IncludeItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemFilter*/SelfOuter* self, IShellItem* psi, uint32* pgrfFlags) GetEnumFlagsForItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellItemFilter*/SelfOuter* self, IShellItem* psi, uint32 pgrfFlags) GetEnumFlagsForItem;
 	}
 
 
 	public HRESULT IncludeItem(IShellItem* psi) mut => VT.[Friend]IncludeItem(&this, psi);
 
-	public HRESULT GetEnumFlagsForItem(IShellItem* psi, uint32* pgrfFlags) mut => VT.[Friend]GetEnumFlagsForItem(&this, psi, pgrfFlags);
+	public HRESULT GetEnumFlagsForItem(IShellItem* psi, uint32 pgrfFlags) mut => VT.[Friend]GetEnumFlagsForItem(&this, psi, pgrfFlags);
 }
 
 [CRepr]struct INameSpaceTreeControl : IUnknown
@@ -12457,31 +12457,31 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, HWND hwndParent, RECT* prc, uint32 nsctsFlags) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IUnknown* punk, uint32* pdwCookie) TreeAdvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, HWND hwndParent, RECT prc, uint32 nsctsFlags) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IUnknown* punk, uint32 pdwCookie) TreeAdvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, uint32 dwCookie) TreeUnadvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psiRoot, uint32 grfEnumFlags, uint32 grfRootStyle, IShellItemFilter* pif) AppendRoot;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, int32 iIndex, IShellItem* psiRoot, uint32 grfEnumFlags, uint32 grfRootStyle, IShellItemFilter* pif) InsertRoot;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psiRoot) RemoveRoot;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self) RemoveAllRoots;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItemArray** ppsiaRootItems) GetRootItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItemArray* ppsiaRootItems) GetRootItems;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi, uint32 nstcisMask, uint32 nstcisFlags) SetItemState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi, uint32 nstcisMask, uint32* pnstcisFlags) GetItemState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItemArray** psiaItems) GetSelectedItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi, int32* piStateNumber) GetItemCustomState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi, uint32 nstcisMask, uint32 pnstcisFlags) GetItemState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItemArray* psiaItems) GetSelectedItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi, int32 piStateNumber) GetItemCustomState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi, int32 iStateNumber) SetItemCustomState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi) EnsureItemVisible;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, PWSTR pszTheme) SetTheme;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi, NSTCGNI nstcgi, IShellItem** ppsiNext) GetNextItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, POINT* ppt, IShellItem** ppsiOut) HitTest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi, RECT* prect) GetItemRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi, NSTCGNI nstcgi, IShellItem* ppsiNext) GetNextItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, POINT ppt, IShellItem* ppsiOut) HitTest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self, IShellItem* psi, RECT prect) GetItemRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl*/SelfOuter* self) CollapseAll;
 	}
 
 
-	public HRESULT Initialize(HWND hwndParent, RECT* prc, uint32 nsctsFlags) mut => VT.[Friend]Initialize(&this, hwndParent, prc, nsctsFlags);
+	public HRESULT Initialize(HWND hwndParent, RECT prc, uint32 nsctsFlags) mut => VT.[Friend]Initialize(&this, hwndParent, prc, nsctsFlags);
 
-	public HRESULT TreeAdvise(IUnknown* punk, uint32* pdwCookie) mut => VT.[Friend]TreeAdvise(&this, punk, pdwCookie);
+	public HRESULT TreeAdvise(IUnknown* punk, uint32 pdwCookie) mut => VT.[Friend]TreeAdvise(&this, punk, pdwCookie);
 
 	public HRESULT TreeUnadvise(uint32 dwCookie) mut => VT.[Friend]TreeUnadvise(&this, dwCookie);
 
@@ -12493,15 +12493,15 @@ public static
 
 	public HRESULT RemoveAllRoots() mut => VT.[Friend]RemoveAllRoots(&this);
 
-	public HRESULT GetRootItems(IShellItemArray** ppsiaRootItems) mut => VT.[Friend]GetRootItems(&this, ppsiaRootItems);
+	public HRESULT GetRootItems(IShellItemArray* ppsiaRootItems) mut => VT.[Friend]GetRootItems(&this, ppsiaRootItems);
 
 	public HRESULT SetItemState(IShellItem* psi, uint32 nstcisMask, uint32 nstcisFlags) mut => VT.[Friend]SetItemState(&this, psi, nstcisMask, nstcisFlags);
 
-	public HRESULT GetItemState(IShellItem* psi, uint32 nstcisMask, uint32* pnstcisFlags) mut => VT.[Friend]GetItemState(&this, psi, nstcisMask, pnstcisFlags);
+	public HRESULT GetItemState(IShellItem* psi, uint32 nstcisMask, uint32 pnstcisFlags) mut => VT.[Friend]GetItemState(&this, psi, nstcisMask, pnstcisFlags);
 
-	public HRESULT GetSelectedItems(IShellItemArray** psiaItems) mut => VT.[Friend]GetSelectedItems(&this, psiaItems);
+	public HRESULT GetSelectedItems(IShellItemArray* psiaItems) mut => VT.[Friend]GetSelectedItems(&this, psiaItems);
 
-	public HRESULT GetItemCustomState(IShellItem* psi, int32* piStateNumber) mut => VT.[Friend]GetItemCustomState(&this, psi, piStateNumber);
+	public HRESULT GetItemCustomState(IShellItem* psi, int32 piStateNumber) mut => VT.[Friend]GetItemCustomState(&this, psi, piStateNumber);
 
 	public HRESULT SetItemCustomState(IShellItem* psi, int32 iStateNumber) mut => VT.[Friend]SetItemCustomState(&this, psi, iStateNumber);
 
@@ -12509,11 +12509,11 @@ public static
 
 	public HRESULT SetTheme(PWSTR pszTheme) mut => VT.[Friend]SetTheme(&this, pszTheme);
 
-	public HRESULT GetNextItem(IShellItem* psi, NSTCGNI nstcgi, IShellItem** ppsiNext) mut => VT.[Friend]GetNextItem(&this, psi, nstcgi, ppsiNext);
+	public HRESULT GetNextItem(IShellItem* psi, NSTCGNI nstcgi, IShellItem* ppsiNext) mut => VT.[Friend]GetNextItem(&this, psi, nstcgi, ppsiNext);
 
-	public HRESULT HitTest(POINT* ppt, IShellItem** ppsiOut) mut => VT.[Friend]HitTest(&this, ppt, ppsiOut);
+	public HRESULT HitTest(POINT ppt, IShellItem* ppsiOut) mut => VT.[Friend]HitTest(&this, ppt, ppsiOut);
 
-	public HRESULT GetItemRect(IShellItem* psi, RECT* prect) mut => VT.[Friend]GetItemRect(&this, psi, prect);
+	public HRESULT GetItemRect(IShellItem* psi, RECT prect) mut => VT.[Friend]GetItemRect(&this, psi, prect);
 
 	public HRESULT CollapseAll() mut => VT.[Friend]CollapseAll(&this);
 }
@@ -12526,11 +12526,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlFolderCapabilities*/SelfOuter* self, NSTCFOLDERCAPABILITIES nfcMask, NSTCFOLDERCAPABILITIES* pnfcValue) GetFolderCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlFolderCapabilities*/SelfOuter* self, NSTCFOLDERCAPABILITIES nfcMask, NSTCFOLDERCAPABILITIES pnfcValue) GetFolderCapabilities;
 	}
 
 
-	public HRESULT GetFolderCapabilities(NSTCFOLDERCAPABILITIES nfcMask, NSTCFOLDERCAPABILITIES* pnfcValue) mut => VT.[Friend]GetFolderCapabilities(&this, nfcMask, pnfcValue);
+	public HRESULT GetFolderCapabilities(NSTCFOLDERCAPABILITIES nfcMask, NSTCFOLDERCAPABILITIES pnfcValue) mut => VT.[Friend]GetFolderCapabilities(&this, nfcMask, pnfcValue);
 }
 
 [CRepr]struct IPreviewHandler : IUnknown
@@ -12541,19 +12541,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self, HWND hwnd, RECT* prc) SetWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self, RECT* prc) SetRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self, HWND hwnd, RECT prc) SetWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self, RECT prc) SetRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self) DoPreview;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self) Unload;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self) SetFocus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self, HWND* phwnd) QueryFocus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self, MSG* pmsg) TranslateAccelerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self, HWND phwnd) QueryFocus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandler*/SelfOuter* self, MSG pmsg) TranslateAccelerator;
 	}
 
 
-	public HRESULT SetWindow(HWND hwnd, RECT* prc) mut => VT.[Friend]SetWindow(&this, hwnd, prc);
+	public HRESULT SetWindow(HWND hwnd, RECT prc) mut => VT.[Friend]SetWindow(&this, hwnd, prc);
 
-	public HRESULT SetRect(RECT* prc) mut => VT.[Friend]SetRect(&this, prc);
+	public HRESULT SetRect(RECT prc) mut => VT.[Friend]SetRect(&this, prc);
 
 	public HRESULT DoPreview() mut => VT.[Friend]DoPreview(&this);
 
@@ -12561,9 +12561,9 @@ public static
 
 	public HRESULT SetFocus() mut => VT.[Friend]SetFocus(&this);
 
-	public HRESULT QueryFocus(HWND* phwnd) mut => VT.[Friend]QueryFocus(&this, phwnd);
+	public HRESULT QueryFocus(HWND phwnd) mut => VT.[Friend]QueryFocus(&this, phwnd);
 
-	public HRESULT TranslateAccelerator(MSG* pmsg) mut => VT.[Friend]TranslateAccelerator(&this, pmsg);
+	public HRESULT TranslateAccelerator(MSG pmsg) mut => VT.[Friend]TranslateAccelerator(&this, pmsg);
 }
 
 [CRepr]struct IPreviewHandlerFrame : IUnknown
@@ -12574,14 +12574,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandlerFrame*/SelfOuter* self, PREVIEWHANDLERFRAMEINFO* pinfo) GetWindowContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandlerFrame*/SelfOuter* self, MSG* pmsg) TranslateAccelerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandlerFrame*/SelfOuter* self, PREVIEWHANDLERFRAMEINFO pinfo) GetWindowContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviewHandlerFrame*/SelfOuter* self, MSG pmsg) TranslateAccelerator;
 	}
 
 
-	public HRESULT GetWindowContext(PREVIEWHANDLERFRAMEINFO* pinfo) mut => VT.[Friend]GetWindowContext(&this, pinfo);
+	public HRESULT GetWindowContext(PREVIEWHANDLERFRAMEINFO pinfo) mut => VT.[Friend]GetWindowContext(&this, pinfo);
 
-	public HRESULT TranslateAccelerator(MSG* pmsg) mut => VT.[Friend]TranslateAccelerator(&this, pmsg);
+	public HRESULT TranslateAccelerator(MSG pmsg) mut => VT.[Friend]TranslateAccelerator(&this, pmsg);
 }
 
 [CRepr]struct IExplorerPaneVisibility : IUnknown
@@ -12592,11 +12592,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerPaneVisibility*/SelfOuter* self, Guid ep, uint32* peps) GetPaneState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerPaneVisibility*/SelfOuter* self, Guid ep, uint32 peps) GetPaneState;
 	}
 
 
-	public HRESULT GetPaneState(Guid ep, uint32* peps) mut => VT.[Friend]GetPaneState(&this, ep, peps);
+	public HRESULT GetPaneState(Guid ep, uint32 peps) mut => VT.[Friend]GetPaneState(&this, ep, peps);
 }
 
 [CRepr]struct IContextMenuCB : IUnknown
@@ -12652,32 +12652,32 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IShellItemArray* psiItemArray, PWSTR* ppszName) GetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IShellItemArray* psiItemArray, PWSTR* ppszIcon) GetIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IShellItemArray* psiItemArray, PWSTR* ppszInfotip) GetToolTip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IShellItemArray* psiItemArray, PWSTR ppszName) GetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IShellItemArray* psiItemArray, PWSTR ppszIcon) GetIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IShellItemArray* psiItemArray, PWSTR ppszInfotip) GetToolTip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, Guid pguidCommandName) GetCanonicalName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IShellItemArray* psiItemArray, BOOL fOkToBeSlow, uint32* pCmdState) GetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IShellItemArray* psiItemArray, BOOL fOkToBeSlow, uint32 pCmdState) GetState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IShellItemArray* psiItemArray, IBindCtx* pbc) Invoke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, uint32* pFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IEnumExplorerCommand** ppEnum) EnumSubCommands;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, uint32 pFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommand*/SelfOuter* self, IEnumExplorerCommand* ppEnum) EnumSubCommands;
 	}
 
 
-	public HRESULT GetTitle(IShellItemArray* psiItemArray, PWSTR* ppszName) mut => VT.[Friend]GetTitle(&this, psiItemArray, ppszName);
+	public HRESULT GetTitle(IShellItemArray* psiItemArray, PWSTR ppszName) mut => VT.[Friend]GetTitle(&this, psiItemArray, ppszName);
 
-	public HRESULT GetIcon(IShellItemArray* psiItemArray, PWSTR* ppszIcon) mut => VT.[Friend]GetIcon(&this, psiItemArray, ppszIcon);
+	public HRESULT GetIcon(IShellItemArray* psiItemArray, PWSTR ppszIcon) mut => VT.[Friend]GetIcon(&this, psiItemArray, ppszIcon);
 
-	public HRESULT GetToolTip(IShellItemArray* psiItemArray, PWSTR* ppszInfotip) mut => VT.[Friend]GetToolTip(&this, psiItemArray, ppszInfotip);
+	public HRESULT GetToolTip(IShellItemArray* psiItemArray, PWSTR ppszInfotip) mut => VT.[Friend]GetToolTip(&this, psiItemArray, ppszInfotip);
 
 	public HRESULT GetCanonicalName(Guid pguidCommandName) mut => VT.[Friend]GetCanonicalName(&this, pguidCommandName);
 
-	public HRESULT GetState(IShellItemArray* psiItemArray, BOOL fOkToBeSlow, uint32* pCmdState) mut => VT.[Friend]GetState(&this, psiItemArray, fOkToBeSlow, pCmdState);
+	public HRESULT GetState(IShellItemArray* psiItemArray, BOOL fOkToBeSlow, uint32 pCmdState) mut => VT.[Friend]GetState(&this, psiItemArray, fOkToBeSlow, pCmdState);
 
 	public HRESULT Invoke(IShellItemArray* psiItemArray, IBindCtx* pbc) mut => VT.[Friend]Invoke(&this, psiItemArray, pbc);
 
-	public HRESULT GetFlags(uint32* pFlags) mut => VT.[Friend]COM_GetFlags(&this, pFlags);
+	public HRESULT GetFlags(uint32 pFlags) mut => VT.[Friend]COM_GetFlags(&this, pFlags);
 
-	public HRESULT EnumSubCommands(IEnumExplorerCommand** ppEnum) mut => VT.[Friend]EnumSubCommands(&this, ppEnum);
+	public HRESULT EnumSubCommands(IEnumExplorerCommand* ppEnum) mut => VT.[Friend]EnumSubCommands(&this, ppEnum);
 }
 
 [CRepr]struct IExplorerCommandState : IUnknown
@@ -12688,11 +12688,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommandState*/SelfOuter* self, IShellItemArray* psiItemArray, BOOL fOkToBeSlow, uint32* pCmdState) GetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommandState*/SelfOuter* self, IShellItemArray* psiItemArray, BOOL fOkToBeSlow, uint32 pCmdState) GetState;
 	}
 
 
-	public HRESULT GetState(IShellItemArray* psiItemArray, BOOL fOkToBeSlow, uint32* pCmdState) mut => VT.[Friend]GetState(&this, psiItemArray, fOkToBeSlow, pCmdState);
+	public HRESULT GetState(IShellItemArray* psiItemArray, BOOL fOkToBeSlow, uint32 pCmdState) mut => VT.[Friend]GetState(&this, psiItemArray, fOkToBeSlow, pCmdState);
 }
 
 [CRepr]struct IInitializeCommand : IUnknown
@@ -12718,20 +12718,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExplorerCommand*/SelfOuter* self, uint32 celt, IExplorerCommand** pUICommand, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExplorerCommand*/SelfOuter* self, uint32 celt, IExplorerCommand** pUICommand, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExplorerCommand*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExplorerCommand*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExplorerCommand*/SelfOuter* self, IEnumExplorerCommand** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumExplorerCommand*/SelfOuter* self, IEnumExplorerCommand* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, IExplorerCommand** pUICommand, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, pUICommand, pceltFetched);
+	public HRESULT Next(uint32 celt, IExplorerCommand** pUICommand, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, pUICommand, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumExplorerCommand** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumExplorerCommand* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct IExplorerCommandProvider : IUnknown
@@ -12742,14 +12742,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommandProvider*/SelfOuter* self, IUnknown* punkSite, Guid riid, void** ppv) GetCommands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommandProvider*/SelfOuter* self, Guid rguidCommandId, Guid riid, void** ppv) GetCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommandProvider*/SelfOuter* self, IUnknown* punkSite, Guid riid, void ppv) GetCommands;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExplorerCommandProvider*/SelfOuter* self, Guid rguidCommandId, Guid riid, void ppv) GetCommand;
 	}
 
 
-	public HRESULT GetCommands(IUnknown* punkSite, Guid riid, void** ppv) mut => VT.[Friend]GetCommands(&this, punkSite, riid, ppv);
+	public HRESULT GetCommands(IUnknown* punkSite, Guid riid, void ppv) mut => VT.[Friend]GetCommands(&this, punkSite, riid, ppv);
 
-	public HRESULT GetCommand(Guid rguidCommandId, Guid riid, void** ppv) mut => VT.[Friend]GetCommand(&this, rguidCommandId, riid, ppv);
+	public HRESULT GetCommand(Guid rguidCommandId, Guid riid, void ppv) mut => VT.[Friend]GetCommand(&this, rguidCommandId, riid, ppv);
 }
 
 [CRepr]struct IOpenControlPanel : IUnknown
@@ -12762,7 +12762,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenControlPanel*/SelfOuter* self, PWSTR pszName, PWSTR pszPage, IUnknown* punkSite) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenControlPanel*/SelfOuter* self, PWSTR pszName, char16* pszPath, uint32 cchPath) GetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenControlPanel*/SelfOuter* self, CPVIEW* pView) GetCurrentView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenControlPanel*/SelfOuter* self, CPVIEW pView) GetCurrentView;
 	}
 
 
@@ -12770,7 +12770,7 @@ public static
 
 	public HRESULT GetPath(PWSTR pszName, char16* pszPath, uint32 cchPath) mut => VT.[Friend]GetPath(&this, pszName, pszPath, cchPath);
 
-	public HRESULT GetCurrentView(CPVIEW* pView) mut => VT.[Friend]GetCurrentView(&this, pView);
+	public HRESULT GetCurrentView(CPVIEW pView) mut => VT.[Friend]GetCurrentView(&this, pView);
 }
 
 [CRepr]struct IFileSystemBindData : IUnknown
@@ -12781,14 +12781,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemBindData*/SelfOuter* self, WIN32_FIND_DATAW* pfd) SetFindData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemBindData*/SelfOuter* self, WIN32_FIND_DATAW* pfd) GetFindData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemBindData*/SelfOuter* self, WIN32_FIND_DATAW pfd) SetFindData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemBindData*/SelfOuter* self, WIN32_FIND_DATAW pfd) GetFindData;
 	}
 
 
-	public HRESULT SetFindData(WIN32_FIND_DATAW* pfd) mut => VT.[Friend]SetFindData(&this, pfd);
+	public HRESULT SetFindData(WIN32_FIND_DATAW pfd) mut => VT.[Friend]SetFindData(&this, pfd);
 
-	public HRESULT GetFindData(WIN32_FIND_DATAW* pfd) mut => VT.[Friend]GetFindData(&this, pfd);
+	public HRESULT GetFindData(WIN32_FIND_DATAW pfd) mut => VT.[Friend]GetFindData(&this, pfd);
 }
 
 [CRepr]struct IFileSystemBindData2 : IFileSystemBindData
@@ -12800,7 +12800,7 @@ public static
 	[CRepr]public struct VTable : IFileSystemBindData.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemBindData2*/SelfOuter* self, LARGE_INTEGER liFileID) SetFileID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemBindData2*/SelfOuter* self, LARGE_INTEGER* pliFileID) GetFileID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemBindData2*/SelfOuter* self, LARGE_INTEGER pliFileID) GetFileID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemBindData2*/SelfOuter* self, Guid clsid) SetJunctionCLSID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemBindData2*/SelfOuter* self, Guid pclsid) GetJunctionCLSID;
 	}
@@ -12808,7 +12808,7 @@ public static
 
 	public HRESULT SetFileID(LARGE_INTEGER liFileID) mut => VT.[Friend]SetFileID(&this, liFileID);
 
-	public HRESULT GetFileID(LARGE_INTEGER* pliFileID) mut => VT.[Friend]GetFileID(&this, pliFileID);
+	public HRESULT GetFileID(LARGE_INTEGER pliFileID) mut => VT.[Friend]GetFileID(&this, pliFileID);
 
 	public HRESULT SetJunctionCLSID(Guid clsid) mut => VT.[Friend]SetJunctionCLSID(&this, clsid);
 
@@ -12824,12 +12824,12 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self, PWSTR pszAppID) SetAppID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self, uint32* pcMinSlots, Guid riid, void** ppv) BeginList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self, uint32 pcMinSlots, Guid riid, void ppv) BeginList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self, PWSTR pszCategory, IObjectArray* poa) AppendCategory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self, KNOWNDESTCATEGORY category) AppendKnownCategory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self, IObjectArray* poa) AddUserTasks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self) CommitList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self, Guid riid, void** ppv) GetRemovedDestinations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self, Guid riid, void ppv) GetRemovedDestinations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self, PWSTR pszAppID) DeleteList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICustomDestinationList*/SelfOuter* self) AbortList;
 	}
@@ -12837,7 +12837,7 @@ public static
 
 	public HRESULT SetAppID(PWSTR pszAppID) mut => VT.[Friend]SetAppID(&this, pszAppID);
 
-	public HRESULT BeginList(uint32* pcMinSlots, Guid riid, void** ppv) mut => VT.[Friend]BeginList(&this, pcMinSlots, riid, ppv);
+	public HRESULT BeginList(uint32 pcMinSlots, Guid riid, void ppv) mut => VT.[Friend]BeginList(&this, pcMinSlots, riid, ppv);
 
 	public HRESULT AppendCategory(PWSTR pszCategory, IObjectArray* poa) mut => VT.[Friend]AppendCategory(&this, pszCategory, poa);
 
@@ -12847,7 +12847,7 @@ public static
 
 	public HRESULT CommitList() mut => VT.[Friend]CommitList(&this);
 
-	public HRESULT GetRemovedDestinations(Guid riid, void** ppv) mut => VT.[Friend]GetRemovedDestinations(&this, riid, ppv);
+	public HRESULT GetRemovedDestinations(Guid riid, void ppv) mut => VT.[Friend]GetRemovedDestinations(&this, riid, ppv);
 
 	public HRESULT DeleteList(PWSTR pszAppID) mut => VT.[Friend]DeleteList(&this, pszAppID);
 
@@ -12884,13 +12884,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDocumentLists*/SelfOuter* self, PWSTR pszAppID) SetAppID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDocumentLists*/SelfOuter* self, APPDOCLISTTYPE listtype, uint32 cItemsDesired, Guid riid, void** ppv) GetList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDocumentLists*/SelfOuter* self, APPDOCLISTTYPE listtype, uint32 cItemsDesired, Guid riid, void ppv) GetList;
 	}
 
 
 	public HRESULT SetAppID(PWSTR pszAppID) mut => VT.[Friend]SetAppID(&this, pszAppID);
 
-	public HRESULT GetList(APPDOCLISTTYPE listtype, uint32 cItemsDesired, Guid riid, void** ppv) mut => VT.[Friend]GetList(&this, listtype, cItemsDesired, riid, ppv);
+	public HRESULT GetList(APPDOCLISTTYPE listtype, uint32 cItemsDesired, Guid riid, void ppv) mut => VT.[Friend]GetList(&this, listtype, cItemsDesired, riid, ppv);
 }
 
 [CRepr]struct IObjectWithAppUserModelID : IUnknown
@@ -12902,13 +12902,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithAppUserModelID*/SelfOuter* self, PWSTR pszAppID) SetAppID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithAppUserModelID*/SelfOuter* self, PWSTR* ppszAppID) GetAppID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithAppUserModelID*/SelfOuter* self, PWSTR ppszAppID) GetAppID;
 	}
 
 
 	public HRESULT SetAppID(PWSTR pszAppID) mut => VT.[Friend]SetAppID(&this, pszAppID);
 
-	public HRESULT GetAppID(PWSTR* ppszAppID) mut => VT.[Friend]GetAppID(&this, ppszAppID);
+	public HRESULT GetAppID(PWSTR ppszAppID) mut => VT.[Friend]GetAppID(&this, ppszAppID);
 }
 
 [CRepr]struct IObjectWithProgID : IUnknown
@@ -12920,13 +12920,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithProgID*/SelfOuter* self, PWSTR pszProgID) SetProgID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithProgID*/SelfOuter* self, PWSTR* ppszProgID) GetProgID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithProgID*/SelfOuter* self, PWSTR ppszProgID) GetProgID;
 	}
 
 
 	public HRESULT SetProgID(PWSTR pszProgID) mut => VT.[Friend]SetProgID(&this, pszProgID);
 
-	public HRESULT GetProgID(PWSTR* ppszProgID) mut => VT.[Friend]GetProgID(&this, ppszProgID);
+	public HRESULT GetProgID(PWSTR ppszProgID) mut => VT.[Friend]GetProgID(&this, ppszProgID);
 }
 
 [CRepr]struct IUpdateIDList : IUnknown
@@ -12937,11 +12937,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUpdateIDList*/SelfOuter* self, IBindCtx* pbc, ITEMIDLIST* pidlIn, ITEMIDLIST** ppidlOut) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUpdateIDList*/SelfOuter* self, IBindCtx* pbc, ITEMIDLIST pidlIn, ITEMIDLIST ppidlOut) Update;
 	}
 
 
-	public HRESULT Update(IBindCtx* pbc, ITEMIDLIST* pidlIn, ITEMIDLIST** ppidlOut) mut => VT.[Friend]Update(&this, pbc, pidlIn, ppidlOut);
+	public HRESULT Update(IBindCtx* pbc, ITEMIDLIST pidlIn, ITEMIDLIST ppidlOut) mut => VT.[Friend]Update(&this, pbc, pidlIn, ppidlOut);
 }
 
 [CRepr]struct IDesktopWallpaper : IUnknown
@@ -12953,53 +12953,53 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, PWSTR monitorID, PWSTR wallpaper) SetWallpaper;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, PWSTR monitorID, PWSTR* wallpaper) GetWallpaper;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, uint32 monitorIndex, PWSTR* monitorID) GetMonitorDevicePathAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, uint32* count) GetMonitorDevicePathCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, PWSTR monitorID, RECT* displayRect) GetMonitorRECT;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, PWSTR monitorID, PWSTR wallpaper) GetWallpaper;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, uint32 monitorIndex, PWSTR monitorID) GetMonitorDevicePathAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, uint32 count) GetMonitorDevicePathCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, PWSTR monitorID, RECT displayRect) GetMonitorRECT;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, uint32 color) SetBackgroundColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, uint32* color) GetBackgroundColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, uint32 color) GetBackgroundColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, DESKTOP_WALLPAPER_POSITION position) SetPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, DESKTOP_WALLPAPER_POSITION* position) GetPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, DESKTOP_WALLPAPER_POSITION position) GetPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, IShellItemArray* items) SetSlideshow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, IShellItemArray** items) GetSlideshow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, IShellItemArray* items) GetSlideshow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, DESKTOP_SLIDESHOW_OPTIONS options, uint32 slideshowTick) SetSlideshowOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, DESKTOP_SLIDESHOW_OPTIONS* options, uint32* slideshowTick) GetSlideshowOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, DESKTOP_SLIDESHOW_OPTIONS options, uint32 slideshowTick) GetSlideshowOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, PWSTR monitorID, DESKTOP_SLIDESHOW_DIRECTION direction) AdvanceSlideshow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, DESKTOP_SLIDESHOW_STATE* state) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, DESKTOP_SLIDESHOW_STATE state) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWallpaper*/SelfOuter* self, BOOL enable) Enable;
 	}
 
 
 	public HRESULT SetWallpaper(PWSTR monitorID, PWSTR wallpaper) mut => VT.[Friend]SetWallpaper(&this, monitorID, wallpaper);
 
-	public HRESULT GetWallpaper(PWSTR monitorID, PWSTR* wallpaper) mut => VT.[Friend]GetWallpaper(&this, monitorID, wallpaper);
+	public HRESULT GetWallpaper(PWSTR monitorID, PWSTR wallpaper) mut => VT.[Friend]GetWallpaper(&this, monitorID, wallpaper);
 
-	public HRESULT GetMonitorDevicePathAt(uint32 monitorIndex, PWSTR* monitorID) mut => VT.[Friend]GetMonitorDevicePathAt(&this, monitorIndex, monitorID);
+	public HRESULT GetMonitorDevicePathAt(uint32 monitorIndex, PWSTR monitorID) mut => VT.[Friend]GetMonitorDevicePathAt(&this, monitorIndex, monitorID);
 
-	public HRESULT GetMonitorDevicePathCount(uint32* count) mut => VT.[Friend]GetMonitorDevicePathCount(&this, count);
+	public HRESULT GetMonitorDevicePathCount(uint32 count) mut => VT.[Friend]GetMonitorDevicePathCount(&this, count);
 
-	public HRESULT GetMonitorRECT(PWSTR monitorID, RECT* displayRect) mut => VT.[Friend]GetMonitorRECT(&this, monitorID, displayRect);
+	public HRESULT GetMonitorRECT(PWSTR monitorID, RECT displayRect) mut => VT.[Friend]GetMonitorRECT(&this, monitorID, displayRect);
 
 	public HRESULT SetBackgroundColor(uint32 color) mut => VT.[Friend]SetBackgroundColor(&this, color);
 
-	public HRESULT GetBackgroundColor(uint32* color) mut => VT.[Friend]GetBackgroundColor(&this, color);
+	public HRESULT GetBackgroundColor(uint32 color) mut => VT.[Friend]GetBackgroundColor(&this, color);
 
 	public HRESULT SetPosition(DESKTOP_WALLPAPER_POSITION position) mut => VT.[Friend]SetPosition(&this, position);
 
-	public HRESULT GetPosition(DESKTOP_WALLPAPER_POSITION* position) mut => VT.[Friend]GetPosition(&this, position);
+	public HRESULT GetPosition(DESKTOP_WALLPAPER_POSITION position) mut => VT.[Friend]GetPosition(&this, position);
 
 	public HRESULT SetSlideshow(IShellItemArray* items) mut => VT.[Friend]SetSlideshow(&this, items);
 
-	public HRESULT GetSlideshow(IShellItemArray** items) mut => VT.[Friend]GetSlideshow(&this, items);
+	public HRESULT GetSlideshow(IShellItemArray* items) mut => VT.[Friend]GetSlideshow(&this, items);
 
 	public HRESULT SetSlideshowOptions(DESKTOP_SLIDESHOW_OPTIONS options, uint32 slideshowTick) mut => VT.[Friend]SetSlideshowOptions(&this, options, slideshowTick);
 
-	public HRESULT GetSlideshowOptions(DESKTOP_SLIDESHOW_OPTIONS* options, uint32* slideshowTick) mut => VT.[Friend]GetSlideshowOptions(&this, options, slideshowTick);
+	public HRESULT GetSlideshowOptions(DESKTOP_SLIDESHOW_OPTIONS options, uint32 slideshowTick) mut => VT.[Friend]GetSlideshowOptions(&this, options, slideshowTick);
 
 	public HRESULT AdvanceSlideshow(PWSTR monitorID, DESKTOP_SLIDESHOW_DIRECTION direction) mut => VT.[Friend]AdvanceSlideshow(&this, monitorID, direction);
 
-	public HRESULT GetStatus(DESKTOP_SLIDESHOW_STATE* state) mut => VT.[Friend]GetStatus(&this, state);
+	public HRESULT GetStatus(DESKTOP_SLIDESHOW_STATE state) mut => VT.[Friend]GetStatus(&this, state);
 
 	public HRESULT Enable(BOOL enable) mut => VT.[Friend]Enable(&this, enable);
 }
@@ -13012,14 +13012,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHomeGroup*/SelfOuter* self, BOOL* member) IsMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHomeGroup*/SelfOuter* self, HWND owner, HOMEGROUPSHARINGCHOICES* sharingchoices) ShowSharingWizard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHomeGroup*/SelfOuter* self, BOOL member) IsMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHomeGroup*/SelfOuter* self, HWND owner, HOMEGROUPSHARINGCHOICES sharingchoices) ShowSharingWizard;
 	}
 
 
-	public HRESULT IsMember(BOOL* member) mut => VT.[Friend]IsMember(&this, member);
+	public HRESULT IsMember(BOOL member) mut => VT.[Friend]IsMember(&this, member);
 
-	public HRESULT ShowSharingWizard(HWND owner, HOMEGROUPSHARINGCHOICES* sharingchoices) mut => VT.[Friend]ShowSharingWizard(&this, owner, sharingchoices);
+	public HRESULT ShowSharingWizard(HWND owner, HOMEGROUPSHARINGCHOICES sharingchoices) mut => VT.[Friend]ShowSharingWizard(&this, owner, sharingchoices);
 }
 
 [CRepr]struct IInitializeWithPropertyStore : IUnknown
@@ -13045,11 +13045,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenSearchSource*/SelfOuter* self, HWND hwnd, PWSTR pszQuery, uint32 dwStartIndex, uint32 dwCount, Guid riid, void** ppv) GetResults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenSearchSource*/SelfOuter* self, HWND hwnd, PWSTR pszQuery, uint32 dwStartIndex, uint32 dwCount, Guid riid, void ppv) GetResults;
 	}
 
 
-	public HRESULT GetResults(HWND hwnd, PWSTR pszQuery, uint32 dwStartIndex, uint32 dwCount, Guid riid, void** ppv) mut => VT.[Friend]GetResults(&this, hwnd, pszQuery, dwStartIndex, dwCount, riid, ppv);
+	public HRESULT GetResults(HWND hwnd, PWSTR pszQuery, uint32 dwStartIndex, uint32 dwCount, Guid riid, void ppv) mut => VT.[Friend]GetResults(&this, hwnd, pszQuery, dwStartIndex, dwCount, riid, ppv);
 }
 
 [CRepr]struct IShellLibrary : IUnknown
@@ -13064,19 +13064,19 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, Guid kfidLibrary, uint32 grfMode) LoadLibraryFromKnownFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, IShellItem* psiLocation) AddFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, IShellItem* psiLocation) RemoveFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, LIBRARYFOLDERFILTER lff, Guid riid, void** ppv) GetFolders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, IShellItem* psiFolderToResolve, uint32 dwTimeout, Guid riid, void** ppv) ResolveFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, DEFAULTSAVEFOLDERTYPE dsft, Guid riid, void** ppv) GetDefaultSaveFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, LIBRARYFOLDERFILTER lff, Guid riid, void ppv) GetFolders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, IShellItem* psiFolderToResolve, uint32 dwTimeout, Guid riid, void ppv) ResolveFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, DEFAULTSAVEFOLDERTYPE dsft, Guid riid, void ppv) GetDefaultSaveFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, DEFAULTSAVEFOLDERTYPE dsft, IShellItem* psi) SetDefaultSaveFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, LIBRARYOPTIONFLAGS* plofOptions) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, LIBRARYOPTIONFLAGS plofOptions) GetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, LIBRARYOPTIONFLAGS lofMask, LIBRARYOPTIONFLAGS lofOptions) SetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, Guid pftid) GetFolderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, Guid ftid) SetFolderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, PWSTR* ppszIcon) GetIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, PWSTR ppszIcon) GetIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, PWSTR pszIcon) SetIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self) Commit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, IShellItem* psiFolderToSaveIn, PWSTR pszLibraryName, LIBRARYSAVEFLAGS lsf, IShellItem** ppsiSavedTo) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, Guid kfidToSaveIn, PWSTR pszLibraryName, LIBRARYSAVEFLAGS lsf, IShellItem** ppsiSavedTo) SaveInKnownFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, IShellItem* psiFolderToSaveIn, PWSTR pszLibraryName, LIBRARYSAVEFLAGS lsf, IShellItem* ppsiSavedTo) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLibrary*/SelfOuter* self, Guid kfidToSaveIn, PWSTR pszLibraryName, LIBRARYSAVEFLAGS lsf, IShellItem* ppsiSavedTo) SaveInKnownFolder;
 	}
 
 
@@ -13088,15 +13088,15 @@ public static
 
 	public HRESULT RemoveFolder(IShellItem* psiLocation) mut => VT.[Friend]RemoveFolder(&this, psiLocation);
 
-	public HRESULT GetFolders(LIBRARYFOLDERFILTER lff, Guid riid, void** ppv) mut => VT.[Friend]GetFolders(&this, lff, riid, ppv);
+	public HRESULT GetFolders(LIBRARYFOLDERFILTER lff, Guid riid, void ppv) mut => VT.[Friend]GetFolders(&this, lff, riid, ppv);
 
-	public HRESULT ResolveFolder(IShellItem* psiFolderToResolve, uint32 dwTimeout, Guid riid, void** ppv) mut => VT.[Friend]ResolveFolder(&this, psiFolderToResolve, dwTimeout, riid, ppv);
+	public HRESULT ResolveFolder(IShellItem* psiFolderToResolve, uint32 dwTimeout, Guid riid, void ppv) mut => VT.[Friend]ResolveFolder(&this, psiFolderToResolve, dwTimeout, riid, ppv);
 
-	public HRESULT GetDefaultSaveFolder(DEFAULTSAVEFOLDERTYPE dsft, Guid riid, void** ppv) mut => VT.[Friend]GetDefaultSaveFolder(&this, dsft, riid, ppv);
+	public HRESULT GetDefaultSaveFolder(DEFAULTSAVEFOLDERTYPE dsft, Guid riid, void ppv) mut => VT.[Friend]GetDefaultSaveFolder(&this, dsft, riid, ppv);
 
 	public HRESULT SetDefaultSaveFolder(DEFAULTSAVEFOLDERTYPE dsft, IShellItem* psi) mut => VT.[Friend]SetDefaultSaveFolder(&this, dsft, psi);
 
-	public HRESULT GetOptions(LIBRARYOPTIONFLAGS* plofOptions) mut => VT.[Friend]GetOptions(&this, plofOptions);
+	public HRESULT GetOptions(LIBRARYOPTIONFLAGS plofOptions) mut => VT.[Friend]GetOptions(&this, plofOptions);
 
 	public HRESULT SetOptions(LIBRARYOPTIONFLAGS lofMask, LIBRARYOPTIONFLAGS lofOptions) mut => VT.[Friend]SetOptions(&this, lofMask, lofOptions);
 
@@ -13104,15 +13104,15 @@ public static
 
 	public HRESULT SetFolderType(Guid ftid) mut => VT.[Friend]SetFolderType(&this, ftid);
 
-	public HRESULT GetIcon(PWSTR* ppszIcon) mut => VT.[Friend]GetIcon(&this, ppszIcon);
+	public HRESULT GetIcon(PWSTR ppszIcon) mut => VT.[Friend]GetIcon(&this, ppszIcon);
 
 	public HRESULT SetIcon(PWSTR pszIcon) mut => VT.[Friend]SetIcon(&this, pszIcon);
 
 	public HRESULT Commit() mut => VT.[Friend]Commit(&this);
 
-	public HRESULT Save(IShellItem* psiFolderToSaveIn, PWSTR pszLibraryName, LIBRARYSAVEFLAGS lsf, IShellItem** ppsiSavedTo) mut => VT.[Friend]Save(&this, psiFolderToSaveIn, pszLibraryName, lsf, ppsiSavedTo);
+	public HRESULT Save(IShellItem* psiFolderToSaveIn, PWSTR pszLibraryName, LIBRARYSAVEFLAGS lsf, IShellItem* ppsiSavedTo) mut => VT.[Friend]Save(&this, psiFolderToSaveIn, pszLibraryName, lsf, ppsiSavedTo);
 
-	public HRESULT SaveInKnownFolder(Guid kfidToSaveIn, PWSTR pszLibraryName, LIBRARYSAVEFLAGS lsf, IShellItem** ppsiSavedTo) mut => VT.[Friend]SaveInKnownFolder(&this, kfidToSaveIn, pszLibraryName, lsf, ppsiSavedTo);
+	public HRESULT SaveInKnownFolder(Guid kfidToSaveIn, PWSTR pszLibraryName, LIBRARYSAVEFLAGS lsf, IShellItem* ppsiSavedTo) mut => VT.[Friend]SaveInKnownFolder(&this, kfidToSaveIn, pszLibraryName, lsf, ppsiSavedTo);
 }
 
 [CRepr]struct IDefaultFolderMenuInitialize : IUnknown
@@ -13123,18 +13123,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDefaultFolderMenuInitialize*/SelfOuter* self, HWND hwnd, IContextMenuCB* pcmcb, ITEMIDLIST* pidlFolder, IShellFolder* psf, uint32 cidl, ITEMIDLIST** apidl, IUnknown* punkAssociation, uint32 cKeys, HKEY* aKeys) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDefaultFolderMenuInitialize*/SelfOuter* self, HWND hwnd, IContextMenuCB* pcmcb, ITEMIDLIST pidlFolder, IShellFolder* psf, uint32 cidl, ITEMIDLIST* apidl, IUnknown* punkAssociation, uint32 cKeys, HKEY aKeys) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDefaultFolderMenuInitialize*/SelfOuter* self, DEFAULT_FOLDER_MENU_RESTRICTIONS dfmrValues) SetMenuRestrictions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDefaultFolderMenuInitialize*/SelfOuter* self, DEFAULT_FOLDER_MENU_RESTRICTIONS dfmrMask, DEFAULT_FOLDER_MENU_RESTRICTIONS* pdfmrValues) GetMenuRestrictions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDefaultFolderMenuInitialize*/SelfOuter* self, DEFAULT_FOLDER_MENU_RESTRICTIONS dfmrMask, DEFAULT_FOLDER_MENU_RESTRICTIONS pdfmrValues) GetMenuRestrictions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDefaultFolderMenuInitialize*/SelfOuter* self, Guid rclsid) SetHandlerClsid;
 	}
 
 
-	public HRESULT Initialize(HWND hwnd, IContextMenuCB* pcmcb, ITEMIDLIST* pidlFolder, IShellFolder* psf, uint32 cidl, ITEMIDLIST** apidl, IUnknown* punkAssociation, uint32 cKeys, HKEY* aKeys) mut => VT.[Friend]Initialize(&this, hwnd, pcmcb, pidlFolder, psf, cidl, apidl, punkAssociation, cKeys, aKeys);
+	public HRESULT Initialize(HWND hwnd, IContextMenuCB* pcmcb, ITEMIDLIST pidlFolder, IShellFolder* psf, uint32 cidl, ITEMIDLIST* apidl, IUnknown* punkAssociation, uint32 cKeys, HKEY aKeys) mut => VT.[Friend]Initialize(&this, hwnd, pcmcb, pidlFolder, psf, cidl, apidl, punkAssociation, cKeys, aKeys);
 
 	public HRESULT SetMenuRestrictions(DEFAULT_FOLDER_MENU_RESTRICTIONS dfmrValues) mut => VT.[Friend]SetMenuRestrictions(&this, dfmrValues);
 
-	public HRESULT GetMenuRestrictions(DEFAULT_FOLDER_MENU_RESTRICTIONS dfmrMask, DEFAULT_FOLDER_MENU_RESTRICTIONS* pdfmrValues) mut => VT.[Friend]GetMenuRestrictions(&this, dfmrMask, pdfmrValues);
+	public HRESULT GetMenuRestrictions(DEFAULT_FOLDER_MENU_RESTRICTIONS dfmrMask, DEFAULT_FOLDER_MENU_RESTRICTIONS pdfmrValues) mut => VT.[Friend]GetMenuRestrictions(&this, dfmrMask, pdfmrValues);
 
 	public HRESULT SetHandlerClsid(Guid rclsid) mut => VT.[Friend]SetHandlerClsid(&this, rclsid);
 }
@@ -13147,17 +13147,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationActivationManager*/SelfOuter* self, PWSTR appUserModelId, PWSTR arguments, ACTIVATEOPTIONS options, uint32* processId) ActivateApplication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationActivationManager*/SelfOuter* self, PWSTR appUserModelId, IShellItemArray* itemArray, PWSTR verb, uint32* processId) ActivateForFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationActivationManager*/SelfOuter* self, PWSTR appUserModelId, IShellItemArray* itemArray, uint32* processId) ActivateForProtocol;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationActivationManager*/SelfOuter* self, PWSTR appUserModelId, PWSTR arguments, ACTIVATEOPTIONS options, uint32 processId) ActivateApplication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationActivationManager*/SelfOuter* self, PWSTR appUserModelId, IShellItemArray* itemArray, PWSTR verb, uint32 processId) ActivateForFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationActivationManager*/SelfOuter* self, PWSTR appUserModelId, IShellItemArray* itemArray, uint32 processId) ActivateForProtocol;
 	}
 
 
-	public HRESULT ActivateApplication(PWSTR appUserModelId, PWSTR arguments, ACTIVATEOPTIONS options, uint32* processId) mut => VT.[Friend]ActivateApplication(&this, appUserModelId, arguments, options, processId);
+	public HRESULT ActivateApplication(PWSTR appUserModelId, PWSTR arguments, ACTIVATEOPTIONS options, uint32 processId) mut => VT.[Friend]ActivateApplication(&this, appUserModelId, arguments, options, processId);
 
-	public HRESULT ActivateForFile(PWSTR appUserModelId, IShellItemArray* itemArray, PWSTR verb, uint32* processId) mut => VT.[Friend]ActivateForFile(&this, appUserModelId, itemArray, verb, processId);
+	public HRESULT ActivateForFile(PWSTR appUserModelId, IShellItemArray* itemArray, PWSTR verb, uint32 processId) mut => VT.[Friend]ActivateForFile(&this, appUserModelId, itemArray, verb, processId);
 
-	public HRESULT ActivateForProtocol(PWSTR appUserModelId, IShellItemArray* itemArray, uint32* processId) mut => VT.[Friend]ActivateForProtocol(&this, appUserModelId, itemArray, processId);
+	public HRESULT ActivateForProtocol(PWSTR appUserModelId, IShellItemArray* itemArray, uint32 processId) mut => VT.[Friend]ActivateForProtocol(&this, appUserModelId, itemArray, processId);
 }
 
 [CRepr]struct IVirtualDesktopManager : IUnknown
@@ -13168,13 +13168,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualDesktopManager*/SelfOuter* self, HWND topLevelWindow, BOOL* onCurrentDesktop) IsWindowOnCurrentVirtualDesktop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualDesktopManager*/SelfOuter* self, HWND topLevelWindow, BOOL onCurrentDesktop) IsWindowOnCurrentVirtualDesktop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualDesktopManager*/SelfOuter* self, HWND topLevelWindow, Guid desktopId) GetWindowDesktopId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualDesktopManager*/SelfOuter* self, HWND topLevelWindow, Guid desktopId) MoveWindowToDesktop;
 	}
 
 
-	public HRESULT IsWindowOnCurrentVirtualDesktop(HWND topLevelWindow, BOOL* onCurrentDesktop) mut => VT.[Friend]IsWindowOnCurrentVirtualDesktop(&this, topLevelWindow, onCurrentDesktop);
+	public HRESULT IsWindowOnCurrentVirtualDesktop(HWND topLevelWindow, BOOL onCurrentDesktop) mut => VT.[Friend]IsWindowOnCurrentVirtualDesktop(&this, topLevelWindow, onCurrentDesktop);
 
 	public HRESULT GetWindowDesktopId(HWND topLevelWindow, Guid desktopId) mut => VT.[Friend]GetWindowDesktopId(&this, topLevelWindow, desktopId);
 
@@ -13207,21 +13207,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self, PWSTR* ppsz) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self, PWSTR* ppsz) GetUIName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self, PWSTR* ppszPath, int32* pIndex) GetIconLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self, PWSTR ppsz) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self, PWSTR ppsz) GetUIName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self, PWSTR ppszPath, int32 pIndex) GetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self) IsRecommended;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self, PWSTR pszDescription) MakeDefault;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self, IDataObject* pdo) Invoke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self, IDataObject* pdo, IAssocHandlerInvoker** ppInvoker) CreateInvoker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssocHandler*/SelfOuter* self, IDataObject* pdo, IAssocHandlerInvoker* ppInvoker) CreateInvoker;
 	}
 
 
-	public HRESULT GetName(PWSTR* ppsz) mut => VT.[Friend]GetName(&this, ppsz);
+	public HRESULT GetName(PWSTR ppsz) mut => VT.[Friend]GetName(&this, ppsz);
 
-	public HRESULT GetUIName(PWSTR* ppsz) mut => VT.[Friend]GetUIName(&this, ppsz);
+	public HRESULT GetUIName(PWSTR ppsz) mut => VT.[Friend]GetUIName(&this, ppsz);
 
-	public HRESULT GetIconLocation(PWSTR* ppszPath, int32* pIndex) mut => VT.[Friend]GetIconLocation(&this, ppszPath, pIndex);
+	public HRESULT GetIconLocation(PWSTR ppszPath, int32 pIndex) mut => VT.[Friend]GetIconLocation(&this, ppszPath, pIndex);
 
 	public HRESULT IsRecommended() mut => VT.[Friend]IsRecommended(&this);
 
@@ -13229,7 +13229,7 @@ public static
 
 	public HRESULT Invoke(IDataObject* pdo) mut => VT.[Friend]Invoke(&this, pdo);
 
-	public HRESULT CreateInvoker(IDataObject* pdo, IAssocHandlerInvoker** ppInvoker) mut => VT.[Friend]CreateInvoker(&this, pdo, ppInvoker);
+	public HRESULT CreateInvoker(IDataObject* pdo, IAssocHandlerInvoker* ppInvoker) mut => VT.[Friend]CreateInvoker(&this, pdo, ppInvoker);
 }
 
 [CRepr]struct IEnumAssocHandlers : IUnknown
@@ -13240,11 +13240,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumAssocHandlers*/SelfOuter* self, uint32 celt, IAssocHandler** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumAssocHandlers*/SelfOuter* self, uint32 celt, IAssocHandler** rgelt, uint32 pceltFetched) Next;
 	}
 
 
-	public HRESULT Next(uint32 celt, IAssocHandler** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, IAssocHandler** rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 }
 
 [CRepr]struct IDataObjectProvider : IUnknown
@@ -13255,12 +13255,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataObjectProvider*/SelfOuter* self, IDataObject** dataObject) GetDataObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataObjectProvider*/SelfOuter* self, IDataObject* dataObject) GetDataObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataObjectProvider*/SelfOuter* self, IDataObject* dataObject) SetDataObject;
 	}
 
 
-	public HRESULT GetDataObject(IDataObject** dataObject) mut => VT.[Friend]GetDataObject(&this, dataObject);
+	public HRESULT GetDataObject(IDataObject* dataObject) mut => VT.[Friend]GetDataObject(&this, dataObject);
 
 	public HRESULT SetDataObject(IDataObject* dataObject) mut => VT.[Friend]SetDataObject(&this, dataObject);
 }
@@ -13273,12 +13273,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataTransferManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** dataTransferManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataTransferManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void dataTransferManager) GetForWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataTransferManagerInterop*/SelfOuter* self, HWND appWindow) ShowShareUIForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** dataTransferManager) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, dataTransferManager);
+	public HRESULT GetForWindow(HWND appWindow, Guid riid, void dataTransferManager) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, dataTransferManager);
 
 	public HRESULT ShowShareUIForWindow(HWND appWindow) mut => VT.[Friend]ShowShareUIForWindow(&this, appWindow);
 }
@@ -13291,12 +13291,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFrameworkInputPaneHandler*/SelfOuter* self, RECT* prcInputPaneScreenLocation, BOOL fEnsureFocusedElementInView) Showing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFrameworkInputPaneHandler*/SelfOuter* self, RECT prcInputPaneScreenLocation, BOOL fEnsureFocusedElementInView) Showing;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFrameworkInputPaneHandler*/SelfOuter* self, BOOL fEnsureFocusedElementInView) Hiding;
 	}
 
 
-	public HRESULT Showing(RECT* prcInputPaneScreenLocation, BOOL fEnsureFocusedElementInView) mut => VT.[Friend]Showing(&this, prcInputPaneScreenLocation, fEnsureFocusedElementInView);
+	public HRESULT Showing(RECT prcInputPaneScreenLocation, BOOL fEnsureFocusedElementInView) mut => VT.[Friend]Showing(&this, prcInputPaneScreenLocation, fEnsureFocusedElementInView);
 
 	public HRESULT Hiding(BOOL fEnsureFocusedElementInView) mut => VT.[Friend]Hiding(&this, fEnsureFocusedElementInView);
 }
@@ -13309,20 +13309,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFrameworkInputPane*/SelfOuter* self, IUnknown* pWindow, IFrameworkInputPaneHandler* pHandler, uint32* pdwCookie) Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFrameworkInputPane*/SelfOuter* self, HWND hwnd, IFrameworkInputPaneHandler* pHandler, uint32* pdwCookie) AdviseWithHWND;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFrameworkInputPane*/SelfOuter* self, IUnknown* pWindow, IFrameworkInputPaneHandler* pHandler, uint32 pdwCookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFrameworkInputPane*/SelfOuter* self, HWND hwnd, IFrameworkInputPaneHandler* pHandler, uint32 pdwCookie) AdviseWithHWND;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFrameworkInputPane*/SelfOuter* self, uint32 dwCookie) Unadvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFrameworkInputPane*/SelfOuter* self, RECT* prcInputPaneScreenLocation) Location;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFrameworkInputPane*/SelfOuter* self, RECT prcInputPaneScreenLocation) Location;
 	}
 
 
-	public HRESULT Advise(IUnknown* pWindow, IFrameworkInputPaneHandler* pHandler, uint32* pdwCookie) mut => VT.[Friend]Advise(&this, pWindow, pHandler, pdwCookie);
+	public HRESULT Advise(IUnknown* pWindow, IFrameworkInputPaneHandler* pHandler, uint32 pdwCookie) mut => VT.[Friend]Advise(&this, pWindow, pHandler, pdwCookie);
 
-	public HRESULT AdviseWithHWND(HWND hwnd, IFrameworkInputPaneHandler* pHandler, uint32* pdwCookie) mut => VT.[Friend]AdviseWithHWND(&this, hwnd, pHandler, pdwCookie);
+	public HRESULT AdviseWithHWND(HWND hwnd, IFrameworkInputPaneHandler* pHandler, uint32 pdwCookie) mut => VT.[Friend]AdviseWithHWND(&this, hwnd, pHandler, pdwCookie);
 
 	public HRESULT Unadvise(uint32 dwCookie) mut => VT.[Friend]Unadvise(&this, dwCookie);
 
-	public HRESULT Location(RECT* prcInputPaneScreenLocation) mut => VT.[Friend]Location(&this, prcInputPaneScreenLocation);
+	public HRESULT Location(RECT prcInputPaneScreenLocation) mut => VT.[Friend]Location(&this, prcInputPaneScreenLocation);
 }
 
 [CRepr]struct IAppVisibilityEvents : IUnknown
@@ -13351,18 +13351,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppVisibility*/SelfOuter* self, HMONITOR hMonitor, MONITOR_APP_VISIBILITY* pMode) GetAppVisibilityOnMonitor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppVisibility*/SelfOuter* self, BOOL* pfVisible) IsLauncherVisible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppVisibility*/SelfOuter* self, IAppVisibilityEvents* pCallback, uint32* pdwCookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppVisibility*/SelfOuter* self, HMONITOR hMonitor, MONITOR_APP_VISIBILITY pMode) GetAppVisibilityOnMonitor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppVisibility*/SelfOuter* self, BOOL pfVisible) IsLauncherVisible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppVisibility*/SelfOuter* self, IAppVisibilityEvents* pCallback, uint32 pdwCookie) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppVisibility*/SelfOuter* self, uint32 dwCookie) Unadvise;
 	}
 
 
-	public HRESULT GetAppVisibilityOnMonitor(HMONITOR hMonitor, MONITOR_APP_VISIBILITY* pMode) mut => VT.[Friend]GetAppVisibilityOnMonitor(&this, hMonitor, pMode);
+	public HRESULT GetAppVisibilityOnMonitor(HMONITOR hMonitor, MONITOR_APP_VISIBILITY pMode) mut => VT.[Friend]GetAppVisibilityOnMonitor(&this, hMonitor, pMode);
 
-	public HRESULT IsLauncherVisible(BOOL* pfVisible) mut => VT.[Friend]IsLauncherVisible(&this, pfVisible);
+	public HRESULT IsLauncherVisible(BOOL pfVisible) mut => VT.[Friend]IsLauncherVisible(&this, pfVisible);
 
-	public HRESULT Advise(IAppVisibilityEvents* pCallback, uint32* pdwCookie) mut => VT.[Friend]Advise(&this, pCallback, pdwCookie);
+	public HRESULT Advise(IAppVisibilityEvents* pCallback, uint32 pdwCookie) mut => VT.[Friend]Advise(&this, pCallback, pdwCookie);
 
 	public HRESULT Unadvise(uint32 dwCookie) mut => VT.[Friend]Unadvise(&this, dwCookie);
 }
@@ -13396,14 +13396,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName) Resume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName) TerminateAllProcesses;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, uint32 sessionId) SetTargetSessionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName, uint32* taskCount, Guid taskIds, PWSTR** taskNames) EnumerateBackgroundTasks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName, uint32 taskCount, Guid taskIds, PWSTR taskNames) EnumerateBackgroundTasks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, Guid taskId) ActivateBackgroundTask;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName) StartServicing;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName) StopServicing;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName, uint32 sessionId) StartSessionRedirection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName) StopSessionRedirection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName, PACKAGE_EXECUTION_STATE* packageExecutionState) GetPackageExecutionState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName, IPackageExecutionStateChangeNotification* pPackageExecutionStateChangeNotification, uint32* pdwCookie) RegisterForPackageStateChanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName, PACKAGE_EXECUTION_STATE packageExecutionState) GetPackageExecutionState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, PWSTR packageFullName, IPackageExecutionStateChangeNotification* pPackageExecutionStateChangeNotification, uint32 pdwCookie) RegisterForPackageStateChanges;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings*/SelfOuter* self, uint32 dwCookie) UnregisterForPackageStateChanges;
 	}
 
@@ -13420,7 +13420,7 @@ public static
 
 	public HRESULT SetTargetSessionId(uint32 sessionId) mut => VT.[Friend]SetTargetSessionId(&this, sessionId);
 
-	public HRESULT EnumerateBackgroundTasks(PWSTR packageFullName, uint32* taskCount, Guid taskIds, PWSTR** taskNames) mut => VT.[Friend]EnumerateBackgroundTasks(&this, packageFullName, taskCount, taskIds, taskNames);
+	public HRESULT EnumerateBackgroundTasks(PWSTR packageFullName, uint32 taskCount, Guid taskIds, PWSTR taskNames) mut => VT.[Friend]EnumerateBackgroundTasks(&this, packageFullName, taskCount, taskIds, taskNames);
 
 	public HRESULT ActivateBackgroundTask(Guid taskId) mut => VT.[Friend]ActivateBackgroundTask(&this, taskId);
 
@@ -13432,9 +13432,9 @@ public static
 
 	public HRESULT StopSessionRedirection(PWSTR packageFullName) mut => VT.[Friend]StopSessionRedirection(&this, packageFullName);
 
-	public HRESULT GetPackageExecutionState(PWSTR packageFullName, PACKAGE_EXECUTION_STATE* packageExecutionState) mut => VT.[Friend]GetPackageExecutionState(&this, packageFullName, packageExecutionState);
+	public HRESULT GetPackageExecutionState(PWSTR packageFullName, PACKAGE_EXECUTION_STATE packageExecutionState) mut => VT.[Friend]GetPackageExecutionState(&this, packageFullName, packageExecutionState);
 
-	public HRESULT RegisterForPackageStateChanges(PWSTR packageFullName, IPackageExecutionStateChangeNotification* pPackageExecutionStateChangeNotification, uint32* pdwCookie) mut => VT.[Friend]RegisterForPackageStateChanges(&this, packageFullName, pPackageExecutionStateChangeNotification, pdwCookie);
+	public HRESULT RegisterForPackageStateChanges(PWSTR packageFullName, IPackageExecutionStateChangeNotification* pPackageExecutionStateChangeNotification, uint32 pdwCookie) mut => VT.[Friend]RegisterForPackageStateChanges(&this, packageFullName, pPackageExecutionStateChangeNotification, pdwCookie);
 
 	public HRESULT UnregisterForPackageStateChanges(uint32 dwCookie) mut => VT.[Friend]UnregisterForPackageStateChanges(&this, dwCookie);
 }
@@ -13447,11 +13447,11 @@ public static
 
 	[CRepr]public struct VTable : IPackageDebugSettings.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings2*/SelfOuter* self, PWSTR packageFullName, uint32* appCount, PWSTR** appUserModelIds, PWSTR** appDisplayNames) EnumerateApps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageDebugSettings2*/SelfOuter* self, PWSTR packageFullName, uint32 appCount, PWSTR appUserModelIds, PWSTR appDisplayNames) EnumerateApps;
 	}
 
 
-	public HRESULT EnumerateApps(PWSTR packageFullName, uint32* appCount, PWSTR** appUserModelIds, PWSTR** appDisplayNames) mut => VT.[Friend]EnumerateApps(&this, packageFullName, appCount, appUserModelIds, appDisplayNames);
+	public HRESULT EnumerateApps(PWSTR packageFullName, uint32 appCount, PWSTR appUserModelIds, PWSTR appDisplayNames) mut => VT.[Friend]EnumerateApps(&this, packageFullName, appCount, appUserModelIds, appDisplayNames);
 }
 
 [CRepr]struct ISuspensionDependencyManager : IUnknown
@@ -13483,11 +13483,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecuteCommandApplicationHostEnvironment*/SelfOuter* self, AHE_TYPE* pahe) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecuteCommandApplicationHostEnvironment*/SelfOuter* self, AHE_TYPE pahe) GetValue;
 	}
 
 
-	public HRESULT GetValue(AHE_TYPE* pahe) mut => VT.[Friend]GetValue(&this, pahe);
+	public HRESULT GetValue(AHE_TYPE pahe) mut => VT.[Friend]GetValue(&this, pahe);
 }
 
 [CRepr]struct IExecuteCommandHost : IUnknown
@@ -13498,11 +13498,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecuteCommandHost*/SelfOuter* self, EC_HOST_UI_MODE* pUIMode) GetUIMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecuteCommandHost*/SelfOuter* self, EC_HOST_UI_MODE pUIMode) GetUIMode;
 	}
 
 
-	public HRESULT GetUIMode(EC_HOST_UI_MODE* pUIMode) mut => VT.[Friend]GetUIMode(&this, pUIMode);
+	public HRESULT GetUIMode(EC_HOST_UI_MODE pUIMode) mut => VT.[Friend]GetUIMode(&this, pUIMode);
 }
 
 [CRepr]struct IApplicationDesignModeSettings : IUnknown
@@ -13516,8 +13516,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings*/SelfOuter* self, SIZE nativeDisplaySizePixels) SetNativeDisplaySize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings*/SelfOuter* self, DEVICE_SCALE_FACTOR scaleFactor) SetScaleFactor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings*/SelfOuter* self, APPLICATION_VIEW_STATE viewState) SetApplicationViewState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings*/SelfOuter* self, SIZE* applicationSizePixels) ComputeApplicationSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings*/SelfOuter* self, APPLICATION_VIEW_STATE viewState, SIZE nativeDisplaySizePixels, DEVICE_SCALE_FACTOR scaleFactor, BOOL* supported) IsApplicationViewStateSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings*/SelfOuter* self, SIZE applicationSizePixels) ComputeApplicationSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings*/SelfOuter* self, APPLICATION_VIEW_STATE viewState, SIZE nativeDisplaySizePixels, DEVICE_SCALE_FACTOR scaleFactor, BOOL supported) IsApplicationViewStateSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings*/SelfOuter* self, EDGE_GESTURE_KIND edgeGestureKind) TriggerEdgeGesture;
 	}
 
@@ -13528,9 +13528,9 @@ public static
 
 	public HRESULT SetApplicationViewState(APPLICATION_VIEW_STATE viewState) mut => VT.[Friend]SetApplicationViewState(&this, viewState);
 
-	public HRESULT ComputeApplicationSize(SIZE* applicationSizePixels) mut => VT.[Friend]ComputeApplicationSize(&this, applicationSizePixels);
+	public HRESULT ComputeApplicationSize(SIZE applicationSizePixels) mut => VT.[Friend]ComputeApplicationSize(&this, applicationSizePixels);
 
-	public HRESULT IsApplicationViewStateSupported(APPLICATION_VIEW_STATE viewState, SIZE nativeDisplaySizePixels, DEVICE_SCALE_FACTOR scaleFactor, BOOL* supported) mut => VT.[Friend]IsApplicationViewStateSupported(&this, viewState, nativeDisplaySizePixels, scaleFactor, supported);
+	public HRESULT IsApplicationViewStateSupported(APPLICATION_VIEW_STATE viewState, SIZE nativeDisplaySizePixels, DEVICE_SCALE_FACTOR scaleFactor, BOOL supported) mut => VT.[Friend]IsApplicationViewStateSupported(&this, viewState, nativeDisplaySizePixels, scaleFactor, supported);
 
 	public HRESULT TriggerEdgeGesture(EDGE_GESTURE_KIND edgeGestureKind) mut => VT.[Friend]TriggerEdgeGesture(&this, edgeGestureKind);
 }
@@ -13548,8 +13548,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings2*/SelfOuter* self, ADJACENT_DISPLAY_EDGES adjacentDisplayEdges) SetAdjacentDisplayEdges;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings2*/SelfOuter* self, BOOL isOnLockScreen) SetIsOnLockScreen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings2*/SelfOuter* self, APPLICATION_VIEW_MIN_WIDTH viewMinWidth) SetApplicationViewMinWidth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings2*/SelfOuter* self, SIZE* minApplicationSizePixels, SIZE* maxApplicationSizePixels) GetApplicationSizeBounds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings2*/SelfOuter* self, SIZE applicationSizePixels, APPLICATION_VIEW_ORIENTATION* viewOrientation) GetApplicationViewOrientation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings2*/SelfOuter* self, SIZE minApplicationSizePixels, SIZE maxApplicationSizePixels) GetApplicationSizeBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDesignModeSettings2*/SelfOuter* self, SIZE applicationSizePixels, APPLICATION_VIEW_ORIENTATION viewOrientation) GetApplicationViewOrientation;
 	}
 
 
@@ -13563,9 +13563,9 @@ public static
 
 	public HRESULT SetApplicationViewMinWidth(APPLICATION_VIEW_MIN_WIDTH viewMinWidth) mut => VT.[Friend]SetApplicationViewMinWidth(&this, viewMinWidth);
 
-	public HRESULT GetApplicationSizeBounds(SIZE* minApplicationSizePixels, SIZE* maxApplicationSizePixels) mut => VT.[Friend]GetApplicationSizeBounds(&this, minApplicationSizePixels, maxApplicationSizePixels);
+	public HRESULT GetApplicationSizeBounds(SIZE minApplicationSizePixels, SIZE maxApplicationSizePixels) mut => VT.[Friend]GetApplicationSizeBounds(&this, minApplicationSizePixels, maxApplicationSizePixels);
 
-	public HRESULT GetApplicationViewOrientation(SIZE applicationSizePixels, APPLICATION_VIEW_ORIENTATION* viewOrientation) mut => VT.[Friend]GetApplicationViewOrientation(&this, applicationSizePixels, viewOrientation);
+	public HRESULT GetApplicationViewOrientation(SIZE applicationSizePixels, APPLICATION_VIEW_ORIENTATION viewOrientation) mut => VT.[Friend]GetApplicationViewOrientation(&this, applicationSizePixels, viewOrientation);
 }
 
 [CRepr]struct ILaunchTargetMonitor : IUnknown
@@ -13576,11 +13576,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILaunchTargetMonitor*/SelfOuter* self, HMONITOR* monitor) GetMonitor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILaunchTargetMonitor*/SelfOuter* self, HMONITOR monitor) GetMonitor;
 	}
 
 
-	public HRESULT GetMonitor(HMONITOR* monitor) mut => VT.[Friend]GetMonitor(&this, monitor);
+	public HRESULT GetMonitor(HMONITOR monitor) mut => VT.[Friend]GetMonitor(&this, monitor);
 }
 
 [CRepr]struct ILaunchSourceViewSizePreference : IUnknown
@@ -13591,14 +13591,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILaunchSourceViewSizePreference*/SelfOuter* self, HWND* hwnd) GetSourceViewToPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILaunchSourceViewSizePreference*/SelfOuter* self, APPLICATION_VIEW_SIZE_PREFERENCE* sourceSizeAfterLaunch) GetSourceViewSizePreference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILaunchSourceViewSizePreference*/SelfOuter* self, HWND hwnd) GetSourceViewToPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILaunchSourceViewSizePreference*/SelfOuter* self, APPLICATION_VIEW_SIZE_PREFERENCE sourceSizeAfterLaunch) GetSourceViewSizePreference;
 	}
 
 
-	public HRESULT GetSourceViewToPosition(HWND* hwnd) mut => VT.[Friend]GetSourceViewToPosition(&this, hwnd);
+	public HRESULT GetSourceViewToPosition(HWND hwnd) mut => VT.[Friend]GetSourceViewToPosition(&this, hwnd);
 
-	public HRESULT GetSourceViewSizePreference(APPLICATION_VIEW_SIZE_PREFERENCE* sourceSizeAfterLaunch) mut => VT.[Friend]GetSourceViewSizePreference(&this, sourceSizeAfterLaunch);
+	public HRESULT GetSourceViewSizePreference(APPLICATION_VIEW_SIZE_PREFERENCE sourceSizeAfterLaunch) mut => VT.[Friend]GetSourceViewSizePreference(&this, sourceSizeAfterLaunch);
 }
 
 [CRepr]struct ILaunchTargetViewSizePreference : IUnknown
@@ -13609,11 +13609,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILaunchTargetViewSizePreference*/SelfOuter* self, APPLICATION_VIEW_SIZE_PREFERENCE* targetSizeOnLaunch) GetTargetViewSizePreference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILaunchTargetViewSizePreference*/SelfOuter* self, APPLICATION_VIEW_SIZE_PREFERENCE targetSizeOnLaunch) GetTargetViewSizePreference;
 	}
 
 
-	public HRESULT GetTargetViewSizePreference(APPLICATION_VIEW_SIZE_PREFERENCE* targetSizeOnLaunch) mut => VT.[Friend]GetTargetViewSizePreference(&this, targetSizeOnLaunch);
+	public HRESULT GetTargetViewSizePreference(APPLICATION_VIEW_SIZE_PREFERENCE targetSizeOnLaunch) mut => VT.[Friend]GetTargetViewSizePreference(&this, targetSizeOnLaunch);
 }
 
 [CRepr]struct ILaunchSourceAppUserModelId : IUnknown
@@ -13624,11 +13624,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILaunchSourceAppUserModelId*/SelfOuter* self, PWSTR* launchingApp) GetAppUserModelId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILaunchSourceAppUserModelId*/SelfOuter* self, PWSTR launchingApp) GetAppUserModelId;
 	}
 
 
-	public HRESULT GetAppUserModelId(PWSTR* launchingApp) mut => VT.[Friend]GetAppUserModelId(&this, launchingApp);
+	public HRESULT GetAppUserModelId(PWSTR launchingApp) mut => VT.[Friend]GetAppUserModelId(&this, launchingApp);
 }
 
 [CRepr]struct IInitializeWithWindow : IUnknown
@@ -13654,17 +13654,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHandlerInfo*/SelfOuter* self, PWSTR* value) GetApplicationDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHandlerInfo*/SelfOuter* self, PWSTR* value) GetApplicationPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHandlerInfo*/SelfOuter* self, PWSTR* value) GetApplicationIconReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHandlerInfo*/SelfOuter* self, PWSTR value) GetApplicationDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHandlerInfo*/SelfOuter* self, PWSTR value) GetApplicationPublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHandlerInfo*/SelfOuter* self, PWSTR value) GetApplicationIconReference;
 	}
 
 
-	public HRESULT GetApplicationDisplayName(PWSTR* value) mut => VT.[Friend]GetApplicationDisplayName(&this, value);
+	public HRESULT GetApplicationDisplayName(PWSTR value) mut => VT.[Friend]GetApplicationDisplayName(&this, value);
 
-	public HRESULT GetApplicationPublisher(PWSTR* value) mut => VT.[Friend]GetApplicationPublisher(&this, value);
+	public HRESULT GetApplicationPublisher(PWSTR value) mut => VT.[Friend]GetApplicationPublisher(&this, value);
 
-	public HRESULT GetApplicationIconReference(PWSTR* value) mut => VT.[Friend]GetApplicationIconReference(&this, value);
+	public HRESULT GetApplicationIconReference(PWSTR value) mut => VT.[Friend]GetApplicationIconReference(&this, value);
 }
 
 [CRepr]struct IHandlerInfo2 : IHandlerInfo
@@ -13675,11 +13675,11 @@ public static
 
 	[CRepr]public struct VTable : IHandlerInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHandlerInfo2*/SelfOuter* self, PWSTR* value) GetApplicationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHandlerInfo2*/SelfOuter* self, PWSTR value) GetApplicationId;
 	}
 
 
-	public HRESULT GetApplicationId(PWSTR* value) mut => VT.[Friend]GetApplicationId(&this, value);
+	public HRESULT GetApplicationId(PWSTR value) mut => VT.[Friend]GetApplicationId(&this, value);
 }
 
 [CRepr]struct IHandlerActivationHost : IUnknown
@@ -13708,23 +13708,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppActivationUIInfo*/SelfOuter* self, HMONITOR* value) GetMonitor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppActivationUIInfo*/SelfOuter* self, POINT* value) GetInvokePoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppActivationUIInfo*/SelfOuter* self, int32* value) GetShowCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppActivationUIInfo*/SelfOuter* self, BOOL* value) GetShowUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppActivationUIInfo*/SelfOuter* self, uint32* value) GetKeyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppActivationUIInfo*/SelfOuter* self, HMONITOR value) GetMonitor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppActivationUIInfo*/SelfOuter* self, POINT value) GetInvokePoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppActivationUIInfo*/SelfOuter* self, int32 value) GetShowCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppActivationUIInfo*/SelfOuter* self, BOOL value) GetShowUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppActivationUIInfo*/SelfOuter* self, uint32 value) GetKeyState;
 	}
 
 
-	public HRESULT GetMonitor(HMONITOR* value) mut => VT.[Friend]GetMonitor(&this, value);
+	public HRESULT GetMonitor(HMONITOR value) mut => VT.[Friend]GetMonitor(&this, value);
 
-	public HRESULT GetInvokePoint(POINT* value) mut => VT.[Friend]GetInvokePoint(&this, value);
+	public HRESULT GetInvokePoint(POINT value) mut => VT.[Friend]GetInvokePoint(&this, value);
 
-	public HRESULT GetShowCommand(int32* value) mut => VT.[Friend]GetShowCommand(&this, value);
+	public HRESULT GetShowCommand(int32 value) mut => VT.[Friend]GetShowCommand(&this, value);
 
-	public HRESULT GetShowUI(BOOL* value) mut => VT.[Friend]GetShowUI(&this, value);
+	public HRESULT GetShowUI(BOOL value) mut => VT.[Friend]GetShowUI(&this, value);
 
-	public HRESULT GetKeyState(uint32* value) mut => VT.[Friend]GetKeyState(&this, value);
+	public HRESULT GetKeyState(uint32 value) mut => VT.[Friend]GetKeyState(&this, value);
 }
 
 [CRepr]struct IContactManagerInterop : IUnknown
@@ -13735,11 +13735,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactManagerInterop*/SelfOuter* self, HWND appWindow, IUnknown* contact, RECT* selection, FLYOUT_PLACEMENT preferredPlacement) ShowContactCardForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactManagerInterop*/SelfOuter* self, HWND appWindow, IUnknown* contact, RECT selection, FLYOUT_PLACEMENT preferredPlacement) ShowContactCardForWindow;
 	}
 
 
-	public HRESULT ShowContactCardForWindow(HWND appWindow, IUnknown* contact, RECT* selection, FLYOUT_PLACEMENT preferredPlacement) mut => VT.[Friend]ShowContactCardForWindow(&this, appWindow, contact, selection, preferredPlacement);
+	public HRESULT ShowContactCardForWindow(HWND appWindow, IUnknown* contact, RECT selection, FLYOUT_PLACEMENT preferredPlacement) mut => VT.[Friend]ShowContactCardForWindow(&this, appWindow, contact, selection, preferredPlacement);
 }
 
 [CRepr]struct IShellIconOverlayIdentifier : IUnknown
@@ -13751,16 +13751,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayIdentifier*/SelfOuter* self, PWSTR pwszPath, uint32 dwAttrib) IsMemberOf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayIdentifier*/SelfOuter* self, char16* pwszIconFile, int32 cchMax, int32* pIndex, uint32* pdwFlags) GetOverlayInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayIdentifier*/SelfOuter* self, int32* pPriority) GetPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayIdentifier*/SelfOuter* self, char16* pwszIconFile, int32 cchMax, int32 pIndex, uint32 pdwFlags) GetOverlayInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayIdentifier*/SelfOuter* self, int32 pPriority) GetPriority;
 	}
 
 
 	public HRESULT IsMemberOf(PWSTR pwszPath, uint32 dwAttrib) mut => VT.[Friend]IsMemberOf(&this, pwszPath, dwAttrib);
 
-	public HRESULT GetOverlayInfo(char16* pwszIconFile, int32 cchMax, int32* pIndex, uint32* pdwFlags) mut => VT.[Friend]GetOverlayInfo(&this, pwszIconFile, cchMax, pIndex, pdwFlags);
+	public HRESULT GetOverlayInfo(char16* pwszIconFile, int32 cchMax, int32 pIndex, uint32 pdwFlags) mut => VT.[Friend]GetOverlayInfo(&this, pwszIconFile, cchMax, pIndex, pdwFlags);
 
-	public HRESULT GetPriority(int32* pPriority) mut => VT.[Friend]GetPriority(&this, pPriority);
+	public HRESULT GetPriority(int32 pPriority) mut => VT.[Friend]GetPriority(&this, pPriority);
 }
 
 [CRepr]struct IBannerNotificationHandler : IUnknown
@@ -13771,11 +13771,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBannerNotificationHandler*/SelfOuter* self, BANNER_NOTIFICATION* notification) OnBannerEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBannerNotificationHandler*/SelfOuter* self, BANNER_NOTIFICATION notification) OnBannerEvent;
 	}
 
 
-	public HRESULT OnBannerEvent(BANNER_NOTIFICATION* notification) mut => VT.[Friend]OnBannerEvent(&this, notification);
+	public HRESULT OnBannerEvent(BANNER_NOTIFICATION notification) mut => VT.[Friend]OnBannerEvent(&this, notification);
 }
 
 [CRepr]struct ISortColumnArray : IUnknown
@@ -13786,17 +13786,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISortColumnArray*/SelfOuter* self, uint32* columnCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISortColumnArray*/SelfOuter* self, uint32 index, SORTCOLUMN* sortcolumn) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISortColumnArray*/SelfOuter* self, SORT_ORDER_TYPE* type) GetSortType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISortColumnArray*/SelfOuter* self, uint32 columnCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISortColumnArray*/SelfOuter* self, uint32 index, SORTCOLUMN sortcolumn) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISortColumnArray*/SelfOuter* self, SORT_ORDER_TYPE type) GetSortType;
 	}
 
 
-	public HRESULT GetCount(uint32* columnCount) mut => VT.[Friend]GetCount(&this, columnCount);
+	public HRESULT GetCount(uint32 columnCount) mut => VT.[Friend]GetCount(&this, columnCount);
 
-	public HRESULT GetAt(uint32 index, SORTCOLUMN* sortcolumn) mut => VT.[Friend]GetAt(&this, index, sortcolumn);
+	public HRESULT GetAt(uint32 index, SORTCOLUMN sortcolumn) mut => VT.[Friend]GetAt(&this, index, sortcolumn);
 
-	public HRESULT GetSortType(SORT_ORDER_TYPE* type) mut => VT.[Friend]GetSortType(&this, type);
+	public HRESULT GetSortType(SORT_ORDER_TYPE type) mut => VT.[Friend]GetSortType(&this, type);
 }
 
 [CRepr]struct IPropertyKeyStore : IUnknown
@@ -13807,26 +13807,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, int32* keyCount) GetKeyCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, int32 index, PROPERTYKEY* pkey) GetKeyAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, PROPERTYKEY* key) AppendKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, int32 keyCount) GetKeyCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, int32 index, PROPERTYKEY pkey) GetKeyAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, PROPERTYKEY key) AppendKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, int32 index) DeleteKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, PROPERTYKEY* key) IsKeyInStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, PROPERTYKEY* key) RemoveKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, PROPERTYKEY key) IsKeyInStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyKeyStore*/SelfOuter* self, PROPERTYKEY key) RemoveKey;
 	}
 
 
-	public HRESULT GetKeyCount(int32* keyCount) mut => VT.[Friend]GetKeyCount(&this, keyCount);
+	public HRESULT GetKeyCount(int32 keyCount) mut => VT.[Friend]GetKeyCount(&this, keyCount);
 
-	public HRESULT GetKeyAt(int32 index, PROPERTYKEY* pkey) mut => VT.[Friend]GetKeyAt(&this, index, pkey);
+	public HRESULT GetKeyAt(int32 index, PROPERTYKEY pkey) mut => VT.[Friend]GetKeyAt(&this, index, pkey);
 
-	public HRESULT AppendKey(PROPERTYKEY* key) mut => VT.[Friend]AppendKey(&this, key);
+	public HRESULT AppendKey(PROPERTYKEY key) mut => VT.[Friend]AppendKey(&this, key);
 
 	public HRESULT DeleteKey(int32 index) mut => VT.[Friend]DeleteKey(&this, index);
 
-	public HRESULT IsKeyInStore(PROPERTYKEY* key) mut => VT.[Friend]IsKeyInStore(&this, key);
+	public HRESULT IsKeyInStore(PROPERTYKEY key) mut => VT.[Friend]IsKeyInStore(&this, key);
 
-	public HRESULT RemoveKey(PROPERTYKEY* key) mut => VT.[Friend]RemoveKey(&this, key);
+	public HRESULT RemoveKey(PROPERTYKEY key) mut => VT.[Friend]RemoveKey(&this, key);
 }
 
 [CRepr]struct IQueryCodePage : IUnknown
@@ -13837,12 +13837,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryCodePage*/SelfOuter* self, uint32* puiCodePage) GetCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryCodePage*/SelfOuter* self, uint32 puiCodePage) GetCodePage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryCodePage*/SelfOuter* self, uint32 uiCodePage) SetCodePage;
 	}
 
 
-	public HRESULT GetCodePage(uint32* puiCodePage) mut => VT.[Friend]GetCodePage(&this, puiCodePage);
+	public HRESULT GetCodePage(uint32 puiCodePage) mut => VT.[Friend]GetCodePage(&this, puiCodePage);
 
 	public HRESULT SetCodePage(uint32 uiCodePage) mut => VT.[Friend]SetCodePage(&this, uiCodePage);
 }
@@ -13856,13 +13856,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewOptions*/SelfOuter* self, FOLDERVIEWOPTIONS fvoMask, FOLDERVIEWOPTIONS fvoFlags) SetFolderViewOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewOptions*/SelfOuter* self, FOLDERVIEWOPTIONS* pfvoFlags) GetFolderViewOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewOptions*/SelfOuter* self, FOLDERVIEWOPTIONS pfvoFlags) GetFolderViewOptions;
 	}
 
 
 	public HRESULT SetFolderViewOptions(FOLDERVIEWOPTIONS fvoMask, FOLDERVIEWOPTIONS fvoFlags) mut => VT.[Friend]SetFolderViewOptions(&this, fvoMask, fvoFlags);
 
-	public HRESULT GetFolderViewOptions(FOLDERVIEWOPTIONS* pfvoFlags) mut => VT.[Friend]GetFolderViewOptions(&this, pfvoFlags);
+	public HRESULT GetFolderViewOptions(FOLDERVIEWOPTIONS pfvoFlags) mut => VT.[Friend]GetFolderViewOptions(&this, pfvoFlags);
 }
 
 [CRepr]struct IShellView3 : IShellView2
@@ -13873,11 +13873,11 @@ public static
 
 	[CRepr]public struct VTable : IShellView2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView3*/SelfOuter* self, IShellBrowser* psbOwner, IShellView* psvPrev, uint32 dwViewFlags, FOLDERFLAGS dwMask, FOLDERFLAGS dwFlags, FOLDERVIEWMODE fvMode, Guid pvid, RECT* prcView, HWND* phwndView) CreateViewWindow3;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellView3*/SelfOuter* self, IShellBrowser* psbOwner, IShellView* psvPrev, uint32 dwViewFlags, FOLDERFLAGS dwMask, FOLDERFLAGS dwFlags, FOLDERVIEWMODE fvMode, Guid pvid, RECT prcView, HWND phwndView) CreateViewWindow3;
 	}
 
 
-	public HRESULT CreateViewWindow3(IShellBrowser* psbOwner, IShellView* psvPrev, uint32 dwViewFlags, FOLDERFLAGS dwMask, FOLDERFLAGS dwFlags, FOLDERVIEWMODE fvMode, Guid pvid, RECT* prcView, HWND* phwndView) mut => VT.[Friend]CreateViewWindow3(&this, psbOwner, psvPrev, dwViewFlags, dwMask, dwFlags, fvMode, pvid, prcView, phwndView);
+	public HRESULT CreateViewWindow3(IShellBrowser* psbOwner, IShellView* psvPrev, uint32 dwViewFlags, FOLDERFLAGS dwMask, FOLDERFLAGS dwFlags, FOLDERVIEWMODE fvMode, Guid pvid, RECT prcView, HWND phwndView) mut => VT.[Friend]CreateViewWindow3(&this, psbOwner, psvPrev, dwViewFlags, dwMask, dwFlags, fvMode, pvid, prcView, phwndView);
 }
 
 [CRepr]struct ISearchBoxInfo : IUnknown
@@ -13888,14 +13888,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchBoxInfo*/SelfOuter* self, Guid riid, void** ppv) GetCondition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchBoxInfo*/SelfOuter* self, PWSTR* ppsz) GetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchBoxInfo*/SelfOuter* self, Guid riid, void ppv) GetCondition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchBoxInfo*/SelfOuter* self, PWSTR ppsz) GetText;
 	}
 
 
-	public HRESULT GetCondition(Guid riid, void** ppv) mut => VT.[Friend]GetCondition(&this, riid, ppv);
+	public HRESULT GetCondition(Guid riid, void ppv) mut => VT.[Friend]GetCondition(&this, riid, ppv);
 
-	public HRESULT GetText(PWSTR* ppsz) mut => VT.[Friend]GetText(&this, ppsz);
+	public HRESULT GetText(PWSTR ppsz) mut => VT.[Friend]GetText(&this, ppsz);
 }
 
 [CRepr]struct IVisualProperties : IUnknown
@@ -13908,11 +13908,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, HBITMAP hbmp, VPWATERMARKFLAGS vpwf) SetWatermark;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, VPCOLORFLAGS vpcf, uint32 cr) SetColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, VPCOLORFLAGS vpcf, uint32* pcr) GetColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, VPCOLORFLAGS vpcf, uint32 pcr) GetColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, int32 cyItemInPixels) SetItemHeight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, int32* cyItemInPixels) GetItemHeight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, LOGFONTW* plf, BOOL bRedraw) SetFont;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, LOGFONTW* plf) GetFont;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, int32 cyItemInPixels) GetItemHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, LOGFONTW plf, BOOL bRedraw) SetFont;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, LOGFONTW plf) GetFont;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVisualProperties*/SelfOuter* self, PWSTR pszSubAppName, PWSTR pszSubIdList) SetTheme;
 	}
 
@@ -13921,15 +13921,15 @@ public static
 
 	public HRESULT SetColor(VPCOLORFLAGS vpcf, uint32 cr) mut => VT.[Friend]SetColor(&this, vpcf, cr);
 
-	public HRESULT GetColor(VPCOLORFLAGS vpcf, uint32* pcr) mut => VT.[Friend]GetColor(&this, vpcf, pcr);
+	public HRESULT GetColor(VPCOLORFLAGS vpcf, uint32 pcr) mut => VT.[Friend]GetColor(&this, vpcf, pcr);
 
 	public HRESULT SetItemHeight(int32 cyItemInPixels) mut => VT.[Friend]SetItemHeight(&this, cyItemInPixels);
 
-	public HRESULT GetItemHeight(int32* cyItemInPixels) mut => VT.[Friend]GetItemHeight(&this, cyItemInPixels);
+	public HRESULT GetItemHeight(int32 cyItemInPixels) mut => VT.[Friend]GetItemHeight(&this, cyItemInPixels);
 
-	public HRESULT SetFont(LOGFONTW* plf, BOOL bRedraw) mut => VT.[Friend]SetFont(&this, plf, bRedraw);
+	public HRESULT SetFont(LOGFONTW plf, BOOL bRedraw) mut => VT.[Friend]SetFont(&this, plf, bRedraw);
 
-	public HRESULT GetFont(LOGFONTW* plf) mut => VT.[Friend]GetFont(&this, plf);
+	public HRESULT GetFont(LOGFONTW plf) mut => VT.[Friend]GetFont(&this, plf);
 
 	public HRESULT SetTheme(PWSTR pszSubAppName, PWSTR pszSubIdList) mut => VT.[Friend]SetTheme(&this, pszSubAppName, pszSubIdList);
 }
@@ -13978,18 +13978,18 @@ public static
 
 	[CRepr]public struct VTable : IStream.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamAsync*/SelfOuter* self, void* pv, uint32 cb, uint32* pcbRead, OVERLAPPED* lpOverlapped) ReadAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamAsync*/SelfOuter* self, void* lpBuffer, uint32 cb, uint32* pcbWritten, OVERLAPPED* lpOverlapped) WriteAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamAsync*/SelfOuter* self, OVERLAPPED* lpOverlapped, uint32* lpNumberOfBytesTransferred, BOOL bWait) OverlappedResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamAsync*/SelfOuter* self, void pv, uint32 cb, uint32 pcbRead, OVERLAPPED lpOverlapped) ReadAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamAsync*/SelfOuter* self, void lpBuffer, uint32 cb, uint32 pcbWritten, OVERLAPPED lpOverlapped) WriteAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamAsync*/SelfOuter* self, OVERLAPPED lpOverlapped, uint32 lpNumberOfBytesTransferred, BOOL bWait) OverlappedResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamAsync*/SelfOuter* self) CancelIo;
 	}
 
 
-	public HRESULT ReadAsync(void* pv, uint32 cb, uint32* pcbRead, OVERLAPPED* lpOverlapped) mut => VT.[Friend]ReadAsync(&this, pv, cb, pcbRead, lpOverlapped);
+	public HRESULT ReadAsync(void pv, uint32 cb, uint32 pcbRead, OVERLAPPED lpOverlapped) mut => VT.[Friend]ReadAsync(&this, pv, cb, pcbRead, lpOverlapped);
 
-	public HRESULT WriteAsync(void* lpBuffer, uint32 cb, uint32* pcbWritten, OVERLAPPED* lpOverlapped) mut => VT.[Friend]WriteAsync(&this, lpBuffer, cb, pcbWritten, lpOverlapped);
+	public HRESULT WriteAsync(void lpBuffer, uint32 cb, uint32 pcbWritten, OVERLAPPED lpOverlapped) mut => VT.[Friend]WriteAsync(&this, lpBuffer, cb, pcbWritten, lpOverlapped);
 
-	public HRESULT OverlappedResult(OVERLAPPED* lpOverlapped, uint32* lpNumberOfBytesTransferred, BOOL bWait) mut => VT.[Friend]OverlappedResult(&this, lpOverlapped, lpNumberOfBytesTransferred, bWait);
+	public HRESULT OverlappedResult(OVERLAPPED lpOverlapped, uint32 lpNumberOfBytesTransferred, BOOL bWait) mut => VT.[Friend]OverlappedResult(&this, lpOverlapped, lpNumberOfBytesTransferred, bWait);
 
 	public HRESULT CancelIo() mut => VT.[Friend]CancelIo(&this);
 }
@@ -14002,11 +14002,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamUnbufferedInfo*/SelfOuter* self, uint32* pcbSectorSize) GetSectorSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamUnbufferedInfo*/SelfOuter* self, uint32 pcbSectorSize) GetSectorSize;
 	}
 
 
-	public HRESULT GetSectorSize(uint32* pcbSectorSize) mut => VT.[Friend]GetSectorSize(&this, pcbSectorSize);
+	public HRESULT GetSectorSize(uint32 pcbSectorSize) mut => VT.[Friend]GetSectorSize(&this, pcbSectorSize);
 }
 
 [CRepr]struct IDragSourceHelper2 : IDragSourceHelper
@@ -14083,11 +14083,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicHWHandler*/SelfOuter* self, PWSTR pszDeviceID, uint32 dwContentType, PWSTR* ppszAction) GetDynamicInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicHWHandler*/SelfOuter* self, PWSTR pszDeviceID, uint32 dwContentType, PWSTR ppszAction) GetDynamicInfo;
 	}
 
 
-	public HRESULT GetDynamicInfo(PWSTR pszDeviceID, uint32 dwContentType, PWSTR* ppszAction) mut => VT.[Friend]GetDynamicInfo(&this, pszDeviceID, dwContentType, ppszAction);
+	public HRESULT GetDynamicInfo(PWSTR pszDeviceID, uint32 dwContentType, PWSTR ppszAction) mut => VT.[Friend]GetDynamicInfo(&this, pszDeviceID, dwContentType, ppszAction);
 }
 
 [CRepr]struct IUserNotificationCallback : IUnknown
@@ -14098,17 +14098,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserNotificationCallback*/SelfOuter* self, POINT* pt) OnBalloonUserClick;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserNotificationCallback*/SelfOuter* self, POINT* pt) OnLeftClick;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserNotificationCallback*/SelfOuter* self, POINT* pt) OnContextMenu;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserNotificationCallback*/SelfOuter* self, POINT pt) OnBalloonUserClick;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserNotificationCallback*/SelfOuter* self, POINT pt) OnLeftClick;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserNotificationCallback*/SelfOuter* self, POINT pt) OnContextMenu;
 	}
 
 
-	public HRESULT OnBalloonUserClick(POINT* pt) mut => VT.[Friend]OnBalloonUserClick(&this, pt);
+	public HRESULT OnBalloonUserClick(POINT pt) mut => VT.[Friend]OnBalloonUserClick(&this, pt);
 
-	public HRESULT OnLeftClick(POINT* pt) mut => VT.[Friend]OnLeftClick(&this, pt);
+	public HRESULT OnLeftClick(POINT pt) mut => VT.[Friend]OnLeftClick(&this, pt);
 
-	public HRESULT OnContextMenu(POINT* pt) mut => VT.[Friend]OnContextMenu(&this, pt);
+	public HRESULT OnContextMenu(POINT pt) mut => VT.[Friend]OnContextMenu(&this, pt);
 }
 
 [CRepr]struct IUserNotification2 : IUnknown
@@ -14146,17 +14146,17 @@ public static
 
 	[CRepr]public struct VTable : IDeskBand.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBand2*/SelfOuter* self, BOOL* pfCanRenderComposited) CanRenderComposited;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBand2*/SelfOuter* self, BOOL pfCanRenderComposited) CanRenderComposited;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBand2*/SelfOuter* self, BOOL fCompositionEnabled) SetCompositionState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBand2*/SelfOuter* self, BOOL* pfCompositionEnabled) GetCompositionState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBand2*/SelfOuter* self, BOOL pfCompositionEnabled) GetCompositionState;
 	}
 
 
-	public HRESULT CanRenderComposited(BOOL* pfCanRenderComposited) mut => VT.[Friend]CanRenderComposited(&this, pfCanRenderComposited);
+	public HRESULT CanRenderComposited(BOOL pfCanRenderComposited) mut => VT.[Friend]CanRenderComposited(&this, pfCanRenderComposited);
 
 	public HRESULT SetCompositionState(BOOL fCompositionEnabled) mut => VT.[Friend]SetCompositionState(&this, fCompositionEnabled);
 
-	public HRESULT GetCompositionState(BOOL* pfCompositionEnabled) mut => VT.[Friend]GetCompositionState(&this, pfCompositionEnabled);
+	public HRESULT GetCompositionState(BOOL pfCompositionEnabled) mut => VT.[Friend]GetCompositionState(&this, pfCompositionEnabled);
 }
 
 [CRepr]struct IStartMenuPinnedList : IUnknown
@@ -14184,7 +14184,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICDBurn*/SelfOuter* self, char16* pszDrive, uint32 cch) GetRecorderDriveLetter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICDBurn*/SelfOuter* self, HWND hwnd) Burn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICDBurn*/SelfOuter* self, BOOL* pfHasRecorder) HasRecordableDrive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICDBurn*/SelfOuter* self, BOOL pfHasRecorder) HasRecordableDrive;
 	}
 
 
@@ -14192,7 +14192,7 @@ public static
 
 	public HRESULT Burn(HWND hwnd) mut => VT.[Friend]Burn(&this, hwnd);
 
-	public HRESULT HasRecordableDrive(BOOL* pfHasRecorder) mut => VT.[Friend]HasRecordableDrive(&this, pfHasRecorder);
+	public HRESULT HasRecordableDrive(BOOL pfHasRecorder) mut => VT.[Friend]HasRecordableDrive(&this, pfHasRecorder);
 }
 
 [CRepr]struct IWizardSite : IUnknown
@@ -14203,17 +14203,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardSite*/SelfOuter* self, HPROPSHEETPAGE* phpage) GetPreviousPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardSite*/SelfOuter* self, HPROPSHEETPAGE* phpage) GetNextPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardSite*/SelfOuter* self, HPROPSHEETPAGE* phpage) GetCancelledPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardSite*/SelfOuter* self, HPROPSHEETPAGE phpage) GetPreviousPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardSite*/SelfOuter* self, HPROPSHEETPAGE phpage) GetNextPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardSite*/SelfOuter* self, HPROPSHEETPAGE phpage) GetCancelledPage;
 	}
 
 
-	public HRESULT GetPreviousPage(HPROPSHEETPAGE* phpage) mut => VT.[Friend]GetPreviousPage(&this, phpage);
+	public HRESULT GetPreviousPage(HPROPSHEETPAGE phpage) mut => VT.[Friend]GetPreviousPage(&this, phpage);
 
-	public HRESULT GetNextPage(HPROPSHEETPAGE* phpage) mut => VT.[Friend]GetNextPage(&this, phpage);
+	public HRESULT GetNextPage(HPROPSHEETPAGE phpage) mut => VT.[Friend]GetNextPage(&this, phpage);
 
-	public HRESULT GetCancelledPage(HPROPSHEETPAGE* phpage) mut => VT.[Friend]GetCancelledPage(&this, phpage);
+	public HRESULT GetCancelledPage(HPROPSHEETPAGE phpage) mut => VT.[Friend]GetCancelledPage(&this, phpage);
 }
 
 [CRepr]struct IWizardExtension : IUnknown
@@ -14224,17 +14224,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardExtension*/SelfOuter* self, HPROPSHEETPAGE* aPages, uint32 cPages, uint32* pnPagesAdded) AddPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardExtension*/SelfOuter* self, HPROPSHEETPAGE* phpage) GetFirstPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardExtension*/SelfOuter* self, HPROPSHEETPAGE* phpage) GetLastPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardExtension*/SelfOuter* self, HPROPSHEETPAGE* aPages, uint32 cPages, uint32 pnPagesAdded) AddPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardExtension*/SelfOuter* self, HPROPSHEETPAGE phpage) GetFirstPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWizardExtension*/SelfOuter* self, HPROPSHEETPAGE phpage) GetLastPage;
 	}
 
 
-	public HRESULT AddPages(HPROPSHEETPAGE* aPages, uint32 cPages, uint32* pnPagesAdded) mut => VT.[Friend]AddPages(&this, aPages, cPages, pnPagesAdded);
+	public HRESULT AddPages(HPROPSHEETPAGE* aPages, uint32 cPages, uint32 pnPagesAdded) mut => VT.[Friend]AddPages(&this, aPages, cPages, pnPagesAdded);
 
-	public HRESULT GetFirstPage(HPROPSHEETPAGE* phpage) mut => VT.[Friend]GetFirstPage(&this, phpage);
+	public HRESULT GetFirstPage(HPROPSHEETPAGE phpage) mut => VT.[Friend]GetFirstPage(&this, phpage);
 
-	public HRESULT GetLastPage(HPROPSHEETPAGE* phpage) mut => VT.[Friend]GetLastPage(&this, phpage);
+	public HRESULT GetLastPage(HPROPSHEETPAGE phpage) mut => VT.[Friend]GetLastPage(&this, phpage);
 }
 
 [CRepr]struct IWebWizardExtension : IWizardExtension
@@ -14264,13 +14264,13 @@ public static
 	[CRepr]public struct VTable : IWizardExtension.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublishingWizard*/SelfOuter* self, IDataObject* pdo, uint32 dwOptions, PWSTR pszServiceScope) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublishingWizard*/SelfOuter* self, HRESULT* phrFromTransfer, IXMLDOMDocument** pdocManifest) GetTransferManifest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublishingWizard*/SelfOuter* self, HRESULT phrFromTransfer, IXMLDOMDocument* pdocManifest) GetTransferManifest;
 	}
 
 
 	public HRESULT Initialize(IDataObject* pdo, uint32 dwOptions, PWSTR pszServiceScope) mut => VT.[Friend]Initialize(&this, pdo, dwOptions, pszServiceScope);
 
-	public HRESULT GetTransferManifest(HRESULT* phrFromTransfer, IXMLDOMDocument** pdocManifest) mut => VT.[Friend]GetTransferManifest(&this, phrFromTransfer, pdocManifest);
+	public HRESULT GetTransferManifest(HRESULT phrFromTransfer, IXMLDOMDocument* pdocManifest) mut => VT.[Friend]GetTransferManifest(&this, phrFromTransfer, pdocManifest);
 }
 
 [CRepr]struct IFolderViewHost : IUnknown
@@ -14281,11 +14281,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewHost*/SelfOuter* self, HWND hwndParent, IDataObject* pdo, RECT* prc) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderViewHost*/SelfOuter* self, HWND hwndParent, IDataObject* pdo, RECT prc) Initialize;
 	}
 
 
-	public HRESULT Initialize(HWND hwndParent, IDataObject* pdo, RECT* prc) mut => VT.[Friend]Initialize(&this, hwndParent, pdo, prc);
+	public HRESULT Initialize(HWND hwndParent, IDataObject* pdo, RECT prc) mut => VT.[Friend]Initialize(&this, hwndParent, pdo, prc);
 }
 
 [CRepr]struct IAccessibleObject : IUnknown
@@ -14312,20 +14312,20 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResultsFolder*/SelfOuter* self, IShellItem* psi) AddItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResultsFolder*/SelfOuter* self, ITEMIDLIST* pidl, ITEMIDLIST** ppidlAdded) AddIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResultsFolder*/SelfOuter* self, ITEMIDLIST pidl, ITEMIDLIST ppidlAdded) AddIDList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResultsFolder*/SelfOuter* self, IShellItem* psi) RemoveItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResultsFolder*/SelfOuter* self, ITEMIDLIST* pidl) RemoveIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResultsFolder*/SelfOuter* self, ITEMIDLIST pidl) RemoveIDList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResultsFolder*/SelfOuter* self) RemoveAll;
 	}
 
 
 	public HRESULT AddItem(IShellItem* psi) mut => VT.[Friend]AddItem(&this, psi);
 
-	public HRESULT AddIDList(ITEMIDLIST* pidl, ITEMIDLIST** ppidlAdded) mut => VT.[Friend]AddIDList(&this, pidl, ppidlAdded);
+	public HRESULT AddIDList(ITEMIDLIST pidl, ITEMIDLIST ppidlAdded) mut => VT.[Friend]AddIDList(&this, pidl, ppidlAdded);
 
 	public HRESULT RemoveItem(IShellItem* psi) mut => VT.[Friend]RemoveItem(&this, psi);
 
-	public HRESULT RemoveIDList(ITEMIDLIST* pidl) mut => VT.[Friend]RemoveIDList(&this, pidl);
+	public HRESULT RemoveIDList(ITEMIDLIST pidl) mut => VT.[Friend]RemoveIDList(&this, pidl);
 
 	public HRESULT RemoveAll() mut => VT.[Friend]RemoveAll(&this);
 }
@@ -14338,12 +14338,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAutoCompleteDropDown*/SelfOuter* self, uint32* pdwFlags, PWSTR* ppwszString) GetDropDownStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAutoCompleteDropDown*/SelfOuter* self, uint32 pdwFlags, PWSTR ppwszString) GetDropDownStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAutoCompleteDropDown*/SelfOuter* self) ResetEnumerator;
 	}
 
 
-	public HRESULT GetDropDownStatus(uint32* pdwFlags, PWSTR* ppwszString) mut => VT.[Friend]GetDropDownStatus(&this, pdwFlags, ppwszString);
+	public HRESULT GetDropDownStatus(uint32 pdwFlags, PWSTR ppwszString) mut => VT.[Friend]GetDropDownStatus(&this, pdwFlags, ppwszString);
 
 	public HRESULT ResetEnumerator() mut => VT.[Friend]ResetEnumerator(&this);
 }
@@ -14356,11 +14356,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICDBurnExt*/SelfOuter* self, uint32* pdwActions) GetSupportedActionTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICDBurnExt*/SelfOuter* self, uint32 pdwActions) GetSupportedActionTypes;
 	}
 
 
-	public HRESULT GetSupportedActionTypes(uint32* pdwActions) mut => VT.[Friend]GetSupportedActionTypes(&this, pdwActions);
+	public HRESULT GetSupportedActionTypes(uint32 pdwActions) mut => VT.[Friend]GetSupportedActionTypes(&this, pdwActions);
 }
 
 [CRepr]struct IEnumReadyCallback : IUnknown
@@ -14387,13 +14387,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumerableView*/SelfOuter* self, IEnumReadyCallback* percb) SetEnumReadyCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumerableView*/SelfOuter* self, ITEMIDLIST* pidlFolder, uint32 dwEnumFlags, IEnumIDList** ppEnumIDList) CreateEnumIDListFromContents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumerableView*/SelfOuter* self, ITEMIDLIST pidlFolder, uint32 dwEnumFlags, IEnumIDList* ppEnumIDList) CreateEnumIDListFromContents;
 	}
 
 
 	public HRESULT SetEnumReadyCallback(IEnumReadyCallback* percb) mut => VT.[Friend]SetEnumReadyCallback(&this, percb);
 
-	public HRESULT CreateEnumIDListFromContents(ITEMIDLIST* pidlFolder, uint32 dwEnumFlags, IEnumIDList** ppEnumIDList) mut => VT.[Friend]CreateEnumIDListFromContents(&this, pidlFolder, dwEnumFlags, ppEnumIDList);
+	public HRESULT CreateEnumIDListFromContents(ITEMIDLIST pidlFolder, uint32 dwEnumFlags, IEnumIDList* ppEnumIDList) mut => VT.[Friend]CreateEnumIDListFromContents(&this, pidlFolder, dwEnumFlags, ppEnumIDList);
 }
 
 [CRepr]struct IInsertItem : IUnknown
@@ -14404,11 +14404,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInsertItem*/SelfOuter* self, ITEMIDLIST* pidl) InsertItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInsertItem*/SelfOuter* self, ITEMIDLIST pidl) InsertItem;
 	}
 
 
-	public HRESULT InsertItem(ITEMIDLIST* pidl) mut => VT.[Friend]InsertItem(&this, pidl);
+	public HRESULT InsertItem(ITEMIDLIST pidl) mut => VT.[Friend]InsertItem(&this, pidl);
 }
 
 [CRepr]struct IFolderBandPriv : IUnknown
@@ -14443,11 +14443,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageRecompress*/SelfOuter* self, IShellItem* psi, int32 cx, int32 cy, int32 iQuality, IStorage* pstg, IStream** ppstrmOut) RecompressImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageRecompress*/SelfOuter* self, IShellItem* psi, int32 cx, int32 cy, int32 iQuality, IStorage* pstg, IStream* ppstrmOut) RecompressImage;
 	}
 
 
-	public HRESULT RecompressImage(IShellItem* psi, int32 cx, int32 cy, int32 iQuality, IStorage* pstg, IStream** ppstrmOut) mut => VT.[Friend]RecompressImage(&this, psi, cx, cy, iQuality, pstg, ppstrmOut);
+	public HRESULT RecompressImage(IShellItem* psi, int32 cx, int32 cy, int32 iQuality, IStorage* pstg, IStream* ppstrmOut) mut => VT.[Friend]RecompressImage(&this, psi, cx, cy, iQuality, pstg, ppstrmOut);
 }
 
 [CRepr]struct IFileDialogControlEvents : IUnknown
@@ -14530,11 +14530,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviousVersionsInfo*/SelfOuter* self, PWSTR pszPath, BOOL fOkToBeSlow, BOOL* pfAvailable) AreSnapshotsAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPreviousVersionsInfo*/SelfOuter* self, PWSTR pszPath, BOOL fOkToBeSlow, BOOL pfAvailable) AreSnapshotsAvailable;
 	}
 
 
-	public HRESULT AreSnapshotsAvailable(PWSTR pszPath, BOOL fOkToBeSlow, BOOL* pfAvailable) mut => VT.[Friend]AreSnapshotsAvailable(&this, pszPath, fOkToBeSlow, pfAvailable);
+	public HRESULT AreSnapshotsAvailable(PWSTR pszPath, BOOL fOkToBeSlow, BOOL pfAvailable) mut => VT.[Friend]AreSnapshotsAvailable(&this, pszPath, fOkToBeSlow, pfAvailable);
 }
 
 [CRepr]struct IUseToBrowseItem : IRelatedItem
@@ -14558,19 +14558,19 @@ public static
 	[CRepr]public struct VTable : INameSpaceTreeControl.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl2*/SelfOuter* self, uint32 nstcsMask, uint32 nstcsStyle) SetControlStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl2*/SelfOuter* self, uint32 nstcsMask, uint32* pnstcsStyle) GetControlStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl2*/SelfOuter* self, uint32 nstcsMask, uint32 pnstcsStyle) GetControlStyle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl2*/SelfOuter* self, NSTCSTYLE2 nstcsMask, NSTCSTYLE2 nstcsStyle) SetControlStyle2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl2*/SelfOuter* self, NSTCSTYLE2 nstcsMask, NSTCSTYLE2* pnstcsStyle) GetControlStyle2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControl2*/SelfOuter* self, NSTCSTYLE2 nstcsMask, NSTCSTYLE2 pnstcsStyle) GetControlStyle2;
 	}
 
 
 	public HRESULT SetControlStyle(uint32 nstcsMask, uint32 nstcsStyle) mut => VT.[Friend]SetControlStyle(&this, nstcsMask, nstcsStyle);
 
-	public HRESULT GetControlStyle(uint32 nstcsMask, uint32* pnstcsStyle) mut => VT.[Friend]GetControlStyle(&this, nstcsMask, pnstcsStyle);
+	public HRESULT GetControlStyle(uint32 nstcsMask, uint32 pnstcsStyle) mut => VT.[Friend]GetControlStyle(&this, nstcsMask, pnstcsStyle);
 
 	public HRESULT SetControlStyle2(NSTCSTYLE2 nstcsMask, NSTCSTYLE2 nstcsStyle) mut => VT.[Friend]SetControlStyle2(&this, nstcsMask, nstcsStyle);
 
-	public HRESULT GetControlStyle2(NSTCSTYLE2 nstcsMask, NSTCSTYLE2* pnstcsStyle) mut => VT.[Friend]GetControlStyle2(&this, nstcsMask, pnstcsStyle);
+	public HRESULT GetControlStyle2(NSTCSTYLE2 nstcsMask, NSTCSTYLE2 pnstcsStyle) mut => VT.[Friend]GetControlStyle2(&this, nstcsMask, pnstcsStyle);
 }
 
 [CRepr]struct INameSpaceTreeControlEvents : IUnknown
@@ -14595,10 +14595,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi) OnBeforeItemDelete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, BOOL fIsRoot) OnItemAdded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, BOOL fIsRoot) OnItemDeleted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, Guid riid, void** ppv) OnBeforeContextMenu;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, IContextMenu* pcmIn, Guid riid, void** ppv) OnAfterContextMenu;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, Guid riid, void ppv) OnBeforeContextMenu;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, IContextMenu* pcmIn, Guid riid, void ppv) OnAfterContextMenu;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi) OnBeforeStateImageChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, int32* piDefaultIcon, int32* piOpenIcon) OnGetDefaultIconIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlEvents*/SelfOuter* self, IShellItem* psi, int32 piDefaultIcon, int32 piOpenIcon) OnGetDefaultIconIndex;
 	}
 
 
@@ -14630,13 +14630,13 @@ public static
 
 	public HRESULT OnItemDeleted(IShellItem* psi, BOOL fIsRoot) mut => VT.[Friend]OnItemDeleted(&this, psi, fIsRoot);
 
-	public HRESULT OnBeforeContextMenu(IShellItem* psi, Guid riid, void** ppv) mut => VT.[Friend]OnBeforeContextMenu(&this, psi, riid, ppv);
+	public HRESULT OnBeforeContextMenu(IShellItem* psi, Guid riid, void ppv) mut => VT.[Friend]OnBeforeContextMenu(&this, psi, riid, ppv);
 
-	public HRESULT OnAfterContextMenu(IShellItem* psi, IContextMenu* pcmIn, Guid riid, void** ppv) mut => VT.[Friend]OnAfterContextMenu(&this, psi, pcmIn, riid, ppv);
+	public HRESULT OnAfterContextMenu(IShellItem* psi, IContextMenu* pcmIn, Guid riid, void ppv) mut => VT.[Friend]OnAfterContextMenu(&this, psi, pcmIn, riid, ppv);
 
 	public HRESULT OnBeforeStateImageChange(IShellItem* psi) mut => VT.[Friend]OnBeforeStateImageChange(&this, psi);
 
-	public HRESULT OnGetDefaultIconIndex(IShellItem* psi, int32* piDefaultIcon, int32* piOpenIcon) mut => VT.[Friend]OnGetDefaultIconIndex(&this, psi, piDefaultIcon, piOpenIcon);
+	public HRESULT OnGetDefaultIconIndex(IShellItem* psi, int32 piDefaultIcon, int32 piOpenIcon) mut => VT.[Friend]OnGetDefaultIconIndex(&this, psi, piDefaultIcon, piOpenIcon);
 }
 
 [CRepr]struct INameSpaceTreeControlDropHandler : IUnknown
@@ -14647,22 +14647,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlDropHandler*/SelfOuter* self, IShellItem* psiOver, IShellItemArray* psiaData, BOOL fOutsideSource, uint32 grfKeyState, uint32* pdwEffect) OnDragEnter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlDropHandler*/SelfOuter* self, IShellItem* psiOver, IShellItemArray* psiaData, uint32 grfKeyState, uint32* pdwEffect) OnDragOver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlDropHandler*/SelfOuter* self, IShellItem* psiOver, IShellItemArray* psiaData, BOOL fOutsideSource, uint32 grfKeyState, uint32 pdwEffect) OnDragEnter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlDropHandler*/SelfOuter* self, IShellItem* psiOver, IShellItemArray* psiaData, uint32 grfKeyState, uint32 pdwEffect) OnDragOver;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlDropHandler*/SelfOuter* self, IShellItem* psiOver, IShellItemArray* psiaData, int32 iNewPosition, int32 iOldPosition) OnDragPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlDropHandler*/SelfOuter* self, IShellItem* psiOver, IShellItemArray* psiaData, int32 iPosition, uint32 grfKeyState, uint32* pdwEffect) OnDrop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlDropHandler*/SelfOuter* self, IShellItem* psiOver, IShellItemArray* psiaData, int32 iPosition, uint32 grfKeyState, uint32 pdwEffect) OnDrop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlDropHandler*/SelfOuter* self, IShellItem* psiOver, IShellItemArray* psiaData, int32 iNewPosition, int32 iOldPosition) OnDropPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlDropHandler*/SelfOuter* self, IShellItem* psiOver) OnDragLeave;
 	}
 
 
-	public HRESULT OnDragEnter(IShellItem* psiOver, IShellItemArray* psiaData, BOOL fOutsideSource, uint32 grfKeyState, uint32* pdwEffect) mut => VT.[Friend]OnDragEnter(&this, psiOver, psiaData, fOutsideSource, grfKeyState, pdwEffect);
+	public HRESULT OnDragEnter(IShellItem* psiOver, IShellItemArray* psiaData, BOOL fOutsideSource, uint32 grfKeyState, uint32 pdwEffect) mut => VT.[Friend]OnDragEnter(&this, psiOver, psiaData, fOutsideSource, grfKeyState, pdwEffect);
 
-	public HRESULT OnDragOver(IShellItem* psiOver, IShellItemArray* psiaData, uint32 grfKeyState, uint32* pdwEffect) mut => VT.[Friend]OnDragOver(&this, psiOver, psiaData, grfKeyState, pdwEffect);
+	public HRESULT OnDragOver(IShellItem* psiOver, IShellItemArray* psiaData, uint32 grfKeyState, uint32 pdwEffect) mut => VT.[Friend]OnDragOver(&this, psiOver, psiaData, grfKeyState, pdwEffect);
 
 	public HRESULT OnDragPosition(IShellItem* psiOver, IShellItemArray* psiaData, int32 iNewPosition, int32 iOldPosition) mut => VT.[Friend]OnDragPosition(&this, psiOver, psiaData, iNewPosition, iOldPosition);
 
-	public HRESULT OnDrop(IShellItem* psiOver, IShellItemArray* psiaData, int32 iPosition, uint32 grfKeyState, uint32* pdwEffect) mut => VT.[Friend]OnDrop(&this, psiOver, psiaData, iPosition, grfKeyState, pdwEffect);
+	public HRESULT OnDrop(IShellItem* psiOver, IShellItemArray* psiaData, int32 iPosition, uint32 grfKeyState, uint32 pdwEffect) mut => VT.[Friend]OnDrop(&this, psiOver, psiaData, iPosition, grfKeyState, pdwEffect);
 
 	public HRESULT OnDropPosition(IShellItem* psiOver, IShellItemArray* psiaData, int32 iNewPosition, int32 iOldPosition) mut => VT.[Friend]OnDropPosition(&this, psiOver, psiaData, iNewPosition, iOldPosition);
 
@@ -14677,17 +14677,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeAccessible*/SelfOuter* self, IShellItem* psi, BSTR* pbstrDefaultAction) OnGetDefaultAccessibilityAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeAccessible*/SelfOuter* self, IShellItem* psi, BSTR pbstrDefaultAction) OnGetDefaultAccessibilityAction;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeAccessible*/SelfOuter* self, IShellItem* psi) OnDoDefaultAccessibilityAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeAccessible*/SelfOuter* self, IShellItem* psi, VARIANT* pvarRole) OnGetAccessibilityRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeAccessible*/SelfOuter* self, IShellItem* psi, VARIANT pvarRole) OnGetAccessibilityRole;
 	}
 
 
-	public HRESULT OnGetDefaultAccessibilityAction(IShellItem* psi, BSTR* pbstrDefaultAction) mut => VT.[Friend]OnGetDefaultAccessibilityAction(&this, psi, pbstrDefaultAction);
+	public HRESULT OnGetDefaultAccessibilityAction(IShellItem* psi, BSTR pbstrDefaultAction) mut => VT.[Friend]OnGetDefaultAccessibilityAction(&this, psi, pbstrDefaultAction);
 
 	public HRESULT OnDoDefaultAccessibilityAction(IShellItem* psi) mut => VT.[Friend]OnDoDefaultAccessibilityAction(&this, psi);
 
-	public HRESULT OnGetAccessibilityRole(IShellItem* psi, VARIANT* pvarRole) mut => VT.[Friend]OnGetAccessibilityRole(&this, psi, pvarRole);
+	public HRESULT OnGetAccessibilityRole(IShellItem* psi, VARIANT pvarRole) mut => VT.[Friend]OnGetAccessibilityRole(&this, psi, pvarRole);
 }
 
 [CRepr]struct INameSpaceTreeControlCustomDraw : IUnknown
@@ -14698,20 +14698,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlCustomDraw*/SelfOuter* self, HDC hdc, RECT* prc, LRESULT* plres) PrePaint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlCustomDraw*/SelfOuter* self, HDC hdc, RECT* prc) PostPaint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlCustomDraw*/SelfOuter* self, HDC hdc, RECT* prc, NSTCCUSTOMDRAW* pnstccdItem, uint32* pclrText, uint32* pclrTextBk, LRESULT* plres) ItemPrePaint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlCustomDraw*/SelfOuter* self, HDC hdc, RECT* prc, NSTCCUSTOMDRAW* pnstccdItem) ItemPostPaint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlCustomDraw*/SelfOuter* self, HDC hdc, RECT prc, LRESULT plres) PrePaint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlCustomDraw*/SelfOuter* self, HDC hdc, RECT prc) PostPaint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlCustomDraw*/SelfOuter* self, HDC hdc, RECT prc, NSTCCUSTOMDRAW pnstccdItem, uint32 pclrText, uint32 pclrTextBk, LRESULT plres) ItemPrePaint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INameSpaceTreeControlCustomDraw*/SelfOuter* self, HDC hdc, RECT prc, NSTCCUSTOMDRAW pnstccdItem) ItemPostPaint;
 	}
 
 
-	public HRESULT PrePaint(HDC hdc, RECT* prc, LRESULT* plres) mut => VT.[Friend]PrePaint(&this, hdc, prc, plres);
+	public HRESULT PrePaint(HDC hdc, RECT prc, LRESULT plres) mut => VT.[Friend]PrePaint(&this, hdc, prc, plres);
 
-	public HRESULT PostPaint(HDC hdc, RECT* prc) mut => VT.[Friend]PostPaint(&this, hdc, prc);
+	public HRESULT PostPaint(HDC hdc, RECT prc) mut => VT.[Friend]PostPaint(&this, hdc, prc);
 
-	public HRESULT ItemPrePaint(HDC hdc, RECT* prc, NSTCCUSTOMDRAW* pnstccdItem, uint32* pclrText, uint32* pclrTextBk, LRESULT* plres) mut => VT.[Friend]ItemPrePaint(&this, hdc, prc, pnstccdItem, pclrText, pclrTextBk, plres);
+	public HRESULT ItemPrePaint(HDC hdc, RECT prc, NSTCCUSTOMDRAW pnstccdItem, uint32 pclrText, uint32 pclrTextBk, LRESULT plres) mut => VT.[Friend]ItemPrePaint(&this, hdc, prc, pnstccdItem, pclrText, pclrTextBk, plres);
 
-	public HRESULT ItemPostPaint(HDC hdc, RECT* prc, NSTCCUSTOMDRAW* pnstccdItem) mut => VT.[Friend]ItemPostPaint(&this, hdc, prc, pnstccdItem);
+	public HRESULT ItemPostPaint(HDC hdc, RECT prc, NSTCCUSTOMDRAW pnstccdItem) mut => VT.[Friend]ItemPostPaint(&this, hdc, prc, pnstccdItem);
 }
 
 [CRepr]struct ITrayDeskBand : IUnknown
@@ -14746,13 +14746,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandHost*/SelfOuter* self, Guid rclsidBand, BOOL fAvailable, BOOL fVisible, Guid riid, void** ppv) CreateBand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandHost*/SelfOuter* self, Guid rclsidBand, BOOL fAvailable, BOOL fVisible, Guid riid, void ppv) CreateBand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandHost*/SelfOuter* self, Guid rclsidBand, BOOL fAvailable) SetBandAvailability;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBandHost*/SelfOuter* self, Guid rclsidBand) DestroyBand;
 	}
 
 
-	public HRESULT CreateBand(Guid rclsidBand, BOOL fAvailable, BOOL fVisible, Guid riid, void** ppv) mut => VT.[Friend]CreateBand(&this, rclsidBand, fAvailable, fVisible, riid, ppv);
+	public HRESULT CreateBand(Guid rclsidBand, BOOL fAvailable, BOOL fVisible, Guid riid, void ppv) mut => VT.[Friend]CreateBand(&this, rclsidBand, fAvailable, fVisible, riid, ppv);
 
 	public HRESULT SetBandAvailability(Guid rclsidBand, BOOL fAvailable) mut => VT.[Friend]SetBandAvailability(&this, rclsidBand, fAvailable);
 
@@ -14812,13 +14812,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccessibilityDockingService*/SelfOuter* self, HMONITOR hMonitor, uint32* pcxFixed, uint32* pcyMax) GetAvailableSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccessibilityDockingService*/SelfOuter* self, HMONITOR hMonitor, uint32 pcxFixed, uint32 pcyMax) GetAvailableSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccessibilityDockingService*/SelfOuter* self, HWND hwnd, HMONITOR hMonitor, uint32 cyRequested, IAccessibilityDockingServiceCallback* pCallback) DockWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccessibilityDockingService*/SelfOuter* self, HWND hwnd) UndockWindow;
 	}
 
 
-	public HRESULT GetAvailableSize(HMONITOR hMonitor, uint32* pcxFixed, uint32* pcyMax) mut => VT.[Friend]GetAvailableSize(&this, hMonitor, pcxFixed, pcyMax);
+	public HRESULT GetAvailableSize(HMONITOR hMonitor, uint32 pcxFixed, uint32 pcyMax) mut => VT.[Friend]GetAvailableSize(&this, hMonitor, pcxFixed, pcyMax);
 
 	public HRESULT DockWindow(HWND hwnd, HMONITOR hMonitor, uint32 cyRequested, IAccessibilityDockingServiceCallback* pCallback) mut => VT.[Friend]DockWindow(&this, hwnd, hMonitor, cyRequested, pCallback);
 
@@ -14836,7 +14836,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderBanners*/SelfOuter* self, PWSTR providerIdentity, PWSTR subscriptionId, PWSTR contentId) SetBanner;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderBanners*/SelfOuter* self, PWSTR providerIdentity, PWSTR subscriptionId) ClearBanner;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderBanners*/SelfOuter* self, PWSTR providerIdentity) ClearAllBanners;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderBanners*/SelfOuter* self, PWSTR providerIdentity, PWSTR subscriptionId, PWSTR* contentId) GetBanner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderBanners*/SelfOuter* self, PWSTR providerIdentity, PWSTR subscriptionId, PWSTR contentId) GetBanner;
 	}
 
 
@@ -14846,7 +14846,7 @@ public static
 
 	public HRESULT ClearAllBanners(PWSTR providerIdentity) mut => VT.[Friend]ClearAllBanners(&this, providerIdentity);
 
-	public HRESULT GetBanner(PWSTR providerIdentity, PWSTR subscriptionId, PWSTR* contentId) mut => VT.[Friend]GetBanner(&this, providerIdentity, subscriptionId, contentId);
+	public HRESULT GetBanner(PWSTR providerIdentity, PWSTR subscriptionId, PWSTR contentId) mut => VT.[Friend]GetBanner(&this, providerIdentity, subscriptionId, contentId);
 }
 
 [CRepr]struct IStorageProviderCopyHook : IUnknown
@@ -14857,11 +14857,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderCopyHook*/SelfOuter* self, HWND hwnd, uint32 operation, uint32 flags, PWSTR srcFile, uint32 srcAttribs, PWSTR destFile, uint32 destAttribs, uint32* result) CopyCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderCopyHook*/SelfOuter* self, HWND hwnd, uint32 operation, uint32 flags, PWSTR srcFile, uint32 srcAttribs, PWSTR destFile, uint32 destAttribs, uint32 result) CopyCallback;
 	}
 
 
-	public HRESULT CopyCallback(HWND hwnd, uint32 operation, uint32 flags, PWSTR srcFile, uint32 srcAttribs, PWSTR destFile, uint32 destAttribs, uint32* result) mut => VT.[Friend]CopyCallback(&this, hwnd, operation, flags, srcFile, srcAttribs, destFile, destAttribs, result);
+	public HRESULT CopyCallback(HWND hwnd, uint32 operation, uint32 flags, PWSTR srcFile, uint32 srcAttribs, PWSTR destFile, uint32 destAttribs, uint32 result) mut => VT.[Friend]CopyCallback(&this, hwnd, operation, flags, srcFile, srcAttribs, destFile, destAttribs, result);
 }
 
 [CRepr]struct IWebBrowser : IDispatch
@@ -14876,27 +14876,27 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self) GoForward;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self) GoHome;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self) GoSearch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, BSTR URL, VARIANT* Flags, VARIANT* TargetFrameName, VARIANT* PostData, VARIANT* Headers) Navigate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, BSTR URL, VARIANT Flags, VARIANT TargetFrameName, VARIANT PostData, VARIANT Headers) Navigate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, VARIANT* Level) Refresh2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, VARIANT Level) Refresh2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, IDispatch** ppDisp) get_Application;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, IDispatch** ppDisp) get_Parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, IDispatch** ppDisp) get_Container;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, IDispatch** ppDisp) get_Document;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int16* pBool) get_TopLevelContainer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, BSTR* Type) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32* pl) get_Left;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, IDispatch* ppDisp) get_Application;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, IDispatch* ppDisp) get_Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, IDispatch* ppDisp) get_Container;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, IDispatch* ppDisp) get_Document;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int16 pBool) get_TopLevelContainer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, BSTR Type) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32 pl) get_Left;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32 Left) put_Left;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32* pl) get_Top;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32 pl) get_Top;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32 Top) put_Top;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32* pl) get_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32 pl) get_Width;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32 Width) put_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32* pl) get_Height;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32 pl) get_Height;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int32 Height) put_Height;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, BSTR* LocationName) get_LocationName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, BSTR* LocationURL) get_LocationURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int16* pBool) get_Busy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, BSTR LocationName) get_LocationName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, BSTR LocationURL) get_LocationURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser*/SelfOuter* self, int16 pBool) get_Busy;
 	}
 
 
@@ -14908,47 +14908,47 @@ public static
 
 	public HRESULT GoSearch() mut => VT.[Friend]GoSearch(&this);
 
-	public HRESULT Navigate(BSTR URL, VARIANT* Flags, VARIANT* TargetFrameName, VARIANT* PostData, VARIANT* Headers) mut => VT.[Friend]Navigate(&this, URL, Flags, TargetFrameName, PostData, Headers);
+	public HRESULT Navigate(BSTR URL, VARIANT Flags, VARIANT TargetFrameName, VARIANT PostData, VARIANT Headers) mut => VT.[Friend]Navigate(&this, URL, Flags, TargetFrameName, PostData, Headers);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT Refresh2(VARIANT* Level) mut => VT.[Friend]Refresh2(&this, Level);
+	public HRESULT Refresh2(VARIANT Level) mut => VT.[Friend]Refresh2(&this, Level);
 
 	public HRESULT Stop() mut => VT.[Friend]Stop(&this);
 
-	public HRESULT get_Application(IDispatch** ppDisp) mut => VT.[Friend]get_Application(&this, ppDisp);
+	public HRESULT get_Application(IDispatch* ppDisp) mut => VT.[Friend]get_Application(&this, ppDisp);
 
-	public HRESULT get_Parent(IDispatch** ppDisp) mut => VT.[Friend]get_Parent(&this, ppDisp);
+	public HRESULT get_Parent(IDispatch* ppDisp) mut => VT.[Friend]get_Parent(&this, ppDisp);
 
-	public HRESULT get_Container(IDispatch** ppDisp) mut => VT.[Friend]get_Container(&this, ppDisp);
+	public HRESULT get_Container(IDispatch* ppDisp) mut => VT.[Friend]get_Container(&this, ppDisp);
 
-	public HRESULT get_Document(IDispatch** ppDisp) mut => VT.[Friend]get_Document(&this, ppDisp);
+	public HRESULT get_Document(IDispatch* ppDisp) mut => VT.[Friend]get_Document(&this, ppDisp);
 
-	public HRESULT get_TopLevelContainer(int16* pBool) mut => VT.[Friend]get_TopLevelContainer(&this, pBool);
+	public HRESULT get_TopLevelContainer(int16 pBool) mut => VT.[Friend]get_TopLevelContainer(&this, pBool);
 
-	public HRESULT get_Type(BSTR* Type) mut => VT.[Friend]get_Type(&this, Type);
+	public HRESULT get_Type(BSTR Type) mut => VT.[Friend]get_Type(&this, Type);
 
-	public HRESULT get_Left(int32* pl) mut => VT.[Friend]get_Left(&this, pl);
+	public HRESULT get_Left(int32 pl) mut => VT.[Friend]get_Left(&this, pl);
 
 	public HRESULT put_Left(int32 Left) mut => VT.[Friend]put_Left(&this, Left);
 
-	public HRESULT get_Top(int32* pl) mut => VT.[Friend]get_Top(&this, pl);
+	public HRESULT get_Top(int32 pl) mut => VT.[Friend]get_Top(&this, pl);
 
 	public HRESULT put_Top(int32 Top) mut => VT.[Friend]put_Top(&this, Top);
 
-	public HRESULT get_Width(int32* pl) mut => VT.[Friend]get_Width(&this, pl);
+	public HRESULT get_Width(int32 pl) mut => VT.[Friend]get_Width(&this, pl);
 
 	public HRESULT put_Width(int32 Width) mut => VT.[Friend]put_Width(&this, Width);
 
-	public HRESULT get_Height(int32* pl) mut => VT.[Friend]get_Height(&this, pl);
+	public HRESULT get_Height(int32 pl) mut => VT.[Friend]get_Height(&this, pl);
 
 	public HRESULT put_Height(int32 Height) mut => VT.[Friend]put_Height(&this, Height);
 
-	public HRESULT get_LocationName(BSTR* LocationName) mut => VT.[Friend]get_LocationName(&this, LocationName);
+	public HRESULT get_LocationName(BSTR LocationName) mut => VT.[Friend]get_LocationName(&this, LocationName);
 
-	public HRESULT get_LocationURL(BSTR* LocationURL) mut => VT.[Friend]get_LocationURL(&this, LocationURL);
+	public HRESULT get_LocationURL(BSTR LocationURL) mut => VT.[Friend]get_LocationURL(&this, LocationURL);
 
-	public HRESULT get_Busy(int16* pBool) mut => VT.[Friend]get_Busy(&this, pBool);
+	public HRESULT get_Busy(int16 pBool) mut => VT.[Friend]get_Busy(&this, pBool);
 }
 
 [CRepr]struct DWebBrowserEvents : IDispatch
@@ -14972,65 +14972,65 @@ public static
 	[CRepr]public struct VTable : IWebBrowser.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self) Quit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int32* pcx, int32* pcy) ClientToWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int32 pcx, int32 pcy) ClientToWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR Property, VARIANT vtValue) PutProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR Property, VARIANT* pvtValue) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR* Name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, SHANDLE_PTR* pHWND) get_HWND;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR* FullName) get_FullName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR* Path) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16* pBool) get_Visible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR Property, VARIANT pvtValue) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR Name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, SHANDLE_PTR pHWND) get_HWND;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR FullName) get_FullName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR Path) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16 pBool) get_Visible;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16 Value) put_Visible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16* pBool) get_StatusBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16 pBool) get_StatusBar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16 Value) put_StatusBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR* StatusText) get_StatusText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR StatusText) get_StatusText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, BSTR StatusText) put_StatusText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int32* Value) get_ToolBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int32 Value) get_ToolBar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int32 Value) put_ToolBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16* Value) get_MenuBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16 Value) get_MenuBar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16 Value) put_MenuBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16* pbFullScreen) get_FullScreen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16 pbFullScreen) get_FullScreen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowserApp*/SelfOuter* self, int16 bFullScreen) put_FullScreen;
 	}
 
 
 	public HRESULT Quit() mut => VT.[Friend]Quit(&this);
 
-	public HRESULT ClientToWindow(int32* pcx, int32* pcy) mut => VT.[Friend]ClientToWindow(&this, pcx, pcy);
+	public HRESULT ClientToWindow(int32 pcx, int32 pcy) mut => VT.[Friend]ClientToWindow(&this, pcx, pcy);
 
 	public HRESULT PutProperty(BSTR Property, VARIANT vtValue) mut => VT.[Friend]PutProperty(&this, Property, vtValue);
 
-	public HRESULT GetProperty(BSTR Property, VARIANT* pvtValue) mut => VT.[Friend]GetProperty(&this, Property, pvtValue);
+	public HRESULT GetProperty(BSTR Property, VARIANT pvtValue) mut => VT.[Friend]GetProperty(&this, Property, pvtValue);
 
-	public HRESULT get_Name(BSTR* Name) mut => VT.[Friend]get_Name(&this, Name);
+	public HRESULT get_Name(BSTR Name) mut => VT.[Friend]get_Name(&this, Name);
 
-	public HRESULT get_HWND(SHANDLE_PTR* pHWND) mut => VT.[Friend]get_HWND(&this, pHWND);
+	public HRESULT get_HWND(SHANDLE_PTR pHWND) mut => VT.[Friend]get_HWND(&this, pHWND);
 
-	public HRESULT get_FullName(BSTR* FullName) mut => VT.[Friend]get_FullName(&this, FullName);
+	public HRESULT get_FullName(BSTR FullName) mut => VT.[Friend]get_FullName(&this, FullName);
 
-	public HRESULT get_Path(BSTR* Path) mut => VT.[Friend]get_Path(&this, Path);
+	public HRESULT get_Path(BSTR Path) mut => VT.[Friend]get_Path(&this, Path);
 
-	public HRESULT get_Visible(int16* pBool) mut => VT.[Friend]get_Visible(&this, pBool);
+	public HRESULT get_Visible(int16 pBool) mut => VT.[Friend]get_Visible(&this, pBool);
 
 	public HRESULT put_Visible(int16 Value) mut => VT.[Friend]put_Visible(&this, Value);
 
-	public HRESULT get_StatusBar(int16* pBool) mut => VT.[Friend]get_StatusBar(&this, pBool);
+	public HRESULT get_StatusBar(int16 pBool) mut => VT.[Friend]get_StatusBar(&this, pBool);
 
 	public HRESULT put_StatusBar(int16 Value) mut => VT.[Friend]put_StatusBar(&this, Value);
 
-	public HRESULT get_StatusText(BSTR* StatusText) mut => VT.[Friend]get_StatusText(&this, StatusText);
+	public HRESULT get_StatusText(BSTR StatusText) mut => VT.[Friend]get_StatusText(&this, StatusText);
 
 	public HRESULT put_StatusText(BSTR StatusText) mut => VT.[Friend]put_StatusText(&this, StatusText);
 
-	public HRESULT get_ToolBar(int32* Value) mut => VT.[Friend]get_ToolBar(&this, Value);
+	public HRESULT get_ToolBar(int32 Value) mut => VT.[Friend]get_ToolBar(&this, Value);
 
 	public HRESULT put_ToolBar(int32 Value) mut => VT.[Friend]put_ToolBar(&this, Value);
 
-	public HRESULT get_MenuBar(int16* Value) mut => VT.[Friend]get_MenuBar(&this, Value);
+	public HRESULT get_MenuBar(int16 Value) mut => VT.[Friend]get_MenuBar(&this, Value);
 
 	public HRESULT put_MenuBar(int16 Value) mut => VT.[Friend]put_MenuBar(&this, Value);
 
-	public HRESULT get_FullScreen(int16* pbFullScreen) mut => VT.[Friend]get_FullScreen(&this, pbFullScreen);
+	public HRESULT get_FullScreen(int16 pbFullScreen) mut => VT.[Friend]get_FullScreen(&this, pbFullScreen);
 
 	public HRESULT put_FullScreen(int16 bFullScreen) mut => VT.[Friend]put_FullScreen(&this, bFullScreen);
 }
@@ -15043,63 +15043,63 @@ public static
 
 	[CRepr]public struct VTable : IWebBrowserApp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, VARIANT* URL, VARIANT* Flags, VARIANT* TargetFrameName, VARIANT* PostData, VARIANT* Headers) Navigate2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, OLECMDID cmdID, OLECMDF* pcmdf) QueryStatusWB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, OLECMDID cmdID, OLECMDEXECOPT cmdexecopt, VARIANT* pvaIn, VARIANT* pvaOut) ExecWB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, VARIANT* pvaClsid, VARIANT* pvarShow, VARIANT* pvarSize) ShowBrowserBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, READYSTATE* plReadyState) get_ReadyState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16* pbOffline) get_Offline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, VARIANT URL, VARIANT Flags, VARIANT TargetFrameName, VARIANT PostData, VARIANT Headers) Navigate2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, OLECMDID cmdID, OLECMDF pcmdf) QueryStatusWB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, OLECMDID cmdID, OLECMDEXECOPT cmdexecopt, VARIANT pvaIn, VARIANT pvaOut) ExecWB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, VARIANT pvaClsid, VARIANT pvarShow, VARIANT pvarSize) ShowBrowserBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, READYSTATE plReadyState) get_ReadyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 pbOffline) get_Offline;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 bOffline) put_Offline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16* pbSilent) get_Silent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 pbSilent) get_Silent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 bSilent) put_Silent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16* pbRegister) get_RegisterAsBrowser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 pbRegister) get_RegisterAsBrowser;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 bRegister) put_RegisterAsBrowser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16* pbRegister) get_RegisterAsDropTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 pbRegister) get_RegisterAsDropTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 bRegister) put_RegisterAsDropTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16* pbRegister) get_TheaterMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 pbRegister) get_TheaterMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 bRegister) put_TheaterMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16* Value) get_AddressBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 Value) get_AddressBar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 Value) put_AddressBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16* Value) get_Resizable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 Value) get_Resizable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebBrowser2*/SelfOuter* self, int16 Value) put_Resizable;
 	}
 
 
-	public HRESULT Navigate2(VARIANT* URL, VARIANT* Flags, VARIANT* TargetFrameName, VARIANT* PostData, VARIANT* Headers) mut => VT.[Friend]Navigate2(&this, URL, Flags, TargetFrameName, PostData, Headers);
+	public HRESULT Navigate2(VARIANT URL, VARIANT Flags, VARIANT TargetFrameName, VARIANT PostData, VARIANT Headers) mut => VT.[Friend]Navigate2(&this, URL, Flags, TargetFrameName, PostData, Headers);
 
-	public HRESULT QueryStatusWB(OLECMDID cmdID, OLECMDF* pcmdf) mut => VT.[Friend]QueryStatusWB(&this, cmdID, pcmdf);
+	public HRESULT QueryStatusWB(OLECMDID cmdID, OLECMDF pcmdf) mut => VT.[Friend]QueryStatusWB(&this, cmdID, pcmdf);
 
-	public HRESULT ExecWB(OLECMDID cmdID, OLECMDEXECOPT cmdexecopt, VARIANT* pvaIn, VARIANT* pvaOut) mut => VT.[Friend]ExecWB(&this, cmdID, cmdexecopt, pvaIn, pvaOut);
+	public HRESULT ExecWB(OLECMDID cmdID, OLECMDEXECOPT cmdexecopt, VARIANT pvaIn, VARIANT pvaOut) mut => VT.[Friend]ExecWB(&this, cmdID, cmdexecopt, pvaIn, pvaOut);
 
-	public HRESULT ShowBrowserBar(VARIANT* pvaClsid, VARIANT* pvarShow, VARIANT* pvarSize) mut => VT.[Friend]ShowBrowserBar(&this, pvaClsid, pvarShow, pvarSize);
+	public HRESULT ShowBrowserBar(VARIANT pvaClsid, VARIANT pvarShow, VARIANT pvarSize) mut => VT.[Friend]ShowBrowserBar(&this, pvaClsid, pvarShow, pvarSize);
 
-	public HRESULT get_ReadyState(READYSTATE* plReadyState) mut => VT.[Friend]get_ReadyState(&this, plReadyState);
+	public HRESULT get_ReadyState(READYSTATE plReadyState) mut => VT.[Friend]get_ReadyState(&this, plReadyState);
 
-	public HRESULT get_Offline(int16* pbOffline) mut => VT.[Friend]get_Offline(&this, pbOffline);
+	public HRESULT get_Offline(int16 pbOffline) mut => VT.[Friend]get_Offline(&this, pbOffline);
 
 	public HRESULT put_Offline(int16 bOffline) mut => VT.[Friend]put_Offline(&this, bOffline);
 
-	public HRESULT get_Silent(int16* pbSilent) mut => VT.[Friend]get_Silent(&this, pbSilent);
+	public HRESULT get_Silent(int16 pbSilent) mut => VT.[Friend]get_Silent(&this, pbSilent);
 
 	public HRESULT put_Silent(int16 bSilent) mut => VT.[Friend]put_Silent(&this, bSilent);
 
-	public HRESULT get_RegisterAsBrowser(int16* pbRegister) mut => VT.[Friend]get_RegisterAsBrowser(&this, pbRegister);
+	public HRESULT get_RegisterAsBrowser(int16 pbRegister) mut => VT.[Friend]get_RegisterAsBrowser(&this, pbRegister);
 
 	public HRESULT put_RegisterAsBrowser(int16 bRegister) mut => VT.[Friend]put_RegisterAsBrowser(&this, bRegister);
 
-	public HRESULT get_RegisterAsDropTarget(int16* pbRegister) mut => VT.[Friend]get_RegisterAsDropTarget(&this, pbRegister);
+	public HRESULT get_RegisterAsDropTarget(int16 pbRegister) mut => VT.[Friend]get_RegisterAsDropTarget(&this, pbRegister);
 
 	public HRESULT put_RegisterAsDropTarget(int16 bRegister) mut => VT.[Friend]put_RegisterAsDropTarget(&this, bRegister);
 
-	public HRESULT get_TheaterMode(int16* pbRegister) mut => VT.[Friend]get_TheaterMode(&this, pbRegister);
+	public HRESULT get_TheaterMode(int16 pbRegister) mut => VT.[Friend]get_TheaterMode(&this, pbRegister);
 
 	public HRESULT put_TheaterMode(int16 bRegister) mut => VT.[Friend]put_TheaterMode(&this, bRegister);
 
-	public HRESULT get_AddressBar(int16* Value) mut => VT.[Friend]get_AddressBar(&this, Value);
+	public HRESULT get_AddressBar(int16 Value) mut => VT.[Friend]get_AddressBar(&this, Value);
 
 	public HRESULT put_AddressBar(int16 Value) mut => VT.[Friend]put_AddressBar(&this, Value);
 
-	public HRESULT get_Resizable(int16* Value) mut => VT.[Friend]get_Resizable(&this, Value);
+	public HRESULT get_Resizable(int16 Value) mut => VT.[Friend]get_Resizable(&this, Value);
 
 	public HRESULT put_Resizable(int16 Value) mut => VT.[Friend]put_Resizable(&this, Value);
 }
@@ -15136,37 +15136,37 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, VARIANT index, IDispatch** Folder) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, IUnknown** ppunk) _NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, IDispatch* pid, int32 hwnd, int32 swClass, int32* plCookie) Register;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, int32 lThreadId, VARIANT* pvarloc, VARIANT* pvarlocRoot, int32 swClass, int32* plCookie) RegisterPending;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, VARIANT index, IDispatch* Folder) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, IUnknown* ppunk) _NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, IDispatch* pid, int32 hwnd, int32 swClass, int32 plCookie) Register;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, int32 lThreadId, VARIANT pvarloc, VARIANT pvarlocRoot, int32 swClass, int32 plCookie) RegisterPending;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, int32 lCookie) Revoke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, int32 lCookie, VARIANT* pvarLoc) OnNavigate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, int32 lCookie, VARIANT pvarLoc) OnNavigate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, int32 lCookie, int16 fActive) OnActivated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, VARIANT* pvarLoc, VARIANT* pvarLocRoot, int32 swClass, int32* phwnd, int32 swfwOptions, IDispatch** ppdispOut) FindWindowSW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, VARIANT pvarLoc, VARIANT pvarLocRoot, int32 swClass, int32 phwnd, int32 swfwOptions, IDispatch* ppdispOut) FindWindowSW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, int32 lCookie, IUnknown* punk) OnCreated;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellWindows*/SelfOuter* self, int16 fAttach) ProcessAttachDetach;
 	}
 
 
-	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
 
-	public HRESULT Item(VARIANT index, IDispatch** Folder) mut => VT.[Friend]Item(&this, index, Folder);
+	public HRESULT Item(VARIANT index, IDispatch* Folder) mut => VT.[Friend]Item(&this, index, Folder);
 
-	public HRESULT _NewEnum(IUnknown** ppunk) mut => VT.[Friend]_NewEnum(&this, ppunk);
+	public HRESULT _NewEnum(IUnknown* ppunk) mut => VT.[Friend]_NewEnum(&this, ppunk);
 
-	public HRESULT Register(IDispatch* pid, int32 hwnd, int32 swClass, int32* plCookie) mut => VT.[Friend]Register(&this, pid, hwnd, swClass, plCookie);
+	public HRESULT Register(IDispatch* pid, int32 hwnd, int32 swClass, int32 plCookie) mut => VT.[Friend]Register(&this, pid, hwnd, swClass, plCookie);
 
-	public HRESULT RegisterPending(int32 lThreadId, VARIANT* pvarloc, VARIANT* pvarlocRoot, int32 swClass, int32* plCookie) mut => VT.[Friend]RegisterPending(&this, lThreadId, pvarloc, pvarlocRoot, swClass, plCookie);
+	public HRESULT RegisterPending(int32 lThreadId, VARIANT pvarloc, VARIANT pvarlocRoot, int32 swClass, int32 plCookie) mut => VT.[Friend]RegisterPending(&this, lThreadId, pvarloc, pvarlocRoot, swClass, plCookie);
 
 	public HRESULT Revoke(int32 lCookie) mut => VT.[Friend]Revoke(&this, lCookie);
 
-	public HRESULT OnNavigate(int32 lCookie, VARIANT* pvarLoc) mut => VT.[Friend]OnNavigate(&this, lCookie, pvarLoc);
+	public HRESULT OnNavigate(int32 lCookie, VARIANT pvarLoc) mut => VT.[Friend]OnNavigate(&this, lCookie, pvarLoc);
 
 	public HRESULT OnActivated(int32 lCookie, int16 fActive) mut => VT.[Friend]OnActivated(&this, lCookie, fActive);
 
-	public HRESULT FindWindowSW(VARIANT* pvarLoc, VARIANT* pvarLocRoot, int32 swClass, int32* phwnd, int32 swfwOptions, IDispatch** ppdispOut) mut => VT.[Friend]FindWindowSW(&this, pvarLoc, pvarLocRoot, swClass, phwnd, swfwOptions, ppdispOut);
+	public HRESULT FindWindowSW(VARIANT pvarLoc, VARIANT pvarLocRoot, int32 swClass, int32 phwnd, int32 swfwOptions, IDispatch* ppdispOut) mut => VT.[Friend]FindWindowSW(&this, pvarLoc, pvarLocRoot, swClass, phwnd, swfwOptions, ppdispOut);
 
 	public HRESULT OnCreated(int32 lCookie, IUnknown* punk) mut => VT.[Friend]OnCreated(&this, lCookie, punk);
 
@@ -15184,16 +15184,16 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self) ResetFirstBootMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self) ResetSafeMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self) RefreshOfflineDesktop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR URL, VARIANT* Title) AddFavorite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR URL, VARIANT Title) AddFavorite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR URL) AddChannel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR URL, BSTR Type, VARIANT* Left, VARIANT* Top, VARIANT* Width, VARIANT* Height) AddDesktopComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR URL, int16* pBool) IsSubscribed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR URL, BSTR strQuery, VARIANT* varTargetFrame) NavigateAndFind;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR URL, BSTR Type, VARIANT Left, VARIANT Top, VARIANT Width, VARIANT Height) AddDesktopComponent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR URL, int16 pBool) IsSubscribed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR URL, BSTR strQuery, VARIANT varTargetFrame) NavigateAndFind;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, int16 fImport, BSTR strImpExpPath) ImportExportFavorites;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, VARIANT* Form) AutoCompleteSaveForm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR strSearch, BSTR strFailureUrl, VARIANT* pvarTargetFrame) AutoScan;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, VARIANT* Reserved) AutoCompleteAttach;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR bstrName, VARIANT* pvarIn, VARIANT* pvarOut) ShowBrowserUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, VARIANT Form) AutoCompleteSaveForm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR strSearch, BSTR strFailureUrl, VARIANT pvarTargetFrame) AutoScan;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, VARIANT Reserved) AutoCompleteAttach;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper*/SelfOuter* self, BSTR bstrName, VARIANT pvarIn, VARIANT pvarOut) ShowBrowserUI;
 	}
 
 
@@ -15203,25 +15203,25 @@ public static
 
 	public HRESULT RefreshOfflineDesktop() mut => VT.[Friend]RefreshOfflineDesktop(&this);
 
-	public HRESULT AddFavorite(BSTR URL, VARIANT* Title) mut => VT.[Friend]AddFavorite(&this, URL, Title);
+	public HRESULT AddFavorite(BSTR URL, VARIANT Title) mut => VT.[Friend]AddFavorite(&this, URL, Title);
 
 	public HRESULT AddChannel(BSTR URL) mut => VT.[Friend]AddChannel(&this, URL);
 
-	public HRESULT AddDesktopComponent(BSTR URL, BSTR Type, VARIANT* Left, VARIANT* Top, VARIANT* Width, VARIANT* Height) mut => VT.[Friend]AddDesktopComponent(&this, URL, Type, Left, Top, Width, Height);
+	public HRESULT AddDesktopComponent(BSTR URL, BSTR Type, VARIANT Left, VARIANT Top, VARIANT Width, VARIANT Height) mut => VT.[Friend]AddDesktopComponent(&this, URL, Type, Left, Top, Width, Height);
 
-	public HRESULT IsSubscribed(BSTR URL, int16* pBool) mut => VT.[Friend]IsSubscribed(&this, URL, pBool);
+	public HRESULT IsSubscribed(BSTR URL, int16 pBool) mut => VT.[Friend]IsSubscribed(&this, URL, pBool);
 
-	public HRESULT NavigateAndFind(BSTR URL, BSTR strQuery, VARIANT* varTargetFrame) mut => VT.[Friend]NavigateAndFind(&this, URL, strQuery, varTargetFrame);
+	public HRESULT NavigateAndFind(BSTR URL, BSTR strQuery, VARIANT varTargetFrame) mut => VT.[Friend]NavigateAndFind(&this, URL, strQuery, varTargetFrame);
 
 	public HRESULT ImportExportFavorites(int16 fImport, BSTR strImpExpPath) mut => VT.[Friend]ImportExportFavorites(&this, fImport, strImpExpPath);
 
-	public HRESULT AutoCompleteSaveForm(VARIANT* Form) mut => VT.[Friend]AutoCompleteSaveForm(&this, Form);
+	public HRESULT AutoCompleteSaveForm(VARIANT Form) mut => VT.[Friend]AutoCompleteSaveForm(&this, Form);
 
-	public HRESULT AutoScan(BSTR strSearch, BSTR strFailureUrl, VARIANT* pvarTargetFrame) mut => VT.[Friend]AutoScan(&this, strSearch, strFailureUrl, pvarTargetFrame);
+	public HRESULT AutoScan(BSTR strSearch, BSTR strFailureUrl, VARIANT pvarTargetFrame) mut => VT.[Friend]AutoScan(&this, strSearch, strFailureUrl, pvarTargetFrame);
 
-	public HRESULT AutoCompleteAttach(VARIANT* Reserved) mut => VT.[Friend]AutoCompleteAttach(&this, Reserved);
+	public HRESULT AutoCompleteAttach(VARIANT Reserved) mut => VT.[Friend]AutoCompleteAttach(&this, Reserved);
 
-	public HRESULT ShowBrowserUI(BSTR bstrName, VARIANT* pvarIn, VARIANT* pvarOut) mut => VT.[Friend]ShowBrowserUI(&this, bstrName, pvarIn, pvarOut);
+	public HRESULT ShowBrowserUI(BSTR bstrName, VARIANT pvarIn, VARIANT pvarOut) mut => VT.[Friend]ShowBrowserUI(&this, bstrName, pvarIn, pvarOut);
 }
 
 [CRepr]struct IShellUIHelper2 : IShellUIHelper
@@ -15236,18 +15236,18 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self) RunOnceShown;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self) SkipRunOnce;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16 fSQM, int16 fPhishing, BSTR bstrLocale) CustomizeSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16* pfEnabled) SqmEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16* pfEnabled) PhishingEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, BSTR* pbstrUri) BrandImageUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16 pfEnabled) SqmEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16 pfEnabled) PhishingEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, BSTR pbstrUri) BrandImageUri;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self) SkipTabsWelcome;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self) DiagnoseConnection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16 fSet) CustomizeClearType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, BSTR URL, uint32* pdwResult) IsSearchProviderInstalled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16* pfMigrated) IsSearchMigrated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, BSTR* pbstrName) DefaultSearchProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, BSTR URL, uint32 pdwResult) IsSearchProviderInstalled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16 pfMigrated) IsSearchMigrated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, BSTR pbstrName) DefaultSearchProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16 fComplete) RunOnceRequiredSettingsComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16* pfShown) RunOnceHasShown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, BSTR* pbstrUrl) SearchGuideUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, int16 pfShown) RunOnceHasShown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper2*/SelfOuter* self, BSTR pbstrUrl) SearchGuideUrl;
 	}
 
 
@@ -15259,11 +15259,11 @@ public static
 
 	public HRESULT CustomizeSettings(int16 fSQM, int16 fPhishing, BSTR bstrLocale) mut => VT.[Friend]CustomizeSettings(&this, fSQM, fPhishing, bstrLocale);
 
-	public HRESULT SqmEnabled(int16* pfEnabled) mut => VT.[Friend]SqmEnabled(&this, pfEnabled);
+	public HRESULT SqmEnabled(int16 pfEnabled) mut => VT.[Friend]SqmEnabled(&this, pfEnabled);
 
-	public HRESULT PhishingEnabled(int16* pfEnabled) mut => VT.[Friend]PhishingEnabled(&this, pfEnabled);
+	public HRESULT PhishingEnabled(int16 pfEnabled) mut => VT.[Friend]PhishingEnabled(&this, pfEnabled);
 
-	public HRESULT BrandImageUri(BSTR* pbstrUri) mut => VT.[Friend]BrandImageUri(&this, pbstrUri);
+	public HRESULT BrandImageUri(BSTR pbstrUri) mut => VT.[Friend]BrandImageUri(&this, pbstrUri);
 
 	public HRESULT SkipTabsWelcome() mut => VT.[Friend]SkipTabsWelcome(&this);
 
@@ -15271,17 +15271,17 @@ public static
 
 	public HRESULT CustomizeClearType(int16 fSet) mut => VT.[Friend]CustomizeClearType(&this, fSet);
 
-	public HRESULT IsSearchProviderInstalled(BSTR URL, uint32* pdwResult) mut => VT.[Friend]IsSearchProviderInstalled(&this, URL, pdwResult);
+	public HRESULT IsSearchProviderInstalled(BSTR URL, uint32 pdwResult) mut => VT.[Friend]IsSearchProviderInstalled(&this, URL, pdwResult);
 
-	public HRESULT IsSearchMigrated(int16* pfMigrated) mut => VT.[Friend]IsSearchMigrated(&this, pfMigrated);
+	public HRESULT IsSearchMigrated(int16 pfMigrated) mut => VT.[Friend]IsSearchMigrated(&this, pfMigrated);
 
-	public HRESULT DefaultSearchProvider(BSTR* pbstrName) mut => VT.[Friend]DefaultSearchProvider(&this, pbstrName);
+	public HRESULT DefaultSearchProvider(BSTR pbstrName) mut => VT.[Friend]DefaultSearchProvider(&this, pbstrName);
 
 	public HRESULT RunOnceRequiredSettingsComplete(int16 fComplete) mut => VT.[Friend]RunOnceRequiredSettingsComplete(&this, fComplete);
 
-	public HRESULT RunOnceHasShown(int16* pfShown) mut => VT.[Friend]RunOnceHasShown(&this, pfShown);
+	public HRESULT RunOnceHasShown(int16 pfShown) mut => VT.[Friend]RunOnceHasShown(&this, pfShown);
 
-	public HRESULT SearchGuideUrl(BSTR* pbstrUrl) mut => VT.[Friend]SearchGuideUrl(&this, pbstrUrl);
+	public HRESULT SearchGuideUrl(BSTR pbstrUrl) mut => VT.[Friend]SearchGuideUrl(&this, pbstrUrl);
 }
 
 [CRepr]struct IShellUIHelper3 : IShellUIHelper2
@@ -15293,14 +15293,14 @@ public static
 	[CRepr]public struct VTable : IShellUIHelper2.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, BSTR URL) AddService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, BSTR URL, BSTR Verb, uint32* pdwResult) IsServiceInstalled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, int16* pfEnabled) InPrivateFilteringEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, BSTR URL, BSTR Title, VARIANT* Type) AddToFavoritesBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, BSTR URL, BSTR Verb, uint32 pdwResult) IsServiceInstalled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, int16 pfEnabled) InPrivateFilteringEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, BSTR URL, BSTR Title, VARIANT Type) AddToFavoritesBar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self) BuildNewTabPage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, int16 fVisible) SetRecentlyClosedVisible;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, int16 fVisible) SetActivitiesVisible;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self) ContentDiscoveryReset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, int16* pfEnabled) IsSuggestedSitesEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, int16 pfEnabled) IsSuggestedSitesEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, int16 fEnable) EnableSuggestedSites;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self, BSTR bstrRelativeUrl) NavigateToSuggestedSites;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper3*/SelfOuter* self) ShowTabsHelp;
@@ -15310,11 +15310,11 @@ public static
 
 	public HRESULT AddService(BSTR URL) mut => VT.[Friend]AddService(&this, URL);
 
-	public HRESULT IsServiceInstalled(BSTR URL, BSTR Verb, uint32* pdwResult) mut => VT.[Friend]IsServiceInstalled(&this, URL, Verb, pdwResult);
+	public HRESULT IsServiceInstalled(BSTR URL, BSTR Verb, uint32 pdwResult) mut => VT.[Friend]IsServiceInstalled(&this, URL, Verb, pdwResult);
 
-	public HRESULT InPrivateFilteringEnabled(int16* pfEnabled) mut => VT.[Friend]InPrivateFilteringEnabled(&this, pfEnabled);
+	public HRESULT InPrivateFilteringEnabled(int16 pfEnabled) mut => VT.[Friend]InPrivateFilteringEnabled(&this, pfEnabled);
 
-	public HRESULT AddToFavoritesBar(BSTR URL, BSTR Title, VARIANT* Type) mut => VT.[Friend]AddToFavoritesBar(&this, URL, Title, Type);
+	public HRESULT AddToFavoritesBar(BSTR URL, BSTR Title, VARIANT Type) mut => VT.[Friend]AddToFavoritesBar(&this, URL, Title, Type);
 
 	public HRESULT BuildNewTabPage() mut => VT.[Friend]BuildNewTabPage(&this);
 
@@ -15324,7 +15324,7 @@ public static
 
 	public HRESULT ContentDiscoveryReset() mut => VT.[Friend]ContentDiscoveryReset(&this);
 
-	public HRESULT IsSuggestedSitesEnabled(int16* pfEnabled) mut => VT.[Friend]IsSuggestedSitesEnabled(&this, pfEnabled);
+	public HRESULT IsSuggestedSitesEnabled(int16 pfEnabled) mut => VT.[Friend]IsSuggestedSitesEnabled(&this, pfEnabled);
 
 	public HRESULT EnableSuggestedSites(int16 fEnable) mut => VT.[Friend]EnableSuggestedSites(&this, fEnable);
 
@@ -15343,36 +15343,36 @@ public static
 
 	[CRepr]public struct VTable : IShellUIHelper3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, int16* pfSiteMode) msIsSiteMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, int16 pfSiteMode) msIsSiteMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self) msSiteModeShowThumbBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, BSTR bstrIconURL, BSTR bstrTooltip, VARIANT* pvarButtonID) msSiteModeAddThumbBarButton;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, BSTR bstrIconURL, BSTR bstrTooltip, VARIANT pvarButtonID) msSiteModeAddThumbBarButton;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, VARIANT ButtonID, int16 fEnabled, int16 fVisible) msSiteModeUpdateThumbBarButton;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, BSTR IconUrl, VARIANT* pvarDescription) msSiteModeSetIconOverlay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, BSTR IconUrl, VARIANT pvarDescription) msSiteModeSetIconOverlay;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self) msSiteModeClearIconOverlay;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self) msAddSiteMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, BSTR bstrHeader) msSiteModeCreateJumpList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, BSTR bstrName, BSTR bstrActionUri, BSTR bstrIconUri, VARIANT* pvarWindowType) msSiteModeAddJumpListItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, BSTR bstrName, BSTR bstrActionUri, BSTR bstrIconUri, VARIANT pvarWindowType) msSiteModeAddJumpListItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self) msSiteModeClearJumpList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self) msSiteModeShowJumpList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, VARIANT uiButtonID, BSTR bstrIconUrl, BSTR bstrTooltip, VARIANT* pvarStyleID) msSiteModeAddButtonStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, VARIANT uiButtonID, BSTR bstrIconUrl, BSTR bstrTooltip, VARIANT pvarStyleID) msSiteModeAddButtonStyle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, VARIANT uiButtonID, VARIANT uiStyleID) msSiteModeShowButtonStyle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self) msSiteModeActivate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, int16 fPreserveState, VARIANT* puiFirstRun) msIsSiteModeFirstRun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, int16 fPreserveState, VARIANT puiFirstRun) msIsSiteModeFirstRun;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, BSTR URL, BSTR bstrFilterName) msAddTrackingProtectionList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, int16* pfEnabled) msTrackingProtectionEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, int16* pfEnabled) msActiveXFilteringEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, int16 pfEnabled) msTrackingProtectionEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper4*/SelfOuter* self, int16 pfEnabled) msActiveXFilteringEnabled;
 	}
 
 
-	public HRESULT msIsSiteMode(int16* pfSiteMode) mut => VT.[Friend]msIsSiteMode(&this, pfSiteMode);
+	public HRESULT msIsSiteMode(int16 pfSiteMode) mut => VT.[Friend]msIsSiteMode(&this, pfSiteMode);
 
 	public HRESULT msSiteModeShowThumbBar() mut => VT.[Friend]msSiteModeShowThumbBar(&this);
 
-	public HRESULT msSiteModeAddThumbBarButton(BSTR bstrIconURL, BSTR bstrTooltip, VARIANT* pvarButtonID) mut => VT.[Friend]msSiteModeAddThumbBarButton(&this, bstrIconURL, bstrTooltip, pvarButtonID);
+	public HRESULT msSiteModeAddThumbBarButton(BSTR bstrIconURL, BSTR bstrTooltip, VARIANT pvarButtonID) mut => VT.[Friend]msSiteModeAddThumbBarButton(&this, bstrIconURL, bstrTooltip, pvarButtonID);
 
 	public HRESULT msSiteModeUpdateThumbBarButton(VARIANT ButtonID, int16 fEnabled, int16 fVisible) mut => VT.[Friend]msSiteModeUpdateThumbBarButton(&this, ButtonID, fEnabled, fVisible);
 
-	public HRESULT msSiteModeSetIconOverlay(BSTR IconUrl, VARIANT* pvarDescription) mut => VT.[Friend]msSiteModeSetIconOverlay(&this, IconUrl, pvarDescription);
+	public HRESULT msSiteModeSetIconOverlay(BSTR IconUrl, VARIANT pvarDescription) mut => VT.[Friend]msSiteModeSetIconOverlay(&this, IconUrl, pvarDescription);
 
 	public HRESULT msSiteModeClearIconOverlay() mut => VT.[Friend]msSiteModeClearIconOverlay(&this);
 
@@ -15380,25 +15380,25 @@ public static
 
 	public HRESULT msSiteModeCreateJumpList(BSTR bstrHeader) mut => VT.[Friend]msSiteModeCreateJumpList(&this, bstrHeader);
 
-	public HRESULT msSiteModeAddJumpListItem(BSTR bstrName, BSTR bstrActionUri, BSTR bstrIconUri, VARIANT* pvarWindowType) mut => VT.[Friend]msSiteModeAddJumpListItem(&this, bstrName, bstrActionUri, bstrIconUri, pvarWindowType);
+	public HRESULT msSiteModeAddJumpListItem(BSTR bstrName, BSTR bstrActionUri, BSTR bstrIconUri, VARIANT pvarWindowType) mut => VT.[Friend]msSiteModeAddJumpListItem(&this, bstrName, bstrActionUri, bstrIconUri, pvarWindowType);
 
 	public HRESULT msSiteModeClearJumpList() mut => VT.[Friend]msSiteModeClearJumpList(&this);
 
 	public HRESULT msSiteModeShowJumpList() mut => VT.[Friend]msSiteModeShowJumpList(&this);
 
-	public HRESULT msSiteModeAddButtonStyle(VARIANT uiButtonID, BSTR bstrIconUrl, BSTR bstrTooltip, VARIANT* pvarStyleID) mut => VT.[Friend]msSiteModeAddButtonStyle(&this, uiButtonID, bstrIconUrl, bstrTooltip, pvarStyleID);
+	public HRESULT msSiteModeAddButtonStyle(VARIANT uiButtonID, BSTR bstrIconUrl, BSTR bstrTooltip, VARIANT pvarStyleID) mut => VT.[Friend]msSiteModeAddButtonStyle(&this, uiButtonID, bstrIconUrl, bstrTooltip, pvarStyleID);
 
 	public HRESULT msSiteModeShowButtonStyle(VARIANT uiButtonID, VARIANT uiStyleID) mut => VT.[Friend]msSiteModeShowButtonStyle(&this, uiButtonID, uiStyleID);
 
 	public HRESULT msSiteModeActivate() mut => VT.[Friend]msSiteModeActivate(&this);
 
-	public HRESULT msIsSiteModeFirstRun(int16 fPreserveState, VARIANT* puiFirstRun) mut => VT.[Friend]msIsSiteModeFirstRun(&this, fPreserveState, puiFirstRun);
+	public HRESULT msIsSiteModeFirstRun(int16 fPreserveState, VARIANT puiFirstRun) mut => VT.[Friend]msIsSiteModeFirstRun(&this, fPreserveState, puiFirstRun);
 
 	public HRESULT msAddTrackingProtectionList(BSTR URL, BSTR bstrFilterName) mut => VT.[Friend]msAddTrackingProtectionList(&this, URL, bstrFilterName);
 
-	public HRESULT msTrackingProtectionEnabled(int16* pfEnabled) mut => VT.[Friend]msTrackingProtectionEnabled(&this, pfEnabled);
+	public HRESULT msTrackingProtectionEnabled(int16 pfEnabled) mut => VT.[Friend]msTrackingProtectionEnabled(&this, pfEnabled);
 
-	public HRESULT msActiveXFilteringEnabled(int16* pfEnabled) mut => VT.[Friend]msActiveXFilteringEnabled(&this, pfEnabled);
+	public HRESULT msActiveXFilteringEnabled(int16 pfEnabled) mut => VT.[Friend]msActiveXFilteringEnabled(&this, pfEnabled);
 }
 
 [CRepr]struct IShellUIHelper5 : IShellUIHelper4
@@ -15409,7 +15409,7 @@ public static
 
 	[CRepr]public struct VTable : IShellUIHelper4.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper5*/SelfOuter* self, BSTR bstrProvisioningXml, VARIANT* puiResult) msProvisionNetworks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper5*/SelfOuter* self, BSTR bstrProvisioningXml, VARIANT puiResult) msProvisionNetworks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper5*/SelfOuter* self) msReportSafeUrl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper5*/SelfOuter* self) msSiteModeRefreshBadge;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper5*/SelfOuter* self) msSiteModeClearBadge;
@@ -15419,7 +15419,7 @@ public static
 	}
 
 
-	public HRESULT msProvisionNetworks(BSTR bstrProvisioningXml, VARIANT* puiResult) mut => VT.[Friend]msProvisionNetworks(&this, bstrProvisioningXml, puiResult);
+	public HRESULT msProvisionNetworks(BSTR bstrProvisioningXml, VARIANT puiResult) mut => VT.[Friend]msProvisionNetworks(&this, bstrProvisioningXml, puiResult);
 
 	public HRESULT msReportSafeUrl() mut => VT.[Friend]msReportSafeUrl(&this);
 
@@ -15447,7 +15447,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper6*/SelfOuter* self, VARIANT pollingUris, VARIANT startTime, VARIANT uiUpdateRecurrence) msStartPeriodicTileUpdateBatch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper6*/SelfOuter* self) msClearTile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper6*/SelfOuter* self, int16 fChange) msEnableTileNotificationQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper6*/SelfOuter* self, VARIANT* pvarSiteState) msPinnedSiteState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper6*/SelfOuter* self, VARIANT pvarSiteState) msPinnedSiteState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper6*/SelfOuter* self, int16 fChange) msEnableTileNotificationQueueForSquare150x150;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper6*/SelfOuter* self, int16 fChange) msEnableTileNotificationQueueForWide310x150;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper6*/SelfOuter* self, int16 fChange) msEnableTileNotificationQueueForSquare310x310;
@@ -15469,7 +15469,7 @@ public static
 
 	public HRESULT msEnableTileNotificationQueue(int16 fChange) mut => VT.[Friend]msEnableTileNotificationQueue(&this, fChange);
 
-	public HRESULT msPinnedSiteState(VARIANT* pvarSiteState) mut => VT.[Friend]msPinnedSiteState(&this, pvarSiteState);
+	public HRESULT msPinnedSiteState(VARIANT pvarSiteState) mut => VT.[Friend]msPinnedSiteState(&this, pvarSiteState);
 
 	public HRESULT msEnableTileNotificationQueueForSquare150x150(int16 fChange) mut => VT.[Friend]msEnableTileNotificationQueueForSquare150x150(&this, fChange);
 
@@ -15497,32 +15497,32 @@ public static
 	[CRepr]public struct VTable : IShellUIHelper6.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrFlagString, int16 vfFlag) SetExperimentalFlag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrFlagString, int16* vfFlag) GetExperimentalFlag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrFlagString, int16 vfFlag) GetExperimentalFlag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrValueString, uint32 dwValue) SetExperimentalValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrValueString, uint32* pdwValue) GetExperimentalValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrValueString, uint32 pdwValue) GetExperimentalValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self) ResetAllExperimentalFlagsAndValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrUrl, int16* flag) GetNeedIEAutoLaunchFlag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrUrl, int16 flag) GetNeedIEAutoLaunchFlag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrUrl, int16 flag) SetNeedIEAutoLaunchFlag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrUrl, int16* exists) HasNeedIEAutoLaunchFlag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrUrl, int16 exists) HasNeedIEAutoLaunchFlag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper7*/SelfOuter* self, BSTR bstrUrl, int16 automated) LaunchIE;
 	}
 
 
 	public HRESULT SetExperimentalFlag(BSTR bstrFlagString, int16 vfFlag) mut => VT.[Friend]SetExperimentalFlag(&this, bstrFlagString, vfFlag);
 
-	public HRESULT GetExperimentalFlag(BSTR bstrFlagString, int16* vfFlag) mut => VT.[Friend]GetExperimentalFlag(&this, bstrFlagString, vfFlag);
+	public HRESULT GetExperimentalFlag(BSTR bstrFlagString, int16 vfFlag) mut => VT.[Friend]GetExperimentalFlag(&this, bstrFlagString, vfFlag);
 
 	public HRESULT SetExperimentalValue(BSTR bstrValueString, uint32 dwValue) mut => VT.[Friend]SetExperimentalValue(&this, bstrValueString, dwValue);
 
-	public HRESULT GetExperimentalValue(BSTR bstrValueString, uint32* pdwValue) mut => VT.[Friend]GetExperimentalValue(&this, bstrValueString, pdwValue);
+	public HRESULT GetExperimentalValue(BSTR bstrValueString, uint32 pdwValue) mut => VT.[Friend]GetExperimentalValue(&this, bstrValueString, pdwValue);
 
 	public HRESULT ResetAllExperimentalFlagsAndValues() mut => VT.[Friend]ResetAllExperimentalFlagsAndValues(&this);
 
-	public HRESULT GetNeedIEAutoLaunchFlag(BSTR bstrUrl, int16* flag) mut => VT.[Friend]GetNeedIEAutoLaunchFlag(&this, bstrUrl, flag);
+	public HRESULT GetNeedIEAutoLaunchFlag(BSTR bstrUrl, int16 flag) mut => VT.[Friend]GetNeedIEAutoLaunchFlag(&this, bstrUrl, flag);
 
 	public HRESULT SetNeedIEAutoLaunchFlag(BSTR bstrUrl, int16 flag) mut => VT.[Friend]SetNeedIEAutoLaunchFlag(&this, bstrUrl, flag);
 
-	public HRESULT HasNeedIEAutoLaunchFlag(BSTR bstrUrl, int16* exists) mut => VT.[Friend]HasNeedIEAutoLaunchFlag(&this, bstrUrl, exists);
+	public HRESULT HasNeedIEAutoLaunchFlag(BSTR bstrUrl, int16 exists) mut => VT.[Friend]HasNeedIEAutoLaunchFlag(&this, bstrUrl, exists);
 
 	public HRESULT LaunchIE(BSTR bstrUrl, int16 automated) mut => VT.[Friend]LaunchIE(&this, bstrUrl, automated);
 }
@@ -15535,23 +15535,23 @@ public static
 
 	[CRepr]public struct VTable : IShellUIHelper7.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self, BSTR* pbstrResult) GetCVListData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self, BSTR* pbstrResult) GetCVListLocalData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self, BSTR* pbstrResult) GetEMIEListData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self, BSTR* pbstrResult) GetEMIEListLocalData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self, BSTR pbstrResult) GetCVListData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self, BSTR pbstrResult) GetCVListLocalData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self, BSTR pbstrResult) GetEMIEListData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self, BSTR pbstrResult) GetEMIEListLocalData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self) OpenFavoritesPane;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self) OpenFavoritesSettings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper8*/SelfOuter* self, BSTR bstrUrl) LaunchInHVSI;
 	}
 
 
-	public HRESULT GetCVListData(BSTR* pbstrResult) mut => VT.[Friend]GetCVListData(&this, pbstrResult);
+	public HRESULT GetCVListData(BSTR pbstrResult) mut => VT.[Friend]GetCVListData(&this, pbstrResult);
 
-	public HRESULT GetCVListLocalData(BSTR* pbstrResult) mut => VT.[Friend]GetCVListLocalData(&this, pbstrResult);
+	public HRESULT GetCVListLocalData(BSTR pbstrResult) mut => VT.[Friend]GetCVListLocalData(&this, pbstrResult);
 
-	public HRESULT GetEMIEListData(BSTR* pbstrResult) mut => VT.[Friend]GetEMIEListData(&this, pbstrResult);
+	public HRESULT GetEMIEListData(BSTR pbstrResult) mut => VT.[Friend]GetEMIEListData(&this, pbstrResult);
 
-	public HRESULT GetEMIEListLocalData(BSTR* pbstrResult) mut => VT.[Friend]GetEMIEListLocalData(&this, pbstrResult);
+	public HRESULT GetEMIEListLocalData(BSTR pbstrResult) mut => VT.[Friend]GetEMIEListLocalData(&this, pbstrResult);
 
 	public HRESULT OpenFavoritesPane() mut => VT.[Friend]OpenFavoritesPane(&this);
 
@@ -15568,11 +15568,11 @@ public static
 
 	[CRepr]public struct VTable : IShellUIHelper8.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper9*/SelfOuter* self, uint32* pdwResult) GetOSSku;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellUIHelper9*/SelfOuter* self, uint32 pdwResult) GetOSSku;
 	}
 
 
-	public HRESULT GetOSSku(uint32* pdwResult) mut => VT.[Friend]GetOSSku(&this, pdwResult);
+	public HRESULT GetOSSku(uint32 pdwResult) mut => VT.[Friend]GetOSSku(&this, pdwResult);
 }
 
 [CRepr]struct DShellNameSpaceEvents : IDispatch
@@ -15604,9 +15604,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFavoritesNameSpace*/SelfOuter* self) Export;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFavoritesNameSpace*/SelfOuter* self, BSTR strCommand) InvokeContextMenuCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFavoritesNameSpace*/SelfOuter* self) MoveSelectionTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFavoritesNameSpace*/SelfOuter* self, int16* pBool) get_SubscriptionsEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFavoritesNameSpace*/SelfOuter* self, int16* pBool) CreateSubscriptionForSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFavoritesNameSpace*/SelfOuter* self, int16* pBool) DeleteSubscriptionForSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFavoritesNameSpace*/SelfOuter* self, int16 pBool) get_SubscriptionsEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFavoritesNameSpace*/SelfOuter* self, int16 pBool) CreateSubscriptionForSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFavoritesNameSpace*/SelfOuter* self, int16 pBool) DeleteSubscriptionForSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFavoritesNameSpace*/SelfOuter* self, BSTR bstrFullPath) SetRoot;
 	}
 
@@ -15629,11 +15629,11 @@ public static
 
 	public HRESULT MoveSelectionTo() mut => VT.[Friend]MoveSelectionTo(&this);
 
-	public HRESULT get_SubscriptionsEnabled(int16* pBool) mut => VT.[Friend]get_SubscriptionsEnabled(&this, pBool);
+	public HRESULT get_SubscriptionsEnabled(int16 pBool) mut => VT.[Friend]get_SubscriptionsEnabled(&this, pBool);
 
-	public HRESULT CreateSubscriptionForSelection(int16* pBool) mut => VT.[Friend]CreateSubscriptionForSelection(&this, pBool);
+	public HRESULT CreateSubscriptionForSelection(int16 pBool) mut => VT.[Friend]CreateSubscriptionForSelection(&this, pBool);
 
-	public HRESULT DeleteSubscriptionForSelection(int16* pBool) mut => VT.[Friend]DeleteSubscriptionForSelection(&this, pBool);
+	public HRESULT DeleteSubscriptionForSelection(int16 pBool) mut => VT.[Friend]DeleteSubscriptionForSelection(&this, pBool);
 
 	public HRESULT SetRoot(BSTR bstrFullPath) mut => VT.[Friend]SetRoot(&this, bstrFullPath);
 }
@@ -15646,67 +15646,67 @@ public static
 
 	[CRepr]public struct VTable : IShellFavoritesNameSpace.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, int32* pgrfEnumFlags) get_EnumOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, int32 pgrfEnumFlags) get_EnumOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, int32 lVal) put_EnumOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, IDispatch** pItem) get_SelectedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, IDispatch* pItem) get_SelectedItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, IDispatch* pItem) put_SelectedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, VARIANT* pvar) get_Root;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, VARIANT pvar) get_Root;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, VARIANT @var) put_Root;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, int32* piDepth) get_Depth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, int32 piDepth) get_Depth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, int32 iDepth) put_Depth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, uint32* puMode) get_Mode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, uint32 puMode) get_Mode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, uint32 uMode) put_Mode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, uint32* pdwFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, uint32 pdwFlags) get_Flags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, uint32 dwFlags) put_Flags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, uint32 dwFlags) put_TVFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, uint32* dwFlags) get_TVFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, BSTR* bstrColumns) get_Columns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, uint32 dwFlags) get_TVFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, BSTR bstrColumns) get_Columns;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, BSTR bstrColumns) put_Columns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, int32* piTypes) get_CountViewTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, int32 piTypes) get_CountViewTypes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, int32 iType) SetViewType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, IDispatch** ppid) SelectedItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, IDispatch* ppid) SelectedItems;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self, VARIANT @var, int32 iDepth) Expand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellNameSpace*/SelfOuter* self) UnselectAll;
 	}
 
 
-	public HRESULT get_EnumOptions(int32* pgrfEnumFlags) mut => VT.[Friend]get_EnumOptions(&this, pgrfEnumFlags);
+	public HRESULT get_EnumOptions(int32 pgrfEnumFlags) mut => VT.[Friend]get_EnumOptions(&this, pgrfEnumFlags);
 
 	public HRESULT put_EnumOptions(int32 lVal) mut => VT.[Friend]put_EnumOptions(&this, lVal);
 
-	public HRESULT get_SelectedItem(IDispatch** pItem) mut => VT.[Friend]get_SelectedItem(&this, pItem);
+	public HRESULT get_SelectedItem(IDispatch* pItem) mut => VT.[Friend]get_SelectedItem(&this, pItem);
 
 	public HRESULT put_SelectedItem(IDispatch* pItem) mut => VT.[Friend]put_SelectedItem(&this, pItem);
 
-	public HRESULT get_Root(VARIANT* pvar) mut => VT.[Friend]get_Root(&this, pvar);
+	public HRESULT get_Root(VARIANT pvar) mut => VT.[Friend]get_Root(&this, pvar);
 
 	public HRESULT put_Root(VARIANT @var) mut => VT.[Friend]put_Root(&this, @var);
 
-	public HRESULT get_Depth(int32* piDepth) mut => VT.[Friend]get_Depth(&this, piDepth);
+	public HRESULT get_Depth(int32 piDepth) mut => VT.[Friend]get_Depth(&this, piDepth);
 
 	public HRESULT put_Depth(int32 iDepth) mut => VT.[Friend]put_Depth(&this, iDepth);
 
-	public HRESULT get_Mode(uint32* puMode) mut => VT.[Friend]get_Mode(&this, puMode);
+	public HRESULT get_Mode(uint32 puMode) mut => VT.[Friend]get_Mode(&this, puMode);
 
 	public HRESULT put_Mode(uint32 uMode) mut => VT.[Friend]put_Mode(&this, uMode);
 
-	public HRESULT get_Flags(uint32* pdwFlags) mut => VT.[Friend]get_Flags(&this, pdwFlags);
+	public HRESULT get_Flags(uint32 pdwFlags) mut => VT.[Friend]get_Flags(&this, pdwFlags);
 
 	public HRESULT put_Flags(uint32 dwFlags) mut => VT.[Friend]put_Flags(&this, dwFlags);
 
 	public HRESULT put_TVFlags(uint32 dwFlags) mut => VT.[Friend]put_TVFlags(&this, dwFlags);
 
-	public HRESULT get_TVFlags(uint32* dwFlags) mut => VT.[Friend]get_TVFlags(&this, dwFlags);
+	public HRESULT get_TVFlags(uint32 dwFlags) mut => VT.[Friend]get_TVFlags(&this, dwFlags);
 
-	public HRESULT get_Columns(BSTR* bstrColumns) mut => VT.[Friend]get_Columns(&this, bstrColumns);
+	public HRESULT get_Columns(BSTR bstrColumns) mut => VT.[Friend]get_Columns(&this, bstrColumns);
 
 	public HRESULT put_Columns(BSTR bstrColumns) mut => VT.[Friend]put_Columns(&this, bstrColumns);
 
-	public HRESULT get_CountViewTypes(int32* piTypes) mut => VT.[Friend]get_CountViewTypes(&this, piTypes);
+	public HRESULT get_CountViewTypes(int32 piTypes) mut => VT.[Friend]get_CountViewTypes(&this, piTypes);
 
 	public HRESULT SetViewType(int32 iType) mut => VT.[Friend]SetViewType(&this, iType);
 
-	public HRESULT SelectedItems(IDispatch** ppid) mut => VT.[Friend]SelectedItems(&this, ppid);
+	public HRESULT SelectedItems(IDispatch* ppid) mut => VT.[Friend]SelectedItems(&this, ppid);
 
 	public HRESULT Expand(VARIANT @var, int32 iDepth) mut => VT.[Friend]Expand(&this, @var, iDepth);
 
@@ -15723,17 +15723,17 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self) advanceError;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self) retreatError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL* pfCanAdvance) canAdvanceError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL* pfCanRetreat) canRetreatError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, int32* plLine) getErrorLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, int32* plChar) getErrorChar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, int32* plCode) getErrorCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BSTR* pstr) getErrorMsg;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BSTR* pstr) getErrorUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL* pfAlwaysShowLocked) getAlwaysShowLockState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL* pfDetailsPaneOpen) getDetailsPaneOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL pfCanAdvance) canAdvanceError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL pfCanRetreat) canRetreatError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, int32 plLine) getErrorLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, int32 plChar) getErrorChar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, int32 plCode) getErrorCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BSTR pstr) getErrorMsg;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BSTR pstr) getErrorUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL pfAlwaysShowLocked) getAlwaysShowLockState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL pfDetailsPaneOpen) getDetailsPaneOpen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL fDetailsPaneOpen) setDetailsPaneOpen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL* pfPerErrorDisplay) getPerErrorDisplay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL pfPerErrorDisplay) getPerErrorDisplay;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScriptErrorList*/SelfOuter* self, BOOL fPerErrorDisplay) setPerErrorDisplay;
 	}
 
@@ -15742,27 +15742,27 @@ public static
 
 	public HRESULT retreatError() mut => VT.[Friend]retreatError(&this);
 
-	public HRESULT canAdvanceError(BOOL* pfCanAdvance) mut => VT.[Friend]canAdvanceError(&this, pfCanAdvance);
+	public HRESULT canAdvanceError(BOOL pfCanAdvance) mut => VT.[Friend]canAdvanceError(&this, pfCanAdvance);
 
-	public HRESULT canRetreatError(BOOL* pfCanRetreat) mut => VT.[Friend]canRetreatError(&this, pfCanRetreat);
+	public HRESULT canRetreatError(BOOL pfCanRetreat) mut => VT.[Friend]canRetreatError(&this, pfCanRetreat);
 
-	public HRESULT getErrorLine(int32* plLine) mut => VT.[Friend]getErrorLine(&this, plLine);
+	public HRESULT getErrorLine(int32 plLine) mut => VT.[Friend]getErrorLine(&this, plLine);
 
-	public HRESULT getErrorChar(int32* plChar) mut => VT.[Friend]getErrorChar(&this, plChar);
+	public HRESULT getErrorChar(int32 plChar) mut => VT.[Friend]getErrorChar(&this, plChar);
 
-	public HRESULT getErrorCode(int32* plCode) mut => VT.[Friend]getErrorCode(&this, plCode);
+	public HRESULT getErrorCode(int32 plCode) mut => VT.[Friend]getErrorCode(&this, plCode);
 
-	public HRESULT getErrorMsg(BSTR* pstr) mut => VT.[Friend]getErrorMsg(&this, pstr);
+	public HRESULT getErrorMsg(BSTR pstr) mut => VT.[Friend]getErrorMsg(&this, pstr);
 
-	public HRESULT getErrorUrl(BSTR* pstr) mut => VT.[Friend]getErrorUrl(&this, pstr);
+	public HRESULT getErrorUrl(BSTR pstr) mut => VT.[Friend]getErrorUrl(&this, pstr);
 
-	public HRESULT getAlwaysShowLockState(BOOL* pfAlwaysShowLocked) mut => VT.[Friend]getAlwaysShowLockState(&this, pfAlwaysShowLocked);
+	public HRESULT getAlwaysShowLockState(BOOL pfAlwaysShowLocked) mut => VT.[Friend]getAlwaysShowLockState(&this, pfAlwaysShowLocked);
 
-	public HRESULT getDetailsPaneOpen(BOOL* pfDetailsPaneOpen) mut => VT.[Friend]getDetailsPaneOpen(&this, pfDetailsPaneOpen);
+	public HRESULT getDetailsPaneOpen(BOOL pfDetailsPaneOpen) mut => VT.[Friend]getDetailsPaneOpen(&this, pfDetailsPaneOpen);
 
 	public HRESULT setDetailsPaneOpen(BOOL fDetailsPaneOpen) mut => VT.[Friend]setDetailsPaneOpen(&this, fDetailsPaneOpen);
 
-	public HRESULT getPerErrorDisplay(BOOL* pfPerErrorDisplay) mut => VT.[Friend]getPerErrorDisplay(&this, pfPerErrorDisplay);
+	public HRESULT getPerErrorDisplay(BOOL pfPerErrorDisplay) mut => VT.[Friend]getPerErrorDisplay(&this, pfPerErrorDisplay);
 
 	public HRESULT setPerErrorDisplay(BOOL fPerErrorDisplay) mut => VT.[Friend]setPerErrorDisplay(&this, fPerErrorDisplay);
 }
@@ -15802,14 +15802,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DFConstraint*/SelfOuter* self, BSTR* pbs) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DFConstraint*/SelfOuter* self, VARIANT* pv) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DFConstraint*/SelfOuter* self, BSTR pbs) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DFConstraint*/SelfOuter* self, VARIANT pv) get_Value;
 	}
 
 
-	public HRESULT get_Name(BSTR* pbs) mut => VT.[Friend]get_Name(&this, pbs);
+	public HRESULT get_Name(BSTR pbs) mut => VT.[Friend]get_Name(&this, pbs);
 
-	public HRESULT get_Value(VARIANT* pv) mut => VT.[Friend]get_Value(&this, pv);
+	public HRESULT get_Value(VARIANT pv) mut => VT.[Friend]get_Value(&this, pv);
 }
 
 [CRepr]struct FolderItem : IDispatch
@@ -15820,57 +15820,57 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, IDispatch** ppid) get_Application;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, IDispatch** ppid) get_Parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, BSTR* pbs) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, IDispatch* ppid) get_Application;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, IDispatch* ppid) get_Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, BSTR pbs) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, BSTR bs) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, BSTR* pbs) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, IDispatch** ppid) get_GetLink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, IDispatch** ppid) get_GetFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, int16* pb) get_IsLink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, int16* pb) get_IsFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, int16* pb) get_IsFileSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, int16* pb) get_IsBrowsable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, double* pdt) get_ModifyDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, BSTR pbs) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, IDispatch* ppid) get_GetLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, IDispatch* ppid) get_GetFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, int16 pb) get_IsLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, int16 pb) get_IsFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, int16 pb) get_IsFileSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, int16 pb) get_IsBrowsable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, double pdt) get_ModifyDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, double dt) put_ModifyDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, int32* pul) get_Size;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, BSTR* pbs) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, FolderItemVerbs** ppfic) Verbs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, int32 pul) get_Size;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, BSTR pbs) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, FolderItemVerbs* ppfic) Verbs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem*/SelfOuter* self, VARIANT vVerb) InvokeVerb;
 	}
 
 
-	public HRESULT get_Application(IDispatch** ppid) mut => VT.[Friend]get_Application(&this, ppid);
+	public HRESULT get_Application(IDispatch* ppid) mut => VT.[Friend]get_Application(&this, ppid);
 
-	public HRESULT get_Parent(IDispatch** ppid) mut => VT.[Friend]get_Parent(&this, ppid);
+	public HRESULT get_Parent(IDispatch* ppid) mut => VT.[Friend]get_Parent(&this, ppid);
 
-	public HRESULT get_Name(BSTR* pbs) mut => VT.[Friend]get_Name(&this, pbs);
+	public HRESULT get_Name(BSTR pbs) mut => VT.[Friend]get_Name(&this, pbs);
 
 	public HRESULT put_Name(BSTR bs) mut => VT.[Friend]put_Name(&this, bs);
 
-	public HRESULT get_Path(BSTR* pbs) mut => VT.[Friend]get_Path(&this, pbs);
+	public HRESULT get_Path(BSTR pbs) mut => VT.[Friend]get_Path(&this, pbs);
 
-	public HRESULT get_GetLink(IDispatch** ppid) mut => VT.[Friend]get_GetLink(&this, ppid);
+	public HRESULT get_GetLink(IDispatch* ppid) mut => VT.[Friend]get_GetLink(&this, ppid);
 
-	public HRESULT get_GetFolder(IDispatch** ppid) mut => VT.[Friend]get_GetFolder(&this, ppid);
+	public HRESULT get_GetFolder(IDispatch* ppid) mut => VT.[Friend]get_GetFolder(&this, ppid);
 
-	public HRESULT get_IsLink(int16* pb) mut => VT.[Friend]get_IsLink(&this, pb);
+	public HRESULT get_IsLink(int16 pb) mut => VT.[Friend]get_IsLink(&this, pb);
 
-	public HRESULT get_IsFolder(int16* pb) mut => VT.[Friend]get_IsFolder(&this, pb);
+	public HRESULT get_IsFolder(int16 pb) mut => VT.[Friend]get_IsFolder(&this, pb);
 
-	public HRESULT get_IsFileSystem(int16* pb) mut => VT.[Friend]get_IsFileSystem(&this, pb);
+	public HRESULT get_IsFileSystem(int16 pb) mut => VT.[Friend]get_IsFileSystem(&this, pb);
 
-	public HRESULT get_IsBrowsable(int16* pb) mut => VT.[Friend]get_IsBrowsable(&this, pb);
+	public HRESULT get_IsBrowsable(int16 pb) mut => VT.[Friend]get_IsBrowsable(&this, pb);
 
-	public HRESULT get_ModifyDate(double* pdt) mut => VT.[Friend]get_ModifyDate(&this, pdt);
+	public HRESULT get_ModifyDate(double pdt) mut => VT.[Friend]get_ModifyDate(&this, pdt);
 
 	public HRESULT put_ModifyDate(double dt) mut => VT.[Friend]put_ModifyDate(&this, dt);
 
-	public HRESULT get_Size(int32* pul) mut => VT.[Friend]get_Size(&this, pul);
+	public HRESULT get_Size(int32 pul) mut => VT.[Friend]get_Size(&this, pul);
 
-	public HRESULT get_Type(BSTR* pbs) mut => VT.[Friend]get_Type(&this, pbs);
+	public HRESULT get_Type(BSTR pbs) mut => VT.[Friend]get_Type(&this, pbs);
 
-	public HRESULT Verbs(FolderItemVerbs** ppfic) mut => VT.[Friend]Verbs(&this, ppfic);
+	public HRESULT Verbs(FolderItemVerbs* ppfic) mut => VT.[Friend]Verbs(&this, ppfic);
 
 	public HRESULT InvokeVerb(VARIANT vVerb) mut => VT.[Friend]InvokeVerb(&this, vVerb);
 }
@@ -15883,23 +15883,23 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems*/SelfOuter* self, IDispatch** ppid) get_Application;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems*/SelfOuter* self, IDispatch** ppid) get_Parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems*/SelfOuter* self, VARIANT index, FolderItem** ppid) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems*/SelfOuter* self, IUnknown** ppunk) _NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems*/SelfOuter* self, IDispatch* ppid) get_Application;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems*/SelfOuter* self, IDispatch* ppid) get_Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems*/SelfOuter* self, VARIANT index, FolderItem* ppid) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems*/SelfOuter* self, IUnknown* ppunk) _NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get_Application(IDispatch** ppid) mut => VT.[Friend]get_Application(&this, ppid);
+	public HRESULT get_Application(IDispatch* ppid) mut => VT.[Friend]get_Application(&this, ppid);
 
-	public HRESULT get_Parent(IDispatch** ppid) mut => VT.[Friend]get_Parent(&this, ppid);
+	public HRESULT get_Parent(IDispatch* ppid) mut => VT.[Friend]get_Parent(&this, ppid);
 
-	public HRESULT Item(VARIANT index, FolderItem** ppid) mut => VT.[Friend]Item(&this, index, ppid);
+	public HRESULT Item(VARIANT index, FolderItem* ppid) mut => VT.[Friend]Item(&this, index, ppid);
 
-	public HRESULT _NewEnum(IUnknown** ppunk) mut => VT.[Friend]_NewEnum(&this, ppunk);
+	public HRESULT _NewEnum(IUnknown* ppunk) mut => VT.[Friend]_NewEnum(&this, ppunk);
 }
 
 [CRepr]struct FolderItemVerb : IDispatch
@@ -15910,18 +15910,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerb*/SelfOuter* self, IDispatch** ppid) get_Application;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerb*/SelfOuter* self, IDispatch** ppid) get_Parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerb*/SelfOuter* self, BSTR* pbs) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerb*/SelfOuter* self, IDispatch* ppid) get_Application;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerb*/SelfOuter* self, IDispatch* ppid) get_Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerb*/SelfOuter* self, BSTR pbs) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerb*/SelfOuter* self) DoIt;
 	}
 
 
-	public HRESULT get_Application(IDispatch** ppid) mut => VT.[Friend]get_Application(&this, ppid);
+	public HRESULT get_Application(IDispatch* ppid) mut => VT.[Friend]get_Application(&this, ppid);
 
-	public HRESULT get_Parent(IDispatch** ppid) mut => VT.[Friend]get_Parent(&this, ppid);
+	public HRESULT get_Parent(IDispatch* ppid) mut => VT.[Friend]get_Parent(&this, ppid);
 
-	public HRESULT get_Name(BSTR* pbs) mut => VT.[Friend]get_Name(&this, pbs);
+	public HRESULT get_Name(BSTR pbs) mut => VT.[Friend]get_Name(&this, pbs);
 
 	public HRESULT DoIt() mut => VT.[Friend]DoIt(&this);
 }
@@ -15934,23 +15934,23 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerbs*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerbs*/SelfOuter* self, IDispatch** ppid) get_Application;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerbs*/SelfOuter* self, IDispatch** ppid) get_Parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerbs*/SelfOuter* self, VARIANT index, FolderItemVerb** ppid) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerbs*/SelfOuter* self, IUnknown** ppunk) _NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerbs*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerbs*/SelfOuter* self, IDispatch* ppid) get_Application;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerbs*/SelfOuter* self, IDispatch* ppid) get_Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerbs*/SelfOuter* self, VARIANT index, FolderItemVerb* ppid) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItemVerbs*/SelfOuter* self, IUnknown* ppunk) _NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get_Application(IDispatch** ppid) mut => VT.[Friend]get_Application(&this, ppid);
+	public HRESULT get_Application(IDispatch* ppid) mut => VT.[Friend]get_Application(&this, ppid);
 
-	public HRESULT get_Parent(IDispatch** ppid) mut => VT.[Friend]get_Parent(&this, ppid);
+	public HRESULT get_Parent(IDispatch* ppid) mut => VT.[Friend]get_Parent(&this, ppid);
 
-	public HRESULT Item(VARIANT index, FolderItemVerb** ppid) mut => VT.[Friend]Item(&this, index, ppid);
+	public HRESULT Item(VARIANT index, FolderItemVerb* ppid) mut => VT.[Friend]Item(&this, index, ppid);
 
-	public HRESULT _NewEnum(IUnknown** ppunk) mut => VT.[Friend]_NewEnum(&this, ppunk);
+	public HRESULT _NewEnum(IUnknown* ppunk) mut => VT.[Friend]_NewEnum(&this, ppunk);
 }
 
 [CRepr]struct Folder : IDispatch
@@ -15961,30 +15961,30 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, BSTR* pbs) get_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, IDispatch** ppid) get_Application;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, IDispatch** ppid) get_Parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, Folder** ppsf) get_ParentFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, FolderItems** ppid) Items;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, BSTR bName, FolderItem** ppid) ParseName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, BSTR pbs) get_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, IDispatch* ppid) get_Application;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, IDispatch* ppid) get_Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, Folder* ppsf) get_ParentFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, FolderItems* ppid) Items;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, BSTR bName, FolderItem* ppid) ParseName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, BSTR bName, VARIANT vOptions) NewFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, VARIANT vItem, VARIANT vOptions) MoveHere;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, VARIANT vItem, VARIANT vOptions) CopyHere;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, VARIANT vItem, int32 iColumn, BSTR* pbs) GetDetailsOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder*/SelfOuter* self, VARIANT vItem, int32 iColumn, BSTR pbs) GetDetailsOf;
 	}
 
 
-	public HRESULT get_Title(BSTR* pbs) mut => VT.[Friend]get_Title(&this, pbs);
+	public HRESULT get_Title(BSTR pbs) mut => VT.[Friend]get_Title(&this, pbs);
 
-	public HRESULT get_Application(IDispatch** ppid) mut => VT.[Friend]get_Application(&this, ppid);
+	public HRESULT get_Application(IDispatch* ppid) mut => VT.[Friend]get_Application(&this, ppid);
 
-	public HRESULT get_Parent(IDispatch** ppid) mut => VT.[Friend]get_Parent(&this, ppid);
+	public HRESULT get_Parent(IDispatch* ppid) mut => VT.[Friend]get_Parent(&this, ppid);
 
-	public HRESULT get_ParentFolder(Folder** ppsf) mut => VT.[Friend]get_ParentFolder(&this, ppsf);
+	public HRESULT get_ParentFolder(Folder* ppsf) mut => VT.[Friend]get_ParentFolder(&this, ppsf);
 
-	public HRESULT Items(FolderItems** ppid) mut => VT.[Friend]Items(&this, ppid);
+	public HRESULT Items(FolderItems* ppid) mut => VT.[Friend]Items(&this, ppid);
 
-	public HRESULT ParseName(BSTR bName, FolderItem** ppid) mut => VT.[Friend]ParseName(&this, bName, ppid);
+	public HRESULT ParseName(BSTR bName, FolderItem* ppid) mut => VT.[Friend]ParseName(&this, bName, ppid);
 
 	public HRESULT NewFolder(BSTR bName, VARIANT vOptions) mut => VT.[Friend]NewFolder(&this, bName, vOptions);
 
@@ -15992,7 +15992,7 @@ public static
 
 	public HRESULT CopyHere(VARIANT vItem, VARIANT vOptions) mut => VT.[Friend]CopyHere(&this, vItem, vOptions);
 
-	public HRESULT GetDetailsOf(VARIANT vItem, int32 iColumn, BSTR* pbs) mut => VT.[Friend]GetDetailsOf(&this, vItem, iColumn, pbs);
+	public HRESULT GetDetailsOf(VARIANT vItem, int32 iColumn, BSTR pbs) mut => VT.[Friend]GetDetailsOf(&this, vItem, iColumn, pbs);
 }
 
 [CRepr]struct Folder2 : Folder
@@ -16003,21 +16003,21 @@ public static
 
 	[CRepr]public struct VTable : Folder.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder2*/SelfOuter* self, FolderItem** ppfi) get_Self;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder2*/SelfOuter* self, int32* pul) get_OfflineStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder2*/SelfOuter* self, FolderItem* ppfi) get_Self;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder2*/SelfOuter* self, int32 pul) get_OfflineStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder2*/SelfOuter* self) Synchronize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder2*/SelfOuter* self, int16* pbHaveToShowWebViewBarricade) get_HaveToShowWebViewBarricade;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder2*/SelfOuter* self, int16 pbHaveToShowWebViewBarricade) get_HaveToShowWebViewBarricade;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder2*/SelfOuter* self) DismissedWebViewBarricade;
 	}
 
 
-	public HRESULT get_Self(FolderItem** ppfi) mut => VT.[Friend]get_Self(&this, ppfi);
+	public HRESULT get_Self(FolderItem* ppfi) mut => VT.[Friend]get_Self(&this, ppfi);
 
-	public HRESULT get_OfflineStatus(int32* pul) mut => VT.[Friend]get_OfflineStatus(&this, pul);
+	public HRESULT get_OfflineStatus(int32 pul) mut => VT.[Friend]get_OfflineStatus(&this, pul);
 
 	public HRESULT Synchronize() mut => VT.[Friend]Synchronize(&this);
 
-	public HRESULT get_HaveToShowWebViewBarricade(int16* pbHaveToShowWebViewBarricade) mut => VT.[Friend]get_HaveToShowWebViewBarricade(&this, pbHaveToShowWebViewBarricade);
+	public HRESULT get_HaveToShowWebViewBarricade(int16 pbHaveToShowWebViewBarricade) mut => VT.[Friend]get_HaveToShowWebViewBarricade(&this, pbHaveToShowWebViewBarricade);
 
 	public HRESULT DismissedWebViewBarricade() mut => VT.[Friend]DismissedWebViewBarricade(&this);
 }
@@ -16030,12 +16030,12 @@ public static
 
 	[CRepr]public struct VTable : Folder2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder3*/SelfOuter* self, int16* pbShowWebViewBarricade) get_ShowWebViewBarricade;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder3*/SelfOuter* self, int16 pbShowWebViewBarricade) get_ShowWebViewBarricade;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*Folder3*/SelfOuter* self, int16 bShowWebViewBarricade) put_ShowWebViewBarricade;
 	}
 
 
-	public HRESULT get_ShowWebViewBarricade(int16* pbShowWebViewBarricade) mut => VT.[Friend]get_ShowWebViewBarricade(&this, pbShowWebViewBarricade);
+	public HRESULT get_ShowWebViewBarricade(int16 pbShowWebViewBarricade) mut => VT.[Friend]get_ShowWebViewBarricade(&this, pbShowWebViewBarricade);
 
 	public HRESULT put_ShowWebViewBarricade(int16 bShowWebViewBarricade) mut => VT.[Friend]put_ShowWebViewBarricade(&this, bShowWebViewBarricade);
 }
@@ -16049,13 +16049,13 @@ public static
 	[CRepr]public struct VTable : FolderItem.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem2*/SelfOuter* self, VARIANT vVerb, VARIANT vArgs) InvokeVerbEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem2*/SelfOuter* self, BSTR bstrPropName, VARIANT* pvRet) ExtendedProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItem2*/SelfOuter* self, BSTR bstrPropName, VARIANT pvRet) ExtendedProperty;
 	}
 
 
 	public HRESULT InvokeVerbEx(VARIANT vVerb, VARIANT vArgs) mut => VT.[Friend]InvokeVerbEx(&this, vVerb, vArgs);
 
-	public HRESULT ExtendedProperty(BSTR bstrPropName, VARIANT* pvRet) mut => VT.[Friend]ExtendedProperty(&this, bstrPropName, pvRet);
+	public HRESULT ExtendedProperty(BSTR bstrPropName, VARIANT pvRet) mut => VT.[Friend]ExtendedProperty(&this, bstrPropName, pvRet);
 }
 
 [CRepr]struct FolderItems2 : FolderItems
@@ -16082,13 +16082,13 @@ public static
 	[CRepr]public struct VTable : FolderItems2.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems3*/SelfOuter* self, int32 grfFlags, BSTR bstrFileSpec) Filter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems3*/SelfOuter* self, FolderItemVerbs** ppfic) get_Verbs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*FolderItems3*/SelfOuter* self, FolderItemVerbs* ppfic) get_Verbs;
 	}
 
 
 	public HRESULT Filter(int32 grfFlags, BSTR bstrFileSpec) mut => VT.[Friend]Filter(&this, grfFlags, bstrFileSpec);
 
-	public HRESULT get_Verbs(FolderItemVerbs** ppfic) mut => VT.[Friend]get_Verbs(&this, ppfic);
+	public HRESULT get_Verbs(FolderItemVerbs* ppfic) mut => VT.[Friend]get_Verbs(&this, ppfic);
 }
 
 [CRepr]struct IShellLinkDual : IDispatch
@@ -16099,52 +16099,52 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR* pbs) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR pbs) get_Path;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR bs) put_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR* pbs) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR pbs) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR bs) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR* pbs) get_WorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR pbs) get_WorkingDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR bs) put_WorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR* pbs) get_Arguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR pbs) get_Arguments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR bs) put_Arguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, int32* piHK) get_Hotkey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, int32 piHK) get_Hotkey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, int32 iHK) put_Hotkey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, int32* piShowCommand) get_ShowCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, int32 piShowCommand) get_ShowCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, int32 iShowCommand) put_ShowCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, int32 fFlags) Resolve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR* pbs, int32* piIcon) GetIconLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR pbs, int32 piIcon) GetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, BSTR bs, int32 iIcon) SetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual*/SelfOuter* self, VARIANT vWhere) Save;
 	}
 
 
-	public HRESULT get_Path(BSTR* pbs) mut => VT.[Friend]get_Path(&this, pbs);
+	public HRESULT get_Path(BSTR pbs) mut => VT.[Friend]get_Path(&this, pbs);
 
 	public HRESULT put_Path(BSTR bs) mut => VT.[Friend]put_Path(&this, bs);
 
-	public HRESULT get_Description(BSTR* pbs) mut => VT.[Friend]get_Description(&this, pbs);
+	public HRESULT get_Description(BSTR pbs) mut => VT.[Friend]get_Description(&this, pbs);
 
 	public HRESULT put_Description(BSTR bs) mut => VT.[Friend]put_Description(&this, bs);
 
-	public HRESULT get_WorkingDirectory(BSTR* pbs) mut => VT.[Friend]get_WorkingDirectory(&this, pbs);
+	public HRESULT get_WorkingDirectory(BSTR pbs) mut => VT.[Friend]get_WorkingDirectory(&this, pbs);
 
 	public HRESULT put_WorkingDirectory(BSTR bs) mut => VT.[Friend]put_WorkingDirectory(&this, bs);
 
-	public HRESULT get_Arguments(BSTR* pbs) mut => VT.[Friend]get_Arguments(&this, pbs);
+	public HRESULT get_Arguments(BSTR pbs) mut => VT.[Friend]get_Arguments(&this, pbs);
 
 	public HRESULT put_Arguments(BSTR bs) mut => VT.[Friend]put_Arguments(&this, bs);
 
-	public HRESULT get_Hotkey(int32* piHK) mut => VT.[Friend]get_Hotkey(&this, piHK);
+	public HRESULT get_Hotkey(int32 piHK) mut => VT.[Friend]get_Hotkey(&this, piHK);
 
 	public HRESULT put_Hotkey(int32 iHK) mut => VT.[Friend]put_Hotkey(&this, iHK);
 
-	public HRESULT get_ShowCommand(int32* piShowCommand) mut => VT.[Friend]get_ShowCommand(&this, piShowCommand);
+	public HRESULT get_ShowCommand(int32 piShowCommand) mut => VT.[Friend]get_ShowCommand(&this, piShowCommand);
 
 	public HRESULT put_ShowCommand(int32 iShowCommand) mut => VT.[Friend]put_ShowCommand(&this, iShowCommand);
 
 	public HRESULT Resolve(int32 fFlags) mut => VT.[Friend]Resolve(&this, fFlags);
 
-	public HRESULT GetIconLocation(BSTR* pbs, int32* piIcon) mut => VT.[Friend]GetIconLocation(&this, pbs, piIcon);
+	public HRESULT GetIconLocation(BSTR pbs, int32 piIcon) mut => VT.[Friend]GetIconLocation(&this, pbs, piIcon);
 
 	public HRESULT SetIconLocation(BSTR bs, int32 iIcon) mut => VT.[Friend]SetIconLocation(&this, bs, iIcon);
 
@@ -16159,11 +16159,11 @@ public static
 
 	[CRepr]public struct VTable : IShellLinkDual.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual2*/SelfOuter* self, FolderItem** ppfi) get_Target;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellLinkDual2*/SelfOuter* self, FolderItem* ppfi) get_Target;
 	}
 
 
-	public HRESULT get_Target(FolderItem** ppfi) mut => VT.[Friend]get_Target(&this, ppfi);
+	public HRESULT get_Target(FolderItem* ppfi) mut => VT.[Friend]get_Target(&this, ppfi);
 }
 
 [CRepr]struct IShellFolderViewDual : IDispatch
@@ -16174,35 +16174,35 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, IDispatch** ppid) get_Application;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, IDispatch** ppid) get_Parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, Folder** ppid) get_Folder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, FolderItems** ppid) SelectedItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, FolderItem** ppid) get_FocusedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, VARIANT* pvfi, int32 dwFlags) SelectItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, FolderItem* pfi, VARIANT vx, VARIANT vy, BSTR* pbs) PopupItemMenu;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, IDispatch** ppDisp) get_Script;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, int32* plViewOptions) get_ViewOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, IDispatch* ppid) get_Application;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, IDispatch* ppid) get_Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, Folder* ppid) get_Folder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, FolderItems* ppid) SelectedItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, FolderItem* ppid) get_FocusedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, VARIANT pvfi, int32 dwFlags) SelectItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, FolderItem* pfi, VARIANT vx, VARIANT vy, BSTR pbs) PopupItemMenu;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, IDispatch* ppDisp) get_Script;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual*/SelfOuter* self, int32 plViewOptions) get_ViewOptions;
 	}
 
 
-	public HRESULT get_Application(IDispatch** ppid) mut => VT.[Friend]get_Application(&this, ppid);
+	public HRESULT get_Application(IDispatch* ppid) mut => VT.[Friend]get_Application(&this, ppid);
 
-	public HRESULT get_Parent(IDispatch** ppid) mut => VT.[Friend]get_Parent(&this, ppid);
+	public HRESULT get_Parent(IDispatch* ppid) mut => VT.[Friend]get_Parent(&this, ppid);
 
-	public HRESULT get_Folder(Folder** ppid) mut => VT.[Friend]get_Folder(&this, ppid);
+	public HRESULT get_Folder(Folder* ppid) mut => VT.[Friend]get_Folder(&this, ppid);
 
-	public HRESULT SelectedItems(FolderItems** ppid) mut => VT.[Friend]SelectedItems(&this, ppid);
+	public HRESULT SelectedItems(FolderItems* ppid) mut => VT.[Friend]SelectedItems(&this, ppid);
 
-	public HRESULT get_FocusedItem(FolderItem** ppid) mut => VT.[Friend]get_FocusedItem(&this, ppid);
+	public HRESULT get_FocusedItem(FolderItem* ppid) mut => VT.[Friend]get_FocusedItem(&this, ppid);
 
-	public HRESULT SelectItem(VARIANT* pvfi, int32 dwFlags) mut => VT.[Friend]SelectItem(&this, pvfi, dwFlags);
+	public HRESULT SelectItem(VARIANT pvfi, int32 dwFlags) mut => VT.[Friend]SelectItem(&this, pvfi, dwFlags);
 
-	public HRESULT PopupItemMenu(FolderItem* pfi, VARIANT vx, VARIANT vy, BSTR* pbs) mut => VT.[Friend]PopupItemMenu(&this, pfi, vx, vy, pbs);
+	public HRESULT PopupItemMenu(FolderItem* pfi, VARIANT vx, VARIANT vy, BSTR pbs) mut => VT.[Friend]PopupItemMenu(&this, pfi, vx, vy, pbs);
 
-	public HRESULT get_Script(IDispatch** ppDisp) mut => VT.[Friend]get_Script(&this, ppDisp);
+	public HRESULT get_Script(IDispatch* ppDisp) mut => VT.[Friend]get_Script(&this, ppDisp);
 
-	public HRESULT get_ViewOptions(int32* plViewOptions) mut => VT.[Friend]get_ViewOptions(&this, plViewOptions);
+	public HRESULT get_ViewOptions(int32 plViewOptions) mut => VT.[Friend]get_ViewOptions(&this, plViewOptions);
 }
 
 [CRepr]struct IShellFolderViewDual2 : IShellFolderViewDual
@@ -16213,13 +16213,13 @@ public static
 
 	[CRepr]public struct VTable : IShellFolderViewDual.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual2*/SelfOuter* self, uint32* pViewMode) get_CurrentViewMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual2*/SelfOuter* self, uint32 pViewMode) get_CurrentViewMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual2*/SelfOuter* self, uint32 ViewMode) put_CurrentViewMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual2*/SelfOuter* self, int32 iRelative) SelectItemRelative;
 	}
 
 
-	public HRESULT get_CurrentViewMode(uint32* pViewMode) mut => VT.[Friend]get_CurrentViewMode(&this, pViewMode);
+	public HRESULT get_CurrentViewMode(uint32 pViewMode) mut => VT.[Friend]get_CurrentViewMode(&this, pViewMode);
 
 	public HRESULT put_CurrentViewMode(uint32 ViewMode) mut => VT.[Friend]put_CurrentViewMode(&this, ViewMode);
 
@@ -16234,33 +16234,33 @@ public static
 
 	[CRepr]public struct VTable : IShellFolderViewDual2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, BSTR* pbstrGroupBy) get_GroupBy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, BSTR pbstrGroupBy) get_GroupBy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, BSTR bstrGroupBy) put_GroupBy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, uint32* pdwFlags) get_FolderFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, uint32 pdwFlags) get_FolderFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, uint32 dwFlags) put_FolderFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, BSTR* pbstrSortColumns) get_SortColumns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, BSTR pbstrSortColumns) get_SortColumns;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, BSTR bstrSortColumns) put_SortColumns;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, int32 iIconSize) put_IconSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, int32* piIconSize) get_IconSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, int32 piIconSize) get_IconSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderViewDual3*/SelfOuter* self, BSTR bstrFilterText) FilterView;
 	}
 
 
-	public HRESULT get_GroupBy(BSTR* pbstrGroupBy) mut => VT.[Friend]get_GroupBy(&this, pbstrGroupBy);
+	public HRESULT get_GroupBy(BSTR pbstrGroupBy) mut => VT.[Friend]get_GroupBy(&this, pbstrGroupBy);
 
 	public HRESULT put_GroupBy(BSTR bstrGroupBy) mut => VT.[Friend]put_GroupBy(&this, bstrGroupBy);
 
-	public HRESULT get_FolderFlags(uint32* pdwFlags) mut => VT.[Friend]get_FolderFlags(&this, pdwFlags);
+	public HRESULT get_FolderFlags(uint32 pdwFlags) mut => VT.[Friend]get_FolderFlags(&this, pdwFlags);
 
 	public HRESULT put_FolderFlags(uint32 dwFlags) mut => VT.[Friend]put_FolderFlags(&this, dwFlags);
 
-	public HRESULT get_SortColumns(BSTR* pbstrSortColumns) mut => VT.[Friend]get_SortColumns(&this, pbstrSortColumns);
+	public HRESULT get_SortColumns(BSTR pbstrSortColumns) mut => VT.[Friend]get_SortColumns(&this, pbstrSortColumns);
 
 	public HRESULT put_SortColumns(BSTR bstrSortColumns) mut => VT.[Friend]put_SortColumns(&this, bstrSortColumns);
 
 	public HRESULT put_IconSize(int32 iIconSize) mut => VT.[Friend]put_IconSize(&this, iIconSize);
 
-	public HRESULT get_IconSize(int32* piIconSize) mut => VT.[Friend]get_IconSize(&this, piIconSize);
+	public HRESULT get_IconSize(int32 piIconSize) mut => VT.[Friend]get_IconSize(&this, piIconSize);
 
 	public HRESULT FilterView(BSTR bstrFilterText) mut => VT.[Friend]FilterView(&this, bstrFilterText);
 }
@@ -16273,11 +16273,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, IDispatch** ppid) get_Application;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, IDispatch** ppid) get_Parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, VARIANT vDir, Folder** ppsdf) NameSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, int32 Hwnd, BSTR Title, int32 Options, VARIANT RootFolder, Folder** ppsdf) BrowseForFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, IDispatch** ppid) Windows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, IDispatch* ppid) get_Application;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, IDispatch* ppid) get_Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, VARIANT vDir, Folder* ppsdf) NameSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, int32 Hwnd, BSTR Title, int32 Options, VARIANT RootFolder, Folder* ppsdf) BrowseForFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, IDispatch* ppid) Windows;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, VARIANT vDir) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self, VARIANT vDir) Explore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch*/SelfOuter* self) MinimizeAll;
@@ -16299,15 +16299,15 @@ public static
 	}
 
 
-	public HRESULT get_Application(IDispatch** ppid) mut => VT.[Friend]get_Application(&this, ppid);
+	public HRESULT get_Application(IDispatch* ppid) mut => VT.[Friend]get_Application(&this, ppid);
 
-	public HRESULT get_Parent(IDispatch** ppid) mut => VT.[Friend]get_Parent(&this, ppid);
+	public HRESULT get_Parent(IDispatch* ppid) mut => VT.[Friend]get_Parent(&this, ppid);
 
-	public HRESULT NameSpace(VARIANT vDir, Folder** ppsdf) mut => VT.[Friend]NameSpace(&this, vDir, ppsdf);
+	public HRESULT NameSpace(VARIANT vDir, Folder* ppsdf) mut => VT.[Friend]NameSpace(&this, vDir, ppsdf);
 
-	public HRESULT BrowseForFolder(int32 Hwnd, BSTR Title, int32 Options, VARIANT RootFolder, Folder** ppsdf) mut => VT.[Friend]BrowseForFolder(&this, Hwnd, Title, Options, RootFolder, ppsdf);
+	public HRESULT BrowseForFolder(int32 Hwnd, BSTR Title, int32 Options, VARIANT RootFolder, Folder* ppsdf) mut => VT.[Friend]BrowseForFolder(&this, Hwnd, Title, Options, RootFolder, ppsdf);
 
-	public HRESULT Windows(IDispatch** ppid) mut => VT.[Friend]Windows(&this, ppid);
+	public HRESULT Windows(IDispatch* ppid) mut => VT.[Friend]Windows(&this, ppid);
 
 	public HRESULT Open(VARIANT vDir) mut => VT.[Friend]Open(&this, vDir);
 
@@ -16354,35 +16354,35 @@ public static
 
 	[CRepr]public struct VTable : IShellDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR Group, BSTR Restriction, int32* plRestrictValue) IsRestricted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR Group, BSTR Restriction, int32 plRestrictValue) IsRestricted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR File, VARIANT vArgs, VARIANT vDir, VARIANT vOperation, VARIANT vShow) ShellExecute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR name, BSTR location, BSTR model) FindPrinter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR name, VARIANT* pv) GetSystemInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR ServiceName, VARIANT Persistent, VARIANT* pSuccess) ServiceStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR ServiceName, VARIANT Persistent, VARIANT* pSuccess) ServiceStop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR ServiceName, VARIANT* pRunning) IsServiceRunning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR ServiceName, VARIANT* pCanStartStop) CanStartStopService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR bstrClsid, VARIANT bShow, VARIANT* pSuccess) ShowBrowserBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR name, VARIANT pv) GetSystemInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR ServiceName, VARIANT Persistent, VARIANT pSuccess) ServiceStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR ServiceName, VARIANT Persistent, VARIANT pSuccess) ServiceStop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR ServiceName, VARIANT pRunning) IsServiceRunning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR ServiceName, VARIANT pCanStartStop) CanStartStopService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch2*/SelfOuter* self, BSTR bstrClsid, VARIANT bShow, VARIANT pSuccess) ShowBrowserBar;
 	}
 
 
-	public HRESULT IsRestricted(BSTR Group, BSTR Restriction, int32* plRestrictValue) mut => VT.[Friend]IsRestricted(&this, Group, Restriction, plRestrictValue);
+	public HRESULT IsRestricted(BSTR Group, BSTR Restriction, int32 plRestrictValue) mut => VT.[Friend]IsRestricted(&this, Group, Restriction, plRestrictValue);
 
 	public HRESULT ShellExecute(BSTR File, VARIANT vArgs, VARIANT vDir, VARIANT vOperation, VARIANT vShow) mut => VT.[Friend]ShellExecute(&this, File, vArgs, vDir, vOperation, vShow);
 
 	public HRESULT FindPrinter(BSTR name, BSTR location, BSTR model) mut => VT.[Friend]FindPrinter(&this, name, location, model);
 
-	public HRESULT GetSystemInformation(BSTR name, VARIANT* pv) mut => VT.[Friend]GetSystemInformation(&this, name, pv);
+	public HRESULT GetSystemInformation(BSTR name, VARIANT pv) mut => VT.[Friend]GetSystemInformation(&this, name, pv);
 
-	public HRESULT ServiceStart(BSTR ServiceName, VARIANT Persistent, VARIANT* pSuccess) mut => VT.[Friend]ServiceStart(&this, ServiceName, Persistent, pSuccess);
+	public HRESULT ServiceStart(BSTR ServiceName, VARIANT Persistent, VARIANT pSuccess) mut => VT.[Friend]ServiceStart(&this, ServiceName, Persistent, pSuccess);
 
-	public HRESULT ServiceStop(BSTR ServiceName, VARIANT Persistent, VARIANT* pSuccess) mut => VT.[Friend]ServiceStop(&this, ServiceName, Persistent, pSuccess);
+	public HRESULT ServiceStop(BSTR ServiceName, VARIANT Persistent, VARIANT pSuccess) mut => VT.[Friend]ServiceStop(&this, ServiceName, Persistent, pSuccess);
 
-	public HRESULT IsServiceRunning(BSTR ServiceName, VARIANT* pRunning) mut => VT.[Friend]IsServiceRunning(&this, ServiceName, pRunning);
+	public HRESULT IsServiceRunning(BSTR ServiceName, VARIANT pRunning) mut => VT.[Friend]IsServiceRunning(&this, ServiceName, pRunning);
 
-	public HRESULT CanStartStopService(BSTR ServiceName, VARIANT* pCanStartStop) mut => VT.[Friend]CanStartStopService(&this, ServiceName, pCanStartStop);
+	public HRESULT CanStartStopService(BSTR ServiceName, VARIANT pCanStartStop) mut => VT.[Friend]CanStartStopService(&this, ServiceName, pCanStartStop);
 
-	public HRESULT ShowBrowserBar(BSTR bstrClsid, VARIANT bShow, VARIANT* pSuccess) mut => VT.[Friend]ShowBrowserBar(&this, bstrClsid, bShow, pSuccess);
+	public HRESULT ShowBrowserBar(BSTR bstrClsid, VARIANT bShow, VARIANT pSuccess) mut => VT.[Friend]ShowBrowserBar(&this, bstrClsid, bShow, pSuccess);
 }
 
 [CRepr]struct IShellDispatch3 : IShellDispatch2
@@ -16410,8 +16410,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch4*/SelfOuter* self) WindowsSecurity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch4*/SelfOuter* self) ToggleDesktop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch4*/SelfOuter* self, BSTR bstrPolicyName, VARIANT* pValue) ExplorerPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch4*/SelfOuter* self, int32 lSetting, int16* pResult) GetSetting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch4*/SelfOuter* self, BSTR bstrPolicyName, VARIANT pValue) ExplorerPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDispatch4*/SelfOuter* self, int32 lSetting, int16 pResult) GetSetting;
 	}
 
 
@@ -16419,9 +16419,9 @@ public static
 
 	public HRESULT ToggleDesktop() mut => VT.[Friend]ToggleDesktop(&this);
 
-	public HRESULT ExplorerPolicy(BSTR bstrPolicyName, VARIANT* pValue) mut => VT.[Friend]ExplorerPolicy(&this, bstrPolicyName, pValue);
+	public HRESULT ExplorerPolicy(BSTR bstrPolicyName, VARIANT pValue) mut => VT.[Friend]ExplorerPolicy(&this, bstrPolicyName, pValue);
 
-	public HRESULT GetSetting(int32 lSetting, int16* pResult) mut => VT.[Friend]GetSetting(&this, lSetting, pResult);
+	public HRESULT GetSetting(int32 lSetting, int16 pResult) mut => VT.[Friend]GetSetting(&this, lSetting, pResult);
 }
 
 [CRepr]struct IShellDispatch5 : IShellDispatch4
@@ -16463,22 +16463,22 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSearchBand*/SelfOuter* self) SetFocus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSearchBand*/SelfOuter* self, BSTR* pbstrSearchID, int16 bNavToResults, VARIANT* pvarScope, VARIANT* pvarQueryFile) SetSearchParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSearchBand*/SelfOuter* self, BSTR* pbstrSearchID) get_SearchID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSearchBand*/SelfOuter* self, VARIANT* pvarScope) get_Scope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSearchBand*/SelfOuter* self, VARIANT* pvarFile) get_QueryFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSearchBand*/SelfOuter* self, BSTR pbstrSearchID, int16 bNavToResults, VARIANT pvarScope, VARIANT pvarQueryFile) SetSearchParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSearchBand*/SelfOuter* self, BSTR pbstrSearchID) get_SearchID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSearchBand*/SelfOuter* self, VARIANT pvarScope) get_Scope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSearchBand*/SelfOuter* self, VARIANT pvarFile) get_QueryFile;
 	}
 
 
 	public HRESULT SetFocus() mut => VT.[Friend]SetFocus(&this);
 
-	public HRESULT SetSearchParameters(BSTR* pbstrSearchID, int16 bNavToResults, VARIANT* pvarScope, VARIANT* pvarQueryFile) mut => VT.[Friend]SetSearchParameters(&this, pbstrSearchID, bNavToResults, pvarScope, pvarQueryFile);
+	public HRESULT SetSearchParameters(BSTR pbstrSearchID, int16 bNavToResults, VARIANT pvarScope, VARIANT pvarQueryFile) mut => VT.[Friend]SetSearchParameters(&this, pbstrSearchID, bNavToResults, pvarScope, pvarQueryFile);
 
-	public HRESULT get_SearchID(BSTR* pbstrSearchID) mut => VT.[Friend]get_SearchID(&this, pbstrSearchID);
+	public HRESULT get_SearchID(BSTR pbstrSearchID) mut => VT.[Friend]get_SearchID(&this, pbstrSearchID);
 
-	public HRESULT get_Scope(VARIANT* pvarScope) mut => VT.[Friend]get_Scope(&this, pvarScope);
+	public HRESULT get_Scope(VARIANT pvarScope) mut => VT.[Friend]get_Scope(&this, pvarScope);
 
-	public HRESULT get_QueryFile(VARIANT* pvarFile) mut => VT.[Friend]get_QueryFile(&this, pvarFile);
+	public HRESULT get_QueryFile(VARIANT pvarFile) mut => VT.[Friend]get_QueryFile(&this, pvarFile);
 }
 
 [CRepr]struct IWebWizardHost : IDispatch
@@ -16493,9 +16493,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self) FinalNext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self) Cancel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self, BSTR bstrCaption) put_Caption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self, BSTR* pbstrCaption) get_Caption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self, BSTR bstrPropertyName, VARIANT* pvProperty) put_Property;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self, BSTR bstrPropertyName, VARIANT* pvProperty) get_Property;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self, BSTR pbstrCaption) get_Caption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self, BSTR bstrPropertyName, VARIANT pvProperty) put_Property;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self, BSTR bstrPropertyName, VARIANT pvProperty) get_Property;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self, int16 vfEnableBack, int16 vfEnableNext, int16 vfLastPage) SetWizardButtons;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost*/SelfOuter* self, BSTR bstrHeaderTitle, BSTR bstrHeaderSubtitle) SetHeaderText;
 	}
@@ -16509,11 +16509,11 @@ public static
 
 	public HRESULT put_Caption(BSTR bstrCaption) mut => VT.[Friend]put_Caption(&this, bstrCaption);
 
-	public HRESULT get_Caption(BSTR* pbstrCaption) mut => VT.[Friend]get_Caption(&this, pbstrCaption);
+	public HRESULT get_Caption(BSTR pbstrCaption) mut => VT.[Friend]get_Caption(&this, pbstrCaption);
 
-	public HRESULT put_Property(BSTR bstrPropertyName, VARIANT* pvProperty) mut => VT.[Friend]put_Property(&this, bstrPropertyName, pvProperty);
+	public HRESULT put_Property(BSTR bstrPropertyName, VARIANT pvProperty) mut => VT.[Friend]put_Property(&this, bstrPropertyName, pvProperty);
 
-	public HRESULT get_Property(BSTR bstrPropertyName, VARIANT* pvProperty) mut => VT.[Friend]get_Property(&this, bstrPropertyName, pvProperty);
+	public HRESULT get_Property(BSTR bstrPropertyName, VARIANT pvProperty) mut => VT.[Friend]get_Property(&this, bstrPropertyName, pvProperty);
 
 	public HRESULT SetWizardButtons(int16 vfEnableBack, int16 vfEnableNext, int16 vfLastPage) mut => VT.[Friend]SetWizardButtons(&this, vfEnableBack, vfEnableNext, vfLastPage);
 
@@ -16528,11 +16528,11 @@ public static
 
 	[CRepr]public struct VTable : IWebWizardHost.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost2*/SelfOuter* self, BSTR value, BSTR* signedValue) SignString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebWizardHost2*/SelfOuter* self, BSTR value, BSTR signedValue) SignString;
 	}
 
 
-	public HRESULT SignString(BSTR value, BSTR* signedValue) mut => VT.[Friend]SignString(&this, value, signedValue);
+	public HRESULT SignString(BSTR value, BSTR signedValue) mut => VT.[Friend]SignString(&this, value, signedValue);
 }
 
 [CRepr]struct INewWDEvents : IWebWizardHost
@@ -16543,11 +16543,11 @@ public static
 
 	[CRepr]public struct VTable : IWebWizardHost.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewWDEvents*/SelfOuter* self, BSTR bstrSignInUrl, int16* pvfAuthenitcated) PassportAuthenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INewWDEvents*/SelfOuter* self, BSTR bstrSignInUrl, int16 pvfAuthenitcated) PassportAuthenticate;
 	}
 
 
-	public HRESULT PassportAuthenticate(BSTR bstrSignInUrl, int16* pvfAuthenitcated) mut => VT.[Friend]PassportAuthenticate(&this, bstrSignInUrl, pvfAuthenitcated);
+	public HRESULT PassportAuthenticate(BSTR bstrSignInUrl, int16 pvfAuthenitcated) mut => VT.[Friend]PassportAuthenticate(&this, bstrSignInUrl, pvfAuthenitcated);
 }
 
 [CRepr]struct IAutoComplete : IUnknown
@@ -16577,13 +16577,13 @@ public static
 	[CRepr]public struct VTable : IAutoComplete.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAutoComplete2*/SelfOuter* self, uint32 dwFlag) SetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAutoComplete2*/SelfOuter* self, uint32* pdwFlag) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAutoComplete2*/SelfOuter* self, uint32 pdwFlag) GetOptions;
 	}
 
 
 	public HRESULT SetOptions(uint32 dwFlag) mut => VT.[Friend]SetOptions(&this, dwFlag);
 
-	public HRESULT GetOptions(uint32* pdwFlag) mut => VT.[Friend]GetOptions(&this, pdwFlag);
+	public HRESULT GetOptions(uint32 pdwFlag) mut => VT.[Friend]GetOptions(&this, pdwFlag);
 }
 
 [CRepr]struct IEnumACString : IEnumString
@@ -16594,17 +16594,17 @@ public static
 
 	[CRepr]public struct VTable : IEnumString.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumACString*/SelfOuter* self, char16* pszUrl, uint32 cchMax, uint32* pulSortIndex) NextItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumACString*/SelfOuter* self, char16* pszUrl, uint32 cchMax, uint32 pulSortIndex) NextItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumACString*/SelfOuter* self, uint32 dwOptions) SetEnumOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumACString*/SelfOuter* self, uint32* pdwOptions) GetEnumOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumACString*/SelfOuter* self, uint32 pdwOptions) GetEnumOptions;
 	}
 
 
-	public HRESULT NextItem(char16* pszUrl, uint32 cchMax, uint32* pulSortIndex) mut => VT.[Friend]NextItem(&this, pszUrl, cchMax, pulSortIndex);
+	public HRESULT NextItem(char16* pszUrl, uint32 cchMax, uint32 pulSortIndex) mut => VT.[Friend]NextItem(&this, pszUrl, cchMax, pulSortIndex);
 
 	public HRESULT SetEnumOptions(uint32 dwOptions) mut => VT.[Friend]SetEnumOptions(&this, dwOptions);
 
-	public HRESULT GetEnumOptions(uint32* pdwOptions) mut => VT.[Friend]GetEnumOptions(&this, pdwOptions);
+	public HRESULT GetEnumOptions(uint32 pdwOptions) mut => VT.[Friend]GetEnumOptions(&this, pdwOptions);
 }
 
 [CRepr]struct IDataObjectAsyncCapability : IUnknown
@@ -16616,20 +16616,20 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataObjectAsyncCapability*/SelfOuter* self, BOOL fDoOpAsync) SetAsyncMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataObjectAsyncCapability*/SelfOuter* self, BOOL* pfIsOpAsync) GetAsyncMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataObjectAsyncCapability*/SelfOuter* self, BOOL pfIsOpAsync) GetAsyncMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataObjectAsyncCapability*/SelfOuter* self, IBindCtx* pbcReserved) StartOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataObjectAsyncCapability*/SelfOuter* self, BOOL* pfInAsyncOp) InOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataObjectAsyncCapability*/SelfOuter* self, BOOL pfInAsyncOp) InOperation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataObjectAsyncCapability*/SelfOuter* self, HRESULT hResult, IBindCtx* pbcReserved, uint32 dwEffects) EndOperation;
 	}
 
 
 	public HRESULT SetAsyncMode(BOOL fDoOpAsync) mut => VT.[Friend]SetAsyncMode(&this, fDoOpAsync);
 
-	public HRESULT GetAsyncMode(BOOL* pfIsOpAsync) mut => VT.[Friend]GetAsyncMode(&this, pfIsOpAsync);
+	public HRESULT GetAsyncMode(BOOL pfIsOpAsync) mut => VT.[Friend]GetAsyncMode(&this, pfIsOpAsync);
 
 	public HRESULT StartOperation(IBindCtx* pbcReserved) mut => VT.[Friend]StartOperation(&this, pbcReserved);
 
-	public HRESULT InOperation(BOOL* pfInAsyncOp) mut => VT.[Friend]InOperation(&this, pfInAsyncOp);
+	public HRESULT InOperation(BOOL pfInAsyncOp) mut => VT.[Friend]InOperation(&this, pfInAsyncOp);
 
 	public HRESULT EndOperation(HRESULT hResult, IBindCtx* pbcReserved, uint32 dwEffects) mut => VT.[Friend]EndOperation(&this, hResult, pbcReserved, dwEffects);
 }
@@ -16642,14 +16642,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconA*/SelfOuter* self, uint32 uFlags, uint8* pszIconFile, uint32 cchMax, int32* piIndex, uint32* pwFlags) GetIconLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconA*/SelfOuter* self, PSTR pszFile, uint32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize) Extract;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconA*/SelfOuter* self, uint32 uFlags, uint8* pszIconFile, uint32 cchMax, int32 piIndex, uint32 pwFlags) GetIconLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconA*/SelfOuter* self, PSTR pszFile, uint32 nIconIndex, HICON phiconLarge, HICON phiconSmall, uint32 nIconSize) Extract;
 	}
 
 
-	public HRESULT GetIconLocation(uint32 uFlags, uint8* pszIconFile, uint32 cchMax, int32* piIndex, uint32* pwFlags) mut => VT.[Friend]GetIconLocation(&this, uFlags, pszIconFile, cchMax, piIndex, pwFlags);
+	public HRESULT GetIconLocation(uint32 uFlags, uint8* pszIconFile, uint32 cchMax, int32 piIndex, uint32 pwFlags) mut => VT.[Friend]GetIconLocation(&this, uFlags, pszIconFile, cchMax, piIndex, pwFlags);
 
-	public HRESULT Extract(PSTR pszFile, uint32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize) mut => VT.[Friend]Extract(&this, pszFile, nIconIndex, phiconLarge, phiconSmall, nIconSize);
+	public HRESULT Extract(PSTR pszFile, uint32 nIconIndex, HICON phiconLarge, HICON phiconSmall, uint32 nIconSize) mut => VT.[Friend]Extract(&this, pszFile, nIconIndex, phiconLarge, phiconSmall, nIconSize);
 }
 
 [CRepr]struct IExtractIconW : IUnknown
@@ -16660,14 +16660,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconW*/SelfOuter* self, uint32 uFlags, char16* pszIconFile, uint32 cchMax, int32* piIndex, uint32* pwFlags) GetIconLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconW*/SelfOuter* self, PWSTR pszFile, uint32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize) Extract;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconW*/SelfOuter* self, uint32 uFlags, char16* pszIconFile, uint32 cchMax, int32 piIndex, uint32 pwFlags) GetIconLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtractIconW*/SelfOuter* self, PWSTR pszFile, uint32 nIconIndex, HICON phiconLarge, HICON phiconSmall, uint32 nIconSize) Extract;
 	}
 
 
-	public HRESULT GetIconLocation(uint32 uFlags, char16* pszIconFile, uint32 cchMax, int32* piIndex, uint32* pwFlags) mut => VT.[Friend]GetIconLocation(&this, uFlags, pszIconFile, cchMax, piIndex, pwFlags);
+	public HRESULT GetIconLocation(uint32 uFlags, char16* pszIconFile, uint32 cchMax, int32 piIndex, uint32 pwFlags) mut => VT.[Friend]GetIconLocation(&this, uFlags, pszIconFile, cchMax, piIndex, pwFlags);
 
-	public HRESULT Extract(PWSTR pszFile, uint32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize) mut => VT.[Friend]Extract(&this, pszFile, nIconIndex, phiconLarge, phiconSmall, nIconSize);
+	public HRESULT Extract(PWSTR pszFile, uint32 nIconIndex, HICON phiconLarge, HICON phiconSmall, uint32 nIconSize) mut => VT.[Friend]Extract(&this, pszFile, nIconIndex, phiconLarge, phiconSmall, nIconSize);
 }
 
 [CRepr]struct IShellIconOverlayManager : IUnknown
@@ -16678,23 +16678,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayManager*/SelfOuter* self, PWSTR pwszPath, uint32 dwAttrib, int32* pIndex, uint32 dwflags) GetFileOverlayInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayManager*/SelfOuter* self, PWSTR pwszPath, uint32 dwAttrib, int32* pIndex, uint32 dwflags, int32 iReservedID) GetReservedOverlayInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayManager*/SelfOuter* self, PWSTR pwszPath, uint32 dwAttrib, int32 pIndex, uint32 dwflags) GetFileOverlayInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayManager*/SelfOuter* self, PWSTR pwszPath, uint32 dwAttrib, int32 pIndex, uint32 dwflags, int32 iReservedID) GetReservedOverlayInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayManager*/SelfOuter* self, uint32 dwFlags) RefreshOverlayImages;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayManager*/SelfOuter* self) LoadNonloadedOverlayIdentifiers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayManager*/SelfOuter* self, int32 iImage, int32* piIndex, BOOL fAdd) OverlayIndexFromImageIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlayManager*/SelfOuter* self, int32 iImage, int32 piIndex, BOOL fAdd) OverlayIndexFromImageIndex;
 	}
 
 
-	public HRESULT GetFileOverlayInfo(PWSTR pwszPath, uint32 dwAttrib, int32* pIndex, uint32 dwflags) mut => VT.[Friend]GetFileOverlayInfo(&this, pwszPath, dwAttrib, pIndex, dwflags);
+	public HRESULT GetFileOverlayInfo(PWSTR pwszPath, uint32 dwAttrib, int32 pIndex, uint32 dwflags) mut => VT.[Friend]GetFileOverlayInfo(&this, pwszPath, dwAttrib, pIndex, dwflags);
 
-	public HRESULT GetReservedOverlayInfo(PWSTR pwszPath, uint32 dwAttrib, int32* pIndex, uint32 dwflags, int32 iReservedID) mut => VT.[Friend]GetReservedOverlayInfo(&this, pwszPath, dwAttrib, pIndex, dwflags, iReservedID);
+	public HRESULT GetReservedOverlayInfo(PWSTR pwszPath, uint32 dwAttrib, int32 pIndex, uint32 dwflags, int32 iReservedID) mut => VT.[Friend]GetReservedOverlayInfo(&this, pwszPath, dwAttrib, pIndex, dwflags, iReservedID);
 
 	public HRESULT RefreshOverlayImages(uint32 dwFlags) mut => VT.[Friend]RefreshOverlayImages(&this, dwFlags);
 
 	public HRESULT LoadNonloadedOverlayIdentifiers() mut => VT.[Friend]LoadNonloadedOverlayIdentifiers(&this);
 
-	public HRESULT OverlayIndexFromImageIndex(int32 iImage, int32* piIndex, BOOL fAdd) mut => VT.[Friend]OverlayIndexFromImageIndex(&this, iImage, piIndex, fAdd);
+	public HRESULT OverlayIndexFromImageIndex(int32 iImage, int32 piIndex, BOOL fAdd) mut => VT.[Friend]OverlayIndexFromImageIndex(&this, iImage, piIndex, fAdd);
 }
 
 [CRepr]struct IShellIconOverlay : IUnknown
@@ -16705,14 +16705,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlay*/SelfOuter* self, ITEMIDLIST* pidl, int32* pIndex) GetOverlayIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlay*/SelfOuter* self, ITEMIDLIST* pidl, int32* pIconIndex) GetOverlayIconIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlay*/SelfOuter* self, ITEMIDLIST pidl, int32 pIndex) GetOverlayIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellIconOverlay*/SelfOuter* self, ITEMIDLIST pidl, int32 pIconIndex) GetOverlayIconIndex;
 	}
 
 
-	public HRESULT GetOverlayIndex(ITEMIDLIST* pidl, int32* pIndex) mut => VT.[Friend]GetOverlayIndex(&this, pidl, pIndex);
+	public HRESULT GetOverlayIndex(ITEMIDLIST pidl, int32 pIndex) mut => VT.[Friend]GetOverlayIndex(&this, pidl, pIndex);
 
-	public HRESULT GetOverlayIconIndex(ITEMIDLIST* pidl, int32* pIconIndex) mut => VT.[Friend]GetOverlayIconIndex(&this, pidl, pIconIndex);
+	public HRESULT GetOverlayIconIndex(ITEMIDLIST pidl, int32 pIconIndex) mut => VT.[Friend]GetOverlayIconIndex(&this, pidl, pIconIndex);
 }
 
 [CRepr]struct IURLSearchHook : IUnknown
@@ -16738,17 +16738,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchContext*/SelfOuter* self, BSTR* pbstrSearchUrl) GetSearchUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchContext*/SelfOuter* self, BSTR* pbstrSearchText) GetSearchText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchContext*/SelfOuter* self, uint32* pdwSearchStyle) GetSearchStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchContext*/SelfOuter* self, BSTR pbstrSearchUrl) GetSearchUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchContext*/SelfOuter* self, BSTR pbstrSearchText) GetSearchText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchContext*/SelfOuter* self, uint32 pdwSearchStyle) GetSearchStyle;
 	}
 
 
-	public HRESULT GetSearchUrl(BSTR* pbstrSearchUrl) mut => VT.[Friend]GetSearchUrl(&this, pbstrSearchUrl);
+	public HRESULT GetSearchUrl(BSTR pbstrSearchUrl) mut => VT.[Friend]GetSearchUrl(&this, pbstrSearchUrl);
 
-	public HRESULT GetSearchText(BSTR* pbstrSearchText) mut => VT.[Friend]GetSearchText(&this, pbstrSearchText);
+	public HRESULT GetSearchText(BSTR pbstrSearchText) mut => VT.[Friend]GetSearchText(&this, pbstrSearchText);
 
-	public HRESULT GetSearchStyle(uint32* pdwSearchStyle) mut => VT.[Friend]GetSearchStyle(&this, pdwSearchStyle);
+	public HRESULT GetSearchStyle(uint32 pdwSearchStyle) mut => VT.[Friend]GetSearchStyle(&this, pdwSearchStyle);
 }
 
 [CRepr]struct IURLSearchHook2 : IURLSearchHook
@@ -16774,12 +16774,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDetails*/SelfOuter* self, ITEMIDLIST* pidl, uint32 iColumn, SHELLDETAILS* pDetails) GetDetailsOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDetails*/SelfOuter* self, ITEMIDLIST pidl, uint32 iColumn, SHELLDETAILS pDetails) GetDetailsOf;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellDetails*/SelfOuter* self, uint32 iColumn) ColumnClick;
 	}
 
 
-	public HRESULT GetDetailsOf(ITEMIDLIST* pidl, uint32 iColumn, SHELLDETAILS* pDetails) mut => VT.[Friend]GetDetailsOf(&this, pidl, iColumn, pDetails);
+	public HRESULT GetDetailsOf(ITEMIDLIST pidl, uint32 iColumn, SHELLDETAILS pDetails) mut => VT.[Friend]GetDetailsOf(&this, pidl, iColumn, pDetails);
 
 	public HRESULT ColumnClick(uint32 iColumn) mut => VT.[Friend]ColumnClick(&this, iColumn);
 }
@@ -16826,13 +16826,13 @@ public static
 	[CRepr]public struct VTable : IACList.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IACList2*/SelfOuter* self, uint32 dwFlag) SetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IACList2*/SelfOuter* self, uint32* pdwFlag) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IACList2*/SelfOuter* self, uint32 pdwFlag) GetOptions;
 	}
 
 
 	public HRESULT SetOptions(uint32 dwFlag) mut => VT.[Friend]SetOptions(&this, dwFlag);
 
-	public HRESULT GetOptions(uint32* pdwFlag) mut => VT.[Friend]GetOptions(&this, pdwFlag);
+	public HRESULT GetOptions(uint32 pdwFlag) mut => VT.[Friend]GetOptions(&this, pdwFlag);
 }
 
 [CRepr]struct IProgressDialog : IUnknown
@@ -16843,20 +16843,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, HWND hwndParent, IUnknown* punkEnableModless, uint32 dwFlags, void* pvResevered) StartProgressDialog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, HWND hwndParent, IUnknown* punkEnableModless, uint32 dwFlags, void pvResevered) StartProgressDialog;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self) StopProgressDialog;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, PWSTR pwzTitle) SetTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, HINSTANCE hInstAnimation, uint32 idAnimation) SetAnimation;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*IProgressDialog*/SelfOuter* self) HasUserCancelled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, uint32 dwCompleted, uint32 dwTotal) SetProgress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, uint64 ullCompleted, uint64 ullTotal) SetProgress64;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, uint32 dwLineNum, PWSTR pwzString, BOOL fCompactPath, void* pvResevered) SetLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, PWSTR pwzCancelMsg, void* pvResevered) SetCancelMsg;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, uint32 dwTimerAction, void* pvResevered) Timer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, uint32 dwLineNum, PWSTR pwzString, BOOL fCompactPath, void pvResevered) SetLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, PWSTR pwzCancelMsg, void pvResevered) SetCancelMsg;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressDialog*/SelfOuter* self, uint32 dwTimerAction, void pvResevered) Timer;
 	}
 
 
-	public HRESULT StartProgressDialog(HWND hwndParent, IUnknown* punkEnableModless, uint32 dwFlags, void* pvResevered) mut => VT.[Friend]StartProgressDialog(&this, hwndParent, punkEnableModless, dwFlags, pvResevered);
+	public HRESULT StartProgressDialog(HWND hwndParent, IUnknown* punkEnableModless, uint32 dwFlags, void pvResevered) mut => VT.[Friend]StartProgressDialog(&this, hwndParent, punkEnableModless, dwFlags, pvResevered);
 
 	public HRESULT StopProgressDialog() mut => VT.[Friend]StopProgressDialog(&this);
 
@@ -16870,11 +16870,11 @@ public static
 
 	public HRESULT SetProgress64(uint64 ullCompleted, uint64 ullTotal) mut => VT.[Friend]SetProgress64(&this, ullCompleted, ullTotal);
 
-	public HRESULT SetLine(uint32 dwLineNum, PWSTR pwzString, BOOL fCompactPath, void* pvResevered) mut => VT.[Friend]SetLine(&this, dwLineNum, pwzString, fCompactPath, pvResevered);
+	public HRESULT SetLine(uint32 dwLineNum, PWSTR pwzString, BOOL fCompactPath, void pvResevered) mut => VT.[Friend]SetLine(&this, dwLineNum, pwzString, fCompactPath, pvResevered);
 
-	public HRESULT SetCancelMsg(PWSTR pwzCancelMsg, void* pvResevered) mut => VT.[Friend]SetCancelMsg(&this, pwzCancelMsg, pvResevered);
+	public HRESULT SetCancelMsg(PWSTR pwzCancelMsg, void pvResevered) mut => VT.[Friend]SetCancelMsg(&this, pwzCancelMsg, pvResevered);
 
-	public HRESULT Timer(uint32 dwTimerAction, void* pvResevered) mut => VT.[Friend]Timer(&this, dwTimerAction, pvResevered);
+	public HRESULT Timer(uint32 dwTimerAction, void pvResevered) mut => VT.[Friend]Timer(&this, dwTimerAction, pvResevered);
 }
 
 [CRepr]struct IDockingWindowSite : IOleWindow
@@ -16885,17 +16885,17 @@ public static
 
 	[CRepr]public struct VTable : IOleWindow.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindowSite*/SelfOuter* self, IUnknown* punkObj, RECT* prcBorder) GetBorderDW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindowSite*/SelfOuter* self, IUnknown* punkObj, RECT* pbw) RequestBorderSpaceDW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindowSite*/SelfOuter* self, IUnknown* punkObj, RECT* pbw) SetBorderSpaceDW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindowSite*/SelfOuter* self, IUnknown* punkObj, RECT prcBorder) GetBorderDW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindowSite*/SelfOuter* self, IUnknown* punkObj, RECT pbw) RequestBorderSpaceDW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindowSite*/SelfOuter* self, IUnknown* punkObj, RECT pbw) SetBorderSpaceDW;
 	}
 
 
-	public HRESULT GetBorderDW(IUnknown* punkObj, RECT* prcBorder) mut => VT.[Friend]GetBorderDW(&this, punkObj, prcBorder);
+	public HRESULT GetBorderDW(IUnknown* punkObj, RECT prcBorder) mut => VT.[Friend]GetBorderDW(&this, punkObj, prcBorder);
 
-	public HRESULT RequestBorderSpaceDW(IUnknown* punkObj, RECT* pbw) mut => VT.[Friend]RequestBorderSpaceDW(&this, punkObj, pbw);
+	public HRESULT RequestBorderSpaceDW(IUnknown* punkObj, RECT pbw) mut => VT.[Friend]RequestBorderSpaceDW(&this, punkObj, pbw);
 
-	public HRESULT SetBorderSpaceDW(IUnknown* punkObj, RECT* pbw) mut => VT.[Friend]SetBorderSpaceDW(&this, punkObj, pbw);
+	public HRESULT SetBorderSpaceDW(IUnknown* punkObj, RECT pbw) mut => VT.[Friend]SetBorderSpaceDW(&this, punkObj, pbw);
 }
 
 [CRepr]struct IShellChangeNotify : IUnknown
@@ -16906,11 +16906,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellChangeNotify*/SelfOuter* self, int32 lEvent, ITEMIDLIST* pidl1, ITEMIDLIST* pidl2) OnChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellChangeNotify*/SelfOuter* self, int32 lEvent, ITEMIDLIST pidl1, ITEMIDLIST pidl2) OnChange;
 	}
 
 
-	public HRESULT OnChange(int32 lEvent, ITEMIDLIST* pidl1, ITEMIDLIST* pidl2) mut => VT.[Friend]OnChange(&this, lEvent, pidl1, pidl2);
+	public HRESULT OnChange(int32 lEvent, ITEMIDLIST pidl1, ITEMIDLIST pidl2) mut => VT.[Friend]OnChange(&this, lEvent, pidl1, pidl2);
 }
 
 [CRepr]struct IQueryInfo : IUnknown
@@ -16921,14 +16921,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryInfo*/SelfOuter* self, QITIPF_FLAGS dwFlags, PWSTR* ppwszTip) GetInfoTip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryInfo*/SelfOuter* self, uint32* pdwFlags) GetInfoFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryInfo*/SelfOuter* self, QITIPF_FLAGS dwFlags, PWSTR ppwszTip) GetInfoTip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryInfo*/SelfOuter* self, uint32 pdwFlags) GetInfoFlags;
 	}
 
 
-	public HRESULT GetInfoTip(QITIPF_FLAGS dwFlags, PWSTR* ppwszTip) mut => VT.[Friend]GetInfoTip(&this, dwFlags, ppwszTip);
+	public HRESULT GetInfoTip(QITIPF_FLAGS dwFlags, PWSTR ppwszTip) mut => VT.[Friend]GetInfoTip(&this, dwFlags, ppwszTip);
 
-	public HRESULT GetInfoFlags(uint32* pdwFlags) mut => VT.[Friend]GetInfoFlags(&this, pdwFlags);
+	public HRESULT GetInfoFlags(uint32 pdwFlags) mut => VT.[Friend]GetInfoFlags(&this, pdwFlags);
 }
 
 [CRepr]struct IShellFolderViewCB : IUnknown
@@ -16955,39 +16955,39 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, LPARAM lParamSort) Rearrange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, LPARAM* plParamSort) GetArrangeParam;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, LPARAM plParamSort) GetArrangeParam;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self) ArrangeGrid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self) AutoArrange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self) GetAutoArrange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST* pidl, uint32* puItem) AddObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST** ppidl, uint32 uItem) GetObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST* pidl, uint32* puItem) RemoveObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, uint32* puCount) GetObjectCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST pidl, uint32 puItem) AddObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST ppidl, uint32 uItem) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST pidl, uint32 puItem) RemoveObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, uint32 puCount) GetObjectCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, uint32 uCount, uint32 dwFlags) SetObjectCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST* pidlOld, ITEMIDLIST* pidlNew, uint32* puItem) UpdateObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST* pidl, uint32* puItem) RefreshObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST pidlOld, ITEMIDLIST pidlNew, uint32 puItem) UpdateObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST pidl, uint32 puItem) RefreshObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, BOOL bRedraw) SetRedraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, uint32* puSelected) GetSelectedCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST*** pppidl, uint32* puItems) GetSelectedObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, uint32 puSelected) GetSelectedCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST pppidl, uint32 puItems) GetSelectedObjects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, IDropTarget* pDropTarget) IsDropOnSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, POINT* ppt) GetDragPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, POINT* ppt) GetDropPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, POINT ppt) GetDragPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, POINT ppt) GetDropPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, IDataObject* pDataObject) MoveIcons;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST* pidl, POINT* ppt) SetItemPos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMIDLIST pidl, POINT ppt) SetItemPos;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, IDropTarget* pDropTarget) IsBkDropTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, BOOL bMove) SetClipboard;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, IDataObject* pDataObject) SetPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMSPACING* pSpacing) GetItemSpacing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, IShellFolderViewCB* pNewCB, IShellFolderViewCB** ppOldCB) SetCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, ITEMSPACING pSpacing) GetItemSpacing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, IShellFolderViewCB* pNewCB, IShellFolderViewCB* ppOldCB) SetCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, SFVS_SELECT dwFlags) Select;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, uint32* pdwSupport) QuerySupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, uint32 pdwSupport) QuerySupport;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderView*/SelfOuter* self, IDispatch* pdisp) SetAutomationObject;
 	}
 
 
 	public HRESULT Rearrange(LPARAM lParamSort) mut => VT.[Friend]Rearrange(&this, lParamSort);
 
-	public HRESULT GetArrangeParam(LPARAM* plParamSort) mut => VT.[Friend]GetArrangeParam(&this, plParamSort);
+	public HRESULT GetArrangeParam(LPARAM plParamSort) mut => VT.[Friend]GetArrangeParam(&this, plParamSort);
 
 	public HRESULT ArrangeGrid() mut => VT.[Friend]ArrangeGrid(&this);
 
@@ -16995,35 +16995,35 @@ public static
 
 	public HRESULT GetAutoArrange() mut => VT.[Friend]GetAutoArrange(&this);
 
-	public HRESULT AddObject(ITEMIDLIST* pidl, uint32* puItem) mut => VT.[Friend]AddObject(&this, pidl, puItem);
+	public HRESULT AddObject(ITEMIDLIST pidl, uint32 puItem) mut => VT.[Friend]AddObject(&this, pidl, puItem);
 
-	public HRESULT GetObject(ITEMIDLIST** ppidl, uint32 uItem) mut => VT.[Friend]GetObject(&this, ppidl, uItem);
+	public HRESULT GetObject(ITEMIDLIST ppidl, uint32 uItem) mut => VT.[Friend]GetObject(&this, ppidl, uItem);
 
-	public HRESULT RemoveObject(ITEMIDLIST* pidl, uint32* puItem) mut => VT.[Friend]RemoveObject(&this, pidl, puItem);
+	public HRESULT RemoveObject(ITEMIDLIST pidl, uint32 puItem) mut => VT.[Friend]RemoveObject(&this, pidl, puItem);
 
-	public HRESULT GetObjectCount(uint32* puCount) mut => VT.[Friend]GetObjectCount(&this, puCount);
+	public HRESULT GetObjectCount(uint32 puCount) mut => VT.[Friend]GetObjectCount(&this, puCount);
 
 	public HRESULT SetObjectCount(uint32 uCount, uint32 dwFlags) mut => VT.[Friend]SetObjectCount(&this, uCount, dwFlags);
 
-	public HRESULT UpdateObject(ITEMIDLIST* pidlOld, ITEMIDLIST* pidlNew, uint32* puItem) mut => VT.[Friend]UpdateObject(&this, pidlOld, pidlNew, puItem);
+	public HRESULT UpdateObject(ITEMIDLIST pidlOld, ITEMIDLIST pidlNew, uint32 puItem) mut => VT.[Friend]UpdateObject(&this, pidlOld, pidlNew, puItem);
 
-	public HRESULT RefreshObject(ITEMIDLIST* pidl, uint32* puItem) mut => VT.[Friend]RefreshObject(&this, pidl, puItem);
+	public HRESULT RefreshObject(ITEMIDLIST pidl, uint32 puItem) mut => VT.[Friend]RefreshObject(&this, pidl, puItem);
 
 	public HRESULT SetRedraw(BOOL bRedraw) mut => VT.[Friend]SetRedraw(&this, bRedraw);
 
-	public HRESULT GetSelectedCount(uint32* puSelected) mut => VT.[Friend]GetSelectedCount(&this, puSelected);
+	public HRESULT GetSelectedCount(uint32 puSelected) mut => VT.[Friend]GetSelectedCount(&this, puSelected);
 
-	public HRESULT GetSelectedObjects(ITEMIDLIST*** pppidl, uint32* puItems) mut => VT.[Friend]GetSelectedObjects(&this, pppidl, puItems);
+	public HRESULT GetSelectedObjects(ITEMIDLIST pppidl, uint32 puItems) mut => VT.[Friend]GetSelectedObjects(&this, pppidl, puItems);
 
 	public HRESULT IsDropOnSource(IDropTarget* pDropTarget) mut => VT.[Friend]IsDropOnSource(&this, pDropTarget);
 
-	public HRESULT GetDragPoint(POINT* ppt) mut => VT.[Friend]GetDragPoint(&this, ppt);
+	public HRESULT GetDragPoint(POINT ppt) mut => VT.[Friend]GetDragPoint(&this, ppt);
 
-	public HRESULT GetDropPoint(POINT* ppt) mut => VT.[Friend]GetDropPoint(&this, ppt);
+	public HRESULT GetDropPoint(POINT ppt) mut => VT.[Friend]GetDropPoint(&this, ppt);
 
 	public HRESULT MoveIcons(IDataObject* pDataObject) mut => VT.[Friend]MoveIcons(&this, pDataObject);
 
-	public HRESULT SetItemPos(ITEMIDLIST* pidl, POINT* ppt) mut => VT.[Friend]SetItemPos(&this, pidl, ppt);
+	public HRESULT SetItemPos(ITEMIDLIST pidl, POINT ppt) mut => VT.[Friend]SetItemPos(&this, pidl, ppt);
 
 	public HRESULT IsBkDropTarget(IDropTarget* pDropTarget) mut => VT.[Friend]IsBkDropTarget(&this, pDropTarget);
 
@@ -17031,13 +17031,13 @@ public static
 
 	public HRESULT SetPoints(IDataObject* pDataObject) mut => VT.[Friend]SetPoints(&this, pDataObject);
 
-	public HRESULT GetItemSpacing(ITEMSPACING* pSpacing) mut => VT.[Friend]GetItemSpacing(&this, pSpacing);
+	public HRESULT GetItemSpacing(ITEMSPACING pSpacing) mut => VT.[Friend]GetItemSpacing(&this, pSpacing);
 
-	public HRESULT SetCallback(IShellFolderViewCB* pNewCB, IShellFolderViewCB** ppOldCB) mut => VT.[Friend]SetCallback(&this, pNewCB, ppOldCB);
+	public HRESULT SetCallback(IShellFolderViewCB* pNewCB, IShellFolderViewCB* ppOldCB) mut => VT.[Friend]SetCallback(&this, pNewCB, ppOldCB);
 
 	public HRESULT Select(SFVS_SELECT dwFlags) mut => VT.[Friend]Select(&this, dwFlags);
 
-	public HRESULT QuerySupport(uint32* pdwSupport) mut => VT.[Friend]QuerySupport(&this, pdwSupport);
+	public HRESULT QuerySupport(uint32 pdwSupport) mut => VT.[Friend]QuerySupport(&this, pdwSupport);
 
 	public HRESULT SetAutomationObject(IDispatch* pdisp) mut => VT.[Friend]SetAutomationObject(&this, pdisp);
 }
@@ -17050,15 +17050,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamedPropertyBag*/SelfOuter* self, PWSTR pszBagname, PWSTR pszPropName, PROPVARIANT* pVar) ReadPropertyNPB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamedPropertyBag*/SelfOuter* self, PWSTR pszBagname, PWSTR pszPropName, PROPVARIANT* pVar) WritePropertyNPB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamedPropertyBag*/SelfOuter* self, PWSTR pszBagname, PWSTR pszPropName, PROPVARIANT pVar) ReadPropertyNPB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamedPropertyBag*/SelfOuter* self, PWSTR pszBagname, PWSTR pszPropName, PROPVARIANT pVar) WritePropertyNPB;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamedPropertyBag*/SelfOuter* self, PWSTR pszBagname, PWSTR pszPropName) RemovePropertyNPB;
 	}
 
 
-	public HRESULT ReadPropertyNPB(PWSTR pszBagname, PWSTR pszPropName, PROPVARIANT* pVar) mut => VT.[Friend]ReadPropertyNPB(&this, pszBagname, pszPropName, pVar);
+	public HRESULT ReadPropertyNPB(PWSTR pszBagname, PWSTR pszPropName, PROPVARIANT pVar) mut => VT.[Friend]ReadPropertyNPB(&this, pszBagname, pszPropName, pVar);
 
-	public HRESULT WritePropertyNPB(PWSTR pszBagname, PWSTR pszPropName, PROPVARIANT* pVar) mut => VT.[Friend]WritePropertyNPB(&this, pszBagname, pszPropName, pVar);
+	public HRESULT WritePropertyNPB(PWSTR pszBagname, PWSTR pszPropName, PROPVARIANT pVar) mut => VT.[Friend]WritePropertyNPB(&this, pszBagname, pszPropName, pVar);
 
 	public HRESULT RemovePropertyNPB(PWSTR pszBagname, PWSTR pszPropName) mut => VT.[Friend]RemovePropertyNPB(&this, pszBagname, pszPropName);
 }
@@ -17181,7 +17181,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindowFrame*/SelfOuter* self, IUnknown* punkSrc, PWSTR pwszItem, uint32 dwAddFlags) AddToolbar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindowFrame*/SelfOuter* self, IUnknown* punkSrc, uint32 dwRemoveFlags) RemoveToolbar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindowFrame*/SelfOuter* self, PWSTR pwszItem, Guid riid, void** ppv) FindToolbar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDockingWindowFrame*/SelfOuter* self, PWSTR pwszItem, Guid riid, void ppv) FindToolbar;
 	}
 
 
@@ -17189,7 +17189,7 @@ public static
 
 	public HRESULT RemoveToolbar(IUnknown* punkSrc, uint32 dwRemoveFlags) mut => VT.[Friend]RemoveToolbar(&this, punkSrc, dwRemoveFlags);
 
-	public HRESULT FindToolbar(PWSTR pwszItem, Guid riid, void** ppv) mut => VT.[Friend]FindToolbar(&this, pwszItem, riid, ppv);
+	public HRESULT FindToolbar(PWSTR pwszItem, Guid riid, void ppv) mut => VT.[Friend]FindToolbar(&this, pwszItem, riid, ppv);
 }
 
 [CRepr]struct IThumbnailCapture : IUnknown
@@ -17200,11 +17200,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailCapture*/SelfOuter* self, SIZE* pMaxSize, IUnknown* pHTMLDoc2, HBITMAP* phbmThumbnail) CaptureThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailCapture*/SelfOuter* self, SIZE pMaxSize, IUnknown* pHTMLDoc2, HBITMAP phbmThumbnail) CaptureThumbnail;
 	}
 
 
-	public HRESULT CaptureThumbnail(SIZE* pMaxSize, IUnknown* pHTMLDoc2, HBITMAP* phbmThumbnail) mut => VT.[Friend]CaptureThumbnail(&this, pMaxSize, pHTMLDoc2, phbmThumbnail);
+	public HRESULT CaptureThumbnail(SIZE pMaxSize, IUnknown* pHTMLDoc2, HBITMAP phbmThumbnail) mut => VT.[Friend]CaptureThumbnail(&this, pMaxSize, pHTMLDoc2, phbmThumbnail);
 }
 
 [CRepr]struct IShellFolderBand : IUnknown
@@ -17215,17 +17215,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderBand*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST* pidl) InitializeSFB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderBand*/SelfOuter* self, BANDINFOSFB* pbi) SetBandInfoSFB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderBand*/SelfOuter* self, BANDINFOSFB* pbi) GetBandInfoSFB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderBand*/SelfOuter* self, IShellFolder* psf, ITEMIDLIST pidl) InitializeSFB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderBand*/SelfOuter* self, BANDINFOSFB pbi) SetBandInfoSFB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellFolderBand*/SelfOuter* self, BANDINFOSFB pbi) GetBandInfoSFB;
 	}
 
 
-	public HRESULT InitializeSFB(IShellFolder* psf, ITEMIDLIST* pidl) mut => VT.[Friend]InitializeSFB(&this, psf, pidl);
+	public HRESULT InitializeSFB(IShellFolder* psf, ITEMIDLIST pidl) mut => VT.[Friend]InitializeSFB(&this, psf, pidl);
 
-	public HRESULT SetBandInfoSFB(BANDINFOSFB* pbi) mut => VT.[Friend]SetBandInfoSFB(&this, pbi);
+	public HRESULT SetBandInfoSFB(BANDINFOSFB pbi) mut => VT.[Friend]SetBandInfoSFB(&this, pbi);
 
-	public HRESULT GetBandInfoSFB(BANDINFOSFB* pbi) mut => VT.[Friend]GetBandInfoSFB(&this, pbi);
+	public HRESULT GetBandInfoSFB(BANDINFOSFB pbi) mut => VT.[Friend]GetBandInfoSFB(&this, pbi);
 }
 
 [CRepr]struct IDeskBarClient : IOleWindow
@@ -17239,7 +17239,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBarClient*/SelfOuter* self, IUnknown* punkSite) SetDeskBarSite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBarClient*/SelfOuter* self, uint32 dwMode) SetModeDBC;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBarClient*/SelfOuter* self, uint32 dwState) UIActivateDBC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBarClient*/SelfOuter* self, uint32 dwWhich, RECT* prc) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeskBarClient*/SelfOuter* self, uint32 dwWhich, RECT prc) GetSize;
 	}
 
 
@@ -17249,7 +17249,7 @@ public static
 
 	public HRESULT UIActivateDBC(uint32 dwState) mut => VT.[Friend]UIActivateDBC(&this, dwState);
 
-	public HRESULT GetSize(uint32 dwWhich, RECT* prc) mut => VT.[Friend]GetSize(&this, dwWhich, prc);
+	public HRESULT GetSize(uint32 dwWhich, RECT prc) mut => VT.[Friend]GetSize(&this, dwWhich, prc);
 }
 
 [CRepr]struct IColumnProvider : IUnknown
@@ -17260,17 +17260,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnProvider*/SelfOuter* self, SHCOLUMNINIT* psci) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnProvider*/SelfOuter* self, uint32 dwIndex, SHCOLUMNINFO* psci) GetColumnInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnProvider*/SelfOuter* self, PROPERTYKEY* pscid, SHCOLUMNDATA* pscd, VARIANT* pvarData) GetItemData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnProvider*/SelfOuter* self, SHCOLUMNINIT psci) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnProvider*/SelfOuter* self, uint32 dwIndex, SHCOLUMNINFO psci) GetColumnInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnProvider*/SelfOuter* self, PROPERTYKEY pscid, SHCOLUMNDATA pscd, VARIANT pvarData) GetItemData;
 	}
 
 
-	public HRESULT Initialize(SHCOLUMNINIT* psci) mut => VT.[Friend]Initialize(&this, psci);
+	public HRESULT Initialize(SHCOLUMNINIT psci) mut => VT.[Friend]Initialize(&this, psci);
 
-	public HRESULT GetColumnInfo(uint32 dwIndex, SHCOLUMNINFO* psci) mut => VT.[Friend]GetColumnInfo(&this, dwIndex, psci);
+	public HRESULT GetColumnInfo(uint32 dwIndex, SHCOLUMNINFO psci) mut => VT.[Friend]GetColumnInfo(&this, dwIndex, psci);
 
-	public HRESULT GetItemData(PROPERTYKEY* pscid, SHCOLUMNDATA* pscd, VARIANT* pvarData) mut => VT.[Friend]GetItemData(&this, pscid, pscd, pvarData);
+	public HRESULT GetItemData(PROPERTYKEY pscid, SHCOLUMNDATA pscd, VARIANT pvarData) mut => VT.[Friend]GetItemData(&this, pscid, pscd, pvarData);
 }
 
 [CRepr]struct IDocViewSite : IUnknown
@@ -17281,11 +17281,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDocViewSite*/SelfOuter* self, VARIANT* pvTitle) OnSetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDocViewSite*/SelfOuter* self, VARIANT pvTitle) OnSetTitle;
 	}
 
 
-	public HRESULT OnSetTitle(VARIANT* pvTitle) mut => VT.[Friend]OnSetTitle(&this, pvTitle);
+	public HRESULT OnSetTitle(VARIANT pvTitle) mut => VT.[Friend]OnSetTitle(&this, pvTitle);
 }
 
 [CRepr]struct IInitializeObject : IUnknown
@@ -17312,19 +17312,19 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBanneredBar*/SelfOuter* self, uint32 iIcon) SetIconSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBanneredBar*/SelfOuter* self, uint32* piIcon) GetIconSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBanneredBar*/SelfOuter* self, uint32 piIcon) GetIconSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBanneredBar*/SelfOuter* self, HBITMAP hBitmap) SetBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBanneredBar*/SelfOuter* self, HBITMAP* phBitmap) GetBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBanneredBar*/SelfOuter* self, HBITMAP phBitmap) GetBitmap;
 	}
 
 
 	public HRESULT SetIconSize(uint32 iIcon) mut => VT.[Friend]SetIconSize(&this, iIcon);
 
-	public HRESULT GetIconSize(uint32* piIcon) mut => VT.[Friend]GetIconSize(&this, piIcon);
+	public HRESULT GetIconSize(uint32 piIcon) mut => VT.[Friend]GetIconSize(&this, piIcon);
 
 	public HRESULT SetBitmap(HBITMAP hBitmap) mut => VT.[Friend]SetBitmap(&this, hBitmap);
 
-	public HRESULT GetBitmap(HBITMAP* phBitmap) mut => VT.[Friend]GetBitmap(&this, phBitmap);
+	public HRESULT GetBitmap(HBITMAP phBitmap) mut => VT.[Friend]GetBitmap(&this, phBitmap);
 }
 
 [CRepr]struct IQueryAssociations : IUnknown
@@ -17336,22 +17336,22 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, PWSTR pszAssoc, HKEY hkProgid, HWND hwnd) Init;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCSTR str, PWSTR pszExtra, char16* pszOut, uint32* pcchOut) GetString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCKEY key, PWSTR pszExtra, HKEY* phkeyOut) GetKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCDATA data, PWSTR pszExtra, void* pvOut, uint32* pcbOut) GetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCENUM assocenum, PWSTR pszExtra, Guid riid, void** ppvOut) GetEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCSTR str, PWSTR pszExtra, char16* pszOut, uint32 pcchOut) GetString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCKEY key, PWSTR pszExtra, HKEY phkeyOut) GetKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCDATA data, PWSTR pszExtra, void pvOut, uint32 pcbOut) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAssociations*/SelfOuter* self, uint32 flags, ASSOCENUM assocenum, PWSTR pszExtra, Guid riid, void ppvOut) GetEnum;
 	}
 
 
 	public HRESULT Init(uint32 flags, PWSTR pszAssoc, HKEY hkProgid, HWND hwnd) mut => VT.[Friend]Init(&this, flags, pszAssoc, hkProgid, hwnd);
 
-	public HRESULT GetString(uint32 flags, ASSOCSTR str, PWSTR pszExtra, char16* pszOut, uint32* pcchOut) mut => VT.[Friend]GetString(&this, flags, str, pszExtra, pszOut, pcchOut);
+	public HRESULT GetString(uint32 flags, ASSOCSTR str, PWSTR pszExtra, char16* pszOut, uint32 pcchOut) mut => VT.[Friend]GetString(&this, flags, str, pszExtra, pszOut, pcchOut);
 
-	public HRESULT GetKey(uint32 flags, ASSOCKEY key, PWSTR pszExtra, HKEY* phkeyOut) mut => VT.[Friend]GetKey(&this, flags, key, pszExtra, phkeyOut);
+	public HRESULT GetKey(uint32 flags, ASSOCKEY key, PWSTR pszExtra, HKEY phkeyOut) mut => VT.[Friend]GetKey(&this, flags, key, pszExtra, phkeyOut);
 
-	public HRESULT GetData(uint32 flags, ASSOCDATA data, PWSTR pszExtra, void* pvOut, uint32* pcbOut) mut => VT.[Friend]GetData(&this, flags, data, pszExtra, pvOut, pcbOut);
+	public HRESULT GetData(uint32 flags, ASSOCDATA data, PWSTR pszExtra, void pvOut, uint32 pcbOut) mut => VT.[Friend]GetData(&this, flags, data, pszExtra, pvOut, pcbOut);
 
-	public HRESULT GetEnum(uint32 flags, ASSOCENUM assocenum, PWSTR pszExtra, Guid riid, void** ppvOut) mut => VT.[Friend]GetEnum(&this, flags, assocenum, pszExtra, riid, ppvOut);
+	public HRESULT GetEnum(uint32 flags, ASSOCENUM assocenum, PWSTR pszExtra, Guid riid, void ppvOut) mut => VT.[Friend]GetEnum(&this, flags, assocenum, pszExtra, riid, ppvOut);
 }
 
 [CRepr]struct IShellApp : IUnknown
@@ -17362,21 +17362,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellApp*/SelfOuter* self, APPINFODATA* pai) GetAppInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellApp*/SelfOuter* self, uint32* pdwActions) GetPossibleActions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellApp*/SelfOuter* self, SLOWAPPINFO* psaid) GetSlowAppInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellApp*/SelfOuter* self, SLOWAPPINFO* psaid) GetCachedSlowAppInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellApp*/SelfOuter* self, APPINFODATA pai) GetAppInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellApp*/SelfOuter* self, uint32 pdwActions) GetPossibleActions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellApp*/SelfOuter* self, SLOWAPPINFO psaid) GetSlowAppInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellApp*/SelfOuter* self, SLOWAPPINFO psaid) GetCachedSlowAppInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellApp*/SelfOuter* self) IsInstalled;
 	}
 
 
-	public HRESULT GetAppInfo(APPINFODATA* pai) mut => VT.[Friend]GetAppInfo(&this, pai);
+	public HRESULT GetAppInfo(APPINFODATA pai) mut => VT.[Friend]GetAppInfo(&this, pai);
 
-	public HRESULT GetPossibleActions(uint32* pdwActions) mut => VT.[Friend]GetPossibleActions(&this, pdwActions);
+	public HRESULT GetPossibleActions(uint32 pdwActions) mut => VT.[Friend]GetPossibleActions(&this, pdwActions);
 
-	public HRESULT GetSlowAppInfo(SLOWAPPINFO* psaid) mut => VT.[Friend]GetSlowAppInfo(&this, psaid);
+	public HRESULT GetSlowAppInfo(SLOWAPPINFO psaid) mut => VT.[Friend]GetSlowAppInfo(&this, psaid);
 
-	public HRESULT GetCachedSlowAppInfo(SLOWAPPINFO* psaid) mut => VT.[Friend]GetCachedSlowAppInfo(&this, psaid);
+	public HRESULT GetCachedSlowAppInfo(SLOWAPPINFO psaid) mut => VT.[Friend]GetCachedSlowAppInfo(&this, psaid);
 
 	public HRESULT IsInstalled() mut => VT.[Friend]IsInstalled(&this);
 }
@@ -17389,15 +17389,15 @@ public static
 
 	[CRepr]public struct VTable : IShellApp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublishedApp*/SelfOuter* self, SYSTEMTIME* pstInstall) Install;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublishedApp*/SelfOuter* self, PUBAPPINFO* ppai) GetPublishedAppInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublishedApp*/SelfOuter* self, SYSTEMTIME pstInstall) Install;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublishedApp*/SelfOuter* self, PUBAPPINFO ppai) GetPublishedAppInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublishedApp*/SelfOuter* self) Unschedule;
 	}
 
 
-	public HRESULT Install(SYSTEMTIME* pstInstall) mut => VT.[Friend]Install(&this, pstInstall);
+	public HRESULT Install(SYSTEMTIME pstInstall) mut => VT.[Friend]Install(&this, pstInstall);
 
-	public HRESULT GetPublishedAppInfo(PUBAPPINFO* ppai) mut => VT.[Friend]GetPublishedAppInfo(&this, ppai);
+	public HRESULT GetPublishedAppInfo(PUBAPPINFO ppai) mut => VT.[Friend]GetPublishedAppInfo(&this, ppai);
 
 	public HRESULT Unschedule() mut => VT.[Friend]Unschedule(&this);
 }
@@ -17410,11 +17410,11 @@ public static
 
 	[CRepr]public struct VTable : IPublishedApp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublishedApp2*/SelfOuter* self, SYSTEMTIME* pstInstall, HWND hwndParent) Install2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublishedApp2*/SelfOuter* self, SYSTEMTIME pstInstall, HWND hwndParent) Install2;
 	}
 
 
-	public HRESULT Install2(SYSTEMTIME* pstInstall, HWND hwndParent) mut => VT.[Friend]Install2(&this, pstInstall, hwndParent);
+	public HRESULT Install2(SYSTEMTIME pstInstall, HWND hwndParent) mut => VT.[Friend]Install2(&this, pstInstall, hwndParent);
 }
 
 [CRepr]struct IEnumPublishedApps : IUnknown
@@ -17425,12 +17425,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPublishedApps*/SelfOuter* self, IPublishedApp** pia) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPublishedApps*/SelfOuter* self, IPublishedApp* pia) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPublishedApps*/SelfOuter* self) Reset;
 	}
 
 
-	public HRESULT Next(IPublishedApp** pia) mut => VT.[Friend]Next(&this, pia);
+	public HRESULT Next(IPublishedApp* pia) mut => VT.[Friend]Next(&this, pia);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 }
@@ -17443,20 +17443,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppPublisher*/SelfOuter* self, uint32* pdwCat) GetNumberOfCategories;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppPublisher*/SelfOuter* self, APPCATEGORYINFOLIST* pAppCategoryList) GetCategories;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppPublisher*/SelfOuter* self, uint32* pdwApps) GetNumberOfApps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppPublisher*/SelfOuter* self, Guid pAppCategoryId, IEnumPublishedApps** ppepa) EnumApps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppPublisher*/SelfOuter* self, uint32 pdwCat) GetNumberOfCategories;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppPublisher*/SelfOuter* self, APPCATEGORYINFOLIST pAppCategoryList) GetCategories;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppPublisher*/SelfOuter* self, uint32 pdwApps) GetNumberOfApps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppPublisher*/SelfOuter* self, Guid pAppCategoryId, IEnumPublishedApps* ppepa) EnumApps;
 	}
 
 
-	public HRESULT GetNumberOfCategories(uint32* pdwCat) mut => VT.[Friend]GetNumberOfCategories(&this, pdwCat);
+	public HRESULT GetNumberOfCategories(uint32 pdwCat) mut => VT.[Friend]GetNumberOfCategories(&this, pdwCat);
 
-	public HRESULT GetCategories(APPCATEGORYINFOLIST* pAppCategoryList) mut => VT.[Friend]GetCategories(&this, pAppCategoryList);
+	public HRESULT GetCategories(APPCATEGORYINFOLIST pAppCategoryList) mut => VT.[Friend]GetCategories(&this, pAppCategoryList);
 
-	public HRESULT GetNumberOfApps(uint32* pdwApps) mut => VT.[Friend]GetNumberOfApps(&this, pdwApps);
+	public HRESULT GetNumberOfApps(uint32 pdwApps) mut => VT.[Friend]GetNumberOfApps(&this, pdwApps);
 
-	public HRESULT EnumApps(Guid pAppCategoryId, IEnumPublishedApps** ppepa) mut => VT.[Friend]EnumApps(&this, pAppCategoryId, ppepa);
+	public HRESULT EnumApps(Guid pAppCategoryId, IEnumPublishedApps* ppepa) mut => VT.[Friend]EnumApps(&this, pAppCategoryId, ppepa);
 }
 
 [CRepr]struct ICredentialProviderCredential : IUnknown
@@ -17469,21 +17469,21 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, ICredentialProviderCredentialEvents* pcpce) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self) UnAdvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, BOOL* pbAutoLogon) SetSelected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, BOOL pbAutoLogon) SetSelected;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self) SetDeselected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, CREDENTIAL_PROVIDER_FIELD_STATE* pcpfs, CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE* pcpfis) GetFieldState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, PWSTR* ppsz) GetStringValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, HBITMAP* phbmp) GetBitmapValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, BOOL* pbChecked, PWSTR* ppszLabel) GetCheckboxValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, uint32* pdwAdjacentTo) GetSubmitButtonValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, uint32* pcItems, uint32* pdwSelectedItem) GetComboBoxValueCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, uint32 dwItem, PWSTR* ppszItem) GetComboBoxValueAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, CREDENTIAL_PROVIDER_FIELD_STATE pcpfs, CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE pcpfis) GetFieldState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, PWSTR ppsz) GetStringValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, HBITMAP phbmp) GetBitmapValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, BOOL pbChecked, PWSTR ppszLabel) GetCheckboxValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, uint32 pdwAdjacentTo) GetSubmitButtonValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, uint32 pcItems, uint32 pdwSelectedItem) GetComboBoxValueCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, uint32 dwItem, PWSTR ppszItem) GetComboBoxValueAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, PWSTR psz) SetStringValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, BOOL bChecked) SetCheckboxValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID, uint32 dwSelectedItem) SetComboBoxSelectedValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, uint32 dwFieldID) CommandLinkClicked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE* pcpgsr, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcs, PWSTR* ppszOptionalStatusText, CREDENTIAL_PROVIDER_STATUS_ICON* pcpsiOptionalStatusIcon) GetSerialization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, NTSTATUS ntsStatus, NTSTATUS ntsSubstatus, PWSTR* ppszOptionalStatusText, CREDENTIAL_PROVIDER_STATUS_ICON* pcpsiOptionalStatusIcon) ReportResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE pcpgsr, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION pcpcs, PWSTR ppszOptionalStatusText, CREDENTIAL_PROVIDER_STATUS_ICON pcpsiOptionalStatusIcon) GetSerialization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential*/SelfOuter* self, NTSTATUS ntsStatus, NTSTATUS ntsSubstatus, PWSTR ppszOptionalStatusText, CREDENTIAL_PROVIDER_STATUS_ICON pcpsiOptionalStatusIcon) ReportResult;
 	}
 
 
@@ -17491,23 +17491,23 @@ public static
 
 	public HRESULT UnAdvise() mut => VT.[Friend]UnAdvise(&this);
 
-	public HRESULT SetSelected(BOOL* pbAutoLogon) mut => VT.[Friend]SetSelected(&this, pbAutoLogon);
+	public HRESULT SetSelected(BOOL pbAutoLogon) mut => VT.[Friend]SetSelected(&this, pbAutoLogon);
 
 	public HRESULT SetDeselected() mut => VT.[Friend]SetDeselected(&this);
 
-	public HRESULT GetFieldState(uint32 dwFieldID, CREDENTIAL_PROVIDER_FIELD_STATE* pcpfs, CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE* pcpfis) mut => VT.[Friend]GetFieldState(&this, dwFieldID, pcpfs, pcpfis);
+	public HRESULT GetFieldState(uint32 dwFieldID, CREDENTIAL_PROVIDER_FIELD_STATE pcpfs, CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE pcpfis) mut => VT.[Friend]GetFieldState(&this, dwFieldID, pcpfs, pcpfis);
 
-	public HRESULT GetStringValue(uint32 dwFieldID, PWSTR* ppsz) mut => VT.[Friend]GetStringValue(&this, dwFieldID, ppsz);
+	public HRESULT GetStringValue(uint32 dwFieldID, PWSTR ppsz) mut => VT.[Friend]GetStringValue(&this, dwFieldID, ppsz);
 
-	public HRESULT GetBitmapValue(uint32 dwFieldID, HBITMAP* phbmp) mut => VT.[Friend]GetBitmapValue(&this, dwFieldID, phbmp);
+	public HRESULT GetBitmapValue(uint32 dwFieldID, HBITMAP phbmp) mut => VT.[Friend]GetBitmapValue(&this, dwFieldID, phbmp);
 
-	public HRESULT GetCheckboxValue(uint32 dwFieldID, BOOL* pbChecked, PWSTR* ppszLabel) mut => VT.[Friend]GetCheckboxValue(&this, dwFieldID, pbChecked, ppszLabel);
+	public HRESULT GetCheckboxValue(uint32 dwFieldID, BOOL pbChecked, PWSTR ppszLabel) mut => VT.[Friend]GetCheckboxValue(&this, dwFieldID, pbChecked, ppszLabel);
 
-	public HRESULT GetSubmitButtonValue(uint32 dwFieldID, uint32* pdwAdjacentTo) mut => VT.[Friend]GetSubmitButtonValue(&this, dwFieldID, pdwAdjacentTo);
+	public HRESULT GetSubmitButtonValue(uint32 dwFieldID, uint32 pdwAdjacentTo) mut => VT.[Friend]GetSubmitButtonValue(&this, dwFieldID, pdwAdjacentTo);
 
-	public HRESULT GetComboBoxValueCount(uint32 dwFieldID, uint32* pcItems, uint32* pdwSelectedItem) mut => VT.[Friend]GetComboBoxValueCount(&this, dwFieldID, pcItems, pdwSelectedItem);
+	public HRESULT GetComboBoxValueCount(uint32 dwFieldID, uint32 pcItems, uint32 pdwSelectedItem) mut => VT.[Friend]GetComboBoxValueCount(&this, dwFieldID, pcItems, pdwSelectedItem);
 
-	public HRESULT GetComboBoxValueAt(uint32 dwFieldID, uint32 dwItem, PWSTR* ppszItem) mut => VT.[Friend]GetComboBoxValueAt(&this, dwFieldID, dwItem, ppszItem);
+	public HRESULT GetComboBoxValueAt(uint32 dwFieldID, uint32 dwItem, PWSTR ppszItem) mut => VT.[Friend]GetComboBoxValueAt(&this, dwFieldID, dwItem, ppszItem);
 
 	public HRESULT SetStringValue(uint32 dwFieldID, PWSTR psz) mut => VT.[Friend]SetStringValue(&this, dwFieldID, psz);
 
@@ -17517,9 +17517,9 @@ public static
 
 	public HRESULT CommandLinkClicked(uint32 dwFieldID) mut => VT.[Friend]CommandLinkClicked(&this, dwFieldID);
 
-	public HRESULT GetSerialization(CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE* pcpgsr, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcs, PWSTR* ppszOptionalStatusText, CREDENTIAL_PROVIDER_STATUS_ICON* pcpsiOptionalStatusIcon) mut => VT.[Friend]GetSerialization(&this, pcpgsr, pcpcs, ppszOptionalStatusText, pcpsiOptionalStatusIcon);
+	public HRESULT GetSerialization(CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE pcpgsr, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION pcpcs, PWSTR ppszOptionalStatusText, CREDENTIAL_PROVIDER_STATUS_ICON pcpsiOptionalStatusIcon) mut => VT.[Friend]GetSerialization(&this, pcpgsr, pcpcs, ppszOptionalStatusText, pcpsiOptionalStatusIcon);
 
-	public HRESULT ReportResult(NTSTATUS ntsStatus, NTSTATUS ntsSubstatus, PWSTR* ppszOptionalStatusText, CREDENTIAL_PROVIDER_STATUS_ICON* pcpsiOptionalStatusIcon) mut => VT.[Friend]ReportResult(&this, ntsStatus, ntsSubstatus, ppszOptionalStatusText, pcpsiOptionalStatusIcon);
+	public HRESULT ReportResult(NTSTATUS ntsStatus, NTSTATUS ntsSubstatus, PWSTR ppszOptionalStatusText, CREDENTIAL_PROVIDER_STATUS_ICON pcpsiOptionalStatusIcon) mut => VT.[Friend]ReportResult(&this, ntsStatus, ntsSubstatus, ppszOptionalStatusText, pcpsiOptionalStatusIcon);
 }
 
 [CRepr]struct IQueryContinueWithStatus : IQueryContinue
@@ -17572,7 +17572,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredentialEvents*/SelfOuter* self, ICredentialProviderCredential* pcpc, uint32 dwFieldID, uint32 dwItem) DeleteFieldComboBoxItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredentialEvents*/SelfOuter* self, ICredentialProviderCredential* pcpc, uint32 dwFieldID, PWSTR pszItem) AppendFieldComboBoxItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredentialEvents*/SelfOuter* self, ICredentialProviderCredential* pcpc, uint32 dwFieldID, uint32 dwAdjacentTo) SetFieldSubmitButton;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredentialEvents*/SelfOuter* self, HWND* phwndOwner) OnCreatingWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredentialEvents*/SelfOuter* self, HWND phwndOwner) OnCreatingWindow;
 	}
 
 
@@ -17594,7 +17594,7 @@ public static
 
 	public HRESULT SetFieldSubmitButton(ICredentialProviderCredential* pcpc, uint32 dwFieldID, uint32 dwAdjacentTo) mut => VT.[Friend]SetFieldSubmitButton(&this, pcpc, dwFieldID, dwAdjacentTo);
 
-	public HRESULT OnCreatingWindow(HWND* phwndOwner) mut => VT.[Friend]OnCreatingWindow(&this, phwndOwner);
+	public HRESULT OnCreatingWindow(HWND phwndOwner) mut => VT.[Friend]OnCreatingWindow(&this, phwndOwner);
 }
 
 [CRepr]struct ICredentialProvider : IUnknown
@@ -17606,31 +17606,31 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, CREDENTIAL_PROVIDER_USAGE_SCENARIO cpus, uint32 dwFlags) SetUsageScenario;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcs) SetSerialization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION pcpcs) SetSerialization;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, ICredentialProviderEvents* pcpe, uint upAdviseContext) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self) UnAdvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, uint32* pdwCount) GetFieldDescriptorCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, uint32 dwIndex, CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR** ppcpfd) GetFieldDescriptorAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, uint32* pdwCount, uint32* pdwDefault, BOOL* pbAutoLogonWithDefault) GetCredentialCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, uint32 dwIndex, ICredentialProviderCredential** ppcpc) GetCredentialAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, uint32 pdwCount) GetFieldDescriptorCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, uint32 dwIndex, CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR ppcpfd) GetFieldDescriptorAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, uint32 pdwCount, uint32 pdwDefault, BOOL pbAutoLogonWithDefault) GetCredentialCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProvider*/SelfOuter* self, uint32 dwIndex, ICredentialProviderCredential* ppcpc) GetCredentialAt;
 	}
 
 
 	public HRESULT SetUsageScenario(CREDENTIAL_PROVIDER_USAGE_SCENARIO cpus, uint32 dwFlags) mut => VT.[Friend]SetUsageScenario(&this, cpus, dwFlags);
 
-	public HRESULT SetSerialization(CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcs) mut => VT.[Friend]SetSerialization(&this, pcpcs);
+	public HRESULT SetSerialization(CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION pcpcs) mut => VT.[Friend]SetSerialization(&this, pcpcs);
 
 	public HRESULT Advise(ICredentialProviderEvents* pcpe, uint upAdviseContext) mut => VT.[Friend]Advise(&this, pcpe, upAdviseContext);
 
 	public HRESULT UnAdvise() mut => VT.[Friend]UnAdvise(&this);
 
-	public HRESULT GetFieldDescriptorCount(uint32* pdwCount) mut => VT.[Friend]GetFieldDescriptorCount(&this, pdwCount);
+	public HRESULT GetFieldDescriptorCount(uint32 pdwCount) mut => VT.[Friend]GetFieldDescriptorCount(&this, pdwCount);
 
-	public HRESULT GetFieldDescriptorAt(uint32 dwIndex, CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR** ppcpfd) mut => VT.[Friend]GetFieldDescriptorAt(&this, dwIndex, ppcpfd);
+	public HRESULT GetFieldDescriptorAt(uint32 dwIndex, CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR ppcpfd) mut => VT.[Friend]GetFieldDescriptorAt(&this, dwIndex, ppcpfd);
 
-	public HRESULT GetCredentialCount(uint32* pdwCount, uint32* pdwDefault, BOOL* pbAutoLogonWithDefault) mut => VT.[Friend]GetCredentialCount(&this, pdwCount, pdwDefault, pbAutoLogonWithDefault);
+	public HRESULT GetCredentialCount(uint32 pdwCount, uint32 pdwDefault, BOOL pbAutoLogonWithDefault) mut => VT.[Friend]GetCredentialCount(&this, pdwCount, pdwDefault, pbAutoLogonWithDefault);
 
-	public HRESULT GetCredentialAt(uint32 dwIndex, ICredentialProviderCredential** ppcpc) mut => VT.[Friend]GetCredentialAt(&this, dwIndex, ppcpc);
+	public HRESULT GetCredentialAt(uint32 dwIndex, ICredentialProviderCredential* ppcpc) mut => VT.[Friend]GetCredentialAt(&this, dwIndex, ppcpc);
 }
 
 [CRepr]struct ICredentialProviderEvents : IUnknown
@@ -17657,13 +17657,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderFilter*/SelfOuter* self, CREDENTIAL_PROVIDER_USAGE_SCENARIO cpus, uint32 dwFlags, Guid* rgclsidProviders, BOOL* rgbAllow, uint32 cProviders) Filter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderFilter*/SelfOuter* self, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcsIn, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcsOut) UpdateRemoteCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderFilter*/SelfOuter* self, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION pcpcsIn, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION pcpcsOut) UpdateRemoteCredential;
 	}
 
 
 	public HRESULT Filter(CREDENTIAL_PROVIDER_USAGE_SCENARIO cpus, uint32 dwFlags, Guid* rgclsidProviders, BOOL* rgbAllow, uint32 cProviders) mut => VT.[Friend]Filter(&this, cpus, dwFlags, rgclsidProviders, rgbAllow, cProviders);
 
-	public HRESULT UpdateRemoteCredential(CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcsIn, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcsOut) mut => VT.[Friend]UpdateRemoteCredential(&this, pcpcsIn, pcpcsOut);
+	public HRESULT UpdateRemoteCredential(CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION pcpcsIn, CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION pcpcsOut) mut => VT.[Friend]UpdateRemoteCredential(&this, pcpcsIn, pcpcsOut);
 }
 
 [CRepr]struct ICredentialProviderCredential2 : ICredentialProviderCredential
@@ -17674,11 +17674,11 @@ public static
 
 	[CRepr]public struct VTable : ICredentialProviderCredential.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential2*/SelfOuter* self, PWSTR* sid) GetUserSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredential2*/SelfOuter* self, PWSTR sid) GetUserSid;
 	}
 
 
-	public HRESULT GetUserSid(PWSTR* sid) mut => VT.[Friend]GetUserSid(&this, sid);
+	public HRESULT GetUserSid(PWSTR sid) mut => VT.[Friend]GetUserSid(&this, sid);
 }
 
 [CRepr]struct ICredentialProviderCredentialWithFieldOptions : IUnknown
@@ -17689,11 +17689,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredentialWithFieldOptions*/SelfOuter* self, uint32 fieldID, CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS* options) GetFieldOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderCredentialWithFieldOptions*/SelfOuter* self, uint32 fieldID, CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS options) GetFieldOptions;
 	}
 
 
-	public HRESULT GetFieldOptions(uint32 fieldID, CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS* options) mut => VT.[Friend]GetFieldOptions(&this, fieldID, options);
+	public HRESULT GetFieldOptions(uint32 fieldID, CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS options) mut => VT.[Friend]GetFieldOptions(&this, fieldID, options);
 }
 
 [CRepr]struct ICredentialProviderCredentialEvents2 : ICredentialProviderCredentialEvents
@@ -17725,20 +17725,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUser*/SelfOuter* self, PWSTR* sid) GetSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUser*/SelfOuter* self, PWSTR sid) GetSid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUser*/SelfOuter* self, Guid providerID) GetProviderID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUser*/SelfOuter* self, PROPERTYKEY* key, PWSTR* stringValue) GetStringValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUser*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* value) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUser*/SelfOuter* self, PROPERTYKEY key, PWSTR stringValue) GetStringValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUser*/SelfOuter* self, PROPERTYKEY key, PROPVARIANT value) GetValue;
 	}
 
 
-	public HRESULT GetSid(PWSTR* sid) mut => VT.[Friend]GetSid(&this, sid);
+	public HRESULT GetSid(PWSTR sid) mut => VT.[Friend]GetSid(&this, sid);
 
 	public HRESULT GetProviderID(Guid providerID) mut => VT.[Friend]GetProviderID(&this, providerID);
 
-	public HRESULT GetStringValue(PROPERTYKEY* key, PWSTR* stringValue) mut => VT.[Friend]GetStringValue(&this, key, stringValue);
+	public HRESULT GetStringValue(PROPERTYKEY key, PWSTR stringValue) mut => VT.[Friend]GetStringValue(&this, key, stringValue);
 
-	public HRESULT GetValue(PROPERTYKEY* key, PROPVARIANT* value) mut => VT.[Friend]GetValue(&this, key, value);
+	public HRESULT GetValue(PROPERTYKEY key, PROPVARIANT value) mut => VT.[Friend]GetValue(&this, key, value);
 }
 
 [CRepr]struct ICredentialProviderUserArray : IUnknown
@@ -17750,19 +17750,19 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUserArray*/SelfOuter* self, Guid guidProviderToFilterTo) SetProviderFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUserArray*/SelfOuter* self, CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS* credentialProviderAccountOptions) GetAccountOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUserArray*/SelfOuter* self, uint32* userCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUserArray*/SelfOuter* self, uint32 userIndex, ICredentialProviderUser** user) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUserArray*/SelfOuter* self, CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS credentialProviderAccountOptions) GetAccountOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUserArray*/SelfOuter* self, uint32 userCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICredentialProviderUserArray*/SelfOuter* self, uint32 userIndex, ICredentialProviderUser* user) GetAt;
 	}
 
 
 	public HRESULT SetProviderFilter(Guid guidProviderToFilterTo) mut => VT.[Friend]SetProviderFilter(&this, guidProviderToFilterTo);
 
-	public HRESULT GetAccountOptions(CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS* credentialProviderAccountOptions) mut => VT.[Friend]GetAccountOptions(&this, credentialProviderAccountOptions);
+	public HRESULT GetAccountOptions(CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS credentialProviderAccountOptions) mut => VT.[Friend]GetAccountOptions(&this, credentialProviderAccountOptions);
 
-	public HRESULT GetCount(uint32* userCount) mut => VT.[Friend]GetCount(&this, userCount);
+	public HRESULT GetCount(uint32 userCount) mut => VT.[Friend]GetCount(&this, userCount);
 
-	public HRESULT GetAt(uint32 userIndex, ICredentialProviderUser** user) mut => VT.[Friend]GetAt(&this, userIndex, user);
+	public HRESULT GetAt(uint32 userIndex, ICredentialProviderUser* user) mut => VT.[Friend]GetAt(&this, userIndex, user);
 }
 
 [CRepr]struct ICredentialProviderSetUserArray : IUnknown
@@ -17788,14 +17788,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerCollection*/SelfOuter* self, IEnumString** ppenum) GetHandlerEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerCollection*/SelfOuter* self, PWSTR pszHandlerID, Guid riid, void** ppv) BindToHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerCollection*/SelfOuter* self, IEnumString* ppenum) GetHandlerEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerCollection*/SelfOuter* self, PWSTR pszHandlerID, Guid riid, void ppv) BindToHandler;
 	}
 
 
-	public HRESULT GetHandlerEnumerator(IEnumString** ppenum) mut => VT.[Friend]GetHandlerEnumerator(&this, ppenum);
+	public HRESULT GetHandlerEnumerator(IEnumString* ppenum) mut => VT.[Friend]GetHandlerEnumerator(&this, ppenum);
 
-	public HRESULT BindToHandler(PWSTR pszHandlerID, Guid riid, void** ppv) mut => VT.[Friend]BindToHandler(&this, pszHandlerID, riid, ppv);
+	public HRESULT BindToHandler(PWSTR pszHandlerID, Guid riid, void ppv) mut => VT.[Friend]BindToHandler(&this, pszHandlerID, riid, ppv);
 }
 
 [CRepr]struct ISyncMgrHandler : IUnknown
@@ -17806,26 +17806,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, PWSTR* ppszName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, ISyncMgrHandlerInfo** ppHandlerInfo) GetHandlerInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, Guid rguidObjectID, Guid riid, void** ppv) GetObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, SYNCMGR_HANDLER_CAPABILITIES* pmCapabilities) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, SYNCMGR_HANDLER_POLICIES* pmPolicies) GetPolicies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, PWSTR ppszName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, ISyncMgrHandlerInfo* ppHandlerInfo) GetHandlerInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, Guid rguidObjectID, Guid riid, void ppv) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, SYNCMGR_HANDLER_CAPABILITIES pmCapabilities) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, SYNCMGR_HANDLER_POLICIES pmPolicies) GetPolicies;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, BOOL fActivate) Activate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, BOOL fEnable) Enable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandler*/SelfOuter* self, PWSTR* ppszItemIDs, uint32 cItems, HWND hwndOwner, ISyncMgrSessionCreator* pSessionCreator, IUnknown* punk) Synchronize;
 	}
 
 
-	public HRESULT GetName(PWSTR* ppszName) mut => VT.[Friend]GetName(&this, ppszName);
+	public HRESULT GetName(PWSTR ppszName) mut => VT.[Friend]GetName(&this, ppszName);
 
-	public HRESULT GetHandlerInfo(ISyncMgrHandlerInfo** ppHandlerInfo) mut => VT.[Friend]GetHandlerInfo(&this, ppHandlerInfo);
+	public HRESULT GetHandlerInfo(ISyncMgrHandlerInfo* ppHandlerInfo) mut => VT.[Friend]GetHandlerInfo(&this, ppHandlerInfo);
 
-	public HRESULT GetObject(Guid rguidObjectID, Guid riid, void** ppv) mut => VT.[Friend]GetObject(&this, rguidObjectID, riid, ppv);
+	public HRESULT GetObject(Guid rguidObjectID, Guid riid, void ppv) mut => VT.[Friend]GetObject(&this, rguidObjectID, riid, ppv);
 
-	public HRESULT GetCapabilities(SYNCMGR_HANDLER_CAPABILITIES* pmCapabilities) mut => VT.[Friend]GetCapabilities(&this, pmCapabilities);
+	public HRESULT GetCapabilities(SYNCMGR_HANDLER_CAPABILITIES pmCapabilities) mut => VT.[Friend]GetCapabilities(&this, pmCapabilities);
 
-	public HRESULT GetPolicies(SYNCMGR_HANDLER_POLICIES* pmPolicies) mut => VT.[Friend]GetPolicies(&this, pmPolicies);
+	public HRESULT GetPolicies(SYNCMGR_HANDLER_POLICIES pmPolicies) mut => VT.[Friend]GetPolicies(&this, pmPolicies);
 
 	public HRESULT Activate(BOOL fActivate) mut => VT.[Friend]Activate(&this, fActivate);
 
@@ -17842,23 +17842,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self, SYNCMGR_HANDLER_TYPE* pnType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self, PWSTR* ppszTypeLabel) GetTypeLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self, PWSTR* ppszComment) GetComment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self, FILETIME* pftLastSync) GetLastSyncTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self, SYNCMGR_HANDLER_TYPE pnType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self, PWSTR ppszTypeLabel) GetTypeLabel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self, PWSTR ppszComment) GetComment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self, FILETIME pftLastSync) GetLastSyncTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self) IsActive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self) IsEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrHandlerInfo*/SelfOuter* self) IsConnected;
 	}
 
 
-	public HRESULT GetType(SYNCMGR_HANDLER_TYPE* pnType) mut => VT.[Friend]COM_GetType(&this, pnType);
+	public HRESULT GetType(SYNCMGR_HANDLER_TYPE pnType) mut => VT.[Friend]COM_GetType(&this, pnType);
 
-	public HRESULT GetTypeLabel(PWSTR* ppszTypeLabel) mut => VT.[Friend]GetTypeLabel(&this, ppszTypeLabel);
+	public HRESULT GetTypeLabel(PWSTR ppszTypeLabel) mut => VT.[Friend]GetTypeLabel(&this, ppszTypeLabel);
 
-	public HRESULT GetComment(PWSTR* ppszComment) mut => VT.[Friend]GetComment(&this, ppszComment);
+	public HRESULT GetComment(PWSTR ppszComment) mut => VT.[Friend]GetComment(&this, ppszComment);
 
-	public HRESULT GetLastSyncTime(FILETIME* pftLastSync) mut => VT.[Friend]GetLastSyncTime(&this, pftLastSync);
+	public HRESULT GetLastSyncTime(FILETIME pftLastSync) mut => VT.[Friend]GetLastSyncTime(&this, pftLastSync);
 
 	public HRESULT IsActive() mut => VT.[Friend]IsActive(&this);
 
@@ -17875,17 +17875,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemContainer*/SelfOuter* self, PWSTR pszItemID, ISyncMgrSyncItem** ppItem) GetSyncItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemContainer*/SelfOuter* self, IEnumSyncMgrSyncItems** ppenum) GetSyncItemEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemContainer*/SelfOuter* self, uint32* pcItems) GetSyncItemCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemContainer*/SelfOuter* self, PWSTR pszItemID, ISyncMgrSyncItem* ppItem) GetSyncItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemContainer*/SelfOuter* self, IEnumSyncMgrSyncItems* ppenum) GetSyncItemEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemContainer*/SelfOuter* self, uint32 pcItems) GetSyncItemCount;
 	}
 
 
-	public HRESULT GetSyncItem(PWSTR pszItemID, ISyncMgrSyncItem** ppItem) mut => VT.[Friend]GetSyncItem(&this, pszItemID, ppItem);
+	public HRESULT GetSyncItem(PWSTR pszItemID, ISyncMgrSyncItem* ppItem) mut => VT.[Friend]GetSyncItem(&this, pszItemID, ppItem);
 
-	public HRESULT GetSyncItemEnumerator(IEnumSyncMgrSyncItems** ppenum) mut => VT.[Friend]GetSyncItemEnumerator(&this, ppenum);
+	public HRESULT GetSyncItemEnumerator(IEnumSyncMgrSyncItems* ppenum) mut => VT.[Friend]GetSyncItemEnumerator(&this, ppenum);
 
-	public HRESULT GetSyncItemCount(uint32* pcItems) mut => VT.[Friend]GetSyncItemCount(&this, pcItems);
+	public HRESULT GetSyncItemCount(uint32 pcItems) mut => VT.[Friend]GetSyncItemCount(&this, pcItems);
 }
 
 [CRepr]struct ISyncMgrSyncItem : IUnknown
@@ -17896,28 +17896,28 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, PWSTR* ppszItemID) GetItemID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, PWSTR* ppszName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, ISyncMgrSyncItemInfo** ppItemInfo) GetItemInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, Guid rguidObjectID, Guid riid, void** ppv) GetObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, SYNCMGR_ITEM_CAPABILITIES* pmCapabilities) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, SYNCMGR_ITEM_POLICIES* pmPolicies) GetPolicies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, PWSTR ppszItemID) GetItemID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, PWSTR ppszName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, ISyncMgrSyncItemInfo* ppItemInfo) GetItemInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, Guid rguidObjectID, Guid riid, void ppv) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, SYNCMGR_ITEM_CAPABILITIES pmCapabilities) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, SYNCMGR_ITEM_POLICIES pmPolicies) GetPolicies;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self, BOOL fEnable) Enable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItem*/SelfOuter* self) Delete;
 	}
 
 
-	public HRESULT GetItemID(PWSTR* ppszItemID) mut => VT.[Friend]GetItemID(&this, ppszItemID);
+	public HRESULT GetItemID(PWSTR ppszItemID) mut => VT.[Friend]GetItemID(&this, ppszItemID);
 
-	public HRESULT GetName(PWSTR* ppszName) mut => VT.[Friend]GetName(&this, ppszName);
+	public HRESULT GetName(PWSTR ppszName) mut => VT.[Friend]GetName(&this, ppszName);
 
-	public HRESULT GetItemInfo(ISyncMgrSyncItemInfo** ppItemInfo) mut => VT.[Friend]GetItemInfo(&this, ppItemInfo);
+	public HRESULT GetItemInfo(ISyncMgrSyncItemInfo* ppItemInfo) mut => VT.[Friend]GetItemInfo(&this, ppItemInfo);
 
-	public HRESULT GetObject(Guid rguidObjectID, Guid riid, void** ppv) mut => VT.[Friend]GetObject(&this, rguidObjectID, riid, ppv);
+	public HRESULT GetObject(Guid rguidObjectID, Guid riid, void ppv) mut => VT.[Friend]GetObject(&this, rguidObjectID, riid, ppv);
 
-	public HRESULT GetCapabilities(SYNCMGR_ITEM_CAPABILITIES* pmCapabilities) mut => VT.[Friend]GetCapabilities(&this, pmCapabilities);
+	public HRESULT GetCapabilities(SYNCMGR_ITEM_CAPABILITIES pmCapabilities) mut => VT.[Friend]GetCapabilities(&this, pmCapabilities);
 
-	public HRESULT GetPolicies(SYNCMGR_ITEM_POLICIES* pmPolicies) mut => VT.[Friend]GetPolicies(&this, pmPolicies);
+	public HRESULT GetPolicies(SYNCMGR_ITEM_POLICIES pmPolicies) mut => VT.[Friend]GetPolicies(&this, pmPolicies);
 
 	public HRESULT Enable(BOOL fEnable) mut => VT.[Friend]Enable(&this, fEnable);
 
@@ -17932,19 +17932,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemInfo*/SelfOuter* self, PWSTR* ppszTypeLabel) GetTypeLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemInfo*/SelfOuter* self, PWSTR* ppszComment) GetComment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemInfo*/SelfOuter* self, FILETIME* pftLastSync) GetLastSyncTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemInfo*/SelfOuter* self, PWSTR ppszTypeLabel) GetTypeLabel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemInfo*/SelfOuter* self, PWSTR ppszComment) GetComment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemInfo*/SelfOuter* self, FILETIME pftLastSync) GetLastSyncTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemInfo*/SelfOuter* self) IsEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncItemInfo*/SelfOuter* self) IsConnected;
 	}
 
 
-	public HRESULT GetTypeLabel(PWSTR* ppszTypeLabel) mut => VT.[Friend]GetTypeLabel(&this, ppszTypeLabel);
+	public HRESULT GetTypeLabel(PWSTR ppszTypeLabel) mut => VT.[Friend]GetTypeLabel(&this, ppszTypeLabel);
 
-	public HRESULT GetComment(PWSTR* ppszComment) mut => VT.[Friend]GetComment(&this, ppszComment);
+	public HRESULT GetComment(PWSTR ppszComment) mut => VT.[Friend]GetComment(&this, ppszComment);
 
-	public HRESULT GetLastSyncTime(FILETIME* pftLastSync) mut => VT.[Friend]GetLastSyncTime(&this, pftLastSync);
+	public HRESULT GetLastSyncTime(FILETIME pftLastSync) mut => VT.[Friend]GetLastSyncTime(&this, pftLastSync);
 
 	public HRESULT IsEnabled() mut => VT.[Friend]IsEnabled(&this);
 
@@ -17959,20 +17959,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrSyncItems*/SelfOuter* self, uint32 celt, ISyncMgrSyncItem** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrSyncItems*/SelfOuter* self, uint32 celt, ISyncMgrSyncItem** rgelt, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrSyncItems*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrSyncItems*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrSyncItems*/SelfOuter* self, IEnumSyncMgrSyncItems** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrSyncItems*/SelfOuter* self, IEnumSyncMgrSyncItems* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, ISyncMgrSyncItem** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, ISyncMgrSyncItem** rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumSyncMgrSyncItems** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumSyncMgrSyncItems* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct ISyncMgrSessionCreator : IUnknown
@@ -17983,11 +17983,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSessionCreator*/SelfOuter* self, PWSTR pszHandlerID, PWSTR* ppszItemIDs, uint32 cItems, ISyncMgrSyncCallback** ppCallback) CreateSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSessionCreator*/SelfOuter* self, PWSTR pszHandlerID, PWSTR* ppszItemIDs, uint32 cItems, ISyncMgrSyncCallback* ppCallback) CreateSession;
 	}
 
 
-	public HRESULT CreateSession(PWSTR pszHandlerID, PWSTR* ppszItemIDs, uint32 cItems, ISyncMgrSyncCallback** ppCallback) mut => VT.[Friend]CreateSession(&this, pszHandlerID, ppszItemIDs, cItems, ppCallback);
+	public HRESULT CreateSession(PWSTR pszHandlerID, PWSTR* ppszItemIDs, uint32 cItems, ISyncMgrSyncCallback* ppCallback) mut => VT.[Friend]CreateSession(&this, pszHandlerID, ppszItemIDs, cItems, ppCallback);
 }
 
 [CRepr]struct ISyncMgrSyncCallback : IUnknown
@@ -17998,11 +17998,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, PWSTR pszItemID, PWSTR pszProgressText, SYNCMGR_PROGRESS_STATUS nStatus, uint32 uCurrentStep, uint32 uMaxStep, SYNCMGR_CANCEL_REQUEST* pnCancelRequest) ReportProgress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, PWSTR pszProgressText, SYNCMGR_CANCEL_REQUEST* pnCancelRequest) SetHandlerProgressText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, PWSTR pszItemID, PWSTR pszProgressText, SYNCMGR_PROGRESS_STATUS nStatus, uint32 uCurrentStep, uint32 uMaxStep, SYNCMGR_CANCEL_REQUEST pnCancelRequest) ReportProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, PWSTR pszProgressText, SYNCMGR_CANCEL_REQUEST pnCancelRequest) SetHandlerProgressText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, PWSTR pszItemID, SYNCMGR_EVENT_LEVEL nLevel, SYNCMGR_EVENT_FLAGS nFlags, PWSTR pszName, PWSTR pszDescription, PWSTR pszLinkText, PWSTR pszLinkReference, PWSTR pszContext, Guid pguidEventID) ReportEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, PWSTR pszItemID) CanContinue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, IEnumString** ppenumItemIDs, IEnumUnknown** ppenumPunks) QueryForAdditionalItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, IEnumString* ppenumItemIDs, IEnumUnknown* ppenumPunks) QueryForAdditionalItems;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, PWSTR pszItemID) AddItemToSession;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, IUnknown* punk) AddIUnknownToSession;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSyncCallback*/SelfOuter* self, ISyncMgrSyncItem* pNewItem) ProposeItem;
@@ -18011,15 +18011,15 @@ public static
 	}
 
 
-	public HRESULT ReportProgress(PWSTR pszItemID, PWSTR pszProgressText, SYNCMGR_PROGRESS_STATUS nStatus, uint32 uCurrentStep, uint32 uMaxStep, SYNCMGR_CANCEL_REQUEST* pnCancelRequest) mut => VT.[Friend]ReportProgress(&this, pszItemID, pszProgressText, nStatus, uCurrentStep, uMaxStep, pnCancelRequest);
+	public HRESULT ReportProgress(PWSTR pszItemID, PWSTR pszProgressText, SYNCMGR_PROGRESS_STATUS nStatus, uint32 uCurrentStep, uint32 uMaxStep, SYNCMGR_CANCEL_REQUEST pnCancelRequest) mut => VT.[Friend]ReportProgress(&this, pszItemID, pszProgressText, nStatus, uCurrentStep, uMaxStep, pnCancelRequest);
 
-	public HRESULT SetHandlerProgressText(PWSTR pszProgressText, SYNCMGR_CANCEL_REQUEST* pnCancelRequest) mut => VT.[Friend]SetHandlerProgressText(&this, pszProgressText, pnCancelRequest);
+	public HRESULT SetHandlerProgressText(PWSTR pszProgressText, SYNCMGR_CANCEL_REQUEST pnCancelRequest) mut => VT.[Friend]SetHandlerProgressText(&this, pszProgressText, pnCancelRequest);
 
 	public HRESULT ReportEvent(PWSTR pszItemID, SYNCMGR_EVENT_LEVEL nLevel, SYNCMGR_EVENT_FLAGS nFlags, PWSTR pszName, PWSTR pszDescription, PWSTR pszLinkText, PWSTR pszLinkReference, PWSTR pszContext, Guid pguidEventID) mut => VT.[Friend]ReportEvent(&this, pszItemID, nLevel, nFlags, pszName, pszDescription, pszLinkText, pszLinkReference, pszContext, pguidEventID);
 
 	public HRESULT CanContinue(PWSTR pszItemID) mut => VT.[Friend]CanContinue(&this, pszItemID);
 
-	public HRESULT QueryForAdditionalItems(IEnumString** ppenumItemIDs, IEnumUnknown** ppenumPunks) mut => VT.[Friend]QueryForAdditionalItems(&this, ppenumItemIDs, ppenumPunks);
+	public HRESULT QueryForAdditionalItems(IEnumString* ppenumItemIDs, IEnumUnknown* ppenumPunks) mut => VT.[Friend]QueryForAdditionalItems(&this, ppenumItemIDs, ppenumPunks);
 
 	public HRESULT AddItemToSession(PWSTR pszItemID) mut => VT.[Friend]AddItemToSession(&this, pszItemID);
 
@@ -18157,18 +18157,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEventStore*/SelfOuter* self, IEnumSyncMgrEvents** ppenum) GetEventEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEventStore*/SelfOuter* self, uint32* pcEvents) GetEventCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEventStore*/SelfOuter* self, Guid rguidEventID, ISyncMgrEvent** ppEvent) GetEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEventStore*/SelfOuter* self, IEnumSyncMgrEvents* ppenum) GetEventEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEventStore*/SelfOuter* self, uint32 pcEvents) GetEventCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEventStore*/SelfOuter* self, Guid rguidEventID, ISyncMgrEvent* ppEvent) GetEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEventStore*/SelfOuter* self, Guid* pguidEventIDs, uint32 cEvents) RemoveEvent;
 	}
 
 
-	public HRESULT GetEventEnumerator(IEnumSyncMgrEvents** ppenum) mut => VT.[Friend]GetEventEnumerator(&this, ppenum);
+	public HRESULT GetEventEnumerator(IEnumSyncMgrEvents* ppenum) mut => VT.[Friend]GetEventEnumerator(&this, ppenum);
 
-	public HRESULT GetEventCount(uint32* pcEvents) mut => VT.[Friend]GetEventCount(&this, pcEvents);
+	public HRESULT GetEventCount(uint32 pcEvents) mut => VT.[Friend]GetEventCount(&this, pcEvents);
 
-	public HRESULT GetEvent(Guid rguidEventID, ISyncMgrEvent** ppEvent) mut => VT.[Friend]GetEvent(&this, rguidEventID, ppEvent);
+	public HRESULT GetEvent(Guid rguidEventID, ISyncMgrEvent* ppEvent) mut => VT.[Friend]GetEvent(&this, rguidEventID, ppEvent);
 
 	public HRESULT RemoveEvent(Guid* pguidEventIDs, uint32 cEvents) mut => VT.[Friend]RemoveEvent(&this, pguidEventIDs, cEvents);
 }
@@ -18182,40 +18182,40 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, Guid pguidEventID) GetEventID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR* ppszHandlerID) GetHandlerID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR* ppszItemID) GetItemID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, SYNCMGR_EVENT_LEVEL* pnLevel) GetLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, SYNCMGR_EVENT_FLAGS* pnFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, FILETIME* pfCreationTime) GetTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR* ppszName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR* ppszDescription) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR* ppszLinkText) GetLinkText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR* ppszLinkReference) GetLinkReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR* ppszContext) GetContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR ppszHandlerID) GetHandlerID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR ppszItemID) GetItemID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, SYNCMGR_EVENT_LEVEL pnLevel) GetLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, SYNCMGR_EVENT_FLAGS pnFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, FILETIME pfCreationTime) GetTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR ppszName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR ppszDescription) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR ppszLinkText) GetLinkText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR ppszLinkReference) GetLinkReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEvent*/SelfOuter* self, PWSTR ppszContext) GetContext;
 	}
 
 
 	public HRESULT GetEventID(Guid pguidEventID) mut => VT.[Friend]GetEventID(&this, pguidEventID);
 
-	public HRESULT GetHandlerID(PWSTR* ppszHandlerID) mut => VT.[Friend]GetHandlerID(&this, ppszHandlerID);
+	public HRESULT GetHandlerID(PWSTR ppszHandlerID) mut => VT.[Friend]GetHandlerID(&this, ppszHandlerID);
 
-	public HRESULT GetItemID(PWSTR* ppszItemID) mut => VT.[Friend]GetItemID(&this, ppszItemID);
+	public HRESULT GetItemID(PWSTR ppszItemID) mut => VT.[Friend]GetItemID(&this, ppszItemID);
 
-	public HRESULT GetLevel(SYNCMGR_EVENT_LEVEL* pnLevel) mut => VT.[Friend]GetLevel(&this, pnLevel);
+	public HRESULT GetLevel(SYNCMGR_EVENT_LEVEL pnLevel) mut => VT.[Friend]GetLevel(&this, pnLevel);
 
-	public HRESULT GetFlags(SYNCMGR_EVENT_FLAGS* pnFlags) mut => VT.[Friend]COM_GetFlags(&this, pnFlags);
+	public HRESULT GetFlags(SYNCMGR_EVENT_FLAGS pnFlags) mut => VT.[Friend]COM_GetFlags(&this, pnFlags);
 
-	public HRESULT GetTime(FILETIME* pfCreationTime) mut => VT.[Friend]GetTime(&this, pfCreationTime);
+	public HRESULT GetTime(FILETIME pfCreationTime) mut => VT.[Friend]GetTime(&this, pfCreationTime);
 
-	public HRESULT GetName(PWSTR* ppszName) mut => VT.[Friend]GetName(&this, ppszName);
+	public HRESULT GetName(PWSTR ppszName) mut => VT.[Friend]GetName(&this, ppszName);
 
-	public HRESULT GetDescription(PWSTR* ppszDescription) mut => VT.[Friend]GetDescription(&this, ppszDescription);
+	public HRESULT GetDescription(PWSTR ppszDescription) mut => VT.[Friend]GetDescription(&this, ppszDescription);
 
-	public HRESULT GetLinkText(PWSTR* ppszLinkText) mut => VT.[Friend]GetLinkText(&this, ppszLinkText);
+	public HRESULT GetLinkText(PWSTR ppszLinkText) mut => VT.[Friend]GetLinkText(&this, ppszLinkText);
 
-	public HRESULT GetLinkReference(PWSTR* ppszLinkReference) mut => VT.[Friend]GetLinkReference(&this, ppszLinkReference);
+	public HRESULT GetLinkReference(PWSTR ppszLinkReference) mut => VT.[Friend]GetLinkReference(&this, ppszLinkReference);
 
-	public HRESULT GetContext(PWSTR* ppszContext) mut => VT.[Friend]GetContext(&this, ppszContext);
+	public HRESULT GetContext(PWSTR ppszContext) mut => VT.[Friend]GetContext(&this, ppszContext);
 }
 
 [CRepr]struct IEnumSyncMgrEvents : IUnknown
@@ -18226,20 +18226,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrEvents*/SelfOuter* self, uint32 celt, ISyncMgrEvent** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrEvents*/SelfOuter* self, uint32 celt, ISyncMgrEvent** rgelt, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrEvents*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrEvents*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrEvents*/SelfOuter* self, IEnumSyncMgrEvents** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrEvents*/SelfOuter* self, IEnumSyncMgrEvents* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, ISyncMgrEvent** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, ISyncMgrEvent** rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumSyncMgrEvents** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumSyncMgrEvents* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct ISyncMgrConflictStore : IUnknown
@@ -18250,20 +18250,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictStore*/SelfOuter* self, PWSTR pszHandlerID, PWSTR pszItemID, IEnumSyncMgrConflict** ppEnum) EnumConflicts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictStore*/SelfOuter* self, SYNCMGR_CONFLICT_ID_INFO* pConflictIdInfo, Guid riid, void** ppv) BindToConflict;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictStore*/SelfOuter* self, PWSTR pszHandlerID, PWSTR pszItemID, IEnumSyncMgrConflict* ppEnum) EnumConflicts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictStore*/SelfOuter* self, SYNCMGR_CONFLICT_ID_INFO pConflictIdInfo, Guid riid, void ppv) BindToConflict;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictStore*/SelfOuter* self, SYNCMGR_CONFLICT_ID_INFO* rgConflictIdInfo, uint32 cConflicts) RemoveConflicts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictStore*/SelfOuter* self, PWSTR pszHandlerID, PWSTR pszItemID, uint32* pnConflicts) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictStore*/SelfOuter* self, PWSTR pszHandlerID, PWSTR pszItemID, uint32 pnConflicts) GetCount;
 	}
 
 
-	public HRESULT EnumConflicts(PWSTR pszHandlerID, PWSTR pszItemID, IEnumSyncMgrConflict** ppEnum) mut => VT.[Friend]EnumConflicts(&this, pszHandlerID, pszItemID, ppEnum);
+	public HRESULT EnumConflicts(PWSTR pszHandlerID, PWSTR pszItemID, IEnumSyncMgrConflict* ppEnum) mut => VT.[Friend]EnumConflicts(&this, pszHandlerID, pszItemID, ppEnum);
 
-	public HRESULT BindToConflict(SYNCMGR_CONFLICT_ID_INFO* pConflictIdInfo, Guid riid, void** ppv) mut => VT.[Friend]BindToConflict(&this, pConflictIdInfo, riid, ppv);
+	public HRESULT BindToConflict(SYNCMGR_CONFLICT_ID_INFO pConflictIdInfo, Guid riid, void ppv) mut => VT.[Friend]BindToConflict(&this, pConflictIdInfo, riid, ppv);
 
 	public HRESULT RemoveConflicts(SYNCMGR_CONFLICT_ID_INFO* rgConflictIdInfo, uint32 cConflicts) mut => VT.[Friend]RemoveConflicts(&this, rgConflictIdInfo, cConflicts);
 
-	public HRESULT GetCount(PWSTR pszHandlerID, PWSTR pszItemID, uint32* pnConflicts) mut => VT.[Friend]GetCount(&this, pszHandlerID, pszItemID, pnConflicts);
+	public HRESULT GetCount(PWSTR pszHandlerID, PWSTR pszItemID, uint32 pnConflicts) mut => VT.[Friend]GetCount(&this, pszHandlerID, pszItemID, pnConflicts);
 }
 
 [CRepr]struct IEnumSyncMgrConflict : IUnknown
@@ -18274,20 +18274,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrConflict*/SelfOuter* self, uint32 celt, ISyncMgrConflict** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrConflict*/SelfOuter* self, uint32 celt, ISyncMgrConflict** rgelt, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrConflict*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrConflict*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrConflict*/SelfOuter* self, IEnumSyncMgrConflict** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSyncMgrConflict*/SelfOuter* self, IEnumSyncMgrConflict* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, ISyncMgrConflict** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, ISyncMgrConflict** rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumSyncMgrConflict** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(IEnumSyncMgrConflict* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct ISyncMgrConflict : IUnknown
@@ -18298,23 +18298,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflict*/SelfOuter* self, PROPERTYKEY* propkey, PROPVARIANT* ppropvar) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflict*/SelfOuter* self, SYNCMGR_CONFLICT_ID_INFO* pConflictIdInfo) GetConflictIdInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflict*/SelfOuter* self, ISyncMgrConflictItems** ppArray) GetItemsArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflict*/SelfOuter* self, PROPERTYKEY propkey, PROPVARIANT ppropvar) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflict*/SelfOuter* self, SYNCMGR_CONFLICT_ID_INFO pConflictIdInfo) GetConflictIdInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflict*/SelfOuter* self, ISyncMgrConflictItems* ppArray) GetItemsArray;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflict*/SelfOuter* self, ISyncMgrConflictResolveInfo* pResolveInfo) Resolve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflict*/SelfOuter* self, Guid riid, void** ppvResolutionHandler) GetResolutionHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflict*/SelfOuter* self, Guid riid, void ppvResolutionHandler) GetResolutionHandler;
 	}
 
 
-	public HRESULT GetProperty(PROPERTYKEY* propkey, PROPVARIANT* ppropvar) mut => VT.[Friend]GetProperty(&this, propkey, ppropvar);
+	public HRESULT GetProperty(PROPERTYKEY propkey, PROPVARIANT ppropvar) mut => VT.[Friend]GetProperty(&this, propkey, ppropvar);
 
-	public HRESULT GetConflictIdInfo(SYNCMGR_CONFLICT_ID_INFO* pConflictIdInfo) mut => VT.[Friend]GetConflictIdInfo(&this, pConflictIdInfo);
+	public HRESULT GetConflictIdInfo(SYNCMGR_CONFLICT_ID_INFO pConflictIdInfo) mut => VT.[Friend]GetConflictIdInfo(&this, pConflictIdInfo);
 
-	public HRESULT GetItemsArray(ISyncMgrConflictItems** ppArray) mut => VT.[Friend]GetItemsArray(&this, ppArray);
+	public HRESULT GetItemsArray(ISyncMgrConflictItems* ppArray) mut => VT.[Friend]GetItemsArray(&this, ppArray);
 
 	public HRESULT Resolve(ISyncMgrConflictResolveInfo* pResolveInfo) mut => VT.[Friend]Resolve(&this, pResolveInfo);
 
-	public HRESULT GetResolutionHandler(Guid riid, void** ppvResolutionHandler) mut => VT.[Friend]GetResolutionHandler(&this, riid, ppvResolutionHandler);
+	public HRESULT GetResolutionHandler(Guid riid, void ppvResolutionHandler) mut => VT.[Friend]GetResolutionHandler(&this, riid, ppvResolutionHandler);
 }
 
 [CRepr]struct ISyncMgrResolutionHandler : IUnknown
@@ -18325,23 +18325,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrResolutionHandler*/SelfOuter* self, uint32* pdwAbilities) QueryAbilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrResolutionHandler*/SelfOuter* self, IShellItem* psiOther, SYNCMGR_RESOLUTION_FEEDBACK* pFeedback) KeepOther;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrResolutionHandler*/SelfOuter* self, SYNCMGR_RESOLUTION_FEEDBACK* pFeedback) KeepRecent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrResolutionHandler*/SelfOuter* self, SYNCMGR_RESOLUTION_FEEDBACK* pFeedback) RemoveFromSyncSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrResolutionHandler*/SelfOuter* self, ISyncMgrConflictResolutionItems* pArray, SYNCMGR_RESOLUTION_FEEDBACK* pFeedback) KeepItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrResolutionHandler*/SelfOuter* self, uint32 pdwAbilities) QueryAbilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrResolutionHandler*/SelfOuter* self, IShellItem* psiOther, SYNCMGR_RESOLUTION_FEEDBACK pFeedback) KeepOther;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrResolutionHandler*/SelfOuter* self, SYNCMGR_RESOLUTION_FEEDBACK pFeedback) KeepRecent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrResolutionHandler*/SelfOuter* self, SYNCMGR_RESOLUTION_FEEDBACK pFeedback) RemoveFromSyncSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrResolutionHandler*/SelfOuter* self, ISyncMgrConflictResolutionItems* pArray, SYNCMGR_RESOLUTION_FEEDBACK pFeedback) KeepItems;
 	}
 
 
-	public HRESULT QueryAbilities(uint32* pdwAbilities) mut => VT.[Friend]QueryAbilities(&this, pdwAbilities);
+	public HRESULT QueryAbilities(uint32 pdwAbilities) mut => VT.[Friend]QueryAbilities(&this, pdwAbilities);
 
-	public HRESULT KeepOther(IShellItem* psiOther, SYNCMGR_RESOLUTION_FEEDBACK* pFeedback) mut => VT.[Friend]KeepOther(&this, psiOther, pFeedback);
+	public HRESULT KeepOther(IShellItem* psiOther, SYNCMGR_RESOLUTION_FEEDBACK pFeedback) mut => VT.[Friend]KeepOther(&this, psiOther, pFeedback);
 
-	public HRESULT KeepRecent(SYNCMGR_RESOLUTION_FEEDBACK* pFeedback) mut => VT.[Friend]KeepRecent(&this, pFeedback);
+	public HRESULT KeepRecent(SYNCMGR_RESOLUTION_FEEDBACK pFeedback) mut => VT.[Friend]KeepRecent(&this, pFeedback);
 
-	public HRESULT RemoveFromSyncSet(SYNCMGR_RESOLUTION_FEEDBACK* pFeedback) mut => VT.[Friend]RemoveFromSyncSet(&this, pFeedback);
+	public HRESULT RemoveFromSyncSet(SYNCMGR_RESOLUTION_FEEDBACK pFeedback) mut => VT.[Friend]RemoveFromSyncSet(&this, pFeedback);
 
-	public HRESULT KeepItems(ISyncMgrConflictResolutionItems* pArray, SYNCMGR_RESOLUTION_FEEDBACK* pFeedback) mut => VT.[Friend]KeepItems(&this, pArray, pFeedback);
+	public HRESULT KeepItems(ISyncMgrConflictResolutionItems* pArray, SYNCMGR_RESOLUTION_FEEDBACK pFeedback) mut => VT.[Friend]KeepItems(&this, pArray, pFeedback);
 }
 
 [CRepr]struct ISyncMgrConflictPresenter : IUnknown
@@ -18367,32 +18367,32 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, uint32* pnCurrentConflict, uint32* pcConflicts, uint32* pcRemainingForApplyToAll) GetIterationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, SYNCMGR_PRESENTER_NEXT_STEP* pnPresenterNextStep) GetPresenterNextStep;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, SYNCMGR_PRESENTER_CHOICE* pnPresenterChoice, BOOL* pfApplyToAll) GetPresenterChoice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, uint32* pcChoices) GetItemChoiceCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, uint32 iChoice, uint32* piChoiceIndex) GetItemChoice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, uint32 pnCurrentConflict, uint32 pcConflicts, uint32 pcRemainingForApplyToAll) GetIterationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, SYNCMGR_PRESENTER_NEXT_STEP pnPresenterNextStep) GetPresenterNextStep;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, SYNCMGR_PRESENTER_CHOICE pnPresenterChoice, BOOL pfApplyToAll) GetPresenterChoice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, uint32 pcChoices) GetItemChoiceCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, uint32 iChoice, uint32 piChoiceIndex) GetItemChoice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, SYNCMGR_PRESENTER_NEXT_STEP nPresenterNextStep) SetPresenterNextStep;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, SYNCMGR_PRESENTER_CHOICE nPresenterChoice, BOOL fApplyToAll) SetPresenterChoice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, uint32* prgiConflictItemIndexes, uint32 cChoices) SetItemChoices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolveInfo*/SelfOuter* self, uint32 prgiConflictItemIndexes, uint32 cChoices) SetItemChoices;
 	}
 
 
-	public HRESULT GetIterationInfo(uint32* pnCurrentConflict, uint32* pcConflicts, uint32* pcRemainingForApplyToAll) mut => VT.[Friend]GetIterationInfo(&this, pnCurrentConflict, pcConflicts, pcRemainingForApplyToAll);
+	public HRESULT GetIterationInfo(uint32 pnCurrentConflict, uint32 pcConflicts, uint32 pcRemainingForApplyToAll) mut => VT.[Friend]GetIterationInfo(&this, pnCurrentConflict, pcConflicts, pcRemainingForApplyToAll);
 
-	public HRESULT GetPresenterNextStep(SYNCMGR_PRESENTER_NEXT_STEP* pnPresenterNextStep) mut => VT.[Friend]GetPresenterNextStep(&this, pnPresenterNextStep);
+	public HRESULT GetPresenterNextStep(SYNCMGR_PRESENTER_NEXT_STEP pnPresenterNextStep) mut => VT.[Friend]GetPresenterNextStep(&this, pnPresenterNextStep);
 
-	public HRESULT GetPresenterChoice(SYNCMGR_PRESENTER_CHOICE* pnPresenterChoice, BOOL* pfApplyToAll) mut => VT.[Friend]GetPresenterChoice(&this, pnPresenterChoice, pfApplyToAll);
+	public HRESULT GetPresenterChoice(SYNCMGR_PRESENTER_CHOICE pnPresenterChoice, BOOL pfApplyToAll) mut => VT.[Friend]GetPresenterChoice(&this, pnPresenterChoice, pfApplyToAll);
 
-	public HRESULT GetItemChoiceCount(uint32* pcChoices) mut => VT.[Friend]GetItemChoiceCount(&this, pcChoices);
+	public HRESULT GetItemChoiceCount(uint32 pcChoices) mut => VT.[Friend]GetItemChoiceCount(&this, pcChoices);
 
-	public HRESULT GetItemChoice(uint32 iChoice, uint32* piChoiceIndex) mut => VT.[Friend]GetItemChoice(&this, iChoice, piChoiceIndex);
+	public HRESULT GetItemChoice(uint32 iChoice, uint32 piChoiceIndex) mut => VT.[Friend]GetItemChoice(&this, iChoice, piChoiceIndex);
 
 	public HRESULT SetPresenterNextStep(SYNCMGR_PRESENTER_NEXT_STEP nPresenterNextStep) mut => VT.[Friend]SetPresenterNextStep(&this, nPresenterNextStep);
 
 	public HRESULT SetPresenterChoice(SYNCMGR_PRESENTER_CHOICE nPresenterChoice, BOOL fApplyToAll) mut => VT.[Friend]SetPresenterChoice(&this, nPresenterChoice, fApplyToAll);
 
-	public HRESULT SetItemChoices(uint32* prgiConflictItemIndexes, uint32 cChoices) mut => VT.[Friend]SetItemChoices(&this, prgiConflictItemIndexes, cChoices);
+	public HRESULT SetItemChoices(uint32 prgiConflictItemIndexes, uint32 cChoices) mut => VT.[Friend]SetItemChoices(&this, prgiConflictItemIndexes, cChoices);
 }
 
 [CRepr]struct ISyncMgrConflictFolder : IUnknown
@@ -18403,11 +18403,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictFolder*/SelfOuter* self, ISyncMgrConflict* pConflict, ITEMIDLIST** ppidlConflict) GetConflictIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictFolder*/SelfOuter* self, ISyncMgrConflict* pConflict, ITEMIDLIST ppidlConflict) GetConflictIDList;
 	}
 
 
-	public HRESULT GetConflictIDList(ISyncMgrConflict* pConflict, ITEMIDLIST** ppidlConflict) mut => VT.[Friend]GetConflictIDList(&this, pConflict, ppidlConflict);
+	public HRESULT GetConflictIDList(ISyncMgrConflict* pConflict, ITEMIDLIST ppidlConflict) mut => VT.[Friend]GetConflictIDList(&this, pConflict, ppidlConflict);
 }
 
 [CRepr]struct ISyncMgrConflictItems : IUnknown
@@ -18418,14 +18418,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictItems*/SelfOuter* self, uint32* pCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictItems*/SelfOuter* self, uint32 iIndex, CONFIRM_CONFLICT_ITEM* pItemInfo) GetItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictItems*/SelfOuter* self, uint32 pCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictItems*/SelfOuter* self, uint32 iIndex, CONFIRM_CONFLICT_ITEM pItemInfo) GetItem;
 	}
 
 
-	public HRESULT GetCount(uint32* pCount) mut => VT.[Friend]GetCount(&this, pCount);
+	public HRESULT GetCount(uint32 pCount) mut => VT.[Friend]GetCount(&this, pCount);
 
-	public HRESULT GetItem(uint32 iIndex, CONFIRM_CONFLICT_ITEM* pItemInfo) mut => VT.[Friend]GetItem(&this, iIndex, pItemInfo);
+	public HRESULT GetItem(uint32 iIndex, CONFIRM_CONFLICT_ITEM pItemInfo) mut => VT.[Friend]GetItem(&this, iIndex, pItemInfo);
 }
 
 [CRepr]struct ISyncMgrConflictResolutionItems : IUnknown
@@ -18436,14 +18436,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolutionItems*/SelfOuter* self, uint32* pCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolutionItems*/SelfOuter* self, uint32 iIndex, CONFIRM_CONFLICT_RESULT_INFO* pItemInfo) GetItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolutionItems*/SelfOuter* self, uint32 pCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrConflictResolutionItems*/SelfOuter* self, uint32 iIndex, CONFIRM_CONFLICT_RESULT_INFO pItemInfo) GetItem;
 	}
 
 
-	public HRESULT GetCount(uint32* pCount) mut => VT.[Friend]GetCount(&this, pCount);
+	public HRESULT GetCount(uint32 pCount) mut => VT.[Friend]GetCount(&this, pCount);
 
-	public HRESULT GetItem(uint32 iIndex, CONFIRM_CONFLICT_RESULT_INFO* pItemInfo) mut => VT.[Friend]GetItem(&this, iIndex, pItemInfo);
+	public HRESULT GetItem(uint32 iIndex, CONFIRM_CONFLICT_RESULT_INFO pItemInfo) mut => VT.[Friend]GetItem(&this, iIndex, pItemInfo);
 }
 
 [CRepr]struct IInputPanelConfiguration : IUnknown
@@ -18484,23 +18484,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharedBitmap*/SelfOuter* self, HBITMAP* phbm) GetSharedBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharedBitmap*/SelfOuter* self, SIZE* pSize) GetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharedBitmap*/SelfOuter* self, WTS_ALPHATYPE* pat) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharedBitmap*/SelfOuter* self, HBITMAP phbm) GetSharedBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharedBitmap*/SelfOuter* self, SIZE pSize) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharedBitmap*/SelfOuter* self, WTS_ALPHATYPE pat) GetFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharedBitmap*/SelfOuter* self, HBITMAP hbm, WTS_ALPHATYPE wtsAT) InitializeBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharedBitmap*/SelfOuter* self, HBITMAP* phbm) Detach;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISharedBitmap*/SelfOuter* self, HBITMAP phbm) Detach;
 	}
 
 
-	public HRESULT GetSharedBitmap(HBITMAP* phbm) mut => VT.[Friend]GetSharedBitmap(&this, phbm);
+	public HRESULT GetSharedBitmap(HBITMAP phbm) mut => VT.[Friend]GetSharedBitmap(&this, phbm);
 
-	public HRESULT GetSize(SIZE* pSize) mut => VT.[Friend]GetSize(&this, pSize);
+	public HRESULT GetSize(SIZE pSize) mut => VT.[Friend]GetSize(&this, pSize);
 
-	public HRESULT GetFormat(WTS_ALPHATYPE* pat) mut => VT.[Friend]GetFormat(&this, pat);
+	public HRESULT GetFormat(WTS_ALPHATYPE pat) mut => VT.[Friend]GetFormat(&this, pat);
 
 	public HRESULT InitializeBitmap(HBITMAP hbm, WTS_ALPHATYPE wtsAT) mut => VT.[Friend]InitializeBitmap(&this, hbm, wtsAT);
 
-	public HRESULT Detach(HBITMAP* phbm) mut => VT.[Friend]Detach(&this, phbm);
+	public HRESULT Detach(HBITMAP phbm) mut => VT.[Friend]Detach(&this, phbm);
 }
 
 [CRepr]struct IThumbnailCache : IUnknown
@@ -18511,14 +18511,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailCache*/SelfOuter* self, IShellItem* pShellItem, uint32 cxyRequestedThumbSize, WTS_FLAGS flags, ISharedBitmap** ppvThumb, WTS_CACHEFLAGS* pOutFlags, WTS_THUMBNAILID* pThumbnailID) GetThumbnail;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailCache*/SelfOuter* self, WTS_THUMBNAILID thumbnailID, uint32 cxyRequestedThumbSize, ISharedBitmap** ppvThumb, WTS_CACHEFLAGS* pOutFlags) GetThumbnailByID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailCache*/SelfOuter* self, IShellItem* pShellItem, uint32 cxyRequestedThumbSize, WTS_FLAGS flags, ISharedBitmap* ppvThumb, WTS_CACHEFLAGS pOutFlags, WTS_THUMBNAILID pThumbnailID) GetThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailCache*/SelfOuter* self, WTS_THUMBNAILID thumbnailID, uint32 cxyRequestedThumbSize, ISharedBitmap* ppvThumb, WTS_CACHEFLAGS pOutFlags) GetThumbnailByID;
 	}
 
 
-	public HRESULT GetThumbnail(IShellItem* pShellItem, uint32 cxyRequestedThumbSize, WTS_FLAGS flags, ISharedBitmap** ppvThumb, WTS_CACHEFLAGS* pOutFlags, WTS_THUMBNAILID* pThumbnailID) mut => VT.[Friend]GetThumbnail(&this, pShellItem, cxyRequestedThumbSize, flags, ppvThumb, pOutFlags, pThumbnailID);
+	public HRESULT GetThumbnail(IShellItem* pShellItem, uint32 cxyRequestedThumbSize, WTS_FLAGS flags, ISharedBitmap* ppvThumb, WTS_CACHEFLAGS pOutFlags, WTS_THUMBNAILID pThumbnailID) mut => VT.[Friend]GetThumbnail(&this, pShellItem, cxyRequestedThumbSize, flags, ppvThumb, pOutFlags, pThumbnailID);
 
-	public HRESULT GetThumbnailByID(WTS_THUMBNAILID thumbnailID, uint32 cxyRequestedThumbSize, ISharedBitmap** ppvThumb, WTS_CACHEFLAGS* pOutFlags) mut => VT.[Friend]GetThumbnailByID(&this, thumbnailID, cxyRequestedThumbSize, ppvThumb, pOutFlags);
+	public HRESULT GetThumbnailByID(WTS_THUMBNAILID thumbnailID, uint32 cxyRequestedThumbSize, ISharedBitmap* ppvThumb, WTS_CACHEFLAGS pOutFlags) mut => VT.[Friend]GetThumbnailByID(&this, thumbnailID, cxyRequestedThumbSize, ppvThumb, pOutFlags);
 }
 
 [CRepr]struct IThumbnailProvider : IUnknown
@@ -18529,11 +18529,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailProvider*/SelfOuter* self, uint32 cx, HBITMAP* phbmp, WTS_ALPHATYPE* pdwAlpha) GetThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailProvider*/SelfOuter* self, uint32 cx, HBITMAP phbmp, WTS_ALPHATYPE pdwAlpha) GetThumbnail;
 	}
 
 
-	public HRESULT GetThumbnail(uint32 cx, HBITMAP* phbmp, WTS_ALPHATYPE* pdwAlpha) mut => VT.[Friend]GetThumbnail(&this, cx, phbmp, pdwAlpha);
+	public HRESULT GetThumbnail(uint32 cx, HBITMAP phbmp, WTS_ALPHATYPE pdwAlpha) mut => VT.[Friend]GetThumbnail(&this, cx, phbmp, pdwAlpha);
 }
 
 [CRepr]struct IThumbnailSettings : IUnknown
@@ -18574,18 +18574,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageDataFactory*/SelfOuter* self, IShellImageData** ppshimg) CreateIShellImageData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageDataFactory*/SelfOuter* self, PWSTR pszPath, IShellImageData** ppshimg) CreateImageFromFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageDataFactory*/SelfOuter* self, IStream* pStream, IShellImageData** ppshimg) CreateImageFromStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageDataFactory*/SelfOuter* self, IShellImageData* ppshimg) CreateIShellImageData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageDataFactory*/SelfOuter* self, PWSTR pszPath, IShellImageData* ppshimg) CreateImageFromFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageDataFactory*/SelfOuter* self, IStream* pStream, IShellImageData* ppshimg) CreateImageFromStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageDataFactory*/SelfOuter* self, PWSTR pszPath, Guid pDataFormat) GetDataFormatFromPath;
 	}
 
 
-	public HRESULT CreateIShellImageData(IShellImageData** ppshimg) mut => VT.[Friend]CreateIShellImageData(&this, ppshimg);
+	public HRESULT CreateIShellImageData(IShellImageData* ppshimg) mut => VT.[Friend]CreateIShellImageData(&this, ppshimg);
 
-	public HRESULT CreateImageFromFile(PWSTR pszPath, IShellImageData** ppshimg) mut => VT.[Friend]CreateImageFromFile(&this, pszPath, ppshimg);
+	public HRESULT CreateImageFromFile(PWSTR pszPath, IShellImageData* ppshimg) mut => VT.[Friend]CreateImageFromFile(&this, pszPath, ppshimg);
 
-	public HRESULT CreateImageFromStream(IStream* pStream, IShellImageData** ppshimg) mut => VT.[Friend]CreateImageFromStream(&this, pStream, ppshimg);
+	public HRESULT CreateImageFromStream(IStream* pStream, IShellImageData* ppshimg) mut => VT.[Friend]CreateImageFromStream(&this, pStream, ppshimg);
 
 	public HRESULT GetDataFormatFromPath(PWSTR pszPath, Guid pDataFormat) mut => VT.[Friend]GetDataFormatFromPath(&this, pszPath, pDataFormat);
 }
@@ -18599,7 +18599,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 dwFlags, uint32 cxDesired, uint32 cyDesired) Decode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, HDC hdc, RECT* prcDest, RECT* prcSrc) Draw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, HDC hdc, RECT prcDest, RECT prcSrc) Draw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self) NextFrame;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self) NextPage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self) PrevPage;
@@ -18610,30 +18610,30 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self) IsEditable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self) IsPrintable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self) IsDecoded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32* pnPage) GetCurrentPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32* pcPages) GetPageCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 pnPage) GetCurrentPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 pcPages) GetPageCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 iPage) SelectPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, SIZE* pSize) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, SIZE pSize) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, Guid pDataFormat) GetRawDataFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32* pFormat) GetPixelFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32* pdwDelay) GetDelay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 dwMode, IPropertySetStorage** ppPropSet) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 pFormat) GetPixelFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 pdwDelay) GetDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 dwMode, IPropertySetStorage* ppPropSet) GetProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 dwAngle) Rotate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 cx, uint32 cy, uint32 hints) Scale;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self) DiscardEdit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, IPropertyBag* pbagEnc) SetEncoderParams;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, PWSTR wszName, uint32 cch) DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32* puResolutionX, uint32* puResolutionY) GetResolution;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, Guid pguidFmt, uint8** ppEncParams) GetEncoderParams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, IShellImageDataAbort* pAbort, IShellImageDataAbort** ppAbortPrev) RegisterAbort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint8** ppImg) CloneFrame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint8* pImg) ReplaceFrame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint32 puResolutionX, uint32 puResolutionY) GetResolution;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, Guid pguidFmt, uint8 ppEncParams) GetEncoderParams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, IShellImageDataAbort* pAbort, IShellImageDataAbort* ppAbortPrev) RegisterAbort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint8 ppImg) CloneFrame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShellImageData*/SelfOuter* self, uint8 pImg) ReplaceFrame;
 	}
 
 
 	public HRESULT Decode(uint32 dwFlags, uint32 cxDesired, uint32 cyDesired) mut => VT.[Friend]Decode(&this, dwFlags, cxDesired, cyDesired);
 
-	public HRESULT Draw(HDC hdc, RECT* prcDest, RECT* prcSrc) mut => VT.[Friend]Draw(&this, hdc, prcDest, prcSrc);
+	public HRESULT Draw(HDC hdc, RECT prcDest, RECT prcSrc) mut => VT.[Friend]Draw(&this, hdc, prcDest, prcSrc);
 
 	public HRESULT NextFrame() mut => VT.[Friend]NextFrame(&this);
 
@@ -18655,21 +18655,21 @@ public static
 
 	public HRESULT IsDecoded() mut => VT.[Friend]IsDecoded(&this);
 
-	public HRESULT GetCurrentPage(uint32* pnPage) mut => VT.[Friend]GetCurrentPage(&this, pnPage);
+	public HRESULT GetCurrentPage(uint32 pnPage) mut => VT.[Friend]GetCurrentPage(&this, pnPage);
 
-	public HRESULT GetPageCount(uint32* pcPages) mut => VT.[Friend]GetPageCount(&this, pcPages);
+	public HRESULT GetPageCount(uint32 pcPages) mut => VT.[Friend]GetPageCount(&this, pcPages);
 
 	public HRESULT SelectPage(uint32 iPage) mut => VT.[Friend]SelectPage(&this, iPage);
 
-	public HRESULT GetSize(SIZE* pSize) mut => VT.[Friend]GetSize(&this, pSize);
+	public HRESULT GetSize(SIZE pSize) mut => VT.[Friend]GetSize(&this, pSize);
 
 	public HRESULT GetRawDataFormat(Guid pDataFormat) mut => VT.[Friend]GetRawDataFormat(&this, pDataFormat);
 
-	public HRESULT GetPixelFormat(uint32* pFormat) mut => VT.[Friend]GetPixelFormat(&this, pFormat);
+	public HRESULT GetPixelFormat(uint32 pFormat) mut => VT.[Friend]GetPixelFormat(&this, pFormat);
 
-	public HRESULT GetDelay(uint32* pdwDelay) mut => VT.[Friend]GetDelay(&this, pdwDelay);
+	public HRESULT GetDelay(uint32 pdwDelay) mut => VT.[Friend]GetDelay(&this, pdwDelay);
 
-	public HRESULT GetProperties(uint32 dwMode, IPropertySetStorage** ppPropSet) mut => VT.[Friend]GetProperties(&this, dwMode, ppPropSet);
+	public HRESULT GetProperties(uint32 dwMode, IPropertySetStorage* ppPropSet) mut => VT.[Friend]GetProperties(&this, dwMode, ppPropSet);
 
 	public HRESULT Rotate(uint32 dwAngle) mut => VT.[Friend]Rotate(&this, dwAngle);
 
@@ -18681,15 +18681,15 @@ public static
 
 	public HRESULT DisplayName(PWSTR wszName, uint32 cch) mut => VT.[Friend]DisplayName(&this, wszName, cch);
 
-	public HRESULT GetResolution(uint32* puResolutionX, uint32* puResolutionY) mut => VT.[Friend]GetResolution(&this, puResolutionX, puResolutionY);
+	public HRESULT GetResolution(uint32 puResolutionX, uint32 puResolutionY) mut => VT.[Friend]GetResolution(&this, puResolutionX, puResolutionY);
 
-	public HRESULT GetEncoderParams(Guid pguidFmt, uint8** ppEncParams) mut => VT.[Friend]GetEncoderParams(&this, pguidFmt, ppEncParams);
+	public HRESULT GetEncoderParams(Guid pguidFmt, uint8 ppEncParams) mut => VT.[Friend]GetEncoderParams(&this, pguidFmt, ppEncParams);
 
-	public HRESULT RegisterAbort(IShellImageDataAbort* pAbort, IShellImageDataAbort** ppAbortPrev) mut => VT.[Friend]RegisterAbort(&this, pAbort, ppAbortPrev);
+	public HRESULT RegisterAbort(IShellImageDataAbort* pAbort, IShellImageDataAbort* ppAbortPrev) mut => VT.[Friend]RegisterAbort(&this, pAbort, ppAbortPrev);
 
-	public HRESULT CloneFrame(uint8** ppImg) mut => VT.[Friend]CloneFrame(&this, ppImg);
+	public HRESULT CloneFrame(uint8 ppImg) mut => VT.[Friend]CloneFrame(&this, ppImg);
 
-	public HRESULT ReplaceFrame(uint8* pImg) mut => VT.[Friend]ReplaceFrame(&this, pImg);
+	public HRESULT ReplaceFrame(uint8 pImg) mut => VT.[Friend]ReplaceFrame(&this, pImg);
 }
 
 [CRepr]struct IShellImageDataAbort : IUnknown
@@ -18715,12 +18715,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderPropertyHandler*/SelfOuter* self, PROPERTYKEY* propertiesToRetrieve, uint32 propertiesToRetrieveCount, IPropertyStore** retrievedProperties) RetrieveProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderPropertyHandler*/SelfOuter* self, PROPERTYKEY* propertiesToRetrieve, uint32 propertiesToRetrieveCount, IPropertyStore* retrievedProperties) RetrieveProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderPropertyHandler*/SelfOuter* self, IPropertyStore* propertiesToSave) SaveProperties;
 	}
 
 
-	public HRESULT RetrieveProperties(PROPERTYKEY* propertiesToRetrieve, uint32 propertiesToRetrieveCount, IPropertyStore** retrievedProperties) mut => VT.[Friend]RetrieveProperties(&this, propertiesToRetrieve, propertiesToRetrieveCount, retrievedProperties);
+	public HRESULT RetrieveProperties(PROPERTYKEY* propertiesToRetrieve, uint32 propertiesToRetrieveCount, IPropertyStore* retrievedProperties) mut => VT.[Friend]RetrieveProperties(&this, propertiesToRetrieve, propertiesToRetrieveCount, retrievedProperties);
 
 	public HRESULT SaveProperties(IPropertyStore* propertiesToSave) mut => VT.[Friend]SaveProperties(&this, propertiesToSave);
 }
@@ -18733,17 +18733,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderHandler*/SelfOuter* self, PWSTR path, IStorageProviderPropertyHandler** propertyHandler) GetPropertyHandlerFromPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderHandler*/SelfOuter* self, PWSTR uri, IStorageProviderPropertyHandler** propertyHandler) GetPropertyHandlerFromUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderHandler*/SelfOuter* self, PWSTR fileId, IStorageProviderPropertyHandler** propertyHandler) GetPropertyHandlerFromFileId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderHandler*/SelfOuter* self, PWSTR path, IStorageProviderPropertyHandler* propertyHandler) GetPropertyHandlerFromPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderHandler*/SelfOuter* self, PWSTR uri, IStorageProviderPropertyHandler* propertyHandler) GetPropertyHandlerFromUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageProviderHandler*/SelfOuter* self, PWSTR fileId, IStorageProviderPropertyHandler* propertyHandler) GetPropertyHandlerFromFileId;
 	}
 
 
-	public HRESULT GetPropertyHandlerFromPath(PWSTR path, IStorageProviderPropertyHandler** propertyHandler) mut => VT.[Friend]GetPropertyHandlerFromPath(&this, path, propertyHandler);
+	public HRESULT GetPropertyHandlerFromPath(PWSTR path, IStorageProviderPropertyHandler* propertyHandler) mut => VT.[Friend]GetPropertyHandlerFromPath(&this, path, propertyHandler);
 
-	public HRESULT GetPropertyHandlerFromUri(PWSTR uri, IStorageProviderPropertyHandler** propertyHandler) mut => VT.[Friend]GetPropertyHandlerFromUri(&this, uri, propertyHandler);
+	public HRESULT GetPropertyHandlerFromUri(PWSTR uri, IStorageProviderPropertyHandler* propertyHandler) mut => VT.[Friend]GetPropertyHandlerFromUri(&this, uri, propertyHandler);
 
-	public HRESULT GetPropertyHandlerFromFileId(PWSTR fileId, IStorageProviderPropertyHandler** propertyHandler) mut => VT.[Friend]GetPropertyHandlerFromFileId(&this, fileId, propertyHandler);
+	public HRESULT GetPropertyHandlerFromFileId(PWSTR fileId, IStorageProviderPropertyHandler* propertyHandler) mut => VT.[Friend]GetPropertyHandlerFromFileId(&this, fileId, propertyHandler);
 }
 
 [CRepr]struct ISyncMgrSynchronizeCallback : IUnknown
@@ -18759,8 +18759,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronizeCallback*/SelfOuter* self, HRESULT hr) SynchronizeCompleted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronizeCallback*/SelfOuter* self, HRESULT hr, uint32 cItems, Guid* pItemIDs) ShowErrorCompleted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronizeCallback*/SelfOuter* self, BOOL fEnable) EnableModeless;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronizeCallback*/SelfOuter* self, Guid ItemID, SYNCMGRPROGRESSITEM* pSyncProgressItem) Progress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronizeCallback*/SelfOuter* self, uint32 dwErrorLevel, PWSTR pszErrorText, SYNCMGRLOGERRORINFO* pSyncLogError) LogError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronizeCallback*/SelfOuter* self, Guid ItemID, SYNCMGRPROGRESSITEM pSyncProgressItem) Progress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronizeCallback*/SelfOuter* self, uint32 dwErrorLevel, PWSTR pszErrorText, SYNCMGRLOGERRORINFO pSyncLogError) LogError;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronizeCallback*/SelfOuter* self, Guid ErrorID, uint32 dwReserved) DeleteLogError;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronizeCallback*/SelfOuter* self, PWSTR pwszConnection, uint32 dwReserved) EstablishConnection;
 	}
@@ -18776,9 +18776,9 @@ public static
 
 	public HRESULT EnableModeless(BOOL fEnable) mut => VT.[Friend]EnableModeless(&this, fEnable);
 
-	public HRESULT Progress(Guid ItemID, SYNCMGRPROGRESSITEM* pSyncProgressItem) mut => VT.[Friend]Progress(&this, ItemID, pSyncProgressItem);
+	public HRESULT Progress(Guid ItemID, SYNCMGRPROGRESSITEM pSyncProgressItem) mut => VT.[Friend]Progress(&this, ItemID, pSyncProgressItem);
 
-	public HRESULT LogError(uint32 dwErrorLevel, PWSTR pszErrorText, SYNCMGRLOGERRORINFO* pSyncLogError) mut => VT.[Friend]LogError(&this, dwErrorLevel, pszErrorText, pSyncLogError);
+	public HRESULT LogError(uint32 dwErrorLevel, PWSTR pszErrorText, SYNCMGRLOGERRORINFO pSyncLogError) mut => VT.[Friend]LogError(&this, dwErrorLevel, pszErrorText, pSyncLogError);
 
 	public HRESULT DeleteLogError(Guid ErrorID, uint32 dwReserved) mut => VT.[Friend]DeleteLogError(&this, ErrorID, dwReserved);
 
@@ -18793,20 +18793,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEnumItems*/SelfOuter* self, uint32 celt, SYNCMGRITEM* rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEnumItems*/SelfOuter* self, uint32 celt, SYNCMGRITEM* rgelt, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEnumItems*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEnumItems*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEnumItems*/SelfOuter* self, ISyncMgrEnumItems** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrEnumItems*/SelfOuter* self, ISyncMgrEnumItems* ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, SYNCMGRITEM* rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, SYNCMGRITEM* rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(ISyncMgrEnumItems** ppenum) mut => VT.[Friend]Clone(&this, ppenum);
+	public HRESULT Clone(ISyncMgrEnumItems* ppenum) mut => VT.[Friend]Clone(&this, ppenum);
 }
 
 [CRepr]struct ISyncMgrSynchronize : IUnknown
@@ -18818,9 +18818,9 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronize*/SelfOuter* self, uint32 dwReserved, uint32 dwSyncMgrFlags, uint32 cbCookie, uint8* lpCookie) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronize*/SelfOuter* self, SYNCMGRHANDLERINFO** ppSyncMgrHandlerInfo) GetHandlerInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronize*/SelfOuter* self, ISyncMgrEnumItems** ppSyncMgrEnumItems) EnumSyncMgrItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronize*/SelfOuter* self, Guid ItemID, Guid riid, void** ppv) GetItemObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronize*/SelfOuter* self, SYNCMGRHANDLERINFO ppSyncMgrHandlerInfo) GetHandlerInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronize*/SelfOuter* self, ISyncMgrEnumItems* ppSyncMgrEnumItems) EnumSyncMgrItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronize*/SelfOuter* self, Guid ItemID, Guid riid, void ppv) GetItemObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronize*/SelfOuter* self, HWND hWndParent, Guid ItemID) ShowProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronize*/SelfOuter* self, ISyncMgrSynchronizeCallback* lpCallBack) SetProgressCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrSynchronize*/SelfOuter* self, uint32 cbNumItems, Guid* pItemIDs, HWND hWndParent, uint32 dwReserved) PrepareForSync;
@@ -18832,11 +18832,11 @@ public static
 
 	public HRESULT Initialize(uint32 dwReserved, uint32 dwSyncMgrFlags, uint32 cbCookie, uint8* lpCookie) mut => VT.[Friend]Initialize(&this, dwReserved, dwSyncMgrFlags, cbCookie, lpCookie);
 
-	public HRESULT GetHandlerInfo(SYNCMGRHANDLERINFO** ppSyncMgrHandlerInfo) mut => VT.[Friend]GetHandlerInfo(&this, ppSyncMgrHandlerInfo);
+	public HRESULT GetHandlerInfo(SYNCMGRHANDLERINFO ppSyncMgrHandlerInfo) mut => VT.[Friend]GetHandlerInfo(&this, ppSyncMgrHandlerInfo);
 
-	public HRESULT EnumSyncMgrItems(ISyncMgrEnumItems** ppSyncMgrEnumItems) mut => VT.[Friend]EnumSyncMgrItems(&this, ppSyncMgrEnumItems);
+	public HRESULT EnumSyncMgrItems(ISyncMgrEnumItems* ppSyncMgrEnumItems) mut => VT.[Friend]EnumSyncMgrItems(&this, ppSyncMgrEnumItems);
 
-	public HRESULT GetItemObject(Guid ItemID, Guid riid, void** ppv) mut => VT.[Friend]GetItemObject(&this, ItemID, riid, ppv);
+	public HRESULT GetItemObject(Guid ItemID, Guid riid, void ppv) mut => VT.[Friend]GetItemObject(&this, ItemID, riid, ppv);
 
 	public HRESULT ShowProperties(HWND hWndParent, Guid ItemID) mut => VT.[Friend]ShowProperties(&this, hWndParent, ItemID);
 
@@ -18879,7 +18879,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrRegister*/SelfOuter* self, Guid clsidHandler, PWSTR pwszDescription, uint32 dwSyncMgrRegisterFlags) RegisterSyncMgrHandler;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrRegister*/SelfOuter* self, Guid clsidHandler, uint32 dwReserved) UnregisterSyncMgrHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrRegister*/SelfOuter* self, Guid clsidHandler, uint32* pdwSyncMgrRegisterFlags) GetHandlerRegistrationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISyncMgrRegister*/SelfOuter* self, Guid clsidHandler, uint32 pdwSyncMgrRegisterFlags) GetHandlerRegistrationInfo;
 	}
 
 
@@ -18887,7 +18887,7 @@ public static
 
 	public HRESULT UnregisterSyncMgrHandler(Guid clsidHandler, uint32 dwReserved) mut => VT.[Friend]UnregisterSyncMgrHandler(&this, clsidHandler, dwReserved);
 
-	public HRESULT GetHandlerRegistrationInfo(Guid clsidHandler, uint32* pdwSyncMgrRegisterFlags) mut => VT.[Friend]GetHandlerRegistrationInfo(&this, clsidHandler, pdwSyncMgrRegisterFlags);
+	public HRESULT GetHandlerRegistrationInfo(Guid clsidHandler, uint32 pdwSyncMgrRegisterFlags) mut => VT.[Friend]GetHandlerRegistrationInfo(&this, clsidHandler, pdwSyncMgrRegisterFlags);
 }
 
 [CRepr]struct IThumbnailStreamCache : IUnknown
@@ -18898,12 +18898,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailStreamCache*/SelfOuter* self, PWSTR path, uint64 cacheId, ThumbnailStreamCacheOptions options, uint32 requestedThumbnailSize, SIZE* thumbnailSize, IStream** thumbnailStream) GetThumbnailStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailStreamCache*/SelfOuter* self, PWSTR path, uint64 cacheId, ThumbnailStreamCacheOptions options, uint32 requestedThumbnailSize, SIZE thumbnailSize, IStream* thumbnailStream) GetThumbnailStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailStreamCache*/SelfOuter* self, PWSTR path, uint64 cacheId, SIZE thumbnailSize, IStream* thumbnailStream) SetThumbnailStream;
 	}
 
 
-	public HRESULT GetThumbnailStream(PWSTR path, uint64 cacheId, ThumbnailStreamCacheOptions options, uint32 requestedThumbnailSize, SIZE* thumbnailSize, IStream** thumbnailStream) mut => VT.[Friend]GetThumbnailStream(&this, path, cacheId, options, requestedThumbnailSize, thumbnailSize, thumbnailStream);
+	public HRESULT GetThumbnailStream(PWSTR path, uint64 cacheId, ThumbnailStreamCacheOptions options, uint32 requestedThumbnailSize, SIZE thumbnailSize, IStream* thumbnailStream) mut => VT.[Friend]GetThumbnailStream(&this, path, cacheId, options, requestedThumbnailSize, thumbnailSize, thumbnailStream);
 
 	public HRESULT SetThumbnailStream(PWSTR path, uint64 cacheId, SIZE thumbnailSize, IStream* thumbnailStream) mut => VT.[Friend]SetThumbnailStream(&this, path, cacheId, thumbnailSize, thumbnailStream);
 }
@@ -18916,14 +18916,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogEntry*/SelfOuter* self, PWSTR* ppszTitle) GetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogEntry*/SelfOuter* self, PWSTR* ppszURL) GetURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogEntry*/SelfOuter* self, PWSTR ppszTitle) GetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogEntry*/SelfOuter* self, PWSTR ppszURL) GetURL;
 	}
 
 
-	public HRESULT GetTitle(PWSTR* ppszTitle) mut => VT.[Friend]GetTitle(&this, ppszTitle);
+	public HRESULT GetTitle(PWSTR ppszTitle) mut => VT.[Friend]GetTitle(&this, ppszTitle);
 
-	public HRESULT GetURL(PWSTR* ppszURL) mut => VT.[Friend]GetURL(&this, ppszURL);
+	public HRESULT GetURL(PWSTR ppszURL) mut => VT.[Friend]GetURL(&this, ppszURL);
 }
 
 [CRepr]struct ITravelLogClient : IUnknown
@@ -18934,15 +18934,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogClient*/SelfOuter* self, uint32 dwID, IUnknown** ppunk) FindWindowByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogClient*/SelfOuter* self, IStream* pStream, WINDOWDATA* pWinData) GetWindowData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogClient*/SelfOuter* self, uint32 dwID, IUnknown* ppunk) FindWindowByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogClient*/SelfOuter* self, IStream* pStream, WINDOWDATA pWinData) GetWindowData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogClient*/SelfOuter* self, PWSTR pszUrlLocation, uint32 dwPosition) LoadHistoryPosition;
 	}
 
 
-	public HRESULT FindWindowByIndex(uint32 dwID, IUnknown** ppunk) mut => VT.[Friend]FindWindowByIndex(&this, dwID, ppunk);
+	public HRESULT FindWindowByIndex(uint32 dwID, IUnknown* ppunk) mut => VT.[Friend]FindWindowByIndex(&this, dwID, ppunk);
 
-	public HRESULT GetWindowData(IStream* pStream, WINDOWDATA* pWinData) mut => VT.[Friend]GetWindowData(&this, pStream, pWinData);
+	public HRESULT GetWindowData(IStream* pStream, WINDOWDATA pWinData) mut => VT.[Friend]GetWindowData(&this, pStream, pWinData);
 
 	public HRESULT LoadHistoryPosition(PWSTR pszUrlLocation, uint32 dwPosition) mut => VT.[Friend]LoadHistoryPosition(&this, pszUrlLocation, dwPosition);
 }
@@ -18955,20 +18955,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTravelLogEntry*/SelfOuter* self, uint32 cElt, ITravelLogEntry** rgElt, uint32* pcEltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTravelLogEntry*/SelfOuter* self, uint32 cElt, ITravelLogEntry** rgElt, uint32 pcEltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTravelLogEntry*/SelfOuter* self, uint32 cElt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTravelLogEntry*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTravelLogEntry*/SelfOuter* self, IEnumTravelLogEntry** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTravelLogEntry*/SelfOuter* self, IEnumTravelLogEntry* ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cElt, ITravelLogEntry** rgElt, uint32* pcEltFetched) mut => VT.[Friend]Next(&this, cElt, rgElt, pcEltFetched);
+	public HRESULT Next(uint32 cElt, ITravelLogEntry** rgElt, uint32 pcEltFetched) mut => VT.[Friend]Next(&this, cElt, rgElt, pcEltFetched);
 
 	public HRESULT Skip(uint32 cElt) mut => VT.[Friend]Skip(&this, cElt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumTravelLogEntry** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
+	public HRESULT Clone(IEnumTravelLogEntry* ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 }
 
 [CRepr]struct ITravelLogStg : IUnknown
@@ -18979,29 +18979,29 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, PWSTR pszUrl, PWSTR pszTitle, ITravelLogEntry* ptleRelativeTo, BOOL fPrepend, ITravelLogEntry** pptle) CreateEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, PWSTR pszUrl, PWSTR pszTitle, ITravelLogEntry* ptleRelativeTo, BOOL fPrepend, ITravelLogEntry* pptle) CreateEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, ITravelLogEntry* ptle) TravelTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, TLENUMF flags, IEnumTravelLogEntry** ppenum) EnumEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, TLENUMF flags, PWSTR pszUrl, IEnumTravelLogEntry** ppenum) FindEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, TLENUMF flags, uint32* pcEntries) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, TLENUMF flags, IEnumTravelLogEntry* ppenum) EnumEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, TLENUMF flags, PWSTR pszUrl, IEnumTravelLogEntry* ppenum) FindEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, TLENUMF flags, uint32 pcEntries) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, ITravelLogEntry* ptle) RemoveEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, int32 iOffset, ITravelLogEntry** ptle) GetRelativeEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLogStg*/SelfOuter* self, int32 iOffset, ITravelLogEntry* ptle) GetRelativeEntry;
 	}
 
 
-	public HRESULT CreateEntry(PWSTR pszUrl, PWSTR pszTitle, ITravelLogEntry* ptleRelativeTo, BOOL fPrepend, ITravelLogEntry** pptle) mut => VT.[Friend]CreateEntry(&this, pszUrl, pszTitle, ptleRelativeTo, fPrepend, pptle);
+	public HRESULT CreateEntry(PWSTR pszUrl, PWSTR pszTitle, ITravelLogEntry* ptleRelativeTo, BOOL fPrepend, ITravelLogEntry* pptle) mut => VT.[Friend]CreateEntry(&this, pszUrl, pszTitle, ptleRelativeTo, fPrepend, pptle);
 
 	public HRESULT TravelTo(ITravelLogEntry* ptle) mut => VT.[Friend]TravelTo(&this, ptle);
 
-	public HRESULT EnumEntries(TLENUMF flags, IEnumTravelLogEntry** ppenum) mut => VT.[Friend]EnumEntries(&this, flags, ppenum);
+	public HRESULT EnumEntries(TLENUMF flags, IEnumTravelLogEntry* ppenum) mut => VT.[Friend]EnumEntries(&this, flags, ppenum);
 
-	public HRESULT FindEntries(TLENUMF flags, PWSTR pszUrl, IEnumTravelLogEntry** ppenum) mut => VT.[Friend]FindEntries(&this, flags, pszUrl, ppenum);
+	public HRESULT FindEntries(TLENUMF flags, PWSTR pszUrl, IEnumTravelLogEntry* ppenum) mut => VT.[Friend]FindEntries(&this, flags, pszUrl, ppenum);
 
-	public HRESULT GetCount(TLENUMF flags, uint32* pcEntries) mut => VT.[Friend]GetCount(&this, flags, pcEntries);
+	public HRESULT GetCount(TLENUMF flags, uint32 pcEntries) mut => VT.[Friend]GetCount(&this, flags, pcEntries);
 
 	public HRESULT RemoveEntry(ITravelLogEntry* ptle) mut => VT.[Friend]RemoveEntry(&this, ptle);
 
-	public HRESULT GetRelativeEntry(int32 iOffset, ITravelLogEntry** ptle) mut => VT.[Friend]GetRelativeEntry(&this, iOffset, ptle);
+	public HRESULT GetRelativeEntry(int32 iOffset, ITravelLogEntry* ptle) mut => VT.[Friend]GetRelativeEntry(&this, iOffset, ptle);
 }
 
 [CRepr]struct IHlink : IUnknown
@@ -19013,49 +19013,49 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, IHlinkSite* pihlSite, uint32 dwSiteData) SetHlinkSite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, IHlinkSite** ppihlSite, uint32* pdwSiteData) GetHlinkSite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, IHlinkSite* ppihlSite, uint32 pdwSiteData) GetHlinkSite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32 grfHLSETF, IMoniker* pimkTarget, PWSTR pwzLocation) SetMonikerReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32 dwWhichRef, IMoniker** ppimkTarget, PWSTR* ppwzLocation) GetMonikerReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32 dwWhichRef, IMoniker* ppimkTarget, PWSTR ppwzLocation) GetMonikerReference;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32 grfHLSETF, PWSTR pwzTarget, PWSTR pwzLocation) SetStringReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32 dwWhichRef, PWSTR* ppwzTarget, PWSTR* ppwzLocation) GetStringReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32 dwWhichRef, PWSTR ppwzTarget, PWSTR ppwzLocation) GetStringReference;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, PWSTR pwzFriendlyName) SetFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32 grfHLFNAMEF, PWSTR* ppwzFriendlyName) GetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32 grfHLFNAMEF, PWSTR ppwzFriendlyName) GetFriendlyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, PWSTR pwzTargetFrameName) SetTargetFrameName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, PWSTR* ppwzTargetFrameName) GetTargetFrameName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32* pdwStatus) GetMiscStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, PWSTR ppwzTargetFrameName) GetTargetFrameName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32 pdwStatus) GetMiscStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, uint32 grfHLNF, IBindCtx* pibc, IBindStatusCallback* pibsc, IHlinkBrowseContext* pihlbc) Navigate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, PWSTR pwzAdditionalParams) SetAdditionalParams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, PWSTR* ppwzAdditionalParams) GetAdditionalParams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlink*/SelfOuter* self, PWSTR ppwzAdditionalParams) GetAdditionalParams;
 	}
 
 
 	public HRESULT SetHlinkSite(IHlinkSite* pihlSite, uint32 dwSiteData) mut => VT.[Friend]SetHlinkSite(&this, pihlSite, dwSiteData);
 
-	public HRESULT GetHlinkSite(IHlinkSite** ppihlSite, uint32* pdwSiteData) mut => VT.[Friend]GetHlinkSite(&this, ppihlSite, pdwSiteData);
+	public HRESULT GetHlinkSite(IHlinkSite* ppihlSite, uint32 pdwSiteData) mut => VT.[Friend]GetHlinkSite(&this, ppihlSite, pdwSiteData);
 
 	public HRESULT SetMonikerReference(uint32 grfHLSETF, IMoniker* pimkTarget, PWSTR pwzLocation) mut => VT.[Friend]SetMonikerReference(&this, grfHLSETF, pimkTarget, pwzLocation);
 
-	public HRESULT GetMonikerReference(uint32 dwWhichRef, IMoniker** ppimkTarget, PWSTR* ppwzLocation) mut => VT.[Friend]GetMonikerReference(&this, dwWhichRef, ppimkTarget, ppwzLocation);
+	public HRESULT GetMonikerReference(uint32 dwWhichRef, IMoniker* ppimkTarget, PWSTR ppwzLocation) mut => VT.[Friend]GetMonikerReference(&this, dwWhichRef, ppimkTarget, ppwzLocation);
 
 	public HRESULT SetStringReference(uint32 grfHLSETF, PWSTR pwzTarget, PWSTR pwzLocation) mut => VT.[Friend]SetStringReference(&this, grfHLSETF, pwzTarget, pwzLocation);
 
-	public HRESULT GetStringReference(uint32 dwWhichRef, PWSTR* ppwzTarget, PWSTR* ppwzLocation) mut => VT.[Friend]GetStringReference(&this, dwWhichRef, ppwzTarget, ppwzLocation);
+	public HRESULT GetStringReference(uint32 dwWhichRef, PWSTR ppwzTarget, PWSTR ppwzLocation) mut => VT.[Friend]GetStringReference(&this, dwWhichRef, ppwzTarget, ppwzLocation);
 
 	public HRESULT SetFriendlyName(PWSTR pwzFriendlyName) mut => VT.[Friend]SetFriendlyName(&this, pwzFriendlyName);
 
-	public HRESULT GetFriendlyName(uint32 grfHLFNAMEF, PWSTR* ppwzFriendlyName) mut => VT.[Friend]GetFriendlyName(&this, grfHLFNAMEF, ppwzFriendlyName);
+	public HRESULT GetFriendlyName(uint32 grfHLFNAMEF, PWSTR ppwzFriendlyName) mut => VT.[Friend]GetFriendlyName(&this, grfHLFNAMEF, ppwzFriendlyName);
 
 	public HRESULT SetTargetFrameName(PWSTR pwzTargetFrameName) mut => VT.[Friend]SetTargetFrameName(&this, pwzTargetFrameName);
 
-	public HRESULT GetTargetFrameName(PWSTR* ppwzTargetFrameName) mut => VT.[Friend]GetTargetFrameName(&this, ppwzTargetFrameName);
+	public HRESULT GetTargetFrameName(PWSTR ppwzTargetFrameName) mut => VT.[Friend]GetTargetFrameName(&this, ppwzTargetFrameName);
 
-	public HRESULT GetMiscStatus(uint32* pdwStatus) mut => VT.[Friend]GetMiscStatus(&this, pdwStatus);
+	public HRESULT GetMiscStatus(uint32 pdwStatus) mut => VT.[Friend]GetMiscStatus(&this, pdwStatus);
 
 	public HRESULT Navigate(uint32 grfHLNF, IBindCtx* pibc, IBindStatusCallback* pibsc, IHlinkBrowseContext* pihlbc) mut => VT.[Friend]Navigate(&this, grfHLNF, pibc, pibsc, pihlbc);
 
 	public HRESULT SetAdditionalParams(PWSTR pwzAdditionalParams) mut => VT.[Friend]SetAdditionalParams(&this, pwzAdditionalParams);
 
-	public HRESULT GetAdditionalParams(PWSTR* ppwzAdditionalParams) mut => VT.[Friend]GetAdditionalParams(&this, ppwzAdditionalParams);
+	public HRESULT GetAdditionalParams(PWSTR ppwzAdditionalParams) mut => VT.[Friend]GetAdditionalParams(&this, ppwzAdditionalParams);
 }
 
 [CRepr]struct IHlinkSite : IUnknown
@@ -19066,16 +19066,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkSite*/SelfOuter* self, uint32 dwSiteData, Guid guidService, Guid riid, IUnknown** ppiunk) QueryService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkSite*/SelfOuter* self, uint32 dwSiteData, uint32 dwAssign, uint32 dwWhich, IMoniker** ppimk) GetMoniker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkSite*/SelfOuter* self, uint32 dwSiteData, Guid guidService, Guid riid, IUnknown* ppiunk) QueryService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkSite*/SelfOuter* self, uint32 dwSiteData, uint32 dwAssign, uint32 dwWhich, IMoniker* ppimk) GetMoniker;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkSite*/SelfOuter* self, uint32 dwSiteData, uint32 dwReserved) ReadyToNavigate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkSite*/SelfOuter* self, uint32 dwSiteData, uint32 dwreserved, HRESULT hrError, PWSTR pwzError) OnNavigationComplete;
 	}
 
 
-	public HRESULT QueryService(uint32 dwSiteData, Guid guidService, Guid riid, IUnknown** ppiunk) mut => VT.[Friend]QueryService(&this, dwSiteData, guidService, riid, ppiunk);
+	public HRESULT QueryService(uint32 dwSiteData, Guid guidService, Guid riid, IUnknown* ppiunk) mut => VT.[Friend]QueryService(&this, dwSiteData, guidService, riid, ppiunk);
 
-	public HRESULT GetMoniker(uint32 dwSiteData, uint32 dwAssign, uint32 dwWhich, IMoniker** ppimk) mut => VT.[Friend]GetMoniker(&this, dwSiteData, dwAssign, dwWhich, ppimk);
+	public HRESULT GetMoniker(uint32 dwSiteData, uint32 dwAssign, uint32 dwWhich, IMoniker* ppimk) mut => VT.[Friend]GetMoniker(&this, dwSiteData, dwAssign, dwWhich, ppimk);
 
 	public HRESULT ReadyToNavigate(uint32 dwSiteData, uint32 dwReserved) mut => VT.[Friend]ReadyToNavigate(&this, dwSiteData, dwReserved);
 
@@ -19091,22 +19091,22 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkTarget*/SelfOuter* self, IHlinkBrowseContext* pihlbc) SetBrowseContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkTarget*/SelfOuter* self, IHlinkBrowseContext** ppihlbc) GetBrowseContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkTarget*/SelfOuter* self, IHlinkBrowseContext* ppihlbc) GetBrowseContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkTarget*/SelfOuter* self, uint32 grfHLNF, PWSTR pwzJumpLocation) Navigate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkTarget*/SelfOuter* self, PWSTR pwzLocation, uint32 dwAssign, IMoniker** ppimkLocation) GetMoniker;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkTarget*/SelfOuter* self, PWSTR pwzLocation, PWSTR* ppwzFriendlyName) GetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkTarget*/SelfOuter* self, PWSTR pwzLocation, uint32 dwAssign, IMoniker* ppimkLocation) GetMoniker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkTarget*/SelfOuter* self, PWSTR pwzLocation, PWSTR ppwzFriendlyName) GetFriendlyName;
 	}
 
 
 	public HRESULT SetBrowseContext(IHlinkBrowseContext* pihlbc) mut => VT.[Friend]SetBrowseContext(&this, pihlbc);
 
-	public HRESULT GetBrowseContext(IHlinkBrowseContext** ppihlbc) mut => VT.[Friend]GetBrowseContext(&this, ppihlbc);
+	public HRESULT GetBrowseContext(IHlinkBrowseContext* ppihlbc) mut => VT.[Friend]GetBrowseContext(&this, ppihlbc);
 
 	public HRESULT Navigate(uint32 grfHLNF, PWSTR pwzJumpLocation) mut => VT.[Friend]Navigate(&this, grfHLNF, pwzJumpLocation);
 
-	public HRESULT GetMoniker(PWSTR pwzLocation, uint32 dwAssign, IMoniker** ppimkLocation) mut => VT.[Friend]GetMoniker(&this, pwzLocation, dwAssign, ppimkLocation);
+	public HRESULT GetMoniker(PWSTR pwzLocation, uint32 dwAssign, IMoniker* ppimkLocation) mut => VT.[Friend]GetMoniker(&this, pwzLocation, dwAssign, ppimkLocation);
 
-	public HRESULT GetFriendlyName(PWSTR pwzLocation, PWSTR* ppwzFriendlyName) mut => VT.[Friend]GetFriendlyName(&this, pwzLocation, ppwzFriendlyName);
+	public HRESULT GetFriendlyName(PWSTR pwzLocation, PWSTR ppwzFriendlyName) mut => VT.[Friend]GetFriendlyName(&this, pwzLocation, ppwzFriendlyName);
 }
 
 [CRepr]struct IHlinkFrame : IUnknown
@@ -19118,7 +19118,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkFrame*/SelfOuter* self, IHlinkBrowseContext* pihlbc) SetBrowseContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkFrame*/SelfOuter* self, IHlinkBrowseContext** ppihlbc) GetBrowseContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkFrame*/SelfOuter* self, IHlinkBrowseContext* ppihlbc) GetBrowseContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkFrame*/SelfOuter* self, uint32 grfHLNF, IBindCtx* pbc, IBindStatusCallback* pibsc, IHlink* pihlNavigate) Navigate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkFrame*/SelfOuter* self, uint32 grfHLNF, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName, uint32 dwreserved) OnNavigate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkFrame*/SelfOuter* self, uint32 uHLID, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName) UpdateHlink;
@@ -19127,7 +19127,7 @@ public static
 
 	public HRESULT SetBrowseContext(IHlinkBrowseContext* pihlbc) mut => VT.[Friend]SetBrowseContext(&this, pihlbc);
 
-	public HRESULT GetBrowseContext(IHlinkBrowseContext** ppihlbc) mut => VT.[Friend]GetBrowseContext(&this, ppihlbc);
+	public HRESULT GetBrowseContext(IHlinkBrowseContext* ppihlbc) mut => VT.[Friend]GetBrowseContext(&this, ppihlbc);
 
 	public HRESULT Navigate(uint32 grfHLNF, IBindCtx* pbc, IBindStatusCallback* pibsc, IHlink* pihlNavigate) mut => VT.[Friend]Navigate(&this, grfHLNF, pbc, pibsc, pihlNavigate);
 
@@ -19144,20 +19144,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumHLITEM*/SelfOuter* self, uint32 celt, HLITEM* rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumHLITEM*/SelfOuter* self, uint32 celt, HLITEM rgelt, uint32 pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumHLITEM*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumHLITEM*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumHLITEM*/SelfOuter* self, IEnumHLITEM** ppienumhlitem) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumHLITEM*/SelfOuter* self, IEnumHLITEM* ppienumhlitem) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, HLITEM* rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, HLITEM rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
-	public HRESULT Clone(IEnumHLITEM** ppienumhlitem) mut => VT.[Friend]Clone(&this, ppienumhlitem);
+	public HRESULT Clone(IEnumHLITEM* ppienumhlitem) mut => VT.[Friend]Clone(&this, ppienumhlitem);
 }
 
 [CRepr]struct IHlinkBrowseContext : IUnknown
@@ -19168,48 +19168,48 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 reserved, IUnknown* piunk, IMoniker* pimk, uint32* pdwRegister) Register;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, IMoniker* pimk, BOOL fBindIfRootRegistered, IUnknown** ppiunk) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 reserved, IUnknown* piunk, IMoniker* pimk, uint32 pdwRegister) Register;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, IMoniker* pimk, BOOL fBindIfRootRegistered, IUnknown* ppiunk) GetObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 dwRegister) Revoke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, HLBWINFO* phlbwi) SetBrowseWindowInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, HLBWINFO* phlbwi) GetBrowseWindowInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, HLBWINFO phlbwi) SetBrowseWindowInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, HLBWINFO phlbwi) GetBrowseWindowInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName) SetInitialHlink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 grfHLNF, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName, uint32* puHLID) OnNavigateHlink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 grfHLNF, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName, uint32 puHLID) OnNavigateHlink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 uHLID, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName) UpdateHlink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 dwReserved, uint32 grfHLFNAMEF, IEnumHLITEM** ppienumhlitem) EnumNavigationStack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 dwReserved, uint32 grfHLFNAMEF, IEnumHLITEM* ppienumhlitem) EnumNavigationStack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 grfHLQF, uint32 uHLID) QueryHlink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 uHLID, IHlink** ppihl) GetHlink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 uHLID, IHlink* ppihl) GetHlink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 uHLID) SetCurrentHlink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, IUnknown* piunkOuter, Guid riid, IUnknown** ppiunkObj) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, IUnknown* piunkOuter, Guid riid, IUnknown* ppiunkObj) Clone;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHlinkBrowseContext*/SelfOuter* self, uint32 reserved) Close;
 	}
 
 
-	public HRESULT Register(uint32 reserved, IUnknown* piunk, IMoniker* pimk, uint32* pdwRegister) mut => VT.[Friend]Register(&this, reserved, piunk, pimk, pdwRegister);
+	public HRESULT Register(uint32 reserved, IUnknown* piunk, IMoniker* pimk, uint32 pdwRegister) mut => VT.[Friend]Register(&this, reserved, piunk, pimk, pdwRegister);
 
-	public HRESULT GetObject(IMoniker* pimk, BOOL fBindIfRootRegistered, IUnknown** ppiunk) mut => VT.[Friend]GetObject(&this, pimk, fBindIfRootRegistered, ppiunk);
+	public HRESULT GetObject(IMoniker* pimk, BOOL fBindIfRootRegistered, IUnknown* ppiunk) mut => VT.[Friend]GetObject(&this, pimk, fBindIfRootRegistered, ppiunk);
 
 	public HRESULT Revoke(uint32 dwRegister) mut => VT.[Friend]Revoke(&this, dwRegister);
 
-	public HRESULT SetBrowseWindowInfo(HLBWINFO* phlbwi) mut => VT.[Friend]SetBrowseWindowInfo(&this, phlbwi);
+	public HRESULT SetBrowseWindowInfo(HLBWINFO phlbwi) mut => VT.[Friend]SetBrowseWindowInfo(&this, phlbwi);
 
-	public HRESULT GetBrowseWindowInfo(HLBWINFO* phlbwi) mut => VT.[Friend]GetBrowseWindowInfo(&this, phlbwi);
+	public HRESULT GetBrowseWindowInfo(HLBWINFO phlbwi) mut => VT.[Friend]GetBrowseWindowInfo(&this, phlbwi);
 
 	public HRESULT SetInitialHlink(IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName) mut => VT.[Friend]SetInitialHlink(&this, pimkTarget, pwzLocation, pwzFriendlyName);
 
-	public HRESULT OnNavigateHlink(uint32 grfHLNF, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName, uint32* puHLID) mut => VT.[Friend]OnNavigateHlink(&this, grfHLNF, pimkTarget, pwzLocation, pwzFriendlyName, puHLID);
+	public HRESULT OnNavigateHlink(uint32 grfHLNF, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName, uint32 puHLID) mut => VT.[Friend]OnNavigateHlink(&this, grfHLNF, pimkTarget, pwzLocation, pwzFriendlyName, puHLID);
 
 	public HRESULT UpdateHlink(uint32 uHLID, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName) mut => VT.[Friend]UpdateHlink(&this, uHLID, pimkTarget, pwzLocation, pwzFriendlyName);
 
-	public HRESULT EnumNavigationStack(uint32 dwReserved, uint32 grfHLFNAMEF, IEnumHLITEM** ppienumhlitem) mut => VT.[Friend]EnumNavigationStack(&this, dwReserved, grfHLFNAMEF, ppienumhlitem);
+	public HRESULT EnumNavigationStack(uint32 dwReserved, uint32 grfHLFNAMEF, IEnumHLITEM* ppienumhlitem) mut => VT.[Friend]EnumNavigationStack(&this, dwReserved, grfHLFNAMEF, ppienumhlitem);
 
 	public HRESULT QueryHlink(uint32 grfHLQF, uint32 uHLID) mut => VT.[Friend]QueryHlink(&this, grfHLQF, uHLID);
 
-	public HRESULT GetHlink(uint32 uHLID, IHlink** ppihl) mut => VT.[Friend]GetHlink(&this, uHLID, ppihl);
+	public HRESULT GetHlink(uint32 uHLID, IHlink* ppihl) mut => VT.[Friend]GetHlink(&this, uHLID, ppihl);
 
 	public HRESULT SetCurrentHlink(uint32 uHLID) mut => VT.[Friend]SetCurrentHlink(&this, uHLID);
 
-	public HRESULT Clone(IUnknown* piunkOuter, Guid riid, IUnknown** ppiunkObj) mut => VT.[Friend]Clone(&this, piunkOuter, riid, ppiunkObj);
+	public HRESULT Clone(IUnknown* piunkOuter, Guid riid, IUnknown* ppiunkObj) mut => VT.[Friend]Clone(&this, piunkOuter, riid, ppiunkObj);
 
 	public HRESULT Close(uint32 reserved) mut => VT.[Friend]Close(&this, reserved);
 }
@@ -19242,7 +19242,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelEntry*/SelfOuter* self, IUnknown* punk) Invoke;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelEntry*/SelfOuter* self, IUnknown* punk, BOOL fIsLocalAnchor) Update;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelEntry*/SelfOuter* self, ITEMIDLIST** ppidl) GetPidl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelEntry*/SelfOuter* self, ITEMIDLIST ppidl) GetPidl;
 	}
 
 
@@ -19250,7 +19250,7 @@ public static
 
 	public HRESULT Update(IUnknown* punk, BOOL fIsLocalAnchor) mut => VT.[Friend]Update(&this, punk, fIsLocalAnchor);
 
-	public HRESULT GetPidl(ITEMIDLIST** ppidl) mut => VT.[Friend]GetPidl(&this, ppidl);
+	public HRESULT GetPidl(ITEMIDLIST ppidl) mut => VT.[Friend]GetPidl(&this, ppidl);
 }
 
 [CRepr]struct ITravelLog : IUnknown
@@ -19265,11 +19265,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, BOOL fIsLocalAnchor) UpdateEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, IUnknown* punkHLBrowseContext) UpdateExternal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, int32 iOffset) Travel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, int32 iOffset, ITravelEntry** ppte) GetTravelEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, ITEMIDLIST* pidl, ITravelEntry** ppte) FindTravelEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, int32 iOffset, ITravelEntry* ppte) GetTravelEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, ITEMIDLIST pidl, ITravelEntry* ppte) FindTravelEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, int32 iOffset, int32 idsTemplate, char16* pwzText, uint32 cchText) GetToolTipText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, IUnknown* punk, HMENU hmenu, int32 nPos, int32 idFirst, int32 idLast, uint32 dwFlags) InsertMenuEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, ITravelLog** pptl) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self, ITravelLog* pptl) Clone;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ITravelLog*/SelfOuter* self, IUnknown* punk) CountEntries;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITravelLog*/SelfOuter* self) Revert;
 	}
@@ -19283,15 +19283,15 @@ public static
 
 	public HRESULT Travel(IUnknown* punk, int32 iOffset) mut => VT.[Friend]Travel(&this, punk, iOffset);
 
-	public HRESULT GetTravelEntry(IUnknown* punk, int32 iOffset, ITravelEntry** ppte) mut => VT.[Friend]GetTravelEntry(&this, punk, iOffset, ppte);
+	public HRESULT GetTravelEntry(IUnknown* punk, int32 iOffset, ITravelEntry* ppte) mut => VT.[Friend]GetTravelEntry(&this, punk, iOffset, ppte);
 
-	public HRESULT FindTravelEntry(IUnknown* punk, ITEMIDLIST* pidl, ITravelEntry** ppte) mut => VT.[Friend]FindTravelEntry(&this, punk, pidl, ppte);
+	public HRESULT FindTravelEntry(IUnknown* punk, ITEMIDLIST pidl, ITravelEntry* ppte) mut => VT.[Friend]FindTravelEntry(&this, punk, pidl, ppte);
 
 	public HRESULT GetToolTipText(IUnknown* punk, int32 iOffset, int32 idsTemplate, char16* pwzText, uint32 cchText) mut => VT.[Friend]GetToolTipText(&this, punk, iOffset, idsTemplate, pwzText, cchText);
 
 	public HRESULT InsertMenuEntries(IUnknown* punk, HMENU hmenu, int32 nPos, int32 idFirst, int32 idLast, uint32 dwFlags) mut => VT.[Friend]InsertMenuEntries(&this, punk, hmenu, nPos, idFirst, idLast, dwFlags);
 
-	public HRESULT Clone(ITravelLog** pptl) mut => VT.[Friend]Clone(&this, pptl);
+	public HRESULT Clone(ITravelLog* pptl) mut => VT.[Friend]Clone(&this, pptl);
 
 	public uint32 CountEntries(IUnknown* punk) mut => VT.[Friend]CountEntries(&this, punk);
 
@@ -19304,14 +19304,14 @@ public static
 
 	[CRepr]public struct VTable : IConnectionPoint.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*CIE4ConnectionPoint*/SelfOuter* self, BOOL* pf, void** ppv, int32 dispid, DISPPARAMS* pdispparams) DoInvokeIE4;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*CIE4ConnectionPoint*/SelfOuter* self, int32 dispid, ITEMIDLIST* pidl, BOOL fCanCancel) DoInvokePIDLIE4;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*CIE4ConnectionPoint*/SelfOuter* self, BOOL pf, void ppv, int32 dispid, DISPPARAMS pdispparams) DoInvokeIE4;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*CIE4ConnectionPoint*/SelfOuter* self, int32 dispid, ITEMIDLIST pidl, BOOL fCanCancel) DoInvokePIDLIE4;
 	}
 
 
-	public HRESULT DoInvokeIE4(BOOL* pf, void** ppv, int32 dispid, DISPPARAMS* pdispparams) mut => VT.[Friend]DoInvokeIE4(&this, pf, ppv, dispid, pdispparams);
+	public HRESULT DoInvokeIE4(BOOL pf, void ppv, int32 dispid, DISPPARAMS pdispparams) mut => VT.[Friend]DoInvokeIE4(&this, pf, ppv, dispid, pdispparams);
 
-	public HRESULT DoInvokePIDLIE4(int32 dispid, ITEMIDLIST* pidl, BOOL fCanCancel) mut => VT.[Friend]DoInvokePIDLIE4(&this, dispid, pidl, fCanCancel);
+	public HRESULT DoInvokePIDLIE4(int32 dispid, ITEMIDLIST pidl, BOOL fCanCancel) mut => VT.[Friend]DoInvokePIDLIE4(&this, dispid, pidl, fCanCancel);
 }
 
 [CRepr]struct IExpDispSupportXP : IUnknown
@@ -19322,17 +19322,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupportXP*/SelfOuter* self, Guid riid, CIE4ConnectionPoint** ppccp) FindCIE4ConnectionPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupportXP*/SelfOuter* self, MSG* pMsg, uint32 grfModifiers) OnTranslateAccelerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupportXP*/SelfOuter* self, int32 dispidMember, Guid iid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pVarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) OnInvoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupportXP*/SelfOuter* self, Guid riid, CIE4ConnectionPoint* ppccp) FindCIE4ConnectionPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupportXP*/SelfOuter* self, MSG pMsg, uint32 grfModifiers) OnTranslateAccelerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupportXP*/SelfOuter* self, int32 dispidMember, Guid iid, uint32 lcid, uint16 wFlags, DISPPARAMS pdispparams, VARIANT pVarResult, EXCEPINFO pexcepinfo, uint32 puArgErr) OnInvoke;
 	}
 
 
-	public HRESULT FindCIE4ConnectionPoint(Guid riid, CIE4ConnectionPoint** ppccp) mut => VT.[Friend]FindCIE4ConnectionPoint(&this, riid, ppccp);
+	public HRESULT FindCIE4ConnectionPoint(Guid riid, CIE4ConnectionPoint* ppccp) mut => VT.[Friend]FindCIE4ConnectionPoint(&this, riid, ppccp);
 
-	public HRESULT OnTranslateAccelerator(MSG* pMsg, uint32 grfModifiers) mut => VT.[Friend]OnTranslateAccelerator(&this, pMsg, grfModifiers);
+	public HRESULT OnTranslateAccelerator(MSG pMsg, uint32 grfModifiers) mut => VT.[Friend]OnTranslateAccelerator(&this, pMsg, grfModifiers);
 
-	public HRESULT OnInvoke(int32 dispidMember, Guid iid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pVarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) mut => VT.[Friend]OnInvoke(&this, dispidMember, iid, lcid, wFlags, pdispparams, pVarResult, pexcepinfo, puArgErr);
+	public HRESULT OnInvoke(int32 dispidMember, Guid iid, uint32 lcid, uint16 wFlags, DISPPARAMS pdispparams, VARIANT pVarResult, EXCEPINFO pexcepinfo, uint32 puArgErr) mut => VT.[Friend]OnInvoke(&this, dispidMember, iid, lcid, wFlags, pdispparams, pVarResult, pexcepinfo, puArgErr);
 }
 
 [CRepr]struct IExpDispSupport : IUnknown
@@ -19343,17 +19343,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupport*/SelfOuter* self, Guid riid, IConnectionPoint** ppccp) FindConnectionPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupport*/SelfOuter* self, MSG* pMsg, uint32 grfModifiers) OnTranslateAccelerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupport*/SelfOuter* self, int32 dispidMember, Guid iid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pVarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) OnInvoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupport*/SelfOuter* self, Guid riid, IConnectionPoint* ppccp) FindConnectionPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupport*/SelfOuter* self, MSG pMsg, uint32 grfModifiers) OnTranslateAccelerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExpDispSupport*/SelfOuter* self, int32 dispidMember, Guid iid, uint32 lcid, uint16 wFlags, DISPPARAMS pdispparams, VARIANT pVarResult, EXCEPINFO pexcepinfo, uint32 puArgErr) OnInvoke;
 	}
 
 
-	public HRESULT FindConnectionPoint(Guid riid, IConnectionPoint** ppccp) mut => VT.[Friend]FindConnectionPoint(&this, riid, ppccp);
+	public HRESULT FindConnectionPoint(Guid riid, IConnectionPoint* ppccp) mut => VT.[Friend]FindConnectionPoint(&this, riid, ppccp);
 
-	public HRESULT OnTranslateAccelerator(MSG* pMsg, uint32 grfModifiers) mut => VT.[Friend]OnTranslateAccelerator(&this, pMsg, grfModifiers);
+	public HRESULT OnTranslateAccelerator(MSG pMsg, uint32 grfModifiers) mut => VT.[Friend]OnTranslateAccelerator(&this, pMsg, grfModifiers);
 
-	public HRESULT OnInvoke(int32 dispidMember, Guid iid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pVarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) mut => VT.[Friend]OnInvoke(&this, dispidMember, iid, lcid, wFlags, pdispparams, pVarResult, pexcepinfo, puArgErr);
+	public HRESULT OnInvoke(int32 dispidMember, Guid iid, uint32 lcid, uint16 wFlags, DISPPARAMS pdispparams, VARIANT pVarResult, EXCEPINFO pexcepinfo, uint32 puArgErr) mut => VT.[Friend]OnInvoke(&this, dispidMember, iid, lcid, wFlags, pdispparams, pVarResult, pexcepinfo, puArgErr);
 }
 
 [CRepr]struct IBrowserService : IUnknown
@@ -19364,66 +19364,66 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IOleInPlaceSite** ppipsite) GetParentSite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IOleInPlaceSite* ppipsite) GetParentSite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IShellView* psv, PWSTR pszName) SetTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IShellView* psv, char16* pszName, uint32 cchName) GetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IOleObject** ppobjv) GetOleObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITravelLog** pptl) GetTravelLog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IOleObject* ppobjv) GetOleObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITravelLog* pptl) GetTravelLog;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32 id, BOOL fShow) ShowControlWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32 id, BOOL* pfShown) IsControlWindowShown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITEMIDLIST* pidl, PWSTR pwszName, uint32 uFlags) IEGetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32 uiCP, PWSTR pwszPath, ITEMIDLIST** ppidlOut) IEParseDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32 id, BOOL pfShown) IsControlWindowShown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITEMIDLIST pidl, PWSTR pwszName, uint32 uFlags) IEGetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32 uiCP, PWSTR pwszPath, ITEMIDLIST ppidlOut) IEParseDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, HRESULT hres, PWSTR pwszPath) DisplayParseError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITEMIDLIST* pidl, uint32 grfHLNF) NavigateToPidl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITEMIDLIST pidl, uint32 grfHLNF) NavigateToPidl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, BNSTATE bnstate) SetNavigateState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, BNSTATE* pbnstate) GetNavigateState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IShellView* psv, ITEMIDLIST* pidl, BOOL* pfDidBrowse) NotifyRedirect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, BNSTATE pbnstate) GetNavigateState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IShellView* psv, ITEMIDLIST pidl, BOOL pfDidBrowse) NotifyRedirect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self) UpdateWindowList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self) UpdateBackForwardState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32 dwFlags, uint32 dwFlagMask) SetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32 pdwFlags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self) CanNavigateNow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITEMIDLIST** ppidl) GetPidl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITEMIDLIST* pidl) SetReferrer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITEMIDLIST ppidl) GetPidl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, ITEMIDLIST pidl) SetReferrer;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IBrowserService*/SelfOuter* self) GetBrowserIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32 dwID, IUnknown** ppunk) GetBrowserByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IOleObject** ppole, IStream** pstm, IBindCtx** ppbc) GetHistoryObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, uint32 dwID, IUnknown* ppunk) GetBrowserByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IOleObject* ppole, IStream* pstm, IBindCtx* ppbc) GetHistoryObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IOleObject* pole, BOOL fIsLocalAnchor) SetHistoryObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IOleObject* pole) CacheOLEServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, VARIANT* pvarIn, VARIANT* pvarOut) GetSetCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IShellView* psv, BOOL fDone, VARIANT* pvarargIn, VARIANT* pvarargOut) OnHttpEquiv;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, HPALETTE* hpal) GetPalette;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, VARIANT pvarIn, VARIANT pvarOut) GetSetCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, IShellView* psv, BOOL fDone, VARIANT pvarargIn, VARIANT pvarargOut) OnHttpEquiv;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, HPALETTE hpal) GetPalette;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService*/SelfOuter* self, BOOL fForceRegister, int32 swc) RegisterWindow;
 	}
 
 
-	public HRESULT GetParentSite(IOleInPlaceSite** ppipsite) mut => VT.[Friend]GetParentSite(&this, ppipsite);
+	public HRESULT GetParentSite(IOleInPlaceSite* ppipsite) mut => VT.[Friend]GetParentSite(&this, ppipsite);
 
 	public HRESULT SetTitle(IShellView* psv, PWSTR pszName) mut => VT.[Friend]SetTitle(&this, psv, pszName);
 
 	public HRESULT GetTitle(IShellView* psv, char16* pszName, uint32 cchName) mut => VT.[Friend]GetTitle(&this, psv, pszName, cchName);
 
-	public HRESULT GetOleObject(IOleObject** ppobjv) mut => VT.[Friend]GetOleObject(&this, ppobjv);
+	public HRESULT GetOleObject(IOleObject* ppobjv) mut => VT.[Friend]GetOleObject(&this, ppobjv);
 
-	public HRESULT GetTravelLog(ITravelLog** pptl) mut => VT.[Friend]GetTravelLog(&this, pptl);
+	public HRESULT GetTravelLog(ITravelLog* pptl) mut => VT.[Friend]GetTravelLog(&this, pptl);
 
 	public HRESULT ShowControlWindow(uint32 id, BOOL fShow) mut => VT.[Friend]ShowControlWindow(&this, id, fShow);
 
-	public HRESULT IsControlWindowShown(uint32 id, BOOL* pfShown) mut => VT.[Friend]IsControlWindowShown(&this, id, pfShown);
+	public HRESULT IsControlWindowShown(uint32 id, BOOL pfShown) mut => VT.[Friend]IsControlWindowShown(&this, id, pfShown);
 
-	public HRESULT IEGetDisplayName(ITEMIDLIST* pidl, PWSTR pwszName, uint32 uFlags) mut => VT.[Friend]IEGetDisplayName(&this, pidl, pwszName, uFlags);
+	public HRESULT IEGetDisplayName(ITEMIDLIST pidl, PWSTR pwszName, uint32 uFlags) mut => VT.[Friend]IEGetDisplayName(&this, pidl, pwszName, uFlags);
 
-	public HRESULT IEParseDisplayName(uint32 uiCP, PWSTR pwszPath, ITEMIDLIST** ppidlOut) mut => VT.[Friend]IEParseDisplayName(&this, uiCP, pwszPath, ppidlOut);
+	public HRESULT IEParseDisplayName(uint32 uiCP, PWSTR pwszPath, ITEMIDLIST ppidlOut) mut => VT.[Friend]IEParseDisplayName(&this, uiCP, pwszPath, ppidlOut);
 
 	public HRESULT DisplayParseError(HRESULT hres, PWSTR pwszPath) mut => VT.[Friend]DisplayParseError(&this, hres, pwszPath);
 
-	public HRESULT NavigateToPidl(ITEMIDLIST* pidl, uint32 grfHLNF) mut => VT.[Friend]NavigateToPidl(&this, pidl, grfHLNF);
+	public HRESULT NavigateToPidl(ITEMIDLIST pidl, uint32 grfHLNF) mut => VT.[Friend]NavigateToPidl(&this, pidl, grfHLNF);
 
 	public HRESULT SetNavigateState(BNSTATE bnstate) mut => VT.[Friend]SetNavigateState(&this, bnstate);
 
-	public HRESULT GetNavigateState(BNSTATE* pbnstate) mut => VT.[Friend]GetNavigateState(&this, pbnstate);
+	public HRESULT GetNavigateState(BNSTATE pbnstate) mut => VT.[Friend]GetNavigateState(&this, pbnstate);
 
-	public HRESULT NotifyRedirect(IShellView* psv, ITEMIDLIST* pidl, BOOL* pfDidBrowse) mut => VT.[Friend]NotifyRedirect(&this, psv, pidl, pfDidBrowse);
+	public HRESULT NotifyRedirect(IShellView* psv, ITEMIDLIST pidl, BOOL pfDidBrowse) mut => VT.[Friend]NotifyRedirect(&this, psv, pidl, pfDidBrowse);
 
 	public HRESULT UpdateWindowList() mut => VT.[Friend]UpdateWindowList(&this);
 
@@ -19431,29 +19431,29 @@ public static
 
 	public HRESULT SetFlags(uint32 dwFlags, uint32 dwFlagMask) mut => VT.[Friend]SetFlags(&this, dwFlags, dwFlagMask);
 
-	public HRESULT GetFlags(uint32* pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
+	public HRESULT GetFlags(uint32 pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
 
 	public HRESULT CanNavigateNow() mut => VT.[Friend]CanNavigateNow(&this);
 
-	public HRESULT GetPidl(ITEMIDLIST** ppidl) mut => VT.[Friend]GetPidl(&this, ppidl);
+	public HRESULT GetPidl(ITEMIDLIST ppidl) mut => VT.[Friend]GetPidl(&this, ppidl);
 
-	public HRESULT SetReferrer(ITEMIDLIST* pidl) mut => VT.[Friend]SetReferrer(&this, pidl);
+	public HRESULT SetReferrer(ITEMIDLIST pidl) mut => VT.[Friend]SetReferrer(&this, pidl);
 
 	public uint32 GetBrowserIndex() mut => VT.[Friend]GetBrowserIndex(&this);
 
-	public HRESULT GetBrowserByIndex(uint32 dwID, IUnknown** ppunk) mut => VT.[Friend]GetBrowserByIndex(&this, dwID, ppunk);
+	public HRESULT GetBrowserByIndex(uint32 dwID, IUnknown* ppunk) mut => VT.[Friend]GetBrowserByIndex(&this, dwID, ppunk);
 
-	public HRESULT GetHistoryObject(IOleObject** ppole, IStream** pstm, IBindCtx** ppbc) mut => VT.[Friend]GetHistoryObject(&this, ppole, pstm, ppbc);
+	public HRESULT GetHistoryObject(IOleObject* ppole, IStream* pstm, IBindCtx* ppbc) mut => VT.[Friend]GetHistoryObject(&this, ppole, pstm, ppbc);
 
 	public HRESULT SetHistoryObject(IOleObject* pole, BOOL fIsLocalAnchor) mut => VT.[Friend]SetHistoryObject(&this, pole, fIsLocalAnchor);
 
 	public HRESULT CacheOLEServer(IOleObject* pole) mut => VT.[Friend]CacheOLEServer(&this, pole);
 
-	public HRESULT GetSetCodePage(VARIANT* pvarIn, VARIANT* pvarOut) mut => VT.[Friend]GetSetCodePage(&this, pvarIn, pvarOut);
+	public HRESULT GetSetCodePage(VARIANT pvarIn, VARIANT pvarOut) mut => VT.[Friend]GetSetCodePage(&this, pvarIn, pvarOut);
 
-	public HRESULT OnHttpEquiv(IShellView* psv, BOOL fDone, VARIANT* pvarargIn, VARIANT* pvarargOut) mut => VT.[Friend]OnHttpEquiv(&this, psv, fDone, pvarargIn, pvarargOut);
+	public HRESULT OnHttpEquiv(IShellView* psv, BOOL fDone, VARIANT pvarargIn, VARIANT pvarargOut) mut => VT.[Friend]OnHttpEquiv(&this, psv, fDone, pvarargIn, pvarargOut);
 
-	public HRESULT GetPalette(HPALETTE* hpal) mut => VT.[Friend]GetPalette(&this, hpal);
+	public HRESULT GetPalette(HPALETTE hpal) mut => VT.[Friend]GetPalette(&this, hpal);
 
 	public HRESULT RegisterWindow(BOOL fForceRegister, int32 swc) mut => VT.[Friend]RegisterWindow(&this, fForceRegister, swc);
 }
@@ -19483,21 +19483,21 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] LRESULT(/*IBrowserService2*/SelfOuter* self, HWND hwnd, uint32 uMsg, WPARAM wParam, LPARAM lParam) WndProcBS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) SetAsDefFolderSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, RECT* prc) GetViewRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, RECT prc) GetViewRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, WPARAM wParam) OnSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, CREATESTRUCTW* pcs) OnCreate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, CREATESTRUCTW pcs) OnCreate;
 		protected new function [CallingConvention(.Stdcall)] LRESULT(/*IBrowserService2*/SelfOuter* self, WPARAM wParam, LPARAM lParam) OnCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) OnDestroy;
-		protected new function [CallingConvention(.Stdcall)] LRESULT(/*IBrowserService2*/SelfOuter* self, NMHDR* pnm) OnNotify;
+		protected new function [CallingConvention(.Stdcall)] LRESULT(/*IBrowserService2*/SelfOuter* self, NMHDR pnm) OnNotify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) OnSetFocus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, BOOL fActive) OnFrameWindowActivateBS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) ReleaseShellView;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) ActivatePendingView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, IShellView* psvNew, IShellView* psvOld, RECT* prcView, HWND* phwnd) CreateViewWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, Guid riid, void** ppv) CreateBrowserPropSheetExt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, HWND* phwndView) GetViewWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, BASEBROWSERDATALH** pbbd) GetBaseBrowserData;
-		protected new function [CallingConvention(.Stdcall)] BASEBROWSERDATALH*(/*IBrowserService2*/SelfOuter* self) PutBaseBrowserData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, IShellView* psvNew, IShellView* psvOld, RECT prcView, HWND phwnd) CreateViewWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, Guid riid, void ppv) CreateBrowserPropSheetExt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, HWND phwndView) GetViewWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, BASEBROWSERDATALH pbbd) GetBaseBrowserData;
+		protected new function [CallingConvention(.Stdcall)] BASEBROWSERDATALH(/*IBrowserService2*/SelfOuter* self) PutBaseBrowserData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, ITravelLog* ptl, uint32 dw) InitializeTravelLog;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) SetTopBrowser;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, int32 iCmd) Offline;
@@ -19512,37 +19512,37 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) _MaySaveChanges;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, BOOL fPaused) _PauseOrResumeView;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) _DisableModeless;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, ITEMIDLIST* pidl, uint32 grfHLNF, uint32 dwFlags) _NavigateToPidl2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, IShellView* psv, ITEMIDLIST* pidlNew) _TryShell2Rename;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, ITEMIDLIST pidl, uint32 grfHLNF, uint32 dwFlags) _NavigateToPidl2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, IShellView* psv, ITEMIDLIST pidlNew) _TryShell2Rename;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) _SwitchActivationNow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, IUnknown* punkBar, BOOL fBroadcast, Guid pguidCmdGroup, uint32 nCmdID, uint32 nCmdexecopt, VARIANT* pvarargIn, VARIANT* pvarargOut) _ExecChildren;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, IUnknown* punkBar, BOOL fBroadcast, Guid pguidCmdGroup, uint32 nCmdID, uint32 nCmdexecopt, VARIANT pvarargIn, VARIANT pvarargOut) _ExecChildren;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, HWND hwndBar, BOOL fBroadcast, uint32 uMsg, WPARAM wParam, LPARAM lParam) _SendChildren;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, FOLDERSETDATA* pfsd) GetFolderSetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, FOLDERSETDATA pfsd) GetFolderSetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, uint32 itb) _OnFocusChange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, BOOL fChildOnly) v_ShowHideChildWindows;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IBrowserService2*/SelfOuter* self) _get_itbLastFocus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, uint32 itbLastFocus) _put_itbLastFocus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, uint32 uState) _UIActivateView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, RECT* prc) _GetViewBorderRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, RECT prc) _GetViewBorderRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) _UpdateViewRectSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, uint32 itb) _ResizeNextBorder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self) _ResizeView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, RECT* lprectBorder, HMONITOR hmon) _GetEffectiveClientArea;
-		protected new function [CallingConvention(.Stdcall)] IStream*(/*IBrowserService2*/SelfOuter* self, ITEMIDLIST* pidl, uint32 grfMode, PWSTR pwszName) v_GetViewStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, RECT lprectBorder, HMONITOR hmon) _GetEffectiveClientArea;
+		protected new function [CallingConvention(.Stdcall)] IStream*(/*IBrowserService2*/SelfOuter* self, ITEMIDLIST pidl, uint32 grfMode, PWSTR pwszName) v_GetViewStream;
 		protected new function [CallingConvention(.Stdcall)] LRESULT(/*IBrowserService2*/SelfOuter* self, uint32 uMsg, WPARAM wParam, LPARAM lParam) ForwardViewMsg;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, HACCEL hacc) SetAcceleratorMenu;
 		protected new function [CallingConvention(.Stdcall)] int32(/*IBrowserService2*/SelfOuter* self) _GetToolbarCount;
-		protected new function [CallingConvention(.Stdcall)] TOOLBARITEM*(/*IBrowserService2*/SelfOuter* self, int32 itb) _GetToolbarItem;
+		protected new function [CallingConvention(.Stdcall)] TOOLBARITEM(/*IBrowserService2*/SelfOuter* self, int32 itb) _GetToolbarItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, IStream* pstm) _SaveToolbars;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, IStream* pstm) _LoadToolbars;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, BOOL fClose) _CloseAndReleaseToolbars;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, MSG* lpMsg, uint32 itbNext, int32 citb, TOOLBARITEM** pptbi, HWND* phwnd) v_MayGetNextToolbarFocus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, MSG lpMsg, uint32 itbNext, int32 citb, TOOLBARITEM pptbi, HWND phwnd) v_MayGetNextToolbarFocus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, uint32 itb, BOOL bUseHmonitor) _ResizeNextBorderHelper;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IBrowserService2*/SelfOuter* self, IUnknown* punkSrc) _FindTBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, TOOLBARITEM* ptbi, HWND hwnd, MSG* lpMsg) _SetFocus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, MSG* pmsg) v_MayTranslateAccelerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, IUnknown* punkSrc, RECT* lprectBorder, BOOL bUseHmonitor) _GetBorderDWHelper;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, ITEMIDLIST* pidl) v_CheckZoneCrossing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, TOOLBARITEM ptbi, HWND hwnd, MSG lpMsg) _SetFocus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, MSG pmsg) v_MayTranslateAccelerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, IUnknown* punkSrc, RECT lprectBorder, BOOL bUseHmonitor) _GetBorderDWHelper;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService2*/SelfOuter* self, ITEMIDLIST pidl) v_CheckZoneCrossing;
 	}
 
 
@@ -19550,17 +19550,17 @@ public static
 
 	public HRESULT SetAsDefFolderSettings() mut => VT.[Friend]SetAsDefFolderSettings(&this);
 
-	public HRESULT GetViewRect(RECT* prc) mut => VT.[Friend]GetViewRect(&this, prc);
+	public HRESULT GetViewRect(RECT prc) mut => VT.[Friend]GetViewRect(&this, prc);
 
 	public HRESULT OnSize(WPARAM wParam) mut => VT.[Friend]OnSize(&this, wParam);
 
-	public HRESULT OnCreate(CREATESTRUCTW* pcs) mut => VT.[Friend]OnCreate(&this, pcs);
+	public HRESULT OnCreate(CREATESTRUCTW pcs) mut => VT.[Friend]OnCreate(&this, pcs);
 
 	public LRESULT OnCommand(WPARAM wParam, LPARAM lParam) mut => VT.[Friend]OnCommand(&this, wParam, lParam);
 
 	public HRESULT OnDestroy() mut => VT.[Friend]OnDestroy(&this);
 
-	public LRESULT OnNotify(NMHDR* pnm) mut => VT.[Friend]OnNotify(&this, pnm);
+	public LRESULT OnNotify(NMHDR pnm) mut => VT.[Friend]OnNotify(&this, pnm);
 
 	public HRESULT OnSetFocus() mut => VT.[Friend]OnSetFocus(&this);
 
@@ -19570,15 +19570,15 @@ public static
 
 	public HRESULT ActivatePendingView() mut => VT.[Friend]ActivatePendingView(&this);
 
-	public HRESULT CreateViewWindow(IShellView* psvNew, IShellView* psvOld, RECT* prcView, HWND* phwnd) mut => VT.[Friend]CreateViewWindow(&this, psvNew, psvOld, prcView, phwnd);
+	public HRESULT CreateViewWindow(IShellView* psvNew, IShellView* psvOld, RECT prcView, HWND phwnd) mut => VT.[Friend]CreateViewWindow(&this, psvNew, psvOld, prcView, phwnd);
 
-	public HRESULT CreateBrowserPropSheetExt(Guid riid, void** ppv) mut => VT.[Friend]CreateBrowserPropSheetExt(&this, riid, ppv);
+	public HRESULT CreateBrowserPropSheetExt(Guid riid, void ppv) mut => VT.[Friend]CreateBrowserPropSheetExt(&this, riid, ppv);
 
-	public HRESULT GetViewWindow(HWND* phwndView) mut => VT.[Friend]GetViewWindow(&this, phwndView);
+	public HRESULT GetViewWindow(HWND phwndView) mut => VT.[Friend]GetViewWindow(&this, phwndView);
 
-	public HRESULT GetBaseBrowserData(BASEBROWSERDATALH** pbbd) mut => VT.[Friend]GetBaseBrowserData(&this, pbbd);
+	public HRESULT GetBaseBrowserData(BASEBROWSERDATALH pbbd) mut => VT.[Friend]GetBaseBrowserData(&this, pbbd);
 
-	public BASEBROWSERDATALH* PutBaseBrowserData() mut => VT.[Friend]PutBaseBrowserData(&this);
+	public BASEBROWSERDATALH PutBaseBrowserData() mut => VT.[Friend]PutBaseBrowserData(&this);
 
 	public HRESULT InitializeTravelLog(ITravelLog* ptl, uint32 dw) mut => VT.[Friend]InitializeTravelLog(&this, ptl, dw);
 
@@ -19608,17 +19608,17 @@ public static
 
 	public HRESULT _DisableModeless() mut => VT.[Friend]_DisableModeless(&this);
 
-	public HRESULT _NavigateToPidl2(ITEMIDLIST* pidl, uint32 grfHLNF, uint32 dwFlags) mut => VT.[Friend]_NavigateToPidl2(&this, pidl, grfHLNF, dwFlags);
+	public HRESULT _NavigateToPidl2(ITEMIDLIST pidl, uint32 grfHLNF, uint32 dwFlags) mut => VT.[Friend]_NavigateToPidl2(&this, pidl, grfHLNF, dwFlags);
 
-	public HRESULT _TryShell2Rename(IShellView* psv, ITEMIDLIST* pidlNew) mut => VT.[Friend]_TryShell2Rename(&this, psv, pidlNew);
+	public HRESULT _TryShell2Rename(IShellView* psv, ITEMIDLIST pidlNew) mut => VT.[Friend]_TryShell2Rename(&this, psv, pidlNew);
 
 	public HRESULT _SwitchActivationNow() mut => VT.[Friend]_SwitchActivationNow(&this);
 
-	public HRESULT _ExecChildren(IUnknown* punkBar, BOOL fBroadcast, Guid pguidCmdGroup, uint32 nCmdID, uint32 nCmdexecopt, VARIANT* pvarargIn, VARIANT* pvarargOut) mut => VT.[Friend]_ExecChildren(&this, punkBar, fBroadcast, pguidCmdGroup, nCmdID, nCmdexecopt, pvarargIn, pvarargOut);
+	public HRESULT _ExecChildren(IUnknown* punkBar, BOOL fBroadcast, Guid pguidCmdGroup, uint32 nCmdID, uint32 nCmdexecopt, VARIANT pvarargIn, VARIANT pvarargOut) mut => VT.[Friend]_ExecChildren(&this, punkBar, fBroadcast, pguidCmdGroup, nCmdID, nCmdexecopt, pvarargIn, pvarargOut);
 
 	public HRESULT _SendChildren(HWND hwndBar, BOOL fBroadcast, uint32 uMsg, WPARAM wParam, LPARAM lParam) mut => VT.[Friend]_SendChildren(&this, hwndBar, fBroadcast, uMsg, wParam, lParam);
 
-	public HRESULT GetFolderSetData(FOLDERSETDATA* pfsd) mut => VT.[Friend]GetFolderSetData(&this, pfsd);
+	public HRESULT GetFolderSetData(FOLDERSETDATA pfsd) mut => VT.[Friend]GetFolderSetData(&this, pfsd);
 
 	public HRESULT _OnFocusChange(uint32 itb) mut => VT.[Friend]_OnFocusChange(&this, itb);
 
@@ -19630,7 +19630,7 @@ public static
 
 	public HRESULT _UIActivateView(uint32 uState) mut => VT.[Friend]_UIActivateView(&this, uState);
 
-	public HRESULT _GetViewBorderRect(RECT* prc) mut => VT.[Friend]_GetViewBorderRect(&this, prc);
+	public HRESULT _GetViewBorderRect(RECT prc) mut => VT.[Friend]_GetViewBorderRect(&this, prc);
 
 	public HRESULT _UpdateViewRectSize() mut => VT.[Friend]_UpdateViewRectSize(&this);
 
@@ -19638,9 +19638,9 @@ public static
 
 	public HRESULT _ResizeView() mut => VT.[Friend]_ResizeView(&this);
 
-	public HRESULT _GetEffectiveClientArea(RECT* lprectBorder, HMONITOR hmon) mut => VT.[Friend]_GetEffectiveClientArea(&this, lprectBorder, hmon);
+	public HRESULT _GetEffectiveClientArea(RECT lprectBorder, HMONITOR hmon) mut => VT.[Friend]_GetEffectiveClientArea(&this, lprectBorder, hmon);
 
-	public IStream* v_GetViewStream(ITEMIDLIST* pidl, uint32 grfMode, PWSTR pwszName) mut => VT.[Friend]v_GetViewStream(&this, pidl, grfMode, pwszName);
+	public IStream* v_GetViewStream(ITEMIDLIST pidl, uint32 grfMode, PWSTR pwszName) mut => VT.[Friend]v_GetViewStream(&this, pidl, grfMode, pwszName);
 
 	public LRESULT ForwardViewMsg(uint32 uMsg, WPARAM wParam, LPARAM lParam) mut => VT.[Friend]ForwardViewMsg(&this, uMsg, wParam, lParam);
 
@@ -19648,7 +19648,7 @@ public static
 
 	public int32 _GetToolbarCount() mut => VT.[Friend]_GetToolbarCount(&this);
 
-	public TOOLBARITEM* _GetToolbarItem(int32 itb) mut => VT.[Friend]_GetToolbarItem(&this, itb);
+	public TOOLBARITEM _GetToolbarItem(int32 itb) mut => VT.[Friend]_GetToolbarItem(&this, itb);
 
 	public HRESULT _SaveToolbars(IStream* pstm) mut => VT.[Friend]_SaveToolbars(&this, pstm);
 
@@ -19656,19 +19656,19 @@ public static
 
 	public HRESULT _CloseAndReleaseToolbars(BOOL fClose) mut => VT.[Friend]_CloseAndReleaseToolbars(&this, fClose);
 
-	public HRESULT v_MayGetNextToolbarFocus(MSG* lpMsg, uint32 itbNext, int32 citb, TOOLBARITEM** pptbi, HWND* phwnd) mut => VT.[Friend]v_MayGetNextToolbarFocus(&this, lpMsg, itbNext, citb, pptbi, phwnd);
+	public HRESULT v_MayGetNextToolbarFocus(MSG lpMsg, uint32 itbNext, int32 citb, TOOLBARITEM pptbi, HWND phwnd) mut => VT.[Friend]v_MayGetNextToolbarFocus(&this, lpMsg, itbNext, citb, pptbi, phwnd);
 
 	public HRESULT _ResizeNextBorderHelper(uint32 itb, BOOL bUseHmonitor) mut => VT.[Friend]_ResizeNextBorderHelper(&this, itb, bUseHmonitor);
 
 	public uint32 _FindTBar(IUnknown* punkSrc) mut => VT.[Friend]_FindTBar(&this, punkSrc);
 
-	public HRESULT _SetFocus(TOOLBARITEM* ptbi, HWND hwnd, MSG* lpMsg) mut => VT.[Friend]_SetFocus(&this, ptbi, hwnd, lpMsg);
+	public HRESULT _SetFocus(TOOLBARITEM ptbi, HWND hwnd, MSG lpMsg) mut => VT.[Friend]_SetFocus(&this, ptbi, hwnd, lpMsg);
 
-	public HRESULT v_MayTranslateAccelerator(MSG* pmsg) mut => VT.[Friend]v_MayTranslateAccelerator(&this, pmsg);
+	public HRESULT v_MayTranslateAccelerator(MSG pmsg) mut => VT.[Friend]v_MayTranslateAccelerator(&this, pmsg);
 
-	public HRESULT _GetBorderDWHelper(IUnknown* punkSrc, RECT* lprectBorder, BOOL bUseHmonitor) mut => VT.[Friend]_GetBorderDWHelper(&this, punkSrc, lprectBorder, bUseHmonitor);
+	public HRESULT _GetBorderDWHelper(IUnknown* punkSrc, RECT lprectBorder, BOOL bUseHmonitor) mut => VT.[Friend]_GetBorderDWHelper(&this, punkSrc, lprectBorder, bUseHmonitor);
 
-	public HRESULT v_CheckZoneCrossing(ITEMIDLIST* pidl) mut => VT.[Friend]v_CheckZoneCrossing(&this, pidl);
+	public HRESULT v_CheckZoneCrossing(ITEMIDLIST pidl) mut => VT.[Friend]v_CheckZoneCrossing(&this, pidl);
 }
 
 [CRepr]struct IBrowserService3 : IBrowserService2
@@ -19679,14 +19679,14 @@ public static
 
 	[CRepr]public struct VTable : IBrowserService2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService3*/SelfOuter* self, HWND hwnd, RECT* prc) _PositionViewWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService3*/SelfOuter* self, uint32 uiCP, PWSTR pwszPath, uint32 dwFlags, ITEMIDLIST** ppidlOut) IEParseDisplayNameEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService3*/SelfOuter* self, HWND hwnd, RECT prc) _PositionViewWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBrowserService3*/SelfOuter* self, uint32 uiCP, PWSTR pwszPath, uint32 dwFlags, ITEMIDLIST ppidlOut) IEParseDisplayNameEx;
 	}
 
 
-	public HRESULT _PositionViewWindow(HWND hwnd, RECT* prc) mut => VT.[Friend]_PositionViewWindow(&this, hwnd, prc);
+	public HRESULT _PositionViewWindow(HWND hwnd, RECT prc) mut => VT.[Friend]_PositionViewWindow(&this, hwnd, prc);
 
-	public HRESULT IEParseDisplayNameEx(uint32 uiCP, PWSTR pwszPath, uint32 dwFlags, ITEMIDLIST** ppidlOut) mut => VT.[Friend]IEParseDisplayNameEx(&this, uiCP, pwszPath, dwFlags, ppidlOut);
+	public HRESULT IEParseDisplayNameEx(uint32 uiCP, PWSTR pwszPath, uint32 dwFlags, ITEMIDLIST ppidlOut) mut => VT.[Friend]IEParseDisplayNameEx(&this, uiCP, pwszPath, dwFlags, ppidlOut);
 }
 
 [CRepr]struct IBrowserService4 : IBrowserService3
@@ -19719,13 +19719,13 @@ public static
 	[CRepr]public struct VTable : IShellMenu.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackShellMenu*/SelfOuter* self, HWND hwndTB, IUnknown* punkBand, uint32 dwSMSetFlags) SetObscured;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackShellMenu*/SelfOuter* self, HWND hwnd, POINTL* ppt, RECTL* prcExclude, int32 dwFlags) Popup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackShellMenu*/SelfOuter* self, HWND hwnd, POINTL ppt, RECTL prcExclude, int32 dwFlags) Popup;
 	}
 
 
 	public HRESULT SetObscured(HWND hwndTB, IUnknown* punkBand, uint32 dwSMSetFlags) mut => VT.[Friend]SetObscured(&this, hwndTB, punkBand, dwSMSetFlags);
 
-	public HRESULT Popup(HWND hwnd, POINTL* ppt, RECTL* prcExclude, int32 dwFlags) mut => VT.[Friend]Popup(&this, hwnd, ppt, prcExclude, dwFlags);
+	public HRESULT Popup(HWND hwnd, POINTL ppt, RECTL prcExclude, int32 dwFlags) mut => VT.[Friend]Popup(&this, hwnd, ppt, prcExclude, dwFlags);
 }
 
 [CRepr]struct ITranscodeImage : IUnknown
@@ -19736,11 +19736,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITranscodeImage*/SelfOuter* self, IShellItem* pShellItem, uint32 uiMaxWidth, uint32 uiMaxHeight, uint32 flags, IStream* pvImage, uint32* puiWidth, uint32* puiHeight) TranscodeImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITranscodeImage*/SelfOuter* self, IShellItem* pShellItem, uint32 uiMaxWidth, uint32 uiMaxHeight, uint32 flags, IStream* pvImage, uint32 puiWidth, uint32 puiHeight) TranscodeImage;
 	}
 
 
-	public HRESULT TranscodeImage(IShellItem* pShellItem, uint32 uiMaxWidth, uint32 uiMaxHeight, uint32 flags, IStream* pvImage, uint32* puiWidth, uint32* puiHeight) mut => VT.[Friend]TranscodeImage(&this, pShellItem, uiMaxWidth, uiMaxHeight, flags, pvImage, puiWidth, puiHeight);
+	public HRESULT TranscodeImage(IShellItem* pShellItem, uint32 uiMaxWidth, uint32 uiMaxHeight, uint32 flags, IStream* pvImage, uint32 puiWidth, uint32 puiHeight) mut => VT.[Friend]TranscodeImage(&this, pShellItem, uiMaxWidth, uiMaxHeight, flags, pvImage, puiWidth, puiHeight);
 }
 
 [CRepr]struct IUniformResourceLocatorA : IUnknown
@@ -19752,16 +19752,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUniformResourceLocatorA*/SelfOuter* self, PSTR pcszURL, uint32 dwInFlags) SetURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUniformResourceLocatorA*/SelfOuter* self, PSTR* ppszURL) GetURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUniformResourceLocatorA*/SelfOuter* self, urlinvokecommandinfoA* purlici) InvokeCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUniformResourceLocatorA*/SelfOuter* self, PSTR ppszURL) GetURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUniformResourceLocatorA*/SelfOuter* self, urlinvokecommandinfoA purlici) InvokeCommand;
 	}
 
 
 	public HRESULT SetURL(PSTR pcszURL, uint32 dwInFlags) mut => VT.[Friend]SetURL(&this, pcszURL, dwInFlags);
 
-	public HRESULT GetURL(PSTR* ppszURL) mut => VT.[Friend]GetURL(&this, ppszURL);
+	public HRESULT GetURL(PSTR ppszURL) mut => VT.[Friend]GetURL(&this, ppszURL);
 
-	public HRESULT InvokeCommand(urlinvokecommandinfoA* purlici) mut => VT.[Friend]InvokeCommand(&this, purlici);
+	public HRESULT InvokeCommand(urlinvokecommandinfoA purlici) mut => VT.[Friend]InvokeCommand(&this, purlici);
 }
 
 [CRepr]struct IUniformResourceLocatorW : IUnknown
@@ -19773,16 +19773,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUniformResourceLocatorW*/SelfOuter* self, PWSTR pcszURL, uint32 dwInFlags) SetURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUniformResourceLocatorW*/SelfOuter* self, PWSTR* ppszURL) GetURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUniformResourceLocatorW*/SelfOuter* self, urlinvokecommandinfoW* purlici) InvokeCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUniformResourceLocatorW*/SelfOuter* self, PWSTR ppszURL) GetURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUniformResourceLocatorW*/SelfOuter* self, urlinvokecommandinfoW purlici) InvokeCommand;
 	}
 
 
 	public HRESULT SetURL(PWSTR pcszURL, uint32 dwInFlags) mut => VT.[Friend]SetURL(&this, pcszURL, dwInFlags);
 
-	public HRESULT GetURL(PWSTR* ppszURL) mut => VT.[Friend]GetURL(&this, ppszURL);
+	public HRESULT GetURL(PWSTR ppszURL) mut => VT.[Friend]GetURL(&this, ppszURL);
 
-	public HRESULT InvokeCommand(urlinvokecommandinfoW* purlici) mut => VT.[Friend]InvokeCommand(&this, purlici);
+	public HRESULT InvokeCommand(urlinvokecommandinfoW purlici) mut => VT.[Friend]InvokeCommand(&this, purlici);
 }
 
 [CRepr]struct IInputPaneAnimationCoordinator : IUnknown
@@ -19806,24 +19806,24 @@ public static
 public static
 {
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL LoadUserProfileA(HANDLE hToken, PROFILEINFOA* lpProfileInfo);
-	public static BOOL LoadUserProfile(HANDLE hToken, PROFILEINFOA* lpProfileInfo) => LoadUserProfileA(hToken, lpProfileInfo);
+	public static extern BOOL LoadUserProfileA(HANDLE hToken, PROFILEINFOA lpProfileInfo);
+	public static BOOL LoadUserProfile(HANDLE hToken, PROFILEINFOA lpProfileInfo) => LoadUserProfileA(hToken, lpProfileInfo);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL LoadUserProfileW(HANDLE hToken, PROFILEINFOW* lpProfileInfo);
+	public static extern BOOL LoadUserProfileW(HANDLE hToken, PROFILEINFOW lpProfileInfo);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UnloadUserProfile(HANDLE hToken, HANDLE hProfile);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetProfilesDirectoryA(uint8* lpProfileDir, uint32* lpcchSize);
-	public static BOOL GetProfilesDirectory(uint8* lpProfileDir, uint32* lpcchSize) => GetProfilesDirectoryA(lpProfileDir, lpcchSize);
+	public static extern BOOL GetProfilesDirectoryA(uint8* lpProfileDir, uint32 lpcchSize);
+	public static BOOL GetProfilesDirectory(uint8* lpProfileDir, uint32 lpcchSize) => GetProfilesDirectoryA(lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetProfilesDirectoryW(char16* lpProfileDir, uint32* lpcchSize);
+	public static extern BOOL GetProfilesDirectoryW(char16* lpProfileDir, uint32 lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetProfileType(uint32* dwFlags);
+	public static extern BOOL GetProfileType(uint32 dwFlags);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteProfileA(PSTR lpSidString, PSTR lpProfilePath, PSTR lpComputerName);
@@ -19836,31 +19836,31 @@ public static
 	public static extern HRESULT CreateProfile(PWSTR pszUserSid, PWSTR pszUserName, char16* pszProfilePath, uint32 cchProfilePath);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetDefaultUserProfileDirectoryA(uint8* lpProfileDir, uint32* lpcchSize);
-	public static BOOL GetDefaultUserProfileDirectory(uint8* lpProfileDir, uint32* lpcchSize) => GetDefaultUserProfileDirectoryA(lpProfileDir, lpcchSize);
+	public static extern BOOL GetDefaultUserProfileDirectoryA(uint8* lpProfileDir, uint32 lpcchSize);
+	public static BOOL GetDefaultUserProfileDirectory(uint8* lpProfileDir, uint32 lpcchSize) => GetDefaultUserProfileDirectoryA(lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetDefaultUserProfileDirectoryW(char16* lpProfileDir, uint32* lpcchSize);
+	public static extern BOOL GetDefaultUserProfileDirectoryW(char16* lpProfileDir, uint32 lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetAllUsersProfileDirectoryA(uint8* lpProfileDir, uint32* lpcchSize);
-	public static BOOL GetAllUsersProfileDirectory(uint8* lpProfileDir, uint32* lpcchSize) => GetAllUsersProfileDirectoryA(lpProfileDir, lpcchSize);
+	public static extern BOOL GetAllUsersProfileDirectoryA(uint8* lpProfileDir, uint32 lpcchSize);
+	public static BOOL GetAllUsersProfileDirectory(uint8* lpProfileDir, uint32 lpcchSize) => GetAllUsersProfileDirectoryA(lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetAllUsersProfileDirectoryW(char16* lpProfileDir, uint32* lpcchSize);
+	public static extern BOOL GetAllUsersProfileDirectoryW(char16* lpProfileDir, uint32 lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserProfileDirectoryA(HANDLE hToken, uint8* lpProfileDir, uint32* lpcchSize);
-	public static BOOL GetUserProfileDirectory(HANDLE hToken, uint8* lpProfileDir, uint32* lpcchSize) => GetUserProfileDirectoryA(hToken, lpProfileDir, lpcchSize);
+	public static extern BOOL GetUserProfileDirectoryA(HANDLE hToken, uint8* lpProfileDir, uint32 lpcchSize);
+	public static BOOL GetUserProfileDirectory(HANDLE hToken, uint8* lpProfileDir, uint32 lpcchSize) => GetUserProfileDirectoryA(hToken, lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserProfileDirectoryW(HANDLE hToken, char16* lpProfileDir, uint32* lpcchSize);
+	public static extern BOOL GetUserProfileDirectoryW(HANDLE hToken, char16* lpProfileDir, uint32 lpcchSize);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetWindowSubclass(HWND hWnd, SUBCLASSPROC pfnSubclass, uint uIdSubclass, uint dwRefData);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetWindowSubclass(HWND hWnd, SUBCLASSPROC pfnSubclass, uint uIdSubclass, uint* pdwRefData);
+	public static extern BOOL GetWindowSubclass(HWND hWnd, SUBCLASSPROC pfnSubclass, uint uIdSubclass, uint pdwRefData);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RemoveWindowSubclass(HWND hWnd, SUBCLASSPROC pfnSubclass, uint uIdSubclass);
@@ -19888,64 +19888,64 @@ public static
 	public static extern BOOL WinHelpW(HWND hWndMain, PWSTR lpszHelp, uint32 uCommand, uint dwData);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* SHSimpleIDListFromPath(PWSTR pszPath);
+	public static extern ITEMIDLIST SHSimpleIDListFromPath(PWSTR pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateItemFromIDList(ITEMIDLIST* pidl, Guid riid, void** ppv);
+	public static extern HRESULT SHCreateItemFromIDList(ITEMIDLIST pidl, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateItemFromParsingName(PWSTR pszPath, IBindCtx* pbc, Guid riid, void** ppv);
+	public static extern HRESULT SHCreateItemFromParsingName(PWSTR pszPath, IBindCtx* pbc, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateItemWithParent(ITEMIDLIST* pidlParent, IShellFolder* psfParent, ITEMIDLIST* pidl, Guid riid, void** ppvItem);
+	public static extern HRESULT SHCreateItemWithParent(ITEMIDLIST pidlParent, IShellFolder* psfParent, ITEMIDLIST pidl, Guid riid, void ppvItem);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateItemFromRelativeName(IShellItem* psiParent, PWSTR pszName, IBindCtx* pbc, Guid riid, void** ppv);
+	public static extern HRESULT SHCreateItemFromRelativeName(IShellItem* psiParent, PWSTR pszName, IBindCtx* pbc, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateItemInKnownFolder(Guid kfid, uint32 dwKFFlags, PWSTR pszItem, Guid riid, void** ppv);
+	public static extern HRESULT SHCreateItemInKnownFolder(Guid kfid, uint32 dwKFFlags, PWSTR pszItem, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetIDListFromObject(IUnknown* punk, ITEMIDLIST** ppidl);
+	public static extern HRESULT SHGetIDListFromObject(IUnknown* punk, ITEMIDLIST ppidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetItemFromObject(IUnknown* punk, Guid riid, void** ppv);
+	public static extern HRESULT SHGetItemFromObject(IUnknown* punk, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetNameFromIDList(ITEMIDLIST* pidl, SIGDN sigdnName, PWSTR* ppszName);
+	public static extern HRESULT SHGetNameFromIDList(ITEMIDLIST pidl, SIGDN sigdnName, PWSTR ppszName);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetItemFromDataObject(IDataObject* pdtobj, DATAOBJ_GET_ITEM_FLAGS dwFlags, Guid riid, void** ppv);
+	public static extern HRESULT SHGetItemFromDataObject(IDataObject* pdtobj, DATAOBJ_GET_ITEM_FLAGS dwFlags, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateShellItemArray(ITEMIDLIST* pidlParent, IShellFolder* psf, uint32 cidl, ITEMIDLIST** ppidl, IShellItemArray** ppsiItemArray);
+	public static extern HRESULT SHCreateShellItemArray(ITEMIDLIST pidlParent, IShellFolder* psf, uint32 cidl, ITEMIDLIST* ppidl, IShellItemArray* ppsiItemArray);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateShellItemArrayFromDataObject(IDataObject* pdo, Guid riid, void** ppv);
+	public static extern HRESULT SHCreateShellItemArrayFromDataObject(IDataObject* pdo, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateShellItemArrayFromIDLists(uint32 cidl, ITEMIDLIST** rgpidl, IShellItemArray** ppsiItemArray);
+	public static extern HRESULT SHCreateShellItemArrayFromIDLists(uint32 cidl, ITEMIDLIST* rgpidl, IShellItemArray* ppsiItemArray);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateShellItemArrayFromShellItem(IShellItem* psi, Guid riid, void** ppv);
+	public static extern HRESULT SHCreateShellItemArrayFromShellItem(IShellItem* psi, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateAssociationRegistration(Guid riid, void** ppv);
+	public static extern HRESULT SHCreateAssociationRegistration(Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateDefaultExtractIcon(Guid riid, void** ppv);
+	public static extern HRESULT SHCreateDefaultExtractIcon(Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetCurrentProcessExplicitAppUserModelID(PWSTR AppID);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetCurrentProcessExplicitAppUserModelID(PWSTR* AppID);
+	public static extern HRESULT GetCurrentProcessExplicitAppUserModelID(PWSTR AppID);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetTemporaryPropertyForItem(IShellItem* psi, PROPERTYKEY* propkey, PROPVARIANT* ppropvar);
+	public static extern HRESULT SHGetTemporaryPropertyForItem(IShellItem* psi, PROPERTYKEY propkey, PROPVARIANT ppropvar);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHSetTemporaryPropertyForItem(IShellItem* psi, PROPERTYKEY* propkey, PROPVARIANT* propvar);
+	public static extern HRESULT SHSetTemporaryPropertyForItem(IShellItem* psi, PROPERTYKEY propkey, PROPVARIANT propvar);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHShowManageLibraryUI(IShellItem* psiLibrary, HWND hwndOwner, PWSTR pszTitle, PWSTR pszInstruction, LIBRARYMANAGEDIALOGOPTIONS lmdOptions);
@@ -19954,49 +19954,49 @@ public static
 	public static extern HRESULT SHResolveLibrary(IShellItem* psiLibrary);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHAssocEnumHandlers(PWSTR pszExtra, ASSOC_FILTER afFilter, IEnumAssocHandlers** ppEnumHandler);
+	public static extern HRESULT SHAssocEnumHandlers(PWSTR pszExtra, ASSOC_FILTER afFilter, IEnumAssocHandlers* ppEnumHandler);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHAssocEnumHandlersForProtocolByApplication(PWSTR protocol, Guid riid, void** enumHandlers);
+	public static extern HRESULT SHAssocEnumHandlersForProtocolByApplication(PWSTR protocol, Guid riid, void enumHandlers);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HMONITOR_UserSize(uint32* param0, uint32 param1, HMONITOR* param2);
+	public static extern uint32 HMONITOR_UserSize(uint32 param0, uint32 param1, HMONITOR param2);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8* HMONITOR_UserMarshal(uint32* param0, uint8* param1, HMONITOR* param2);
+	public static extern uint8 HMONITOR_UserMarshal(uint32 param0, uint8 param1, HMONITOR param2);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8* HMONITOR_UserUnmarshal(uint32* param0, uint8* param1, HMONITOR* param2);
+	public static extern uint8 HMONITOR_UserUnmarshal(uint32 param0, uint8* param1, HMONITOR param2);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void HMONITOR_UserFree(uint32* param0, HMONITOR* param1);
+	public static extern void HMONITOR_UserFree(uint32 param0, HMONITOR param1);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HMONITOR_UserSize64(uint32* param0, uint32 param1, HMONITOR* param2);
+	public static extern uint32 HMONITOR_UserSize64(uint32 param0, uint32 param1, HMONITOR param2);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8* HMONITOR_UserMarshal64(uint32* param0, uint8* param1, HMONITOR* param2);
+	public static extern uint8 HMONITOR_UserMarshal64(uint32 param0, uint8 param1, HMONITOR param2);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint8* HMONITOR_UserUnmarshal64(uint32* param0, uint8* param1, HMONITOR* param2);
+	public static extern uint8 HMONITOR_UserUnmarshal64(uint32 param0, uint8* param1, HMONITOR param2);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void HMONITOR_UserFree64(uint32* param0, HMONITOR* param1);
+	public static extern void HMONITOR_UserFree64(uint32 param0, HMONITOR param1);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateDefaultPropertiesOp(IShellItem* psi, IFileOperation** ppFileOp);
+	public static extern HRESULT SHCreateDefaultPropertiesOp(IShellItem* psi, IFileOperation* ppFileOp);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHSetDefaultProperties(HWND hwnd, IShellItem* psi, uint32 dwFileOpFlags, IFileOperationProgressSink* pfops);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetMalloc(IMalloc** ppMalloc);
+	public static extern HRESULT SHGetMalloc(IMalloc* ppMalloc);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* SHAlloc(uint cb);
+	public static extern void SHAlloc(uint cb);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SHFree(void* pv);
+	public static extern void SHFree(void pv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHGetIconOverlayIndexA(PSTR pszIconPath, int32 iIconIndex);
@@ -20006,88 +20006,88 @@ public static
 	public static extern int32 SHGetIconOverlayIndexW(PWSTR pszIconPath, int32 iIconIndex);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* ILClone(ITEMIDLIST* pidl);
+	public static extern ITEMIDLIST ILClone(ITEMIDLIST pidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* ILCloneFirst(ITEMIDLIST* pidl);
+	public static extern ITEMIDLIST ILCloneFirst(ITEMIDLIST pidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* ILCombine(ITEMIDLIST* pidl1, ITEMIDLIST* pidl2);
+	public static extern ITEMIDLIST ILCombine(ITEMIDLIST pidl1, ITEMIDLIST pidl2);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ILFree(ITEMIDLIST* pidl);
+	public static extern void ILFree(ITEMIDLIST pidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* ILGetNext(ITEMIDLIST* pidl);
+	public static extern ITEMIDLIST ILGetNext(ITEMIDLIST pidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ILGetSize(ITEMIDLIST* pidl);
+	public static extern uint32 ILGetSize(ITEMIDLIST pidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* ILFindChild(ITEMIDLIST* pidlParent, ITEMIDLIST* pidlChild);
+	public static extern ITEMIDLIST ILFindChild(ITEMIDLIST pidlParent, ITEMIDLIST pidlChild);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* ILFindLastID(ITEMIDLIST* pidl);
+	public static extern ITEMIDLIST ILFindLastID(ITEMIDLIST pidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ILRemoveLastID(ITEMIDLIST* pidl);
+	public static extern BOOL ILRemoveLastID(ITEMIDLIST pidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ILIsEqual(ITEMIDLIST* pidl1, ITEMIDLIST* pidl2);
+	public static extern BOOL ILIsEqual(ITEMIDLIST pidl1, ITEMIDLIST pidl2);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ILIsParent(ITEMIDLIST* pidl1, ITEMIDLIST* pidl2, BOOL fImmediate);
+	public static extern BOOL ILIsParent(ITEMIDLIST pidl1, ITEMIDLIST pidl2, BOOL fImmediate);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ILSaveToStream(IStream* pstm, ITEMIDLIST* pidl);
+	public static extern HRESULT ILSaveToStream(IStream* pstm, ITEMIDLIST pidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ILLoadFromStreamEx(IStream* pstm, ITEMIDLIST** pidl);
+	public static extern HRESULT ILLoadFromStreamEx(IStream* pstm, ITEMIDLIST pidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* ILCreateFromPathA(PSTR pszPath);
-	public static ITEMIDLIST* ILCreateFromPath(PSTR pszPath) => ILCreateFromPathA(pszPath);
+	public static extern ITEMIDLIST ILCreateFromPathA(PSTR pszPath);
+	public static ITEMIDLIST ILCreateFromPath(PSTR pszPath) => ILCreateFromPathA(pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* ILCreateFromPathW(PWSTR pszPath);
+	public static extern ITEMIDLIST ILCreateFromPathW(PWSTR pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHILCreateFromPath(PWSTR pszPath, ITEMIDLIST** ppidl, uint32* rgfInOut);
+	public static extern HRESULT SHILCreateFromPath(PWSTR pszPath, ITEMIDLIST ppidl, uint32 rgfInOut);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* ILAppendID(ITEMIDLIST* pidl, SHITEMID* pmkid, BOOL fAppend);
+	public static extern ITEMIDLIST ILAppendID(ITEMIDLIST pidl, SHITEMID pmkid, BOOL fAppend);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetPathFromIDListEx(ITEMIDLIST* pidl, char16* pszPath, uint32 cchPath, int32 uOpts);
+	public static extern BOOL SHGetPathFromIDListEx(ITEMIDLIST pidl, char16* pszPath, uint32 cchPath, int32 uOpts);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetPathFromIDListA(ITEMIDLIST* pidl, uint8* pszPath);
-	public static BOOL SHGetPathFromIDList(ITEMIDLIST* pidl, uint8* pszPath) => SHGetPathFromIDListA(pidl, pszPath);
+	public static extern BOOL SHGetPathFromIDListA(ITEMIDLIST pidl, uint8* pszPath);
+	public static BOOL SHGetPathFromIDList(ITEMIDLIST pidl, uint8* pszPath) => SHGetPathFromIDListA(pidl, pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetPathFromIDListW(ITEMIDLIST* pidl, char16* pszPath);
+	public static extern BOOL SHGetPathFromIDListW(ITEMIDLIST pidl, char16* pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHCreateDirectory(HWND hwnd, PWSTR pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHCreateDirectoryExA(HWND hwnd, PSTR pszPath, SECURITY_ATTRIBUTES* psa);
-	public static int32 SHCreateDirectoryEx(HWND hwnd, PSTR pszPath, SECURITY_ATTRIBUTES* psa) => SHCreateDirectoryExA(hwnd, pszPath, psa);
+	public static extern int32 SHCreateDirectoryExA(HWND hwnd, PSTR pszPath, SECURITY_ATTRIBUTES psa);
+	public static int32 SHCreateDirectoryEx(HWND hwnd, PSTR pszPath, SECURITY_ATTRIBUTES psa) => SHCreateDirectoryExA(hwnd, pszPath, psa);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHCreateDirectoryExW(HWND hwnd, PWSTR pszPath, SECURITY_ATTRIBUTES* psa);
+	public static extern int32 SHCreateDirectoryExW(HWND hwnd, PWSTR pszPath, SECURITY_ATTRIBUTES psa);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHOpenFolderAndSelectItems(ITEMIDLIST* pidlFolder, uint32 cidl, ITEMIDLIST** apidl, uint32 dwFlags);
+	public static extern HRESULT SHOpenFolderAndSelectItems(ITEMIDLIST pidlFolder, uint32 cidl, ITEMIDLIST* apidl, uint32 dwFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateShellItem(ITEMIDLIST* pidlParent, IShellFolder* psfParent, ITEMIDLIST* pidl, IShellItem** ppsi);
+	public static extern HRESULT SHCreateShellItem(ITEMIDLIST pidlParent, IShellFolder* psfParent, ITEMIDLIST pidl, IShellItem* ppsi);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetSpecialFolderLocation(HWND hwnd, int32 csidl, ITEMIDLIST** ppidl);
+	public static extern HRESULT SHGetSpecialFolderLocation(HWND hwnd, int32 csidl, ITEMIDLIST ppidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* SHCloneSpecialIDList(HWND hwnd, int32 csidl, BOOL fCreate);
+	public static extern ITEMIDLIST SHCloneSpecialIDList(HWND hwnd, int32 csidl, BOOL fCreate);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetSpecialFolderPathA(HWND hwnd, uint8* pszPath, int32 csidl, BOOL fCreate);
@@ -20107,7 +20107,7 @@ public static
 	public static extern HRESULT SHGetFolderPathW(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, char16* pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetFolderLocation(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, ITEMIDLIST** ppidl);
+	public static extern HRESULT SHGetFolderLocation(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, ITEMIDLIST ppidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHSetFolderPathA(int32 csidl, HANDLE hToken, uint32 dwFlags, PSTR pszPath);
@@ -20124,41 +20124,41 @@ public static
 	public static extern HRESULT SHGetFolderPathAndSubDirW(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, PWSTR pszSubDir, char16* pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetKnownFolderIDList(Guid rfid, uint32 dwFlags, HANDLE hToken, ITEMIDLIST** ppidl);
+	public static extern HRESULT SHGetKnownFolderIDList(Guid rfid, uint32 dwFlags, HANDLE hToken, ITEMIDLIST ppidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHSetKnownFolderPath(Guid rfid, uint32 dwFlags, HANDLE hToken, PWSTR pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetKnownFolderPath(Guid rfid, uint32 dwFlags, HANDLE hToken, PWSTR* ppszPath);
+	public static extern HRESULT SHGetKnownFolderPath(Guid rfid, uint32 dwFlags, HANDLE hToken, PWSTR ppszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetKnownFolderItem(Guid rfid, KNOWN_FOLDER_FLAG flags, HANDLE hToken, Guid riid, void** ppv);
+	public static extern HRESULT SHGetKnownFolderItem(Guid rfid, KNOWN_FOLDER_FLAG flags, HANDLE hToken, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetSetFolderCustomSettings(SHFOLDERCUSTOMSETTINGS* pfcs, PWSTR pszPath, uint32 dwReadWrite);
+	public static extern HRESULT SHGetSetFolderCustomSettings(SHFOLDERCUSTOMSETTINGS pfcs, PWSTR pszPath, uint32 dwReadWrite);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* SHBrowseForFolderA(BROWSEINFOA* lpbi);
-	public static ITEMIDLIST* SHBrowseForFolder(BROWSEINFOA* lpbi) => SHBrowseForFolderA(lpbi);
+	public static extern ITEMIDLIST SHBrowseForFolderA(BROWSEINFOA lpbi);
+	public static ITEMIDLIST SHBrowseForFolder(BROWSEINFOA lpbi) => SHBrowseForFolderA(lpbi);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ITEMIDLIST* SHBrowseForFolderW(BROWSEINFOW* lpbi);
+	public static extern ITEMIDLIST SHBrowseForFolderW(BROWSEINFOW lpbi);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHLoadInProc(Guid rclsid);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetDesktopFolder(IShellFolder** ppshf);
+	public static extern HRESULT SHGetDesktopFolder(IShellFolder* ppshf);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SHChangeNotify(SHCNE_ID wEventId, SHCNF_FLAGS uFlags, void* dwItem1, void* dwItem2);
+	public static extern void SHChangeNotify(SHCNE_ID wEventId, SHCNF_FLAGS uFlags, void dwItem1, void dwItem2);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SHAddToRecentDocs(uint32 uFlags, void* pv);
+	public static extern void SHAddToRecentDocs(uint32 uFlags, void pv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHHandleUpdateImage(ITEMIDLIST* pidlExtra);
+	public static extern int32 SHHandleUpdateImage(ITEMIDLIST pidlExtra);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void SHUpdateImageA(PSTR pszHashItem, int32 iIndex, uint32 uFlags, int32 iImageIndex);
@@ -20168,29 +20168,29 @@ public static
 	public static extern void SHUpdateImageW(PWSTR pszHashItem, int32 iIndex, uint32 uFlags, int32 iImageIndex);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SHChangeNotifyRegister(HWND hwnd, SHCNRF_SOURCE fSources, int32 fEvents, uint32 wMsg, int32 cEntries, SHChangeNotifyEntry* pshcne);
+	public static extern uint32 SHChangeNotifyRegister(HWND hwnd, SHCNRF_SOURCE fSources, int32 fEvents, uint32 wMsg, int32 cEntries, SHChangeNotifyEntry pshcne);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHChangeNotifyDeregister(uint32 ulID);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern ShFindChangeNotificationHandle SHChangeNotification_Lock(HANDLE hChange, uint32 dwProcId, ITEMIDLIST*** pppidl, int32* plEvent);
+	public static extern ShFindChangeNotificationHandle SHChangeNotification_Lock(HANDLE hChange, uint32 dwProcId, ITEMIDLIST pppidl, int32 plEvent);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHChangeNotification_Unlock(HANDLE hLock);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetRealIDL(IShellFolder* psf, ITEMIDLIST* pidlSimple, ITEMIDLIST** ppidlReal);
+	public static extern HRESULT SHGetRealIDL(IShellFolder* psf, ITEMIDLIST pidlSimple, ITEMIDLIST ppidlReal);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetInstanceExplorer(IUnknown** ppunk);
+	public static extern HRESULT SHGetInstanceExplorer(IUnknown* ppunk);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetDataFromIDListA(IShellFolder* psf, ITEMIDLIST* pidl, SHGDFIL_FORMAT nFormat, void* pv, int32 cb);
-	public static HRESULT SHGetDataFromIDList(IShellFolder* psf, ITEMIDLIST* pidl, SHGDFIL_FORMAT nFormat, void* pv, int32 cb) => SHGetDataFromIDListA(psf, pidl, nFormat, pv, cb);
+	public static extern HRESULT SHGetDataFromIDListA(IShellFolder* psf, ITEMIDLIST pidl, SHGDFIL_FORMAT nFormat, void pv, int32 cb);
+	public static HRESULT SHGetDataFromIDList(IShellFolder* psf, ITEMIDLIST pidl, SHGDFIL_FORMAT nFormat, void pv, int32 cb) => SHGetDataFromIDListA(psf, pidl, nFormat, pv, cb);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetDataFromIDListW(IShellFolder* psf, ITEMIDLIST* pidl, SHGDFIL_FORMAT nFormat, void* pv, int32 cb);
+	public static extern HRESULT SHGetDataFromIDListW(IShellFolder* psf, ITEMIDLIST pidl, SHGDFIL_FORMAT nFormat, void pv, int32 cb);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 RestartDialog(HWND hwnd, PWSTR pszPrompt, uint32 dwReturn);
@@ -20199,22 +20199,22 @@ public static
 	public static extern int32 RestartDialogEx(HWND hwnd, PWSTR pszPrompt, uint32 dwReturn, uint32 dwReasonCode);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCoCreateInstance(PWSTR pszCLSID, Guid pclsid, IUnknown* pUnkOuter, Guid riid, void** ppv);
+	public static extern HRESULT SHCoCreateInstance(PWSTR pszCLSID, Guid pclsid, IUnknown* pUnkOuter, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateDataObject(ITEMIDLIST* pidlFolder, uint32 cidl, ITEMIDLIST** apidl, IDataObject* pdtInner, Guid riid, void** ppv);
+	public static extern HRESULT SHCreateDataObject(ITEMIDLIST pidlFolder, uint32 cidl, ITEMIDLIST* apidl, IDataObject* pdtInner, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CIDLData_CreateFromIDArray(ITEMIDLIST* pidlFolder, uint32 cidl, ITEMIDLIST** apidl, IDataObject** ppdtobj);
+	public static extern HRESULT CIDLData_CreateFromIDArray(ITEMIDLIST pidlFolder, uint32 cidl, ITEMIDLIST* apidl, IDataObject* ppdtobj);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateStdEnumFmtEtc(uint32 cfmt, FORMATETC* afmt, IEnumFORMATETC** ppenumFormatEtc);
+	public static extern HRESULT SHCreateStdEnumFmtEtc(uint32 cfmt, FORMATETC* afmt, IEnumFORMATETC* ppenumFormatEtc);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHDoDragDrop(HWND hwnd, IDataObject* pdata, IDropSource* pdsrc, uint32 dwEffect, uint32* pdwEffect);
+	public static extern HRESULT SHDoDragDrop(HWND hwnd, IDataObject* pdata, IDropSource* pdsrc, uint32 dwEffect, uint32 pdwEffect);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DAD_SetDragImage(HIMAGELIST him, POINT* pptOffset);
+	public static extern BOOL DAD_SetDragImage(HIMAGELIST him, POINT pptOffset);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DAD_DragEnterEx(HWND hwndTarget, POINT ptStart);
@@ -20232,13 +20232,13 @@ public static
 	public static extern BOOL DAD_DragLeave();
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DAD_AutoScroll(HWND hwnd, AUTO_SCROLL_DATA* pad, POINT* pptNow);
+	public static extern BOOL DAD_AutoScroll(HWND hwnd, AUTO_SCROLL_DATA pad, POINT pptNow);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ReadCabinetState(CABINETSTATE* pcs, int32 cLength);
+	public static extern BOOL ReadCabinetState(CABINETSTATE pcs, int32 cLength);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WriteCabinetState(CABINETSTATE* pcs);
+	public static extern BOOL WriteCabinetState(CABINETSTATE pcs);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathMakeUniqueName(char16* pszUniqueName, uint32 cchMax, PWSTR pszTemplate, PWSTR pszLongPlate, PWSTR pszDir);
@@ -20250,7 +20250,7 @@ public static
 	public static extern PCS_RET PathCleanupSpec(PWSTR pszDir, PWSTR pszSpec);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PathResolve(char16* pszPath, uint16** dirs, PRF_FLAGS fFlags);
+	public static extern int32 PathResolve(char16* pszPath, uint16 dirs, PRF_FLAGS fFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetFileNameFromBrowse(HWND hwnd, char16* pszFilePath, uint32 cchFilePath, PWSTR pszWorkingDir, PWSTR pszDefExt, PWSTR pszFilters, PWSTR pszTitle);
@@ -20286,7 +20286,7 @@ public static
 	public static extern IStream* OpenRegStream(HKEY hkey, PWSTR pszSubkey, PWSTR pszValue, uint32 grfMode);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHFindFiles(ITEMIDLIST* pidlFolder, ITEMIDLIST* pidlSaveFile);
+	public static extern BOOL SHFindFiles(ITEMIDLIST pidlFolder, ITEMIDLIST pidlSaveFile);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathGetShortPath(char16* pszLongPath);
@@ -20301,26 +20301,26 @@ public static
 	public static extern uint32 SHRestricted(RESTRICTIONS rest);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SignalFileOpen(ITEMIDLIST* pidl);
+	public static extern BOOL SignalFileOpen(ITEMIDLIST pidl);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocGetDetailsOfPropKey(IShellFolder* psf, ITEMIDLIST* pidl, PROPERTYKEY* pkey, VARIANT* pv, BOOL* pfFoundPropKey);
+	public static extern HRESULT AssocGetDetailsOfPropKey(IShellFolder* psf, ITEMIDLIST pidl, PROPERTYKEY pkey, VARIANT pv, BOOL pfFoundPropKey);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHStartNetConnectionDialogW(HWND hwnd, PWSTR pszRemoteName, uint32 dwType);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHDefExtractIconA(PSTR pszIconFile, int32 iIndex, uint32 uFlags, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize);
-	public static HRESULT SHDefExtractIcon(PSTR pszIconFile, int32 iIndex, uint32 uFlags, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize) => SHDefExtractIconA(pszIconFile, iIndex, uFlags, phiconLarge, phiconSmall, nIconSize);
+	public static extern HRESULT SHDefExtractIconA(PSTR pszIconFile, int32 iIndex, uint32 uFlags, HICON phiconLarge, HICON phiconSmall, uint32 nIconSize);
+	public static HRESULT SHDefExtractIcon(PSTR pszIconFile, int32 iIndex, uint32 uFlags, HICON phiconLarge, HICON phiconSmall, uint32 nIconSize) => SHDefExtractIconA(pszIconFile, iIndex, uFlags, phiconLarge, phiconSmall, nIconSize);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHDefExtractIconW(PWSTR pszIconFile, int32 iIndex, uint32 uFlags, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize);
+	public static extern HRESULT SHDefExtractIconW(PWSTR pszIconFile, int32 iIndex, uint32 uFlags, HICON phiconLarge, HICON phiconSmall, uint32 nIconSize);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHOpenWithDialog(HWND hwndParent, OPENASINFO* poainfo);
+	public static extern HRESULT SHOpenWithDialog(HWND hwndParent, OPENASINFO poainfo);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL Shell_GetImageLists(HIMAGELIST* phiml, HIMAGELIST* phimlSmall);
+	public static extern BOOL Shell_GetImageLists(HIMAGELIST phiml, HIMAGELIST phimlSmall);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 Shell_GetCachedImageIndex(PWSTR pwszIconPath, int32 iIconIndex, uint32 uIconFlags);
@@ -20344,40 +20344,40 @@ public static
 	public static extern LRESULT SHShellFolderView_Message(HWND hwndMain, uint32 uMsg, LPARAM lParam);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateShellFolderView(SFV_CREATE* pcsfv, IShellView** ppsv);
+	public static extern HRESULT SHCreateShellFolderView(SFV_CREATE pcsfv, IShellView* ppsv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CDefFolderMenu_Create2(ITEMIDLIST* pidlFolder, HWND hwnd, uint32 cidl, ITEMIDLIST** apidl, IShellFolder* psf, LPFNDFMCALLBACK pfn, uint32 nKeys, HKEY* ahkeys, IContextMenu** ppcm);
+	public static extern HRESULT CDefFolderMenu_Create2(ITEMIDLIST pidlFolder, HWND hwnd, uint32 cidl, ITEMIDLIST* apidl, IShellFolder* psf, LPFNDFMCALLBACK pfn, uint32 nKeys, HKEY* ahkeys, IContextMenu* ppcm);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateDefaultContextMenu(DEFCONTEXTMENU* pdcm, Guid riid, void** ppv);
+	public static extern HRESULT SHCreateDefaultContextMenu(DEFCONTEXTMENU pdcm, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern IContextMenu* SHFind_InitMenuPopup(HMENU hmenu, HWND hwndOwner, uint32 idCmdFirst, uint32 idCmdLast);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateShellFolderViewEx(CSFV* pcsfv, IShellView** ppsv);
+	public static extern HRESULT SHCreateShellFolderViewEx(CSFV pcsfv, IShellView* ppsv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SHGetSetSettings(SHELLSTATEA* lpss, SSF_MASK dwMask, BOOL bSet);
+	public static extern void SHGetSetSettings(SHELLSTATEA lpss, SSF_MASK dwMask, BOOL bSet);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SHGetSettings(SHELLFLAGSTATE* psfs, uint32 dwMask);
+	public static extern void SHGetSettings(SHELLFLAGSTATE psfs, uint32 dwMask);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHBindToParent(ITEMIDLIST* pidl, Guid riid, void** ppv, ITEMIDLIST** ppidlLast);
+	public static extern HRESULT SHBindToParent(ITEMIDLIST pidl, Guid riid, void ppv, ITEMIDLIST ppidlLast);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHBindToFolderIDListParent(IShellFolder* psfRoot, ITEMIDLIST* pidl, Guid riid, void** ppv, ITEMIDLIST** ppidlLast);
+	public static extern HRESULT SHBindToFolderIDListParent(IShellFolder* psfRoot, ITEMIDLIST pidl, Guid riid, void ppv, ITEMIDLIST ppidlLast);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHBindToFolderIDListParentEx(IShellFolder* psfRoot, ITEMIDLIST* pidl, IBindCtx* ppbc, Guid riid, void** ppv, ITEMIDLIST** ppidlLast);
+	public static extern HRESULT SHBindToFolderIDListParentEx(IShellFolder* psfRoot, ITEMIDLIST pidl, IBindCtx* ppbc, Guid riid, void ppv, ITEMIDLIST ppidlLast);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHBindToObject(IShellFolder* psf, ITEMIDLIST* pidl, IBindCtx* pbc, Guid riid, void** ppv);
+	public static extern HRESULT SHBindToObject(IShellFolder* psf, ITEMIDLIST pidl, IBindCtx* pbc, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHParseDisplayName(PWSTR pszName, IBindCtx* pbc, ITEMIDLIST** ppidl, uint32 sfgaoIn, uint32* psfgaoOut);
+	public static extern HRESULT SHParseDisplayName(PWSTR pszName, IBindCtx* pbc, ITEMIDLIST ppidl, uint32 sfgaoIn, uint32 psfgaoOut);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHPathPrepareForWriteA(HWND hwnd, IUnknown* punkEnableModless, PSTR pszPath, uint32 dwFlags);
@@ -20387,25 +20387,25 @@ public static
 	public static extern HRESULT SHPathPrepareForWriteW(HWND hwnd, IUnknown* punkEnableModless, PWSTR pszPath, uint32 dwFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateFileExtractIconW(PWSTR pszFile, uint32 dwFileAttributes, Guid riid, void** ppv);
+	public static extern HRESULT SHCreateFileExtractIconW(PWSTR pszFile, uint32 dwFileAttributes, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHLimitInputEdit(HWND hwndEdit, IShellFolder* psf);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetAttributesFromDataObject(IDataObject* pdo, uint32 dwAttributeMask, uint32* pdwAttributes, uint32* pcItems);
+	public static extern HRESULT SHGetAttributesFromDataObject(IDataObject* pdo, uint32 dwAttributeMask, uint32 pdwAttributes, uint32 pcItems);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHMapPIDLToSystemImageListIndex(IShellFolder* pshf, ITEMIDLIST* pidl, int32* piIndexSel);
+	public static extern int32 SHMapPIDLToSystemImageListIndex(IShellFolder* pshf, ITEMIDLIST pidl, int32 piIndexSel);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHCLSIDFromString(PWSTR psz, Guid pclsid);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PickIconDlg(HWND hwnd, char16* pszIconPath, uint32 cchIconPath, int32* piIconIndex);
+	public static extern int32 PickIconDlg(HWND hwnd, char16* pszIconPath, uint32 cchIconPath, int32 piIconIndex);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StgMakeUniqueName(IStorage* pstgParent, PWSTR pszFileSpec, uint32 grfMode, Guid riid, void** ppv);
+	public static extern HRESULT StgMakeUniqueName(IStorage* pstgParent, PWSTR pszFileSpec, uint32 grfMode, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void SHChangeNotifyRegisterThread(SCNRT_STATUS status);
@@ -20427,31 +20427,31 @@ public static
 	public static extern BOOL SHOpenPropSheetW(PWSTR pszCaption, HKEY* ahkeys, uint32 ckeys, Guid pclsidDefault, IDataObject* pdtobj, IShellBrowser* psb, PWSTR pStartPage);
 
 	[Import("SHDOCVW.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SoftwareUpdateMessageBox(HWND hWnd, PWSTR pszDistUnit, uint32 dwFlags, SOFTDISTINFO* psdi);
+	public static extern uint32 SoftwareUpdateMessageBox(HWND hWnd, PWSTR pszDistUnit, uint32 dwFlags, SOFTDISTINFO psdi);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHMultiFileProperties(IDataObject* pdtobj, uint32 dwFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateQueryCancelAutoPlayMoniker(IMoniker** ppmoniker);
+	public static extern HRESULT SHCreateQueryCancelAutoPlayMoniker(IMoniker* ppmoniker);
 
 	[Import("SHDOCVW.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ImportPrivacySettings(PWSTR pszFilename, BOOL* pfParsePrivacyPreferences, BOOL* pfParsePerSiteRules);
+	public static extern BOOL ImportPrivacySettings(PWSTR pszFilename, BOOL pfParsePrivacyPreferences, BOOL pfParsePerSiteRules);
 
 	[Import("api-ms-win-shcore-scaling-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern DEVICE_SCALE_FACTOR GetScaleFactorForDevice(DISPLAY_DEVICE_TYPE deviceType);
 
 	[Import("api-ms-win-shcore-scaling-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RegisterScaleChangeNotifications(DISPLAY_DEVICE_TYPE displayDevice, HWND hwndNotify, uint32 uMsgNotify, uint32* pdwCookie);
+	public static extern HRESULT RegisterScaleChangeNotifications(DISPLAY_DEVICE_TYPE displayDevice, HWND hwndNotify, uint32 uMsgNotify, uint32 pdwCookie);
 
 	[Import("api-ms-win-shcore-scaling-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RevokeScaleChangeNotifications(DISPLAY_DEVICE_TYPE displayDevice, uint32 dwCookie);
 
 	[Import("api-ms-win-shcore-scaling-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetScaleFactorForMonitor(HMONITOR hMon, DEVICE_SCALE_FACTOR* pScale);
+	public static extern HRESULT GetScaleFactorForMonitor(HMONITOR hMon, DEVICE_SCALE_FACTOR pScale);
 
 	[Import("api-ms-win-shcore-scaling-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RegisterScaleChangeEvent(HANDLE hEvent, uint* pdwCookie);
+	public static extern HRESULT RegisterScaleChangeEvent(HANDLE hEvent, uint pdwCookie);
 
 	[Import("api-ms-win-shcore-scaling-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UnregisterScaleChangeEvent(uint dwCookie);
@@ -20460,7 +20460,7 @@ public static
 	public static extern uint32 GetDpiForShellUIComponent(SHELL_UI_COMPONENT param0);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR* CommandLineToArgvW(PWSTR lpCmdLine, int32* pNumArgs);
+	public static extern PWSTR CommandLineToArgvW(PWSTR lpCmdLine, int32 pNumArgs);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DragQueryFileA(HDROP hDrop, uint32 iFile, uint8* lpszFile, uint32 cch);
@@ -20470,7 +20470,7 @@ public static
 	public static extern uint32 DragQueryFileW(HDROP hDrop, uint32 iFile, char16* lpszFile, uint32 cch);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DragQueryPoint(HDROP hDrop, POINT* ppt);
+	public static extern BOOL DragQueryPoint(HDROP hDrop, POINT ppt);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DragFinish(HDROP hDrop);
@@ -20503,18 +20503,18 @@ public static
 	public static extern HICON DuplicateIcon(HINSTANCE hInst, HICON hIcon);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HICON ExtractAssociatedIconA(HINSTANCE hInst, uint8* pszIconPath, uint16* piIcon);
-	public static HICON ExtractAssociatedIcon(HINSTANCE hInst, uint8* pszIconPath, uint16* piIcon) => ExtractAssociatedIconA(hInst, pszIconPath, piIcon);
+	public static extern HICON ExtractAssociatedIconA(HINSTANCE hInst, uint8* pszIconPath, uint16 piIcon);
+	public static HICON ExtractAssociatedIcon(HINSTANCE hInst, uint8* pszIconPath, uint16 piIcon) => ExtractAssociatedIconA(hInst, pszIconPath, piIcon);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HICON ExtractAssociatedIconW(HINSTANCE hInst, char16* pszIconPath, uint16* piIcon);
+	public static extern HICON ExtractAssociatedIconW(HINSTANCE hInst, char16* pszIconPath, uint16 piIcon);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HICON ExtractAssociatedIconExA(HINSTANCE hInst, uint8* pszIconPath, uint16* piIconIndex, uint16* piIconId);
-	public static HICON ExtractAssociatedIconEx(HINSTANCE hInst, uint8* pszIconPath, uint16* piIconIndex, uint16* piIconId) => ExtractAssociatedIconExA(hInst, pszIconPath, piIconIndex, piIconId);
+	public static extern HICON ExtractAssociatedIconExA(HINSTANCE hInst, uint8* pszIconPath, uint16 piIconIndex, uint16 piIconId);
+	public static HICON ExtractAssociatedIconEx(HINSTANCE hInst, uint8* pszIconPath, uint16 piIconIndex, uint16 piIconId) => ExtractAssociatedIconExA(hInst, pszIconPath, piIconIndex, piIconId);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HICON ExtractAssociatedIconExW(HINSTANCE hInst, char16* pszIconPath, uint16* piIconIndex, uint16* piIconId);
+	public static extern HICON ExtractAssociatedIconExW(HINSTANCE hInst, char16* pszIconPath, uint16 piIconIndex, uint16 piIconId);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON ExtractIconA(HINSTANCE hInst, PSTR pszExeFileName, uint32 nIconIndex);
@@ -20524,7 +20524,7 @@ public static
 	public static extern HICON ExtractIconW(HINSTANCE hInst, PWSTR pszExeFileName, uint32 nIconIndex);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint SHAppBarMessage(uint32 dwMessage, APPBARDATA* pData);
+	public static extern uint SHAppBarMessage(uint32 dwMessage, APPBARDATA pData);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DoEnvironmentSubstA(uint8* pszSrc, uint32 cchSrc);
@@ -20541,37 +20541,37 @@ public static
 	public static extern uint32 ExtractIconExW(PWSTR lpszFile, int32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIcons);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHFileOperationA(SHFILEOPSTRUCTA* lpFileOp);
-	public static int32 SHFileOperation(SHFILEOPSTRUCTA* lpFileOp) => SHFileOperationA(lpFileOp);
+	public static extern int32 SHFileOperationA(SHFILEOPSTRUCTA lpFileOp);
+	public static int32 SHFileOperation(SHFILEOPSTRUCTA lpFileOp) => SHFileOperationA(lpFileOp);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHFileOperationW(SHFILEOPSTRUCTW* lpFileOp);
+	public static extern int32 SHFileOperationW(SHFILEOPSTRUCTW lpFileOp);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void SHFreeNameMappings(HANDLE hNameMappings);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ShellExecuteExA(SHELLEXECUTEINFOA* pExecInfo);
-	public static BOOL ShellExecuteEx(SHELLEXECUTEINFOA* pExecInfo) => ShellExecuteExA(pExecInfo);
+	public static extern BOOL ShellExecuteExA(SHELLEXECUTEINFOA pExecInfo);
+	public static BOOL ShellExecuteEx(SHELLEXECUTEINFOA pExecInfo) => ShellExecuteExA(pExecInfo);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ShellExecuteExW(SHELLEXECUTEINFOW* pExecInfo);
+	public static extern BOOL ShellExecuteExW(SHELLEXECUTEINFOW pExecInfo);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHCreateProcessAsUserW(SHCREATEPROCESSINFOW* pscpi);
+	public static extern BOOL SHCreateProcessAsUserW(SHCREATEPROCESSINFOW pscpi);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHEvaluateSystemCommandTemplate(PWSTR pszCmdTemplate, PWSTR* ppszApplication, PWSTR* ppszCommandLine, PWSTR* ppszParameters);
+	public static extern HRESULT SHEvaluateSystemCommandTemplate(PWSTR pszCmdTemplate, PWSTR ppszApplication, PWSTR ppszCommandLine, PWSTR ppszParameters);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocCreateForClasses(ASSOCIATIONELEMENT* rgClasses, uint32 cClasses, Guid riid, void** ppv);
+	public static extern HRESULT AssocCreateForClasses(ASSOCIATIONELEMENT* rgClasses, uint32 cClasses, Guid riid, void ppv);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHQueryRecycleBinA(PSTR pszRootPath, SHQUERYRBINFO* pSHQueryRBInfo);
-	public static HRESULT SHQueryRecycleBin(PSTR pszRootPath, SHQUERYRBINFO* pSHQueryRBInfo) => SHQueryRecycleBinA(pszRootPath, pSHQueryRBInfo);
+	public static extern HRESULT SHQueryRecycleBinA(PSTR pszRootPath, SHQUERYRBINFO pSHQueryRBInfo);
+	public static HRESULT SHQueryRecycleBin(PSTR pszRootPath, SHQUERYRBINFO pSHQueryRBInfo) => SHQueryRecycleBinA(pszRootPath, pSHQueryRBInfo);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHQueryRecycleBinW(PWSTR pszRootPath, SHQUERYRBINFO* pSHQueryRBInfo);
+	public static extern HRESULT SHQueryRecycleBinW(PWSTR pszRootPath, SHQUERYRBINFO pSHQueryRBInfo);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHEmptyRecycleBinA(HWND hwnd, PSTR pszRootPath, uint32 dwFlags);
@@ -20581,41 +20581,41 @@ public static
 	public static extern HRESULT SHEmptyRecycleBinW(HWND hwnd, PWSTR pszRootPath, uint32 dwFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHQueryUserNotificationState(QUERY_USER_NOTIFICATION_STATE* pquns);
+	public static extern HRESULT SHQueryUserNotificationState(QUERY_USER_NOTIFICATION_STATE pquns);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL Shell_NotifyIconA(NOTIFY_ICON_MESSAGE dwMessage, NOTIFYICONDATAA* lpData);
-	public static BOOL Shell_NotifyIcon(NOTIFY_ICON_MESSAGE dwMessage, NOTIFYICONDATAA* lpData) => Shell_NotifyIconA(dwMessage, lpData);
+	public static extern BOOL Shell_NotifyIconA(NOTIFY_ICON_MESSAGE dwMessage, NOTIFYICONDATAA lpData);
+	public static BOOL Shell_NotifyIcon(NOTIFY_ICON_MESSAGE dwMessage, NOTIFYICONDATAA lpData) => Shell_NotifyIconA(dwMessage, lpData);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL Shell_NotifyIconW(NOTIFY_ICON_MESSAGE dwMessage, NOTIFYICONDATAW* lpData);
+	public static extern BOOL Shell_NotifyIconW(NOTIFY_ICON_MESSAGE dwMessage, NOTIFYICONDATAW lpData);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT Shell_NotifyIconGetRect(NOTIFYICONIDENTIFIER* identifier, RECT* iconLocation);
+	public static extern HRESULT Shell_NotifyIconGetRect(NOTIFYICONIDENTIFIER identifier, RECT iconLocation);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint SHGetFileInfoA(PSTR pszPath, FILE_FLAGS_AND_ATTRIBUTES dwFileAttributes, SHFILEINFOA* psfi, uint32 cbFileInfo, SHGFI_FLAGS uFlags);
-	public static uint SHGetFileInfo(PSTR pszPath, FILE_FLAGS_AND_ATTRIBUTES dwFileAttributes, SHFILEINFOA* psfi, uint32 cbFileInfo, SHGFI_FLAGS uFlags) => SHGetFileInfoA(pszPath, dwFileAttributes, psfi, cbFileInfo, uFlags);
+	public static extern uint SHGetFileInfoA(PSTR pszPath, FILE_FLAGS_AND_ATTRIBUTES dwFileAttributes, SHFILEINFOA psfi, uint32 cbFileInfo, SHGFI_FLAGS uFlags);
+	public static uint SHGetFileInfo(PSTR pszPath, FILE_FLAGS_AND_ATTRIBUTES dwFileAttributes, SHFILEINFOA psfi, uint32 cbFileInfo, SHGFI_FLAGS uFlags) => SHGetFileInfoA(pszPath, dwFileAttributes, psfi, cbFileInfo, uFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint SHGetFileInfoW(PWSTR pszPath, FILE_FLAGS_AND_ATTRIBUTES dwFileAttributes, SHFILEINFOW* psfi, uint32 cbFileInfo, SHGFI_FLAGS uFlags);
+	public static extern uint SHGetFileInfoW(PWSTR pszPath, FILE_FLAGS_AND_ATTRIBUTES dwFileAttributes, SHFILEINFOW psfi, uint32 cbFileInfo, SHGFI_FLAGS uFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetStockIconInfo(SHSTOCKICONID siid, uint32 uFlags, SHSTOCKICONINFO* psii);
+	public static extern HRESULT SHGetStockIconInfo(SHSTOCKICONID siid, uint32 uFlags, SHSTOCKICONINFO psii);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetDiskFreeSpaceExA(PSTR pszDirectoryName, ULARGE_INTEGER* pulFreeBytesAvailableToCaller, ULARGE_INTEGER* pulTotalNumberOfBytes, ULARGE_INTEGER* pulTotalNumberOfFreeBytes);
-	public static BOOL SHGetDiskFreeSpaceEx(PSTR pszDirectoryName, ULARGE_INTEGER* pulFreeBytesAvailableToCaller, ULARGE_INTEGER* pulTotalNumberOfBytes, ULARGE_INTEGER* pulTotalNumberOfFreeBytes) => SHGetDiskFreeSpaceExA(pszDirectoryName, pulFreeBytesAvailableToCaller, pulTotalNumberOfBytes, pulTotalNumberOfFreeBytes);
+	public static extern BOOL SHGetDiskFreeSpaceExA(PSTR pszDirectoryName, ULARGE_INTEGER pulFreeBytesAvailableToCaller, ULARGE_INTEGER pulTotalNumberOfBytes, ULARGE_INTEGER pulTotalNumberOfFreeBytes);
+	public static BOOL SHGetDiskFreeSpaceEx(PSTR pszDirectoryName, ULARGE_INTEGER pulFreeBytesAvailableToCaller, ULARGE_INTEGER pulTotalNumberOfBytes, ULARGE_INTEGER pulTotalNumberOfFreeBytes) => SHGetDiskFreeSpaceExA(pszDirectoryName, pulFreeBytesAvailableToCaller, pulTotalNumberOfBytes, pulTotalNumberOfFreeBytes);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetDiskFreeSpaceExW(PWSTR pszDirectoryName, ULARGE_INTEGER* pulFreeBytesAvailableToCaller, ULARGE_INTEGER* pulTotalNumberOfBytes, ULARGE_INTEGER* pulTotalNumberOfFreeBytes);
+	public static extern BOOL SHGetDiskFreeSpaceExW(PWSTR pszDirectoryName, ULARGE_INTEGER pulFreeBytesAvailableToCaller, ULARGE_INTEGER pulTotalNumberOfBytes, ULARGE_INTEGER pulTotalNumberOfFreeBytes);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetNewLinkInfoA(PSTR pszLinkTo, PSTR pszDir, uint8* pszName, BOOL* pfMustCopy, uint32 uFlags);
-	public static BOOL SHGetNewLinkInfo(PSTR pszLinkTo, PSTR pszDir, uint8* pszName, BOOL* pfMustCopy, uint32 uFlags) => SHGetNewLinkInfoA(pszLinkTo, pszDir, pszName, pfMustCopy, uFlags);
+	public static extern BOOL SHGetNewLinkInfoA(PSTR pszLinkTo, PSTR pszDir, uint8* pszName, BOOL pfMustCopy, uint32 uFlags);
+	public static BOOL SHGetNewLinkInfo(PSTR pszLinkTo, PSTR pszDir, uint8* pszName, BOOL pfMustCopy, uint32 uFlags) => SHGetNewLinkInfoA(pszLinkTo, pszDir, pszName, pfMustCopy, uFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetNewLinkInfoW(PWSTR pszLinkTo, PWSTR pszDir, char16* pszName, BOOL* pfMustCopy, uint32 uFlags);
+	public static extern BOOL SHGetNewLinkInfoW(PWSTR pszLinkTo, PWSTR pszDir, char16* pszName, BOOL pfMustCopy, uint32 uFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHInvokePrinterCommandA(HWND hwnd, uint32 uAction, PSTR lpBuf1, PSTR lpBuf2, BOOL fModal);
@@ -20628,7 +20628,7 @@ public static
 	public static extern HRESULT SHLoadNonloadedIconOverlayIdentifiers();
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHIsFileAvailableOffline(PWSTR pwszPath, uint32* pdwStatus);
+	public static extern HRESULT SHIsFileAvailableOffline(PWSTR pwszPath, uint32 pdwStatus);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHSetLocalizedName(PWSTR pszPath, PWSTR pszResModule, int32 idsRes);
@@ -20637,7 +20637,7 @@ public static
 	public static extern HRESULT SHRemoveLocalizedName(PWSTR pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetLocalizedName(PWSTR pszPath, char16* pszResModule, uint32 cch, int32* pidsRes);
+	public static extern HRESULT SHGetLocalizedName(PWSTR pszPath, char16* pszResModule, uint32 cch, int32 pidsRes);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ShellMessageBoxA(HINSTANCE hAppInst, HWND hWnd, PSTR lpcText, PSTR lpcTitle, uint32 fuStyle);
@@ -20657,7 +20657,7 @@ public static
 	public static extern HRESULT SHEnumerateUnreadMailAccountsW(HKEY hKeyUser, uint32 dwIndex, char16* pszMailAddress, int32 cchMailAddress);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetUnreadMailCountW(HKEY hKeyUser, PWSTR pszMailAddress, uint32* pdwCount, FILETIME* pFileTime, char16* pszShellExecuteCommand, int32 cchShellExecuteCommand);
+	public static extern HRESULT SHGetUnreadMailCountW(HKEY hKeyUser, PWSTR pszMailAddress, uint32 pdwCount, FILETIME pFileTime, char16* pszShellExecuteCommand, int32 cchShellExecuteCommand);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHSetUnreadMailCountW(PWSTR pszMailAddress, uint32 dwCount, PWSTR pszShellExecuteCommand);
@@ -20666,13 +20666,13 @@ public static
 	public static extern BOOL SHTestTokenMembership(HANDLE hToken, uint32 ulRID);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetImageList(int32 iImageList, Guid riid, void** ppvObj);
+	public static extern HRESULT SHGetImageList(int32 iImageList, Guid riid, void ppvObj);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InitNetworkAddressControl();
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetDriveMedia(PWSTR pszDrive, uint32* pdwMediaContent);
+	public static extern HRESULT SHGetDriveMedia(PWSTR pszDrive, uint32 pdwMediaContent);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrChrA(PSTR pszStart, uint16 wMatch);
@@ -20833,18 +20833,18 @@ public static
 	public static extern int32 StrToIntW(PWSTR pszSrc);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL StrToIntExA(PSTR pszString, int32 dwFlags, int32* piRet);
-	public static BOOL StrToIntEx(PSTR pszString, int32 dwFlags, int32* piRet) => StrToIntExA(pszString, dwFlags, piRet);
+	public static extern BOOL StrToIntExA(PSTR pszString, int32 dwFlags, int32 piRet);
+	public static BOOL StrToIntEx(PSTR pszString, int32 dwFlags, int32 piRet) => StrToIntExA(pszString, dwFlags, piRet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL StrToIntExW(PWSTR pszString, int32 dwFlags, int32* piRet);
+	public static extern BOOL StrToIntExW(PWSTR pszString, int32 dwFlags, int32 piRet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL StrToInt64ExA(PSTR pszString, int32 dwFlags, int64* pllRet);
-	public static BOOL StrToInt64Ex(PSTR pszString, int32 dwFlags, int64* pllRet) => StrToInt64ExA(pszString, dwFlags, pllRet);
+	public static extern BOOL StrToInt64ExA(PSTR pszString, int32 dwFlags, int64 pllRet);
+	public static BOOL StrToInt64Ex(PSTR pszString, int32 dwFlags, int64 pllRet) => StrToInt64ExA(pszString, dwFlags, pllRet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL StrToInt64ExW(PWSTR pszString, int32 dwFlags, int64* pllRet);
+	public static extern BOOL StrToInt64ExW(PWSTR pszString, int32 dwFlags, int64 pllRet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrTrimA(PSTR psz, PSTR pszTrimChars);
@@ -20883,11 +20883,11 @@ public static
 	public static extern BOOL ChrCmpIW(char16 w1, char16 w2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 wvnsprintfA(uint8* pszDest, int32 cchDest, PSTR pszFmt, int8* arglist);
-	public static int32 wvnsprintf(uint8* pszDest, int32 cchDest, PSTR pszFmt, int8* arglist) => wvnsprintfA(pszDest, cchDest, pszFmt, arglist);
+	public static extern int32 wvnsprintfA(uint8* pszDest, int32 cchDest, PSTR pszFmt, int8 arglist);
+	public static int32 wvnsprintf(uint8* pszDest, int32 cchDest, PSTR pszFmt, int8 arglist) => wvnsprintfA(pszDest, cchDest, pszFmt, arglist);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 wvnsprintfW(char16* pszDest, int32 cchDest, PWSTR pszFmt, int8* arglist);
+	public static extern int32 wvnsprintfW(char16* pszDest, int32 cchDest, PWSTR pszFmt, int8 arglist);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 wnsprintfA(uint8* pszDest, int32 cchDest, PSTR pszFmt);
@@ -20897,25 +20897,25 @@ public static
 	public static extern int32 wnsprintfW(char16* pszDest, int32 cchDest, PWSTR pszFmt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StrRetToStrA(STRRET* pstr, ITEMIDLIST* pidl, PSTR* ppsz);
-	public static HRESULT StrRetToStr(STRRET* pstr, ITEMIDLIST* pidl, PSTR* ppsz) => StrRetToStrA(pstr, pidl, ppsz);
+	public static extern HRESULT StrRetToStrA(STRRET pstr, ITEMIDLIST pidl, PSTR ppsz);
+	public static HRESULT StrRetToStr(STRRET pstr, ITEMIDLIST pidl, PSTR ppsz) => StrRetToStrA(pstr, pidl, ppsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StrRetToStrW(STRRET* pstr, ITEMIDLIST* pidl, PWSTR* ppsz);
+	public static extern HRESULT StrRetToStrW(STRRET pstr, ITEMIDLIST pidl, PWSTR ppsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StrRetToBufA(STRRET* pstr, ITEMIDLIST* pidl, uint8* pszBuf, uint32 cchBuf);
-	public static HRESULT StrRetToBuf(STRRET* pstr, ITEMIDLIST* pidl, uint8* pszBuf, uint32 cchBuf) => StrRetToBufA(pstr, pidl, pszBuf, cchBuf);
+	public static extern HRESULT StrRetToBufA(STRRET pstr, ITEMIDLIST pidl, uint8* pszBuf, uint32 cchBuf);
+	public static HRESULT StrRetToBuf(STRRET pstr, ITEMIDLIST pidl, uint8* pszBuf, uint32 cchBuf) => StrRetToBufA(pstr, pidl, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StrRetToBufW(STRRET* pstr, ITEMIDLIST* pidl, char16* pszBuf, uint32 cchBuf);
+	public static extern HRESULT StrRetToBufW(STRRET pstr, ITEMIDLIST pidl, char16* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHStrDupA(PSTR psz, PWSTR* ppwsz);
-	public static HRESULT SHStrDup(PSTR psz, PWSTR* ppwsz) => SHStrDupA(psz, ppwsz);
+	public static extern HRESULT SHStrDupA(PSTR psz, PWSTR ppwsz);
+	public static HRESULT SHStrDup(PSTR psz, PWSTR ppwsz) => SHStrDupA(psz, ppwsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHStrDupW(PWSTR psz, PWSTR* ppwsz);
+	public static extern HRESULT SHStrDupW(PWSTR psz, PWSTR ppwsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpLogicalW(PWSTR psz1, PWSTR psz2);
@@ -20924,10 +20924,10 @@ public static
 	public static extern uint32 StrCatChainW(char16* pszDst, uint32 cchDst, uint32 ichAt, PWSTR pszSrc);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StrRetToBSTR(STRRET* pstr, ITEMIDLIST* pidl, BSTR* pbstr);
+	public static extern HRESULT StrRetToBSTR(STRRET pstr, ITEMIDLIST pidl, BSTR pbstr);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHLoadIndirectString(PWSTR pszSource, char16* pszOutBuf, uint32 cchOutBuf, void** ppvReserved);
+	public static extern HRESULT SHLoadIndirectString(PWSTR pszSource, char16* pszOutBuf, uint32 cchOutBuf, void ppvReserved);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsCharSpaceA(CHAR wch);
@@ -21063,11 +21063,11 @@ public static
 	public static extern PWSTR PathFindNextComponentW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathFindOnPathA(uint8* pszPath, int8** ppszOtherDirs);
-	public static BOOL PathFindOnPath(uint8* pszPath, int8** ppszOtherDirs) => PathFindOnPathA(pszPath, ppszOtherDirs);
+	public static extern BOOL PathFindOnPathA(uint8* pszPath, int8 ppszOtherDirs);
+	public static BOOL PathFindOnPath(uint8* pszPath, int8 ppszOtherDirs) => PathFindOnPathA(pszPath, ppszOtherDirs);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathFindOnPathW(char16* pszPath, uint16** ppszOtherDirs);
+	public static extern BOOL PathFindOnPathW(char16* pszPath, uint16 ppszOtherDirs);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathFindSuffixArrayA(PSTR pszPath, PSTR* apszSuffix, int32 iArraySize);
@@ -21364,18 +21364,18 @@ public static
 	public static extern int32 UrlCompareW(PWSTR psz1, PWSTR psz2, BOOL fIgnoreSlash);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlCombineA(PSTR pszBase, PSTR pszRelative, uint8* pszCombined, uint32* pcchCombined, uint32 dwFlags);
-	public static HRESULT UrlCombine(PSTR pszBase, PSTR pszRelative, uint8* pszCombined, uint32* pcchCombined, uint32 dwFlags) => UrlCombineA(pszBase, pszRelative, pszCombined, pcchCombined, dwFlags);
+	public static extern HRESULT UrlCombineA(PSTR pszBase, PSTR pszRelative, uint8* pszCombined, uint32 pcchCombined, uint32 dwFlags);
+	public static HRESULT UrlCombine(PSTR pszBase, PSTR pszRelative, uint8* pszCombined, uint32 pcchCombined, uint32 dwFlags) => UrlCombineA(pszBase, pszRelative, pszCombined, pcchCombined, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlCombineW(PWSTR pszBase, PWSTR pszRelative, char16* pszCombined, uint32* pcchCombined, uint32 dwFlags);
+	public static extern HRESULT UrlCombineW(PWSTR pszBase, PWSTR pszRelative, char16* pszCombined, uint32 pcchCombined, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlCanonicalizeA(PSTR pszUrl, uint8* pszCanonicalized, uint32* pcchCanonicalized, uint32 dwFlags);
-	public static HRESULT UrlCanonicalize(PSTR pszUrl, uint8* pszCanonicalized, uint32* pcchCanonicalized, uint32 dwFlags) => UrlCanonicalizeA(pszUrl, pszCanonicalized, pcchCanonicalized, dwFlags);
+	public static extern HRESULT UrlCanonicalizeA(PSTR pszUrl, uint8* pszCanonicalized, uint32 pcchCanonicalized, uint32 dwFlags);
+	public static HRESULT UrlCanonicalize(PSTR pszUrl, uint8* pszCanonicalized, uint32 pcchCanonicalized, uint32 dwFlags) => UrlCanonicalizeA(pszUrl, pszCanonicalized, pcchCanonicalized, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlCanonicalizeW(PWSTR pszUrl, char16* pszCanonicalized, uint32* pcchCanonicalized, uint32 dwFlags);
+	public static extern HRESULT UrlCanonicalizeW(PWSTR pszUrl, char16* pszCanonicalized, uint32 pcchCanonicalized, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UrlIsOpaqueA(PSTR pszURL);
@@ -21406,69 +21406,69 @@ public static
 	public static extern PWSTR UrlGetLocationW(PWSTR pszURL);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlUnescapeA(PSTR pszUrl, uint8* pszUnescaped, uint32* pcchUnescaped, uint32 dwFlags);
-	public static HRESULT UrlUnescape(PSTR pszUrl, uint8* pszUnescaped, uint32* pcchUnescaped, uint32 dwFlags) => UrlUnescapeA(pszUrl, pszUnescaped, pcchUnescaped, dwFlags);
+	public static extern HRESULT UrlUnescapeA(PSTR pszUrl, uint8* pszUnescaped, uint32 pcchUnescaped, uint32 dwFlags);
+	public static HRESULT UrlUnescape(PSTR pszUrl, uint8* pszUnescaped, uint32 pcchUnescaped, uint32 dwFlags) => UrlUnescapeA(pszUrl, pszUnescaped, pcchUnescaped, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlUnescapeW(PWSTR pszUrl, char16* pszUnescaped, uint32* pcchUnescaped, uint32 dwFlags);
+	public static extern HRESULT UrlUnescapeW(PWSTR pszUrl, char16* pszUnescaped, uint32 pcchUnescaped, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlEscapeA(PSTR pszUrl, uint8* pszEscaped, uint32* pcchEscaped, uint32 dwFlags);
-	public static HRESULT UrlEscape(PSTR pszUrl, uint8* pszEscaped, uint32* pcchEscaped, uint32 dwFlags) => UrlEscapeA(pszUrl, pszEscaped, pcchEscaped, dwFlags);
+	public static extern HRESULT UrlEscapeA(PSTR pszUrl, uint8* pszEscaped, uint32 pcchEscaped, uint32 dwFlags);
+	public static HRESULT UrlEscape(PSTR pszUrl, uint8* pszEscaped, uint32 pcchEscaped, uint32 dwFlags) => UrlEscapeA(pszUrl, pszEscaped, pcchEscaped, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlEscapeW(PWSTR pszUrl, char16* pszEscaped, uint32* pcchEscaped, uint32 dwFlags);
+	public static extern HRESULT UrlEscapeW(PWSTR pszUrl, char16* pszEscaped, uint32 pcchEscaped, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlCreateFromPathA(PSTR pszPath, uint8* pszUrl, uint32* pcchUrl, uint32 dwFlags);
-	public static HRESULT UrlCreateFromPath(PSTR pszPath, uint8* pszUrl, uint32* pcchUrl, uint32 dwFlags) => UrlCreateFromPathA(pszPath, pszUrl, pcchUrl, dwFlags);
+	public static extern HRESULT UrlCreateFromPathA(PSTR pszPath, uint8* pszUrl, uint32 pcchUrl, uint32 dwFlags);
+	public static HRESULT UrlCreateFromPath(PSTR pszPath, uint8* pszUrl, uint32 pcchUrl, uint32 dwFlags) => UrlCreateFromPathA(pszPath, pszUrl, pcchUrl, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlCreateFromPathW(PWSTR pszPath, char16* pszUrl, uint32* pcchUrl, uint32 dwFlags);
+	public static extern HRESULT UrlCreateFromPathW(PWSTR pszPath, char16* pszUrl, uint32 pcchUrl, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCreateFromUrlA(PSTR pszUrl, uint8* pszPath, uint32* pcchPath, uint32 dwFlags);
-	public static HRESULT PathCreateFromUrl(PSTR pszUrl, uint8* pszPath, uint32* pcchPath, uint32 dwFlags) => PathCreateFromUrlA(pszUrl, pszPath, pcchPath, dwFlags);
+	public static extern HRESULT PathCreateFromUrlA(PSTR pszUrl, uint8* pszPath, uint32 pcchPath, uint32 dwFlags);
+	public static HRESULT PathCreateFromUrl(PSTR pszUrl, uint8* pszPath, uint32 pcchPath, uint32 dwFlags) => PathCreateFromUrlA(pszUrl, pszPath, pcchPath, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCreateFromUrlW(PWSTR pszUrl, char16* pszPath, uint32* pcchPath, uint32 dwFlags);
+	public static extern HRESULT PathCreateFromUrlW(PWSTR pszUrl, char16* pszPath, uint32 pcchPath, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCreateFromUrlAlloc(PWSTR pszIn, PWSTR* ppszOut, uint32 dwFlags);
+	public static extern HRESULT PathCreateFromUrlAlloc(PWSTR pszIn, PWSTR ppszOut, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlHashA(PSTR pszUrl, uint8* pbHash, uint32 cbHash);
-	public static HRESULT UrlHash(PSTR pszUrl, uint8* pbHash, uint32 cbHash) => UrlHashA(pszUrl, pbHash, cbHash);
+	public static extern HRESULT UrlHashA(PSTR pszUrl, uint8 pbHash, uint32 cbHash);
+	public static HRESULT UrlHash(PSTR pszUrl, uint8 pbHash, uint32 cbHash) => UrlHashA(pszUrl, pbHash, cbHash);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlHashW(PWSTR pszUrl, uint8* pbHash, uint32 cbHash);
+	public static extern HRESULT UrlHashW(PWSTR pszUrl, uint8 pbHash, uint32 cbHash);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlGetPartW(PWSTR pszIn, char16* pszOut, uint32* pcchOut, uint32 dwPart, uint32 dwFlags);
+	public static extern HRESULT UrlGetPartW(PWSTR pszIn, char16* pszOut, uint32 pcchOut, uint32 dwPart, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlGetPartA(PSTR pszIn, uint8* pszOut, uint32* pcchOut, uint32 dwPart, uint32 dwFlags);
-	public static HRESULT UrlGetPart(PSTR pszIn, uint8* pszOut, uint32* pcchOut, uint32 dwPart, uint32 dwFlags) => UrlGetPartA(pszIn, pszOut, pcchOut, dwPart, dwFlags);
+	public static extern HRESULT UrlGetPartA(PSTR pszIn, uint8* pszOut, uint32 pcchOut, uint32 dwPart, uint32 dwFlags);
+	public static HRESULT UrlGetPart(PSTR pszIn, uint8* pszOut, uint32 pcchOut, uint32 dwPart, uint32 dwFlags) => UrlGetPartA(pszIn, pszOut, pcchOut, dwPart, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlApplySchemeA(PSTR pszIn, uint8* pszOut, uint32* pcchOut, uint32 dwFlags);
-	public static HRESULT UrlApplyScheme(PSTR pszIn, uint8* pszOut, uint32* pcchOut, uint32 dwFlags) => UrlApplySchemeA(pszIn, pszOut, pcchOut, dwFlags);
+	public static extern HRESULT UrlApplySchemeA(PSTR pszIn, uint8* pszOut, uint32 pcchOut, uint32 dwFlags);
+	public static HRESULT UrlApplyScheme(PSTR pszIn, uint8* pszOut, uint32 pcchOut, uint32 dwFlags) => UrlApplySchemeA(pszIn, pszOut, pcchOut, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UrlApplySchemeW(PWSTR pszIn, char16* pszOut, uint32* pcchOut, uint32 dwFlags);
+	public static extern HRESULT UrlApplySchemeW(PWSTR pszIn, char16* pszOut, uint32 pcchOut, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HashData(uint8* pbData, uint32 cbData, uint8* pbHash, uint32 cbHash);
+	public static extern HRESULT HashData(uint8 pbData, uint32 cbData, uint8 pbHash, uint32 cbHash);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlFixupW(PWSTR pcszUrl, char16* pszTranslatedUrl, uint32 cchMax);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ParseURLA(PSTR pcszURL, PARSEDURLA* ppu);
-	public static HRESULT ParseURL(PSTR pcszURL, PARSEDURLA* ppu) => ParseURLA(pcszURL, ppu);
+	public static extern HRESULT ParseURLA(PSTR pcszURL, PARSEDURLA ppu);
+	public static HRESULT ParseURL(PSTR pcszURL, PARSEDURLA ppu) => ParseURLA(pcszURL, ppu);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ParseURLW(PWSTR pcszURL, PARSEDURLW* ppu);
+	public static extern HRESULT ParseURLW(PWSTR pcszURL, PARSEDURLW ppu);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHDeleteEmptyKeyA(HKEY hkey, PSTR pszSubKey);
@@ -21495,56 +21495,56 @@ public static
 	public static extern LSTATUS SHDeleteValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHGetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData);
-	public static LSTATUS SHGetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData) => SHGetValueA(hkey, pszSubKey, pszValue, pdwType, pvData, pcbData);
+	public static extern LSTATUS SHGetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 pdwType, void pvData, uint32 pcbData);
+	public static LSTATUS SHGetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 pdwType, void pvData, uint32 pcbData) => SHGetValueA(hkey, pszSubKey, pszValue, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHGetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern LSTATUS SHGetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, uint32 pdwType, void pvData, uint32 pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHSetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData);
-	public static LSTATUS SHSetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData) => SHSetValueA(hkey, pszSubKey, pszValue, dwType, pvData, cbData);
+	public static extern LSTATUS SHSetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 dwType, void pvData, uint32 cbData);
+	public static LSTATUS SHSetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 dwType, void pvData, uint32 cbData) => SHSetValueA(hkey, pszSubKey, pszValue, dwType, pvData, cbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHSetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, uint32 dwType, void* pvData, uint32 cbData);
+	public static extern LSTATUS SHSetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, uint32 dwType, void pvData, uint32 cbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
-	public static LSTATUS SHRegGetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData) => SHRegGetValueA(hkey, pszSubKey, pszValue, srrfFlags, pdwType, pvData, pcbData);
+	public static extern LSTATUS SHRegGetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, int32 srrfFlags, uint32 pdwType, void pvData, uint32 pcbData);
+	public static LSTATUS SHRegGetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, int32 srrfFlags, uint32 pdwType, void pvData, uint32 pcbData) => SHRegGetValueA(hkey, pszSubKey, pszValue, srrfFlags, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern LSTATUS SHRegGetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, int32 srrfFlags, uint32 pdwType, void pvData, uint32 pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetValueFromHKCUHKLM(PWSTR pwszKey, PWSTR pwszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern LSTATUS SHRegGetValueFromHKCUHKLM(PWSTR pwszKey, PWSTR pwszValue, int32 srrfFlags, uint32 pdwType, void pvData, uint32 pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHQueryValueExA(HKEY hkey, PSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData);
-	public static LSTATUS SHQueryValueEx(HKEY hkey, PSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData) => SHQueryValueExA(hkey, pszValue, pdwReserved, pdwType, pvData, pcbData);
+	public static extern LSTATUS SHQueryValueExA(HKEY hkey, PSTR pszValue, uint32 pdwReserved, uint32 pdwType, void pvData, uint32 pcbData);
+	public static LSTATUS SHQueryValueEx(HKEY hkey, PSTR pszValue, uint32 pdwReserved, uint32 pdwType, void pvData, uint32 pcbData) => SHQueryValueExA(hkey, pszValue, pdwReserved, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHQueryValueExW(HKEY hkey, PWSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern LSTATUS SHQueryValueExW(HKEY hkey, PWSTR pszValue, uint32 pdwReserved, uint32 pdwType, void pvData, uint32 pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHEnumKeyExA(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32* pcchName);
-	public static LSTATUS SHEnumKeyEx(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32* pcchName) => SHEnumKeyExA(hkey, dwIndex, pszName, pcchName);
+	public static extern LSTATUS SHEnumKeyExA(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32 pcchName);
+	public static LSTATUS SHEnumKeyEx(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32 pcchName) => SHEnumKeyExA(hkey, dwIndex, pszName, pcchName);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHEnumKeyExW(HKEY hkey, uint32 dwIndex, char16* pszName, uint32* pcchName);
+	public static extern LSTATUS SHEnumKeyExW(HKEY hkey, uint32 dwIndex, char16* pszName, uint32 pcchName);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHEnumValueA(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
-	public static LSTATUS SHEnumValue(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData) => SHEnumValueA(hkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData);
+	public static extern LSTATUS SHEnumValueA(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32 pcchValueName, uint32 pdwType, void pvData, uint32 pcbData);
+	public static LSTATUS SHEnumValue(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32 pcchValueName, uint32 pdwType, void pvData, uint32 pcbData) => SHEnumValueA(hkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHEnumValueW(HKEY hkey, uint32 dwIndex, char16* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern LSTATUS SHEnumValueW(HKEY hkey, uint32 dwIndex, char16* pszValueName, uint32 pcchValueName, uint32 pdwType, void pvData, uint32 pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHQueryInfoKeyA(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen);
-	public static LSTATUS SHQueryInfoKey(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen) => SHQueryInfoKeyA(hkey, pcSubKeys, pcchMaxSubKeyLen, pcValues, pcchMaxValueNameLen);
+	public static extern LSTATUS SHQueryInfoKeyA(HKEY hkey, uint32 pcSubKeys, uint32 pcchMaxSubKeyLen, uint32 pcValues, uint32 pcchMaxValueNameLen);
+	public static LSTATUS SHQueryInfoKey(HKEY hkey, uint32 pcSubKeys, uint32 pcchMaxSubKeyLen, uint32 pcValues, uint32 pcchMaxValueNameLen) => SHQueryInfoKeyA(hkey, pcSubKeys, pcchMaxSubKeyLen, pcValues, pcchMaxValueNameLen);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHQueryInfoKeyW(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen);
+	public static extern LSTATUS SHQueryInfoKeyW(HKEY hkey, uint32 pcSubKeys, uint32 pcchMaxSubKeyLen, uint32 pcValues, uint32 pcchMaxValueNameLen);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHCopyKeyA(HKEY hkeySrc, PSTR pszSrcSubKey, HKEY hkeyDest, uint32 fReserved);
@@ -21568,32 +21568,32 @@ public static
 	public static extern LSTATUS SHRegSetPathW(HKEY hKey, PWSTR pcszSubKey, PWSTR pcszValue, PWSTR pcszPath, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegCreateUSKeyA(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags);
-	public static LSTATUS SHRegCreateUSKey(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags) => SHRegCreateUSKeyA(pszPath, samDesired, hRelativeUSKey, phNewUSKey, dwFlags);
+	public static extern LSTATUS SHRegCreateUSKeyA(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int phNewUSKey, uint32 dwFlags);
+	public static LSTATUS SHRegCreateUSKey(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int phNewUSKey, uint32 dwFlags) => SHRegCreateUSKeyA(pszPath, samDesired, hRelativeUSKey, phNewUSKey, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegCreateUSKeyW(PWSTR pwzPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags);
+	public static extern LSTATUS SHRegCreateUSKeyW(PWSTR pwzPath, uint32 samDesired, int hRelativeUSKey, int phNewUSKey, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegOpenUSKeyA(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU);
-	public static LSTATUS SHRegOpenUSKey(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU) => SHRegOpenUSKeyA(pszPath, samDesired, hRelativeUSKey, phNewUSKey, fIgnoreHKCU);
+	public static extern LSTATUS SHRegOpenUSKeyA(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int phNewUSKey, BOOL fIgnoreHKCU);
+	public static LSTATUS SHRegOpenUSKey(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int phNewUSKey, BOOL fIgnoreHKCU) => SHRegOpenUSKeyA(pszPath, samDesired, hRelativeUSKey, phNewUSKey, fIgnoreHKCU);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegOpenUSKeyW(PWSTR pwzPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU);
+	public static extern LSTATUS SHRegOpenUSKeyW(PWSTR pwzPath, uint32 samDesired, int hRelativeUSKey, int phNewUSKey, BOOL fIgnoreHKCU);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegQueryUSValueA(int hUSKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
-	public static LSTATUS SHRegQueryUSValue(int hUSKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize) => SHRegQueryUSValueA(hUSKey, pszValue, pdwType, pvData, pcbData, fIgnoreHKCU, pvDefaultData, dwDefaultDataSize);
+	public static extern LSTATUS SHRegQueryUSValueA(int hUSKey, PSTR pszValue, uint32 pdwType, void pvData, uint32 pcbData, BOOL fIgnoreHKCU, void pvDefaultData, uint32 dwDefaultDataSize);
+	public static LSTATUS SHRegQueryUSValue(int hUSKey, PSTR pszValue, uint32 pdwType, void pvData, uint32 pcbData, BOOL fIgnoreHKCU, void pvDefaultData, uint32 dwDefaultDataSize) => SHRegQueryUSValueA(hUSKey, pszValue, pdwType, pvData, pcbData, fIgnoreHKCU, pvDefaultData, dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegQueryUSValueW(int hUSKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
+	public static extern LSTATUS SHRegQueryUSValueW(int hUSKey, PWSTR pszValue, uint32 pdwType, void pvData, uint32 pcbData, BOOL fIgnoreHKCU, void pvDefaultData, uint32 dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegWriteUSValueA(int hUSKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
-	public static LSTATUS SHRegWriteUSValue(int hUSKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags) => SHRegWriteUSValueA(hUSKey, pszValue, dwType, pvData, cbData, dwFlags);
+	public static extern LSTATUS SHRegWriteUSValueA(int hUSKey, PSTR pszValue, uint32 dwType, void pvData, uint32 cbData, uint32 dwFlags);
+	public static LSTATUS SHRegWriteUSValue(int hUSKey, PSTR pszValue, uint32 dwType, void pvData, uint32 cbData, uint32 dwFlags) => SHRegWriteUSValueA(hUSKey, pszValue, dwType, pvData, cbData, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegWriteUSValueW(int hUSKey, PWSTR pwzValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
+	public static extern LSTATUS SHRegWriteUSValueW(int hUSKey, PWSTR pwzValue, uint32 dwType, void pvData, uint32 cbData, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegDeleteUSValueA(int hUSKey, PSTR pszValue, SHREGDEL_FLAGS delRegFlags);
@@ -21610,42 +21610,42 @@ public static
 	public static LSTATUS SHRegDeleteEmptyUSKey(int hUSKey, PSTR pszSubKey, SHREGDEL_FLAGS delRegFlags) => SHRegDeleteEmptyUSKeyA(hUSKey, pszSubKey, delRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegEnumUSKeyA(int hUSKey, uint32 dwIndex, uint8* pszName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags);
-	public static LSTATUS SHRegEnumUSKey(int hUSKey, uint32 dwIndex, uint8* pszName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSKeyA(hUSKey, dwIndex, pszName, pcchName, enumRegFlags);
+	public static extern LSTATUS SHRegEnumUSKeyA(int hUSKey, uint32 dwIndex, uint8* pszName, uint32 pcchName, SHREGENUM_FLAGS enumRegFlags);
+	public static LSTATUS SHRegEnumUSKey(int hUSKey, uint32 dwIndex, uint8* pszName, uint32 pcchName, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSKeyA(hUSKey, dwIndex, pszName, pcchName, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegEnumUSKeyW(int hUSKey, uint32 dwIndex, char16* pwzName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags);
+	public static extern LSTATUS SHRegEnumUSKeyW(int hUSKey, uint32 dwIndex, char16* pwzName, uint32 pcchName, SHREGENUM_FLAGS enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegEnumUSValueA(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
-	public static LSTATUS SHRegEnumUSValue(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSValueA(hUSkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData, enumRegFlags);
+	public static extern LSTATUS SHRegEnumUSValueA(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32 pcchValueName, uint32 pdwType, void pvData, uint32 pcbData, SHREGENUM_FLAGS enumRegFlags);
+	public static LSTATUS SHRegEnumUSValue(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32 pcchValueName, uint32 pdwType, void pvData, uint32 pcbData, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSValueA(hUSkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegEnumUSValueW(int hUSkey, uint32 dwIndex, char16* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
+	public static extern LSTATUS SHRegEnumUSValueW(int hUSkey, uint32 dwIndex, char16* pszValueName, uint32 pcchValueName, uint32 pdwType, void pvData, uint32 pcbData, SHREGENUM_FLAGS enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegQueryInfoUSKeyA(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
-	public static LSTATUS SHRegQueryInfoUSKey(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags) => SHRegQueryInfoUSKeyA(hUSKey, pcSubKeys, pcchMaxSubKeyLen, pcValues, pcchMaxValueNameLen, enumRegFlags);
+	public static extern LSTATUS SHRegQueryInfoUSKeyA(int hUSKey, uint32 pcSubKeys, uint32 pcchMaxSubKeyLen, uint32 pcValues, uint32 pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
+	public static LSTATUS SHRegQueryInfoUSKey(int hUSKey, uint32 pcSubKeys, uint32 pcchMaxSubKeyLen, uint32 pcValues, uint32 pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags) => SHRegQueryInfoUSKeyA(hUSKey, pcSubKeys, pcchMaxSubKeyLen, pcValues, pcchMaxValueNameLen, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegQueryInfoUSKeyW(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
+	public static extern LSTATUS SHRegQueryInfoUSKeyW(int hUSKey, uint32 pcSubKeys, uint32 pcchMaxSubKeyLen, uint32 pcValues, uint32 pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegCloseUSKey(int hUSKey);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetUSValueA(PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
-	public static LSTATUS SHRegGetUSValue(PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize) => SHRegGetUSValueA(pszSubKey, pszValue, pdwType, pvData, pcbData, fIgnoreHKCU, pvDefaultData, dwDefaultDataSize);
+	public static extern LSTATUS SHRegGetUSValueA(PSTR pszSubKey, PSTR pszValue, uint32 pdwType, void pvData, uint32 pcbData, BOOL fIgnoreHKCU, void pvDefaultData, uint32 dwDefaultDataSize);
+	public static LSTATUS SHRegGetUSValue(PSTR pszSubKey, PSTR pszValue, uint32 pdwType, void pvData, uint32 pcbData, BOOL fIgnoreHKCU, void pvDefaultData, uint32 dwDefaultDataSize) => SHRegGetUSValueA(pszSubKey, pszValue, pdwType, pvData, pcbData, fIgnoreHKCU, pvDefaultData, dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetUSValueW(PWSTR pszSubKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
+	public static extern LSTATUS SHRegGetUSValueW(PWSTR pszSubKey, PWSTR pszValue, uint32 pdwType, void pvData, uint32 pcbData, BOOL fIgnoreHKCU, void pvDefaultData, uint32 dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegSetUSValueA(PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
-	public static LSTATUS SHRegSetUSValue(PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags) => SHRegSetUSValueA(pszSubKey, pszValue, dwType, pvData, cbData, dwFlags);
+	public static extern LSTATUS SHRegSetUSValueA(PSTR pszSubKey, PSTR pszValue, uint32 dwType, void pvData, uint32 cbData, uint32 dwFlags);
+	public static LSTATUS SHRegSetUSValue(PSTR pszSubKey, PSTR pszValue, uint32 dwType, void pvData, uint32 cbData, uint32 dwFlags) => SHRegSetUSValueA(pszSubKey, pszValue, dwType, pvData, cbData, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegSetUSValueW(PWSTR pwzSubKey, PWSTR pwzValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
+	public static extern LSTATUS SHRegSetUSValueW(PWSTR pwzSubKey, PWSTR pwzValue, uint32 dwType, void pvData, uint32 cbData, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHRegGetIntW(HKEY hk, PWSTR pwzKey, int32 iDefault);
@@ -21658,34 +21658,34 @@ public static
 	public static extern BOOL SHRegGetBoolUSValueW(PWSTR pszSubKey, PWSTR pszValue, BOOL fIgnoreHKCU, BOOL fDefault);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocCreate(Guid clsid, Guid riid, void** ppv);
+	public static extern HRESULT AssocCreate(Guid clsid, Guid riid, void ppv);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocQueryStringA(uint32 flags, ASSOCSTR str, PSTR pszAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut);
-	public static HRESULT AssocQueryString(uint32 flags, ASSOCSTR str, PSTR pszAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut) => AssocQueryStringA(flags, str, pszAssoc, pszExtra, pszOut, pcchOut);
+	public static extern HRESULT AssocQueryStringA(uint32 flags, ASSOCSTR str, PSTR pszAssoc, PSTR pszExtra, uint8* pszOut, uint32 pcchOut);
+	public static HRESULT AssocQueryString(uint32 flags, ASSOCSTR str, PSTR pszAssoc, PSTR pszExtra, uint8* pszOut, uint32 pcchOut) => AssocQueryStringA(flags, str, pszAssoc, pszExtra, pszOut, pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocQueryStringW(uint32 flags, ASSOCSTR str, PWSTR pszAssoc, PWSTR pszExtra, char16* pszOut, uint32* pcchOut);
+	public static extern HRESULT AssocQueryStringW(uint32 flags, ASSOCSTR str, PWSTR pszAssoc, PWSTR pszExtra, char16* pszOut, uint32 pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocQueryStringByKeyA(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut);
-	public static HRESULT AssocQueryStringByKey(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut) => AssocQueryStringByKeyA(flags, str, hkAssoc, pszExtra, pszOut, pcchOut);
+	public static extern HRESULT AssocQueryStringByKeyA(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PSTR pszExtra, uint8* pszOut, uint32 pcchOut);
+	public static HRESULT AssocQueryStringByKey(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PSTR pszExtra, uint8* pszOut, uint32 pcchOut) => AssocQueryStringByKeyA(flags, str, hkAssoc, pszExtra, pszOut, pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocQueryStringByKeyW(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PWSTR pszExtra, char16* pszOut, uint32* pcchOut);
+	public static extern HRESULT AssocQueryStringByKeyW(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PWSTR pszExtra, char16* pszOut, uint32 pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocQueryKeyA(uint32 flags, ASSOCKEY key, PSTR pszAssoc, PSTR pszExtra, HKEY* phkeyOut);
-	public static HRESULT AssocQueryKey(uint32 flags, ASSOCKEY key, PSTR pszAssoc, PSTR pszExtra, HKEY* phkeyOut) => AssocQueryKeyA(flags, key, pszAssoc, pszExtra, phkeyOut);
+	public static extern HRESULT AssocQueryKeyA(uint32 flags, ASSOCKEY key, PSTR pszAssoc, PSTR pszExtra, HKEY phkeyOut);
+	public static HRESULT AssocQueryKey(uint32 flags, ASSOCKEY key, PSTR pszAssoc, PSTR pszExtra, HKEY phkeyOut) => AssocQueryKeyA(flags, key, pszAssoc, pszExtra, phkeyOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocQueryKeyW(uint32 flags, ASSOCKEY key, PWSTR pszAssoc, PWSTR pszExtra, HKEY* phkeyOut);
+	public static extern HRESULT AssocQueryKeyW(uint32 flags, ASSOCKEY key, PWSTR pszAssoc, PWSTR pszExtra, HKEY phkeyOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AssocIsDangerous(PWSTR pszAssoc);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AssocGetPerceivedType(PWSTR pszExt, PERCEIVED* ptype, uint32* pflag, PWSTR* ppszType);
+	public static extern HRESULT AssocGetPerceivedType(PWSTR pszExt, PERCEIVED ptype, uint32 pflag, PWSTR ppszType);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern IStream* SHOpenRegStreamA(HKEY hkey, PSTR pszSubkey, PSTR pszValue, uint32 grfMode);
@@ -21702,66 +21702,66 @@ public static
 	public static extern IStream* SHOpenRegStream2W(HKEY hkey, PWSTR pszSubkey, PWSTR pszValue, uint32 grfMode);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateStreamOnFileA(PSTR pszFile, uint32 grfMode, IStream** ppstm);
-	public static HRESULT SHCreateStreamOnFile(PSTR pszFile, uint32 grfMode, IStream** ppstm) => SHCreateStreamOnFileA(pszFile, grfMode, ppstm);
+	public static extern HRESULT SHCreateStreamOnFileA(PSTR pszFile, uint32 grfMode, IStream* ppstm);
+	public static HRESULT SHCreateStreamOnFile(PSTR pszFile, uint32 grfMode, IStream* ppstm) => SHCreateStreamOnFileA(pszFile, grfMode, ppstm);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateStreamOnFileW(PWSTR pszFile, uint32 grfMode, IStream** ppstm);
+	public static extern HRESULT SHCreateStreamOnFileW(PWSTR pszFile, uint32 grfMode, IStream* ppstm);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateStreamOnFileEx(PWSTR pszFile, uint32 grfMode, uint32 dwAttributes, BOOL fCreate, IStream* pstmTemplate, IStream** ppstm);
+	public static extern HRESULT SHCreateStreamOnFileEx(PWSTR pszFile, uint32 grfMode, uint32 dwAttributes, BOOL fCreate, IStream* pstmTemplate, IStream* ppstm);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern IStream* SHCreateMemStream(uint8* pInit, uint32 cbInit);
+	public static extern IStream* SHCreateMemStream(uint8 pInit, uint32 cbInit);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetAcceptLanguagesA(uint8* pszLanguages, uint32* pcchLanguages);
-	public static HRESULT GetAcceptLanguages(uint8* pszLanguages, uint32* pcchLanguages) => GetAcceptLanguagesA(pszLanguages, pcchLanguages);
+	public static extern HRESULT GetAcceptLanguagesA(uint8* pszLanguages, uint32 pcchLanguages);
+	public static HRESULT GetAcceptLanguages(uint8* pszLanguages, uint32 pcchLanguages) => GetAcceptLanguagesA(pszLanguages, pcchLanguages);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetAcceptLanguagesW(char16* pszLanguages, uint32* pcchLanguages);
+	public static extern HRESULT GetAcceptLanguagesW(char16* pszLanguages, uint32 pcchLanguages);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void IUnknown_Set(IUnknown** ppunk, IUnknown* punk);
+	public static extern void IUnknown_Set(IUnknown* ppunk, IUnknown* punk);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void IUnknown_AtomicRelease(void** ppunk);
+	public static extern void IUnknown_AtomicRelease(void ppunk);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IUnknown_GetWindow(IUnknown* punk, HWND* phwnd);
+	public static extern HRESULT IUnknown_GetWindow(IUnknown* punk, HWND phwnd);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT IUnknown_SetSite(IUnknown* punk, IUnknown* punkSite);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IUnknown_GetSite(IUnknown* punk, Guid riid, void** ppv);
+	public static extern HRESULT IUnknown_GetSite(IUnknown* punk, Guid riid, void ppv);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IUnknown_QueryService(IUnknown* punk, Guid guidService, Guid riid, void** ppvOut);
+	public static extern HRESULT IUnknown_QueryService(IUnknown* punk, Guid guidService, Guid riid, void ppvOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IStream_Read(IStream* pstm, void* pv, uint32 cb);
+	public static extern HRESULT IStream_Read(IStream* pstm, void pv, uint32 cb);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IStream_Write(IStream* pstm, void* pv, uint32 cb);
+	public static extern HRESULT IStream_Write(IStream* pstm, void pv, uint32 cb);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT IStream_Reset(IStream* pstm);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IStream_Size(IStream* pstm, ULARGE_INTEGER* pui);
+	public static extern HRESULT IStream_Size(IStream* pstm, ULARGE_INTEGER pui);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ConnectToConnectionPoint(IUnknown* punk, Guid riidEvent, BOOL fConnect, IUnknown* punkTarget, uint32* pdwCookie, IConnectionPoint** ppcpOut);
+	public static extern HRESULT ConnectToConnectionPoint(IUnknown* punk, Guid riidEvent, BOOL fConnect, IUnknown* punkTarget, uint32 pdwCookie, IConnectionPoint* ppcpOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IStream_ReadPidl(IStream* pstm, ITEMIDLIST** ppidlOut);
+	public static extern HRESULT IStream_ReadPidl(IStream* pstm, ITEMIDLIST ppidlOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IStream_WritePidl(IStream* pstm, ITEMIDLIST* pidlWrite);
+	public static extern HRESULT IStream_WritePidl(IStream* pstm, ITEMIDLIST pidlWrite);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IStream_ReadStr(IStream* pstm, PWSTR* ppsz);
+	public static extern HRESULT IStream_ReadStr(IStream* pstm, PWSTR ppsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT IStream_WriteStr(IStream* pstm, PWSTR psz);
@@ -21770,14 +21770,14 @@ public static
 	public static extern HRESULT IStream_Copy(IStream* pstmFrom, IStream* pstmTo, uint32 cb);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetViewStatePropertyBag(ITEMIDLIST* pidl, PWSTR pszBagName, uint32 dwFlags, Guid riid, void** ppv);
+	public static extern HRESULT SHGetViewStatePropertyBag(ITEMIDLIST pidl, PWSTR pszBagName, uint32 dwFlags, Guid riid, void ppv);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHFormatDateTimeA(FILETIME* pft, uint32* pdwFlags, uint8* pszBuf, uint32 cchBuf);
-	public static int32 SHFormatDateTime(FILETIME* pft, uint32* pdwFlags, uint8* pszBuf, uint32 cchBuf) => SHFormatDateTimeA(pft, pdwFlags, pszBuf, cchBuf);
+	public static extern int32 SHFormatDateTimeA(FILETIME pft, uint32 pdwFlags, uint8* pszBuf, uint32 cchBuf);
+	public static int32 SHFormatDateTime(FILETIME pft, uint32 pdwFlags, uint8* pszBuf, uint32 cchBuf) => SHFormatDateTimeA(pft, pdwFlags, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHFormatDateTimeW(FILETIME* pft, uint32* pdwFlags, char16* pszBuf, uint32 cchBuf);
+	public static extern int32 SHFormatDateTimeW(FILETIME pft, uint32 pdwFlags, char16* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHAnsiToUnicode(PSTR pszSrc, char16* pwszDst, int32 cwchBuf);
@@ -21825,22 +21825,22 @@ public static
 	public static extern int32 SHGlobalCounterDecrement(SHGLOBALCOUNTER id);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE SHAllocShared(void* pvData, uint32 dwSize, uint32 dwProcessId);
+	public static extern HANDLE SHAllocShared(void pvData, uint32 dwSize, uint32 dwProcessId);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHFreeShared(HANDLE hData, uint32 dwProcessId);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* SHLockShared(HANDLE hData, uint32 dwProcessId);
+	public static extern void SHLockShared(HANDLE hData, uint32 dwProcessId);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHUnlockShared(void* pvData);
+	public static extern BOOL SHUnlockShared(void pvData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WhichPlatform();
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT QISearch(void* that, QITAB* pqit, Guid riid, void** ppv);
+	public static extern HRESULT QISearch(void that, QITAB pqit, Guid riid, void ppv);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHIsLowMemoryMachine(uint32 dwType);
@@ -21849,28 +21849,28 @@ public static
 	public static extern int32 GetMenuPosFromID(HMENU hmenu, uint32 id);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetInverseCMAP(uint8* pbMap, uint32 cbMap);
+	public static extern HRESULT SHGetInverseCMAP(uint8 pbMap, uint32 cbMap);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHAutoComplete(HWND hwndEdit, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHCreateThreadRef(int32* pcRef, IUnknown** ppunk);
+	public static extern HRESULT SHCreateThreadRef(int32 pcRef, IUnknown* ppunk);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHSetThreadRef(IUnknown* punk);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetThreadRef(IUnknown** ppunk);
+	public static extern HRESULT SHGetThreadRef(IUnknown* ppunk);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHSkipJunction(IBindCtx* pbc, Guid pclsid);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHCreateThread(LPTHREAD_START_ROUTINE pfnThreadProc, void* pData, uint32 flags, LPTHREAD_START_ROUTINE pfnCallback);
+	public static extern BOOL SHCreateThread(LPTHREAD_START_ROUTINE pfnThreadProc, void pData, uint32 flags, LPTHREAD_START_ROUTINE pfnCallback);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHCreateThreadWithHandle(LPTHREAD_START_ROUTINE pfnThreadProc, void* pData, uint32 flags, LPTHREAD_START_ROUTINE pfnCallback, HANDLE* pHandle);
+	public static extern BOOL SHCreateThreadWithHandle(LPTHREAD_START_ROUTINE pfnThreadProc, void pData, uint32 flags, LPTHREAD_START_ROUTINE pfnCallback, HANDLE pHandle);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHReleaseThreadRef();
@@ -21879,7 +21879,7 @@ public static
 	public static extern HPALETTE SHCreateShellPalette(HDC hdc);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ColorRGBToHLS(uint32 clrRGB, uint16* pwHue, uint16* pwLuminance, uint16* pwSaturation);
+	public static extern void ColorRGBToHLS(uint32 clrRGB, uint16 pwHue, uint16 pwLuminance, uint16 pwSaturation);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ColorHLSToRGB(uint16 wHue, uint16 wLuminance, uint16 wSaturation);
@@ -21891,22 +21891,22 @@ public static
 	public static extern BOOL IsInternetESCEnabled();
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkCreateFromMoniker(IMoniker* pimkTrgt, PWSTR pwzLocation, PWSTR pwzFriendlyName, IHlinkSite* pihlsite, uint32 dwSiteData, IUnknown* piunkOuter, Guid riid, void** ppvObj);
+	public static extern HRESULT HlinkCreateFromMoniker(IMoniker* pimkTrgt, PWSTR pwzLocation, PWSTR pwzFriendlyName, IHlinkSite* pihlsite, uint32 dwSiteData, IUnknown* piunkOuter, Guid riid, void ppvObj);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkCreateFromString(PWSTR pwzTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName, IHlinkSite* pihlsite, uint32 dwSiteData, IUnknown* piunkOuter, Guid riid, void** ppvObj);
+	public static extern HRESULT HlinkCreateFromString(PWSTR pwzTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName, IHlinkSite* pihlsite, uint32 dwSiteData, IUnknown* piunkOuter, Guid riid, void ppvObj);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkCreateFromData(IDataObject* piDataObj, IHlinkSite* pihlsite, uint32 dwSiteData, IUnknown* piunkOuter, Guid riid, void** ppvObj);
+	public static extern HRESULT HlinkCreateFromData(IDataObject* piDataObj, IHlinkSite* pihlsite, uint32 dwSiteData, IUnknown* piunkOuter, Guid riid, void ppvObj);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HlinkQueryCreateFromData(IDataObject* piDataObj);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkClone(IHlink* pihl, Guid riid, IHlinkSite* pihlsiteForClone, uint32 dwSiteData, void** ppvObj);
+	public static extern HRESULT HlinkClone(IHlink* pihl, Guid riid, IHlinkSite* pihlsiteForClone, uint32 dwSiteData, void ppvObj);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkCreateBrowseContext(IUnknown* piunkOuter, Guid riid, void** ppvObj);
+	public static extern HRESULT HlinkCreateBrowseContext(IUnknown* piunkOuter, Guid riid, void ppvObj);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HlinkNavigateToStringReference(PWSTR pwzTarget, PWSTR pwzLocation, IHlinkSite* pihlsite, uint32 dwSiteData, IHlinkFrame* pihlframe, uint32 grfHLNF, IBindCtx* pibc, IBindStatusCallback* pibsc, IHlinkBrowseContext* pihlbc);
@@ -21915,7 +21915,7 @@ public static
 	public static extern HRESULT HlinkNavigate(IHlink* pihl, IHlinkFrame* pihlframe, uint32 grfHLNF, IBindCtx* pbc, IBindStatusCallback* pibsc, IHlinkBrowseContext* pihlbc);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkOnNavigate(IHlinkFrame* pihlframe, IHlinkBrowseContext* pihlbc, uint32 grfHLNF, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName, uint32* puHLID);
+	public static extern HRESULT HlinkOnNavigate(IHlinkFrame* pihlframe, IHlinkBrowseContext* pihlbc, uint32 grfHLNF, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzFriendlyName, uint32 puHLID);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HlinkUpdateStackItem(IHlinkFrame* pihlframe, IHlinkBrowseContext* pihlbc, uint32 uHLID, IMoniker* pimkTrgt, PWSTR pwzLocation, PWSTR pwzFriendlyName);
@@ -21924,19 +21924,19 @@ public static
 	public static extern HRESULT HlinkOnRenameDocument(uint32 dwReserved, IHlinkBrowseContext* pihlbc, IMoniker* pimkOld, IMoniker* pimkNew);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkResolveMonikerForData(IMoniker* pimkReference, uint32 reserved, IBindCtx* pibc, uint32 cFmtetc, FORMATETC* rgFmtetc, IBindStatusCallback* pibsc, IMoniker* pimkBase);
+	public static extern HRESULT HlinkResolveMonikerForData(IMoniker* pimkReference, uint32 reserved, IBindCtx* pibc, uint32 cFmtetc, FORMATETC rgFmtetc, IBindStatusCallback* pibsc, IMoniker* pimkBase);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkResolveStringForData(PWSTR pwzReference, uint32 reserved, IBindCtx* pibc, uint32 cFmtetc, FORMATETC* rgFmtetc, IBindStatusCallback* pibsc, IMoniker* pimkBase);
+	public static extern HRESULT HlinkResolveStringForData(PWSTR pwzReference, uint32 reserved, IBindCtx* pibc, uint32 cFmtetc, FORMATETC rgFmtetc, IBindStatusCallback* pibsc, IMoniker* pimkBase);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkParseDisplayName(IBindCtx* pibc, PWSTR pwzDisplayName, BOOL fNoForceAbs, uint32* pcchEaten, IMoniker** ppimk);
+	public static extern HRESULT HlinkParseDisplayName(IBindCtx* pibc, PWSTR pwzDisplayName, BOOL fNoForceAbs, uint32 pcchEaten, IMoniker* ppimk);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkCreateExtensionServices(PWSTR pwzAdditionalHeaders, HWND phwnd, PWSTR pszUsername, PWSTR pszPassword, IUnknown* piunkOuter, Guid riid, void** ppvObj);
+	public static extern HRESULT HlinkCreateExtensionServices(PWSTR pwzAdditionalHeaders, HWND phwnd, PWSTR pszUsername, PWSTR pszPassword, IUnknown* piunkOuter, Guid riid, void ppvObj);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkPreprocessMoniker(IBindCtx* pibc, IMoniker* pimkIn, IMoniker** ppimkOut);
+	public static extern HRESULT HlinkPreprocessMoniker(IBindCtx* pibc, IMoniker* pimkIn, IMoniker* ppimkOut);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleSaveToStreamEx(IUnknown* piunk, IStream* pistm, BOOL fClearDirty);
@@ -21945,55 +21945,55 @@ public static
 	public static extern HRESULT HlinkSetSpecialReference(uint32 uReference, PWSTR pwzReference);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkGetSpecialReference(uint32 uReference, PWSTR* ppwzReference);
+	public static extern HRESULT HlinkGetSpecialReference(uint32 uReference, PWSTR ppwzReference);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkCreateShortcut(uint32 grfHLSHORTCUTF, IHlink* pihl, PWSTR pwzDir, PWSTR pwzFileName, PWSTR* ppwzShortcutFile, uint32 dwReserved);
+	public static extern HRESULT HlinkCreateShortcut(uint32 grfHLSHORTCUTF, IHlink* pihl, PWSTR pwzDir, PWSTR pwzFileName, PWSTR ppwzShortcutFile, uint32 dwReserved);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkCreateShortcutFromMoniker(uint32 grfHLSHORTCUTF, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzDir, PWSTR pwzFileName, PWSTR* ppwzShortcutFile, uint32 dwReserved);
+	public static extern HRESULT HlinkCreateShortcutFromMoniker(uint32 grfHLSHORTCUTF, IMoniker* pimkTarget, PWSTR pwzLocation, PWSTR pwzDir, PWSTR pwzFileName, PWSTR ppwzShortcutFile, uint32 dwReserved);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkCreateShortcutFromString(uint32 grfHLSHORTCUTF, PWSTR pwzTarget, PWSTR pwzLocation, PWSTR pwzDir, PWSTR pwzFileName, PWSTR* ppwzShortcutFile, uint32 dwReserved);
+	public static extern HRESULT HlinkCreateShortcutFromString(uint32 grfHLSHORTCUTF, PWSTR pwzTarget, PWSTR pwzLocation, PWSTR pwzDir, PWSTR pwzFileName, PWSTR ppwzShortcutFile, uint32 dwReserved);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkResolveShortcut(PWSTR pwzShortcutFileName, IHlinkSite* pihlsite, uint32 dwSiteData, IUnknown* piunkOuter, Guid riid, void** ppvObj);
+	public static extern HRESULT HlinkResolveShortcut(PWSTR pwzShortcutFileName, IHlinkSite* pihlsite, uint32 dwSiteData, IUnknown* piunkOuter, Guid riid, void ppvObj);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkResolveShortcutToMoniker(PWSTR pwzShortcutFileName, IMoniker** ppimkTarget, PWSTR* ppwzLocation);
+	public static extern HRESULT HlinkResolveShortcutToMoniker(PWSTR pwzShortcutFileName, IMoniker* ppimkTarget, PWSTR ppwzLocation);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkResolveShortcutToString(PWSTR pwzShortcutFileName, PWSTR* ppwzTarget, PWSTR* ppwzLocation);
+	public static extern HRESULT HlinkResolveShortcutToString(PWSTR pwzShortcutFileName, PWSTR ppwzTarget, PWSTR ppwzLocation);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HlinkIsShortcut(PWSTR pwzFileName);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkGetValueFromParams(PWSTR pwzParams, PWSTR pwzName, PWSTR* ppwzValue);
+	public static extern HRESULT HlinkGetValueFromParams(PWSTR pwzParams, PWSTR pwzName, PWSTR ppwzValue);
 
 	[Import("hlink.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HlinkTranslateURL(PWSTR pwzURL, uint32 grfFlags, PWSTR* ppwzTranslatedURL);
+	public static extern HRESULT HlinkTranslateURL(PWSTR pwzURL, uint32 grfFlags, PWSTR ppwzTranslatedURL);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PathIsUNCEx(PWSTR pszPath, PWSTR* ppszServer);
+	public static extern BOOL PathIsUNCEx(PWSTR pszPath, PWSTR ppszServer);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathCchIsRoot(PWSTR pszPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchAddBackslashEx(char16* pszPath, uint cchPath, PWSTR* ppszEnd, uint* pcchRemaining);
+	public static extern HRESULT PathCchAddBackslashEx(char16* pszPath, uint cchPath, PWSTR ppszEnd, uint pcchRemaining);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCchAddBackslash(char16* pszPath, uint cchPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchRemoveBackslashEx(PWSTR pszPath, uint cchPath, PWSTR* ppszEnd, uint* pcchRemaining);
+	public static extern HRESULT PathCchRemoveBackslashEx(PWSTR pszPath, uint cchPath, PWSTR ppszEnd, uint pcchRemaining);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCchRemoveBackslash(char16* pszPath, uint cchPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchSkipRoot(PWSTR pszPath, PWSTR* ppszRootEnd);
+	public static extern HRESULT PathCchSkipRoot(PWSTR pszPath, PWSTR ppszRootEnd);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCchStripToRoot(PWSTR pszPath, uint cchPath);
@@ -22002,7 +22002,7 @@ public static
 	public static extern HRESULT PathCchRemoveFileSpec(PWSTR pszPath, uint cchPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchFindExtension(PWSTR pszPath, uint cchPath, PWSTR* ppszExt);
+	public static extern HRESULT PathCchFindExtension(PWSTR pszPath, uint cchPath, PWSTR ppszExt);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCchAddExtension(char16* pszPath, uint cchPath, PWSTR pszExt);
@@ -22035,22 +22035,22 @@ public static
 	public static extern HRESULT PathCchStripPrefix(char16* pszPath, uint cchPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathAllocCombine(PWSTR pszPathIn, PWSTR pszMore, uint32 dwFlags, PWSTR* ppszPathOut);
+	public static extern HRESULT PathAllocCombine(PWSTR pszPathIn, PWSTR pszMore, uint32 dwFlags, PWSTR ppszPathOut);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathAllocCanonicalize(PWSTR pszPathIn, uint32 dwFlags, PWSTR* ppszPathOut);
+	public static extern HRESULT PathAllocCanonicalize(PWSTR pszPathIn, uint32 dwFlags, PWSTR ppszPathOut);
 
 	[Import("api-ms-win-core-psm-appnotify-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterAppStateChangeNotification(PAPPSTATE_CHANGE_ROUTINE Routine, void* Context, _APPSTATE_REGISTRATION** Registration);
+	public static extern uint32 RegisterAppStateChangeNotification(PAPPSTATE_CHANGE_ROUTINE Routine, void Context, _APPSTATE_REGISTRATION Registration);
 
 	[Import("api-ms-win-core-psm-appnotify-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UnregisterAppStateChangeNotification(_APPSTATE_REGISTRATION* Registration);
+	public static extern void UnregisterAppStateChangeNotification(_APPSTATE_REGISTRATION Registration);
 
 	[Import("api-ms-win-core-psm-appnotify-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterAppConstrainedChangeNotification(PAPPCONSTRAIN_CHANGE_ROUTINE Routine, void* Context, _APPCONSTRAIN_REGISTRATION** Registration);
+	public static extern uint32 RegisterAppConstrainedChangeNotification(PAPPCONSTRAIN_CHANGE_ROUTINE Routine, void Context, _APPCONSTRAIN_REGISTRATION Registration);
 
 	[Import("api-ms-win-core-psm-appnotify-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void UnregisterAppConstrainedChangeNotification(_APPCONSTRAIN_REGISTRATION* Registration);
+	public static extern void UnregisterAppConstrainedChangeNotification(_APPCONSTRAIN_REGISTRATION Registration);
 
 }
 #endregion

@@ -6804,33 +6804,33 @@ public enum KTMOBJECT_TYPE : int32
 #endregion
 
 #region Function Pointers
-public function void PUMS_SCHEDULER_ENTRY_POINT(RTL_UMS_SCHEDULER_REASON Reason, uint ActivationPayload, void* SchedulerParam);
+public function void PUMS_SCHEDULER_ENTRY_POINT(RTL_UMS_SCHEDULER_REASON Reason, uint ActivationPayload, void SchedulerParam);
 
 #if BF_ARM_64
 public function void PTERMINATION_HANDLER(BOOLEAN _abnormal_termination, uint64 EstablisherFrame);
 #endif
 
 #if BF_ARM_64
-public function uint32 POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(HANDLE Process, void* TableAddress, uint32* Entries, IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY** Functions);
+public function uint32 POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(HANDLE Process, void TableAddress, uint32 Entries, IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY Functions);
 #endif
 
 #if BF_64_BIT
-public function uint32 POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(HANDLE Process, void* TableAddress, uint32* Entries, IMAGE_RUNTIME_FUNCTION_ENTRY** Functions);
+public function uint32 POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(HANDLE Process, void TableAddress, uint32 Entries, IMAGE_RUNTIME_FUNCTION_ENTRY Functions);
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-public function int32 PEXCEPTION_FILTER(EXCEPTION_POINTERS* ExceptionPointers, void* EstablisherFrame);
+public function int32 PEXCEPTION_FILTER(EXCEPTION_POINTERS ExceptionPointers, void EstablisherFrame);
 #endif
 
 #if BF_64_BIT
-public function void PTERMINATION_HANDLER(BOOLEAN _abnormal_termination, void* EstablisherFrame);
+public function void PTERMINATION_HANDLER(BOOLEAN _abnormal_termination, void EstablisherFrame);
 #endif
 
-public function void PIMAGE_TLS_CALLBACK(void* DllHandle, uint32 Reason, void* Reserved);
+public function void PIMAGE_TLS_CALLBACK(void DllHandle, uint32 Reason, void Reserved);
 
-public function void WORKERCALLBACKFUNC(void* param0);
+public function void WORKERCALLBACKFUNC(void param0);
 
-public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* param2);
+public function void APC_CALLBACK_FUNCTION(uint32 param0, void param1, void param2);
 
 #endregion
 
@@ -6917,7 +6917,7 @@ public struct GDI_NONREMOTE
 	public struct _u_e__Struct
 	{
 		public int32 hInproc;
-		public DWORD_BLOB* hRemote;
+		public DWORD_BLOB hRemote;
 	}
 
 	public int32 fContext;
@@ -6931,7 +6931,7 @@ public struct userHGLOBAL
 	public struct _u_e__Struct
 	{
 		public int32 hInproc;
-		public FLAGGED_BYTE_BLOB* hRemote;
+		public FLAGGED_BYTE_BLOB hRemote;
 		public int64 hInproc64;
 	}
 
@@ -6946,7 +6946,7 @@ public struct userHMETAFILE
 	public struct _u_e__Struct
 	{
 		public int32 hInproc;
-		public BYTE_BLOB* hRemote;
+		public BYTE_BLOB hRemote;
 		public int64 hInproc64;
 	}
 
@@ -6960,7 +6960,7 @@ public struct remoteMETAFILEPICT
 	public int32 mm;
 	public int32 xExt;
 	public int32 yExt;
-	public userHMETAFILE* hMF;
+	public userHMETAFILE hMF;
 }
 
 [CRepr]
@@ -6970,7 +6970,7 @@ public struct userHMETAFILEPICT
 	public struct _u_e__Struct
 	{
 		public int32 hInproc;
-		public remoteMETAFILEPICT* hRemote;
+		public remoteMETAFILEPICT hRemote;
 		public int64 hInproc64;
 	}
 
@@ -6985,7 +6985,7 @@ public struct userHENHMETAFILE
 	public struct _u_e__Struct
 	{
 		public int32 hInproc;
-		public BYTE_BLOB* hRemote;
+		public BYTE_BLOB hRemote;
 		public int64 hInproc64;
 	}
 
@@ -7013,7 +7013,7 @@ public struct userHBITMAP
 	public struct _u_e__Struct
 	{
 		public int32 hInproc;
-		public userBITMAP* hRemote;
+		public userBITMAP hRemote;
 		public int64 hInproc64;
 	}
 
@@ -7028,7 +7028,7 @@ public struct userHPALETTE
 	public struct _u_e__Struct
 	{
 		public int32 hInproc;
-		public LOGPALETTE* hRemote;
+		public LOGPALETTE hRemote;
 		public int64 hInproc64;
 	}
 
@@ -7226,7 +7226,7 @@ public struct DEV_BROADCAST_HANDLE
 	public uint32 dbch_devicetype;
 	public uint32 dbch_reserved;
 	public HANDLE dbch_handle;
-	public void* dbch_hdevnotify;
+	public void dbch_hdevnotify;
 	public Guid dbch_eventguid;
 	public int32 dbch_nameoffset;
 	public uint8[1] dbch_data;
@@ -7457,8 +7457,8 @@ public struct NT_TIB64
 public struct UMS_CREATE_THREAD_ATTRIBUTES
 {
 	public uint32 UmsVersion;
-	public void* UmsContext;
-	public void* UmsCompletionList;
+	public void UmsContext;
+	public void UmsCompletionList;
 }
 
 [CRepr]
@@ -7819,15 +7819,15 @@ public struct SERVERSILO_BASIC_INFORMATION
 	public SERVERSILO_STATE State;
 	public uint32 ExitStatus;
 	public BOOLEAN IsDownlevelContainer;
-	public void* ApiSetSchema;
-	public void* HostApiSetSchema;
+	public void ApiSetSchema;
+	public void HostApiSetSchema;
 }
 
 [CRepr]
 public struct MEM_ADDRESS_REQUIREMENTS
 {
-	public void* LowestStartingAddress;
-	public void* HighestEndingAddress;
+	public void LowestStartingAddress;
+	public void HighestEndingAddress;
 	public uint Alignment;
 }
 
@@ -8077,7 +8077,7 @@ public struct PPM_WMI_IDLE_STATES_EX
 	public uint32 Count;
 	public uint32 TargetState;
 	public uint32 OldState;
-	public void* TargetProcessors;
+	public void TargetProcessors;
 	public PPM_WMI_IDLE_STATE[1] State;
 }
 
@@ -8141,7 +8141,7 @@ public struct PPM_WMI_PERF_STATES_EX
 	public uint8 Type;
 	public uint8 Reserved;
 	public uint32 TimerInterval;
-	public void* TargetProcessors;
+	public void TargetProcessors;
 	public uint32 PStateHandler;
 	public uint32 PStateContext;
 	public uint32 TStateHandler;
@@ -9139,7 +9139,7 @@ public struct IMAGE_POLICY_ENTRY
 	[CRepr, Union]
 	public struct _u_e__Union
 	{
-		public void* None;
+		public void None;
 		public BOOLEAN BoolValue;
 		public int8 Int8Value;
 		public uint8 UInt8Value;
@@ -9250,7 +9250,7 @@ public struct TAPE_WMI_OPERATIONS
 {
 	public uint32 Method;
 	public uint32 DataBufferSize;
-	public void* DataBuffer;
+	public void DataBuffer;
 }
 
 [CRepr]
@@ -9397,7 +9397,7 @@ public static
 public static
 {
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL UnregisterDeviceNotification(void* Handle);
+	public static extern BOOL UnregisterDeviceNotification(void Handle);
 
 }
 #endregion

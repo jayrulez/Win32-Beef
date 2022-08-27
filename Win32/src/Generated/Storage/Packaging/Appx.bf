@@ -374,15 +374,15 @@ public struct APPX_KEY_INFO
 {
 	public uint32 keyLength;
 	public uint32 keyIdLength;
-	public uint8* key;
-	public uint8* keyId;
+	public uint8 key;
+	public uint8 keyId;
 }
 
 [CRepr]
 public struct APPX_ENCRYPTED_EXEMPTIONS
 {
 	public uint32 count;
-	public PWSTR* plainTextFiles;
+	public PWSTR plainTextFiles;
 }
 
 [CRepr]
@@ -422,7 +422,7 @@ public struct PACKAGE_ID
 [CRepr]
 public struct _PACKAGE_INFO_REFERENCE
 {
-	public void* reserved;
+	public void reserved;
 }
 
 [CRepr, Packed(4)]
@@ -480,23 +480,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* outputStream, APPX_PACKAGE_SETTINGS* settings, IAppxPackageWriter** packageWriter) CreatePackageWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* inputStream, IAppxPackageReader** packageReader) CreatePackageReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* inputStream, IAppxManifestReader** manifestReader) CreateManifestReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* inputStream, IAppxBlockMapReader** blockMapReader) CreateBlockMapReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* blockMapStream, PWSTR signatureFileName, IAppxBlockMapReader** blockMapReader) CreateValidatedBlockMapReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* outputStream, APPX_PACKAGE_SETTINGS settings, IAppxPackageWriter* packageWriter) CreatePackageWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* inputStream, IAppxPackageReader* packageReader) CreatePackageReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* inputStream, IAppxManifestReader* manifestReader) CreateManifestReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* inputStream, IAppxBlockMapReader* blockMapReader) CreateBlockMapReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* blockMapStream, PWSTR signatureFileName, IAppxBlockMapReader* blockMapReader) CreateValidatedBlockMapReader;
 	}
 
 
-	public HRESULT CreatePackageWriter(IStream* outputStream, APPX_PACKAGE_SETTINGS* settings, IAppxPackageWriter** packageWriter) mut => VT.[Friend]CreatePackageWriter(&this, outputStream, settings, packageWriter);
+	public HRESULT CreatePackageWriter(IStream* outputStream, APPX_PACKAGE_SETTINGS settings, IAppxPackageWriter* packageWriter) mut => VT.[Friend]CreatePackageWriter(&this, outputStream, settings, packageWriter);
 
-	public HRESULT CreatePackageReader(IStream* inputStream, IAppxPackageReader** packageReader) mut => VT.[Friend]CreatePackageReader(&this, inputStream, packageReader);
+	public HRESULT CreatePackageReader(IStream* inputStream, IAppxPackageReader* packageReader) mut => VT.[Friend]CreatePackageReader(&this, inputStream, packageReader);
 
-	public HRESULT CreateManifestReader(IStream* inputStream, IAppxManifestReader** manifestReader) mut => VT.[Friend]CreateManifestReader(&this, inputStream, manifestReader);
+	public HRESULT CreateManifestReader(IStream* inputStream, IAppxManifestReader* manifestReader) mut => VT.[Friend]CreateManifestReader(&this, inputStream, manifestReader);
 
-	public HRESULT CreateBlockMapReader(IStream* inputStream, IAppxBlockMapReader** blockMapReader) mut => VT.[Friend]CreateBlockMapReader(&this, inputStream, blockMapReader);
+	public HRESULT CreateBlockMapReader(IStream* inputStream, IAppxBlockMapReader* blockMapReader) mut => VT.[Friend]CreateBlockMapReader(&this, inputStream, blockMapReader);
 
-	public HRESULT CreateValidatedBlockMapReader(IStream* blockMapStream, PWSTR signatureFileName, IAppxBlockMapReader** blockMapReader) mut => VT.[Friend]CreateValidatedBlockMapReader(&this, blockMapStream, signatureFileName, blockMapReader);
+	public HRESULT CreateValidatedBlockMapReader(IStream* blockMapStream, PWSTR signatureFileName, IAppxBlockMapReader* blockMapReader) mut => VT.[Friend]CreateValidatedBlockMapReader(&this, blockMapStream, signatureFileName, blockMapReader);
 }
 
 [CRepr]struct IAppxFactory2 : IUnknown
@@ -507,17 +507,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory2*/SelfOuter* self, IStream* inputStream, IAppxContentGroupMapReader** contentGroupMapReader) CreateContentGroupMapReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory2*/SelfOuter* self, IStream* inputStream, IAppxSourceContentGroupMapReader** reader) CreateSourceContentGroupMapReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory2*/SelfOuter* self, IStream* stream, IAppxContentGroupMapWriter** contentGroupMapWriter) CreateContentGroupMapWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory2*/SelfOuter* self, IStream* inputStream, IAppxContentGroupMapReader* contentGroupMapReader) CreateContentGroupMapReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory2*/SelfOuter* self, IStream* inputStream, IAppxSourceContentGroupMapReader* reader) CreateSourceContentGroupMapReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory2*/SelfOuter* self, IStream* stream, IAppxContentGroupMapWriter* contentGroupMapWriter) CreateContentGroupMapWriter;
 	}
 
 
-	public HRESULT CreateContentGroupMapReader(IStream* inputStream, IAppxContentGroupMapReader** contentGroupMapReader) mut => VT.[Friend]CreateContentGroupMapReader(&this, inputStream, contentGroupMapReader);
+	public HRESULT CreateContentGroupMapReader(IStream* inputStream, IAppxContentGroupMapReader* contentGroupMapReader) mut => VT.[Friend]CreateContentGroupMapReader(&this, inputStream, contentGroupMapReader);
 
-	public HRESULT CreateSourceContentGroupMapReader(IStream* inputStream, IAppxSourceContentGroupMapReader** reader) mut => VT.[Friend]CreateSourceContentGroupMapReader(&this, inputStream, reader);
+	public HRESULT CreateSourceContentGroupMapReader(IStream* inputStream, IAppxSourceContentGroupMapReader* reader) mut => VT.[Friend]CreateSourceContentGroupMapReader(&this, inputStream, reader);
 
-	public HRESULT CreateContentGroupMapWriter(IStream* stream, IAppxContentGroupMapWriter** contentGroupMapWriter) mut => VT.[Friend]CreateContentGroupMapWriter(&this, stream, contentGroupMapWriter);
+	public HRESULT CreateContentGroupMapWriter(IStream* stream, IAppxContentGroupMapWriter* contentGroupMapWriter) mut => VT.[Friend]CreateContentGroupMapWriter(&this, stream, contentGroupMapWriter);
 }
 
 [CRepr]struct IAppxPackageReader : IUnknown
@@ -528,23 +528,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, IAppxBlockMapReader** blockMapReader) GetBlockMap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, APPX_FOOTPRINT_FILE_TYPE type, IAppxFile** file) GetFootprintFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, PWSTR fileName, IAppxFile** file) GetPayloadFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, IAppxFilesEnumerator** filesEnumerator) GetPayloadFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, IAppxManifestReader** manifestReader) GetManifest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, IAppxBlockMapReader* blockMapReader) GetBlockMap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, APPX_FOOTPRINT_FILE_TYPE type, IAppxFile* file) GetFootprintFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, PWSTR fileName, IAppxFile* file) GetPayloadFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, IAppxFilesEnumerator* filesEnumerator) GetPayloadFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, IAppxManifestReader* manifestReader) GetManifest;
 	}
 
 
-	public HRESULT GetBlockMap(IAppxBlockMapReader** blockMapReader) mut => VT.[Friend]GetBlockMap(&this, blockMapReader);
+	public HRESULT GetBlockMap(IAppxBlockMapReader* blockMapReader) mut => VT.[Friend]GetBlockMap(&this, blockMapReader);
 
-	public HRESULT GetFootprintFile(APPX_FOOTPRINT_FILE_TYPE type, IAppxFile** file) mut => VT.[Friend]GetFootprintFile(&this, type, file);
+	public HRESULT GetFootprintFile(APPX_FOOTPRINT_FILE_TYPE type, IAppxFile* file) mut => VT.[Friend]GetFootprintFile(&this, type, file);
 
-	public HRESULT GetPayloadFile(PWSTR fileName, IAppxFile** file) mut => VT.[Friend]GetPayloadFile(&this, fileName, file);
+	public HRESULT GetPayloadFile(PWSTR fileName, IAppxFile* file) mut => VT.[Friend]GetPayloadFile(&this, fileName, file);
 
-	public HRESULT GetPayloadFiles(IAppxFilesEnumerator** filesEnumerator) mut => VT.[Friend]GetPayloadFiles(&this, filesEnumerator);
+	public HRESULT GetPayloadFiles(IAppxFilesEnumerator* filesEnumerator) mut => VT.[Friend]GetPayloadFiles(&this, filesEnumerator);
 
-	public HRESULT GetManifest(IAppxManifestReader** manifestReader) mut => VT.[Friend]GetManifest(&this, manifestReader);
+	public HRESULT GetManifest(IAppxManifestReader* manifestReader) mut => VT.[Friend]GetManifest(&this, manifestReader);
 }
 
 [CRepr]struct IAppxPackageWriter : IUnknown
@@ -603,23 +603,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, APPX_COMPRESSION_OPTION* compressionOption) GetCompressionOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, PWSTR* contentType) GetContentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, PWSTR* fileName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, uint64* size) GetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, IStream** stream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, APPX_COMPRESSION_OPTION compressionOption) GetCompressionOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, PWSTR contentType) GetContentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, PWSTR fileName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, uint64 size) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, IStream* stream) GetStream;
 	}
 
 
-	public HRESULT GetCompressionOption(APPX_COMPRESSION_OPTION* compressionOption) mut => VT.[Friend]GetCompressionOption(&this, compressionOption);
+	public HRESULT GetCompressionOption(APPX_COMPRESSION_OPTION compressionOption) mut => VT.[Friend]GetCompressionOption(&this, compressionOption);
 
-	public HRESULT GetContentType(PWSTR* contentType) mut => VT.[Friend]GetContentType(&this, contentType);
+	public HRESULT GetContentType(PWSTR contentType) mut => VT.[Friend]GetContentType(&this, contentType);
 
-	public HRESULT GetName(PWSTR* fileName) mut => VT.[Friend]GetName(&this, fileName);
+	public HRESULT GetName(PWSTR fileName) mut => VT.[Friend]GetName(&this, fileName);
 
-	public HRESULT GetSize(uint64* size) mut => VT.[Friend]GetSize(&this, size);
+	public HRESULT GetSize(uint64 size) mut => VT.[Friend]GetSize(&this, size);
 
-	public HRESULT GetStream(IStream** stream) mut => VT.[Friend]GetStream(&this, stream);
+	public HRESULT GetStream(IStream* stream) mut => VT.[Friend]GetStream(&this, stream);
 }
 
 [CRepr]struct IAppxFilesEnumerator : IUnknown
@@ -630,17 +630,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFilesEnumerator*/SelfOuter* self, IAppxFile** file) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFilesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFilesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFilesEnumerator*/SelfOuter* self, IAppxFile* file) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFilesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFilesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxFile** file) mut => VT.[Friend]GetCurrent(&this, file);
+	public HRESULT GetCurrent(IAppxFile* file) mut => VT.[Friend]GetCurrent(&this, file);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxBlockMapReader : IUnknown
@@ -651,20 +651,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, PWSTR filename, IAppxBlockMapFile** file) GetFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, IAppxBlockMapFilesEnumerator** enumerator) GetFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, IUri** hashMethod) GetHashMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, IStream** blockMapStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, PWSTR filename, IAppxBlockMapFile* file) GetFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, IAppxBlockMapFilesEnumerator* enumerator) GetFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, IUri* hashMethod) GetHashMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, IStream* blockMapStream) GetStream;
 	}
 
 
-	public HRESULT GetFile(PWSTR filename, IAppxBlockMapFile** file) mut => VT.[Friend]GetFile(&this, filename, file);
+	public HRESULT GetFile(PWSTR filename, IAppxBlockMapFile* file) mut => VT.[Friend]GetFile(&this, filename, file);
 
-	public HRESULT GetFiles(IAppxBlockMapFilesEnumerator** enumerator) mut => VT.[Friend]GetFiles(&this, enumerator);
+	public HRESULT GetFiles(IAppxBlockMapFilesEnumerator* enumerator) mut => VT.[Friend]GetFiles(&this, enumerator);
 
-	public HRESULT GetHashMethod(IUri** hashMethod) mut => VT.[Friend]GetHashMethod(&this, hashMethod);
+	public HRESULT GetHashMethod(IUri* hashMethod) mut => VT.[Friend]GetHashMethod(&this, hashMethod);
 
-	public HRESULT GetStream(IStream** blockMapStream) mut => VT.[Friend]GetStream(&this, blockMapStream);
+	public HRESULT GetStream(IStream* blockMapStream) mut => VT.[Friend]GetStream(&this, blockMapStream);
 }
 
 [CRepr]struct IAppxBlockMapFile : IUnknown
@@ -675,23 +675,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, IAppxBlockMapBlocksEnumerator** blocks) GetBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, uint32* lfhSize) GetLocalFileHeaderSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, uint64* size) GetUncompressedSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, IStream* fileStream, BOOL* isValid) ValidateFileHash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, IAppxBlockMapBlocksEnumerator* blocks) GetBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, uint32 lfhSize) GetLocalFileHeaderSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, PWSTR name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, uint64 size) GetUncompressedSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, IStream* fileStream, BOOL isValid) ValidateFileHash;
 	}
 
 
-	public HRESULT GetBlocks(IAppxBlockMapBlocksEnumerator** blocks) mut => VT.[Friend]GetBlocks(&this, blocks);
+	public HRESULT GetBlocks(IAppxBlockMapBlocksEnumerator* blocks) mut => VT.[Friend]GetBlocks(&this, blocks);
 
-	public HRESULT GetLocalFileHeaderSize(uint32* lfhSize) mut => VT.[Friend]GetLocalFileHeaderSize(&this, lfhSize);
+	public HRESULT GetLocalFileHeaderSize(uint32 lfhSize) mut => VT.[Friend]GetLocalFileHeaderSize(&this, lfhSize);
 
-	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
+	public HRESULT GetName(PWSTR name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetUncompressedSize(uint64* size) mut => VT.[Friend]GetUncompressedSize(&this, size);
+	public HRESULT GetUncompressedSize(uint64 size) mut => VT.[Friend]GetUncompressedSize(&this, size);
 
-	public HRESULT ValidateFileHash(IStream* fileStream, BOOL* isValid) mut => VT.[Friend]ValidateFileHash(&this, fileStream, isValid);
+	public HRESULT ValidateFileHash(IStream* fileStream, BOOL isValid) mut => VT.[Friend]ValidateFileHash(&this, fileStream, isValid);
 }
 
 [CRepr]struct IAppxBlockMapFilesEnumerator : IUnknown
@@ -702,17 +702,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFilesEnumerator*/SelfOuter* self, IAppxBlockMapFile** file) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFilesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFilesEnumerator*/SelfOuter* self, BOOL* hasCurrent) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFilesEnumerator*/SelfOuter* self, IAppxBlockMapFile* file) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFilesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFilesEnumerator*/SelfOuter* self, BOOL hasCurrent) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxBlockMapFile** file) mut => VT.[Friend]GetCurrent(&this, file);
+	public HRESULT GetCurrent(IAppxBlockMapFile* file) mut => VT.[Friend]GetCurrent(&this, file);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasCurrent) mut => VT.[Friend]MoveNext(&this, hasCurrent);
+	public HRESULT MoveNext(BOOL hasCurrent) mut => VT.[Friend]MoveNext(&this, hasCurrent);
 }
 
 [CRepr]struct IAppxBlockMapBlock : IUnknown
@@ -723,14 +723,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlock*/SelfOuter* self, uint32* bufferSize, uint8** buffer) GetHash;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlock*/SelfOuter* self, uint32* size) GetCompressedSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlock*/SelfOuter* self, uint32 bufferSize, uint8 buffer) GetHash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlock*/SelfOuter* self, uint32 size) GetCompressedSize;
 	}
 
 
-	public HRESULT GetHash(uint32* bufferSize, uint8** buffer) mut => VT.[Friend]GetHash(&this, bufferSize, buffer);
+	public HRESULT GetHash(uint32 bufferSize, uint8 buffer) mut => VT.[Friend]GetHash(&this, bufferSize, buffer);
 
-	public HRESULT GetCompressedSize(uint32* size) mut => VT.[Friend]GetCompressedSize(&this, size);
+	public HRESULT GetCompressedSize(uint32 size) mut => VT.[Friend]GetCompressedSize(&this, size);
 }
 
 [CRepr]struct IAppxBlockMapBlocksEnumerator : IUnknown
@@ -741,17 +741,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlocksEnumerator*/SelfOuter* self, IAppxBlockMapBlock** block) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlocksEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlocksEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlocksEnumerator*/SelfOuter* self, IAppxBlockMapBlock* block) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlocksEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlocksEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxBlockMapBlock** block) mut => VT.[Friend]GetCurrent(&this, block);
+	public HRESULT GetCurrent(IAppxBlockMapBlock* block) mut => VT.[Friend]GetCurrent(&this, block);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestReader : IUnknown
@@ -762,35 +762,35 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestProperties** packageProperties) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestPackageDependenciesEnumerator** dependencies) GetPackageDependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, APPX_CAPABILITIES* capabilities) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestResourcesEnumerator** resources) GetResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestDeviceCapabilitiesEnumerator** deviceCapabilities) GetDeviceCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, PWSTR name, uint64* value) GetPrerequisite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestApplicationsEnumerator** applications) GetApplications;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IStream** manifestStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestPackageId* packageId) GetPackageId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestProperties* packageProperties) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestPackageDependenciesEnumerator* dependencies) GetPackageDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, APPX_CAPABILITIES capabilities) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestResourcesEnumerator* resources) GetResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestDeviceCapabilitiesEnumerator* deviceCapabilities) GetDeviceCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, PWSTR name, uint64 value) GetPrerequisite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestApplicationsEnumerator* applications) GetApplications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IStream* manifestStream) GetStream;
 	}
 
 
-	public HRESULT GetPackageId(IAppxManifestPackageId** packageId) mut => VT.[Friend]GetPackageId(&this, packageId);
+	public HRESULT GetPackageId(IAppxManifestPackageId* packageId) mut => VT.[Friend]GetPackageId(&this, packageId);
 
-	public HRESULT GetProperties(IAppxManifestProperties** packageProperties) mut => VT.[Friend]GetProperties(&this, packageProperties);
+	public HRESULT GetProperties(IAppxManifestProperties* packageProperties) mut => VT.[Friend]GetProperties(&this, packageProperties);
 
-	public HRESULT GetPackageDependencies(IAppxManifestPackageDependenciesEnumerator** dependencies) mut => VT.[Friend]GetPackageDependencies(&this, dependencies);
+	public HRESULT GetPackageDependencies(IAppxManifestPackageDependenciesEnumerator* dependencies) mut => VT.[Friend]GetPackageDependencies(&this, dependencies);
 
-	public HRESULT GetCapabilities(APPX_CAPABILITIES* capabilities) mut => VT.[Friend]GetCapabilities(&this, capabilities);
+	public HRESULT GetCapabilities(APPX_CAPABILITIES capabilities) mut => VT.[Friend]GetCapabilities(&this, capabilities);
 
-	public HRESULT GetResources(IAppxManifestResourcesEnumerator** resources) mut => VT.[Friend]GetResources(&this, resources);
+	public HRESULT GetResources(IAppxManifestResourcesEnumerator* resources) mut => VT.[Friend]GetResources(&this, resources);
 
-	public HRESULT GetDeviceCapabilities(IAppxManifestDeviceCapabilitiesEnumerator** deviceCapabilities) mut => VT.[Friend]GetDeviceCapabilities(&this, deviceCapabilities);
+	public HRESULT GetDeviceCapabilities(IAppxManifestDeviceCapabilitiesEnumerator* deviceCapabilities) mut => VT.[Friend]GetDeviceCapabilities(&this, deviceCapabilities);
 
-	public HRESULT GetPrerequisite(PWSTR name, uint64* value) mut => VT.[Friend]GetPrerequisite(&this, name, value);
+	public HRESULT GetPrerequisite(PWSTR name, uint64 value) mut => VT.[Friend]GetPrerequisite(&this, name, value);
 
-	public HRESULT GetApplications(IAppxManifestApplicationsEnumerator** applications) mut => VT.[Friend]GetApplications(&this, applications);
+	public HRESULT GetApplications(IAppxManifestApplicationsEnumerator* applications) mut => VT.[Friend]GetApplications(&this, applications);
 
-	public HRESULT GetStream(IStream** manifestStream) mut => VT.[Friend]GetStream(&this, manifestStream);
+	public HRESULT GetStream(IStream* manifestStream) mut => VT.[Friend]GetStream(&this, manifestStream);
 }
 
 [CRepr]struct IAppxManifestReader2 : IAppxManifestReader
@@ -801,11 +801,11 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestReader.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader2*/SelfOuter* self, IAppxManifestQualifiedResourcesEnumerator** resources) GetQualifiedResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader2*/SelfOuter* self, IAppxManifestQualifiedResourcesEnumerator* resources) GetQualifiedResources;
 	}
 
 
-	public HRESULT GetQualifiedResources(IAppxManifestQualifiedResourcesEnumerator** resources) mut => VT.[Friend]GetQualifiedResources(&this, resources);
+	public HRESULT GetQualifiedResources(IAppxManifestQualifiedResourcesEnumerator* resources) mut => VT.[Friend]GetQualifiedResources(&this, resources);
 }
 
 [CRepr]struct IAppxManifestReader3 : IAppxManifestReader2
@@ -816,14 +816,14 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestReader2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader3*/SelfOuter* self, APPX_CAPABILITY_CLASS_TYPE capabilityClass, IAppxManifestCapabilitiesEnumerator** capabilities) GetCapabilitiesByCapabilityClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader3*/SelfOuter* self, IAppxManifestTargetDeviceFamiliesEnumerator** targetDeviceFamilies) GetTargetDeviceFamilies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader3*/SelfOuter* self, APPX_CAPABILITY_CLASS_TYPE capabilityClass, IAppxManifestCapabilitiesEnumerator* capabilities) GetCapabilitiesByCapabilityClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader3*/SelfOuter* self, IAppxManifestTargetDeviceFamiliesEnumerator* targetDeviceFamilies) GetTargetDeviceFamilies;
 	}
 
 
-	public HRESULT GetCapabilitiesByCapabilityClass(APPX_CAPABILITY_CLASS_TYPE capabilityClass, IAppxManifestCapabilitiesEnumerator** capabilities) mut => VT.[Friend]GetCapabilitiesByCapabilityClass(&this, capabilityClass, capabilities);
+	public HRESULT GetCapabilitiesByCapabilityClass(APPX_CAPABILITY_CLASS_TYPE capabilityClass, IAppxManifestCapabilitiesEnumerator* capabilities) mut => VT.[Friend]GetCapabilitiesByCapabilityClass(&this, capabilityClass, capabilities);
 
-	public HRESULT GetTargetDeviceFamilies(IAppxManifestTargetDeviceFamiliesEnumerator** targetDeviceFamilies) mut => VT.[Friend]GetTargetDeviceFamilies(&this, targetDeviceFamilies);
+	public HRESULT GetTargetDeviceFamilies(IAppxManifestTargetDeviceFamiliesEnumerator* targetDeviceFamilies) mut => VT.[Friend]GetTargetDeviceFamilies(&this, targetDeviceFamilies);
 }
 
 [CRepr]struct IAppxManifestReader4 : IAppxManifestReader3
@@ -834,11 +834,11 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestReader3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader4*/SelfOuter* self, IAppxManifestOptionalPackageInfo** optionalPackageInfo) GetOptionalPackageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader4*/SelfOuter* self, IAppxManifestOptionalPackageInfo* optionalPackageInfo) GetOptionalPackageInfo;
 	}
 
 
-	public HRESULT GetOptionalPackageInfo(IAppxManifestOptionalPackageInfo** optionalPackageInfo) mut => VT.[Friend]GetOptionalPackageInfo(&this, optionalPackageInfo);
+	public HRESULT GetOptionalPackageInfo(IAppxManifestOptionalPackageInfo* optionalPackageInfo) mut => VT.[Friend]GetOptionalPackageInfo(&this, optionalPackageInfo);
 }
 
 [CRepr]struct IAppxManifestReader5 : IUnknown
@@ -849,11 +849,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader5*/SelfOuter* self, IAppxManifestMainPackageDependenciesEnumerator** mainPackageDependencies) GetMainPackageDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader5*/SelfOuter* self, IAppxManifestMainPackageDependenciesEnumerator* mainPackageDependencies) GetMainPackageDependencies;
 	}
 
 
-	public HRESULT GetMainPackageDependencies(IAppxManifestMainPackageDependenciesEnumerator** mainPackageDependencies) mut => VT.[Friend]GetMainPackageDependencies(&this, mainPackageDependencies);
+	public HRESULT GetMainPackageDependencies(IAppxManifestMainPackageDependenciesEnumerator* mainPackageDependencies) mut => VT.[Friend]GetMainPackageDependencies(&this, mainPackageDependencies);
 }
 
 [CRepr]struct IAppxManifestReader6 : IUnknown
@@ -864,11 +864,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader6*/SelfOuter* self, BOOL* isNonQualifiedResourcePackage) GetIsNonQualifiedResourcePackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader6*/SelfOuter* self, BOOL isNonQualifiedResourcePackage) GetIsNonQualifiedResourcePackage;
 	}
 
 
-	public HRESULT GetIsNonQualifiedResourcePackage(BOOL* isNonQualifiedResourcePackage) mut => VT.[Friend]GetIsNonQualifiedResourcePackage(&this, isNonQualifiedResourcePackage);
+	public HRESULT GetIsNonQualifiedResourcePackage(BOOL isNonQualifiedResourcePackage) mut => VT.[Friend]GetIsNonQualifiedResourcePackage(&this, isNonQualifiedResourcePackage);
 }
 
 [CRepr]struct IAppxManifestReader7 : IUnknown
@@ -879,17 +879,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader7*/SelfOuter* self, IAppxManifestDriverDependenciesEnumerator** driverDependencies) GetDriverDependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader7*/SelfOuter* self, IAppxManifestOSPackageDependenciesEnumerator** osPackageDependencies) GetOSPackageDependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader7*/SelfOuter* self, IAppxManifestHostRuntimeDependenciesEnumerator** hostRuntimeDependencies) GetHostRuntimeDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader7*/SelfOuter* self, IAppxManifestDriverDependenciesEnumerator* driverDependencies) GetDriverDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader7*/SelfOuter* self, IAppxManifestOSPackageDependenciesEnumerator* osPackageDependencies) GetOSPackageDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader7*/SelfOuter* self, IAppxManifestHostRuntimeDependenciesEnumerator* hostRuntimeDependencies) GetHostRuntimeDependencies;
 	}
 
 
-	public HRESULT GetDriverDependencies(IAppxManifestDriverDependenciesEnumerator** driverDependencies) mut => VT.[Friend]GetDriverDependencies(&this, driverDependencies);
+	public HRESULT GetDriverDependencies(IAppxManifestDriverDependenciesEnumerator* driverDependencies) mut => VT.[Friend]GetDriverDependencies(&this, driverDependencies);
 
-	public HRESULT GetOSPackageDependencies(IAppxManifestOSPackageDependenciesEnumerator** osPackageDependencies) mut => VT.[Friend]GetOSPackageDependencies(&this, osPackageDependencies);
+	public HRESULT GetOSPackageDependencies(IAppxManifestOSPackageDependenciesEnumerator* osPackageDependencies) mut => VT.[Friend]GetOSPackageDependencies(&this, osPackageDependencies);
 
-	public HRESULT GetHostRuntimeDependencies(IAppxManifestHostRuntimeDependenciesEnumerator** hostRuntimeDependencies) mut => VT.[Friend]GetHostRuntimeDependencies(&this, hostRuntimeDependencies);
+	public HRESULT GetHostRuntimeDependencies(IAppxManifestHostRuntimeDependenciesEnumerator* hostRuntimeDependencies) mut => VT.[Friend]GetHostRuntimeDependencies(&this, hostRuntimeDependencies);
 }
 
 [CRepr]struct IAppxManifestDriverDependenciesEnumerator : IUnknown
@@ -900,17 +900,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependenciesEnumerator*/SelfOuter* self, IAppxManifestDriverDependency** driverDependency) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependenciesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependenciesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependenciesEnumerator*/SelfOuter* self, IAppxManifestDriverDependency* driverDependency) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependenciesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependenciesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxManifestDriverDependency** driverDependency) mut => VT.[Friend]GetCurrent(&this, driverDependency);
+	public HRESULT GetCurrent(IAppxManifestDriverDependency* driverDependency) mut => VT.[Friend]GetCurrent(&this, driverDependency);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestDriverDependency : IUnknown
@@ -921,11 +921,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependency*/SelfOuter* self, IAppxManifestDriverConstraintsEnumerator** driverConstraints) GetDriverConstraints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependency*/SelfOuter* self, IAppxManifestDriverConstraintsEnumerator* driverConstraints) GetDriverConstraints;
 	}
 
 
-	public HRESULT GetDriverConstraints(IAppxManifestDriverConstraintsEnumerator** driverConstraints) mut => VT.[Friend]GetDriverConstraints(&this, driverConstraints);
+	public HRESULT GetDriverConstraints(IAppxManifestDriverConstraintsEnumerator* driverConstraints) mut => VT.[Friend]GetDriverConstraints(&this, driverConstraints);
 }
 
 [CRepr]struct IAppxManifestDriverConstraintsEnumerator : IUnknown
@@ -936,17 +936,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraintsEnumerator*/SelfOuter* self, IAppxManifestDriverConstraint** driverConstraint) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraintsEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraintsEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraintsEnumerator*/SelfOuter* self, IAppxManifestDriverConstraint* driverConstraint) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraintsEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraintsEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxManifestDriverConstraint** driverConstraint) mut => VT.[Friend]GetCurrent(&this, driverConstraint);
+	public HRESULT GetCurrent(IAppxManifestDriverConstraint* driverConstraint) mut => VT.[Friend]GetCurrent(&this, driverConstraint);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestDriverConstraint : IUnknown
@@ -957,17 +957,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraint*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraint*/SelfOuter* self, uint64* minVersion) GetMinVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraint*/SelfOuter* self, PWSTR* minDate) GetMinDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraint*/SelfOuter* self, PWSTR name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraint*/SelfOuter* self, uint64 minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraint*/SelfOuter* self, PWSTR minDate) GetMinDate;
 	}
 
 
-	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
+	public HRESULT GetName(PWSTR name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetMinVersion(uint64* minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
+	public HRESULT GetMinVersion(uint64 minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
 
-	public HRESULT GetMinDate(PWSTR* minDate) mut => VT.[Friend]GetMinDate(&this, minDate);
+	public HRESULT GetMinDate(PWSTR minDate) mut => VT.[Friend]GetMinDate(&this, minDate);
 }
 
 [CRepr]struct IAppxManifestOSPackageDependenciesEnumerator : IUnknown
@@ -978,17 +978,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependenciesEnumerator*/SelfOuter* self, IAppxManifestOSPackageDependency** osPackageDependency) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependenciesEnumerator*/SelfOuter* self, IAppxManifestOSPackageDependency* osPackageDependency) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependenciesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependenciesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxManifestOSPackageDependency** osPackageDependency) mut => VT.[Friend]GetCurrent(&this, osPackageDependency);
+	public HRESULT GetCurrent(IAppxManifestOSPackageDependency* osPackageDependency) mut => VT.[Friend]GetCurrent(&this, osPackageDependency);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestOSPackageDependency : IUnknown
@@ -999,14 +999,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependency*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependency*/SelfOuter* self, uint64* version) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependency*/SelfOuter* self, PWSTR name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependency*/SelfOuter* self, uint64 version) GetVersion;
 	}
 
 
-	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
+	public HRESULT GetName(PWSTR name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetVersion(uint64* version) mut => VT.[Friend]GetVersion(&this, version);
+	public HRESULT GetVersion(uint64 version) mut => VT.[Friend]GetVersion(&this, version);
 }
 
 [CRepr]struct IAppxManifestHostRuntimeDependenciesEnumerator : IUnknown
@@ -1017,17 +1017,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependenciesEnumerator*/SelfOuter* self, IAppxManifestHostRuntimeDependency** hostRuntimeDependency) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependenciesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependenciesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependenciesEnumerator*/SelfOuter* self, IAppxManifestHostRuntimeDependency* hostRuntimeDependency) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependenciesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependenciesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxManifestHostRuntimeDependency** hostRuntimeDependency) mut => VT.[Friend]GetCurrent(&this, hostRuntimeDependency);
+	public HRESULT GetCurrent(IAppxManifestHostRuntimeDependency* hostRuntimeDependency) mut => VT.[Friend]GetCurrent(&this, hostRuntimeDependency);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestHostRuntimeDependency : IUnknown
@@ -1038,17 +1038,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency*/SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency*/SelfOuter* self, uint64* minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency*/SelfOuter* self, PWSTR name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency*/SelfOuter* self, PWSTR publisher) GetPublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency*/SelfOuter* self, uint64 minVersion) GetMinVersion;
 	}
 
 
-	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
+	public HRESULT GetName(PWSTR name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetPublisher(PWSTR* publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
+	public HRESULT GetPublisher(PWSTR publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
 
-	public HRESULT GetMinVersion(uint64* minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
+	public HRESULT GetMinVersion(uint64 minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
 }
 
 [CRepr]struct IAppxManifestHostRuntimeDependency2 : IUnknown
@@ -1059,11 +1059,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency2*/SelfOuter* self, PWSTR* packageFamilyName) GetPackageFamilyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency2*/SelfOuter* self, PWSTR packageFamilyName) GetPackageFamilyName;
 	}
 
 
-	public HRESULT GetPackageFamilyName(PWSTR* packageFamilyName) mut => VT.[Friend]GetPackageFamilyName(&this, packageFamilyName);
+	public HRESULT GetPackageFamilyName(PWSTR packageFamilyName) mut => VT.[Friend]GetPackageFamilyName(&this, packageFamilyName);
 }
 
 [CRepr]struct IAppxManifestOptionalPackageInfo : IUnknown
@@ -1074,14 +1074,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOptionalPackageInfo*/SelfOuter* self, BOOL* isOptionalPackage) GetIsOptionalPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOptionalPackageInfo*/SelfOuter* self, PWSTR* mainPackageName) GetMainPackageName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOptionalPackageInfo*/SelfOuter* self, BOOL isOptionalPackage) GetIsOptionalPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOptionalPackageInfo*/SelfOuter* self, PWSTR mainPackageName) GetMainPackageName;
 	}
 
 
-	public HRESULT GetIsOptionalPackage(BOOL* isOptionalPackage) mut => VT.[Friend]GetIsOptionalPackage(&this, isOptionalPackage);
+	public HRESULT GetIsOptionalPackage(BOOL isOptionalPackage) mut => VT.[Friend]GetIsOptionalPackage(&this, isOptionalPackage);
 
-	public HRESULT GetMainPackageName(PWSTR* mainPackageName) mut => VT.[Friend]GetMainPackageName(&this, mainPackageName);
+	public HRESULT GetMainPackageName(PWSTR mainPackageName) mut => VT.[Friend]GetMainPackageName(&this, mainPackageName);
 }
 
 [CRepr]struct IAppxManifestMainPackageDependenciesEnumerator : IUnknown
@@ -1092,17 +1092,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependenciesEnumerator*/SelfOuter* self, IAppxManifestMainPackageDependency** mainPackageDependency) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependenciesEnumerator*/SelfOuter* self, IAppxManifestMainPackageDependency* mainPackageDependency) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependenciesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependenciesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxManifestMainPackageDependency** mainPackageDependency) mut => VT.[Friend]GetCurrent(&this, mainPackageDependency);
+	public HRESULT GetCurrent(IAppxManifestMainPackageDependency* mainPackageDependency) mut => VT.[Friend]GetCurrent(&this, mainPackageDependency);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestMainPackageDependency : IUnknown
@@ -1113,17 +1113,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependency*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependency*/SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependency*/SelfOuter* self, PWSTR* packageFamilyName) GetPackageFamilyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependency*/SelfOuter* self, PWSTR name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependency*/SelfOuter* self, PWSTR publisher) GetPublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependency*/SelfOuter* self, PWSTR packageFamilyName) GetPackageFamilyName;
 	}
 
 
-	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
+	public HRESULT GetName(PWSTR name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetPublisher(PWSTR* publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
+	public HRESULT GetPublisher(PWSTR publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
 
-	public HRESULT GetPackageFamilyName(PWSTR* packageFamilyName) mut => VT.[Friend]GetPackageFamilyName(&this, packageFamilyName);
+	public HRESULT GetPackageFamilyName(PWSTR packageFamilyName) mut => VT.[Friend]GetPackageFamilyName(&this, packageFamilyName);
 }
 
 [CRepr]struct IAppxManifestPackageId : IUnknown
@@ -1134,32 +1134,32 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, APPX_PACKAGE_ARCHITECTURE* architecture) GetArchitecture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, uint64* packageVersion) GetVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR* resourceId) GetResourceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR other, BOOL* isSame) ComparePublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR* packageFullName) GetPackageFullName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR* packageFamilyName) GetPackageFamilyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, APPX_PACKAGE_ARCHITECTURE architecture) GetArchitecture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR publisher) GetPublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, uint64 packageVersion) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR resourceId) GetResourceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR other, BOOL isSame) ComparePublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR packageFullName) GetPackageFullName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR packageFamilyName) GetPackageFamilyName;
 	}
 
 
-	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
+	public HRESULT GetName(PWSTR name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetArchitecture(APPX_PACKAGE_ARCHITECTURE* architecture) mut => VT.[Friend]GetArchitecture(&this, architecture);
+	public HRESULT GetArchitecture(APPX_PACKAGE_ARCHITECTURE architecture) mut => VT.[Friend]GetArchitecture(&this, architecture);
 
-	public HRESULT GetPublisher(PWSTR* publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
+	public HRESULT GetPublisher(PWSTR publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
 
-	public HRESULT GetVersion(uint64* packageVersion) mut => VT.[Friend]GetVersion(&this, packageVersion);
+	public HRESULT GetVersion(uint64 packageVersion) mut => VT.[Friend]GetVersion(&this, packageVersion);
 
-	public HRESULT GetResourceId(PWSTR* resourceId) mut => VT.[Friend]GetResourceId(&this, resourceId);
+	public HRESULT GetResourceId(PWSTR resourceId) mut => VT.[Friend]GetResourceId(&this, resourceId);
 
-	public HRESULT ComparePublisher(PWSTR other, BOOL* isSame) mut => VT.[Friend]ComparePublisher(&this, other, isSame);
+	public HRESULT ComparePublisher(PWSTR other, BOOL isSame) mut => VT.[Friend]ComparePublisher(&this, other, isSame);
 
-	public HRESULT GetPackageFullName(PWSTR* packageFullName) mut => VT.[Friend]GetPackageFullName(&this, packageFullName);
+	public HRESULT GetPackageFullName(PWSTR packageFullName) mut => VT.[Friend]GetPackageFullName(&this, packageFullName);
 
-	public HRESULT GetPackageFamilyName(PWSTR* packageFamilyName) mut => VT.[Friend]GetPackageFamilyName(&this, packageFamilyName);
+	public HRESULT GetPackageFamilyName(PWSTR packageFamilyName) mut => VT.[Friend]GetPackageFamilyName(&this, packageFamilyName);
 }
 
 [CRepr]struct IAppxManifestPackageId2 : IAppxManifestPackageId
@@ -1170,11 +1170,11 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestPackageId.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId2*/SelfOuter* self, APPX_PACKAGE_ARCHITECTURE2* architecture) GetArchitecture2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId2*/SelfOuter* self, APPX_PACKAGE_ARCHITECTURE2 architecture) GetArchitecture2;
 	}
 
 
-	public HRESULT GetArchitecture2(APPX_PACKAGE_ARCHITECTURE2* architecture) mut => VT.[Friend]GetArchitecture2(&this, architecture);
+	public HRESULT GetArchitecture2(APPX_PACKAGE_ARCHITECTURE2 architecture) mut => VT.[Friend]GetArchitecture2(&this, architecture);
 }
 
 [CRepr]struct IAppxManifestProperties : IUnknown
@@ -1185,14 +1185,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestProperties*/SelfOuter* self, PWSTR name, BOOL* value) GetBoolValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestProperties*/SelfOuter* self, PWSTR name, PWSTR* value) GetStringValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestProperties*/SelfOuter* self, PWSTR name, BOOL value) GetBoolValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestProperties*/SelfOuter* self, PWSTR name, PWSTR value) GetStringValue;
 	}
 
 
-	public HRESULT GetBoolValue(PWSTR name, BOOL* value) mut => VT.[Friend]GetBoolValue(&this, name, value);
+	public HRESULT GetBoolValue(PWSTR name, BOOL value) mut => VT.[Friend]GetBoolValue(&this, name, value);
 
-	public HRESULT GetStringValue(PWSTR name, PWSTR* value) mut => VT.[Friend]GetStringValue(&this, name, value);
+	public HRESULT GetStringValue(PWSTR name, PWSTR value) mut => VT.[Friend]GetStringValue(&this, name, value);
 }
 
 [CRepr]struct IAppxManifestTargetDeviceFamiliesEnumerator : IUnknown
@@ -1203,17 +1203,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamiliesEnumerator*/SelfOuter* self, IAppxManifestTargetDeviceFamily** targetDeviceFamily) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamiliesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamiliesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamiliesEnumerator*/SelfOuter* self, IAppxManifestTargetDeviceFamily* targetDeviceFamily) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamiliesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamiliesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxManifestTargetDeviceFamily** targetDeviceFamily) mut => VT.[Friend]GetCurrent(&this, targetDeviceFamily);
+	public HRESULT GetCurrent(IAppxManifestTargetDeviceFamily* targetDeviceFamily) mut => VT.[Friend]GetCurrent(&this, targetDeviceFamily);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestTargetDeviceFamily : IUnknown
@@ -1224,17 +1224,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamily*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamily*/SelfOuter* self, uint64* minVersion) GetMinVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamily*/SelfOuter* self, uint64* maxVersionTested) GetMaxVersionTested;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamily*/SelfOuter* self, PWSTR name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamily*/SelfOuter* self, uint64 minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamily*/SelfOuter* self, uint64 maxVersionTested) GetMaxVersionTested;
 	}
 
 
-	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
+	public HRESULT GetName(PWSTR name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetMinVersion(uint64* minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
+	public HRESULT GetMinVersion(uint64 minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
 
-	public HRESULT GetMaxVersionTested(uint64* maxVersionTested) mut => VT.[Friend]GetMaxVersionTested(&this, maxVersionTested);
+	public HRESULT GetMaxVersionTested(uint64 maxVersionTested) mut => VT.[Friend]GetMaxVersionTested(&this, maxVersionTested);
 }
 
 [CRepr]struct IAppxManifestPackageDependenciesEnumerator : IUnknown
@@ -1245,17 +1245,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependenciesEnumerator*/SelfOuter* self, IAppxManifestPackageDependency** dependency) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependenciesEnumerator*/SelfOuter* self, IAppxManifestPackageDependency* dependency) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependenciesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependenciesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxManifestPackageDependency** dependency) mut => VT.[Friend]GetCurrent(&this, dependency);
+	public HRESULT GetCurrent(IAppxManifestPackageDependency* dependency) mut => VT.[Friend]GetCurrent(&this, dependency);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestPackageDependency : IUnknown
@@ -1266,17 +1266,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency*/SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency*/SelfOuter* self, uint64* minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency*/SelfOuter* self, PWSTR name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency*/SelfOuter* self, PWSTR publisher) GetPublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency*/SelfOuter* self, uint64 minVersion) GetMinVersion;
 	}
 
 
-	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
+	public HRESULT GetName(PWSTR name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetPublisher(PWSTR* publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
+	public HRESULT GetPublisher(PWSTR publisher) mut => VT.[Friend]GetPublisher(&this, publisher);
 
-	public HRESULT GetMinVersion(uint64* minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
+	public HRESULT GetMinVersion(uint64 minVersion) mut => VT.[Friend]GetMinVersion(&this, minVersion);
 }
 
 [CRepr]struct IAppxManifestPackageDependency2 : IAppxManifestPackageDependency
@@ -1287,11 +1287,11 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestPackageDependency.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency2*/SelfOuter* self, uint16* maxMajorVersionTested) GetMaxMajorVersionTested;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency2*/SelfOuter* self, uint16 maxMajorVersionTested) GetMaxMajorVersionTested;
 	}
 
 
-	public HRESULT GetMaxMajorVersionTested(uint16* maxMajorVersionTested) mut => VT.[Friend]GetMaxMajorVersionTested(&this, maxMajorVersionTested);
+	public HRESULT GetMaxMajorVersionTested(uint16 maxMajorVersionTested) mut => VT.[Friend]GetMaxMajorVersionTested(&this, maxMajorVersionTested);
 }
 
 [CRepr]struct IAppxManifestPackageDependency3 : IUnknown
@@ -1302,11 +1302,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency3*/SelfOuter* self, BOOL* isOptional) GetIsOptional;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency3*/SelfOuter* self, BOOL isOptional) GetIsOptional;
 	}
 
 
-	public HRESULT GetIsOptional(BOOL* isOptional) mut => VT.[Friend]GetIsOptional(&this, isOptional);
+	public HRESULT GetIsOptional(BOOL isOptional) mut => VT.[Friend]GetIsOptional(&this, isOptional);
 }
 
 [CRepr]struct IAppxManifestResourcesEnumerator : IUnknown
@@ -1317,17 +1317,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestResourcesEnumerator*/SelfOuter* self, PWSTR* resource) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestResourcesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestResourcesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestResourcesEnumerator*/SelfOuter* self, PWSTR resource) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestResourcesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestResourcesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(PWSTR* resource) mut => VT.[Friend]GetCurrent(&this, resource);
+	public HRESULT GetCurrent(PWSTR resource) mut => VT.[Friend]GetCurrent(&this, resource);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestDeviceCapabilitiesEnumerator : IUnknown
@@ -1338,17 +1338,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDeviceCapabilitiesEnumerator*/SelfOuter* self, PWSTR* deviceCapability) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDeviceCapabilitiesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDeviceCapabilitiesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDeviceCapabilitiesEnumerator*/SelfOuter* self, PWSTR deviceCapability) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDeviceCapabilitiesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDeviceCapabilitiesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(PWSTR* deviceCapability) mut => VT.[Friend]GetCurrent(&this, deviceCapability);
+	public HRESULT GetCurrent(PWSTR deviceCapability) mut => VT.[Friend]GetCurrent(&this, deviceCapability);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestCapabilitiesEnumerator : IUnknown
@@ -1359,17 +1359,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestCapabilitiesEnumerator*/SelfOuter* self, PWSTR* capability) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestCapabilitiesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestCapabilitiesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestCapabilitiesEnumerator*/SelfOuter* self, PWSTR capability) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestCapabilitiesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestCapabilitiesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(PWSTR* capability) mut => VT.[Friend]GetCurrent(&this, capability);
+	public HRESULT GetCurrent(PWSTR capability) mut => VT.[Friend]GetCurrent(&this, capability);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestApplicationsEnumerator : IUnknown
@@ -1380,17 +1380,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplicationsEnumerator*/SelfOuter* self, IAppxManifestApplication** application) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplicationsEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplicationsEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplicationsEnumerator*/SelfOuter* self, IAppxManifestApplication* application) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplicationsEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplicationsEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxManifestApplication** application) mut => VT.[Friend]GetCurrent(&this, application);
+	public HRESULT GetCurrent(IAppxManifestApplication* application) mut => VT.[Friend]GetCurrent(&this, application);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestApplication : IUnknown
@@ -1401,14 +1401,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplication*/SelfOuter* self, PWSTR name, PWSTR* value) GetStringValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplication*/SelfOuter* self, PWSTR* appUserModelId) GetAppUserModelId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplication*/SelfOuter* self, PWSTR name, PWSTR value) GetStringValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplication*/SelfOuter* self, PWSTR appUserModelId) GetAppUserModelId;
 	}
 
 
-	public HRESULT GetStringValue(PWSTR name, PWSTR* value) mut => VT.[Friend]GetStringValue(&this, name, value);
+	public HRESULT GetStringValue(PWSTR name, PWSTR value) mut => VT.[Friend]GetStringValue(&this, name, value);
 
-	public HRESULT GetAppUserModelId(PWSTR* appUserModelId) mut => VT.[Friend]GetAppUserModelId(&this, appUserModelId);
+	public HRESULT GetAppUserModelId(PWSTR appUserModelId) mut => VT.[Friend]GetAppUserModelId(&this, appUserModelId);
 }
 
 [CRepr]struct IAppxManifestQualifiedResourcesEnumerator : IUnknown
@@ -1419,17 +1419,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResourcesEnumerator*/SelfOuter* self, IAppxManifestQualifiedResource** resource) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResourcesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResourcesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResourcesEnumerator*/SelfOuter* self, IAppxManifestQualifiedResource* resource) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResourcesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResourcesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxManifestQualifiedResource** resource) mut => VT.[Friend]GetCurrent(&this, resource);
+	public HRESULT GetCurrent(IAppxManifestQualifiedResource* resource) mut => VT.[Friend]GetCurrent(&this, resource);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxManifestQualifiedResource : IUnknown
@@ -1440,17 +1440,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResource*/SelfOuter* self, PWSTR* language) GetLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResource*/SelfOuter* self, uint32* scale) GetScale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResource*/SelfOuter* self, DX_FEATURE_LEVEL* dxFeatureLevel) GetDXFeatureLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResource*/SelfOuter* self, PWSTR language) GetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResource*/SelfOuter* self, uint32 scale) GetScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResource*/SelfOuter* self, DX_FEATURE_LEVEL dxFeatureLevel) GetDXFeatureLevel;
 	}
 
 
-	public HRESULT GetLanguage(PWSTR* language) mut => VT.[Friend]GetLanguage(&this, language);
+	public HRESULT GetLanguage(PWSTR language) mut => VT.[Friend]GetLanguage(&this, language);
 
-	public HRESULT GetScale(uint32* scale) mut => VT.[Friend]GetScale(&this, scale);
+	public HRESULT GetScale(uint32 scale) mut => VT.[Friend]GetScale(&this, scale);
 
-	public HRESULT GetDXFeatureLevel(DX_FEATURE_LEVEL* dxFeatureLevel) mut => VT.[Friend]GetDXFeatureLevel(&this, dxFeatureLevel);
+	public HRESULT GetDXFeatureLevel(DX_FEATURE_LEVEL dxFeatureLevel) mut => VT.[Friend]GetDXFeatureLevel(&this, dxFeatureLevel);
 }
 
 [CRepr]struct IAppxBundleFactory : IUnknown
@@ -1461,17 +1461,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleFactory*/SelfOuter* self, IStream* outputStream, uint64 bundleVersion, IAppxBundleWriter** bundleWriter) CreateBundleWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleFactory*/SelfOuter* self, IStream* inputStream, IAppxBundleReader** bundleReader) CreateBundleReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleFactory*/SelfOuter* self, IStream* inputStream, IAppxBundleManifestReader** manifestReader) CreateBundleManifestReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleFactory*/SelfOuter* self, IStream* outputStream, uint64 bundleVersion, IAppxBundleWriter* bundleWriter) CreateBundleWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleFactory*/SelfOuter* self, IStream* inputStream, IAppxBundleReader* bundleReader) CreateBundleReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleFactory*/SelfOuter* self, IStream* inputStream, IAppxBundleManifestReader* manifestReader) CreateBundleManifestReader;
 	}
 
 
-	public HRESULT CreateBundleWriter(IStream* outputStream, uint64 bundleVersion, IAppxBundleWriter** bundleWriter) mut => VT.[Friend]CreateBundleWriter(&this, outputStream, bundleVersion, bundleWriter);
+	public HRESULT CreateBundleWriter(IStream* outputStream, uint64 bundleVersion, IAppxBundleWriter* bundleWriter) mut => VT.[Friend]CreateBundleWriter(&this, outputStream, bundleVersion, bundleWriter);
 
-	public HRESULT CreateBundleReader(IStream* inputStream, IAppxBundleReader** bundleReader) mut => VT.[Friend]CreateBundleReader(&this, inputStream, bundleReader);
+	public HRESULT CreateBundleReader(IStream* inputStream, IAppxBundleReader* bundleReader) mut => VT.[Friend]CreateBundleReader(&this, inputStream, bundleReader);
 
-	public HRESULT CreateBundleManifestReader(IStream* inputStream, IAppxBundleManifestReader** manifestReader) mut => VT.[Friend]CreateBundleManifestReader(&this, inputStream, manifestReader);
+	public HRESULT CreateBundleManifestReader(IStream* inputStream, IAppxBundleManifestReader* manifestReader) mut => VT.[Friend]CreateBundleManifestReader(&this, inputStream, manifestReader);
 }
 
 [CRepr]struct IAppxBundleWriter : IUnknown
@@ -1554,23 +1554,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, APPX_BUNDLE_FOOTPRINT_FILE_TYPE fileType, IAppxFile** footprintFile) GetFootprintFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, IAppxBlockMapReader** blockMapReader) GetBlockMap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, IAppxBundleManifestReader** manifestReader) GetManifest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, IAppxFilesEnumerator** payloadPackages) GetPayloadPackages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, PWSTR fileName, IAppxFile** payloadPackage) GetPayloadPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, APPX_BUNDLE_FOOTPRINT_FILE_TYPE fileType, IAppxFile* footprintFile) GetFootprintFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, IAppxBlockMapReader* blockMapReader) GetBlockMap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, IAppxBundleManifestReader* manifestReader) GetManifest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, IAppxFilesEnumerator* payloadPackages) GetPayloadPackages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, PWSTR fileName, IAppxFile* payloadPackage) GetPayloadPackage;
 	}
 
 
-	public HRESULT GetFootprintFile(APPX_BUNDLE_FOOTPRINT_FILE_TYPE fileType, IAppxFile** footprintFile) mut => VT.[Friend]GetFootprintFile(&this, fileType, footprintFile);
+	public HRESULT GetFootprintFile(APPX_BUNDLE_FOOTPRINT_FILE_TYPE fileType, IAppxFile* footprintFile) mut => VT.[Friend]GetFootprintFile(&this, fileType, footprintFile);
 
-	public HRESULT GetBlockMap(IAppxBlockMapReader** blockMapReader) mut => VT.[Friend]GetBlockMap(&this, blockMapReader);
+	public HRESULT GetBlockMap(IAppxBlockMapReader* blockMapReader) mut => VT.[Friend]GetBlockMap(&this, blockMapReader);
 
-	public HRESULT GetManifest(IAppxBundleManifestReader** manifestReader) mut => VT.[Friend]GetManifest(&this, manifestReader);
+	public HRESULT GetManifest(IAppxBundleManifestReader* manifestReader) mut => VT.[Friend]GetManifest(&this, manifestReader);
 
-	public HRESULT GetPayloadPackages(IAppxFilesEnumerator** payloadPackages) mut => VT.[Friend]GetPayloadPackages(&this, payloadPackages);
+	public HRESULT GetPayloadPackages(IAppxFilesEnumerator* payloadPackages) mut => VT.[Friend]GetPayloadPackages(&this, payloadPackages);
 
-	public HRESULT GetPayloadPackage(PWSTR fileName, IAppxFile** payloadPackage) mut => VT.[Friend]GetPayloadPackage(&this, fileName, payloadPackage);
+	public HRESULT GetPayloadPackage(PWSTR fileName, IAppxFile* payloadPackage) mut => VT.[Friend]GetPayloadPackage(&this, fileName, payloadPackage);
 }
 
 [CRepr]struct IAppxBundleManifestReader : IUnknown
@@ -1581,17 +1581,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader*/SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader*/SelfOuter* self, IAppxBundleManifestPackageInfoEnumerator** packageInfoItems) GetPackageInfoItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader*/SelfOuter* self, IStream** manifestStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader*/SelfOuter* self, IAppxManifestPackageId* packageId) GetPackageId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader*/SelfOuter* self, IAppxBundleManifestPackageInfoEnumerator* packageInfoItems) GetPackageInfoItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader*/SelfOuter* self, IStream* manifestStream) GetStream;
 	}
 
 
-	public HRESULT GetPackageId(IAppxManifestPackageId** packageId) mut => VT.[Friend]GetPackageId(&this, packageId);
+	public HRESULT GetPackageId(IAppxManifestPackageId* packageId) mut => VT.[Friend]GetPackageId(&this, packageId);
 
-	public HRESULT GetPackageInfoItems(IAppxBundleManifestPackageInfoEnumerator** packageInfoItems) mut => VT.[Friend]GetPackageInfoItems(&this, packageInfoItems);
+	public HRESULT GetPackageInfoItems(IAppxBundleManifestPackageInfoEnumerator* packageInfoItems) mut => VT.[Friend]GetPackageInfoItems(&this, packageInfoItems);
 
-	public HRESULT GetStream(IStream** manifestStream) mut => VT.[Friend]GetStream(&this, manifestStream);
+	public HRESULT GetStream(IStream* manifestStream) mut => VT.[Friend]GetStream(&this, manifestStream);
 }
 
 [CRepr]struct IAppxBundleManifestReader2 : IUnknown
@@ -1602,11 +1602,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader2*/SelfOuter* self, IAppxBundleManifestOptionalBundleInfoEnumerator** optionalBundles) GetOptionalBundles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader2*/SelfOuter* self, IAppxBundleManifestOptionalBundleInfoEnumerator* optionalBundles) GetOptionalBundles;
 	}
 
 
-	public HRESULT GetOptionalBundles(IAppxBundleManifestOptionalBundleInfoEnumerator** optionalBundles) mut => VT.[Friend]GetOptionalBundles(&this, optionalBundles);
+	public HRESULT GetOptionalBundles(IAppxBundleManifestOptionalBundleInfoEnumerator* optionalBundles) mut => VT.[Friend]GetOptionalBundles(&this, optionalBundles);
 }
 
 [CRepr]struct IAppxBundleManifestPackageInfoEnumerator : IUnknown
@@ -1617,17 +1617,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfoEnumerator*/SelfOuter* self, IAppxBundleManifestPackageInfo** packageInfo) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfoEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfoEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfoEnumerator*/SelfOuter* self, IAppxBundleManifestPackageInfo* packageInfo) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfoEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfoEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxBundleManifestPackageInfo** packageInfo) mut => VT.[Friend]GetCurrent(&this, packageInfo);
+	public HRESULT GetCurrent(IAppxBundleManifestPackageInfo* packageInfo) mut => VT.[Friend]GetCurrent(&this, packageInfo);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxBundleManifestPackageInfo : IUnknown
@@ -1638,26 +1638,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE* packageType) GetPackageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, PWSTR* fileName) GetFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, uint64* offset) GetOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, uint64* size) GetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, IAppxManifestQualifiedResourcesEnumerator** resources) GetResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE packageType) GetPackageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, IAppxManifestPackageId* packageId) GetPackageId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, PWSTR fileName) GetFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, uint64 offset) GetOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, uint64 size) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, IAppxManifestQualifiedResourcesEnumerator* resources) GetResources;
 	}
 
 
-	public HRESULT GetPackageType(APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE* packageType) mut => VT.[Friend]GetPackageType(&this, packageType);
+	public HRESULT GetPackageType(APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE packageType) mut => VT.[Friend]GetPackageType(&this, packageType);
 
-	public HRESULT GetPackageId(IAppxManifestPackageId** packageId) mut => VT.[Friend]GetPackageId(&this, packageId);
+	public HRESULT GetPackageId(IAppxManifestPackageId* packageId) mut => VT.[Friend]GetPackageId(&this, packageId);
 
-	public HRESULT GetFileName(PWSTR* fileName) mut => VT.[Friend]GetFileName(&this, fileName);
+	public HRESULT GetFileName(PWSTR fileName) mut => VT.[Friend]GetFileName(&this, fileName);
 
-	public HRESULT GetOffset(uint64* offset) mut => VT.[Friend]GetOffset(&this, offset);
+	public HRESULT GetOffset(uint64 offset) mut => VT.[Friend]GetOffset(&this, offset);
 
-	public HRESULT GetSize(uint64* size) mut => VT.[Friend]GetSize(&this, size);
+	public HRESULT GetSize(uint64 size) mut => VT.[Friend]GetSize(&this, size);
 
-	public HRESULT GetResources(IAppxManifestQualifiedResourcesEnumerator** resources) mut => VT.[Friend]GetResources(&this, resources);
+	public HRESULT GetResources(IAppxManifestQualifiedResourcesEnumerator* resources) mut => VT.[Friend]GetResources(&this, resources);
 }
 
 [CRepr]struct IAppxBundleManifestPackageInfo2 : IUnknown
@@ -1668,17 +1668,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo2*/SelfOuter* self, BOOL* isPackageReference) GetIsPackageReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo2*/SelfOuter* self, BOOL* isNonQualifiedResourcePackage) GetIsNonQualifiedResourcePackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo2*/SelfOuter* self, BOOL* isDefaultApplicablePackage) GetIsDefaultApplicablePackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo2*/SelfOuter* self, BOOL isPackageReference) GetIsPackageReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo2*/SelfOuter* self, BOOL isNonQualifiedResourcePackage) GetIsNonQualifiedResourcePackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo2*/SelfOuter* self, BOOL isDefaultApplicablePackage) GetIsDefaultApplicablePackage;
 	}
 
 
-	public HRESULT GetIsPackageReference(BOOL* isPackageReference) mut => VT.[Friend]GetIsPackageReference(&this, isPackageReference);
+	public HRESULT GetIsPackageReference(BOOL isPackageReference) mut => VT.[Friend]GetIsPackageReference(&this, isPackageReference);
 
-	public HRESULT GetIsNonQualifiedResourcePackage(BOOL* isNonQualifiedResourcePackage) mut => VT.[Friend]GetIsNonQualifiedResourcePackage(&this, isNonQualifiedResourcePackage);
+	public HRESULT GetIsNonQualifiedResourcePackage(BOOL isNonQualifiedResourcePackage) mut => VT.[Friend]GetIsNonQualifiedResourcePackage(&this, isNonQualifiedResourcePackage);
 
-	public HRESULT GetIsDefaultApplicablePackage(BOOL* isDefaultApplicablePackage) mut => VT.[Friend]GetIsDefaultApplicablePackage(&this, isDefaultApplicablePackage);
+	public HRESULT GetIsDefaultApplicablePackage(BOOL isDefaultApplicablePackage) mut => VT.[Friend]GetIsDefaultApplicablePackage(&this, isDefaultApplicablePackage);
 }
 
 [CRepr]struct IAppxBundleManifestPackageInfo3 : IUnknown
@@ -1689,11 +1689,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo3*/SelfOuter* self, IAppxManifestTargetDeviceFamiliesEnumerator** targetDeviceFamilies) GetTargetDeviceFamilies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo3*/SelfOuter* self, IAppxManifestTargetDeviceFamiliesEnumerator* targetDeviceFamilies) GetTargetDeviceFamilies;
 	}
 
 
-	public HRESULT GetTargetDeviceFamilies(IAppxManifestTargetDeviceFamiliesEnumerator** targetDeviceFamilies) mut => VT.[Friend]GetTargetDeviceFamilies(&this, targetDeviceFamilies);
+	public HRESULT GetTargetDeviceFamilies(IAppxManifestTargetDeviceFamiliesEnumerator* targetDeviceFamilies) mut => VT.[Friend]GetTargetDeviceFamilies(&this, targetDeviceFamilies);
 }
 
 [CRepr]struct IAppxBundleManifestPackageInfo4 : IUnknown
@@ -1704,11 +1704,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo4*/SelfOuter* self, BOOL* isStub) GetIsStub;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo4*/SelfOuter* self, BOOL isStub) GetIsStub;
 	}
 
 
-	public HRESULT GetIsStub(BOOL* isStub) mut => VT.[Friend]GetIsStub(&this, isStub);
+	public HRESULT GetIsStub(BOOL isStub) mut => VT.[Friend]GetIsStub(&this, isStub);
 }
 
 [CRepr]struct IAppxBundleManifestOptionalBundleInfoEnumerator : IUnknown
@@ -1719,17 +1719,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfoEnumerator*/SelfOuter* self, IAppxBundleManifestOptionalBundleInfo** optionalBundle) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfoEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfoEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfoEnumerator*/SelfOuter* self, IAppxBundleManifestOptionalBundleInfo* optionalBundle) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfoEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfoEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxBundleManifestOptionalBundleInfo** optionalBundle) mut => VT.[Friend]GetCurrent(&this, optionalBundle);
+	public HRESULT GetCurrent(IAppxBundleManifestOptionalBundleInfo* optionalBundle) mut => VT.[Friend]GetCurrent(&this, optionalBundle);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxBundleManifestOptionalBundleInfo : IUnknown
@@ -1740,17 +1740,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfo*/SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfo*/SelfOuter* self, PWSTR* fileName) GetFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfo*/SelfOuter* self, IAppxBundleManifestPackageInfoEnumerator** packageInfoItems) GetPackageInfoItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfo*/SelfOuter* self, IAppxManifestPackageId* packageId) GetPackageId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfo*/SelfOuter* self, PWSTR fileName) GetFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfo*/SelfOuter* self, IAppxBundleManifestPackageInfoEnumerator* packageInfoItems) GetPackageInfoItems;
 	}
 
 
-	public HRESULT GetPackageId(IAppxManifestPackageId** packageId) mut => VT.[Friend]GetPackageId(&this, packageId);
+	public HRESULT GetPackageId(IAppxManifestPackageId* packageId) mut => VT.[Friend]GetPackageId(&this, packageId);
 
-	public HRESULT GetFileName(PWSTR* fileName) mut => VT.[Friend]GetFileName(&this, fileName);
+	public HRESULT GetFileName(PWSTR fileName) mut => VT.[Friend]GetFileName(&this, fileName);
 
-	public HRESULT GetPackageInfoItems(IAppxBundleManifestPackageInfoEnumerator** packageInfoItems) mut => VT.[Friend]GetPackageInfoItems(&this, packageInfoItems);
+	public HRESULT GetPackageInfoItems(IAppxBundleManifestPackageInfoEnumerator* packageInfoItems) mut => VT.[Friend]GetPackageInfoItems(&this, packageInfoItems);
 }
 
 [CRepr]struct IAppxContentGroupFilesEnumerator : IUnknown
@@ -1761,17 +1761,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupFilesEnumerator*/SelfOuter* self, PWSTR* file) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupFilesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupFilesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupFilesEnumerator*/SelfOuter* self, PWSTR file) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupFilesEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupFilesEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(PWSTR* file) mut => VT.[Friend]GetCurrent(&this, file);
+	public HRESULT GetCurrent(PWSTR file) mut => VT.[Friend]GetCurrent(&this, file);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxContentGroup : IUnknown
@@ -1782,14 +1782,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroup*/SelfOuter* self, PWSTR* groupName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroup*/SelfOuter* self, IAppxContentGroupFilesEnumerator** enumerator) GetFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroup*/SelfOuter* self, PWSTR groupName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroup*/SelfOuter* self, IAppxContentGroupFilesEnumerator* enumerator) GetFiles;
 	}
 
 
-	public HRESULT GetName(PWSTR* groupName) mut => VT.[Friend]GetName(&this, groupName);
+	public HRESULT GetName(PWSTR groupName) mut => VT.[Friend]GetName(&this, groupName);
 
-	public HRESULT GetFiles(IAppxContentGroupFilesEnumerator** enumerator) mut => VT.[Friend]GetFiles(&this, enumerator);
+	public HRESULT GetFiles(IAppxContentGroupFilesEnumerator* enumerator) mut => VT.[Friend]GetFiles(&this, enumerator);
 }
 
 [CRepr]struct IAppxContentGroupsEnumerator : IUnknown
@@ -1800,17 +1800,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupsEnumerator*/SelfOuter* self, IAppxContentGroup** stream) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupsEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupsEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupsEnumerator*/SelfOuter* self, IAppxContentGroup* stream) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupsEnumerator*/SelfOuter* self, BOOL hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupsEnumerator*/SelfOuter* self, BOOL hasNext) MoveNext;
 	}
 
 
-	public HRESULT GetCurrent(IAppxContentGroup** stream) mut => VT.[Friend]GetCurrent(&this, stream);
+	public HRESULT GetCurrent(IAppxContentGroup* stream) mut => VT.[Friend]GetCurrent(&this, stream);
 
-	public HRESULT GetHasCurrent(BOOL* hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
+	public HRESULT GetHasCurrent(BOOL hasCurrent) mut => VT.[Friend]GetHasCurrent(&this, hasCurrent);
 
-	public HRESULT MoveNext(BOOL* hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
+	public HRESULT MoveNext(BOOL hasNext) mut => VT.[Friend]MoveNext(&this, hasNext);
 }
 
 [CRepr]struct IAppxContentGroupMapReader : IUnknown
@@ -1821,14 +1821,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupMapReader*/SelfOuter* self, IAppxContentGroup** requiredGroup) GetRequiredGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupMapReader*/SelfOuter* self, IAppxContentGroupsEnumerator** automaticGroupsEnumerator) GetAutomaticGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupMapReader*/SelfOuter* self, IAppxContentGroup* requiredGroup) GetRequiredGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupMapReader*/SelfOuter* self, IAppxContentGroupsEnumerator* automaticGroupsEnumerator) GetAutomaticGroups;
 	}
 
 
-	public HRESULT GetRequiredGroup(IAppxContentGroup** requiredGroup) mut => VT.[Friend]GetRequiredGroup(&this, requiredGroup);
+	public HRESULT GetRequiredGroup(IAppxContentGroup* requiredGroup) mut => VT.[Friend]GetRequiredGroup(&this, requiredGroup);
 
-	public HRESULT GetAutomaticGroups(IAppxContentGroupsEnumerator** automaticGroupsEnumerator) mut => VT.[Friend]GetAutomaticGroups(&this, automaticGroupsEnumerator);
+	public HRESULT GetAutomaticGroups(IAppxContentGroupsEnumerator* automaticGroupsEnumerator) mut => VT.[Friend]GetAutomaticGroups(&this, automaticGroupsEnumerator);
 }
 
 [CRepr]struct IAppxSourceContentGroupMapReader : IUnknown
@@ -1839,14 +1839,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxSourceContentGroupMapReader*/SelfOuter* self, IAppxContentGroup** requiredGroup) GetRequiredGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxSourceContentGroupMapReader*/SelfOuter* self, IAppxContentGroupsEnumerator** automaticGroupsEnumerator) GetAutomaticGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxSourceContentGroupMapReader*/SelfOuter* self, IAppxContentGroup* requiredGroup) GetRequiredGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxSourceContentGroupMapReader*/SelfOuter* self, IAppxContentGroupsEnumerator* automaticGroupsEnumerator) GetAutomaticGroups;
 	}
 
 
-	public HRESULT GetRequiredGroup(IAppxContentGroup** requiredGroup) mut => VT.[Friend]GetRequiredGroup(&this, requiredGroup);
+	public HRESULT GetRequiredGroup(IAppxContentGroup* requiredGroup) mut => VT.[Friend]GetRequiredGroup(&this, requiredGroup);
 
-	public HRESULT GetAutomaticGroups(IAppxContentGroupsEnumerator** automaticGroupsEnumerator) mut => VT.[Friend]GetAutomaticGroups(&this, automaticGroupsEnumerator);
+	public HRESULT GetAutomaticGroups(IAppxContentGroupsEnumerator* automaticGroupsEnumerator) mut => VT.[Friend]GetAutomaticGroups(&this, automaticGroupsEnumerator);
 }
 
 [CRepr]struct IAppxContentGroupMapWriter : IUnknown
@@ -1911,32 +1911,32 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_KEY_INFO* keyInfo) DecryptPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* outputStream, IStream* manifestStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) CreateEncryptedPackageWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, APPX_KEY_INFO* keyInfo, IAppxPackageReader** packageReader) CreateEncryptedPackageReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptBundle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_KEY_INFO* keyInfo) DecryptBundle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedBundleWriter** bundleWriter) CreateEncryptedBundleWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, APPX_KEY_INFO* keyInfo, IAppxBundleReader** bundleReader) CreateEncryptedBundleReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles) EncryptPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_KEY_INFO keyInfo) DecryptPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* outputStream, IStream* manifestStream, APPX_ENCRYPTED_PACKAGE_SETTINGS settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, IAppxEncryptedPackageWriter* packageWriter) CreateEncryptedPackageWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, APPX_KEY_INFO keyInfo, IAppxPackageReader* packageReader) CreateEncryptedPackageReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles) EncryptBundle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_KEY_INFO keyInfo) DecryptBundle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, IAppxEncryptedBundleWriter* bundleWriter) CreateEncryptedBundleWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, APPX_KEY_INFO keyInfo, IAppxBundleReader* bundleReader) CreateEncryptedBundleReader;
 	}
 
 
-	public HRESULT EncryptPackage(IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) mut => VT.[Friend]EncryptPackage(&this, inputStream, outputStream, settings, keyInfo, exemptedFiles);
+	public HRESULT EncryptPackage(IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles) mut => VT.[Friend]EncryptPackage(&this, inputStream, outputStream, settings, keyInfo, exemptedFiles);
 
-	public HRESULT DecryptPackage(IStream* inputStream, IStream* outputStream, APPX_KEY_INFO* keyInfo) mut => VT.[Friend]DecryptPackage(&this, inputStream, outputStream, keyInfo);
+	public HRESULT DecryptPackage(IStream* inputStream, IStream* outputStream, APPX_KEY_INFO keyInfo) mut => VT.[Friend]DecryptPackage(&this, inputStream, outputStream, keyInfo);
 
-	public HRESULT CreateEncryptedPackageWriter(IStream* outputStream, IStream* manifestStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) mut => VT.[Friend]CreateEncryptedPackageWriter(&this, outputStream, manifestStream, settings, keyInfo, exemptedFiles, packageWriter);
+	public HRESULT CreateEncryptedPackageWriter(IStream* outputStream, IStream* manifestStream, APPX_ENCRYPTED_PACKAGE_SETTINGS settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, IAppxEncryptedPackageWriter* packageWriter) mut => VT.[Friend]CreateEncryptedPackageWriter(&this, outputStream, manifestStream, settings, keyInfo, exemptedFiles, packageWriter);
 
-	public HRESULT CreateEncryptedPackageReader(IStream* inputStream, APPX_KEY_INFO* keyInfo, IAppxPackageReader** packageReader) mut => VT.[Friend]CreateEncryptedPackageReader(&this, inputStream, keyInfo, packageReader);
+	public HRESULT CreateEncryptedPackageReader(IStream* inputStream, APPX_KEY_INFO keyInfo, IAppxPackageReader* packageReader) mut => VT.[Friend]CreateEncryptedPackageReader(&this, inputStream, keyInfo, packageReader);
 
-	public HRESULT EncryptBundle(IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) mut => VT.[Friend]EncryptBundle(&this, inputStream, outputStream, settings, keyInfo, exemptedFiles);
+	public HRESULT EncryptBundle(IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles) mut => VT.[Friend]EncryptBundle(&this, inputStream, outputStream, settings, keyInfo, exemptedFiles);
 
-	public HRESULT DecryptBundle(IStream* inputStream, IStream* outputStream, APPX_KEY_INFO* keyInfo) mut => VT.[Friend]DecryptBundle(&this, inputStream, outputStream, keyInfo);
+	public HRESULT DecryptBundle(IStream* inputStream, IStream* outputStream, APPX_KEY_INFO keyInfo) mut => VT.[Friend]DecryptBundle(&this, inputStream, outputStream, keyInfo);
 
-	public HRESULT CreateEncryptedBundleWriter(IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedBundleWriter** bundleWriter) mut => VT.[Friend]CreateEncryptedBundleWriter(&this, outputStream, bundleVersion, settings, keyInfo, exemptedFiles, bundleWriter);
+	public HRESULT CreateEncryptedBundleWriter(IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, IAppxEncryptedBundleWriter* bundleWriter) mut => VT.[Friend]CreateEncryptedBundleWriter(&this, outputStream, bundleVersion, settings, keyInfo, exemptedFiles, bundleWriter);
 
-	public HRESULT CreateEncryptedBundleReader(IStream* inputStream, APPX_KEY_INFO* keyInfo, IAppxBundleReader** bundleReader) mut => VT.[Friend]CreateEncryptedBundleReader(&this, inputStream, keyInfo, bundleReader);
+	public HRESULT CreateEncryptedBundleReader(IStream* inputStream, APPX_KEY_INFO keyInfo, IAppxBundleReader* bundleReader) mut => VT.[Friend]CreateEncryptedBundleReader(&this, inputStream, keyInfo, bundleReader);
 }
 
 [CRepr]struct IAppxEncryptionFactory2 : IUnknown
@@ -1947,11 +1947,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory2*/SelfOuter* self, IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) CreateEncryptedPackageWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory2*/SelfOuter* self, IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, IAppxEncryptedPackageWriter* packageWriter) CreateEncryptedPackageWriter;
 	}
 
 
-	public HRESULT CreateEncryptedPackageWriter(IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) mut => VT.[Friend]CreateEncryptedPackageWriter(&this, outputStream, manifestStream, contentGroupMapStream, settings, keyInfo, exemptedFiles, packageWriter);
+	public HRESULT CreateEncryptedPackageWriter(IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, IAppxEncryptedPackageWriter* packageWriter) mut => VT.[Friend]CreateEncryptedPackageWriter(&this, outputStream, manifestStream, contentGroupMapStream, settings, keyInfo, exemptedFiles, packageWriter);
 }
 
 [CRepr]struct IAppxEncryptionFactory3 : IUnknown
@@ -1962,20 +1962,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) CreateEncryptedPackageWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptBundle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedBundleWriter** bundleWriter) CreateEncryptedBundleWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles) EncryptPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, IAppxEncryptedPackageWriter* packageWriter) CreateEncryptedPackageWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles) EncryptBundle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, IAppxEncryptedBundleWriter* bundleWriter) CreateEncryptedBundleWriter;
 	}
 
 
-	public HRESULT EncryptPackage(IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) mut => VT.[Friend]EncryptPackage(&this, inputStream, outputStream, settings, keyInfo, exemptedFiles);
+	public HRESULT EncryptPackage(IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles) mut => VT.[Friend]EncryptPackage(&this, inputStream, outputStream, settings, keyInfo, exemptedFiles);
 
-	public HRESULT CreateEncryptedPackageWriter(IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) mut => VT.[Friend]CreateEncryptedPackageWriter(&this, outputStream, manifestStream, contentGroupMapStream, settings, keyInfo, exemptedFiles, packageWriter);
+	public HRESULT CreateEncryptedPackageWriter(IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, IAppxEncryptedPackageWriter* packageWriter) mut => VT.[Friend]CreateEncryptedPackageWriter(&this, outputStream, manifestStream, contentGroupMapStream, settings, keyInfo, exemptedFiles, packageWriter);
 
-	public HRESULT EncryptBundle(IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) mut => VT.[Friend]EncryptBundle(&this, inputStream, outputStream, settings, keyInfo, exemptedFiles);
+	public HRESULT EncryptBundle(IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles) mut => VT.[Friend]EncryptBundle(&this, inputStream, outputStream, settings, keyInfo, exemptedFiles);
 
-	public HRESULT CreateEncryptedBundleWriter(IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedBundleWriter** bundleWriter) mut => VT.[Friend]CreateEncryptedBundleWriter(&this, outputStream, bundleVersion, settings, keyInfo, exemptedFiles, bundleWriter);
+	public HRESULT CreateEncryptedBundleWriter(IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, IAppxEncryptedBundleWriter* bundleWriter) mut => VT.[Friend]CreateEncryptedBundleWriter(&this, outputStream, bundleVersion, settings, keyInfo, exemptedFiles, bundleWriter);
 }
 
 [CRepr]struct IAppxEncryptionFactory4 : IUnknown
@@ -1986,11 +1986,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory4*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, uint64 memoryLimit) EncryptPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory4*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, uint64 memoryLimit) EncryptPackage;
 	}
 
 
-	public HRESULT EncryptPackage(IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, uint64 memoryLimit) mut => VT.[Friend]EncryptPackage(&this, inputStream, outputStream, settings, keyInfo, exemptedFiles, memoryLimit);
+	public HRESULT EncryptPackage(IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo, APPX_ENCRYPTED_EXEMPTIONS exemptedFiles, uint64 memoryLimit) mut => VT.[Friend]EncryptPackage(&this, inputStream, outputStream, settings, keyInfo, exemptedFiles, memoryLimit);
 }
 
 [CRepr]struct IAppxEncryptedPackageWriter : IUnknown
@@ -2089,7 +2089,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* updatedPackageStream, IStream* baselinePackageStream, IStream* deltaPackageStream) CreateDeltaPackage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* updatedPackageStream, IStream* baselineBlockMapStream, PWSTR baselinePackageFullName, IStream* deltaPackageStream) CreateDeltaPackageUsingBaselineBlockMap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* baselinePackageStream, IStream* deltaPackageStream, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption) UpdatePackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* baselineEncryptedPackageStream, IStream* deltaPackageStream, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo) UpdateEncryptedPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* baselineEncryptedPackageStream, IStream* deltaPackageStream, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo) UpdateEncryptedPackage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* packageStream, IStream* updatedManifestStream, BOOL isPackageEncrypted, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS options) UpdatePackageManifest;
 	}
 
@@ -2102,7 +2102,7 @@ public static
 
 	public HRESULT UpdatePackage(IStream* baselinePackageStream, IStream* deltaPackageStream, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption) mut => VT.[Friend]UpdatePackage(&this, baselinePackageStream, deltaPackageStream, updateOption);
 
-	public HRESULT UpdateEncryptedPackage(IStream* baselineEncryptedPackageStream, IStream* deltaPackageStream, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo) mut => VT.[Friend]UpdateEncryptedPackage(&this, baselineEncryptedPackageStream, deltaPackageStream, updateOption, settings, keyInfo);
+	public HRESULT UpdateEncryptedPackage(IStream* baselineEncryptedPackageStream, IStream* deltaPackageStream, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption, APPX_ENCRYPTED_PACKAGE_SETTINGS2 settings, APPX_KEY_INFO keyInfo) mut => VT.[Friend]UpdateEncryptedPackage(&this, baselineEncryptedPackageStream, deltaPackageStream, updateOption, settings, keyInfo);
 
 	public HRESULT UpdatePackageManifest(IStream* packageStream, IStream* updatedManifestStream, BOOL isPackageEncrypted, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS options) mut => VT.[Friend]UpdatePackageManifest(&this, packageStream, updatedManifestStream, isPackageEncrypted, options);
 }
@@ -2113,61 +2113,61 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageId(uint32* bufferLength, uint8* buffer);
+	public static extern int32 GetCurrentPackageId(uint32 bufferLength, uint8 buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageFullName(uint32* packageFullNameLength, char16* packageFullName);
+	public static extern int32 GetCurrentPackageFullName(uint32 packageFullNameLength, char16* packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageFamilyName(uint32* packageFamilyNameLength, char16* packageFamilyName);
+	public static extern int32 GetCurrentPackageFamilyName(uint32 packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackagePath(uint32* pathLength, char16* path);
+	public static extern int32 GetCurrentPackagePath(uint32 pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageId(HANDLE hProcess, uint32* bufferLength, uint8* buffer);
+	public static extern int32 GetPackageId(HANDLE hProcess, uint32 bufferLength, uint8 buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFullName(HANDLE hProcess, uint32* packageFullNameLength, char16* packageFullName);
+	public static extern int32 GetPackageFullName(HANDLE hProcess, uint32 packageFullNameLength, char16* packageFullName);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFullNameFromToken(HANDLE token, uint32* packageFullNameLength, char16* packageFullName);
+	public static extern int32 GetPackageFullNameFromToken(HANDLE token, uint32 packageFullNameLength, char16* packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFamilyName(HANDLE hProcess, uint32* packageFamilyNameLength, char16* packageFamilyName);
+	public static extern int32 GetPackageFamilyName(HANDLE hProcess, uint32 packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageFamilyNameFromToken(HANDLE token, uint32* packageFamilyNameLength, char16* packageFamilyName);
+	public static extern int32 GetPackageFamilyNameFromToken(HANDLE token, uint32 packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagePath(PACKAGE_ID* packageId, uint32 reserved, uint32* pathLength, char16* path);
+	public static extern int32 GetPackagePath(PACKAGE_ID packageId, uint32 reserved, uint32 pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagePathByFullName(PWSTR packageFullName, uint32* pathLength, char16* path);
+	public static extern int32 GetPackagePathByFullName(PWSTR packageFullName, uint32 pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetStagedPackagePathByFullName(PWSTR packageFullName, uint32* pathLength, char16* path);
+	public static extern int32 GetStagedPackagePathByFullName(PWSTR packageFullName, uint32 pathLength, char16* path);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32* pathLength, char16* path);
+	public static extern int32 GetPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32 pathLength, char16* path);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetStagedPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32* pathLength, char16* path);
+	public static extern int32 GetStagedPackagePathByFullName2(PWSTR packageFullName, PackagePathType packagePathType, uint32 pathLength, char16* path);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageInfo2(uint32 flags, PackagePathType packagePathType, uint32* bufferLength, uint8* buffer, uint32* count);
+	public static extern int32 GetCurrentPackageInfo2(uint32 flags, PackagePathType packagePathType, uint32 bufferLength, uint8 buffer, uint32 count);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackagePath2(PackagePathType packagePathType, uint32* pathLength, char16* path);
+	public static extern int32 GetCurrentPackagePath2(PackagePathType packagePathType, uint32 pathLength, char16* path);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentApplicationUserModelId(uint32* applicationUserModelIdLength, char16* applicationUserModelId);
+	public static extern int32 GetCurrentApplicationUserModelId(uint32 applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetApplicationUserModelId(HANDLE hProcess, uint32* applicationUserModelIdLength, char16* applicationUserModelId);
+	public static extern int32 GetApplicationUserModelId(HANDLE hProcess, uint32 applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetApplicationUserModelIdFromToken(HANDLE token, uint32* applicationUserModelIdLength, char16* applicationUserModelId);
+	public static extern int32 GetApplicationUserModelIdFromToken(HANDLE token, uint32 applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 VerifyPackageFullName(PWSTR packageFullName);
@@ -2176,7 +2176,7 @@ public static
 	public static extern int32 VerifyPackageFamilyName(PWSTR packageFamilyName);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 VerifyPackageId(PACKAGE_ID* packageId);
+	public static extern int32 VerifyPackageId(PACKAGE_ID packageId);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 VerifyApplicationUserModelId(PWSTR applicationUserModelId);
@@ -2185,121 +2185,121 @@ public static
 	public static extern int32 VerifyPackageRelativeApplicationId(PWSTR packageRelativeApplicationId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageIdFromFullName(PWSTR packageFullName, uint32 flags, uint32* bufferLength, uint8* buffer);
+	public static extern int32 PackageIdFromFullName(PWSTR packageFullName, uint32 flags, uint32 bufferLength, uint8 buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageFullNameFromId(PACKAGE_ID* packageId, uint32* packageFullNameLength, char16* packageFullName);
+	public static extern int32 PackageFullNameFromId(PACKAGE_ID packageId, uint32 packageFullNameLength, char16* packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageFamilyNameFromId(PACKAGE_ID* packageId, uint32* packageFamilyNameLength, char16* packageFamilyName);
+	public static extern int32 PackageFamilyNameFromId(PACKAGE_ID packageId, uint32 packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageFamilyNameFromFullName(PWSTR packageFullName, uint32* packageFamilyNameLength, char16* packageFamilyName);
+	public static extern int32 PackageFamilyNameFromFullName(PWSTR packageFullName, uint32 packageFamilyNameLength, char16* packageFamilyName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PackageNameAndPublisherIdFromFamilyName(PWSTR packageFamilyName, uint32* packageNameLength, char16* packageName, uint32* packagePublisherIdLength, char16* packagePublisherId);
+	public static extern int32 PackageNameAndPublisherIdFromFamilyName(PWSTR packageFamilyName, uint32 packageNameLength, char16* packageName, uint32 packagePublisherIdLength, char16* packagePublisherId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 FormatApplicationUserModelId(PWSTR packageFamilyName, PWSTR packageRelativeApplicationId, uint32* applicationUserModelIdLength, char16* applicationUserModelId);
+	public static extern int32 FormatApplicationUserModelId(PWSTR packageFamilyName, PWSTR packageRelativeApplicationId, uint32 applicationUserModelIdLength, char16* applicationUserModelId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ParseApplicationUserModelId(PWSTR applicationUserModelId, uint32* packageFamilyNameLength, char16* packageFamilyName, uint32* packageRelativeApplicationIdLength, char16* packageRelativeApplicationId);
+	public static extern int32 ParseApplicationUserModelId(PWSTR applicationUserModelId, uint32 packageFamilyNameLength, char16* packageFamilyName, uint32 packageRelativeApplicationIdLength, char16* packageRelativeApplicationId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackagesByPackageFamily(PWSTR packageFamilyName, uint32* count, PWSTR* packageFullNames, uint32* bufferLength, char16* buffer);
+	public static extern int32 GetPackagesByPackageFamily(PWSTR packageFamilyName, uint32 count, PWSTR* packageFullNames, uint32 bufferLength, char16* buffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 FindPackagesByPackageFamily(PWSTR packageFamilyName, uint32 packageFilters, uint32* count, PWSTR* packageFullNames, uint32* bufferLength, char16* buffer, uint32* packageProperties);
+	public static extern int32 FindPackagesByPackageFamily(PWSTR packageFamilyName, uint32 packageFilters, uint32 count, PWSTR* packageFullNames, uint32 bufferLength, char16* buffer, uint32* packageProperties);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetStagedPackageOrigin(PWSTR packageFullName, PackageOrigin* origin);
+	public static extern int32 GetStagedPackageOrigin(PWSTR packageFullName, PackageOrigin origin);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetCurrentPackageInfo(uint32 flags, uint32* bufferLength, uint8* buffer, uint32* count);
+	public static extern int32 GetCurrentPackageInfo(uint32 flags, uint32 bufferLength, uint8 buffer, uint32 count);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 OpenPackageInfoByFullName(PWSTR packageFullName, uint32 reserved, _PACKAGE_INFO_REFERENCE** packageInfoReference);
+	public static extern int32 OpenPackageInfoByFullName(PWSTR packageFullName, uint32 reserved, _PACKAGE_INFO_REFERENCE packageInfoReference);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 OpenPackageInfoByFullNameForUser(PSID userSid, PWSTR packageFullName, uint32 reserved, _PACKAGE_INFO_REFERENCE** packageInfoReference);
+	public static extern int32 OpenPackageInfoByFullNameForUser(PSID userSid, PWSTR packageFullName, uint32 reserved, _PACKAGE_INFO_REFERENCE packageInfoReference);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClosePackageInfo(_PACKAGE_INFO_REFERENCE* packageInfoReference);
+	public static extern int32 ClosePackageInfo(_PACKAGE_INFO_REFERENCE packageInfoReference);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageInfo(_PACKAGE_INFO_REFERENCE* packageInfoReference, uint32 flags, uint32* bufferLength, uint8* buffer, uint32* count);
+	public static extern int32 GetPackageInfo(_PACKAGE_INFO_REFERENCE packageInfoReference, uint32 flags, uint32 bufferLength, uint8 buffer, uint32 count);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageApplicationIds(_PACKAGE_INFO_REFERENCE* packageInfoReference, uint32* bufferLength, uint8* buffer, uint32* count);
+	public static extern int32 GetPackageApplicationIds(_PACKAGE_INFO_REFERENCE packageInfoReference, uint32 bufferLength, uint8 buffer, uint32 count);
 
 	[Import("api-ms-win-appmodel-runtime-l1-1-3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetPackageInfo2(_PACKAGE_INFO_REFERENCE* packageInfoReference, uint32 flags, PackagePathType packagePathType, uint32* bufferLength, uint8* buffer, uint32* count);
+	public static extern int32 GetPackageInfo2(_PACKAGE_INFO_REFERENCE packageInfoReference, uint32 flags, PackagePathType packagePathType, uint32 bufferLength, uint8 buffer, uint32 count);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CheckIsMSIXPackage(PWSTR packageFullName, BOOL* isMSIXPackage);
+	public static extern HRESULT CheckIsMSIXPackage(PWSTR packageFullName, BOOL isMSIXPackage);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT TryCreatePackageDependency(PSID user, PWSTR packageFamilyName, PACKAGE_VERSION minVersion, PackageDependencyProcessorArchitectures packageDependencyProcessorArchitectures, PackageDependencyLifetimeKind lifetimeKind, PWSTR lifetimeArtifact, CreatePackageDependencyOptions options, PWSTR* packageDependencyId);
+	public static extern HRESULT TryCreatePackageDependency(PSID user, PWSTR packageFamilyName, PACKAGE_VERSION minVersion, PackageDependencyProcessorArchitectures packageDependencyProcessorArchitectures, PackageDependencyLifetimeKind lifetimeKind, PWSTR lifetimeArtifact, CreatePackageDependencyOptions options, PWSTR packageDependencyId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DeletePackageDependency(PWSTR packageDependencyId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AddPackageDependency(PWSTR packageDependencyId, int32 rank, AddPackageDependencyOptions options, PACKAGEDEPENDENCY_CONTEXT__** packageDependencyContext, PWSTR* packageFullName);
+	public static extern HRESULT AddPackageDependency(PWSTR packageDependencyId, int32 rank, AddPackageDependencyOptions options, PACKAGEDEPENDENCY_CONTEXT__ packageDependencyContext, PWSTR packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RemovePackageDependency(PACKAGEDEPENDENCY_CONTEXT__* packageDependencyContext);
+	public static extern HRESULT RemovePackageDependency(PACKAGEDEPENDENCY_CONTEXT__ packageDependencyContext);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetResolvedPackageFullNameForPackageDependency(PWSTR packageDependencyId, PWSTR* packageFullName);
+	public static extern HRESULT GetResolvedPackageFullNameForPackageDependency(PWSTR packageDependencyId, PWSTR packageFullName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetIdForPackageDependencyContext(PACKAGEDEPENDENCY_CONTEXT__* packageDependencyContext, PWSTR* packageDependencyId);
+	public static extern HRESULT GetIdForPackageDependencyContext(PACKAGEDEPENDENCY_CONTEXT__ packageDependencyContext, PWSTR packageDependencyId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 AppPolicyGetLifecycleManagement(HANDLE processToken, AppPolicyLifecycleManagement* policy);
+	public static extern int32 AppPolicyGetLifecycleManagement(HANDLE processToken, AppPolicyLifecycleManagement policy);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 AppPolicyGetWindowingModel(HANDLE processToken, AppPolicyWindowingModel* policy);
+	public static extern int32 AppPolicyGetWindowingModel(HANDLE processToken, AppPolicyWindowingModel policy);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 AppPolicyGetMediaFoundationCodecLoading(HANDLE processToken, AppPolicyMediaFoundationCodecLoading* policy);
+	public static extern int32 AppPolicyGetMediaFoundationCodecLoading(HANDLE processToken, AppPolicyMediaFoundationCodecLoading policy);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 AppPolicyGetClrCompat(HANDLE processToken, AppPolicyClrCompat* policy);
+	public static extern int32 AppPolicyGetClrCompat(HANDLE processToken, AppPolicyClrCompat policy);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 AppPolicyGetThreadInitializationType(HANDLE processToken, AppPolicyThreadInitializationType* policy);
+	public static extern int32 AppPolicyGetThreadInitializationType(HANDLE processToken, AppPolicyThreadInitializationType policy);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 AppPolicyGetShowDeveloperDiagnostic(HANDLE processToken, AppPolicyShowDeveloperDiagnostic* policy);
+	public static extern int32 AppPolicyGetShowDeveloperDiagnostic(HANDLE processToken, AppPolicyShowDeveloperDiagnostic policy);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 AppPolicyGetProcessTerminationMethod(HANDLE processToken, AppPolicyProcessTerminationMethod* policy);
+	public static extern int32 AppPolicyGetProcessTerminationMethod(HANDLE processToken, AppPolicyProcessTerminationMethod policy);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 AppPolicyGetCreateFileAccess(HANDLE processToken, AppPolicyCreateFileAccess* policy);
+	public static extern int32 AppPolicyGetCreateFileAccess(HANDLE processToken, AppPolicyCreateFileAccess policy);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreatePackageVirtualizationContext(PWSTR packageFamilyName, PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__** context);
+	public static extern HRESULT CreatePackageVirtualizationContext(PWSTR packageFamilyName, PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ context);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ActivatePackageVirtualizationContext(PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__* context, uint* cookie);
+	public static extern HRESULT ActivatePackageVirtualizationContext(PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ context, uint cookie);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ReleasePackageVirtualizationContext(PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__* context);
+	public static extern void ReleasePackageVirtualizationContext(PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ context);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DeactivatePackageVirtualizationContext(uint cookie);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DuplicatePackageVirtualizationContext(PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__* sourceContext, PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__** destContext);
+	public static extern HRESULT DuplicatePackageVirtualizationContext(PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ sourceContext, PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ destContext);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__* GetCurrentPackageVirtualizationContext();
+	public static extern PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ GetCurrentPackageVirtualizationContext();
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetProcessesInVirtualizationContext(PWSTR packageFamilyName, uint32* count, HANDLE** processes);
+	public static extern HRESULT GetProcessesInVirtualizationContext(PWSTR packageFamilyName, uint32 count, HANDLE processes);
 
 }
 #endregion

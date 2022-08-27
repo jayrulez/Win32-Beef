@@ -1239,35 +1239,35 @@ public enum WSManProxyAuthenticationFlags : int32
 #endregion
 
 #region Function Pointers
-public function void WSMAN_SHELL_COMPLETION_FUNCTION(void* operationContext, uint32 flags, WSMAN_ERROR* error, WSMAN_SHELL* shell, WSMAN_COMMAND* command, WSMAN_OPERATION* operationHandle, WSMAN_RESPONSE_DATA* data);
+public function void WSMAN_SHELL_COMPLETION_FUNCTION(void operationContext, uint32 flags, WSMAN_ERROR error, WSMAN_SHELL shell, WSMAN_COMMAND command, WSMAN_OPERATION operationHandle, WSMAN_RESPONSE_DATA data);
 
-public function void WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT(void* shellContext);
+public function void WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT(void shellContext);
 
-public function void WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT(void* shellContext, void* commandContext);
+public function void WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT(void shellContext, void commandContext);
 
-public function uint32 WSMAN_PLUGIN_STARTUP(uint32 flags, PWSTR applicationIdentification, PWSTR extraInfo, void** pluginContext);
+public function uint32 WSMAN_PLUGIN_STARTUP(uint32 flags, PWSTR applicationIdentification, PWSTR extraInfo, void pluginContext);
 
-public function uint32 WSMAN_PLUGIN_SHUTDOWN(void* pluginContext, uint32 flags, uint32 reason);
+public function uint32 WSMAN_PLUGIN_SHUTDOWN(void pluginContext, uint32 flags, uint32 reason);
 
-public function void WSMAN_PLUGIN_SHELL(void* pluginContext, WSMAN_PLUGIN_REQUEST* requestDetails, uint32 flags, WSMAN_SHELL_STARTUP_INFO_V11* startupInfo, WSMAN_DATA* inboundShellInformation);
+public function void WSMAN_PLUGIN_SHELL(void pluginContext, WSMAN_PLUGIN_REQUEST requestDetails, uint32 flags, WSMAN_SHELL_STARTUP_INFO_V11 startupInfo, WSMAN_DATA inboundShellInformation);
 
-public function void WSMAN_PLUGIN_COMMAND(WSMAN_PLUGIN_REQUEST* requestDetails, uint32 flags, void* shellContext, PWSTR commandLine, WSMAN_COMMAND_ARG_SET* arguments);
+public function void WSMAN_PLUGIN_COMMAND(WSMAN_PLUGIN_REQUEST requestDetails, uint32 flags, void shellContext, PWSTR commandLine, WSMAN_COMMAND_ARG_SET arguments);
 
-public function void WSMAN_PLUGIN_SEND(WSMAN_PLUGIN_REQUEST* requestDetails, uint32 flags, void* shellContext, void* commandContext, PWSTR stream, WSMAN_DATA* inboundData);
+public function void WSMAN_PLUGIN_SEND(WSMAN_PLUGIN_REQUEST requestDetails, uint32 flags, void shellContext, void commandContext, PWSTR stream, WSMAN_DATA inboundData);
 
-public function void WSMAN_PLUGIN_RECEIVE(WSMAN_PLUGIN_REQUEST* requestDetails, uint32 flags, void* shellContext, void* commandContext, WSMAN_STREAM_ID_SET* streamSet);
+public function void WSMAN_PLUGIN_RECEIVE(WSMAN_PLUGIN_REQUEST requestDetails, uint32 flags, void shellContext, void commandContext, WSMAN_STREAM_ID_SET streamSet);
 
-public function void WSMAN_PLUGIN_SIGNAL(WSMAN_PLUGIN_REQUEST* requestDetails, uint32 flags, void* shellContext, void* commandContext, PWSTR code);
+public function void WSMAN_PLUGIN_SIGNAL(WSMAN_PLUGIN_REQUEST requestDetails, uint32 flags, void shellContext, void commandContext, PWSTR code);
 
-public function void WSMAN_PLUGIN_CONNECT(WSMAN_PLUGIN_REQUEST* requestDetails, uint32 flags, void* shellContext, void* commandContext, WSMAN_DATA* inboundConnectInformation);
+public function void WSMAN_PLUGIN_CONNECT(WSMAN_PLUGIN_REQUEST requestDetails, uint32 flags, void shellContext, void commandContext, WSMAN_DATA inboundConnectInformation);
 
-public function void WSMAN_PLUGIN_AUTHORIZE_USER(void* pluginContext, WSMAN_SENDER_DETAILS* senderDetails, uint32 flags);
+public function void WSMAN_PLUGIN_AUTHORIZE_USER(void pluginContext, WSMAN_SENDER_DETAILS senderDetails, uint32 flags);
 
-public function void WSMAN_PLUGIN_AUTHORIZE_OPERATION(void* pluginContext, WSMAN_SENDER_DETAILS* senderDetails, uint32 flags, uint32 operation, PWSTR action, PWSTR resourceUri);
+public function void WSMAN_PLUGIN_AUTHORIZE_OPERATION(void pluginContext, WSMAN_SENDER_DETAILS senderDetails, uint32 flags, uint32 operation, PWSTR action, PWSTR resourceUri);
 
-public function void WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA(void* pluginContext, WSMAN_SENDER_DETAILS* senderDetails, uint32 flags);
+public function void WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA(void pluginContext, WSMAN_SENDER_DETAILS senderDetails, uint32 flags);
 
-public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizationContext);
+public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void userAuthorizationContext);
 
 #endregion
 
@@ -1283,7 +1283,7 @@ public struct WSMAN_DATA_TEXT
 public struct WSMAN_DATA_BINARY
 {
 	public uint32 dataLength;
-	public uint8* data;
+	public uint8 data;
 }
 
 [CRepr]
@@ -1344,7 +1344,7 @@ public struct WSMAN_OPTION
 public struct WSMAN_OPTION_SET
 {
 	public uint32 optionsCount;
-	public WSMAN_OPTION* options;
+	public WSMAN_OPTION options;
 	public BOOL optionsMustUnderstand;
 }
 
@@ -1352,9 +1352,9 @@ public struct WSMAN_OPTION_SET
 public struct WSMAN_OPTION_SETEX
 {
 	public uint32 optionsCount;
-	public WSMAN_OPTION* options;
+	public WSMAN_OPTION options;
 	public BOOL optionsMustUnderstand;
-	public PWSTR* optionTypes;
+	public PWSTR optionTypes;
 }
 
 [CRepr]
@@ -1368,7 +1368,7 @@ public struct WSMAN_KEY
 public struct WSMAN_SELECTOR_SET
 {
 	public uint32 numberKeys;
-	public WSMAN_KEY* keys;
+	public WSMAN_KEY keys;
 }
 
 [CRepr]
@@ -1392,7 +1392,7 @@ public struct WSMAN_OPERATION_INFO
 	public WSMAN_FILTER filter;
 	public WSMAN_SELECTOR_SET selectorSet;
 	public WSMAN_OPTION_SET optionSet;
-	public void* reserved;
+	public void reserved;
 	public uint32 version;
 }
 
@@ -1444,7 +1444,7 @@ public struct WSMAN_COMMAND
 public struct WSMAN_STREAM_ID_SET
 {
 	public uint32 streamIDsCount;
-	public PWSTR* streamIDs;
+	public PWSTR streamIDs;
 }
 
 [CRepr]
@@ -1458,17 +1458,17 @@ public struct WSMAN_ENVIRONMENT_VARIABLE
 public struct WSMAN_ENVIRONMENT_VARIABLE_SET
 {
 	public uint32 varsCount;
-	public WSMAN_ENVIRONMENT_VARIABLE* vars;
+	public WSMAN_ENVIRONMENT_VARIABLE vars;
 }
 
 [CRepr]
 public struct WSMAN_SHELL_STARTUP_INFO_V10
 {
-	public WSMAN_STREAM_ID_SET* inputStreamSet;
-	public WSMAN_STREAM_ID_SET* outputStreamSet;
+	public WSMAN_STREAM_ID_SET inputStreamSet;
+	public WSMAN_STREAM_ID_SET outputStreamSet;
 	public uint32 idleTimeoutMs;
 	public PWSTR workingDirectory;
-	public WSMAN_ENVIRONMENT_VARIABLE_SET* variableSet;
+	public WSMAN_ENVIRONMENT_VARIABLE_SET variableSet;
 }
 
 [CRepr]
@@ -1516,7 +1516,7 @@ public struct WSMAN_RESPONSE_DATA
 [CRepr]
 public struct WSMAN_SHELL_ASYNC
 {
-	public void* operationContext;
+	public void operationContext;
 	public WSMAN_SHELL_COMPLETION_FUNCTION completionFunction;
 }
 
@@ -1524,7 +1524,7 @@ public struct WSMAN_SHELL_ASYNC
 public struct WSMAN_COMMAND_ARG_SET
 {
 	public uint32 argsCount;
-	public PWSTR* args;
+	public PWSTR args;
 }
 
 [CRepr]
@@ -1541,7 +1541,7 @@ public struct WSMAN_SENDER_DETAILS
 {
 	public PWSTR senderName;
 	public PWSTR authenticationMechanism;
-	public WSMAN_CERTIFICATE_DETAILS* certificateDetails;
+	public WSMAN_CERTIFICATE_DETAILS certificateDetails;
 	public HANDLE clientToken;
 	public PWSTR httpURL;
 }
@@ -1549,10 +1549,10 @@ public struct WSMAN_SENDER_DETAILS
 [CRepr]
 public struct WSMAN_PLUGIN_REQUEST
 {
-	public WSMAN_SENDER_DETAILS* senderDetails;
+	public WSMAN_SENDER_DETAILS senderDetails;
 	public PWSTR locale;
 	public PWSTR resourceUri;
-	public WSMAN_OPERATION_INFO* operationInfo;
+	public WSMAN_OPERATION_INFO operationInfo;
 	public int32 shutdownNotification;
 	public HANDLE shutdownNotificationHandle;
 	public PWSTR dataLocale;
@@ -1590,20 +1590,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, BSTR connection, int32 flags, IDispatch* connectionOptions, IDispatch** session) CreateSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, IDispatch** connectionOptions) CreateConnectionOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, BSTR* value) get_CommandLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, BSTR* value) get_Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, BSTR connection, int32 flags, IDispatch* connectionOptions, IDispatch* session) CreateSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, IDispatch* connectionOptions) CreateConnectionOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, BSTR value) get_CommandLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, BSTR value) get_Error;
 	}
 
 
-	public HRESULT CreateSession(BSTR connection, int32 flags, IDispatch* connectionOptions, IDispatch** session) mut => VT.[Friend]CreateSession(&this, connection, flags, connectionOptions, session);
+	public HRESULT CreateSession(BSTR connection, int32 flags, IDispatch* connectionOptions, IDispatch* session) mut => VT.[Friend]CreateSession(&this, connection, flags, connectionOptions, session);
 
-	public HRESULT CreateConnectionOptions(IDispatch** connectionOptions) mut => VT.[Friend]CreateConnectionOptions(&this, connectionOptions);
+	public HRESULT CreateConnectionOptions(IDispatch* connectionOptions) mut => VT.[Friend]CreateConnectionOptions(&this, connectionOptions);
 
-	public HRESULT get_CommandLine(BSTR* value) mut => VT.[Friend]get_CommandLine(&this, value);
+	public HRESULT get_CommandLine(BSTR value) mut => VT.[Friend]get_CommandLine(&this, value);
 
-	public HRESULT get_Error(BSTR* value) mut => VT.[Friend]get_Error(&this, value);
+	public HRESULT get_Error(BSTR value) mut => VT.[Friend]get_Error(&this, value);
 }
 
 [CRepr]struct IWSManEx : IWSMan
@@ -1614,68 +1614,68 @@ public static
 
 	[CRepr]public struct VTable : IWSMan.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, BSTR strResourceLocator, IDispatch** newResourceLocator) CreateResourceLocator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUTF8;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagCredUsernamePassword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagSkipCACheck;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagSkipCNCheck;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUseDigest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUseNegotiate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUseBasic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUseKerberos;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagNoEncryption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagEnableSPNServerPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUseNoAuthentication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagNonXmlText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagReturnEPR;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagReturnObjectAndEPR;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, uint32 errorNumber, BSTR* errorMessage) GetErrorMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagHierarchyDeep;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagHierarchyShallow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagHierarchyDeepBasePropsOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagReturnObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, BSTR strResourceLocator, IDispatch* newResourceLocator) CreateResourceLocator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagUTF8;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagCredUsernamePassword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagSkipCACheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagSkipCNCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagUseDigest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagUseNegotiate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagUseBasic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagUseKerberos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagNoEncryption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagEnableSPNServerPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) SessionFlagUseNoAuthentication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) EnumerationFlagNonXmlText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) EnumerationFlagReturnEPR;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) EnumerationFlagReturnObjectAndEPR;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, uint32 errorNumber, BSTR errorMessage) GetErrorMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) EnumerationFlagHierarchyDeep;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) EnumerationFlagHierarchyShallow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) EnumerationFlagHierarchyDeepBasePropsOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32 flags) EnumerationFlagReturnObject;
 	}
 
 
-	public HRESULT CreateResourceLocator(BSTR strResourceLocator, IDispatch** newResourceLocator) mut => VT.[Friend]CreateResourceLocator(&this, strResourceLocator, newResourceLocator);
+	public HRESULT CreateResourceLocator(BSTR strResourceLocator, IDispatch* newResourceLocator) mut => VT.[Friend]CreateResourceLocator(&this, strResourceLocator, newResourceLocator);
 
-	public HRESULT SessionFlagUTF8(int32* flags) mut => VT.[Friend]SessionFlagUTF8(&this, flags);
+	public HRESULT SessionFlagUTF8(int32 flags) mut => VT.[Friend]SessionFlagUTF8(&this, flags);
 
-	public HRESULT SessionFlagCredUsernamePassword(int32* flags) mut => VT.[Friend]SessionFlagCredUsernamePassword(&this, flags);
+	public HRESULT SessionFlagCredUsernamePassword(int32 flags) mut => VT.[Friend]SessionFlagCredUsernamePassword(&this, flags);
 
-	public HRESULT SessionFlagSkipCACheck(int32* flags) mut => VT.[Friend]SessionFlagSkipCACheck(&this, flags);
+	public HRESULT SessionFlagSkipCACheck(int32 flags) mut => VT.[Friend]SessionFlagSkipCACheck(&this, flags);
 
-	public HRESULT SessionFlagSkipCNCheck(int32* flags) mut => VT.[Friend]SessionFlagSkipCNCheck(&this, flags);
+	public HRESULT SessionFlagSkipCNCheck(int32 flags) mut => VT.[Friend]SessionFlagSkipCNCheck(&this, flags);
 
-	public HRESULT SessionFlagUseDigest(int32* flags) mut => VT.[Friend]SessionFlagUseDigest(&this, flags);
+	public HRESULT SessionFlagUseDigest(int32 flags) mut => VT.[Friend]SessionFlagUseDigest(&this, flags);
 
-	public HRESULT SessionFlagUseNegotiate(int32* flags) mut => VT.[Friend]SessionFlagUseNegotiate(&this, flags);
+	public HRESULT SessionFlagUseNegotiate(int32 flags) mut => VT.[Friend]SessionFlagUseNegotiate(&this, flags);
 
-	public HRESULT SessionFlagUseBasic(int32* flags) mut => VT.[Friend]SessionFlagUseBasic(&this, flags);
+	public HRESULT SessionFlagUseBasic(int32 flags) mut => VT.[Friend]SessionFlagUseBasic(&this, flags);
 
-	public HRESULT SessionFlagUseKerberos(int32* flags) mut => VT.[Friend]SessionFlagUseKerberos(&this, flags);
+	public HRESULT SessionFlagUseKerberos(int32 flags) mut => VT.[Friend]SessionFlagUseKerberos(&this, flags);
 
-	public HRESULT SessionFlagNoEncryption(int32* flags) mut => VT.[Friend]SessionFlagNoEncryption(&this, flags);
+	public HRESULT SessionFlagNoEncryption(int32 flags) mut => VT.[Friend]SessionFlagNoEncryption(&this, flags);
 
-	public HRESULT SessionFlagEnableSPNServerPort(int32* flags) mut => VT.[Friend]SessionFlagEnableSPNServerPort(&this, flags);
+	public HRESULT SessionFlagEnableSPNServerPort(int32 flags) mut => VT.[Friend]SessionFlagEnableSPNServerPort(&this, flags);
 
-	public HRESULT SessionFlagUseNoAuthentication(int32* flags) mut => VT.[Friend]SessionFlagUseNoAuthentication(&this, flags);
+	public HRESULT SessionFlagUseNoAuthentication(int32 flags) mut => VT.[Friend]SessionFlagUseNoAuthentication(&this, flags);
 
-	public HRESULT EnumerationFlagNonXmlText(int32* flags) mut => VT.[Friend]EnumerationFlagNonXmlText(&this, flags);
+	public HRESULT EnumerationFlagNonXmlText(int32 flags) mut => VT.[Friend]EnumerationFlagNonXmlText(&this, flags);
 
-	public HRESULT EnumerationFlagReturnEPR(int32* flags) mut => VT.[Friend]EnumerationFlagReturnEPR(&this, flags);
+	public HRESULT EnumerationFlagReturnEPR(int32 flags) mut => VT.[Friend]EnumerationFlagReturnEPR(&this, flags);
 
-	public HRESULT EnumerationFlagReturnObjectAndEPR(int32* flags) mut => VT.[Friend]EnumerationFlagReturnObjectAndEPR(&this, flags);
+	public HRESULT EnumerationFlagReturnObjectAndEPR(int32 flags) mut => VT.[Friend]EnumerationFlagReturnObjectAndEPR(&this, flags);
 
-	public HRESULT GetErrorMessage(uint32 errorNumber, BSTR* errorMessage) mut => VT.[Friend]GetErrorMessage(&this, errorNumber, errorMessage);
+	public HRESULT GetErrorMessage(uint32 errorNumber, BSTR errorMessage) mut => VT.[Friend]GetErrorMessage(&this, errorNumber, errorMessage);
 
-	public HRESULT EnumerationFlagHierarchyDeep(int32* flags) mut => VT.[Friend]EnumerationFlagHierarchyDeep(&this, flags);
+	public HRESULT EnumerationFlagHierarchyDeep(int32 flags) mut => VT.[Friend]EnumerationFlagHierarchyDeep(&this, flags);
 
-	public HRESULT EnumerationFlagHierarchyShallow(int32* flags) mut => VT.[Friend]EnumerationFlagHierarchyShallow(&this, flags);
+	public HRESULT EnumerationFlagHierarchyShallow(int32 flags) mut => VT.[Friend]EnumerationFlagHierarchyShallow(&this, flags);
 
-	public HRESULT EnumerationFlagHierarchyDeepBasePropsOnly(int32* flags) mut => VT.[Friend]EnumerationFlagHierarchyDeepBasePropsOnly(&this, flags);
+	public HRESULT EnumerationFlagHierarchyDeepBasePropsOnly(int32 flags) mut => VT.[Friend]EnumerationFlagHierarchyDeepBasePropsOnly(&this, flags);
 
-	public HRESULT EnumerationFlagReturnObject(int32* flags) mut => VT.[Friend]EnumerationFlagReturnObject(&this, flags);
+	public HRESULT EnumerationFlagReturnObject(int32 flags) mut => VT.[Friend]EnumerationFlagReturnObject(&this, flags);
 }
 
 [CRepr]struct IWSManEx2 : IWSManEx
@@ -1686,11 +1686,11 @@ public static
 
 	[CRepr]public struct VTable : IWSManEx.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx2*/SelfOuter* self, int32* flags) SessionFlagUseClientCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx2*/SelfOuter* self, int32 flags) SessionFlagUseClientCertificate;
 	}
 
 
-	public HRESULT SessionFlagUseClientCertificate(int32* flags) mut => VT.[Friend]SessionFlagUseClientCertificate(&this, flags);
+	public HRESULT SessionFlagUseClientCertificate(int32 flags) mut => VT.[Friend]SessionFlagUseClientCertificate(&this, flags);
 }
 
 [CRepr]struct IWSManEx3 : IWSManEx2
@@ -1701,29 +1701,29 @@ public static
 
 	[CRepr]public struct VTable : IWSManEx2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) SessionFlagUTF16;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) SessionFlagUseCredSsp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) EnumerationFlagAssociationInstance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) EnumerationFlagAssociatedInstance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) SessionFlagSkipRevocationCheck;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) SessionFlagAllowNegotiateImplicitCredentials;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) SessionFlagUseSsl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32 flags) SessionFlagUTF16;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32 flags) SessionFlagUseCredSsp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32 flags) EnumerationFlagAssociationInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32 flags) EnumerationFlagAssociatedInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32 flags) SessionFlagSkipRevocationCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32 flags) SessionFlagAllowNegotiateImplicitCredentials;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32 flags) SessionFlagUseSsl;
 	}
 
 
-	public HRESULT SessionFlagUTF16(int32* flags) mut => VT.[Friend]SessionFlagUTF16(&this, flags);
+	public HRESULT SessionFlagUTF16(int32 flags) mut => VT.[Friend]SessionFlagUTF16(&this, flags);
 
-	public HRESULT SessionFlagUseCredSsp(int32* flags) mut => VT.[Friend]SessionFlagUseCredSsp(&this, flags);
+	public HRESULT SessionFlagUseCredSsp(int32 flags) mut => VT.[Friend]SessionFlagUseCredSsp(&this, flags);
 
-	public HRESULT EnumerationFlagAssociationInstance(int32* flags) mut => VT.[Friend]EnumerationFlagAssociationInstance(&this, flags);
+	public HRESULT EnumerationFlagAssociationInstance(int32 flags) mut => VT.[Friend]EnumerationFlagAssociationInstance(&this, flags);
 
-	public HRESULT EnumerationFlagAssociatedInstance(int32* flags) mut => VT.[Friend]EnumerationFlagAssociatedInstance(&this, flags);
+	public HRESULT EnumerationFlagAssociatedInstance(int32 flags) mut => VT.[Friend]EnumerationFlagAssociatedInstance(&this, flags);
 
-	public HRESULT SessionFlagSkipRevocationCheck(int32* flags) mut => VT.[Friend]SessionFlagSkipRevocationCheck(&this, flags);
+	public HRESULT SessionFlagSkipRevocationCheck(int32 flags) mut => VT.[Friend]SessionFlagSkipRevocationCheck(&this, flags);
 
-	public HRESULT SessionFlagAllowNegotiateImplicitCredentials(int32* flags) mut => VT.[Friend]SessionFlagAllowNegotiateImplicitCredentials(&this, flags);
+	public HRESULT SessionFlagAllowNegotiateImplicitCredentials(int32 flags) mut => VT.[Friend]SessionFlagAllowNegotiateImplicitCredentials(&this, flags);
 
-	public HRESULT SessionFlagUseSsl(int32* flags) mut => VT.[Friend]SessionFlagUseSsl(&this, flags);
+	public HRESULT SessionFlagUseSsl(int32 flags) mut => VT.[Friend]SessionFlagUseSsl(&this, flags);
 }
 
 [CRepr]struct IWSManConnectionOptions : IDispatch
@@ -1734,13 +1734,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptions*/SelfOuter* self, BSTR* name) get_UserName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptions*/SelfOuter* self, BSTR name) get_UserName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptions*/SelfOuter* self, BSTR name) put_UserName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptions*/SelfOuter* self, BSTR password) put_Password;
 	}
 
 
-	public HRESULT get_UserName(BSTR* name) mut => VT.[Friend]get_UserName(&this, name);
+	public HRESULT get_UserName(BSTR name) mut => VT.[Friend]get_UserName(&this, name);
 
 	public HRESULT put_UserName(BSTR name) mut => VT.[Friend]put_UserName(&this, name);
 
@@ -1755,12 +1755,12 @@ public static
 
 	[CRepr]public struct VTable : IWSManConnectionOptions.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx*/SelfOuter* self, BSTR* thumbprint) get_CertificateThumbprint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx*/SelfOuter* self, BSTR thumbprint) get_CertificateThumbprint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx*/SelfOuter* self, BSTR thumbprint) put_CertificateThumbprint;
 	}
 
 
-	public HRESULT get_CertificateThumbprint(BSTR* thumbprint) mut => VT.[Friend]get_CertificateThumbprint(&this, thumbprint);
+	public HRESULT get_CertificateThumbprint(BSTR thumbprint) mut => VT.[Friend]get_CertificateThumbprint(&this, thumbprint);
 
 	public HRESULT put_CertificateThumbprint(BSTR thumbprint) mut => VT.[Friend]put_CertificateThumbprint(&this, thumbprint);
 }
@@ -1774,31 +1774,31 @@ public static
 	[CRepr]public struct VTable : IWSManConnectionOptionsEx.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32 accessType, int32 authenticationMechanism, BSTR userName, BSTR password) SetProxy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyIEConfig;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyWinHttpConfig;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyAutoDetect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyNoProxyServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyAuthenticationUseNegotiate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyAuthenticationUseBasic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyAuthenticationUseDigest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32 value) ProxyIEConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32 value) ProxyWinHttpConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32 value) ProxyAutoDetect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32 value) ProxyNoProxyServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32 value) ProxyAuthenticationUseNegotiate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32 value) ProxyAuthenticationUseBasic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32 value) ProxyAuthenticationUseDigest;
 	}
 
 
 	public HRESULT SetProxy(int32 accessType, int32 authenticationMechanism, BSTR userName, BSTR password) mut => VT.[Friend]SetProxy(&this, accessType, authenticationMechanism, userName, password);
 
-	public HRESULT ProxyIEConfig(int32* value) mut => VT.[Friend]ProxyIEConfig(&this, value);
+	public HRESULT ProxyIEConfig(int32 value) mut => VT.[Friend]ProxyIEConfig(&this, value);
 
-	public HRESULT ProxyWinHttpConfig(int32* value) mut => VT.[Friend]ProxyWinHttpConfig(&this, value);
+	public HRESULT ProxyWinHttpConfig(int32 value) mut => VT.[Friend]ProxyWinHttpConfig(&this, value);
 
-	public HRESULT ProxyAutoDetect(int32* value) mut => VT.[Friend]ProxyAutoDetect(&this, value);
+	public HRESULT ProxyAutoDetect(int32 value) mut => VT.[Friend]ProxyAutoDetect(&this, value);
 
-	public HRESULT ProxyNoProxyServer(int32* value) mut => VT.[Friend]ProxyNoProxyServer(&this, value);
+	public HRESULT ProxyNoProxyServer(int32 value) mut => VT.[Friend]ProxyNoProxyServer(&this, value);
 
-	public HRESULT ProxyAuthenticationUseNegotiate(int32* value) mut => VT.[Friend]ProxyAuthenticationUseNegotiate(&this, value);
+	public HRESULT ProxyAuthenticationUseNegotiate(int32 value) mut => VT.[Friend]ProxyAuthenticationUseNegotiate(&this, value);
 
-	public HRESULT ProxyAuthenticationUseBasic(int32* value) mut => VT.[Friend]ProxyAuthenticationUseBasic(&this, value);
+	public HRESULT ProxyAuthenticationUseBasic(int32 value) mut => VT.[Friend]ProxyAuthenticationUseBasic(&this, value);
 
-	public HRESULT ProxyAuthenticationUseDigest(int32* value) mut => VT.[Friend]ProxyAuthenticationUseDigest(&this, value);
+	public HRESULT ProxyAuthenticationUseDigest(int32 value) mut => VT.[Friend]ProxyAuthenticationUseDigest(&this, value);
 }
 
 [CRepr]struct IWSManSession : IDispatch
@@ -1809,42 +1809,42 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, int32 flags, BSTR* resource) Get;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, BSTR resource, int32 flags, BSTR* resultResource) Put;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, BSTR resource, int32 flags, BSTR* newUri) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, int32 flags, BSTR resource) Get;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, BSTR resource, int32 flags, BSTR resultResource) Put;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, BSTR resource, int32 flags, BSTR newUri) Create;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, int32 flags) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, BSTR actionUri, VARIANT resourceUri, BSTR parameters, int32 flags, BSTR* result) Invoke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, BSTR filter, BSTR dialect, int32 flags, IDispatch** resultSet) Enumerate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32 flags, BSTR* result) Identify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, BSTR* value) get_Error;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32* value) get_BatchItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, BSTR actionUri, VARIANT resourceUri, BSTR parameters, int32 flags, BSTR result) Invoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, BSTR filter, BSTR dialect, int32 flags, IDispatch* resultSet) Enumerate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32 flags, BSTR result) Identify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, BSTR value) get_Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32 value) get_BatchItems;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32 value) put_BatchItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32* value) get_Timeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32 value) get_Timeout;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32 value) put_Timeout;
 	}
 
 
-	public HRESULT Get(VARIANT resourceUri, int32 flags, BSTR* resource) mut => VT.[Friend]Get(&this, resourceUri, flags, resource);
+	public HRESULT Get(VARIANT resourceUri, int32 flags, BSTR resource) mut => VT.[Friend]Get(&this, resourceUri, flags, resource);
 
-	public HRESULT Put(VARIANT resourceUri, BSTR resource, int32 flags, BSTR* resultResource) mut => VT.[Friend]Put(&this, resourceUri, resource, flags, resultResource);
+	public HRESULT Put(VARIANT resourceUri, BSTR resource, int32 flags, BSTR resultResource) mut => VT.[Friend]Put(&this, resourceUri, resource, flags, resultResource);
 
-	public HRESULT Create(VARIANT resourceUri, BSTR resource, int32 flags, BSTR* newUri) mut => VT.[Friend]Create(&this, resourceUri, resource, flags, newUri);
+	public HRESULT Create(VARIANT resourceUri, BSTR resource, int32 flags, BSTR newUri) mut => VT.[Friend]Create(&this, resourceUri, resource, flags, newUri);
 
 	public HRESULT Delete(VARIANT resourceUri, int32 flags) mut => VT.[Friend]Delete(&this, resourceUri, flags);
 
-	public HRESULT Invoke(BSTR actionUri, VARIANT resourceUri, BSTR parameters, int32 flags, BSTR* result) mut => VT.[Friend]Invoke(&this, actionUri, resourceUri, parameters, flags, result);
+	public HRESULT Invoke(BSTR actionUri, VARIANT resourceUri, BSTR parameters, int32 flags, BSTR result) mut => VT.[Friend]Invoke(&this, actionUri, resourceUri, parameters, flags, result);
 
-	public HRESULT Enumerate(VARIANT resourceUri, BSTR filter, BSTR dialect, int32 flags, IDispatch** resultSet) mut => VT.[Friend]Enumerate(&this, resourceUri, filter, dialect, flags, resultSet);
+	public HRESULT Enumerate(VARIANT resourceUri, BSTR filter, BSTR dialect, int32 flags, IDispatch* resultSet) mut => VT.[Friend]Enumerate(&this, resourceUri, filter, dialect, flags, resultSet);
 
-	public HRESULT Identify(int32 flags, BSTR* result) mut => VT.[Friend]Identify(&this, flags, result);
+	public HRESULT Identify(int32 flags, BSTR result) mut => VT.[Friend]Identify(&this, flags, result);
 
-	public HRESULT get_Error(BSTR* value) mut => VT.[Friend]get_Error(&this, value);
+	public HRESULT get_Error(BSTR value) mut => VT.[Friend]get_Error(&this, value);
 
-	public HRESULT get_BatchItems(int32* value) mut => VT.[Friend]get_BatchItems(&this, value);
+	public HRESULT get_BatchItems(int32 value) mut => VT.[Friend]get_BatchItems(&this, value);
 
 	public HRESULT put_BatchItems(int32 value) mut => VT.[Friend]put_BatchItems(&this, value);
 
-	public HRESULT get_Timeout(int32* value) mut => VT.[Friend]get_Timeout(&this, value);
+	public HRESULT get_Timeout(int32 value) mut => VT.[Friend]get_Timeout(&this, value);
 
 	public HRESULT put_Timeout(int32 value) mut => VT.[Friend]put_Timeout(&this, value);
 }
@@ -1857,17 +1857,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEnumerator*/SelfOuter* self, BSTR* resource) ReadItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEnumerator*/SelfOuter* self, int16* eos) get_AtEndOfStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEnumerator*/SelfOuter* self, BSTR* value) get_Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEnumerator*/SelfOuter* self, BSTR resource) ReadItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEnumerator*/SelfOuter* self, int16 eos) get_AtEndOfStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEnumerator*/SelfOuter* self, BSTR value) get_Error;
 	}
 
 
-	public HRESULT ReadItem(BSTR* resource) mut => VT.[Friend]ReadItem(&this, resource);
+	public HRESULT ReadItem(BSTR resource) mut => VT.[Friend]ReadItem(&this, resource);
 
-	public HRESULT get_AtEndOfStream(int16* eos) mut => VT.[Friend]get_AtEndOfStream(&this, eos);
+	public HRESULT get_AtEndOfStream(int16 eos) mut => VT.[Friend]get_AtEndOfStream(&this, eos);
 
-	public HRESULT get_Error(BSTR* value) mut => VT.[Friend]get_Error(&this, value);
+	public HRESULT get_Error(BSTR value) mut => VT.[Friend]get_Error(&this, value);
 }
 
 [CRepr]struct IWSManResourceLocator : IDispatch
@@ -1879,34 +1879,34 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR uri) put_ResourceURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR* uri) get_ResourceURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR uri) get_ResourceURI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR resourceSelName, VARIANT selValue) AddSelector;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self) ClearSelectors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR* text) get_FragmentPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR text) get_FragmentPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR text) put_FragmentPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR* text) get_FragmentDialect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR text) get_FragmentDialect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR text) put_FragmentDialect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR OptionName, VARIANT OptionValue, BOOL mustComply) AddOption;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BOOL mustUnderstand) put_MustUnderstandOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BOOL* mustUnderstand) get_MustUnderstandOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BOOL mustUnderstand) get_MustUnderstandOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self) ClearOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR* value) get_Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR value) get_Error;
 	}
 
 
 	public HRESULT put_ResourceURI(BSTR uri) mut => VT.[Friend]put_ResourceURI(&this, uri);
 
-	public HRESULT get_ResourceURI(BSTR* uri) mut => VT.[Friend]get_ResourceURI(&this, uri);
+	public HRESULT get_ResourceURI(BSTR uri) mut => VT.[Friend]get_ResourceURI(&this, uri);
 
 	public HRESULT AddSelector(BSTR resourceSelName, VARIANT selValue) mut => VT.[Friend]AddSelector(&this, resourceSelName, selValue);
 
 	public HRESULT ClearSelectors() mut => VT.[Friend]ClearSelectors(&this);
 
-	public HRESULT get_FragmentPath(BSTR* text) mut => VT.[Friend]get_FragmentPath(&this, text);
+	public HRESULT get_FragmentPath(BSTR text) mut => VT.[Friend]get_FragmentPath(&this, text);
 
 	public HRESULT put_FragmentPath(BSTR text) mut => VT.[Friend]put_FragmentPath(&this, text);
 
-	public HRESULT get_FragmentDialect(BSTR* text) mut => VT.[Friend]get_FragmentDialect(&this, text);
+	public HRESULT get_FragmentDialect(BSTR text) mut => VT.[Friend]get_FragmentDialect(&this, text);
 
 	public HRESULT put_FragmentDialect(BSTR text) mut => VT.[Friend]put_FragmentDialect(&this, text);
 
@@ -1914,11 +1914,11 @@ public static
 
 	public HRESULT put_MustUnderstandOptions(BOOL mustUnderstand) mut => VT.[Friend]put_MustUnderstandOptions(&this, mustUnderstand);
 
-	public HRESULT get_MustUnderstandOptions(BOOL* mustUnderstand) mut => VT.[Friend]get_MustUnderstandOptions(&this, mustUnderstand);
+	public HRESULT get_MustUnderstandOptions(BOOL mustUnderstand) mut => VT.[Friend]get_MustUnderstandOptions(&this, mustUnderstand);
 
 	public HRESULT ClearOptions() mut => VT.[Friend]ClearOptions(&this);
 
-	public HRESULT get_Error(BSTR* value) mut => VT.[Friend]get_Error(&this, value);
+	public HRESULT get_Error(BSTR value) mut => VT.[Friend]get_Error(&this, value);
 }
 
 [CRepr]struct IWSManResourceLocatorInternal : IUnknown
@@ -1941,11 +1941,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManInternal*/SelfOuter* self, IDispatch* session, VARIANT resourceUri, int32 flags, BSTR* resource) ConfigSDDL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManInternal*/SelfOuter* self, IDispatch* session, VARIANT resourceUri, int32 flags, BSTR resource) ConfigSDDL;
 	}
 
 
-	public HRESULT ConfigSDDL(IDispatch* session, VARIANT resourceUri, int32 flags, BSTR* resource) mut => VT.[Friend]ConfigSDDL(&this, session, resourceUri, flags, resource);
+	public HRESULT ConfigSDDL(IDispatch* session, VARIANT resourceUri, int32 flags, BSTR resource) mut => VT.[Friend]ConfigSDDL(&this, session, resourceUri, flags, resource);
 }
 
 #endregion
@@ -1954,103 +1954,103 @@ public static
 public static
 {
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManInitialize(uint32 flags, WSMAN_API** apiHandle);
+	public static extern uint32 WSManInitialize(uint32 flags, WSMAN_API apiHandle);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManDeinitialize(WSMAN_API* apiHandle, uint32 flags);
+	public static extern uint32 WSManDeinitialize(WSMAN_API apiHandle, uint32 flags);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManGetErrorMessage(WSMAN_API* apiHandle, uint32 flags, PWSTR languageCode, uint32 errorCode, uint32 messageLength, char16* message, uint32* messageLengthUsed);
+	public static extern uint32 WSManGetErrorMessage(WSMAN_API apiHandle, uint32 flags, PWSTR languageCode, uint32 errorCode, uint32 messageLength, char16* message, uint32 messageLengthUsed);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManCreateSession(WSMAN_API* apiHandle, PWSTR connection, uint32 flags, WSMAN_AUTHENTICATION_CREDENTIALS* serverAuthenticationCredentials, WSMAN_PROXY_INFO* proxyInfo, WSMAN_SESSION** session);
+	public static extern uint32 WSManCreateSession(WSMAN_API apiHandle, PWSTR connection, uint32 flags, WSMAN_AUTHENTICATION_CREDENTIALS serverAuthenticationCredentials, WSMAN_PROXY_INFO proxyInfo, WSMAN_SESSION session);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManCloseSession(WSMAN_SESSION* session, uint32 flags);
+	public static extern uint32 WSManCloseSession(WSMAN_SESSION session, uint32 flags);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManSetSessionOption(WSMAN_SESSION* session, WSManSessionOption option, WSMAN_DATA* data);
+	public static extern uint32 WSManSetSessionOption(WSMAN_SESSION session, WSManSessionOption option, WSMAN_DATA data);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManGetSessionOptionAsDword(WSMAN_SESSION* session, WSManSessionOption option, uint32* value);
+	public static extern uint32 WSManGetSessionOptionAsDword(WSMAN_SESSION session, WSManSessionOption option, uint32 value);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManGetSessionOptionAsString(WSMAN_SESSION* session, WSManSessionOption option, uint32 stringLength, char16* string, uint32* stringLengthUsed);
+	public static extern uint32 WSManGetSessionOptionAsString(WSMAN_SESSION session, WSManSessionOption option, uint32 stringLength, char16* string, uint32 stringLengthUsed);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManCloseOperation(WSMAN_OPERATION* operationHandle, uint32 flags);
+	public static extern uint32 WSManCloseOperation(WSMAN_OPERATION operationHandle, uint32 flags);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManCreateShell(WSMAN_SESSION* session, uint32 flags, PWSTR resourceUri, WSMAN_SHELL_STARTUP_INFO_V11* startupInfo, WSMAN_OPTION_SET* options, WSMAN_DATA* createXml, WSMAN_SHELL_ASYNC* async, WSMAN_SHELL** shell);
+	public static extern void WSManCreateShell(WSMAN_SESSION session, uint32 flags, PWSTR resourceUri, WSMAN_SHELL_STARTUP_INFO_V11 startupInfo, WSMAN_OPTION_SET options, WSMAN_DATA createXml, WSMAN_SHELL_ASYNC async, WSMAN_SHELL shell);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManRunShellCommand(WSMAN_SHELL* shell, uint32 flags, PWSTR commandLine, WSMAN_COMMAND_ARG_SET* args, WSMAN_OPTION_SET* options, WSMAN_SHELL_ASYNC* async, WSMAN_COMMAND** command);
+	public static extern void WSManRunShellCommand(WSMAN_SHELL shell, uint32 flags, PWSTR commandLine, WSMAN_COMMAND_ARG_SET args, WSMAN_OPTION_SET options, WSMAN_SHELL_ASYNC async, WSMAN_COMMAND command);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManSignalShell(WSMAN_SHELL* shell, WSMAN_COMMAND* command, uint32 flags, PWSTR code, WSMAN_SHELL_ASYNC* async, WSMAN_OPERATION** signalOperation);
+	public static extern void WSManSignalShell(WSMAN_SHELL shell, WSMAN_COMMAND command, uint32 flags, PWSTR code, WSMAN_SHELL_ASYNC async, WSMAN_OPERATION signalOperation);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManReceiveShellOutput(WSMAN_SHELL* shell, WSMAN_COMMAND* command, uint32 flags, WSMAN_STREAM_ID_SET* desiredStreamSet, WSMAN_SHELL_ASYNC* async, WSMAN_OPERATION** receiveOperation);
+	public static extern void WSManReceiveShellOutput(WSMAN_SHELL shell, WSMAN_COMMAND command, uint32 flags, WSMAN_STREAM_ID_SET desiredStreamSet, WSMAN_SHELL_ASYNC async, WSMAN_OPERATION receiveOperation);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManSendShellInput(WSMAN_SHELL* shell, WSMAN_COMMAND* command, uint32 flags, PWSTR streamId, WSMAN_DATA* streamData, BOOL endOfStream, WSMAN_SHELL_ASYNC* async, WSMAN_OPERATION** sendOperation);
+	public static extern void WSManSendShellInput(WSMAN_SHELL shell, WSMAN_COMMAND command, uint32 flags, PWSTR streamId, WSMAN_DATA streamData, BOOL endOfStream, WSMAN_SHELL_ASYNC async, WSMAN_OPERATION sendOperation);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManCloseCommand(WSMAN_COMMAND* commandHandle, uint32 flags, WSMAN_SHELL_ASYNC* async);
+	public static extern void WSManCloseCommand(WSMAN_COMMAND commandHandle, uint32 flags, WSMAN_SHELL_ASYNC async);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManCloseShell(WSMAN_SHELL* shellHandle, uint32 flags, WSMAN_SHELL_ASYNC* async);
+	public static extern void WSManCloseShell(WSMAN_SHELL shellHandle, uint32 flags, WSMAN_SHELL_ASYNC async);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManCreateShellEx(WSMAN_SESSION* session, uint32 flags, PWSTR resourceUri, PWSTR shellId, WSMAN_SHELL_STARTUP_INFO_V11* startupInfo, WSMAN_OPTION_SET* options, WSMAN_DATA* createXml, WSMAN_SHELL_ASYNC* async, WSMAN_SHELL** shell);
+	public static extern void WSManCreateShellEx(WSMAN_SESSION session, uint32 flags, PWSTR resourceUri, PWSTR shellId, WSMAN_SHELL_STARTUP_INFO_V11 startupInfo, WSMAN_OPTION_SET options, WSMAN_DATA createXml, WSMAN_SHELL_ASYNC async, WSMAN_SHELL shell);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManRunShellCommandEx(WSMAN_SHELL* shell, uint32 flags, PWSTR commandId, PWSTR commandLine, WSMAN_COMMAND_ARG_SET* args, WSMAN_OPTION_SET* options, WSMAN_SHELL_ASYNC* async, WSMAN_COMMAND** command);
+	public static extern void WSManRunShellCommandEx(WSMAN_SHELL shell, uint32 flags, PWSTR commandId, PWSTR commandLine, WSMAN_COMMAND_ARG_SET args, WSMAN_OPTION_SET options, WSMAN_SHELL_ASYNC async, WSMAN_COMMAND command);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManDisconnectShell(WSMAN_SHELL* shell, uint32 flags, WSMAN_SHELL_DISCONNECT_INFO* disconnectInfo, WSMAN_SHELL_ASYNC* async);
+	public static extern void WSManDisconnectShell(WSMAN_SHELL shell, uint32 flags, WSMAN_SHELL_DISCONNECT_INFO disconnectInfo, WSMAN_SHELL_ASYNC async);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManReconnectShell(WSMAN_SHELL* shell, uint32 flags, WSMAN_SHELL_ASYNC* async);
+	public static extern void WSManReconnectShell(WSMAN_SHELL shell, uint32 flags, WSMAN_SHELL_ASYNC async);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManReconnectShellCommand(WSMAN_COMMAND* commandHandle, uint32 flags, WSMAN_SHELL_ASYNC* async);
+	public static extern void WSManReconnectShellCommand(WSMAN_COMMAND commandHandle, uint32 flags, WSMAN_SHELL_ASYNC async);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManConnectShell(WSMAN_SESSION* session, uint32 flags, PWSTR resourceUri, PWSTR shellID, WSMAN_OPTION_SET* options, WSMAN_DATA* connectXml, WSMAN_SHELL_ASYNC* async, WSMAN_SHELL** shell);
+	public static extern void WSManConnectShell(WSMAN_SESSION session, uint32 flags, PWSTR resourceUri, PWSTR shellID, WSMAN_OPTION_SET options, WSMAN_DATA connectXml, WSMAN_SHELL_ASYNC async, WSMAN_SHELL shell);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void WSManConnectShellCommand(WSMAN_SHELL* shell, uint32 flags, PWSTR commandID, WSMAN_OPTION_SET* options, WSMAN_DATA* connectXml, WSMAN_SHELL_ASYNC* async, WSMAN_COMMAND** command);
+	public static extern void WSManConnectShellCommand(WSMAN_SHELL shell, uint32 flags, PWSTR commandID, WSMAN_OPTION_SET options, WSMAN_DATA connectXml, WSMAN_SHELL_ASYNC async, WSMAN_COMMAND command);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManPluginReportContext(WSMAN_PLUGIN_REQUEST* requestDetails, uint32 flags, void* context);
+	public static extern uint32 WSManPluginReportContext(WSMAN_PLUGIN_REQUEST requestDetails, uint32 flags, void context);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManPluginReceiveResult(WSMAN_PLUGIN_REQUEST* requestDetails, uint32 flags, PWSTR stream, WSMAN_DATA* streamResult, PWSTR commandState, uint32 exitCode);
+	public static extern uint32 WSManPluginReceiveResult(WSMAN_PLUGIN_REQUEST requestDetails, uint32 flags, PWSTR stream, WSMAN_DATA streamResult, PWSTR commandState, uint32 exitCode);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManPluginOperationComplete(WSMAN_PLUGIN_REQUEST* requestDetails, uint32 flags, uint32 errorCode, PWSTR extendedInformation);
+	public static extern uint32 WSManPluginOperationComplete(WSMAN_PLUGIN_REQUEST requestDetails, uint32 flags, uint32 errorCode, PWSTR extendedInformation);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManPluginGetOperationParameters(WSMAN_PLUGIN_REQUEST* requestDetails, uint32 flags, WSMAN_DATA* data);
+	public static extern uint32 WSManPluginGetOperationParameters(WSMAN_PLUGIN_REQUEST requestDetails, uint32 flags, WSMAN_DATA data);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManPluginGetConfiguration(void* pluginContext, uint32 flags, WSMAN_DATA* data);
+	public static extern uint32 WSManPluginGetConfiguration(void pluginContext, uint32 flags, WSMAN_DATA data);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManPluginReportCompletion(void* pluginContext, uint32 flags);
+	public static extern uint32 WSManPluginReportCompletion(void pluginContext, uint32 flags);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManPluginFreeRequestDetails(WSMAN_PLUGIN_REQUEST* requestDetails);
+	public static extern uint32 WSManPluginFreeRequestDetails(WSMAN_PLUGIN_REQUEST requestDetails);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManPluginAuthzUserComplete(WSMAN_SENDER_DETAILS* senderDetails, uint32 flags, void* userAuthorizationContext, HANDLE impersonationToken, BOOL userIsAdministrator, uint32 errorCode, PWSTR extendedErrorInformation);
+	public static extern uint32 WSManPluginAuthzUserComplete(WSMAN_SENDER_DETAILS senderDetails, uint32 flags, void userAuthorizationContext, HANDLE impersonationToken, BOOL userIsAdministrator, uint32 errorCode, PWSTR extendedErrorInformation);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManPluginAuthzOperationComplete(WSMAN_SENDER_DETAILS* senderDetails, uint32 flags, void* userAuthorizationContext, uint32 errorCode, PWSTR extendedErrorInformation);
+	public static extern uint32 WSManPluginAuthzOperationComplete(WSMAN_SENDER_DETAILS senderDetails, uint32 flags, void userAuthorizationContext, uint32 errorCode, PWSTR extendedErrorInformation);
 
 	[Import("WsmSvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WSManPluginAuthzQueryQuotaComplete(WSMAN_SENDER_DETAILS* senderDetails, uint32 flags, WSMAN_AUTHZ_QUOTA* quota, uint32 errorCode, PWSTR extendedErrorInformation);
+	public static extern uint32 WSManPluginAuthzQueryQuotaComplete(WSMAN_SENDER_DETAILS senderDetails, uint32 flags, WSMAN_AUTHZ_QUOTA quota, uint32 errorCode, PWSTR extendedErrorInformation);
 
 }
 #endregion

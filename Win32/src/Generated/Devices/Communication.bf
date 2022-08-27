@@ -462,7 +462,7 @@ public static
 	public static extern BOOL ClearCommBreak(HANDLE hFile);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ClearCommError(HANDLE hFile, CLEAR_COMM_ERROR_FLAGS* lpErrors, COMSTAT* lpStat);
+	public static extern BOOL ClearCommError(HANDLE hFile, CLEAR_COMM_ERROR_FLAGS lpErrors, COMSTAT lpStat);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetupComm(HANDLE hFile, uint32 dwInQueue, uint32 dwOutQueue);
@@ -471,22 +471,22 @@ public static
 	public static extern BOOL EscapeCommFunction(HANDLE hFile, ESCAPE_COMM_FUNCTION dwFunc);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCommConfig(HANDLE hCommDev, COMMCONFIG* lpCC, uint32* lpdwSize);
+	public static extern BOOL GetCommConfig(HANDLE hCommDev, COMMCONFIG lpCC, uint32 lpdwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCommMask(HANDLE hFile, COMM_EVENT_MASK* lpEvtMask);
+	public static extern BOOL GetCommMask(HANDLE hFile, COMM_EVENT_MASK lpEvtMask);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCommProperties(HANDLE hFile, COMMPROP* lpCommProp);
+	public static extern BOOL GetCommProperties(HANDLE hFile, COMMPROP lpCommProp);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCommModemStatus(HANDLE hFile, MODEM_STATUS_FLAGS* lpModemStat);
+	public static extern BOOL GetCommModemStatus(HANDLE hFile, MODEM_STATUS_FLAGS lpModemStat);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCommState(HANDLE hFile, DCB* lpDCB);
+	public static extern BOOL GetCommState(HANDLE hFile, DCB lpDCB);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCommTimeouts(HANDLE hFile, COMMTIMEOUTS* lpCommTimeouts);
+	public static extern BOOL GetCommTimeouts(HANDLE hFile, COMMTIMEOUTS lpCommTimeouts);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PurgeComm(HANDLE hFile, PURGE_COMM_FLAGS dwFlags);
@@ -495,63 +495,63 @@ public static
 	public static extern BOOL SetCommBreak(HANDLE hFile);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetCommConfig(HANDLE hCommDev, COMMCONFIG* lpCC, uint32 dwSize);
+	public static extern BOOL SetCommConfig(HANDLE hCommDev, COMMCONFIG lpCC, uint32 dwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetCommMask(HANDLE hFile, COMM_EVENT_MASK dwEvtMask);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetCommState(HANDLE hFile, DCB* lpDCB);
+	public static extern BOOL SetCommState(HANDLE hFile, DCB lpDCB);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetCommTimeouts(HANDLE hFile, COMMTIMEOUTS* lpCommTimeouts);
+	public static extern BOOL SetCommTimeouts(HANDLE hFile, COMMTIMEOUTS lpCommTimeouts);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL TransmitCommChar(HANDLE hFile, CHAR cChar);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WaitCommEvent(HANDLE hFile, COMM_EVENT_MASK* lpEvtMask, OVERLAPPED* lpOverlapped);
+	public static extern BOOL WaitCommEvent(HANDLE hFile, COMM_EVENT_MASK lpEvtMask, OVERLAPPED lpOverlapped);
 
 	[Import("api-ms-win-core-comm-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE OpenCommPort(uint32 uPortNumber, uint32 dwDesiredAccess, uint32 dwFlagsAndAttributes);
 
 	[Import("api-ms-win-core-comm-l1-1-2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetCommPorts(uint32* lpPortNumbers, uint32 uPortNumbersCount, uint32* puPortNumbersFound);
+	public static extern uint32 GetCommPorts(uint32* lpPortNumbers, uint32 uPortNumbersCount, uint32 puPortNumbersFound);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL BuildCommDCBA(PSTR lpDef, DCB* lpDCB);
-	public static BOOL BuildCommDCB(PSTR lpDef, DCB* lpDCB) => BuildCommDCBA(lpDef, lpDCB);
+	public static extern BOOL BuildCommDCBA(PSTR lpDef, DCB lpDCB);
+	public static BOOL BuildCommDCB(PSTR lpDef, DCB lpDCB) => BuildCommDCBA(lpDef, lpDCB);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL BuildCommDCBW(PWSTR lpDef, DCB* lpDCB);
+	public static extern BOOL BuildCommDCBW(PWSTR lpDef, DCB lpDCB);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL BuildCommDCBAndTimeoutsA(PSTR lpDef, DCB* lpDCB, COMMTIMEOUTS* lpCommTimeouts);
-	public static BOOL BuildCommDCBAndTimeouts(PSTR lpDef, DCB* lpDCB, COMMTIMEOUTS* lpCommTimeouts) => BuildCommDCBAndTimeoutsA(lpDef, lpDCB, lpCommTimeouts);
+	public static extern BOOL BuildCommDCBAndTimeoutsA(PSTR lpDef, DCB lpDCB, COMMTIMEOUTS lpCommTimeouts);
+	public static BOOL BuildCommDCBAndTimeouts(PSTR lpDef, DCB lpDCB, COMMTIMEOUTS lpCommTimeouts) => BuildCommDCBAndTimeoutsA(lpDef, lpDCB, lpCommTimeouts);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL BuildCommDCBAndTimeoutsW(PWSTR lpDef, DCB* lpDCB, COMMTIMEOUTS* lpCommTimeouts);
+	public static extern BOOL BuildCommDCBAndTimeoutsW(PWSTR lpDef, DCB lpDCB, COMMTIMEOUTS lpCommTimeouts);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CommConfigDialogA(PSTR lpszName, HWND hWnd, COMMCONFIG* lpCC);
-	public static BOOL CommConfigDialog(PSTR lpszName, HWND hWnd, COMMCONFIG* lpCC) => CommConfigDialogA(lpszName, hWnd, lpCC);
+	public static extern BOOL CommConfigDialogA(PSTR lpszName, HWND hWnd, COMMCONFIG lpCC);
+	public static BOOL CommConfigDialog(PSTR lpszName, HWND hWnd, COMMCONFIG lpCC) => CommConfigDialogA(lpszName, hWnd, lpCC);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CommConfigDialogW(PWSTR lpszName, HWND hWnd, COMMCONFIG* lpCC);
+	public static extern BOOL CommConfigDialogW(PWSTR lpszName, HWND hWnd, COMMCONFIG lpCC);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetDefaultCommConfigA(PSTR lpszName, COMMCONFIG* lpCC, uint32* lpdwSize);
-	public static BOOL GetDefaultCommConfig(PSTR lpszName, COMMCONFIG* lpCC, uint32* lpdwSize) => GetDefaultCommConfigA(lpszName, lpCC, lpdwSize);
+	public static extern BOOL GetDefaultCommConfigA(PSTR lpszName, COMMCONFIG lpCC, uint32 lpdwSize);
+	public static BOOL GetDefaultCommConfig(PSTR lpszName, COMMCONFIG lpCC, uint32 lpdwSize) => GetDefaultCommConfigA(lpszName, lpCC, lpdwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetDefaultCommConfigW(PWSTR lpszName, COMMCONFIG* lpCC, uint32* lpdwSize);
+	public static extern BOOL GetDefaultCommConfigW(PWSTR lpszName, COMMCONFIG lpCC, uint32 lpdwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetDefaultCommConfigA(PSTR lpszName, COMMCONFIG* lpCC, uint32 dwSize);
-	public static BOOL SetDefaultCommConfig(PSTR lpszName, COMMCONFIG* lpCC, uint32 dwSize) => SetDefaultCommConfigA(lpszName, lpCC, dwSize);
+	public static extern BOOL SetDefaultCommConfigA(PSTR lpszName, COMMCONFIG lpCC, uint32 dwSize);
+	public static BOOL SetDefaultCommConfig(PSTR lpszName, COMMCONFIG lpCC, uint32 dwSize) => SetDefaultCommConfigA(lpszName, lpCC, dwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetDefaultCommConfigW(PWSTR lpszName, COMMCONFIG* lpCC, uint32 dwSize);
+	public static extern BOOL SetDefaultCommConfigW(PWSTR lpszName, COMMCONFIG lpCC, uint32 dwSize);
 
 }
 #endregion

@@ -77,11 +77,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRandomAccessStreamFileAccessMode*/SelfOuter* self, uint32* fileAccessMode) GetMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRandomAccessStreamFileAccessMode*/SelfOuter* self, uint32 fileAccessMode) GetMode;
 	}
 
 
-	public HRESULT GetMode(uint32* fileAccessMode) mut => VT.[Friend]GetMode(&this, fileAccessMode);
+	public HRESULT GetMode(uint32 fileAccessMode) mut => VT.[Friend]GetMode(&this, fileAccessMode);
 }
 
 [CRepr]struct IUnbufferedFileHandleOplockCallback : IUnknown
@@ -107,12 +107,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUnbufferedFileHandleProvider*/SelfOuter* self, IUnbufferedFileHandleOplockCallback* oplockBreakCallback, uint* fileHandle) OpenUnbufferedFileHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUnbufferedFileHandleProvider*/SelfOuter* self, IUnbufferedFileHandleOplockCallback* oplockBreakCallback, uint fileHandle) OpenUnbufferedFileHandle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUnbufferedFileHandleProvider*/SelfOuter* self) CloseUnbufferedFileHandle;
 	}
 
 
-	public HRESULT OpenUnbufferedFileHandle(IUnbufferedFileHandleOplockCallback* oplockBreakCallback, uint* fileHandle) mut => VT.[Friend]OpenUnbufferedFileHandle(&this, oplockBreakCallback, fileHandle);
+	public HRESULT OpenUnbufferedFileHandle(IUnbufferedFileHandleOplockCallback* oplockBreakCallback, uint fileHandle) mut => VT.[Friend]OpenUnbufferedFileHandle(&this, oplockBreakCallback, fileHandle);
 
 	public HRESULT CloseUnbufferedFileHandle() mut => VT.[Friend]CloseUnbufferedFileHandle(&this);
 }
@@ -140,11 +140,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageItemHandleAccess*/SelfOuter* self, HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE* interopHandle) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageItemHandleAccess*/SelfOuter* self, HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE interopHandle) Create;
 	}
 
 
-	public HRESULT Create(HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE* interopHandle) mut => VT.[Friend]Create(&this, accessOptions, sharingOptions, options, oplockBreakingHandler, interopHandle);
+	public HRESULT Create(HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE interopHandle) mut => VT.[Friend]Create(&this, accessOptions, sharingOptions, options, oplockBreakingHandler, interopHandle);
 }
 
 [CRepr]struct IStorageFolderHandleAccess : IUnknown
@@ -155,11 +155,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageFolderHandleAccess*/SelfOuter* self, PWSTR fileName, HANDLE_CREATION_OPTIONS creationOptions, HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE* interopHandle) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageFolderHandleAccess*/SelfOuter* self, PWSTR fileName, HANDLE_CREATION_OPTIONS creationOptions, HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE interopHandle) Create;
 	}
 
 
-	public HRESULT Create(PWSTR fileName, HANDLE_CREATION_OPTIONS creationOptions, HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE* interopHandle) mut => VT.[Friend]Create(&this, fileName, creationOptions, accessOptions, sharingOptions, options, oplockBreakingHandler, interopHandle);
+	public HRESULT Create(PWSTR fileName, HANDLE_CREATION_OPTIONS creationOptions, HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE interopHandle) mut => VT.[Friend]Create(&this, fileName, creationOptions, accessOptions, sharingOptions, options, oplockBreakingHandler, interopHandle);
 }
 
 #endregion

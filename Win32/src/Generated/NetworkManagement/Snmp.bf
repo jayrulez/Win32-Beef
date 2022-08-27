@@ -324,23 +324,23 @@ public enum SNMP_ERROR : uint32
 #endregion
 
 #region Function Pointers
-public function BOOL PFNSNMPEXTENSIONINIT(uint32 dwUpTimeReference, HANDLE* phSubagentTrapEvent, AsnObjectIdentifier* pFirstSupportedRegion);
+public function BOOL PFNSNMPEXTENSIONINIT(uint32 dwUpTimeReference, HANDLE phSubagentTrapEvent, AsnObjectIdentifier pFirstSupportedRegion);
 
-public function BOOL PFNSNMPEXTENSIONINITEX(AsnObjectIdentifier* pNextSupportedRegion);
+public function BOOL PFNSNMPEXTENSIONINITEX(AsnObjectIdentifier pNextSupportedRegion);
 
-public function BOOL PFNSNMPEXTENSIONMONITOR(void* pAgentMgmtData);
+public function BOOL PFNSNMPEXTENSIONMONITOR(void pAgentMgmtData);
 
-public function BOOL PFNSNMPEXTENSIONQUERY(uint8 bPduType, SnmpVarBindList* pVarBindList, int32* pErrorStatus, int32* pErrorIndex);
+public function BOOL PFNSNMPEXTENSIONQUERY(uint8 bPduType, SnmpVarBindList pVarBindList, int32 pErrorStatus, int32 pErrorIndex);
 
-public function BOOL PFNSNMPEXTENSIONQUERYEX(uint32 nRequestType, uint32 nTransactionId, SnmpVarBindList* pVarBindList, AsnOctetString* pContextInfo, int32* pErrorStatus, int32* pErrorIndex);
+public function BOOL PFNSNMPEXTENSIONQUERYEX(uint32 nRequestType, uint32 nTransactionId, SnmpVarBindList pVarBindList, AsnOctetString pContextInfo, int32 pErrorStatus, int32 pErrorIndex);
 
-public function BOOL PFNSNMPEXTENSIONTRAP(AsnObjectIdentifier* pEnterpriseOid, int32* pGenericTrapId, int32* pSpecificTrapId, uint32* pTimeStamp, SnmpVarBindList* pVarBindList);
+public function BOOL PFNSNMPEXTENSIONTRAP(AsnObjectIdentifier pEnterpriseOid, int32 pGenericTrapId, int32 pSpecificTrapId, uint32 pTimeStamp, SnmpVarBindList pVarBindList);
 
 public function void PFNSNMPEXTENSIONCLOSE();
 
-public function uint32 SNMPAPI_CALLBACK(int hSession, HWND hWnd, uint32 wMsg, WPARAM wParam, LPARAM lParam, void* lpClientData);
+public function uint32 SNMPAPI_CALLBACK(int hSession, HWND hWnd, uint32 wMsg, WPARAM wParam, LPARAM lParam, void lpClientData);
 
-public function uint32 PFNSNMPSTARTUPEX(uint32* param0, uint32* param1, uint32* param2, uint32* param3, uint32* param4);
+public function uint32 PFNSNMPSTARTUPEX(uint32 param0, uint32 param1, uint32 param2, uint32 param3, uint32 param4);
 
 public function uint32 PFNSNMPCLEANUPEX();
 
@@ -350,7 +350,7 @@ public function uint32 PFNSNMPCLEANUPEX();
 [CRepr, Packed(4)]
 public struct AsnOctetString
 {
-	public uint8* stream;
+	public uint8 stream;
 	public uint32 length;
 	public BOOL dynamic;
 }
@@ -359,7 +359,7 @@ public struct AsnOctetString
 public struct AsnObjectIdentifier
 {
 	public uint32 idLength;
-	public uint32* ids;
+	public uint32 ids;
 }
 
 [CRepr]
@@ -396,7 +396,7 @@ public struct SnmpVarBind
 [CRepr, Packed(4)]
 public struct SnmpVarBindList
 {
-	public SnmpVarBind* list;
+	public SnmpVarBind list;
 	public uint32 len;
 }
 
@@ -404,14 +404,14 @@ public struct SnmpVarBindList
 public struct smiOCTETS
 {
 	public uint32 len;
-	public uint8* ptr;
+	public uint8 ptr;
 }
 
 [CRepr]
 public struct smiOID
 {
 	public uint32 len;
-	public uint32* ptr;
+	public uint32 ptr;
 }
 
 [CRepr]
@@ -464,70 +464,70 @@ public static
 public static
 {
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpUtilOidCpy(AsnObjectIdentifier* pOidDst, AsnObjectIdentifier* pOidSrc);
+	public static extern int32 SnmpUtilOidCpy(AsnObjectIdentifier pOidDst, AsnObjectIdentifier pOidSrc);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpUtilOidAppend(AsnObjectIdentifier* pOidDst, AsnObjectIdentifier* pOidSrc);
+	public static extern int32 SnmpUtilOidAppend(AsnObjectIdentifier pOidDst, AsnObjectIdentifier pOidSrc);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpUtilOidNCmp(AsnObjectIdentifier* pOid1, AsnObjectIdentifier* pOid2, uint32 nSubIds);
+	public static extern int32 SnmpUtilOidNCmp(AsnObjectIdentifier pOid1, AsnObjectIdentifier pOid2, uint32 nSubIds);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpUtilOidCmp(AsnObjectIdentifier* pOid1, AsnObjectIdentifier* pOid2);
+	public static extern int32 SnmpUtilOidCmp(AsnObjectIdentifier pOid1, AsnObjectIdentifier pOid2);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SnmpUtilOidFree(AsnObjectIdentifier* pOid);
+	public static extern void SnmpUtilOidFree(AsnObjectIdentifier pOid);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpUtilOctetsCmp(AsnOctetString* pOctets1, AsnOctetString* pOctets2);
+	public static extern int32 SnmpUtilOctetsCmp(AsnOctetString pOctets1, AsnOctetString pOctets2);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpUtilOctetsNCmp(AsnOctetString* pOctets1, AsnOctetString* pOctets2, uint32 nChars);
+	public static extern int32 SnmpUtilOctetsNCmp(AsnOctetString pOctets1, AsnOctetString pOctets2, uint32 nChars);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpUtilOctetsCpy(AsnOctetString* pOctetsDst, AsnOctetString* pOctetsSrc);
+	public static extern int32 SnmpUtilOctetsCpy(AsnOctetString pOctetsDst, AsnOctetString pOctetsSrc);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SnmpUtilOctetsFree(AsnOctetString* pOctets);
+	public static extern void SnmpUtilOctetsFree(AsnOctetString pOctets);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpUtilAsnAnyCpy(AsnAny* pAnyDst, AsnAny* pAnySrc);
+	public static extern int32 SnmpUtilAsnAnyCpy(AsnAny pAnyDst, AsnAny pAnySrc);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SnmpUtilAsnAnyFree(AsnAny* pAny);
+	public static extern void SnmpUtilAsnAnyFree(AsnAny pAny);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpUtilVarBindCpy(SnmpVarBind* pVbDst, SnmpVarBind* pVbSrc);
+	public static extern int32 SnmpUtilVarBindCpy(SnmpVarBind pVbDst, SnmpVarBind pVbSrc);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SnmpUtilVarBindFree(SnmpVarBind* pVb);
+	public static extern void SnmpUtilVarBindFree(SnmpVarBind pVb);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpUtilVarBindListCpy(SnmpVarBindList* pVblDst, SnmpVarBindList* pVblSrc);
+	public static extern int32 SnmpUtilVarBindListCpy(SnmpVarBindList pVblDst, SnmpVarBindList pVblSrc);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SnmpUtilVarBindListFree(SnmpVarBindList* pVbl);
+	public static extern void SnmpUtilVarBindListFree(SnmpVarBindList pVbl);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SnmpUtilMemFree(void* pMem);
+	public static extern void SnmpUtilMemFree(void pMem);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* SnmpUtilMemAlloc(uint32 nBytes);
+	public static extern void SnmpUtilMemAlloc(uint32 nBytes);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* SnmpUtilMemReAlloc(void* pMem, uint32 nBytes);
+	public static extern void SnmpUtilMemReAlloc(void pMem, uint32 nBytes);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR SnmpUtilOidToA(AsnObjectIdentifier* Oid);
+	public static extern PSTR SnmpUtilOidToA(AsnObjectIdentifier Oid);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR SnmpUtilIdsToA(uint32* Ids, uint32 IdLength);
+	public static extern PSTR SnmpUtilIdsToA(uint32 Ids, uint32 IdLength);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SnmpUtilPrintOid(AsnObjectIdentifier* Oid);
+	public static extern void SnmpUtilPrintOid(AsnObjectIdentifier Oid);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SnmpUtilPrintAsnAny(AsnAny* pAny);
+	public static extern void SnmpUtilPrintAsnAny(AsnAny pAny);
 
 	[Import("snmpapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SnmpSvcGetUptime();
@@ -542,61 +542,61 @@ public static
 	public static extern void SnmpUtilDbgPrint(SNMP_LOG nLogLevel, PSTR szFormat);
 
 	[Import("mgmtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* SnmpMgrOpen(PSTR lpAgentAddress, PSTR lpAgentCommunity, int32 nTimeOut, int32 nRetries);
+	public static extern void SnmpMgrOpen(PSTR lpAgentAddress, PSTR lpAgentCommunity, int32 nTimeOut, int32 nRetries);
 
 	[Import("mgmtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SnmpMgrCtl(void* session, uint32 dwCtlCode, void* lpvInBuffer, uint32 cbInBuffer, void* lpvOUTBuffer, uint32 cbOUTBuffer, uint32* lpcbBytesReturned);
+	public static extern BOOL SnmpMgrCtl(void session, uint32 dwCtlCode, void lpvInBuffer, uint32 cbInBuffer, void lpvOUTBuffer, uint32 cbOUTBuffer, uint32 lpcbBytesReturned);
 
 	[Import("mgmtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SnmpMgrClose(void* session);
+	public static extern BOOL SnmpMgrClose(void session);
 
 	[Import("mgmtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SnmpMgrRequest(void* session, uint8 requestType, SnmpVarBindList* variableBindings, SNMP_ERROR_STATUS* errorStatus, int32* errorIndex);
+	public static extern int32 SnmpMgrRequest(void session, uint8 requestType, SnmpVarBindList variableBindings, SNMP_ERROR_STATUS errorStatus, int32 errorIndex);
 
 	[Import("mgmtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SnmpMgrStrToOid(PSTR string, AsnObjectIdentifier* oid);
+	public static extern BOOL SnmpMgrStrToOid(PSTR string, AsnObjectIdentifier oid);
 
 	[Import("mgmtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SnmpMgrOidToStr(AsnObjectIdentifier* oid, PSTR* string);
+	public static extern BOOL SnmpMgrOidToStr(AsnObjectIdentifier oid, PSTR string);
 
 	[Import("mgmtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SnmpMgrTrapListen(HANDLE* phTrapAvailable);
+	public static extern BOOL SnmpMgrTrapListen(HANDLE phTrapAvailable);
 
 	[Import("mgmtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SnmpMgrGetTrap(AsnObjectIdentifier* enterprise, AsnOctetString* IPAddress, SNMP_GENERICTRAP* genericTrap, int32* specificTrap, uint32* timeStamp, SnmpVarBindList* variableBindings);
+	public static extern BOOL SnmpMgrGetTrap(AsnObjectIdentifier enterprise, AsnOctetString IPAddress, SNMP_GENERICTRAP genericTrap, int32 specificTrap, uint32 timeStamp, SnmpVarBindList variableBindings);
 
 	[Import("mgmtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SnmpMgrGetTrapEx(AsnObjectIdentifier* enterprise, AsnOctetString* agentAddress, AsnOctetString* sourceAddress, SNMP_GENERICTRAP* genericTrap, int32* specificTrap, AsnOctetString* community, uint32* timeStamp, SnmpVarBindList* variableBindings);
+	public static extern BOOL SnmpMgrGetTrapEx(AsnObjectIdentifier enterprise, AsnOctetString agentAddress, AsnOctetString sourceAddress, SNMP_GENERICTRAP genericTrap, int32 specificTrap, AsnOctetString community, uint32 timeStamp, SnmpVarBindList variableBindings);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpGetTranslateMode(SNMP_API_TRANSLATE_MODE* nTranslateMode);
+	public static extern uint32 SnmpGetTranslateMode(SNMP_API_TRANSLATE_MODE nTranslateMode);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SnmpSetTranslateMode(SNMP_API_TRANSLATE_MODE nTranslateMode);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpGetRetransmitMode(SNMP_STATUS* nRetransmitMode);
+	public static extern uint32 SnmpGetRetransmitMode(SNMP_STATUS nRetransmitMode);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SnmpSetRetransmitMode(SNMP_STATUS nRetransmitMode);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpGetTimeout(int hEntity, uint32* nPolicyTimeout, uint32* nActualTimeout);
+	public static extern uint32 SnmpGetTimeout(int hEntity, uint32 nPolicyTimeout, uint32 nActualTimeout);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SnmpSetTimeout(int hEntity, uint32 nPolicyTimeout);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpGetRetry(int hEntity, uint32* nPolicyRetry, uint32* nActualRetry);
+	public static extern uint32 SnmpGetRetry(int hEntity, uint32 nPolicyRetry, uint32 nActualRetry);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SnmpSetRetry(int hEntity, uint32 nPolicyRetry);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpGetVendorInfo(smiVENDORINFO* vendorInfo);
+	public static extern uint32 SnmpGetVendorInfo(smiVENDORINFO vendorInfo);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpStartup(uint32* nMajorVersion, uint32* nMinorVersion, uint32* nLevel, SNMP_API_TRANSLATE_MODE* nTranslateMode, SNMP_STATUS* nRetransmitMode);
+	public static extern uint32 SnmpStartup(uint32 nMajorVersion, uint32 nMinorVersion, uint32 nLevel, SNMP_API_TRANSLATE_MODE nTranslateMode, SNMP_STATUS nRetransmitMode);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SnmpCleanup();
@@ -611,13 +611,13 @@ public static
 	public static extern uint32 SnmpSendMsg(int session, int srcEntity, int dstEntity, int context, int PDU);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpRecvMsg(int session, int* srcEntity, int* dstEntity, int* context, int* PDU);
+	public static extern uint32 SnmpRecvMsg(int session, int srcEntity, int dstEntity, int context, int PDU);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpRegister(int session, int srcEntity, int dstEntity, int context, smiOID* notification, SNMP_STATUS state);
+	public static extern uint32 SnmpRegister(int session, int srcEntity, int dstEntity, int context, smiOID notification, SNMP_STATUS state);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int SnmpCreateSession(HWND hWnd, uint32 wMsg, SNMPAPI_CALLBACK fCallBack, void* lpClientData);
+	public static extern int SnmpCreateSession(HWND hWnd, uint32 wMsg, SNMPAPI_CALLBACK fCallBack, void lpClientData);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SnmpListen(int hEntity, SNMP_STATUS lStatus);
@@ -629,7 +629,7 @@ public static
 	public static extern uint32 SnmpCancelMsg(int session, int32 reqId);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpStartupEx(uint32* nMajorVersion, uint32* nMinorVersion, uint32* nLevel, SNMP_API_TRANSLATE_MODE* nTranslateMode, SNMP_STATUS* nRetransmitMode);
+	public static extern uint32 SnmpStartupEx(uint32 nMajorVersion, uint32 nMinorVersion, uint32 nLevel, SNMP_API_TRANSLATE_MODE nTranslateMode, SNMP_STATUS nRetransmitMode);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SnmpCleanupEx();
@@ -644,10 +644,10 @@ public static
 	public static extern uint32 SnmpFreeEntity(int entity);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int SnmpStrToContext(int session, smiOCTETS* string);
+	public static extern int SnmpStrToContext(int session, smiOCTETS string);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpContextToStr(int context, smiOCTETS* string);
+	public static extern uint32 SnmpContextToStr(int context, smiOCTETS string);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SnmpFreeContext(int context);
@@ -659,10 +659,10 @@ public static
 	public static extern int SnmpCreatePdu(int session, SNMP_PDU_TYPE PDU_type, int32 request_id, int32 error_status, int32 error_index, int varbindlist);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpGetPduData(int PDU, SNMP_PDU_TYPE* PDU_type, int32* request_id, SNMP_ERROR* error_status, int32* error_index, int* varbindlist);
+	public static extern uint32 SnmpGetPduData(int PDU, SNMP_PDU_TYPE PDU_type, int32 request_id, SNMP_ERROR error_status, int32 error_index, int varbindlist);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpSetPduData(int PDU, int32* PDU_type, int32* request_id, int32* non_repeaters, int32* max_repetitions, int* varbindlist);
+	public static extern uint32 SnmpSetPduData(int PDU, int32 PDU_type, int32 request_id, int32 non_repeaters, int32 max_repetitions, int varbindlist);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int SnmpDuplicatePdu(int session, int PDU);
@@ -671,7 +671,7 @@ public static
 	public static extern uint32 SnmpFreePdu(int PDU);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int SnmpCreateVbl(int session, smiOID* name, smiVALUE* value);
+	public static extern int SnmpCreateVbl(int session, smiOID name, smiVALUE value);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int SnmpDuplicateVbl(int session, int vbl);
@@ -683,10 +683,10 @@ public static
 	public static extern uint32 SnmpCountVbl(int vbl);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpGetVb(int vbl, uint32 index, smiOID* name, smiVALUE* value);
+	public static extern uint32 SnmpGetVb(int vbl, uint32 index, smiOID name, smiVALUE value);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpSetVb(int vbl, uint32 index, smiOID* name, smiVALUE* value);
+	public static extern uint32 SnmpSetVb(int vbl, uint32 index, smiOID name, smiVALUE value);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SnmpDeleteVb(int vbl, uint32 index);
@@ -695,25 +695,25 @@ public static
 	public static extern uint32 SnmpGetLastError(int session);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpStrToOid(PSTR string, smiOID* dstOID);
+	public static extern uint32 SnmpStrToOid(PSTR string, smiOID dstOID);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpOidToStr(smiOID* srcOID, uint32 size, uint8* string);
+	public static extern uint32 SnmpOidToStr(smiOID srcOID, uint32 size, uint8* string);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpOidCopy(smiOID* srcOID, smiOID* dstOID);
+	public static extern uint32 SnmpOidCopy(smiOID srcOID, smiOID dstOID);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpOidCompare(smiOID* xOID, smiOID* yOID, uint32 maxlen, int32* result);
+	public static extern uint32 SnmpOidCompare(smiOID xOID, smiOID yOID, uint32 maxlen, int32 result);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpEncodeMsg(int session, int srcEntity, int dstEntity, int context, int pdu, smiOCTETS* msgBufDesc);
+	public static extern uint32 SnmpEncodeMsg(int session, int srcEntity, int dstEntity, int context, int pdu, smiOCTETS msgBufDesc);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpDecodeMsg(int session, int* srcEntity, int* dstEntity, int* context, int* pdu, smiOCTETS* msgBufDesc);
+	public static extern uint32 SnmpDecodeMsg(int session, int srcEntity, int dstEntity, int context, int pdu, smiOCTETS msgBufDesc);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpFreeDescriptor(uint32 syntax, smiOCTETS* descriptor);
+	public static extern uint32 SnmpFreeDescriptor(uint32 syntax, smiOCTETS descriptor);
 
 }
 #endregion

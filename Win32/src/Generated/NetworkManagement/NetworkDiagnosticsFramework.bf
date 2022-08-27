@@ -172,7 +172,7 @@ public enum PROBLEM_TYPE : int32
 public struct OCTET_STRING
 {
 	public uint32 dwLength;
-	public uint8* lpValue;
+	public uint8 lpValue;
 }
 
 [CRepr]
@@ -271,7 +271,7 @@ public struct RootCauseInfo
 	public Guid rootCauseID;
 	public uint32 rootCauseFlags;
 	public Guid networkInterfaceID;
-	public RepairInfoEx* pRepairs;
+	public RepairInfoEx pRepairs;
 	public uint16 repairCount;
 }
 
@@ -281,7 +281,7 @@ public struct HYPOTHESIS
 	public PWSTR pwszClassName;
 	public PWSTR pwszDescription;
 	public uint32 celt;
-	public HELPER_ATTRIBUTE* rgAttributes;
+	public HELPER_ATTRIBUTE rgAttributes;
 }
 
 [CRepr]
@@ -323,21 +323,21 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32 celt, HELPER_ATTRIBUTE* rgAttributes) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, DiagnosticsInfo** ppInfo) GetDiagnosticsInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32* pcelt, HELPER_ATTRIBUTE** pprgAttributes) GetKeyAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, PWSTR pwszInstanceDescription, PWSTR* ppwszDescription, int32* pDeferredTime, DIAGNOSIS_STATUS* pStatus) LowHealth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, PWSTR pwszInstanceDescription, PWSTR* ppwszDescription, int32* pDeferredTime, DIAGNOSIS_STATUS* pStatus) HighUtilization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32* pcelt, HYPOTHESIS** pprgHypotheses) GetLowerHypotheses;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32* pcelt, HYPOTHESIS** pprgHypotheses) GetDownStreamHypotheses;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32* pcelt, HYPOTHESIS** pprgHypotheses) GetHigherHypotheses;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32* pcelt, HYPOTHESIS** pprgHypotheses) GetUpStreamHypotheses;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, RepairInfo* pInfo, int32* pDeferredTime, REPAIR_STATUS* pStatus) Repair;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, PROBLEM_TYPE problem, int32* pDeferredTime, REPAIR_STATUS* pStatus) Validate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, PROBLEM_TYPE problem, uint32* pcelt, RepairInfo** ppInfo) GetRepairInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, LIFE_TIME* pLifeTime) GetLifeTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, DiagnosticsInfo ppInfo) GetDiagnosticsInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32 pcelt, HELPER_ATTRIBUTE* pprgAttributes) GetKeyAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, PWSTR pwszInstanceDescription, PWSTR ppwszDescription, int32 pDeferredTime, DIAGNOSIS_STATUS pStatus) LowHealth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, PWSTR pwszInstanceDescription, PWSTR ppwszDescription, int32 pDeferredTime, DIAGNOSIS_STATUS pStatus) HighUtilization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32 pcelt, HYPOTHESIS* pprgHypotheses) GetLowerHypotheses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32 pcelt, HYPOTHESIS* pprgHypotheses) GetDownStreamHypotheses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32 pcelt, HYPOTHESIS* pprgHypotheses) GetHigherHypotheses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32 pcelt, HYPOTHESIS* pprgHypotheses) GetUpStreamHypotheses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, RepairInfo pInfo, int32 pDeferredTime, REPAIR_STATUS pStatus) Repair;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, PROBLEM_TYPE problem, int32 pDeferredTime, REPAIR_STATUS pStatus) Validate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, PROBLEM_TYPE problem, uint32 pcelt, RepairInfo* ppInfo) GetRepairInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, LIFE_TIME pLifeTime) GetLifeTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, LIFE_TIME lifeTime) SetLifeTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, FILETIME* pCacheTime) GetCacheTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32* pcelt, HELPER_ATTRIBUTE** pprgAttributes) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, FILETIME pCacheTime) GetCacheTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self, uint32 pcelt, HELPER_ATTRIBUTE* pprgAttributes) GetAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self) Cancel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelper*/SelfOuter* self) Cleanup;
 	}
@@ -345,35 +345,35 @@ public static
 
 	public HRESULT Initialize(uint32 celt, HELPER_ATTRIBUTE* rgAttributes) mut => VT.[Friend]Initialize(&this, celt, rgAttributes);
 
-	public HRESULT GetDiagnosticsInfo(DiagnosticsInfo** ppInfo) mut => VT.[Friend]GetDiagnosticsInfo(&this, ppInfo);
+	public HRESULT GetDiagnosticsInfo(DiagnosticsInfo ppInfo) mut => VT.[Friend]GetDiagnosticsInfo(&this, ppInfo);
 
-	public HRESULT GetKeyAttributes(uint32* pcelt, HELPER_ATTRIBUTE** pprgAttributes) mut => VT.[Friend]GetKeyAttributes(&this, pcelt, pprgAttributes);
+	public HRESULT GetKeyAttributes(uint32 pcelt, HELPER_ATTRIBUTE* pprgAttributes) mut => VT.[Friend]GetKeyAttributes(&this, pcelt, pprgAttributes);
 
-	public HRESULT LowHealth(PWSTR pwszInstanceDescription, PWSTR* ppwszDescription, int32* pDeferredTime, DIAGNOSIS_STATUS* pStatus) mut => VT.[Friend]LowHealth(&this, pwszInstanceDescription, ppwszDescription, pDeferredTime, pStatus);
+	public HRESULT LowHealth(PWSTR pwszInstanceDescription, PWSTR ppwszDescription, int32 pDeferredTime, DIAGNOSIS_STATUS pStatus) mut => VT.[Friend]LowHealth(&this, pwszInstanceDescription, ppwszDescription, pDeferredTime, pStatus);
 
-	public HRESULT HighUtilization(PWSTR pwszInstanceDescription, PWSTR* ppwszDescription, int32* pDeferredTime, DIAGNOSIS_STATUS* pStatus) mut => VT.[Friend]HighUtilization(&this, pwszInstanceDescription, ppwszDescription, pDeferredTime, pStatus);
+	public HRESULT HighUtilization(PWSTR pwszInstanceDescription, PWSTR ppwszDescription, int32 pDeferredTime, DIAGNOSIS_STATUS pStatus) mut => VT.[Friend]HighUtilization(&this, pwszInstanceDescription, ppwszDescription, pDeferredTime, pStatus);
 
-	public HRESULT GetLowerHypotheses(uint32* pcelt, HYPOTHESIS** pprgHypotheses) mut => VT.[Friend]GetLowerHypotheses(&this, pcelt, pprgHypotheses);
+	public HRESULT GetLowerHypotheses(uint32 pcelt, HYPOTHESIS* pprgHypotheses) mut => VT.[Friend]GetLowerHypotheses(&this, pcelt, pprgHypotheses);
 
-	public HRESULT GetDownStreamHypotheses(uint32* pcelt, HYPOTHESIS** pprgHypotheses) mut => VT.[Friend]GetDownStreamHypotheses(&this, pcelt, pprgHypotheses);
+	public HRESULT GetDownStreamHypotheses(uint32 pcelt, HYPOTHESIS* pprgHypotheses) mut => VT.[Friend]GetDownStreamHypotheses(&this, pcelt, pprgHypotheses);
 
-	public HRESULT GetHigherHypotheses(uint32* pcelt, HYPOTHESIS** pprgHypotheses) mut => VT.[Friend]GetHigherHypotheses(&this, pcelt, pprgHypotheses);
+	public HRESULT GetHigherHypotheses(uint32 pcelt, HYPOTHESIS* pprgHypotheses) mut => VT.[Friend]GetHigherHypotheses(&this, pcelt, pprgHypotheses);
 
-	public HRESULT GetUpStreamHypotheses(uint32* pcelt, HYPOTHESIS** pprgHypotheses) mut => VT.[Friend]GetUpStreamHypotheses(&this, pcelt, pprgHypotheses);
+	public HRESULT GetUpStreamHypotheses(uint32 pcelt, HYPOTHESIS* pprgHypotheses) mut => VT.[Friend]GetUpStreamHypotheses(&this, pcelt, pprgHypotheses);
 
-	public HRESULT Repair(RepairInfo* pInfo, int32* pDeferredTime, REPAIR_STATUS* pStatus) mut => VT.[Friend]Repair(&this, pInfo, pDeferredTime, pStatus);
+	public HRESULT Repair(RepairInfo pInfo, int32 pDeferredTime, REPAIR_STATUS pStatus) mut => VT.[Friend]Repair(&this, pInfo, pDeferredTime, pStatus);
 
-	public HRESULT Validate(PROBLEM_TYPE problem, int32* pDeferredTime, REPAIR_STATUS* pStatus) mut => VT.[Friend]Validate(&this, problem, pDeferredTime, pStatus);
+	public HRESULT Validate(PROBLEM_TYPE problem, int32 pDeferredTime, REPAIR_STATUS pStatus) mut => VT.[Friend]Validate(&this, problem, pDeferredTime, pStatus);
 
-	public HRESULT GetRepairInfo(PROBLEM_TYPE problem, uint32* pcelt, RepairInfo** ppInfo) mut => VT.[Friend]GetRepairInfo(&this, problem, pcelt, ppInfo);
+	public HRESULT GetRepairInfo(PROBLEM_TYPE problem, uint32 pcelt, RepairInfo* ppInfo) mut => VT.[Friend]GetRepairInfo(&this, problem, pcelt, ppInfo);
 
-	public HRESULT GetLifeTime(LIFE_TIME* pLifeTime) mut => VT.[Friend]GetLifeTime(&this, pLifeTime);
+	public HRESULT GetLifeTime(LIFE_TIME pLifeTime) mut => VT.[Friend]GetLifeTime(&this, pLifeTime);
 
 	public HRESULT SetLifeTime(LIFE_TIME lifeTime) mut => VT.[Friend]SetLifeTime(&this, lifeTime);
 
-	public HRESULT GetCacheTime(FILETIME* pCacheTime) mut => VT.[Friend]GetCacheTime(&this, pCacheTime);
+	public HRESULT GetCacheTime(FILETIME pCacheTime) mut => VT.[Friend]GetCacheTime(&this, pCacheTime);
 
-	public HRESULT GetAttributes(uint32* pcelt, HELPER_ATTRIBUTE** pprgAttributes) mut => VT.[Friend]GetAttributes(&this, pcelt, pprgAttributes);
+	public HRESULT GetAttributes(uint32 pcelt, HELPER_ATTRIBUTE* pprgAttributes) mut => VT.[Friend]GetAttributes(&this, pcelt, pprgAttributes);
 
 	public HRESULT Cancel() mut => VT.[Friend]Cancel(&this);
 
@@ -388,11 +388,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelperUtilFactory*/SelfOuter* self, Guid riid, void** ppvObject) CreateUtilityInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelperUtilFactory*/SelfOuter* self, Guid riid, void ppvObject) CreateUtilityInstance;
 	}
 
 
-	public HRESULT CreateUtilityInstance(Guid riid, void** ppvObject) mut => VT.[Friend]CreateUtilityInstance(&this, riid, ppvObject);
+	public HRESULT CreateUtilityInstance(Guid riid, void ppvObject) mut => VT.[Friend]CreateUtilityInstance(&this, riid, ppvObject);
 }
 
 [CRepr]struct INetDiagHelperEx : IUnknown
@@ -403,13 +403,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelperEx*/SelfOuter* self, uint32 celt, HypothesisResult* pResults, PWSTR* ppwszUpdatedDescription, DIAGNOSIS_STATUS* pUpdatedStatus) ReconfirmLowHealth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelperEx*/SelfOuter* self, uint32 celt, HypothesisResult* pResults, PWSTR ppwszUpdatedDescription, DIAGNOSIS_STATUS pUpdatedStatus) ReconfirmLowHealth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelperEx*/SelfOuter* self, INetDiagHelperUtilFactory* pUtilities) SetUtilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelperEx*/SelfOuter* self) ReproduceFailure;
 	}
 
 
-	public HRESULT ReconfirmLowHealth(uint32 celt, HypothesisResult* pResults, PWSTR* ppwszUpdatedDescription, DIAGNOSIS_STATUS* pUpdatedStatus) mut => VT.[Friend]ReconfirmLowHealth(&this, celt, pResults, ppwszUpdatedDescription, pUpdatedStatus);
+	public HRESULT ReconfirmLowHealth(uint32 celt, HypothesisResult* pResults, PWSTR ppwszUpdatedDescription, DIAGNOSIS_STATUS pUpdatedStatus) mut => VT.[Friend]ReconfirmLowHealth(&this, celt, pResults, ppwszUpdatedDescription, pUpdatedStatus);
 
 	public HRESULT SetUtilities(INetDiagHelperUtilFactory* pUtilities) mut => VT.[Friend]SetUtilities(&this, pUtilities);
 
@@ -424,11 +424,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelperInfo*/SelfOuter* self, uint32* pcelt, HelperAttributeInfo** pprgAttributeInfos) GetAttributeInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelperInfo*/SelfOuter* self, uint32 pcelt, HelperAttributeInfo* pprgAttributeInfos) GetAttributeInfo;
 	}
 
 
-	public HRESULT GetAttributeInfo(uint32* pcelt, HelperAttributeInfo** pprgAttributeInfos) mut => VT.[Friend]GetAttributeInfo(&this, pcelt, pprgAttributeInfos);
+	public HRESULT GetAttributeInfo(uint32 pcelt, HelperAttributeInfo* pprgAttributeInfos) mut => VT.[Friend]GetAttributeInfo(&this, pcelt, pprgAttributeInfos);
 }
 
 [CRepr]struct INetDiagExtensibleHelper : IUnknown
@@ -439,11 +439,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagExtensibleHelper*/SelfOuter* self, uint32 celt, HELPER_ATTRIBUTE* rgKeyAttributes, uint32* pcelt, HELPER_ATTRIBUTE** prgMatchValues) ResolveAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagExtensibleHelper*/SelfOuter* self, uint32 celt, HELPER_ATTRIBUTE* rgKeyAttributes, uint32 pcelt, HELPER_ATTRIBUTE* prgMatchValues) ResolveAttributes;
 	}
 
 
-	public HRESULT ResolveAttributes(uint32 celt, HELPER_ATTRIBUTE* rgKeyAttributes, uint32* pcelt, HELPER_ATTRIBUTE** prgMatchValues) mut => VT.[Friend]ResolveAttributes(&this, celt, rgKeyAttributes, pcelt, prgMatchValues);
+	public HRESULT ResolveAttributes(uint32 celt, HELPER_ATTRIBUTE* rgKeyAttributes, uint32 pcelt, HELPER_ATTRIBUTE* prgMatchValues) mut => VT.[Friend]ResolveAttributes(&this, celt, rgKeyAttributes, pcelt, prgMatchValues);
 }
 
 #endregion
@@ -452,52 +452,52 @@ public static
 public static
 {
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCreateIncident(PWSTR helperClassName, uint32 celt, HELPER_ATTRIBUTE* attributes, void** handle);
+	public static extern HRESULT NdfCreateIncident(PWSTR helperClassName, uint32 celt, HELPER_ATTRIBUTE* attributes, void handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCreateWinSockIncident(SOCKET sock, PWSTR host, uint16 port, PWSTR appId, SID* userId, void** handle);
+	public static extern HRESULT NdfCreateWinSockIncident(SOCKET sock, PWSTR host, uint16 port, PWSTR appId, SID userId, void handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCreateWebIncident(PWSTR url, void** handle);
+	public static extern HRESULT NdfCreateWebIncident(PWSTR url, void handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCreateWebIncidentEx(PWSTR url, BOOL useWinHTTP, PWSTR moduleName, void** handle);
+	public static extern HRESULT NdfCreateWebIncidentEx(PWSTR url, BOOL useWinHTTP, PWSTR moduleName, void handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCreateSharingIncident(PWSTR UNCPath, void** handle);
+	public static extern HRESULT NdfCreateSharingIncident(PWSTR UNCPath, void handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCreateDNSIncident(PWSTR hostname, uint16 queryType, void** handle);
+	public static extern HRESULT NdfCreateDNSIncident(PWSTR hostname, uint16 queryType, void handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCreateConnectivityIncident(void** handle);
+	public static extern HRESULT NdfCreateConnectivityIncident(void handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCreateNetConnectionIncident(void** handle, Guid id);
+	public static extern HRESULT NdfCreateNetConnectionIncident(void handle, Guid id);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCreatePnrpIncident(PWSTR cloudname, PWSTR peername, BOOL diagnosePublish, PWSTR appId, void** handle);
+	public static extern HRESULT NdfCreatePnrpIncident(PWSTR cloudname, PWSTR peername, BOOL diagnosePublish, PWSTR appId, void handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCreateGroupingIncident(PWSTR CloudName, PWSTR GroupName, PWSTR Identity, PWSTR Invitation, SOCKET_ADDRESS_LIST* Addresses, PWSTR appId, void** handle);
+	public static extern HRESULT NdfCreateGroupingIncident(PWSTR CloudName, PWSTR GroupName, PWSTR Identity, PWSTR Invitation, SOCKET_ADDRESS_LIST Addresses, PWSTR appId, void handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfExecuteDiagnosis(void* handle, HWND hwnd);
+	public static extern HRESULT NdfExecuteDiagnosis(void handle, HWND hwnd);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCloseIncident(void* handle);
+	public static extern HRESULT NdfCloseIncident(void handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfDiagnoseIncident(void* Handle, uint32* RootCauseCount, RootCauseInfo** RootCauses, uint32 dwWait, uint32 dwFlags);
+	public static extern HRESULT NdfDiagnoseIncident(void Handle, uint32 RootCauseCount, RootCauseInfo RootCauses, uint32 dwWait, uint32 dwFlags);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfRepairIncident(void* Handle, RepairInfoEx* RepairEx, uint32 dwWait);
+	public static extern HRESULT NdfRepairIncident(void Handle, RepairInfoEx RepairEx, uint32 dwWait);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfCancelIncident(void* Handle);
+	public static extern HRESULT NdfCancelIncident(void Handle);
 
 	[Import("NDFAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT NdfGetTraceFile(void* Handle, PWSTR* TraceFileLocation);
+	public static extern HRESULT NdfGetTraceFile(void Handle, PWSTR TraceFileLocation);
 
 }
 #endregion

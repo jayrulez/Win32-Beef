@@ -20,9 +20,9 @@ public static
 #endregion
 
 #region Function Pointers
-public function HRESULT PFN_Direct3DCreate9On12Ex(uint32 SDKVersion, D3D9ON12_ARGS* pOverrideList, uint32 NumOverrideEntries, IDirect3D9Ex** ppOutputInterface);
+public function HRESULT PFN_Direct3DCreate9On12Ex(uint32 SDKVersion, D3D9ON12_ARGS pOverrideList, uint32 NumOverrideEntries, IDirect3D9Ex* ppOutputInterface);
 
-public function IDirect3D9* PFN_Direct3DCreate9On12(uint32 SDKVersion, D3D9ON12_ARGS* pOverrideList, uint32 NumOverrideEntries);
+public function IDirect3D9* PFN_Direct3DCreate9On12(uint32 SDKVersion, D3D9ON12_ARGS pOverrideList, uint32 NumOverrideEntries);
 
 #endregion
 
@@ -54,17 +54,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDevice9On12*/SelfOuter* self, Guid riid, void** ppvDevice) GetD3D12Device;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDevice9On12*/SelfOuter* self, IDirect3DResource9* pResource, ID3D12CommandQueue* pCommandQueue, Guid riid, void** ppvResource12) UnwrapUnderlyingResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDevice9On12*/SelfOuter* self, IDirect3DResource9* pResource, uint32 NumSync, uint64* pSignalValues, ID3D12Fence** ppFences) ReturnUnderlyingResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDevice9On12*/SelfOuter* self, Guid riid, void ppvDevice) GetD3D12Device;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDevice9On12*/SelfOuter* self, IDirect3DResource9* pResource, ID3D12CommandQueue* pCommandQueue, Guid riid, void ppvResource12) UnwrapUnderlyingResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDevice9On12*/SelfOuter* self, IDirect3DResource9* pResource, uint32 NumSync, uint64 pSignalValues, ID3D12Fence* ppFences) ReturnUnderlyingResource;
 	}
 
 
-	public HRESULT GetD3D12Device(Guid riid, void** ppvDevice) mut => VT.[Friend]GetD3D12Device(&this, riid, ppvDevice);
+	public HRESULT GetD3D12Device(Guid riid, void ppvDevice) mut => VT.[Friend]GetD3D12Device(&this, riid, ppvDevice);
 
-	public HRESULT UnwrapUnderlyingResource(IDirect3DResource9* pResource, ID3D12CommandQueue* pCommandQueue, Guid riid, void** ppvResource12) mut => VT.[Friend]UnwrapUnderlyingResource(&this, pResource, pCommandQueue, riid, ppvResource12);
+	public HRESULT UnwrapUnderlyingResource(IDirect3DResource9* pResource, ID3D12CommandQueue* pCommandQueue, Guid riid, void ppvResource12) mut => VT.[Friend]UnwrapUnderlyingResource(&this, pResource, pCommandQueue, riid, ppvResource12);
 
-	public HRESULT ReturnUnderlyingResource(IDirect3DResource9* pResource, uint32 NumSync, uint64* pSignalValues, ID3D12Fence** ppFences) mut => VT.[Friend]ReturnUnderlyingResource(&this, pResource, NumSync, pSignalValues, ppFences);
+	public HRESULT ReturnUnderlyingResource(IDirect3DResource9* pResource, uint32 NumSync, uint64 pSignalValues, ID3D12Fence* ppFences) mut => VT.[Friend]ReturnUnderlyingResource(&this, pResource, NumSync, pSignalValues, ppFences);
 }
 
 #endregion
@@ -73,10 +73,10 @@ public static
 public static
 {
 	[Import("d3d9.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT Direct3DCreate9On12Ex(uint32 SDKVersion, D3D9ON12_ARGS* pOverrideList, uint32 NumOverrideEntries, IDirect3D9Ex** ppOutputInterface);
+	public static extern HRESULT Direct3DCreate9On12Ex(uint32 SDKVersion, D3D9ON12_ARGS pOverrideList, uint32 NumOverrideEntries, IDirect3D9Ex* ppOutputInterface);
 
 	[Import("d3d9.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern IDirect3D9* Direct3DCreate9On12(uint32 SDKVersion, D3D9ON12_ARGS* pOverrideList, uint32 NumOverrideEntries);
+	public static extern IDirect3D9* Direct3DCreate9On12(uint32 SDKVersion, D3D9ON12_ARGS pOverrideList, uint32 NumOverrideEntries);
 
 }
 #endregion

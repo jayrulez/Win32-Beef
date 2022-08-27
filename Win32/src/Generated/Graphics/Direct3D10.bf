@@ -1621,9 +1621,9 @@ public enum D3D10_SHADER_DEBUG_VARTYPE : int32
 #endregion
 
 #region Function Pointers
-public function HRESULT PFN_D3D10_CREATE_DEVICE1(IDXGIAdapter* param0, D3D10_DRIVER_TYPE param1, HINSTANCE param2, uint32 param3, D3D10_FEATURE_LEVEL1 param4, uint32 param5, ID3D10Device1** param6);
+public function HRESULT PFN_D3D10_CREATE_DEVICE1(IDXGIAdapter* param0, D3D10_DRIVER_TYPE param1, HINSTANCE param2, uint32 param3, D3D10_FEATURE_LEVEL1 param4, uint32 param5, ID3D10Device1* param6);
 
-public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* param0, D3D10_DRIVER_TYPE param1, HINSTANCE param2, uint32 param3, D3D10_FEATURE_LEVEL1 param4, uint32 param5, DXGI_SWAP_CHAIN_DESC* param6, IDXGISwapChain** param7, ID3D10Device1** param8);
+public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* param0, D3D10_DRIVER_TYPE param1, HINSTANCE param2, uint32 param3, D3D10_FEATURE_LEVEL1 param4, uint32 param5, DXGI_SWAP_CHAIN_DESC param6, IDXGISwapChain* param7, ID3D10Device1* param8);
 
 #endregion
 
@@ -1726,7 +1726,7 @@ public struct D3D10_RASTERIZER_DESC
 [CRepr]
 public struct D3D10_SUBRESOURCE_DATA
 {
-	public void* pSysMem;
+	public void pSysMem;
 	public uint32 SysMemPitch;
 	public uint32 SysMemSlicePitch;
 }
@@ -1772,7 +1772,7 @@ public struct D3D10_TEXTURE2D_DESC
 [CRepr]
 public struct D3D10_MAPPED_TEXTURE2D
 {
-	public void* pData;
+	public void pData;
 	public uint32 RowPitch;
 }
 
@@ -1793,7 +1793,7 @@ public struct D3D10_TEXTURE3D_DESC
 [CRepr]
 public struct D3D10_MAPPED_TEXTURE3D
 {
-	public void* pData;
+	public void pData;
 	public uint32 RowPitch;
 	public uint32 DepthPitch;
 }
@@ -2121,7 +2121,7 @@ public struct D3D10_MESSAGE
 	public D3D10_MESSAGE_CATEGORY Category;
 	public D3D10_MESSAGE_SEVERITY Severity;
 	public D3D10_MESSAGE_ID ID;
-	public uint8* pDescription;
+	public uint8 pDescription;
 	public uint DescriptionByteLength;
 }
 
@@ -2129,11 +2129,11 @@ public struct D3D10_MESSAGE
 public struct D3D10_INFO_QUEUE_FILTER_DESC
 {
 	public uint32 NumCategories;
-	public D3D10_MESSAGE_CATEGORY* pCategoryList;
+	public D3D10_MESSAGE_CATEGORY pCategoryList;
 	public uint32 NumSeverities;
-	public D3D10_MESSAGE_SEVERITY* pSeverityList;
+	public D3D10_MESSAGE_SEVERITY pSeverityList;
 	public uint32 NumIDs;
-	public D3D10_MESSAGE_ID* pIDList;
+	public D3D10_MESSAGE_ID pIDList;
 }
 
 [CRepr]
@@ -2193,7 +2193,7 @@ public struct D3D10_SHADER_VARIABLE_DESC
 	public uint32 StartOffset;
 	public uint32 Size;
 	public uint32 uFlags;
-	public void* DefaultValue;
+	public void DefaultValue;
 }
 
 [CRepr]
@@ -2291,9 +2291,9 @@ public struct D3D10_EFFECT_VARIABLE_DESC
 [CRepr]
 public struct D3D10_EFFECT_SHADER_DESC
 {
-	public uint8* pInputSignature;
+	public uint8 pInputSignature;
 	public BOOL IsInline;
-	public uint8* pBytecode;
+	public uint8 pBytecode;
 	public uint32 BytecodeLength;
 	public PSTR SODecl;
 	public uint32 NumInputSignatureEntries;
@@ -2305,7 +2305,7 @@ public struct D3D10_PASS_DESC
 {
 	public PSTR Name;
 	public uint32 Annotations;
-	public uint8* pIAInputSignature;
+	public uint8 pIAInputSignature;
 	public uint IAInputSignatureSize;
 	public uint32 StencilRef;
 	public uint32 SampleMask;
@@ -2542,18 +2542,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10DeviceChild*/SelfOuter* self, ID3D10Device** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, Guid guid, uint32 DataSize, void* pData) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10DeviceChild*/SelfOuter* self, ID3D10Device* ppDevice) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, Guid guid, uint32 pDataSize, void pData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, Guid guid, uint32 DataSize, void pData) SetPrivateData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, Guid guid, IUnknown* pData) SetPrivateDataInterface;
 	}
 
 
-	public void GetDevice(ID3D10Device** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
+	public void GetDevice(ID3D10Device* ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 
-	public HRESULT GetPrivateData(Guid guid, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, guid, pDataSize, pData);
+	public HRESULT GetPrivateData(Guid guid, uint32 pDataSize, void pData) mut => VT.[Friend]GetPrivateData(&this, guid, pDataSize, pData);
 
-	public HRESULT SetPrivateData(Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, guid, DataSize, pData);
+	public HRESULT SetPrivateData(Guid guid, uint32 DataSize, void pData) mut => VT.[Friend]SetPrivateData(&this, guid, DataSize, pData);
 
 	public HRESULT SetPrivateDataInterface(Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, guid, pData);
 }
@@ -2566,11 +2566,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10DepthStencilState*/SelfOuter* self, D3D10_DEPTH_STENCIL_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10DepthStencilState*/SelfOuter* self, D3D10_DEPTH_STENCIL_DESC pDesc) GetDesc;
 	}
 
 
-	public void GetDesc(D3D10_DEPTH_STENCIL_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_DEPTH_STENCIL_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10BlendState : ID3D10DeviceChild
@@ -2581,11 +2581,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10BlendState*/SelfOuter* self, D3D10_BLEND_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10BlendState*/SelfOuter* self, D3D10_BLEND_DESC pDesc) GetDesc;
 	}
 
 
-	public void GetDesc(D3D10_BLEND_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_BLEND_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10RasterizerState : ID3D10DeviceChild
@@ -2596,11 +2596,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10RasterizerState*/SelfOuter* self, D3D10_RASTERIZER_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10RasterizerState*/SelfOuter* self, D3D10_RASTERIZER_DESC pDesc) GetDesc;
 	}
 
 
-	public void GetDesc(D3D10_RASTERIZER_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_RASTERIZER_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10Resource : ID3D10DeviceChild
@@ -2611,13 +2611,13 @@ public static
 
 	[CRepr]public struct VTable : ID3D10DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Resource*/SelfOuter* self, D3D10_RESOURCE_DIMENSION* rType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Resource*/SelfOuter* self, D3D10_RESOURCE_DIMENSION rType) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Resource*/SelfOuter* self, uint32 EvictionPriority) SetEvictionPriority;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D10Resource*/SelfOuter* self) GetEvictionPriority;
 	}
 
 
-	public void GetType(D3D10_RESOURCE_DIMENSION* rType) mut => VT.[Friend]COM_GetType(&this, rType);
+	public void GetType(D3D10_RESOURCE_DIMENSION rType) mut => VT.[Friend]COM_GetType(&this, rType);
 
 	public void SetEvictionPriority(uint32 EvictionPriority) mut => VT.[Friend]SetEvictionPriority(&this, EvictionPriority);
 
@@ -2632,17 +2632,17 @@ public static
 
 	[CRepr]public struct VTable : ID3D10Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Buffer*/SelfOuter* self, D3D10_MAP MapType, uint32 MapFlags, void** ppData) Map;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Buffer*/SelfOuter* self, D3D10_MAP MapType, uint32 MapFlags, void ppData) Map;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Buffer*/SelfOuter* self) Unmap;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Buffer*/SelfOuter* self, D3D10_BUFFER_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Buffer*/SelfOuter* self, D3D10_BUFFER_DESC pDesc) GetDesc;
 	}
 
 
-	public HRESULT Map(D3D10_MAP MapType, uint32 MapFlags, void** ppData) mut => VT.[Friend]Map(&this, MapType, MapFlags, ppData);
+	public HRESULT Map(D3D10_MAP MapType, uint32 MapFlags, void ppData) mut => VT.[Friend]Map(&this, MapType, MapFlags, ppData);
 
 	public void Unmap() mut => VT.[Friend]Unmap(&this);
 
-	public void GetDesc(D3D10_BUFFER_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_BUFFER_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10Texture1D : ID3D10Resource
@@ -2653,17 +2653,17 @@ public static
 
 	[CRepr]public struct VTable : ID3D10Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Texture1D*/SelfOuter* self, uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, void** ppData) Map;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Texture1D*/SelfOuter* self, uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, void ppData) Map;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Texture1D*/SelfOuter* self, uint32 Subresource) Unmap;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Texture1D*/SelfOuter* self, D3D10_TEXTURE1D_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Texture1D*/SelfOuter* self, D3D10_TEXTURE1D_DESC pDesc) GetDesc;
 	}
 
 
-	public HRESULT Map(uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, void** ppData) mut => VT.[Friend]Map(&this, Subresource, MapType, MapFlags, ppData);
+	public HRESULT Map(uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, void ppData) mut => VT.[Friend]Map(&this, Subresource, MapType, MapFlags, ppData);
 
 	public void Unmap(uint32 Subresource) mut => VT.[Friend]Unmap(&this, Subresource);
 
-	public void GetDesc(D3D10_TEXTURE1D_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_TEXTURE1D_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10Texture2D : ID3D10Resource
@@ -2674,17 +2674,17 @@ public static
 
 	[CRepr]public struct VTable : ID3D10Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Texture2D*/SelfOuter* self, uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, D3D10_MAPPED_TEXTURE2D* pMappedTex2D) Map;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Texture2D*/SelfOuter* self, uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, D3D10_MAPPED_TEXTURE2D pMappedTex2D) Map;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Texture2D*/SelfOuter* self, uint32 Subresource) Unmap;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Texture2D*/SelfOuter* self, D3D10_TEXTURE2D_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Texture2D*/SelfOuter* self, D3D10_TEXTURE2D_DESC pDesc) GetDesc;
 	}
 
 
-	public HRESULT Map(uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, D3D10_MAPPED_TEXTURE2D* pMappedTex2D) mut => VT.[Friend]Map(&this, Subresource, MapType, MapFlags, pMappedTex2D);
+	public HRESULT Map(uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, D3D10_MAPPED_TEXTURE2D pMappedTex2D) mut => VT.[Friend]Map(&this, Subresource, MapType, MapFlags, pMappedTex2D);
 
 	public void Unmap(uint32 Subresource) mut => VT.[Friend]Unmap(&this, Subresource);
 
-	public void GetDesc(D3D10_TEXTURE2D_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_TEXTURE2D_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10Texture3D : ID3D10Resource
@@ -2695,17 +2695,17 @@ public static
 
 	[CRepr]public struct VTable : ID3D10Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Texture3D*/SelfOuter* self, uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, D3D10_MAPPED_TEXTURE3D* pMappedTex3D) Map;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Texture3D*/SelfOuter* self, uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, D3D10_MAPPED_TEXTURE3D pMappedTex3D) Map;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Texture3D*/SelfOuter* self, uint32 Subresource) Unmap;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Texture3D*/SelfOuter* self, D3D10_TEXTURE3D_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Texture3D*/SelfOuter* self, D3D10_TEXTURE3D_DESC pDesc) GetDesc;
 	}
 
 
-	public HRESULT Map(uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, D3D10_MAPPED_TEXTURE3D* pMappedTex3D) mut => VT.[Friend]Map(&this, Subresource, MapType, MapFlags, pMappedTex3D);
+	public HRESULT Map(uint32 Subresource, D3D10_MAP MapType, uint32 MapFlags, D3D10_MAPPED_TEXTURE3D pMappedTex3D) mut => VT.[Friend]Map(&this, Subresource, MapType, MapFlags, pMappedTex3D);
 
 	public void Unmap(uint32 Subresource) mut => VT.[Friend]Unmap(&this, Subresource);
 
-	public void GetDesc(D3D10_TEXTURE3D_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_TEXTURE3D_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10View : ID3D10DeviceChild
@@ -2716,11 +2716,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10View*/SelfOuter* self, ID3D10Resource** ppResource) GetResource;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10View*/SelfOuter* self, ID3D10Resource* ppResource) GetResource;
 	}
 
 
-	public void GetResource(ID3D10Resource** ppResource) mut => VT.[Friend]GetResource(&this, ppResource);
+	public void GetResource(ID3D10Resource* ppResource) mut => VT.[Friend]GetResource(&this, ppResource);
 }
 
 [CRepr]struct ID3D10ShaderResourceView : ID3D10View
@@ -2731,11 +2731,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10View.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10ShaderResourceView*/SelfOuter* self, D3D10_SHADER_RESOURCE_VIEW_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10ShaderResourceView*/SelfOuter* self, D3D10_SHADER_RESOURCE_VIEW_DESC pDesc) GetDesc;
 	}
 
 
-	public void GetDesc(D3D10_SHADER_RESOURCE_VIEW_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_SHADER_RESOURCE_VIEW_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10RenderTargetView : ID3D10View
@@ -2746,11 +2746,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10View.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10RenderTargetView*/SelfOuter* self, D3D10_RENDER_TARGET_VIEW_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10RenderTargetView*/SelfOuter* self, D3D10_RENDER_TARGET_VIEW_DESC pDesc) GetDesc;
 	}
 
 
-	public void GetDesc(D3D10_RENDER_TARGET_VIEW_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_RENDER_TARGET_VIEW_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10DepthStencilView : ID3D10View
@@ -2761,11 +2761,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10View.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10DepthStencilView*/SelfOuter* self, D3D10_DEPTH_STENCIL_VIEW_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10DepthStencilView*/SelfOuter* self, D3D10_DEPTH_STENCIL_VIEW_DESC pDesc) GetDesc;
 	}
 
 
-	public void GetDesc(D3D10_DEPTH_STENCIL_VIEW_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_DEPTH_STENCIL_VIEW_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10VertexShader : ID3D10DeviceChild
@@ -2824,11 +2824,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10SamplerState*/SelfOuter* self, D3D10_SAMPLER_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10SamplerState*/SelfOuter* self, D3D10_SAMPLER_DESC pDesc) GetDesc;
 	}
 
 
-	public void GetDesc(D3D10_SAMPLER_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_SAMPLER_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10Asynchronous : ID3D10DeviceChild
@@ -2841,7 +2841,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Asynchronous*/SelfOuter* self) Begin;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Asynchronous*/SelfOuter* self) End;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Asynchronous*/SelfOuter* self, void* pData, uint32 DataSize, uint32 GetDataFlags) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Asynchronous*/SelfOuter* self, void pData, uint32 DataSize, uint32 GetDataFlags) GetData;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D10Asynchronous*/SelfOuter* self) GetDataSize;
 	}
 
@@ -2850,7 +2850,7 @@ public static
 
 	public void End() mut => VT.[Friend]End(&this);
 
-	public HRESULT GetData(void* pData, uint32 DataSize, uint32 GetDataFlags) mut => VT.[Friend]GetData(&this, pData, DataSize, GetDataFlags);
+	public HRESULT GetData(void pData, uint32 DataSize, uint32 GetDataFlags) mut => VT.[Friend]GetData(&this, pData, DataSize, GetDataFlags);
 
 	public uint32 GetDataSize() mut => VT.[Friend]GetDataSize(&this);
 }
@@ -2863,11 +2863,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10Asynchronous.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Query*/SelfOuter* self, D3D10_QUERY_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Query*/SelfOuter* self, D3D10_QUERY_DESC pDesc) GetDesc;
 	}
 
 
-	public void GetDesc(D3D10_QUERY_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_QUERY_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10Predicate : ID3D10Query
@@ -2890,11 +2890,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10Asynchronous.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Counter*/SelfOuter* self, D3D10_COUNTER_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Counter*/SelfOuter* self, D3D10_COUNTER_DESC pDesc) GetDesc;
 	}
 
 
-	public void GetDesc(D3D10_COUNTER_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public void GetDesc(D3D10_COUNTER_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 }
 
 [CRepr]struct ID3D10Device : IUnknown
@@ -2927,79 +2927,79 @@ public static
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumViews, ID3D10ShaderResourceView** ppShaderResourceViews) GSSetShaderResources;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumSamplers, ID3D10SamplerState** ppSamplers) GSSetSamplers;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 NumViews, ID3D10RenderTargetView** ppRenderTargetViews, ID3D10DepthStencilView* pDepthStencilView) OMSetRenderTargets;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10BlendState* pBlendState, float* BlendFactor, uint32 SampleMask) OMSetBlendState;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10BlendState* pBlendState, float BlendFactor, uint32 SampleMask) OMSetBlendState;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10DepthStencilState* pDepthStencilState, uint32 StencilRef) OMSetDepthStencilState;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 NumBuffers, ID3D10Buffer** ppSOTargets, uint32* pOffsets) SOSetTargets;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self) DrawAuto;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10RasterizerState* pRasterizerState) RSSetState;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 NumViewports, D3D10_VIEWPORT* pViewports) RSSetViewports;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 NumRects, RECT* pRects) RSSetScissorRects;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D10Resource* pSrcResource, uint32 SrcSubresource, D3D10_BOX* pSrcBox) CopySubresourceRegion;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D10Resource* pSrcResource, uint32 SrcSubresource, D3D10_BOX pSrcBox) CopySubresourceRegion;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pDstResource, ID3D10Resource* pSrcResource) CopyResource;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pDstResource, uint32 DstSubresource, D3D10_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) UpdateSubresource;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10RenderTargetView* pRenderTargetView, float* ColorRGBA) ClearRenderTargetView;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pDstResource, uint32 DstSubresource, D3D10_BOX pDstBox, void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) UpdateSubresource;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10RenderTargetView* pRenderTargetView, float ColorRGBA) ClearRenderTargetView;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10DepthStencilView* pDepthStencilView, uint32 ClearFlags, float Depth, uint8 Stencil) ClearDepthStencilView;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10ShaderResourceView* pShaderResourceView) GenerateMips;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pDstResource, uint32 DstSubresource, ID3D10Resource* pSrcResource, uint32 SrcSubresource, DXGI_FORMAT Format) ResolveSubresource;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumBuffers, ID3D10Buffer** ppConstantBuffers) VSGetConstantBuffers;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumViews, ID3D10ShaderResourceView** ppShaderResourceViews) PSGetShaderResources;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10PixelShader** ppPixelShader) PSGetShader;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10PixelShader* ppPixelShader) PSGetShader;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumSamplers, ID3D10SamplerState** ppSamplers) PSGetSamplers;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10VertexShader** ppVertexShader) VSGetShader;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10VertexShader* ppVertexShader) VSGetShader;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumBuffers, ID3D10Buffer** ppConstantBuffers) PSGetConstantBuffers;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10InputLayout** ppInputLayout) IAGetInputLayout;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10InputLayout* ppInputLayout) IAGetInputLayout;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumBuffers, ID3D10Buffer** ppVertexBuffers, uint32* pStrides, uint32* pOffsets) IAGetVertexBuffers;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10Buffer** pIndexBuffer, DXGI_FORMAT* Format, uint32* Offset) IAGetIndexBuffer;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10Buffer* pIndexBuffer, DXGI_FORMAT Format, uint32 Offset) IAGetIndexBuffer;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumBuffers, ID3D10Buffer** ppConstantBuffers) GSGetConstantBuffers;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10GeometryShader** ppGeometryShader) GSGetShader;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, D3D_PRIMITIVE_TOPOLOGY* pTopology) IAGetPrimitiveTopology;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10GeometryShader* ppGeometryShader) GSGetShader;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, D3D_PRIMITIVE_TOPOLOGY pTopology) IAGetPrimitiveTopology;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumViews, ID3D10ShaderResourceView** ppShaderResourceViews) VSGetShaderResources;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumSamplers, ID3D10SamplerState** ppSamplers) VSGetSamplers;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10Predicate** ppPredicate, BOOL* pPredicateValue) GetPredication;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10Predicate* ppPredicate, BOOL pPredicateValue) GetPredication;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumViews, ID3D10ShaderResourceView** ppShaderResourceViews) GSGetShaderResources;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 StartSlot, uint32 NumSamplers, ID3D10SamplerState** ppSamplers) GSGetSamplers;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 NumViews, ID3D10RenderTargetView** ppRenderTargetViews, ID3D10DepthStencilView** ppDepthStencilView) OMGetRenderTargets;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10BlendState** ppBlendState, float* BlendFactor, uint32* pSampleMask) OMGetBlendState;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10DepthStencilState** ppDepthStencilState, uint32* pStencilRef) OMGetDepthStencilState;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 NumViews, ID3D10RenderTargetView** ppRenderTargetViews, ID3D10DepthStencilView* ppDepthStencilView) OMGetRenderTargets;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10BlendState* ppBlendState, float BlendFactor, uint32 pSampleMask) OMGetBlendState;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10DepthStencilState* ppDepthStencilState, uint32 pStencilRef) OMGetDepthStencilState;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 NumBuffers, ID3D10Buffer** ppSOTargets, uint32* pOffsets) SOGetTargets;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10RasterizerState** ppRasterizerState) RSGetState;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32* NumViewports, D3D10_VIEWPORT* pViewports) RSGetViewports;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32* NumRects, RECT* pRects) RSGetScissorRects;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, ID3D10RasterizerState* ppRasterizerState) RSGetState;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 NumViewports, D3D10_VIEWPORT* pViewports) RSGetViewports;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 NumRects, RECT* pRects) RSGetScissorRects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self) GetDeviceRemovedReason;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, uint32 RaiseFlags) SetExceptionMode;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D10Device*/SelfOuter* self) GetExceptionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, Guid guid, uint32 DataSize, void* pData) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, Guid guid, uint32 pDataSize, void pData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, Guid guid, uint32 DataSize, void pData) SetPrivateData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, Guid guid, IUnknown* pData) SetPrivateDataInterface;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self) ClearState;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self) Flush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_BUFFER_DESC* pDesc, D3D10_SUBRESOURCE_DATA* pInitialData, ID3D10Buffer** ppBuffer) CreateBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_TEXTURE1D_DESC* pDesc, D3D10_SUBRESOURCE_DATA* pInitialData, ID3D10Texture1D** ppTexture1D) CreateTexture1D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_TEXTURE2D_DESC* pDesc, D3D10_SUBRESOURCE_DATA* pInitialData, ID3D10Texture2D** ppTexture2D) CreateTexture2D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_TEXTURE3D_DESC* pDesc, D3D10_SUBRESOURCE_DATA* pInitialData, ID3D10Texture3D** ppTexture3D) CreateTexture3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pResource, D3D10_SHADER_RESOURCE_VIEW_DESC* pDesc, ID3D10ShaderResourceView** ppSRView) CreateShaderResourceView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pResource, D3D10_RENDER_TARGET_VIEW_DESC* pDesc, ID3D10RenderTargetView** ppRTView) CreateRenderTargetView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pResource, D3D10_DEPTH_STENCIL_VIEW_DESC* pDesc, ID3D10DepthStencilView** ppDepthStencilView) CreateDepthStencilView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_INPUT_ELEMENT_DESC* pInputElementDescs, uint32 NumElements, void* pShaderBytecodeWithInputSignature, uint BytecodeLength, ID3D10InputLayout** ppInputLayout) CreateInputLayout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, void* pShaderBytecode, uint BytecodeLength, ID3D10VertexShader** ppVertexShader) CreateVertexShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, void* pShaderBytecode, uint BytecodeLength, ID3D10GeometryShader** ppGeometryShader) CreateGeometryShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, void* pShaderBytecode, uint BytecodeLength, D3D10_SO_DECLARATION_ENTRY* pSODeclaration, uint32 NumEntries, uint32 OutputStreamStride, ID3D10GeometryShader** ppGeometryShader) CreateGeometryShaderWithStreamOutput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, void* pShaderBytecode, uint BytecodeLength, ID3D10PixelShader** ppPixelShader) CreatePixelShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_BLEND_DESC* pBlendStateDesc, ID3D10BlendState** ppBlendState) CreateBlendState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_DEPTH_STENCIL_DESC* pDepthStencilDesc, ID3D10DepthStencilState** ppDepthStencilState) CreateDepthStencilState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_RASTERIZER_DESC* pRasterizerDesc, ID3D10RasterizerState** ppRasterizerState) CreateRasterizerState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_SAMPLER_DESC* pSamplerDesc, ID3D10SamplerState** ppSamplerState) CreateSamplerState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_QUERY_DESC* pQueryDesc, ID3D10Query** ppQuery) CreateQuery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_QUERY_DESC* pPredicateDesc, ID3D10Predicate** ppPredicate) CreatePredicate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_COUNTER_DESC* pCounterDesc, ID3D10Counter** ppCounter) CreateCounter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, DXGI_FORMAT Format, uint32* pFormatSupport) CheckFormatSupport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, DXGI_FORMAT Format, uint32 SampleCount, uint32* pNumQualityLevels) CheckMultisampleQualityLevels;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, D3D10_COUNTER_INFO* pCounterInfo) CheckCounterInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_COUNTER_DESC* pDesc, D3D10_COUNTER_TYPE* pType, uint32* pActiveCounters, uint8* szName, uint32* pNameLength, uint8* szUnits, uint32* pUnitsLength, uint8* szDescription, uint32* pDescriptionLength) CheckCounter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_BUFFER_DESC pDesc, D3D10_SUBRESOURCE_DATA pInitialData, ID3D10Buffer* ppBuffer) CreateBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_TEXTURE1D_DESC pDesc, D3D10_SUBRESOURCE_DATA pInitialData, ID3D10Texture1D* ppTexture1D) CreateTexture1D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_TEXTURE2D_DESC pDesc, D3D10_SUBRESOURCE_DATA pInitialData, ID3D10Texture2D* ppTexture2D) CreateTexture2D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_TEXTURE3D_DESC pDesc, D3D10_SUBRESOURCE_DATA pInitialData, ID3D10Texture3D* ppTexture3D) CreateTexture3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pResource, D3D10_SHADER_RESOURCE_VIEW_DESC pDesc, ID3D10ShaderResourceView* ppSRView) CreateShaderResourceView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pResource, D3D10_RENDER_TARGET_VIEW_DESC pDesc, ID3D10RenderTargetView* ppRTView) CreateRenderTargetView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, ID3D10Resource* pResource, D3D10_DEPTH_STENCIL_VIEW_DESC pDesc, ID3D10DepthStencilView* ppDepthStencilView) CreateDepthStencilView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_INPUT_ELEMENT_DESC* pInputElementDescs, uint32 NumElements, void* pShaderBytecodeWithInputSignature, uint BytecodeLength, ID3D10InputLayout* ppInputLayout) CreateInputLayout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, void* pShaderBytecode, uint BytecodeLength, ID3D10VertexShader* ppVertexShader) CreateVertexShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, void* pShaderBytecode, uint BytecodeLength, ID3D10GeometryShader* ppGeometryShader) CreateGeometryShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, void* pShaderBytecode, uint BytecodeLength, D3D10_SO_DECLARATION_ENTRY* pSODeclaration, uint32 NumEntries, uint32 OutputStreamStride, ID3D10GeometryShader* ppGeometryShader) CreateGeometryShaderWithStreamOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, void* pShaderBytecode, uint BytecodeLength, ID3D10PixelShader* ppPixelShader) CreatePixelShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_BLEND_DESC pBlendStateDesc, ID3D10BlendState* ppBlendState) CreateBlendState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_DEPTH_STENCIL_DESC pDepthStencilDesc, ID3D10DepthStencilState* ppDepthStencilState) CreateDepthStencilState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_RASTERIZER_DESC pRasterizerDesc, ID3D10RasterizerState* ppRasterizerState) CreateRasterizerState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_SAMPLER_DESC pSamplerDesc, ID3D10SamplerState* ppSamplerState) CreateSamplerState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_QUERY_DESC pQueryDesc, ID3D10Query* ppQuery) CreateQuery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_QUERY_DESC pPredicateDesc, ID3D10Predicate* ppPredicate) CreatePredicate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_COUNTER_DESC pCounterDesc, ID3D10Counter* ppCounter) CreateCounter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, DXGI_FORMAT Format, uint32 pFormatSupport) CheckFormatSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, DXGI_FORMAT Format, uint32 SampleCount, uint32 pNumQualityLevels) CheckMultisampleQualityLevels;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, D3D10_COUNTER_INFO pCounterInfo) CheckCounterInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_COUNTER_DESC pDesc, D3D10_COUNTER_TYPE pType, uint32 pActiveCounters, uint8* szName, uint32 pNameLength, uint8* szUnits, uint32 pUnitsLength, uint8* szDescription, uint32 pDescriptionLength) CheckCounter;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D10Device*/SelfOuter* self) GetCreationFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, HANDLE hResource, Guid ReturnedInterface, void** ppResource) OpenSharedResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, HANDLE hResource, Guid ReturnedInterface, void ppResource) OpenSharedResource;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 Width, uint32 Height) SetTextFilterSize;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32* pWidth, uint32* pHeight) GetTextFilterSize;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 pWidth, uint32 pHeight) GetTextFilterSize;
 	}
 
 
@@ -3047,7 +3047,7 @@ public static
 
 	public void OMSetRenderTargets(uint32 NumViews, ID3D10RenderTargetView** ppRenderTargetViews, ID3D10DepthStencilView* pDepthStencilView) mut => VT.[Friend]OMSetRenderTargets(&this, NumViews, ppRenderTargetViews, pDepthStencilView);
 
-	public void OMSetBlendState(ID3D10BlendState* pBlendState, float* BlendFactor, uint32 SampleMask) mut => VT.[Friend]OMSetBlendState(&this, pBlendState, BlendFactor, SampleMask);
+	public void OMSetBlendState(ID3D10BlendState* pBlendState, float BlendFactor, uint32 SampleMask) mut => VT.[Friend]OMSetBlendState(&this, pBlendState, BlendFactor, SampleMask);
 
 	public void OMSetDepthStencilState(ID3D10DepthStencilState* pDepthStencilState, uint32 StencilRef) mut => VT.[Friend]OMSetDepthStencilState(&this, pDepthStencilState, StencilRef);
 
@@ -3061,13 +3061,13 @@ public static
 
 	public void RSSetScissorRects(uint32 NumRects, RECT* pRects) mut => VT.[Friend]RSSetScissorRects(&this, NumRects, pRects);
 
-	public void CopySubresourceRegion(ID3D10Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D10Resource* pSrcResource, uint32 SrcSubresource, D3D10_BOX* pSrcBox) mut => VT.[Friend]CopySubresourceRegion(&this, pDstResource, DstSubresource, DstX, DstY, DstZ, pSrcResource, SrcSubresource, pSrcBox);
+	public void CopySubresourceRegion(ID3D10Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D10Resource* pSrcResource, uint32 SrcSubresource, D3D10_BOX pSrcBox) mut => VT.[Friend]CopySubresourceRegion(&this, pDstResource, DstSubresource, DstX, DstY, DstZ, pSrcResource, SrcSubresource, pSrcBox);
 
 	public void CopyResource(ID3D10Resource* pDstResource, ID3D10Resource* pSrcResource) mut => VT.[Friend]CopyResource(&this, pDstResource, pSrcResource);
 
-	public void UpdateSubresource(ID3D10Resource* pDstResource, uint32 DstSubresource, D3D10_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]UpdateSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
+	public void UpdateSubresource(ID3D10Resource* pDstResource, uint32 DstSubresource, D3D10_BOX pDstBox, void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]UpdateSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
 
-	public void ClearRenderTargetView(ID3D10RenderTargetView* pRenderTargetView, float* ColorRGBA) mut => VT.[Friend]ClearRenderTargetView(&this, pRenderTargetView, ColorRGBA);
+	public void ClearRenderTargetView(ID3D10RenderTargetView* pRenderTargetView, float ColorRGBA) mut => VT.[Friend]ClearRenderTargetView(&this, pRenderTargetView, ColorRGBA);
 
 	public void ClearDepthStencilView(ID3D10DepthStencilView* pDepthStencilView, uint32 ClearFlags, float Depth, uint8 Stencil) mut => VT.[Friend]ClearDepthStencilView(&this, pDepthStencilView, ClearFlags, Depth, Stencil);
 
@@ -3079,49 +3079,49 @@ public static
 
 	public void PSGetShaderResources(uint32 StartSlot, uint32 NumViews, ID3D10ShaderResourceView** ppShaderResourceViews) mut => VT.[Friend]PSGetShaderResources(&this, StartSlot, NumViews, ppShaderResourceViews);
 
-	public void PSGetShader(ID3D10PixelShader** ppPixelShader) mut => VT.[Friend]PSGetShader(&this, ppPixelShader);
+	public void PSGetShader(ID3D10PixelShader* ppPixelShader) mut => VT.[Friend]PSGetShader(&this, ppPixelShader);
 
 	public void PSGetSamplers(uint32 StartSlot, uint32 NumSamplers, ID3D10SamplerState** ppSamplers) mut => VT.[Friend]PSGetSamplers(&this, StartSlot, NumSamplers, ppSamplers);
 
-	public void VSGetShader(ID3D10VertexShader** ppVertexShader) mut => VT.[Friend]VSGetShader(&this, ppVertexShader);
+	public void VSGetShader(ID3D10VertexShader* ppVertexShader) mut => VT.[Friend]VSGetShader(&this, ppVertexShader);
 
 	public void PSGetConstantBuffers(uint32 StartSlot, uint32 NumBuffers, ID3D10Buffer** ppConstantBuffers) mut => VT.[Friend]PSGetConstantBuffers(&this, StartSlot, NumBuffers, ppConstantBuffers);
 
-	public void IAGetInputLayout(ID3D10InputLayout** ppInputLayout) mut => VT.[Friend]IAGetInputLayout(&this, ppInputLayout);
+	public void IAGetInputLayout(ID3D10InputLayout* ppInputLayout) mut => VT.[Friend]IAGetInputLayout(&this, ppInputLayout);
 
 	public void IAGetVertexBuffers(uint32 StartSlot, uint32 NumBuffers, ID3D10Buffer** ppVertexBuffers, uint32* pStrides, uint32* pOffsets) mut => VT.[Friend]IAGetVertexBuffers(&this, StartSlot, NumBuffers, ppVertexBuffers, pStrides, pOffsets);
 
-	public void IAGetIndexBuffer(ID3D10Buffer** pIndexBuffer, DXGI_FORMAT* Format, uint32* Offset) mut => VT.[Friend]IAGetIndexBuffer(&this, pIndexBuffer, Format, Offset);
+	public void IAGetIndexBuffer(ID3D10Buffer* pIndexBuffer, DXGI_FORMAT Format, uint32 Offset) mut => VT.[Friend]IAGetIndexBuffer(&this, pIndexBuffer, Format, Offset);
 
 	public void GSGetConstantBuffers(uint32 StartSlot, uint32 NumBuffers, ID3D10Buffer** ppConstantBuffers) mut => VT.[Friend]GSGetConstantBuffers(&this, StartSlot, NumBuffers, ppConstantBuffers);
 
-	public void GSGetShader(ID3D10GeometryShader** ppGeometryShader) mut => VT.[Friend]GSGetShader(&this, ppGeometryShader);
+	public void GSGetShader(ID3D10GeometryShader* ppGeometryShader) mut => VT.[Friend]GSGetShader(&this, ppGeometryShader);
 
-	public void IAGetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY* pTopology) mut => VT.[Friend]IAGetPrimitiveTopology(&this, pTopology);
+	public void IAGetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY pTopology) mut => VT.[Friend]IAGetPrimitiveTopology(&this, pTopology);
 
 	public void VSGetShaderResources(uint32 StartSlot, uint32 NumViews, ID3D10ShaderResourceView** ppShaderResourceViews) mut => VT.[Friend]VSGetShaderResources(&this, StartSlot, NumViews, ppShaderResourceViews);
 
 	public void VSGetSamplers(uint32 StartSlot, uint32 NumSamplers, ID3D10SamplerState** ppSamplers) mut => VT.[Friend]VSGetSamplers(&this, StartSlot, NumSamplers, ppSamplers);
 
-	public void GetPredication(ID3D10Predicate** ppPredicate, BOOL* pPredicateValue) mut => VT.[Friend]GetPredication(&this, ppPredicate, pPredicateValue);
+	public void GetPredication(ID3D10Predicate* ppPredicate, BOOL pPredicateValue) mut => VT.[Friend]GetPredication(&this, ppPredicate, pPredicateValue);
 
 	public void GSGetShaderResources(uint32 StartSlot, uint32 NumViews, ID3D10ShaderResourceView** ppShaderResourceViews) mut => VT.[Friend]GSGetShaderResources(&this, StartSlot, NumViews, ppShaderResourceViews);
 
 	public void GSGetSamplers(uint32 StartSlot, uint32 NumSamplers, ID3D10SamplerState** ppSamplers) mut => VT.[Friend]GSGetSamplers(&this, StartSlot, NumSamplers, ppSamplers);
 
-	public void OMGetRenderTargets(uint32 NumViews, ID3D10RenderTargetView** ppRenderTargetViews, ID3D10DepthStencilView** ppDepthStencilView) mut => VT.[Friend]OMGetRenderTargets(&this, NumViews, ppRenderTargetViews, ppDepthStencilView);
+	public void OMGetRenderTargets(uint32 NumViews, ID3D10RenderTargetView** ppRenderTargetViews, ID3D10DepthStencilView* ppDepthStencilView) mut => VT.[Friend]OMGetRenderTargets(&this, NumViews, ppRenderTargetViews, ppDepthStencilView);
 
-	public void OMGetBlendState(ID3D10BlendState** ppBlendState, float* BlendFactor, uint32* pSampleMask) mut => VT.[Friend]OMGetBlendState(&this, ppBlendState, BlendFactor, pSampleMask);
+	public void OMGetBlendState(ID3D10BlendState* ppBlendState, float BlendFactor, uint32 pSampleMask) mut => VT.[Friend]OMGetBlendState(&this, ppBlendState, BlendFactor, pSampleMask);
 
-	public void OMGetDepthStencilState(ID3D10DepthStencilState** ppDepthStencilState, uint32* pStencilRef) mut => VT.[Friend]OMGetDepthStencilState(&this, ppDepthStencilState, pStencilRef);
+	public void OMGetDepthStencilState(ID3D10DepthStencilState* ppDepthStencilState, uint32 pStencilRef) mut => VT.[Friend]OMGetDepthStencilState(&this, ppDepthStencilState, pStencilRef);
 
 	public void SOGetTargets(uint32 NumBuffers, ID3D10Buffer** ppSOTargets, uint32* pOffsets) mut => VT.[Friend]SOGetTargets(&this, NumBuffers, ppSOTargets, pOffsets);
 
-	public void RSGetState(ID3D10RasterizerState** ppRasterizerState) mut => VT.[Friend]RSGetState(&this, ppRasterizerState);
+	public void RSGetState(ID3D10RasterizerState* ppRasterizerState) mut => VT.[Friend]RSGetState(&this, ppRasterizerState);
 
-	public void RSGetViewports(uint32* NumViewports, D3D10_VIEWPORT* pViewports) mut => VT.[Friend]RSGetViewports(&this, NumViewports, pViewports);
+	public void RSGetViewports(uint32 NumViewports, D3D10_VIEWPORT* pViewports) mut => VT.[Friend]RSGetViewports(&this, NumViewports, pViewports);
 
-	public void RSGetScissorRects(uint32* NumRects, RECT* pRects) mut => VT.[Friend]RSGetScissorRects(&this, NumRects, pRects);
+	public void RSGetScissorRects(uint32 NumRects, RECT* pRects) mut => VT.[Friend]RSGetScissorRects(&this, NumRects, pRects);
 
 	public HRESULT GetDeviceRemovedReason() mut => VT.[Friend]GetDeviceRemovedReason(&this);
 
@@ -3129,9 +3129,9 @@ public static
 
 	public uint32 GetExceptionMode() mut => VT.[Friend]GetExceptionMode(&this);
 
-	public HRESULT GetPrivateData(Guid guid, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, guid, pDataSize, pData);
+	public HRESULT GetPrivateData(Guid guid, uint32 pDataSize, void pData) mut => VT.[Friend]GetPrivateData(&this, guid, pDataSize, pData);
 
-	public HRESULT SetPrivateData(Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, guid, DataSize, pData);
+	public HRESULT SetPrivateData(Guid guid, uint32 DataSize, void pData) mut => VT.[Friend]SetPrivateData(&this, guid, DataSize, pData);
 
 	public HRESULT SetPrivateDataInterface(Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, guid, pData);
 
@@ -3139,59 +3139,59 @@ public static
 
 	public void Flush() mut => VT.[Friend]Flush(&this);
 
-	public HRESULT CreateBuffer(D3D10_BUFFER_DESC* pDesc, D3D10_SUBRESOURCE_DATA* pInitialData, ID3D10Buffer** ppBuffer) mut => VT.[Friend]CreateBuffer(&this, pDesc, pInitialData, ppBuffer);
+	public HRESULT CreateBuffer(D3D10_BUFFER_DESC pDesc, D3D10_SUBRESOURCE_DATA pInitialData, ID3D10Buffer* ppBuffer) mut => VT.[Friend]CreateBuffer(&this, pDesc, pInitialData, ppBuffer);
 
-	public HRESULT CreateTexture1D(D3D10_TEXTURE1D_DESC* pDesc, D3D10_SUBRESOURCE_DATA* pInitialData, ID3D10Texture1D** ppTexture1D) mut => VT.[Friend]CreateTexture1D(&this, pDesc, pInitialData, ppTexture1D);
+	public HRESULT CreateTexture1D(D3D10_TEXTURE1D_DESC pDesc, D3D10_SUBRESOURCE_DATA pInitialData, ID3D10Texture1D* ppTexture1D) mut => VT.[Friend]CreateTexture1D(&this, pDesc, pInitialData, ppTexture1D);
 
-	public HRESULT CreateTexture2D(D3D10_TEXTURE2D_DESC* pDesc, D3D10_SUBRESOURCE_DATA* pInitialData, ID3D10Texture2D** ppTexture2D) mut => VT.[Friend]CreateTexture2D(&this, pDesc, pInitialData, ppTexture2D);
+	public HRESULT CreateTexture2D(D3D10_TEXTURE2D_DESC pDesc, D3D10_SUBRESOURCE_DATA pInitialData, ID3D10Texture2D* ppTexture2D) mut => VT.[Friend]CreateTexture2D(&this, pDesc, pInitialData, ppTexture2D);
 
-	public HRESULT CreateTexture3D(D3D10_TEXTURE3D_DESC* pDesc, D3D10_SUBRESOURCE_DATA* pInitialData, ID3D10Texture3D** ppTexture3D) mut => VT.[Friend]CreateTexture3D(&this, pDesc, pInitialData, ppTexture3D);
+	public HRESULT CreateTexture3D(D3D10_TEXTURE3D_DESC pDesc, D3D10_SUBRESOURCE_DATA pInitialData, ID3D10Texture3D* ppTexture3D) mut => VT.[Friend]CreateTexture3D(&this, pDesc, pInitialData, ppTexture3D);
 
-	public HRESULT CreateShaderResourceView(ID3D10Resource* pResource, D3D10_SHADER_RESOURCE_VIEW_DESC* pDesc, ID3D10ShaderResourceView** ppSRView) mut => VT.[Friend]CreateShaderResourceView(&this, pResource, pDesc, ppSRView);
+	public HRESULT CreateShaderResourceView(ID3D10Resource* pResource, D3D10_SHADER_RESOURCE_VIEW_DESC pDesc, ID3D10ShaderResourceView* ppSRView) mut => VT.[Friend]CreateShaderResourceView(&this, pResource, pDesc, ppSRView);
 
-	public HRESULT CreateRenderTargetView(ID3D10Resource* pResource, D3D10_RENDER_TARGET_VIEW_DESC* pDesc, ID3D10RenderTargetView** ppRTView) mut => VT.[Friend]CreateRenderTargetView(&this, pResource, pDesc, ppRTView);
+	public HRESULT CreateRenderTargetView(ID3D10Resource* pResource, D3D10_RENDER_TARGET_VIEW_DESC pDesc, ID3D10RenderTargetView* ppRTView) mut => VT.[Friend]CreateRenderTargetView(&this, pResource, pDesc, ppRTView);
 
-	public HRESULT CreateDepthStencilView(ID3D10Resource* pResource, D3D10_DEPTH_STENCIL_VIEW_DESC* pDesc, ID3D10DepthStencilView** ppDepthStencilView) mut => VT.[Friend]CreateDepthStencilView(&this, pResource, pDesc, ppDepthStencilView);
+	public HRESULT CreateDepthStencilView(ID3D10Resource* pResource, D3D10_DEPTH_STENCIL_VIEW_DESC pDesc, ID3D10DepthStencilView* ppDepthStencilView) mut => VT.[Friend]CreateDepthStencilView(&this, pResource, pDesc, ppDepthStencilView);
 
-	public HRESULT CreateInputLayout(D3D10_INPUT_ELEMENT_DESC* pInputElementDescs, uint32 NumElements, void* pShaderBytecodeWithInputSignature, uint BytecodeLength, ID3D10InputLayout** ppInputLayout) mut => VT.[Friend]CreateInputLayout(&this, pInputElementDescs, NumElements, pShaderBytecodeWithInputSignature, BytecodeLength, ppInputLayout);
+	public HRESULT CreateInputLayout(D3D10_INPUT_ELEMENT_DESC* pInputElementDescs, uint32 NumElements, void* pShaderBytecodeWithInputSignature, uint BytecodeLength, ID3D10InputLayout* ppInputLayout) mut => VT.[Friend]CreateInputLayout(&this, pInputElementDescs, NumElements, pShaderBytecodeWithInputSignature, BytecodeLength, ppInputLayout);
 
-	public HRESULT CreateVertexShader(void* pShaderBytecode, uint BytecodeLength, ID3D10VertexShader** ppVertexShader) mut => VT.[Friend]CreateVertexShader(&this, pShaderBytecode, BytecodeLength, ppVertexShader);
+	public HRESULT CreateVertexShader(void* pShaderBytecode, uint BytecodeLength, ID3D10VertexShader* ppVertexShader) mut => VT.[Friend]CreateVertexShader(&this, pShaderBytecode, BytecodeLength, ppVertexShader);
 
-	public HRESULT CreateGeometryShader(void* pShaderBytecode, uint BytecodeLength, ID3D10GeometryShader** ppGeometryShader) mut => VT.[Friend]CreateGeometryShader(&this, pShaderBytecode, BytecodeLength, ppGeometryShader);
+	public HRESULT CreateGeometryShader(void* pShaderBytecode, uint BytecodeLength, ID3D10GeometryShader* ppGeometryShader) mut => VT.[Friend]CreateGeometryShader(&this, pShaderBytecode, BytecodeLength, ppGeometryShader);
 
-	public HRESULT CreateGeometryShaderWithStreamOutput(void* pShaderBytecode, uint BytecodeLength, D3D10_SO_DECLARATION_ENTRY* pSODeclaration, uint32 NumEntries, uint32 OutputStreamStride, ID3D10GeometryShader** ppGeometryShader) mut => VT.[Friend]CreateGeometryShaderWithStreamOutput(&this, pShaderBytecode, BytecodeLength, pSODeclaration, NumEntries, OutputStreamStride, ppGeometryShader);
+	public HRESULT CreateGeometryShaderWithStreamOutput(void* pShaderBytecode, uint BytecodeLength, D3D10_SO_DECLARATION_ENTRY* pSODeclaration, uint32 NumEntries, uint32 OutputStreamStride, ID3D10GeometryShader* ppGeometryShader) mut => VT.[Friend]CreateGeometryShaderWithStreamOutput(&this, pShaderBytecode, BytecodeLength, pSODeclaration, NumEntries, OutputStreamStride, ppGeometryShader);
 
-	public HRESULT CreatePixelShader(void* pShaderBytecode, uint BytecodeLength, ID3D10PixelShader** ppPixelShader) mut => VT.[Friend]CreatePixelShader(&this, pShaderBytecode, BytecodeLength, ppPixelShader);
+	public HRESULT CreatePixelShader(void* pShaderBytecode, uint BytecodeLength, ID3D10PixelShader* ppPixelShader) mut => VT.[Friend]CreatePixelShader(&this, pShaderBytecode, BytecodeLength, ppPixelShader);
 
-	public HRESULT CreateBlendState(D3D10_BLEND_DESC* pBlendStateDesc, ID3D10BlendState** ppBlendState) mut => VT.[Friend]CreateBlendState(&this, pBlendStateDesc, ppBlendState);
+	public HRESULT CreateBlendState(D3D10_BLEND_DESC pBlendStateDesc, ID3D10BlendState* ppBlendState) mut => VT.[Friend]CreateBlendState(&this, pBlendStateDesc, ppBlendState);
 
-	public HRESULT CreateDepthStencilState(D3D10_DEPTH_STENCIL_DESC* pDepthStencilDesc, ID3D10DepthStencilState** ppDepthStencilState) mut => VT.[Friend]CreateDepthStencilState(&this, pDepthStencilDesc, ppDepthStencilState);
+	public HRESULT CreateDepthStencilState(D3D10_DEPTH_STENCIL_DESC pDepthStencilDesc, ID3D10DepthStencilState* ppDepthStencilState) mut => VT.[Friend]CreateDepthStencilState(&this, pDepthStencilDesc, ppDepthStencilState);
 
-	public HRESULT CreateRasterizerState(D3D10_RASTERIZER_DESC* pRasterizerDesc, ID3D10RasterizerState** ppRasterizerState) mut => VT.[Friend]CreateRasterizerState(&this, pRasterizerDesc, ppRasterizerState);
+	public HRESULT CreateRasterizerState(D3D10_RASTERIZER_DESC pRasterizerDesc, ID3D10RasterizerState* ppRasterizerState) mut => VT.[Friend]CreateRasterizerState(&this, pRasterizerDesc, ppRasterizerState);
 
-	public HRESULT CreateSamplerState(D3D10_SAMPLER_DESC* pSamplerDesc, ID3D10SamplerState** ppSamplerState) mut => VT.[Friend]CreateSamplerState(&this, pSamplerDesc, ppSamplerState);
+	public HRESULT CreateSamplerState(D3D10_SAMPLER_DESC pSamplerDesc, ID3D10SamplerState* ppSamplerState) mut => VT.[Friend]CreateSamplerState(&this, pSamplerDesc, ppSamplerState);
 
-	public HRESULT CreateQuery(D3D10_QUERY_DESC* pQueryDesc, ID3D10Query** ppQuery) mut => VT.[Friend]CreateQuery(&this, pQueryDesc, ppQuery);
+	public HRESULT CreateQuery(D3D10_QUERY_DESC pQueryDesc, ID3D10Query* ppQuery) mut => VT.[Friend]CreateQuery(&this, pQueryDesc, ppQuery);
 
-	public HRESULT CreatePredicate(D3D10_QUERY_DESC* pPredicateDesc, ID3D10Predicate** ppPredicate) mut => VT.[Friend]CreatePredicate(&this, pPredicateDesc, ppPredicate);
+	public HRESULT CreatePredicate(D3D10_QUERY_DESC pPredicateDesc, ID3D10Predicate* ppPredicate) mut => VT.[Friend]CreatePredicate(&this, pPredicateDesc, ppPredicate);
 
-	public HRESULT CreateCounter(D3D10_COUNTER_DESC* pCounterDesc, ID3D10Counter** ppCounter) mut => VT.[Friend]CreateCounter(&this, pCounterDesc, ppCounter);
+	public HRESULT CreateCounter(D3D10_COUNTER_DESC pCounterDesc, ID3D10Counter* ppCounter) mut => VT.[Friend]CreateCounter(&this, pCounterDesc, ppCounter);
 
-	public HRESULT CheckFormatSupport(DXGI_FORMAT Format, uint32* pFormatSupport) mut => VT.[Friend]CheckFormatSupport(&this, Format, pFormatSupport);
+	public HRESULT CheckFormatSupport(DXGI_FORMAT Format, uint32 pFormatSupport) mut => VT.[Friend]CheckFormatSupport(&this, Format, pFormatSupport);
 
-	public HRESULT CheckMultisampleQualityLevels(DXGI_FORMAT Format, uint32 SampleCount, uint32* pNumQualityLevels) mut => VT.[Friend]CheckMultisampleQualityLevels(&this, Format, SampleCount, pNumQualityLevels);
+	public HRESULT CheckMultisampleQualityLevels(DXGI_FORMAT Format, uint32 SampleCount, uint32 pNumQualityLevels) mut => VT.[Friend]CheckMultisampleQualityLevels(&this, Format, SampleCount, pNumQualityLevels);
 
-	public void CheckCounterInfo(D3D10_COUNTER_INFO* pCounterInfo) mut => VT.[Friend]CheckCounterInfo(&this, pCounterInfo);
+	public void CheckCounterInfo(D3D10_COUNTER_INFO pCounterInfo) mut => VT.[Friend]CheckCounterInfo(&this, pCounterInfo);
 
-	public HRESULT CheckCounter(D3D10_COUNTER_DESC* pDesc, D3D10_COUNTER_TYPE* pType, uint32* pActiveCounters, uint8* szName, uint32* pNameLength, uint8* szUnits, uint32* pUnitsLength, uint8* szDescription, uint32* pDescriptionLength) mut => VT.[Friend]CheckCounter(&this, pDesc, pType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+	public HRESULT CheckCounter(D3D10_COUNTER_DESC pDesc, D3D10_COUNTER_TYPE pType, uint32 pActiveCounters, uint8* szName, uint32 pNameLength, uint8* szUnits, uint32 pUnitsLength, uint8* szDescription, uint32 pDescriptionLength) mut => VT.[Friend]CheckCounter(&this, pDesc, pType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 
 	public uint32 GetCreationFlags() mut => VT.[Friend]GetCreationFlags(&this);
 
-	public HRESULT OpenSharedResource(HANDLE hResource, Guid ReturnedInterface, void** ppResource) mut => VT.[Friend]OpenSharedResource(&this, hResource, ReturnedInterface, ppResource);
+	public HRESULT OpenSharedResource(HANDLE hResource, Guid ReturnedInterface, void ppResource) mut => VT.[Friend]OpenSharedResource(&this, hResource, ReturnedInterface, ppResource);
 
 	public void SetTextFilterSize(uint32 Width, uint32 Height) mut => VT.[Friend]SetTextFilterSize(&this, Width, Height);
 
-	public void GetTextFilterSize(uint32* pWidth, uint32* pHeight) mut => VT.[Friend]GetTextFilterSize(&this, pWidth, pHeight);
+	public void GetTextFilterSize(uint32 pWidth, uint32 pHeight) mut => VT.[Friend]GetTextFilterSize(&this, pWidth, pHeight);
 }
 
 [CRepr]struct ID3D10Multithread : IUnknown
@@ -3231,7 +3231,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Debug*/SelfOuter* self, uint32 Milliseconds) SetPresentPerRenderOpDelay;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D10Debug*/SelfOuter* self) GetPresentPerRenderOpDelay;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Debug*/SelfOuter* self, IDXGISwapChain* pSwapChain) SetSwapChain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Debug*/SelfOuter* self, IDXGISwapChain** ppSwapChain) GetSwapChain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Debug*/SelfOuter* self, IDXGISwapChain* ppSwapChain) GetSwapChain;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Debug*/SelfOuter* self) Validate;
 	}
 
@@ -3246,7 +3246,7 @@ public static
 
 	public HRESULT SetSwapChain(IDXGISwapChain* pSwapChain) mut => VT.[Friend]SetSwapChain(&this, pSwapChain);
 
-	public HRESULT GetSwapChain(IDXGISwapChain** ppSwapChain) mut => VT.[Friend]GetSwapChain(&this, ppSwapChain);
+	public HRESULT GetSwapChain(IDXGISwapChain* ppSwapChain) mut => VT.[Friend]GetSwapChain(&this, ppSwapChain);
 
 	public HRESULT Validate() mut => VT.[Friend]Validate(&this);
 }
@@ -3279,27 +3279,27 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, uint64 MessageCountLimit) SetMessageCountLimit;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10InfoQueue*/SelfOuter* self) ClearStoredMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, uint64 MessageIndex, D3D10_MESSAGE* pMessage, uint* pMessageByteLength) GetMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, uint64 MessageIndex, D3D10_MESSAGE pMessage, uint pMessageByteLength) GetMessage;
 		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D10InfoQueue*/SelfOuter* self) GetNumMessagesAllowedByStorageFilter;
 		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D10InfoQueue*/SelfOuter* self) GetNumMessagesDeniedByStorageFilter;
 		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D10InfoQueue*/SelfOuter* self) GetNumStoredMessages;
 		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D10InfoQueue*/SelfOuter* self) GetNumStoredMessagesAllowedByRetrievalFilter;
 		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D10InfoQueue*/SelfOuter* self) GetNumMessagesDiscardedByMessageCountLimit;
 		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D10InfoQueue*/SelfOuter* self) GetMessageCountLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER* pFilter) AddStorageFilterEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER* pFilter, uint* pFilterByteLength) GetStorageFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER pFilter) AddStorageFilterEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER pFilter, uint pFilterByteLength) GetStorageFilter;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10InfoQueue*/SelfOuter* self) ClearStorageFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self) PushEmptyStorageFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self) PushCopyOfStorageFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER* pFilter) PushStorageFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER pFilter) PushStorageFilter;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10InfoQueue*/SelfOuter* self) PopStorageFilter;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D10InfoQueue*/SelfOuter* self) GetStorageFilterStackSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER* pFilter) AddRetrievalFilterEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER* pFilter, uint* pFilterByteLength) GetRetrievalFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER pFilter) AddRetrievalFilterEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER pFilter, uint pFilterByteLength) GetRetrievalFilter;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10InfoQueue*/SelfOuter* self) ClearRetrievalFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self) PushEmptyRetrievalFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self) PushCopyOfRetrievalFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER* pFilter) PushRetrievalFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_INFO_QUEUE_FILTER pFilter) PushRetrievalFilter;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10InfoQueue*/SelfOuter* self) PopRetrievalFilter;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D10InfoQueue*/SelfOuter* self) GetRetrievalFilterStackSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10InfoQueue*/SelfOuter* self, D3D10_MESSAGE_CATEGORY Category, D3D10_MESSAGE_SEVERITY Severity, D3D10_MESSAGE_ID ID, PSTR pDescription) AddMessage;
@@ -3319,7 +3319,7 @@ public static
 
 	public void ClearStoredMessages() mut => VT.[Friend]ClearStoredMessages(&this);
 
-	public HRESULT GetMessage(uint64 MessageIndex, D3D10_MESSAGE* pMessage, uint* pMessageByteLength) mut => VT.[Friend]GetMessage(&this, MessageIndex, pMessage, pMessageByteLength);
+	public HRESULT GetMessage(uint64 MessageIndex, D3D10_MESSAGE pMessage, uint pMessageByteLength) mut => VT.[Friend]GetMessage(&this, MessageIndex, pMessage, pMessageByteLength);
 
 	public uint64 GetNumMessagesAllowedByStorageFilter() mut => VT.[Friend]GetNumMessagesAllowedByStorageFilter(&this);
 
@@ -3333,9 +3333,9 @@ public static
 
 	public uint64 GetMessageCountLimit() mut => VT.[Friend]GetMessageCountLimit(&this);
 
-	public HRESULT AddStorageFilterEntries(D3D10_INFO_QUEUE_FILTER* pFilter) mut => VT.[Friend]AddStorageFilterEntries(&this, pFilter);
+	public HRESULT AddStorageFilterEntries(D3D10_INFO_QUEUE_FILTER pFilter) mut => VT.[Friend]AddStorageFilterEntries(&this, pFilter);
 
-	public HRESULT GetStorageFilter(D3D10_INFO_QUEUE_FILTER* pFilter, uint* pFilterByteLength) mut => VT.[Friend]GetStorageFilter(&this, pFilter, pFilterByteLength);
+	public HRESULT GetStorageFilter(D3D10_INFO_QUEUE_FILTER pFilter, uint pFilterByteLength) mut => VT.[Friend]GetStorageFilter(&this, pFilter, pFilterByteLength);
 
 	public void ClearStorageFilter() mut => VT.[Friend]ClearStorageFilter(&this);
 
@@ -3343,15 +3343,15 @@ public static
 
 	public HRESULT PushCopyOfStorageFilter() mut => VT.[Friend]PushCopyOfStorageFilter(&this);
 
-	public HRESULT PushStorageFilter(D3D10_INFO_QUEUE_FILTER* pFilter) mut => VT.[Friend]PushStorageFilter(&this, pFilter);
+	public HRESULT PushStorageFilter(D3D10_INFO_QUEUE_FILTER pFilter) mut => VT.[Friend]PushStorageFilter(&this, pFilter);
 
 	public void PopStorageFilter() mut => VT.[Friend]PopStorageFilter(&this);
 
 	public uint32 GetStorageFilterStackSize() mut => VT.[Friend]GetStorageFilterStackSize(&this);
 
-	public HRESULT AddRetrievalFilterEntries(D3D10_INFO_QUEUE_FILTER* pFilter) mut => VT.[Friend]AddRetrievalFilterEntries(&this, pFilter);
+	public HRESULT AddRetrievalFilterEntries(D3D10_INFO_QUEUE_FILTER pFilter) mut => VT.[Friend]AddRetrievalFilterEntries(&this, pFilter);
 
-	public HRESULT GetRetrievalFilter(D3D10_INFO_QUEUE_FILTER* pFilter, uint* pFilterByteLength) mut => VT.[Friend]GetRetrievalFilter(&this, pFilter, pFilterByteLength);
+	public HRESULT GetRetrievalFilter(D3D10_INFO_QUEUE_FILTER pFilter, uint pFilterByteLength) mut => VT.[Friend]GetRetrievalFilter(&this, pFilter, pFilterByteLength);
 
 	public void ClearRetrievalFilter() mut => VT.[Friend]ClearRetrievalFilter(&this);
 
@@ -3359,7 +3359,7 @@ public static
 
 	public HRESULT PushCopyOfRetrievalFilter() mut => VT.[Friend]PushCopyOfRetrievalFilter(&this);
 
-	public HRESULT PushRetrievalFilter(D3D10_INFO_QUEUE_FILTER* pFilter) mut => VT.[Friend]PushRetrievalFilter(&this, pFilter);
+	public HRESULT PushRetrievalFilter(D3D10_INFO_QUEUE_FILTER pFilter) mut => VT.[Friend]PushRetrievalFilter(&this, pFilter);
 
 	public void PopRetrievalFilter() mut => VT.[Friend]PopRetrievalFilter(&this);
 
@@ -3396,14 +3396,14 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflectionType*/SelfOuter* self, D3D10_SHADER_TYPE_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflectionType*/SelfOuter* self, D3D10_SHADER_TYPE_DESC pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10ShaderReflectionType*(/*ID3D10ShaderReflectionType*/SelfOuter* self, uint32 Index) GetMemberTypeByIndex;
 		protected new function [CallingConvention(.Stdcall)] ID3D10ShaderReflectionType*(/*ID3D10ShaderReflectionType*/SelfOuter* self, PSTR Name) GetMemberTypeByName;
 		protected new function [CallingConvention(.Stdcall)] PSTR(/*ID3D10ShaderReflectionType*/SelfOuter* self, uint32 Index) GetMemberTypeName;
 	}
 
 
-	public HRESULT GetDesc(D3D10_SHADER_TYPE_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public HRESULT GetDesc(D3D10_SHADER_TYPE_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
 	public ID3D10ShaderReflectionType* GetMemberTypeByIndex(uint32 Index) mut => VT.[Friend]GetMemberTypeByIndex(&this, Index);
 
@@ -3422,12 +3422,12 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflectionVariable*/SelfOuter* self, D3D10_SHADER_VARIABLE_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflectionVariable*/SelfOuter* self, D3D10_SHADER_VARIABLE_DESC pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10ShaderReflectionType*(/*ID3D10ShaderReflectionVariable*/SelfOuter* self) COM_GetType;
 	}
 
 
-	public HRESULT GetDesc(D3D10_SHADER_VARIABLE_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public HRESULT GetDesc(D3D10_SHADER_VARIABLE_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
 	public ID3D10ShaderReflectionType* GetType() mut => VT.[Friend]COM_GetType(&this);
 }
@@ -3442,13 +3442,13 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflectionConstantBuffer*/SelfOuter* self, D3D10_SHADER_BUFFER_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflectionConstantBuffer*/SelfOuter* self, D3D10_SHADER_BUFFER_DESC pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10ShaderReflectionVariable*(/*ID3D10ShaderReflectionConstantBuffer*/SelfOuter* self, uint32 Index) GetVariableByIndex;
 		protected new function [CallingConvention(.Stdcall)] ID3D10ShaderReflectionVariable*(/*ID3D10ShaderReflectionConstantBuffer*/SelfOuter* self, PSTR Name) GetVariableByName;
 	}
 
 
-	public HRESULT GetDesc(D3D10_SHADER_BUFFER_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public HRESULT GetDesc(D3D10_SHADER_BUFFER_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
 	public ID3D10ShaderReflectionVariable* GetVariableByIndex(uint32 Index) mut => VT.[Friend]GetVariableByIndex(&this, Index);
 
@@ -3463,26 +3463,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection*/SelfOuter* self, D3D10_SHADER_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection*/SelfOuter* self, D3D10_SHADER_DESC pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10ShaderReflectionConstantBuffer*(/*ID3D10ShaderReflection*/SelfOuter* self, uint32 Index) GetConstantBufferByIndex;
 		protected new function [CallingConvention(.Stdcall)] ID3D10ShaderReflectionConstantBuffer*(/*ID3D10ShaderReflection*/SelfOuter* self, PSTR Name) GetConstantBufferByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection*/SelfOuter* self, uint32 ResourceIndex, D3D10_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection*/SelfOuter* self, uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) GetInputParameterDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection*/SelfOuter* self, uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) GetOutputParameterDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection*/SelfOuter* self, uint32 ResourceIndex, D3D10_SHADER_INPUT_BIND_DESC pDesc) GetResourceBindingDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection*/SelfOuter* self, uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC pDesc) GetInputParameterDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection*/SelfOuter* self, uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC pDesc) GetOutputParameterDesc;
 	}
 
 
-	public HRESULT GetDesc(D3D10_SHADER_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public HRESULT GetDesc(D3D10_SHADER_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
 	public ID3D10ShaderReflectionConstantBuffer* GetConstantBufferByIndex(uint32 Index) mut => VT.[Friend]GetConstantBufferByIndex(&this, Index);
 
 	public ID3D10ShaderReflectionConstantBuffer* GetConstantBufferByName(PSTR Name) mut => VT.[Friend]GetConstantBufferByName(&this, Name);
 
-	public HRESULT GetResourceBindingDesc(uint32 ResourceIndex, D3D10_SHADER_INPUT_BIND_DESC* pDesc) mut => VT.[Friend]GetResourceBindingDesc(&this, ResourceIndex, pDesc);
+	public HRESULT GetResourceBindingDesc(uint32 ResourceIndex, D3D10_SHADER_INPUT_BIND_DESC pDesc) mut => VT.[Friend]GetResourceBindingDesc(&this, ResourceIndex, pDesc);
 
-	public HRESULT GetInputParameterDesc(uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) mut => VT.[Friend]GetInputParameterDesc(&this, ParameterIndex, pDesc);
+	public HRESULT GetInputParameterDesc(uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC pDesc) mut => VT.[Friend]GetInputParameterDesc(&this, ParameterIndex, pDesc);
 
-	public HRESULT GetOutputParameterDesc(uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) mut => VT.[Friend]GetOutputParameterDesc(&this, ParameterIndex, pDesc);
+	public HRESULT GetOutputParameterDesc(uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC pDesc) mut => VT.[Friend]GetOutputParameterDesc(&this, ParameterIndex, pDesc);
 }
 
 [CRepr]struct ID3D10StateBlock : IUnknown
@@ -3496,7 +3496,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10StateBlock*/SelfOuter* self) Capture;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10StateBlock*/SelfOuter* self) Apply;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10StateBlock*/SelfOuter* self) ReleaseAllDeviceObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10StateBlock*/SelfOuter* self, ID3D10Device** ppDevice) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10StateBlock*/SelfOuter* self, ID3D10Device* ppDevice) GetDevice;
 	}
 
 
@@ -3506,7 +3506,7 @@ public static
 
 	public HRESULT ReleaseAllDeviceObjects() mut => VT.[Friend]ReleaseAllDeviceObjects(&this);
 
-	public HRESULT GetDevice(ID3D10Device** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
+	public HRESULT GetDevice(ID3D10Device* ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 }
 
 [CRepr]struct ID3D10EffectType
@@ -3520,7 +3520,7 @@ public static
 	[CRepr]public struct VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D10EffectType*/SelfOuter* self) IsValid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectType*/SelfOuter* self, D3D10_EFFECT_TYPE_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectType*/SelfOuter* self, D3D10_EFFECT_TYPE_DESC pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectType*(/*ID3D10EffectType*/SelfOuter* self, uint32 Index) GetMemberTypeByIndex;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectType*(/*ID3D10EffectType*/SelfOuter* self, PSTR Name) GetMemberTypeByName;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectType*(/*ID3D10EffectType*/SelfOuter* self, PSTR Semantic) GetMemberTypeBySemantic;
@@ -3531,7 +3531,7 @@ public static
 
 	public BOOL IsValid() mut => VT.[Friend]IsValid(&this);
 
-	public HRESULT GetDesc(D3D10_EFFECT_TYPE_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public HRESULT GetDesc(D3D10_EFFECT_TYPE_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
 	public ID3D10EffectType* GetMemberTypeByIndex(uint32 Index) mut => VT.[Friend]GetMemberTypeByIndex(&this, Index);
 
@@ -3556,7 +3556,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D10EffectVariable*/SelfOuter* self) IsValid;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectType*(/*ID3D10EffectVariable*/SelfOuter* self) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVariable*/SelfOuter* self, D3D10_EFFECT_VARIABLE_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVariable*/SelfOuter* self, D3D10_EFFECT_VARIABLE_DESC pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectVariable*(/*ID3D10EffectVariable*/SelfOuter* self, uint32 Index) GetAnnotationByIndex;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectVariable*(/*ID3D10EffectVariable*/SelfOuter* self, PSTR Name) GetAnnotationByName;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectVariable*(/*ID3D10EffectVariable*/SelfOuter* self, uint32 Index) GetMemberByIndex;
@@ -3577,8 +3577,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectDepthStencilVariable*(/*ID3D10EffectVariable*/SelfOuter* self) AsDepthStencil;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectRasterizerVariable*(/*ID3D10EffectVariable*/SelfOuter* self) AsRasterizer;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectSamplerVariable*(/*ID3D10EffectVariable*/SelfOuter* self) AsSampler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVariable*/SelfOuter* self, void* pData, uint32 Offset, uint32 ByteCount) SetRawValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVariable*/SelfOuter* self, void* pData, uint32 Offset, uint32 ByteCount) GetRawValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVariable*/SelfOuter* self, void pData, uint32 Offset, uint32 ByteCount) SetRawValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVariable*/SelfOuter* self, void pData, uint32 Offset, uint32 ByteCount) GetRawValue;
 	}
 
 
@@ -3586,7 +3586,7 @@ public static
 
 	public ID3D10EffectType* GetType() mut => VT.[Friend]COM_GetType(&this);
 
-	public HRESULT GetDesc(D3D10_EFFECT_VARIABLE_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public HRESULT GetDesc(D3D10_EFFECT_VARIABLE_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
 	public ID3D10EffectVariable* GetAnnotationByIndex(uint32 Index) mut => VT.[Friend]GetAnnotationByIndex(&this, Index);
 
@@ -3628,9 +3628,9 @@ public static
 
 	public ID3D10EffectSamplerVariable* AsSampler() mut => VT.[Friend]AsSampler(&this);
 
-	public HRESULT SetRawValue(void* pData, uint32 Offset, uint32 ByteCount) mut => VT.[Friend]SetRawValue(&this, pData, Offset, ByteCount);
+	public HRESULT SetRawValue(void pData, uint32 Offset, uint32 ByteCount) mut => VT.[Friend]SetRawValue(&this, pData, Offset, ByteCount);
 
-	public HRESULT GetRawValue(void* pData, uint32 Offset, uint32 ByteCount) mut => VT.[Friend]GetRawValue(&this, pData, Offset, ByteCount);
+	public HRESULT GetRawValue(void pData, uint32 Offset, uint32 ByteCount) mut => VT.[Friend]GetRawValue(&this, pData, Offset, ByteCount);
 }
 
 [CRepr]struct ID3D10EffectScalarVariable : ID3D10EffectVariable
@@ -3642,15 +3642,15 @@ public static
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, float Value) SetFloat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, float* pValue) GetFloat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, float pValue) GetFloat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, float* pData, uint32 Offset, uint32 Count) SetFloatArray;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, float* pData, uint32 Offset, uint32 Count) GetFloatArray;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, int32 Value) SetInt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, int32* pValue) GetInt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, int32 pValue) GetInt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, int32* pData, uint32 Offset, uint32 Count) SetIntArray;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, int32* pData, uint32 Offset, uint32 Count) GetIntArray;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, BOOL Value) SetBool;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, BOOL* pValue) GetBool;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, BOOL pValue) GetBool;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, BOOL* pData, uint32 Offset, uint32 Count) SetBoolArray;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectScalarVariable*/SelfOuter* self, BOOL* pData, uint32 Offset, uint32 Count) GetBoolArray;
 	}
@@ -3658,7 +3658,7 @@ public static
 
 	public HRESULT SetFloat(float Value) mut => VT.[Friend]SetFloat(&this, Value);
 
-	public HRESULT GetFloat(float* pValue) mut => VT.[Friend]GetFloat(&this, pValue);
+	public HRESULT GetFloat(float pValue) mut => VT.[Friend]GetFloat(&this, pValue);
 
 	public HRESULT SetFloatArray(float* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetFloatArray(&this, pData, Offset, Count);
 
@@ -3666,7 +3666,7 @@ public static
 
 	public HRESULT SetInt(int32 Value) mut => VT.[Friend]SetInt(&this, Value);
 
-	public HRESULT GetInt(int32* pValue) mut => VT.[Friend]GetInt(&this, pValue);
+	public HRESULT GetInt(int32 pValue) mut => VT.[Friend]GetInt(&this, pValue);
 
 	public HRESULT SetIntArray(int32* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetIntArray(&this, pData, Offset, Count);
 
@@ -3674,7 +3674,7 @@ public static
 
 	public HRESULT SetBool(BOOL Value) mut => VT.[Friend]SetBool(&this, Value);
 
-	public HRESULT GetBool(BOOL* pValue) mut => VT.[Friend]GetBool(&this, pValue);
+	public HRESULT GetBool(BOOL pValue) mut => VT.[Friend]GetBool(&this, pValue);
 
 	public HRESULT SetBoolArray(BOOL* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetBoolArray(&this, pData, Offset, Count);
 
@@ -3689,44 +3689,44 @@ public static
 
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, BOOL* pData) SetBoolVector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, int32* pData) SetIntVector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, float* pData) SetFloatVector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, BOOL* pData) GetBoolVector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, int32* pData) GetIntVector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, float* pData) GetFloatVector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, BOOL* pData, uint32 Offset, uint32 Count) SetBoolVectorArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, int32* pData, uint32 Offset, uint32 Count) SetIntVectorArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, float* pData, uint32 Offset, uint32 Count) SetFloatVectorArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, BOOL* pData, uint32 Offset, uint32 Count) GetBoolVectorArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, int32* pData, uint32 Offset, uint32 Count) GetIntVectorArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, float* pData, uint32 Offset, uint32 Count) GetFloatVectorArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, BOOL pData) SetBoolVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, int32 pData) SetIntVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, float pData) SetFloatVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, BOOL pData) GetBoolVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, int32 pData) GetIntVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, float pData) GetFloatVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, BOOL pData, uint32 Offset, uint32 Count) SetBoolVectorArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, int32 pData, uint32 Offset, uint32 Count) SetIntVectorArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, float pData, uint32 Offset, uint32 Count) SetFloatVectorArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, BOOL pData, uint32 Offset, uint32 Count) GetBoolVectorArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, int32 pData, uint32 Offset, uint32 Count) GetIntVectorArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectVectorVariable*/SelfOuter* self, float pData, uint32 Offset, uint32 Count) GetFloatVectorArray;
 	}
 
 
-	public HRESULT SetBoolVector(BOOL* pData) mut => VT.[Friend]SetBoolVector(&this, pData);
+	public HRESULT SetBoolVector(BOOL pData) mut => VT.[Friend]SetBoolVector(&this, pData);
 
-	public HRESULT SetIntVector(int32* pData) mut => VT.[Friend]SetIntVector(&this, pData);
+	public HRESULT SetIntVector(int32 pData) mut => VT.[Friend]SetIntVector(&this, pData);
 
-	public HRESULT SetFloatVector(float* pData) mut => VT.[Friend]SetFloatVector(&this, pData);
+	public HRESULT SetFloatVector(float pData) mut => VT.[Friend]SetFloatVector(&this, pData);
 
-	public HRESULT GetBoolVector(BOOL* pData) mut => VT.[Friend]GetBoolVector(&this, pData);
+	public HRESULT GetBoolVector(BOOL pData) mut => VT.[Friend]GetBoolVector(&this, pData);
 
-	public HRESULT GetIntVector(int32* pData) mut => VT.[Friend]GetIntVector(&this, pData);
+	public HRESULT GetIntVector(int32 pData) mut => VT.[Friend]GetIntVector(&this, pData);
 
-	public HRESULT GetFloatVector(float* pData) mut => VT.[Friend]GetFloatVector(&this, pData);
+	public HRESULT GetFloatVector(float pData) mut => VT.[Friend]GetFloatVector(&this, pData);
 
-	public HRESULT SetBoolVectorArray(BOOL* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetBoolVectorArray(&this, pData, Offset, Count);
+	public HRESULT SetBoolVectorArray(BOOL pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetBoolVectorArray(&this, pData, Offset, Count);
 
-	public HRESULT SetIntVectorArray(int32* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetIntVectorArray(&this, pData, Offset, Count);
+	public HRESULT SetIntVectorArray(int32 pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetIntVectorArray(&this, pData, Offset, Count);
 
-	public HRESULT SetFloatVectorArray(float* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetFloatVectorArray(&this, pData, Offset, Count);
+	public HRESULT SetFloatVectorArray(float pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetFloatVectorArray(&this, pData, Offset, Count);
 
-	public HRESULT GetBoolVectorArray(BOOL* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]GetBoolVectorArray(&this, pData, Offset, Count);
+	public HRESULT GetBoolVectorArray(BOOL pData, uint32 Offset, uint32 Count) mut => VT.[Friend]GetBoolVectorArray(&this, pData, Offset, Count);
 
-	public HRESULT GetIntVectorArray(int32* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]GetIntVectorArray(&this, pData, Offset, Count);
+	public HRESULT GetIntVectorArray(int32 pData, uint32 Offset, uint32 Count) mut => VT.[Friend]GetIntVectorArray(&this, pData, Offset, Count);
 
-	public HRESULT GetFloatVectorArray(float* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]GetFloatVectorArray(&this, pData, Offset, Count);
+	public HRESULT GetFloatVectorArray(float pData, uint32 Offset, uint32 Count) mut => VT.[Friend]GetFloatVectorArray(&this, pData, Offset, Count);
 }
 
 [CRepr]struct ID3D10EffectMatrixVariable : ID3D10EffectVariable
@@ -3737,32 +3737,32 @@ public static
 
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float* pData) SetMatrix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float* pData) GetMatrix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float* pData, uint32 Offset, uint32 Count) SetMatrixArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float* pData, uint32 Offset, uint32 Count) GetMatrixArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float* pData) SetMatrixTranspose;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float* pData) GetMatrixTranspose;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float* pData, uint32 Offset, uint32 Count) SetMatrixTransposeArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float* pData, uint32 Offset, uint32 Count) GetMatrixTransposeArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float pData) SetMatrix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float pData) GetMatrix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float pData, uint32 Offset, uint32 Count) SetMatrixArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float pData, uint32 Offset, uint32 Count) GetMatrixArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float pData) SetMatrixTranspose;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float pData) GetMatrixTranspose;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float pData, uint32 Offset, uint32 Count) SetMatrixTransposeArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectMatrixVariable*/SelfOuter* self, float pData, uint32 Offset, uint32 Count) GetMatrixTransposeArray;
 	}
 
 
-	public HRESULT SetMatrix(float* pData) mut => VT.[Friend]SetMatrix(&this, pData);
+	public HRESULT SetMatrix(float pData) mut => VT.[Friend]SetMatrix(&this, pData);
 
-	public HRESULT GetMatrix(float* pData) mut => VT.[Friend]GetMatrix(&this, pData);
+	public HRESULT GetMatrix(float pData) mut => VT.[Friend]GetMatrix(&this, pData);
 
-	public HRESULT SetMatrixArray(float* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetMatrixArray(&this, pData, Offset, Count);
+	public HRESULT SetMatrixArray(float pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetMatrixArray(&this, pData, Offset, Count);
 
-	public HRESULT GetMatrixArray(float* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]GetMatrixArray(&this, pData, Offset, Count);
+	public HRESULT GetMatrixArray(float pData, uint32 Offset, uint32 Count) mut => VT.[Friend]GetMatrixArray(&this, pData, Offset, Count);
 
-	public HRESULT SetMatrixTranspose(float* pData) mut => VT.[Friend]SetMatrixTranspose(&this, pData);
+	public HRESULT SetMatrixTranspose(float pData) mut => VT.[Friend]SetMatrixTranspose(&this, pData);
 
-	public HRESULT GetMatrixTranspose(float* pData) mut => VT.[Friend]GetMatrixTranspose(&this, pData);
+	public HRESULT GetMatrixTranspose(float pData) mut => VT.[Friend]GetMatrixTranspose(&this, pData);
 
-	public HRESULT SetMatrixTransposeArray(float* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetMatrixTransposeArray(&this, pData, Offset, Count);
+	public HRESULT SetMatrixTransposeArray(float pData, uint32 Offset, uint32 Count) mut => VT.[Friend]SetMatrixTransposeArray(&this, pData, Offset, Count);
 
-	public HRESULT GetMatrixTransposeArray(float* pData, uint32 Offset, uint32 Count) mut => VT.[Friend]GetMatrixTransposeArray(&this, pData, Offset, Count);
+	public HRESULT GetMatrixTransposeArray(float pData, uint32 Offset, uint32 Count) mut => VT.[Friend]GetMatrixTransposeArray(&this, pData, Offset, Count);
 }
 
 [CRepr]struct ID3D10EffectStringVariable : ID3D10EffectVariable
@@ -3773,12 +3773,12 @@ public static
 
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectStringVariable*/SelfOuter* self, PSTR* ppString) GetString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectStringVariable*/SelfOuter* self, PSTR ppString) GetString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectStringVariable*/SelfOuter* self, PSTR* ppStrings, uint32 Offset, uint32 Count) GetStringArray;
 	}
 
 
-	public HRESULT GetString(PSTR* ppString) mut => VT.[Friend]GetString(&this, ppString);
+	public HRESULT GetString(PSTR ppString) mut => VT.[Friend]GetString(&this, ppString);
 
 	public HRESULT GetStringArray(PSTR* ppStrings, uint32 Offset, uint32 Count) mut => VT.[Friend]GetStringArray(&this, ppStrings, Offset, Count);
 }
@@ -3792,7 +3792,7 @@ public static
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderResourceVariable*/SelfOuter* self, ID3D10ShaderResourceView* pResource) SetResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderResourceVariable*/SelfOuter* self, ID3D10ShaderResourceView** ppResource) GetResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderResourceVariable*/SelfOuter* self, ID3D10ShaderResourceView* ppResource) GetResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderResourceVariable*/SelfOuter* self, ID3D10ShaderResourceView** ppResources, uint32 Offset, uint32 Count) SetResourceArray;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderResourceVariable*/SelfOuter* self, ID3D10ShaderResourceView** ppResources, uint32 Offset, uint32 Count) GetResourceArray;
 	}
@@ -3800,7 +3800,7 @@ public static
 
 	public HRESULT SetResource(ID3D10ShaderResourceView* pResource) mut => VT.[Friend]SetResource(&this, pResource);
 
-	public HRESULT GetResource(ID3D10ShaderResourceView** ppResource) mut => VT.[Friend]GetResource(&this, ppResource);
+	public HRESULT GetResource(ID3D10ShaderResourceView* ppResource) mut => VT.[Friend]GetResource(&this, ppResource);
 
 	public HRESULT SetResourceArray(ID3D10ShaderResourceView** ppResources, uint32 Offset, uint32 Count) mut => VT.[Friend]SetResourceArray(&this, ppResources, Offset, Count);
 
@@ -3816,7 +3816,7 @@ public static
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectRenderTargetViewVariable*/SelfOuter* self, ID3D10RenderTargetView* pResource) SetRenderTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectRenderTargetViewVariable*/SelfOuter* self, ID3D10RenderTargetView** ppResource) GetRenderTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectRenderTargetViewVariable*/SelfOuter* self, ID3D10RenderTargetView* ppResource) GetRenderTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectRenderTargetViewVariable*/SelfOuter* self, ID3D10RenderTargetView** ppResources, uint32 Offset, uint32 Count) SetRenderTargetArray;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectRenderTargetViewVariable*/SelfOuter* self, ID3D10RenderTargetView** ppResources, uint32 Offset, uint32 Count) GetRenderTargetArray;
 	}
@@ -3824,7 +3824,7 @@ public static
 
 	public HRESULT SetRenderTarget(ID3D10RenderTargetView* pResource) mut => VT.[Friend]SetRenderTarget(&this, pResource);
 
-	public HRESULT GetRenderTarget(ID3D10RenderTargetView** ppResource) mut => VT.[Friend]GetRenderTarget(&this, ppResource);
+	public HRESULT GetRenderTarget(ID3D10RenderTargetView* ppResource) mut => VT.[Friend]GetRenderTarget(&this, ppResource);
 
 	public HRESULT SetRenderTargetArray(ID3D10RenderTargetView** ppResources, uint32 Offset, uint32 Count) mut => VT.[Friend]SetRenderTargetArray(&this, ppResources, Offset, Count);
 
@@ -3840,7 +3840,7 @@ public static
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectDepthStencilViewVariable*/SelfOuter* self, ID3D10DepthStencilView* pResource) SetDepthStencil;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectDepthStencilViewVariable*/SelfOuter* self, ID3D10DepthStencilView** ppResource) GetDepthStencil;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectDepthStencilViewVariable*/SelfOuter* self, ID3D10DepthStencilView* ppResource) GetDepthStencil;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectDepthStencilViewVariable*/SelfOuter* self, ID3D10DepthStencilView** ppResources, uint32 Offset, uint32 Count) SetDepthStencilArray;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectDepthStencilViewVariable*/SelfOuter* self, ID3D10DepthStencilView** ppResources, uint32 Offset, uint32 Count) GetDepthStencilArray;
 	}
@@ -3848,7 +3848,7 @@ public static
 
 	public HRESULT SetDepthStencil(ID3D10DepthStencilView* pResource) mut => VT.[Friend]SetDepthStencil(&this, pResource);
 
-	public HRESULT GetDepthStencil(ID3D10DepthStencilView** ppResource) mut => VT.[Friend]GetDepthStencil(&this, ppResource);
+	public HRESULT GetDepthStencil(ID3D10DepthStencilView* ppResource) mut => VT.[Friend]GetDepthStencil(&this, ppResource);
 
 	public HRESULT SetDepthStencilArray(ID3D10DepthStencilView** ppResources, uint32 Offset, uint32 Count) mut => VT.[Friend]SetDepthStencilArray(&this, ppResources, Offset, Count);
 
@@ -3864,19 +3864,19 @@ public static
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectConstantBuffer*/SelfOuter* self, ID3D10Buffer* pConstantBuffer) SetConstantBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectConstantBuffer*/SelfOuter* self, ID3D10Buffer** ppConstantBuffer) GetConstantBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectConstantBuffer*/SelfOuter* self, ID3D10Buffer* ppConstantBuffer) GetConstantBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectConstantBuffer*/SelfOuter* self, ID3D10ShaderResourceView* pTextureBuffer) SetTextureBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectConstantBuffer*/SelfOuter* self, ID3D10ShaderResourceView** ppTextureBuffer) GetTextureBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectConstantBuffer*/SelfOuter* self, ID3D10ShaderResourceView* ppTextureBuffer) GetTextureBuffer;
 	}
 
 
 	public HRESULT SetConstantBuffer(ID3D10Buffer* pConstantBuffer) mut => VT.[Friend]SetConstantBuffer(&this, pConstantBuffer);
 
-	public HRESULT GetConstantBuffer(ID3D10Buffer** ppConstantBuffer) mut => VT.[Friend]GetConstantBuffer(&this, ppConstantBuffer);
+	public HRESULT GetConstantBuffer(ID3D10Buffer* ppConstantBuffer) mut => VT.[Friend]GetConstantBuffer(&this, ppConstantBuffer);
 
 	public HRESULT SetTextureBuffer(ID3D10ShaderResourceView* pTextureBuffer) mut => VT.[Friend]SetTextureBuffer(&this, pTextureBuffer);
 
-	public HRESULT GetTextureBuffer(ID3D10ShaderResourceView** ppTextureBuffer) mut => VT.[Friend]GetTextureBuffer(&this, ppTextureBuffer);
+	public HRESULT GetTextureBuffer(ID3D10ShaderResourceView* ppTextureBuffer) mut => VT.[Friend]GetTextureBuffer(&this, ppTextureBuffer);
 }
 
 [CRepr]struct ID3D10EffectShaderVariable : ID3D10EffectVariable
@@ -3887,26 +3887,26 @@ public static
 
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, D3D10_EFFECT_SHADER_DESC* pDesc) GetShaderDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, ID3D10VertexShader** ppVS) GetVertexShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, ID3D10GeometryShader** ppGS) GetGeometryShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, ID3D10PixelShader** ppPS) GetPixelShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, uint32 Element, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) GetInputSignatureElementDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, uint32 Element, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) GetOutputSignatureElementDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, D3D10_EFFECT_SHADER_DESC pDesc) GetShaderDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, ID3D10VertexShader* ppVS) GetVertexShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, ID3D10GeometryShader* ppGS) GetGeometryShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, ID3D10PixelShader* ppPS) GetPixelShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, uint32 Element, D3D10_SIGNATURE_PARAMETER_DESC pDesc) GetInputSignatureElementDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectShaderVariable*/SelfOuter* self, uint32 ShaderIndex, uint32 Element, D3D10_SIGNATURE_PARAMETER_DESC pDesc) GetOutputSignatureElementDesc;
 	}
 
 
-	public HRESULT GetShaderDesc(uint32 ShaderIndex, D3D10_EFFECT_SHADER_DESC* pDesc) mut => VT.[Friend]GetShaderDesc(&this, ShaderIndex, pDesc);
+	public HRESULT GetShaderDesc(uint32 ShaderIndex, D3D10_EFFECT_SHADER_DESC pDesc) mut => VT.[Friend]GetShaderDesc(&this, ShaderIndex, pDesc);
 
-	public HRESULT GetVertexShader(uint32 ShaderIndex, ID3D10VertexShader** ppVS) mut => VT.[Friend]GetVertexShader(&this, ShaderIndex, ppVS);
+	public HRESULT GetVertexShader(uint32 ShaderIndex, ID3D10VertexShader* ppVS) mut => VT.[Friend]GetVertexShader(&this, ShaderIndex, ppVS);
 
-	public HRESULT GetGeometryShader(uint32 ShaderIndex, ID3D10GeometryShader** ppGS) mut => VT.[Friend]GetGeometryShader(&this, ShaderIndex, ppGS);
+	public HRESULT GetGeometryShader(uint32 ShaderIndex, ID3D10GeometryShader* ppGS) mut => VT.[Friend]GetGeometryShader(&this, ShaderIndex, ppGS);
 
-	public HRESULT GetPixelShader(uint32 ShaderIndex, ID3D10PixelShader** ppPS) mut => VT.[Friend]GetPixelShader(&this, ShaderIndex, ppPS);
+	public HRESULT GetPixelShader(uint32 ShaderIndex, ID3D10PixelShader* ppPS) mut => VT.[Friend]GetPixelShader(&this, ShaderIndex, ppPS);
 
-	public HRESULT GetInputSignatureElementDesc(uint32 ShaderIndex, uint32 Element, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) mut => VT.[Friend]GetInputSignatureElementDesc(&this, ShaderIndex, Element, pDesc);
+	public HRESULT GetInputSignatureElementDesc(uint32 ShaderIndex, uint32 Element, D3D10_SIGNATURE_PARAMETER_DESC pDesc) mut => VT.[Friend]GetInputSignatureElementDesc(&this, ShaderIndex, Element, pDesc);
 
-	public HRESULT GetOutputSignatureElementDesc(uint32 ShaderIndex, uint32 Element, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) mut => VT.[Friend]GetOutputSignatureElementDesc(&this, ShaderIndex, Element, pDesc);
+	public HRESULT GetOutputSignatureElementDesc(uint32 ShaderIndex, uint32 Element, D3D10_SIGNATURE_PARAMETER_DESC pDesc) mut => VT.[Friend]GetOutputSignatureElementDesc(&this, ShaderIndex, Element, pDesc);
 }
 
 [CRepr]struct ID3D10EffectBlendVariable : ID3D10EffectVariable
@@ -3917,14 +3917,14 @@ public static
 
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectBlendVariable*/SelfOuter* self, uint32 Index, ID3D10BlendState** ppBlendState) GetBlendState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectBlendVariable*/SelfOuter* self, uint32 Index, D3D10_BLEND_DESC* pBlendDesc) GetBackingStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectBlendVariable*/SelfOuter* self, uint32 Index, ID3D10BlendState* ppBlendState) GetBlendState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectBlendVariable*/SelfOuter* self, uint32 Index, D3D10_BLEND_DESC pBlendDesc) GetBackingStore;
 	}
 
 
-	public HRESULT GetBlendState(uint32 Index, ID3D10BlendState** ppBlendState) mut => VT.[Friend]GetBlendState(&this, Index, ppBlendState);
+	public HRESULT GetBlendState(uint32 Index, ID3D10BlendState* ppBlendState) mut => VT.[Friend]GetBlendState(&this, Index, ppBlendState);
 
-	public HRESULT GetBackingStore(uint32 Index, D3D10_BLEND_DESC* pBlendDesc) mut => VT.[Friend]GetBackingStore(&this, Index, pBlendDesc);
+	public HRESULT GetBackingStore(uint32 Index, D3D10_BLEND_DESC pBlendDesc) mut => VT.[Friend]GetBackingStore(&this, Index, pBlendDesc);
 }
 
 [CRepr]struct ID3D10EffectDepthStencilVariable : ID3D10EffectVariable
@@ -3935,14 +3935,14 @@ public static
 
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectDepthStencilVariable*/SelfOuter* self, uint32 Index, ID3D10DepthStencilState** ppDepthStencilState) GetDepthStencilState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectDepthStencilVariable*/SelfOuter* self, uint32 Index, D3D10_DEPTH_STENCIL_DESC* pDepthStencilDesc) GetBackingStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectDepthStencilVariable*/SelfOuter* self, uint32 Index, ID3D10DepthStencilState* ppDepthStencilState) GetDepthStencilState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectDepthStencilVariable*/SelfOuter* self, uint32 Index, D3D10_DEPTH_STENCIL_DESC pDepthStencilDesc) GetBackingStore;
 	}
 
 
-	public HRESULT GetDepthStencilState(uint32 Index, ID3D10DepthStencilState** ppDepthStencilState) mut => VT.[Friend]GetDepthStencilState(&this, Index, ppDepthStencilState);
+	public HRESULT GetDepthStencilState(uint32 Index, ID3D10DepthStencilState* ppDepthStencilState) mut => VT.[Friend]GetDepthStencilState(&this, Index, ppDepthStencilState);
 
-	public HRESULT GetBackingStore(uint32 Index, D3D10_DEPTH_STENCIL_DESC* pDepthStencilDesc) mut => VT.[Friend]GetBackingStore(&this, Index, pDepthStencilDesc);
+	public HRESULT GetBackingStore(uint32 Index, D3D10_DEPTH_STENCIL_DESC pDepthStencilDesc) mut => VT.[Friend]GetBackingStore(&this, Index, pDepthStencilDesc);
 }
 
 [CRepr]struct ID3D10EffectRasterizerVariable : ID3D10EffectVariable
@@ -3953,14 +3953,14 @@ public static
 
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectRasterizerVariable*/SelfOuter* self, uint32 Index, ID3D10RasterizerState** ppRasterizerState) GetRasterizerState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectRasterizerVariable*/SelfOuter* self, uint32 Index, D3D10_RASTERIZER_DESC* pRasterizerDesc) GetBackingStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectRasterizerVariable*/SelfOuter* self, uint32 Index, ID3D10RasterizerState* ppRasterizerState) GetRasterizerState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectRasterizerVariable*/SelfOuter* self, uint32 Index, D3D10_RASTERIZER_DESC pRasterizerDesc) GetBackingStore;
 	}
 
 
-	public HRESULT GetRasterizerState(uint32 Index, ID3D10RasterizerState** ppRasterizerState) mut => VT.[Friend]GetRasterizerState(&this, Index, ppRasterizerState);
+	public HRESULT GetRasterizerState(uint32 Index, ID3D10RasterizerState* ppRasterizerState) mut => VT.[Friend]GetRasterizerState(&this, Index, ppRasterizerState);
 
-	public HRESULT GetBackingStore(uint32 Index, D3D10_RASTERIZER_DESC* pRasterizerDesc) mut => VT.[Friend]GetBackingStore(&this, Index, pRasterizerDesc);
+	public HRESULT GetBackingStore(uint32 Index, D3D10_RASTERIZER_DESC pRasterizerDesc) mut => VT.[Friend]GetBackingStore(&this, Index, pRasterizerDesc);
 }
 
 [CRepr]struct ID3D10EffectSamplerVariable : ID3D10EffectVariable
@@ -3971,14 +3971,14 @@ public static
 
 	[CRepr]public struct VTable : ID3D10EffectVariable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectSamplerVariable*/SelfOuter* self, uint32 Index, ID3D10SamplerState** ppSampler) GetSampler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectSamplerVariable*/SelfOuter* self, uint32 Index, D3D10_SAMPLER_DESC* pSamplerDesc) GetBackingStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectSamplerVariable*/SelfOuter* self, uint32 Index, ID3D10SamplerState* ppSampler) GetSampler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectSamplerVariable*/SelfOuter* self, uint32 Index, D3D10_SAMPLER_DESC pSamplerDesc) GetBackingStore;
 	}
 
 
-	public HRESULT GetSampler(uint32 Index, ID3D10SamplerState** ppSampler) mut => VT.[Friend]GetSampler(&this, Index, ppSampler);
+	public HRESULT GetSampler(uint32 Index, ID3D10SamplerState* ppSampler) mut => VT.[Friend]GetSampler(&this, Index, ppSampler);
 
-	public HRESULT GetBackingStore(uint32 Index, D3D10_SAMPLER_DESC* pSamplerDesc) mut => VT.[Friend]GetBackingStore(&this, Index, pSamplerDesc);
+	public HRESULT GetBackingStore(uint32 Index, D3D10_SAMPLER_DESC pSamplerDesc) mut => VT.[Friend]GetBackingStore(&this, Index, pSamplerDesc);
 }
 
 [CRepr]struct ID3D10EffectPass
@@ -3992,26 +3992,26 @@ public static
 	[CRepr]public struct VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D10EffectPass*/SelfOuter* self) IsValid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, D3D10_PASS_DESC* pDesc) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, D3D10_PASS_SHADER_DESC* pDesc) GetVertexShaderDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, D3D10_PASS_SHADER_DESC* pDesc) GetGeometryShaderDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, D3D10_PASS_SHADER_DESC* pDesc) GetPixelShaderDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, D3D10_PASS_DESC pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, D3D10_PASS_SHADER_DESC pDesc) GetVertexShaderDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, D3D10_PASS_SHADER_DESC pDesc) GetGeometryShaderDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, D3D10_PASS_SHADER_DESC pDesc) GetPixelShaderDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectVariable*(/*ID3D10EffectPass*/SelfOuter* self, uint32 Index) GetAnnotationByIndex;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectVariable*(/*ID3D10EffectPass*/SelfOuter* self, PSTR Name) GetAnnotationByName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, uint32 Flags) Apply;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, D3D10_STATE_BLOCK_MASK* pStateBlockMask) ComputeStateBlockMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectPass*/SelfOuter* self, D3D10_STATE_BLOCK_MASK pStateBlockMask) ComputeStateBlockMask;
 	}
 
 
 	public BOOL IsValid() mut => VT.[Friend]IsValid(&this);
 
-	public HRESULT GetDesc(D3D10_PASS_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public HRESULT GetDesc(D3D10_PASS_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
-	public HRESULT GetVertexShaderDesc(D3D10_PASS_SHADER_DESC* pDesc) mut => VT.[Friend]GetVertexShaderDesc(&this, pDesc);
+	public HRESULT GetVertexShaderDesc(D3D10_PASS_SHADER_DESC pDesc) mut => VT.[Friend]GetVertexShaderDesc(&this, pDesc);
 
-	public HRESULT GetGeometryShaderDesc(D3D10_PASS_SHADER_DESC* pDesc) mut => VT.[Friend]GetGeometryShaderDesc(&this, pDesc);
+	public HRESULT GetGeometryShaderDesc(D3D10_PASS_SHADER_DESC pDesc) mut => VT.[Friend]GetGeometryShaderDesc(&this, pDesc);
 
-	public HRESULT GetPixelShaderDesc(D3D10_PASS_SHADER_DESC* pDesc) mut => VT.[Friend]GetPixelShaderDesc(&this, pDesc);
+	public HRESULT GetPixelShaderDesc(D3D10_PASS_SHADER_DESC pDesc) mut => VT.[Friend]GetPixelShaderDesc(&this, pDesc);
 
 	public ID3D10EffectVariable* GetAnnotationByIndex(uint32 Index) mut => VT.[Friend]GetAnnotationByIndex(&this, Index);
 
@@ -4019,7 +4019,7 @@ public static
 
 	public HRESULT Apply(uint32 Flags) mut => VT.[Friend]Apply(&this, Flags);
 
-	public HRESULT ComputeStateBlockMask(D3D10_STATE_BLOCK_MASK* pStateBlockMask) mut => VT.[Friend]ComputeStateBlockMask(&this, pStateBlockMask);
+	public HRESULT ComputeStateBlockMask(D3D10_STATE_BLOCK_MASK pStateBlockMask) mut => VT.[Friend]ComputeStateBlockMask(&this, pStateBlockMask);
 }
 
 [CRepr]struct ID3D10EffectTechnique
@@ -4033,18 +4033,18 @@ public static
 	[CRepr]public struct VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D10EffectTechnique*/SelfOuter* self) IsValid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectTechnique*/SelfOuter* self, D3D10_TECHNIQUE_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectTechnique*/SelfOuter* self, D3D10_TECHNIQUE_DESC pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectVariable*(/*ID3D10EffectTechnique*/SelfOuter* self, uint32 Index) GetAnnotationByIndex;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectVariable*(/*ID3D10EffectTechnique*/SelfOuter* self, PSTR Name) GetAnnotationByName;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectPass*(/*ID3D10EffectTechnique*/SelfOuter* self, uint32 Index) GetPassByIndex;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectPass*(/*ID3D10EffectTechnique*/SelfOuter* self, PSTR Name) GetPassByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectTechnique*/SelfOuter* self, D3D10_STATE_BLOCK_MASK* pStateBlockMask) ComputeStateBlockMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10EffectTechnique*/SelfOuter* self, D3D10_STATE_BLOCK_MASK pStateBlockMask) ComputeStateBlockMask;
 	}
 
 
 	public BOOL IsValid() mut => VT.[Friend]IsValid(&this);
 
-	public HRESULT GetDesc(D3D10_TECHNIQUE_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public HRESULT GetDesc(D3D10_TECHNIQUE_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
 	public ID3D10EffectVariable* GetAnnotationByIndex(uint32 Index) mut => VT.[Friend]GetAnnotationByIndex(&this, Index);
 
@@ -4054,7 +4054,7 @@ public static
 
 	public ID3D10EffectPass* GetPassByName(PSTR Name) mut => VT.[Friend]GetPassByName(&this, Name);
 
-	public HRESULT ComputeStateBlockMask(D3D10_STATE_BLOCK_MASK* pStateBlockMask) mut => VT.[Friend]ComputeStateBlockMask(&this, pStateBlockMask);
+	public HRESULT ComputeStateBlockMask(D3D10_STATE_BLOCK_MASK pStateBlockMask) mut => VT.[Friend]ComputeStateBlockMask(&this, pStateBlockMask);
 }
 
 [CRepr]struct ID3D10Effect : IUnknown
@@ -4067,8 +4067,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D10Effect*/SelfOuter* self) IsValid;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D10Effect*/SelfOuter* self) IsPool;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Effect*/SelfOuter* self, ID3D10Device** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Effect*/SelfOuter* self, D3D10_EFFECT_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Effect*/SelfOuter* self, ID3D10Device* ppDevice) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Effect*/SelfOuter* self, D3D10_EFFECT_DESC pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectConstantBuffer*(/*ID3D10Effect*/SelfOuter* self, uint32 Index) GetConstantBufferByIndex;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectConstantBuffer*(/*ID3D10Effect*/SelfOuter* self, PSTR Name) GetConstantBufferByName;
 		protected new function [CallingConvention(.Stdcall)] ID3D10EffectVariable*(/*ID3D10Effect*/SelfOuter* self, uint32 Index) GetVariableByIndex;
@@ -4085,9 +4085,9 @@ public static
 
 	public BOOL IsPool() mut => VT.[Friend]IsPool(&this);
 
-	public HRESULT GetDevice(ID3D10Device** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
+	public HRESULT GetDevice(ID3D10Device* ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 
-	public HRESULT GetDesc(D3D10_EFFECT_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public HRESULT GetDesc(D3D10_EFFECT_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
 	public ID3D10EffectConstantBuffer* GetConstantBufferByIndex(uint32 Index) mut => VT.[Friend]GetConstantBufferByIndex(&this, Index);
 
@@ -4131,11 +4131,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10BlendState.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10BlendState1*/SelfOuter* self, D3D10_BLEND_DESC1* pDesc) GetDesc1;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10BlendState1*/SelfOuter* self, D3D10_BLEND_DESC1 pDesc) GetDesc1;
 	}
 
 
-	public void GetDesc1(D3D10_BLEND_DESC1* pDesc) mut => VT.[Friend]GetDesc1(&this, pDesc);
+	public void GetDesc1(D3D10_BLEND_DESC1 pDesc) mut => VT.[Friend]GetDesc1(&this, pDesc);
 }
 
 [CRepr]struct ID3D10ShaderResourceView1 : ID3D10ShaderResourceView
@@ -4146,11 +4146,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D10ShaderResourceView.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10ShaderResourceView1*/SelfOuter* self, D3D10_SHADER_RESOURCE_VIEW_DESC1* pDesc) GetDesc1;
+		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10ShaderResourceView1*/SelfOuter* self, D3D10_SHADER_RESOURCE_VIEW_DESC1 pDesc) GetDesc1;
 	}
 
 
-	public void GetDesc1(D3D10_SHADER_RESOURCE_VIEW_DESC1* pDesc) mut => VT.[Friend]GetDesc1(&this, pDesc);
+	public void GetDesc1(D3D10_SHADER_RESOURCE_VIEW_DESC1 pDesc) mut => VT.[Friend]GetDesc1(&this, pDesc);
 }
 
 [CRepr]struct ID3D10Device1 : ID3D10Device
@@ -4161,15 +4161,15 @@ public static
 
 	[CRepr]public struct VTable : ID3D10Device.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device1*/SelfOuter* self, ID3D10Resource* pResource, D3D10_SHADER_RESOURCE_VIEW_DESC1* pDesc, ID3D10ShaderResourceView1** ppSRView) CreateShaderResourceView1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device1*/SelfOuter* self, D3D10_BLEND_DESC1* pBlendStateDesc, ID3D10BlendState1** ppBlendState) CreateBlendState1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device1*/SelfOuter* self, ID3D10Resource* pResource, D3D10_SHADER_RESOURCE_VIEW_DESC1 pDesc, ID3D10ShaderResourceView1* ppSRView) CreateShaderResourceView1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device1*/SelfOuter* self, D3D10_BLEND_DESC1 pBlendStateDesc, ID3D10BlendState1* ppBlendState) CreateBlendState1;
 		protected new function [CallingConvention(.Stdcall)] D3D10_FEATURE_LEVEL1(/*ID3D10Device1*/SelfOuter* self) GetFeatureLevel;
 	}
 
 
-	public HRESULT CreateShaderResourceView1(ID3D10Resource* pResource, D3D10_SHADER_RESOURCE_VIEW_DESC1* pDesc, ID3D10ShaderResourceView1** ppSRView) mut => VT.[Friend]CreateShaderResourceView1(&this, pResource, pDesc, ppSRView);
+	public HRESULT CreateShaderResourceView1(ID3D10Resource* pResource, D3D10_SHADER_RESOURCE_VIEW_DESC1 pDesc, ID3D10ShaderResourceView1* ppSRView) mut => VT.[Friend]CreateShaderResourceView1(&this, pResource, pDesc, ppSRView);
 
-	public HRESULT CreateBlendState1(D3D10_BLEND_DESC1* pBlendStateDesc, ID3D10BlendState1** ppBlendState) mut => VT.[Friend]CreateBlendState1(&this, pBlendStateDesc, ppBlendState);
+	public HRESULT CreateBlendState1(D3D10_BLEND_DESC1 pBlendStateDesc, ID3D10BlendState1* ppBlendState) mut => VT.[Friend]CreateBlendState1(&this, pBlendStateDesc, ppBlendState);
 
 	public D3D10_FEATURE_LEVEL1 GetFeatureLevel() mut => VT.[Friend]GetFeatureLevel(&this);
 }
@@ -4182,53 +4182,53 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, D3D10_SHADER_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, D3D10_SHADER_DESC pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10ShaderReflectionConstantBuffer*(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 Index) GetConstantBufferByIndex;
 		protected new function [CallingConvention(.Stdcall)] ID3D10ShaderReflectionConstantBuffer*(/*ID3D10ShaderReflection1*/SelfOuter* self, PSTR Name) GetConstantBufferByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 ResourceIndex, D3D10_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) GetInputParameterDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) GetOutputParameterDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 ResourceIndex, D3D10_SHADER_INPUT_BIND_DESC pDesc) GetResourceBindingDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC pDesc) GetInputParameterDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC pDesc) GetOutputParameterDesc;
 		protected new function [CallingConvention(.Stdcall)] ID3D10ShaderReflectionVariable*(/*ID3D10ShaderReflection1*/SelfOuter* self, PSTR Name) GetVariableByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, PSTR Name, D3D10_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDescByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32* pCount) GetMovInstructionCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32* pCount) GetMovcInstructionCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32* pCount) GetConversionInstructionCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32* pCount) GetBitwiseInstructionCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, D3D_PRIMITIVE* pPrim) GetGSInputPrimitive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, BOOL* pbLevel9Shader) IsLevel9Shader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, BOOL* pbSampleFrequency) IsSampleFrequencyShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, PSTR Name, D3D10_SHADER_INPUT_BIND_DESC pDesc) GetResourceBindingDescByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 pCount) GetMovInstructionCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 pCount) GetMovcInstructionCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 pCount) GetConversionInstructionCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, uint32 pCount) GetBitwiseInstructionCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, D3D_PRIMITIVE pPrim) GetGSInputPrimitive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, BOOL pbLevel9Shader) IsLevel9Shader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10ShaderReflection1*/SelfOuter* self, BOOL pbSampleFrequency) IsSampleFrequencyShader;
 	}
 
 
-	public HRESULT GetDesc(D3D10_SHADER_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
+	public HRESULT GetDesc(D3D10_SHADER_DESC pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
 	public ID3D10ShaderReflectionConstantBuffer* GetConstantBufferByIndex(uint32 Index) mut => VT.[Friend]GetConstantBufferByIndex(&this, Index);
 
 	public ID3D10ShaderReflectionConstantBuffer* GetConstantBufferByName(PSTR Name) mut => VT.[Friend]GetConstantBufferByName(&this, Name);
 
-	public HRESULT GetResourceBindingDesc(uint32 ResourceIndex, D3D10_SHADER_INPUT_BIND_DESC* pDesc) mut => VT.[Friend]GetResourceBindingDesc(&this, ResourceIndex, pDesc);
+	public HRESULT GetResourceBindingDesc(uint32 ResourceIndex, D3D10_SHADER_INPUT_BIND_DESC pDesc) mut => VT.[Friend]GetResourceBindingDesc(&this, ResourceIndex, pDesc);
 
-	public HRESULT GetInputParameterDesc(uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) mut => VT.[Friend]GetInputParameterDesc(&this, ParameterIndex, pDesc);
+	public HRESULT GetInputParameterDesc(uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC pDesc) mut => VT.[Friend]GetInputParameterDesc(&this, ParameterIndex, pDesc);
 
-	public HRESULT GetOutputParameterDesc(uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC* pDesc) mut => VT.[Friend]GetOutputParameterDesc(&this, ParameterIndex, pDesc);
+	public HRESULT GetOutputParameterDesc(uint32 ParameterIndex, D3D10_SIGNATURE_PARAMETER_DESC pDesc) mut => VT.[Friend]GetOutputParameterDesc(&this, ParameterIndex, pDesc);
 
 	public ID3D10ShaderReflectionVariable* GetVariableByName(PSTR Name) mut => VT.[Friend]GetVariableByName(&this, Name);
 
-	public HRESULT GetResourceBindingDescByName(PSTR Name, D3D10_SHADER_INPUT_BIND_DESC* pDesc) mut => VT.[Friend]GetResourceBindingDescByName(&this, Name, pDesc);
+	public HRESULT GetResourceBindingDescByName(PSTR Name, D3D10_SHADER_INPUT_BIND_DESC pDesc) mut => VT.[Friend]GetResourceBindingDescByName(&this, Name, pDesc);
 
-	public HRESULT GetMovInstructionCount(uint32* pCount) mut => VT.[Friend]GetMovInstructionCount(&this, pCount);
+	public HRESULT GetMovInstructionCount(uint32 pCount) mut => VT.[Friend]GetMovInstructionCount(&this, pCount);
 
-	public HRESULT GetMovcInstructionCount(uint32* pCount) mut => VT.[Friend]GetMovcInstructionCount(&this, pCount);
+	public HRESULT GetMovcInstructionCount(uint32 pCount) mut => VT.[Friend]GetMovcInstructionCount(&this, pCount);
 
-	public HRESULT GetConversionInstructionCount(uint32* pCount) mut => VT.[Friend]GetConversionInstructionCount(&this, pCount);
+	public HRESULT GetConversionInstructionCount(uint32 pCount) mut => VT.[Friend]GetConversionInstructionCount(&this, pCount);
 
-	public HRESULT GetBitwiseInstructionCount(uint32* pCount) mut => VT.[Friend]GetBitwiseInstructionCount(&this, pCount);
+	public HRESULT GetBitwiseInstructionCount(uint32 pCount) mut => VT.[Friend]GetBitwiseInstructionCount(&this, pCount);
 
-	public HRESULT GetGSInputPrimitive(D3D_PRIMITIVE* pPrim) mut => VT.[Friend]GetGSInputPrimitive(&this, pPrim);
+	public HRESULT GetGSInputPrimitive(D3D_PRIMITIVE pPrim) mut => VT.[Friend]GetGSInputPrimitive(&this, pPrim);
 
-	public HRESULT IsLevel9Shader(BOOL* pbLevel9Shader) mut => VT.[Friend]IsLevel9Shader(&this, pbLevel9Shader);
+	public HRESULT IsLevel9Shader(BOOL pbLevel9Shader) mut => VT.[Friend]IsLevel9Shader(&this, pbLevel9Shader);
 
-	public HRESULT IsSampleFrequencyShader(BOOL* pbSampleFrequency) mut => VT.[Friend]IsSampleFrequencyShader(&this, pbSampleFrequency);
+	public HRESULT IsSampleFrequencyShader(BOOL pbSampleFrequency) mut => VT.[Friend]IsSampleFrequencyShader(&this, pbSampleFrequency);
 }
 
 #endregion
@@ -4237,19 +4237,19 @@ public static
 public static
 {
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10CreateDevice(IDXGIAdapter* pAdapter, D3D10_DRIVER_TYPE DriverType, HINSTANCE Software, uint32 Flags, uint32 SDKVersion, ID3D10Device** ppDevice);
+	public static extern HRESULT D3D10CreateDevice(IDXGIAdapter* pAdapter, D3D10_DRIVER_TYPE DriverType, HINSTANCE Software, uint32 Flags, uint32 SDKVersion, ID3D10Device* ppDevice);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, D3D10_DRIVER_TYPE DriverType, HINSTANCE Software, uint32 Flags, uint32 SDKVersion, DXGI_SWAP_CHAIN_DESC* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D10Device** ppDevice);
+	public static extern HRESULT D3D10CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, D3D10_DRIVER_TYPE DriverType, HINSTANCE Software, uint32 Flags, uint32 SDKVersion, DXGI_SWAP_CHAIN_DESC pSwapChainDesc, IDXGISwapChain* ppSwapChain, ID3D10Device* ppDevice);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10CreateBlob(uint NumBytes, ID3DBlob** ppBuffer);
+	public static extern HRESULT D3D10CreateBlob(uint NumBytes, ID3DBlob* ppBuffer);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10CompileShader(PSTR pSrcData, uint SrcDataSize, PSTR pFileName, D3D_SHADER_MACRO* pDefines, ID3DInclude* pInclude, PSTR pFunctionName, PSTR pProfile, uint32 Flags, ID3DBlob** ppShader, ID3DBlob** ppErrorMsgs);
+	public static extern HRESULT D3D10CompileShader(PSTR pSrcData, uint SrcDataSize, PSTR pFileName, D3D_SHADER_MACRO pDefines, ID3DInclude* pInclude, PSTR pFunctionName, PSTR pProfile, uint32 Flags, ID3DBlob* ppShader, ID3DBlob* ppErrorMsgs);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10DisassembleShader(void* pShader, uint BytecodeLength, BOOL EnableColorCode, PSTR pComments, ID3DBlob** ppDisassembly);
+	public static extern HRESULT D3D10DisassembleShader(void pShader, uint BytecodeLength, BOOL EnableColorCode, PSTR pComments, ID3DBlob* ppDisassembly);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR D3D10GetPixelShaderProfile(ID3D10Device* pDevice);
@@ -4261,67 +4261,67 @@ public static
 	public static extern PSTR D3D10GetGeometryShaderProfile(ID3D10Device* pDevice);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10ReflectShader(void* pShaderBytecode, uint BytecodeLength, ID3D10ShaderReflection** ppReflector);
+	public static extern HRESULT D3D10ReflectShader(void pShaderBytecode, uint BytecodeLength, ID3D10ShaderReflection* ppReflector);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10PreprocessShader(PSTR pSrcData, uint SrcDataSize, PSTR pFileName, D3D_SHADER_MACRO* pDefines, ID3DInclude* pInclude, ID3DBlob** ppShaderText, ID3DBlob** ppErrorMsgs);
+	public static extern HRESULT D3D10PreprocessShader(PSTR pSrcData, uint SrcDataSize, PSTR pFileName, D3D_SHADER_MACRO pDefines, ID3DInclude* pInclude, ID3DBlob* ppShaderText, ID3DBlob* ppErrorMsgs);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10GetInputSignatureBlob(void* pShaderBytecode, uint BytecodeLength, ID3DBlob** ppSignatureBlob);
+	public static extern HRESULT D3D10GetInputSignatureBlob(void pShaderBytecode, uint BytecodeLength, ID3DBlob* ppSignatureBlob);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10GetOutputSignatureBlob(void* pShaderBytecode, uint BytecodeLength, ID3DBlob** ppSignatureBlob);
+	public static extern HRESULT D3D10GetOutputSignatureBlob(void pShaderBytecode, uint BytecodeLength, ID3DBlob* ppSignatureBlob);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10GetInputAndOutputSignatureBlob(void* pShaderBytecode, uint BytecodeLength, ID3DBlob** ppSignatureBlob);
+	public static extern HRESULT D3D10GetInputAndOutputSignatureBlob(void pShaderBytecode, uint BytecodeLength, ID3DBlob* ppSignatureBlob);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10GetShaderDebugInfo(void* pShaderBytecode, uint BytecodeLength, ID3DBlob** ppDebugInfo);
+	public static extern HRESULT D3D10GetShaderDebugInfo(void pShaderBytecode, uint BytecodeLength, ID3DBlob* ppDebugInfo);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10StateBlockMaskUnion(D3D10_STATE_BLOCK_MASK* pA, D3D10_STATE_BLOCK_MASK* pB, D3D10_STATE_BLOCK_MASK* pResult);
+	public static extern HRESULT D3D10StateBlockMaskUnion(D3D10_STATE_BLOCK_MASK pA, D3D10_STATE_BLOCK_MASK pB, D3D10_STATE_BLOCK_MASK pResult);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10StateBlockMaskIntersect(D3D10_STATE_BLOCK_MASK* pA, D3D10_STATE_BLOCK_MASK* pB, D3D10_STATE_BLOCK_MASK* pResult);
+	public static extern HRESULT D3D10StateBlockMaskIntersect(D3D10_STATE_BLOCK_MASK pA, D3D10_STATE_BLOCK_MASK pB, D3D10_STATE_BLOCK_MASK pResult);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10StateBlockMaskDifference(D3D10_STATE_BLOCK_MASK* pA, D3D10_STATE_BLOCK_MASK* pB, D3D10_STATE_BLOCK_MASK* pResult);
+	public static extern HRESULT D3D10StateBlockMaskDifference(D3D10_STATE_BLOCK_MASK pA, D3D10_STATE_BLOCK_MASK pB, D3D10_STATE_BLOCK_MASK pResult);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10StateBlockMaskEnableCapture(D3D10_STATE_BLOCK_MASK* pMask, D3D10_DEVICE_STATE_TYPES StateType, uint32 RangeStart, uint32 RangeLength);
+	public static extern HRESULT D3D10StateBlockMaskEnableCapture(D3D10_STATE_BLOCK_MASK pMask, D3D10_DEVICE_STATE_TYPES StateType, uint32 RangeStart, uint32 RangeLength);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10StateBlockMaskDisableCapture(D3D10_STATE_BLOCK_MASK* pMask, D3D10_DEVICE_STATE_TYPES StateType, uint32 RangeStart, uint32 RangeLength);
+	public static extern HRESULT D3D10StateBlockMaskDisableCapture(D3D10_STATE_BLOCK_MASK pMask, D3D10_DEVICE_STATE_TYPES StateType, uint32 RangeStart, uint32 RangeLength);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10StateBlockMaskEnableAll(D3D10_STATE_BLOCK_MASK* pMask);
+	public static extern HRESULT D3D10StateBlockMaskEnableAll(D3D10_STATE_BLOCK_MASK pMask);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10StateBlockMaskDisableAll(D3D10_STATE_BLOCK_MASK* pMask);
+	public static extern HRESULT D3D10StateBlockMaskDisableAll(D3D10_STATE_BLOCK_MASK pMask);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL D3D10StateBlockMaskGetSetting(D3D10_STATE_BLOCK_MASK* pMask, D3D10_DEVICE_STATE_TYPES StateType, uint32 Entry);
+	public static extern BOOL D3D10StateBlockMaskGetSetting(D3D10_STATE_BLOCK_MASK pMask, D3D10_DEVICE_STATE_TYPES StateType, uint32 Entry);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10CreateStateBlock(ID3D10Device* pDevice, D3D10_STATE_BLOCK_MASK* pStateBlockMask, ID3D10StateBlock** ppStateBlock);
+	public static extern HRESULT D3D10CreateStateBlock(ID3D10Device* pDevice, D3D10_STATE_BLOCK_MASK pStateBlockMask, ID3D10StateBlock* ppStateBlock);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10CompileEffectFromMemory(void* pData, uint DataLength, PSTR pSrcFileName, D3D_SHADER_MACRO* pDefines, ID3DInclude* pInclude, uint32 HLSLFlags, uint32 FXFlags, ID3DBlob** ppCompiledEffect, ID3DBlob** ppErrors);
+	public static extern HRESULT D3D10CompileEffectFromMemory(void pData, uint DataLength, PSTR pSrcFileName, D3D_SHADER_MACRO pDefines, ID3DInclude* pInclude, uint32 HLSLFlags, uint32 FXFlags, ID3DBlob* ppCompiledEffect, ID3DBlob* ppErrors);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10CreateEffectFromMemory(void* pData, uint DataLength, uint32 FXFlags, ID3D10Device* pDevice, ID3D10EffectPool* pEffectPool, ID3D10Effect** ppEffect);
+	public static extern HRESULT D3D10CreateEffectFromMemory(void pData, uint DataLength, uint32 FXFlags, ID3D10Device* pDevice, ID3D10EffectPool* pEffectPool, ID3D10Effect* ppEffect);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10CreateEffectPoolFromMemory(void* pData, uint DataLength, uint32 FXFlags, ID3D10Device* pDevice, ID3D10EffectPool** ppEffectPool);
+	public static extern HRESULT D3D10CreateEffectPoolFromMemory(void pData, uint DataLength, uint32 FXFlags, ID3D10Device* pDevice, ID3D10EffectPool* ppEffectPool);
 
 	[Import("d3d10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10DisassembleEffect(ID3D10Effect* pEffect, BOOL EnableColorCode, ID3DBlob** ppDisassembly);
+	public static extern HRESULT D3D10DisassembleEffect(ID3D10Effect* pEffect, BOOL EnableColorCode, ID3DBlob* ppDisassembly);
 
 	[Import("d3d10_1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10CreateDevice1(IDXGIAdapter* pAdapter, D3D10_DRIVER_TYPE DriverType, HINSTANCE Software, uint32 Flags, D3D10_FEATURE_LEVEL1 HardwareLevel, uint32 SDKVersion, ID3D10Device1** ppDevice);
+	public static extern HRESULT D3D10CreateDevice1(IDXGIAdapter* pAdapter, D3D10_DRIVER_TYPE DriverType, HINSTANCE Software, uint32 Flags, D3D10_FEATURE_LEVEL1 HardwareLevel, uint32 SDKVersion, ID3D10Device1* ppDevice);
 
 	[Import("d3d10_1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3D10CreateDeviceAndSwapChain1(IDXGIAdapter* pAdapter, D3D10_DRIVER_TYPE DriverType, HINSTANCE Software, uint32 Flags, D3D10_FEATURE_LEVEL1 HardwareLevel, uint32 SDKVersion, DXGI_SWAP_CHAIN_DESC* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D10Device1** ppDevice);
+	public static extern HRESULT D3D10CreateDeviceAndSwapChain1(IDXGIAdapter* pAdapter, D3D10_DRIVER_TYPE DriverType, HINSTANCE Software, uint32 Flags, D3D10_FEATURE_LEVEL1 HardwareLevel, uint32 SDKVersion, DXGI_SWAP_CHAIN_DESC pSwapChainDesc, IDXGISwapChain* ppSwapChain, ID3D10Device1* ppDevice);
 
 }
 #endregion

@@ -220,40 +220,40 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, IUnknown* pInput) SetInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32 nProperty, int* ppValue) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32 nProperty, int ppValue) GetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32 nProperty, int pValue) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, XmlNodeType* pNodeType) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, XmlNodeType* pNodeType) GetNodeType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, XmlNodeType pNodeType) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, XmlNodeType pNodeType) GetNodeType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self) MoveToFirstAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self) MoveToNextAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR pwszLocalName, PWSTR pwszNamespaceUri) MoveToAttributeByName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self) MoveToElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR* ppwszQualifiedName, uint32* pcwchQualifiedName) GetQualifiedName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR* ppwszNamespaceUri, uint32* pcwchNamespaceUri) GetNamespaceUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR* ppwszLocalName, uint32* pcwchLocalName) GetLocalName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR* ppwszPrefix, uint32* pcwchPrefix) GetPrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR* ppwszValue, uint32* pcwchValue) GetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, char16* pwchBuffer, uint32 cwchChunkSize, uint32* pcwchRead) ReadValueChunk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR* ppwszBaseUri, uint32* pcwchBaseUri) GetBaseUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR ppwszQualifiedName, uint32 pcwchQualifiedName) GetQualifiedName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR ppwszNamespaceUri, uint32 pcwchNamespaceUri) GetNamespaceUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR ppwszLocalName, uint32 pcwchLocalName) GetLocalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR ppwszPrefix, uint32 pcwchPrefix) GetPrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR ppwszValue, uint32 pcwchValue) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, char16* pwchBuffer, uint32 cwchChunkSize, uint32 pcwchRead) ReadValueChunk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, PWSTR ppwszBaseUri, uint32 pcwchBaseUri) GetBaseUri;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*IXmlReader*/SelfOuter* self) IsDefault;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*IXmlReader*/SelfOuter* self) IsEmptyElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32* pnLineNumber) GetLineNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32* pnLinePosition) GetLinePosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32* pnAttributeCount) GetAttributeCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32* pnDepth) GetDepth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32 pnLineNumber) GetLineNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32 pnLinePosition) GetLinePosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32 pnAttributeCount) GetAttributeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlReader*/SelfOuter* self, uint32 pnDepth) GetDepth;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*IXmlReader*/SelfOuter* self) IsEOF;
 	}
 
 
 	public HRESULT SetInput(IUnknown* pInput) mut => VT.[Friend]SetInput(&this, pInput);
 
-	public HRESULT GetProperty(uint32 nProperty, int* ppValue) mut => VT.[Friend]GetProperty(&this, nProperty, ppValue);
+	public HRESULT GetProperty(uint32 nProperty, int ppValue) mut => VT.[Friend]GetProperty(&this, nProperty, ppValue);
 
 	public HRESULT SetProperty(uint32 nProperty, int pValue) mut => VT.[Friend]SetProperty(&this, nProperty, pValue);
 
-	public HRESULT Read(XmlNodeType* pNodeType) mut => VT.[Friend]Read(&this, pNodeType);
+	public HRESULT Read(XmlNodeType pNodeType) mut => VT.[Friend]Read(&this, pNodeType);
 
-	public HRESULT GetNodeType(XmlNodeType* pNodeType) mut => VT.[Friend]GetNodeType(&this, pNodeType);
+	public HRESULT GetNodeType(XmlNodeType pNodeType) mut => VT.[Friend]GetNodeType(&this, pNodeType);
 
 	public HRESULT MoveToFirstAttribute() mut => VT.[Friend]MoveToFirstAttribute(&this);
 
@@ -263,31 +263,31 @@ public static
 
 	public HRESULT MoveToElement() mut => VT.[Friend]MoveToElement(&this);
 
-	public HRESULT GetQualifiedName(PWSTR* ppwszQualifiedName, uint32* pcwchQualifiedName) mut => VT.[Friend]GetQualifiedName(&this, ppwszQualifiedName, pcwchQualifiedName);
+	public HRESULT GetQualifiedName(PWSTR ppwszQualifiedName, uint32 pcwchQualifiedName) mut => VT.[Friend]GetQualifiedName(&this, ppwszQualifiedName, pcwchQualifiedName);
 
-	public HRESULT GetNamespaceUri(PWSTR* ppwszNamespaceUri, uint32* pcwchNamespaceUri) mut => VT.[Friend]GetNamespaceUri(&this, ppwszNamespaceUri, pcwchNamespaceUri);
+	public HRESULT GetNamespaceUri(PWSTR ppwszNamespaceUri, uint32 pcwchNamespaceUri) mut => VT.[Friend]GetNamespaceUri(&this, ppwszNamespaceUri, pcwchNamespaceUri);
 
-	public HRESULT GetLocalName(PWSTR* ppwszLocalName, uint32* pcwchLocalName) mut => VT.[Friend]GetLocalName(&this, ppwszLocalName, pcwchLocalName);
+	public HRESULT GetLocalName(PWSTR ppwszLocalName, uint32 pcwchLocalName) mut => VT.[Friend]GetLocalName(&this, ppwszLocalName, pcwchLocalName);
 
-	public HRESULT GetPrefix(PWSTR* ppwszPrefix, uint32* pcwchPrefix) mut => VT.[Friend]GetPrefix(&this, ppwszPrefix, pcwchPrefix);
+	public HRESULT GetPrefix(PWSTR ppwszPrefix, uint32 pcwchPrefix) mut => VT.[Friend]GetPrefix(&this, ppwszPrefix, pcwchPrefix);
 
-	public HRESULT GetValue(PWSTR* ppwszValue, uint32* pcwchValue) mut => VT.[Friend]GetValue(&this, ppwszValue, pcwchValue);
+	public HRESULT GetValue(PWSTR ppwszValue, uint32 pcwchValue) mut => VT.[Friend]GetValue(&this, ppwszValue, pcwchValue);
 
-	public HRESULT ReadValueChunk(char16* pwchBuffer, uint32 cwchChunkSize, uint32* pcwchRead) mut => VT.[Friend]ReadValueChunk(&this, pwchBuffer, cwchChunkSize, pcwchRead);
+	public HRESULT ReadValueChunk(char16* pwchBuffer, uint32 cwchChunkSize, uint32 pcwchRead) mut => VT.[Friend]ReadValueChunk(&this, pwchBuffer, cwchChunkSize, pcwchRead);
 
-	public HRESULT GetBaseUri(PWSTR* ppwszBaseUri, uint32* pcwchBaseUri) mut => VT.[Friend]GetBaseUri(&this, ppwszBaseUri, pcwchBaseUri);
+	public HRESULT GetBaseUri(PWSTR ppwszBaseUri, uint32 pcwchBaseUri) mut => VT.[Friend]GetBaseUri(&this, ppwszBaseUri, pcwchBaseUri);
 
 	public BOOL IsDefault() mut => VT.[Friend]IsDefault(&this);
 
 	public BOOL IsEmptyElement() mut => VT.[Friend]IsEmptyElement(&this);
 
-	public HRESULT GetLineNumber(uint32* pnLineNumber) mut => VT.[Friend]GetLineNumber(&this, pnLineNumber);
+	public HRESULT GetLineNumber(uint32 pnLineNumber) mut => VT.[Friend]GetLineNumber(&this, pnLineNumber);
 
-	public HRESULT GetLinePosition(uint32* pnLinePosition) mut => VT.[Friend]GetLinePosition(&this, pnLinePosition);
+	public HRESULT GetLinePosition(uint32 pnLinePosition) mut => VT.[Friend]GetLinePosition(&this, pnLinePosition);
 
-	public HRESULT GetAttributeCount(uint32* pnAttributeCount) mut => VT.[Friend]GetAttributeCount(&this, pnAttributeCount);
+	public HRESULT GetAttributeCount(uint32 pnAttributeCount) mut => VT.[Friend]GetAttributeCount(&this, pnAttributeCount);
 
-	public HRESULT GetDepth(uint32* pnDepth) mut => VT.[Friend]GetDepth(&this, pnDepth);
+	public HRESULT GetDepth(uint32 pnDepth) mut => VT.[Friend]GetDepth(&this, pnDepth);
 
 	public BOOL IsEOF() mut => VT.[Friend]IsEOF(&this);
 }
@@ -300,11 +300,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlResolver*/SelfOuter* self, PWSTR pwszBaseUri, PWSTR pwszPublicIdentifier, PWSTR pwszSystemIdentifier, IUnknown** ppResolvedInput) ResolveUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlResolver*/SelfOuter* self, PWSTR pwszBaseUri, PWSTR pwszPublicIdentifier, PWSTR pwszSystemIdentifier, IUnknown* ppResolvedInput) ResolveUri;
 	}
 
 
-	public HRESULT ResolveUri(PWSTR pwszBaseUri, PWSTR pwszPublicIdentifier, PWSTR pwszSystemIdentifier, IUnknown** ppResolvedInput) mut => VT.[Friend]ResolveUri(&this, pwszBaseUri, pwszPublicIdentifier, pwszSystemIdentifier, ppResolvedInput);
+	public HRESULT ResolveUri(PWSTR pwszBaseUri, PWSTR pwszPublicIdentifier, PWSTR pwszSystemIdentifier, IUnknown* ppResolvedInput) mut => VT.[Friend]ResolveUri(&this, pwszBaseUri, pwszPublicIdentifier, pwszSystemIdentifier, ppResolvedInput);
 }
 
 [CRepr]struct IXmlWriter : IUnknown
@@ -316,7 +316,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriter*/SelfOuter* self, IUnknown* pOutput) SetOutput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriter*/SelfOuter* self, uint32 nProperty, int* ppValue) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriter*/SelfOuter* self, uint32 nProperty, int ppValue) GetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriter*/SelfOuter* self, uint32 nProperty, int pValue) SetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriter*/SelfOuter* self, IXmlReader* pReader, BOOL fWriteDefaultAttributes) WriteAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriter*/SelfOuter* self, PWSTR pwszPrefix, PWSTR pwszLocalName, PWSTR pwszNamespaceUri, PWSTR pwszValue) WriteAttributeString;
@@ -349,7 +349,7 @@ public static
 
 	public HRESULT SetOutput(IUnknown* pOutput) mut => VT.[Friend]SetOutput(&this, pOutput);
 
-	public HRESULT GetProperty(uint32 nProperty, int* ppValue) mut => VT.[Friend]GetProperty(&this, nProperty, ppValue);
+	public HRESULT GetProperty(uint32 nProperty, int ppValue) mut => VT.[Friend]GetProperty(&this, nProperty, ppValue);
 
 	public HRESULT SetProperty(uint32 nProperty, int pValue) mut => VT.[Friend]SetProperty(&this, nProperty, pValue);
 
@@ -415,7 +415,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriterLite*/SelfOuter* self, IUnknown* pOutput) SetOutput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriterLite*/SelfOuter* self, uint32 nProperty, int* ppValue) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriterLite*/SelfOuter* self, uint32 nProperty, int ppValue) GetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriterLite*/SelfOuter* self, uint32 nProperty, int pValue) SetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriterLite*/SelfOuter* self, IXmlReader* pReader, BOOL fWriteDefaultAttributes) WriteAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXmlWriterLite*/SelfOuter* self, char16* pwszQName, uint32 cwszQName, char16* pwszValue, uint32 cwszValue) WriteAttributeString;
@@ -447,7 +447,7 @@ public static
 
 	public HRESULT SetOutput(IUnknown* pOutput) mut => VT.[Friend]SetOutput(&this, pOutput);
 
-	public HRESULT GetProperty(uint32 nProperty, int* ppValue) mut => VT.[Friend]GetProperty(&this, nProperty, ppValue);
+	public HRESULT GetProperty(uint32 nProperty, int ppValue) mut => VT.[Friend]GetProperty(&this, nProperty, ppValue);
 
 	public HRESULT SetProperty(uint32 nProperty, int pValue) mut => VT.[Friend]SetProperty(&this, nProperty, pValue);
 
@@ -508,22 +508,22 @@ public static
 public static
 {
 	[Import("XmlLite.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateXmlReader(Guid riid, void** ppvObject, IMalloc* pMalloc);
+	public static extern HRESULT CreateXmlReader(Guid riid, void ppvObject, IMalloc* pMalloc);
 
 	[Import("XmlLite.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateXmlReaderInputWithEncodingCodePage(IUnknown* pInputStream, IMalloc* pMalloc, uint32 nEncodingCodePage, BOOL fEncodingHint, PWSTR pwszBaseUri, IUnknown** ppInput);
+	public static extern HRESULT CreateXmlReaderInputWithEncodingCodePage(IUnknown* pInputStream, IMalloc* pMalloc, uint32 nEncodingCodePage, BOOL fEncodingHint, PWSTR pwszBaseUri, IUnknown* ppInput);
 
 	[Import("XmlLite.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateXmlReaderInputWithEncodingName(IUnknown* pInputStream, IMalloc* pMalloc, PWSTR pwszEncodingName, BOOL fEncodingHint, PWSTR pwszBaseUri, IUnknown** ppInput);
+	public static extern HRESULT CreateXmlReaderInputWithEncodingName(IUnknown* pInputStream, IMalloc* pMalloc, PWSTR pwszEncodingName, BOOL fEncodingHint, PWSTR pwszBaseUri, IUnknown* ppInput);
 
 	[Import("XmlLite.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateXmlWriter(Guid riid, void** ppvObject, IMalloc* pMalloc);
+	public static extern HRESULT CreateXmlWriter(Guid riid, void ppvObject, IMalloc* pMalloc);
 
 	[Import("XmlLite.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateXmlWriterOutputWithEncodingCodePage(IUnknown* pOutputStream, IMalloc* pMalloc, uint32 nEncodingCodePage, IUnknown** ppOutput);
+	public static extern HRESULT CreateXmlWriterOutputWithEncodingCodePage(IUnknown* pOutputStream, IMalloc* pMalloc, uint32 nEncodingCodePage, IUnknown* ppOutput);
 
 	[Import("XmlLite.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateXmlWriterOutputWithEncodingName(IUnknown* pOutputStream, IMalloc* pMalloc, PWSTR pwszEncodingName, IUnknown** ppOutput);
+	public static extern HRESULT CreateXmlWriterOutputWithEncodingName(IUnknown* pOutputStream, IMalloc* pMalloc, PWSTR pwszEncodingName, IUnknown* ppOutput);
 
 }
 #endregion

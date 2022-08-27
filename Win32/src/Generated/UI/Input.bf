@@ -231,35 +231,35 @@ public static
 public static
 {
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetRawInputData(HRAWINPUT hRawInput, RAW_INPUT_DATA_COMMAND_FLAGS uiCommand, void* pData, uint32* pcbSize, uint32 cbSizeHeader);
+	public static extern uint32 GetRawInputData(HRAWINPUT hRawInput, RAW_INPUT_DATA_COMMAND_FLAGS uiCommand, void pData, uint32 pcbSize, uint32 cbSizeHeader);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetRawInputDeviceInfoA(HANDLE hDevice, RAW_INPUT_DEVICE_INFO_COMMAND uiCommand, void* pData, uint32* pcbSize);
-	public static uint32 GetRawInputDeviceInfo(HANDLE hDevice, RAW_INPUT_DEVICE_INFO_COMMAND uiCommand, void* pData, uint32* pcbSize) => GetRawInputDeviceInfoA(hDevice, uiCommand, pData, pcbSize);
+	public static extern uint32 GetRawInputDeviceInfoA(HANDLE hDevice, RAW_INPUT_DEVICE_INFO_COMMAND uiCommand, void pData, uint32 pcbSize);
+	public static uint32 GetRawInputDeviceInfo(HANDLE hDevice, RAW_INPUT_DEVICE_INFO_COMMAND uiCommand, void pData, uint32 pcbSize) => GetRawInputDeviceInfoA(hDevice, uiCommand, pData, pcbSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetRawInputDeviceInfoW(HANDLE hDevice, RAW_INPUT_DEVICE_INFO_COMMAND uiCommand, void* pData, uint32* pcbSize);
+	public static extern uint32 GetRawInputDeviceInfoW(HANDLE hDevice, RAW_INPUT_DEVICE_INFO_COMMAND uiCommand, void pData, uint32 pcbSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetRawInputBuffer(RAWINPUT* pData, uint32* pcbSize, uint32 cbSizeHeader);
+	public static extern uint32 GetRawInputBuffer(RAWINPUT pData, uint32 pcbSize, uint32 cbSizeHeader);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RegisterRawInputDevices(RAWINPUTDEVICE* pRawInputDevices, uint32 uiNumDevices, uint32 cbSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetRegisteredRawInputDevices(RAWINPUTDEVICE* pRawInputDevices, uint32* puiNumDevices, uint32 cbSize);
+	public static extern uint32 GetRegisteredRawInputDevices(RAWINPUTDEVICE* pRawInputDevices, uint32 puiNumDevices, uint32 cbSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetRawInputDeviceList(RAWINPUTDEVICELIST* pRawInputDeviceList, uint32* puiNumDevices, uint32 cbSize);
+	public static extern uint32 GetRawInputDeviceList(RAWINPUTDEVICELIST* pRawInputDeviceList, uint32 puiNumDevices, uint32 cbSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LRESULT DefRawInputProc(RAWINPUT** paRawInput, int32 nInput, uint32 cbSizeHeader);
+	public static extern LRESULT DefRawInputProc(RAWINPUT* paRawInput, int32 nInput, uint32 cbSizeHeader);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCurrentInputMessageSource(INPUT_MESSAGE_SOURCE* inputMessageSource);
+	public static extern BOOL GetCurrentInputMessageSource(INPUT_MESSAGE_SOURCE inputMessageSource);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCIMSSM(INPUT_MESSAGE_SOURCE* inputMessageSource);
+	public static extern BOOL GetCIMSSM(INPUT_MESSAGE_SOURCE inputMessageSource);
 
 }
 #endregion

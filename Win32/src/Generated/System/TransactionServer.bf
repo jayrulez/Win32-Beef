@@ -117,20 +117,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, BSTR bstrCollName, IDispatch** ppCatalogCollection) GetCollection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, BSTR bstrConnectString, IDispatch** ppCatalogCollection) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, int32* retval) get_MajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, int32* retval) get_MinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, BSTR bstrCollName, IDispatch* ppCatalogCollection) GetCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, BSTR bstrConnectString, IDispatch* ppCatalogCollection) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, int32 retval) get_MajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, int32 retval) get_MinorVersion;
 	}
 
 
-	public HRESULT GetCollection(BSTR bstrCollName, IDispatch** ppCatalogCollection) mut => VT.[Friend]GetCollection(&this, bstrCollName, ppCatalogCollection);
+	public HRESULT GetCollection(BSTR bstrCollName, IDispatch* ppCatalogCollection) mut => VT.[Friend]GetCollection(&this, bstrCollName, ppCatalogCollection);
 
-	public HRESULT Connect(BSTR bstrConnectString, IDispatch** ppCatalogCollection) mut => VT.[Friend]Connect(&this, bstrConnectString, ppCatalogCollection);
+	public HRESULT Connect(BSTR bstrConnectString, IDispatch* ppCatalogCollection) mut => VT.[Friend]Connect(&this, bstrConnectString, ppCatalogCollection);
 
-	public HRESULT get_MajorVersion(int32* retval) mut => VT.[Friend]get_MajorVersion(&this, retval);
+	public HRESULT get_MajorVersion(int32 retval) mut => VT.[Friend]get_MajorVersion(&this, retval);
 
-	public HRESULT get_MinorVersion(int32* retval) mut => VT.[Friend]get_MinorVersion(&this, retval);
+	public HRESULT get_MinorVersion(int32 retval) mut => VT.[Friend]get_MinorVersion(&this, retval);
 }
 
 [CRepr]struct IComponentUtil : IDispatch
@@ -144,7 +144,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentUtil*/SelfOuter* self, BSTR bstrDLLFile, BSTR bstrTypelibFile, BSTR bstrProxyStubDLLFile) InstallComponent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentUtil*/SelfOuter* self, BSTR bstrCLSID) ImportComponent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentUtil*/SelfOuter* self, BSTR bstrProgID) ImportComponentByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentUtil*/SelfOuter* self, BSTR bstrDLLFile, BSTR bstrTypelibFile, SAFEARRAY** aCLSIDs) GetCLSIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentUtil*/SelfOuter* self, BSTR bstrDLLFile, BSTR bstrTypelibFile, SAFEARRAY aCLSIDs) GetCLSIDs;
 	}
 
 
@@ -154,7 +154,7 @@ public static
 
 	public HRESULT ImportComponentByName(BSTR bstrProgID) mut => VT.[Friend]ImportComponentByName(&this, bstrProgID);
 
-	public HRESULT GetCLSIDs(BSTR bstrDLLFile, BSTR bstrTypelibFile, SAFEARRAY** aCLSIDs) mut => VT.[Friend]GetCLSIDs(&this, bstrDLLFile, bstrTypelibFile, aCLSIDs);
+	public HRESULT GetCLSIDs(BSTR bstrDLLFile, BSTR bstrTypelibFile, SAFEARRAY aCLSIDs) mut => VT.[Friend]GetCLSIDs(&this, bstrDLLFile, bstrTypelibFile, aCLSIDs);
 }
 
 [CRepr]struct IPackageUtil : IDispatch

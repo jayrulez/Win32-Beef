@@ -36,7 +36,7 @@ public struct IPNG_ADDRESS
 [CRepr]
 public struct MCAST_CLIENT_UID
 {
-	public uint8* ClientUID;
+	public uint8 ClientUID;
 	public uint32 ClientUIDLength;
 }
 
@@ -67,7 +67,7 @@ public struct MCAST_LEASE_REQUEST
 	public IPNG_ADDRESS ServerAddress;
 	public uint16 MinAddrCount;
 	public uint16 AddrCount;
-	public uint8* pAddrBuf;
+	public uint8 pAddrBuf;
 }
 
 [CRepr]
@@ -77,7 +77,7 @@ public struct MCAST_LEASE_RESPONSE
 	public int32 LeaseEndTime;
 	public IPNG_ADDRESS ServerAddress;
 	public uint16 AddrCount;
-	public uint8* pAddrBuf;
+	public uint8 pAddrBuf;
 }
 
 #endregion
@@ -95,25 +95,25 @@ public static
 public static
 {
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 McastApiStartup(uint32* Version);
+	public static extern uint32 McastApiStartup(uint32 Version);
 
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void McastApiCleanup();
 
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 McastGenUID(MCAST_CLIENT_UID* pRequestID);
+	public static extern uint32 McastGenUID(MCAST_CLIENT_UID pRequestID);
 
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 McastEnumerateScopes(uint16 AddrFamily, BOOL ReQuery, MCAST_SCOPE_ENTRY* pScopeList, uint32* pScopeLen, uint32* pScopeCount);
+	public static extern uint32 McastEnumerateScopes(uint16 AddrFamily, BOOL ReQuery, MCAST_SCOPE_ENTRY pScopeList, uint32 pScopeLen, uint32 pScopeCount);
 
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 McastRequestAddress(uint16 AddrFamily, MCAST_CLIENT_UID* pRequestID, MCAST_SCOPE_CTX* pScopeCtx, MCAST_LEASE_REQUEST* pAddrRequest, MCAST_LEASE_RESPONSE* pAddrResponse);
+	public static extern uint32 McastRequestAddress(uint16 AddrFamily, MCAST_CLIENT_UID pRequestID, MCAST_SCOPE_CTX pScopeCtx, MCAST_LEASE_REQUEST pAddrRequest, MCAST_LEASE_RESPONSE pAddrResponse);
 
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 McastRenewAddress(uint16 AddrFamily, MCAST_CLIENT_UID* pRequestID, MCAST_LEASE_REQUEST* pRenewRequest, MCAST_LEASE_RESPONSE* pRenewResponse);
+	public static extern uint32 McastRenewAddress(uint16 AddrFamily, MCAST_CLIENT_UID pRequestID, MCAST_LEASE_REQUEST pRenewRequest, MCAST_LEASE_RESPONSE pRenewResponse);
 
 	[Import("dhcpcsvc.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 McastReleaseAddress(uint16 AddrFamily, MCAST_CLIENT_UID* pRequestID, MCAST_LEASE_REQUEST* pReleaseRequest);
+	public static extern uint32 McastReleaseAddress(uint16 AddrFamily, MCAST_CLIENT_UID pRequestID, MCAST_LEASE_REQUEST pReleaseRequest);
 
 }
 #endregion

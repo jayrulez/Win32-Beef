@@ -52,7 +52,7 @@ public struct WSB_OB_STATUS_ENTRY
 	public uint32 m_dwStatusEntryName;
 	public uint32 m_dwStatusEntryValue;
 	public uint32 m_cValueTypePair;
-	public WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR* m_rgValueTypePair;
+	public WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR m_rgValueTypePair;
 }
 
 [CRepr]
@@ -60,7 +60,7 @@ public struct WSB_OB_STATUS_INFO
 {
 	public Guid m_guidSnapinId;
 	public uint32 m_cStatusEntry;
-	public WSB_OB_STATUS_ENTRY* m_rgStatusEntry;
+	public WSB_OB_STATUS_ENTRY m_rgStatusEntry;
 }
 
 [CRepr]
@@ -90,11 +90,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationBackupSupport*/SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, uint32 cVolumes, PWSTR* rgwszSourceVolumePath, PWSTR* rgwszSnapshotVolumePath, IWsbApplicationAsync** ppAsync) CheckConsistency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationBackupSupport*/SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, uint32 cVolumes, PWSTR* rgwszSourceVolumePath, PWSTR* rgwszSnapshotVolumePath, IWsbApplicationAsync* ppAsync) CheckConsistency;
 	}
 
 
-	public HRESULT CheckConsistency(PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, uint32 cVolumes, PWSTR* rgwszSourceVolumePath, PWSTR* rgwszSnapshotVolumePath, IWsbApplicationAsync** ppAsync) mut => VT.[Friend]CheckConsistency(&this, wszWriterMetadata, wszComponentName, wszComponentLogicalPath, cVolumes, rgwszSourceVolumePath, rgwszSnapshotVolumePath, ppAsync);
+	public HRESULT CheckConsistency(PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, uint32 cVolumes, PWSTR* rgwszSourceVolumePath, PWSTR* rgwszSnapshotVolumePath, IWsbApplicationAsync* ppAsync) mut => VT.[Friend]CheckConsistency(&this, wszWriterMetadata, wszComponentName, wszComponentLogicalPath, cVolumes, rgwszSourceVolumePath, rgwszSnapshotVolumePath, ppAsync);
 }
 
 [CRepr]struct IWsbApplicationRestoreSupport : IUnknown
@@ -107,8 +107,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationRestoreSupport*/SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, BOOLEAN bNoRollForward) PreRestore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationRestoreSupport*/SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, BOOLEAN bNoRollForward) PostRestore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationRestoreSupport*/SelfOuter* self, uint32 cComponents, PWSTR* rgComponentName, PWSTR* rgComponentLogicalPaths, PWSTR** prgComponentName, PWSTR** prgComponentLogicalPath) OrderComponents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationRestoreSupport*/SelfOuter* self, uint8* pbRollForwardSupported) IsRollForwardSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationRestoreSupport*/SelfOuter* self, uint32 cComponents, PWSTR* rgComponentName, PWSTR* rgComponentLogicalPaths, PWSTR* prgComponentName, PWSTR* prgComponentLogicalPath) OrderComponents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationRestoreSupport*/SelfOuter* self, uint8 pbRollForwardSupported) IsRollForwardSupported;
 	}
 
 
@@ -116,9 +116,9 @@ public static
 
 	public HRESULT PostRestore(PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, BOOLEAN bNoRollForward) mut => VT.[Friend]PostRestore(&this, wszWriterMetadata, wszComponentName, wszComponentLogicalPath, bNoRollForward);
 
-	public HRESULT OrderComponents(uint32 cComponents, PWSTR* rgComponentName, PWSTR* rgComponentLogicalPaths, PWSTR** prgComponentName, PWSTR** prgComponentLogicalPath) mut => VT.[Friend]OrderComponents(&this, cComponents, rgComponentName, rgComponentLogicalPaths, prgComponentName, prgComponentLogicalPath);
+	public HRESULT OrderComponents(uint32 cComponents, PWSTR* rgComponentName, PWSTR* rgComponentLogicalPaths, PWSTR* prgComponentName, PWSTR* prgComponentLogicalPath) mut => VT.[Friend]OrderComponents(&this, cComponents, rgComponentName, rgComponentLogicalPaths, prgComponentName, prgComponentLogicalPath);
 
-	public HRESULT IsRollForwardSupported(uint8* pbRollForwardSupported) mut => VT.[Friend]IsRollForwardSupported(&this, pbRollForwardSupported);
+	public HRESULT IsRollForwardSupported(uint8 pbRollForwardSupported) mut => VT.[Friend]IsRollForwardSupported(&this, pbRollForwardSupported);
 }
 
 [CRepr]struct IWsbApplicationAsync : IUnknown
@@ -129,12 +129,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationAsync*/SelfOuter* self, HRESULT* phrResult) QueryStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationAsync*/SelfOuter* self, HRESULT phrResult) QueryStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationAsync*/SelfOuter* self) Abort;
 	}
 
 
-	public HRESULT QueryStatus(HRESULT* phrResult) mut => VT.[Friend]QueryStatus(&this, phrResult);
+	public HRESULT QueryStatus(HRESULT phrResult) mut => VT.[Friend]QueryStatus(&this, phrResult);
 
 	public HRESULT Abort() mut => VT.[Friend]Abort(&this);
 }

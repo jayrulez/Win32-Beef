@@ -14,7 +14,7 @@ namespace Win32.System.WinRT.Pdf;
 #endregion
 
 #region Function Pointers
-public function HRESULT PFN_PDF_CREATE_RENDERER(IDXGIDevice* param0, IPdfRendererNative** param1);
+public function HRESULT PFN_PDF_CREATE_RENDERER(IDXGIDevice* param0, IPdfRendererNative* param1);
 
 #endregion
 
@@ -46,14 +46,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPdfRendererNative*/SelfOuter* self, IUnknown* pdfPage, IDXGISurface* pSurface, POINT offset, PDF_RENDER_PARAMS* pRenderParams) RenderPageToSurface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPdfRendererNative*/SelfOuter* self, IUnknown* pdfPage, ID2D1DeviceContext* pD2DDeviceContext, PDF_RENDER_PARAMS* pRenderParams) RenderPageToDeviceContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPdfRendererNative*/SelfOuter* self, IUnknown* pdfPage, IDXGISurface* pSurface, POINT offset, PDF_RENDER_PARAMS pRenderParams) RenderPageToSurface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPdfRendererNative*/SelfOuter* self, IUnknown* pdfPage, ID2D1DeviceContext* pD2DDeviceContext, PDF_RENDER_PARAMS pRenderParams) RenderPageToDeviceContext;
 	}
 
 
-	public HRESULT RenderPageToSurface(IUnknown* pdfPage, IDXGISurface* pSurface, POINT offset, PDF_RENDER_PARAMS* pRenderParams) mut => VT.[Friend]RenderPageToSurface(&this, pdfPage, pSurface, offset, pRenderParams);
+	public HRESULT RenderPageToSurface(IUnknown* pdfPage, IDXGISurface* pSurface, POINT offset, PDF_RENDER_PARAMS pRenderParams) mut => VT.[Friend]RenderPageToSurface(&this, pdfPage, pSurface, offset, pRenderParams);
 
-	public HRESULT RenderPageToDeviceContext(IUnknown* pdfPage, ID2D1DeviceContext* pD2DDeviceContext, PDF_RENDER_PARAMS* pRenderParams) mut => VT.[Friend]RenderPageToDeviceContext(&this, pdfPage, pD2DDeviceContext, pRenderParams);
+	public HRESULT RenderPageToDeviceContext(IUnknown* pdfPage, ID2D1DeviceContext* pD2DDeviceContext, PDF_RENDER_PARAMS pRenderParams) mut => VT.[Friend]RenderPageToDeviceContext(&this, pdfPage, pD2DDeviceContext, pRenderParams);
 }
 
 #endregion
@@ -62,7 +62,7 @@ public static
 public static
 {
 	[Import("Windows.Data.Pdf.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PdfCreateRenderer(IDXGIDevice* pDevice, IPdfRendererNative** ppRenderer);
+	public static extern HRESULT PdfCreateRenderer(IDXGIDevice* pDevice, IPdfRendererNative* ppRenderer);
 
 }
 #endregion

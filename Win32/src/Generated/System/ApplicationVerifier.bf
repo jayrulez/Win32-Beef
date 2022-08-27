@@ -70,11 +70,11 @@ public enum eAvrfResourceTypes : int32
 #endregion
 
 #region Function Pointers
-public function uint32 AVRF_RESOURCE_ENUMERATE_CALLBACK(void* ResourceDescription, void* EnumerationContext, uint32* EnumerationLevel);
+public function uint32 AVRF_RESOURCE_ENUMERATE_CALLBACK(void ResourceDescription, void EnumerationContext, uint32 EnumerationLevel);
 
-public function uint32 AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK(AVRF_HEAP_ALLOCATION* HeapAllocation, void* EnumerationContext, uint32* EnumerationLevel);
+public function uint32 AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK(AVRF_HEAP_ALLOCATION HeapAllocation, void EnumerationContext, uint32 EnumerationLevel);
 
-public function uint32 AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK(AVRF_HANDLE_OPERATION* HandleOperation, void* EnumerationContext, uint32* EnumerationLevel);
+public function uint32 AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK(AVRF_HANDLE_OPERATION HandleOperation, void EnumerationContext, uint32 EnumerationLevel);
 
 #endregion
 
@@ -98,7 +98,7 @@ public struct AVRF_HEAP_ALLOCATION
 	public uint32 UserAllocationState;
 	public uint32 HeapState;
 	public uint64 HeapContext;
-	public AVRF_BACKTRACE_INFORMATION* BackTraceInformation;
+	public AVRF_BACKTRACE_INFORMATION BackTraceInformation;
 }
 
 [CRepr]
@@ -127,7 +127,7 @@ public static
 public static
 {
 	[Import("verifier.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 VerifierEnumerateResource(HANDLE Process, VERIFIER_ENUM_RESOURCE_FLAGS Flags, eAvrfResourceTypes ResourceType, AVRF_RESOURCE_ENUMERATE_CALLBACK ResourceCallback, void* EnumerationContext);
+	public static extern uint32 VerifierEnumerateResource(HANDLE Process, VERIFIER_ENUM_RESOURCE_FLAGS Flags, eAvrfResourceTypes ResourceType, AVRF_RESOURCE_ENUMERATE_CALLBACK ResourceCallback, void EnumerationContext);
 
 }
 #endregion

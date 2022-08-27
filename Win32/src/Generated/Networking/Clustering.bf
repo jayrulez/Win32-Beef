@@ -2176,467 +2176,467 @@ public enum CLUADMEX_OBJECT_TYPE : int32
 #endregion
 
 #region Function Pointers
-public function uint32 PCLUSAPI_GET_NODE_CLUSTER_STATE(PWSTR lpszNodeName, uint32* pdwClusterState);
+public function uint32 PCLUSAPI_GET_NODE_CLUSTER_STATE(PWSTR lpszNodeName, uint32 pdwClusterState);
 
-public function _HCLUSTER* PCLUSAPI_OPEN_CLUSTER(PWSTR lpszClusterName);
+public function _HCLUSTER PCLUSAPI_OPEN_CLUSTER(PWSTR lpszClusterName);
 
-public function _HCLUSTER* PCLUSAPI_OPEN_CLUSTER_EX(PWSTR lpszClusterName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+public function _HCLUSTER PCLUSAPI_OPEN_CLUSTER_EX(PWSTR lpszClusterName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
-public function BOOL PCLUSAPI_CLOSE_CLUSTER(_HCLUSTER* hCluster);
+public function BOOL PCLUSAPI_CLOSE_CLUSTER(_HCLUSTER hCluster);
 
-public function uint32 PCLUSAPI_SetClusterName(_HCLUSTER* hCluster, PWSTR lpszNewClusterName);
+public function uint32 PCLUSAPI_SetClusterName(_HCLUSTER hCluster, PWSTR lpszNewClusterName);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_INFORMATION(_HCLUSTER* hCluster, char16* lpszClusterName, uint32* lpcchClusterName, CLUSTERVERSIONINFO* lpClusterInfo);
+public function uint32 PCLUSAPI_GET_CLUSTER_INFORMATION(_HCLUSTER hCluster, char16* lpszClusterName, uint32 lpcchClusterName, CLUSTERVERSIONINFO lpClusterInfo);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE(_HCLUSTER* hCluster, char16* lpszResourceName, uint32* lpcchResourceName, char16* lpszDeviceName, uint32* lpcchDeviceName, uint32* lpdwMaxQuorumLogSize);
+public function uint32 PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE(_HCLUSTER hCluster, char16* lpszResourceName, uint32 lpcchResourceName, char16* lpszDeviceName, uint32 lpcchDeviceName, uint32 lpdwMaxQuorumLogSize);
 
-public function uint32 PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE(_HRESOURCE* hResource, PWSTR lpszDeviceName, uint32 dwMaxQuoLogSize);
+public function uint32 PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE(_HRESOURCE hResource, PWSTR lpszDeviceName, uint32 dwMaxQuoLogSize);
 
-public function uint32 PCLUSAPI_BACKUP_CLUSTER_DATABASE(_HCLUSTER* hCluster, PWSTR lpszPathName);
+public function uint32 PCLUSAPI_BACKUP_CLUSTER_DATABASE(_HCLUSTER hCluster, PWSTR lpszPathName);
 
 public function uint32 PCLUSAPI_RESTORE_CLUSTER_DATABASE(PWSTR lpszPathName, BOOL bForce, PWSTR lpszQuorumDriveLetter);
 
-public function uint32 PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER(_HCLUSTER* hCluster, uint32 NetworkCount, _HNETWORK** NetworkList);
+public function uint32 PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER(_HCLUSTER hCluster, uint32 NetworkCount, _HNETWORK* NetworkList);
 
-public function uint32 PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD(PWSTR lpszClusterName, PWSTR lpszNewPassword, uint32 dwFlags, CLUSTER_SET_PASSWORD_STATUS* lpReturnStatusBuffer, uint32* lpcbReturnStatusBufferSize);
+public function uint32 PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD(PWSTR lpszClusterName, PWSTR lpszNewPassword, uint32 dwFlags, CLUSTER_SET_PASSWORD_STATUS lpReturnStatusBuffer, uint32 lpcbReturnStatusBufferSize);
 
-public function uint32 PCLUSAPI_CLUSTER_CONTROL(_HCLUSTER* hCluster, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+public function uint32 PCLUSAPI_CLUSTER_CONTROL(_HCLUSTER hCluster, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
-public function BOOL PCLUSTER_UPGRADE_PROGRESS_CALLBACK(void* pvCallbackArg, CLUSTER_UPGRADE_PHASE eUpgradePhase);
+public function BOOL PCLUSTER_UPGRADE_PROGRESS_CALLBACK(void pvCallbackArg, CLUSTER_UPGRADE_PHASE eUpgradePhase);
 
-public function uint32 PCLUSAPI_CLUSTER_UPGRADE(_HCLUSTER* hCluster, BOOL perform, PCLUSTER_UPGRADE_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+public function uint32 PCLUSAPI_CLUSTER_UPGRADE(_HCLUSTER hCluster, BOOL perform, PCLUSTER_UPGRADE_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
-public function _HCHANGE* PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2(_HCHANGE* hChange, _HCLUSTER* hCluster, NOTIFY_FILTER_AND_TYPE* Filters, uint32 dwFilterCount, uint dwNotifyKey);
+public function _HCHANGE PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2(_HCHANGE hChange, _HCLUSTER hCluster, NOTIFY_FILTER_AND_TYPE Filters, uint32 dwFilterCount, uint dwNotifyKey);
 
-public function uint32 PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2(_HCHANGE* hChange, NOTIFY_FILTER_AND_TYPE Filter, HANDLE hObject, uint dwNotifyKey);
+public function uint32 PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2(_HCHANGE hChange, NOTIFY_FILTER_AND_TYPE Filter, HANDLE hObject, uint dwNotifyKey);
 
-public function uint32 PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2(_HCHANGE* hChange, HANDLE* lphTargetEvent);
+public function uint32 PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2(_HCHANGE hChange, HANDLE lphTargetEvent);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_NOTIFY_V2(_HCHANGE* hChange, uint* lpdwNotifyKey, NOTIFY_FILTER_AND_TYPE* pFilterAndType, uint8* buffer, uint32* lpcchBufferSize, PWSTR lpszObjectId, uint32* lpcchObjectId, PWSTR lpszParentId, uint32* lpcchParentId, PWSTR lpszName, uint32* lpcchName, PWSTR lpszType, uint32* lpcchType, uint32 dwMilliseconds);
+public function uint32 PCLUSAPI_GET_CLUSTER_NOTIFY_V2(_HCHANGE hChange, uint lpdwNotifyKey, NOTIFY_FILTER_AND_TYPE pFilterAndType, uint8 buffer, uint32 lpcchBufferSize, PWSTR lpszObjectId, uint32 lpcchObjectId, PWSTR lpszParentId, uint32 lpcchParentId, PWSTR lpszName, uint32 lpcchName, PWSTR lpszType, uint32 lpcchType, uint32 dwMilliseconds);
 
-public function _HCHANGE* PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT(_HCHANGE* hChange, _HCLUSTER* hCluster, uint32 dwFilter, uint dwNotifyKey);
+public function _HCHANGE PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT(_HCHANGE hChange, _HCLUSTER hCluster, uint32 dwFilter, uint dwNotifyKey);
 
-public function uint32 PCLUSAPI_REGISTER_CLUSTER_NOTIFY(_HCHANGE* hChange, uint32 dwFilterType, HANDLE hObject, uint dwNotifyKey);
+public function uint32 PCLUSAPI_REGISTER_CLUSTER_NOTIFY(_HCHANGE hChange, uint32 dwFilterType, HANDLE hObject, uint dwNotifyKey);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_NOTIFY(_HCHANGE* hChange, uint* lpdwNotifyKey, uint32* lpdwFilterType, char16* lpszName, uint32* lpcchName, uint32 dwMilliseconds);
+public function uint32 PCLUSAPI_GET_CLUSTER_NOTIFY(_HCHANGE hChange, uint lpdwNotifyKey, uint32 lpdwFilterType, char16* lpszName, uint32 lpcchName, uint32 dwMilliseconds);
 
-public function BOOL PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT(_HCHANGE* hChange);
+public function BOOL PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT(_HCHANGE hChange);
 
-public function _HCLUSENUM* PCLUSAPI_CLUSTER_OPEN_ENUM(_HCLUSTER* hCluster, uint32 dwType);
+public function _HCLUSENUM PCLUSAPI_CLUSTER_OPEN_ENUM(_HCLUSTER hCluster, uint32 dwType);
 
-public function uint32 PCLUSAPI_CLUSTER_GET_ENUM_COUNT(_HCLUSENUM* hEnum);
+public function uint32 PCLUSAPI_CLUSTER_GET_ENUM_COUNT(_HCLUSENUM hEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_ENUM(_HCLUSENUM* hEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_ENUM(_HCLUSENUM hEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszName, uint32 lpcchName);
 
-public function uint32 PCLUSAPI_CLUSTER_CLOSE_ENUM(_HCLUSENUM* hEnum);
+public function uint32 PCLUSAPI_CLUSTER_CLOSE_ENUM(_HCLUSENUM hEnum);
 
-public function _HCLUSENUMEX* PCLUSAPI_CLUSTER_OPEN_ENUM_EX(_HCLUSTER* hCluster, uint32 dwType, void* pOptions);
+public function _HCLUSENUMEX PCLUSAPI_CLUSTER_OPEN_ENUM_EX(_HCLUSTER hCluster, uint32 dwType, void pOptions);
 
-public function uint32 PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX(_HCLUSENUMEX* hClusterEnum);
+public function uint32 PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX(_HCLUSENUMEX hClusterEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_ENUM_EX(_HCLUSENUMEX* hClusterEnum, uint32 dwIndex, CLUSTER_ENUM_ITEM* pItem, uint32* cbItem);
+public function uint32 PCLUSAPI_CLUSTER_ENUM_EX(_HCLUSENUMEX hClusterEnum, uint32 dwIndex, CLUSTER_ENUM_ITEM pItem, uint32 cbItem);
 
-public function uint32 PCLUSAPI_CLUSTER_CLOSE_ENUM_EX(_HCLUSENUMEX* hClusterEnum);
+public function uint32 PCLUSAPI_CLUSTER_CLOSE_ENUM_EX(_HCLUSENUMEX hClusterEnum);
 
-public function _HGROUPSET* PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET(_HCLUSTER* hCluster, PWSTR lpszGroupSetName);
+public function _HGROUPSET PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET(_HCLUSTER hCluster, PWSTR lpszGroupSetName);
 
-public function _HGROUPSET* PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET(_HCLUSTER* hCluster, PWSTR lpszGroupSetName);
+public function _HGROUPSET PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET(_HCLUSTER hCluster, PWSTR lpszGroupSetName);
 
-public function BOOL PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET(_HGROUPSET* hGroupSet);
+public function BOOL PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET(_HGROUPSET hGroupSet);
 
-public function uint32 PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET(_HGROUPSET* hGroupSet);
+public function uint32 PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET(_HGROUPSET hGroupSet);
 
-public function uint32 PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET(_HGROUPSET* hGroupSet, _HGROUP* hGroup);
+public function uint32 PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET(_HGROUPSET hGroupSet, _HGROUP hGroup);
 
-public function uint32 PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUP_GROUPSET(_HGROUPSET* hGroupSet, _HGROUP* hGroupName);
+public function uint32 PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUP_GROUPSET(_HGROUPSET hGroupSet, _HGROUP hGroupName);
 
-public function uint32 PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL(_HGROUPSET* hGroupSet, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 cbInBufferSize, void* lpOutBuffer, uint32 cbOutBufferSize, uint32* lpBytesReturned);
+public function uint32 PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL(_HGROUPSET hGroupSet, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 cbInBufferSize, void lpOutBuffer, uint32 cbOutBufferSize, uint32 lpBytesReturned);
 
-public function uint32 PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY(_HGROUP* hDependentGroup, _HGROUP* hProviderGroup);
+public function uint32 PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY(_HGROUP hDependentGroup, _HGROUP hProviderGroup);
 
-public function uint32 PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION(_HGROUP* hGroupSet, PWSTR lpszDependencyExpression);
+public function uint32 PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION(_HGROUP hGroupSet, PWSTR lpszDependencyExpression);
 
-public function uint32 PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY(_HGROUP* hGroup, _HGROUP* hDependsOn);
+public function uint32 PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY(_HGROUP hGroup, _HGROUP hDependsOn);
 
-public function uint32 PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY(_HGROUPSET* hDependentGroupSet, _HGROUPSET* hProviderGroupSet);
+public function uint32 PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY(_HGROUPSET hDependentGroupSet, _HGROUPSET hProviderGroupSet);
 
-public function uint32 PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION(_HGROUPSET* hGroupSet, PWSTR lpszDependencyExpression);
+public function uint32 PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION(_HGROUPSET hGroupSet, PWSTR lpszDependencyExpression);
 
-public function uint32 PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY(_HGROUPSET* hGroupSet, _HGROUPSET* hDependsOn);
+public function uint32 PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY(_HGROUPSET hGroupSet, _HGROUPSET hDependsOn);
 
-public function uint32 PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(_HGROUP* hDependentGroup, _HGROUPSET* hProviderGroupSet);
+public function uint32 PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(_HGROUP hDependentGroup, _HGROUPSET hProviderGroupSet);
 
-public function uint32 PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(_HGROUP* hGroup, _HGROUPSET* hDependsOn);
+public function uint32 PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(_HGROUP hGroup, _HGROUPSET hDependsOn);
 
-public function _HCLUSTER* PCLUSAPI_GET_CLUSTER_FROM_GROUP_GROUPSET(_HGROUPSET* hGroupSet);
+public function _HCLUSTER PCLUSAPI_GET_CLUSTER_FROM_GROUP_GROUPSET(_HGROUPSET hGroupSet);
 
-public function uint32 PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY(_HGROUPSET* hDependentGroupSet, PWSTR lpRemoteClusterName, PWSTR lpRemoteGroupSetName);
+public function uint32 PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY(_HGROUPSET hDependentGroupSet, PWSTR lpRemoteClusterName, PWSTR lpRemoteGroupSetName);
 
-public function uint32 PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY(_HGROUPSET* hDependentGroupSet, PWSTR lpRemoteClusterName, PWSTR lpRemoteGroupSetName);
+public function uint32 PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY(_HGROUPSET hDependentGroupSet, PWSTR lpRemoteClusterName, PWSTR lpRemoteGroupSetName);
 
-public function _HGROUPSET* PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET(_HCLUSTER* hCluster, PWSTR lpAvailabilitySetName, CLUSTER_AVAILABILITY_SET_CONFIG* pAvailabilitySetConfig);
+public function _HGROUPSET PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET(_HCLUSTER hCluster, PWSTR lpAvailabilitySetName, CLUSTER_AVAILABILITY_SET_CONFIG pAvailabilitySetConfig);
 
-public function uint32 PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE(_HCLUSTER* hCluster, PWSTR ruleName, CLUS_AFFINITY_RULE_TYPE ruleType);
+public function uint32 PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE(_HCLUSTER hCluster, PWSTR ruleName, CLUS_AFFINITY_RULE_TYPE ruleType);
 
-public function uint32 PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE(_HCLUSTER* hCluster, PWSTR ruleName);
+public function uint32 PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE(_HCLUSTER hCluster, PWSTR ruleName);
 
-public function uint32 PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE(_HCLUSTER* hCluster, PWSTR ruleName, _HGROUP* hGroup);
+public function uint32 PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE(_HCLUSTER hCluster, PWSTR ruleName, _HGROUP hGroup);
 
-public function uint32 PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE(_HCLUSTER* hCluster, PWSTR ruleName, _HGROUP* hGroup);
+public function uint32 PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE(_HCLUSTER hCluster, PWSTR ruleName, _HGROUP hGroup);
 
-public function uint32 PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL(_HCLUSTER* hCluster, PWSTR affinityRuleName, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 cbInBufferSize, void* lpOutBuffer, uint32 cbOutBufferSize, uint32* lpBytesReturned);
+public function uint32 PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL(_HCLUSTER hCluster, PWSTR affinityRuleName, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 cbInBufferSize, void lpOutBuffer, uint32 cbOutBufferSize, uint32 lpBytesReturned);
 
-public function _HNODE* PCLUSAPI_OPEN_CLUSTER_NODE(_HCLUSTER* hCluster, PWSTR lpszNodeName);
+public function _HNODE PCLUSAPI_OPEN_CLUSTER_NODE(_HCLUSTER hCluster, PWSTR lpszNodeName);
 
-public function _HNODE* PCLUSAPI_OPEN_CLUSTER_NODE_EX(_HCLUSTER* hCluster, PWSTR lpszNodeName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+public function _HNODE PCLUSAPI_OPEN_CLUSTER_NODE_EX(_HCLUSTER hCluster, PWSTR lpszNodeName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
-public function _HNODE* PCLUSAPI_OPEN_NODE_BY_ID(_HCLUSTER* hCluster, uint32 nodeId);
+public function _HNODE PCLUSAPI_OPEN_NODE_BY_ID(_HCLUSTER hCluster, uint32 nodeId);
 
-public function BOOL PCLUSAPI_CLOSE_CLUSTER_NODE(_HNODE* hNode);
+public function BOOL PCLUSAPI_CLOSE_CLUSTER_NODE(_HNODE hNode);
 
-public function CLUSTER_NODE_STATE PCLUSAPI_GET_CLUSTER_NODE_STATE(_HNODE* hNode);
+public function CLUSTER_NODE_STATE PCLUSAPI_GET_CLUSTER_NODE_STATE(_HNODE hNode);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_NODE_ID(_HNODE* hNode, char16* lpszNodeId, uint32* lpcchName);
+public function uint32 PCLUSAPI_GET_CLUSTER_NODE_ID(_HNODE hNode, char16* lpszNodeId, uint32 lpcchName);
 
-public function _HCLUSTER* PCLUSAPI_GET_CLUSTER_FROM_NODE(_HNODE* hNode);
+public function _HCLUSTER PCLUSAPI_GET_CLUSTER_FROM_NODE(_HNODE hNode);
 
-public function uint32 PCLUSAPI_PAUSE_CLUSTER_NODE(_HNODE* hNode);
+public function uint32 PCLUSAPI_PAUSE_CLUSTER_NODE(_HNODE hNode);
 
-public function uint32 PCLUSAPI_RESUME_CLUSTER_NODE(_HNODE* hNode);
+public function uint32 PCLUSAPI_RESUME_CLUSTER_NODE(_HNODE hNode);
 
-public function uint32 PCLUSAPI_EVICT_CLUSTER_NODE(_HNODE* hNode);
+public function uint32 PCLUSAPI_EVICT_CLUSTER_NODE(_HNODE hNode);
 
-public function _HNODEENUM* PCLUSAPI_CLUSTER_NODE_OPEN_ENUM(_HNODE* hNode, uint32 dwType);
+public function _HNODEENUM PCLUSAPI_CLUSTER_NODE_OPEN_ENUM(_HNODE hNode, uint32 dwType);
 
-public function _HNODEENUMEX* PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX(_HNODE* hNode, uint32 dwType, void* pOptions);
+public function _HNODEENUMEX PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX(_HNODE hNode, uint32 dwType, void pOptions);
 
-public function uint32 PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX(_HNODEENUMEX* hNodeEnum);
+public function uint32 PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX(_HNODEENUMEX hNodeEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_NODE_ENUM_EX(_HNODEENUMEX* hNodeEnum, uint32 dwIndex, CLUSTER_ENUM_ITEM* pItem, uint32* cbItem);
+public function uint32 PCLUSAPI_CLUSTER_NODE_ENUM_EX(_HNODEENUMEX hNodeEnum, uint32 dwIndex, CLUSTER_ENUM_ITEM pItem, uint32 cbItem);
 
-public function uint32 PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX(_HNODEENUMEX* hNodeEnum);
+public function uint32 PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX(_HNODEENUMEX hNodeEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT(_HNODEENUM* hNodeEnum);
+public function uint32 PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT(_HNODEENUM hNodeEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM(_HNODEENUM* hNodeEnum);
+public function uint32 PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM(_HNODEENUM hNodeEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_NODE_ENUM(_HNODEENUM* hNodeEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_NODE_ENUM(_HNODEENUM hNodeEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszName, uint32 lpcchName);
 
-public function uint32 PCLUSAPI_EVICT_CLUSTER_NODE_EX(_HNODE* hNode, uint32 dwTimeOut, HRESULT* phrCleanupStatus);
+public function uint32 PCLUSAPI_EVICT_CLUSTER_NODE_EX(_HNODE hNode, uint32 dwTimeOut, HRESULT phrCleanupStatus);
 
-public function HKEY PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY(_HCLUSTER* hCluster, PWSTR lpszTypeName, uint32 samDesired);
+public function HKEY PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY(_HCLUSTER hCluster, PWSTR lpszTypeName, uint32 samDesired);
 
-public function _HGROUP* PCLUSAPI_CREATE_CLUSTER_GROUP(_HCLUSTER* hCluster, PWSTR lpszGroupName);
+public function _HGROUP PCLUSAPI_CREATE_CLUSTER_GROUP(_HCLUSTER hCluster, PWSTR lpszGroupName);
 
-public function _HGROUP* PCLUSAPI_OPEN_CLUSTER_GROUP(_HCLUSTER* hCluster, PWSTR lpszGroupName);
+public function _HGROUP PCLUSAPI_OPEN_CLUSTER_GROUP(_HCLUSTER hCluster, PWSTR lpszGroupName);
 
-public function _HGROUP* PCLUSAPI_OPEN_CLUSTER_GROUP_EX(_HCLUSTER* hCluster, PWSTR lpszGroupName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+public function _HGROUP PCLUSAPI_OPEN_CLUSTER_GROUP_EX(_HCLUSTER hCluster, PWSTR lpszGroupName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
-public function uint32 PCLUSAPI_PAUSE_CLUSTER_NODE_EX(_HNODE* hNode, BOOL bDrainNode, uint32 dwPauseFlags, _HNODE* hNodeDrainTarget);
+public function uint32 PCLUSAPI_PAUSE_CLUSTER_NODE_EX(_HNODE hNode, BOOL bDrainNode, uint32 dwPauseFlags, _HNODE hNodeDrainTarget);
 
-public function uint32 PCLUSAPI_RESUME_CLUSTER_NODE_EX(_HNODE* hNode, CLUSTER_NODE_RESUME_FAILBACK_TYPE eResumeFailbackType, uint32 dwResumeFlagsReserved);
+public function uint32 PCLUSAPI_RESUME_CLUSTER_NODE_EX(_HNODE hNode, CLUSTER_NODE_RESUME_FAILBACK_TYPE eResumeFailbackType, uint32 dwResumeFlagsReserved);
 
-public function _HGROUP* PCLUSAPI_CREATE_CLUSTER_GROUPEX(_HCLUSTER* hCluster, PWSTR lpszGroupName, CLUSTER_CREATE_GROUP_INFO* pGroupInfo);
+public function _HGROUP PCLUSAPI_CREATE_CLUSTER_GROUPEX(_HCLUSTER hCluster, PWSTR lpszGroupName, CLUSTER_CREATE_GROUP_INFO pGroupInfo);
 
-public function _HGROUPENUMEX* PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX(_HCLUSTER* hCluster, PWSTR lpszProperties, uint32 cbProperties, PWSTR lpszRoProperties, uint32 cbRoProperties, uint32 dwFlags);
+public function _HGROUPENUMEX PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX(_HCLUSTER hCluster, PWSTR lpszProperties, uint32 cbProperties, PWSTR lpszRoProperties, uint32 cbRoProperties, uint32 dwFlags);
 
-public function uint32 PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX(_HGROUPENUMEX* hGroupEnumEx);
+public function uint32 PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX(_HGROUPENUMEX hGroupEnumEx);
 
-public function uint32 PCLUSAPI_CLUSTER_GROUP_ENUM_EX(_HGROUPENUMEX* hGroupEnumEx, uint32 dwIndex, CLUSTER_GROUP_ENUM_ITEM* pItem, uint32* cbItem);
+public function uint32 PCLUSAPI_CLUSTER_GROUP_ENUM_EX(_HGROUPENUMEX hGroupEnumEx, uint32 dwIndex, CLUSTER_GROUP_ENUM_ITEM pItem, uint32 cbItem);
 
-public function uint32 PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX(_HGROUPENUMEX* hGroupEnumEx);
+public function uint32 PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX(_HGROUPENUMEX hGroupEnumEx);
 
-public function _HRESENUMEX* PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX(_HCLUSTER* hCluster, PWSTR lpszProperties, uint32 cbProperties, PWSTR lpszRoProperties, uint32 cbRoProperties, uint32 dwFlags);
+public function _HRESENUMEX PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX(_HCLUSTER hCluster, PWSTR lpszProperties, uint32 cbProperties, PWSTR lpszRoProperties, uint32 cbRoProperties, uint32 dwFlags);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX(_HRESENUMEX* hResourceEnumEx);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX(_HRESENUMEX hResourceEnumEx);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX(_HRESENUMEX* hResourceEnumEx, uint32 dwIndex, CLUSTER_RESOURCE_ENUM_ITEM* pItem, uint32* cbItem);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX(_HRESENUMEX hResourceEnumEx, uint32 dwIndex, CLUSTER_RESOURCE_ENUM_ITEM pItem, uint32 cbItem);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX(_HRESENUMEX* hResourceEnumEx);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX(_HRESENUMEX hResourceEnumEx);
 
-public function uint32 PCLUSAPI_RESTART_CLUSTER_RESOURCE(_HRESOURCE* hResource, uint32 dwFlags);
+public function uint32 PCLUSAPI_RESTART_CLUSTER_RESOURCE(_HRESOURCE hResource, uint32 dwFlags);
 
-public function BOOL PCLUSAPI_CLOSE_CLUSTER_GROUP(_HGROUP* hGroup);
+public function BOOL PCLUSAPI_CLOSE_CLUSTER_GROUP(_HGROUP hGroup);
 
-public function _HCLUSTER* PCLUSAPI_GET_CLUSTER_FROM_GROUP(_HGROUP* hGroup);
+public function _HCLUSTER PCLUSAPI_GET_CLUSTER_FROM_GROUP(_HGROUP hGroup);
 
-public function CLUSTER_GROUP_STATE PCLUSAPI_GET_CLUSTER_GROUP_STATE(_HGROUP* hGroup, char16* lpszNodeName, uint32* lpcchNodeName);
+public function CLUSTER_GROUP_STATE PCLUSAPI_GET_CLUSTER_GROUP_STATE(_HGROUP hGroup, char16* lpszNodeName, uint32 lpcchNodeName);
 
-public function uint32 PCLUSAPI_SET_CLUSTER_GROUP_NAME(_HGROUP* hGroup, PWSTR lpszGroupName);
+public function uint32 PCLUSAPI_SET_CLUSTER_GROUP_NAME(_HGROUP hGroup, PWSTR lpszGroupName);
 
-public function uint32 PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST(_HGROUP* hGroup, uint32 NodeCount, _HNODE** NodeList);
+public function uint32 PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST(_HGROUP hGroup, uint32 NodeCount, _HNODE* NodeList);
 
-public function uint32 PCLUSAPI_ONLINE_CLUSTER_GROUP(_HGROUP* hGroup, _HNODE* hDestinationNode);
+public function uint32 PCLUSAPI_ONLINE_CLUSTER_GROUP(_HGROUP hGroup, _HNODE hDestinationNode);
 
-public function uint32 PCLUSAPI_MOVE_CLUSTER_GROUP(_HGROUP* hGroup, _HNODE* hDestinationNode);
+public function uint32 PCLUSAPI_MOVE_CLUSTER_GROUP(_HGROUP hGroup, _HNODE hDestinationNode);
 
-public function uint32 PCLUSAPI_OFFLINE_CLUSTER_GROUP(_HGROUP* hGroup);
+public function uint32 PCLUSAPI_OFFLINE_CLUSTER_GROUP(_HGROUP hGroup);
 
-public function uint32 PCLUSAPI_DELETE_CLUSTER_GROUP(_HGROUP* hGroup);
+public function uint32 PCLUSAPI_DELETE_CLUSTER_GROUP(_HGROUP hGroup);
 
-public function uint32 PCLUSAPI_DESTROY_CLUSTER_GROUP(_HGROUP* hGroup);
+public function uint32 PCLUSAPI_DESTROY_CLUSTER_GROUP(_HGROUP hGroup);
 
-public function _HGROUPENUM* PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM(_HGROUP* hGroup, uint32 dwType);
+public function _HGROUPENUM PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM(_HGROUP hGroup, uint32 dwType);
 
-public function uint32 PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT(_HGROUPENUM* hGroupEnum);
+public function uint32 PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT(_HGROUPENUM hGroupEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_GROUP_ENUM(_HGROUPENUM* hGroupEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszResourceName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_GROUP_ENUM(_HGROUPENUM hGroupEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszResourceName, uint32 lpcchName);
 
-public function uint32 PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM(_HGROUPENUM* hGroupEnum);
+public function uint32 PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM(_HGROUPENUM hGroupEnum);
 
-public function _HRESOURCE* PCLUSAPI_CREATE_CLUSTER_RESOURCE(_HGROUP* hGroup, PWSTR lpszResourceName, PWSTR lpszResourceType, uint32 dwFlags);
+public function _HRESOURCE PCLUSAPI_CREATE_CLUSTER_RESOURCE(_HGROUP hGroup, PWSTR lpszResourceName, PWSTR lpszResourceType, uint32 dwFlags);
 
-public function _HRESOURCE* PCLUSAPI_OPEN_CLUSTER_RESOURCE(_HCLUSTER* hCluster, PWSTR lpszResourceName);
+public function _HRESOURCE PCLUSAPI_OPEN_CLUSTER_RESOURCE(_HCLUSTER hCluster, PWSTR lpszResourceName);
 
-public function _HRESOURCE* PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX(_HCLUSTER* hCluster, PWSTR lpszResourceName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+public function _HRESOURCE PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX(_HCLUSTER hCluster, PWSTR lpszResourceName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
-public function BOOL PCLUSAPI_CLOSE_CLUSTER_RESOURCE(_HRESOURCE* hResource);
+public function BOOL PCLUSAPI_CLOSE_CLUSTER_RESOURCE(_HRESOURCE hResource);
 
-public function _HCLUSTER* PCLUSAPI_GET_CLUSTER_FROM_RESOURCE(_HRESOURCE* hResource);
+public function _HCLUSTER PCLUSAPI_GET_CLUSTER_FROM_RESOURCE(_HRESOURCE hResource);
 
-public function uint32 PCLUSAPI_DELETE_CLUSTER_RESOURCE(_HRESOURCE* hResource);
+public function uint32 PCLUSAPI_DELETE_CLUSTER_RESOURCE(_HRESOURCE hResource);
 
-public function CLUSTER_RESOURCE_STATE PCLUSAPI_GET_CLUSTER_RESOURCE_STATE(_HRESOURCE* hResource, char16* lpszNodeName, uint32* lpcchNodeName, char16* lpszGroupName, uint32* lpcchGroupName);
+public function CLUSTER_RESOURCE_STATE PCLUSAPI_GET_CLUSTER_RESOURCE_STATE(_HRESOURCE hResource, char16* lpszNodeName, uint32 lpcchNodeName, char16* lpszGroupName, uint32 lpcchGroupName);
 
-public function uint32 PCLUSAPI_SET_CLUSTER_RESOURCE_NAME(_HRESOURCE* hResource, PWSTR lpszResourceName);
+public function uint32 PCLUSAPI_SET_CLUSTER_RESOURCE_NAME(_HRESOURCE hResource, PWSTR lpszResourceName);
 
-public function uint32 PCLUSAPI_FAIL_CLUSTER_RESOURCE(_HRESOURCE* hResource);
+public function uint32 PCLUSAPI_FAIL_CLUSTER_RESOURCE(_HRESOURCE hResource);
 
-public function uint32 PCLUSAPI_ONLINE_CLUSTER_RESOURCE(_HRESOURCE* hResource);
+public function uint32 PCLUSAPI_ONLINE_CLUSTER_RESOURCE(_HRESOURCE hResource);
 
-public function uint32 PCLUSAPI_OFFLINE_CLUSTER_RESOURCE(_HRESOURCE* hResource);
+public function uint32 PCLUSAPI_OFFLINE_CLUSTER_RESOURCE(_HRESOURCE hResource);
 
-public function uint32 PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP(_HRESOURCE* hResource, _HGROUP* hGroup);
+public function uint32 PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP(_HRESOURCE hResource, _HGROUP hGroup);
 
-public function uint32 PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX(_HRESOURCE* hResource, _HGROUP* hGroup, uint64 Flags);
+public function uint32 PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX(_HRESOURCE hResource, _HGROUP hGroup, uint64 Flags);
 
-public function uint32 PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE(_HRESOURCE* hResource, _HNODE* hNode);
+public function uint32 PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE(_HRESOURCE hResource, _HNODE hNode);
 
-public function uint32 PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE(_HRESOURCE* hResource, _HNODE* hNode);
+public function uint32 PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE(_HRESOURCE hResource, _HNODE hNode);
 
-public function uint32 PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY(_HRESOURCE* hResource, _HRESOURCE* hDependsOn);
+public function uint32 PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY(_HRESOURCE hResource, _HRESOURCE hDependsOn);
 
-public function uint32 PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY(_HRESOURCE* hResource, _HRESOURCE* hDependsOn);
+public function uint32 PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY(_HRESOURCE hResource, _HRESOURCE hDependsOn);
 
-public function uint32 PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(_HRESOURCE* hResource, PWSTR lpszDependencyExpression);
+public function uint32 PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(_HRESOURCE hResource, PWSTR lpszDependencyExpression);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(_HRESOURCE* hResource, char16* lpszDependencyExpression, uint32* lpcchDependencyExpression);
+public function uint32 PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(_HRESOURCE hResource, char16* lpszDependencyExpression, uint32 lpcchDependencyExpression);
 
-public function uint32 PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES(_HRESOURCE* hResource);
+public function uint32 PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES(_HRESOURCE hResource);
 
-public function uint32 PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES(_HRESOURCE* hResource);
+public function uint32 PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES(_HRESOURCE hResource);
 
-public function uint32 PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME(PWSTR lpszPathName, BOOL* pbFileIsOnSharedVolume);
+public function uint32 PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME(PWSTR lpszPathName, BOOL pbFileIsOnSharedVolume);
 
 public function uint32 PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE(Guid guidSnapshotSet, PWSTR lpszVolumeName, CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE state);
 
-public function BOOL PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT(_HRESOURCE* hResource, _HRESOURCE* hResourceDependent);
+public function BOOL PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT(_HRESOURCE hResource, _HRESOURCE hResourceDependent);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_CONTROL(_HRESOURCE* hResource, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 cbInBufferSize, void* lpOutBuffer, uint32 cbOutBufferSize, uint32* lpBytesReturned);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_CONTROL(_HRESOURCE hResource, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 cbInBufferSize, void lpOutBuffer, uint32 cbOutBufferSize, uint32 lpBytesReturned);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL(_HCLUSTER* hCluster, PWSTR lpszResourceTypeName, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL(_HCLUSTER hCluster, PWSTR lpszResourceTypeName, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
-public function uint32 PCLUSAPI_CLUSTER_GROUP_CONTROL(_HGROUP* hGroup, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+public function uint32 PCLUSAPI_CLUSTER_GROUP_CONTROL(_HGROUP hGroup, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
-public function uint32 PCLUSAPI_CLUSTER_NODE_CONTROL(_HNODE* hNode, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+public function uint32 PCLUSAPI_CLUSTER_NODE_CONTROL(_HNODE hNode, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
-public function BOOL PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME(_HRESOURCE* hResource, char16* lpBuffer, uint32* nSize);
+public function BOOL PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME(_HRESOURCE hResource, char16* lpBuffer, uint32 nSize);
 
-public function _HRESENUM* PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM(_HRESOURCE* hResource, uint32 dwType);
+public function _HRESENUM PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM(_HRESOURCE hResource, uint32 dwType);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT(_HRESENUM* hResEnum);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT(_HRESENUM hResEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_ENUM(_HRESENUM* hResEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_ENUM(_HRESENUM hResEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszName, uint32 lpcchName);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM(_HRESENUM* hResEnum);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM(_HRESENUM hResEnum);
 
-public function uint32 PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE(_HCLUSTER* hCluster, PWSTR lpszResourceTypeName, PWSTR lpszDisplayName, PWSTR lpszResourceTypeDll, uint32 dwLooksAlivePollInterval, uint32 dwIsAlivePollInterval);
+public function uint32 PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE(_HCLUSTER hCluster, PWSTR lpszResourceTypeName, PWSTR lpszDisplayName, PWSTR lpszResourceTypeDll, uint32 dwLooksAlivePollInterval, uint32 dwIsAlivePollInterval);
 
-public function uint32 PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE(_HCLUSTER* hCluster, PWSTR lpszResourceTypeName);
+public function uint32 PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE(_HCLUSTER hCluster, PWSTR lpszResourceTypeName);
 
-public function _HRESTYPEENUM* PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM(_HCLUSTER* hCluster, PWSTR lpszResourceTypeName, uint32 dwType);
+public function _HRESTYPEENUM PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM(_HCLUSTER hCluster, PWSTR lpszResourceTypeName, uint32 dwType);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT(_HRESTYPEENUM* hResTypeEnum);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT(_HRESTYPEENUM hResTypeEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM(_HRESTYPEENUM* hResTypeEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM(_HRESTYPEENUM hResTypeEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszName, uint32 lpcchName);
 
-public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM(_HRESTYPEENUM* hResTypeEnum);
+public function uint32 PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM(_HRESTYPEENUM hResTypeEnum);
 
-public function _HNETWORK* PCLUSAPI_OPEN_CLUSTER_NETWORK(_HCLUSTER* hCluster, PWSTR lpszNetworkName);
+public function _HNETWORK PCLUSAPI_OPEN_CLUSTER_NETWORK(_HCLUSTER hCluster, PWSTR lpszNetworkName);
 
-public function _HNETWORK* PCLUSAPI_OPEN_CLUSTER_NETWORK_EX(_HCLUSTER* hCluster, PWSTR lpszNetworkName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+public function _HNETWORK PCLUSAPI_OPEN_CLUSTER_NETWORK_EX(_HCLUSTER hCluster, PWSTR lpszNetworkName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
-public function BOOL PCLUSAPI_CLOSE_CLUSTER_NETWORK(_HNETWORK* hNetwork);
+public function BOOL PCLUSAPI_CLOSE_CLUSTER_NETWORK(_HNETWORK hNetwork);
 
-public function _HCLUSTER* PCLUSAPI_GET_CLUSTER_FROM_NETWORK(_HNETWORK* hNetwork);
+public function _HCLUSTER PCLUSAPI_GET_CLUSTER_FROM_NETWORK(_HNETWORK hNetwork);
 
-public function _HNETWORKENUM* PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM(_HNETWORK* hNetwork, uint32 dwType);
+public function _HNETWORKENUM PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM(_HNETWORK hNetwork, uint32 dwType);
 
-public function uint32 PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT(_HNETWORKENUM* hNetworkEnum);
+public function uint32 PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT(_HNETWORKENUM hNetworkEnum);
 
-public function uint32 PCLUSAPI_CLUSTER_NETWORK_ENUM(_HNETWORKENUM* hNetworkEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
+public function uint32 PCLUSAPI_CLUSTER_NETWORK_ENUM(_HNETWORKENUM hNetworkEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszName, uint32 lpcchName);
 
-public function uint32 PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM(_HNETWORKENUM* hNetworkEnum);
+public function uint32 PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM(_HNETWORKENUM hNetworkEnum);
 
-public function CLUSTER_NETWORK_STATE PCLUSAPI_GET_CLUSTER_NETWORK_STATE(_HNETWORK* hNetwork);
+public function CLUSTER_NETWORK_STATE PCLUSAPI_GET_CLUSTER_NETWORK_STATE(_HNETWORK hNetwork);
 
-public function uint32 PCLUSAPI_SET_CLUSTER_NETWORK_NAME(_HNETWORK* hNetwork, PWSTR lpszName);
+public function uint32 PCLUSAPI_SET_CLUSTER_NETWORK_NAME(_HNETWORK hNetwork, PWSTR lpszName);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_NETWORK_ID(_HNETWORK* hNetwork, char16* lpszNetworkId, uint32* lpcchName);
+public function uint32 PCLUSAPI_GET_CLUSTER_NETWORK_ID(_HNETWORK hNetwork, char16* lpszNetworkId, uint32 lpcchName);
 
-public function uint32 PCLUSAPI_CLUSTER_NETWORK_CONTROL(_HNETWORK* hNetwork, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+public function uint32 PCLUSAPI_CLUSTER_NETWORK_CONTROL(_HNETWORK hNetwork, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
-public function _HNETINTERFACE* PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE(_HCLUSTER* hCluster, PWSTR lpszInterfaceName);
+public function _HNETINTERFACE PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE(_HCLUSTER hCluster, PWSTR lpszInterfaceName);
 
-public function _HNETINTERFACE* PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX(_HCLUSTER* hCluster, PWSTR lpszNetInterfaceName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+public function _HNETINTERFACE PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX(_HCLUSTER hCluster, PWSTR lpszNetInterfaceName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
-public function uint32 PCLUSAPI_GET_CLUSTER_NET_INTERFACE(_HCLUSTER* hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName, char16* lpszInterfaceName, uint32* lpcchInterfaceName);
+public function uint32 PCLUSAPI_GET_CLUSTER_NET_INTERFACE(_HCLUSTER hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName, char16* lpszInterfaceName, uint32 lpcchInterfaceName);
 
-public function BOOL PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE(_HNETINTERFACE* hNetInterface);
+public function BOOL PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE(_HNETINTERFACE hNetInterface);
 
-public function _HCLUSTER* PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE(_HNETINTERFACE* hNetInterface);
+public function _HCLUSTER PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE(_HNETINTERFACE hNetInterface);
 
-public function CLUSTER_NETINTERFACE_STATE PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE(_HNETINTERFACE* hNetInterface);
+public function CLUSTER_NETINTERFACE_STATE PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE(_HNETINTERFACE hNetInterface);
 
-public function uint32 PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL(_HNETINTERFACE* hNetInterface, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+public function uint32 PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL(_HNETINTERFACE hNetInterface, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
-public function HKEY PCLUSAPI_GET_CLUSTER_KEY(_HCLUSTER* hCluster, uint32 samDesired);
+public function HKEY PCLUSAPI_GET_CLUSTER_KEY(_HCLUSTER hCluster, uint32 samDesired);
 
-public function HKEY PCLUSAPI_GET_CLUSTER_GROUP_KEY(_HGROUP* hGroup, uint32 samDesired);
+public function HKEY PCLUSAPI_GET_CLUSTER_GROUP_KEY(_HGROUP hGroup, uint32 samDesired);
 
-public function HKEY PCLUSAPI_GET_CLUSTER_RESOURCE_KEY(_HRESOURCE* hResource, uint32 samDesired);
+public function HKEY PCLUSAPI_GET_CLUSTER_RESOURCE_KEY(_HRESOURCE hResource, uint32 samDesired);
 
-public function HKEY PCLUSAPI_GET_CLUSTER_NODE_KEY(_HNODE* hNode, uint32 samDesired);
+public function HKEY PCLUSAPI_GET_CLUSTER_NODE_KEY(_HNODE hNode, uint32 samDesired);
 
-public function HKEY PCLUSAPI_GET_CLUSTER_NETWORK_KEY(_HNETWORK* hNetwork, uint32 samDesired);
+public function HKEY PCLUSAPI_GET_CLUSTER_NETWORK_KEY(_HNETWORK hNetwork, uint32 samDesired);
 
-public function HKEY PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY(_HNETINTERFACE* hNetInterface, uint32 samDesired);
+public function HKEY PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY(_HNETINTERFACE hNetInterface, uint32 samDesired);
 
-public function int32 PCLUSAPI_CLUSTER_REG_CREATE_KEY(HKEY hKey, PWSTR lpszSubKey, uint32 dwOptions, uint32 samDesired, SECURITY_ATTRIBUTES* lpSecurityAttributes, HKEY* phkResult, uint32* lpdwDisposition);
+public function int32 PCLUSAPI_CLUSTER_REG_CREATE_KEY(HKEY hKey, PWSTR lpszSubKey, uint32 dwOptions, uint32 samDesired, SECURITY_ATTRIBUTES lpSecurityAttributes, HKEY phkResult, uint32 lpdwDisposition);
 
-public function int32 PCLUSAPI_CLUSTER_REG_OPEN_KEY(HKEY hKey, PWSTR lpszSubKey, uint32 samDesired, HKEY* phkResult);
+public function int32 PCLUSAPI_CLUSTER_REG_OPEN_KEY(HKEY hKey, PWSTR lpszSubKey, uint32 samDesired, HKEY phkResult);
 
 public function int32 PCLUSAPI_CLUSTER_REG_DELETE_KEY(HKEY hKey, PWSTR lpszSubKey);
 
 public function int32 PCLUSAPI_CLUSTER_REG_CLOSE_KEY(HKEY hKey);
 
-public function int32 PCLUSAPI_CLUSTER_REG_ENUM_KEY(HKEY hKey, uint32 dwIndex, char16* lpszName, uint32* lpcchName, FILETIME* lpftLastWriteTime);
+public function int32 PCLUSAPI_CLUSTER_REG_ENUM_KEY(HKEY hKey, uint32 dwIndex, char16* lpszName, uint32 lpcchName, FILETIME lpftLastWriteTime);
 
-public function uint32 PCLUSAPI_CLUSTER_REG_SET_VALUE(HKEY hKey, PWSTR lpszValueName, uint32 dwType, uint8* lpData, uint32 cbData);
+public function uint32 PCLUSAPI_CLUSTER_REG_SET_VALUE(HKEY hKey, PWSTR lpszValueName, uint32 dwType, uint8 lpData, uint32 cbData);
 
 public function uint32 PCLUSAPI_CLUSTER_REG_DELETE_VALUE(HKEY hKey, PWSTR lpszValueName);
 
-public function int32 PCLUSAPI_CLUSTER_REG_QUERY_VALUE(HKEY hKey, PWSTR lpszValueName, uint32* lpdwValueType, uint8* lpData, uint32* lpcbData);
+public function int32 PCLUSAPI_CLUSTER_REG_QUERY_VALUE(HKEY hKey, PWSTR lpszValueName, uint32 lpdwValueType, uint8 lpData, uint32 lpcbData);
 
-public function uint32 PCLUSAPI_CLUSTER_REG_ENUM_VALUE(HKEY hKey, uint32 dwIndex, char16* lpszValueName, uint32* lpcchValueName, uint32* lpdwType, uint8* lpData, uint32* lpcbData);
+public function uint32 PCLUSAPI_CLUSTER_REG_ENUM_VALUE(HKEY hKey, uint32 dwIndex, char16* lpszValueName, uint32 lpcchValueName, uint32 lpdwType, uint8 lpData, uint32 lpcbData);
 
-public function int32 PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY(HKEY hKey, uint32* lpcSubKeys, uint32* lpcbMaxSubKeyLen, uint32* lpcValues, uint32* lpcbMaxValueNameLen, uint32* lpcbMaxValueLen, uint32* lpcbSecurityDescriptor, FILETIME* lpftLastWriteTime);
+public function int32 PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY(HKEY hKey, uint32 lpcSubKeys, uint32 lpcbMaxSubKeyLen, uint32 lpcValues, uint32 lpcbMaxValueNameLen, uint32 lpcbMaxValueLen, uint32 lpcbSecurityDescriptor, FILETIME lpftLastWriteTime);
 
-public function int32 PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY(HKEY hKey, uint32 RequestedInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor, uint32* lpcbSecurityDescriptor);
+public function int32 PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY(HKEY hKey, uint32 RequestedInformation, SECURITY_DESCRIPTOR pSecurityDescriptor, uint32 lpcbSecurityDescriptor);
 
-public function int32 PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY(HKEY hKey, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
+public function int32 PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY(HKEY hKey, uint32 SecurityInformation, SECURITY_DESCRIPTOR pSecurityDescriptor);
 
-public function int32 PCLUSAPI_CLUSTER_REG_SYNC_DATABASE(_HCLUSTER* hCluster, uint32 flags);
+public function int32 PCLUSAPI_CLUSTER_REG_SYNC_DATABASE(_HCLUSTER hCluster, uint32 flags);
 
-public function int32 PCLUSAPI_CLUSTER_REG_CREATE_BATCH(HKEY hKey, _HREGBATCH** pHREGBATCH);
+public function int32 PCLUSAPI_CLUSTER_REG_CREATE_BATCH(HKEY hKey, _HREGBATCH pHREGBATCH);
 
-public function int32 PCLUSTER_REG_BATCH_ADD_COMMAND(_HREGBATCH* hRegBatch, CLUSTER_REG_COMMAND dwCommand, PWSTR wzName, uint32 dwOptions, void* lpData, uint32 cbData);
+public function int32 PCLUSTER_REG_BATCH_ADD_COMMAND(_HREGBATCH hRegBatch, CLUSTER_REG_COMMAND dwCommand, PWSTR wzName, uint32 dwOptions, void lpData, uint32 cbData);
 
-public function int32 PCLUSTER_REG_CLOSE_BATCH(_HREGBATCH* hRegBatch, BOOL bCommit, int32* failedCommandNumber);
+public function int32 PCLUSTER_REG_CLOSE_BATCH(_HREGBATCH hRegBatch, BOOL bCommit, int32 failedCommandNumber);
 
-public function int32 PCLUSTER_REG_BATCH_READ_COMMAND(_HREGBATCHNOTIFICATION* hBatchNotification, CLUSTER_BATCH_COMMAND* pBatchCommand);
+public function int32 PCLUSTER_REG_BATCH_READ_COMMAND(_HREGBATCHNOTIFICATION hBatchNotification, CLUSTER_BATCH_COMMAND pBatchCommand);
 
-public function int32 PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION(_HREGBATCHNOTIFICATION* hBatchNotification);
+public function int32 PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION(_HREGBATCHNOTIFICATION hBatchNotification);
 
-public function int32 PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT(HKEY hKey, _HREGBATCHPORT** phBatchNotifyPort);
+public function int32 PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT(HKEY hKey, _HREGBATCHPORT phBatchNotifyPort);
 
-public function int32 PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT(_HREGBATCHPORT* hBatchNotifyPort);
+public function int32 PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT(_HREGBATCHPORT hBatchNotifyPort);
 
-public function int32 PCLUSTER_REG_GET_BATCH_NOTIFICATION(_HREGBATCHPORT* hBatchNotify, _HREGBATCHNOTIFICATION** phBatchNotification);
+public function int32 PCLUSTER_REG_GET_BATCH_NOTIFICATION(_HREGBATCHPORT hBatchNotify, _HREGBATCHNOTIFICATION phBatchNotification);
 
-public function int32 PCLUSTER_REG_CREATE_READ_BATCH(HKEY hKey, _HREGREADBATCH** phRegReadBatch);
+public function int32 PCLUSTER_REG_CREATE_READ_BATCH(HKEY hKey, _HREGREADBATCH phRegReadBatch);
 
-public function int32 PCLUSTER_REG_READ_BATCH_ADD_COMMAND(_HREGREADBATCH* hRegReadBatch, PWSTR wzSubkeyName, PWSTR wzValueName);
+public function int32 PCLUSTER_REG_READ_BATCH_ADD_COMMAND(_HREGREADBATCH hRegReadBatch, PWSTR wzSubkeyName, PWSTR wzValueName);
 
-public function int32 PCLUSTER_REG_CLOSE_READ_BATCH(_HREGREADBATCH* hRegReadBatch, _HREGREADBATCHREPLY** phRegReadBatchReply);
+public function int32 PCLUSTER_REG_CLOSE_READ_BATCH(_HREGREADBATCH hRegReadBatch, _HREGREADBATCHREPLY phRegReadBatchReply);
 
-public function int32 PCLUSTER_REG_CLOSE_READ_BATCH_EX(_HREGREADBATCH* hRegReadBatch, uint32 flags, _HREGREADBATCHREPLY** phRegReadBatchReply);
+public function int32 PCLUSTER_REG_CLOSE_READ_BATCH_EX(_HREGREADBATCH hRegReadBatch, uint32 flags, _HREGREADBATCHREPLY phRegReadBatchReply);
 
-public function int32 PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND(_HREGREADBATCHREPLY* hRegReadBatchReply, CLUSTER_READ_BATCH_COMMAND* pBatchCommand);
+public function int32 PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND(_HREGREADBATCHREPLY hRegReadBatchReply, CLUSTER_READ_BATCH_COMMAND pBatchCommand);
 
-public function int32 PCLUSTER_REG_CLOSE_READ_BATCH_REPLY(_HREGREADBATCHREPLY* hRegReadBatchReply);
+public function int32 PCLUSTER_REG_CLOSE_READ_BATCH_REPLY(_HREGREADBATCHREPLY hRegReadBatchReply);
 
-public function uint32 PCLUSTER_SET_ACCOUNT_ACCESS(_HCLUSTER* hCluster, PWSTR szAccountSID, uint32 dwAccess, uint32 dwControlType);
+public function uint32 PCLUSTER_SET_ACCOUNT_ACCESS(_HCLUSTER hCluster, PWSTR szAccountSID, uint32 dwAccess, uint32 dwControlType);
 
-public function BOOL PCLUSTER_SETUP_PROGRESS_CALLBACK(void* pvCallbackArg, CLUSTER_SETUP_PHASE eSetupPhase, CLUSTER_SETUP_PHASE_TYPE ePhaseType, CLUSTER_SETUP_PHASE_SEVERITY ePhaseSeverity, uint32 dwPercentComplete, PWSTR lpszObjectName, uint32 dwStatus);
+public function BOOL PCLUSTER_SETUP_PROGRESS_CALLBACK(void pvCallbackArg, CLUSTER_SETUP_PHASE eSetupPhase, CLUSTER_SETUP_PHASE_TYPE ePhaseType, CLUSTER_SETUP_PHASE_SEVERITY ePhaseSeverity, uint32 dwPercentComplete, PWSTR lpszObjectName, uint32 dwStatus);
 
-public function _HCLUSTER* PCLUSAPI_CREATE_CLUSTER(CREATE_CLUSTER_CONFIG* pConfig, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+public function _HCLUSTER PCLUSAPI_CREATE_CLUSTER(CREATE_CLUSTER_CONFIG pConfig, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
-public function _HCLUSTER* PCLUSAPI_CREATE_CLUSTER_CNOLESS(CREATE_CLUSTER_CONFIG* pConfig, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+public function _HCLUSTER PCLUSAPI_CREATE_CLUSTER_CNOLESS(CREATE_CLUSTER_CONFIG pConfig, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
-public function uint32 PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT(_HCLUSTER* hCluster, CREATE_CLUSTER_NAME_ACCOUNT* pConfig, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+public function uint32 PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT(_HCLUSTER hCluster, CREATE_CLUSTER_NAME_ACCOUNT pConfig, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
-public function uint32 PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT(_HCLUSTER* hCluster);
+public function uint32 PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT(_HCLUSTER hCluster);
 
-public function _HNODE* PCLUSAPI_ADD_CLUSTER_NODE(_HCLUSTER* hCluster, PWSTR lpszNodeName, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+public function _HNODE PCLUSAPI_ADD_CLUSTER_NODE(_HCLUSTER hCluster, PWSTR lpszNodeName, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
-public function _HNODE* PCLUSAPI_ADD_CLUSTER_NODE_EX(_HCLUSTER* hCluster, PWSTR lpszNodeName, uint32 dwFlags, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+public function _HNODE PCLUSAPI_ADD_CLUSTER_NODE_EX(_HCLUSTER hCluster, PWSTR lpszNodeName, uint32 dwFlags, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
-public function uint32 PCLUSAPI_DESTROY_CLUSTER(_HCLUSTER* hCluster, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg, BOOL fdeleteVirtualComputerObjects);
+public function uint32 PCLUSAPI_DESTROY_CLUSTER(_HCLUSTER hCluster, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg, BOOL fdeleteVirtualComputerObjects);
 
-public function uint32 PSET_RESOURCE_STATUS_ROUTINE_EX(int ResourceHandle, RESOURCE_STATUS_EX* ResourceStatus);
+public function uint32 PSET_RESOURCE_STATUS_ROUTINE_EX(int ResourceHandle, RESOURCE_STATUS_EX ResourceStatus);
 
-public function uint32 PSET_RESOURCE_STATUS_ROUTINE(int ResourceHandle, RESOURCE_STATUS* ResourceStatus);
+public function uint32 PSET_RESOURCE_STATUS_ROUTINE(int ResourceHandle, RESOURCE_STATUS ResourceStatus);
 
 public function void PQUORUM_RESOURCE_LOST(int Resource);
 
 public function void PLOG_EVENT_ROUTINE(int ResourceHandle, LOG_LEVEL LogLevel, PWSTR FormatString);
 
-public function void* POPEN_ROUTINE(PWSTR ResourceName, HKEY ResourceKey, int ResourceHandle);
+public function void POPEN_ROUTINE(PWSTR ResourceName, HKEY ResourceKey, int ResourceHandle);
 
-public function void PCLOSE_ROUTINE(void* Resource);
+public function void PCLOSE_ROUTINE(void Resource);
 
-public function uint32 PONLINE_ROUTINE(void* Resource, HANDLE* EventHandle);
+public function uint32 PONLINE_ROUTINE(void Resource, HANDLE EventHandle);
 
-public function uint32 POFFLINE_ROUTINE(void* Resource);
+public function uint32 POFFLINE_ROUTINE(void Resource);
 
-public function void PTERMINATE_ROUTINE(void* Resource);
+public function void PTERMINATE_ROUTINE(void Resource);
 
-public function BOOL PIS_ALIVE_ROUTINE(void* Resource);
+public function BOOL PIS_ALIVE_ROUTINE(void Resource);
 
-public function BOOL PLOOKS_ALIVE_ROUTINE(void* Resource);
+public function BOOL PLOOKS_ALIVE_ROUTINE(void Resource);
 
-public function uint32 PARBITRATE_ROUTINE(void* Resource, PQUORUM_RESOURCE_LOST LostQuorumResource);
+public function uint32 PARBITRATE_ROUTINE(void Resource, PQUORUM_RESOURCE_LOST LostQuorumResource);
 
-public function uint32 PRELEASE_ROUTINE(void* Resource);
+public function uint32 PRELEASE_ROUTINE(void Resource);
 
-public function uint32 PRESOURCE_CONTROL_ROUTINE(void* Resource, uint32 ControlCode, void* InBuffer, uint32 InBufferSize, void* OutBuffer, uint32 OutBufferSize, uint32* BytesReturned);
+public function uint32 PRESOURCE_CONTROL_ROUTINE(void Resource, uint32 ControlCode, void InBuffer, uint32 InBufferSize, void OutBuffer, uint32 OutBufferSize, uint32 BytesReturned);
 
-public function uint32 PRESOURCE_TYPE_CONTROL_ROUTINE(PWSTR ResourceTypeName, uint32 ControlCode, void* InBuffer, uint32 InBufferSize, void* OutBuffer, uint32 OutBufferSize, uint32* BytesReturned);
+public function uint32 PRESOURCE_TYPE_CONTROL_ROUTINE(PWSTR ResourceTypeName, uint32 ControlCode, void InBuffer, uint32 InBufferSize, void OutBuffer, uint32 OutBufferSize, uint32 BytesReturned);
 
-public function void* POPEN_V2_ROUTINE(PWSTR ResourceName, HKEY ResourceKey, int ResourceHandle, uint32 OpenFlags);
+public function void POPEN_V2_ROUTINE(PWSTR ResourceName, HKEY ResourceKey, int ResourceHandle, uint32 OpenFlags);
 
-public function uint32 PONLINE_V2_ROUTINE(void* Resource, HANDLE* EventHandle, uint32 OnlineFlags, uint8* InBuffer, uint32 InBufferSize, uint32 Reserved);
+public function uint32 PONLINE_V2_ROUTINE(void Resource, HANDLE EventHandle, uint32 OnlineFlags, uint8 InBuffer, uint32 InBufferSize, uint32 Reserved);
 
-public function uint32 POFFLINE_V2_ROUTINE(void* Resource, PWSTR DestinationNodeName, uint32 OfflineFlags, uint8* InBuffer, uint32 InBufferSize, uint32 Reserved);
+public function uint32 POFFLINE_V2_ROUTINE(void Resource, PWSTR DestinationNodeName, uint32 OfflineFlags, uint8 InBuffer, uint32 InBufferSize, uint32 Reserved);
 
-public function uint32 PCANCEL_ROUTINE(void* Resource, uint32 CancelFlags_RESERVED);
+public function uint32 PCANCEL_ROUTINE(void Resource, uint32 CancelFlags_RESERVED);
 
-public function uint32 PBEGIN_RESCALL_ROUTINE(void* Resource, uint32 ControlCode, void* InBuffer, uint32 InBufferSize, void* OutBuffer, uint32 OutBufferSize, uint32* BytesReturned, int64 context, BOOL* ReturnedAsynchronously);
+public function uint32 PBEGIN_RESCALL_ROUTINE(void Resource, uint32 ControlCode, void InBuffer, uint32 InBufferSize, void OutBuffer, uint32 OutBufferSize, uint32 BytesReturned, int64 context, BOOL ReturnedAsynchronously);
 
-public function uint32 PBEGIN_RESTYPECALL_ROUTINE(PWSTR ResourceTypeName, uint32 ControlCode, void* InBuffer, uint32 InBufferSize, void* OutBuffer, uint32 OutBufferSize, uint32* BytesReturned, int64 context, BOOL* ReturnedAsynchronously);
+public function uint32 PBEGIN_RESTYPECALL_ROUTINE(PWSTR ResourceTypeName, uint32 ControlCode, void InBuffer, uint32 InBufferSize, void OutBuffer, uint32 OutBufferSize, uint32 BytesReturned, int64 context, BOOL ReturnedAsynchronously);
 
-public function uint32 PBEGIN_RESCALL_AS_USER_ROUTINE(void* Resource, HANDLE TokenHandle, uint32 ControlCode, void* InBuffer, uint32 InBufferSize, void* OutBuffer, uint32 OutBufferSize, uint32* BytesReturned, int64 context, BOOL* ReturnedAsynchronously);
+public function uint32 PBEGIN_RESCALL_AS_USER_ROUTINE(void Resource, HANDLE TokenHandle, uint32 ControlCode, void InBuffer, uint32 InBufferSize, void OutBuffer, uint32 OutBufferSize, uint32 BytesReturned, int64 context, BOOL ReturnedAsynchronously);
 
-public function uint32 PBEGIN_RESTYPECALL_AS_USER_ROUTINE(PWSTR ResourceTypeName, HANDLE TokenHandle, uint32 ControlCode, void* InBuffer, uint32 InBufferSize, void* OutBuffer, uint32 OutBufferSize, uint32* BytesReturned, int64 context, BOOL* ReturnedAsynchronously);
+public function uint32 PBEGIN_RESTYPECALL_AS_USER_ROUTINE(PWSTR ResourceTypeName, HANDLE TokenHandle, uint32 ControlCode, void InBuffer, uint32 InBufferSize, void OutBuffer, uint32 OutBufferSize, uint32 BytesReturned, int64 context, BOOL ReturnedAsynchronously);
 
-public function uint32 PSTARTUP_ROUTINE(PWSTR ResourceType, uint32 MinVersionSupported, uint32 MaxVersionSupported, PSET_RESOURCE_STATUS_ROUTINE SetResourceStatus, PLOG_EVENT_ROUTINE LogEvent, CLRES_FUNCTION_TABLE** FunctionTable);
+public function uint32 PSTARTUP_ROUTINE(PWSTR ResourceType, uint32 MinVersionSupported, uint32 MaxVersionSupported, PSET_RESOURCE_STATUS_ROUTINE SetResourceStatus, PLOG_EVENT_ROUTINE LogEvent, CLRES_FUNCTION_TABLE FunctionTable);
 
 public function uint32 PSET_RESOURCE_LOCKED_MODE_ROUTINE(int ResourceHandle, BOOL LockedModeEnabled, uint32 LockedModeReason);
 
 public function uint32 PSIGNAL_FAILURE_ROUTINE(int ResourceHandle, FAILURE_TYPE FailureType, uint32 ApplicationSpecificErrorCode);
 
-public function uint32 PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE(int ResourceHandle, uint8* propertyListBuffer, uint32 propertyListBufferSize);
+public function uint32 PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE(int ResourceHandle, uint8 propertyListBuffer, uint32 propertyListBufferSize);
 
 public function uint32 PEND_CONTROL_CALL(int64 context, uint32 status);
 
@@ -2646,7 +2646,7 @@ public function uint32 PEXTEND_RES_CONTROL_CALL(int64 context, uint32 newTimeout
 
 public function uint32 PEXTEND_RES_TYPE_CONTROL_CALL(int64 context, uint32 newTimeoutInMs);
 
-public function uint32 PRAISE_RES_TYPE_NOTIFICATION(PWSTR ResourceType, uint8* pPayload, uint32 payloadSize);
+public function uint32 PRAISE_RES_TYPE_NOTIFICATION(PWSTR ResourceType, uint8 pPayload, uint32 payloadSize);
 
 public function uint32 PCHANGE_RESOURCE_PROCESS_FOR_DUMPS(int resource, PWSTR processName, uint32 processId, BOOL isAdd);
 
@@ -2658,9 +2658,9 @@ public function uint32 PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE(int ResourceHandle, 
 
 public function uint32 PREQUEST_DUMP_ROUTINE(int ResourceHandle, BOOL DumpDueToCallInProgress, uint32 DumpDelayInMs);
 
-public function uint32 PSTARTUP_EX_ROUTINE(PWSTR ResourceType, uint32 MinVersionSupported, uint32 MaxVersionSupported, CLRES_CALLBACK_FUNCTION_TABLE* MonitorCallbackFunctions, CLRES_FUNCTION_TABLE** ResourceDllInterfaceFunctions);
+public function uint32 PSTARTUP_EX_ROUTINE(PWSTR ResourceType, uint32 MinVersionSupported, uint32 MaxVersionSupported, CLRES_CALLBACK_FUNCTION_TABLE MonitorCallbackFunctions, CLRES_FUNCTION_TABLE ResourceDllInterfaceFunctions);
 
-public function uint32 PRESUTIL_START_RESOURCE_SERVICE(PWSTR pszServiceName, int* phServiceHandle);
+public function uint32 PRESUTIL_START_RESOURCE_SERVICE(PWSTR pszServiceName, int phServiceHandle);
 
 public function uint32 PRESUTIL_VERIFY_RESOURCE_SERVICE(PWSTR pszServiceName);
 
@@ -2674,157 +2674,157 @@ public function uint32 PRESUTIL_CREATE_DIRECTORY_TREE(PWSTR pszPath);
 
 public function BOOL PRESUTIL_IS_PATH_VALID(PWSTR pszPath);
 
-public function uint32 PRESUTIL_ENUM_PROPERTIES(RESUTIL_PROPERTY_ITEM* pPropertyTable, PWSTR pszOutProperties, uint32 cbOutPropertiesSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+public function uint32 PRESUTIL_ENUM_PROPERTIES(RESUTIL_PROPERTY_ITEM pPropertyTable, PWSTR pszOutProperties, uint32 cbOutPropertiesSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
-public function uint32 PRESUTIL_ENUM_PRIVATE_PROPERTIES(HKEY hkeyClusterKey, PWSTR pszOutProperties, uint32 cbOutPropertiesSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+public function uint32 PRESUTIL_ENUM_PRIVATE_PROPERTIES(HKEY hkeyClusterKey, PWSTR pszOutProperties, uint32 cbOutPropertiesSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
-public function uint32 PRESUTIL_GET_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32 cbOutPropertyListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+public function uint32 PRESUTIL_GET_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void pOutPropertyList, uint32 cbOutPropertyListSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
-public function uint32 PRESUTIL_GET_ALL_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32 cbOutPropertyListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+public function uint32 PRESUTIL_GET_ALL_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void pOutPropertyList, uint32 cbOutPropertyListSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
-public function uint32 PRESUTIL_GET_PRIVATE_PROPERTIES(HKEY hkeyClusterKey, void* pOutPropertyList, uint32 cbOutPropertyListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+public function uint32 PRESUTIL_GET_PRIVATE_PROPERTIES(HKEY hkeyClusterKey, void pOutPropertyList, uint32 cbOutPropertyListSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
-public function uint32 PRESUTIL_GET_PROPERTY_SIZE(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTableItem, uint32* pcbOutPropertyListSize, uint32* pnPropertyCount);
+public function uint32 PRESUTIL_GET_PROPERTY_SIZE(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTableItem, uint32 pcbOutPropertyListSize, uint32 pnPropertyCount);
 
-public function uint32 PRESUTIL_GET_PROPERTY(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTableItem, void** pOutPropertyItem, uint32* pcbOutPropertyItemSize);
+public function uint32 PRESUTIL_GET_PROPERTY(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTableItem, void pOutPropertyItem, uint32 pcbOutPropertyItemSize);
 
-public function uint32 PRESUTIL_VERIFY_PROPERTY_TABLE(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
+public function uint32 PRESUTIL_VERIFY_PROPERTY_TABLE(RESUTIL_PROPERTY_ITEM pPropertyTable, void Reserved, BOOL bAllowUnknownProperties, void pInPropertyList, uint32 cbInPropertyListSize, uint8 pOutParams);
 
-public function uint32 PRESUTIL_SET_PROPERTY_TABLE(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
+public function uint32 PRESUTIL_SET_PROPERTY_TABLE(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void Reserved, BOOL bAllowUnknownProperties, void pInPropertyList, uint32 cbInPropertyListSize, uint8 pOutParams);
 
-public function uint32 PRESUTIL_SET_PROPERTY_TABLE_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
+public function uint32 PRESUTIL_SET_PROPERTY_TABLE_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void Reserved, BOOL bAllowUnknownProperties, void pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8 pOutParams);
 
-public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, uint8* pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
+public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void Reserved, uint8 pInParams, void pInPropertyList, uint32 cbInPropertyListSize, uint8 pOutParams);
 
-public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, uint8* pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
+public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void Reserved, uint8 pInParams, void pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8 pOutParams);
 
-public function uint32 PRESUTIL_SET_UNKNOWN_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pInPropertyList, uint32 cbInPropertyListSize);
+public function uint32 PRESUTIL_SET_UNKNOWN_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void pInPropertyList, uint32 cbInPropertyListSize);
 
-public function uint32 PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, uint8* pOutParams, BOOL bCheckForRequiredProperties, PWSTR* pszNameOfPropInError);
+public function uint32 PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, uint8 pOutParams, BOOL bCheckForRequiredProperties, PWSTR pszNameOfPropInError);
 
-public function uint32 PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32* pcbOutPropertyListSize, uint8* pInParams, uint32* pcbBytesReturned, uint32* pcbRequired);
+public function uint32 PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK(RESUTIL_PROPERTY_ITEM pPropertyTable, void pOutPropertyList, uint32 pcbOutPropertyListSize, uint8 pInParams, uint32 pcbBytesReturned, uint32 pcbRequired);
 
-public function uint32 PRESUTIL_DUP_PARAMETER_BLOCK(uint8* pOutParams, uint8* pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
+public function uint32 PRESUTIL_DUP_PARAMETER_BLOCK(uint8 pOutParams, uint8 pInParams, RESUTIL_PROPERTY_ITEM pPropertyTable);
 
-public function void PRESUTIL_FREE_PARAMETER_BLOCK(uint8* pOutParams, uint8* pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
+public function void PRESUTIL_FREE_PARAMETER_BLOCK(uint8 pOutParams, uint8 pInParams, RESUTIL_PROPERTY_ITEM pPropertyTable);
 
-public function uint32 PRESUTIL_ADD_UNKNOWN_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32 pcbOutPropertyListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+public function uint32 PRESUTIL_ADD_UNKNOWN_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void pOutPropertyList, uint32 pcbOutPropertyListSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
-public function uint32 PRESUTIL_SET_PRIVATE_PROPERTY_LIST(HKEY hkeyClusterKey, void* pInPropertyList, uint32 cbInPropertyListSize);
+public function uint32 PRESUTIL_SET_PRIVATE_PROPERTY_LIST(HKEY hkeyClusterKey, void pInPropertyList, uint32 cbInPropertyListSize);
 
-public function uint32 PRESUTIL_VERIFY_PRIVATE_PROPERTY_LIST(void* pInPropertyList, uint32 cbInPropertyListSize);
+public function uint32 PRESUTIL_VERIFY_PRIVATE_PROPERTY_LIST(void pInPropertyList, uint32 cbInPropertyListSize);
 
 public function PWSTR PRESUTIL_DUP_STRING(PWSTR pszInString);
 
-public function uint32 PRESUTIL_GET_BINARY_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint8** ppbOutValue, uint32* pcbOutValueSize);
+public function uint32 PRESUTIL_GET_BINARY_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint8 ppbOutValue, uint32 pcbOutValueSize);
 
 public function PWSTR PRESUTIL_GET_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName);
 
 public function PWSTR PRESUTIL_GET_EXPAND_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, BOOL bExpand);
 
-public function uint32 PRESUTIL_GET_DWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint32* pdwOutValue, uint32 dwDefaultValue);
+public function uint32 PRESUTIL_GET_DWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint32 pdwOutValue, uint32 dwDefaultValue);
 
-public function uint32 PRESUTIL_GET_QWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint64* pqwOutValue, uint64 qwDefaultValue);
+public function uint32 PRESUTIL_GET_QWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint64 pqwOutValue, uint64 qwDefaultValue);
 
-public function uint32 PRESUTIL_SET_BINARY_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint8* pbNewValue, uint32 cbNewValueSize, uint8** ppbOutValue, uint32* pcbOutValueSize);
+public function uint32 PRESUTIL_SET_BINARY_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint8 pbNewValue, uint32 cbNewValueSize, uint8 ppbOutValue, uint32 pcbOutValueSize);
 
-public function uint32 PRESUTIL_SET_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR* ppszOutString);
+public function uint32 PRESUTIL_SET_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR ppszOutString);
 
-public function uint32 PRESUTIL_SET_EXPAND_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR* ppszOutString);
+public function uint32 PRESUTIL_SET_EXPAND_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR ppszOutString);
 
-public function uint32 PRESUTIL_SET_MULTI_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, uint32 cbNewValueSize, PWSTR* ppszOutValue, uint32* pcbOutValueSize);
+public function uint32 PRESUTIL_SET_MULTI_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, uint32 cbNewValueSize, PWSTR ppszOutValue, uint32 pcbOutValueSize);
 
-public function uint32 PRESUTIL_SET_DWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint32 dwNewValue, uint32* pdwOutValue);
+public function uint32 PRESUTIL_SET_DWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint32 dwNewValue, uint32 pdwOutValue);
 
-public function uint32 PRESUTIL_SET_QWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint64 qwNewValue, uint64* pqwOutValue);
+public function uint32 PRESUTIL_SET_QWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint64 qwNewValue, uint64 pqwOutValue);
 
-public function uint32 PRESUTIL_GET_BINARY_PROPERTY(uint8** ppbOutValue, uint32* pcbOutValueSize, CLUSPROP_BINARY* pValueStruct, uint8* pbOldValue, uint32 cbOldValueSize, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+public function uint32 PRESUTIL_GET_BINARY_PROPERTY(uint8 ppbOutValue, uint32 pcbOutValueSize, CLUSPROP_BINARY pValueStruct, uint8 pbOldValue, uint32 cbOldValueSize, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
-public function uint32 PRESUTIL_GET_SZ_PROPERTY(PWSTR* ppszOutValue, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+public function uint32 PRESUTIL_GET_SZ_PROPERTY(PWSTR ppszOutValue, CLUSPROP_SZ pValueStruct, PWSTR pszOldValue, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
-public function uint32 PRESUTIL_GET_MULTI_SZ_PROPERTY(PWSTR* ppszOutValue, uint32* pcbOutValueSize, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint32 cbOldValueSize, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+public function uint32 PRESUTIL_GET_MULTI_SZ_PROPERTY(PWSTR ppszOutValue, uint32 pcbOutValueSize, CLUSPROP_SZ pValueStruct, PWSTR pszOldValue, uint32 cbOldValueSize, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
-public function uint32 PRESUTIL_GET_DWORD_PROPERTY(uint32* pdwOutValue, CLUSPROP_DWORD* pValueStruct, uint32 dwOldValue, uint32 dwMinimum, uint32 dwMaximum, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+public function uint32 PRESUTIL_GET_DWORD_PROPERTY(uint32 pdwOutValue, CLUSPROP_DWORD pValueStruct, uint32 dwOldValue, uint32 dwMinimum, uint32 dwMaximum, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
-public function uint32 PRESUTIL_GET_LONG_PROPERTY(int32* plOutValue, CLUSPROP_LONG* pValueStruct, int32 lOldValue, int32 lMinimum, int32 lMaximum, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+public function uint32 PRESUTIL_GET_LONG_PROPERTY(int32 plOutValue, CLUSPROP_LONG pValueStruct, int32 lOldValue, int32 lMinimum, int32 lMaximum, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
-public function uint32 PRESUTIL_GET_FILETIME_PROPERTY(FILETIME* pftOutValue, CLUSPROP_FILETIME* pValueStruct, FILETIME ftOldValue, FILETIME ftMinimum, FILETIME ftMaximum, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+public function uint32 PRESUTIL_GET_FILETIME_PROPERTY(FILETIME pftOutValue, CLUSPROP_FILETIME pValueStruct, FILETIME ftOldValue, FILETIME ftMinimum, FILETIME ftMaximum, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
-public function void* PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAME(_HRESOURCE* hResource);
+public function void PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAME(_HRESOURCE hResource);
 
-public function uint32 PRESUTIL_FREE_ENVIRONMENT(void* lpEnvironment);
+public function uint32 PRESUTIL_FREE_ENVIRONMENT(void lpEnvironment);
 
 public function PWSTR PRESUTIL_EXPAND_ENVIRONMENT_STRINGS(PWSTR pszSrc);
 
-public function uint32 PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENT(PWSTR pszServiceName, _HRESOURCE* hResource, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
+public function uint32 PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENT(PWSTR pszServiceName, _HRESOURCE hResource, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
 public function uint32 PRESUTIL_REMOVE_RESOURCE_SERVICE_ENVIRONMENT(PWSTR pszServiceName, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
-public function uint32 PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS(PWSTR pszServiceName, SC_HANDLE schSCMHandle, int* phService, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
+public function uint32 PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS(PWSTR pszServiceName, SC_HANDLE schSCMHandle, int phService, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
-public function uint32 PRESUTIL_FIND_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
+public function uint32 PRESUTIL_FIND_SZ_PROPERTY(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
 
-public function uint32 PRESUTIL_FIND_EXPAND_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
+public function uint32 PRESUTIL_FIND_EXPAND_SZ_PROPERTY(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
 
-public function uint32 PRESUTIL_FIND_EXPANDED_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
+public function uint32 PRESUTIL_FIND_EXPANDED_SZ_PROPERTY(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
 
-public function uint32 PRESUTIL_FIND_DWORD_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint32* pdwPropertyValue);
+public function uint32 PRESUTIL_FIND_DWORD_PROPERTY(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint32 pdwPropertyValue);
 
-public function uint32 PRESUTIL_FIND_BINARY_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint8** pbPropertyValue, uint32* pcbPropertyValueSize);
+public function uint32 PRESUTIL_FIND_BINARY_PROPERTY(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint8 pbPropertyValue, uint32 pcbPropertyValueSize);
 
-public function uint32 PRESUTIL_FIND_MULTI_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue, uint32* pcbPropertyValueSize);
+public function uint32 PRESUTIL_FIND_MULTI_SZ_PROPERTY(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue, uint32 pcbPropertyValueSize);
 
-public function uint32 PRESUTIL_FIND_LONG_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, int32* plPropertyValue);
+public function uint32 PRESUTIL_FIND_LONG_PROPERTY(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, int32 plPropertyValue);
 
-public function uint32 PRESUTIL_FIND_ULARGEINTEGER_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint64* plPropertyValue);
+public function uint32 PRESUTIL_FIND_ULARGEINTEGER_PROPERTY(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint64 plPropertyValue);
 
-public function uint32 PRESUTIL_FIND_FILETIME_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, FILETIME* pftPropertyValue);
+public function uint32 PRESUTIL_FIND_FILETIME_PROPERTY(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, FILETIME pftPropertyValue);
 
-public function uint32 PWORKER_START_ROUTINE(CLUS_WORKER* pWorker, void* lpThreadParameter);
+public function uint32 PWORKER_START_ROUTINE(CLUS_WORKER pWorker, void lpThreadParameter);
 
-public function uint32 PCLUSAPI_CLUS_WORKER_CREATE(CLUS_WORKER* lpWorker, PWORKER_START_ROUTINE lpStartAddress, void* lpParameter);
+public function uint32 PCLUSAPI_CLUS_WORKER_CREATE(CLUS_WORKER lpWorker, PWORKER_START_ROUTINE lpStartAddress, void lpParameter);
 
-public function BOOL PCLUSAPIClusWorkerCheckTerminate(CLUS_WORKER* lpWorker);
+public function BOOL PCLUSAPIClusWorkerCheckTerminate(CLUS_WORKER lpWorker);
 
-public function void PCLUSAPI_CLUS_WORKER_TERMINATE(CLUS_WORKER* lpWorker);
+public function void PCLUSAPI_CLUS_WORKER_TERMINATE(CLUS_WORKER lpWorker);
 
-public function uint32 LPRESOURCE_CALLBACK(_HRESOURCE* param0, _HRESOURCE* param1, void* param2);
+public function uint32 LPRESOURCE_CALLBACK(_HRESOURCE param0, _HRESOURCE param1, void param2);
 
-public function uint32 LPRESOURCE_CALLBACK_EX(_HCLUSTER* param0, _HRESOURCE* param1, _HRESOURCE* param2, void* param3);
+public function uint32 LPRESOURCE_CALLBACK_EX(_HCLUSTER param0, _HRESOURCE param1, _HRESOURCE param2, void param3);
 
-public function uint32 LPGROUP_CALLBACK_EX(_HCLUSTER* param0, _HGROUP* param1, _HGROUP* param2, void* param3);
+public function uint32 LPGROUP_CALLBACK_EX(_HCLUSTER param0, _HGROUP param1, _HGROUP param2, void param3);
 
-public function uint32 LPNODE_CALLBACK(_HCLUSTER* param0, _HNODE* param1, CLUSTER_NODE_STATE param2, void* param3);
+public function uint32 LPNODE_CALLBACK(_HCLUSTER param0, _HNODE param1, CLUSTER_NODE_STATE param2, void param3);
 
-public function BOOL PRESUTIL_RESOURCES_EQUAL(_HRESOURCE* hSelf, _HRESOURCE* hResource);
+public function BOOL PRESUTIL_RESOURCES_EQUAL(_HRESOURCE hSelf, _HRESOURCE hResource);
 
-public function BOOL PRESUTIL_RESOURCE_TYPES_EQUAL(PWSTR lpszResourceTypeName, _HRESOURCE* hResource);
+public function BOOL PRESUTIL_RESOURCE_TYPES_EQUAL(PWSTR lpszResourceTypeName, _HRESOURCE hResource);
 
-public function BOOL PRESUTIL_IS_RESOURCE_CLASS_EQUAL(CLUS_RESOURCE_CLASS_INFO* prci, _HRESOURCE* hResource);
+public function BOOL PRESUTIL_IS_RESOURCE_CLASS_EQUAL(CLUS_RESOURCE_CLASS_INFO prci, _HRESOURCE hResource);
 
-public function uint32 PRESUTIL_ENUM_RESOURCES(_HRESOURCE* hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK pResCallBack, void* pParameter);
+public function uint32 PRESUTIL_ENUM_RESOURCES(_HRESOURCE hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK pResCallBack, void pParameter);
 
-public function uint32 PRESUTIL_ENUM_RESOURCES_EX(_HCLUSTER* hCluster, _HRESOURCE* hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK_EX pResCallBack, void* pParameter);
+public function uint32 PRESUTIL_ENUM_RESOURCES_EX(_HCLUSTER hCluster, _HRESOURCE hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK_EX pResCallBack, void pParameter);
 
-public function _HRESOURCE* PRESUTIL_GET_RESOURCE_DEPENDENCY(HANDLE hSelf, PWSTR lpszResourceType);
+public function _HRESOURCE PRESUTIL_GET_RESOURCE_DEPENDENCY(HANDLE hSelf, PWSTR lpszResourceType);
 
-public function _HRESOURCE* PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME(_HCLUSTER* hCluster, HANDLE hSelf, PWSTR lpszResourceType, BOOL bRecurse);
+public function _HRESOURCE PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME(_HCLUSTER hCluster, HANDLE hSelf, PWSTR lpszResourceType, BOOL bRecurse);
 
-public function _HRESOURCE* PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS(_HCLUSTER* hCluster, HANDLE hSelf, CLUS_RESOURCE_CLASS_INFO* prci, BOOL bRecurse);
+public function _HRESOURCE PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS(_HCLUSTER hCluster, HANDLE hSelf, CLUS_RESOURCE_CLASS_INFO prci, BOOL bRecurse);
 
-public function _HRESOURCE* PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY(PWSTR lpszResourceName, PWSTR lpszResourceType);
+public function _HRESOURCE PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY(PWSTR lpszResourceName, PWSTR lpszResourceType);
 
-public function uint32 PRESUTIL_GET_RESOURCE_DEPENDENTIP_ADDRESS_PROPS(_HRESOURCE* hResource, char16* pszAddress, uint32* pcchAddress, char16* pszSubnetMask, uint32* pcchSubnetMask, char16* pszNetwork, uint32* pcchNetwork);
+public function uint32 PRESUTIL_GET_RESOURCE_DEPENDENTIP_ADDRESS_PROPS(_HRESOURCE hResource, char16* pszAddress, uint32 pcchAddress, char16* pszSubnetMask, uint32 pcchSubnetMask, char16* pszNetwork, uint32 pcchNetwork);
 
-public function uint32 PRESUTIL_FIND_DEPENDENT_DISK_RESOURCE_DRIVE_LETTER(_HCLUSTER* hCluster, _HRESOURCE* hResource, char16* pszDriveLetter, uint32* pcchDriveLetter);
+public function uint32 PRESUTIL_FIND_DEPENDENT_DISK_RESOURCE_DRIVE_LETTER(_HCLUSTER hCluster, _HRESOURCE hResource, char16* pszDriveLetter, uint32 pcchDriveLetter);
 
-public function uint32 PRESUTIL_TERMINATE_SERVICE_PROCESS_FROM_RES_DLL(uint32 dwServicePid, BOOL bOffline, uint32* pdwResourceState, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
+public function uint32 PRESUTIL_TERMINATE_SERVICE_PROCESS_FROM_RES_DLL(uint32 dwServicePid, BOOL bOffline, uint32 pdwResourceState, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
-public function uint32 PRESUTIL_GET_PROPERTY_FORMATS(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyFormatList, uint32 cbPropertyFormatListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+public function uint32 PRESUTIL_GET_PROPERTY_FORMATS(RESUTIL_PROPERTY_ITEM pPropertyTable, void pOutPropertyFormatList, uint32 cbPropertyFormatListSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
-public function uint32 PRESUTIL_GET_CORE_CLUSTER_RESOURCES(_HCLUSTER* hCluster, _HRESOURCE** phClusterNameResource, _HRESOURCE** phClusterIPAddressResource, _HRESOURCE** phClusterQuorumResource);
+public function uint32 PRESUTIL_GET_CORE_CLUSTER_RESOURCES(_HCLUSTER hCluster, _HRESOURCE phClusterNameResource, _HRESOURCE phClusterIPAddressResource, _HRESOURCE phClusterQuorumResource);
 
-public function uint32 PRESUTIL_GET_RESOURCE_NAME(_HRESOURCE* hResource, char16* pszResourceName, uint32* pcchResourceNameInOut);
+public function uint32 PRESUTIL_GET_RESOURCE_NAME(_HRESOURCE hResource, char16* pszResourceName, uint32 pcchResourceNameInOut);
 
 public function BOOL PCLUSTER_IS_PATH_ON_SHARED_VOLUME(PWSTR lpszPathName);
 
@@ -2832,43 +2832,43 @@ public function BOOL PCLUSTER_GET_VOLUME_PATH_NAME(PWSTR lpszFileName, PWSTR lps
 
 public function BOOL PCLUSTER_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT(PWSTR lpszVolumeMountPoint, PWSTR lpszVolumeName, uint32 cchBufferLength);
 
-public function uint32 PCLUSTER_PREPARE_SHARED_VOLUME_FOR_BACKUP(PWSTR lpszFileName, PWSTR lpszVolumePathName, uint32* lpcchVolumePathName, PWSTR lpszVolumeName, uint32* lpcchVolumeName);
+public function uint32 PCLUSTER_PREPARE_SHARED_VOLUME_FOR_BACKUP(PWSTR lpszFileName, PWSTR lpszVolumePathName, uint32 lpcchVolumePathName, PWSTR lpszVolumeName, uint32 lpcchVolumeName);
 
 public function uint32 PCLUSTER_CLEAR_BACKUP_STATE_FOR_SHARED_VOLUME(PWSTR lpszVolumePathName);
 
-public function uint32 PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EX(PWSTR pszServiceName, SC_HANDLE schSCMHandle, int* phService, uint32 dwDesiredAccess, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
+public function uint32 PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EX(PWSTR pszServiceName, SC_HANDLE schSCMHandle, int phService, uint32 dwDesiredAccess, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
-public function uint32 PRESUTIL_ENUM_RESOURCES_EX2(_HCLUSTER* hCluster, _HRESOURCE* hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK_EX pResCallBack, void* pParameter, uint32 dwDesiredAccess);
+public function uint32 PRESUTIL_ENUM_RESOURCES_EX2(_HCLUSTER hCluster, _HRESOURCE hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK_EX pResCallBack, void pParameter, uint32 dwDesiredAccess);
 
-public function _HRESOURCE* PRESUTIL_GET_RESOURCE_DEPENDENCY_EX(HANDLE hSelf, PWSTR lpszResourceType, uint32 dwDesiredAccess);
+public function _HRESOURCE PRESUTIL_GET_RESOURCE_DEPENDENCY_EX(HANDLE hSelf, PWSTR lpszResourceType, uint32 dwDesiredAccess);
 
-public function _HRESOURCE* PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EX(_HCLUSTER* hCluster, HANDLE hSelf, PWSTR lpszResourceType, BOOL bRecurse, uint32 dwDesiredAccess);
+public function _HRESOURCE PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EX(_HCLUSTER hCluster, HANDLE hSelf, PWSTR lpszResourceType, BOOL bRecurse, uint32 dwDesiredAccess);
 
-public function _HRESOURCE* PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EX(_HCLUSTER* hCluster, HANDLE hSelf, CLUS_RESOURCE_CLASS_INFO* prci, BOOL bRecurse, uint32 dwDesiredAccess);
+public function _HRESOURCE PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EX(_HCLUSTER hCluster, HANDLE hSelf, CLUS_RESOURCE_CLASS_INFO prci, BOOL bRecurse, uint32 dwDesiredAccess);
 
-public function _HRESOURCE* PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY_EX(PWSTR lpszResourceName, PWSTR lpszResourceType, uint32 dwDesiredAccess);
+public function _HRESOURCE PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY_EX(PWSTR lpszResourceName, PWSTR lpszResourceType, uint32 dwDesiredAccess);
 
-public function uint32 PRESUTIL_GET_CORE_CLUSTER_RESOURCES_EX(_HCLUSTER* hClusterIn, _HRESOURCE** phClusterNameResourceOut, _HRESOURCE** phClusterIPAddressResourceOut, _HRESOURCE** phClusterQuorumResourceOut, uint32 dwDesiredAccess);
+public function uint32 PRESUTIL_GET_CORE_CLUSTER_RESOURCES_EX(_HCLUSTER hClusterIn, _HRESOURCE phClusterNameResourceOut, _HRESOURCE phClusterIPAddressResourceOut, _HRESOURCE phClusterQuorumResourceOut, uint32 dwDesiredAccess);
 
-public function _HCLUSCRYPTPROVIDER* POPEN_CLUSTER_CRYPT_PROVIDER(PWSTR lpszResource, int8* lpszProvider, uint32 dwType, uint32 dwFlags);
+public function _HCLUSCRYPTPROVIDER POPEN_CLUSTER_CRYPT_PROVIDER(PWSTR lpszResource, int8 lpszProvider, uint32 dwType, uint32 dwFlags);
 
-public function _HCLUSCRYPTPROVIDER* POPEN_CLUSTER_CRYPT_PROVIDEREX(PWSTR lpszResource, PWSTR lpszKeyname, int8* lpszProvider, uint32 dwType, uint32 dwFlags);
+public function _HCLUSCRYPTPROVIDER POPEN_CLUSTER_CRYPT_PROVIDEREX(PWSTR lpszResource, PWSTR lpszKeyname, int8 lpszProvider, uint32 dwType, uint32 dwFlags);
 
-public function uint32 PCLOSE_CLUSTER_CRYPT_PROVIDER(_HCLUSCRYPTPROVIDER* hClusCryptProvider);
+public function uint32 PCLOSE_CLUSTER_CRYPT_PROVIDER(_HCLUSCRYPTPROVIDER hClusCryptProvider);
 
-public function uint32 PCLUSTER_ENCRYPT(_HCLUSCRYPTPROVIDER* hClusCryptProvider, uint8* pData, uint32 cbData, uint8** ppData, uint32* pcbData);
+public function uint32 PCLUSTER_ENCRYPT(_HCLUSCRYPTPROVIDER hClusCryptProvider, uint8* pData, uint32 cbData, uint8 ppData, uint32 pcbData);
 
-public function uint32 PCLUSTER_DECRYPT(_HCLUSCRYPTPROVIDER* hClusCryptProvider, uint8* pCryptInput, uint32 cbCryptInput, uint8** ppCryptOutput, uint32* pcbCryptOutput);
+public function uint32 PCLUSTER_DECRYPT(_HCLUSCRYPTPROVIDER hClusCryptProvider, uint8 pCryptInput, uint32 cbCryptInput, uint8 ppCryptOutput, uint32 pcbCryptOutput);
 
-public function uint32 PFREE_CLUSTER_CRYPT(void* pCryptInfo);
+public function uint32 PFREE_CLUSTER_CRYPT(void pCryptInfo);
 
-public function uint32 PRES_UTIL_VERIFY_SHUTDOWN_SAFE(uint32 flags, uint32 reason, uint32* pResult);
+public function uint32 PRES_UTIL_VERIFY_SHUTDOWN_SAFE(uint32 flags, uint32 reason, uint32 pResult);
 
 public function uint32 PREGISTER_APPINSTANCE(HANDLE ProcessHandle, Guid AppInstanceId, BOOL ChildrenInheritAppInstance);
 
 public function uint32 PREGISTER_APPINSTANCE_VERSION(Guid AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow);
 
-public function uint32 PQUERY_APPINSTANCE_VERSION(Guid AppInstanceId, uint64* InstanceVersionHigh, uint64* InstanceVersionLow, NTSTATUS* VersionStatus);
+public function uint32 PQUERY_APPINSTANCE_VERSION(Guid AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow, NTSTATUS VersionStatus);
 
 public function uint32 PRESET_ALL_APPINSTANCE_VERSIONS();
 
@@ -3050,7 +3050,7 @@ public struct CLUSTER_BATCH_COMMAND
 	public CLUSTER_REG_COMMAND Command;
 	public uint32 dwOptions;
 	public PWSTR wzName;
-	public uint8* lpData;
+	public uint8 lpData;
 	public uint32 cbData;
 }
 
@@ -3061,7 +3061,7 @@ public struct CLUSTER_READ_BATCH_COMMAND
 	public uint32 dwOptions;
 	public PWSTR wzSubkeyName;
 	public PWSTR wzValueName;
-	public uint8* lpData;
+	public uint8 lpData;
 	public uint32 cbData;
 }
 
@@ -3128,9 +3128,9 @@ public struct CREATE_CLUSTER_CONFIG
 	public uint32 dwVersion;
 	public PWSTR lpszClusterName;
 	public uint32 cNodes;
-	public PWSTR* ppszNodeNames;
+	public PWSTR ppszNodeNames;
 	public uint32 cIpEntries;
-	public CLUSTER_IP_ENTRY* pIpEntries;
+	public CLUSTER_IP_ENTRY pIpEntries;
 	public BOOLEAN fEmptyCluster;
 	public CLUSTER_MGMT_POINT_TYPE managementPointType;
 	public CLUSTER_MGMT_POINT_RESTYPE managementPointResType;
@@ -3187,9 +3187,9 @@ public struct CLUSTER_GROUP_ENUM_ITEM
 	public PWSTR lpszOwnerNode;
 	public uint32 dwFlags;
 	public uint32 cbProperties;
-	public void* pProperties;
+	public void pProperties;
 	public uint32 cbRoProperties;
-	public void* pRoProperties;
+	public void pRoProperties;
 }
 
 [CRepr]
@@ -3205,9 +3205,9 @@ public struct CLUSTER_RESOURCE_ENUM_ITEM
 	public uint32 cbOwnerGroupId;
 	public PWSTR lpszOwnerGroupId;
 	public uint32 cbProperties;
-	public void* pProperties;
+	public void pProperties;
 	public uint32 cbRoProperties;
-	public void* pRoProperties;
+	public void pRoProperties;
 }
 
 [CRepr]
@@ -3758,34 +3758,34 @@ public struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT
 [CRepr, Union]
 public struct CLUSPROP_BUFFER_HELPER
 {
-	public uint8* pb;
-	public uint16* pw;
-	public uint32* pdw;
-	public int32* pl;
+	public uint8 pb;
+	public uint16 pw;
+	public uint32 pdw;
+	public int32 pl;
 	public PWSTR psz;
-	public CLUSPROP_LIST* pList;
-	public CLUSPROP_SYNTAX* pSyntax;
-	public CLUSPROP_SZ* pName;
-	public CLUSPROP_VALUE* pValue;
-	public CLUSPROP_BINARY* pBinaryValue;
-	public CLUSPROP_WORD* pWordValue;
-	public CLUSPROP_DWORD* pDwordValue;
-	public CLUSPROP_LONG* pLongValue;
-	public CLUSPROP_ULARGE_INTEGER* pULargeIntegerValue;
-	public CLUSPROP_LARGE_INTEGER* pLargeIntegerValue;
-	public CLUSPROP_SZ* pStringValue;
-	public CLUSPROP_SZ* pMultiSzValue;
-	public CLUSPROP_SECURITY_DESCRIPTOR* pSecurityDescriptor;
-	public CLUSPROP_RESOURCE_CLASS* pResourceClassValue;
-	public CLUSPROP_RESOURCE_CLASS_INFO* pResourceClassInfoValue;
-	public CLUSPROP_DWORD* pDiskSignatureValue;
-	public CLUSPROP_SCSI_ADDRESS* pScsiAddressValue;
-	public CLUSPROP_DWORD* pDiskNumberValue;
-	public CLUSPROP_PARTITION_INFO* pPartitionInfoValue;
-	public CLUSPROP_REQUIRED_DEPENDENCY* pRequiredDependencyValue;
-	public CLUSPROP_PARTITION_INFO_EX* pPartitionInfoValueEx;
-	public CLUSPROP_PARTITION_INFO_EX2* pPartitionInfoValueEx2;
-	public CLUSPROP_FILETIME* pFileTimeValue;
+	public CLUSPROP_LIST pList;
+	public CLUSPROP_SYNTAX pSyntax;
+	public CLUSPROP_SZ pName;
+	public CLUSPROP_VALUE pValue;
+	public CLUSPROP_BINARY pBinaryValue;
+	public CLUSPROP_WORD pWordValue;
+	public CLUSPROP_DWORD pDwordValue;
+	public CLUSPROP_LONG pLongValue;
+	public CLUSPROP_ULARGE_INTEGER pULargeIntegerValue;
+	public CLUSPROP_LARGE_INTEGER pLargeIntegerValue;
+	public CLUSPROP_SZ pStringValue;
+	public CLUSPROP_SZ pMultiSzValue;
+	public CLUSPROP_SECURITY_DESCRIPTOR pSecurityDescriptor;
+	public CLUSPROP_RESOURCE_CLASS pResourceClassValue;
+	public CLUSPROP_RESOURCE_CLASS_INFO pResourceClassInfoValue;
+	public CLUSPROP_DWORD pDiskSignatureValue;
+	public CLUSPROP_SCSI_ADDRESS pScsiAddressValue;
+	public CLUSPROP_DWORD pDiskNumberValue;
+	public CLUSPROP_PARTITION_INFO pPartitionInfoValue;
+	public CLUSPROP_REQUIRED_DEPENDENCY pRequiredDependencyValue;
+	public CLUSPROP_PARTITION_INFO_EX pPartitionInfoValueEx;
+	public CLUSPROP_PARTITION_INFO_EX2 pPartitionInfoValueEx2;
+	public CLUSPROP_FILETIME pFileTimeValue;
 }
 
 [CRepr]
@@ -4048,10 +4048,10 @@ public struct RESUTIL_PROPERTY_ITEM
 	{
 		public uint DefaultPtr;
 		public uint32 Default;
-		public void* lpDefault;
-		public RESUTIL_LARGEINT_DATA* LargeIntData;
-		public RESUTIL_ULARGEINT_DATA* ULargeIntData;
-		public RESUTIL_FILETIME_DATA* FileTimeData;
+		public void lpDefault;
+		public RESUTIL_LARGEINT_DATA LargeIntData;
+		public RESUTIL_ULARGEINT_DATA ULargeIntData;
+		public RESUTIL_FILETIME_DATA FileTimeData;
 	}
 
 	public PWSTR Name;
@@ -4119,7 +4119,7 @@ public struct CLUSTER_HEALTH_FAULT
 public struct CLUSTER_HEALTH_FAULT_ARRAY
 {
 	public uint32 numFaults;
-	public CLUSTER_HEALTH_FAULT* faults;
+	public CLUSTER_HEALTH_FAULT faults;
 }
 
 [CRepr]
@@ -4304,14 +4304,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterUIInfo*/SelfOuter* self, BSTR lpszName, int32* pcchName) GetClusterName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterUIInfo*/SelfOuter* self, BSTR lpszName, int32 pcchName) GetClusterName;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IGetClusterUIInfo*/SelfOuter* self) GetLocale;
 		protected new function [CallingConvention(.Stdcall)] HFONT(/*IGetClusterUIInfo*/SelfOuter* self) GetFont;
 		protected new function [CallingConvention(.Stdcall)] HICON(/*IGetClusterUIInfo*/SelfOuter* self) GetIcon;
 	}
 
 
-	public HRESULT GetClusterName(BSTR lpszName, int32* pcchName) mut => VT.[Friend]GetClusterName(&this, lpszName, pcchName);
+	public HRESULT GetClusterName(BSTR lpszName, int32 pcchName) mut => VT.[Friend]GetClusterName(&this, lpszName, pcchName);
 
 	public uint32 GetLocale() mut => VT.[Friend]GetLocale(&this);
 
@@ -4328,15 +4328,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterDataInfo*/SelfOuter* self, BSTR lpszName, int32* pcchName) GetClusterName;
-		protected new function [CallingConvention(.Stdcall)] _HCLUSTER*(/*IGetClusterDataInfo*/SelfOuter* self) GetClusterHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterDataInfo*/SelfOuter* self, BSTR lpszName, int32 pcchName) GetClusterName;
+		protected new function [CallingConvention(.Stdcall)] _HCLUSTER(/*IGetClusterDataInfo*/SelfOuter* self) GetClusterHandle;
 		protected new function [CallingConvention(.Stdcall)] int32(/*IGetClusterDataInfo*/SelfOuter* self) GetObjectCount;
 	}
 
 
-	public HRESULT GetClusterName(BSTR lpszName, int32* pcchName) mut => VT.[Friend]GetClusterName(&this, lpszName, pcchName);
+	public HRESULT GetClusterName(BSTR lpszName, int32 pcchName) mut => VT.[Friend]GetClusterName(&this, lpszName, pcchName);
 
-	public _HCLUSTER* GetClusterHandle() mut => VT.[Friend]GetClusterHandle(&this);
+	public _HCLUSTER GetClusterHandle() mut => VT.[Friend]GetClusterHandle(&this);
 
 	public int32 GetObjectCount() mut => VT.[Friend]GetObjectCount(&this);
 }
@@ -4349,12 +4349,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterObjectInfo*/SelfOuter* self, int32 lObjIndex, BSTR lpszName, int32* pcchName) GetObjectName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterObjectInfo*/SelfOuter* self, int32 lObjIndex, BSTR lpszName, int32 pcchName) GetObjectName;
 		protected new function [CallingConvention(.Stdcall)] CLUADMEX_OBJECT_TYPE(/*IGetClusterObjectInfo*/SelfOuter* self, int32 lObjIndex) GetObjectType;
 	}
 
 
-	public HRESULT GetObjectName(int32 lObjIndex, BSTR lpszName, int32* pcchName) mut => VT.[Friend]GetObjectName(&this, lObjIndex, lpszName, pcchName);
+	public HRESULT GetObjectName(int32 lObjIndex, BSTR lpszName, int32 pcchName) mut => VT.[Friend]GetObjectName(&this, lObjIndex, lpszName, pcchName);
 
 	public CLUADMEX_OBJECT_TYPE GetObjectType(int32 lObjIndex) mut => VT.[Friend]GetObjectType(&this, lObjIndex);
 }
@@ -4367,11 +4367,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] _HNODE*(/*IGetClusterNodeInfo*/SelfOuter* self, int32 lObjIndex) GetNodeHandle;
+		protected new function [CallingConvention(.Stdcall)] _HNODE(/*IGetClusterNodeInfo*/SelfOuter* self, int32 lObjIndex) GetNodeHandle;
 	}
 
 
-	public _HNODE* GetNodeHandle(int32 lObjIndex) mut => VT.[Friend]GetNodeHandle(&this, lObjIndex);
+	public _HNODE GetNodeHandle(int32 lObjIndex) mut => VT.[Friend]GetNodeHandle(&this, lObjIndex);
 }
 
 [CRepr]struct IGetClusterGroupInfo : IUnknown
@@ -4382,11 +4382,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] _HGROUP*(/*IGetClusterGroupInfo*/SelfOuter* self, int32 lObjIndex) GetGroupHandle;
+		protected new function [CallingConvention(.Stdcall)] _HGROUP(/*IGetClusterGroupInfo*/SelfOuter* self, int32 lObjIndex) GetGroupHandle;
 	}
 
 
-	public _HGROUP* GetGroupHandle(int32 lObjIndex) mut => VT.[Friend]GetGroupHandle(&this, lObjIndex);
+	public _HGROUP GetGroupHandle(int32 lObjIndex) mut => VT.[Friend]GetGroupHandle(&this, lObjIndex);
 }
 
 [CRepr]struct IGetClusterResourceInfo : IUnknown
@@ -4397,17 +4397,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] _HRESOURCE*(/*IGetClusterResourceInfo*/SelfOuter* self, int32 lObjIndex) GetResourceHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterResourceInfo*/SelfOuter* self, int32 lObjIndex, BSTR lpszResTypeName, int32* pcchResTypeName) GetResourceTypeName;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*IGetClusterResourceInfo*/SelfOuter* self, int32 lObjIndex, BSTR lpszNetName, uint32* pcchNetName) GetResourceNetworkName;
+		protected new function [CallingConvention(.Stdcall)] _HRESOURCE(/*IGetClusterResourceInfo*/SelfOuter* self, int32 lObjIndex) GetResourceHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterResourceInfo*/SelfOuter* self, int32 lObjIndex, BSTR lpszResTypeName, int32 pcchResTypeName) GetResourceTypeName;
+		protected new function [CallingConvention(.Stdcall)] BOOL(/*IGetClusterResourceInfo*/SelfOuter* self, int32 lObjIndex, BSTR lpszNetName, uint32 pcchNetName) GetResourceNetworkName;
 	}
 
 
-	public _HRESOURCE* GetResourceHandle(int32 lObjIndex) mut => VT.[Friend]GetResourceHandle(&this, lObjIndex);
+	public _HRESOURCE GetResourceHandle(int32 lObjIndex) mut => VT.[Friend]GetResourceHandle(&this, lObjIndex);
 
-	public HRESULT GetResourceTypeName(int32 lObjIndex, BSTR lpszResTypeName, int32* pcchResTypeName) mut => VT.[Friend]GetResourceTypeName(&this, lObjIndex, lpszResTypeName, pcchResTypeName);
+	public HRESULT GetResourceTypeName(int32 lObjIndex, BSTR lpszResTypeName, int32 pcchResTypeName) mut => VT.[Friend]GetResourceTypeName(&this, lObjIndex, lpszResTypeName, pcchResTypeName);
 
-	public BOOL GetResourceNetworkName(int32 lObjIndex, BSTR lpszNetName, uint32* pcchNetName) mut => VT.[Friend]GetResourceNetworkName(&this, lObjIndex, lpszNetName, pcchNetName);
+	public BOOL GetResourceNetworkName(int32 lObjIndex, BSTR lpszNetName, uint32 pcchNetName) mut => VT.[Friend]GetResourceNetworkName(&this, lObjIndex, lpszNetName, pcchNetName);
 }
 
 [CRepr]struct IGetClusterNetworkInfo : IUnknown
@@ -4418,11 +4418,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] _HNETWORK*(/*IGetClusterNetworkInfo*/SelfOuter* self, int32 lObjIndex) GetNetworkHandle;
+		protected new function [CallingConvention(.Stdcall)] _HNETWORK(/*IGetClusterNetworkInfo*/SelfOuter* self, int32 lObjIndex) GetNetworkHandle;
 	}
 
 
-	public _HNETWORK* GetNetworkHandle(int32 lObjIndex) mut => VT.[Friend]GetNetworkHandle(&this, lObjIndex);
+	public _HNETWORK GetNetworkHandle(int32 lObjIndex) mut => VT.[Friend]GetNetworkHandle(&this, lObjIndex);
 }
 
 [CRepr]struct IGetClusterNetInterfaceInfo : IUnknown
@@ -4433,11 +4433,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] _HNETINTERFACE*(/*IGetClusterNetInterfaceInfo*/SelfOuter* self, int32 lObjIndex) GetNetInterfaceHandle;
+		protected new function [CallingConvention(.Stdcall)] _HNETINTERFACE(/*IGetClusterNetInterfaceInfo*/SelfOuter* self, int32 lObjIndex) GetNetInterfaceHandle;
 	}
 
 
-	public _HNETINTERFACE* GetNetInterfaceHandle(int32 lObjIndex) mut => VT.[Friend]GetNetInterfaceHandle(&this, lObjIndex);
+	public _HNETINTERFACE GetNetInterfaceHandle(int32 lObjIndex) mut => VT.[Friend]GetNetInterfaceHandle(&this, lObjIndex);
 }
 
 [CRepr]struct IWCPropertySheetCallback : IUnknown
@@ -4448,11 +4448,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCPropertySheetCallback*/SelfOuter* self, int32* hpage) AddPropertySheetPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCPropertySheetCallback*/SelfOuter* self, int32 hpage) AddPropertySheetPage;
 	}
 
 
-	public HRESULT AddPropertySheetPage(int32* hpage) mut => VT.[Friend]AddPropertySheetPage(&this, hpage);
+	public HRESULT AddPropertySheetPage(int32 hpage) mut => VT.[Friend]AddPropertySheetPage(&this, hpage);
 }
 
 [CRepr]struct IWEExtendPropertySheet : IUnknown
@@ -4478,14 +4478,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizardCallback*/SelfOuter* self, int32* hpage) AddWizardPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizardCallback*/SelfOuter* self, int32* hpage, BOOL bEnable) EnableNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizardCallback*/SelfOuter* self, int32 hpage) AddWizardPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizardCallback*/SelfOuter* self, int32 hpage, BOOL bEnable) EnableNext;
 	}
 
 
-	public HRESULT AddWizardPage(int32* hpage) mut => VT.[Friend]AddWizardPage(&this, hpage);
+	public HRESULT AddWizardPage(int32 hpage) mut => VT.[Friend]AddWizardPage(&this, hpage);
 
-	public HRESULT EnableNext(int32* hpage, BOOL bEnable) mut => VT.[Friend]EnableNext(&this, hpage, bEnable);
+	public HRESULT EnableNext(int32 hpage, BOOL bEnable) mut => VT.[Friend]EnableNext(&this, hpage, bEnable);
 }
 
 [CRepr]struct IWEExtendWizard : IUnknown
@@ -4556,14 +4556,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizard97Callback*/SelfOuter* self, int32* hpage) AddWizard97Page;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizard97Callback*/SelfOuter* self, int32* hpage, BOOL bEnable) EnableNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizard97Callback*/SelfOuter* self, int32 hpage) AddWizard97Page;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizard97Callback*/SelfOuter* self, int32 hpage, BOOL bEnable) EnableNext;
 	}
 
 
-	public HRESULT AddWizard97Page(int32* hpage) mut => VT.[Friend]AddWizard97Page(&this, hpage);
+	public HRESULT AddWizard97Page(int32 hpage) mut => VT.[Friend]AddWizard97Page(&this, hpage);
 
-	public HRESULT EnableNext(int32* hpage, BOOL bEnable) mut => VT.[Friend]EnableNext(&this, hpage, bEnable);
+	public HRESULT EnableNext(int32 hpage, BOOL bEnable) mut => VT.[Friend]EnableNext(&this, hpage, bEnable);
 }
 
 [CRepr]struct IWEExtendWizard97 : IUnknown
@@ -4589,17 +4589,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusApplication*/SelfOuter* self, ISDomainNames** ppDomains) get_DomainNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusApplication*/SelfOuter* self, BSTR bstrDomainName, ISClusterNames** ppClusters) get_ClusterNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusApplication*/SelfOuter* self, BSTR bstrClusterName, ISCluster** pCluster) OpenCluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusApplication*/SelfOuter* self, ISDomainNames* ppDomains) get_DomainNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusApplication*/SelfOuter* self, BSTR bstrDomainName, ISClusterNames* ppClusters) get_ClusterNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusApplication*/SelfOuter* self, BSTR bstrClusterName, ISCluster* pCluster) OpenCluster;
 	}
 
 
-	public HRESULT get_DomainNames(ISDomainNames** ppDomains) mut => VT.[Friend]get_DomainNames(&this, ppDomains);
+	public HRESULT get_DomainNames(ISDomainNames* ppDomains) mut => VT.[Friend]get_DomainNames(&this, ppDomains);
 
-	public HRESULT get_ClusterNames(BSTR bstrDomainName, ISClusterNames** ppClusters) mut => VT.[Friend]get_ClusterNames(&this, bstrDomainName, ppClusters);
+	public HRESULT get_ClusterNames(BSTR bstrDomainName, ISClusterNames* ppClusters) mut => VT.[Friend]get_ClusterNames(&this, bstrDomainName, ppClusters);
 
-	public HRESULT OpenCluster(BSTR bstrClusterName, ISCluster** pCluster) mut => VT.[Friend]OpenCluster(&this, bstrClusterName, pCluster);
+	public HRESULT OpenCluster(BSTR bstrClusterName, ISCluster* pCluster) mut => VT.[Friend]OpenCluster(&this, bstrClusterName, pCluster);
 }
 
 [CRepr]struct ISDomainNames : IDispatch
@@ -4610,20 +4610,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self, VARIANT varIndex, BSTR* pbstrDomainName) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self, VARIANT varIndex, BSTR pbstrDomainName) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, BSTR* pbstrDomainName) mut => VT.[Friend]get_Item(&this, varIndex, pbstrDomainName);
+	public HRESULT get_Item(VARIANT varIndex, BSTR pbstrDomainName) mut => VT.[Friend]get_Item(&this, varIndex, pbstrDomainName);
 }
 
 [CRepr]struct ISClusterNames : IDispatch
@@ -4634,23 +4634,23 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, VARIANT varIndex, BSTR* pbstrClusterName) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, BSTR* pbstrDomainName) get_DomainName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, VARIANT varIndex, BSTR pbstrClusterName) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, BSTR pbstrDomainName) get_DomainName;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, BSTR* pbstrClusterName) mut => VT.[Friend]get_Item(&this, varIndex, pbstrClusterName);
+	public HRESULT get_Item(VARIANT varIndex, BSTR pbstrClusterName) mut => VT.[Friend]get_Item(&this, varIndex, pbstrClusterName);
 
-	public HRESULT get_DomainName(BSTR* pbstrDomainName) mut => VT.[Friend]get_DomainName(&this, pbstrDomainName);
+	public HRESULT get_DomainName(BSTR pbstrDomainName) mut => VT.[Friend]get_DomainName(&this, pbstrDomainName);
 }
 
 [CRepr]struct ISClusRefObject : IDispatch
@@ -4661,11 +4661,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRefObject*/SelfOuter* self, uint* phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRefObject*/SelfOuter* self, uint phandle) get_Handle;
 	}
 
 
-	public HRESULT get_Handle(uint* phandle) mut => VT.[Friend]get_Handle(&this, phandle);
+	public HRESULT get_Handle(uint phandle) mut => VT.[Friend]get_Handle(&this, phandle);
 }
 
 [CRepr]struct ISClusVersion : IDispatch
@@ -4676,38 +4676,38 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, BSTR* pbstrClusterName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32* pnMajorVersion) get_MajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32* pnMinorVersion) get_MinorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int16* pnBuildNumber) get_BuildNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, BSTR* pbstrVendorId) get_VendorId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, BSTR* pbstrCSDVersion) get_CSDVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32* pnClusterHighestVersion) get_ClusterHighestVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32* pnClusterLowestVersion) get_ClusterLowestVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32* pnFlags) get_Flags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, VARIANT* pvarMixedVersion) get_MixedVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, BSTR pbstrClusterName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32 pnMajorVersion) get_MajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32 pnMinorVersion) get_MinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int16 pnBuildNumber) get_BuildNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, BSTR pbstrVendorId) get_VendorId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, BSTR pbstrCSDVersion) get_CSDVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32 pnClusterHighestVersion) get_ClusterHighestVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32 pnClusterLowestVersion) get_ClusterLowestVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32 pnFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, VARIANT pvarMixedVersion) get_MixedVersion;
 	}
 
 
-	public HRESULT get_Name(BSTR* pbstrClusterName) mut => VT.[Friend]get_Name(&this, pbstrClusterName);
+	public HRESULT get_Name(BSTR pbstrClusterName) mut => VT.[Friend]get_Name(&this, pbstrClusterName);
 
-	public HRESULT get_MajorVersion(int32* pnMajorVersion) mut => VT.[Friend]get_MajorVersion(&this, pnMajorVersion);
+	public HRESULT get_MajorVersion(int32 pnMajorVersion) mut => VT.[Friend]get_MajorVersion(&this, pnMajorVersion);
 
-	public HRESULT get_MinorVersion(int32* pnMinorVersion) mut => VT.[Friend]get_MinorVersion(&this, pnMinorVersion);
+	public HRESULT get_MinorVersion(int32 pnMinorVersion) mut => VT.[Friend]get_MinorVersion(&this, pnMinorVersion);
 
-	public HRESULT get_BuildNumber(int16* pnBuildNumber) mut => VT.[Friend]get_BuildNumber(&this, pnBuildNumber);
+	public HRESULT get_BuildNumber(int16 pnBuildNumber) mut => VT.[Friend]get_BuildNumber(&this, pnBuildNumber);
 
-	public HRESULT get_VendorId(BSTR* pbstrVendorId) mut => VT.[Friend]get_VendorId(&this, pbstrVendorId);
+	public HRESULT get_VendorId(BSTR pbstrVendorId) mut => VT.[Friend]get_VendorId(&this, pbstrVendorId);
 
-	public HRESULT get_CSDVersion(BSTR* pbstrCSDVersion) mut => VT.[Friend]get_CSDVersion(&this, pbstrCSDVersion);
+	public HRESULT get_CSDVersion(BSTR pbstrCSDVersion) mut => VT.[Friend]get_CSDVersion(&this, pbstrCSDVersion);
 
-	public HRESULT get_ClusterHighestVersion(int32* pnClusterHighestVersion) mut => VT.[Friend]get_ClusterHighestVersion(&this, pnClusterHighestVersion);
+	public HRESULT get_ClusterHighestVersion(int32 pnClusterHighestVersion) mut => VT.[Friend]get_ClusterHighestVersion(&this, pnClusterHighestVersion);
 
-	public HRESULT get_ClusterLowestVersion(int32* pnClusterLowestVersion) mut => VT.[Friend]get_ClusterLowestVersion(&this, pnClusterLowestVersion);
+	public HRESULT get_ClusterLowestVersion(int32 pnClusterLowestVersion) mut => VT.[Friend]get_ClusterLowestVersion(&this, pnClusterLowestVersion);
 
-	public HRESULT get_Flags(int32* pnFlags) mut => VT.[Friend]get_Flags(&this, pnFlags);
+	public HRESULT get_Flags(int32 pnFlags) mut => VT.[Friend]get_Flags(&this, pnFlags);
 
-	public HRESULT get_MixedVersion(VARIANT* pvarMixedVersion) mut => VT.[Friend]get_MixedVersion(&this, pvarMixedVersion);
+	public HRESULT get_MixedVersion(VARIANT pvarMixedVersion) mut => VT.[Friend]get_MixedVersion(&this, pvarMixedVersion);
 }
 
 [CRepr]struct ISCluster : IDispatch
@@ -4718,71 +4718,71 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, uint* phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, uint phandle) get_Handle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR bstrClusterName) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR pbstrName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR bstrClusterName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusVersion** ppClusVersion) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusVersion* ppClusVersion) get_Version;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResource* pClusterResource) put_QuorumResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResource** pClusterResource) get_QuorumResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, int32* pnLogSize) get_QuorumLogSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResource* pClusterResource) get_QuorumResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, int32 pnLogSize) get_QuorumLogSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, int32 nLogSize) put_QuorumLogSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR* ppPath) get_QuorumPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR ppPath) get_QuorumPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR pPath) put_QuorumPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusNodes** ppNodes) get_Nodes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResGroups** ppClusterResourceGroups) get_ResourceGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResources** ppClusterResources) get_Resources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResTypes** ppResourceTypes) get_ResourceTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusNetworks** ppNetworks) get_Networks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusNetInterfaces** ppNetInterfaces) get_NetInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusNodes* ppNodes) get_Nodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResGroups* ppClusterResourceGroups) get_ResourceGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResources* ppClusterResources) get_Resources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResTypes* ppResourceTypes) get_ResourceTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusNetworks* ppNetworks) get_Networks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusNetInterfaces* ppNetInterfaces) get_NetInterfaces;
 	}
 
 
-	public HRESULT get_CommonProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
+	public HRESULT get_CommonProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
+	public HRESULT get_PrivateProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
 
-	public HRESULT get_CommonROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
+	public HRESULT get_CommonROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
+	public HRESULT get_PrivateROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
 
-	public HRESULT get_Handle(uint* phandle) mut => VT.[Friend]get_Handle(&this, phandle);
+	public HRESULT get_Handle(uint phandle) mut => VT.[Friend]get_Handle(&this, phandle);
 
 	public HRESULT Open(BSTR bstrClusterName) mut => VT.[Friend]Open(&this, bstrClusterName);
 
-	public HRESULT get_Name(BSTR* pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
+	public HRESULT get_Name(BSTR pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
 
 	public HRESULT put_Name(BSTR bstrClusterName) mut => VT.[Friend]put_Name(&this, bstrClusterName);
 
-	public HRESULT get_Version(ISClusVersion** ppClusVersion) mut => VT.[Friend]get_Version(&this, ppClusVersion);
+	public HRESULT get_Version(ISClusVersion* ppClusVersion) mut => VT.[Friend]get_Version(&this, ppClusVersion);
 
 	public HRESULT put_QuorumResource(ISClusResource* pClusterResource) mut => VT.[Friend]put_QuorumResource(&this, pClusterResource);
 
-	public HRESULT get_QuorumResource(ISClusResource** pClusterResource) mut => VT.[Friend]get_QuorumResource(&this, pClusterResource);
+	public HRESULT get_QuorumResource(ISClusResource* pClusterResource) mut => VT.[Friend]get_QuorumResource(&this, pClusterResource);
 
-	public HRESULT get_QuorumLogSize(int32* pnLogSize) mut => VT.[Friend]get_QuorumLogSize(&this, pnLogSize);
+	public HRESULT get_QuorumLogSize(int32 pnLogSize) mut => VT.[Friend]get_QuorumLogSize(&this, pnLogSize);
 
 	public HRESULT put_QuorumLogSize(int32 nLogSize) mut => VT.[Friend]put_QuorumLogSize(&this, nLogSize);
 
-	public HRESULT get_QuorumPath(BSTR* ppPath) mut => VT.[Friend]get_QuorumPath(&this, ppPath);
+	public HRESULT get_QuorumPath(BSTR ppPath) mut => VT.[Friend]get_QuorumPath(&this, ppPath);
 
 	public HRESULT put_QuorumPath(BSTR pPath) mut => VT.[Friend]put_QuorumPath(&this, pPath);
 
-	public HRESULT get_Nodes(ISClusNodes** ppNodes) mut => VT.[Friend]get_Nodes(&this, ppNodes);
+	public HRESULT get_Nodes(ISClusNodes* ppNodes) mut => VT.[Friend]get_Nodes(&this, ppNodes);
 
-	public HRESULT get_ResourceGroups(ISClusResGroups** ppClusterResourceGroups) mut => VT.[Friend]get_ResourceGroups(&this, ppClusterResourceGroups);
+	public HRESULT get_ResourceGroups(ISClusResGroups* ppClusterResourceGroups) mut => VT.[Friend]get_ResourceGroups(&this, ppClusterResourceGroups);
 
-	public HRESULT get_Resources(ISClusResources** ppClusterResources) mut => VT.[Friend]get_Resources(&this, ppClusterResources);
+	public HRESULT get_Resources(ISClusResources* ppClusterResources) mut => VT.[Friend]get_Resources(&this, ppClusterResources);
 
-	public HRESULT get_ResourceTypes(ISClusResTypes** ppResourceTypes) mut => VT.[Friend]get_ResourceTypes(&this, ppResourceTypes);
+	public HRESULT get_ResourceTypes(ISClusResTypes* ppResourceTypes) mut => VT.[Friend]get_ResourceTypes(&this, ppResourceTypes);
 
-	public HRESULT get_Networks(ISClusNetworks** ppNetworks) mut => VT.[Friend]get_Networks(&this, ppNetworks);
+	public HRESULT get_Networks(ISClusNetworks* ppNetworks) mut => VT.[Friend]get_Networks(&this, ppNetworks);
 
-	public HRESULT get_NetInterfaces(ISClusNetInterfaces** ppNetInterfaces) mut => VT.[Friend]get_NetInterfaces(&this, ppNetInterfaces);
+	public HRESULT get_NetInterfaces(ISClusNetInterfaces* ppNetInterfaces) mut => VT.[Friend]get_NetInterfaces(&this, ppNetInterfaces);
 }
 
 [CRepr]struct ISClusNode : IDispatch
@@ -4793,38 +4793,38 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, BSTR* pbstrNodeID) get_NodeID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, CLUSTER_NODE_STATE* dwState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, BSTR pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, uint phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, BSTR pbstrNodeID) get_NodeID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, CLUSTER_NODE_STATE dwState) get_State;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self) Pause;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self) Resume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self) Evict;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusResGroups** ppResourceGroups) get_ResourceGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusNodeNetInterfaces** ppClusNetInterfaces) get_NetInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusResGroups* ppResourceGroups) get_ResourceGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISCluster* ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusNodeNetInterfaces* ppClusNetInterfaces) get_NetInterfaces;
 	}
 
 
-	public HRESULT get_CommonProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
+	public HRESULT get_CommonProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
+	public HRESULT get_PrivateProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
 
-	public HRESULT get_CommonROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
+	public HRESULT get_CommonROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
+	public HRESULT get_PrivateROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
 
-	public HRESULT get_Name(BSTR* pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
+	public HRESULT get_Name(BSTR pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
 
-	public HRESULT get_Handle(uint* phandle) mut => VT.[Friend]get_Handle(&this, phandle);
+	public HRESULT get_Handle(uint phandle) mut => VT.[Friend]get_Handle(&this, phandle);
 
-	public HRESULT get_NodeID(BSTR* pbstrNodeID) mut => VT.[Friend]get_NodeID(&this, pbstrNodeID);
+	public HRESULT get_NodeID(BSTR pbstrNodeID) mut => VT.[Friend]get_NodeID(&this, pbstrNodeID);
 
-	public HRESULT get_State(CLUSTER_NODE_STATE* dwState) mut => VT.[Friend]get_State(&this, dwState);
+	public HRESULT get_State(CLUSTER_NODE_STATE dwState) mut => VT.[Friend]get_State(&this, dwState);
 
 	public HRESULT Pause() mut => VT.[Friend]Pause(&this);
 
@@ -4832,11 +4832,11 @@ public static
 
 	public HRESULT Evict() mut => VT.[Friend]Evict(&this);
 
-	public HRESULT get_ResourceGroups(ISClusResGroups** ppResourceGroups) mut => VT.[Friend]get_ResourceGroups(&this, ppResourceGroups);
+	public HRESULT get_ResourceGroups(ISClusResGroups* ppResourceGroups) mut => VT.[Friend]get_ResourceGroups(&this, ppResourceGroups);
 
-	public HRESULT get_Cluster(ISCluster** ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
+	public HRESULT get_Cluster(ISCluster* ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
 
-	public HRESULT get_NetInterfaces(ISClusNodeNetInterfaces** ppClusNetInterfaces) mut => VT.[Friend]get_NetInterfaces(&this, ppClusNetInterfaces);
+	public HRESULT get_NetInterfaces(ISClusNodeNetInterfaces* ppClusNetInterfaces) mut => VT.[Friend]get_NetInterfaces(&this, ppClusNetInterfaces);
 }
 
 [CRepr]struct ISClusNodes : IDispatch
@@ -4847,20 +4847,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode* ppNode) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusNode** ppNode) mut => VT.[Friend]get_Item(&this, varIndex, ppNode);
+	public HRESULT get_Item(VARIANT varIndex, ISClusNode* ppNode) mut => VT.[Friend]get_Item(&this, varIndex, ppNode);
 }
 
 [CRepr]struct ISClusNetwork : IDispatch
@@ -4871,41 +4871,41 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, uint phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, BSTR pbstrName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, BSTR bstrNetworkName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, BSTR* pbstrNetworkID) get_NetworkID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, CLUSTER_NETWORK_STATE* dwState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusNetworkNetInterfaces** ppClusNetInterfaces) get_NetInterfaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, BSTR pbstrNetworkID) get_NetworkID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, CLUSTER_NETWORK_STATE dwState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusNetworkNetInterfaces* ppClusNetInterfaces) get_NetInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISCluster* ppCluster) get_Cluster;
 	}
 
 
-	public HRESULT get_CommonProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
+	public HRESULT get_CommonProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
+	public HRESULT get_PrivateProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
 
-	public HRESULT get_CommonROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
+	public HRESULT get_CommonROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
+	public HRESULT get_PrivateROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
 
-	public HRESULT get_Handle(uint* phandle) mut => VT.[Friend]get_Handle(&this, phandle);
+	public HRESULT get_Handle(uint phandle) mut => VT.[Friend]get_Handle(&this, phandle);
 
-	public HRESULT get_Name(BSTR* pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
+	public HRESULT get_Name(BSTR pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
 
 	public HRESULT put_Name(BSTR bstrNetworkName) mut => VT.[Friend]put_Name(&this, bstrNetworkName);
 
-	public HRESULT get_NetworkID(BSTR* pbstrNetworkID) mut => VT.[Friend]get_NetworkID(&this, pbstrNetworkID);
+	public HRESULT get_NetworkID(BSTR pbstrNetworkID) mut => VT.[Friend]get_NetworkID(&this, pbstrNetworkID);
 
-	public HRESULT get_State(CLUSTER_NETWORK_STATE* dwState) mut => VT.[Friend]get_State(&this, dwState);
+	public HRESULT get_State(CLUSTER_NETWORK_STATE dwState) mut => VT.[Friend]get_State(&this, dwState);
 
-	public HRESULT get_NetInterfaces(ISClusNetworkNetInterfaces** ppClusNetInterfaces) mut => VT.[Friend]get_NetInterfaces(&this, ppClusNetInterfaces);
+	public HRESULT get_NetInterfaces(ISClusNetworkNetInterfaces* ppClusNetInterfaces) mut => VT.[Friend]get_NetInterfaces(&this, ppClusNetInterfaces);
 
-	public HRESULT get_Cluster(ISCluster** ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
+	public HRESULT get_Cluster(ISCluster* ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
 }
 
 [CRepr]struct ISClusNetworks : IDispatch
@@ -4916,20 +4916,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self, VARIANT varIndex, ISClusNetwork** ppClusNetwork) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self, VARIANT varIndex, ISClusNetwork* ppClusNetwork) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusNetwork** ppClusNetwork) mut => VT.[Friend]get_Item(&this, varIndex, ppClusNetwork);
+	public HRESULT get_Item(VARIANT varIndex, ISClusNetwork* ppClusNetwork) mut => VT.[Friend]get_Item(&this, varIndex, ppClusNetwork);
 }
 
 [CRepr]struct ISClusNetInterface : IDispatch
@@ -4940,32 +4940,32 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, CLUSTER_NETINTERFACE_STATE* dwState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, BSTR pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, uint phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, CLUSTER_NETINTERFACE_STATE dwState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISCluster* ppCluster) get_Cluster;
 	}
 
 
-	public HRESULT get_CommonProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
+	public HRESULT get_CommonProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
+	public HRESULT get_PrivateProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
 
-	public HRESULT get_CommonROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
+	public HRESULT get_CommonROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
+	public HRESULT get_PrivateROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
 
-	public HRESULT get_Name(BSTR* pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
+	public HRESULT get_Name(BSTR pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
 
-	public HRESULT get_Handle(uint* phandle) mut => VT.[Friend]get_Handle(&this, phandle);
+	public HRESULT get_Handle(uint phandle) mut => VT.[Friend]get_Handle(&this, phandle);
 
-	public HRESULT get_State(CLUSTER_NETINTERFACE_STATE* dwState) mut => VT.[Friend]get_State(&this, dwState);
+	public HRESULT get_State(CLUSTER_NETINTERFACE_STATE dwState) mut => VT.[Friend]get_State(&this, dwState);
 
-	public HRESULT get_Cluster(ISCluster** ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
+	public HRESULT get_Cluster(ISCluster* ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
 }
 
 [CRepr]struct ISClusNetInterfaces : IDispatch
@@ -4976,20 +4976,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self, VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self, VARIANT varIndex, ISClusNetInterface* ppClusNetInterface) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) mut => VT.[Friend]get_Item(&this, varIndex, ppClusNetInterface);
+	public HRESULT get_Item(VARIANT varIndex, ISClusNetInterface* ppClusNetInterface) mut => VT.[Friend]get_Item(&this, varIndex, ppClusNetInterface);
 }
 
 [CRepr]struct ISClusNodeNetInterfaces : IDispatch
@@ -5000,20 +5000,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self, VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self, VARIANT varIndex, ISClusNetInterface* ppClusNetInterface) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) mut => VT.[Friend]get_Item(&this, varIndex, ppClusNetInterface);
+	public HRESULT get_Item(VARIANT varIndex, ISClusNetInterface* ppClusNetInterface) mut => VT.[Friend]get_Item(&this, varIndex, ppClusNetInterface);
 }
 
 [CRepr]struct ISClusNetworkNetInterfaces : IDispatch
@@ -5024,20 +5024,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self, VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self, VARIANT varIndex, ISClusNetInterface* ppClusNetInterface) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) mut => VT.[Friend]get_Item(&this, varIndex, ppClusNetInterface);
+	public HRESULT get_Item(VARIANT varIndex, ISClusNetInterface* ppClusNetInterface) mut => VT.[Friend]get_Item(&this, varIndex, ppClusNetInterface);
 }
 
 [CRepr]struct ISClusResGroup : IDispatch
@@ -5048,56 +5048,56 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, uint phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, BSTR pbstrName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, BSTR bstrGroupName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, CLUSTER_GROUP_STATE* dwState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusNode** ppOwnerNode) get_OwnerNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusResGroupResources** ppClusterGroupResources) get_Resources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusResGroupPreferredOwnerNodes** ppOwnerNodes) get_PreferredOwnerNodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, CLUSTER_GROUP_STATE dwState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusNode* ppOwnerNode) get_OwnerNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusResGroupResources* ppClusterGroupResources) get_Resources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusResGroupPreferredOwnerNodes* ppOwnerNodes) get_PreferredOwnerNodes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, VARIANT varTimeout, VARIANT varNode, VARIANT* pvarPending) Online;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, VARIANT varTimeout, VARIANT varNode, VARIANT* pvarPending) Move;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, VARIANT varTimeout, VARIANT* pvarPending) Offline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, VARIANT varTimeout, VARIANT varNode, VARIANT pvarPending) Online;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, VARIANT varTimeout, VARIANT varNode, VARIANT pvarPending) Move;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, VARIANT varTimeout, VARIANT pvarPending) Offline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISCluster* ppCluster) get_Cluster;
 	}
 
 
-	public HRESULT get_CommonProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
+	public HRESULT get_CommonProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
+	public HRESULT get_PrivateProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
 
-	public HRESULT get_CommonROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
+	public HRESULT get_CommonROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
+	public HRESULT get_PrivateROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
 
-	public HRESULT get_Handle(uint* phandle) mut => VT.[Friend]get_Handle(&this, phandle);
+	public HRESULT get_Handle(uint phandle) mut => VT.[Friend]get_Handle(&this, phandle);
 
-	public HRESULT get_Name(BSTR* pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
+	public HRESULT get_Name(BSTR pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
 
 	public HRESULT put_Name(BSTR bstrGroupName) mut => VT.[Friend]put_Name(&this, bstrGroupName);
 
-	public HRESULT get_State(CLUSTER_GROUP_STATE* dwState) mut => VT.[Friend]get_State(&this, dwState);
+	public HRESULT get_State(CLUSTER_GROUP_STATE dwState) mut => VT.[Friend]get_State(&this, dwState);
 
-	public HRESULT get_OwnerNode(ISClusNode** ppOwnerNode) mut => VT.[Friend]get_OwnerNode(&this, ppOwnerNode);
+	public HRESULT get_OwnerNode(ISClusNode* ppOwnerNode) mut => VT.[Friend]get_OwnerNode(&this, ppOwnerNode);
 
-	public HRESULT get_Resources(ISClusResGroupResources** ppClusterGroupResources) mut => VT.[Friend]get_Resources(&this, ppClusterGroupResources);
+	public HRESULT get_Resources(ISClusResGroupResources* ppClusterGroupResources) mut => VT.[Friend]get_Resources(&this, ppClusterGroupResources);
 
-	public HRESULT get_PreferredOwnerNodes(ISClusResGroupPreferredOwnerNodes** ppOwnerNodes) mut => VT.[Friend]get_PreferredOwnerNodes(&this, ppOwnerNodes);
+	public HRESULT get_PreferredOwnerNodes(ISClusResGroupPreferredOwnerNodes* ppOwnerNodes) mut => VT.[Friend]get_PreferredOwnerNodes(&this, ppOwnerNodes);
 
 	public HRESULT Delete() mut => VT.[Friend]Delete(&this);
 
-	public HRESULT Online(VARIANT varTimeout, VARIANT varNode, VARIANT* pvarPending) mut => VT.[Friend]Online(&this, varTimeout, varNode, pvarPending);
+	public HRESULT Online(VARIANT varTimeout, VARIANT varNode, VARIANT pvarPending) mut => VT.[Friend]Online(&this, varTimeout, varNode, pvarPending);
 
-	public HRESULT Move(VARIANT varTimeout, VARIANT varNode, VARIANT* pvarPending) mut => VT.[Friend]Move(&this, varTimeout, varNode, pvarPending);
+	public HRESULT Move(VARIANT varTimeout, VARIANT varNode, VARIANT pvarPending) mut => VT.[Friend]Move(&this, varTimeout, varNode, pvarPending);
 
-	public HRESULT Offline(VARIANT varTimeout, VARIANT* pvarPending) mut => VT.[Friend]Offline(&this, varTimeout, pvarPending);
+	public HRESULT Offline(VARIANT varTimeout, VARIANT pvarPending) mut => VT.[Friend]Offline(&this, varTimeout, pvarPending);
 
-	public HRESULT get_Cluster(ISCluster** ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
+	public HRESULT get_Cluster(ISCluster* ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
 }
 
 [CRepr]struct ISClusResGroups : IDispatch
@@ -5108,24 +5108,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, VARIANT varIndex, ISClusResGroup** ppClusResGroup) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, BSTR bstrResourceGroupName, ISClusResGroup** ppResourceGroup) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, VARIANT varIndex, ISClusResGroup* ppClusResGroup) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, BSTR bstrResourceGroupName, ISClusResGroup* ppResourceGroup) CreateItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, VARIANT varIndex) DeleteItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusResGroup** ppClusResGroup) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResGroup);
+	public HRESULT get_Item(VARIANT varIndex, ISClusResGroup* ppClusResGroup) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResGroup);
 
-	public HRESULT CreateItem(BSTR bstrResourceGroupName, ISClusResGroup** ppResourceGroup) mut => VT.[Friend]CreateItem(&this, bstrResourceGroupName, ppResourceGroup);
+	public HRESULT CreateItem(BSTR bstrResourceGroupName, ISClusResGroup* ppResourceGroup) mut => VT.[Friend]CreateItem(&this, bstrResourceGroupName, ppResourceGroup);
 
 	public HRESULT DeleteItem(VARIANT varIndex) mut => VT.[Friend]DeleteItem(&this, varIndex);
 }
@@ -5138,58 +5138,58 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, uint phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BSTR pbstrName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BSTR bstrResourceName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, CLUSTER_RESOURCE_STATE* dwState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, CLUS_FLAGS* dwCoreFlag) get_CoreFlag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, CLUSTER_RESOURCE_STATE dwState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, CLUS_FLAGS dwCoreFlag) get_CoreFlag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BSTR bstrDevicePath, int32 lMaxLogSize) BecomeQuorumResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self) Fail;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, int32 nTimeout, VARIANT* pvarPending) Online;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, int32 nTimeout, VARIANT* pvarPending) Offline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, int32 nTimeout, VARIANT pvarPending) Online;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, int32 nTimeout, VARIANT pvarPending) Offline;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResGroup* pResourceGroup) ChangeResourceGroup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusNode* pNode) AddResourceNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusNode* pNode) RemoveResourceNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResource* pResource, VARIANT* pvarDependent) CanResourceBeDependent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResPossibleOwnerNodes** ppOwnerNodes) get_PossibleOwnerNodes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResDependencies** ppResDependencies) get_Dependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResDependents** ppResDependents) get_Dependents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResGroup** ppResGroup) get_Group;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusNode** ppOwnerNode) get_OwnerNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, CLUSTER_RESOURCE_CLASS* prcClassInfo) get_ClassInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusDisk** ppDisk) get_Disk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusRegistryKeys** ppRegistryKeys) get_RegistryKeys;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusCryptoKeys** ppCryptoKeys) get_CryptoKeys;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BSTR* pbstrTypeName) get_TypeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResType** ppResourceType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BOOL* pbMaintenanceMode) get_MaintenanceMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResource* pResource, VARIANT pvarDependent) CanResourceBeDependent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResPossibleOwnerNodes* ppOwnerNodes) get_PossibleOwnerNodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResDependencies* ppResDependencies) get_Dependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResDependents* ppResDependents) get_Dependents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResGroup* ppResGroup) get_Group;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusNode* ppOwnerNode) get_OwnerNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISCluster* ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, CLUSTER_RESOURCE_CLASS prcClassInfo) get_ClassInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusDisk* ppDisk) get_Disk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusRegistryKeys* ppRegistryKeys) get_RegistryKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusCryptoKeys* ppCryptoKeys) get_CryptoKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BSTR pbstrTypeName) get_TypeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResType* ppResourceType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BOOL pbMaintenanceMode) get_MaintenanceMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BOOL bMaintenanceMode) put_MaintenanceMode;
 	}
 
 
-	public HRESULT get_CommonProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
+	public HRESULT get_CommonProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
+	public HRESULT get_PrivateProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
 
-	public HRESULT get_CommonROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
+	public HRESULT get_CommonROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
+	public HRESULT get_PrivateROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
 
-	public HRESULT get_Handle(uint* phandle) mut => VT.[Friend]get_Handle(&this, phandle);
+	public HRESULT get_Handle(uint phandle) mut => VT.[Friend]get_Handle(&this, phandle);
 
-	public HRESULT get_Name(BSTR* pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
+	public HRESULT get_Name(BSTR pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
 
 	public HRESULT put_Name(BSTR bstrResourceName) mut => VT.[Friend]put_Name(&this, bstrResourceName);
 
-	public HRESULT get_State(CLUSTER_RESOURCE_STATE* dwState) mut => VT.[Friend]get_State(&this, dwState);
+	public HRESULT get_State(CLUSTER_RESOURCE_STATE dwState) mut => VT.[Friend]get_State(&this, dwState);
 
-	public HRESULT get_CoreFlag(CLUS_FLAGS* dwCoreFlag) mut => VT.[Friend]get_CoreFlag(&this, dwCoreFlag);
+	public HRESULT get_CoreFlag(CLUS_FLAGS dwCoreFlag) mut => VT.[Friend]get_CoreFlag(&this, dwCoreFlag);
 
 	public HRESULT BecomeQuorumResource(BSTR bstrDevicePath, int32 lMaxLogSize) mut => VT.[Friend]BecomeQuorumResource(&this, bstrDevicePath, lMaxLogSize);
 
@@ -5197,9 +5197,9 @@ public static
 
 	public HRESULT Fail() mut => VT.[Friend]Fail(&this);
 
-	public HRESULT Online(int32 nTimeout, VARIANT* pvarPending) mut => VT.[Friend]Online(&this, nTimeout, pvarPending);
+	public HRESULT Online(int32 nTimeout, VARIANT pvarPending) mut => VT.[Friend]Online(&this, nTimeout, pvarPending);
 
-	public HRESULT Offline(int32 nTimeout, VARIANT* pvarPending) mut => VT.[Friend]Offline(&this, nTimeout, pvarPending);
+	public HRESULT Offline(int32 nTimeout, VARIANT pvarPending) mut => VT.[Friend]Offline(&this, nTimeout, pvarPending);
 
 	public HRESULT ChangeResourceGroup(ISClusResGroup* pResourceGroup) mut => VT.[Friend]ChangeResourceGroup(&this, pResourceGroup);
 
@@ -5207,33 +5207,33 @@ public static
 
 	public HRESULT RemoveResourceNode(ISClusNode* pNode) mut => VT.[Friend]RemoveResourceNode(&this, pNode);
 
-	public HRESULT CanResourceBeDependent(ISClusResource* pResource, VARIANT* pvarDependent) mut => VT.[Friend]CanResourceBeDependent(&this, pResource, pvarDependent);
+	public HRESULT CanResourceBeDependent(ISClusResource* pResource, VARIANT pvarDependent) mut => VT.[Friend]CanResourceBeDependent(&this, pResource, pvarDependent);
 
-	public HRESULT get_PossibleOwnerNodes(ISClusResPossibleOwnerNodes** ppOwnerNodes) mut => VT.[Friend]get_PossibleOwnerNodes(&this, ppOwnerNodes);
+	public HRESULT get_PossibleOwnerNodes(ISClusResPossibleOwnerNodes* ppOwnerNodes) mut => VT.[Friend]get_PossibleOwnerNodes(&this, ppOwnerNodes);
 
-	public HRESULT get_Dependencies(ISClusResDependencies** ppResDependencies) mut => VT.[Friend]get_Dependencies(&this, ppResDependencies);
+	public HRESULT get_Dependencies(ISClusResDependencies* ppResDependencies) mut => VT.[Friend]get_Dependencies(&this, ppResDependencies);
 
-	public HRESULT get_Dependents(ISClusResDependents** ppResDependents) mut => VT.[Friend]get_Dependents(&this, ppResDependents);
+	public HRESULT get_Dependents(ISClusResDependents* ppResDependents) mut => VT.[Friend]get_Dependents(&this, ppResDependents);
 
-	public HRESULT get_Group(ISClusResGroup** ppResGroup) mut => VT.[Friend]get_Group(&this, ppResGroup);
+	public HRESULT get_Group(ISClusResGroup* ppResGroup) mut => VT.[Friend]get_Group(&this, ppResGroup);
 
-	public HRESULT get_OwnerNode(ISClusNode** ppOwnerNode) mut => VT.[Friend]get_OwnerNode(&this, ppOwnerNode);
+	public HRESULT get_OwnerNode(ISClusNode* ppOwnerNode) mut => VT.[Friend]get_OwnerNode(&this, ppOwnerNode);
 
-	public HRESULT get_Cluster(ISCluster** ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
+	public HRESULT get_Cluster(ISCluster* ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
 
-	public HRESULT get_ClassInfo(CLUSTER_RESOURCE_CLASS* prcClassInfo) mut => VT.[Friend]get_ClassInfo(&this, prcClassInfo);
+	public HRESULT get_ClassInfo(CLUSTER_RESOURCE_CLASS prcClassInfo) mut => VT.[Friend]get_ClassInfo(&this, prcClassInfo);
 
-	public HRESULT get_Disk(ISClusDisk** ppDisk) mut => VT.[Friend]get_Disk(&this, ppDisk);
+	public HRESULT get_Disk(ISClusDisk* ppDisk) mut => VT.[Friend]get_Disk(&this, ppDisk);
 
-	public HRESULT get_RegistryKeys(ISClusRegistryKeys** ppRegistryKeys) mut => VT.[Friend]get_RegistryKeys(&this, ppRegistryKeys);
+	public HRESULT get_RegistryKeys(ISClusRegistryKeys* ppRegistryKeys) mut => VT.[Friend]get_RegistryKeys(&this, ppRegistryKeys);
 
-	public HRESULT get_CryptoKeys(ISClusCryptoKeys** ppCryptoKeys) mut => VT.[Friend]get_CryptoKeys(&this, ppCryptoKeys);
+	public HRESULT get_CryptoKeys(ISClusCryptoKeys* ppCryptoKeys) mut => VT.[Friend]get_CryptoKeys(&this, ppCryptoKeys);
 
-	public HRESULT get_TypeName(BSTR* pbstrTypeName) mut => VT.[Friend]get_TypeName(&this, pbstrTypeName);
+	public HRESULT get_TypeName(BSTR pbstrTypeName) mut => VT.[Friend]get_TypeName(&this, pbstrTypeName);
 
-	public HRESULT get_Type(ISClusResType** ppResourceType) mut => VT.[Friend]get_Type(&this, ppResourceType);
+	public HRESULT get_Type(ISClusResType* ppResourceType) mut => VT.[Friend]get_Type(&this, ppResourceType);
 
-	public HRESULT get_MaintenanceMode(BOOL* pbMaintenanceMode) mut => VT.[Friend]get_MaintenanceMode(&this, pbMaintenanceMode);
+	public HRESULT get_MaintenanceMode(BOOL pbMaintenanceMode) mut => VT.[Friend]get_MaintenanceMode(&this, pbMaintenanceMode);
 
 	public HRESULT put_MaintenanceMode(BOOL bMaintenanceMode) mut => VT.[Friend]put_MaintenanceMode(&this, bMaintenanceMode);
 }
@@ -5246,26 +5246,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, VARIANT varIndex, ISClusResource* ppClusResource) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource* ppClusterResource) CreateItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, VARIANT varIndex) DeleteItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, ISClusResource* pResource) AddItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusResource** ppClusResource) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResource);
+	public HRESULT get_Item(VARIANT varIndex, ISClusResource* ppClusResource) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResource);
 
-	public HRESULT CreateItem(BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) mut => VT.[Friend]CreateItem(&this, bstrResourceName, bstrResourceType, dwFlags, ppClusterResource);
+	public HRESULT CreateItem(BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource* ppClusterResource) mut => VT.[Friend]CreateItem(&this, bstrResourceName, bstrResourceType, dwFlags, ppClusterResource);
 
 	public HRESULT DeleteItem(VARIANT varIndex) mut => VT.[Friend]DeleteItem(&this, varIndex);
 
@@ -5282,24 +5282,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, VARIANT varIndex, ISClusResource* ppClusResource) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource* ppClusterResource) CreateItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, VARIANT varIndex) DeleteItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusResource** ppClusResource) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResource);
+	public HRESULT get_Item(VARIANT varIndex, ISClusResource* ppClusResource) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResource);
 
-	public HRESULT CreateItem(BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) mut => VT.[Friend]CreateItem(&this, bstrResourceName, bstrResourceType, dwFlags, ppClusterResource);
+	public HRESULT CreateItem(BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource* ppClusterResource) mut => VT.[Friend]CreateItem(&this, bstrResourceName, bstrResourceType, dwFlags, ppClusterResource);
 
 	public HRESULT DeleteItem(VARIANT varIndex) mut => VT.[Friend]DeleteItem(&this, varIndex);
 }
@@ -5312,24 +5312,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, VARIANT varIndex, ISClusResource* ppClusResource) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource* ppClusterResource) CreateItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, VARIANT varIndex) DeleteItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusResource** ppClusResource) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResource);
+	public HRESULT get_Item(VARIANT varIndex, ISClusResource* ppClusResource) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResource);
 
-	public HRESULT CreateItem(BSTR bstrResourceName, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) mut => VT.[Friend]CreateItem(&this, bstrResourceName, bstrGroupName, dwFlags, ppClusterResource);
+	public HRESULT CreateItem(BSTR bstrResourceName, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource* ppClusterResource) mut => VT.[Friend]CreateItem(&this, bstrResourceName, bstrGroupName, dwFlags, ppClusterResource);
 
 	public HRESULT DeleteItem(VARIANT varIndex) mut => VT.[Friend]DeleteItem(&this, varIndex);
 }
@@ -5342,24 +5342,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, VARIANT varIndex, ISClusResource* ppClusResource) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource* ppClusterResource) CreateItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, VARIANT varIndex) DeleteItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusResource** ppClusResource) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResource);
+	public HRESULT get_Item(VARIANT varIndex, ISClusResource* ppClusResource) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResource);
 
-	public HRESULT CreateItem(BSTR bstrResourceName, BSTR bstrResourceType, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) mut => VT.[Friend]CreateItem(&this, bstrResourceName, bstrResourceType, bstrGroupName, dwFlags, ppClusterResource);
+	public HRESULT CreateItem(BSTR bstrResourceName, BSTR bstrResourceType, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource* ppClusterResource) mut => VT.[Friend]CreateItem(&this, bstrResourceName, bstrResourceType, bstrGroupName, dwFlags, ppClusterResource);
 
 	public HRESULT DeleteItem(VARIANT varIndex) mut => VT.[Friend]DeleteItem(&this, varIndex);
 }
@@ -5372,31 +5372,31 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode* ppNode) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, ISClusNode* pNode, int32 nPosition) InsertItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, VARIANT varIndex) RemoveItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, VARIANT* pvarModified) get_Modified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, VARIANT pvarModified) get_Modified;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self) SaveChanges;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, ISClusNode* pNode) AddItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusNode** ppNode) mut => VT.[Friend]get_Item(&this, varIndex, ppNode);
+	public HRESULT get_Item(VARIANT varIndex, ISClusNode* ppNode) mut => VT.[Friend]get_Item(&this, varIndex, ppNode);
 
 	public HRESULT InsertItem(ISClusNode* pNode, int32 nPosition) mut => VT.[Friend]InsertItem(&this, pNode, nPosition);
 
 	public HRESULT RemoveItem(VARIANT varIndex) mut => VT.[Friend]RemoveItem(&this, varIndex);
 
-	public HRESULT get_Modified(VARIANT* pvarModified) mut => VT.[Friend]get_Modified(&this, pvarModified);
+	public HRESULT get_Modified(VARIANT pvarModified) mut => VT.[Friend]get_Modified(&this, pvarModified);
 
 	public HRESULT SaveChanges() mut => VT.[Friend]SaveChanges(&this);
 
@@ -5411,29 +5411,29 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode* ppNode) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, ISClusNode* pNode) AddItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, VARIANT varIndex) RemoveItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, VARIANT* pvarModified) get_Modified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, VARIANT pvarModified) get_Modified;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusNode** ppNode) mut => VT.[Friend]get_Item(&this, varIndex, ppNode);
+	public HRESULT get_Item(VARIANT varIndex, ISClusNode* ppNode) mut => VT.[Friend]get_Item(&this, varIndex, ppNode);
 
 	public HRESULT AddItem(ISClusNode* pNode) mut => VT.[Friend]AddItem(&this, pNode);
 
 	public HRESULT RemoveItem(VARIANT varIndex) mut => VT.[Friend]RemoveItem(&this, varIndex);
 
-	public HRESULT get_Modified(VARIANT* pvarModified) mut => VT.[Friend]get_Modified(&this, pvarModified);
+	public HRESULT get_Modified(VARIANT pvarModified) mut => VT.[Friend]get_Modified(&this, pvarModified);
 }
 
 [CRepr]struct ISClusResTypePossibleOwnerNodes : IDispatch
@@ -5444,20 +5444,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode* ppNode) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusNode** ppNode) mut => VT.[Friend]get_Item(&this, varIndex, ppNode);
+	public HRESULT get_Item(VARIANT varIndex, ISClusNode* ppNode) mut => VT.[Friend]get_Item(&this, varIndex, ppNode);
 }
 
 [CRepr]struct ISClusResType : IDispatch
@@ -5468,38 +5468,38 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties* ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties* ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, BSTR pbstrName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusResTypeResources** ppClusterResTypeResources) get_Resources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusResTypePossibleOwnerNodes** ppOwnerNodes) get_PossibleOwnerNodes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusDisks** ppAvailableDisks) get_AvailableDisks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISCluster* ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusResTypeResources* ppClusterResTypeResources) get_Resources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusResTypePossibleOwnerNodes* ppOwnerNodes) get_PossibleOwnerNodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusDisks* ppAvailableDisks) get_AvailableDisks;
 	}
 
 
-	public HRESULT get_CommonProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
+	public HRESULT get_CommonProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
+	public HRESULT get_PrivateProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateProperties(&this, ppProperties);
 
-	public HRESULT get_CommonROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
+	public HRESULT get_CommonROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_CommonROProperties(&this, ppProperties);
 
-	public HRESULT get_PrivateROProperties(ISClusProperties** ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
+	public HRESULT get_PrivateROProperties(ISClusProperties* ppProperties) mut => VT.[Friend]get_PrivateROProperties(&this, ppProperties);
 
-	public HRESULT get_Name(BSTR* pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
+	public HRESULT get_Name(BSTR pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
 
 	public HRESULT Delete() mut => VT.[Friend]Delete(&this);
 
-	public HRESULT get_Cluster(ISCluster** ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
+	public HRESULT get_Cluster(ISCluster* ppCluster) mut => VT.[Friend]get_Cluster(&this, ppCluster);
 
-	public HRESULT get_Resources(ISClusResTypeResources** ppClusterResTypeResources) mut => VT.[Friend]get_Resources(&this, ppClusterResTypeResources);
+	public HRESULT get_Resources(ISClusResTypeResources* ppClusterResTypeResources) mut => VT.[Friend]get_Resources(&this, ppClusterResTypeResources);
 
-	public HRESULT get_PossibleOwnerNodes(ISClusResTypePossibleOwnerNodes** ppOwnerNodes) mut => VT.[Friend]get_PossibleOwnerNodes(&this, ppOwnerNodes);
+	public HRESULT get_PossibleOwnerNodes(ISClusResTypePossibleOwnerNodes* ppOwnerNodes) mut => VT.[Friend]get_PossibleOwnerNodes(&this, ppOwnerNodes);
 
-	public HRESULT get_AvailableDisks(ISClusDisks** ppAvailableDisks) mut => VT.[Friend]get_AvailableDisks(&this, ppAvailableDisks);
+	public HRESULT get_AvailableDisks(ISClusDisks* ppAvailableDisks) mut => VT.[Friend]get_AvailableDisks(&this, ppAvailableDisks);
 }
 
 [CRepr]struct ISClusResTypes : IDispatch
@@ -5510,24 +5510,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, VARIANT varIndex, ISClusResType** ppClusResType) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, BSTR bstrResourceTypeName, BSTR bstrDisplayName, BSTR bstrResourceTypeDll, int32 dwLooksAlivePollInterval, int32 dwIsAlivePollInterval, ISClusResType** ppResourceType) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, VARIANT varIndex, ISClusResType* ppClusResType) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, BSTR bstrResourceTypeName, BSTR bstrDisplayName, BSTR bstrResourceTypeDll, int32 dwLooksAlivePollInterval, int32 dwIsAlivePollInterval, ISClusResType* ppResourceType) CreateItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, VARIANT varIndex) DeleteItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusResType** ppClusResType) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResType);
+	public HRESULT get_Item(VARIANT varIndex, ISClusResType* ppClusResType) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResType);
 
-	public HRESULT CreateItem(BSTR bstrResourceTypeName, BSTR bstrDisplayName, BSTR bstrResourceTypeDll, int32 dwLooksAlivePollInterval, int32 dwIsAlivePollInterval, ISClusResType** ppResourceType) mut => VT.[Friend]CreateItem(&this, bstrResourceTypeName, bstrDisplayName, bstrResourceTypeDll, dwLooksAlivePollInterval, dwIsAlivePollInterval, ppResourceType);
+	public HRESULT CreateItem(BSTR bstrResourceTypeName, BSTR bstrDisplayName, BSTR bstrResourceTypeDll, int32 dwLooksAlivePollInterval, int32 dwIsAlivePollInterval, ISClusResType* ppResourceType) mut => VT.[Friend]CreateItem(&this, bstrResourceTypeName, bstrDisplayName, bstrResourceTypeDll, dwLooksAlivePollInterval, dwIsAlivePollInterval, ppResourceType);
 
 	public HRESULT DeleteItem(VARIANT varIndex) mut => VT.[Friend]DeleteItem(&this, varIndex);
 }
@@ -5540,51 +5540,51 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, int32* pLength) get_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, int32* pCount) get_ValueCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, ISClusPropertyValues** ppClusterPropertyValues) get_Values;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT* pvarValue) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, BSTR pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, int32 pLength) get_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, int32 pCount) get_ValueCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, ISClusPropertyValues* ppClusterPropertyValues) get_Values;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT pvarValue) get_Value;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT varValue) put_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, CLUSTER_PROPERTY_TYPE* pType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, CLUSTER_PROPERTY_TYPE pType) get_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, CLUSTER_PROPERTY_TYPE Type) put_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, CLUSTER_PROPERTY_FORMAT* pFormat) get_Format;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, CLUSTER_PROPERTY_FORMAT pFormat) get_Format;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, CLUSTER_PROPERTY_FORMAT Format) put_Format;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT* pvarReadOnly) get_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT* pvarPrivate) get_Private;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT* pvarCommon) get_Common;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT* pvarModified) get_Modified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT pvarReadOnly) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT pvarPrivate) get_Private;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT pvarCommon) get_Common;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT pvarModified) get_Modified;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self) UseDefaultValue;
 	}
 
 
-	public HRESULT get_Name(BSTR* pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
+	public HRESULT get_Name(BSTR pbstrName) mut => VT.[Friend]get_Name(&this, pbstrName);
 
-	public HRESULT get_Length(int32* pLength) mut => VT.[Friend]get_Length(&this, pLength);
+	public HRESULT get_Length(int32 pLength) mut => VT.[Friend]get_Length(&this, pLength);
 
-	public HRESULT get_ValueCount(int32* pCount) mut => VT.[Friend]get_ValueCount(&this, pCount);
+	public HRESULT get_ValueCount(int32 pCount) mut => VT.[Friend]get_ValueCount(&this, pCount);
 
-	public HRESULT get_Values(ISClusPropertyValues** ppClusterPropertyValues) mut => VT.[Friend]get_Values(&this, ppClusterPropertyValues);
+	public HRESULT get_Values(ISClusPropertyValues* ppClusterPropertyValues) mut => VT.[Friend]get_Values(&this, ppClusterPropertyValues);
 
-	public HRESULT get_Value(VARIANT* pvarValue) mut => VT.[Friend]get_Value(&this, pvarValue);
+	public HRESULT get_Value(VARIANT pvarValue) mut => VT.[Friend]get_Value(&this, pvarValue);
 
 	public HRESULT put_Value(VARIANT varValue) mut => VT.[Friend]put_Value(&this, varValue);
 
-	public HRESULT get_Type(CLUSTER_PROPERTY_TYPE* pType) mut => VT.[Friend]get_Type(&this, pType);
+	public HRESULT get_Type(CLUSTER_PROPERTY_TYPE pType) mut => VT.[Friend]get_Type(&this, pType);
 
 	public HRESULT put_Type(CLUSTER_PROPERTY_TYPE Type) mut => VT.[Friend]put_Type(&this, Type);
 
-	public HRESULT get_Format(CLUSTER_PROPERTY_FORMAT* pFormat) mut => VT.[Friend]get_Format(&this, pFormat);
+	public HRESULT get_Format(CLUSTER_PROPERTY_FORMAT pFormat) mut => VT.[Friend]get_Format(&this, pFormat);
 
 	public HRESULT put_Format(CLUSTER_PROPERTY_FORMAT Format) mut => VT.[Friend]put_Format(&this, Format);
 
-	public HRESULT get_ReadOnly(VARIANT* pvarReadOnly) mut => VT.[Friend]get_ReadOnly(&this, pvarReadOnly);
+	public HRESULT get_ReadOnly(VARIANT pvarReadOnly) mut => VT.[Friend]get_ReadOnly(&this, pvarReadOnly);
 
-	public HRESULT get_Private(VARIANT* pvarPrivate) mut => VT.[Friend]get_Private(&this, pvarPrivate);
+	public HRESULT get_Private(VARIANT pvarPrivate) mut => VT.[Friend]get_Private(&this, pvarPrivate);
 
-	public HRESULT get_Common(VARIANT* pvarCommon) mut => VT.[Friend]get_Common(&this, pvarCommon);
+	public HRESULT get_Common(VARIANT pvarCommon) mut => VT.[Friend]get_Common(&this, pvarCommon);
 
-	public HRESULT get_Modified(VARIANT* pvarModified) mut => VT.[Friend]get_Modified(&this, pvarModified);
+	public HRESULT get_Modified(VARIANT pvarModified) mut => VT.[Friend]get_Modified(&this, pvarModified);
 
 	public HRESULT UseDefaultValue() mut => VT.[Friend]UseDefaultValue(&this);
 }
@@ -5597,35 +5597,35 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, VARIANT* pvarValue) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, VARIANT pvarValue) get_Value;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, VARIANT varValue) put_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, CLUSTER_PROPERTY_TYPE* pType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, CLUSTER_PROPERTY_TYPE pType) get_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, CLUSTER_PROPERTY_TYPE Type) put_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, CLUSTER_PROPERTY_FORMAT* pFormat) get_Format;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, CLUSTER_PROPERTY_FORMAT pFormat) get_Format;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, CLUSTER_PROPERTY_FORMAT Format) put_Format;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, int32* pLength) get_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, int32* pCount) get_DataCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, ISClusPropertyValueData** ppClusterPropertyValueData) get_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, int32 pLength) get_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, int32 pCount) get_DataCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, ISClusPropertyValueData* ppClusterPropertyValueData) get_Data;
 	}
 
 
-	public HRESULT get_Value(VARIANT* pvarValue) mut => VT.[Friend]get_Value(&this, pvarValue);
+	public HRESULT get_Value(VARIANT pvarValue) mut => VT.[Friend]get_Value(&this, pvarValue);
 
 	public HRESULT put_Value(VARIANT varValue) mut => VT.[Friend]put_Value(&this, varValue);
 
-	public HRESULT get_Type(CLUSTER_PROPERTY_TYPE* pType) mut => VT.[Friend]get_Type(&this, pType);
+	public HRESULT get_Type(CLUSTER_PROPERTY_TYPE pType) mut => VT.[Friend]get_Type(&this, pType);
 
 	public HRESULT put_Type(CLUSTER_PROPERTY_TYPE Type) mut => VT.[Friend]put_Type(&this, Type);
 
-	public HRESULT get_Format(CLUSTER_PROPERTY_FORMAT* pFormat) mut => VT.[Friend]get_Format(&this, pFormat);
+	public HRESULT get_Format(CLUSTER_PROPERTY_FORMAT pFormat) mut => VT.[Friend]get_Format(&this, pFormat);
 
 	public HRESULT put_Format(CLUSTER_PROPERTY_FORMAT Format) mut => VT.[Friend]put_Format(&this, Format);
 
-	public HRESULT get_Length(int32* pLength) mut => VT.[Friend]get_Length(&this, pLength);
+	public HRESULT get_Length(int32 pLength) mut => VT.[Friend]get_Length(&this, pLength);
 
-	public HRESULT get_DataCount(int32* pCount) mut => VT.[Friend]get_DataCount(&this, pCount);
+	public HRESULT get_DataCount(int32 pCount) mut => VT.[Friend]get_DataCount(&this, pCount);
 
-	public HRESULT get_Data(ISClusPropertyValueData** ppClusterPropertyValueData) mut => VT.[Friend]get_Data(&this, ppClusterPropertyValueData);
+	public HRESULT get_Data(ISClusPropertyValueData* ppClusterPropertyValueData) mut => VT.[Friend]get_Data(&this, ppClusterPropertyValueData);
 }
 
 [CRepr]struct ISClusPropertyValues : IDispatch
@@ -5636,21 +5636,21 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, VARIANT varIndex, ISClusPropertyValue** ppPropertyValue) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, BSTR bstrName, VARIANT varValue, ISClusPropertyValue** ppPropertyValue) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, IUnknown* retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, VARIANT varIndex, ISClusPropertyValue* ppPropertyValue) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, BSTR bstrName, VARIANT varValue, ISClusPropertyValue* ppPropertyValue) CreateItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusPropertyValue** ppPropertyValue) mut => VT.[Friend]get_Item(&this, varIndex, ppPropertyValue);
+	public HRESULT get_Item(VARIANT varIndex, ISClusPropertyValue* ppPropertyValue) mut => VT.[Friend]get_Item(&this, varIndex, ppPropertyValue);
 
-	public HRESULT CreateItem(BSTR bstrName, VARIANT varValue, ISClusPropertyValue** ppPropertyValue) mut => VT.[Friend]CreateItem(&this, bstrName, varValue, ppPropertyValue);
+	public HRESULT CreateItem(BSTR bstrName, VARIANT varValue, ISClusPropertyValue* ppPropertyValue) mut => VT.[Friend]CreateItem(&this, bstrName, varValue, ppPropertyValue);
 
 	public HRESULT RemoveItem(VARIANT varIndex) mut => VT.[Friend]RemoveItem(&this, varIndex);
 }
@@ -5663,41 +5663,41 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT varIndex, ISClusProperty** ppClusProperty) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, BSTR bstrName, VARIANT varValue, ISClusProperty** pProperty) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT varIndex, ISClusProperty* ppClusProperty) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, BSTR bstrName, VARIANT varValue, ISClusProperty* pProperty) CreateItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT varIndex) UseDefaultValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT* pvarStatusCode) SaveChanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT* pvarReadOnly) get_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT* pvarPrivate) get_Private;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT* pvarCommon) get_Common;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT* pvarModified) get_Modified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT pvarStatusCode) SaveChanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT pvarReadOnly) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT pvarPrivate) get_Private;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT pvarCommon) get_Common;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT pvarModified) get_Modified;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusProperty** ppClusProperty) mut => VT.[Friend]get_Item(&this, varIndex, ppClusProperty);
+	public HRESULT get_Item(VARIANT varIndex, ISClusProperty* ppClusProperty) mut => VT.[Friend]get_Item(&this, varIndex, ppClusProperty);
 
-	public HRESULT CreateItem(BSTR bstrName, VARIANT varValue, ISClusProperty** pProperty) mut => VT.[Friend]CreateItem(&this, bstrName, varValue, pProperty);
+	public HRESULT CreateItem(BSTR bstrName, VARIANT varValue, ISClusProperty* pProperty) mut => VT.[Friend]CreateItem(&this, bstrName, varValue, pProperty);
 
 	public HRESULT UseDefaultValue(VARIANT varIndex) mut => VT.[Friend]UseDefaultValue(&this, varIndex);
 
-	public HRESULT SaveChanges(VARIANT* pvarStatusCode) mut => VT.[Friend]SaveChanges(&this, pvarStatusCode);
+	public HRESULT SaveChanges(VARIANT pvarStatusCode) mut => VT.[Friend]SaveChanges(&this, pvarStatusCode);
 
-	public HRESULT get_ReadOnly(VARIANT* pvarReadOnly) mut => VT.[Friend]get_ReadOnly(&this, pvarReadOnly);
+	public HRESULT get_ReadOnly(VARIANT pvarReadOnly) mut => VT.[Friend]get_ReadOnly(&this, pvarReadOnly);
 
-	public HRESULT get_Private(VARIANT* pvarPrivate) mut => VT.[Friend]get_Private(&this, pvarPrivate);
+	public HRESULT get_Private(VARIANT pvarPrivate) mut => VT.[Friend]get_Private(&this, pvarPrivate);
 
-	public HRESULT get_Common(VARIANT* pvarCommon) mut => VT.[Friend]get_Common(&this, pvarCommon);
+	public HRESULT get_Common(VARIANT pvarCommon) mut => VT.[Friend]get_Common(&this, pvarCommon);
 
-	public HRESULT get_Modified(VARIANT* pvarModified) mut => VT.[Friend]get_Modified(&this, pvarModified);
+	public HRESULT get_Modified(VARIANT pvarModified) mut => VT.[Friend]get_Modified(&this, pvarModified);
 }
 
 [CRepr]struct ISClusPropertyValueData : IDispatch
@@ -5708,21 +5708,21 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, VARIANT varIndex, VARIANT* pvarValue) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, VARIANT varValue, VARIANT* pvarData) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, IUnknown* retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, VARIANT varIndex, VARIANT pvarValue) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, VARIANT varValue, VARIANT pvarData) CreateItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Item(VARIANT varIndex, VARIANT* pvarValue) mut => VT.[Friend]get_Item(&this, varIndex, pvarValue);
+	public HRESULT get_Item(VARIANT varIndex, VARIANT pvarValue) mut => VT.[Friend]get_Item(&this, varIndex, pvarValue);
 
-	public HRESULT CreateItem(VARIANT varValue, VARIANT* pvarData) mut => VT.[Friend]CreateItem(&this, varValue, pvarData);
+	public HRESULT CreateItem(VARIANT varValue, VARIANT pvarData) mut => VT.[Friend]CreateItem(&this, varValue, pvarData);
 
 	public HRESULT RemoveItem(VARIANT varIndex) mut => VT.[Friend]RemoveItem(&this, varIndex);
 }
@@ -5735,29 +5735,29 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32* plFlags) get_Flags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, BSTR* pbstrDeviceName) get_DeviceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, BSTR* pbstrVolumeLabel) get_VolumeLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32* plSerialNumber) get_SerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32* plMaximumComponentLength) get_MaximumComponentLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32* plFileSystemFlags) get_FileSystemFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, BSTR* pbstrFileSystem) get_FileSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32 plFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, BSTR pbstrDeviceName) get_DeviceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, BSTR pbstrVolumeLabel) get_VolumeLabel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32 plSerialNumber) get_SerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32 plMaximumComponentLength) get_MaximumComponentLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32 plFileSystemFlags) get_FileSystemFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, BSTR pbstrFileSystem) get_FileSystem;
 	}
 
 
-	public HRESULT get_Flags(int32* plFlags) mut => VT.[Friend]get_Flags(&this, plFlags);
+	public HRESULT get_Flags(int32 plFlags) mut => VT.[Friend]get_Flags(&this, plFlags);
 
-	public HRESULT get_DeviceName(BSTR* pbstrDeviceName) mut => VT.[Friend]get_DeviceName(&this, pbstrDeviceName);
+	public HRESULT get_DeviceName(BSTR pbstrDeviceName) mut => VT.[Friend]get_DeviceName(&this, pbstrDeviceName);
 
-	public HRESULT get_VolumeLabel(BSTR* pbstrVolumeLabel) mut => VT.[Friend]get_VolumeLabel(&this, pbstrVolumeLabel);
+	public HRESULT get_VolumeLabel(BSTR pbstrVolumeLabel) mut => VT.[Friend]get_VolumeLabel(&this, pbstrVolumeLabel);
 
-	public HRESULT get_SerialNumber(int32* plSerialNumber) mut => VT.[Friend]get_SerialNumber(&this, plSerialNumber);
+	public HRESULT get_SerialNumber(int32 plSerialNumber) mut => VT.[Friend]get_SerialNumber(&this, plSerialNumber);
 
-	public HRESULT get_MaximumComponentLength(int32* plMaximumComponentLength) mut => VT.[Friend]get_MaximumComponentLength(&this, plMaximumComponentLength);
+	public HRESULT get_MaximumComponentLength(int32 plMaximumComponentLength) mut => VT.[Friend]get_MaximumComponentLength(&this, plMaximumComponentLength);
 
-	public HRESULT get_FileSystemFlags(int32* plFileSystemFlags) mut => VT.[Friend]get_FileSystemFlags(&this, plFileSystemFlags);
+	public HRESULT get_FileSystemFlags(int32 plFileSystemFlags) mut => VT.[Friend]get_FileSystemFlags(&this, plFileSystemFlags);
 
-	public HRESULT get_FileSystem(BSTR* pbstrFileSystem) mut => VT.[Friend]get_FileSystem(&this, pbstrFileSystem);
+	public HRESULT get_FileSystem(BSTR pbstrFileSystem) mut => VT.[Friend]get_FileSystem(&this, pbstrFileSystem);
 }
 
 [CRepr]struct ISClusPartitionEx : ISClusPartition
@@ -5768,23 +5768,23 @@ public static
 
 	[CRepr]public struct VTable : ISClusPartition.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32* plTotalSize) get_TotalSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32* plFreeSpace) get_FreeSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32* plDeviceNumber) get_DeviceNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32* plPartitionNumber) get_PartitionNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, BSTR* pbstrVolumeGuid) get_VolumeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32 plTotalSize) get_TotalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32 plFreeSpace) get_FreeSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32 plDeviceNumber) get_DeviceNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32 plPartitionNumber) get_PartitionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, BSTR pbstrVolumeGuid) get_VolumeGuid;
 	}
 
 
-	public HRESULT get_TotalSize(int32* plTotalSize) mut => VT.[Friend]get_TotalSize(&this, plTotalSize);
+	public HRESULT get_TotalSize(int32 plTotalSize) mut => VT.[Friend]get_TotalSize(&this, plTotalSize);
 
-	public HRESULT get_FreeSpace(int32* plFreeSpace) mut => VT.[Friend]get_FreeSpace(&this, plFreeSpace);
+	public HRESULT get_FreeSpace(int32 plFreeSpace) mut => VT.[Friend]get_FreeSpace(&this, plFreeSpace);
 
-	public HRESULT get_DeviceNumber(int32* plDeviceNumber) mut => VT.[Friend]get_DeviceNumber(&this, plDeviceNumber);
+	public HRESULT get_DeviceNumber(int32 plDeviceNumber) mut => VT.[Friend]get_DeviceNumber(&this, plDeviceNumber);
 
-	public HRESULT get_PartitionNumber(int32* plPartitionNumber) mut => VT.[Friend]get_PartitionNumber(&this, plPartitionNumber);
+	public HRESULT get_PartitionNumber(int32 plPartitionNumber) mut => VT.[Friend]get_PartitionNumber(&this, plPartitionNumber);
 
-	public HRESULT get_VolumeGuid(BSTR* pbstrVolumeGuid) mut => VT.[Friend]get_VolumeGuid(&this, pbstrVolumeGuid);
+	public HRESULT get_VolumeGuid(BSTR pbstrVolumeGuid) mut => VT.[Friend]get_VolumeGuid(&this, pbstrVolumeGuid);
 }
 
 [CRepr]struct ISClusPartitions : IDispatch
@@ -5795,17 +5795,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitions*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitions*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitions*/SelfOuter* self, VARIANT varIndex, ISClusPartition** ppPartition) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitions*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitions*/SelfOuter* self, IUnknown* retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitions*/SelfOuter* self, VARIANT varIndex, ISClusPartition* ppPartition) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusPartition** ppPartition) mut => VT.[Friend]get_Item(&this, varIndex, ppPartition);
+	public HRESULT get_Item(VARIANT varIndex, ISClusPartition* ppPartition) mut => VT.[Friend]get_Item(&this, varIndex, ppPartition);
 }
 
 [CRepr]struct ISClusDisk : IDispatch
@@ -5816,20 +5816,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, int32* plSignature) get_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, ISClusScsiAddress** ppScsiAddress) get_ScsiAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, int32* plDiskNumber) get_DiskNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, ISClusPartitions** ppPartitions) get_Partitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, int32 plSignature) get_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, ISClusScsiAddress* ppScsiAddress) get_ScsiAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, int32 plDiskNumber) get_DiskNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, ISClusPartitions* ppPartitions) get_Partitions;
 	}
 
 
-	public HRESULT get_Signature(int32* plSignature) mut => VT.[Friend]get_Signature(&this, plSignature);
+	public HRESULT get_Signature(int32 plSignature) mut => VT.[Friend]get_Signature(&this, plSignature);
 
-	public HRESULT get_ScsiAddress(ISClusScsiAddress** ppScsiAddress) mut => VT.[Friend]get_ScsiAddress(&this, ppScsiAddress);
+	public HRESULT get_ScsiAddress(ISClusScsiAddress* ppScsiAddress) mut => VT.[Friend]get_ScsiAddress(&this, ppScsiAddress);
 
-	public HRESULT get_DiskNumber(int32* plDiskNumber) mut => VT.[Friend]get_DiskNumber(&this, plDiskNumber);
+	public HRESULT get_DiskNumber(int32 plDiskNumber) mut => VT.[Friend]get_DiskNumber(&this, plDiskNumber);
 
-	public HRESULT get_Partitions(ISClusPartitions** ppPartitions) mut => VT.[Friend]get_Partitions(&this, ppPartitions);
+	public HRESULT get_Partitions(ISClusPartitions* ppPartitions) mut => VT.[Friend]get_Partitions(&this, ppPartitions);
 }
 
 [CRepr]struct ISClusDisks : IDispatch
@@ -5840,17 +5840,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisks*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisks*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisks*/SelfOuter* self, VARIANT varIndex, ISClusDisk** ppDisk) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisks*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisks*/SelfOuter* self, IUnknown* retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisks*/SelfOuter* self, VARIANT varIndex, ISClusDisk* ppDisk) get_Item;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusDisk** ppDisk) mut => VT.[Friend]get_Item(&this, varIndex, ppDisk);
+	public HRESULT get_Item(VARIANT varIndex, ISClusDisk* ppDisk) mut => VT.[Friend]get_Item(&this, varIndex, ppDisk);
 }
 
 [CRepr]struct ISClusScsiAddress : IDispatch
@@ -5861,20 +5861,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT* pvarPortNumber) get_PortNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT* pvarPathId) get_PathId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT* pvarTargetId) get_TargetId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT* pvarLun) get_Lun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT pvarPortNumber) get_PortNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT pvarPathId) get_PathId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT pvarTargetId) get_TargetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT pvarLun) get_Lun;
 	}
 
 
-	public HRESULT get_PortNumber(VARIANT* pvarPortNumber) mut => VT.[Friend]get_PortNumber(&this, pvarPortNumber);
+	public HRESULT get_PortNumber(VARIANT pvarPortNumber) mut => VT.[Friend]get_PortNumber(&this, pvarPortNumber);
 
-	public HRESULT get_PathId(VARIANT* pvarPathId) mut => VT.[Friend]get_PathId(&this, pvarPathId);
+	public HRESULT get_PathId(VARIANT pvarPathId) mut => VT.[Friend]get_PathId(&this, pvarPathId);
 
-	public HRESULT get_TargetId(VARIANT* pvarTargetId) mut => VT.[Friend]get_TargetId(&this, pvarTargetId);
+	public HRESULT get_TargetId(VARIANT pvarTargetId) mut => VT.[Friend]get_TargetId(&this, pvarTargetId);
 
-	public HRESULT get_Lun(VARIANT* pvarLun) mut => VT.[Friend]get_Lun(&this, pvarLun);
+	public HRESULT get_Lun(VARIANT pvarLun) mut => VT.[Friend]get_Lun(&this, pvarLun);
 }
 
 [CRepr]struct ISClusRegistryKeys : IDispatch
@@ -5885,22 +5885,22 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, VARIANT varIndex, BSTR* pbstrRegistryKey) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, VARIANT varIndex, BSTR pbstrRegistryKey) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, BSTR bstrRegistryKey) AddItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, BSTR* pbstrRegistryKey) mut => VT.[Friend]get_Item(&this, varIndex, pbstrRegistryKey);
+	public HRESULT get_Item(VARIANT varIndex, BSTR pbstrRegistryKey) mut => VT.[Friend]get_Item(&this, varIndex, pbstrRegistryKey);
 
 	public HRESULT AddItem(BSTR bstrRegistryKey) mut => VT.[Friend]AddItem(&this, bstrRegistryKey);
 
@@ -5915,22 +5915,22 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, VARIANT varIndex, BSTR* pbstrCyrptoKey) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, VARIANT varIndex, BSTR pbstrCyrptoKey) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, BSTR bstrCryptoKey) AddItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, BSTR* pbstrCyrptoKey) mut => VT.[Friend]get_Item(&this, varIndex, pbstrCyrptoKey);
+	public HRESULT get_Item(VARIANT varIndex, BSTR pbstrCyrptoKey) mut => VT.[Friend]get_Item(&this, varIndex, pbstrCyrptoKey);
 
 	public HRESULT AddItem(BSTR bstrCryptoKey) mut => VT.[Friend]AddItem(&this, bstrCryptoKey);
 
@@ -5945,26 +5945,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, IUnknown* retval) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, VARIANT varIndex, ISClusResource* ppClusResource) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource* ppClusterResource) CreateItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, VARIANT varIndex) DeleteItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, ISClusResource* pResource) AddItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
-	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
-	public HRESULT get__NewEnum(IUnknown** retval) mut => VT.[Friend]get__NewEnum(&this, retval);
+	public HRESULT get__NewEnum(IUnknown* retval) mut => VT.[Friend]get__NewEnum(&this, retval);
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT get_Item(VARIANT varIndex, ISClusResource** ppClusResource) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResource);
+	public HRESULT get_Item(VARIANT varIndex, ISClusResource* ppClusResource) mut => VT.[Friend]get_Item(&this, varIndex, ppClusResource);
 
-	public HRESULT CreateItem(BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) mut => VT.[Friend]CreateItem(&this, bstrResourceName, bstrResourceType, dwFlags, ppClusterResource);
+	public HRESULT CreateItem(BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource* ppClusterResource) mut => VT.[Friend]CreateItem(&this, bstrResourceName, bstrResourceType, dwFlags, ppClusterResource);
 
 	public HRESULT DeleteItem(VARIANT varIndex) mut => VT.[Friend]DeleteItem(&this, varIndex);
 
@@ -5979,559 +5979,559 @@ public static
 public static
 {
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetNodeClusterState(PWSTR lpszNodeName, uint32* pdwClusterState);
+	public static extern uint32 GetNodeClusterState(PWSTR lpszNodeName, uint32 pdwClusterState);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSTER* OpenCluster(PWSTR lpszClusterName);
+	public static extern _HCLUSTER OpenCluster(PWSTR lpszClusterName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSTER* OpenClusterEx(PWSTR lpszClusterName, uint32 DesiredAccess, uint32* GrantedAccess);
+	public static extern _HCLUSTER OpenClusterEx(PWSTR lpszClusterName, uint32 DesiredAccess, uint32 GrantedAccess);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CloseCluster(_HCLUSTER* hCluster);
+	public static extern BOOL CloseCluster(_HCLUSTER hCluster);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetClusterName(_HCLUSTER* hCluster, PWSTR lpszNewClusterName);
+	public static extern uint32 SetClusterName(_HCLUSTER hCluster, PWSTR lpszNewClusterName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterInformation(_HCLUSTER* hCluster, char16* lpszClusterName, uint32* lpcchClusterName, CLUSTERVERSIONINFO* lpClusterInfo);
+	public static extern uint32 GetClusterInformation(_HCLUSTER hCluster, char16* lpszClusterName, uint32 lpcchClusterName, CLUSTERVERSIONINFO lpClusterInfo);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterQuorumResource(_HCLUSTER* hCluster, char16* lpszResourceName, uint32* lpcchResourceName, char16* lpszDeviceName, uint32* lpcchDeviceName, uint32* lpdwMaxQuorumLogSize);
+	public static extern uint32 GetClusterQuorumResource(_HCLUSTER hCluster, char16* lpszResourceName, uint32 lpcchResourceName, char16* lpszDeviceName, uint32 lpcchDeviceName, uint32 lpdwMaxQuorumLogSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetClusterQuorumResource(_HRESOURCE* hResource, PWSTR lpszDeviceName, uint32 dwMaxQuoLogSize);
+	public static extern uint32 SetClusterQuorumResource(_HRESOURCE hResource, PWSTR lpszDeviceName, uint32 dwMaxQuoLogSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 BackupClusterDatabase(_HCLUSTER* hCluster, PWSTR lpszPathName);
+	public static extern uint32 BackupClusterDatabase(_HCLUSTER hCluster, PWSTR lpszPathName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RestoreClusterDatabase(PWSTR lpszPathName, BOOL bForce, PWSTR lpszQuorumDriveLetter);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetClusterNetworkPriorityOrder(_HCLUSTER* hCluster, uint32 NetworkCount, _HNETWORK** NetworkList);
+	public static extern uint32 SetClusterNetworkPriorityOrder(_HCLUSTER hCluster, uint32 NetworkCount, _HNETWORK* NetworkList);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetClusterServiceAccountPassword(PWSTR lpszClusterName, PWSTR lpszNewPassword, uint32 dwFlags, CLUSTER_SET_PASSWORD_STATUS* lpReturnStatusBuffer, uint32* lpcbReturnStatusBufferSize);
+	public static extern uint32 SetClusterServiceAccountPassword(PWSTR lpszClusterName, PWSTR lpszNewPassword, uint32 dwFlags, CLUSTER_SET_PASSWORD_STATUS lpReturnStatusBuffer, uint32 lpcbReturnStatusBufferSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterControl(_HCLUSTER* hCluster, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterControl(_HCLUSTER hCluster, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterUpgradeFunctionalLevel(_HCLUSTER* hCluster, BOOL perform, PCLUSTER_UPGRADE_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+	public static extern uint32 ClusterUpgradeFunctionalLevel(_HCLUSTER hCluster, BOOL perform, PCLUSTER_UPGRADE_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCHANGE* CreateClusterNotifyPortV2(_HCHANGE* hChange, _HCLUSTER* hCluster, NOTIFY_FILTER_AND_TYPE* Filters, uint32 dwFilterCount, uint dwNotifyKey);
+	public static extern _HCHANGE CreateClusterNotifyPortV2(_HCHANGE hChange, _HCLUSTER hCluster, NOTIFY_FILTER_AND_TYPE Filters, uint32 dwFilterCount, uint dwNotifyKey);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterClusterNotifyV2(_HCHANGE* hChange, NOTIFY_FILTER_AND_TYPE Filter, HANDLE hObject, uint dwNotifyKey);
+	public static extern uint32 RegisterClusterNotifyV2(_HCHANGE hChange, NOTIFY_FILTER_AND_TYPE Filter, HANDLE hObject, uint dwNotifyKey);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetNotifyEventHandle(_HCHANGE* hChange, HANDLE* lphTargetEvent);
+	public static extern uint32 GetNotifyEventHandle(_HCHANGE hChange, HANDLE lphTargetEvent);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterNotifyV2(_HCHANGE* hChange, uint* lpdwNotifyKey, NOTIFY_FILTER_AND_TYPE* pFilterAndType, uint8* buffer, uint32* lpbBufferSize, char16* lpszObjectId, uint32* lpcchObjectId, char16* lpszParentId, uint32* lpcchParentId, char16* lpszName, uint32* lpcchName, char16* lpszType, uint32* lpcchType, uint32 dwMilliseconds);
+	public static extern uint32 GetClusterNotifyV2(_HCHANGE hChange, uint lpdwNotifyKey, NOTIFY_FILTER_AND_TYPE pFilterAndType, uint8 buffer, uint32 lpbBufferSize, char16* lpszObjectId, uint32 lpcchObjectId, char16* lpszParentId, uint32 lpcchParentId, char16* lpszName, uint32 lpcchName, char16* lpszType, uint32 lpcchType, uint32 dwMilliseconds);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCHANGE* CreateClusterNotifyPort(_HCHANGE* hChange, _HCLUSTER* hCluster, uint32 dwFilter, uint dwNotifyKey);
+	public static extern _HCHANGE CreateClusterNotifyPort(_HCHANGE hChange, _HCLUSTER hCluster, uint32 dwFilter, uint dwNotifyKey);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterClusterNotify(_HCHANGE* hChange, uint32 dwFilterType, HANDLE hObject, uint dwNotifyKey);
+	public static extern uint32 RegisterClusterNotify(_HCHANGE hChange, uint32 dwFilterType, HANDLE hObject, uint dwNotifyKey);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterNotify(_HCHANGE* hChange, uint* lpdwNotifyKey, uint32* lpdwFilterType, char16* lpszName, uint32* lpcchName, uint32 dwMilliseconds);
+	public static extern uint32 GetClusterNotify(_HCHANGE hChange, uint lpdwNotifyKey, uint32 lpdwFilterType, char16* lpszName, uint32 lpcchName, uint32 dwMilliseconds);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CloseClusterNotifyPort(_HCHANGE* hChange);
+	public static extern BOOL CloseClusterNotifyPort(_HCHANGE hChange);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSENUM* ClusterOpenEnum(_HCLUSTER* hCluster, uint32 dwType);
+	public static extern _HCLUSENUM ClusterOpenEnum(_HCLUSTER hCluster, uint32 dwType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGetEnumCount(_HCLUSENUM* hEnum);
+	public static extern uint32 ClusterGetEnumCount(_HCLUSENUM hEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterEnum(_HCLUSENUM* hEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterEnum(_HCLUSENUM hEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszName, uint32 lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterCloseEnum(_HCLUSENUM* hEnum);
+	public static extern uint32 ClusterCloseEnum(_HCLUSENUM hEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSENUMEX* ClusterOpenEnumEx(_HCLUSTER* hCluster, uint32 dwType, void* pOptions);
+	public static extern _HCLUSENUMEX ClusterOpenEnumEx(_HCLUSTER hCluster, uint32 dwType, void pOptions);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGetEnumCountEx(_HCLUSENUMEX* hClusterEnum);
+	public static extern uint32 ClusterGetEnumCountEx(_HCLUSENUMEX hClusterEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterEnumEx(_HCLUSENUMEX* hClusterEnum, uint32 dwIndex, CLUSTER_ENUM_ITEM* pItem, uint32* cbItem);
+	public static extern uint32 ClusterEnumEx(_HCLUSENUMEX hClusterEnum, uint32 dwIndex, CLUSTER_ENUM_ITEM pItem, uint32 cbItem);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterCloseEnumEx(_HCLUSENUMEX* hClusterEnum);
+	public static extern uint32 ClusterCloseEnumEx(_HCLUSENUMEX hClusterEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUPSET* CreateClusterGroupSet(_HCLUSTER* hCluster, PWSTR groupSetName);
+	public static extern _HGROUPSET CreateClusterGroupSet(_HCLUSTER hCluster, PWSTR groupSetName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUPSET* OpenClusterGroupSet(_HCLUSTER* hCluster, PWSTR lpszGroupSetName);
+	public static extern _HGROUPSET OpenClusterGroupSet(_HCLUSTER hCluster, PWSTR lpszGroupSetName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CloseClusterGroupSet(_HGROUPSET* hGroupSet);
+	public static extern BOOL CloseClusterGroupSet(_HGROUPSET hGroupSet);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DeleteClusterGroupSet(_HGROUPSET* hGroupSet);
+	public static extern uint32 DeleteClusterGroupSet(_HGROUPSET hGroupSet);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterAddGroupToGroupSet(_HGROUPSET* hGroupSet, _HGROUP* hGroup);
+	public static extern uint32 ClusterAddGroupToGroupSet(_HGROUPSET hGroupSet, _HGROUP hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterAddGroupToGroupSetWithDomains(_HGROUPSET* hGroupSet, _HGROUP* hGroup, uint32 faultDomain, uint32 updateDomain);
+	public static extern uint32 ClusterAddGroupToGroupSetWithDomains(_HGROUPSET hGroupSet, _HGROUP hGroup, uint32 faultDomain, uint32 updateDomain);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterRemoveGroupFromGroupSet(_HGROUP* hGroup);
+	public static extern uint32 ClusterRemoveGroupFromGroupSet(_HGROUP hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupSetControl(_HGROUPSET* hGroupSet, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 cbInBufferSize, void* lpOutBuffer, uint32 cbOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterGroupSetControl(_HGROUPSET hGroupSet, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 cbInBufferSize, void lpOutBuffer, uint32 cbOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AddClusterGroupDependency(_HGROUP* hDependentGroup, _HGROUP* hProviderGroup);
+	public static extern uint32 AddClusterGroupDependency(_HGROUP hDependentGroup, _HGROUP hProviderGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetGroupDependencyExpression(_HGROUP* hGroup, PWSTR lpszDependencyExpression);
+	public static extern uint32 SetGroupDependencyExpression(_HGROUP hGroup, PWSTR lpszDependencyExpression);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RemoveClusterGroupDependency(_HGROUP* hGroup, _HGROUP* hDependsOn);
+	public static extern uint32 RemoveClusterGroupDependency(_HGROUP hGroup, _HGROUP hDependsOn);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AddClusterGroupSetDependency(_HGROUPSET* hDependentGroupSet, _HGROUPSET* hProviderGroupSet);
+	public static extern uint32 AddClusterGroupSetDependency(_HGROUPSET hDependentGroupSet, _HGROUPSET hProviderGroupSet);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetClusterGroupSetDependencyExpression(_HGROUPSET* hGroupSet, PWSTR lpszDependencyExprssion);
+	public static extern uint32 SetClusterGroupSetDependencyExpression(_HGROUPSET hGroupSet, PWSTR lpszDependencyExprssion);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RemoveClusterGroupSetDependency(_HGROUPSET* hGroupSet, _HGROUPSET* hDependsOn);
+	public static extern uint32 RemoveClusterGroupSetDependency(_HGROUPSET hGroupSet, _HGROUPSET hDependsOn);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AddClusterGroupToGroupSetDependency(_HGROUP* hDependentGroup, _HGROUPSET* hProviderGroupSet);
+	public static extern uint32 AddClusterGroupToGroupSetDependency(_HGROUP hDependentGroup, _HGROUPSET hProviderGroupSet);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RemoveClusterGroupToGroupSetDependency(_HGROUP* hGroup, _HGROUPSET* hDependsOn);
+	public static extern uint32 RemoveClusterGroupToGroupSetDependency(_HGROUP hGroup, _HGROUPSET hDependsOn);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUPSETENUM* ClusterGroupSetOpenEnum(_HCLUSTER* hCluster);
+	public static extern _HGROUPSETENUM ClusterGroupSetOpenEnum(_HCLUSTER hCluster);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupSetGetEnumCount(_HGROUPSETENUM* hGroupSetEnum);
+	public static extern uint32 ClusterGroupSetGetEnumCount(_HGROUPSETENUM hGroupSetEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupSetEnum(_HGROUPSETENUM* hGroupSetEnum, uint32 dwIndex, char16* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterGroupSetEnum(_HGROUPSETENUM hGroupSetEnum, uint32 dwIndex, char16* lpszName, uint32 lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupSetCloseEnum(_HGROUPSETENUM* hGroupSetEnum);
+	public static extern uint32 ClusterGroupSetCloseEnum(_HGROUPSETENUM hGroupSetEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AddCrossClusterGroupSetDependency(_HGROUPSET* hDependentGroupSet, PWSTR lpRemoteClusterName, PWSTR lpRemoteGroupSetName);
+	public static extern uint32 AddCrossClusterGroupSetDependency(_HGROUPSET hDependentGroupSet, PWSTR lpRemoteClusterName, PWSTR lpRemoteGroupSetName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RemoveCrossClusterGroupSetDependency(_HGROUPSET* hDependentGroupSet, PWSTR lpRemoteClusterName, PWSTR lpRemoteGroupSetName);
+	public static extern uint32 RemoveCrossClusterGroupSetDependency(_HGROUPSET hDependentGroupSet, PWSTR lpRemoteClusterName, PWSTR lpRemoteGroupSetName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUPSET* CreateClusterAvailabilitySet(_HCLUSTER* hCluster, PWSTR lpAvailabilitySetName, CLUSTER_AVAILABILITY_SET_CONFIG* pAvailabilitySetConfig);
+	public static extern _HGROUPSET CreateClusterAvailabilitySet(_HCLUSTER hCluster, PWSTR lpAvailabilitySetName, CLUSTER_AVAILABILITY_SET_CONFIG pAvailabilitySetConfig);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNodeReplacement(_HCLUSTER* hCluster, PWSTR lpszNodeNameCurrent, PWSTR lpszNodeNameNew);
+	public static extern uint32 ClusterNodeReplacement(_HCLUSTER hCluster, PWSTR lpszNodeNameCurrent, PWSTR lpszNodeNameNew);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterCreateAffinityRule(_HCLUSTER* hCluster, PWSTR ruleName, CLUS_AFFINITY_RULE_TYPE ruleType);
+	public static extern uint32 ClusterCreateAffinityRule(_HCLUSTER hCluster, PWSTR ruleName, CLUS_AFFINITY_RULE_TYPE ruleType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterRemoveAffinityRule(_HCLUSTER* hCluster, PWSTR ruleName);
+	public static extern uint32 ClusterRemoveAffinityRule(_HCLUSTER hCluster, PWSTR ruleName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterAddGroupToAffinityRule(_HCLUSTER* hCluster, PWSTR ruleName, _HGROUP* hGroup);
+	public static extern uint32 ClusterAddGroupToAffinityRule(_HCLUSTER hCluster, PWSTR ruleName, _HGROUP hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterRemoveGroupFromAffinityRule(_HCLUSTER* hCluster, PWSTR ruleName, _HGROUP* hGroup);
+	public static extern uint32 ClusterRemoveGroupFromAffinityRule(_HCLUSTER hCluster, PWSTR ruleName, _HGROUP hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterAffinityRuleControl(_HCLUSTER* hCluster, PWSTR affinityRuleName, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 cbInBufferSize, void* lpOutBuffer, uint32 cbOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterAffinityRuleControl(_HCLUSTER hCluster, PWSTR affinityRuleName, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 cbInBufferSize, void lpOutBuffer, uint32 cbOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNODE* OpenClusterNode(_HCLUSTER* hCluster, PWSTR lpszNodeName);
+	public static extern _HNODE OpenClusterNode(_HCLUSTER hCluster, PWSTR lpszNodeName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNODE* OpenClusterNodeEx(_HCLUSTER* hCluster, PWSTR lpszNodeName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+	public static extern _HNODE OpenClusterNodeEx(_HCLUSTER hCluster, PWSTR lpszNodeName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNODE* OpenClusterNodeById(_HCLUSTER* hCluster, uint32 nodeId);
+	public static extern _HNODE OpenClusterNodeById(_HCLUSTER hCluster, uint32 nodeId);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CloseClusterNode(_HNODE* hNode);
+	public static extern BOOL CloseClusterNode(_HNODE hNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CLUSTER_NODE_STATE GetClusterNodeState(_HNODE* hNode);
+	public static extern CLUSTER_NODE_STATE GetClusterNodeState(_HNODE hNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterNodeId(_HNODE* hNode, char16* lpszNodeId, uint32* lpcchName);
+	public static extern uint32 GetClusterNodeId(_HNODE hNode, char16* lpszNodeId, uint32 lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSTER* GetClusterFromNode(_HNODE* hNode);
+	public static extern _HCLUSTER GetClusterFromNode(_HNODE hNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PauseClusterNode(_HNODE* hNode);
+	public static extern uint32 PauseClusterNode(_HNODE hNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResumeClusterNode(_HNODE* hNode);
+	public static extern uint32 ResumeClusterNode(_HNODE hNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EvictClusterNode(_HNODE* hNode);
+	public static extern uint32 EvictClusterNode(_HNODE hNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNETINTERFACEENUM* ClusterNetInterfaceOpenEnum(_HCLUSTER* hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName);
+	public static extern _HNETINTERFACEENUM ClusterNetInterfaceOpenEnum(_HCLUSTER hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNetInterfaceEnum(_HNETINTERFACEENUM* hNetInterfaceEnum, uint32 dwIndex, char16* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterNetInterfaceEnum(_HNETINTERFACEENUM hNetInterfaceEnum, uint32 dwIndex, char16* lpszName, uint32 lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNetInterfaceCloseEnum(_HNETINTERFACEENUM* hNetInterfaceEnum);
+	public static extern uint32 ClusterNetInterfaceCloseEnum(_HNETINTERFACEENUM hNetInterfaceEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNODEENUM* ClusterNodeOpenEnum(_HNODE* hNode, uint32 dwType);
+	public static extern _HNODEENUM ClusterNodeOpenEnum(_HNODE hNode, uint32 dwType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNODEENUMEX* ClusterNodeOpenEnumEx(_HNODE* hNode, uint32 dwType, void* pOptions);
+	public static extern _HNODEENUMEX ClusterNodeOpenEnumEx(_HNODE hNode, uint32 dwType, void pOptions);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNodeGetEnumCountEx(_HNODEENUMEX* hNodeEnum);
+	public static extern uint32 ClusterNodeGetEnumCountEx(_HNODEENUMEX hNodeEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNodeEnumEx(_HNODEENUMEX* hNodeEnum, uint32 dwIndex, CLUSTER_ENUM_ITEM* pItem, uint32* cbItem);
+	public static extern uint32 ClusterNodeEnumEx(_HNODEENUMEX hNodeEnum, uint32 dwIndex, CLUSTER_ENUM_ITEM pItem, uint32 cbItem);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNodeCloseEnumEx(_HNODEENUMEX* hNodeEnum);
+	public static extern uint32 ClusterNodeCloseEnumEx(_HNODEENUMEX hNodeEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNodeGetEnumCount(_HNODEENUM* hNodeEnum);
+	public static extern uint32 ClusterNodeGetEnumCount(_HNODEENUM hNodeEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNodeCloseEnum(_HNODEENUM* hNodeEnum);
+	public static extern uint32 ClusterNodeCloseEnum(_HNODEENUM hNodeEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNodeEnum(_HNODEENUM* hNodeEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterNodeEnum(_HNODEENUM hNodeEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszName, uint32 lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EvictClusterNodeEx(_HNODE* hNode, uint32 dwTimeOut, HRESULT* phrCleanupStatus);
+	public static extern uint32 EvictClusterNodeEx(_HNODE hNode, uint32 dwTimeOut, HRESULT phrCleanupStatus);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HKEY GetClusterResourceTypeKey(_HCLUSTER* hCluster, PWSTR lpszTypeName, uint32 samDesired);
+	public static extern HKEY GetClusterResourceTypeKey(_HCLUSTER hCluster, PWSTR lpszTypeName, uint32 samDesired);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUP* CreateClusterGroup(_HCLUSTER* hCluster, PWSTR lpszGroupName);
+	public static extern _HGROUP CreateClusterGroup(_HCLUSTER hCluster, PWSTR lpszGroupName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUP* OpenClusterGroup(_HCLUSTER* hCluster, PWSTR lpszGroupName);
+	public static extern _HGROUP OpenClusterGroup(_HCLUSTER hCluster, PWSTR lpszGroupName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUP* OpenClusterGroupEx(_HCLUSTER* hCluster, PWSTR lpszGroupName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+	public static extern _HGROUP OpenClusterGroupEx(_HCLUSTER hCluster, PWSTR lpszGroupName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PauseClusterNodeEx(_HNODE* hNode, BOOL bDrainNode, uint32 dwPauseFlags, _HNODE* hNodeDrainTarget);
+	public static extern uint32 PauseClusterNodeEx(_HNODE hNode, BOOL bDrainNode, uint32 dwPauseFlags, _HNODE hNodeDrainTarget);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResumeClusterNodeEx(_HNODE* hNode, CLUSTER_NODE_RESUME_FAILBACK_TYPE eResumeFailbackType, uint32 dwResumeFlagsReserved);
+	public static extern uint32 ResumeClusterNodeEx(_HNODE hNode, CLUSTER_NODE_RESUME_FAILBACK_TYPE eResumeFailbackType, uint32 dwResumeFlagsReserved);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUP* CreateClusterGroupEx(_HCLUSTER* hCluster, PWSTR lpszGroupName, CLUSTER_CREATE_GROUP_INFO* pGroupInfo);
+	public static extern _HGROUP CreateClusterGroupEx(_HCLUSTER hCluster, PWSTR lpszGroupName, CLUSTER_CREATE_GROUP_INFO pGroupInfo);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUPENUMEX* ClusterGroupOpenEnumEx(_HCLUSTER* hCluster, PWSTR lpszProperties, uint32 cbProperties, PWSTR lpszRoProperties, uint32 cbRoProperties, uint32 dwFlags);
+	public static extern _HGROUPENUMEX ClusterGroupOpenEnumEx(_HCLUSTER hCluster, PWSTR lpszProperties, uint32 cbProperties, PWSTR lpszRoProperties, uint32 cbRoProperties, uint32 dwFlags);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupGetEnumCountEx(_HGROUPENUMEX* hGroupEnumEx);
+	public static extern uint32 ClusterGroupGetEnumCountEx(_HGROUPENUMEX hGroupEnumEx);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupEnumEx(_HGROUPENUMEX* hGroupEnumEx, uint32 dwIndex, CLUSTER_GROUP_ENUM_ITEM* pItem, uint32* cbItem);
+	public static extern uint32 ClusterGroupEnumEx(_HGROUPENUMEX hGroupEnumEx, uint32 dwIndex, CLUSTER_GROUP_ENUM_ITEM pItem, uint32 cbItem);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupCloseEnumEx(_HGROUPENUMEX* hGroupEnumEx);
+	public static extern uint32 ClusterGroupCloseEnumEx(_HGROUPENUMEX hGroupEnumEx);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESENUMEX* ClusterResourceOpenEnumEx(_HCLUSTER* hCluster, PWSTR lpszProperties, uint32 cbProperties, PWSTR lpszRoProperties, uint32 cbRoProperties, uint32 dwFlags);
+	public static extern _HRESENUMEX ClusterResourceOpenEnumEx(_HCLUSTER hCluster, PWSTR lpszProperties, uint32 cbProperties, PWSTR lpszRoProperties, uint32 cbRoProperties, uint32 dwFlags);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceGetEnumCountEx(_HRESENUMEX* hResourceEnumEx);
+	public static extern uint32 ClusterResourceGetEnumCountEx(_HRESENUMEX hResourceEnumEx);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceEnumEx(_HRESENUMEX* hResourceEnumEx, uint32 dwIndex, CLUSTER_RESOURCE_ENUM_ITEM* pItem, uint32* cbItem);
+	public static extern uint32 ClusterResourceEnumEx(_HRESENUMEX hResourceEnumEx, uint32 dwIndex, CLUSTER_RESOURCE_ENUM_ITEM pItem, uint32 cbItem);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceCloseEnumEx(_HRESENUMEX* hResourceEnumEx);
+	public static extern uint32 ClusterResourceCloseEnumEx(_HRESENUMEX hResourceEnumEx);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 OnlineClusterGroupEx(_HGROUP* hGroup, _HNODE* hDestinationNode, uint32 dwOnlineFlags, uint8* lpInBuffer, uint32 cbInBufferSize);
+	public static extern uint32 OnlineClusterGroupEx(_HGROUP hGroup, _HNODE hDestinationNode, uint32 dwOnlineFlags, uint8 lpInBuffer, uint32 cbInBufferSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 OfflineClusterGroupEx(_HGROUP* hGroup, uint32 dwOfflineFlags, uint8* lpInBuffer, uint32 cbInBufferSize);
+	public static extern uint32 OfflineClusterGroupEx(_HGROUP hGroup, uint32 dwOfflineFlags, uint8 lpInBuffer, uint32 cbInBufferSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 OnlineClusterResourceEx(_HRESOURCE* hResource, uint32 dwOnlineFlags, uint8* lpInBuffer, uint32 cbInBufferSize);
+	public static extern uint32 OnlineClusterResourceEx(_HRESOURCE hResource, uint32 dwOnlineFlags, uint8 lpInBuffer, uint32 cbInBufferSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 OfflineClusterResourceEx(_HRESOURCE* hResource, uint32 dwOfflineFlags, uint8* lpInBuffer, uint32 cbInBufferSize);
+	public static extern uint32 OfflineClusterResourceEx(_HRESOURCE hResource, uint32 dwOfflineFlags, uint8 lpInBuffer, uint32 cbInBufferSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MoveClusterGroupEx(_HGROUP* hGroup, _HNODE* hDestinationNode, uint32 dwMoveFlags, uint8* lpInBuffer, uint32 cbInBufferSize);
+	public static extern uint32 MoveClusterGroupEx(_HGROUP hGroup, _HNODE hDestinationNode, uint32 dwMoveFlags, uint8 lpInBuffer, uint32 cbInBufferSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CancelClusterGroupOperation(_HGROUP* hGroup, uint32 dwCancelFlags_RESERVED);
+	public static extern uint32 CancelClusterGroupOperation(_HGROUP hGroup, uint32 dwCancelFlags_RESERVED);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RestartClusterResource(_HRESOURCE* hResource, uint32 dwFlags);
+	public static extern uint32 RestartClusterResource(_HRESOURCE hResource, uint32 dwFlags);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CloseClusterGroup(_HGROUP* hGroup);
+	public static extern BOOL CloseClusterGroup(_HGROUP hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSTER* GetClusterFromGroup(_HGROUP* hGroup);
+	public static extern _HCLUSTER GetClusterFromGroup(_HGROUP hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CLUSTER_GROUP_STATE GetClusterGroupState(_HGROUP* hGroup, char16* lpszNodeName, uint32* lpcchNodeName);
+	public static extern CLUSTER_GROUP_STATE GetClusterGroupState(_HGROUP hGroup, char16* lpszNodeName, uint32 lpcchNodeName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetClusterGroupName(_HGROUP* hGroup, PWSTR lpszGroupName);
+	public static extern uint32 SetClusterGroupName(_HGROUP hGroup, PWSTR lpszGroupName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetClusterGroupNodeList(_HGROUP* hGroup, uint32 NodeCount, _HNODE** NodeList);
+	public static extern uint32 SetClusterGroupNodeList(_HGROUP hGroup, uint32 NodeCount, _HNODE* NodeList);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 OnlineClusterGroup(_HGROUP* hGroup, _HNODE* hDestinationNode);
+	public static extern uint32 OnlineClusterGroup(_HGROUP hGroup, _HNODE hDestinationNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MoveClusterGroup(_HGROUP* hGroup, _HNODE* hDestinationNode);
+	public static extern uint32 MoveClusterGroup(_HGROUP hGroup, _HNODE hDestinationNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 OfflineClusterGroup(_HGROUP* hGroup);
+	public static extern uint32 OfflineClusterGroup(_HGROUP hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DeleteClusterGroup(_HGROUP* hGroup);
+	public static extern uint32 DeleteClusterGroup(_HGROUP hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DestroyClusterGroup(_HGROUP* hGroup);
+	public static extern uint32 DestroyClusterGroup(_HGROUP hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUPENUM* ClusterGroupOpenEnum(_HGROUP* hGroup, uint32 dwType);
+	public static extern _HGROUPENUM ClusterGroupOpenEnum(_HGROUP hGroup, uint32 dwType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupGetEnumCount(_HGROUPENUM* hGroupEnum);
+	public static extern uint32 ClusterGroupGetEnumCount(_HGROUPENUM hGroupEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupEnum(_HGROUPENUM* hGroupEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszResourceName, uint32* lpcchName);
+	public static extern uint32 ClusterGroupEnum(_HGROUPENUM hGroupEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszResourceName, uint32 lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupCloseEnum(_HGROUPENUM* hGroupEnum);
+	public static extern uint32 ClusterGroupCloseEnum(_HGROUPENUM hGroupEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* CreateClusterResource(_HGROUP* hGroup, PWSTR lpszResourceName, PWSTR lpszResourceType, uint32 dwFlags);
+	public static extern _HRESOURCE CreateClusterResource(_HGROUP hGroup, PWSTR lpszResourceName, PWSTR lpszResourceType, uint32 dwFlags);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* OpenClusterResource(_HCLUSTER* hCluster, PWSTR lpszResourceName);
+	public static extern _HRESOURCE OpenClusterResource(_HCLUSTER hCluster, PWSTR lpszResourceName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* OpenClusterResourceEx(_HCLUSTER* hCluster, PWSTR lpszResourceName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+	public static extern _HRESOURCE OpenClusterResourceEx(_HCLUSTER hCluster, PWSTR lpszResourceName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CloseClusterResource(_HRESOURCE* hResource);
+	public static extern BOOL CloseClusterResource(_HRESOURCE hResource);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSTER* GetClusterFromResource(_HRESOURCE* hResource);
+	public static extern _HCLUSTER GetClusterFromResource(_HRESOURCE hResource);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DeleteClusterResource(_HRESOURCE* hResource);
+	public static extern uint32 DeleteClusterResource(_HRESOURCE hResource);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CLUSTER_RESOURCE_STATE GetClusterResourceState(_HRESOURCE* hResource, char16* lpszNodeName, uint32* lpcchNodeName, char16* lpszGroupName, uint32* lpcchGroupName);
+	public static extern CLUSTER_RESOURCE_STATE GetClusterResourceState(_HRESOURCE hResource, char16* lpszNodeName, uint32 lpcchNodeName, char16* lpszGroupName, uint32 lpcchGroupName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetClusterResourceName(_HRESOURCE* hResource, PWSTR lpszResourceName);
+	public static extern uint32 SetClusterResourceName(_HRESOURCE hResource, PWSTR lpszResourceName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FailClusterResource(_HRESOURCE* hResource);
+	public static extern uint32 FailClusterResource(_HRESOURCE hResource);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 OnlineClusterResource(_HRESOURCE* hResource);
+	public static extern uint32 OnlineClusterResource(_HRESOURCE hResource);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 OfflineClusterResource(_HRESOURCE* hResource);
+	public static extern uint32 OfflineClusterResource(_HRESOURCE hResource);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ChangeClusterResourceGroup(_HRESOURCE* hResource, _HGROUP* hGroup);
+	public static extern uint32 ChangeClusterResourceGroup(_HRESOURCE hResource, _HGROUP hGroup);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ChangeClusterResourceGroupEx(_HRESOURCE* hResource, _HGROUP* hGroup, uint64 Flags);
+	public static extern uint32 ChangeClusterResourceGroupEx(_HRESOURCE hResource, _HGROUP hGroup, uint64 Flags);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AddClusterResourceNode(_HRESOURCE* hResource, _HNODE* hNode);
+	public static extern uint32 AddClusterResourceNode(_HRESOURCE hResource, _HNODE hNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RemoveClusterResourceNode(_HRESOURCE* hResource, _HNODE* hNode);
+	public static extern uint32 RemoveClusterResourceNode(_HRESOURCE hResource, _HNODE hNode);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AddClusterResourceDependency(_HRESOURCE* hResource, _HRESOURCE* hDependsOn);
+	public static extern uint32 AddClusterResourceDependency(_HRESOURCE hResource, _HRESOURCE hDependsOn);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RemoveClusterResourceDependency(_HRESOURCE* hResource, _HRESOURCE* hDependsOn);
+	public static extern uint32 RemoveClusterResourceDependency(_HRESOURCE hResource, _HRESOURCE hDependsOn);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetClusterResourceDependencyExpression(_HRESOURCE* hResource, PWSTR lpszDependencyExpression);
+	public static extern uint32 SetClusterResourceDependencyExpression(_HRESOURCE hResource, PWSTR lpszDependencyExpression);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterResourceDependencyExpression(_HRESOURCE* hResource, char16* lpszDependencyExpression, uint32* lpcchDependencyExpression);
+	public static extern uint32 GetClusterResourceDependencyExpression(_HRESOURCE hResource, char16* lpszDependencyExpression, uint32 lpcchDependencyExpression);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AddResourceToClusterSharedVolumes(_HRESOURCE* hResource);
+	public static extern uint32 AddResourceToClusterSharedVolumes(_HRESOURCE hResource);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RemoveResourceFromClusterSharedVolumes(_HRESOURCE* hResource);
+	public static extern uint32 RemoveResourceFromClusterSharedVolumes(_HRESOURCE hResource);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 IsFileOnClusterSharedVolume(PWSTR lpszPathName, BOOL* pbFileIsOnSharedVolume);
+	public static extern uint32 IsFileOnClusterSharedVolume(PWSTR lpszPathName, BOOL pbFileIsOnSharedVolume);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterSharedVolumeSetSnapshotState(Guid guidSnapshotSet, PWSTR lpszVolumeName, CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE state);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CanResourceBeDependent(_HRESOURCE* hResource, _HRESOURCE* hResourceDependent);
+	public static extern BOOL CanResourceBeDependent(_HRESOURCE hResource, _HRESOURCE hResourceDependent);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceControl(_HRESOURCE* hResource, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 cbInBufferSize, void* lpOutBuffer, uint32 cbOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterResourceControl(_HRESOURCE hResource, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 cbInBufferSize, void lpOutBuffer, uint32 cbOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceControlAsUser(_HRESOURCE* hResource, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 cbInBufferSize, void* lpOutBuffer, uint32 cbOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterResourceControlAsUser(_HRESOURCE hResource, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 cbInBufferSize, void lpOutBuffer, uint32 cbOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceTypeControl(_HCLUSTER* hCluster, PWSTR lpszResourceTypeName, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterResourceTypeControl(_HCLUSTER hCluster, PWSTR lpszResourceTypeName, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceTypeControlAsUser(_HCLUSTER* hCluster, PWSTR lpszResourceTypeName, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterResourceTypeControlAsUser(_HCLUSTER hCluster, PWSTR lpszResourceTypeName, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterGroupControl(_HGROUP* hGroup, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterGroupControl(_HGROUP hGroup, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNodeControl(_HNODE* hNode, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterNodeControl(_HNODE hNode, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetClusterResourceNetworkName(_HRESOURCE* hResource, char16* lpBuffer, uint32* nSize);
+	public static extern BOOL GetClusterResourceNetworkName(_HRESOURCE hResource, char16* lpBuffer, uint32 nSize);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESENUM* ClusterResourceOpenEnum(_HRESOURCE* hResource, uint32 dwType);
+	public static extern _HRESENUM ClusterResourceOpenEnum(_HRESOURCE hResource, uint32 dwType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceGetEnumCount(_HRESENUM* hResEnum);
+	public static extern uint32 ClusterResourceGetEnumCount(_HRESENUM hResEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceEnum(_HRESENUM* hResEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterResourceEnum(_HRESENUM hResEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszName, uint32 lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceCloseEnum(_HRESENUM* hResEnum);
+	public static extern uint32 ClusterResourceCloseEnum(_HRESENUM hResEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CreateClusterResourceType(_HCLUSTER* hCluster, PWSTR lpszResourceTypeName, PWSTR lpszDisplayName, PWSTR lpszResourceTypeDll, uint32 dwLooksAlivePollInterval, uint32 dwIsAlivePollInterval);
+	public static extern uint32 CreateClusterResourceType(_HCLUSTER hCluster, PWSTR lpszResourceTypeName, PWSTR lpszDisplayName, PWSTR lpszResourceTypeDll, uint32 dwLooksAlivePollInterval, uint32 dwIsAlivePollInterval);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DeleteClusterResourceType(_HCLUSTER* hCluster, PWSTR lpszResourceTypeName);
+	public static extern uint32 DeleteClusterResourceType(_HCLUSTER hCluster, PWSTR lpszResourceTypeName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESTYPEENUM* ClusterResourceTypeOpenEnum(_HCLUSTER* hCluster, PWSTR lpszResourceTypeName, uint32 dwType);
+	public static extern _HRESTYPEENUM ClusterResourceTypeOpenEnum(_HCLUSTER hCluster, PWSTR lpszResourceTypeName, uint32 dwType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceTypeGetEnumCount(_HRESTYPEENUM* hResTypeEnum);
+	public static extern uint32 ClusterResourceTypeGetEnumCount(_HRESTYPEENUM hResTypeEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceTypeEnum(_HRESTYPEENUM* hResTypeEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterResourceTypeEnum(_HRESTYPEENUM hResTypeEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszName, uint32 lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterResourceTypeCloseEnum(_HRESTYPEENUM* hResTypeEnum);
+	public static extern uint32 ClusterResourceTypeCloseEnum(_HRESTYPEENUM hResTypeEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNETWORK* OpenClusterNetwork(_HCLUSTER* hCluster, PWSTR lpszNetworkName);
+	public static extern _HNETWORK OpenClusterNetwork(_HCLUSTER hCluster, PWSTR lpszNetworkName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNETWORK* OpenClusterNetworkEx(_HCLUSTER* hCluster, PWSTR lpszNetworkName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+	public static extern _HNETWORK OpenClusterNetworkEx(_HCLUSTER hCluster, PWSTR lpszNetworkName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CloseClusterNetwork(_HNETWORK* hNetwork);
+	public static extern BOOL CloseClusterNetwork(_HNETWORK hNetwork);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSTER* GetClusterFromNetwork(_HNETWORK* hNetwork);
+	public static extern _HCLUSTER GetClusterFromNetwork(_HNETWORK hNetwork);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNETWORKENUM* ClusterNetworkOpenEnum(_HNETWORK* hNetwork, uint32 dwType);
+	public static extern _HNETWORKENUM ClusterNetworkOpenEnum(_HNETWORK hNetwork, uint32 dwType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNetworkGetEnumCount(_HNETWORKENUM* hNetworkEnum);
+	public static extern uint32 ClusterNetworkGetEnumCount(_HNETWORKENUM hNetworkEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNetworkEnum(_HNETWORKENUM* hNetworkEnum, uint32 dwIndex, uint32* lpdwType, char16* lpszName, uint32* lpcchName);
+	public static extern uint32 ClusterNetworkEnum(_HNETWORKENUM hNetworkEnum, uint32 dwIndex, uint32 lpdwType, char16* lpszName, uint32 lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNetworkCloseEnum(_HNETWORKENUM* hNetworkEnum);
+	public static extern uint32 ClusterNetworkCloseEnum(_HNETWORKENUM hNetworkEnum);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CLUSTER_NETWORK_STATE GetClusterNetworkState(_HNETWORK* hNetwork);
+	public static extern CLUSTER_NETWORK_STATE GetClusterNetworkState(_HNETWORK hNetwork);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetClusterNetworkName(_HNETWORK* hNetwork, PWSTR lpszName);
+	public static extern uint32 SetClusterNetworkName(_HNETWORK hNetwork, PWSTR lpszName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterNetworkId(_HNETWORK* hNetwork, char16* lpszNetworkId, uint32* lpcchName);
+	public static extern uint32 GetClusterNetworkId(_HNETWORK hNetwork, char16* lpszNetworkId, uint32 lpcchName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNetworkControl(_HNETWORK* hNetwork, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterNetworkControl(_HNETWORK hNetwork, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNETINTERFACE* OpenClusterNetInterface(_HCLUSTER* hCluster, PWSTR lpszInterfaceName);
+	public static extern _HNETINTERFACE OpenClusterNetInterface(_HCLUSTER hCluster, PWSTR lpszInterfaceName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNETINTERFACE* OpenClusterNetInterfaceEx(_HCLUSTER* hCluster, PWSTR lpszInterfaceName, uint32 dwDesiredAccess, uint32* lpdwGrantedAccess);
+	public static extern _HNETINTERFACE OpenClusterNetInterfaceEx(_HCLUSTER hCluster, PWSTR lpszInterfaceName, uint32 dwDesiredAccess, uint32 lpdwGrantedAccess);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetClusterNetInterface(_HCLUSTER* hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName, char16* lpszInterfaceName, uint32* lpcchInterfaceName);
+	public static extern uint32 GetClusterNetInterface(_HCLUSTER hCluster, PWSTR lpszNodeName, PWSTR lpszNetworkName, char16* lpszInterfaceName, uint32 lpcchInterfaceName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CloseClusterNetInterface(_HNETINTERFACE* hNetInterface);
+	public static extern BOOL CloseClusterNetInterface(_HNETINTERFACE hNetInterface);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSTER* GetClusterFromNetInterface(_HNETINTERFACE* hNetInterface);
+	public static extern _HCLUSTER GetClusterFromNetInterface(_HNETINTERFACE hNetInterface);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CLUSTER_NETINTERFACE_STATE GetClusterNetInterfaceState(_HNETINTERFACE* hNetInterface);
+	public static extern CLUSTER_NETINTERFACE_STATE GetClusterNetInterfaceState(_HNETINTERFACE hNetInterface);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterNetInterfaceControl(_HNETINTERFACE* hNetInterface, _HNODE* hHostNode, uint32 dwControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned);
+	public static extern uint32 ClusterNetInterfaceControl(_HNETINTERFACE hNetInterface, _HNODE hHostNode, uint32 dwControlCode, void lpInBuffer, uint32 nInBufferSize, void lpOutBuffer, uint32 nOutBufferSize, uint32 lpBytesReturned);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HKEY GetClusterKey(_HCLUSTER* hCluster, uint32 samDesired);
+	public static extern HKEY GetClusterKey(_HCLUSTER hCluster, uint32 samDesired);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HKEY GetClusterGroupKey(_HGROUP* hGroup, uint32 samDesired);
+	public static extern HKEY GetClusterGroupKey(_HGROUP hGroup, uint32 samDesired);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HKEY GetClusterResourceKey(_HRESOURCE* hResource, uint32 samDesired);
+	public static extern HKEY GetClusterResourceKey(_HRESOURCE hResource, uint32 samDesired);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HKEY GetClusterNodeKey(_HNODE* hNode, uint32 samDesired);
+	public static extern HKEY GetClusterNodeKey(_HNODE hNode, uint32 samDesired);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HKEY GetClusterNetworkKey(_HNETWORK* hNetwork, uint32 samDesired);
+	public static extern HKEY GetClusterNetworkKey(_HNETWORK hNetwork, uint32 samDesired);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HKEY GetClusterNetInterfaceKey(_HNETINTERFACE* hNetInterface, uint32 samDesired);
+	public static extern HKEY GetClusterNetInterfaceKey(_HNETINTERFACE hNetInterface, uint32 samDesired);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegCreateKey(HKEY hKey, PWSTR lpszSubKey, uint32 dwOptions, uint32 samDesired, SECURITY_ATTRIBUTES* lpSecurityAttributes, HKEY* phkResult, uint32* lpdwDisposition);
+	public static extern int32 ClusterRegCreateKey(HKEY hKey, PWSTR lpszSubKey, uint32 dwOptions, uint32 samDesired, SECURITY_ATTRIBUTES lpSecurityAttributes, HKEY phkResult, uint32 lpdwDisposition);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegOpenKey(HKEY hKey, PWSTR lpszSubKey, uint32 samDesired, HKEY* phkResult);
+	public static extern int32 ClusterRegOpenKey(HKEY hKey, PWSTR lpszSubKey, uint32 samDesired, HKEY phkResult);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ClusterRegDeleteKey(HKEY hKey, PWSTR lpszSubKey);
@@ -6540,145 +6540,145 @@ public static
 	public static extern int32 ClusterRegCloseKey(HKEY hKey);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegEnumKey(HKEY hKey, uint32 dwIndex, char16* lpszName, uint32* lpcchName, FILETIME* lpftLastWriteTime);
+	public static extern int32 ClusterRegEnumKey(HKEY hKey, uint32 dwIndex, char16* lpszName, uint32 lpcchName, FILETIME lpftLastWriteTime);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterRegSetValue(HKEY hKey, PWSTR lpszValueName, uint32 dwType, uint8* lpData, uint32 cbData);
+	public static extern uint32 ClusterRegSetValue(HKEY hKey, PWSTR lpszValueName, uint32 dwType, uint8 lpData, uint32 cbData);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterRegDeleteValue(HKEY hKey, PWSTR lpszValueName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegQueryValue(HKEY hKey, PWSTR lpszValueName, uint32* lpdwValueType, uint8* lpData, uint32* lpcbData);
+	public static extern int32 ClusterRegQueryValue(HKEY hKey, PWSTR lpszValueName, uint32 lpdwValueType, uint8 lpData, uint32 lpcbData);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterRegEnumValue(HKEY hKey, uint32 dwIndex, char16* lpszValueName, uint32* lpcchValueName, uint32* lpdwType, uint8* lpData, uint32* lpcbData);
+	public static extern uint32 ClusterRegEnumValue(HKEY hKey, uint32 dwIndex, char16* lpszValueName, uint32 lpcchValueName, uint32 lpdwType, uint8 lpData, uint32 lpcbData);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegQueryInfoKey(HKEY hKey, uint32* lpcSubKeys, uint32* lpcchMaxSubKeyLen, uint32* lpcValues, uint32* lpcchMaxValueNameLen, uint32* lpcbMaxValueLen, uint32* lpcbSecurityDescriptor, FILETIME* lpftLastWriteTime);
+	public static extern int32 ClusterRegQueryInfoKey(HKEY hKey, uint32 lpcSubKeys, uint32 lpcchMaxSubKeyLen, uint32 lpcValues, uint32 lpcchMaxValueNameLen, uint32 lpcbMaxValueLen, uint32 lpcbSecurityDescriptor, FILETIME lpftLastWriteTime);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegGetKeySecurity(HKEY hKey, uint32 RequestedInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor, uint32* lpcbSecurityDescriptor);
+	public static extern int32 ClusterRegGetKeySecurity(HKEY hKey, uint32 RequestedInformation, SECURITY_DESCRIPTOR pSecurityDescriptor, uint32 lpcbSecurityDescriptor);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegSetKeySecurity(HKEY hKey, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
+	public static extern int32 ClusterRegSetKeySecurity(HKEY hKey, uint32 SecurityInformation, SECURITY_DESCRIPTOR pSecurityDescriptor);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegSyncDatabase(_HCLUSTER* hCluster, uint32 flags);
+	public static extern int32 ClusterRegSyncDatabase(_HCLUSTER hCluster, uint32 flags);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegCreateBatch(HKEY hKey, _HREGBATCH** pHREGBATCH);
+	public static extern int32 ClusterRegCreateBatch(HKEY hKey, _HREGBATCH pHREGBATCH);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegBatchAddCommand(_HREGBATCH* hRegBatch, CLUSTER_REG_COMMAND dwCommand, PWSTR wzName, uint32 dwOptions, void* lpData, uint32 cbData);
+	public static extern int32 ClusterRegBatchAddCommand(_HREGBATCH hRegBatch, CLUSTER_REG_COMMAND dwCommand, PWSTR wzName, uint32 dwOptions, void lpData, uint32 cbData);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegCloseBatch(_HREGBATCH* hRegBatch, BOOL bCommit, int32* failedCommandNumber);
+	public static extern int32 ClusterRegCloseBatch(_HREGBATCH hRegBatch, BOOL bCommit, int32 failedCommandNumber);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegCloseBatchEx(_HREGBATCH* hRegBatch, uint32 flags, int32* failedCommandNumber);
+	public static extern int32 ClusterRegCloseBatchEx(_HREGBATCH hRegBatch, uint32 flags, int32 failedCommandNumber);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegBatchReadCommand(_HREGBATCHNOTIFICATION* hBatchNotification, CLUSTER_BATCH_COMMAND* pBatchCommand);
+	public static extern int32 ClusterRegBatchReadCommand(_HREGBATCHNOTIFICATION hBatchNotification, CLUSTER_BATCH_COMMAND pBatchCommand);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegBatchCloseNotification(_HREGBATCHNOTIFICATION* hBatchNotification);
+	public static extern int32 ClusterRegBatchCloseNotification(_HREGBATCHNOTIFICATION hBatchNotification);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegCreateBatchNotifyPort(HKEY hKey, _HREGBATCHPORT** phBatchNotifyPort);
+	public static extern int32 ClusterRegCreateBatchNotifyPort(HKEY hKey, _HREGBATCHPORT phBatchNotifyPort);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegCloseBatchNotifyPort(_HREGBATCHPORT* hBatchNotifyPort);
+	public static extern int32 ClusterRegCloseBatchNotifyPort(_HREGBATCHPORT hBatchNotifyPort);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegGetBatchNotification(_HREGBATCHPORT* hBatchNotify, _HREGBATCHNOTIFICATION** phBatchNotification);
+	public static extern int32 ClusterRegGetBatchNotification(_HREGBATCHPORT hBatchNotify, _HREGBATCHNOTIFICATION phBatchNotification);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegCreateReadBatch(HKEY hKey, _HREGREADBATCH** phRegReadBatch);
+	public static extern int32 ClusterRegCreateReadBatch(HKEY hKey, _HREGREADBATCH phRegReadBatch);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegReadBatchAddCommand(_HREGREADBATCH* hRegReadBatch, PWSTR wzSubkeyName, PWSTR wzValueName);
+	public static extern int32 ClusterRegReadBatchAddCommand(_HREGREADBATCH hRegReadBatch, PWSTR wzSubkeyName, PWSTR wzValueName);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegCloseReadBatch(_HREGREADBATCH* hRegReadBatch, _HREGREADBATCHREPLY** phRegReadBatchReply);
+	public static extern int32 ClusterRegCloseReadBatch(_HREGREADBATCH hRegReadBatch, _HREGREADBATCHREPLY phRegReadBatchReply);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegCloseReadBatchEx(_HREGREADBATCH* hRegReadBatch, uint32 flags, _HREGREADBATCHREPLY** phRegReadBatchReply);
+	public static extern int32 ClusterRegCloseReadBatchEx(_HREGREADBATCH hRegReadBatch, uint32 flags, _HREGREADBATCHREPLY phRegReadBatchReply);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegReadBatchReplyNextCommand(_HREGREADBATCHREPLY* hRegReadBatchReply, CLUSTER_READ_BATCH_COMMAND* pBatchCommand);
+	public static extern int32 ClusterRegReadBatchReplyNextCommand(_HREGREADBATCHREPLY hRegReadBatchReply, CLUSTER_READ_BATCH_COMMAND pBatchCommand);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ClusterRegCloseReadBatchReply(_HREGREADBATCHREPLY* hRegReadBatchReply);
+	public static extern int32 ClusterRegCloseReadBatchReply(_HREGREADBATCHREPLY hRegReadBatchReply);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterSetAccountAccess(_HCLUSTER* hCluster, PWSTR szAccountSID, uint32 dwAccess, uint32 dwControlType);
+	public static extern uint32 ClusterSetAccountAccess(_HCLUSTER hCluster, PWSTR szAccountSID, uint32 dwAccess, uint32 dwControlType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSTER* CreateCluster(CREATE_CLUSTER_CONFIG* pConfig, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+	public static extern _HCLUSTER CreateCluster(CREATE_CLUSTER_CONFIG pConfig, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CreateClusterNameAccount(_HCLUSTER* hCluster, CREATE_CLUSTER_NAME_ACCOUNT* pConfig, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+	public static extern uint32 CreateClusterNameAccount(_HCLUSTER hCluster, CREATE_CLUSTER_NAME_ACCOUNT pConfig, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RemoveClusterNameAccount(_HCLUSTER* hCluster, BOOL bDeleteComputerObjects);
+	public static extern uint32 RemoveClusterNameAccount(_HCLUSTER hCluster, BOOL bDeleteComputerObjects);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DetermineCNOResTypeFromNodelist(uint32 cNodes, PWSTR* ppszNodeNames, CLUSTER_MGMT_POINT_RESTYPE* pCNOResType);
+	public static extern uint32 DetermineCNOResTypeFromNodelist(uint32 cNodes, PWSTR ppszNodeNames, CLUSTER_MGMT_POINT_RESTYPE pCNOResType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DetermineCNOResTypeFromCluster(_HCLUSTER* hCluster, CLUSTER_MGMT_POINT_RESTYPE* pCNOResType);
+	public static extern uint32 DetermineCNOResTypeFromCluster(_HCLUSTER hCluster, CLUSTER_MGMT_POINT_RESTYPE pCNOResType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DetermineClusterCloudTypeFromNodelist(uint32 cNodes, PWSTR* ppszNodeNames, CLUSTER_CLOUD_TYPE* pCloudType);
+	public static extern uint32 DetermineClusterCloudTypeFromNodelist(uint32 cNodes, PWSTR ppszNodeNames, CLUSTER_CLOUD_TYPE pCloudType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DetermineClusterCloudTypeFromCluster(_HCLUSTER* hCluster, CLUSTER_CLOUD_TYPE* pCloudType);
+	public static extern uint32 DetermineClusterCloudTypeFromCluster(_HCLUSTER hCluster, CLUSTER_CLOUD_TYPE pCloudType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetNodeCloudTypeDW(PWSTR ppszNodeName, uint32* NodeCloudType);
+	public static extern uint32 GetNodeCloudTypeDW(PWSTR ppszNodeName, uint32 NodeCloudType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterClusterResourceTypeNotifyV2(_HCHANGE* hChange, _HCLUSTER* hCluster, int64 Flags, PWSTR resTypeName, uint dwNotifyKey);
+	public static extern uint32 RegisterClusterResourceTypeNotifyV2(_HCHANGE hChange, _HCLUSTER hCluster, int64 Flags, PWSTR resTypeName, uint dwNotifyKey);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNODE* AddClusterNode(_HCLUSTER* hCluster, PWSTR lpszNodeName, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+	public static extern _HNODE AddClusterNode(_HCLUSTER hCluster, PWSTR lpszNodeName, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AddClusterStorageNode(_HCLUSTER* hCluster, PWSTR lpszNodeName, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg, PWSTR lpszClusterStorageNodeDescription, PWSTR lpszClusterStorageNodeLocation);
+	public static extern uint32 AddClusterStorageNode(_HCLUSTER hCluster, PWSTR lpszNodeName, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg, PWSTR lpszClusterStorageNodeDescription, PWSTR lpszClusterStorageNodeLocation);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HNODE* AddClusterNodeEx(_HCLUSTER* hCluster, PWSTR lpszNodeName, uint32 dwFlags, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg);
+	public static extern _HNODE AddClusterNodeEx(_HCLUSTER hCluster, PWSTR lpszNodeName, uint32 dwFlags, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RemoveClusterStorageNode(_HCLUSTER* hCluster, PWSTR lpszClusterStorageEnclosureName, uint32 dwTimeout, uint32 dwFlags);
+	public static extern uint32 RemoveClusterStorageNode(_HCLUSTER hCluster, PWSTR lpszClusterStorageEnclosureName, uint32 dwTimeout, uint32 dwFlags);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DestroyCluster(_HCLUSTER* hCluster, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void* pvCallbackArg, BOOL fdeleteVirtualComputerObjects);
+	public static extern uint32 DestroyCluster(_HCLUSTER hCluster, PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback, void pvCallbackArg, BOOL fdeleteVirtualComputerObjects);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InitializeClusterHealthFault(CLUSTER_HEALTH_FAULT* clusterHealthFault);
+	public static extern uint32 InitializeClusterHealthFault(CLUSTER_HEALTH_FAULT clusterHealthFault);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InitializeClusterHealthFaultArray(CLUSTER_HEALTH_FAULT_ARRAY* clusterHealthFaultArray);
+	public static extern uint32 InitializeClusterHealthFaultArray(CLUSTER_HEALTH_FAULT_ARRAY clusterHealthFaultArray);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FreeClusterHealthFault(CLUSTER_HEALTH_FAULT* clusterHealthFault);
+	public static extern uint32 FreeClusterHealthFault(CLUSTER_HEALTH_FAULT clusterHealthFault);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FreeClusterHealthFaultArray(CLUSTER_HEALTH_FAULT_ARRAY* clusterHealthFaultArray);
+	public static extern uint32 FreeClusterHealthFaultArray(CLUSTER_HEALTH_FAULT_ARRAY clusterHealthFaultArray);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusGetClusterHealthFaults(_HCLUSTER* hCluster, CLUSTER_HEALTH_FAULT_ARRAY* objects, uint32 flags);
+	public static extern uint32 ClusGetClusterHealthFaults(_HCLUSTER hCluster, CLUSTER_HEALTH_FAULT_ARRAY objects, uint32 flags);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusRemoveClusterHealthFault(_HCLUSTER* hCluster, PWSTR id, uint32 flags);
+	public static extern uint32 ClusRemoveClusterHealthFault(_HCLUSTER hCluster, PWSTR id, uint32 flags);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusAddClusterHealthFault(_HCLUSTER* hCluster, CLUSTER_HEALTH_FAULT* failure, uint32 param2);
+	public static extern uint32 ClusAddClusterHealthFault(_HCLUSTER hCluster, CLUSTER_HEALTH_FAULT failure, uint32 param2);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilStartResourceService(PWSTR pszServiceName, int* phServiceHandle);
+	public static extern uint32 ResUtilStartResourceService(PWSTR pszServiceName, int phServiceHandle);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilVerifyResourceService(PWSTR pszServiceName);
@@ -6699,226 +6699,226 @@ public static
 	public static extern BOOL ResUtilIsPathValid(PWSTR pszPath);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilEnumProperties(RESUTIL_PROPERTY_ITEM* pPropertyTable, PWSTR pszOutProperties, uint32 cbOutPropertiesSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+	public static extern uint32 ResUtilEnumProperties(RESUTIL_PROPERTY_ITEM pPropertyTable, PWSTR pszOutProperties, uint32 cbOutPropertiesSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilEnumPrivateProperties(HKEY hkeyClusterKey, PWSTR pszOutProperties, uint32 cbOutPropertiesSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+	public static extern uint32 ResUtilEnumPrivateProperties(HKEY hkeyClusterKey, PWSTR pszOutProperties, uint32 cbOutPropertiesSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32 cbOutPropertyListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+	public static extern uint32 ResUtilGetProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void pOutPropertyList, uint32 cbOutPropertyListSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetAllProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32 cbOutPropertyListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+	public static extern uint32 ResUtilGetAllProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void pOutPropertyList, uint32 cbOutPropertyListSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetPrivateProperties(HKEY hkeyClusterKey, void* pOutPropertyList, uint32 cbOutPropertyListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+	public static extern uint32 ResUtilGetPrivateProperties(HKEY hkeyClusterKey, void pOutPropertyList, uint32 cbOutPropertyListSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetPropertySize(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTableItem, uint32* pcbOutPropertyListSize, uint32* pnPropertyCount);
+	public static extern uint32 ResUtilGetPropertySize(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTableItem, uint32 pcbOutPropertyListSize, uint32 pnPropertyCount);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetProperty(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTableItem, void** pOutPropertyItem, uint32* pcbOutPropertyItemSize);
+	public static extern uint32 ResUtilGetProperty(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTableItem, void pOutPropertyItem, uint32 pcbOutPropertyItemSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilVerifyPropertyTable(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
+	public static extern uint32 ResUtilVerifyPropertyTable(RESUTIL_PROPERTY_ITEM pPropertyTable, void Reserved, BOOL bAllowUnknownProperties, void pInPropertyList, uint32 cbInPropertyListSize, uint8 pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetPropertyTable(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
+	public static extern uint32 ResUtilSetPropertyTable(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void Reserved, BOOL bAllowUnknownProperties, void pInPropertyList, uint32 cbInPropertyListSize, uint8 pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetPropertyTableEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
+	public static extern uint32 ResUtilSetPropertyTableEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void Reserved, BOOL bAllowUnknownProperties, void pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8 pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetPropertyParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, uint8* pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
+	public static extern uint32 ResUtilSetPropertyParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void Reserved, uint8 pInParams, void pInPropertyList, uint32 cbInPropertyListSize, uint8 pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetPropertyParameterBlockEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, uint8* pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
+	public static extern uint32 ResUtilSetPropertyParameterBlockEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void Reserved, uint8 pInParams, void pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8 pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetUnknownProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pInPropertyList, uint32 cbInPropertyListSize);
+	public static extern uint32 ResUtilSetUnknownProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void pInPropertyList, uint32 cbInPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetPropertiesToParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, uint8* pOutParams, BOOL bCheckForRequiredProperties, PWSTR* pszNameOfPropInError);
+	public static extern uint32 ResUtilGetPropertiesToParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, uint8 pOutParams, BOOL bCheckForRequiredProperties, PWSTR pszNameOfPropInError);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilPropertyListFromParameterBlock(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32* pcbOutPropertyListSize, uint8* pInParams, uint32* pcbBytesReturned, uint32* pcbRequired);
+	public static extern uint32 ResUtilPropertyListFromParameterBlock(RESUTIL_PROPERTY_ITEM pPropertyTable, void pOutPropertyList, uint32 pcbOutPropertyListSize, uint8 pInParams, uint32 pcbBytesReturned, uint32 pcbRequired);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilDupParameterBlock(uint8* pOutParams, uint8* pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
+	public static extern uint32 ResUtilDupParameterBlock(uint8 pOutParams, uint8 pInParams, RESUTIL_PROPERTY_ITEM pPropertyTable);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ResUtilFreeParameterBlock(uint8* pOutParams, uint8* pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
+	public static extern void ResUtilFreeParameterBlock(uint8 pOutParams, uint8 pInParams, RESUTIL_PROPERTY_ITEM pPropertyTable);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilAddUnknownProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32 pcbOutPropertyListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+	public static extern uint32 ResUtilAddUnknownProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM pPropertyTable, void pOutPropertyList, uint32 pcbOutPropertyListSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetPrivatePropertyList(HKEY hkeyClusterKey, void* pInPropertyList, uint32 cbInPropertyListSize);
+	public static extern uint32 ResUtilSetPrivatePropertyList(HKEY hkeyClusterKey, void pInPropertyList, uint32 cbInPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilVerifyPrivatePropertyList(void* pInPropertyList, uint32 cbInPropertyListSize);
+	public static extern uint32 ResUtilVerifyPrivatePropertyList(void pInPropertyList, uint32 cbInPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR ResUtilDupString(PWSTR pszInString);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetBinaryValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint8** ppbOutValue, uint32* pcbOutValueSize);
+	public static extern uint32 ResUtilGetBinaryValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint8 ppbOutValue, uint32 pcbOutValueSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR ResUtilGetSzValue(HKEY hkeyClusterKey, PWSTR pszValueName);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetDwordValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint32* pdwOutValue, uint32 dwDefaultValue);
+	public static extern uint32 ResUtilGetDwordValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint32 pdwOutValue, uint32 dwDefaultValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetQwordValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint64* pqwOutValue, uint64 qwDefaultValue);
+	public static extern uint32 ResUtilGetQwordValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint64 pqwOutValue, uint64 qwDefaultValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetBinaryValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint8* pbNewValue, uint32 cbNewValueSize, uint8** ppbOutValue, uint32* pcbOutValueSize);
+	public static extern uint32 ResUtilSetBinaryValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint8 pbNewValue, uint32 cbNewValueSize, uint8 ppbOutValue, uint32 pcbOutValueSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR* ppszOutString);
+	public static extern uint32 ResUtilSetSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR ppszOutString);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetExpandSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR* ppszOutString);
+	public static extern uint32 ResUtilSetExpandSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR ppszOutString);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetMultiSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, uint32 cbNewValueSize, PWSTR* ppszOutValue, uint32* pcbOutValueSize);
+	public static extern uint32 ResUtilSetMultiSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, uint32 cbNewValueSize, PWSTR ppszOutValue, uint32 pcbOutValueSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetDwordValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint32 dwNewValue, uint32* pdwOutValue);
+	public static extern uint32 ResUtilSetDwordValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint32 dwNewValue, uint32 pdwOutValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetQwordValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint64 qwNewValue, uint64* pqwOutValue);
+	public static extern uint32 ResUtilSetQwordValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint64 qwNewValue, uint64 pqwOutValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetValueEx(HKEY hkeyClusterKey, PWSTR valueName, uint32 valueType, uint8* valueData, uint32 valueSize, uint32 flags);
+	public static extern uint32 ResUtilSetValueEx(HKEY hkeyClusterKey, PWSTR valueName, uint32 valueType, uint8 valueData, uint32 valueSize, uint32 flags);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetBinaryProperty(uint8** ppbOutValue, uint32* pcbOutValueSize, CLUSPROP_BINARY* pValueStruct, uint8* pbOldValue, uint32 cbOldValueSize, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+	public static extern uint32 ResUtilGetBinaryProperty(uint8 ppbOutValue, uint32 pcbOutValueSize, CLUSPROP_BINARY pValueStruct, uint8 pbOldValue, uint32 cbOldValueSize, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetSzProperty(PWSTR* ppszOutValue, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+	public static extern uint32 ResUtilGetSzProperty(PWSTR ppszOutValue, CLUSPROP_SZ pValueStruct, PWSTR pszOldValue, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetMultiSzProperty(PWSTR* ppszOutValue, uint32* pcbOutValueSize, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint32 cbOldValueSize, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+	public static extern uint32 ResUtilGetMultiSzProperty(PWSTR ppszOutValue, uint32 pcbOutValueSize, CLUSPROP_SZ pValueStruct, PWSTR pszOldValue, uint32 cbOldValueSize, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetDwordProperty(uint32* pdwOutValue, CLUSPROP_DWORD* pValueStruct, uint32 dwOldValue, uint32 dwMinimum, uint32 dwMaximum, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+	public static extern uint32 ResUtilGetDwordProperty(uint32 pdwOutValue, CLUSPROP_DWORD pValueStruct, uint32 dwOldValue, uint32 dwMinimum, uint32 dwMaximum, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetLongProperty(int32* plOutValue, CLUSPROP_LONG* pValueStruct, int32 lOldValue, int32 lMinimum, int32 lMaximum, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+	public static extern uint32 ResUtilGetLongProperty(int32 plOutValue, CLUSPROP_LONG pValueStruct, int32 lOldValue, int32 lMinimum, int32 lMaximum, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetFileTimeProperty(FILETIME* pftOutValue, CLUSPROP_FILETIME* pValueStruct, FILETIME ftOldValue, FILETIME ftMinimum, FILETIME ftMaximum, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+	public static extern uint32 ResUtilGetFileTimeProperty(FILETIME pftOutValue, CLUSPROP_FILETIME pValueStruct, FILETIME ftOldValue, FILETIME ftMinimum, FILETIME ftMaximum, uint8 ppPropertyList, uint32 pcbPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* ResUtilGetEnvironmentWithNetName(_HRESOURCE* hResource);
+	public static extern void ResUtilGetEnvironmentWithNetName(_HRESOURCE hResource);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFreeEnvironment(void* lpEnvironment);
+	public static extern uint32 ResUtilFreeEnvironment(void lpEnvironment);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR ResUtilExpandEnvironmentStrings(PWSTR pszSrc);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetResourceServiceEnvironment(PWSTR pszServiceName, _HRESOURCE* hResource, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
+	public static extern uint32 ResUtilSetResourceServiceEnvironment(PWSTR pszServiceName, _HRESOURCE hResource, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilRemoveResourceServiceEnvironment(PWSTR pszServiceName, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetResourceServiceStartParameters(PWSTR pszServiceName, SC_HANDLE schSCMHandle, int* phService, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
+	public static extern uint32 ResUtilSetResourceServiceStartParameters(PWSTR pszServiceName, SC_HANDLE schSCMHandle, int phService, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
+	public static extern uint32 ResUtilFindSzProperty(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindExpandSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
+	public static extern uint32 ResUtilFindExpandSzProperty(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindExpandedSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
+	public static extern uint32 ResUtilFindExpandedSzProperty(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindDwordProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint32* pdwPropertyValue);
+	public static extern uint32 ResUtilFindDwordProperty(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint32 pdwPropertyValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindBinaryProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint8** pbPropertyValue, uint32* pcbPropertyValueSize);
+	public static extern uint32 ResUtilFindBinaryProperty(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint8 pbPropertyValue, uint32 pcbPropertyValueSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindMultiSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue, uint32* pcbPropertyValueSize);
+	public static extern uint32 ResUtilFindMultiSzProperty(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue, uint32 pcbPropertyValueSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindLongProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, int32* plPropertyValue);
+	public static extern uint32 ResUtilFindLongProperty(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, int32 plPropertyValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindULargeIntegerProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint64* plPropertyValue);
+	public static extern uint32 ResUtilFindULargeIntegerProperty(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint64 plPropertyValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindFileTimeProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, FILETIME* pftPropertyValue);
+	public static extern uint32 ResUtilFindFileTimeProperty(void pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, FILETIME pftPropertyValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusWorkerCreate(CLUS_WORKER* lpWorker, PWORKER_START_ROUTINE lpStartAddress, void* lpParameter);
+	public static extern uint32 ClusWorkerCreate(CLUS_WORKER lpWorker, PWORKER_START_ROUTINE lpStartAddress, void lpParameter);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ClusWorkerCheckTerminate(CLUS_WORKER* lpWorker);
+	public static extern BOOL ClusWorkerCheckTerminate(CLUS_WORKER lpWorker);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ClusWorkerTerminate(CLUS_WORKER* lpWorker);
+	public static extern void ClusWorkerTerminate(CLUS_WORKER lpWorker);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusWorkerTerminateEx(CLUS_WORKER* ClusWorker, uint32 TimeoutInMilliseconds, BOOL WaitOnly);
+	public static extern uint32 ClusWorkerTerminateEx(CLUS_WORKER ClusWorker, uint32 TimeoutInMilliseconds, BOOL WaitOnly);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusWorkersTerminate(CLUS_WORKER** ClusWorkers, uint ClusWorkersCount, uint32 TimeoutInMilliseconds, BOOL WaitOnly);
+	public static extern uint32 ClusWorkersTerminate(CLUS_WORKER* ClusWorkers, uint ClusWorkersCount, uint32 TimeoutInMilliseconds, BOOL WaitOnly);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ResUtilResourcesEqual(_HRESOURCE* hSelf, _HRESOURCE* hResource);
+	public static extern BOOL ResUtilResourcesEqual(_HRESOURCE hSelf, _HRESOURCE hResource);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ResUtilResourceTypesEqual(PWSTR lpszResourceTypeName, _HRESOURCE* hResource);
+	public static extern BOOL ResUtilResourceTypesEqual(PWSTR lpszResourceTypeName, _HRESOURCE hResource);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ResUtilIsResourceClassEqual(CLUS_RESOURCE_CLASS_INFO* prci, _HRESOURCE* hResource);
+	public static extern BOOL ResUtilIsResourceClassEqual(CLUS_RESOURCE_CLASS_INFO prci, _HRESOURCE hResource);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilEnumResources(_HRESOURCE* hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK pResCallBack, void* pParameter);
+	public static extern uint32 ResUtilEnumResources(_HRESOURCE hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK pResCallBack, void pParameter);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilEnumResourcesEx(_HCLUSTER* hCluster, _HRESOURCE* hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK_EX pResCallBack, void* pParameter);
+	public static extern uint32 ResUtilEnumResourcesEx(_HCLUSTER hCluster, _HRESOURCE hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK_EX pResCallBack, void pParameter);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* ResUtilGetResourceDependency(HANDLE hSelf, PWSTR lpszResourceType);
+	public static extern _HRESOURCE ResUtilGetResourceDependency(HANDLE hSelf, PWSTR lpszResourceType);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* ResUtilGetResourceDependencyByName(_HCLUSTER* hCluster, HANDLE hSelf, PWSTR lpszResourceType, BOOL bRecurse);
+	public static extern _HRESOURCE ResUtilGetResourceDependencyByName(_HCLUSTER hCluster, HANDLE hSelf, PWSTR lpszResourceType, BOOL bRecurse);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* ResUtilGetResourceDependencyByClass(_HCLUSTER* hCluster, HANDLE hSelf, CLUS_RESOURCE_CLASS_INFO* prci, BOOL bRecurse);
+	public static extern _HRESOURCE ResUtilGetResourceDependencyByClass(_HCLUSTER hCluster, HANDLE hSelf, CLUS_RESOURCE_CLASS_INFO prci, BOOL bRecurse);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* ResUtilGetResourceNameDependency(PWSTR lpszResourceName, PWSTR lpszResourceType);
+	public static extern _HRESOURCE ResUtilGetResourceNameDependency(PWSTR lpszResourceName, PWSTR lpszResourceType);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetResourceDependentIPAddressProps(_HRESOURCE* hResource, char16* pszAddress, uint32* pcchAddress, char16* pszSubnetMask, uint32* pcchSubnetMask, char16* pszNetwork, uint32* pcchNetwork);
+	public static extern uint32 ResUtilGetResourceDependentIPAddressProps(_HRESOURCE hResource, char16* pszAddress, uint32 pcchAddress, char16* pszSubnetMask, uint32 pcchSubnetMask, char16* pszNetwork, uint32 pcchNetwork);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindDependentDiskResourceDriveLetter(_HCLUSTER* hCluster, _HRESOURCE* hResource, char16* pszDriveLetter, uint32* pcchDriveLetter);
+	public static extern uint32 ResUtilFindDependentDiskResourceDriveLetter(_HCLUSTER hCluster, _HRESOURCE hResource, char16* pszDriveLetter, uint32 pcchDriveLetter);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilTerminateServiceProcessFromResDll(uint32 dwServicePid, BOOL bOffline, uint32* pdwResourceState, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
+	public static extern uint32 ResUtilTerminateServiceProcessFromResDll(uint32 dwServicePid, BOOL bOffline, uint32 pdwResourceState, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetPropertyFormats(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyFormatList, uint32 cbPropertyFormatListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
+	public static extern uint32 ResUtilGetPropertyFormats(RESUTIL_PROPERTY_ITEM pPropertyTable, void pOutPropertyFormatList, uint32 cbPropertyFormatListSize, uint32 pcbBytesReturned, uint32 pcbRequired);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetCoreClusterResources(_HCLUSTER* hCluster, _HRESOURCE** phClusterNameResource, _HRESOURCE** phClusterIPAddressResource, _HRESOURCE** phClusterQuorumResource);
+	public static extern uint32 ResUtilGetCoreClusterResources(_HCLUSTER hCluster, _HRESOURCE phClusterNameResource, _HRESOURCE phClusterIPAddressResource, _HRESOURCE phClusterQuorumResource);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetResourceName(_HRESOURCE* hResource, char16* pszResourceName, uint32* pcchResourceNameInOut);
+	public static extern uint32 ResUtilGetResourceName(_HRESOURCE hResource, char16* pszResourceName, uint32 pcchResourceNameInOut);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CLUSTER_ROLE_STATE ResUtilGetClusterRoleState(_HCLUSTER* hCluster, CLUSTER_ROLE eClusterRole);
+	public static extern CLUSTER_ROLE_STATE ResUtilGetClusterRoleState(_HCLUSTER hCluster, CLUSTER_ROLE eClusterRole);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ClusterIsPathOnSharedVolume(PWSTR lpszPathName);
@@ -6930,91 +6930,91 @@ public static
 	public static extern BOOL ClusterGetVolumeNameForVolumeMountPoint(PWSTR lpszVolumeMountPoint, PWSTR lpszVolumeName, uint32 cchBufferLength);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterPrepareSharedVolumeForBackup(PWSTR lpszFileName, PWSTR lpszVolumePathName, uint32* lpcchVolumePathName, PWSTR lpszVolumeName, uint32* lpcchVolumeName);
+	public static extern uint32 ClusterPrepareSharedVolumeForBackup(PWSTR lpszFileName, PWSTR lpszVolumePathName, uint32 lpcchVolumePathName, PWSTR lpszVolumeName, uint32 lpcchVolumeName);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterClearBackupStateForSharedVolume(PWSTR lpszVolumePathName);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetResourceServiceStartParametersEx(PWSTR pszServiceName, SC_HANDLE schSCMHandle, int* phService, uint32 dwDesiredAccess, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
+	public static extern uint32 ResUtilSetResourceServiceStartParametersEx(PWSTR pszServiceName, SC_HANDLE schSCMHandle, int phService, uint32 dwDesiredAccess, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilEnumResourcesEx2(_HCLUSTER* hCluster, _HRESOURCE* hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK_EX pResCallBack, void* pParameter, uint32 dwDesiredAccess);
+	public static extern uint32 ResUtilEnumResourcesEx2(_HCLUSTER hCluster, _HRESOURCE hSelf, PWSTR lpszResTypeName, LPRESOURCE_CALLBACK_EX pResCallBack, void pParameter, uint32 dwDesiredAccess);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* ResUtilGetResourceDependencyEx(HANDLE hSelf, PWSTR lpszResourceType, uint32 dwDesiredAccess);
+	public static extern _HRESOURCE ResUtilGetResourceDependencyEx(HANDLE hSelf, PWSTR lpszResourceType, uint32 dwDesiredAccess);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* ResUtilGetResourceDependencyByNameEx(_HCLUSTER* hCluster, HANDLE hSelf, PWSTR lpszResourceType, BOOL bRecurse, uint32 dwDesiredAccess);
+	public static extern _HRESOURCE ResUtilGetResourceDependencyByNameEx(_HCLUSTER hCluster, HANDLE hSelf, PWSTR lpszResourceType, BOOL bRecurse, uint32 dwDesiredAccess);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* ResUtilGetResourceDependencyByClassEx(_HCLUSTER* hCluster, HANDLE hSelf, CLUS_RESOURCE_CLASS_INFO* prci, BOOL bRecurse, uint32 dwDesiredAccess);
+	public static extern _HRESOURCE ResUtilGetResourceDependencyByClassEx(_HCLUSTER hCluster, HANDLE hSelf, CLUS_RESOURCE_CLASS_INFO prci, BOOL bRecurse, uint32 dwDesiredAccess);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HRESOURCE* ResUtilGetResourceNameDependencyEx(PWSTR lpszResourceName, PWSTR lpszResourceType, uint32 dwDesiredAccess);
+	public static extern _HRESOURCE ResUtilGetResourceNameDependencyEx(PWSTR lpszResourceName, PWSTR lpszResourceType, uint32 dwDesiredAccess);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetCoreClusterResourcesEx(_HCLUSTER* hClusterIn, _HRESOURCE** phClusterNameResourceOut, _HRESOURCE** phClusterQuorumResourceOut, uint32 dwDesiredAccess);
+	public static extern uint32 ResUtilGetCoreClusterResourcesEx(_HCLUSTER hClusterIn, _HRESOURCE phClusterNameResourceOut, _HRESOURCE phClusterQuorumResourceOut, uint32 dwDesiredAccess);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSCRYPTPROVIDER* OpenClusterCryptProvider(PWSTR lpszResource, int8* lpszProvider, uint32 dwType, uint32 dwFlags);
+	public static extern _HCLUSCRYPTPROVIDER OpenClusterCryptProvider(PWSTR lpszResource, int8 lpszProvider, uint32 dwType, uint32 dwFlags);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HCLUSCRYPTPROVIDER* OpenClusterCryptProviderEx(PWSTR lpszResource, PWSTR lpszKeyname, int8* lpszProvider, uint32 dwType, uint32 dwFlags);
+	public static extern _HCLUSCRYPTPROVIDER OpenClusterCryptProviderEx(PWSTR lpszResource, PWSTR lpszKeyname, int8 lpszProvider, uint32 dwType, uint32 dwFlags);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CloseClusterCryptProvider(_HCLUSCRYPTPROVIDER* hClusCryptProvider);
+	public static extern uint32 CloseClusterCryptProvider(_HCLUSCRYPTPROVIDER hClusCryptProvider);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterEncrypt(_HCLUSCRYPTPROVIDER* hClusCryptProvider, uint8* pData, uint32 cbData, uint8** ppData, uint32* pcbData);
+	public static extern uint32 ClusterEncrypt(_HCLUSCRYPTPROVIDER hClusCryptProvider, uint8* pData, uint32 cbData, uint8 ppData, uint32 pcbData);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterDecrypt(_HCLUSCRYPTPROVIDER* hClusCryptProvider, uint8* pCryptInput, uint32 cbCryptInput, uint8** ppCryptOutput, uint32* pcbCryptOutput);
+	public static extern uint32 ClusterDecrypt(_HCLUSCRYPTPROVIDER hClusCryptProvider, uint8 pCryptInput, uint32 cbCryptInput, uint8 ppCryptOutput, uint32 pcbCryptOutput);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FreeClusterCrypt(void* pCryptInfo);
+	public static extern uint32 FreeClusterCrypt(void pCryptInfo);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilVerifyShutdownSafe(uint32 flags, uint32 reason, uint32* pResult);
+	public static extern uint32 ResUtilVerifyShutdownSafe(uint32 flags, uint32 reason, uint32 pResult);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ResUtilPaxosComparer(PaxosTagCStruct* left, PaxosTagCStruct* right);
+	public static extern BOOL ResUtilPaxosComparer(PaxosTagCStruct left, PaxosTagCStruct right);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ResUtilLeftPaxosIsLessThanRight(PaxosTagCStruct* left, PaxosTagCStruct* right);
+	public static extern BOOL ResUtilLeftPaxosIsLessThanRight(PaxosTagCStruct left, PaxosTagCStruct right);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilsDeleteKeyTree(HKEY key, PWSTR keyName, BOOL treatNoKeyAsError);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGroupsEqual(_HGROUP* hSelf, _HGROUP* hGroup, BOOL* pEqual);
+	public static extern uint32 ResUtilGroupsEqual(_HGROUP hSelf, _HGROUP hGroup, BOOL pEqual);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilEnumGroups(_HCLUSTER* hCluster, _HGROUP* hSelf, LPGROUP_CALLBACK_EX pResCallBack, void* pParameter);
+	public static extern uint32 ResUtilEnumGroups(_HCLUSTER hCluster, _HGROUP hSelf, LPGROUP_CALLBACK_EX pResCallBack, void pParameter);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilEnumGroupsEx(_HCLUSTER* hCluster, _HGROUP* hSelf, CLUSGROUP_TYPE groupType, LPGROUP_CALLBACK_EX pResCallBack, void* pParameter);
+	public static extern uint32 ResUtilEnumGroupsEx(_HCLUSTER hCluster, _HGROUP hSelf, CLUSGROUP_TYPE groupType, LPGROUP_CALLBACK_EX pResCallBack, void pParameter);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilDupGroup(_HGROUP* group, _HGROUP** copy);
+	public static extern uint32 ResUtilDupGroup(_HGROUP group, _HGROUP copy);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetClusterGroupType(_HGROUP* hGroup, CLUSGROUP_TYPE* groupType);
+	public static extern uint32 ResUtilGetClusterGroupType(_HGROUP hGroup, CLUSGROUP_TYPE groupType);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern _HGROUP* ResUtilGetCoreGroup(_HCLUSTER* hCluster);
+	public static extern _HGROUP ResUtilGetCoreGroup(_HCLUSTER hCluster);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilResourceDepEnum(_HRESOURCE* hSelf, uint32 enumType, LPRESOURCE_CALLBACK_EX pResCallBack, void* pParameter);
+	public static extern uint32 ResUtilResourceDepEnum(_HRESOURCE hSelf, uint32 enumType, LPRESOURCE_CALLBACK_EX pResCallBack, void pParameter);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilDupResource(_HRESOURCE* group, _HRESOURCE** copy);
+	public static extern uint32 ResUtilDupResource(_HRESOURCE group, _HRESOURCE copy);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetClusterId(_HCLUSTER* hCluster, Guid guid);
+	public static extern uint32 ResUtilGetClusterId(_HCLUSTER hCluster, Guid guid);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilNodeEnum(_HCLUSTER* hCluster, LPNODE_CALLBACK pNodeCallBack, void* pParameter);
+	public static extern uint32 ResUtilNodeEnum(_HCLUSTER hCluster, LPNODE_CALLBACK pNodeCallBack, void pParameter);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RegisterAppInstance(HANDLE ProcessHandle, Guid AppInstanceId, BOOL ChildrenInheritAppInstance);
@@ -7023,7 +7023,7 @@ public static
 	public static extern uint32 RegisterAppInstanceVersion(Guid AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryAppInstanceVersion(Guid AppInstanceId, uint64* InstanceVersionHigh, uint64* InstanceVersionLow, NTSTATUS* VersionStatus);
+	public static extern uint32 QueryAppInstanceVersion(Guid AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow, NTSTATUS VersionStatus);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResetAllAppInstanceVersions();

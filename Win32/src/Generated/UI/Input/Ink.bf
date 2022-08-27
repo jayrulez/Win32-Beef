@@ -63,7 +63,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self, IUnknown* rootVisual, IUnknown* device) SetRootVisual;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self, IInkCommitRequestHandler* handler) SetCommitRequestHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self, float* width, float* height) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self, float width, float height) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self, float width, float height) SetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self) OnHighContrastChanged;
 	}
@@ -73,7 +73,7 @@ public static
 
 	public HRESULT SetCommitRequestHandler(IInkCommitRequestHandler* handler) mut => VT.[Friend]SetCommitRequestHandler(&this, handler);
 
-	public HRESULT GetSize(float* width, float* height) mut => VT.[Friend]GetSize(&this, width, height);
+	public HRESULT GetSize(float width, float height) mut => VT.[Friend]GetSize(&this, width, height);
 
 	public HRESULT SetSize(float width, float height) mut => VT.[Friend]SetSize(&this, width, height);
 
@@ -104,16 +104,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDesktopHost*/SelfOuter* self, IInkHostWorkItem* workItem) QueueWorkItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDesktopHost*/SelfOuter* self, Guid riid, void** ppv) CreateInkPresenter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDesktopHost*/SelfOuter* self, IUnknown* rootVisual, float width, float height, Guid riid, void** ppv) CreateAndInitializeInkPresenter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDesktopHost*/SelfOuter* self, Guid riid, void ppv) CreateInkPresenter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDesktopHost*/SelfOuter* self, IUnknown* rootVisual, float width, float height, Guid riid, void ppv) CreateAndInitializeInkPresenter;
 	}
 
 
 	public HRESULT QueueWorkItem(IInkHostWorkItem* workItem) mut => VT.[Friend]QueueWorkItem(&this, workItem);
 
-	public HRESULT CreateInkPresenter(Guid riid, void** ppv) mut => VT.[Friend]CreateInkPresenter(&this, riid, ppv);
+	public HRESULT CreateInkPresenter(Guid riid, void ppv) mut => VT.[Friend]CreateInkPresenter(&this, riid, ppv);
 
-	public HRESULT CreateAndInitializeInkPresenter(IUnknown* rootVisual, float width, float height, Guid riid, void** ppv) mut => VT.[Friend]CreateAndInitializeInkPresenter(&this, rootVisual, width, height, riid, ppv);
+	public HRESULT CreateAndInitializeInkPresenter(IUnknown* rootVisual, float width, float height, Guid riid, void ppv) mut => VT.[Friend]CreateAndInitializeInkPresenter(&this, rootVisual, width, height, riid, ppv);
 }
 
 [CRepr]struct IInkD2DRenderer : IUnknown

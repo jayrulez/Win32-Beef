@@ -98,18 +98,18 @@ public static
 public static
 {
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK CreateDesktopA(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa);
-	public static HDESK CreateDesktop(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa) => CreateDesktopA(lpszDesktop, lpszDevice, pDevmode, dwFlags, dwDesiredAccess, lpsa);
+	public static extern HDESK CreateDesktopA(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES lpsa);
+	public static HDESK CreateDesktop(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES lpsa) => CreateDesktopA(lpszDesktop, lpszDevice, pDevmode, dwFlags, dwDesiredAccess, lpsa);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK CreateDesktopW(PWSTR lpszDesktop, PWSTR lpszDevice, DEVMODEW* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa);
+	public static extern HDESK CreateDesktopW(PWSTR lpszDesktop, PWSTR lpszDevice, DEVMODEW pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES lpsa);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK CreateDesktopExA(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa, uint32 ulHeapSize, void* pvoid);
-	public static HDESK CreateDesktopEx(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa, uint32 ulHeapSize, void* pvoid) => CreateDesktopExA(lpszDesktop, lpszDevice, pDevmode, dwFlags, dwDesiredAccess, lpsa, ulHeapSize, pvoid);
+	public static extern HDESK CreateDesktopExA(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES lpsa, uint32 ulHeapSize, void pvoid);
+	public static HDESK CreateDesktopEx(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES lpsa, uint32 ulHeapSize, void pvoid) => CreateDesktopExA(lpszDesktop, lpszDevice, pDevmode, dwFlags, dwDesiredAccess, lpsa, ulHeapSize, pvoid);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK CreateDesktopExW(PWSTR lpszDesktop, PWSTR lpszDevice, DEVMODEW* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa, uint32 ulHeapSize, void* pvoid);
+	public static extern HDESK CreateDesktopExW(PWSTR lpszDesktop, PWSTR lpszDevice, DEVMODEW pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES lpsa, uint32 ulHeapSize, void pvoid);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HDESK OpenDesktopA(PSTR lpszDesktop, uint32 dwFlags, BOOL fInherit, uint32 dwDesiredAccess);
@@ -144,11 +144,11 @@ public static
 	public static extern HDESK GetThreadDesktop(uint32 dwThreadId);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HWINSTA CreateWindowStationA(PSTR lpwinsta, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa);
-	public static HWINSTA CreateWindowStation(PSTR lpwinsta, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa) => CreateWindowStationA(lpwinsta, dwFlags, dwDesiredAccess, lpsa);
+	public static extern HWINSTA CreateWindowStationA(PSTR lpwinsta, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES lpsa);
+	public static HWINSTA CreateWindowStation(PSTR lpwinsta, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES lpsa) => CreateWindowStationA(lpwinsta, dwFlags, dwDesiredAccess, lpsa);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HWINSTA CreateWindowStationW(PWSTR lpwinsta, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa);
+	public static extern HWINSTA CreateWindowStationW(PWSTR lpwinsta, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES lpsa);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWINSTA OpenWindowStationA(PSTR lpszWinSta, BOOL fInherit, uint32 dwDesiredAccess);
@@ -174,32 +174,32 @@ public static
 	public static extern HWINSTA GetProcessWindowStation();
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserObjectInformationA(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void* pvInfo, uint32 nLength, uint32* lpnLengthNeeded);
-	public static BOOL GetUserObjectInformation(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void* pvInfo, uint32 nLength, uint32* lpnLengthNeeded) => GetUserObjectInformationA(hObj, nIndex, pvInfo, nLength, lpnLengthNeeded);
+	public static extern BOOL GetUserObjectInformationA(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void pvInfo, uint32 nLength, uint32 lpnLengthNeeded);
+	public static BOOL GetUserObjectInformation(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void pvInfo, uint32 nLength, uint32 lpnLengthNeeded) => GetUserObjectInformationA(hObj, nIndex, pvInfo, nLength, lpnLengthNeeded);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserObjectInformationW(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void* pvInfo, uint32 nLength, uint32* lpnLengthNeeded);
+	public static extern BOOL GetUserObjectInformationW(HANDLE hObj, USER_OBJECT_INFORMATION_INDEX nIndex, void pvInfo, uint32 nLength, uint32 lpnLengthNeeded);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUserObjectInformationA(HANDLE hObj, int32 nIndex, void* pvInfo, uint32 nLength);
-	public static BOOL SetUserObjectInformation(HANDLE hObj, int32 nIndex, void* pvInfo, uint32 nLength) => SetUserObjectInformationA(hObj, nIndex, pvInfo, nLength);
+	public static extern BOOL SetUserObjectInformationA(HANDLE hObj, int32 nIndex, void pvInfo, uint32 nLength);
+	public static BOOL SetUserObjectInformation(HANDLE hObj, int32 nIndex, void pvInfo, uint32 nLength) => SetUserObjectInformationA(hObj, nIndex, pvInfo, nLength);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetUserObjectInformationW(HANDLE hObj, int32 nIndex, void* pvInfo, uint32 nLength);
+	public static extern BOOL SetUserObjectInformationW(HANDLE hObj, int32 nIndex, void pvInfo, uint32 nLength);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 BroadcastSystemMessageExA(BROADCAST_SYSTEM_MESSAGE_FLAGS flags, BROADCAST_SYSTEM_MESSAGE_INFO* lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam, BSMINFO* pbsmInfo);
-	public static int32 BroadcastSystemMessageEx(BROADCAST_SYSTEM_MESSAGE_FLAGS flags, BROADCAST_SYSTEM_MESSAGE_INFO* lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam, BSMINFO* pbsmInfo) => BroadcastSystemMessageExA(flags, lpInfo, Msg, wParam, lParam, pbsmInfo);
+	public static extern int32 BroadcastSystemMessageExA(BROADCAST_SYSTEM_MESSAGE_FLAGS flags, BROADCAST_SYSTEM_MESSAGE_INFO lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam, BSMINFO pbsmInfo);
+	public static int32 BroadcastSystemMessageEx(BROADCAST_SYSTEM_MESSAGE_FLAGS flags, BROADCAST_SYSTEM_MESSAGE_INFO lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam, BSMINFO pbsmInfo) => BroadcastSystemMessageExA(flags, lpInfo, Msg, wParam, lParam, pbsmInfo);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 BroadcastSystemMessageExW(BROADCAST_SYSTEM_MESSAGE_FLAGS flags, BROADCAST_SYSTEM_MESSAGE_INFO* lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam, BSMINFO* pbsmInfo);
+	public static extern int32 BroadcastSystemMessageExW(BROADCAST_SYSTEM_MESSAGE_FLAGS flags, BROADCAST_SYSTEM_MESSAGE_INFO lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam, BSMINFO pbsmInfo);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 BroadcastSystemMessageA(uint32 flags, uint32* lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam);
-	public static int32 BroadcastSystemMessage(uint32 flags, uint32* lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam) => BroadcastSystemMessageA(flags, lpInfo, Msg, wParam, lParam);
+	public static extern int32 BroadcastSystemMessageA(uint32 flags, uint32 lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam);
+	public static int32 BroadcastSystemMessage(uint32 flags, uint32 lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam) => BroadcastSystemMessageA(flags, lpInfo, Msg, wParam, lParam);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 BroadcastSystemMessageW(BROADCAST_SYSTEM_MESSAGE_FLAGS flags, BROADCAST_SYSTEM_MESSAGE_INFO* lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam);
+	public static extern int32 BroadcastSystemMessageW(BROADCAST_SYSTEM_MESSAGE_FLAGS flags, BROADCAST_SYSTEM_MESSAGE_INFO lpInfo, uint32 Msg, WPARAM wParam, LPARAM lParam);
 
 }
 #endregion

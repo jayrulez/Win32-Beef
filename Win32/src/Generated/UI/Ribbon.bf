@@ -243,11 +243,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUISimplePropertySet*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* value) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUISimplePropertySet*/SelfOuter* self, PROPERTYKEY key, PROPVARIANT value) GetValue;
 	}
 
 
-	public HRESULT GetValue(PROPERTYKEY* key, PROPVARIANT* value) mut => VT.[Friend]GetValue(&this, key, value);
+	public HRESULT GetValue(PROPERTYKEY key, PROPVARIANT value) mut => VT.[Friend]GetValue(&this, key, value);
 }
 
 [CRepr]struct IUIRibbon : IUnknown
@@ -258,13 +258,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIRibbon*/SelfOuter* self, uint32* cy) GetHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIRibbon*/SelfOuter* self, uint32 cy) GetHeight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIRibbon*/SelfOuter* self, IStream* pStream) LoadSettingsFromStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIRibbon*/SelfOuter* self, IStream* pStream) SaveSettingsToStream;
 	}
 
 
-	public HRESULT GetHeight(uint32* cy) mut => VT.[Friend]GetHeight(&this, cy);
+	public HRESULT GetHeight(uint32 cy) mut => VT.[Friend]GetHeight(&this, cy);
 
 	public HRESULT LoadSettingsFromStream(IStream* pStream) mut => VT.[Friend]LoadSettingsFromStream(&this, pStream);
 
@@ -282,10 +282,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, HWND frameWnd, IUIApplication* application) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self) Destroy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, HINSTANCE instance, PWSTR resourceName) LoadUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, uint32 viewId, Guid riid, void** ppv) GetView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, uint32 commandId, PROPERTYKEY* key, PROPVARIANT* value) GetUICommandProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, uint32 commandId, PROPERTYKEY* key, PROPVARIANT* value) SetUICommandProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, uint32 commandId, UI_INVALIDATIONS flags, PROPERTYKEY* key) InvalidateUICommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, uint32 viewId, Guid riid, void ppv) GetView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, uint32 commandId, PROPERTYKEY key, PROPVARIANT value) GetUICommandProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, uint32 commandId, PROPERTYKEY key, PROPVARIANT value) SetUICommandProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, uint32 commandId, UI_INVALIDATIONS flags, PROPERTYKEY key) InvalidateUICommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self) FlushPendingInvalidations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIFramework*/SelfOuter* self, int32 iModes) SetModes;
 	}
@@ -297,13 +297,13 @@ public static
 
 	public HRESULT LoadUI(HINSTANCE instance, PWSTR resourceName) mut => VT.[Friend]LoadUI(&this, instance, resourceName);
 
-	public HRESULT GetView(uint32 viewId, Guid riid, void** ppv) mut => VT.[Friend]GetView(&this, viewId, riid, ppv);
+	public HRESULT GetView(uint32 viewId, Guid riid, void ppv) mut => VT.[Friend]GetView(&this, viewId, riid, ppv);
 
-	public HRESULT GetUICommandProperty(uint32 commandId, PROPERTYKEY* key, PROPVARIANT* value) mut => VT.[Friend]GetUICommandProperty(&this, commandId, key, value);
+	public HRESULT GetUICommandProperty(uint32 commandId, PROPERTYKEY key, PROPVARIANT value) mut => VT.[Friend]GetUICommandProperty(&this, commandId, key, value);
 
-	public HRESULT SetUICommandProperty(uint32 commandId, PROPERTYKEY* key, PROPVARIANT* value) mut => VT.[Friend]SetUICommandProperty(&this, commandId, key, value);
+	public HRESULT SetUICommandProperty(uint32 commandId, PROPERTYKEY key, PROPVARIANT value) mut => VT.[Friend]SetUICommandProperty(&this, commandId, key, value);
 
-	public HRESULT InvalidateUICommand(uint32 commandId, UI_INVALIDATIONS flags, PROPERTYKEY* key) mut => VT.[Friend]InvalidateUICommand(&this, commandId, flags, key);
+	public HRESULT InvalidateUICommand(uint32 commandId, UI_INVALIDATIONS flags, PROPERTYKEY key) mut => VT.[Friend]InvalidateUICommand(&this, commandId, flags, key);
 
 	public HRESULT FlushPendingInvalidations() mut => VT.[Friend]FlushPendingInvalidations(&this);
 
@@ -318,11 +318,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IUIEventLogger*/SelfOuter* self, UI_EVENTPARAMS* pEventParams) OnUIEvent;
+		protected new function [CallingConvention(.Stdcall)] void(/*IUIEventLogger*/SelfOuter* self, UI_EVENTPARAMS pEventParams) OnUIEvent;
 	}
 
 
-	public void OnUIEvent(UI_EVENTPARAMS* pEventParams) mut => VT.[Friend]OnUIEvent(&this, pEventParams);
+	public void OnUIEvent(UI_EVENTPARAMS pEventParams) mut => VT.[Friend]OnUIEvent(&this, pEventParams);
 }
 
 [CRepr]struct IUIEventingManager : IUnknown
@@ -363,8 +363,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICollection*/SelfOuter* self, uint32 index, IUnknown** item) GetItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICollection*/SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICollection*/SelfOuter* self, uint32 index, IUnknown* item) GetItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICollection*/SelfOuter* self, IUnknown* item) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICollection*/SelfOuter* self, uint32 index, IUnknown* item) Insert;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICollection*/SelfOuter* self, uint32 index) RemoveAt;
@@ -373,9 +373,9 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
 
-	public HRESULT GetItem(uint32 index, IUnknown** item) mut => VT.[Friend]GetItem(&this, index, item);
+	public HRESULT GetItem(uint32 index, IUnknown* item) mut => VT.[Friend]GetItem(&this, index, item);
 
 	public HRESULT Add(IUnknown* item) mut => VT.[Friend]Add(&this, item);
 
@@ -411,14 +411,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICommandHandler*/SelfOuter* self, uint32 commandId, UI_EXECUTIONVERB verb, PROPERTYKEY* key, PROPVARIANT* currentValue, IUISimplePropertySet* commandExecutionProperties) Execute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICommandHandler*/SelfOuter* self, uint32 commandId, PROPERTYKEY* key, PROPVARIANT* currentValue, PROPVARIANT* newValue) UpdateProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICommandHandler*/SelfOuter* self, uint32 commandId, UI_EXECUTIONVERB verb, PROPERTYKEY key, PROPVARIANT currentValue, IUISimplePropertySet* commandExecutionProperties) Execute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUICommandHandler*/SelfOuter* self, uint32 commandId, PROPERTYKEY key, PROPVARIANT currentValue, PROPVARIANT newValue) UpdateProperty;
 	}
 
 
-	public HRESULT Execute(uint32 commandId, UI_EXECUTIONVERB verb, PROPERTYKEY* key, PROPVARIANT* currentValue, IUISimplePropertySet* commandExecutionProperties) mut => VT.[Friend]Execute(&this, commandId, verb, key, currentValue, commandExecutionProperties);
+	public HRESULT Execute(uint32 commandId, UI_EXECUTIONVERB verb, PROPERTYKEY key, PROPVARIANT currentValue, IUISimplePropertySet* commandExecutionProperties) mut => VT.[Friend]Execute(&this, commandId, verb, key, currentValue, commandExecutionProperties);
 
-	public HRESULT UpdateProperty(uint32 commandId, PROPERTYKEY* key, PROPVARIANT* currentValue, PROPVARIANT* newValue) mut => VT.[Friend]UpdateProperty(&this, commandId, key, currentValue, newValue);
+	public HRESULT UpdateProperty(uint32 commandId, PROPERTYKEY key, PROPVARIANT currentValue, PROPVARIANT newValue) mut => VT.[Friend]UpdateProperty(&this, commandId, key, currentValue, newValue);
 }
 
 [CRepr]struct IUIApplication : IUnknown
@@ -430,14 +430,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIApplication*/SelfOuter* self, uint32 viewId, UI_VIEWTYPE typeID, IUnknown* view, UI_VIEWVERB verb, int32 uReasonCode) OnViewChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIApplication*/SelfOuter* self, uint32 commandId, UI_COMMANDTYPE typeID, IUICommandHandler** commandHandler) OnCreateUICommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIApplication*/SelfOuter* self, uint32 commandId, UI_COMMANDTYPE typeID, IUICommandHandler* commandHandler) OnCreateUICommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIApplication*/SelfOuter* self, uint32 commandId, UI_COMMANDTYPE typeID, IUICommandHandler* commandHandler) OnDestroyUICommand;
 	}
 
 
 	public HRESULT OnViewChanged(uint32 viewId, UI_VIEWTYPE typeID, IUnknown* view, UI_VIEWVERB verb, int32 uReasonCode) mut => VT.[Friend]OnViewChanged(&this, viewId, typeID, view, verb, uReasonCode);
 
-	public HRESULT OnCreateUICommand(uint32 commandId, UI_COMMANDTYPE typeID, IUICommandHandler** commandHandler) mut => VT.[Friend]OnCreateUICommand(&this, commandId, typeID, commandHandler);
+	public HRESULT OnCreateUICommand(uint32 commandId, UI_COMMANDTYPE typeID, IUICommandHandler* commandHandler) mut => VT.[Friend]OnCreateUICommand(&this, commandId, typeID, commandHandler);
 
 	public HRESULT OnDestroyUICommand(uint32 commandId, UI_COMMANDTYPE typeID, IUICommandHandler* commandHandler) mut => VT.[Friend]OnDestroyUICommand(&this, commandId, typeID, commandHandler);
 }
@@ -450,11 +450,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIImage*/SelfOuter* self, HBITMAP* bitmap) GetBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIImage*/SelfOuter* self, HBITMAP bitmap) GetBitmap;
 	}
 
 
-	public HRESULT GetBitmap(HBITMAP* bitmap) mut => VT.[Friend]GetBitmap(&this, bitmap);
+	public HRESULT GetBitmap(HBITMAP bitmap) mut => VT.[Friend]GetBitmap(&this, bitmap);
 }
 
 [CRepr]struct IUIImageFromBitmap : IUnknown
@@ -465,11 +465,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIImageFromBitmap*/SelfOuter* self, HBITMAP bitmap, UI_OWNERSHIP options, IUIImage** image) CreateImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIImageFromBitmap*/SelfOuter* self, HBITMAP bitmap, UI_OWNERSHIP options, IUIImage* image) CreateImage;
 	}
 
 
-	public HRESULT CreateImage(HBITMAP bitmap, UI_OWNERSHIP options, IUIImage** image) mut => VT.[Friend]CreateImage(&this, bitmap, options, image);
+	public HRESULT CreateImage(HBITMAP bitmap, UI_OWNERSHIP options, IUIImage* image) mut => VT.[Friend]CreateImage(&this, bitmap, options, image);
 }
 
 #endregion
