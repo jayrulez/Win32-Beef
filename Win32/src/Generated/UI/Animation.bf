@@ -249,34 +249,34 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double value) GetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double finalValue) GetFinalValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double previousValue) GetPreviousValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) GetIntegerValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 finalValue) GetFinalIntegerValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 previousValue) GetPreviousIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* value) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* finalValue) GetFinalValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* previousValue) GetPreviousValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) GetIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* finalValue) GetFinalIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* previousValue) GetPreviousIntegerValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUIAnimationStoryboard** storyboard) GetCurrentStoryboard;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double bound) SetLowerBound;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double bound) SetUpperBound;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UI_ANIMATION_ROUNDING_MODE mode) SetRoundingMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* object, uint32 id) SetTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** object, uint32 id) GetTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** object, uint32* id) GetTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUIAnimationVariableChangeHandler* handler) SetVariableChangeHandler;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUIAnimationVariableIntegerChangeHandler* handler) SetVariableIntegerChangeHandler;
 	}
 
 
-	public HRESULT GetValue(double value) mut => VT.[Friend]GetValue(&this, value);
+	public HRESULT GetValue(double* value) mut => VT.[Friend]GetValue(&this, value);
 
-	public HRESULT GetFinalValue(double finalValue) mut => VT.[Friend]GetFinalValue(&this, finalValue);
+	public HRESULT GetFinalValue(double* finalValue) mut => VT.[Friend]GetFinalValue(&this, finalValue);
 
-	public HRESULT GetPreviousValue(double previousValue) mut => VT.[Friend]GetPreviousValue(&this, previousValue);
+	public HRESULT GetPreviousValue(double* previousValue) mut => VT.[Friend]GetPreviousValue(&this, previousValue);
 
-	public HRESULT GetIntegerValue(int32 value) mut => VT.[Friend]GetIntegerValue(&this, value);
+	public HRESULT GetIntegerValue(int32* value) mut => VT.[Friend]GetIntegerValue(&this, value);
 
-	public HRESULT GetFinalIntegerValue(int32 finalValue) mut => VT.[Friend]GetFinalIntegerValue(&this, finalValue);
+	public HRESULT GetFinalIntegerValue(int32* finalValue) mut => VT.[Friend]GetFinalIntegerValue(&this, finalValue);
 
-	public HRESULT GetPreviousIntegerValue(int32 previousValue) mut => VT.[Friend]GetPreviousIntegerValue(&this, previousValue);
+	public HRESULT GetPreviousIntegerValue(int32* previousValue) mut => VT.[Friend]GetPreviousIntegerValue(&this, previousValue);
 
 	public HRESULT GetCurrentStoryboard(IUIAnimationStoryboard** storyboard) mut => VT.[Friend]GetCurrentStoryboard(&this, storyboard);
 
@@ -288,7 +288,7 @@ public static
 
 	public HRESULT SetTag(IUnknown* object, uint32 id) mut => VT.[Friend]SetTag(&this, object, id);
 
-	public HRESULT GetTag(IUnknown** object, uint32 id) mut => VT.[Friend]GetTag(&this, object, id);
+	public HRESULT GetTag(IUnknown** object, uint32* id) mut => VT.[Friend]GetTag(&this, object, id);
 
 	public HRESULT SetVariableChangeHandler(IUIAnimationVariableChangeHandler* handler) mut => VT.[Friend]SetVariableChangeHandler(&this, handler);
 
@@ -316,9 +316,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double completionDeadline) Finish;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Abandon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* object, uint32 id) SetTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** object, uint32 id) GetTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** object, uint32* id) GetTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UI_ANIMATION_STORYBOARD_STATUS* status) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double elapsedTime) GetElapsedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* elapsedTime) GetElapsedTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUIAnimationStoryboardEventHandler* handler) SetStoryboardEventHandler;
 	}
 
@@ -349,11 +349,11 @@ public static
 
 	public HRESULT SetTag(IUnknown* object, uint32 id) mut => VT.[Friend]SetTag(&this, object, id);
 
-	public HRESULT GetTag(IUnknown** object, uint32 id) mut => VT.[Friend]GetTag(&this, object, id);
+	public HRESULT GetTag(IUnknown** object, uint32* id) mut => VT.[Friend]GetTag(&this, object, id);
 
 	public HRESULT GetStatus(UI_ANIMATION_STORYBOARD_STATUS* status) mut => VT.[Friend]GetStatus(&this, status);
 
-	public HRESULT GetElapsedTime(double elapsedTime) mut => VT.[Friend]GetElapsedTime(&this, elapsedTime);
+	public HRESULT GetElapsedTime(double* elapsedTime) mut => VT.[Friend]GetElapsedTime(&this, elapsedTime);
 
 	public HRESULT SetStoryboardEventHandler(IUIAnimationStoryboardEventHandler* handler) mut => VT.[Friend]SetStoryboardEventHandler(&this, handler);
 }
@@ -369,7 +369,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double value) SetInitialValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double velocity) SetInitialVelocity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsDurationKnown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double duration) GetDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* duration) GetDuration;
 	}
 
 
@@ -379,7 +379,7 @@ public static
 
 	public HRESULT IsDurationKnown() mut => VT.[Friend]IsDurationKnown(&this);
 
-	public HRESULT GetDuration(double duration) mut => VT.[Friend]GetDuration(&this, duration);
+	public HRESULT GetDuration(double* duration) mut => VT.[Friend]GetDuration(&this, duration);
 }
 
 [CRepr]struct IUIAnimationManagerEventHandler : IUnknown
@@ -518,10 +518,10 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double initialValue, double initialVelocity) SetInitialValueAndVelocity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double duration) SetDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double duration) GetDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double value) GetFinalValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double offset, double value) InterpolateValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double offset, double velocity) InterpolateVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* duration) GetDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* value) GetFinalValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double offset, double* value) InterpolateValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double offset, double* velocity) InterpolateVelocity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UI_ANIMATION_DEPENDENCIES* initialValueDependencies, UI_ANIMATION_DEPENDENCIES* initialVelocityDependencies, UI_ANIMATION_DEPENDENCIES* durationDependencies) GetDependencies;
 	}
 
@@ -530,13 +530,13 @@ public static
 
 	public HRESULT SetDuration(double duration) mut => VT.[Friend]SetDuration(&this, duration);
 
-	public HRESULT GetDuration(double duration) mut => VT.[Friend]GetDuration(&this, duration);
+	public HRESULT GetDuration(double* duration) mut => VT.[Friend]GetDuration(&this, duration);
 
-	public HRESULT GetFinalValue(double value) mut => VT.[Friend]GetFinalValue(&this, value);
+	public HRESULT GetFinalValue(double* value) mut => VT.[Friend]GetFinalValue(&this, value);
 
-	public HRESULT InterpolateValue(double offset, double value) mut => VT.[Friend]InterpolateValue(&this, offset, value);
+	public HRESULT InterpolateValue(double offset, double* value) mut => VT.[Friend]InterpolateValue(&this, offset, value);
 
-	public HRESULT InterpolateVelocity(double offset, double velocity) mut => VT.[Friend]InterpolateVelocity(&this, offset, velocity);
+	public HRESULT InterpolateVelocity(double offset, double* velocity) mut => VT.[Friend]InterpolateVelocity(&this, offset, velocity);
 
 	public HRESULT GetDependencies(UI_ANIMATION_DEPENDENCIES* initialValueDependencies, UI_ANIMATION_DEPENDENCIES* initialVelocityDependencies, UI_ANIMATION_DEPENDENCIES* durationDependencies) mut => VT.[Friend]GetDependencies(&this, initialValueDependencies, initialVelocityDependencies, durationDependencies);
 }
@@ -569,7 +569,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Enable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Disable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double seconds) GetTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* seconds) GetTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 framesPerSecond) SetFrameRateThreshold;
 	}
 
@@ -584,7 +584,7 @@ public static
 
 	public HRESULT IsEnabled() mut => VT.[Friend]IsEnabled(&this);
 
-	public HRESULT GetTime(double seconds) mut => VT.[Friend]GetTime(&this, seconds);
+	public HRESULT GetTime(double* seconds) mut => VT.[Friend]GetTime(&this, seconds);
 
 	public HRESULT SetFrameRateThreshold(uint32 framesPerSecond) mut => VT.[Friend]SetFrameRateThreshold(&this, framesPerSecond);
 }
@@ -663,7 +663,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double timeNow, UI_ANIMATION_UPDATE_RESULT* updateResult) Update;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* object, uint32 id, IUIAnimationVariable2** variable) GetVariableFromTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* object, uint32 id, IUIAnimationStoryboard2** storyboard) GetStoryboardFromTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double seconds) EstimateNextEventTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* seconds) EstimateNextEventTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UI_ANIMATION_MANAGER_STATUS* status) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UI_ANIMATION_MODE mode) SetAnimationMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
@@ -696,7 +696,7 @@ public static
 
 	public HRESULT GetStoryboardFromTag(IUnknown* object, uint32 id, IUIAnimationStoryboard2** storyboard) mut => VT.[Friend]GetStoryboardFromTag(&this, object, id, storyboard);
 
-	public HRESULT EstimateNextEventTime(double seconds) mut => VT.[Friend]EstimateNextEventTime(&this, seconds);
+	public HRESULT EstimateNextEventTime(double* seconds) mut => VT.[Friend]EstimateNextEventTime(&this, seconds);
 
 	public HRESULT GetStatus(UI_ANIMATION_MANAGER_STATUS* status) mut => VT.[Friend]GetStatus(&this, status);
 
@@ -729,20 +729,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dimension) GetDimension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double value) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dimension) GetDimension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* value) GetValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* value, uint32 cDimension) GetVectorValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDCompositionAnimation* animation) GetCurve;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDCompositionAnimation** animation, uint32 cDimension) GetVectorCurve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double finalValue) GetFinalValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* finalValue) GetFinalValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* finalValue, uint32 cDimension) GetFinalVectorValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double previousValue) GetPreviousValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* previousValue) GetPreviousValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* previousValue, uint32 cDimension) GetPreviousVectorValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) GetIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) GetIntegerValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value, uint32 cDimension) GetIntegerVectorValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 finalValue) GetFinalIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* finalValue) GetFinalIntegerValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* finalValue, uint32 cDimension) GetFinalIntegerVectorValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 previousValue) GetPreviousIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* previousValue) GetPreviousIntegerValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* previousValue, uint32 cDimension) GetPreviousIntegerVectorValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUIAnimationStoryboard2** storyboard) GetCurrentStoryboard;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double bound) SetLowerBound;
@@ -751,16 +751,16 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* bound, uint32 cDimension) SetUpperBoundVector;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UI_ANIMATION_ROUNDING_MODE mode) SetRoundingMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* object, uint32 id) SetTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** object, uint32 id) GetTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** object, uint32* id) GetTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUIAnimationVariableChangeHandler2* handler, BOOL fRegisterForNextAnimationEvent) SetVariableChangeHandler;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUIAnimationVariableIntegerChangeHandler2* handler, BOOL fRegisterForNextAnimationEvent) SetVariableIntegerChangeHandler;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUIAnimationVariableCurveChangeHandler2* handler) SetVariableCurveChangeHandler;
 	}
 
 
-	public HRESULT GetDimension(uint32 dimension) mut => VT.[Friend]GetDimension(&this, dimension);
+	public HRESULT GetDimension(uint32* dimension) mut => VT.[Friend]GetDimension(&this, dimension);
 
-	public HRESULT GetValue(double value) mut => VT.[Friend]GetValue(&this, value);
+	public HRESULT GetValue(double* value) mut => VT.[Friend]GetValue(&this, value);
 
 	public HRESULT GetVectorValue(double* value, uint32 cDimension) mut => VT.[Friend]GetVectorValue(&this, value, cDimension);
 
@@ -768,23 +768,23 @@ public static
 
 	public HRESULT GetVectorCurve(IDCompositionAnimation** animation, uint32 cDimension) mut => VT.[Friend]GetVectorCurve(&this, animation, cDimension);
 
-	public HRESULT GetFinalValue(double finalValue) mut => VT.[Friend]GetFinalValue(&this, finalValue);
+	public HRESULT GetFinalValue(double* finalValue) mut => VT.[Friend]GetFinalValue(&this, finalValue);
 
 	public HRESULT GetFinalVectorValue(double* finalValue, uint32 cDimension) mut => VT.[Friend]GetFinalVectorValue(&this, finalValue, cDimension);
 
-	public HRESULT GetPreviousValue(double previousValue) mut => VT.[Friend]GetPreviousValue(&this, previousValue);
+	public HRESULT GetPreviousValue(double* previousValue) mut => VT.[Friend]GetPreviousValue(&this, previousValue);
 
 	public HRESULT GetPreviousVectorValue(double* previousValue, uint32 cDimension) mut => VT.[Friend]GetPreviousVectorValue(&this, previousValue, cDimension);
 
-	public HRESULT GetIntegerValue(int32 value) mut => VT.[Friend]GetIntegerValue(&this, value);
+	public HRESULT GetIntegerValue(int32* value) mut => VT.[Friend]GetIntegerValue(&this, value);
 
 	public HRESULT GetIntegerVectorValue(int32* value, uint32 cDimension) mut => VT.[Friend]GetIntegerVectorValue(&this, value, cDimension);
 
-	public HRESULT GetFinalIntegerValue(int32 finalValue) mut => VT.[Friend]GetFinalIntegerValue(&this, finalValue);
+	public HRESULT GetFinalIntegerValue(int32* finalValue) mut => VT.[Friend]GetFinalIntegerValue(&this, finalValue);
 
 	public HRESULT GetFinalIntegerVectorValue(int32* finalValue, uint32 cDimension) mut => VT.[Friend]GetFinalIntegerVectorValue(&this, finalValue, cDimension);
 
-	public HRESULT GetPreviousIntegerValue(int32 previousValue) mut => VT.[Friend]GetPreviousIntegerValue(&this, previousValue);
+	public HRESULT GetPreviousIntegerValue(int32* previousValue) mut => VT.[Friend]GetPreviousIntegerValue(&this, previousValue);
 
 	public HRESULT GetPreviousIntegerVectorValue(int32* previousValue, uint32 cDimension) mut => VT.[Friend]GetPreviousIntegerVectorValue(&this, previousValue, cDimension);
 
@@ -802,7 +802,7 @@ public static
 
 	public HRESULT SetTag(IUnknown* object, uint32 id) mut => VT.[Friend]SetTag(&this, object, id);
 
-	public HRESULT GetTag(IUnknown** object, uint32 id) mut => VT.[Friend]GetTag(&this, object, id);
+	public HRESULT GetTag(IUnknown** object, uint32* id) mut => VT.[Friend]GetTag(&this, object, id);
 
 	public HRESULT SetVariableChangeHandler(IUIAnimationVariableChangeHandler2* handler, BOOL fRegisterForNextAnimationEvent) mut => VT.[Friend]SetVariableChangeHandler(&this, handler, fRegisterForNextAnimationEvent);
 
@@ -819,17 +819,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dimension) GetDimension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dimension) GetDimension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double value) SetInitialValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* value, uint32 cDimension) SetInitialVectorValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double velocity) SetInitialVelocity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* velocity, uint32 cDimension) SetInitialVectorVelocity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsDurationKnown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double duration) GetDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* duration) GetDuration;
 	}
 
 
-	public HRESULT GetDimension(uint32 dimension) mut => VT.[Friend]GetDimension(&this, dimension);
+	public HRESULT GetDimension(uint32* dimension) mut => VT.[Friend]GetDimension(&this, dimension);
 
 	public HRESULT SetInitialValue(double value) mut => VT.[Friend]SetInitialValue(&this, value);
 
@@ -841,7 +841,7 @@ public static
 
 	public HRESULT IsDurationKnown() mut => VT.[Friend]IsDurationKnown(&this);
 
-	public HRESULT GetDuration(double duration) mut => VT.[Friend]GetDuration(&this, duration);
+	public HRESULT GetDuration(double* duration) mut => VT.[Friend]GetDuration(&this, duration);
 }
 
 [CRepr]struct IUIAnimationManagerEventHandler2 : IUnknown
@@ -1047,10 +1047,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dimension) GetDimension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dimension) GetDimension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* initialValue, double* initialVelocity, uint32 cDimension) SetInitialValueAndVelocity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double duration) SetDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double duration) GetDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* duration) GetDuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* value, uint32 cDimension) GetFinalValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double offset, double* value, uint32 cDimension) InterpolateValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double offset, double* velocity, uint32 cDimension) InterpolateVelocity;
@@ -1059,13 +1059,13 @@ public static
 	}
 
 
-	public HRESULT GetDimension(uint32 dimension) mut => VT.[Friend]GetDimension(&this, dimension);
+	public HRESULT GetDimension(uint32* dimension) mut => VT.[Friend]GetDimension(&this, dimension);
 
 	public HRESULT SetInitialValueAndVelocity(double* initialValue, double* initialVelocity, uint32 cDimension) mut => VT.[Friend]SetInitialValueAndVelocity(&this, initialValue, initialVelocity, cDimension);
 
 	public HRESULT SetDuration(double duration) mut => VT.[Friend]SetDuration(&this, duration);
 
-	public HRESULT GetDuration(double duration) mut => VT.[Friend]GetDuration(&this, duration);
+	public HRESULT GetDuration(double* duration) mut => VT.[Friend]GetDuration(&this, duration);
 
 	public HRESULT GetFinalValue(double* value, uint32 cDimension) mut => VT.[Friend]GetFinalValue(&this, value, cDimension);
 
@@ -1115,9 +1115,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double completionDeadline) Finish;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Abandon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* object, uint32 id) SetTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** object, uint32 id) GetTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** object, uint32* id) GetTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UI_ANIMATION_STORYBOARD_STATUS* status) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double elapsedTime) GetElapsedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* elapsedTime) GetElapsedTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUIAnimationStoryboardEventHandler2* handler, BOOL fRegisterStatusChangeForNextAnimationEvent, BOOL fRegisterUpdateForNextAnimationEvent) SetStoryboardEventHandler;
 	}
 
@@ -1150,11 +1150,11 @@ public static
 
 	public HRESULT SetTag(IUnknown* object, uint32 id) mut => VT.[Friend]SetTag(&this, object, id);
 
-	public HRESULT GetTag(IUnknown** object, uint32 id) mut => VT.[Friend]GetTag(&this, object, id);
+	public HRESULT GetTag(IUnknown** object, uint32* id) mut => VT.[Friend]GetTag(&this, object, id);
 
 	public HRESULT GetStatus(UI_ANIMATION_STORYBOARD_STATUS* status) mut => VT.[Friend]GetStatus(&this, status);
 
-	public HRESULT GetElapsedTime(double elapsedTime) mut => VT.[Friend]GetElapsedTime(&this, elapsedTime);
+	public HRESULT GetElapsedTime(double* elapsedTime) mut => VT.[Friend]GetElapsedTime(&this, elapsedTime);
 
 	public HRESULT SetStoryboardEventHandler(IUIAnimationStoryboardEventHandler2* handler, BOOL fRegisterStatusChangeForNextAnimationEvent, BOOL fRegisterUpdateForNextAnimationEvent) mut => VT.[Friend]SetStoryboardEventHandler(&this, handler, fRegisterStatusChangeForNextAnimationEvent, fRegisterUpdateForNextAnimationEvent);
 }

@@ -1557,11 +1557,11 @@ public static
 	public static extern uint32 GetIScsiVersionInformation(ISCSI_VERSION_INFO* VersionInfo);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetIScsiTargetInformationW(PWSTR TargetName, PWSTR DiscoveryMechanism, TARGET_INFORMATION_CLASS InfoClass, uint32 BufferSize, void* Buffer);
+	public static extern uint32 GetIScsiTargetInformationW(PWSTR TargetName, PWSTR DiscoveryMechanism, TARGET_INFORMATION_CLASS InfoClass, uint32* BufferSize, void* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetIScsiTargetInformationA(PSTR TargetName, PSTR DiscoveryMechanism, TARGET_INFORMATION_CLASS InfoClass, uint32 BufferSize, void* Buffer);
-	public static uint32 GetIScsiTargetInformation(PSTR TargetName, PSTR DiscoveryMechanism, TARGET_INFORMATION_CLASS InfoClass, uint32 BufferSize, void* Buffer) => GetIScsiTargetInformationA(TargetName, DiscoveryMechanism, InfoClass, BufferSize, Buffer);
+	public static extern uint32 GetIScsiTargetInformationA(PSTR TargetName, PSTR DiscoveryMechanism, TARGET_INFORMATION_CLASS InfoClass, uint32* BufferSize, void* Buffer);
+	public static uint32 GetIScsiTargetInformation(PSTR TargetName, PSTR DiscoveryMechanism, TARGET_INFORMATION_CLASS InfoClass, uint32* BufferSize, void* Buffer) => GetIScsiTargetInformationA(TargetName, DiscoveryMechanism, InfoClass, BufferSize, Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 AddIScsiConnectionW(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, void* Reserved, uint32 InitiatorPortNumber, ISCSI_TARGET_PORTALW* TargetPortal, uint64 SecurityFlags, ISCSI_LOGIN_OPTIONS* LoginOptions, uint32 KeySize, uint8* Key, ISCSI_UNIQUE_SESSION_ID* ConnectionId);
@@ -1574,11 +1574,11 @@ public static
 	public static extern uint32 RemoveIScsiConnection(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, ISCSI_UNIQUE_SESSION_ID* ConnectionId);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiTargetsW(BOOLEAN ForceUpdate, uint32 BufferSize, char16* Buffer);
+	public static extern uint32 ReportIScsiTargetsW(BOOLEAN ForceUpdate, uint32* BufferSize, char16* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiTargetsA(BOOLEAN ForceUpdate, uint32 BufferSize, uint8* Buffer);
-	public static uint32 ReportIScsiTargets(BOOLEAN ForceUpdate, uint32 BufferSize, uint8* Buffer) => ReportIScsiTargetsA(ForceUpdate, BufferSize, Buffer);
+	public static extern uint32 ReportIScsiTargetsA(BOOLEAN ForceUpdate, uint32* BufferSize, uint8* Buffer);
+	public static uint32 ReportIScsiTargets(BOOLEAN ForceUpdate, uint32* BufferSize, uint8* Buffer) => ReportIScsiTargetsA(ForceUpdate, BufferSize, Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 AddIScsiStaticTargetW(PWSTR TargetName, PWSTR TargetAlias, uint32 TargetFlags, BOOLEAN Persist, ISCSI_TARGET_MAPPINGW* Mappings, ISCSI_LOGIN_OPTIONS* LoginOptions, ISCSI_TARGET_PORTAL_GROUPW* PortalGroup);
@@ -1616,18 +1616,18 @@ public static
 	public static uint32 RefreshIScsiSendTargetPortal(PSTR InitiatorInstance, uint32 InitiatorPortNumber, ISCSI_TARGET_PORTALA* Portal) => RefreshIScsiSendTargetPortalA(InitiatorInstance, InitiatorPortNumber, Portal);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiSendTargetPortalsW(uint32 PortalCount, ISCSI_TARGET_PORTAL_INFOW* PortalInfo);
+	public static extern uint32 ReportIScsiSendTargetPortalsW(uint32* PortalCount, ISCSI_TARGET_PORTAL_INFOW* PortalInfo);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiSendTargetPortalsA(uint32 PortalCount, ISCSI_TARGET_PORTAL_INFOA* PortalInfo);
-	public static uint32 ReportIScsiSendTargetPortals(uint32 PortalCount, ISCSI_TARGET_PORTAL_INFOA* PortalInfo) => ReportIScsiSendTargetPortalsA(PortalCount, PortalInfo);
+	public static extern uint32 ReportIScsiSendTargetPortalsA(uint32* PortalCount, ISCSI_TARGET_PORTAL_INFOA* PortalInfo);
+	public static uint32 ReportIScsiSendTargetPortals(uint32* PortalCount, ISCSI_TARGET_PORTAL_INFOA* PortalInfo) => ReportIScsiSendTargetPortalsA(PortalCount, PortalInfo);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiSendTargetPortalsExW(uint32 PortalCount, uint32 PortalInfoSize, ISCSI_TARGET_PORTAL_INFO_EXW* PortalInfo);
+	public static extern uint32 ReportIScsiSendTargetPortalsExW(uint32* PortalCount, uint32* PortalInfoSize, ISCSI_TARGET_PORTAL_INFO_EXW* PortalInfo);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiSendTargetPortalsExA(uint32 PortalCount, uint32 PortalInfoSize, ISCSI_TARGET_PORTAL_INFO_EXA* PortalInfo);
-	public static uint32 ReportIScsiSendTargetPortalsEx(uint32 PortalCount, uint32 PortalInfoSize, ISCSI_TARGET_PORTAL_INFO_EXA* PortalInfo) => ReportIScsiSendTargetPortalsExA(PortalCount, PortalInfoSize, PortalInfo);
+	public static extern uint32 ReportIScsiSendTargetPortalsExA(uint32* PortalCount, uint32* PortalInfoSize, ISCSI_TARGET_PORTAL_INFO_EXA* PortalInfo);
+	public static uint32 ReportIScsiSendTargetPortalsEx(uint32* PortalCount, uint32* PortalInfoSize, ISCSI_TARGET_PORTAL_INFO_EXA* PortalInfo) => ReportIScsiSendTargetPortalsExA(PortalCount, PortalInfoSize, PortalInfo);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 LoginIScsiTargetW(PWSTR TargetName, BOOLEAN IsInformationalSession, PWSTR InitiatorInstance, uint32 InitiatorPortNumber, ISCSI_TARGET_PORTALW* TargetPortal, uint64 SecurityFlags, ISCSI_TARGET_MAPPINGW* Mappings, ISCSI_LOGIN_OPTIONS* LoginOptions, uint32 KeySize, uint8* Key, BOOLEAN IsPersistent, ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, ISCSI_UNIQUE_SESSION_ID* UniqueConnectionId);
@@ -1637,11 +1637,11 @@ public static
 	public static uint32 LoginIScsiTarget(PSTR TargetName, BOOLEAN IsInformationalSession, PSTR InitiatorInstance, uint32 InitiatorPortNumber, ISCSI_TARGET_PORTALA* TargetPortal, uint64 SecurityFlags, ISCSI_TARGET_MAPPINGA* Mappings, ISCSI_LOGIN_OPTIONS* LoginOptions, uint32 KeySize, uint8* Key, BOOLEAN IsPersistent, ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, ISCSI_UNIQUE_SESSION_ID* UniqueConnectionId) => LoginIScsiTargetA(TargetName, IsInformationalSession, InitiatorInstance, InitiatorPortNumber, TargetPortal, SecurityFlags, Mappings, LoginOptions, KeySize, Key, IsPersistent, UniqueSessionId, UniqueConnectionId);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiPersistentLoginsW(uint32 Count, PERSISTENT_ISCSI_LOGIN_INFOW* PersistentLoginInfo, uint32 BufferSizeInBytes);
+	public static extern uint32 ReportIScsiPersistentLoginsW(uint32* Count, PERSISTENT_ISCSI_LOGIN_INFOW* PersistentLoginInfo, uint32* BufferSizeInBytes);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiPersistentLoginsA(uint32 Count, PERSISTENT_ISCSI_LOGIN_INFOA* PersistentLoginInfo, uint32 BufferSizeInBytes);
-	public static uint32 ReportIScsiPersistentLogins(uint32 Count, PERSISTENT_ISCSI_LOGIN_INFOA* PersistentLoginInfo, uint32 BufferSizeInBytes) => ReportIScsiPersistentLoginsA(Count, PersistentLoginInfo, BufferSizeInBytes);
+	public static extern uint32 ReportIScsiPersistentLoginsA(uint32* Count, PERSISTENT_ISCSI_LOGIN_INFOA* PersistentLoginInfo, uint32* BufferSizeInBytes);
+	public static uint32 ReportIScsiPersistentLogins(uint32* Count, PERSISTENT_ISCSI_LOGIN_INFOA* PersistentLoginInfo, uint32* BufferSizeInBytes) => ReportIScsiPersistentLoginsA(Count, PersistentLoginInfo, BufferSizeInBytes);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 LogoutIScsiTarget(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId);
@@ -1654,27 +1654,27 @@ public static
 	public static uint32 RemoveIScsiPersistentTarget(PSTR InitiatorInstance, uint32 InitiatorPortNumber, PSTR TargetName, ISCSI_TARGET_PORTALA* Portal) => RemoveIScsiPersistentTargetA(InitiatorInstance, InitiatorPortNumber, TargetName, Portal);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SendScsiInquiry(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint64 Lun, uint8 EvpdCmddt, uint8 PageCode, uint8 ScsiStatus, uint32 ResponseSize, uint8 ResponseBuffer, uint32 SenseSize, uint8 SenseBuffer);
+	public static extern uint32 SendScsiInquiry(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint64 Lun, uint8 EvpdCmddt, uint8 PageCode, uint8* ScsiStatus, uint32* ResponseSize, uint8* ResponseBuffer, uint32* SenseSize, uint8* SenseBuffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SendScsiReadCapacity(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint64 Lun, uint8 ScsiStatus, uint32 ResponseSize, uint8 ResponseBuffer, uint32 SenseSize, uint8 SenseBuffer);
+	public static extern uint32 SendScsiReadCapacity(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint64 Lun, uint8* ScsiStatus, uint32* ResponseSize, uint8* ResponseBuffer, uint32* SenseSize, uint8* SenseBuffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SendScsiReportLuns(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint8 ScsiStatus, uint32 ResponseSize, uint8 ResponseBuffer, uint32 SenseSize, uint8 SenseBuffer);
+	public static extern uint32 SendScsiReportLuns(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint8* ScsiStatus, uint32* ResponseSize, uint8* ResponseBuffer, uint32* SenseSize, uint8* SenseBuffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiInitiatorListW(uint32 BufferSize, char16* Buffer);
+	public static extern uint32 ReportIScsiInitiatorListW(uint32* BufferSize, char16* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiInitiatorListA(uint32 BufferSize, uint8* Buffer);
-	public static uint32 ReportIScsiInitiatorList(uint32 BufferSize, uint8* Buffer) => ReportIScsiInitiatorListA(BufferSize, Buffer);
+	public static extern uint32 ReportIScsiInitiatorListA(uint32* BufferSize, uint8* Buffer);
+	public static uint32 ReportIScsiInitiatorList(uint32* BufferSize, uint8* Buffer) => ReportIScsiInitiatorListA(BufferSize, Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportActiveIScsiTargetMappingsW(uint32 BufferSize, uint32 MappingCount, ISCSI_TARGET_MAPPINGW* Mappings);
+	public static extern uint32 ReportActiveIScsiTargetMappingsW(uint32* BufferSize, uint32* MappingCount, ISCSI_TARGET_MAPPINGW* Mappings);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportActiveIScsiTargetMappingsA(uint32 BufferSize, uint32 MappingCount, ISCSI_TARGET_MAPPINGA* Mappings);
-	public static uint32 ReportActiveIScsiTargetMappings(uint32 BufferSize, uint32 MappingCount, ISCSI_TARGET_MAPPINGA* Mappings) => ReportActiveIScsiTargetMappingsA(BufferSize, MappingCount, Mappings);
+	public static extern uint32 ReportActiveIScsiTargetMappingsA(uint32* BufferSize, uint32* MappingCount, ISCSI_TARGET_MAPPINGA* Mappings);
+	public static uint32 ReportActiveIScsiTargetMappings(uint32* BufferSize, uint32* MappingCount, ISCSI_TARGET_MAPPINGA* Mappings) => ReportActiveIScsiTargetMappingsA(BufferSize, MappingCount, Mappings);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetIScsiTunnelModeOuterAddressW(PWSTR InitiatorName, uint32 InitiatorPortNumber, PWSTR DestinationAddress, PWSTR OuterModeAddress, BOOLEAN Persist);
@@ -1691,20 +1691,20 @@ public static
 	public static uint32 SetIScsiIKEInfo(PSTR InitiatorName, uint32 InitiatorPortNumber, IKE_AUTHENTICATION_INFORMATION* AuthInfo, BOOLEAN Persist) => SetIScsiIKEInfoA(InitiatorName, InitiatorPortNumber, AuthInfo, Persist);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetIScsiIKEInfoW(PWSTR InitiatorName, uint32 InitiatorPortNumber, uint32 Reserved, IKE_AUTHENTICATION_INFORMATION* AuthInfo);
+	public static extern uint32 GetIScsiIKEInfoW(PWSTR InitiatorName, uint32 InitiatorPortNumber, uint32* Reserved, IKE_AUTHENTICATION_INFORMATION* AuthInfo);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetIScsiIKEInfoA(PSTR InitiatorName, uint32 InitiatorPortNumber, uint32 Reserved, IKE_AUTHENTICATION_INFORMATION* AuthInfo);
-	public static uint32 GetIScsiIKEInfo(PSTR InitiatorName, uint32 InitiatorPortNumber, uint32 Reserved, IKE_AUTHENTICATION_INFORMATION* AuthInfo) => GetIScsiIKEInfoA(InitiatorName, InitiatorPortNumber, Reserved, AuthInfo);
+	public static extern uint32 GetIScsiIKEInfoA(PSTR InitiatorName, uint32 InitiatorPortNumber, uint32* Reserved, IKE_AUTHENTICATION_INFORMATION* AuthInfo);
+	public static uint32 GetIScsiIKEInfo(PSTR InitiatorName, uint32 InitiatorPortNumber, uint32* Reserved, IKE_AUTHENTICATION_INFORMATION* AuthInfo) => GetIScsiIKEInfoA(InitiatorName, InitiatorPortNumber, Reserved, AuthInfo);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetIScsiGroupPresharedKey(uint32 KeyLength, uint8 Key, BOOLEAN Persist);
+	public static extern uint32 SetIScsiGroupPresharedKey(uint32 KeyLength, uint8* Key, BOOLEAN Persist);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetIScsiInitiatorCHAPSharedSecret(uint32 SharedSecretLength, uint8 SharedSecret);
+	public static extern uint32 SetIScsiInitiatorCHAPSharedSecret(uint32 SharedSecretLength, uint8* SharedSecret);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetIScsiInitiatorRADIUSSharedSecret(uint32 SharedSecretLength, uint8 SharedSecret);
+	public static extern uint32 SetIScsiInitiatorRADIUSSharedSecret(uint32 SharedSecretLength, uint8* SharedSecret);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetIScsiInitiatorNodeNameW(PWSTR InitiatorNodeName);
@@ -1742,28 +1742,28 @@ public static
 	public static uint32 RefreshISNSServer(PSTR Address) => RefreshISNSServerA(Address);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportISNSServerListW(uint32 BufferSizeInChar, char16* Buffer);
+	public static extern uint32 ReportISNSServerListW(uint32* BufferSizeInChar, char16* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportISNSServerListA(uint32 BufferSizeInChar, uint8* Buffer);
-	public static uint32 ReportISNSServerList(uint32 BufferSizeInChar, uint8* Buffer) => ReportISNSServerListA(BufferSizeInChar, Buffer);
+	public static extern uint32 ReportISNSServerListA(uint32* BufferSizeInChar, uint8* Buffer);
+	public static uint32 ReportISNSServerList(uint32* BufferSizeInChar, uint8* Buffer) => ReportISNSServerListA(BufferSizeInChar, Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetIScsiSessionListW(uint32 BufferSize, uint32 SessionCount, ISCSI_SESSION_INFOW* SessionInfo);
+	public static extern uint32 GetIScsiSessionListW(uint32* BufferSize, uint32* SessionCount, ISCSI_SESSION_INFOW* SessionInfo);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetIScsiSessionListA(uint32 BufferSize, uint32 SessionCount, ISCSI_SESSION_INFOA* SessionInfo);
-	public static uint32 GetIScsiSessionList(uint32 BufferSize, uint32 SessionCount, ISCSI_SESSION_INFOA* SessionInfo) => GetIScsiSessionListA(BufferSize, SessionCount, SessionInfo);
+	public static extern uint32 GetIScsiSessionListA(uint32* BufferSize, uint32* SessionCount, ISCSI_SESSION_INFOA* SessionInfo);
+	public static uint32 GetIScsiSessionList(uint32* BufferSize, uint32* SessionCount, ISCSI_SESSION_INFOA* SessionInfo) => GetIScsiSessionListA(BufferSize, SessionCount, SessionInfo);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetIScsiSessionListEx(uint32 BufferSize, uint32 SessionCountPtr, ISCSI_SESSION_INFO_EX* SessionInfo);
+	public static extern uint32 GetIScsiSessionListEx(uint32* BufferSize, uint32* SessionCountPtr, ISCSI_SESSION_INFO_EX* SessionInfo);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetDevicesForIScsiSessionW(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint32 DeviceCount, ISCSI_DEVICE_ON_SESSIONW* Devices);
+	public static extern uint32 GetDevicesForIScsiSessionW(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint32* DeviceCount, ISCSI_DEVICE_ON_SESSIONW* Devices);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetDevicesForIScsiSessionA(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint32 DeviceCount, ISCSI_DEVICE_ON_SESSIONA* Devices);
-	public static uint32 GetDevicesForIScsiSession(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint32 DeviceCount, ISCSI_DEVICE_ON_SESSIONA* Devices) => GetDevicesForIScsiSessionA(UniqueSessionId, DeviceCount, Devices);
+	public static extern uint32 GetDevicesForIScsiSessionA(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint32* DeviceCount, ISCSI_DEVICE_ON_SESSIONA* Devices);
+	public static uint32 GetDevicesForIScsiSession(ISCSI_UNIQUE_SESSION_ID* UniqueSessionId, uint32* DeviceCount, ISCSI_DEVICE_ON_SESSIONA* Devices) => GetDevicesForIScsiSessionA(UniqueSessionId, DeviceCount, Devices);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetupPersistentIScsiVolumes();
@@ -1789,18 +1789,18 @@ public static
 	public static extern uint32 ClearPersistentIScsiDevices();
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportPersistentIScsiDevicesW(uint32 BufferSizeInChar, char16* Buffer);
+	public static extern uint32 ReportPersistentIScsiDevicesW(uint32* BufferSizeInChar, char16* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportPersistentIScsiDevicesA(uint32 BufferSizeInChar, uint8* Buffer);
-	public static uint32 ReportPersistentIScsiDevices(uint32 BufferSizeInChar, uint8* Buffer) => ReportPersistentIScsiDevicesA(BufferSizeInChar, Buffer);
+	public static extern uint32 ReportPersistentIScsiDevicesA(uint32* BufferSizeInChar, uint8* Buffer);
+	public static uint32 ReportPersistentIScsiDevices(uint32* BufferSizeInChar, uint8* Buffer) => ReportPersistentIScsiDevicesA(BufferSizeInChar, Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiTargetPortalsW(PWSTR InitiatorName, PWSTR TargetName, uint16 TargetPortalTag, uint32 ElementCount, ISCSI_TARGET_PORTALW* Portals);
+	public static extern uint32 ReportIScsiTargetPortalsW(PWSTR InitiatorName, PWSTR TargetName, uint16* TargetPortalTag, uint32* ElementCount, ISCSI_TARGET_PORTALW* Portals);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportIScsiTargetPortalsA(PSTR InitiatorName, PSTR TargetName, uint16 TargetPortalTag, uint32 ElementCount, ISCSI_TARGET_PORTALA* Portals);
-	public static uint32 ReportIScsiTargetPortals(PSTR InitiatorName, PSTR TargetName, uint16 TargetPortalTag, uint32 ElementCount, ISCSI_TARGET_PORTALA* Portals) => ReportIScsiTargetPortalsA(InitiatorName, TargetName, TargetPortalTag, ElementCount, Portals);
+	public static extern uint32 ReportIScsiTargetPortalsA(PSTR InitiatorName, PSTR TargetName, uint16* TargetPortalTag, uint32* ElementCount, ISCSI_TARGET_PORTALA* Portals);
+	public static uint32 ReportIScsiTargetPortals(PSTR InitiatorName, PSTR TargetName, uint16* TargetPortalTag, uint32* ElementCount, ISCSI_TARGET_PORTALA* Portals) => ReportIScsiTargetPortalsA(InitiatorName, TargetName, TargetPortalTag, ElementCount, Portals);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 AddRadiusServerW(PWSTR Address);
@@ -1817,11 +1817,11 @@ public static
 	public static uint32 RemoveRadiusServer(PSTR Address) => RemoveRadiusServerA(Address);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportRadiusServerListW(uint32 BufferSizeInChar, char16* Buffer);
+	public static extern uint32 ReportRadiusServerListW(uint32* BufferSizeInChar, char16* Buffer);
 
 	[Import("ISCSIDSC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ReportRadiusServerListA(uint32 BufferSizeInChar, uint8* Buffer);
-	public static uint32 ReportRadiusServerList(uint32 BufferSizeInChar, uint8* Buffer) => ReportRadiusServerListA(BufferSizeInChar, Buffer);
+	public static extern uint32 ReportRadiusServerListA(uint32* BufferSizeInChar, uint8* Buffer);
+	public static uint32 ReportRadiusServerList(uint32* BufferSizeInChar, uint8* Buffer) => ReportRadiusServerListA(BufferSizeInChar, Buffer);
 
 }
 #endregion

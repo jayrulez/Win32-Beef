@@ -7781,25 +7781,25 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP hbmImage, HBITMAP hbmMask, int32 pi) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, HICON hicon, int32 pi) ReplaceIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP hbmImage, HBITMAP hbmMask, int32* pi) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, HICON hicon, int32* pi) ReplaceIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iImage, int32 iOverlay) SetOverlayImage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, HBITMAP hbmImage, HBITMAP hbmMask) Replace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP hbmImage, uint32 crMask, int32 pi) AddMasked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP hbmImage, uint32 crMask, int32* pi) AddMasked;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAGELISTDRAWPARAMS* pimldp) Draw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, uint32 flags, HICON* picon) GetIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, IMAGEINFO* pImageInfo) GetImageInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iDst, IUnknown* punkSrc, int32 iSrc, uint32 uFlags) Copy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i1, IUnknown* punk2, int32 i2, int32 dx, int32 dy, Guid riid, void** ppv) Merge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i1, IUnknown* punk2, int32 i2, int32 dx, int32 dy, ref Guid riid, void** ppv) Merge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) Clone;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, RECT* prc) GetImageRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cx, int32 cy) GetIconSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* cx, int32* cy) GetIconSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cx, int32 cy) SetIconSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pi) GetImageCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pi) GetImageCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uNewCount) SetImageCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 clrBk, uint32 pclr) SetBkColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pclr) GetBkColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 clrBk, uint32* pclr) SetBkColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pclr) GetBkColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iTrack, int32 dxHotspot, int32 dyHotspot) BeginDrag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndDrag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndLock, int32 x, int32 y) DragEnter;
@@ -7807,21 +7807,21 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y) DragMove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* punk, int32 iDrag, int32 dxHotspot, int32 dyHotspot) SetDragCursorImage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fShow) DragShowNolock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POINT* ppt, POINT* pptHotspot, Guid riid, void** ppv) GetDragImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POINT* ppt, POINT* pptHotspot, ref Guid riid, void** ppv) GetDragImage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, IMAGE_LIST_ITEM_FLAGS* dwFlags) GetItemFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iOverlay, int32 piIndex) GetOverlayImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iOverlay, int32* piIndex) GetOverlayImage;
 	}
 
 
-	public HRESULT Add(HBITMAP hbmImage, HBITMAP hbmMask, int32 pi) mut => VT.[Friend]Add(&this, hbmImage, hbmMask, pi);
+	public HRESULT Add(HBITMAP hbmImage, HBITMAP hbmMask, int32* pi) mut => VT.[Friend]Add(&this, hbmImage, hbmMask, pi);
 
-	public HRESULT ReplaceIcon(int32 i, HICON hicon, int32 pi) mut => VT.[Friend]ReplaceIcon(&this, i, hicon, pi);
+	public HRESULT ReplaceIcon(int32 i, HICON hicon, int32* pi) mut => VT.[Friend]ReplaceIcon(&this, i, hicon, pi);
 
 	public HRESULT SetOverlayImage(int32 iImage, int32 iOverlay) mut => VT.[Friend]SetOverlayImage(&this, iImage, iOverlay);
 
 	public HRESULT Replace(int32 i, HBITMAP hbmImage, HBITMAP hbmMask) mut => VT.[Friend]Replace(&this, i, hbmImage, hbmMask);
 
-	public HRESULT AddMasked(HBITMAP hbmImage, uint32 crMask, int32 pi) mut => VT.[Friend]AddMasked(&this, hbmImage, crMask, pi);
+	public HRESULT AddMasked(HBITMAP hbmImage, uint32 crMask, int32* pi) mut => VT.[Friend]AddMasked(&this, hbmImage, crMask, pi);
 
 	public HRESULT Draw(IMAGELISTDRAWPARAMS* pimldp) mut => VT.[Friend]Draw(&this, pimldp);
 
@@ -7833,23 +7833,23 @@ public static
 
 	public HRESULT Copy(int32 iDst, IUnknown* punkSrc, int32 iSrc, uint32 uFlags) mut => VT.[Friend]Copy(&this, iDst, punkSrc, iSrc, uFlags);
 
-	public HRESULT Merge(int32 i1, IUnknown* punk2, int32 i2, int32 dx, int32 dy, Guid riid, void** ppv) mut => VT.[Friend]Merge(&this, i1, punk2, i2, dx, dy, riid, ppv);
+	public HRESULT Merge(int32 i1, IUnknown* punk2, int32 i2, int32 dx, int32 dy, ref Guid riid, void** ppv) mut => VT.[Friend]Merge(&this, i1, punk2, i2, dx, dy, ref riid, ppv);
 
-	public HRESULT Clone(Guid riid, void** ppv) mut => VT.[Friend]Clone(&this, riid, ppv);
+	public HRESULT Clone(ref Guid riid, void** ppv) mut => VT.[Friend]Clone(&this, ref riid, ppv);
 
 	public HRESULT GetImageRect(int32 i, RECT* prc) mut => VT.[Friend]GetImageRect(&this, i, prc);
 
-	public HRESULT GetIconSize(int32 cx, int32 cy) mut => VT.[Friend]GetIconSize(&this, cx, cy);
+	public HRESULT GetIconSize(int32* cx, int32* cy) mut => VT.[Friend]GetIconSize(&this, cx, cy);
 
 	public HRESULT SetIconSize(int32 cx, int32 cy) mut => VT.[Friend]SetIconSize(&this, cx, cy);
 
-	public HRESULT GetImageCount(int32 pi) mut => VT.[Friend]GetImageCount(&this, pi);
+	public HRESULT GetImageCount(int32* pi) mut => VT.[Friend]GetImageCount(&this, pi);
 
 	public HRESULT SetImageCount(uint32 uNewCount) mut => VT.[Friend]SetImageCount(&this, uNewCount);
 
-	public HRESULT SetBkColor(uint32 clrBk, uint32 pclr) mut => VT.[Friend]SetBkColor(&this, clrBk, pclr);
+	public HRESULT SetBkColor(uint32 clrBk, uint32* pclr) mut => VT.[Friend]SetBkColor(&this, clrBk, pclr);
 
-	public HRESULT GetBkColor(uint32 pclr) mut => VT.[Friend]GetBkColor(&this, pclr);
+	public HRESULT GetBkColor(uint32* pclr) mut => VT.[Friend]GetBkColor(&this, pclr);
 
 	public HRESULT BeginDrag(int32 iTrack, int32 dxHotspot, int32 dyHotspot) mut => VT.[Friend]BeginDrag(&this, iTrack, dxHotspot, dyHotspot);
 
@@ -7865,11 +7865,11 @@ public static
 
 	public HRESULT DragShowNolock(BOOL fShow) mut => VT.[Friend]DragShowNolock(&this, fShow);
 
-	public HRESULT GetDragImage(POINT* ppt, POINT* pptHotspot, Guid riid, void** ppv) mut => VT.[Friend]GetDragImage(&this, ppt, pptHotspot, riid, ppv);
+	public HRESULT GetDragImage(POINT* ppt, POINT* pptHotspot, ref Guid riid, void** ppv) mut => VT.[Friend]GetDragImage(&this, ppt, pptHotspot, ref riid, ppv);
 
 	public HRESULT GetItemFlags(int32 i, IMAGE_LIST_ITEM_FLAGS* dwFlags) mut => VT.[Friend]GetItemFlags(&this, i, dwFlags);
 
-	public HRESULT GetOverlayImage(int32 iOverlay, int32 piIndex) mut => VT.[Friend]GetOverlayImage(&this, iOverlay, piIndex);
+	public HRESULT GetOverlayImage(int32 iOverlay, int32* piIndex) mut => VT.[Friend]GetOverlayImage(&this, iOverlay, piIndex);
 }
 
 [CRepr]struct IImageList2 : IImageList
@@ -7881,10 +7881,10 @@ public static
 	[CRepr]public struct VTable : IImageList.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cxNewIconSize, int32 cyNewIconSize) Resize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iImage, uint32 dwFlags, int32 pcx, int32 pcy) GetOriginalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iImage, uint32 dwFlags, int32* pcx, int32* pcy) GetOriginalSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iImage, int32 cx, int32 cy) SetOriginalSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* punk) SetCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) GetCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iImage, uint32 dwFlags) ForceImagePresent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iFirstImage, int32 iLastImage, uint32 dwFlags) DiscardImages;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAGELISTDRAWPARAMS* pimldp) PreloadImages;
@@ -7897,13 +7897,13 @@ public static
 
 	public HRESULT Resize(int32 cxNewIconSize, int32 cyNewIconSize) mut => VT.[Friend]Resize(&this, cxNewIconSize, cyNewIconSize);
 
-	public HRESULT GetOriginalSize(int32 iImage, uint32 dwFlags, int32 pcx, int32 pcy) mut => VT.[Friend]GetOriginalSize(&this, iImage, dwFlags, pcx, pcy);
+	public HRESULT GetOriginalSize(int32 iImage, uint32 dwFlags, int32* pcx, int32* pcy) mut => VT.[Friend]GetOriginalSize(&this, iImage, dwFlags, pcx, pcy);
 
 	public HRESULT SetOriginalSize(int32 iImage, int32 cx, int32 cy) mut => VT.[Friend]SetOriginalSize(&this, iImage, cx, cy);
 
 	public HRESULT SetCallback(IUnknown* punk) mut => VT.[Friend]SetCallback(&this, punk);
 
-	public HRESULT GetCallback(Guid riid, void** ppv) mut => VT.[Friend]GetCallback(&this, riid, ppv);
+	public HRESULT GetCallback(ref Guid riid, void** ppv) mut => VT.[Friend]GetCallback(&this, ref riid, ppv);
 
 	public HRESULT ForceImagePresent(int32 iImage, uint32 dwFlags) mut => VT.[Friend]ForceImagePresent(&this, iImage, dwFlags);
 
@@ -8037,13 +8037,13 @@ public static
 	public static extern BOOL ImageList_Write(HIMAGELIST himl, IStream* pstm);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ImageList_ReadEx(uint32 dwFlags, IStream* pstm, Guid riid, void** ppv);
+	public static extern HRESULT ImageList_ReadEx(uint32 dwFlags, IStream* pstm, ref Guid riid, void** ppv);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ImageList_WriteEx(HIMAGELIST himl, uint32 dwFlags, IStream* pstm);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ImageList_GetIconSize(HIMAGELIST himl, int32 cx, int32 cy);
+	public static extern BOOL ImageList_GetIconSize(HIMAGELIST himl, int32* cx, int32* cy);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImageList_SetIconSize(HIMAGELIST himl, int32 cx, int32 cy);
@@ -8058,7 +8058,7 @@ public static
 	public static extern HIMAGELIST ImageList_Duplicate(HIMAGELIST himl);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HIMAGELIST_QueryInterface(HIMAGELIST himl, Guid riid, void** ppv);
+	public static extern HRESULT HIMAGELIST_QueryInterface(HIMAGELIST himl, ref Guid riid, void** ppv);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND CreateToolbarEx(HWND hwnd, uint32 ws, uint32 wID, int32 nBitmaps, HINSTANCE hBMInst, uint wBMID, TBBUTTON* lpButtons, int32 iNumButtons, int32 dxButton, int32 dyButton, int32 dxBitmap, int32 dyBitmap, uint32 uStructSize);
@@ -8081,13 +8081,13 @@ public static
 	public static extern HWND CreateStatusWindowW(int32 style, PWSTR lpszText, HWND hwndParent, uint32 wID);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void MenuHelp(uint32 uMsg, WPARAM wParam, LPARAM lParam, HMENU hMainMenu, HINSTANCE hInst, HWND hwndStatus, uint32 lpwIDs);
+	public static extern void MenuHelp(uint32 uMsg, WPARAM wParam, LPARAM lParam, HMENU hMainMenu, HINSTANCE hInst, HWND hwndStatus, uint32* lpwIDs);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ShowHideMenuCtl(HWND hWnd, uint uFlags, int32 lpInfo);
+	public static extern BOOL ShowHideMenuCtl(HWND hWnd, uint uFlags, int32* lpInfo);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void GetEffectiveClientRect(HWND hWnd, RECT* lprc, int32 lpInfo);
+	public static extern void GetEffectiveClientRect(HWND hWnd, RECT* lprc, int32* lpInfo);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MakeDragList(HWND hLB);
@@ -8102,10 +8102,10 @@ public static
 	public static extern HWND CreateUpDownControl(uint32 dwStyle, int32 x, int32 y, int32 cx, int32 cy, HWND hParent, int32 nID, HINSTANCE hInst, HWND hBuddy, int32 nUpper, int32 nLower, int32 nPos);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT TaskDialogIndirect(TASKDIALOGCONFIG* pTaskConfig, int32 pnButton, int32 pnRadioButton, BOOL* pfVerificationFlagChecked);
+	public static extern HRESULT TaskDialogIndirect(TASKDIALOGCONFIG* pTaskConfig, int32* pnButton, int32* pnRadioButton, BOOL* pfVerificationFlagChecked);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT TaskDialog(HWND hwndOwner, HINSTANCE hInstance, PWSTR pszWindowTitle, PWSTR pszMainInstruction, PWSTR pszContent, TASKDIALOG_COMMON_BUTTON_FLAGS dwCommonButtons, PWSTR pszIcon, int32 pnButton);
+	public static extern HRESULT TaskDialog(HWND hwndOwner, HINSTANCE hInstance, PWSTR pszWindowTitle, PWSTR pszMainInstruction, PWSTR pszContent, TASKDIALOG_COMMON_BUTTON_FLAGS dwCommonButtons, PWSTR pszIcon, int32* pnButton);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void InitMUILanguage(uint16 uiLang);
@@ -8219,7 +8219,7 @@ public static
 	public static extern BOOL FlatSB_ShowScrollBar(HWND param0, SCROLLBAR_CONSTANTS code, BOOL param2);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FlatSB_GetScrollRange(HWND param0, SCROLLBAR_CONSTANTS code, int32 param2, int32 param3);
+	public static extern BOOL FlatSB_GetScrollRange(HWND param0, SCROLLBAR_CONSTANTS code, int32* param2, int32* param3);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FlatSB_GetScrollInfo(HWND param0, SCROLLBAR_CONSTANTS code, SCROLLINFO* param2);
@@ -8228,7 +8228,7 @@ public static
 	public static extern int32 FlatSB_GetScrollPos(HWND param0, SCROLLBAR_CONSTANTS code);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FlatSB_GetScrollProp(HWND param0, WSB_PROP propIndex, int32 param2);
+	public static extern BOOL FlatSB_GetScrollProp(HWND param0, WSB_PROP propIndex, int32* param2);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 FlatSB_SetScrollPos(HWND param0, SCROLLBAR_CONSTANTS code, int32 pos, BOOL fRedraw);
@@ -8258,7 +8258,7 @@ public static
 	public static extern int32 DrawShadowText(HDC hdc, char16* pszText, uint32 cch, RECT* prc, uint32 dwFlags, uint32 crText, uint32 crShadow, int32 ixOffset, int32 iyOffset);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ImageList_CoCreateInstance(Guid rclsid, IUnknown* punkOuter, Guid riid, void** ppv);
+	public static extern HRESULT ImageList_CoCreateInstance(ref Guid rclsid, IUnknown* punkOuter, ref Guid riid, void** ppv);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BeginPanningFeedback(HWND hwnd);
@@ -8270,13 +8270,13 @@ public static
 	public static extern BOOL EndPanningFeedback(HWND hwnd, BOOL fAnimateBack);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeAnimationProperty(int hTheme, int32 iStoryboardId, int32 iTargetId, TA_PROPERTY eProperty, void* pvProperty, uint32 cbSize, uint32 pcbSizeOut);
+	public static extern HRESULT GetThemeAnimationProperty(int hTheme, int32 iStoryboardId, int32 iTargetId, TA_PROPERTY eProperty, void* pvProperty, uint32 cbSize, uint32* pcbSizeOut);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeAnimationTransform(int hTheme, int32 iStoryboardId, int32 iTargetId, uint32 dwTransformIndex, TA_TRANSFORM* pTransform, uint32 cbSize, uint32 pcbSizeOut);
+	public static extern HRESULT GetThemeAnimationTransform(int hTheme, int32 iStoryboardId, int32 iTargetId, uint32 dwTransformIndex, TA_TRANSFORM* pTransform, uint32 cbSize, uint32* pcbSizeOut);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeTimingFunction(int hTheme, int32 iTimingFunctionId, TA_TIMINGFUNCTION* pTimingFunction, uint32 cbSize, uint32 pcbSizeOut);
+	public static extern HRESULT GetThemeTimingFunction(int hTheme, int32 iTimingFunctionId, TA_TIMINGFUNCTION* pTimingFunction, uint32 cbSize, uint32* pcbSizeOut);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int OpenThemeData(HWND hwnd, PWSTR pszClassList);
@@ -8315,7 +8315,7 @@ public static
 	public static extern HRESULT GetThemeTextMetrics(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, TEXTMETRICW* ptm);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HitTestThemeBackground(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, uint32 dwOptions, RECT* pRect, HRGN hrgn, POINT ptTest, uint16 pwHitTestCode);
+	public static extern HRESULT HitTestThemeBackground(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, uint32 dwOptions, RECT* pRect, HRGN hrgn, POINT ptTest, uint16* pwHitTestCode);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DrawThemeEdge(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, RECT* pDestRect, uint32 uEdge, uint32 uFlags, RECT* pContentRect);
@@ -8330,10 +8330,10 @@ public static
 	public static extern BOOL IsThemeBackgroundPartiallyTransparent(int hTheme, int32 iPartId, int32 iStateId);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeColor(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, uint32 pColor);
+	public static extern HRESULT GetThemeColor(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, uint32* pColor);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeMetric(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, int32 piVal);
+	public static extern HRESULT GetThemeMetric(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, int32* piVal);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeString(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, char16* pszBuff, int32 cchMaxBuffChars);
@@ -8342,10 +8342,10 @@ public static
 	public static extern HRESULT GetThemeBool(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, BOOL* pfVal);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeInt(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, int32 piVal);
+	public static extern HRESULT GetThemeInt(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, int32* piVal);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeEnumValue(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, int32 piVal);
+	public static extern HRESULT GetThemeEnumValue(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, int32* piVal);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemePosition(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, POINT* pPoint);
@@ -8390,7 +8390,7 @@ public static
 	public static extern HRESULT GetThemeSysString(int hTheme, THEME_PROPERTY_SYMBOL_ID iStringId, char16* pszStringBuff, int32 cchMaxStringChars);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeSysInt(int hTheme, int32 iIntId, int32 piValue);
+	public static extern HRESULT GetThemeSysInt(int hTheme, int32 iIntId, int32* piValue);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsThemeActive();
@@ -8438,7 +8438,7 @@ public static
 	public static extern HRESULT GetThemeBitmap(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, GET_THEME_BITMAP_FLAGS dwFlags, HBITMAP* phBitmap);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeStream(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, void** ppvStream, uint32 pcbStream, HINSTANCE hInst);
+	public static extern HRESULT GetThemeStream(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, void** ppvStream, uint32* pcbStream, HINSTANCE hInst);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT BufferedPaintInit();
@@ -8462,7 +8462,7 @@ public static
 	public static extern HDC GetBufferedPaintDC(int hBufferedPaint);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetBufferedPaintBits(int hBufferedPaint, RGBQUAD** ppbBuffer, int32 pcxRow);
+	public static extern HRESULT GetBufferedPaintBits(int hBufferedPaint, RGBQUAD** ppbBuffer, int32* pcxRow);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT BufferedPaintClear(int hBufferedPaint, RECT* prc);
@@ -8486,7 +8486,7 @@ public static
 	public static extern BOOL IsCompositionActive();
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeTransitionDuration(int hTheme, int32 iPartId, int32 iStateIdFrom, int32 iStateIdTo, int32 iPropId, uint32 pdwDuration);
+	public static extern HRESULT GetThemeTransitionDuration(int hTheme, int32 iPartId, int32 iStateIdFrom, int32 iStateIdTo, int32 iPropId, uint32* pdwDuration);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CheckDlgButton(HWND hDlg, int32 nIDButton, DLG_BUTTON_CHECK_STATE uCheck);
@@ -8519,7 +8519,7 @@ public static
 	public static extern LRESULT PackTouchHitTestingProximityEvaluation(TOUCH_HIT_TESTING_INPUT* pHitTestingInput, TOUCH_HIT_TESTING_PROXIMITY_EVALUATION* pProximityEval);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetWindowFeedbackSetting(HWND hwnd, FEEDBACK_TYPE feedback, uint32 dwFlags, uint32 pSize, void* config);
+	public static extern BOOL GetWindowFeedbackSetting(HWND hwnd, FEEDBACK_TYPE feedback, uint32 dwFlags, uint32* pSize, void* config);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetWindowFeedbackSetting(HWND hwnd, FEEDBACK_TYPE feedback, uint32 dwFlags, uint32 size, void* configuration);

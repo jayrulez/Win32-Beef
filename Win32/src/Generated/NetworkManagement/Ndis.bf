@@ -4154,7 +4154,7 @@ public function void DOT11EXT_FREE_BUFFER(void* pvMemory);
 
 public function uint32 DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA(HANDLE hDot11SvcHandle, HANDLE hConnectSession, uint32 dwSessionID, uint32 dwDataSize, void* pvData);
 
-public function uint32 DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA(HANDLE hDot11SvcHandle, HANDLE hConnectSession, uint32 dwSessionID, uint32 pdwDataSize, void** ppvData);
+public function uint32 DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA(HANDLE hDot11SvcHandle, HANDLE hConnectSession, uint32 dwSessionID, uint32* pdwDataSize, void** ppvData);
 
 public function uint32 DOT11EXT_SET_CURRENT_PROFILE(HANDLE hDot11SvcHandle, HANDLE hConnectSession, DOT11EXT_IHV_CONNECTIVITY_PROFILE* pIhvConnProfile, DOT11EXT_IHV_SECURITY_PROFILE* pIhvSecProfile);
 
@@ -4184,7 +4184,7 @@ public function uint32 DOT11EXT_SET_DEFAULT_KEY_ID(HANDLE hDot11SvcHandle, uint3
 
 public function uint32 DOT11EXT_SET_EXCLUDE_UNENCRYPTED(HANDLE hDot11SvcHandle, BOOL bExcludeUnencrypted);
 
-public function uint32 DOT11EXT_NIC_SPECIFIC_EXTENSION(HANDLE hDot11SvcHandle, uint32 dwInBufferSize, void* pvInBuffer, uint32 pdwOutBufferSize, void* pvOutBuffer);
+public function uint32 DOT11EXT_NIC_SPECIFIC_EXTENSION(HANDLE hDot11SvcHandle, uint32 dwInBufferSize, void* pvInBuffer, uint32* pdwOutBufferSize, void* pvOutBuffer);
 
 public function uint32 DOT11EXT_ONEX_START(HANDLE hDot11SvcHandle, EAP_ATTRIBUTES* pEapAttributes);
 
@@ -4196,7 +4196,7 @@ public function uint32 DOT11EXT_REQUEST_VIRTUAL_STATION(HANDLE hDot11PrimaryHand
 
 public function uint32 DOT11EXT_RELEASE_VIRTUAL_STATION(HANDLE hDot11PrimaryHandle, void* pvReserved);
 
-public function uint32 DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES(HANDLE hDot11SvcHandle, BOOL* pbIsVirtualStation, Guid pgPrimary, void* pvReserved);
+public function uint32 DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES(HANDLE hDot11SvcHandle, BOOL* pbIsVirtualStation, ref Guid pgPrimary, void* pvReserved);
 
 public function uint32 DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES(HANDLE hDot11SvcHandle, HANDLE hConnectSession, uint32 dwNumProperties, DOT11EXT_VIRTUAL_STATION_AP_PROPERTY* pProperties, void* pvReserved);
 
@@ -4212,7 +4212,7 @@ public function uint32 DOT11EXTIHV_INIT_ADAPTER(DOT11_ADAPTER* pDot11Adapter, HA
 
 public function void DOT11EXTIHV_DEINIT_ADAPTER(HANDLE hIhvExtAdapter);
 
-public function uint32 DOT11EXTIHV_PERFORM_PRE_ASSOCIATE(HANDLE hIhvExtAdapter, HANDLE hConnectSession, DOT11EXT_IHV_PROFILE_PARAMS* pIhvProfileParams, DOT11EXT_IHV_CONNECTIVITY_PROFILE* pIhvConnProfile, DOT11EXT_IHV_SECURITY_PROFILE* pIhvSecProfile, DOT11_BSS_LIST* pConnectableBssid, uint32 pdwReasonCode);
+public function uint32 DOT11EXTIHV_PERFORM_PRE_ASSOCIATE(HANDLE hIhvExtAdapter, HANDLE hConnectSession, DOT11EXT_IHV_PROFILE_PARAMS* pIhvProfileParams, DOT11EXT_IHV_CONNECTIVITY_PROFILE* pIhvConnProfile, DOT11EXT_IHV_SECURITY_PROFILE* pIhvSecProfile, DOT11_BSS_LIST* pConnectableBssid, uint32* pdwReasonCode);
 
 public function uint32 DOT11EXTIHV_ADAPTER_RESET(HANDLE hIhvExtAdapter);
 
@@ -4220,11 +4220,11 @@ public function uint32 DOT11EXTIHV_PERFORM_POST_ASSOCIATE(HANDLE hIhvExtAdapter,
 
 public function uint32 DOT11EXTIHV_STOP_POST_ASSOCIATE(HANDLE hIhvExtAdapter, uint8** pPeer, uint32 dot11AssocStatus);
 
-public function uint32 DOT11EXTIHV_VALIDATE_PROFILE(HANDLE hIhvExtAdapter, DOT11EXT_IHV_PROFILE_PARAMS* pIhvProfileParams, DOT11EXT_IHV_CONNECTIVITY_PROFILE* pIhvConnProfile, DOT11EXT_IHV_SECURITY_PROFILE* pIhvSecProfile, uint32 pdwReasonCode);
+public function uint32 DOT11EXTIHV_VALIDATE_PROFILE(HANDLE hIhvExtAdapter, DOT11EXT_IHV_PROFILE_PARAMS* pIhvProfileParams, DOT11EXT_IHV_CONNECTIVITY_PROFILE* pIhvConnProfile, DOT11EXT_IHV_SECURITY_PROFILE* pIhvSecProfile, uint32* pdwReasonCode);
 
-public function uint32 DOT11EXTIHV_PERFORM_CAPABILITY_MATCH(HANDLE hIhvExtAdapter, DOT11EXT_IHV_PROFILE_PARAMS* pIhvProfileParams, DOT11EXT_IHV_CONNECTIVITY_PROFILE* pIhvConnProfile, DOT11EXT_IHV_SECURITY_PROFILE* pIhvSecProfile, DOT11_BSS_LIST* pConnectableBssid, uint32 pdwReasonCode);
+public function uint32 DOT11EXTIHV_PERFORM_CAPABILITY_MATCH(HANDLE hIhvExtAdapter, DOT11EXT_IHV_PROFILE_PARAMS* pIhvProfileParams, DOT11EXT_IHV_CONNECTIVITY_PROFILE* pIhvConnProfile, DOT11EXT_IHV_SECURITY_PROFILE* pIhvSecProfile, DOT11_BSS_LIST* pConnectableBssid, uint32* pdwReasonCode);
 
-public function uint32 DOT11EXTIHV_CREATE_DISCOVERY_PROFILES(HANDLE hIhvExtAdapter, BOOL bInsecure, DOT11EXT_IHV_PROFILE_PARAMS* pIhvProfileParams, DOT11_BSS_LIST* pConnectableBssid, DOT11EXT_IHV_DISCOVERY_PROFILE_LIST* pIhvDiscoveryProfileList, uint32 pdwReasonCode);
+public function uint32 DOT11EXTIHV_CREATE_DISCOVERY_PROFILES(HANDLE hIhvExtAdapter, BOOL bInsecure, DOT11EXT_IHV_PROFILE_PARAMS* pIhvProfileParams, DOT11_BSS_LIST* pConnectableBssid, DOT11EXT_IHV_DISCOVERY_PROFILE_LIST* pIhvDiscoveryProfileList, uint32* pdwReasonCode);
 
 public function uint32 DOT11EXTIHV_PROCESS_SESSION_CHANGE(uint32 uEventType, WTSSESSION_NOTIFICATION* pSessionNotification);
 
@@ -4242,7 +4242,7 @@ public function uint32 DOT11EXTIHV_QUERY_UI_REQUEST(HANDLE hIhvExtAdapter, DOT11
 
 public function uint32 DOT11EXTIHV_ONEX_INDICATE_RESULT(HANDLE hIhvExtAdapter, DOT11_MSONEX_RESULT msOneXResult, DOT11_MSONEX_RESULT_PARAMS* pDot11MsOneXResultParams);
 
-public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBufferSize, uint8 pInBuffer, uint32 dwOutBufferSize, uint8 pOutBuffer, uint32 pdwBytesReturned);
+public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBufferSize, uint8* pInBuffer, uint32 dwOutBufferSize, uint8* pOutBuffer, uint32* pdwBytesReturned);
 
 #endregion
 

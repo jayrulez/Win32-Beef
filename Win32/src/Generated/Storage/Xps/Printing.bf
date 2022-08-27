@@ -124,15 +124,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 targetCount, Guid** targetTypes) GetPackageTargetTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidTargetType, Guid riid, void** ppvTarget) GetPackageTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* targetCount, Guid** targetTypes) GetPackageTargetTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidTargetType, ref Guid riid, void** ppvTarget) GetPackageTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 
-	public HRESULT GetPackageTargetTypes(uint32 targetCount, Guid** targetTypes) mut => VT.[Friend]GetPackageTargetTypes(&this, targetCount, targetTypes);
+	public HRESULT GetPackageTargetTypes(uint32* targetCount, Guid** targetTypes) mut => VT.[Friend]GetPackageTargetTypes(&this, targetCount, targetTypes);
 
-	public HRESULT GetPackageTarget(Guid guidTargetType, Guid riid, void** ppvTarget) mut => VT.[Friend]GetPackageTarget(&this, guidTargetType, riid, ppvTarget);
+	public HRESULT GetPackageTarget(ref Guid guidTargetType, ref Guid riid, void** ppvTarget) mut => VT.[Friend]GetPackageTarget(&this, ref guidTargetType, ref riid, ppvTarget);
 
 	public HRESULT Cancel() mut => VT.[Friend]Cancel(&this);
 }

@@ -1020,10 +1020,10 @@ public static
 	public static extern int32 GetKeyboardType(int32 nTypeFlag);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ToAscii(uint32 uVirtKey, uint32 uScanCode, uint8* lpKeyState, uint16 lpChar, uint32 uFlags);
+	public static extern int32 ToAscii(uint32 uVirtKey, uint32 uScanCode, uint8* lpKeyState, uint16* lpChar, uint32 uFlags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ToAsciiEx(uint32 uVirtKey, uint32 uScanCode, uint8* lpKeyState, uint16 lpChar, uint32 uFlags, HKL dwhkl);
+	public static extern int32 ToAsciiEx(uint32 uVirtKey, uint32 uScanCode, uint8* lpKeyState, uint16* lpChar, uint32 uFlags, HKL dwhkl);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ToUnicode(uint32 wVirtKey, uint32 wScanCode, uint8* lpKeyState, char16* pwszBuff, int32 cchBuff, uint32 wFlags);

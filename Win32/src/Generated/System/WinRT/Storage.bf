@@ -77,11 +77,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fileAccessMode) GetMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* fileAccessMode) GetMode;
 	}
 
 
-	public HRESULT GetMode(uint32 fileAccessMode) mut => VT.[Friend]GetMode(&this, fileAccessMode);
+	public HRESULT GetMode(uint32* fileAccessMode) mut => VT.[Friend]GetMode(&this, fileAccessMode);
 }
 
 [CRepr]struct IUnbufferedFileHandleOplockCallback : IUnknown
@@ -107,12 +107,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnbufferedFileHandleOplockCallback* oplockBreakCallback, uint fileHandle) OpenUnbufferedFileHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnbufferedFileHandleOplockCallback* oplockBreakCallback, uint* fileHandle) OpenUnbufferedFileHandle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CloseUnbufferedFileHandle;
 	}
 
 
-	public HRESULT OpenUnbufferedFileHandle(IUnbufferedFileHandleOplockCallback* oplockBreakCallback, uint fileHandle) mut => VT.[Friend]OpenUnbufferedFileHandle(&this, oplockBreakCallback, fileHandle);
+	public HRESULT OpenUnbufferedFileHandle(IUnbufferedFileHandleOplockCallback* oplockBreakCallback, uint* fileHandle) mut => VT.[Friend]OpenUnbufferedFileHandle(&this, oplockBreakCallback, fileHandle);
 
 	public HRESULT CloseUnbufferedFileHandle() mut => VT.[Friend]CloseUnbufferedFileHandle(&this);
 }

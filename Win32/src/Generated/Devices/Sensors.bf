@@ -877,19 +877,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid sensorCategory, ISensorCollection** ppSensorsFound) GetSensorsByCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid sensorType, ISensorCollection** ppSensorsFound) GetSensorsByType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid sensorID, ISensor** ppSensor) GetSensorByID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid sensorCategory, ISensorCollection** ppSensorsFound) GetSensorsByCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid sensorType, ISensorCollection** ppSensorsFound) GetSensorsByType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid sensorID, ISensor** ppSensor) GetSensorByID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensorManagerEvents* pEvents) SetEventSink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hParent, ISensorCollection* pSensors, BOOL fModal) RequestPermissions;
 	}
 
 
-	public HRESULT GetSensorsByCategory(Guid sensorCategory, ISensorCollection** ppSensorsFound) mut => VT.[Friend]GetSensorsByCategory(&this, sensorCategory, ppSensorsFound);
+	public HRESULT GetSensorsByCategory(ref Guid sensorCategory, ISensorCollection** ppSensorsFound) mut => VT.[Friend]GetSensorsByCategory(&this, ref sensorCategory, ppSensorsFound);
 
-	public HRESULT GetSensorsByType(Guid sensorType, ISensorCollection** ppSensorsFound) mut => VT.[Friend]GetSensorsByType(&this, sensorType, ppSensorsFound);
+	public HRESULT GetSensorsByType(ref Guid sensorType, ISensorCollection** ppSensorsFound) mut => VT.[Friend]GetSensorsByType(&this, ref sensorType, ppSensorsFound);
 
-	public HRESULT GetSensorByID(Guid sensorID, ISensor** ppSensor) mut => VT.[Friend]GetSensorByID(&this, sensorID, ppSensor);
+	public HRESULT GetSensorByID(ref Guid sensorID, ISensor** ppSensor) mut => VT.[Friend]GetSensorByID(&this, ref sensorID, ppSensor);
 
 	public HRESULT SetEventSink(ISensorManagerEvents* pEvents) mut => VT.[Friend]SetEventSink(&this, pEvents);
 
@@ -923,23 +923,23 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulIndex, ISensor** ppSensor) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid sensorID) RemoveByID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid sensorID) RemoveByID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 	}
 
 
 	public HRESULT GetAt(uint32 ulIndex, ISensor** ppSensor) mut => VT.[Friend]GetAt(&this, ulIndex, ppSensor);
 
-	public HRESULT GetCount(uint32 pCount) mut => VT.[Friend]GetCount(&this, pCount);
+	public HRESULT GetCount(uint32* pCount) mut => VT.[Friend]GetCount(&this, pCount);
 
 	public HRESULT Add(ISensor* pSensor) mut => VT.[Friend]Add(&this, pSensor);
 
 	public HRESULT Remove(ISensor* pSensor) mut => VT.[Friend]Remove(&this, pSensor);
 
-	public HRESULT RemoveByID(Guid sensorID) mut => VT.[Friend]RemoveByID(&this, sensorID);
+	public HRESULT RemoveByID(ref Guid sensorID) mut => VT.[Friend]RemoveByID(&this, ref sensorID);
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 }
@@ -952,29 +952,29 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pID) GetID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pSensorCategory) GetCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pSensorType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pID) GetID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSensorCategory) GetCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSensorType) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pFriendlyName) GetFriendlyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pProperty) GetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceKeyCollection* pKeys, IPortableDeviceValues** ppProperties) GetProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceKeyCollection** ppDataFields) GetSupportedDataFields;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceValues* pProperties, IPortableDeviceValues** ppResults) SetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, int16 pIsSupported) SupportsDataField;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, int16* pIsSupported) SupportsDataField;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SensorState* pState) GetState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensorDataReport** ppDataReport) GetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid eventGuid, int16 pIsSupported) SupportsEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid** ppValues, uint32 pCount) GetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid eventGuid, int16* pIsSupported) SupportsEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid** ppValues, uint32* pCount) GetEventInterest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pValues, uint32 count) SetEventInterest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensorEvents* pEvents) SetEventSink;
 	}
 
 
-	public HRESULT GetID(Guid pID) mut => VT.[Friend]GetID(&this, pID);
+	public HRESULT GetID(ref Guid pID) mut => VT.[Friend]GetID(&this, ref pID);
 
-	public HRESULT GetCategory(Guid pSensorCategory) mut => VT.[Friend]GetCategory(&this, pSensorCategory);
+	public HRESULT GetCategory(ref Guid pSensorCategory) mut => VT.[Friend]GetCategory(&this, ref pSensorCategory);
 
-	public HRESULT GetType(Guid pSensorType) mut => VT.[Friend]COM_GetType(&this, pSensorType);
+	public HRESULT GetType(ref Guid pSensorType) mut => VT.[Friend]COM_GetType(&this, ref pSensorType);
 
 	public HRESULT GetFriendlyName(BSTR* pFriendlyName) mut => VT.[Friend]GetFriendlyName(&this, pFriendlyName);
 
@@ -986,15 +986,15 @@ public static
 
 	public HRESULT SetProperties(IPortableDeviceValues* pProperties, IPortableDeviceValues** ppResults) mut => VT.[Friend]SetProperties(&this, pProperties, ppResults);
 
-	public HRESULT SupportsDataField(PROPERTYKEY* key, int16 pIsSupported) mut => VT.[Friend]SupportsDataField(&this, key, pIsSupported);
+	public HRESULT SupportsDataField(PROPERTYKEY* key, int16* pIsSupported) mut => VT.[Friend]SupportsDataField(&this, key, pIsSupported);
 
 	public HRESULT GetState(SensorState* pState) mut => VT.[Friend]GetState(&this, pState);
 
 	public HRESULT GetData(ISensorDataReport** ppDataReport) mut => VT.[Friend]GetData(&this, ppDataReport);
 
-	public HRESULT SupportsEvent(Guid eventGuid, int16 pIsSupported) mut => VT.[Friend]SupportsEvent(&this, eventGuid, pIsSupported);
+	public HRESULT SupportsEvent(ref Guid eventGuid, int16* pIsSupported) mut => VT.[Friend]SupportsEvent(&this, ref eventGuid, pIsSupported);
 
-	public HRESULT GetEventInterest(Guid** ppValues, uint32 pCount) mut => VT.[Friend]GetEventInterest(&this, ppValues, pCount);
+	public HRESULT GetEventInterest(Guid** ppValues, uint32* pCount) mut => VT.[Friend]GetEventInterest(&this, ppValues, pCount);
 
 	public HRESULT SetEventInterest(Guid* pValues, uint32 count) mut => VT.[Friend]SetEventInterest(&this, pValues, count);
 
@@ -1047,8 +1047,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor, SensorState state) OnStateChanged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor, ISensorDataReport* pNewData) OnDataUpdated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor, Guid eventID, IPortableDeviceValues* pEventData) OnEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ID) OnLeave;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor, ref Guid eventID, IPortableDeviceValues* pEventData) OnEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid ID) OnLeave;
 	}
 
 
@@ -1056,9 +1056,9 @@ public static
 
 	public HRESULT OnDataUpdated(ISensor* pSensor, ISensorDataReport* pNewData) mut => VT.[Friend]OnDataUpdated(&this, pSensor, pNewData);
 
-	public HRESULT OnEvent(ISensor* pSensor, Guid eventID, IPortableDeviceValues* pEventData) mut => VT.[Friend]OnEvent(&this, pSensor, eventID, pEventData);
+	public HRESULT OnEvent(ISensor* pSensor, ref Guid eventID, IPortableDeviceValues* pEventData) mut => VT.[Friend]OnEvent(&this, pSensor, ref eventID, pEventData);
 
-	public HRESULT OnLeave(Guid ID) mut => VT.[Friend]OnLeave(&this, ID);
+	public HRESULT OnLeave(ref Guid ID) mut => VT.[Friend]OnLeave(&this, ref ID);
 }
 
 #endregion
@@ -1067,7 +1067,7 @@ public static
 public static
 {
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS GetPerformanceTime(uint32 TimeMs);
+	public static extern NTSTATUS GetPerformanceTime(uint32* TimeMs);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT InitPropVariantFromFloat(float fltVal, PROPVARIANT* ppropvar);
@@ -1082,37 +1082,37 @@ public static
 	public static extern NTSTATUS PropKeyFindKeyGetFileTime(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, FILETIME* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropKeyFindKeyGetGuid(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, Guid pRetValue);
+	public static extern NTSTATUS PropKeyFindKeyGetGuid(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, ref Guid pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS PropKeyFindKeyGetBool(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, BOOL* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropKeyFindKeyGetUlong(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, uint32 pRetValue);
+	public static extern NTSTATUS PropKeyFindKeyGetUlong(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, uint32* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropKeyFindKeyGetUshort(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, uint16 pRetValue);
+	public static extern NTSTATUS PropKeyFindKeyGetUshort(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, uint16* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropKeyFindKeyGetFloat(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, float pRetValue);
+	public static extern NTSTATUS PropKeyFindKeyGetFloat(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, float* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropKeyFindKeyGetDouble(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, double pRetValue);
+	public static extern NTSTATUS PropKeyFindKeyGetDouble(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, double* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropKeyFindKeyGetInt32(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, int32 pRetValue);
+	public static extern NTSTATUS PropKeyFindKeyGetInt32(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, int32* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropKeyFindKeyGetInt64(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, int64 pRetValue);
+	public static extern NTSTATUS PropKeyFindKeyGetInt64(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, int64* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropKeyFindKeyGetNthUlong(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, uint32 Occurrence, uint32 pRetValue);
+	public static extern NTSTATUS PropKeyFindKeyGetNthUlong(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, uint32 Occurrence, uint32* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropKeyFindKeyGetNthUshort(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, uint32 Occurrence, uint16 pRetValue);
+	public static extern NTSTATUS PropKeyFindKeyGetNthUshort(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, uint32 Occurrence, uint16* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropKeyFindKeyGetNthInt64(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, uint32 Occurrence, int64 pRetValue);
+	public static extern NTSTATUS PropKeyFindKeyGetNthInt64(SENSOR_COLLECTION_LIST* pList, PROPERTYKEY* pKey, uint32 Occurrence, int64* pRetValue);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN IsKeyPresentInPropertyList(SENSOR_PROPERTY_LIST* pList, PROPERTYKEY* pKey);
@@ -1124,7 +1124,7 @@ public static
 	public static extern BOOLEAN IsCollectionListSame(SENSOR_COLLECTION_LIST* ListA, SENSOR_COLLECTION_LIST* ListB);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PropVariantGetInformation(PROPVARIANT* PropVariantValue, uint32 PropVariantOffset, uint32 PropVariantSize, void** PropVariantPointer, uint32 RemappedType);
+	public static extern NTSTATUS PropVariantGetInformation(PROPVARIANT* PropVariantValue, uint32* PropVariantOffset, uint32* PropVariantSize, void** PropVariantPointer, uint32* RemappedType);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS PropertiesListCopy(SENSOR_PROPERTY_LIST* Target, SENSOR_PROPERTY_LIST* Source);
@@ -1151,19 +1151,19 @@ public static
 	public static extern NTSTATUS SerializationBufferAllocate(uint32 SizeInBytes, uint8** pBuffer);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SerializationBufferFree(uint8 Buffer);
+	public static extern void SerializationBufferFree(uint8* Buffer);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CollectionsListGetSerializedSize(SENSOR_COLLECTION_LIST* Collection);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS CollectionsListSerializeToBuffer(SENSOR_COLLECTION_LIST* SourceCollection, uint32 TargetBufferSizeInBytes, uint8 TargetBuffer);
+	public static extern NTSTATUS CollectionsListSerializeToBuffer(SENSOR_COLLECTION_LIST* SourceCollection, uint32 TargetBufferSizeInBytes, uint8* TargetBuffer);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS CollectionsListAllocateBufferAndSerialize(SENSOR_COLLECTION_LIST* SourceCollection, uint32 pTargetBufferSizeInBytes, uint8** pTargetBuffer);
+	public static extern NTSTATUS CollectionsListAllocateBufferAndSerialize(SENSOR_COLLECTION_LIST* SourceCollection, uint32* pTargetBufferSizeInBytes, uint8** pTargetBuffer);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS CollectionsListDeserializeFromBuffer(uint32 SourceBufferSizeInBytes, uint8 SourceBuffer, SENSOR_COLLECTION_LIST* TargetCollection);
+	public static extern NTSTATUS CollectionsListDeserializeFromBuffer(uint32 SourceBufferSizeInBytes, uint8* SourceBuffer, SENSOR_COLLECTION_LIST* TargetCollection);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS SensorCollectionGetAt(uint32 Index, SENSOR_COLLECTION_LIST* pSensorsList, PROPERTYKEY* pKey, PROPVARIANT* pValue);
@@ -1184,7 +1184,7 @@ public static
 	public static extern BOOLEAN IsSensorSubscribed(SENSOR_COLLECTION_LIST* subscriptionList, Guid currentType);
 
 	[Import("SensorsUtilsV2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN IsGUIDPresentInList(Guid* guidArray, uint32 arrayLength, Guid guidElem);
+	public static extern BOOLEAN IsGUIDPresentInList(Guid* guidArray, uint32 arrayLength, ref Guid guidElem);
 
 }
 #endregion

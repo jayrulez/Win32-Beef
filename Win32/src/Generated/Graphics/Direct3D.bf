@@ -913,12 +913,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PFN_DESTRUCTION_CALLBACK callbackFn, void* pData, uint32 pCallbackID) RegisterDestructionCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PFN_DESTRUCTION_CALLBACK callbackFn, void* pData, uint32* pCallbackID) RegisterDestructionCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 callbackID) UnregisterDestructionCallback;
 	}
 
 
-	public HRESULT RegisterDestructionCallback(PFN_DESTRUCTION_CALLBACK callbackFn, void* pData, uint32 pCallbackID) mut => VT.[Friend]RegisterDestructionCallback(&this, callbackFn, pData, pCallbackID);
+	public HRESULT RegisterDestructionCallback(PFN_DESTRUCTION_CALLBACK callbackFn, void* pData, uint32* pCallbackID) mut => VT.[Friend]RegisterDestructionCallback(&this, callbackFn, pData, pCallbackID);
 
 	public HRESULT UnregisterDestructionCallback(uint32 callbackID) mut => VT.[Friend]UnregisterDestructionCallback(&this, callbackID);
 }
@@ -931,12 +931,12 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void* pParentData, void** ppData, uint32 pBytes) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void* pParentData, void** ppData, uint32* pBytes) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pData) Close;
 	}
 
 
-	public HRESULT Open(D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void* pParentData, void** ppData, uint32 pBytes) mut => VT.[Friend]Open(&this, IncludeType, pFileName, pParentData, ppData, pBytes);
+	public HRESULT Open(D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void* pParentData, void** ppData, uint32* pBytes) mut => VT.[Friend]Open(&this, IncludeType, pFileName, pParentData, ppData, pBytes);
 
 	public HRESULT Close(void* pData) mut => VT.[Friend]Close(&this, pData);
 }

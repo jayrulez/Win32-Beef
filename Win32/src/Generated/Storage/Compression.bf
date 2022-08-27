@@ -74,7 +74,7 @@ public static
 public static
 {
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CreateCompressor(COMPRESS_ALGORITHM Algorithm, COMPRESS_ALLOCATION_ROUTINES* AllocationRoutines, int CompressorHandle);
+	public static extern BOOL CreateCompressor(COMPRESS_ALGORITHM Algorithm, COMPRESS_ALLOCATION_ROUTINES* AllocationRoutines, int* CompressorHandle);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetCompressorInformation(COMPRESSOR_HANDLE CompressorHandle, COMPRESS_INFORMATION_CLASS CompressInformationClass, void* CompressInformation, uint CompressInformationSize);
@@ -83,7 +83,7 @@ public static
 	public static extern BOOL QueryCompressorInformation(COMPRESSOR_HANDLE CompressorHandle, COMPRESS_INFORMATION_CLASS CompressInformationClass, void* CompressInformation, uint CompressInformationSize);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL Compress(COMPRESSOR_HANDLE CompressorHandle, void* UncompressedData, uint UncompressedDataSize, void* CompressedBuffer, uint CompressedBufferSize, uint CompressedDataSize);
+	public static extern BOOL Compress(COMPRESSOR_HANDLE CompressorHandle, void* UncompressedData, uint UncompressedDataSize, void* CompressedBuffer, uint CompressedBufferSize, uint* CompressedDataSize);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ResetCompressor(COMPRESSOR_HANDLE CompressorHandle);
@@ -92,7 +92,7 @@ public static
 	public static extern BOOL CloseCompressor(COMPRESSOR_HANDLE CompressorHandle);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CreateDecompressor(COMPRESS_ALGORITHM Algorithm, COMPRESS_ALLOCATION_ROUTINES* AllocationRoutines, int DecompressorHandle);
+	public static extern BOOL CreateDecompressor(COMPRESS_ALGORITHM Algorithm, COMPRESS_ALLOCATION_ROUTINES* AllocationRoutines, int* DecompressorHandle);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetDecompressorInformation(int DecompressorHandle, COMPRESS_INFORMATION_CLASS CompressInformationClass, void* CompressInformation, uint CompressInformationSize);
@@ -101,7 +101,7 @@ public static
 	public static extern BOOL QueryDecompressorInformation(int DecompressorHandle, COMPRESS_INFORMATION_CLASS CompressInformationClass, void* CompressInformation, uint CompressInformationSize);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL Decompress(int DecompressorHandle, void* CompressedData, uint CompressedDataSize, void* UncompressedBuffer, uint UncompressedBufferSize, uint UncompressedDataSize);
+	public static extern BOOL Decompress(int DecompressorHandle, void* CompressedData, uint CompressedDataSize, void* UncompressedBuffer, uint UncompressedBufferSize, uint* UncompressedDataSize);
 
 	[Import("Cabinet.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ResetDecompressor(int DecompressorHandle);

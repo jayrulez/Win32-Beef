@@ -94,13 +94,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float score) get_Score;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* score) get_Score;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* title) get_Title;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) get_Description;
 	}
 
 
-	public HRESULT get_Score(float score) mut => VT.[Friend]get_Score(&this, score);
+	public HRESULT get_Score(float* score) mut => VT.[Friend]get_Score(&this, score);
 
 	public HRESULT get_Title(BSTR* title) mut => VT.[Friend]get_Title(&this, title);
 
@@ -118,7 +118,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WINSAT_ASSESSMENT_TYPE assessment, IProvideWinSATAssessmentInfo** ppinfo) GetAssessmentInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WINSAT_ASSESSMENT_STATE* state) get_AssessmentState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* fileTime) get_AssessmentDateTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float level) get_SystemRating;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* level) get_SystemRating;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) get_RatingStateDesc;
 	}
 
@@ -129,7 +129,7 @@ public static
 
 	public HRESULT get_AssessmentDateTime(VARIANT* fileTime) mut => VT.[Friend]get_AssessmentDateTime(&this, fileTime);
 
-	public HRESULT get_SystemRating(float level) mut => VT.[Friend]get_SystemRating(&this, level);
+	public HRESULT get_SystemRating(float* level) mut => VT.[Friend]get_SystemRating(&this, level);
 
 	public HRESULT get_RatingStateDesc(BSTR* description) mut => VT.[Friend]get_RatingStateDesc(&this, description);
 }

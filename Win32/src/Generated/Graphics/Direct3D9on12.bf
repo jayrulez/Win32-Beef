@@ -54,17 +54,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppvDevice) GetD3D12Device;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DResource9* pResource, ID3D12CommandQueue* pCommandQueue, Guid riid, void** ppvResource12) UnwrapUnderlyingResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DResource9* pResource, uint32 NumSync, uint64 pSignalValues, ID3D12Fence** ppFences) ReturnUnderlyingResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvDevice) GetD3D12Device;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DResource9* pResource, ID3D12CommandQueue* pCommandQueue, ref Guid riid, void** ppvResource12) UnwrapUnderlyingResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DResource9* pResource, uint32 NumSync, uint64* pSignalValues, ID3D12Fence** ppFences) ReturnUnderlyingResource;
 	}
 
 
-	public HRESULT GetD3D12Device(Guid riid, void** ppvDevice) mut => VT.[Friend]GetD3D12Device(&this, riid, ppvDevice);
+	public HRESULT GetD3D12Device(ref Guid riid, void** ppvDevice) mut => VT.[Friend]GetD3D12Device(&this, ref riid, ppvDevice);
 
-	public HRESULT UnwrapUnderlyingResource(IDirect3DResource9* pResource, ID3D12CommandQueue* pCommandQueue, Guid riid, void** ppvResource12) mut => VT.[Friend]UnwrapUnderlyingResource(&this, pResource, pCommandQueue, riid, ppvResource12);
+	public HRESULT UnwrapUnderlyingResource(IDirect3DResource9* pResource, ID3D12CommandQueue* pCommandQueue, ref Guid riid, void** ppvResource12) mut => VT.[Friend]UnwrapUnderlyingResource(&this, pResource, pCommandQueue, ref riid, ppvResource12);
 
-	public HRESULT ReturnUnderlyingResource(IDirect3DResource9* pResource, uint32 NumSync, uint64 pSignalValues, ID3D12Fence** ppFences) mut => VT.[Friend]ReturnUnderlyingResource(&this, pResource, NumSync, pSignalValues, ppFences);
+	public HRESULT ReturnUnderlyingResource(IDirect3DResource9* pResource, uint32 NumSync, uint64* pSignalValues, ID3D12Fence** ppFences) mut => VT.[Friend]ReturnUnderlyingResource(&this, pResource, NumSync, pSignalValues, ppFences);
 }
 
 #endregion

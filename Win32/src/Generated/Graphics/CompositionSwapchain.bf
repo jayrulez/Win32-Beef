@@ -90,13 +90,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* availableEventHandle) GetAvailableEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 isAvailable) IsAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* isAvailable) IsAvailable;
 	}
 
 
 	public HRESULT GetAvailableEvent(HANDLE* availableEventHandle) mut => VT.[Friend]GetAvailableEvent(&this, availableEventHandle);
 
-	public HRESULT IsAvailable(uint8 isAvailable) mut => VT.[Friend]IsAvailable(&this, isAvailable);
+	public HRESULT IsAvailable(uint8* isAvailable) mut => VT.[Friend]IsAvailable(&this, isAvailable);
 }
 
 [CRepr]struct IPresentationContent : IUnknown
@@ -183,7 +183,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SystemInterruptTime preferredDuration, SystemInterruptTime deviationTolerance) SetPreferredPresentDuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 forceVsyncInterrupt) ForceVSyncInterrupt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Present;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** fence) GetPresentRetiringFence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** fence) GetPresentRetiringFence;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 presentIdToCancelFrom) CancelPresentsFrom;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* lostEventHandle) GetLostEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* presentStatisticsAvailableEventHandle) GetPresentStatisticsAvailableEvent;
@@ -206,7 +206,7 @@ public static
 
 	public HRESULT Present() mut => VT.[Friend]Present(&this);
 
-	public HRESULT GetPresentRetiringFence(Guid riid, void** fence) mut => VT.[Friend]GetPresentRetiringFence(&this, riid, fence);
+	public HRESULT GetPresentRetiringFence(ref Guid riid, void** fence) mut => VT.[Friend]GetPresentRetiringFence(&this, ref riid, fence);
 
 	public HRESULT CancelPresentsFrom(uint64 presentIdToCancelFrom) mut => VT.[Friend]CancelPresentsFrom(&this, presentIdToCancelFrom);
 
@@ -268,7 +268,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] uint(SelfOuter* self) GetContentTag;
 		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetCompositionFrameId;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 displayInstanceArrayCount, CompositionFrameDisplayInstance** displayInstanceArray) GetDisplayInstanceArray;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32* displayInstanceArrayCount, CompositionFrameDisplayInstance** displayInstanceArray) GetDisplayInstanceArray;
 	}
 
 
@@ -276,7 +276,7 @@ public static
 
 	public uint64 GetCompositionFrameId() mut => VT.[Friend]GetCompositionFrameId(&this);
 
-	public void GetDisplayInstanceArray(uint32 displayInstanceArrayCount, CompositionFrameDisplayInstance** displayInstanceArray) mut => VT.[Friend]GetDisplayInstanceArray(&this, displayInstanceArrayCount, displayInstanceArray);
+	public void GetDisplayInstanceArray(uint32* displayInstanceArrayCount, CompositionFrameDisplayInstance** displayInstanceArray) mut => VT.[Friend]GetDisplayInstanceArray(&this, displayInstanceArrayCount, displayInstanceArray);
 }
 
 [CRepr]struct IIndependentFlipFramePresentStatistics : IPresentStatistics
@@ -312,7 +312,7 @@ public static
 public static
 {
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreatePresentationFactory(IUnknown* d3dDevice, Guid riid, void** presentationFactory);
+	public static extern HRESULT CreatePresentationFactory(IUnknown* d3dDevice, ref Guid riid, void** presentationFactory);
 
 }
 #endregion

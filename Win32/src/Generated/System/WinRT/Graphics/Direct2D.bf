@@ -49,26 +49,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid id) GetEffectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, uint32 index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) GetNamedPropertyMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetPropertyCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid id) GetEffectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, uint32* index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) GetNamedPropertyMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetPropertyCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, void** value) GetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, void** source) GetSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetSourceCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetSourceCount;
 	}
 
 
-	public HRESULT GetEffectId(Guid id) mut => VT.[Friend]GetEffectId(&this, id);
+	public HRESULT GetEffectId(ref Guid id) mut => VT.[Friend]GetEffectId(&this, ref id);
 
-	public HRESULT GetNamedPropertyMapping(PWSTR name, uint32 index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) mut => VT.[Friend]GetNamedPropertyMapping(&this, name, index, mapping);
+	public HRESULT GetNamedPropertyMapping(PWSTR name, uint32* index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) mut => VT.[Friend]GetNamedPropertyMapping(&this, name, index, mapping);
 
-	public HRESULT GetPropertyCount(uint32 count) mut => VT.[Friend]GetPropertyCount(&this, count);
+	public HRESULT GetPropertyCount(uint32* count) mut => VT.[Friend]GetPropertyCount(&this, count);
 
 	public HRESULT GetProperty(uint32 index, void** value) mut => VT.[Friend]GetProperty(&this, index, value);
 
 	public HRESULT GetSource(uint32 index, void** source) mut => VT.[Friend]GetSource(&this, index, source);
 
-	public HRESULT GetSourceCount(uint32 count) mut => VT.[Friend]GetSourceCount(&this, count);
+	public HRESULT GetSourceCount(uint32* count) mut => VT.[Friend]GetSourceCount(&this, count);
 }
 
 [CRepr]struct IGeometrySource2DInterop : IUnknown

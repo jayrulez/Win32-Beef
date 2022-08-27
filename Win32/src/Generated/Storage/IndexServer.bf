@@ -476,23 +476,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, uint32 grfFlags, uint32 cAttributes, FULLPROPSPEC* aAttributes, uint32 pFlags) Init;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, uint32 grfFlags, uint32 cAttributes, FULLPROPSPEC* aAttributes, uint32* pFlags) Init;
 		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, STAT_CHUNK* pStat) GetChunk;
-		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, uint32 pcwcBuffer, char16* awcBuffer) GetText;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, uint32* pcwcBuffer, char16* awcBuffer) GetText;
 		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, PROPVARIANT** ppPropValue) GetValue;
-		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, FILTERREGION origPos, Guid riid, void** ppunk) BindRegion;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, FILTERREGION origPos, ref Guid riid, void** ppunk) BindRegion;
 	}
 
 
-	public int32 Init(uint32 grfFlags, uint32 cAttributes, FULLPROPSPEC* aAttributes, uint32 pFlags) mut => VT.[Friend]Init(&this, grfFlags, cAttributes, aAttributes, pFlags);
+	public int32 Init(uint32 grfFlags, uint32 cAttributes, FULLPROPSPEC* aAttributes, uint32* pFlags) mut => VT.[Friend]Init(&this, grfFlags, cAttributes, aAttributes, pFlags);
 
 	public int32 GetChunk(STAT_CHUNK* pStat) mut => VT.[Friend]GetChunk(&this, pStat);
 
-	public int32 GetText(uint32 pcwcBuffer, char16* awcBuffer) mut => VT.[Friend]GetText(&this, pcwcBuffer, awcBuffer);
+	public int32 GetText(uint32* pcwcBuffer, char16* awcBuffer) mut => VT.[Friend]GetText(&this, pcwcBuffer, awcBuffer);
 
 	public int32 GetValue(PROPVARIANT** ppPropValue) mut => VT.[Friend]GetValue(&this, ppPropValue);
 
-	public int32 BindRegion(FILTERREGION origPos, Guid riid, void** ppunk) mut => VT.[Friend]BindRegion(&this, origPos, riid, ppunk);
+	public int32 BindRegion(FILTERREGION origPos, ref Guid riid, void** ppunk) mut => VT.[Friend]BindRegion(&this, origPos, ref riid, ppunk);
 }
 
 [CRepr]struct IPhraseSink : IUnknown
@@ -522,7 +522,7 @@ public static
 	public static extern HRESULT LoadIFilter(PWSTR pwcsPath, IUnknown* pUnkOuter, void** ppIUnk);
 
 	[Import("query.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT LoadIFilterEx(PWSTR pwcsPath, uint32 dwFlags, Guid riid, void** ppIUnk);
+	public static extern HRESULT LoadIFilterEx(PWSTR pwcsPath, uint32 dwFlags, ref Guid riid, void** ppIUnk);
 
 	[Import("query.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT BindIFilterFromStorage(IStorage* pStg, IUnknown* pUnkOuter, void** ppIUnk);

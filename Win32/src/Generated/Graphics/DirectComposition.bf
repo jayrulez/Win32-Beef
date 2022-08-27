@@ -815,7 +815,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updateRect, Guid iid, void** updateObject, POINT* updateOffset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updateRect, ref Guid iid, void** updateObject, POINT* updateOffset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SuspendDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResumeDraw;
@@ -823,7 +823,7 @@ public static
 	}
 
 
-	public HRESULT BeginDraw(RECT* updateRect, Guid iid, void** updateObject, POINT* updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, updateOffset);
+	public HRESULT BeginDraw(RECT* updateRect, ref Guid iid, void** updateObject, POINT* updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, ref iid, updateObject, updateOffset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 
@@ -1583,16 +1583,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, uint32 generationId) AddTrailPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, DCompositionInkTrailPoint* predictedInkPoints, uint32 predictedInkPointsCount, uint32 generationId) AddTrailPointsWithPrediction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, uint32* generationId) AddTrailPoints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, DCompositionInkTrailPoint* predictedInkPoints, uint32 predictedInkPointsCount, uint32* generationId) AddTrailPointsWithPrediction;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 generationId) RemoveTrailPoints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_COLOR_F* color) StartNewTrail;
 	}
 
 
-	public HRESULT AddTrailPoints(DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, uint32 generationId) mut => VT.[Friend]AddTrailPoints(&this, inkPoints, inkPointsCount, generationId);
+	public HRESULT AddTrailPoints(DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, uint32* generationId) mut => VT.[Friend]AddTrailPoints(&this, inkPoints, inkPointsCount, generationId);
 
-	public HRESULT AddTrailPointsWithPrediction(DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, DCompositionInkTrailPoint* predictedInkPoints, uint32 predictedInkPointsCount, uint32 generationId) mut => VT.[Friend]AddTrailPointsWithPrediction(&this, inkPoints, inkPointsCount, predictedInkPoints, predictedInkPointsCount, generationId);
+	public HRESULT AddTrailPointsWithPrediction(DCompositionInkTrailPoint* inkPoints, uint32 inkPointsCount, DCompositionInkTrailPoint* predictedInkPoints, uint32 predictedInkPointsCount, uint32* generationId) mut => VT.[Friend]AddTrailPointsWithPrediction(&this, inkPoints, inkPointsCount, predictedInkPoints, predictedInkPointsCount, generationId);
 
 	public HRESULT RemoveTrailPoints(uint32 generationId) mut => VT.[Friend]RemoveTrailPoints(&this, generationId);
 
@@ -1623,13 +1623,13 @@ public static
 public static
 {
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionCreateDevice(IDXGIDevice* dxgiDevice, Guid iid, void** dcompositionDevice);
+	public static extern HRESULT DCompositionCreateDevice(IDXGIDevice* dxgiDevice, ref Guid iid, void** dcompositionDevice);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionCreateDevice2(IUnknown* renderingDevice, Guid iid, void** dcompositionDevice);
+	public static extern HRESULT DCompositionCreateDevice2(IUnknown* renderingDevice, ref Guid iid, void** dcompositionDevice);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionCreateDevice3(IUnknown* renderingDevice, Guid iid, void** dcompositionDevice);
+	public static extern HRESULT DCompositionCreateDevice3(IUnknown* renderingDevice, ref Guid iid, void** dcompositionDevice);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DCompositionCreateSurfaceHandle(uint32 desiredAccess, SECURITY_ATTRIBUTES* securityAttributes, HANDLE* surfaceHandle);
@@ -1641,10 +1641,10 @@ public static
 	public static extern HRESULT DCompositionAttachMouseDragToHwnd(IDCompositionVisual* visual, HWND hwnd, BOOL enable);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionGetFrameId(COMPOSITION_FRAME_ID_TYPE frameIdType, uint64 frameId);
+	public static extern HRESULT DCompositionGetFrameId(COMPOSITION_FRAME_ID_TYPE frameIdType, uint64* frameId);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionGetStatistics(uint64 frameId, COMPOSITION_FRAME_STATS* frameStats, uint32 targetIdCount, COMPOSITION_TARGET_ID* targetIds, uint32 actualTargetIdCount);
+	public static extern HRESULT DCompositionGetStatistics(uint64 frameId, COMPOSITION_FRAME_STATS* frameStats, uint32 targetIdCount, COMPOSITION_TARGET_ID* targetIds, uint32* actualTargetIdCount);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DCompositionGetTargetStatistics(uint64 frameId, COMPOSITION_TARGET_ID* targetId, COMPOSITION_TARGET_STATS* targetStats);

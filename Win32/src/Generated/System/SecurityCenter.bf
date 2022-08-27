@@ -163,11 +163,11 @@ public static
 
 	[CRepr]public struct VTable : IWscProduct2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwDays) get_AntivirusDaysUntilExpired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwDays) get_AntivirusDaysUntilExpired;
 	}
 
 
-	public HRESULT get_AntivirusDaysUntilExpired(uint32 pdwDays) mut => VT.[Friend]get_AntivirusDaysUntilExpired(&this, pdwDays);
+	public HRESULT get_AntivirusDaysUntilExpired(uint32* pdwDays) mut => VT.[Friend]get_AntivirusDaysUntilExpired(&this, pdwDays);
 }
 
 [CRepr]struct IWSCProductList : IDispatch
@@ -179,14 +179,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSC_SECURITY_PROVIDER provider) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IWscProduct** pVal) get_Item;
 	}
 
 
 	public HRESULT Initialize(WSC_SECURITY_PROVIDER provider) mut => VT.[Friend]Initialize(&this, provider);
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(uint32 index, IWscProduct** pVal) mut => VT.[Friend]get_Item(&this, index, pVal);
 }

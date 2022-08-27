@@ -685,7 +685,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry* clipGeometry) SetClipGeometryLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* key) GetClipGeometryLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key) SetClipGeometryLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float opacity) GetOpacity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* opacity) GetOpacity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float opacity) SetOpacity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** opacityMaskBrush) GetOpacityMaskBrush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** opacityMaskBrush) GetOpacityMaskBrushLocal;
@@ -723,7 +723,7 @@ public static
 
 	public HRESULT SetClipGeometryLookup(PWSTR key) mut => VT.[Friend]SetClipGeometryLookup(&this, key);
 
-	public HRESULT GetOpacity(float opacity) mut => VT.[Friend]GetOpacity(&this, opacity);
+	public HRESULT GetOpacity(float* opacity) mut => VT.[Friend]GetOpacity(&this, opacity);
 
 	public HRESULT SetOpacity(float opacity) mut => VT.[Friend]SetOpacity(&this, opacity);
 
@@ -783,16 +783,16 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ApplyEdits;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* unicodeString) GetUnicodeString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR unicodeString) SetUnicodeString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 indexCount) GetGlyphIndexCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 indexCount, XPS_GLYPH_INDEX* glyphIndices) GetGlyphIndices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* indexCount) GetGlyphIndexCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* indexCount, XPS_GLYPH_INDEX* glyphIndices) GetGlyphIndices;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 indexCount, XPS_GLYPH_INDEX* glyphIndices) SetGlyphIndices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 glyphMappingCount) GetGlyphMappingCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) GetGlyphMappings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* glyphMappingCount) GetGlyphMappingCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) GetGlyphMappings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) SetGlyphMappings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 prohibitedCaretStopCount) GetProhibitedCaretStopCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count, uint32 prohibitedCaretStops) GetProhibitedCaretStops;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count, uint32 prohibitedCaretStops) SetProhibitedCaretStops;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 bidiLevel) GetBidiLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* prohibitedCaretStopCount) GetProhibitedCaretStopCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count, uint32* prohibitedCaretStops) GetProhibitedCaretStops;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count, uint32* prohibitedCaretStops) SetProhibitedCaretStops;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* bidiLevel) GetBidiLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 bidiLevel) SetBidiLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isSideways) GetIsSideways;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL isSideways) SetIsSideways;
@@ -807,25 +807,25 @@ public static
 
 	public HRESULT SetUnicodeString(PWSTR unicodeString) mut => VT.[Friend]SetUnicodeString(&this, unicodeString);
 
-	public HRESULT GetGlyphIndexCount(uint32 indexCount) mut => VT.[Friend]GetGlyphIndexCount(&this, indexCount);
+	public HRESULT GetGlyphIndexCount(uint32* indexCount) mut => VT.[Friend]GetGlyphIndexCount(&this, indexCount);
 
-	public HRESULT GetGlyphIndices(uint32 indexCount, XPS_GLYPH_INDEX* glyphIndices) mut => VT.[Friend]GetGlyphIndices(&this, indexCount, glyphIndices);
+	public HRESULT GetGlyphIndices(uint32* indexCount, XPS_GLYPH_INDEX* glyphIndices) mut => VT.[Friend]GetGlyphIndices(&this, indexCount, glyphIndices);
 
 	public HRESULT SetGlyphIndices(uint32 indexCount, XPS_GLYPH_INDEX* glyphIndices) mut => VT.[Friend]SetGlyphIndices(&this, indexCount, glyphIndices);
 
-	public HRESULT GetGlyphMappingCount(uint32 glyphMappingCount) mut => VT.[Friend]GetGlyphMappingCount(&this, glyphMappingCount);
+	public HRESULT GetGlyphMappingCount(uint32* glyphMappingCount) mut => VT.[Friend]GetGlyphMappingCount(&this, glyphMappingCount);
 
-	public HRESULT GetGlyphMappings(uint32 glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) mut => VT.[Friend]GetGlyphMappings(&this, glyphMappingCount, glyphMappings);
+	public HRESULT GetGlyphMappings(uint32* glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) mut => VT.[Friend]GetGlyphMappings(&this, glyphMappingCount, glyphMappings);
 
 	public HRESULT SetGlyphMappings(uint32 glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) mut => VT.[Friend]SetGlyphMappings(&this, glyphMappingCount, glyphMappings);
 
-	public HRESULT GetProhibitedCaretStopCount(uint32 prohibitedCaretStopCount) mut => VT.[Friend]GetProhibitedCaretStopCount(&this, prohibitedCaretStopCount);
+	public HRESULT GetProhibitedCaretStopCount(uint32* prohibitedCaretStopCount) mut => VT.[Friend]GetProhibitedCaretStopCount(&this, prohibitedCaretStopCount);
 
-	public HRESULT GetProhibitedCaretStops(uint32 count, uint32 prohibitedCaretStops) mut => VT.[Friend]GetProhibitedCaretStops(&this, count, prohibitedCaretStops);
+	public HRESULT GetProhibitedCaretStops(uint32* count, uint32* prohibitedCaretStops) mut => VT.[Friend]GetProhibitedCaretStops(&this, count, prohibitedCaretStops);
 
-	public HRESULT SetProhibitedCaretStops(uint32 count, uint32 prohibitedCaretStops) mut => VT.[Friend]SetProhibitedCaretStops(&this, count, prohibitedCaretStops);
+	public HRESULT SetProhibitedCaretStops(uint32 count, uint32* prohibitedCaretStops) mut => VT.[Friend]SetProhibitedCaretStops(&this, count, prohibitedCaretStops);
 
-	public HRESULT GetBidiLevel(uint32 bidiLevel) mut => VT.[Friend]GetBidiLevel(&this, bidiLevel);
+	public HRESULT GetBidiLevel(uint32* bidiLevel) mut => VT.[Friend]GetBidiLevel(&this, bidiLevel);
 
 	public HRESULT SetBidiLevel(uint32 bidiLevel) mut => VT.[Friend]SetBidiLevel(&this, bidiLevel);
 
@@ -847,24 +847,24 @@ public static
 	[CRepr]public struct VTable : IXpsOMVisual.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* unicodeString) GetUnicodeString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 indexCount) GetGlyphIndexCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 indexCount, XPS_GLYPH_INDEX* glyphIndices) GetGlyphIndices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 glyphMappingCount) GetGlyphMappingCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) GetGlyphMappings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 prohibitedCaretStopCount) GetProhibitedCaretStopCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 prohibitedCaretStopCount, uint32 prohibitedCaretStops) GetProhibitedCaretStops;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 bidiLevel) GetBidiLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* indexCount) GetGlyphIndexCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* indexCount, XPS_GLYPH_INDEX* glyphIndices) GetGlyphIndices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* glyphMappingCount) GetGlyphMappingCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) GetGlyphMappings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* prohibitedCaretStopCount) GetProhibitedCaretStopCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* prohibitedCaretStopCount, uint32* prohibitedCaretStops) GetProhibitedCaretStops;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* bidiLevel) GetBidiLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isSideways) GetIsSideways;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* deviceFontName) GetDeviceFontName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_STYLE_SIMULATION* styleSimulations) GetStyleSimulations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_STYLE_SIMULATION styleSimulations) SetStyleSimulations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* origin) GetOrigin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* origin) SetOrigin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fontRenderingEmSize) GetFontRenderingEmSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* fontRenderingEmSize) GetFontRenderingEmSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fontRenderingEmSize) SetFontRenderingEmSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMFontResource** fontResource) GetFontResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMFontResource* fontResource) SetFontResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fontFaceIndex) GetFontFaceIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fontFaceIndex) GetFontFaceIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fontFaceIndex) SetFontFaceIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** fillBrush) GetFillBrush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** fillBrush) GetFillBrushLocal;
@@ -878,19 +878,19 @@ public static
 
 	public HRESULT GetUnicodeString(PWSTR* unicodeString) mut => VT.[Friend]GetUnicodeString(&this, unicodeString);
 
-	public HRESULT GetGlyphIndexCount(uint32 indexCount) mut => VT.[Friend]GetGlyphIndexCount(&this, indexCount);
+	public HRESULT GetGlyphIndexCount(uint32* indexCount) mut => VT.[Friend]GetGlyphIndexCount(&this, indexCount);
 
-	public HRESULT GetGlyphIndices(uint32 indexCount, XPS_GLYPH_INDEX* glyphIndices) mut => VT.[Friend]GetGlyphIndices(&this, indexCount, glyphIndices);
+	public HRESULT GetGlyphIndices(uint32* indexCount, XPS_GLYPH_INDEX* glyphIndices) mut => VT.[Friend]GetGlyphIndices(&this, indexCount, glyphIndices);
 
-	public HRESULT GetGlyphMappingCount(uint32 glyphMappingCount) mut => VT.[Friend]GetGlyphMappingCount(&this, glyphMappingCount);
+	public HRESULT GetGlyphMappingCount(uint32* glyphMappingCount) mut => VT.[Friend]GetGlyphMappingCount(&this, glyphMappingCount);
 
-	public HRESULT GetGlyphMappings(uint32 glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) mut => VT.[Friend]GetGlyphMappings(&this, glyphMappingCount, glyphMappings);
+	public HRESULT GetGlyphMappings(uint32* glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) mut => VT.[Friend]GetGlyphMappings(&this, glyphMappingCount, glyphMappings);
 
-	public HRESULT GetProhibitedCaretStopCount(uint32 prohibitedCaretStopCount) mut => VT.[Friend]GetProhibitedCaretStopCount(&this, prohibitedCaretStopCount);
+	public HRESULT GetProhibitedCaretStopCount(uint32* prohibitedCaretStopCount) mut => VT.[Friend]GetProhibitedCaretStopCount(&this, prohibitedCaretStopCount);
 
-	public HRESULT GetProhibitedCaretStops(uint32 prohibitedCaretStopCount, uint32 prohibitedCaretStops) mut => VT.[Friend]GetProhibitedCaretStops(&this, prohibitedCaretStopCount, prohibitedCaretStops);
+	public HRESULT GetProhibitedCaretStops(uint32* prohibitedCaretStopCount, uint32* prohibitedCaretStops) mut => VT.[Friend]GetProhibitedCaretStops(&this, prohibitedCaretStopCount, prohibitedCaretStops);
 
-	public HRESULT GetBidiLevel(uint32 bidiLevel) mut => VT.[Friend]GetBidiLevel(&this, bidiLevel);
+	public HRESULT GetBidiLevel(uint32* bidiLevel) mut => VT.[Friend]GetBidiLevel(&this, bidiLevel);
 
 	public HRESULT GetIsSideways(BOOL* isSideways) mut => VT.[Friend]GetIsSideways(&this, isSideways);
 
@@ -904,7 +904,7 @@ public static
 
 	public HRESULT SetOrigin(XPS_POINT* origin) mut => VT.[Friend]SetOrigin(&this, origin);
 
-	public HRESULT GetFontRenderingEmSize(float fontRenderingEmSize) mut => VT.[Friend]GetFontRenderingEmSize(&this, fontRenderingEmSize);
+	public HRESULT GetFontRenderingEmSize(float* fontRenderingEmSize) mut => VT.[Friend]GetFontRenderingEmSize(&this, fontRenderingEmSize);
 
 	public HRESULT SetFontRenderingEmSize(float fontRenderingEmSize) mut => VT.[Friend]SetFontRenderingEmSize(&this, fontRenderingEmSize);
 
@@ -912,7 +912,7 @@ public static
 
 	public HRESULT SetFontResource(IXpsOMFontResource* fontResource) mut => VT.[Friend]SetFontResource(&this, fontResource);
 
-	public HRESULT GetFontFaceIndex(int16 fontFaceIndex) mut => VT.[Friend]GetFontFaceIndex(&this, fontFaceIndex);
+	public HRESULT GetFontFaceIndex(int16* fontFaceIndex) mut => VT.[Friend]GetFontFaceIndex(&this, fontFaceIndex);
 
 	public HRESULT SetFontFaceIndex(int16 fontFaceIndex) mut => VT.[Friend]SetFontFaceIndex(&this, fontFaceIndex);
 
@@ -939,7 +939,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, XPS_DASH* dash) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, XPS_DASH* dash) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -948,7 +948,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, XPS_DASH* dash) mut => VT.[Friend]GetAt(&this, index, dash);
 
@@ -1030,18 +1030,18 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry** owner) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dataCount, float segmentData) GetSegmentData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 segmentCount, XPS_SEGMENT_TYPE* segmentTypes) GetSegmentTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 segmentCount, BOOL* segmentStrokes) GetSegmentStrokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 segmentCount, uint32 segmentDataCount, XPS_SEGMENT_TYPE* segmentTypes, float segmentData, BOOL* segmentStrokes) SetSegments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dataCount, float* segmentData) GetSegmentData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* segmentCount, XPS_SEGMENT_TYPE* segmentTypes) GetSegmentTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* segmentCount, BOOL* segmentStrokes) GetSegmentStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 segmentCount, uint32 segmentDataCount, XPS_SEGMENT_TYPE* segmentTypes, float* segmentData, BOOL* segmentStrokes) SetSegments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* startPoint) GetStartPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* startPoint) SetStartPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isClosed) GetIsClosed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL isClosed) SetIsClosed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isFilled) GetIsFilled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL isFilled) SetIsFilled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 segmentCount) GetSegmentCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 segmentDataCount) GetSegmentDataCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* segmentCount) GetSegmentCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* segmentDataCount) GetSegmentDataCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SEGMENT_STROKE_PATTERN* segmentStrokePattern) GetSegmentStrokePattern;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometryFigure** geometryFigure) Clone;
 	}
@@ -1049,13 +1049,13 @@ public static
 
 	public HRESULT GetOwner(IXpsOMGeometry** owner) mut => VT.[Friend]GetOwner(&this, owner);
 
-	public HRESULT GetSegmentData(uint32 dataCount, float segmentData) mut => VT.[Friend]GetSegmentData(&this, dataCount, segmentData);
+	public HRESULT GetSegmentData(uint32* dataCount, float* segmentData) mut => VT.[Friend]GetSegmentData(&this, dataCount, segmentData);
 
-	public HRESULT GetSegmentTypes(uint32 segmentCount, XPS_SEGMENT_TYPE* segmentTypes) mut => VT.[Friend]GetSegmentTypes(&this, segmentCount, segmentTypes);
+	public HRESULT GetSegmentTypes(uint32* segmentCount, XPS_SEGMENT_TYPE* segmentTypes) mut => VT.[Friend]GetSegmentTypes(&this, segmentCount, segmentTypes);
 
-	public HRESULT GetSegmentStrokes(uint32 segmentCount, BOOL* segmentStrokes) mut => VT.[Friend]GetSegmentStrokes(&this, segmentCount, segmentStrokes);
+	public HRESULT GetSegmentStrokes(uint32* segmentCount, BOOL* segmentStrokes) mut => VT.[Friend]GetSegmentStrokes(&this, segmentCount, segmentStrokes);
 
-	public HRESULT SetSegments(uint32 segmentCount, uint32 segmentDataCount, XPS_SEGMENT_TYPE* segmentTypes, float segmentData, BOOL* segmentStrokes) mut => VT.[Friend]SetSegments(&this, segmentCount, segmentDataCount, segmentTypes, segmentData, segmentStrokes);
+	public HRESULT SetSegments(uint32 segmentCount, uint32 segmentDataCount, XPS_SEGMENT_TYPE* segmentTypes, float* segmentData, BOOL* segmentStrokes) mut => VT.[Friend]SetSegments(&this, segmentCount, segmentDataCount, segmentTypes, segmentData, segmentStrokes);
 
 	public HRESULT GetStartPoint(XPS_POINT* startPoint) mut => VT.[Friend]GetStartPoint(&this, startPoint);
 
@@ -1069,9 +1069,9 @@ public static
 
 	public HRESULT SetIsFilled(BOOL isFilled) mut => VT.[Friend]SetIsFilled(&this, isFilled);
 
-	public HRESULT GetSegmentCount(uint32 segmentCount) mut => VT.[Friend]GetSegmentCount(&this, segmentCount);
+	public HRESULT GetSegmentCount(uint32* segmentCount) mut => VT.[Friend]GetSegmentCount(&this, segmentCount);
 
-	public HRESULT GetSegmentDataCount(uint32 segmentDataCount) mut => VT.[Friend]GetSegmentDataCount(&this, segmentDataCount);
+	public HRESULT GetSegmentDataCount(uint32* segmentDataCount) mut => VT.[Friend]GetSegmentDataCount(&this, segmentDataCount);
 
 	public HRESULT GetSegmentStrokePattern(XPS_SEGMENT_STROKE_PATTERN* segmentStrokePattern) mut => VT.[Friend]GetSegmentStrokePattern(&this, segmentStrokePattern);
 
@@ -1086,7 +1086,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMGeometryFigure** geometryFigure) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMGeometryFigure* geometryFigure) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -1095,7 +1095,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsOMGeometryFigure** geometryFigure) mut => VT.[Friend]GetAt(&this, index, geometryFigure);
 
@@ -1135,7 +1135,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDashCollection** strokeDashes) GetStrokeDashes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_DASH_CAP* strokeDashCap) GetStrokeDashCap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_DASH_CAP strokeDashCap) SetStrokeDashCap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float strokeDashOffset) GetStrokeDashOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* strokeDashOffset) GetStrokeDashOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float strokeDashOffset) SetStrokeDashOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_CAP* strokeStartLineCap) GetStrokeStartLineCap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_CAP strokeStartLineCap) SetStrokeStartLineCap;
@@ -1143,9 +1143,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_CAP strokeEndLineCap) SetStrokeEndLineCap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_JOIN* strokeLineJoin) GetStrokeLineJoin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_JOIN strokeLineJoin) SetStrokeLineJoin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float strokeMiterLimit) GetStrokeMiterLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* strokeMiterLimit) GetStrokeMiterLimit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float strokeMiterLimit) SetStrokeMiterLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float strokeThickness) GetStrokeThickness;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* strokeThickness) GetStrokeThickness;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float strokeThickness) SetStrokeThickness;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** brush) GetFillBrush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** brush) GetFillBrushLocal;
@@ -1194,7 +1194,7 @@ public static
 
 	public HRESULT SetStrokeDashCap(XPS_DASH_CAP strokeDashCap) mut => VT.[Friend]SetStrokeDashCap(&this, strokeDashCap);
 
-	public HRESULT GetStrokeDashOffset(float strokeDashOffset) mut => VT.[Friend]GetStrokeDashOffset(&this, strokeDashOffset);
+	public HRESULT GetStrokeDashOffset(float* strokeDashOffset) mut => VT.[Friend]GetStrokeDashOffset(&this, strokeDashOffset);
 
 	public HRESULT SetStrokeDashOffset(float strokeDashOffset) mut => VT.[Friend]SetStrokeDashOffset(&this, strokeDashOffset);
 
@@ -1210,11 +1210,11 @@ public static
 
 	public HRESULT SetStrokeLineJoin(XPS_LINE_JOIN strokeLineJoin) mut => VT.[Friend]SetStrokeLineJoin(&this, strokeLineJoin);
 
-	public HRESULT GetStrokeMiterLimit(float strokeMiterLimit) mut => VT.[Friend]GetStrokeMiterLimit(&this, strokeMiterLimit);
+	public HRESULT GetStrokeMiterLimit(float* strokeMiterLimit) mut => VT.[Friend]GetStrokeMiterLimit(&this, strokeMiterLimit);
 
 	public HRESULT SetStrokeMiterLimit(float strokeMiterLimit) mut => VT.[Friend]SetStrokeMiterLimit(&this, strokeMiterLimit);
 
-	public HRESULT GetStrokeThickness(float strokeThickness) mut => VT.[Friend]GetStrokeThickness(&this, strokeThickness);
+	public HRESULT GetStrokeThickness(float* strokeThickness) mut => VT.[Friend]GetStrokeThickness(&this, strokeThickness);
 
 	public HRESULT SetStrokeThickness(float strokeThickness) mut => VT.[Friend]SetStrokeThickness(&this, strokeThickness);
 
@@ -1239,12 +1239,12 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMShareable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float opacity) GetOpacity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* opacity) GetOpacity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float opacity) SetOpacity;
 	}
 
 
-	public HRESULT GetOpacity(float opacity) mut => VT.[Friend]GetOpacity(&this, opacity);
+	public HRESULT GetOpacity(float* opacity) mut => VT.[Friend]GetOpacity(&this, opacity);
 
 	public HRESULT SetOpacity(float opacity) mut => VT.[Friend]SetOpacity(&this, opacity);
 }
@@ -1257,7 +1257,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMGradientStop** stop) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMGradientStop* stop) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -1266,7 +1266,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsOMGradientStop** stop) mut => VT.[Friend]GetAt(&this, index, stop);
 
@@ -1411,7 +1411,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGradientBrush** owner) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float offset) GetOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* offset) GetOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float offset) SetOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource** colorProfile) GetColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource* colorProfile) SetColor;
@@ -1421,7 +1421,7 @@ public static
 
 	public HRESULT GetOwner(IXpsOMGradientBrush** owner) mut => VT.[Friend]GetOwner(&this, owner);
 
-	public HRESULT GetOffset(float offset) mut => VT.[Friend]GetOffset(&this, offset);
+	public HRESULT GetOffset(float* offset) mut => VT.[Friend]GetOffset(&this, offset);
 
 	public HRESULT SetOffset(float offset) mut => VT.[Friend]SetOffset(&this, offset);
 
@@ -1579,10 +1579,10 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** owner) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, PWSTR* key, IXpsOMShareable** entry) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key, IXpsOMShareable* beforeEntry, IXpsOMShareable** entry) GetByKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMShareable* entry, uint32 index) GetIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMShareable* entry, uint32* index) GetIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key, IXpsOMShareable* entry) Append;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, PWSTR key, IXpsOMShareable* entry) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -1593,13 +1593,13 @@ public static
 
 	public HRESULT GetOwner(IUnknown** owner) mut => VT.[Friend]GetOwner(&this, owner);
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, PWSTR* key, IXpsOMShareable** entry) mut => VT.[Friend]GetAt(&this, index, key, entry);
 
 	public HRESULT GetByKey(PWSTR key, IXpsOMShareable* beforeEntry, IXpsOMShareable** entry) mut => VT.[Friend]GetByKey(&this, key, beforeEntry, entry);
 
-	public HRESULT GetIndex(IXpsOMShareable* entry, uint32 index) mut => VT.[Friend]GetIndex(&this, entry, index);
+	public HRESULT GetIndex(IXpsOMShareable* entry, uint32* index) mut => VT.[Friend]GetIndex(&this, entry, index);
 
 	public HRESULT Append(PWSTR key, IXpsOMShareable* entry) mut => VT.[Friend]Append(&this, key, entry);
 
@@ -1641,7 +1641,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMFontResource** value) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMFontResource* value) SetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMFontResource* value) InsertAt;
@@ -1651,7 +1651,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsOMFontResource** value) mut => VT.[Friend]GetAt(&this, index, value);
 
@@ -1695,7 +1695,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMImageResource** object) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMImageResource* object) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -1705,7 +1705,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsOMImageResource** object) mut => VT.[Friend]GetAt(&this, index, object);
 
@@ -1746,7 +1746,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMColorProfileResource** object) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMColorProfileResource* object) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -1756,7 +1756,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsOMColorProfileResource** object) mut => VT.[Friend]GetAt(&this, index, object);
 
@@ -1815,7 +1815,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMRemoteDictionaryResource** object) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMRemoteDictionaryResource* object) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -1825,7 +1825,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsOMRemoteDictionaryResource** object) mut => VT.[Friend]GetAt(&this, index, object);
 
@@ -1848,7 +1848,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMSignatureBlockResource** signatureBlockResource) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMSignatureBlockResource* signatureBlockResource) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -1858,7 +1858,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsOMSignatureBlockResource** signatureBlockResource) mut => VT.[Friend]GetAt(&this, index, signatureBlockResource);
 
@@ -1944,7 +1944,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMVisual** object) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMVisual* object) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -1953,7 +1953,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsOMVisual** object) mut => VT.[Friend]GetAt(&this, index, object);
 
@@ -2166,7 +2166,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMPageReference** pageReference) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMPageReference* pageReference) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -2175,7 +2175,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsOMPageReference** pageReference) mut => VT.[Friend]GetAt(&this, index, pageReference);
 
@@ -2232,7 +2232,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMDocument** document) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMDocument* document) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -2241,7 +2241,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsOMDocument** document) mut => VT.[Friend]GetAt(&this, index, document);
 
@@ -2565,12 +2565,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, PWSTR* name) GetAt;
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, PWSTR* name) mut => VT.[Friend]GetAt(&this, index, name);
 }
@@ -2583,7 +2583,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IOpcPartUri** partUri) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IOpcPartUri* partUri) InsertAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
@@ -2592,7 +2592,7 @@ public static
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IOpcPartUri** partUri) mut => VT.[Friend]GetAt(&this, index, partUri);
 
@@ -2895,13 +2895,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsSignature** signature) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsSignature** signature) mut => VT.[Friend]GetAt(&this, index, signature);
 
@@ -2917,7 +2917,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* sigId) GetSignatureId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** signatureHashValue, uint32 count) GetSignatureValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** signatureHashValue, uint32* count) GetSignatureValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcCertificateEnumerator** certificateEnumerator) GetCertificateEnumerator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* sigDateTimeString) GetSigningTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetSigningTimeFormat;
@@ -2926,14 +2926,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIGN_POLICY* policy) GetPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureCustomObjectEnumerator** customObjectEnumerator) GetCustomObjectEnumerator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureReferenceEnumerator** customReferenceEnumerator) GetCustomReferenceEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** signatureXml, uint32 count) GetSignatureXml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** signatureXml, uint32* count) GetSignatureXml;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* signatureXml, uint32 count) SetSignatureXml;
 	}
 
 
 	public HRESULT GetSignatureId(PWSTR* sigId) mut => VT.[Friend]GetSignatureId(&this, sigId);
 
-	public HRESULT GetSignatureValue(uint8** signatureHashValue, uint32 count) mut => VT.[Friend]GetSignatureValue(&this, signatureHashValue, count);
+	public HRESULT GetSignatureValue(uint8** signatureHashValue, uint32* count) mut => VT.[Friend]GetSignatureValue(&this, signatureHashValue, count);
 
 	public HRESULT GetCertificateEnumerator(IOpcCertificateEnumerator** certificateEnumerator) mut => VT.[Friend]GetCertificateEnumerator(&this, certificateEnumerator);
 
@@ -2951,7 +2951,7 @@ public static
 
 	public HRESULT GetCustomReferenceEnumerator(IOpcSignatureReferenceEnumerator** customReferenceEnumerator) mut => VT.[Friend]GetCustomReferenceEnumerator(&this, customReferenceEnumerator);
 
-	public HRESULT GetSignatureXml(uint8** signatureXml, uint32 count) mut => VT.[Friend]GetSignatureXml(&this, signatureXml, count);
+	public HRESULT GetSignatureXml(uint8** signatureXml, uint32* count) mut => VT.[Friend]GetSignatureXml(&this, signatureXml, count);
 
 	public HRESULT SetSignatureXml(uint8* signatureXml, uint32 count) mut => VT.[Friend]SetSignatureXml(&this, signatureXml, count);
 }
@@ -2964,13 +2964,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsSignatureBlock** signatureBlock) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsSignatureBlock** signatureBlock) mut => VT.[Friend]GetAt(&this, index, signatureBlock);
 
@@ -2987,7 +2987,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsSignatureRequestCollection** requests) GetRequests;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** partName) GetPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fixedDocumentIndex) GetDocumentIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* fixedDocumentIndex) GetDocumentIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** fixedDocumentName) GetDocumentName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR requestId, IXpsSignatureRequest** signatureRequest) CreateRequest;
 	}
@@ -2997,7 +2997,7 @@ public static
 
 	public HRESULT GetPartName(IOpcPartUri** partName) mut => VT.[Friend]GetPartName(&this, partName);
 
-	public HRESULT GetDocumentIndex(uint32 fixedDocumentIndex) mut => VT.[Friend]GetDocumentIndex(&this, fixedDocumentIndex);
+	public HRESULT GetDocumentIndex(uint32* fixedDocumentIndex) mut => VT.[Friend]GetDocumentIndex(&this, fixedDocumentIndex);
 
 	public HRESULT GetDocumentName(IOpcPartUri** fixedDocumentName) mut => VT.[Friend]GetDocumentName(&this, fixedDocumentName);
 
@@ -3012,13 +3012,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsSignatureRequest** signatureRequest) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
 	}
 
 
-	public HRESULT GetCount(uint32 count) mut => VT.[Friend]GetCount(&this, count);
+	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
 	public HRESULT GetAt(uint32 index, IXpsSignatureRequest** signatureRequest) mut => VT.[Friend]GetAt(&this, index, signatureRequest);
 
@@ -3041,7 +3041,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR dateString) SetRequestSignByDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* place) GetSigningLocale;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR place) SetSigningLocale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pageIndex, IOpcPartUri** pagePartName, float x, float y) GetSpotLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pageIndex, IOpcPartUri** pagePartName, float* x, float* y) GetSpotLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pageIndex, float x, float y) SetSpotLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* requestId) GetRequestId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsSignature** signature) GetSignature;
@@ -3064,7 +3064,7 @@ public static
 
 	public HRESULT SetSigningLocale(PWSTR place) mut => VT.[Friend]SetSigningLocale(&this, place);
 
-	public HRESULT GetSpotLocation(int32 pageIndex, IOpcPartUri** pagePartName, float x, float y) mut => VT.[Friend]GetSpotLocation(&this, pageIndex, pagePartName, x, y);
+	public HRESULT GetSpotLocation(int32* pageIndex, IOpcPartUri** pagePartName, float* x, float* y) mut => VT.[Friend]GetSpotLocation(&this, pageIndex, pagePartName, x, y);
 
 	public HRESULT SetSpotLocation(int32 pageIndex, float x, float y) mut => VT.[Friend]SetSpotLocation(&this, pageIndex, x, y);
 

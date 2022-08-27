@@ -84,13 +84,13 @@ public enum SCESVC_INFO_TYPE : int32
 #endregion
 
 #region Function Pointers
-public function uint32 PFSCE_QUERY_INFO(void* sceHandle, SCESVC_INFO_TYPE sceType, int8 lpPrefix, BOOL bExact, void** ppvInfo, uint32 psceEnumHandle);
+public function uint32 PFSCE_QUERY_INFO(void* sceHandle, SCESVC_INFO_TYPE sceType, int8* lpPrefix, BOOL bExact, void** ppvInfo, uint32* psceEnumHandle);
 
-public function uint32 PFSCE_SET_INFO(void* sceHandle, SCESVC_INFO_TYPE sceType, int8 lpPrefix, BOOL bExact, void* pvInfo);
+public function uint32 PFSCE_SET_INFO(void* sceHandle, SCESVC_INFO_TYPE sceType, int8* lpPrefix, BOOL bExact, void* pvInfo);
 
 public function uint32 PFSCE_FREE_INFO(void* pvServiceInfo);
 
-public function uint32 PFSCE_LOG_INFO(SCE_LOG_ERR_LEVEL ErrLevel, uint32 Win32rc, int8 pErrFmt);
+public function uint32 PFSCE_LOG_INFO(SCE_LOG_ERR_LEVEL ErrLevel, uint32 Win32rc, int8* pErrFmt);
 
 public function uint32 PF_ConfigAnalyzeService(SCESVC_CALLBACK_INFO* pSceCbInfo);
 
@@ -156,15 +156,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8 lpTemplateName, void** scesvcHandle, void** ppvData, BOOL* pbOverwriteAll) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8 lpTemplateName) IsDirty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpTemplateName, void** scesvcHandle, void** ppvData, BOOL* pbOverwriteAll) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpTemplateName) IsDirty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvData) FreeBuffer;
 	}
 
 
-	public HRESULT Save(int8 lpTemplateName, void** scesvcHandle, void** ppvData, BOOL* pbOverwriteAll) mut => VT.[Friend]Save(&this, lpTemplateName, scesvcHandle, ppvData, pbOverwriteAll);
+	public HRESULT Save(int8* lpTemplateName, void** scesvcHandle, void** ppvData, BOOL* pbOverwriteAll) mut => VT.[Friend]Save(&this, lpTemplateName, scesvcHandle, ppvData, pbOverwriteAll);
 
-	public HRESULT IsDirty(int8 lpTemplateName) mut => VT.[Friend]IsDirty(&this, lpTemplateName);
+	public HRESULT IsDirty(int8* lpTemplateName) mut => VT.[Friend]IsDirty(&this, lpTemplateName);
 
 	public HRESULT FreeBuffer(void* pvData) mut => VT.[Friend]FreeBuffer(&this, pvData);
 }
@@ -177,16 +177,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* scesvcHandle, SCESVC_INFO_TYPE sceType, void** ppvData, uint32 psceEnumHandle) GetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8 lpServiceName, int8 lpTemplateName, ISceSvcAttachmentPersistInfo* lpSceSvcPersistInfo, void** pscesvcHandle) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* scesvcHandle, SCESVC_INFO_TYPE sceType, void** ppvData, uint32* psceEnumHandle) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpServiceName, int8* lpTemplateName, ISceSvcAttachmentPersistInfo* lpSceSvcPersistInfo, void** pscesvcHandle) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvData) FreeBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* scesvcHandle) CloseHandle;
 	}
 
 
-	public HRESULT GetData(void* scesvcHandle, SCESVC_INFO_TYPE sceType, void** ppvData, uint32 psceEnumHandle) mut => VT.[Friend]GetData(&this, scesvcHandle, sceType, ppvData, psceEnumHandle);
+	public HRESULT GetData(void* scesvcHandle, SCESVC_INFO_TYPE sceType, void** ppvData, uint32* psceEnumHandle) mut => VT.[Friend]GetData(&this, scesvcHandle, sceType, ppvData, psceEnumHandle);
 
-	public HRESULT Initialize(int8 lpServiceName, int8 lpTemplateName, ISceSvcAttachmentPersistInfo* lpSceSvcPersistInfo, void** pscesvcHandle) mut => VT.[Friend]Initialize(&this, lpServiceName, lpTemplateName, lpSceSvcPersistInfo, pscesvcHandle);
+	public HRESULT Initialize(int8* lpServiceName, int8* lpTemplateName, ISceSvcAttachmentPersistInfo* lpSceSvcPersistInfo, void** pscesvcHandle) mut => VT.[Friend]Initialize(&this, lpServiceName, lpTemplateName, lpSceSvcPersistInfo, pscesvcHandle);
 
 	public HRESULT FreeBuffer(void* pvData) mut => VT.[Friend]FreeBuffer(&this, pvData);
 

@@ -1543,11 +1543,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR feature, BSTR version, int16 hasFeature) hasFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR feature, BSTR version, int16* hasFeature) hasFeature;
 	}
 
 
-	public HRESULT hasFeature(BSTR feature, BSTR version, int16 hasFeature) mut => VT.[Friend]hasFeature(&this, feature, version, hasFeature);
+	public HRESULT hasFeature(BSTR feature, BSTR version, int16* hasFeature) mut => VT.[Friend]hasFeature(&this, feature, version, hasFeature);
 }
 
 [CRepr]struct IXMLDOMNode : IDispatch
@@ -1573,13 +1573,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* newChild, IXMLDOMNode* oldChild, IXMLDOMNode** outOldChild) replaceChild;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* childNode, IXMLDOMNode** oldChild) removeChild;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* newChild, IXMLDOMNode** outNewChild) appendChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 hasChild) hasChildNodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* hasChild) hasChildNodes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMDocument** XMLDOMDocument) get_ownerDocument;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 deep, IXMLDOMNode** cloneRoot) cloneNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* nodeType) get_nodeTypeString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* text) get_text;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR text) put_text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isSpecified) get_specified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isSpecified) get_specified;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** definitionNode) get_definition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* typedValue) get_nodeTypedValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT typedValue) put_nodeTypedValue;
@@ -1589,7 +1589,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* stylesheet, BSTR* xmlString) transformNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR queryString, IXMLDOMNodeList** resultList) selectNodes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR queryString, IXMLDOMNode** resultNode) selectSingleNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isParsed) get_parsed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isParsed) get_parsed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* namespaceURI) get_namespaceURI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* prefixString) get_prefix;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* nameString) get_baseName;
@@ -1627,7 +1627,7 @@ public static
 
 	public HRESULT appendChild(IXMLDOMNode* newChild, IXMLDOMNode** outNewChild) mut => VT.[Friend]appendChild(&this, newChild, outNewChild);
 
-	public HRESULT hasChildNodes(int16 hasChild) mut => VT.[Friend]hasChildNodes(&this, hasChild);
+	public HRESULT hasChildNodes(int16* hasChild) mut => VT.[Friend]hasChildNodes(&this, hasChild);
 
 	public HRESULT get_ownerDocument(IXMLDOMDocument** XMLDOMDocument) mut => VT.[Friend]get_ownerDocument(&this, XMLDOMDocument);
 
@@ -1639,7 +1639,7 @@ public static
 
 	public HRESULT put_text(BSTR text) mut => VT.[Friend]put_text(&this, text);
 
-	public HRESULT get_specified(int16 isSpecified) mut => VT.[Friend]get_specified(&this, isSpecified);
+	public HRESULT get_specified(int16* isSpecified) mut => VT.[Friend]get_specified(&this, isSpecified);
 
 	public HRESULT get_definition(IXMLDOMNode** definitionNode) mut => VT.[Friend]get_definition(&this, definitionNode);
 
@@ -1659,7 +1659,7 @@ public static
 
 	public HRESULT selectSingleNode(BSTR queryString, IXMLDOMNode** resultNode) mut => VT.[Friend]selectSingleNode(&this, queryString, resultNode);
 
-	public HRESULT get_parsed(int16 isParsed) mut => VT.[Friend]get_parsed(&this, isParsed);
+	public HRESULT get_parsed(int16* isParsed) mut => VT.[Friend]get_parsed(&this, isParsed);
 
 	public HRESULT get_namespaceURI(BSTR* namespaceURI) mut => VT.[Friend]get_namespaceURI(&this, namespaceURI);
 
@@ -1705,20 +1705,20 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR tagName, IXMLDOMNodeList** resultList) getElementsByTagName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Type, BSTR name, BSTR namespaceURI, IXMLDOMNode** node) createNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR idString, IXMLDOMNode** node) nodeFromID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT xmlSource, int16 isSuccessful) load;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT xmlSource, int16* isSuccessful) load;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_readyState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMParseError** errorObj) get_parseError;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* urlString) get_url;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isAsync) get_async;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isAsync) get_async;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isAsync) put_async;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXML, int16 isSuccessful) loadXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXML, int16* isSuccessful) loadXML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT destination) save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isValidating) get_validateOnParse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isValidating) get_validateOnParse;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isValidating) put_validateOnParse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isResolving) get_resolveExternals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isResolving) get_resolveExternals;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isResolving) put_resolveExternals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isPreserving) get_preserveWhiteSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isPreserving) get_preserveWhiteSpace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isPreserving) put_preserveWhiteSpace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT readystatechangeSink) put_onreadystatechange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT ondataavailableSink) put_ondataavailable;
@@ -1756,33 +1756,33 @@ public static
 
 	public HRESULT nodeFromID(BSTR idString, IXMLDOMNode** node) mut => VT.[Friend]nodeFromID(&this, idString, node);
 
-	public HRESULT load(VARIANT xmlSource, int16 isSuccessful) mut => VT.[Friend]load(&this, xmlSource, isSuccessful);
+	public HRESULT load(VARIANT xmlSource, int16* isSuccessful) mut => VT.[Friend]load(&this, xmlSource, isSuccessful);
 
-	public HRESULT get_readyState(int32 value) mut => VT.[Friend]get_readyState(&this, value);
+	public HRESULT get_readyState(int32* value) mut => VT.[Friend]get_readyState(&this, value);
 
 	public HRESULT get_parseError(IXMLDOMParseError** errorObj) mut => VT.[Friend]get_parseError(&this, errorObj);
 
 	public HRESULT get_url(BSTR* urlString) mut => VT.[Friend]get_url(&this, urlString);
 
-	public HRESULT get_async(int16 isAsync) mut => VT.[Friend]get_async(&this, isAsync);
+	public HRESULT get_async(int16* isAsync) mut => VT.[Friend]get_async(&this, isAsync);
 
 	public HRESULT put_async(int16 isAsync) mut => VT.[Friend]put_async(&this, isAsync);
 
 	public HRESULT abort() mut => VT.[Friend]abort(&this);
 
-	public HRESULT loadXML(BSTR bstrXML, int16 isSuccessful) mut => VT.[Friend]loadXML(&this, bstrXML, isSuccessful);
+	public HRESULT loadXML(BSTR bstrXML, int16* isSuccessful) mut => VT.[Friend]loadXML(&this, bstrXML, isSuccessful);
 
 	public HRESULT save(VARIANT destination) mut => VT.[Friend]save(&this, destination);
 
-	public HRESULT get_validateOnParse(int16 isValidating) mut => VT.[Friend]get_validateOnParse(&this, isValidating);
+	public HRESULT get_validateOnParse(int16* isValidating) mut => VT.[Friend]get_validateOnParse(&this, isValidating);
 
 	public HRESULT put_validateOnParse(int16 isValidating) mut => VT.[Friend]put_validateOnParse(&this, isValidating);
 
-	public HRESULT get_resolveExternals(int16 isResolving) mut => VT.[Friend]get_resolveExternals(&this, isResolving);
+	public HRESULT get_resolveExternals(int16* isResolving) mut => VT.[Friend]get_resolveExternals(&this, isResolving);
 
 	public HRESULT put_resolveExternals(int16 isResolving) mut => VT.[Friend]put_resolveExternals(&this, isResolving);
 
-	public HRESULT get_preserveWhiteSpace(int16 isPreserving) mut => VT.[Friend]get_preserveWhiteSpace(&this, isPreserving);
+	public HRESULT get_preserveWhiteSpace(int16* isPreserving) mut => VT.[Friend]get_preserveWhiteSpace(&this, isPreserving);
 
 	public HRESULT put_preserveWhiteSpace(int16 isPreserving) mut => VT.[Friend]put_preserveWhiteSpace(&this, isPreserving);
 
@@ -1802,7 +1802,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IXMLDOMNode** listItem) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 listLength) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* listLength) get_length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** nextItem) nextNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__newEnum;
@@ -1811,7 +1811,7 @@ public static
 
 	public HRESULT get_item(int32 index, IXMLDOMNode** listItem) mut => VT.[Friend]get_item(&this, index, listItem);
 
-	public HRESULT get_length(int32 listLength) mut => VT.[Friend]get_length(&this, listLength);
+	public HRESULT get_length(int32* listLength) mut => VT.[Friend]get_length(&this, listLength);
 
 	public HRESULT nextNode(IXMLDOMNode** nextItem) mut => VT.[Friend]nextNode(&this, nextItem);
 
@@ -1832,7 +1832,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* newItem, IXMLDOMNode** nameItem) setNamedItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IXMLDOMNode** namedItem) removeNamedItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IXMLDOMNode** listItem) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 listLength) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* listLength) get_length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR baseName, BSTR namespaceURI, IXMLDOMNode** qualifiedItem) getQualifiedItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR baseName, BSTR namespaceURI, IXMLDOMNode** qualifiedItem) removeQualifiedItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** nextItem) nextNode;
@@ -1849,7 +1849,7 @@ public static
 
 	public HRESULT get_item(int32 index, IXMLDOMNode** listItem) mut => VT.[Friend]get_item(&this, index, listItem);
 
-	public HRESULT get_length(int32 listLength) mut => VT.[Friend]get_length(&this, listLength);
+	public HRESULT get_length(int32* listLength) mut => VT.[Friend]get_length(&this, listLength);
 
 	public HRESULT getQualifiedItem(BSTR baseName, BSTR namespaceURI, IXMLDOMNode** qualifiedItem) mut => VT.[Friend]getQualifiedItem(&this, baseName, namespaceURI, qualifiedItem);
 
@@ -1872,7 +1872,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* data) get_data;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data) put_data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dataLength) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* dataLength) get_length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 offset, int32 count, BSTR* data) substringData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data) appendData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 offset, BSTR data) insertData;
@@ -1885,7 +1885,7 @@ public static
 
 	public HRESULT put_data(BSTR data) mut => VT.[Friend]put_data(&this, data);
 
-	public HRESULT get_length(int32 dataLength) mut => VT.[Friend]get_length(&this, dataLength);
+	public HRESULT get_length(int32* dataLength) mut => VT.[Friend]get_length(&this, dataLength);
 
 	public HRESULT substringData(int32 offset, int32 count, BSTR* data) mut => VT.[Friend]substringData(&this, offset, count, data);
 
@@ -2098,17 +2098,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 errorCode) get_errorCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* errorCode) get_errorCode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* urlString) get_url;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* reasonString) get_reason;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* sourceString) get_srcText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lineNumber) get_line;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 linePosition) get_linepos;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 filePosition) get_filepos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lineNumber) get_line;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* linePosition) get_linepos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* filePosition) get_filepos;
 	}
 
 
-	public HRESULT get_errorCode(int32 errorCode) mut => VT.[Friend]get_errorCode(&this, errorCode);
+	public HRESULT get_errorCode(int32* errorCode) mut => VT.[Friend]get_errorCode(&this, errorCode);
 
 	public HRESULT get_url(BSTR* urlString) mut => VT.[Friend]get_url(&this, urlString);
 
@@ -2116,11 +2116,11 @@ public static
 
 	public HRESULT get_srcText(BSTR* sourceString) mut => VT.[Friend]get_srcText(&this, sourceString);
 
-	public HRESULT get_line(int32 lineNumber) mut => VT.[Friend]get_line(&this, lineNumber);
+	public HRESULT get_line(int32* lineNumber) mut => VT.[Friend]get_line(&this, lineNumber);
 
-	public HRESULT get_linepos(int32 linePosition) mut => VT.[Friend]get_linepos(&this, linePosition);
+	public HRESULT get_linepos(int32* linePosition) mut => VT.[Friend]get_linepos(&this, linePosition);
 
-	public HRESULT get_filepos(int32 filePosition) mut => VT.[Friend]get_filepos(&this, filePosition);
+	public HRESULT get_filepos(int32* filePosition) mut => VT.[Friend]get_filepos(&this, filePosition);
 }
 
 [CRepr]struct IXTLRuntime : IXMLDOMNode
@@ -2131,11 +2131,11 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32 pID) uniqueID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32 pDepth) depth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32 pNumber) childNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrNodeName, IXMLDOMNode* pNode, int32 pNumber) ancestorChildNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32 pNumber) absoluteChildNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32* pID) uniqueID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32* pDepth) depth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32* pNumber) childNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrNodeName, IXMLDOMNode* pNode, int32* pNumber) ancestorChildNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32* pNumber) absoluteChildNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, BSTR bstrFormat, BSTR* pbstrFormattedString) formatIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double dblNumber, BSTR bstrFormat, BSTR* pbstrFormattedString) formatNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varDate, BSTR bstrFormat, VARIANT varDestLocale, BSTR* pbstrFormattedString) formatDate;
@@ -2143,15 +2143,15 @@ public static
 	}
 
 
-	public HRESULT uniqueID(IXMLDOMNode* pNode, int32 pID) mut => VT.[Friend]uniqueID(&this, pNode, pID);
+	public HRESULT uniqueID(IXMLDOMNode* pNode, int32* pID) mut => VT.[Friend]uniqueID(&this, pNode, pID);
 
-	public HRESULT depth(IXMLDOMNode* pNode, int32 pDepth) mut => VT.[Friend]depth(&this, pNode, pDepth);
+	public HRESULT depth(IXMLDOMNode* pNode, int32* pDepth) mut => VT.[Friend]depth(&this, pNode, pDepth);
 
-	public HRESULT childNumber(IXMLDOMNode* pNode, int32 pNumber) mut => VT.[Friend]childNumber(&this, pNode, pNumber);
+	public HRESULT childNumber(IXMLDOMNode* pNode, int32* pNumber) mut => VT.[Friend]childNumber(&this, pNode, pNumber);
 
-	public HRESULT ancestorChildNumber(BSTR bstrNodeName, IXMLDOMNode* pNode, int32 pNumber) mut => VT.[Friend]ancestorChildNumber(&this, bstrNodeName, pNode, pNumber);
+	public HRESULT ancestorChildNumber(BSTR bstrNodeName, IXMLDOMNode* pNode, int32* pNumber) mut => VT.[Friend]ancestorChildNumber(&this, bstrNodeName, pNode, pNumber);
 
-	public HRESULT absoluteChildNumber(IXMLDOMNode* pNode, int32 pNumber) mut => VT.[Friend]absoluteChildNumber(&this, pNode, pNumber);
+	public HRESULT absoluteChildNumber(IXMLDOMNode* pNode, int32* pNumber) mut => VT.[Friend]absoluteChildNumber(&this, pNode, pNumber);
 
 	public HRESULT formatIndex(int32 lIndex, BSTR bstrFormat, BSTR* pbstrFormattedString) mut => VT.[Friend]formatIndex(&this, lIndex, bstrFormat, pbstrFormattedString);
 
@@ -2188,13 +2188,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrHeaders) getAllResponseHeaders;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) send;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plStatus) get_status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plStatus) get_status;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrStatus) get_statusText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppBody) get_responseXML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBody) get_responseText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_responseBody;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_responseStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plState) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plState) get_readyState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pReadyStateSink) put_onreadystatechange;
 	}
 
@@ -2211,7 +2211,7 @@ public static
 
 	public HRESULT abort() mut => VT.[Friend]abort(&this);
 
-	public HRESULT get_status(int32 plStatus) mut => VT.[Friend]get_status(&this, plStatus);
+	public HRESULT get_status(int32* plStatus) mut => VT.[Friend]get_status(&this, plStatus);
 
 	public HRESULT get_statusText(BSTR* pbstrStatus) mut => VT.[Friend]get_statusText(&this, pbstrStatus);
 
@@ -2223,7 +2223,7 @@ public static
 
 	public HRESULT get_responseStream(VARIANT* pvarBody) mut => VT.[Friend]get_responseStream(&this, pvarBody);
 
-	public HRESULT get_readyState(int32 plState) mut => VT.[Friend]get_readyState(&this, plState);
+	public HRESULT get_readyState(int32* plState) mut => VT.[Friend]get_readyState(&this, plState);
 
 	public HRESULT put_onreadystatechange(IDispatch* pReadyStateSink) mut => VT.[Friend]put_onreadystatechange(&this, pReadyStateSink);
 }
@@ -2240,7 +2240,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMDocument* ppDoc) put_XMLDocument;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* fJavaDSOCompatible) get_JavaDSOCompatible;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fJavaDSOCompatible) put_JavaDSOCompatible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 state) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* state) get_readyState;
 	}
 
 
@@ -2252,7 +2252,7 @@ public static
 
 	public HRESULT put_JavaDSOCompatible(BOOL fJavaDSOCompatible) mut => VT.[Friend]put_JavaDSOCompatible(&this, fJavaDSOCompatible);
 
-	public HRESULT get_readyState(int32 state) mut => VT.[Friend]get_readyState(&this, state);
+	public HRESULT get_readyState(int32* state) mut => VT.[Friend]get_readyState(&this, state);
 }
 
 [CRepr]struct IXMLElementCollection : IDispatch
@@ -2264,7 +2264,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 v) put_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 p) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* p) get_length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__newEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT var1, VARIANT var2, IDispatch** ppDisp) item;
 	}
@@ -2272,7 +2272,7 @@ public static
 
 	public HRESULT put_length(int32 v) mut => VT.[Friend]put_length(&this, v);
 
-	public HRESULT get_length(int32 p) mut => VT.[Friend]get_length(&this, p);
+	public HRESULT get_length(int32* p) mut => VT.[Friend]get_length(&this, p);
 
 	public HRESULT get__newEnum(IUnknown** ppUnk) mut => VT.[Friend]get__newEnum(&this, ppUnk);
 
@@ -2294,7 +2294,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_URL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_URL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_mimeType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pl) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pl) get_readyState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_charset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_charset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_version;
@@ -2318,7 +2318,7 @@ public static
 
 	public HRESULT get_mimeType(BSTR* p) mut => VT.[Friend]get_mimeType(&this, p);
 
-	public HRESULT get_readyState(int32 pl) mut => VT.[Friend]get_readyState(&this, pl);
+	public HRESULT get_readyState(int32* pl) mut => VT.[Friend]get_readyState(&this, pl);
 
 	public HRESULT get_charset(BSTR* p) mut => VT.[Friend]get_charset(&this, p);
 
@@ -2348,14 +2348,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_URL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_URL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_mimeType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pl) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pl) get_readyState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_charset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_charset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_version;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_doctype;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_dtdURL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vType, VARIANT var1, IXMLElement2** ppElem) createElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pf) get_async;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pf) get_async;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 f) put_async;
 	}
 
@@ -2374,7 +2374,7 @@ public static
 
 	public HRESULT get_mimeType(BSTR* p) mut => VT.[Friend]get_mimeType(&this, p);
 
-	public HRESULT get_readyState(int32 pl) mut => VT.[Friend]get_readyState(&this, pl);
+	public HRESULT get_readyState(int32* pl) mut => VT.[Friend]get_readyState(&this, pl);
 
 	public HRESULT get_charset(BSTR* p) mut => VT.[Friend]get_charset(&this, p);
 
@@ -2388,7 +2388,7 @@ public static
 
 	public HRESULT createElement(VARIANT vType, VARIANT var1, IXMLElement2** ppElem) mut => VT.[Friend]createElement(&this, vType, var1, ppElem);
 
-	public HRESULT get_async(int16 pf) mut => VT.[Friend]get_async(&this, pf);
+	public HRESULT get_async(int16* pf) mut => VT.[Friend]get_async(&this, pf);
 
 	public HRESULT put_async(int16 f) mut => VT.[Friend]put_async(&this, f);
 }
@@ -2408,7 +2408,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPropertyName, VARIANT* PropertyValue) getAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPropertyName) removeAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElementCollection** pp) get_children;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plType) get_type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plType) get_type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_text;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_text;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElement* pChildElem, int32 lIndex, int32 lReserved) addChild;
@@ -2430,7 +2430,7 @@ public static
 
 	public HRESULT get_children(IXMLElementCollection** pp) mut => VT.[Friend]get_children(&this, pp);
 
-	public HRESULT get_type(int32 plType) mut => VT.[Friend]get_type(&this, plType);
+	public HRESULT get_type(int32* plType) mut => VT.[Friend]get_type(&this, plType);
 
 	public HRESULT get_text(BSTR* p) mut => VT.[Friend]get_text(&this, p);
 
@@ -2456,7 +2456,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPropertyName, VARIANT* PropertyValue) getAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPropertyName) removeAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElementCollection** pp) get_children;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plType) get_type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plType) get_type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_text;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_text;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElement2* pChildElem, int32 lIndex, int32 lReserved) addChild;
@@ -2479,7 +2479,7 @@ public static
 
 	public HRESULT get_children(IXMLElementCollection** pp) mut => VT.[Friend]get_children(&this, pp);
 
-	public HRESULT get_type(int32 plType) mut => VT.[Friend]get_type(&this, plType);
+	public HRESULT get_type(int32* plType) mut => VT.[Friend]get_type(&this, plType);
 
 	public HRESULT get_text(BSTR* p) mut => VT.[Friend]get_text(&this, p);
 
@@ -2584,7 +2584,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR namespaceURI, VARIANT @var) add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR namespaceURI, IXMLDOMNode** schemaNode) get;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR namespaceURI) remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* length) get_length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* length) get_namespaceURI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMSchemaCollection* otherCollection) addCollection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__newEnum;
@@ -2597,7 +2597,7 @@ public static
 
 	public HRESULT remove(BSTR namespaceURI) mut => VT.[Friend]remove(&this, namespaceURI);
 
-	public HRESULT get_length(int32 length) mut => VT.[Friend]get_length(&this, length);
+	public HRESULT get_length(int32* length) mut => VT.[Friend]get_length(&this, length);
 
 	public HRESULT get_namespaceURI(int32 index, BSTR* length) mut => VT.[Friend]get_namespaceURI(&this, index, length);
 
@@ -2662,7 +2662,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* xpathexpr) get_errorXPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMParseErrorCollection** allErrors) get_allErrors;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* param1) errorParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 count) get_errorParametersCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* count) get_errorParametersCount;
 	}
 
 
@@ -2672,7 +2672,7 @@ public static
 
 	public HRESULT errorParameters(int32 index, BSTR* param1) mut => VT.[Friend]errorParameters(&this, index, param1);
 
-	public HRESULT get_errorParametersCount(int32 count) mut => VT.[Friend]get_errorParametersCount(&this, count);
+	public HRESULT get_errorParametersCount(int32* count) mut => VT.[Friend]get_errorParametersCount(&this, count);
 }
 
 [CRepr]struct IXMLDOMParseErrorCollection : IDispatch
@@ -2684,7 +2684,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IXMLDOMParseError2** error) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* length) get_length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMParseError2** error) get_next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppunk) get__newEnum;
@@ -2693,7 +2693,7 @@ public static
 
 	public HRESULT get_item(int32 index, IXMLDOMParseError2** error) mut => VT.[Friend]get_item(&this, index, error);
 
-	public HRESULT get_length(int32 length) mut => VT.[Friend]get_length(&this, length);
+	public HRESULT get_length(int32* length) mut => VT.[Friend]get_length(&this, length);
 
 	public HRESULT get_next(IXMLDOMParseError2** error) mut => VT.[Friend]get_next(&this, error);
 
@@ -2718,9 +2718,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* namespaceURI) get_startModeURI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT output) put_output;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pOutput) get_output;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pDone) transform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDone) transform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pReadyState) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pReadyState) get_readyState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR baseName, VARIANT parameter, BSTR namespaceURI) addParameter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* obj, BSTR namespaceURI) addObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** stylesheet) get_stylesheet;
@@ -2743,11 +2743,11 @@ public static
 
 	public HRESULT get_output(VARIANT* pOutput) mut => VT.[Friend]get_output(&this, pOutput);
 
-	public HRESULT transform(int16 pDone) mut => VT.[Friend]transform(&this, pDone);
+	public HRESULT transform(int16* pDone) mut => VT.[Friend]transform(&this, pDone);
 
 	public HRESULT reset() mut => VT.[Friend]reset(&this);
 
-	public HRESULT get_readyState(int32 pReadyState) mut => VT.[Friend]get_readyState(&this, pReadyState);
+	public HRESULT get_readyState(int32* pReadyState) mut => VT.[Friend]get_readyState(&this, pReadyState);
 
 	public HRESULT addParameter(BSTR baseName, VARIANT parameter, BSTR namespaceURI) mut => VT.[Friend]addParameter(&this, baseName, parameter, namespaceURI);
 
@@ -2791,13 +2791,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrHeaders) getAllResponseHeaders;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) send;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plStatus) get_status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plStatus) get_status;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrStatus) get_statusText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppBody) get_responseXML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBody) get_responseText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_responseBody;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_responseStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plState) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plState) get_readyState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pReadyStateSink) put_onreadystatechange;
 	}
 
@@ -2814,7 +2814,7 @@ public static
 
 	public HRESULT abort() mut => VT.[Friend]abort(&this);
 
-	public HRESULT get_status(int32 plStatus) mut => VT.[Friend]get_status(&this, plStatus);
+	public HRESULT get_status(int32* plStatus) mut => VT.[Friend]get_status(&this, plStatus);
 
 	public HRESULT get_statusText(BSTR* pbstrStatus) mut => VT.[Friend]get_statusText(&this, pbstrStatus);
 
@@ -2826,7 +2826,7 @@ public static
 
 	public HRESULT get_responseStream(VARIANT* pvarBody) mut => VT.[Friend]get_responseStream(&this, pvarBody);
 
-	public HRESULT get_readyState(int32 plState) mut => VT.[Friend]get_readyState(&this, plState);
+	public HRESULT get_readyState(int32* plState) mut => VT.[Friend]get_readyState(&this, plState);
 
 	public HRESULT put_onreadystatechange(IDispatch* pReadyStateSink) mut => VT.[Friend]put_onreadystatechange(&this, pReadyStateSink);
 }
@@ -2840,7 +2840,7 @@ public static
 	[CRepr]public struct VTable : IXMLHTTPRequest.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 resolveTimeout, int32 connectTimeout, int32 sendTimeout, int32 receiveTimeout) setTimeouts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT timeoutInSeconds, int16 isSuccessful) waitForResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT timeoutInSeconds, int16* isSuccessful) waitForResponse;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SERVERXMLHTTP_OPTION option, VARIANT* value) getOption;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SERVERXMLHTTP_OPTION option, VARIANT value) setOption;
 	}
@@ -2848,7 +2848,7 @@ public static
 
 	public HRESULT setTimeouts(int32 resolveTimeout, int32 connectTimeout, int32 sendTimeout, int32 receiveTimeout) mut => VT.[Friend]setTimeouts(&this, resolveTimeout, connectTimeout, sendTimeout, receiveTimeout);
 
-	public HRESULT waitForResponse(VARIANT timeoutInSeconds, int16 isSuccessful) mut => VT.[Friend]waitForResponse(&this, timeoutInSeconds, isSuccessful);
+	public HRESULT waitForResponse(VARIANT timeoutInSeconds, int16* isSuccessful) mut => VT.[Friend]waitForResponse(&this, timeoutInSeconds, isSuccessful);
 
 	public HRESULT getOption(SERVERXMLHTTP_OPTION option, VARIANT* value) mut => VT.[Friend]getOption(&this, option, value);
 
@@ -2881,7 +2881,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int16 pvfValue) getFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int16* pvfValue) getFeature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int16 vfValue) putFeature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, VARIANT* pvarValue) getProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, VARIANT varValue) putProperty;
@@ -2902,7 +2902,7 @@ public static
 	}
 
 
-	public HRESULT getFeature(PWSTR pwchName, int16 pvfValue) mut => VT.[Friend]getFeature(&this, pwchName, pvfValue);
+	public HRESULT getFeature(PWSTR pwchName, int16* pvfValue) mut => VT.[Friend]getFeature(&this, pwchName, pvfValue);
 
 	public HRESULT putFeature(PWSTR pwchName, int16 vfValue) mut => VT.[Friend]putFeature(&this, pwchName, vfValue);
 
@@ -2965,16 +2965,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pnColumn) getColumnNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pnLine) getLineNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnColumn) getColumnNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnLine) getLineNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16** ppwchPublicId) getPublicId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16** ppwchSystemId) getSystemId;
 	}
 
 
-	public HRESULT getColumnNumber(int32 pnColumn) mut => VT.[Friend]getColumnNumber(&this, pnColumn);
+	public HRESULT getColumnNumber(int32* pnColumn) mut => VT.[Friend]getColumnNumber(&this, pnColumn);
 
-	public HRESULT getLineNumber(int32 pnLine) mut => VT.[Friend]getLineNumber(&this, pnLine);
+	public HRESULT getLineNumber(int32* pnLine) mut => VT.[Friend]getLineNumber(&this, pnLine);
 
 	public HRESULT getPublicId(uint16** ppwchPublicId) mut => VT.[Friend]getPublicId(&this, ppwchPublicId);
 
@@ -3145,47 +3145,47 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pnLength) getLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchUri, int32 pcchUri) getURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchLocalName, int32 pcchLocalName) getLocalName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchQName, int32 pcchQName) getQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchUri, int32 pcchUri, uint16** ppwchLocalName, int32 pcchLocalName, uint16** ppwchQName, int32 pcchQName) getName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, int32 pnIndex) getIndexFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchQName, int32 cchQName, int32 pnIndex) getIndexFromQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchType, int32 pcchType) getType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchType, int32 pcchType) getTypeFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchQName, int32 cchQName, uint16** ppwchType, int32 pcchType) getTypeFromQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchValue, int32 pcchValue) getValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchValue, int32 pcchValue) getValueFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchQName, int32 cchQName, uint16** ppwchValue, int32 pcchValue) getValueFromQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnLength) getLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchUri, int32* pcchUri) getURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchLocalName, int32* pcchLocalName) getLocalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchQName, int32* pcchQName) getQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchUri, int32* pcchUri, uint16** ppwchLocalName, int32* pcchLocalName, uint16** ppwchQName, int32* pcchQName) getName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, int32* pnIndex) getIndexFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchQName, int32 cchQName, int32* pnIndex) getIndexFromQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchType, int32* pcchType) getType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchType, int32* pcchType) getTypeFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchQName, int32 cchQName, uint16** ppwchType, int32* pcchType) getTypeFromQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchValue, int32* pcchValue) getValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchValue, int32* pcchValue) getValueFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchQName, int32 cchQName, uint16** ppwchValue, int32* pcchValue) getValueFromQName;
 	}
 
 
-	public HRESULT getLength(int32 pnLength) mut => VT.[Friend]getLength(&this, pnLength);
+	public HRESULT getLength(int32* pnLength) mut => VT.[Friend]getLength(&this, pnLength);
 
-	public HRESULT getURI(int32 nIndex, uint16** ppwchUri, int32 pcchUri) mut => VT.[Friend]getURI(&this, nIndex, ppwchUri, pcchUri);
+	public HRESULT getURI(int32 nIndex, uint16** ppwchUri, int32* pcchUri) mut => VT.[Friend]getURI(&this, nIndex, ppwchUri, pcchUri);
 
-	public HRESULT getLocalName(int32 nIndex, uint16** ppwchLocalName, int32 pcchLocalName) mut => VT.[Friend]getLocalName(&this, nIndex, ppwchLocalName, pcchLocalName);
+	public HRESULT getLocalName(int32 nIndex, uint16** ppwchLocalName, int32* pcchLocalName) mut => VT.[Friend]getLocalName(&this, nIndex, ppwchLocalName, pcchLocalName);
 
-	public HRESULT getQName(int32 nIndex, uint16** ppwchQName, int32 pcchQName) mut => VT.[Friend]getQName(&this, nIndex, ppwchQName, pcchQName);
+	public HRESULT getQName(int32 nIndex, uint16** ppwchQName, int32* pcchQName) mut => VT.[Friend]getQName(&this, nIndex, ppwchQName, pcchQName);
 
-	public HRESULT getName(int32 nIndex, uint16** ppwchUri, int32 pcchUri, uint16** ppwchLocalName, int32 pcchLocalName, uint16** ppwchQName, int32 pcchQName) mut => VT.[Friend]getName(&this, nIndex, ppwchUri, pcchUri, ppwchLocalName, pcchLocalName, ppwchQName, pcchQName);
+	public HRESULT getName(int32 nIndex, uint16** ppwchUri, int32* pcchUri, uint16** ppwchLocalName, int32* pcchLocalName, uint16** ppwchQName, int32* pcchQName) mut => VT.[Friend]getName(&this, nIndex, ppwchUri, pcchUri, ppwchLocalName, pcchLocalName, ppwchQName, pcchQName);
 
-	public HRESULT getIndexFromName(PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, int32 pnIndex) mut => VT.[Friend]getIndexFromName(&this, pwchUri, cchUri, pwchLocalName, cchLocalName, pnIndex);
+	public HRESULT getIndexFromName(PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, int32* pnIndex) mut => VT.[Friend]getIndexFromName(&this, pwchUri, cchUri, pwchLocalName, cchLocalName, pnIndex);
 
-	public HRESULT getIndexFromQName(PWSTR pwchQName, int32 cchQName, int32 pnIndex) mut => VT.[Friend]getIndexFromQName(&this, pwchQName, cchQName, pnIndex);
+	public HRESULT getIndexFromQName(PWSTR pwchQName, int32 cchQName, int32* pnIndex) mut => VT.[Friend]getIndexFromQName(&this, pwchQName, cchQName, pnIndex);
 
-	public HRESULT getType(int32 nIndex, uint16** ppwchType, int32 pcchType) mut => VT.[Friend]getType(&this, nIndex, ppwchType, pcchType);
+	public HRESULT getType(int32 nIndex, uint16** ppwchType, int32* pcchType) mut => VT.[Friend]getType(&this, nIndex, ppwchType, pcchType);
 
-	public HRESULT getTypeFromName(PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchType, int32 pcchType) mut => VT.[Friend]getTypeFromName(&this, pwchUri, cchUri, pwchLocalName, cchLocalName, ppwchType, pcchType);
+	public HRESULT getTypeFromName(PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchType, int32* pcchType) mut => VT.[Friend]getTypeFromName(&this, pwchUri, cchUri, pwchLocalName, cchLocalName, ppwchType, pcchType);
 
-	public HRESULT getTypeFromQName(PWSTR pwchQName, int32 cchQName, uint16** ppwchType, int32 pcchType) mut => VT.[Friend]getTypeFromQName(&this, pwchQName, cchQName, ppwchType, pcchType);
+	public HRESULT getTypeFromQName(PWSTR pwchQName, int32 cchQName, uint16** ppwchType, int32* pcchType) mut => VT.[Friend]getTypeFromQName(&this, pwchQName, cchQName, ppwchType, pcchType);
 
-	public HRESULT getValue(int32 nIndex, uint16** ppwchValue, int32 pcchValue) mut => VT.[Friend]getValue(&this, nIndex, ppwchValue, pcchValue);
+	public HRESULT getValue(int32 nIndex, uint16** ppwchValue, int32* pcchValue) mut => VT.[Friend]getValue(&this, nIndex, ppwchValue, pcchValue);
 
-	public HRESULT getValueFromName(PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchValue, int32 pcchValue) mut => VT.[Friend]getValueFromName(&this, pwchUri, cchUri, pwchLocalName, cchLocalName, ppwchValue, pcchValue);
+	public HRESULT getValueFromName(PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchValue, int32* pcchValue) mut => VT.[Friend]getValueFromName(&this, pwchUri, cchUri, pwchLocalName, cchLocalName, ppwchValue, pcchValue);
 
-	public HRESULT getValueFromQName(PWSTR pwchQName, int32 cchQName, uint16** ppwchValue, int32 pcchValue) mut => VT.[Friend]getValueFromQName(&this, pwchQName, cchQName, ppwchValue, pcchValue);
+	public HRESULT getValueFromQName(PWSTR pwchQName, int32 cchQName, uint16** ppwchValue, int32* pcchValue) mut => VT.[Friend]getValueFromQName(&this, pwchQName, cchQName, ppwchValue, pcchValue);
 }
 
 [CRepr]struct IVBSAXXMLReader : IDispatch
@@ -3196,7 +3196,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, int16 fValue) getFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, int16* fValue) getFeature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, int16 fValue) putFeature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, VARIANT* varValue) getProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, VARIANT varValue) putProperty;
@@ -3217,7 +3217,7 @@ public static
 	}
 
 
-	public HRESULT getFeature(BSTR strName, int16 fValue) mut => VT.[Friend]getFeature(&this, strName, fValue);
+	public HRESULT getFeature(BSTR strName, int16* fValue) mut => VT.[Friend]getFeature(&this, strName, fValue);
 
 	public HRESULT putFeature(BSTR strName, int16 fValue) mut => VT.[Friend]putFeature(&this, strName, fValue);
 
@@ -3280,16 +3280,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nColumn) get_columnNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nLine) get_lineNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* nColumn) get_columnNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* nLine) get_lineNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strPublicId) get_publicId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strSystemId) get_systemId;
 	}
 
 
-	public HRESULT get_columnNumber(int32 nColumn) mut => VT.[Friend]get_columnNumber(&this, nColumn);
+	public HRESULT get_columnNumber(int32* nColumn) mut => VT.[Friend]get_columnNumber(&this, nColumn);
 
-	public HRESULT get_lineNumber(int32 nLine) mut => VT.[Friend]get_lineNumber(&this, nLine);
+	public HRESULT get_lineNumber(int32* nLine) mut => VT.[Friend]get_lineNumber(&this, nLine);
 
 	public HRESULT get_publicId(BSTR* strPublicId) mut => VT.[Friend]get_publicId(&this, strPublicId);
 
@@ -3460,12 +3460,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nLength) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* nLength) get_length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR* strURI) getURI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR* strLocalName) getLocalName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR* strQName) getQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strURI, BSTR strLocalName, int32 nIndex) getIndexFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strQName, int32 nIndex) getIndexFromQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strURI, BSTR strLocalName, int32* nIndex) getIndexFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strQName, int32* nIndex) getIndexFromQName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR* strType) getType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strURI, BSTR strLocalName, BSTR* strType) getTypeFromName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strQName, BSTR* strType) getTypeFromQName;
@@ -3475,7 +3475,7 @@ public static
 	}
 
 
-	public HRESULT get_length(int32 nLength) mut => VT.[Friend]get_length(&this, nLength);
+	public HRESULT get_length(int32* nLength) mut => VT.[Friend]get_length(&this, nLength);
 
 	public HRESULT getURI(int32 nIndex, BSTR* strURI) mut => VT.[Friend]getURI(&this, nIndex, strURI);
 
@@ -3483,9 +3483,9 @@ public static
 
 	public HRESULT getQName(int32 nIndex, BSTR* strQName) mut => VT.[Friend]getQName(&this, nIndex, strQName);
 
-	public HRESULT getIndexFromName(BSTR strURI, BSTR strLocalName, int32 nIndex) mut => VT.[Friend]getIndexFromName(&this, strURI, strLocalName, nIndex);
+	public HRESULT getIndexFromName(BSTR strURI, BSTR strLocalName, int32* nIndex) mut => VT.[Friend]getIndexFromName(&this, strURI, strLocalName, nIndex);
 
-	public HRESULT getIndexFromQName(BSTR strQName, int32 nIndex) mut => VT.[Friend]getIndexFromQName(&this, strQName, nIndex);
+	public HRESULT getIndexFromQName(BSTR strQName, int32* nIndex) mut => VT.[Friend]getIndexFromQName(&this, strQName, nIndex);
 
 	public HRESULT getType(int32 nIndex, BSTR* strType) mut => VT.[Friend]getType(&this, nIndex, strType);
 
@@ -3513,17 +3513,17 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strEncoding) put_encoding;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strEncoding) get_encoding;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fWriteByteOrderMark) put_byteOrderMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fWriteByteOrderMark) get_byteOrderMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fWriteByteOrderMark) get_byteOrderMark;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fIndentMode) put_indent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fIndentMode) get_indent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fIndentMode) get_indent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fValue) put_standalone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fValue) get_standalone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fValue) get_standalone;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fValue) put_omitXMLDeclaration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fValue) get_omitXMLDeclaration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fValue) get_omitXMLDeclaration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strVersion) put_version;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strVersion) get_version;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fValue) put_disableOutputEscaping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fValue) get_disableOutputEscaping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fValue) get_disableOutputEscaping;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) flush;
 	}
 
@@ -3538,19 +3538,19 @@ public static
 
 	public HRESULT put_byteOrderMark(int16 fWriteByteOrderMark) mut => VT.[Friend]put_byteOrderMark(&this, fWriteByteOrderMark);
 
-	public HRESULT get_byteOrderMark(int16 fWriteByteOrderMark) mut => VT.[Friend]get_byteOrderMark(&this, fWriteByteOrderMark);
+	public HRESULT get_byteOrderMark(int16* fWriteByteOrderMark) mut => VT.[Friend]get_byteOrderMark(&this, fWriteByteOrderMark);
 
 	public HRESULT put_indent(int16 fIndentMode) mut => VT.[Friend]put_indent(&this, fIndentMode);
 
-	public HRESULT get_indent(int16 fIndentMode) mut => VT.[Friend]get_indent(&this, fIndentMode);
+	public HRESULT get_indent(int16* fIndentMode) mut => VT.[Friend]get_indent(&this, fIndentMode);
 
 	public HRESULT put_standalone(int16 fValue) mut => VT.[Friend]put_standalone(&this, fValue);
 
-	public HRESULT get_standalone(int16 fValue) mut => VT.[Friend]get_standalone(&this, fValue);
+	public HRESULT get_standalone(int16* fValue) mut => VT.[Friend]get_standalone(&this, fValue);
 
 	public HRESULT put_omitXMLDeclaration(int16 fValue) mut => VT.[Friend]put_omitXMLDeclaration(&this, fValue);
 
-	public HRESULT get_omitXMLDeclaration(int16 fValue) mut => VT.[Friend]get_omitXMLDeclaration(&this, fValue);
+	public HRESULT get_omitXMLDeclaration(int16* fValue) mut => VT.[Friend]get_omitXMLDeclaration(&this, fValue);
 
 	public HRESULT put_version(BSTR strVersion) mut => VT.[Friend]put_version(&this, strVersion);
 
@@ -3558,7 +3558,7 @@ public static
 
 	public HRESULT put_disableOutputEscaping(int16 fValue) mut => VT.[Friend]put_disableOutputEscaping(&this, fValue);
 
-	public HRESULT get_disableOutputEscaping(int16 fValue) mut => VT.[Friend]get_disableOutputEscaping(&this, fValue);
+	public HRESULT get_disableOutputEscaping(int16* fValue) mut => VT.[Friend]get_disableOutputEscaping(&this, fValue);
 
 	public HRESULT flush() mut => VT.[Friend]flush(&this);
 }
@@ -3653,14 +3653,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* prefix) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* length) get_length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__newEnum;
 	}
 
 
 	public HRESULT get_item(int32 index, BSTR* prefix) mut => VT.[Friend]get_item(&this, index, prefix);
 
-	public HRESULT get_length(int32 length) mut => VT.[Friend]get_length(&this, length);
+	public HRESULT get_length(int32* length) mut => VT.[Friend]get_length(&this, length);
 
 	public HRESULT get__newEnum(IUnknown** ppUnk) mut => VT.[Friend]get__newEnum(&this, ppUnk);
 }
@@ -3674,7 +3674,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fOverride) put_allowOverride;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fOverride) get_allowOverride;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fOverride) get_allowOverride;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) pushContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* contextNode, int16 fDeep) pushNodeContext;
@@ -3689,7 +3689,7 @@ public static
 
 	public HRESULT put_allowOverride(int16 fOverride) mut => VT.[Friend]put_allowOverride(&this, fOverride);
 
-	public HRESULT get_allowOverride(int16 fOverride) mut => VT.[Friend]get_allowOverride(&this, fOverride);
+	public HRESULT get_allowOverride(int16* fOverride) mut => VT.[Friend]get_allowOverride(&this, fOverride);
 
 	public HRESULT reset() mut => VT.[Friend]reset(&this);
 
@@ -3719,21 +3719,21 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fOverride) putAllowOverride;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fOverride) getAllowOverride;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fOverride) getAllowOverride;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) pushContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* contextNode, int16 fDeep) pushNodeContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) popContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR prefix, PWSTR namespaceURI) declarePrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, char16* pwchPrefix, int32 pcchPrefix) getDeclaredPrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszNamespaceURI, int32 nIndex, char16* pwchPrefix, int32 pcchPrefix) getPrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchPrefix, IXMLDOMNode* pContextNode, char16* pwchUri, int32 pcchUri) getURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) getDeclaredPrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszNamespaceURI, int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) getPrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchPrefix, IXMLDOMNode* pContextNode, char16* pwchUri, int32* pcchUri) getURI;
 	}
 
 
 	public HRESULT putAllowOverride(int16 fOverride) mut => VT.[Friend]putAllowOverride(&this, fOverride);
 
-	public HRESULT getAllowOverride(int16 fOverride) mut => VT.[Friend]getAllowOverride(&this, fOverride);
+	public HRESULT getAllowOverride(int16* fOverride) mut => VT.[Friend]getAllowOverride(&this, fOverride);
 
 	public HRESULT reset() mut => VT.[Friend]reset(&this);
 
@@ -3745,11 +3745,11 @@ public static
 
 	public HRESULT declarePrefix(PWSTR prefix, PWSTR namespaceURI) mut => VT.[Friend]declarePrefix(&this, prefix, namespaceURI);
 
-	public HRESULT getDeclaredPrefix(int32 nIndex, char16* pwchPrefix, int32 pcchPrefix) mut => VT.[Friend]getDeclaredPrefix(&this, nIndex, pwchPrefix, pcchPrefix);
+	public HRESULT getDeclaredPrefix(int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) mut => VT.[Friend]getDeclaredPrefix(&this, nIndex, pwchPrefix, pcchPrefix);
 
-	public HRESULT getPrefix(PWSTR pwszNamespaceURI, int32 nIndex, char16* pwchPrefix, int32 pcchPrefix) mut => VT.[Friend]getPrefix(&this, pwszNamespaceURI, nIndex, pwchPrefix, pcchPrefix);
+	public HRESULT getPrefix(PWSTR pwszNamespaceURI, int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) mut => VT.[Friend]getPrefix(&this, pwszNamespaceURI, nIndex, pwchPrefix, pcchPrefix);
 
-	public HRESULT getURI(PWSTR pwchPrefix, IXMLDOMNode* pContextNode, char16* pwchUri, int32 pcchUri) mut => VT.[Friend]getURI(&this, pwchPrefix, pContextNode, pwchUri, pcchUri);
+	public HRESULT getURI(PWSTR pwchPrefix, IXMLDOMNode* pContextNode, char16* pwchUri, int32* pcchUri) mut => VT.[Friend]getURI(&this, pwchPrefix, pContextNode, pwchUri, pcchUri);
 }
 
 [CRepr]struct IMXXMLFilter : IDispatch
@@ -3760,7 +3760,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, int16 fValue) getFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, int16* fValue) getFeature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, int16 fValue) putFeature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, VARIANT* varValue) getProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, VARIANT varValue) putProperty;
@@ -3775,7 +3775,7 @@ public static
 	}
 
 
-	public HRESULT getFeature(BSTR strName, int16 fValue) mut => VT.[Friend]getFeature(&this, strName, fValue);
+	public HRESULT getFeature(BSTR strName, int16* fValue) mut => VT.[Friend]getFeature(&this, strName, fValue);
 
 	public HRESULT putFeature(BSTR strName, int16 fValue) mut => VT.[Friend]putFeature(&this, strName, fValue);
 
@@ -3810,7 +3810,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) validate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 validateOnLoad) put_validateOnLoad;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 validateOnLoad) get_validateOnLoad;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* validateOnLoad) get_validateOnLoad;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR namespaceURI, ISchema** schema) getSchema;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* node, ISchemaItem** item) getDeclaration;
 	}
@@ -3820,7 +3820,7 @@ public static
 
 	public HRESULT put_validateOnLoad(int16 validateOnLoad) mut => VT.[Friend]put_validateOnLoad(&this, validateOnLoad);
 
-	public HRESULT get_validateOnLoad(int16 validateOnLoad) mut => VT.[Friend]get_validateOnLoad(&this, validateOnLoad);
+	public HRESULT get_validateOnLoad(int16* validateOnLoad) mut => VT.[Friend]get_validateOnLoad(&this, validateOnLoad);
 
 	public HRESULT getSchema(BSTR namespaceURI, ISchema** schema) mut => VT.[Friend]getSchema(&this, namespaceURI, schema);
 
@@ -3836,14 +3836,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* bstr) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* length) get_length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppunk) get__newEnum;
 	}
 
 
 	public HRESULT get_item(int32 index, BSTR* bstr) mut => VT.[Friend]get_item(&this, index, bstr);
 
-	public HRESULT get_length(int32 length) mut => VT.[Friend]get_length(&this, length);
+	public HRESULT get_length(int32* length) mut => VT.[Friend]get_length(&this, length);
 
 	public HRESULT get__newEnum(IUnknown** ppunk) mut => VT.[Friend]get__newEnum(&this, ppunk);
 }
@@ -3859,7 +3859,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, ISchemaItem** item) get_item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, ISchemaItem** item) itemByName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, BSTR namespaceURI, ISchemaItem** item) itemByQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* length) get_length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppunk) get__newEnum;
 	}
 
@@ -3870,7 +3870,7 @@ public static
 
 	public HRESULT itemByQName(BSTR name, BSTR namespaceURI, ISchemaItem** item) mut => VT.[Friend]itemByQName(&this, name, namespaceURI, item);
 
-	public HRESULT get_length(int32 length) mut => VT.[Friend]get_length(&this, length);
+	public HRESULT get_length(int32* length) mut => VT.[Friend]get_length(&this, length);
 
 	public HRESULT get__newEnum(IUnknown** ppunk) mut => VT.[Friend]get__newEnum(&this, ppunk);
 }
@@ -3889,7 +3889,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* id) get_id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SOMITEMTYPE* itemType) get_itemType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXAttributes** attributes) get_unhandledAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* annotationSink, int16 isWritten) writeAnnotation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* annotationSink, int16* isWritten) writeAnnotation;
 	}
 
 
@@ -3905,7 +3905,7 @@ public static
 
 	public HRESULT get_unhandledAttributes(IVBSAXAttributes** attributes) mut => VT.[Friend]get_unhandledAttributes(&this, attributes);
 
-	public HRESULT writeAnnotation(IUnknown* annotationSink, int16 isWritten) mut => VT.[Friend]writeAnnotation(&this, annotationSink, isWritten);
+	public HRESULT writeAnnotation(IUnknown* annotationSink, int16* isWritten) mut => VT.[Friend]writeAnnotation(&this, annotationSink, isWritten);
 }
 
 [CRepr]struct ISchema : ISchemaItem
@@ -3978,7 +3978,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* defaultValue) get_defaultValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* fixedValue) get_fixedValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMAUSE* use) get_use;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 reference) get_isReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* reference) get_isReference;
 	}
 
 
@@ -3992,7 +3992,7 @@ public static
 
 	public HRESULT get_use(SCHEMAUSE* use) mut => VT.[Friend]get_use(&this, use);
 
-	public HRESULT get_isReference(int16 reference) mut => VT.[Friend]get_isReference(&this, reference);
+	public HRESULT get_isReference(int16* reference) mut => VT.[Friend]get_isReference(&this, reference);
 }
 
 [CRepr]struct ISchemaElement : ISchemaParticle
@@ -4007,13 +4007,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaComplexType** @scope) get_scope;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* defaultValue) get_defaultValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* fixedValue) get_fixedValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 nillable) get_isNillable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* nillable) get_isNillable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** constraints) get_identityConstraints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaElement** element) get_substitutionGroup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMADERIVATIONMETHOD* exclusions) get_substitutionGroupExclusions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMADERIVATIONMETHOD* disallowed) get_disallowedSubstitutions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 @abstract) get_isAbstract;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 reference) get_isReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* @abstract) get_isAbstract;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* reference) get_isReference;
 	}
 
 
@@ -4025,7 +4025,7 @@ public static
 
 	public HRESULT get_fixedValue(BSTR* fixedValue) mut => VT.[Friend]get_fixedValue(&this, fixedValue);
 
-	public HRESULT get_isNillable(int16 nillable) mut => VT.[Friend]get_isNillable(&this, nillable);
+	public HRESULT get_isNillable(int16* nillable) mut => VT.[Friend]get_isNillable(&this, nillable);
 
 	public HRESULT get_identityConstraints(ISchemaItemCollection** constraints) mut => VT.[Friend]get_identityConstraints(&this, constraints);
 
@@ -4035,9 +4035,9 @@ public static
 
 	public HRESULT get_disallowedSubstitutions(SCHEMADERIVATIONMETHOD* disallowed) mut => VT.[Friend]get_disallowedSubstitutions(&this, disallowed);
 
-	public HRESULT get_isAbstract(int16 @abstract) mut => VT.[Friend]get_isAbstract(&this, @abstract);
+	public HRESULT get_isAbstract(int16* @abstract) mut => VT.[Friend]get_isAbstract(&this, @abstract);
 
-	public HRESULT get_isReference(int16 reference) mut => VT.[Friend]get_isReference(&this, reference);
+	public HRESULT get_isReference(int16* reference) mut => VT.[Friend]get_isReference(&this, reference);
 }
 
 [CRepr]struct ISchemaType : ISchemaItem
@@ -4052,7 +4052,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMADERIVATIONMETHOD* final) get_final;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMATYPEVARIETY* variety) get_variety;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMADERIVATIONMETHOD* derivedBy) get_derivedBy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data, int16 valid) isValid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data, int16* valid) isValid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* minExclusive) get_minExclusive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* minInclusive) get_minInclusive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* maxExclusive) get_maxExclusive;
@@ -4076,7 +4076,7 @@ public static
 
 	public HRESULT get_derivedBy(SCHEMADERIVATIONMETHOD* derivedBy) mut => VT.[Friend]get_derivedBy(&this, derivedBy);
 
-	public HRESULT isValid(BSTR data, int16 valid) mut => VT.[Friend]isValid(&this, data, valid);
+	public HRESULT isValid(BSTR data, int16* valid) mut => VT.[Friend]isValid(&this, data, valid);
 
 	public HRESULT get_minExclusive(BSTR* minExclusive) mut => VT.[Friend]get_minExclusive(&this, minExclusive);
 
@@ -4111,7 +4111,7 @@ public static
 
 	[CRepr]public struct VTable : ISchemaType.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 @abstract) get_isAbstract;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* @abstract) get_isAbstract;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaAny** anyAttribute) get_anyAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** attributes) get_attributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMACONTENTTYPE* contentType) get_contentType;
@@ -4120,7 +4120,7 @@ public static
 	}
 
 
-	public HRESULT get_isAbstract(int16 @abstract) mut => VT.[Friend]get_isAbstract(&this, @abstract);
+	public HRESULT get_isAbstract(int16* @abstract) mut => VT.[Friend]get_isAbstract(&this, @abstract);
 
 	public HRESULT get_anyAttribute(ISchemaAny** anyAttribute) mut => VT.[Friend]get_anyAttribute(&this, anyAttribute);
 
@@ -4261,12 +4261,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszMethod, PWSTR pwszUrl, IXMLHTTPRequest2Callback* pStatusCallback, PWSTR pwszUserName, PWSTR pwszPassword, PWSTR pwszProxyUserName, PWSTR pwszProxyPassword) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* pBody, uint64 cbBody) Send;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XHR_COOKIE* pCookie, uint32 pdwCookieState) SetCookie;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XHR_COOKIE* pCookie, uint32* pdwCookieState) SetCookie;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* pSequentialStream) SetCustomResponseStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XHR_PROPERTY eProperty, uint64 ullValue) SetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszHeader, PWSTR pwszValue) SetRequestHeader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16** ppwszHeaders) GetAllResponseHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszUrl, PWSTR pwszName, uint32 dwFlags, uint32 pcCookies, XHR_COOKIE** ppCookies) GetCookie;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszUrl, PWSTR pwszName, uint32 dwFlags, uint32* pcCookies, XHR_COOKIE** ppCookies) GetCookie;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszHeader, uint16** ppwszValue) GetResponseHeader;
 	}
 
@@ -4277,7 +4277,7 @@ public static
 
 	public HRESULT Abort() mut => VT.[Friend]Abort(&this);
 
-	public HRESULT SetCookie(XHR_COOKIE* pCookie, uint32 pdwCookieState) mut => VT.[Friend]SetCookie(&this, pCookie, pdwCookieState);
+	public HRESULT SetCookie(XHR_COOKIE* pCookie, uint32* pdwCookieState) mut => VT.[Friend]SetCookie(&this, pCookie, pdwCookieState);
 
 	public HRESULT SetCustomResponseStream(ISequentialStream* pSequentialStream) mut => VT.[Friend]SetCustomResponseStream(&this, pSequentialStream);
 
@@ -4287,7 +4287,7 @@ public static
 
 	public HRESULT GetAllResponseHeaders(uint16** ppwszHeaders) mut => VT.[Friend]GetAllResponseHeaders(&this, ppwszHeaders);
 
-	public HRESULT GetCookie(PWSTR pwszUrl, PWSTR pwszName, uint32 dwFlags, uint32 pcCookies, XHR_COOKIE** ppCookies) mut => VT.[Friend]GetCookie(&this, pwszUrl, pwszName, dwFlags, pcCookies, ppCookies);
+	public HRESULT GetCookie(PWSTR pwszUrl, PWSTR pwszName, uint32 dwFlags, uint32* pcCookies, XHR_COOKIE** ppCookies) mut => VT.[Friend]GetCookie(&this, pwszUrl, pwszName, dwFlags, pcCookies, ppCookies);
 
 	public HRESULT GetResponseHeader(PWSTR pwszHeader, uint16** ppwszValue) mut => VT.[Friend]GetResponseHeader(&this, pwszHeader, ppwszValue);
 }

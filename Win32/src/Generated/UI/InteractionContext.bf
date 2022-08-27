@@ -319,43 +319,43 @@ public static
 	public static extern HRESULT SetPropertyInteractionContext(HINTERACTIONCONTEXT interactionContext, INTERACTION_CONTEXT_PROPERTY contextProperty, uint32 value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetPropertyInteractionContext(HINTERACTIONCONTEXT interactionContext, INTERACTION_CONTEXT_PROPERTY contextProperty, uint32 value);
+	public static extern HRESULT GetPropertyInteractionContext(HINTERACTIONCONTEXT interactionContext, INTERACTION_CONTEXT_PROPERTY contextProperty, uint32* value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetInertiaParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, INERTIA_PARAMETER inertiaParameter, float value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetInertiaParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, INERTIA_PARAMETER inertiaParameter, float value);
+	public static extern HRESULT GetInertiaParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, INERTIA_PARAMETER inertiaParameter, float* value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetCrossSlideParametersInteractionContext(HINTERACTIONCONTEXT interactionContext, uint32 parameterCount, CROSS_SLIDE_PARAMETER* crossSlideParameters);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetCrossSlideParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, CROSS_SLIDE_THRESHOLD threshold, float distance);
+	public static extern HRESULT GetCrossSlideParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, CROSS_SLIDE_THRESHOLD threshold, float* distance);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetTapParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, TAP_PARAMETER parameter, float value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetTapParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, TAP_PARAMETER parameter, float value);
+	public static extern HRESULT GetTapParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, TAP_PARAMETER parameter, float* value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetHoldParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, HOLD_PARAMETER parameter, float value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetHoldParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, HOLD_PARAMETER parameter, float value);
+	public static extern HRESULT GetHoldParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, HOLD_PARAMETER parameter, float* value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetTranslationParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, TRANSLATION_PARAMETER parameter, float value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetTranslationParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, TRANSLATION_PARAMETER parameter, float value);
+	public static extern HRESULT GetTranslationParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, TRANSLATION_PARAMETER parameter, float* value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetMouseWheelParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, MOUSE_WHEEL_PARAMETER parameter, float value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetMouseWheelParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, MOUSE_WHEEL_PARAMETER parameter, float value);
+	public static extern HRESULT GetMouseWheelParameterInteractionContext(HINTERACTIONCONTEXT interactionContext, MOUSE_WHEEL_PARAMETER parameter, float* value);
 
 	[Import("NInput.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ResetInteractionContext(HINTERACTIONCONTEXT interactionContext);

@@ -688,11 +688,11 @@ public static
 	public static extern uint32 ldap_bind_sA(ldap* ld, PSTR dn, PSTR cred, uint32 method);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ldap_sasl_bindA(ldap* ExternalHandle, PSTR DistName, PSTR AuthMechanism, LDAP_BERVAL* cred, ldapcontrolA** ServerCtrls, ldapcontrolA** ClientCtrls, int32 MessageNumber);
-	public static int32 ldap_sasl_bind(ldap* ExternalHandle, PSTR DistName, PSTR AuthMechanism, LDAP_BERVAL* cred, ldapcontrolA** ServerCtrls, ldapcontrolA** ClientCtrls, int32 MessageNumber) => ldap_sasl_bindA(ExternalHandle, DistName, AuthMechanism, cred, ServerCtrls, ClientCtrls, MessageNumber);
+	public static extern int32 ldap_sasl_bindA(ldap* ExternalHandle, PSTR DistName, PSTR AuthMechanism, LDAP_BERVAL* cred, ldapcontrolA** ServerCtrls, ldapcontrolA** ClientCtrls, int32* MessageNumber);
+	public static int32 ldap_sasl_bind(ldap* ExternalHandle, PSTR DistName, PSTR AuthMechanism, LDAP_BERVAL* cred, ldapcontrolA** ServerCtrls, ldapcontrolA** ClientCtrls, int32* MessageNumber) => ldap_sasl_bindA(ExternalHandle, DistName, AuthMechanism, cred, ServerCtrls, ClientCtrls, MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ldap_sasl_bindW(ldap* ExternalHandle, PWSTR DistName, PWSTR AuthMechanism, LDAP_BERVAL* cred, ldapcontrolW** ServerCtrls, ldapcontrolW** ClientCtrls, int32 MessageNumber);
+	public static extern int32 ldap_sasl_bindW(ldap* ExternalHandle, PWSTR DistName, PWSTR AuthMechanism, LDAP_BERVAL* cred, ldapcontrolW** ServerCtrls, ldapcontrolW** ClientCtrls, int32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ldap_sasl_bind_sA(ldap* ExternalHandle, PSTR DistName, PSTR AuthMechanism, LDAP_BERVAL* cred, ldapcontrolA** ServerCtrls, ldapcontrolA** ClientCtrls, LDAP_BERVAL** ServerData);
@@ -732,10 +732,10 @@ public static
 	public static extern uint32 ldap_search_stA(ldap* ld, PSTR @base, uint32 @scope, PSTR filter, int8** attrs, uint32 attrsonly, LDAP_TIMEVAL* timeout, LDAPMessage** res);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_search_extW(ldap* ld, PWSTR @base, uint32 @scope, PWSTR filter, uint16** attrs, uint32 attrsonly, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32 TimeLimit, uint32 SizeLimit, uint32 MessageNumber);
+	public static extern uint32 ldap_search_extW(ldap* ld, PWSTR @base, uint32 @scope, PWSTR filter, uint16** attrs, uint32 attrsonly, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32 TimeLimit, uint32 SizeLimit, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_search_extA(ldap* ld, PSTR @base, uint32 @scope, PSTR filter, int8** attrs, uint32 attrsonly, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 TimeLimit, uint32 SizeLimit, uint32 MessageNumber);
+	public static extern uint32 ldap_search_extA(ldap* ld, PSTR @base, uint32 @scope, PSTR filter, int8** attrs, uint32 attrsonly, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 TimeLimit, uint32 SizeLimit, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_search_ext_sW(ldap* ld, PWSTR @base, uint32 @scope, PWSTR filter, uint16** attrs, uint32 attrsonly, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, LDAP_TIMEVAL* timeout, uint32 SizeLimit, LDAPMessage** res);
@@ -753,7 +753,7 @@ public static
 	public static extern uint32 ldap_search_st(ldap* ld, PSTR @base, uint32 @scope, PSTR filter, int8** attrs, uint32 attrsonly, LDAP_TIMEVAL* timeout, LDAPMessage** res);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_search_ext(ldap* ld, PSTR @base, uint32 @scope, PSTR filter, int8** attrs, uint32 attrsonly, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 TimeLimit, uint32 SizeLimit, uint32 MessageNumber);
+	public static extern uint32 ldap_search_ext(ldap* ld, PSTR @base, uint32 @scope, PSTR filter, int8** attrs, uint32 attrsonly, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 TimeLimit, uint32 SizeLimit, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_search_ext_s(ldap* ld, PSTR @base, uint32 @scope, PSTR filter, int8** attrs, uint32 attrsonly, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, LDAP_TIMEVAL* timeout, uint32 SizeLimit, LDAPMessage** res);
@@ -778,10 +778,10 @@ public static
 	public static extern uint32 ldap_modify_sA(ldap* ld, PSTR dn, ldapmodA** mods);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_modify_extW(ldap* ld, PWSTR dn, ldapmodW** mods, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_modify_extW(ldap* ld, PWSTR dn, ldapmodW** mods, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_modify_extA(ldap* ld, PSTR dn, ldapmodA** mods, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_modify_extA(ldap* ld, PSTR dn, ldapmodA** mods, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_modify_ext_sW(ldap* ld, PWSTR dn, ldapmodW** mods, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls);
@@ -796,7 +796,7 @@ public static
 	public static extern uint32 ldap_modify_s(ldap* ld, PSTR dn, ldapmodA** mods);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_modify_ext(ldap* ld, PSTR dn, ldapmodA** mods, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_modify_ext(ldap* ld, PSTR dn, ldapmodA** mods, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_modify_ext_s(ldap* ld, PSTR dn, ldapmodA** mods, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls);
@@ -838,10 +838,10 @@ public static
 	public static extern uint32 ldap_modrdn_s(ldap* ExternalHandle, PSTR DistinguishedName, PSTR NewDistinguishedName);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_rename_extW(ldap* ld, PWSTR dn, PWSTR NewRDN, PWSTR NewParent, int32 DeleteOldRdn, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_rename_extW(ldap* ld, PWSTR dn, PWSTR NewRDN, PWSTR NewParent, int32 DeleteOldRdn, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_rename_extA(ldap* ld, PSTR dn, PSTR NewRDN, PSTR NewParent, int32 DeleteOldRdn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_rename_extA(ldap* ld, PSTR dn, PSTR NewRDN, PSTR NewParent, int32 DeleteOldRdn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_rename_ext_sW(ldap* ld, PWSTR dn, PWSTR NewRDN, PWSTR NewParent, int32 DeleteOldRdn, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls);
@@ -850,7 +850,7 @@ public static
 	public static extern uint32 ldap_rename_ext_sA(ldap* ld, PSTR dn, PSTR NewRDN, PSTR NewParent, int32 DeleteOldRdn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_rename_ext(ldap* ld, PSTR dn, PSTR NewRDN, PSTR NewParent, int32 DeleteOldRdn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_rename_ext(ldap* ld, PSTR dn, PSTR NewRDN, PSTR NewParent, int32 DeleteOldRdn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_rename_ext_s(ldap* ld, PSTR dn, PSTR NewRDN, PSTR NewParent, int32 DeleteOldRdn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls);
@@ -868,10 +868,10 @@ public static
 	public static extern uint32 ldap_add_sA(ldap* ld, PSTR dn, ldapmodA** attrs);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_add_extW(ldap* ld, PWSTR dn, ldapmodW** attrs, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_add_extW(ldap* ld, PWSTR dn, ldapmodW** attrs, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_add_extA(ldap* ld, PSTR dn, ldapmodA** attrs, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_add_extA(ldap* ld, PSTR dn, ldapmodA** attrs, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_add_ext_sW(ldap* ld, PWSTR dn, ldapmodW** attrs, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls);
@@ -886,7 +886,7 @@ public static
 	public static extern uint32 ldap_add_s(ldap* ld, PSTR dn, ldapmodA** attrs);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_add_ext(ldap* ld, PSTR dn, ldapmodA** attrs, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_add_ext(ldap* ld, PSTR dn, ldapmodA** attrs, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_add_ext_s(ldap* ld, PSTR dn, ldapmodA** attrs, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls);
@@ -910,10 +910,10 @@ public static
 	public static extern uint32 ldap_compare_s(ldap* ld, PSTR dn, PSTR attr, PSTR value);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_compare_extW(ldap* ld, PWSTR dn, PWSTR Attr, PWSTR Value, LDAP_BERVAL* Data, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_compare_extW(ldap* ld, PWSTR dn, PWSTR Attr, PWSTR Value, LDAP_BERVAL* Data, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_compare_extA(ldap* ld, PSTR dn, PSTR Attr, PSTR Value, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_compare_extA(ldap* ld, PSTR dn, PSTR Attr, PSTR Value, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_compare_ext_sW(ldap* ld, PWSTR dn, PWSTR Attr, PWSTR Value, LDAP_BERVAL* Data, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls);
@@ -922,7 +922,7 @@ public static
 	public static extern uint32 ldap_compare_ext_sA(ldap* ld, PSTR dn, PSTR Attr, PSTR Value, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_compare_ext(ldap* ld, PSTR dn, PSTR Attr, PSTR Value, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_compare_ext(ldap* ld, PSTR dn, PSTR Attr, PSTR Value, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_compare_ext_s(ldap* ld, PSTR dn, PSTR Attr, PSTR Value, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls);
@@ -940,10 +940,10 @@ public static
 	public static extern uint32 ldap_delete_sA(ldap* ld, PSTR dn);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_delete_extW(ldap* ld, PWSTR dn, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_delete_extW(ldap* ld, PWSTR dn, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_delete_extA(ldap* ld, PSTR dn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_delete_extA(ldap* ld, PSTR dn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_delete_ext_sW(ldap* ld, PWSTR dn, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls);
@@ -958,7 +958,7 @@ public static
 	public static extern uint32 ldap_delete_s(ldap* ld, PSTR dn);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_delete_ext(ldap* ld, PSTR dn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_delete_ext(ldap* ld, PSTR dn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_delete_ext_s(ldap* ld, PSTR dn, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls);
@@ -976,10 +976,10 @@ public static
 	public static extern uint32 ldap_result2error(ldap* ld, LDAPMessage* res, uint32 freeit);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_parse_resultW(ldap* Connection, LDAPMessage* ResultMessage, uint32 ReturnCode, PWSTR* MatchedDNs, PWSTR* ErrorMessage, uint16*** Referrals, ldapcontrolW*** ServerControls, BOOLEAN Freeit);
+	public static extern uint32 ldap_parse_resultW(ldap* Connection, LDAPMessage* ResultMessage, uint32* ReturnCode, PWSTR* MatchedDNs, PWSTR* ErrorMessage, uint16*** Referrals, ldapcontrolW*** ServerControls, BOOLEAN Freeit);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_parse_resultA(ldap* Connection, LDAPMessage* ResultMessage, uint32 ReturnCode, PSTR* MatchedDNs, PSTR* ErrorMessage, int8*** Referrals, ldapcontrolA*** ServerControls, BOOLEAN Freeit);
+	public static extern uint32 ldap_parse_resultA(ldap* Connection, LDAPMessage* ResultMessage, uint32* ReturnCode, PSTR* MatchedDNs, PSTR* ErrorMessage, int8*** Referrals, ldapcontrolA*** ServerControls, BOOLEAN Freeit);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_parse_extended_resultA(ldap* Connection, LDAPMessage* ResultMessage, PSTR* ResultOID, LDAP_BERVAL** ResultData, BOOLEAN Freeit);
@@ -1007,7 +1007,7 @@ public static
 	public static extern uint32 ldap_free_controlsA(ldapcontrolA** Controls);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_parse_result(ldap* Connection, LDAPMessage* ResultMessage, uint32 ReturnCode, PSTR* MatchedDNs, PSTR* ErrorMessage, PSTR** Referrals, ldapcontrolA*** ServerControls, BOOLEAN Freeit);
+	public static extern uint32 ldap_parse_result(ldap* Connection, LDAPMessage* ResultMessage, uint32* ReturnCode, PSTR* MatchedDNs, PSTR* ErrorMessage, PSTR** Referrals, ldapcontrolA*** ServerControls, BOOLEAN Freeit);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_controls_free(ldapcontrolA** Controls);
@@ -1181,16 +1181,16 @@ public static
 	public static extern uint32 ldap_create_sort_controlW(ldap* ExternalHandle, ldapsortkeyW** SortKeys, uint8 IsCritical, ldapcontrolW** Control);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_parse_sort_controlA(ldap* ExternalHandle, ldapcontrolA** Control, uint32 Result, PSTR* Attribute);
+	public static extern uint32 ldap_parse_sort_controlA(ldap* ExternalHandle, ldapcontrolA** Control, uint32* Result, PSTR* Attribute);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_parse_sort_controlW(ldap* ExternalHandle, ldapcontrolW** Control, uint32 Result, PWSTR* Attribute);
+	public static extern uint32 ldap_parse_sort_controlW(ldap* ExternalHandle, ldapcontrolW** Control, uint32* Result, PWSTR* Attribute);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_create_sort_control(ldap* ExternalHandle, ldapsortkeyA** SortKeys, uint8 IsCritical, ldapcontrolA** Control);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_parse_sort_control(ldap* ExternalHandle, ldapcontrolA** Control, uint32 Result, PSTR* Attribute);
+	public static extern uint32 ldap_parse_sort_control(ldap* ExternalHandle, ldapcontrolA** Control, uint32* Result, PSTR* Attribute);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_encode_sort_controlW(ldap* ExternalHandle, ldapsortkeyW** SortKeys, ldapcontrolW* Control, BOOLEAN Criticality);
@@ -1206,16 +1206,16 @@ public static
 	public static extern uint32 ldap_create_page_controlA(ldap* ExternalHandle, uint32 PageSize, LDAP_BERVAL* Cookie, uint8 IsCritical, ldapcontrolA** Control);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_parse_page_controlW(ldap* ExternalHandle, ldapcontrolW** ServerControls, uint32 TotalCount, LDAP_BERVAL** Cookie);
+	public static extern uint32 ldap_parse_page_controlW(ldap* ExternalHandle, ldapcontrolW** ServerControls, uint32* TotalCount, LDAP_BERVAL** Cookie);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_parse_page_controlA(ldap* ExternalHandle, ldapcontrolA** ServerControls, uint32 TotalCount, LDAP_BERVAL** Cookie);
+	public static extern uint32 ldap_parse_page_controlA(ldap* ExternalHandle, ldapcontrolA** ServerControls, uint32* TotalCount, LDAP_BERVAL** Cookie);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_create_page_control(ldap* ExternalHandle, uint32 PageSize, LDAP_BERVAL* Cookie, uint8 IsCritical, ldapcontrolA** Control);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_parse_page_control(ldap* ExternalHandle, ldapcontrolA** ServerControls, uint32 TotalCount, LDAP_BERVAL** Cookie);
+	public static extern uint32 ldap_parse_page_control(ldap* ExternalHandle, ldapcontrolA** ServerControls, uint32* TotalCount, LDAP_BERVAL** Cookie);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern ldapsearch* ldap_search_init_pageW(ldap* ExternalHandle, PWSTR DistinguishedName, uint32 ScopeOfSearch, PWSTR SearchFilter, uint16** AttributeList, uint32 AttributesOnly, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32 PageTimeLimit, uint32 TotalSizeLimit, ldapsortkeyW** SortKeys);
@@ -1227,13 +1227,13 @@ public static
 	public static extern ldapsearch* ldap_search_init_page(ldap* ExternalHandle, PSTR DistinguishedName, uint32 ScopeOfSearch, PSTR SearchFilter, int8** AttributeList, uint32 AttributesOnly, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 PageTimeLimit, uint32 TotalSizeLimit, ldapsortkeyA** SortKeys);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_get_next_page(ldap* ExternalHandle, ldapsearch* SearchHandle, uint32 PageSize, uint32 MessageNumber);
+	public static extern uint32 ldap_get_next_page(ldap* ExternalHandle, ldapsearch* SearchHandle, uint32 PageSize, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_get_next_page_s(ldap* ExternalHandle, ldapsearch* SearchHandle, LDAP_TIMEVAL* timeout, uint32 PageSize, uint32 TotalCount, LDAPMessage** Results);
+	public static extern uint32 ldap_get_next_page_s(ldap* ExternalHandle, ldapsearch* SearchHandle, LDAP_TIMEVAL* timeout, uint32 PageSize, uint32* TotalCount, LDAPMessage** Results);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_get_paged_count(ldap* ExternalHandle, ldapsearch* SearchBlock, uint32 TotalCount, LDAPMessage* Results);
+	public static extern uint32 ldap_get_paged_count(ldap* ExternalHandle, ldapsearch* SearchBlock, uint32* TotalCount, LDAPMessage* Results);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_search_abandon_page(ldap* ExternalHandle, ldapsearch* SearchBlock);
@@ -1246,18 +1246,18 @@ public static
 	public static int32 ldap_create_vlv_control(ldap* ExternalHandle, ldapvlvinfo* VlvInfo, uint8 IsCritical, ldapcontrolA** Control) => ldap_create_vlv_controlA(ExternalHandle, VlvInfo, IsCritical, Control);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ldap_parse_vlv_controlW(ldap* ExternalHandle, ldapcontrolW** Control, uint32 TargetPos, uint32 ListCount, LDAP_BERVAL** Context, int32 ErrCode);
+	public static extern int32 ldap_parse_vlv_controlW(ldap* ExternalHandle, ldapcontrolW** Control, uint32* TargetPos, uint32* ListCount, LDAP_BERVAL** Context, int32* ErrCode);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ldap_parse_vlv_controlA(ldap* ExternalHandle, ldapcontrolA** Control, uint32 TargetPos, uint32 ListCount, LDAP_BERVAL** Context, int32 ErrCode);
-	public static int32 ldap_parse_vlv_control(ldap* ExternalHandle, ldapcontrolA** Control, uint32 TargetPos, uint32 ListCount, LDAP_BERVAL** Context, int32 ErrCode) => ldap_parse_vlv_controlA(ExternalHandle, Control, TargetPos, ListCount, Context, ErrCode);
+	public static extern int32 ldap_parse_vlv_controlA(ldap* ExternalHandle, ldapcontrolA** Control, uint32* TargetPos, uint32* ListCount, LDAP_BERVAL** Context, int32* ErrCode);
+	public static int32 ldap_parse_vlv_control(ldap* ExternalHandle, ldapcontrolA** Control, uint32* TargetPos, uint32* ListCount, LDAP_BERVAL** Context, int32* ErrCode) => ldap_parse_vlv_controlA(ExternalHandle, Control, TargetPos, ListCount, Context, ErrCode);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_start_tls_sW(ldap* ExternalHandle, uint32 ServerReturnValue, LDAPMessage** result, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls);
+	public static extern uint32 ldap_start_tls_sW(ldap* ExternalHandle, uint32* ServerReturnValue, LDAPMessage** result, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_start_tls_sA(ldap* ExternalHandle, uint32 ServerReturnValue, LDAPMessage** result, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls);
-	public static uint32 ldap_start_tls_s(ldap* ExternalHandle, uint32 ServerReturnValue, LDAPMessage** result, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls) => ldap_start_tls_sA(ExternalHandle, ServerReturnValue, result, ServerControls, ClientControls);
+	public static extern uint32 ldap_start_tls_sA(ldap* ExternalHandle, uint32* ServerReturnValue, LDAPMessage** result, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls);
+	public static uint32 ldap_start_tls_s(ldap* ExternalHandle, uint32* ServerReturnValue, LDAPMessage** result, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls) => ldap_start_tls_sA(ExternalHandle, ServerReturnValue, result, ServerControls, ClientControls);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN ldap_stop_tls_s(ldap* ExternalHandle);
@@ -1281,10 +1281,10 @@ public static
 	public static extern uint32 ldap_parse_reference(ldap* Connection, LDAPMessage* ResultMessage, PSTR** Referrals);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_extended_operationW(ldap* ld, PWSTR Oid, LDAP_BERVAL* Data, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_extended_operationW(ldap* ld, PWSTR Oid, LDAP_BERVAL* Data, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_extended_operationA(ldap* ld, PSTR Oid, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_extended_operationA(ldap* ld, PSTR Oid, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_extended_operation_sA(ldap* ExternalHandle, PSTR Oid, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, PSTR* ReturnedOid, LDAP_BERVAL** ReturnedData);
@@ -1294,7 +1294,7 @@ public static
 	public static extern uint32 ldap_extended_operation_sW(ldap* ExternalHandle, PWSTR Oid, LDAP_BERVAL* Data, ldapcontrolW** ServerControls, ldapcontrolW** ClientControls, PWSTR* ReturnedOid, LDAP_BERVAL** ReturnedData);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_extended_operation(ldap* ld, PSTR Oid, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32 MessageNumber);
+	public static extern uint32 ldap_extended_operation(ldap* ld, PSTR Oid, LDAP_BERVAL* Data, ldapcontrolA** ServerControls, ldapcontrolA** ClientControls, uint32* MessageNumber);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_close_extended_op(ldap* ld, uint32 MessageNumber);
@@ -1324,16 +1324,16 @@ public static
 	public static extern berelement* ber_alloc_t(int32 options);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ber_skip_tag(berelement* pBerElement, uint32 pLen);
+	public static extern uint32 ber_skip_tag(berelement* pBerElement, uint32* pLen);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ber_peek_tag(berelement* pBerElement, uint32 pLen);
+	public static extern uint32 ber_peek_tag(berelement* pBerElement, uint32* pLen);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ber_first_element(berelement* pBerElement, uint32 pLen, CHAR** ppOpaque);
+	public static extern uint32 ber_first_element(berelement* pBerElement, uint32* pLen, CHAR** ppOpaque);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ber_next_element(berelement* pBerElement, uint32 pLen, PSTR opaque);
+	public static extern uint32 ber_next_element(berelement* pBerElement, uint32* pLen, PSTR opaque);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ber_flatten(berelement* pBerElement, LDAP_BERVAL** pBerVal);

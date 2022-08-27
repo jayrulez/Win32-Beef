@@ -1555,7 +1555,7 @@ public static
 	public static extern uint32 HttpSetRequestQueueProperty(HANDLE RequestQueueHandle, HTTP_SERVER_PROPERTY Property, void* PropertyInformation, uint32 PropertyInformationLength, uint32 Reserved1, void* Reserved2);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpQueryRequestQueueProperty(HANDLE RequestQueueHandle, HTTP_SERVER_PROPERTY Property, void* PropertyInformation, uint32 PropertyInformationLength, uint32 Reserved1, uint32 ReturnLength, void* Reserved2);
+	public static extern uint32 HttpQueryRequestQueueProperty(HANDLE RequestQueueHandle, HTTP_SERVER_PROPERTY Property, void* PropertyInformation, uint32 PropertyInformationLength, uint32 Reserved1, uint32* ReturnLength, void* Reserved2);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpSetRequestProperty(HANDLE RequestQueueHandle, uint64 Id, HTTP_REQUEST_PROPERTY PropertyId, void* Input, uint32 InputPropertySize, OVERLAPPED* Overlapped);
@@ -1564,16 +1564,16 @@ public static
 	public static extern uint32 HttpShutdownRequestQueue(HANDLE RequestQueueHandle);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpReceiveClientCertificate(HANDLE RequestQueueHandle, uint64 ConnectionId, uint32 Flags, HTTP_SSL_CLIENT_CERT_INFO* SslClientCertInfo, uint32 SslClientCertInfoSize, uint32 BytesReceived, OVERLAPPED* Overlapped);
+	public static extern uint32 HttpReceiveClientCertificate(HANDLE RequestQueueHandle, uint64 ConnectionId, uint32 Flags, HTTP_SSL_CLIENT_CERT_INFO* SslClientCertInfo, uint32 SslClientCertInfoSize, uint32* BytesReceived, OVERLAPPED* Overlapped);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpCreateServerSession(HTTPAPI_VERSION Version, uint64 ServerSessionId, uint32 Reserved);
+	public static extern uint32 HttpCreateServerSession(HTTPAPI_VERSION Version, uint64* ServerSessionId, uint32 Reserved);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpCloseServerSession(uint64 ServerSessionId);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpQueryServerSessionProperty(uint64 ServerSessionId, HTTP_SERVER_PROPERTY Property, void* PropertyInformation, uint32 PropertyInformationLength, uint32 ReturnLength);
+	public static extern uint32 HttpQueryServerSessionProperty(uint64 ServerSessionId, HTTP_SERVER_PROPERTY Property, void* PropertyInformation, uint32 PropertyInformationLength, uint32* ReturnLength);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpSetServerSessionProperty(uint64 ServerSessionId, HTTP_SERVER_PROPERTY Property, void* PropertyInformation, uint32 PropertyInformationLength);
@@ -1585,7 +1585,7 @@ public static
 	public static extern uint32 HttpRemoveUrl(HANDLE RequestQueueHandle, PWSTR FullyQualifiedUrl);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpCreateUrlGroup(uint64 ServerSessionId, uint64 pUrlGroupId, uint32 Reserved);
+	public static extern uint32 HttpCreateUrlGroup(uint64 ServerSessionId, uint64* pUrlGroupId, uint32 Reserved);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpCloseUrlGroup(uint64 UrlGroupId);
@@ -1600,22 +1600,22 @@ public static
 	public static extern uint32 HttpSetUrlGroupProperty(uint64 UrlGroupId, HTTP_SERVER_PROPERTY Property, void* PropertyInformation, uint32 PropertyInformationLength);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpQueryUrlGroupProperty(uint64 UrlGroupId, HTTP_SERVER_PROPERTY Property, void* PropertyInformation, uint32 PropertyInformationLength, uint32 ReturnLength);
+	public static extern uint32 HttpQueryUrlGroupProperty(uint64 UrlGroupId, HTTP_SERVER_PROPERTY Property, void* PropertyInformation, uint32 PropertyInformationLength, uint32* ReturnLength);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpPrepareUrl(void* Reserved, uint32 Flags, PWSTR Url, PWSTR* PreparedUrl);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpReceiveHttpRequest(HANDLE RequestQueueHandle, uint64 RequestId, HTTP_RECEIVE_HTTP_REQUEST_FLAGS Flags, HTTP_REQUEST_V2* RequestBuffer, uint32 RequestBufferLength, uint32 BytesReturned, OVERLAPPED* Overlapped);
+	public static extern uint32 HttpReceiveHttpRequest(HANDLE RequestQueueHandle, uint64 RequestId, HTTP_RECEIVE_HTTP_REQUEST_FLAGS Flags, HTTP_REQUEST_V2* RequestBuffer, uint32 RequestBufferLength, uint32* BytesReturned, OVERLAPPED* Overlapped);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpReceiveRequestEntityBody(HANDLE RequestQueueHandle, uint64 RequestId, uint32 Flags, void* EntityBuffer, uint32 EntityBufferLength, uint32 BytesReturned, OVERLAPPED* Overlapped);
+	public static extern uint32 HttpReceiveRequestEntityBody(HANDLE RequestQueueHandle, uint64 RequestId, uint32 Flags, void* EntityBuffer, uint32 EntityBufferLength, uint32* BytesReturned, OVERLAPPED* Overlapped);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpSendHttpResponse(HANDLE RequestQueueHandle, uint64 RequestId, uint32 Flags, HTTP_RESPONSE_V2* HttpResponse, HTTP_CACHE_POLICY* CachePolicy, uint32 BytesSent, void* Reserved1, uint32 Reserved2, OVERLAPPED* Overlapped, HTTP_LOG_DATA* LogData);
+	public static extern uint32 HttpSendHttpResponse(HANDLE RequestQueueHandle, uint64 RequestId, uint32 Flags, HTTP_RESPONSE_V2* HttpResponse, HTTP_CACHE_POLICY* CachePolicy, uint32* BytesSent, void* Reserved1, uint32 Reserved2, OVERLAPPED* Overlapped, HTTP_LOG_DATA* LogData);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpSendResponseEntityBody(HANDLE RequestQueueHandle, uint64 RequestId, uint32 Flags, uint16 EntityChunkCount, HTTP_DATA_CHUNK* EntityChunks, uint32 BytesSent, void* Reserved1, uint32 Reserved2, OVERLAPPED* Overlapped, HTTP_LOG_DATA* LogData);
+	public static extern uint32 HttpSendResponseEntityBody(HANDLE RequestQueueHandle, uint64 RequestId, uint32 Flags, uint16 EntityChunkCount, HTTP_DATA_CHUNK* EntityChunks, uint32* BytesSent, void* Reserved1, uint32 Reserved2, OVERLAPPED* Overlapped, HTTP_LOG_DATA* LogData);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpDeclarePush(HANDLE RequestQueueHandle, uint64 RequestId, HTTP_VERB Verb, PWSTR Path, PSTR Query, HTTP_REQUEST_HEADERS* Headers);
@@ -1639,7 +1639,7 @@ public static
 	public static extern uint32 HttpDelegateRequestEx(HANDLE RequestQueueHandle, HANDLE DelegateQueueHandle, uint64 RequestId, uint64 DelegateUrlGroupId, uint32 PropertyInfoSetSize, HTTP_DELEGATE_REQUEST_PROPERTY_INFO* PropertyInfoSet);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpFindUrlGroupId(PWSTR FullyQualifiedUrl, HANDLE RequestQueueHandle, uint64 UrlGroupId);
+	public static extern uint32 HttpFindUrlGroupId(PWSTR FullyQualifiedUrl, HANDLE RequestQueueHandle, uint64* UrlGroupId);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpFlushResponseCache(HANDLE RequestQueueHandle, PWSTR UrlPrefix, uint32 Flags, OVERLAPPED* Overlapped);
@@ -1648,7 +1648,7 @@ public static
 	public static extern uint32 HttpAddFragmentToCache(HANDLE RequestQueueHandle, PWSTR UrlPrefix, HTTP_DATA_CHUNK* DataChunk, HTTP_CACHE_POLICY* CachePolicy, OVERLAPPED* Overlapped);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpReadFragmentFromCache(HANDLE RequestQueueHandle, PWSTR UrlPrefix, HTTP_BYTE_RANGE* ByteRange, void* Buffer, uint32 BufferLength, uint32 BytesRead, OVERLAPPED* Overlapped);
+	public static extern uint32 HttpReadFragmentFromCache(HANDLE RequestQueueHandle, PWSTR UrlPrefix, HTTP_BYTE_RANGE* ByteRange, void* Buffer, uint32 BufferLength, uint32* BytesRead, OVERLAPPED* Overlapped);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpSetServiceConfiguration(HANDLE ServiceHandle, HTTP_SERVICE_CONFIG_ID ConfigId, void* pConfigInformation, uint32 ConfigInformationLength, OVERLAPPED* pOverlapped);
@@ -1660,7 +1660,7 @@ public static
 	public static extern uint32 HttpDeleteServiceConfiguration(HANDLE ServiceHandle, HTTP_SERVICE_CONFIG_ID ConfigId, void* pConfigInformation, uint32 ConfigInformationLength, OVERLAPPED* pOverlapped);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpQueryServiceConfiguration(HANDLE ServiceHandle, HTTP_SERVICE_CONFIG_ID ConfigId, void* pInput, uint32 InputLength, void* pOutput, uint32 OutputLength, uint32 pReturnLength, OVERLAPPED* pOverlapped);
+	public static extern uint32 HttpQueryServiceConfiguration(HANDLE ServiceHandle, HTTP_SERVICE_CONFIG_ID ConfigId, void* pInput, uint32 InputLength, void* pOutput, uint32 OutputLength, uint32* pReturnLength, OVERLAPPED* pOverlapped);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpGetExtension(HTTPAPI_VERSION Version, uint32 Extension, void* Buffer, uint32 BufferSize);

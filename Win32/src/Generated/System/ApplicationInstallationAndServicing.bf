@@ -2459,14 +2459,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFetch, BSTR* rgbstrStrings, uint32 pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFetch, BSTR* rgbstrStrings, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSkip) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumMsmString** pemsmStrings) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cFetch, BSTR* rgbstrStrings, uint32 pcFetched) mut => VT.[Friend]Next(&this, cFetch, rgbstrStrings, pcFetched);
+	public HRESULT Next(uint32 cFetch, BSTR* rgbstrStrings, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFetch, rgbstrStrings, pcFetched);
 
 	public HRESULT Skip(uint32 cSkip) mut => VT.[Friend]Skip(&this, cSkip);
 
@@ -2484,14 +2484,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Item, BSTR* Return) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** NewEnum) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Item, BSTR* Return) mut => VT.[Friend]get_Item(&this, Item, Return);
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** NewEnum) mut => VT.[Friend]get__NewEnum(&this, NewEnum);
 }
@@ -2506,7 +2506,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, msmErrorType* ErrorType) get_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ErrorPath) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 ErrorLanguage) get_Language;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* ErrorLanguage) get_Language;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ErrorTable) get_DatabaseTable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMsmStrings** ErrorKeys) get_DatabaseKeys;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ErrorTable) get_ModuleTable;
@@ -2518,7 +2518,7 @@ public static
 
 	public HRESULT get_Path(BSTR* ErrorPath) mut => VT.[Friend]get_Path(&this, ErrorPath);
 
-	public HRESULT get_Language(int16 ErrorLanguage) mut => VT.[Friend]get_Language(&this, ErrorLanguage);
+	public HRESULT get_Language(int16* ErrorLanguage) mut => VT.[Friend]get_Language(&this, ErrorLanguage);
 
 	public HRESULT get_DatabaseTable(BSTR* ErrorTable) mut => VT.[Friend]get_DatabaseTable(&this, ErrorTable);
 
@@ -2537,14 +2537,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFetch, IMsmError** rgmsmErrors, uint32 pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFetch, IMsmError** rgmsmErrors, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSkip) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumMsmError** pemsmErrors) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cFetch, IMsmError** rgmsmErrors, uint32 pcFetched) mut => VT.[Friend]Next(&this, cFetch, rgmsmErrors, pcFetched);
+	public HRESULT Next(uint32 cFetch, IMsmError** rgmsmErrors, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFetch, rgmsmErrors, pcFetched);
 
 	public HRESULT Skip(uint32 cSkip) mut => VT.[Friend]Skip(&this, cSkip);
 
@@ -2562,14 +2562,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Item, IMsmError** Return) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** NewEnum) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Item, IMsmError** Return) mut => VT.[Friend]get_Item(&this, Item, Return);
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** NewEnum) mut => VT.[Friend]get__NewEnum(&this, NewEnum);
 }
@@ -2583,14 +2583,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Module) get_Module;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Language) get_Language;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Language) get_Language;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Version) get_Version;
 	}
 
 
 	public HRESULT get_Module(BSTR* Module) mut => VT.[Friend]get_Module(&this, Module);
 
-	public HRESULT get_Language(int16 Language) mut => VT.[Friend]get_Language(&this, Language);
+	public HRESULT get_Language(int16* Language) mut => VT.[Friend]get_Language(&this, Language);
 
 	public HRESULT get_Version(BSTR* Version) mut => VT.[Friend]get_Version(&this, Version);
 }
@@ -2603,14 +2603,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFetch, IMsmDependency** rgmsmDependencies, uint32 pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFetch, IMsmDependency** rgmsmDependencies, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSkip) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumMsmDependency** pemsmDependencies) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cFetch, IMsmDependency** rgmsmDependencies, uint32 pcFetched) mut => VT.[Friend]Next(&this, cFetch, rgmsmDependencies, pcFetched);
+	public HRESULT Next(uint32 cFetch, IMsmDependency** rgmsmDependencies, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFetch, rgmsmDependencies, pcFetched);
 
 	public HRESULT Skip(uint32 cSkip) mut => VT.[Friend]Skip(&this, cSkip);
 
@@ -2628,14 +2628,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Item, IMsmDependency** Return) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** NewEnum) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Item, IMsmDependency** Return) mut => VT.[Friend]get_Item(&this, Item, Return);
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT get__NewEnum(IUnknown** NewEnum) mut => VT.[Friend]get__NewEnum(&this, NewEnum);
 }
@@ -2715,12 +2715,12 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PropertyId, void* pvProperty, uint32 cbProperty) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PropertyId, void* pvProperty, uint32 pcbProperty) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PropertyId, void* pvProperty, uint32* pcbProperty) GetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finalize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* szDisplayName, uint32 pccDisplayName, uint32 dwDisplayFlags) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) Reserved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 lpcwBuffer, char16* pwzName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwVersionHi, uint32 pdwVersionLow) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* szDisplayName, uint32* pccDisplayName, uint32 dwDisplayFlags) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) Reserved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpcwBuffer, char16* pwzName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwVersionHi, uint32* pdwVersionLow) GetVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAssemblyName* pName, uint32 dwCmpFlags) IsEqual;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAssemblyName** pName) Clone;
 	}
@@ -2728,17 +2728,17 @@ public static
 
 	public HRESULT SetProperty(uint32 PropertyId, void* pvProperty, uint32 cbProperty) mut => VT.[Friend]SetProperty(&this, PropertyId, pvProperty, cbProperty);
 
-	public HRESULT GetProperty(uint32 PropertyId, void* pvProperty, uint32 pcbProperty) mut => VT.[Friend]GetProperty(&this, PropertyId, pvProperty, pcbProperty);
+	public HRESULT GetProperty(uint32 PropertyId, void* pvProperty, uint32* pcbProperty) mut => VT.[Friend]GetProperty(&this, PropertyId, pvProperty, pcbProperty);
 
 	public HRESULT Finalize() mut => VT.[Friend]Finalize(&this);
 
-	public HRESULT GetDisplayName(char16* szDisplayName, uint32 pccDisplayName, uint32 dwDisplayFlags) mut => VT.[Friend]GetDisplayName(&this, szDisplayName, pccDisplayName, dwDisplayFlags);
+	public HRESULT GetDisplayName(char16* szDisplayName, uint32* pccDisplayName, uint32 dwDisplayFlags) mut => VT.[Friend]GetDisplayName(&this, szDisplayName, pccDisplayName, dwDisplayFlags);
 
-	public HRESULT Reserved(Guid refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) mut => VT.[Friend]Reserved(&this, refIID, pUnkReserved1, pUnkReserved2, szReserved, llReserved, pvReserved, cbReserved, ppReserved);
+	public HRESULT Reserved(ref Guid refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) mut => VT.[Friend]Reserved(&this, ref refIID, pUnkReserved1, pUnkReserved2, szReserved, llReserved, pvReserved, cbReserved, ppReserved);
 
-	public HRESULT GetName(uint32 lpcwBuffer, char16* pwzName) mut => VT.[Friend]GetName(&this, lpcwBuffer, pwzName);
+	public HRESULT GetName(uint32* lpcwBuffer, char16* pwzName) mut => VT.[Friend]GetName(&this, lpcwBuffer, pwzName);
 
-	public HRESULT GetVersion(uint32 pdwVersionHi, uint32 pdwVersionLow) mut => VT.[Friend]GetVersion(&this, pdwVersionHi, pdwVersionLow);
+	public HRESULT GetVersion(uint32* pdwVersionHi, uint32* pdwVersionLow) mut => VT.[Friend]GetVersion(&this, pdwVersionHi, pdwVersionLow);
 
 	public HRESULT IsEqual(IAssemblyName* pName, uint32 dwCmpFlags) mut => VT.[Friend]IsEqual(&this, pName, dwCmpFlags);
 
@@ -2754,14 +2754,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, PWSTR pszStreamName, uint32 dwFormat, uint32 dwFormatFlags, IStream** ppIStream, ULARGE_INTEGER* puliMaxSize) CreateStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32 pulDisposition) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32* pulDisposition) Commit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AbortItem;
 	}
 
 
 	public HRESULT CreateStream(uint32 dwFlags, PWSTR pszStreamName, uint32 dwFormat, uint32 dwFormatFlags, IStream** ppIStream, ULARGE_INTEGER* puliMaxSize) mut => VT.[Friend]CreateStream(&this, dwFlags, pszStreamName, dwFormat, dwFormatFlags, ppIStream, puliMaxSize);
 
-	public HRESULT Commit(uint32 dwFlags, uint32 pulDisposition) mut => VT.[Friend]Commit(&this, dwFlags, pulDisposition);
+	public HRESULT Commit(uint32 dwFlags, uint32* pulDisposition) mut => VT.[Friend]Commit(&this, dwFlags, pulDisposition);
 
 	public HRESULT AbortItem() mut => VT.[Friend]AbortItem(&this);
 }
@@ -2801,9 +2801,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pProductID) get_ProductID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pInstanceID) get_InstanceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pOfferID) get_OfferID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pInstanceID) get_InstanceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pOfferID) get_OfferID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDefaultTask) get_DefaultTask;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAppTitle) get_AppTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAppIconPath) get_IconPath;
@@ -2824,13 +2824,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDescription) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVersion) get_Version;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pMajorVer) get_AppPlatMajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pMinorVer) get_AppPlatMinorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pPublisherID) get_PublisherID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMajorVer) get_AppPlatMajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMinorVer) get_AppPlatMinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pPublisherID) get_PublisherID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsMultiCore) get_IsMultiCore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pSID) get_SID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pMajorVer) get_AppPlatMajorVersionLightUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pMinorVer) get_AppPlatMinorVersionLightUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMajorVer) get_AppPlatMajorVersionLightUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMinorVer) get_AppPlatMinorVersionLightUp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL IsUpdateAvailable) set_UpdateAvailable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL IsNotified) set_NotificationState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR AppIconPath) set_IconPath;
@@ -2846,7 +2846,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* IsUninstallable) get_EnterpriseUninstallable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsVisible) get_IsVisibleOnAppList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsInboxApp) get_IsInboxApp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pStorageID) get_StorageID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pStorageID) get_StorageID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_STARTAPPBLOB* pBlob) get_StartAppBlob;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsMovable) get_IsMovable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE* HubType) get_DeploymentAppEnumerationHubFilter;
@@ -2859,11 +2859,11 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
-	public HRESULT get_InstanceID(Guid pInstanceID) mut => VT.[Friend]get_InstanceID(&this, pInstanceID);
+	public HRESULT get_InstanceID(ref Guid pInstanceID) mut => VT.[Friend]get_InstanceID(&this, ref pInstanceID);
 
-	public HRESULT get_OfferID(Guid pOfferID) mut => VT.[Friend]get_OfferID(&this, pOfferID);
+	public HRESULT get_OfferID(ref Guid pOfferID) mut => VT.[Friend]get_OfferID(&this, ref pOfferID);
 
 	public HRESULT get_DefaultTask(BSTR* pDefaultTask) mut => VT.[Friend]get_DefaultTask(&this, pDefaultTask);
 
@@ -2905,19 +2905,19 @@ public static
 
 	public HRESULT get_InvocationInfo(BSTR* pImageUrn, BSTR* pParameters) mut => VT.[Friend]get_InvocationInfo(&this, pImageUrn, pParameters);
 
-	public HRESULT get_AppPlatMajorVersion(uint8 pMajorVer) mut => VT.[Friend]get_AppPlatMajorVersion(&this, pMajorVer);
+	public HRESULT get_AppPlatMajorVersion(uint8* pMajorVer) mut => VT.[Friend]get_AppPlatMajorVersion(&this, pMajorVer);
 
-	public HRESULT get_AppPlatMinorVersion(uint8 pMinorVer) mut => VT.[Friend]get_AppPlatMinorVersion(&this, pMinorVer);
+	public HRESULT get_AppPlatMinorVersion(uint8* pMinorVer) mut => VT.[Friend]get_AppPlatMinorVersion(&this, pMinorVer);
 
-	public HRESULT get_PublisherID(Guid pPublisherID) mut => VT.[Friend]get_PublisherID(&this, pPublisherID);
+	public HRESULT get_PublisherID(ref Guid pPublisherID) mut => VT.[Friend]get_PublisherID(&this, ref pPublisherID);
 
 	public HRESULT get_IsMultiCore(BOOL* pIsMultiCore) mut => VT.[Friend]get_IsMultiCore(&this, pIsMultiCore);
 
 	public HRESULT get_SID(BSTR* pSID) mut => VT.[Friend]get_SID(&this, pSID);
 
-	public HRESULT get_AppPlatMajorVersionLightUp(uint8 pMajorVer) mut => VT.[Friend]get_AppPlatMajorVersionLightUp(&this, pMajorVer);
+	public HRESULT get_AppPlatMajorVersionLightUp(uint8* pMajorVer) mut => VT.[Friend]get_AppPlatMajorVersionLightUp(&this, pMajorVer);
 
-	public HRESULT get_AppPlatMinorVersionLightUp(uint8 pMinorVer) mut => VT.[Friend]get_AppPlatMinorVersionLightUp(&this, pMinorVer);
+	public HRESULT get_AppPlatMinorVersionLightUp(uint8* pMinorVer) mut => VT.[Friend]get_AppPlatMinorVersionLightUp(&this, pMinorVer);
 
 	public HRESULT set_UpdateAvailable(BOOL IsUpdateAvailable) mut => VT.[Friend]set_UpdateAvailable(&this, IsUpdateAvailable);
 
@@ -2949,7 +2949,7 @@ public static
 
 	public HRESULT get_IsInboxApp(BOOL* pIsInboxApp) mut => VT.[Friend]get_IsInboxApp(&this, pIsInboxApp);
 
-	public HRESULT get_StorageID(Guid pStorageID) mut => VT.[Friend]get_StorageID(&this, pStorageID);
+	public HRESULT get_StorageID(ref Guid pStorageID) mut => VT.[Friend]get_StorageID(&this, ref pStorageID);
 
 	public HRESULT get_StartAppBlob(PM_STARTAPPBLOB* pBlob) mut => VT.[Friend]get_StartAppBlob(&this, pBlob);
 
@@ -2978,13 +2978,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pPropID) get_PropertyID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pPropID) get_PropertyID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pPropValue) get_PropertyValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropValue) set_Property;
 	}
 
 
-	public HRESULT get_PropertyID(uint32 pPropID) mut => VT.[Friend]get_PropertyID(&this, pPropID);
+	public HRESULT get_PropertyID(uint32* pPropID) mut => VT.[Friend]get_PropertyID(&this, pPropID);
 
 	public HRESULT get_PropertyValue(BSTR* pPropValue) mut => VT.[Friend]get_PropertyValue(&this, pPropValue);
 
@@ -3014,11 +3014,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTileID) get_TileID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TILE_TEMPLATE_TYPE* pTemplateType) get_TemplateType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE HubType, BOOL* pPinned) get_HubPinnedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE HubType, uint32 pPosition) get_HubPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE HubType, uint32* pPosition) get_HubPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsNotified) get_IsNotified;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsDefault) get_IsDefault;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
@@ -3041,7 +3041,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
 	public HRESULT get_TileID(BSTR* pTileID) mut => VT.[Friend]get_TileID(&this, pTileID);
 
@@ -3049,7 +3049,7 @@ public static
 
 	public HRESULT get_HubPinnedState(PM_TILE_HUBTYPE HubType, BOOL* pPinned) mut => VT.[Friend]get_HubPinnedState(&this, HubType, pPinned);
 
-	public HRESULT get_HubPosition(PM_TILE_HUBTYPE HubType, uint32 pPosition) mut => VT.[Friend]get_HubPosition(&this, HubType, pPosition);
+	public HRESULT get_HubPosition(PM_TILE_HUBTYPE HubType, uint32* pPosition) mut => VT.[Friend]get_HubPosition(&this, HubType, pPosition);
 
 	public HRESULT get_IsNotified(BOOL* pIsNotified) mut => VT.[Friend]get_IsNotified(&this, pIsNotified);
 
@@ -3128,34 +3128,34 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTileID) get_TileID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pNextSchedule) get_NextSchedule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME ftNextSchedule) set_NextSchedule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pStartSchedule) get_StartSchedule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME ftStartSchedule) set_StartSchedule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pIntervalDuration) get_IntervalDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pIntervalDuration) get_IntervalDuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulIntervalDuration) set_IntervalDuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* IsRunForever) get_RunForever;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fRunForever) set_RunForever;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pMaxRunCount) get_MaxRunCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pMaxRunCount) get_MaxRunCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulMaxRunCount) set_MaxRunCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pRunCount) get_RunCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pRunCount) get_RunCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulRunCount) set_RunCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pRecurrenceType) get_RecurrenceType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pRecurrenceType) get_RecurrenceType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulRecurrenceType) set_RecurrenceType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** pTileXml, uint32 pcbTileXml) get_TileXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** pTileXml, uint32* pcbTileXml) get_TileXML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pTileXml, uint32 cbTileXml) set_TileXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** pUrlXML, uint32 pcbUrlXML) get_UrlXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** pUrlXML, uint32* pcbUrlXML) get_UrlXML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pUrlXML, uint32 cbUrlXML) set_UrlXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pAttemptCount) get_AttemptCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pAttemptCount) get_AttemptCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulAttemptCount) set_AttemptCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pDownloadState) get_DownloadState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pDownloadState) get_DownloadState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulDownloadState) set_DownloadState;
 	}
 
 
-	public HRESULT get_ProductID(Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
 	public HRESULT get_TileID(BSTR* pTileID) mut => VT.[Friend]get_TileID(&this, pTileID);
 
@@ -3167,7 +3167,7 @@ public static
 
 	public HRESULT set_StartSchedule(FILETIME ftStartSchedule) mut => VT.[Friend]set_StartSchedule(&this, ftStartSchedule);
 
-	public HRESULT get_IntervalDuration(uint32 pIntervalDuration) mut => VT.[Friend]get_IntervalDuration(&this, pIntervalDuration);
+	public HRESULT get_IntervalDuration(uint32* pIntervalDuration) mut => VT.[Friend]get_IntervalDuration(&this, pIntervalDuration);
 
 	public HRESULT set_IntervalDuration(uint32 ulIntervalDuration) mut => VT.[Friend]set_IntervalDuration(&this, ulIntervalDuration);
 
@@ -3175,31 +3175,31 @@ public static
 
 	public HRESULT set_RunForever(BOOL fRunForever) mut => VT.[Friend]set_RunForever(&this, fRunForever);
 
-	public HRESULT get_MaxRunCount(uint32 pMaxRunCount) mut => VT.[Friend]get_MaxRunCount(&this, pMaxRunCount);
+	public HRESULT get_MaxRunCount(uint32* pMaxRunCount) mut => VT.[Friend]get_MaxRunCount(&this, pMaxRunCount);
 
 	public HRESULT set_MaxRunCount(uint32 ulMaxRunCount) mut => VT.[Friend]set_MaxRunCount(&this, ulMaxRunCount);
 
-	public HRESULT get_RunCount(uint32 pRunCount) mut => VT.[Friend]get_RunCount(&this, pRunCount);
+	public HRESULT get_RunCount(uint32* pRunCount) mut => VT.[Friend]get_RunCount(&this, pRunCount);
 
 	public HRESULT set_RunCount(uint32 ulRunCount) mut => VT.[Friend]set_RunCount(&this, ulRunCount);
 
-	public HRESULT get_RecurrenceType(uint32 pRecurrenceType) mut => VT.[Friend]get_RecurrenceType(&this, pRecurrenceType);
+	public HRESULT get_RecurrenceType(uint32* pRecurrenceType) mut => VT.[Friend]get_RecurrenceType(&this, pRecurrenceType);
 
 	public HRESULT set_RecurrenceType(uint32 ulRecurrenceType) mut => VT.[Friend]set_RecurrenceType(&this, ulRecurrenceType);
 
-	public HRESULT get_TileXML(uint8** pTileXml, uint32 pcbTileXml) mut => VT.[Friend]get_TileXML(&this, pTileXml, pcbTileXml);
+	public HRESULT get_TileXML(uint8** pTileXml, uint32* pcbTileXml) mut => VT.[Friend]get_TileXML(&this, pTileXml, pcbTileXml);
 
 	public HRESULT set_TileXML(uint8* pTileXml, uint32 cbTileXml) mut => VT.[Friend]set_TileXML(&this, pTileXml, cbTileXml);
 
-	public HRESULT get_UrlXML(uint8** pUrlXML, uint32 pcbUrlXML) mut => VT.[Friend]get_UrlXML(&this, pUrlXML, pcbUrlXML);
+	public HRESULT get_UrlXML(uint8** pUrlXML, uint32* pcbUrlXML) mut => VT.[Friend]get_UrlXML(&this, pUrlXML, pcbUrlXML);
 
 	public HRESULT set_UrlXML(uint8* pUrlXML, uint32 cbUrlXML) mut => VT.[Friend]set_UrlXML(&this, pUrlXML, cbUrlXML);
 
-	public HRESULT get_AttemptCount(uint32 pAttemptCount) mut => VT.[Friend]get_AttemptCount(&this, pAttemptCount);
+	public HRESULT get_AttemptCount(uint32* pAttemptCount) mut => VT.[Friend]get_AttemptCount(&this, pAttemptCount);
 
 	public HRESULT set_AttemptCount(uint32 ulAttemptCount) mut => VT.[Friend]set_AttemptCount(&this, ulAttemptCount);
 
-	public HRESULT get_DownloadState(uint32 pDownloadState) mut => VT.[Friend]get_DownloadState(&this, pDownloadState);
+	public HRESULT get_DownloadState(uint32* pDownloadState) mut => VT.[Friend]get_DownloadState(&this, pDownloadState);
 
 	public HRESULT set_DownloadState(uint32 ulDownloadState) mut => VT.[Friend]set_DownloadState(&this, ulDownloadState);
 }
@@ -3238,9 +3238,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_INSTALLINFO* pInstallInfo) BeginEnterpriseAppInstall;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_UPDATEINFO* pUpdateInfo) BeginEnterpriseAppUpdate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID, Guid offerID, uint8* pbLicense, uint32 cbLicense) BeginUpdateLicense;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PackagePath, uint8** ppbChallenge, uint32 pcbChallenge, uint8** ppbKID, uint32 pcbKID, uint8** ppbDeviceID, uint32 pcbDeviceID, uint8** ppbSaltValue, uint32 pcbSaltValue, uint8** ppbKGVValue, uint32 pcbKGVValue) GetLicenseChallenge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, uint8** ppbChallenge, uint32 pcbLicense) GetLicenseChallengeByProductID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, uint8** ppbChallenge, uint32 pcbLicense, uint8** ppbKID, uint32 pcbKID, uint8** ppbDeviceID, uint32 pcbDeviceID, uint8** ppbSaltValue, uint32 pcbSaltValue, uint8** ppbKGVValue, uint32 pcbKGVValue) GetLicenseChallengeByProductID2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PackagePath, uint8** ppbChallenge, uint32* pcbChallenge, uint8** ppbKID, uint32* pcbKID, uint8** ppbDeviceID, uint32* pcbDeviceID, uint8** ppbSaltValue, uint32* pcbSaltValue, uint8** ppbKGVValue, uint32* pcbKGVValue) GetLicenseChallenge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, uint8** ppbChallenge, uint32* pcbLicense) GetLicenseChallengeByProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, uint8** ppbChallenge, uint32* pcbLicense, uint8** ppbKID, uint32* pcbKID, uint8** ppbDeviceID, uint32* pcbDeviceID, uint8** ppbSaltValue, uint32* pcbSaltValue, uint8** ppbKGVValue, uint32* pcbKGVValue) GetLicenseChallengeByProductID2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID) RevokeLicense;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, SAFEARRAY* FileNames) RebindMdilBinaries;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, Guid InstanceID) RebindAllMdilBinaries;
@@ -3249,7 +3249,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, BSTR XMLpath) BeginProvision;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID) BeginDeprovision;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID) ReindexSQLCEDatabases;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 RequiredMaintenanceOperations, uint32 pcApplications) SetApplicationsNeedMaintenance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 RequiredMaintenanceOperations, uint32* pcApplications) SetApplicationsNeedMaintenance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID) UpdateChamberProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productId, PWSTR publisherName, BOOL* pIsAllowed) EnterprisePolicyIsApplicationAllowed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_UPDATEINFO* pUpdateInfo) BeginUpdateDeployedPackage;
@@ -3287,11 +3287,11 @@ public static
 
 	public HRESULT BeginUpdateLicense(Guid productID, Guid offerID, uint8* pbLicense, uint32 cbLicense) mut => VT.[Friend]BeginUpdateLicense(&this, productID, offerID, pbLicense, cbLicense);
 
-	public HRESULT GetLicenseChallenge(BSTR PackagePath, uint8** ppbChallenge, uint32 pcbChallenge, uint8** ppbKID, uint32 pcbKID, uint8** ppbDeviceID, uint32 pcbDeviceID, uint8** ppbSaltValue, uint32 pcbSaltValue, uint8** ppbKGVValue, uint32 pcbKGVValue) mut => VT.[Friend]GetLicenseChallenge(&this, PackagePath, ppbChallenge, pcbChallenge, ppbKID, pcbKID, ppbDeviceID, pcbDeviceID, ppbSaltValue, pcbSaltValue, ppbKGVValue, pcbKGVValue);
+	public HRESULT GetLicenseChallenge(BSTR PackagePath, uint8** ppbChallenge, uint32* pcbChallenge, uint8** ppbKID, uint32* pcbKID, uint8** ppbDeviceID, uint32* pcbDeviceID, uint8** ppbSaltValue, uint32* pcbSaltValue, uint8** ppbKGVValue, uint32* pcbKGVValue) mut => VT.[Friend]GetLicenseChallenge(&this, PackagePath, ppbChallenge, pcbChallenge, ppbKID, pcbKID, ppbDeviceID, pcbDeviceID, ppbSaltValue, pcbSaltValue, ppbKGVValue, pcbKGVValue);
 
-	public HRESULT GetLicenseChallengeByProductID(Guid ProductID, uint8** ppbChallenge, uint32 pcbLicense) mut => VT.[Friend]GetLicenseChallengeByProductID(&this, ProductID, ppbChallenge, pcbLicense);
+	public HRESULT GetLicenseChallengeByProductID(Guid ProductID, uint8** ppbChallenge, uint32* pcbLicense) mut => VT.[Friend]GetLicenseChallengeByProductID(&this, ProductID, ppbChallenge, pcbLicense);
 
-	public HRESULT GetLicenseChallengeByProductID2(Guid ProductID, uint8** ppbChallenge, uint32 pcbLicense, uint8** ppbKID, uint32 pcbKID, uint8** ppbDeviceID, uint32 pcbDeviceID, uint8** ppbSaltValue, uint32 pcbSaltValue, uint8** ppbKGVValue, uint32 pcbKGVValue) mut => VT.[Friend]GetLicenseChallengeByProductID2(&this, ProductID, ppbChallenge, pcbLicense, ppbKID, pcbKID, ppbDeviceID, pcbDeviceID, ppbSaltValue, pcbSaltValue, ppbKGVValue, pcbKGVValue);
+	public HRESULT GetLicenseChallengeByProductID2(Guid ProductID, uint8** ppbChallenge, uint32* pcbLicense, uint8** ppbKID, uint32* pcbKID, uint8** ppbDeviceID, uint32* pcbDeviceID, uint8** ppbSaltValue, uint32* pcbSaltValue, uint8** ppbKGVValue, uint32* pcbKGVValue) mut => VT.[Friend]GetLicenseChallengeByProductID2(&this, ProductID, ppbChallenge, pcbLicense, ppbKID, pcbKID, ppbDeviceID, pcbDeviceID, ppbSaltValue, pcbSaltValue, ppbKGVValue, pcbKGVValue);
 
 	public HRESULT RevokeLicense(Guid productID) mut => VT.[Friend]RevokeLicense(&this, productID);
 
@@ -3309,7 +3309,7 @@ public static
 
 	public HRESULT ReindexSQLCEDatabases(Guid ProductID) mut => VT.[Friend]ReindexSQLCEDatabases(&this, ProductID);
 
-	public HRESULT SetApplicationsNeedMaintenance(uint32 RequiredMaintenanceOperations, uint32 pcApplications) mut => VT.[Friend]SetApplicationsNeedMaintenance(&this, RequiredMaintenanceOperations, pcApplications);
+	public HRESULT SetApplicationsNeedMaintenance(uint32 RequiredMaintenanceOperations, uint32* pcApplications) mut => VT.[Friend]SetApplicationsNeedMaintenance(&this, RequiredMaintenanceOperations, pcApplications);
 
 	public HRESULT UpdateChamberProfile(Guid ProductID) mut => VT.[Friend]UpdateChamberProfile(&this, ProductID);
 
@@ -3360,8 +3360,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, IPMApplicationInfo** ppAppInfo) get_ApplicationInfoExternal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FileType, PM_LOGO_SIZE LogoSize, BSTR* pLogo) get_FileHandlerGenericLogo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR SysAppID0, BSTR SysAppID1, IPMApplicationInfo** ppAppInfo) get_ApplicationInfoFromAccessClaims;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_ENUM_FILTER Filter, uint32 pcTiles, PM_STARTTILEBLOB** ppTileBlobs) get_StartTileEnumeratorBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_ENUM_FILTER Filter, uint32 pcApps, PM_STARTAPPBLOB** ppAppBlobs) get_StartAppEnumeratorBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_ENUM_FILTER Filter, uint32* pcTiles, PM_STARTTILEBLOB** ppTileBlobs) get_StartTileEnumeratorBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_ENUM_FILTER Filter, uint32* pcApps, PM_STARTAPPBLOB** ppAppBlobs) get_StartAppEnumeratorBlob;
 	}
 
 
@@ -3397,9 +3397,9 @@ public static
 
 	public HRESULT get_ApplicationInfoFromAccessClaims(BSTR SysAppID0, BSTR SysAppID1, IPMApplicationInfo** ppAppInfo) mut => VT.[Friend]get_ApplicationInfoFromAccessClaims(&this, SysAppID0, SysAppID1, ppAppInfo);
 
-	public HRESULT get_StartTileEnumeratorBlob(PM_ENUM_FILTER Filter, uint32 pcTiles, PM_STARTTILEBLOB** ppTileBlobs) mut => VT.[Friend]get_StartTileEnumeratorBlob(&this, Filter, pcTiles, ppTileBlobs);
+	public HRESULT get_StartTileEnumeratorBlob(PM_ENUM_FILTER Filter, uint32* pcTiles, PM_STARTTILEBLOB** ppTileBlobs) mut => VT.[Friend]get_StartTileEnumeratorBlob(&this, Filter, pcTiles, ppTileBlobs);
 
-	public HRESULT get_StartAppEnumeratorBlob(PM_ENUM_FILTER Filter, uint32 pcApps, PM_STARTAPPBLOB** ppAppBlobs) mut => VT.[Friend]get_StartAppEnumeratorBlob(&this, Filter, pcApps, ppAppBlobs);
+	public HRESULT get_StartAppEnumeratorBlob(PM_ENUM_FILTER Filter, uint32* pcApps, PM_STARTAPPBLOB** ppAppBlobs) mut => VT.[Friend]get_StartAppEnumeratorBlob(&this, Filter, pcApps, ppAppBlobs);
 }
 
 [CRepr]struct IPMTaskInfo : IUnknown
@@ -3410,7 +3410,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pNavigationPage) get_NavigationPage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TASK_TRANSITION* pTaskTransition) get_TaskTransition;
@@ -3426,15 +3426,15 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsInteropEnabled) get_IsInteropEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_APPLICATION_STATE* pApplicationState) get_ApplicationState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_APPLICATION_INSTALL_TYPE* pInstallType) get_InstallType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pTargetMajorVersion, uint8 pTargetMinorVersion) get_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pBitsPerPixel) get_BitsPerPixel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pTargetMajorVersion, uint8* pTargetMinorVersion) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pBitsPerPixel) get_BitsPerPixel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pSuppressesDehydration) get_SuppressesDehydration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBackgroundExecutionAbilities) get_BackgroundExecutionAbilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsOptedIn) get_IsOptedForExtendedMem;
 	}
 
 
-	public HRESULT get_ProductID(Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
 	public HRESULT get_TaskID(BSTR* pTaskID) mut => VT.[Friend]get_TaskID(&this, pTaskID);
 
@@ -3466,9 +3466,9 @@ public static
 
 	public HRESULT get_InstallType(PM_APPLICATION_INSTALL_TYPE* pInstallType) mut => VT.[Friend]get_InstallType(&this, pInstallType);
 
-	public HRESULT get_Version(uint8 pTargetMajorVersion, uint8 pTargetMinorVersion) mut => VT.[Friend]get_Version(&this, pTargetMajorVersion, pTargetMinorVersion);
+	public HRESULT get_Version(uint8* pTargetMajorVersion, uint8* pTargetMinorVersion) mut => VT.[Friend]get_Version(&this, pTargetMajorVersion, pTargetMinorVersion);
 
-	public HRESULT get_BitsPerPixel(uint16 pBitsPerPixel) mut => VT.[Friend]get_BitsPerPixel(&this, pBitsPerPixel);
+	public HRESULT get_BitsPerPixel(uint16* pBitsPerPixel) mut => VT.[Friend]get_BitsPerPixel(&this, pBitsPerPixel);
 
 	public HRESULT get_SuppressesDehydration(BOOL* pSuppressesDehydration) mut => VT.[Friend]get_SuppressesDehydration(&this, pSuppressesDehydration);
 
@@ -3500,7 +3500,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pSupplierPID) get_SupplierPID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSupplierPID) get_SupplierPID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pSupplierTID) get_SupplierTaskID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTitle) get_Title;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pIconPath) get_IconPath;
@@ -3509,7 +3509,7 @@ public static
 	}
 
 
-	public HRESULT get_SupplierPID(Guid pSupplierPID) mut => VT.[Friend]get_SupplierPID(&this, pSupplierPID);
+	public HRESULT get_SupplierPID(ref Guid pSupplierPID) mut => VT.[Friend]get_SupplierPID(&this, ref pSupplierPID);
 
 	public HRESULT get_SupplierTaskID(BSTR* pSupplierTID) mut => VT.[Friend]get_SupplierTaskID(&this, pSupplierTID);
 
@@ -3536,7 +3536,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FileType, BSTR* pContentType) get_ContentType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ContentType, BSTR* pFileType) get_FileType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcbTypes, BSTR** ppTypes) get_AllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbTypes, BSTR** ppTypes) get_AllFileTypes;
 	}
 
 
@@ -3552,7 +3552,7 @@ public static
 
 	public HRESULT get_InvocationInfo(BSTR* pImageUrn, BSTR* pParameters) mut => VT.[Friend]get_InvocationInfo(&this, pImageUrn, pParameters);
 
-	public HRESULT get_AllFileTypes(uint32 pcbTypes, BSTR** ppTypes) mut => VT.[Friend]get_AllFileTypes(&this, pcbTypes, ppTypes);
+	public HRESULT get_AllFileTypes(uint32* pcbTypes, BSTR** ppTypes) mut => VT.[Friend]get_AllFileTypes(&this, pcbTypes, ppTypes);
 }
 
 [CRepr]struct IPMExtensionProtocolInfo : IUnknown
@@ -3581,15 +3581,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcTypes, BSTR** ppTypes) get_AllFileTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcDataFormats, BSTR** ppDataFormats) get_AllDataFormats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcTypes, BSTR** ppTypes) get_AllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcDataFormats, BSTR** ppDataFormats) get_AllDataFormats;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pSupportsAllTypes) get_SupportsAllFileTypes;
 	}
 
 
-	public HRESULT get_AllFileTypes(uint32 pcTypes, BSTR** ppTypes) mut => VT.[Friend]get_AllFileTypes(&this, pcTypes, ppTypes);
+	public HRESULT get_AllFileTypes(uint32* pcTypes, BSTR** ppTypes) mut => VT.[Friend]get_AllFileTypes(&this, pcTypes, ppTypes);
 
-	public HRESULT get_AllDataFormats(uint32 pcDataFormats, BSTR** ppDataFormats) mut => VT.[Friend]get_AllDataFormats(&this, pcDataFormats, ppDataFormats);
+	public HRESULT get_AllDataFormats(uint32* pcDataFormats, BSTR** ppDataFormats) mut => VT.[Friend]get_AllDataFormats(&this, pcDataFormats, ppDataFormats);
 
 	public HRESULT get_SupportsAllFileTypes(BOOL* pSupportsAllTypes) mut => VT.[Friend]get_SupportsAllFileTypes(&this, pSupportsAllTypes);
 }
@@ -3617,12 +3617,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcTypes, BSTR** ppTypes) get_AllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcTypes, BSTR** ppTypes) get_AllFileTypes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pSupportsAllTypes) get_SupportsAllFileTypes;
 	}
 
 
-	public HRESULT get_AllFileTypes(uint32 pcTypes, BSTR** ppTypes) mut => VT.[Friend]get_AllFileTypes(&this, pcTypes, ppTypes);
+	public HRESULT get_AllFileTypes(uint32* pcTypes, BSTR** ppTypes) mut => VT.[Friend]get_AllFileTypes(&this, pcTypes, ppTypes);
 
 	public HRESULT get_SupportsAllFileTypes(BOOL* pSupportsAllTypes) mut => VT.[Friend]get_SupportsAllFileTypes(&this, pSupportsAllTypes);
 }
@@ -3635,12 +3635,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcTypes, BSTR** ppTypes) get_AllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcTypes, BSTR** ppTypes) get_AllFileTypes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pSupportsAllTypes) get_SupportsAllFileTypes;
 	}
 
 
-	public HRESULT get_AllFileTypes(uint32 pcTypes, BSTR** ppTypes) mut => VT.[Friend]get_AllFileTypes(&this, pcTypes, ppTypes);
+	public HRESULT get_AllFileTypes(uint32* pcTypes, BSTR** ppTypes) mut => VT.[Friend]get_AllFileTypes(&this, pcTypes, ppTypes);
 
 	public HRESULT get_SupportsAllFileTypes(BOOL* pSupportsAllTypes) mut => VT.[Friend]get_SupportsAllFileTypes(&this, pSupportsAllTypes);
 }
@@ -3683,9 +3683,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pBSAID) get_BSAID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pBSAID) get_BSAID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGSpecifier) get_BGSpecifier;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGName) get_BGName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGSource) get_BGSource;
@@ -3700,11 +3700,11 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
 	public HRESULT get_TaskID(BSTR* pTaskID) mut => VT.[Friend]get_TaskID(&this, pTaskID);
 
-	public HRESULT get_BSAID(uint32 pBSAID) mut => VT.[Friend]get_BSAID(&this, pBSAID);
+	public HRESULT get_BSAID(uint32* pBSAID) mut => VT.[Friend]get_BSAID(&this, pBSAID);
 
 	public HRESULT get_BGSpecifier(BSTR* pBGSpecifier) mut => VT.[Friend]get_BGSpecifier(&this, pBGSpecifier);
 
@@ -3737,24 +3737,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGName) get_BGName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pMaxStartupLatency) get_MaxStartupLatency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pExpectedRuntime) get_ExpectedRuntime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pMaxStartupLatency) get_MaxStartupLatency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pExpectedRuntime) get_ExpectedRuntime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsBootWorker) get_IsBootWorker;
 	}
 
 
-	public HRESULT get_ProductID(Guid pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
+	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
 
 	public HRESULT get_TaskID(BSTR* pTaskID) mut => VT.[Friend]get_TaskID(&this, pTaskID);
 
 	public HRESULT get_BGName(BSTR* pBGName) mut => VT.[Friend]get_BGName(&this, pBGName);
 
-	public HRESULT get_MaxStartupLatency(uint32 pMaxStartupLatency) mut => VT.[Friend]get_MaxStartupLatency(&this, pMaxStartupLatency);
+	public HRESULT get_MaxStartupLatency(uint32* pMaxStartupLatency) mut => VT.[Friend]get_MaxStartupLatency(&this, pMaxStartupLatency);
 
-	public HRESULT get_ExpectedRuntime(uint32 pExpectedRuntime) mut => VT.[Friend]get_ExpectedRuntime(&this, pExpectedRuntime);
+	public HRESULT get_ExpectedRuntime(uint32* pExpectedRuntime) mut => VT.[Friend]get_ExpectedRuntime(&this, pExpectedRuntime);
 
 	public HRESULT get_IsBootWorker(BOOL* pIsBootWorker) mut => VT.[Friend]get_IsBootWorker(&this, pIsBootWorker);
 }
@@ -3828,18 +3828,18 @@ public static
 	public static extern INSTALLSTATE MsiQueryProductStateW(PWSTR szProduct);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductInfoA(PSTR szProduct, PSTR szAttribute, uint8* lpValueBuf, uint32 pcchValueBuf);
-	public static uint32 MsiGetProductInfo(PSTR szProduct, PSTR szAttribute, uint8* lpValueBuf, uint32 pcchValueBuf) => MsiGetProductInfoA(szProduct, szAttribute, lpValueBuf, pcchValueBuf);
+	public static extern uint32 MsiGetProductInfoA(PSTR szProduct, PSTR szAttribute, uint8* lpValueBuf, uint32* pcchValueBuf);
+	public static uint32 MsiGetProductInfo(PSTR szProduct, PSTR szAttribute, uint8* lpValueBuf, uint32* pcchValueBuf) => MsiGetProductInfoA(szProduct, szAttribute, lpValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductInfoW(PWSTR szProduct, PWSTR szAttribute, char16* lpValueBuf, uint32 pcchValueBuf);
+	public static extern uint32 MsiGetProductInfoW(PWSTR szProduct, PWSTR szAttribute, char16* lpValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductInfoExA(PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* szValue, uint32 pcchValue);
-	public static uint32 MsiGetProductInfoEx(PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* szValue, uint32 pcchValue) => MsiGetProductInfoExA(szProductCode, szUserSid, dwContext, szProperty, szValue, pcchValue);
+	public static extern uint32 MsiGetProductInfoExA(PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* szValue, uint32* pcchValue);
+	public static uint32 MsiGetProductInfoEx(PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* szValue, uint32* pcchValue) => MsiGetProductInfoExA(szProductCode, szUserSid, dwContext, szProperty, szValue, pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductInfoExW(PWSTR szProductCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, PWSTR szProperty, char16* szValue, uint32 pcchValue);
+	public static extern uint32 MsiGetProductInfoExW(PWSTR szProductCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, PWSTR szProperty, char16* szValue, uint32* pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiInstallProductA(PSTR szPackagePath, PSTR szCommandLine);
@@ -3898,11 +3898,11 @@ public static
 	public static extern uint32 MsiAdvertiseScriptW(PWSTR szScriptFile, uint32 dwFlags, HKEY* phRegData, BOOL fRemoveItems);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductInfoFromScriptA(PSTR szScriptFile, PSTR lpProductBuf39, uint16 plgidLanguage, uint32 pdwVersion, uint8* lpNameBuf, uint32 pcchNameBuf, uint8* lpPackageBuf, uint32 pcchPackageBuf);
-	public static uint32 MsiGetProductInfoFromScript(PSTR szScriptFile, PSTR lpProductBuf39, uint16 plgidLanguage, uint32 pdwVersion, uint8* lpNameBuf, uint32 pcchNameBuf, uint8* lpPackageBuf, uint32 pcchPackageBuf) => MsiGetProductInfoFromScriptA(szScriptFile, lpProductBuf39, plgidLanguage, pdwVersion, lpNameBuf, pcchNameBuf, lpPackageBuf, pcchPackageBuf);
+	public static extern uint32 MsiGetProductInfoFromScriptA(PSTR szScriptFile, PSTR lpProductBuf39, uint16* plgidLanguage, uint32* pdwVersion, uint8* lpNameBuf, uint32* pcchNameBuf, uint8* lpPackageBuf, uint32* pcchPackageBuf);
+	public static uint32 MsiGetProductInfoFromScript(PSTR szScriptFile, PSTR lpProductBuf39, uint16* plgidLanguage, uint32* pdwVersion, uint8* lpNameBuf, uint32* pcchNameBuf, uint8* lpPackageBuf, uint32* pcchPackageBuf) => MsiGetProductInfoFromScriptA(szScriptFile, lpProductBuf39, plgidLanguage, pdwVersion, lpNameBuf, pcchNameBuf, lpPackageBuf, pcchPackageBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductInfoFromScriptW(PWSTR szScriptFile, PWSTR lpProductBuf39, uint16 plgidLanguage, uint32 pdwVersion, char16* lpNameBuf, uint32 pcchNameBuf, char16* lpPackageBuf, uint32 pcchPackageBuf);
+	public static extern uint32 MsiGetProductInfoFromScriptW(PWSTR szScriptFile, PWSTR lpProductBuf39, uint16* plgidLanguage, uint32* pdwVersion, char16* lpNameBuf, uint32* pcchNameBuf, char16* lpPackageBuf, uint32* pcchPackageBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiGetProductCodeA(PSTR szComponent, PSTR lpBuf39);
@@ -3912,11 +3912,11 @@ public static
 	public static extern uint32 MsiGetProductCodeW(PWSTR szComponent, PWSTR lpBuf39);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USERINFOSTATE MsiGetUserInfoA(PSTR szProduct, uint8* lpUserNameBuf, uint32 pcchUserNameBuf, uint8* lpOrgNameBuf, uint32 pcchOrgNameBuf, uint8* lpSerialBuf, uint32 pcchSerialBuf);
-	public static USERINFOSTATE MsiGetUserInfo(PSTR szProduct, uint8* lpUserNameBuf, uint32 pcchUserNameBuf, uint8* lpOrgNameBuf, uint32 pcchOrgNameBuf, uint8* lpSerialBuf, uint32 pcchSerialBuf) => MsiGetUserInfoA(szProduct, lpUserNameBuf, pcchUserNameBuf, lpOrgNameBuf, pcchOrgNameBuf, lpSerialBuf, pcchSerialBuf);
+	public static extern USERINFOSTATE MsiGetUserInfoA(PSTR szProduct, uint8* lpUserNameBuf, uint32* pcchUserNameBuf, uint8* lpOrgNameBuf, uint32* pcchOrgNameBuf, uint8* lpSerialBuf, uint32* pcchSerialBuf);
+	public static USERINFOSTATE MsiGetUserInfo(PSTR szProduct, uint8* lpUserNameBuf, uint32* pcchUserNameBuf, uint8* lpOrgNameBuf, uint32* pcchOrgNameBuf, uint8* lpSerialBuf, uint32* pcchSerialBuf) => MsiGetUserInfoA(szProduct, lpUserNameBuf, pcchUserNameBuf, lpOrgNameBuf, pcchOrgNameBuf, lpSerialBuf, pcchSerialBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern USERINFOSTATE MsiGetUserInfoW(PWSTR szProduct, char16* lpUserNameBuf, uint32 pcchUserNameBuf, char16* lpOrgNameBuf, uint32 pcchOrgNameBuf, char16* lpSerialBuf, uint32 pcchSerialBuf);
+	public static extern USERINFOSTATE MsiGetUserInfoW(PWSTR szProduct, char16* lpUserNameBuf, uint32* pcchUserNameBuf, char16* lpOrgNameBuf, uint32* pcchOrgNameBuf, char16* lpSerialBuf, uint32* pcchSerialBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiCollectUserInfoA(PSTR szProduct);
@@ -3933,18 +3933,18 @@ public static
 	public static extern uint32 MsiApplyPatchW(PWSTR szPatchPackage, PWSTR szInstallPackage, INSTALLTYPE eInstallType, PWSTR szCommandLine);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPatchInfoA(PSTR szPatch, PSTR szAttribute, uint8* lpValueBuf, uint32 pcchValueBuf);
-	public static uint32 MsiGetPatchInfo(PSTR szPatch, PSTR szAttribute, uint8* lpValueBuf, uint32 pcchValueBuf) => MsiGetPatchInfoA(szPatch, szAttribute, lpValueBuf, pcchValueBuf);
+	public static extern uint32 MsiGetPatchInfoA(PSTR szPatch, PSTR szAttribute, uint8* lpValueBuf, uint32* pcchValueBuf);
+	public static uint32 MsiGetPatchInfo(PSTR szPatch, PSTR szAttribute, uint8* lpValueBuf, uint32* pcchValueBuf) => MsiGetPatchInfoA(szPatch, szAttribute, lpValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPatchInfoW(PWSTR szPatch, PWSTR szAttribute, char16* lpValueBuf, uint32 pcchValueBuf);
+	public static extern uint32 MsiGetPatchInfoW(PWSTR szPatch, PWSTR szAttribute, char16* lpValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumPatchesA(PSTR szProduct, uint32 iPatchIndex, PSTR lpPatchBuf, uint8* lpTransformsBuf, uint32 pcchTransformsBuf);
-	public static uint32 MsiEnumPatches(PSTR szProduct, uint32 iPatchIndex, PSTR lpPatchBuf, uint8* lpTransformsBuf, uint32 pcchTransformsBuf) => MsiEnumPatchesA(szProduct, iPatchIndex, lpPatchBuf, lpTransformsBuf, pcchTransformsBuf);
+	public static extern uint32 MsiEnumPatchesA(PSTR szProduct, uint32 iPatchIndex, PSTR lpPatchBuf, uint8* lpTransformsBuf, uint32* pcchTransformsBuf);
+	public static uint32 MsiEnumPatches(PSTR szProduct, uint32 iPatchIndex, PSTR lpPatchBuf, uint8* lpTransformsBuf, uint32* pcchTransformsBuf) => MsiEnumPatchesA(szProduct, iPatchIndex, lpPatchBuf, lpTransformsBuf, pcchTransformsBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumPatchesW(PWSTR szProduct, uint32 iPatchIndex, PWSTR lpPatchBuf, char16* lpTransformsBuf, uint32 pcchTransformsBuf);
+	public static extern uint32 MsiEnumPatchesW(PWSTR szProduct, uint32 iPatchIndex, PWSTR lpPatchBuf, char16* lpTransformsBuf, uint32* pcchTransformsBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiRemovePatchesA(PSTR szPatchList, PSTR szProductCode, INSTALLTYPE eUninstallType, PSTR szPropertyList);
@@ -3954,18 +3954,18 @@ public static
 	public static extern uint32 MsiRemovePatchesW(PWSTR szPatchList, PWSTR szProductCode, INSTALLTYPE eUninstallType, PWSTR szPropertyList);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiExtractPatchXMLDataA(PSTR szPatchPath, uint32 dwReserved, uint8* szXMLData, uint32 pcchXMLData);
-	public static uint32 MsiExtractPatchXMLData(PSTR szPatchPath, uint32 dwReserved, uint8* szXMLData, uint32 pcchXMLData) => MsiExtractPatchXMLDataA(szPatchPath, dwReserved, szXMLData, pcchXMLData);
+	public static extern uint32 MsiExtractPatchXMLDataA(PSTR szPatchPath, uint32 dwReserved, uint8* szXMLData, uint32* pcchXMLData);
+	public static uint32 MsiExtractPatchXMLData(PSTR szPatchPath, uint32 dwReserved, uint8* szXMLData, uint32* pcchXMLData) => MsiExtractPatchXMLDataA(szPatchPath, dwReserved, szXMLData, pcchXMLData);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiExtractPatchXMLDataW(PWSTR szPatchPath, uint32 dwReserved, char16* szXMLData, uint32 pcchXMLData);
+	public static extern uint32 MsiExtractPatchXMLDataW(PWSTR szPatchPath, uint32 dwReserved, char16* szXMLData, uint32* pcchXMLData);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPatchInfoExA(PSTR szPatchCode, PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* lpValue, uint32 pcchValue);
-	public static uint32 MsiGetPatchInfoEx(PSTR szPatchCode, PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* lpValue, uint32 pcchValue) => MsiGetPatchInfoExA(szPatchCode, szProductCode, szUserSid, dwContext, szProperty, lpValue, pcchValue);
+	public static extern uint32 MsiGetPatchInfoExA(PSTR szPatchCode, PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* lpValue, uint32* pcchValue);
+	public static uint32 MsiGetPatchInfoEx(PSTR szPatchCode, PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szProperty, uint8* lpValue, uint32* pcchValue) => MsiGetPatchInfoExA(szPatchCode, szProductCode, szUserSid, dwContext, szProperty, lpValue, pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPatchInfoExW(PWSTR szPatchCode, PWSTR szProductCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, PWSTR szProperty, char16* lpValue, uint32 pcchValue);
+	public static extern uint32 MsiGetPatchInfoExW(PWSTR szPatchCode, PWSTR szProductCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, PWSTR szProperty, char16* lpValue, uint32* pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiApplyMultiplePatchesA(PSTR szPatchPackages, PSTR szProductCode, PSTR szPropertiesList);
@@ -3989,11 +3989,11 @@ public static
 	public static extern uint32 MsiDetermineApplicablePatchesW(PWSTR szProductPackagePath, uint32 cPatchInfo, MSIPATCHSEQUENCEINFOW* pPatchInfo);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumPatchesExA(PSTR szProductCode, PSTR szUserSid, uint32 dwContext, uint32 dwFilter, uint32 dwIndex, PSTR szPatchCode, PSTR szTargetProductCode, MSIINSTALLCONTEXT* pdwTargetProductContext, uint8* szTargetUserSid, uint32 pcchTargetUserSid);
-	public static uint32 MsiEnumPatchesEx(PSTR szProductCode, PSTR szUserSid, uint32 dwContext, uint32 dwFilter, uint32 dwIndex, PSTR szPatchCode, PSTR szTargetProductCode, MSIINSTALLCONTEXT* pdwTargetProductContext, uint8* szTargetUserSid, uint32 pcchTargetUserSid) => MsiEnumPatchesExA(szProductCode, szUserSid, dwContext, dwFilter, dwIndex, szPatchCode, szTargetProductCode, pdwTargetProductContext, szTargetUserSid, pcchTargetUserSid);
+	public static extern uint32 MsiEnumPatchesExA(PSTR szProductCode, PSTR szUserSid, uint32 dwContext, uint32 dwFilter, uint32 dwIndex, PSTR szPatchCode, PSTR szTargetProductCode, MSIINSTALLCONTEXT* pdwTargetProductContext, uint8* szTargetUserSid, uint32* pcchTargetUserSid);
+	public static uint32 MsiEnumPatchesEx(PSTR szProductCode, PSTR szUserSid, uint32 dwContext, uint32 dwFilter, uint32 dwIndex, PSTR szPatchCode, PSTR szTargetProductCode, MSIINSTALLCONTEXT* pdwTargetProductContext, uint8* szTargetUserSid, uint32* pcchTargetUserSid) => MsiEnumPatchesExA(szProductCode, szUserSid, dwContext, dwFilter, dwIndex, szPatchCode, szTargetProductCode, pdwTargetProductContext, szTargetUserSid, pcchTargetUserSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumPatchesExW(PWSTR szProductCode, PWSTR szUserSid, uint32 dwContext, uint32 dwFilter, uint32 dwIndex, PWSTR szPatchCode, PWSTR szTargetProductCode, MSIINSTALLCONTEXT* pdwTargetProductContext, char16* szTargetUserSid, uint32 pcchTargetUserSid);
+	public static extern uint32 MsiEnumPatchesExW(PWSTR szProductCode, PWSTR szUserSid, uint32 dwContext, uint32 dwFilter, uint32 dwIndex, PWSTR szPatchCode, PWSTR szTargetProductCode, MSIINSTALLCONTEXT* pdwTargetProductContext, char16* szTargetUserSid, uint32* pcchTargetUserSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern INSTALLSTATE MsiQueryFeatureStateA(PSTR szProduct, PSTR szFeature);
@@ -4024,11 +4024,11 @@ public static
 	public static extern INSTALLSTATE MsiUseFeatureExW(PWSTR szProduct, PWSTR szFeature, uint32 dwInstallMode, uint32 dwReserved);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFeatureUsageA(PSTR szProduct, PSTR szFeature, uint32 pdwUseCount, uint16 pwDateUsed);
-	public static uint32 MsiGetFeatureUsage(PSTR szProduct, PSTR szFeature, uint32 pdwUseCount, uint16 pwDateUsed) => MsiGetFeatureUsageA(szProduct, szFeature, pdwUseCount, pwDateUsed);
+	public static extern uint32 MsiGetFeatureUsageA(PSTR szProduct, PSTR szFeature, uint32* pdwUseCount, uint16* pwDateUsed);
+	public static uint32 MsiGetFeatureUsage(PSTR szProduct, PSTR szFeature, uint32* pdwUseCount, uint16* pwDateUsed) => MsiGetFeatureUsageA(szProduct, szFeature, pdwUseCount, pwDateUsed);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFeatureUsageW(PWSTR szProduct, PWSTR szFeature, uint32 pdwUseCount, uint16 pwDateUsed);
+	public static extern uint32 MsiGetFeatureUsageW(PWSTR szProduct, PWSTR szFeature, uint32* pdwUseCount, uint16* pwDateUsed);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiConfigureFeatureA(PSTR szProduct, PSTR szFeature, INSTALLSTATE eInstallState);
@@ -4045,46 +4045,46 @@ public static
 	public static extern uint32 MsiReinstallFeatureW(PWSTR szProduct, PWSTR szFeature, REINSTALLMODE dwReinstallMode);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideComponentA(PSTR szProduct, PSTR szFeature, PSTR szComponent, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32 pcchPathBuf);
-	public static uint32 MsiProvideComponent(PSTR szProduct, PSTR szFeature, PSTR szComponent, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32 pcchPathBuf) => MsiProvideComponentA(szProduct, szFeature, szComponent, dwInstallMode, lpPathBuf, pcchPathBuf);
+	public static extern uint32 MsiProvideComponentA(PSTR szProduct, PSTR szFeature, PSTR szComponent, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32* pcchPathBuf);
+	public static uint32 MsiProvideComponent(PSTR szProduct, PSTR szFeature, PSTR szComponent, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32* pcchPathBuf) => MsiProvideComponentA(szProduct, szFeature, szComponent, dwInstallMode, lpPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideComponentW(PWSTR szProduct, PWSTR szFeature, PWSTR szComponent, INSTALLMODE dwInstallMode, char16* lpPathBuf, uint32 pcchPathBuf);
+	public static extern uint32 MsiProvideComponentW(PWSTR szProduct, PWSTR szFeature, PWSTR szComponent, INSTALLMODE dwInstallMode, char16* lpPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideQualifiedComponentA(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32 pcchPathBuf);
-	public static uint32 MsiProvideQualifiedComponent(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32 pcchPathBuf) => MsiProvideQualifiedComponentA(szCategory, szQualifier, dwInstallMode, lpPathBuf, pcchPathBuf);
+	public static extern uint32 MsiProvideQualifiedComponentA(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32* pcchPathBuf);
+	public static uint32 MsiProvideQualifiedComponent(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, uint8* lpPathBuf, uint32* pcchPathBuf) => MsiProvideQualifiedComponentA(szCategory, szQualifier, dwInstallMode, lpPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideQualifiedComponentW(PWSTR szCategory, PWSTR szQualifier, INSTALLMODE dwInstallMode, char16* lpPathBuf, uint32 pcchPathBuf);
+	public static extern uint32 MsiProvideQualifiedComponentW(PWSTR szCategory, PWSTR szQualifier, INSTALLMODE dwInstallMode, char16* lpPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideQualifiedComponentExA(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, PSTR szProduct, uint32 dwUnused1, uint32 dwUnused2, uint8* lpPathBuf, uint32 pcchPathBuf);
-	public static uint32 MsiProvideQualifiedComponentEx(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, PSTR szProduct, uint32 dwUnused1, uint32 dwUnused2, uint8* lpPathBuf, uint32 pcchPathBuf) => MsiProvideQualifiedComponentExA(szCategory, szQualifier, dwInstallMode, szProduct, dwUnused1, dwUnused2, lpPathBuf, pcchPathBuf);
+	public static extern uint32 MsiProvideQualifiedComponentExA(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, PSTR szProduct, uint32 dwUnused1, uint32 dwUnused2, uint8* lpPathBuf, uint32* pcchPathBuf);
+	public static uint32 MsiProvideQualifiedComponentEx(PSTR szCategory, PSTR szQualifier, INSTALLMODE dwInstallMode, PSTR szProduct, uint32 dwUnused1, uint32 dwUnused2, uint8* lpPathBuf, uint32* pcchPathBuf) => MsiProvideQualifiedComponentExA(szCategory, szQualifier, dwInstallMode, szProduct, dwUnused1, dwUnused2, lpPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideQualifiedComponentExW(PWSTR szCategory, PWSTR szQualifier, INSTALLMODE dwInstallMode, PWSTR szProduct, uint32 dwUnused1, uint32 dwUnused2, char16* lpPathBuf, uint32 pcchPathBuf);
+	public static extern uint32 MsiProvideQualifiedComponentExW(PWSTR szCategory, PWSTR szQualifier, INSTALLMODE dwInstallMode, PWSTR szProduct, uint32 dwUnused1, uint32 dwUnused2, char16* lpPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern INSTALLSTATE MsiGetComponentPathA(PSTR szProduct, PSTR szComponent, uint8* lpPathBuf, uint32 pcchBuf);
-	public static INSTALLSTATE MsiGetComponentPath(PSTR szProduct, PSTR szComponent, uint8* lpPathBuf, uint32 pcchBuf) => MsiGetComponentPathA(szProduct, szComponent, lpPathBuf, pcchBuf);
+	public static extern INSTALLSTATE MsiGetComponentPathA(PSTR szProduct, PSTR szComponent, uint8* lpPathBuf, uint32* pcchBuf);
+	public static INSTALLSTATE MsiGetComponentPath(PSTR szProduct, PSTR szComponent, uint8* lpPathBuf, uint32* pcchBuf) => MsiGetComponentPathA(szProduct, szComponent, lpPathBuf, pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern INSTALLSTATE MsiGetComponentPathW(PWSTR szProduct, PWSTR szComponent, char16* lpPathBuf, uint32 pcchBuf);
+	public static extern INSTALLSTATE MsiGetComponentPathW(PWSTR szProduct, PWSTR szComponent, char16* lpPathBuf, uint32* pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern INSTALLSTATE MsiGetComponentPathExA(PSTR szProductCode, PSTR szComponentCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint8* lpOutPathBuffer, uint32 pcchOutPathBuffer);
-	public static INSTALLSTATE MsiGetComponentPathEx(PSTR szProductCode, PSTR szComponentCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint8* lpOutPathBuffer, uint32 pcchOutPathBuffer) => MsiGetComponentPathExA(szProductCode, szComponentCode, szUserSid, dwContext, lpOutPathBuffer, pcchOutPathBuffer);
+	public static extern INSTALLSTATE MsiGetComponentPathExA(PSTR szProductCode, PSTR szComponentCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint8* lpOutPathBuffer, uint32* pcchOutPathBuffer);
+	public static INSTALLSTATE MsiGetComponentPathEx(PSTR szProductCode, PSTR szComponentCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint8* lpOutPathBuffer, uint32* pcchOutPathBuffer) => MsiGetComponentPathExA(szProductCode, szComponentCode, szUserSid, dwContext, lpOutPathBuffer, pcchOutPathBuffer);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern INSTALLSTATE MsiGetComponentPathExW(PWSTR szProductCode, PWSTR szComponentCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, char16* lpOutPathBuffer, uint32 pcchOutPathBuffer);
+	public static extern INSTALLSTATE MsiGetComponentPathExW(PWSTR szProductCode, PWSTR szComponentCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, char16* lpOutPathBuffer, uint32* pcchOutPathBuffer);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideAssemblyA(PSTR szAssemblyName, PSTR szAppContext, INSTALLMODE dwInstallMode, MSIASSEMBLYINFO dwAssemblyInfo, uint8* lpPathBuf, uint32 pcchPathBuf);
-	public static uint32 MsiProvideAssembly(PSTR szAssemblyName, PSTR szAppContext, INSTALLMODE dwInstallMode, MSIASSEMBLYINFO dwAssemblyInfo, uint8* lpPathBuf, uint32 pcchPathBuf) => MsiProvideAssemblyA(szAssemblyName, szAppContext, dwInstallMode, dwAssemblyInfo, lpPathBuf, pcchPathBuf);
+	public static extern uint32 MsiProvideAssemblyA(PSTR szAssemblyName, PSTR szAppContext, INSTALLMODE dwInstallMode, MSIASSEMBLYINFO dwAssemblyInfo, uint8* lpPathBuf, uint32* pcchPathBuf);
+	public static uint32 MsiProvideAssembly(PSTR szAssemblyName, PSTR szAppContext, INSTALLMODE dwInstallMode, MSIASSEMBLYINFO dwAssemblyInfo, uint8* lpPathBuf, uint32* pcchPathBuf) => MsiProvideAssemblyA(szAssemblyName, szAppContext, dwInstallMode, dwAssemblyInfo, lpPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiProvideAssemblyW(PWSTR szAssemblyName, PWSTR szAppContext, INSTALLMODE dwInstallMode, MSIASSEMBLYINFO dwAssemblyInfo, char16* lpPathBuf, uint32 pcchPathBuf);
+	public static extern uint32 MsiProvideAssemblyW(PWSTR szAssemblyName, PWSTR szAppContext, INSTALLMODE dwInstallMode, MSIASSEMBLYINFO dwAssemblyInfo, char16* lpPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiQueryComponentStateA(PSTR szProductCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, PSTR szComponentCode, INSTALLSTATE* pdwState);
@@ -4101,11 +4101,11 @@ public static
 	public static extern uint32 MsiEnumProductsW(uint32 iProductIndex, PWSTR lpProductBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumProductsExA(PSTR szProductCode, PSTR szUserSid, uint32 dwContext, uint32 dwIndex, PSTR szInstalledProductCode, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32 pcchSid);
-	public static uint32 MsiEnumProductsEx(PSTR szProductCode, PSTR szUserSid, uint32 dwContext, uint32 dwIndex, PSTR szInstalledProductCode, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32 pcchSid) => MsiEnumProductsExA(szProductCode, szUserSid, dwContext, dwIndex, szInstalledProductCode, pdwInstalledContext, szSid, pcchSid);
+	public static extern uint32 MsiEnumProductsExA(PSTR szProductCode, PSTR szUserSid, uint32 dwContext, uint32 dwIndex, PSTR szInstalledProductCode, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32* pcchSid);
+	public static uint32 MsiEnumProductsEx(PSTR szProductCode, PSTR szUserSid, uint32 dwContext, uint32 dwIndex, PSTR szInstalledProductCode, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32* pcchSid) => MsiEnumProductsExA(szProductCode, szUserSid, dwContext, dwIndex, szInstalledProductCode, pdwInstalledContext, szSid, pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumProductsExW(PWSTR szProductCode, PWSTR szUserSid, uint32 dwContext, uint32 dwIndex, PWSTR szInstalledProductCode, MSIINSTALLCONTEXT* pdwInstalledContext, char16* szSid, uint32 pcchSid);
+	public static extern uint32 MsiEnumProductsExW(PWSTR szProductCode, PWSTR szUserSid, uint32 dwContext, uint32 dwIndex, PWSTR szInstalledProductCode, MSIINSTALLCONTEXT* pdwInstalledContext, char16* szSid, uint32* pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiEnumRelatedProductsA(PSTR lpUpgradeCode, uint32 dwReserved, uint32 iProductIndex, PSTR lpProductBuf);
@@ -4129,11 +4129,11 @@ public static
 	public static extern uint32 MsiEnumComponentsW(uint32 iComponentIndex, PWSTR lpComponentBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumComponentsExA(PSTR szUserSid, uint32 dwContext, uint32 dwIndex, PSTR szInstalledComponentCode, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32 pcchSid);
-	public static uint32 MsiEnumComponentsEx(PSTR szUserSid, uint32 dwContext, uint32 dwIndex, PSTR szInstalledComponentCode, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32 pcchSid) => MsiEnumComponentsExA(szUserSid, dwContext, dwIndex, szInstalledComponentCode, pdwInstalledContext, szSid, pcchSid);
+	public static extern uint32 MsiEnumComponentsExA(PSTR szUserSid, uint32 dwContext, uint32 dwIndex, PSTR szInstalledComponentCode, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32* pcchSid);
+	public static uint32 MsiEnumComponentsEx(PSTR szUserSid, uint32 dwContext, uint32 dwIndex, PSTR szInstalledComponentCode, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32* pcchSid) => MsiEnumComponentsExA(szUserSid, dwContext, dwIndex, szInstalledComponentCode, pdwInstalledContext, szSid, pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumComponentsExW(PWSTR szUserSid, uint32 dwContext, uint32 dwIndex, PWSTR szInstalledComponentCode, MSIINSTALLCONTEXT* pdwInstalledContext, char16* szSid, uint32 pcchSid);
+	public static extern uint32 MsiEnumComponentsExW(PWSTR szUserSid, uint32 dwContext, uint32 dwIndex, PWSTR szInstalledComponentCode, MSIINSTALLCONTEXT* pdwInstalledContext, char16* szSid, uint32* pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiEnumClientsA(PSTR szComponent, uint32 iProductIndex, PSTR lpProductBuf);
@@ -4143,18 +4143,18 @@ public static
 	public static extern uint32 MsiEnumClientsW(PWSTR szComponent, uint32 iProductIndex, PWSTR lpProductBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumClientsExA(PSTR szComponent, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwProductIndex, PSTR szProductBuf, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32 pcchSid);
-	public static uint32 MsiEnumClientsEx(PSTR szComponent, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwProductIndex, PSTR szProductBuf, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32 pcchSid) => MsiEnumClientsExA(szComponent, szUserSid, dwContext, dwProductIndex, szProductBuf, pdwInstalledContext, szSid, pcchSid);
+	public static extern uint32 MsiEnumClientsExA(PSTR szComponent, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwProductIndex, PSTR szProductBuf, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32* pcchSid);
+	public static uint32 MsiEnumClientsEx(PSTR szComponent, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwProductIndex, PSTR szProductBuf, MSIINSTALLCONTEXT* pdwInstalledContext, uint8* szSid, uint32* pcchSid) => MsiEnumClientsExA(szComponent, szUserSid, dwContext, dwProductIndex, szProductBuf, pdwInstalledContext, szSid, pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumClientsExW(PWSTR szComponent, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwProductIndex, PWSTR szProductBuf, MSIINSTALLCONTEXT* pdwInstalledContext, char16* szSid, uint32 pcchSid);
+	public static extern uint32 MsiEnumClientsExW(PWSTR szComponent, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwProductIndex, PWSTR szProductBuf, MSIINSTALLCONTEXT* pdwInstalledContext, char16* szSid, uint32* pcchSid);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumComponentQualifiersA(PSTR szComponent, uint32 iIndex, uint8* lpQualifierBuf, uint32 pcchQualifierBuf, uint8* lpApplicationDataBuf, uint32 pcchApplicationDataBuf);
-	public static uint32 MsiEnumComponentQualifiers(PSTR szComponent, uint32 iIndex, uint8* lpQualifierBuf, uint32 pcchQualifierBuf, uint8* lpApplicationDataBuf, uint32 pcchApplicationDataBuf) => MsiEnumComponentQualifiersA(szComponent, iIndex, lpQualifierBuf, pcchQualifierBuf, lpApplicationDataBuf, pcchApplicationDataBuf);
+	public static extern uint32 MsiEnumComponentQualifiersA(PSTR szComponent, uint32 iIndex, uint8* lpQualifierBuf, uint32* pcchQualifierBuf, uint8* lpApplicationDataBuf, uint32* pcchApplicationDataBuf);
+	public static uint32 MsiEnumComponentQualifiers(PSTR szComponent, uint32 iIndex, uint8* lpQualifierBuf, uint32* pcchQualifierBuf, uint8* lpApplicationDataBuf, uint32* pcchApplicationDataBuf) => MsiEnumComponentQualifiersA(szComponent, iIndex, lpQualifierBuf, pcchQualifierBuf, lpApplicationDataBuf, pcchApplicationDataBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumComponentQualifiersW(PWSTR szComponent, uint32 iIndex, char16* lpQualifierBuf, uint32 pcchQualifierBuf, char16* lpApplicationDataBuf, uint32 pcchApplicationDataBuf);
+	public static extern uint32 MsiEnumComponentQualifiersW(PWSTR szComponent, uint32 iIndex, char16* lpQualifierBuf, uint32* pcchQualifierBuf, char16* lpApplicationDataBuf, uint32* pcchApplicationDataBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiOpenProductA(PSTR szProduct, MSIHANDLE* hProduct);
@@ -4178,18 +4178,18 @@ public static
 	public static extern uint32 MsiOpenPackageExW(PWSTR szPackagePath, uint32 dwOptions, MSIHANDLE* hProduct);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPatchFileListA(PSTR szProductCode, PSTR szPatchPackages, uint32 pcFiles, MSIHANDLE** pphFileRecords);
-	public static uint32 MsiGetPatchFileList(PSTR szProductCode, PSTR szPatchPackages, uint32 pcFiles, MSIHANDLE** pphFileRecords) => MsiGetPatchFileListA(szProductCode, szPatchPackages, pcFiles, pphFileRecords);
+	public static extern uint32 MsiGetPatchFileListA(PSTR szProductCode, PSTR szPatchPackages, uint32* pcFiles, MSIHANDLE** pphFileRecords);
+	public static uint32 MsiGetPatchFileList(PSTR szProductCode, PSTR szPatchPackages, uint32* pcFiles, MSIHANDLE** pphFileRecords) => MsiGetPatchFileListA(szProductCode, szPatchPackages, pcFiles, pphFileRecords);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPatchFileListW(PWSTR szProductCode, PWSTR szPatchPackages, uint32 pcFiles, MSIHANDLE** pphFileRecords);
+	public static extern uint32 MsiGetPatchFileListW(PWSTR szProductCode, PWSTR szPatchPackages, uint32* pcFiles, MSIHANDLE** pphFileRecords);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductPropertyA(MSIHANDLE hProduct, PSTR szProperty, uint8* lpValueBuf, uint32 pcchValueBuf);
-	public static uint32 MsiGetProductProperty(MSIHANDLE hProduct, PSTR szProperty, uint8* lpValueBuf, uint32 pcchValueBuf) => MsiGetProductPropertyA(hProduct, szProperty, lpValueBuf, pcchValueBuf);
+	public static extern uint32 MsiGetProductPropertyA(MSIHANDLE hProduct, PSTR szProperty, uint8* lpValueBuf, uint32* pcchValueBuf);
+	public static uint32 MsiGetProductProperty(MSIHANDLE hProduct, PSTR szProperty, uint8* lpValueBuf, uint32* pcchValueBuf) => MsiGetProductPropertyA(hProduct, szProperty, lpValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetProductPropertyW(MSIHANDLE hProduct, PWSTR szProperty, char16* lpValueBuf, uint32 pcchValueBuf);
+	public static extern uint32 MsiGetProductPropertyW(MSIHANDLE hProduct, PWSTR szProperty, char16* lpValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiVerifyPackageA(PSTR szPackagePath);
@@ -4199,11 +4199,11 @@ public static
 	public static extern uint32 MsiVerifyPackageW(PWSTR szPackagePath);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFeatureInfoA(MSIHANDLE hProduct, PSTR szFeature, uint32 lpAttributes, uint8* lpTitleBuf, uint32 pcchTitleBuf, uint8* lpHelpBuf, uint32 pcchHelpBuf);
-	public static uint32 MsiGetFeatureInfo(MSIHANDLE hProduct, PSTR szFeature, uint32 lpAttributes, uint8* lpTitleBuf, uint32 pcchTitleBuf, uint8* lpHelpBuf, uint32 pcchHelpBuf) => MsiGetFeatureInfoA(hProduct, szFeature, lpAttributes, lpTitleBuf, pcchTitleBuf, lpHelpBuf, pcchHelpBuf);
+	public static extern uint32 MsiGetFeatureInfoA(MSIHANDLE hProduct, PSTR szFeature, uint32* lpAttributes, uint8* lpTitleBuf, uint32* pcchTitleBuf, uint8* lpHelpBuf, uint32* pcchHelpBuf);
+	public static uint32 MsiGetFeatureInfo(MSIHANDLE hProduct, PSTR szFeature, uint32* lpAttributes, uint8* lpTitleBuf, uint32* pcchTitleBuf, uint8* lpHelpBuf, uint32* pcchHelpBuf) => MsiGetFeatureInfoA(hProduct, szFeature, lpAttributes, lpTitleBuf, pcchTitleBuf, lpHelpBuf, pcchHelpBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFeatureInfoW(MSIHANDLE hProduct, PWSTR szFeature, uint32 lpAttributes, char16* lpTitleBuf, uint32 pcchTitleBuf, char16* lpHelpBuf, uint32 pcchHelpBuf);
+	public static extern uint32 MsiGetFeatureInfoW(MSIHANDLE hProduct, PWSTR szFeature, uint32* lpAttributes, char16* lpTitleBuf, uint32* pcchTitleBuf, char16* lpHelpBuf, uint32* pcchHelpBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiInstallMissingComponentA(PSTR szProduct, PSTR szComponent, INSTALLSTATE eInstallState);
@@ -4220,11 +4220,11 @@ public static
 	public static extern uint32 MsiInstallMissingFileW(PWSTR szProduct, PWSTR szFile);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern INSTALLSTATE MsiLocateComponentA(PSTR szComponent, uint8* lpPathBuf, uint32 pcchBuf);
-	public static INSTALLSTATE MsiLocateComponent(PSTR szComponent, uint8* lpPathBuf, uint32 pcchBuf) => MsiLocateComponentA(szComponent, lpPathBuf, pcchBuf);
+	public static extern INSTALLSTATE MsiLocateComponentA(PSTR szComponent, uint8* lpPathBuf, uint32* pcchBuf);
+	public static INSTALLSTATE MsiLocateComponent(PSTR szComponent, uint8* lpPathBuf, uint32* pcchBuf) => MsiLocateComponentA(szComponent, lpPathBuf, pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern INSTALLSTATE MsiLocateComponentW(PWSTR szComponent, char16* lpPathBuf, uint32 pcchBuf);
+	public static extern INSTALLSTATE MsiLocateComponentW(PWSTR szComponent, char16* lpPathBuf, uint32* pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSourceListClearAllA(PSTR szProduct, PSTR szUserName, uint32 dwReserved);
@@ -4297,32 +4297,32 @@ public static
 	public static extern uint32 MsiSourceListSetInfoW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, PWSTR szProperty, PWSTR szValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSourceListGetInfoA(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, PSTR szProperty, uint8* szValue, uint32 pcchValue);
-	public static uint32 MsiSourceListGetInfo(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, PSTR szProperty, uint8* szValue, uint32 pcchValue) => MsiSourceListGetInfoA(szProductCodeOrPatchCode, szUserSid, dwContext, dwOptions, szProperty, szValue, pcchValue);
+	public static extern uint32 MsiSourceListGetInfoA(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, PSTR szProperty, uint8* szValue, uint32* pcchValue);
+	public static uint32 MsiSourceListGetInfo(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, PSTR szProperty, uint8* szValue, uint32* pcchValue) => MsiSourceListGetInfoA(szProductCodeOrPatchCode, szUserSid, dwContext, dwOptions, szProperty, szValue, pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSourceListGetInfoW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, PWSTR szProperty, char16* szValue, uint32 pcchValue);
+	public static extern uint32 MsiSourceListGetInfoW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, PWSTR szProperty, char16* szValue, uint32* pcchValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSourceListEnumSourcesA(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint8* szSource, uint32 pcchSource);
-	public static uint32 MsiSourceListEnumSources(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint8* szSource, uint32 pcchSource) => MsiSourceListEnumSourcesA(szProductCodeOrPatchCode, szUserSid, dwContext, dwOptions, dwIndex, szSource, pcchSource);
+	public static extern uint32 MsiSourceListEnumSourcesA(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint8* szSource, uint32* pcchSource);
+	public static uint32 MsiSourceListEnumSources(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint8* szSource, uint32* pcchSource) => MsiSourceListEnumSourcesA(szProductCodeOrPatchCode, szUserSid, dwContext, dwOptions, dwIndex, szSource, pcchSource);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSourceListEnumSourcesW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, char16* szSource, uint32 pcchSource);
+	public static extern uint32 MsiSourceListEnumSourcesW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, char16* szSource, uint32* pcchSource);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSourceListEnumMediaDisksA(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint32 pdwDiskId, uint8* szVolumeLabel, uint32 pcchVolumeLabel, uint8* szDiskPrompt, uint32 pcchDiskPrompt);
-	public static uint32 MsiSourceListEnumMediaDisks(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint32 pdwDiskId, uint8* szVolumeLabel, uint32 pcchVolumeLabel, uint8* szDiskPrompt, uint32 pcchDiskPrompt) => MsiSourceListEnumMediaDisksA(szProductCodeOrPatchCode, szUserSid, dwContext, dwOptions, dwIndex, pdwDiskId, szVolumeLabel, pcchVolumeLabel, szDiskPrompt, pcchDiskPrompt);
+	public static extern uint32 MsiSourceListEnumMediaDisksA(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint32* pdwDiskId, uint8* szVolumeLabel, uint32* pcchVolumeLabel, uint8* szDiskPrompt, uint32* pcchDiskPrompt);
+	public static uint32 MsiSourceListEnumMediaDisks(PSTR szProductCodeOrPatchCode, PSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint32* pdwDiskId, uint8* szVolumeLabel, uint32* pcchVolumeLabel, uint8* szDiskPrompt, uint32* pcchDiskPrompt) => MsiSourceListEnumMediaDisksA(szProductCodeOrPatchCode, szUserSid, dwContext, dwOptions, dwIndex, pdwDiskId, szVolumeLabel, pcchVolumeLabel, szDiskPrompt, pcchDiskPrompt);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSourceListEnumMediaDisksW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint32 pdwDiskId, char16* szVolumeLabel, uint32 pcchVolumeLabel, char16* szDiskPrompt, uint32 pcchDiskPrompt);
+	public static extern uint32 MsiSourceListEnumMediaDisksW(PWSTR szProductCodeOrPatchCode, PWSTR szUserSid, MSIINSTALLCONTEXT dwContext, uint32 dwOptions, uint32 dwIndex, uint32* pdwDiskId, char16* szVolumeLabel, uint32* pcchVolumeLabel, char16* szDiskPrompt, uint32* pcchDiskPrompt);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFileVersionA(PSTR szFilePath, uint8* lpVersionBuf, uint32 pcchVersionBuf, uint8* lpLangBuf, uint32 pcchLangBuf);
-	public static uint32 MsiGetFileVersion(PSTR szFilePath, uint8* lpVersionBuf, uint32 pcchVersionBuf, uint8* lpLangBuf, uint32 pcchLangBuf) => MsiGetFileVersionA(szFilePath, lpVersionBuf, pcchVersionBuf, lpLangBuf, pcchLangBuf);
+	public static extern uint32 MsiGetFileVersionA(PSTR szFilePath, uint8* lpVersionBuf, uint32* pcchVersionBuf, uint8* lpLangBuf, uint32* pcchLangBuf);
+	public static uint32 MsiGetFileVersion(PSTR szFilePath, uint8* lpVersionBuf, uint32* pcchVersionBuf, uint8* lpLangBuf, uint32* pcchLangBuf) => MsiGetFileVersionA(szFilePath, lpVersionBuf, pcchVersionBuf, lpLangBuf, pcchLangBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFileVersionW(PWSTR szFilePath, char16* lpVersionBuf, uint32 pcchVersionBuf, char16* lpLangBuf, uint32 pcchLangBuf);
+	public static extern uint32 MsiGetFileVersionW(PWSTR szFilePath, char16* lpVersionBuf, uint32* pcchVersionBuf, char16* lpLangBuf, uint32* pcchLangBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiGetFileHashA(PSTR szFilePath, uint32 dwOptions, MSIFILEHASHINFO* pHash);
@@ -4332,11 +4332,11 @@ public static
 	public static extern uint32 MsiGetFileHashW(PWSTR szFilePath, uint32 dwOptions, MSIFILEHASHINFO* pHash);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MsiGetFileSignatureInformationA(PSTR szSignedObjectPath, uint32 dwFlags, CERT_CONTEXT** ppcCertContext, uint8 pbHashData, uint32 pcbHashData);
-	public static HRESULT MsiGetFileSignatureInformation(PSTR szSignedObjectPath, uint32 dwFlags, CERT_CONTEXT** ppcCertContext, uint8 pbHashData, uint32 pcbHashData) => MsiGetFileSignatureInformationA(szSignedObjectPath, dwFlags, ppcCertContext, pbHashData, pcbHashData);
+	public static extern HRESULT MsiGetFileSignatureInformationA(PSTR szSignedObjectPath, uint32 dwFlags, CERT_CONTEXT** ppcCertContext, uint8* pbHashData, uint32* pcbHashData);
+	public static HRESULT MsiGetFileSignatureInformation(PSTR szSignedObjectPath, uint32 dwFlags, CERT_CONTEXT** ppcCertContext, uint8* pbHashData, uint32* pcbHashData) => MsiGetFileSignatureInformationA(szSignedObjectPath, dwFlags, ppcCertContext, pbHashData, pcbHashData);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MsiGetFileSignatureInformationW(PWSTR szSignedObjectPath, uint32 dwFlags, CERT_CONTEXT** ppcCertContext, uint8 pbHashData, uint32 pcbHashData);
+	public static extern HRESULT MsiGetFileSignatureInformationW(PWSTR szSignedObjectPath, uint32 dwFlags, CERT_CONTEXT** ppcCertContext, uint8* pbHashData, uint32* pcbHashData);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiGetShortcutTargetA(PSTR szShortcutPath, PSTR szProductCode, PSTR szFeatureId, PSTR szComponentCode);
@@ -4380,11 +4380,11 @@ public static
 	public static extern uint32 MsiDatabaseOpenViewW(MSIHANDLE hDatabase, PWSTR szQuery, MSIHANDLE* phView);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern MSIDBERROR MsiViewGetErrorA(MSIHANDLE hView, uint8* szColumnNameBuffer, uint32 pcchBuf);
-	public static MSIDBERROR MsiViewGetError(MSIHANDLE hView, uint8* szColumnNameBuffer, uint32 pcchBuf) => MsiViewGetErrorA(hView, szColumnNameBuffer, pcchBuf);
+	public static extern MSIDBERROR MsiViewGetErrorA(MSIHANDLE hView, uint8* szColumnNameBuffer, uint32* pcchBuf);
+	public static MSIDBERROR MsiViewGetError(MSIHANDLE hView, uint8* szColumnNameBuffer, uint32* pcchBuf) => MsiViewGetErrorA(hView, szColumnNameBuffer, pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern MSIDBERROR MsiViewGetErrorW(MSIHANDLE hView, char16* szColumnNameBuffer, uint32 pcchBuf);
+	public static extern MSIDBERROR MsiViewGetErrorW(MSIHANDLE hView, char16* szColumnNameBuffer, uint32* pcchBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiViewExecute(MSIHANDLE hView, MSIHANDLE hRecord);
@@ -4423,7 +4423,7 @@ public static
 	public static extern uint32 MsiGetSummaryInformationW(MSIHANDLE hDatabase, PWSTR szDatabasePath, uint32 uiUpdateCount, MSIHANDLE* phSummaryInfo);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSummaryInfoGetPropertyCount(MSIHANDLE hSummaryInfo, uint32 puiPropertyCount);
+	public static extern uint32 MsiSummaryInfoGetPropertyCount(MSIHANDLE hSummaryInfo, uint32* puiPropertyCount);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSummaryInfoSetPropertyA(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32 uiDataType, int32 iValue, FILETIME* pftValue, PSTR szValue);
@@ -4433,11 +4433,11 @@ public static
 	public static extern uint32 MsiSummaryInfoSetPropertyW(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32 uiDataType, int32 iValue, FILETIME* pftValue, PWSTR szValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSummaryInfoGetPropertyA(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32 puiDataType, int32 piValue, FILETIME* pftValue, uint8* szValueBuf, uint32 pcchValueBuf);
-	public static uint32 MsiSummaryInfoGetProperty(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32 puiDataType, int32 piValue, FILETIME* pftValue, uint8* szValueBuf, uint32 pcchValueBuf) => MsiSummaryInfoGetPropertyA(hSummaryInfo, uiProperty, puiDataType, piValue, pftValue, szValueBuf, pcchValueBuf);
+	public static extern uint32 MsiSummaryInfoGetPropertyA(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32* puiDataType, int32* piValue, FILETIME* pftValue, uint8* szValueBuf, uint32* pcchValueBuf);
+	public static uint32 MsiSummaryInfoGetProperty(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32* puiDataType, int32* piValue, FILETIME* pftValue, uint8* szValueBuf, uint32* pcchValueBuf) => MsiSummaryInfoGetPropertyA(hSummaryInfo, uiProperty, puiDataType, piValue, pftValue, szValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiSummaryInfoGetPropertyW(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32 puiDataType, int32 piValue, FILETIME* pftValue, char16* szValueBuf, uint32 pcchValueBuf);
+	public static extern uint32 MsiSummaryInfoGetPropertyW(MSIHANDLE hSummaryInfo, uint32 uiProperty, uint32* puiDataType, int32* piValue, FILETIME* pftValue, char16* szValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSummaryInfoPersist(MSIHANDLE hSummaryInfo);
@@ -4520,11 +4520,11 @@ public static
 	public static extern int32 MsiRecordGetInteger(MSIHANDLE hRecord, uint32 iField);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiRecordGetStringA(MSIHANDLE hRecord, uint32 iField, uint8* szValueBuf, uint32 pcchValueBuf);
-	public static uint32 MsiRecordGetString(MSIHANDLE hRecord, uint32 iField, uint8* szValueBuf, uint32 pcchValueBuf) => MsiRecordGetStringA(hRecord, iField, szValueBuf, pcchValueBuf);
+	public static extern uint32 MsiRecordGetStringA(MSIHANDLE hRecord, uint32 iField, uint8* szValueBuf, uint32* pcchValueBuf);
+	public static uint32 MsiRecordGetString(MSIHANDLE hRecord, uint32 iField, uint8* szValueBuf, uint32* pcchValueBuf) => MsiRecordGetStringA(hRecord, iField, szValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiRecordGetStringW(MSIHANDLE hRecord, uint32 iField, char16* szValueBuf, uint32 pcchValueBuf);
+	public static extern uint32 MsiRecordGetStringW(MSIHANDLE hRecord, uint32 iField, char16* szValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiRecordGetFieldCount(MSIHANDLE hRecord);
@@ -4537,7 +4537,7 @@ public static
 	public static extern uint32 MsiRecordSetStreamW(MSIHANDLE hRecord, uint32 iField, PWSTR szFilePath);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiRecordReadStream(MSIHANDLE hRecord, uint32 iField, PSTR szDataBuf, uint32 pcbDataBuf);
+	public static extern uint32 MsiRecordReadStream(MSIHANDLE hRecord, uint32 iField, PSTR szDataBuf, uint32* pcbDataBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiRecordClearData(MSIHANDLE hRecord);
@@ -4553,11 +4553,11 @@ public static
 	public static extern uint32 MsiSetPropertyW(MSIHANDLE hInstall, PWSTR szName, PWSTR szValue);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPropertyA(MSIHANDLE hInstall, PSTR szName, uint8* szValueBuf, uint32 pcchValueBuf);
-	public static uint32 MsiGetProperty(MSIHANDLE hInstall, PSTR szName, uint8* szValueBuf, uint32 pcchValueBuf) => MsiGetPropertyA(hInstall, szName, szValueBuf, pcchValueBuf);
+	public static extern uint32 MsiGetPropertyA(MSIHANDLE hInstall, PSTR szName, uint8* szValueBuf, uint32* pcchValueBuf);
+	public static uint32 MsiGetProperty(MSIHANDLE hInstall, PSTR szName, uint8* szValueBuf, uint32* pcchValueBuf) => MsiGetPropertyA(hInstall, szName, szValueBuf, pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetPropertyW(MSIHANDLE hInstall, PWSTR szName, char16* szValueBuf, uint32 pcchValueBuf);
+	public static extern uint32 MsiGetPropertyW(MSIHANDLE hInstall, PWSTR szName, char16* szValueBuf, uint32* pcchValueBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 MsiGetLanguage(MSIHANDLE hInstall);
@@ -4569,11 +4569,11 @@ public static
 	public static extern uint32 MsiSetMode(MSIHANDLE hInstall, MSIRUNMODE eRunMode, BOOL fState);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiFormatRecordA(MSIHANDLE hInstall, MSIHANDLE hRecord, uint8* szResultBuf, uint32 pcchResultBuf);
-	public static uint32 MsiFormatRecord(MSIHANDLE hInstall, MSIHANDLE hRecord, uint8* szResultBuf, uint32 pcchResultBuf) => MsiFormatRecordA(hInstall, hRecord, szResultBuf, pcchResultBuf);
+	public static extern uint32 MsiFormatRecordA(MSIHANDLE hInstall, MSIHANDLE hRecord, uint8* szResultBuf, uint32* pcchResultBuf);
+	public static uint32 MsiFormatRecord(MSIHANDLE hInstall, MSIHANDLE hRecord, uint8* szResultBuf, uint32* pcchResultBuf) => MsiFormatRecordA(hInstall, hRecord, szResultBuf, pcchResultBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiFormatRecordW(MSIHANDLE hInstall, MSIHANDLE hRecord, char16* szResultBuf, uint32 pcchResultBuf);
+	public static extern uint32 MsiFormatRecordW(MSIHANDLE hInstall, MSIHANDLE hRecord, char16* szResultBuf, uint32* pcchResultBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiDoActionA(MSIHANDLE hInstall, PSTR szAction);
@@ -4635,42 +4635,42 @@ public static
 	public static extern uint32 MsiSetComponentStateW(MSIHANDLE hInstall, PWSTR szComponent, INSTALLSTATE iState);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFeatureCostA(MSIHANDLE hInstall, PSTR szFeature, MSICOSTTREE iCostTree, INSTALLSTATE iState, int32 piCost);
-	public static uint32 MsiGetFeatureCost(MSIHANDLE hInstall, PSTR szFeature, MSICOSTTREE iCostTree, INSTALLSTATE iState, int32 piCost) => MsiGetFeatureCostA(hInstall, szFeature, iCostTree, iState, piCost);
+	public static extern uint32 MsiGetFeatureCostA(MSIHANDLE hInstall, PSTR szFeature, MSICOSTTREE iCostTree, INSTALLSTATE iState, int32* piCost);
+	public static uint32 MsiGetFeatureCost(MSIHANDLE hInstall, PSTR szFeature, MSICOSTTREE iCostTree, INSTALLSTATE iState, int32* piCost) => MsiGetFeatureCostA(hInstall, szFeature, iCostTree, iState, piCost);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFeatureCostW(MSIHANDLE hInstall, PWSTR szFeature, MSICOSTTREE iCostTree, INSTALLSTATE iState, int32 piCost);
+	public static extern uint32 MsiGetFeatureCostW(MSIHANDLE hInstall, PWSTR szFeature, MSICOSTTREE iCostTree, INSTALLSTATE iState, int32* piCost);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumComponentCostsA(MSIHANDLE hInstall, PSTR szComponent, uint32 dwIndex, INSTALLSTATE iState, uint8* szDriveBuf, uint32 pcchDriveBuf, int32 piCost, int32 piTempCost);
-	public static uint32 MsiEnumComponentCosts(MSIHANDLE hInstall, PSTR szComponent, uint32 dwIndex, INSTALLSTATE iState, uint8* szDriveBuf, uint32 pcchDriveBuf, int32 piCost, int32 piTempCost) => MsiEnumComponentCostsA(hInstall, szComponent, dwIndex, iState, szDriveBuf, pcchDriveBuf, piCost, piTempCost);
+	public static extern uint32 MsiEnumComponentCostsA(MSIHANDLE hInstall, PSTR szComponent, uint32 dwIndex, INSTALLSTATE iState, uint8* szDriveBuf, uint32* pcchDriveBuf, int32* piCost, int32* piTempCost);
+	public static uint32 MsiEnumComponentCosts(MSIHANDLE hInstall, PSTR szComponent, uint32 dwIndex, INSTALLSTATE iState, uint8* szDriveBuf, uint32* pcchDriveBuf, int32* piCost, int32* piTempCost) => MsiEnumComponentCostsA(hInstall, szComponent, dwIndex, iState, szDriveBuf, pcchDriveBuf, piCost, piTempCost);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnumComponentCostsW(MSIHANDLE hInstall, PWSTR szComponent, uint32 dwIndex, INSTALLSTATE iState, char16* szDriveBuf, uint32 pcchDriveBuf, int32 piCost, int32 piTempCost);
+	public static extern uint32 MsiEnumComponentCostsW(MSIHANDLE hInstall, PWSTR szComponent, uint32 dwIndex, INSTALLSTATE iState, char16* szDriveBuf, uint32* pcchDriveBuf, int32* piCost, int32* piTempCost);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSetInstallLevel(MSIHANDLE hInstall, int32 iInstallLevel);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFeatureValidStatesA(MSIHANDLE hInstall, PSTR szFeature, uint32 lpInstallStates);
-	public static uint32 MsiGetFeatureValidStates(MSIHANDLE hInstall, PSTR szFeature, uint32 lpInstallStates) => MsiGetFeatureValidStatesA(hInstall, szFeature, lpInstallStates);
+	public static extern uint32 MsiGetFeatureValidStatesA(MSIHANDLE hInstall, PSTR szFeature, uint32* lpInstallStates);
+	public static uint32 MsiGetFeatureValidStates(MSIHANDLE hInstall, PSTR szFeature, uint32* lpInstallStates) => MsiGetFeatureValidStatesA(hInstall, szFeature, lpInstallStates);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetFeatureValidStatesW(MSIHANDLE hInstall, PWSTR szFeature, uint32 lpInstallStates);
+	public static extern uint32 MsiGetFeatureValidStatesW(MSIHANDLE hInstall, PWSTR szFeature, uint32* lpInstallStates);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetSourcePathA(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32 pcchPathBuf);
-	public static uint32 MsiGetSourcePath(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32 pcchPathBuf) => MsiGetSourcePathA(hInstall, szFolder, szPathBuf, pcchPathBuf);
+	public static extern uint32 MsiGetSourcePathA(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32* pcchPathBuf);
+	public static uint32 MsiGetSourcePath(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32* pcchPathBuf) => MsiGetSourcePathA(hInstall, szFolder, szPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetSourcePathW(MSIHANDLE hInstall, PWSTR szFolder, char16* szPathBuf, uint32 pcchPathBuf);
+	public static extern uint32 MsiGetSourcePathW(MSIHANDLE hInstall, PWSTR szFolder, char16* szPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetTargetPathA(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32 pcchPathBuf);
-	public static uint32 MsiGetTargetPath(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32 pcchPathBuf) => MsiGetTargetPathA(hInstall, szFolder, szPathBuf, pcchPathBuf);
+	public static extern uint32 MsiGetTargetPathA(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32* pcchPathBuf);
+	public static uint32 MsiGetTargetPath(MSIHANDLE hInstall, PSTR szFolder, uint8* szPathBuf, uint32* pcchPathBuf) => MsiGetTargetPathA(hInstall, szFolder, szPathBuf, pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiGetTargetPathW(MSIHANDLE hInstall, PWSTR szFolder, char16* szPathBuf, uint32 pcchPathBuf);
+	public static extern uint32 MsiGetTargetPathW(MSIHANDLE hInstall, PWSTR szFolder, char16* szPathBuf, uint32* pcchPathBuf);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MsiSetTargetPathA(MSIHANDLE hInstall, PSTR szFolder, PSTR szFolderPath);
@@ -4755,7 +4755,7 @@ public static
 	public static extern BOOL TestApplyPatchToFileByHandles(HANDLE PatchFileHandle, HANDLE OldFileHandle, uint32 ApplyOptionFlags);
 
 	[Import("mspatcha.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL TestApplyPatchToFileByBuffers(uint8 PatchFileBuffer, uint32 PatchFileSize, uint8 OldFileBuffer, uint32 OldFileSize, uint32 NewFileSize, uint32 ApplyOptionFlags);
+	public static extern BOOL TestApplyPatchToFileByBuffers(uint8* PatchFileBuffer, uint32 PatchFileSize, uint8* OldFileBuffer, uint32 OldFileSize, uint32* NewFileSize, uint32 ApplyOptionFlags);
 
 	[Import("mspatcha.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ApplyPatchToFileA(PSTR PatchFileName, PSTR OldFileName, PSTR NewFileName, uint32 ApplyOptionFlags);
@@ -4778,7 +4778,7 @@ public static
 	public static extern BOOL ApplyPatchToFileByHandlesEx(HANDLE PatchFileHandle, HANDLE OldFileHandle, HANDLE NewFileHandle, uint32 ApplyOptionFlags, PPATCH_PROGRESS_CALLBACK ProgressCallback, void* CallbackContext);
 
 	[Import("mspatcha.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ApplyPatchToFileByBuffers(uint8 PatchFileMapped, uint32 PatchFileSize, uint8 OldFileMapped, uint32 OldFileSize, uint8** NewFileBuffer, uint32 NewFileBufferSize, uint32 NewFileActualSize, FILETIME* NewFileTime, uint32 ApplyOptionFlags, PPATCH_PROGRESS_CALLBACK ProgressCallback, void* CallbackContext);
+	public static extern BOOL ApplyPatchToFileByBuffers(uint8* PatchFileMapped, uint32 PatchFileSize, uint8* OldFileMapped, uint32 OldFileSize, uint8** NewFileBuffer, uint32 NewFileBufferSize, uint32* NewFileActualSize, FILETIME* NewFileTime, uint32 ApplyOptionFlags, PPATCH_PROGRESS_CALLBACK ProgressCallback, void* CallbackContext);
 
 	[Import("mspatcha.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetFilePatchSignatureA(PSTR FileName, uint32 OptionFlags, void* OptionData, uint32 IgnoreRangeCount, PATCH_IGNORE_RANGE* IgnoreRangeArray, uint32 RetainRangeCount, PATCH_RETAIN_RANGE* RetainRangeArray, uint32 SignatureBufferSize, PSTR SignatureBuffer);
@@ -4791,7 +4791,7 @@ public static
 	public static extern BOOL GetFilePatchSignatureByHandle(HANDLE FileHandle, uint32 OptionFlags, void* OptionData, uint32 IgnoreRangeCount, PATCH_IGNORE_RANGE* IgnoreRangeArray, uint32 RetainRangeCount, PATCH_RETAIN_RANGE* RetainRangeArray, uint32 SignatureBufferSize, PSTR SignatureBuffer);
 
 	[Import("mspatcha.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetFilePatchSignatureByBuffer(uint8 FileBufferWritable, uint32 FileSize, uint32 OptionFlags, void* OptionData, uint32 IgnoreRangeCount, PATCH_IGNORE_RANGE* IgnoreRangeArray, uint32 RetainRangeCount, PATCH_RETAIN_RANGE* RetainRangeArray, uint32 SignatureBufferSize, PSTR SignatureBuffer);
+	public static extern BOOL GetFilePatchSignatureByBuffer(uint8* FileBufferWritable, uint32 FileSize, uint32 OptionFlags, void* OptionData, uint32 IgnoreRangeCount, PATCH_IGNORE_RANGE* IgnoreRangeArray, uint32 RetainRangeCount, PATCH_RETAIN_RANGE* RetainRangeArray, uint32 SignatureBufferSize, PSTR SignatureBuffer);
 
 	[Import("mspatcha.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 NormalizeFileForPatchSignature(void* FileBuffer, uint32 FileSize, uint32 OptionFlags, PATCH_OPTION_DATA* OptionData, uint32 NewFileCoffBase, uint32 NewFileCoffTime, uint32 IgnoreRangeCount, PATCH_IGNORE_RANGE* IgnoreRangeArray, uint32 RetainRangeCount, PATCH_RETAIN_RANGE* RetainRangeArray);
@@ -4865,7 +4865,7 @@ public static
 	public static extern BOOL ZombifyActCtx(HANDLE hActCtx);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ActivateActCtx(HANDLE hActCtx, uint lpCookie);
+	public static extern BOOL ActivateActCtx(HANDLE hActCtx, uint* lpCookie);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeactivateActCtx(uint32 dwFlags, uint ulCookie);
@@ -4874,20 +4874,20 @@ public static
 	public static extern BOOL GetCurrentActCtx(HANDLE* lphActCtx);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindActCtxSectionStringA(uint32 dwFlags, Guid lpExtensionGuid, uint32 ulSectionId, PSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
-	public static BOOL FindActCtxSectionString(uint32 dwFlags, Guid lpExtensionGuid, uint32 ulSectionId, PSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData) => FindActCtxSectionStringA(dwFlags, lpExtensionGuid, ulSectionId, lpStringToFind, ReturnedData);
+	public static extern BOOL FindActCtxSectionStringA(uint32 dwFlags, ref Guid lpExtensionGuid, uint32 ulSectionId, PSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
+	public static BOOL FindActCtxSectionString(uint32 dwFlags, ref Guid lpExtensionGuid, uint32 ulSectionId, PSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData) => FindActCtxSectionStringA(dwFlags, ref lpExtensionGuid, ulSectionId, lpStringToFind, ReturnedData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindActCtxSectionStringW(uint32 dwFlags, Guid lpExtensionGuid, uint32 ulSectionId, PWSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
+	public static extern BOOL FindActCtxSectionStringW(uint32 dwFlags, ref Guid lpExtensionGuid, uint32 ulSectionId, PWSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindActCtxSectionGuid(uint32 dwFlags, Guid lpExtensionGuid, uint32 ulSectionId, Guid lpGuidToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
+	public static extern BOOL FindActCtxSectionGuid(uint32 dwFlags, ref Guid lpExtensionGuid, uint32 ulSectionId, ref Guid lpGuidToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryActCtxW(uint32 dwFlags, HANDLE hActCtx, void* pvSubInstance, uint32 ulInfoClass, void* pvBuffer, uint cbBuffer, uint pcbWrittenOrRequired);
+	public static extern BOOL QueryActCtxW(uint32 dwFlags, HANDLE hActCtx, void* pvSubInstance, uint32 ulInfoClass, void* pvBuffer, uint cbBuffer, uint* pcbWrittenOrRequired);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryActCtxSettingsW(uint32 dwFlags, HANDLE hActCtx, PWSTR settingsNameSpace, PWSTR settingName, PWSTR pvBuffer, uint dwBuffer, uint pdwWrittenOrRequired);
+	public static extern BOOL QueryActCtxSettingsW(uint32 dwFlags, HANDLE hActCtx, PWSTR settingsNameSpace, PWSTR settingName, PWSTR pvBuffer, uint dwBuffer, uint* pdwWrittenOrRequired);
 
 }
 #endregion

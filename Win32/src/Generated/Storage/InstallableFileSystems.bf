@@ -499,52 +499,52 @@ public static
 	public static extern HRESULT FilterDetach(PWSTR lpFilterName, PWSTR lpVolumeName, PWSTR lpInstanceName);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterFindFirst(FILTER_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32 lpBytesReturned, FilterFindHandle* lpFilterFind);
+	public static extern HRESULT FilterFindFirst(FILTER_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32* lpBytesReturned, FilterFindHandle* lpFilterFind);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterFindNext(HANDLE hFilterFind, FILTER_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32 lpBytesReturned);
+	public static extern HRESULT FilterFindNext(HANDLE hFilterFind, FILTER_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32* lpBytesReturned);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT FilterFindClose(HANDLE hFilterFind);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterVolumeFindFirst(FILTER_VOLUME_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32 lpBytesReturned, FilterVolumeFindHandle* lpVolumeFind);
+	public static extern HRESULT FilterVolumeFindFirst(FILTER_VOLUME_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32* lpBytesReturned, FilterVolumeFindHandle* lpVolumeFind);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterVolumeFindNext(HANDLE hVolumeFind, FILTER_VOLUME_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32 lpBytesReturned);
+	public static extern HRESULT FilterVolumeFindNext(HANDLE hVolumeFind, FILTER_VOLUME_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32* lpBytesReturned);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT FilterVolumeFindClose(HANDLE hVolumeFind);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterInstanceFindFirst(PWSTR lpFilterName, INSTANCE_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32 lpBytesReturned, FilterInstanceFindHandle* lpFilterInstanceFind);
+	public static extern HRESULT FilterInstanceFindFirst(PWSTR lpFilterName, INSTANCE_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32* lpBytesReturned, FilterInstanceFindHandle* lpFilterInstanceFind);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterInstanceFindNext(HANDLE hFilterInstanceFind, INSTANCE_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32 lpBytesReturned);
+	public static extern HRESULT FilterInstanceFindNext(HANDLE hFilterInstanceFind, INSTANCE_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32* lpBytesReturned);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT FilterInstanceFindClose(HANDLE hFilterInstanceFind);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterVolumeInstanceFindFirst(PWSTR lpVolumeName, INSTANCE_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32 lpBytesReturned, FilterVolumeInstanceFindHandle* lpVolumeInstanceFind);
+	public static extern HRESULT FilterVolumeInstanceFindFirst(PWSTR lpVolumeName, INSTANCE_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32* lpBytesReturned, FilterVolumeInstanceFindHandle* lpVolumeInstanceFind);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterVolumeInstanceFindNext(HANDLE hVolumeInstanceFind, INSTANCE_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32 lpBytesReturned);
+	public static extern HRESULT FilterVolumeInstanceFindNext(HANDLE hVolumeInstanceFind, INSTANCE_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32* lpBytesReturned);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT FilterVolumeInstanceFindClose(HANDLE hVolumeInstanceFind);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterGetInformation(HFILTER hFilter, FILTER_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32 lpBytesReturned);
+	public static extern HRESULT FilterGetInformation(HFILTER hFilter, FILTER_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32* lpBytesReturned);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterInstanceGetInformation(HFILTER_INSTANCE hInstance, INSTANCE_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32 lpBytesReturned);
+	public static extern HRESULT FilterInstanceGetInformation(HFILTER_INSTANCE hInstance, INSTANCE_INFORMATION_CLASS dwInformationClass, void* lpBuffer, uint32 dwBufferSize, uint32* lpBytesReturned);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT FilterConnectCommunicationPort(PWSTR lpPortName, uint32 dwOptions, void* lpContext, uint16 wSizeOfContext, SECURITY_ATTRIBUTES* lpSecurityAttributes, HANDLE* hPort);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FilterSendMessage(HANDLE hPort, void* lpInBuffer, uint32 dwInBufferSize, void* lpOutBuffer, uint32 dwOutBufferSize, uint32 lpBytesReturned);
+	public static extern HRESULT FilterSendMessage(HANDLE hPort, void* lpInBuffer, uint32 dwInBufferSize, void* lpOutBuffer, uint32 dwOutBufferSize, uint32* lpBytesReturned);
 
 	[Import("FLTLIB.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT FilterGetMessage(HANDLE hPort, FILTER_MESSAGE_HEADER* lpMessageBuffer, uint32 dwMessageBufferSize, OVERLAPPED* lpOverlapped);

@@ -607,7 +607,7 @@ public enum WDSTRANSPORT_TFTP_CAPABILITY : int32
 #endregion
 
 #region Function Pointers
-public function void PFN_WdsCliTraceFunction(PWSTR pwszFormat, int8 Params);
+public function void PFN_WdsCliTraceFunction(PWSTR pwszFormat, int8* Params);
 
 public function void PFN_WdsCliCallback(PFN_WDS_CLI_CALLBACK_MESSAGE_ID dwMessageId, WPARAM wParam, LPARAM lParam, void* pvUserData);
 
@@ -870,14 +870,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbDirty) get_Dirty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbDirty) get_Dirty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Discard;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Commit;
 	}
 
 
-	public HRESULT get_Dirty(int16 pbDirty) mut => VT.[Friend]get_Dirty(&this, pbDirty);
+	public HRESULT get_Dirty(int16* pbDirty) mut => VT.[Friend]get_Dirty(&this, pbDirty);
 
 	public HRESULT Discard() mut => VT.[Friend]Discard(&this);
 
@@ -894,13 +894,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulIndex, IDispatch** ppVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppVal) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(uint32 pulCount) mut => VT.[Friend]get_Count(&this, pulCount);
+	public HRESULT get_Count(uint32* pulCount) mut => VT.[Friend]get_Count(&this, pulCount);
 
 	public HRESULT get_Item(uint32 ulIndex, IDispatch** ppVal) mut => VT.[Friend]get_Item(&this, ulIndex, ppVal);
 
@@ -972,19 +972,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pullVersion) get_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulInstalledFeatures) get_InstalledFeatures;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulProtocols) get_Protocols;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullVersion) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulInstalledFeatures) get_InstalledFeatures;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulProtocols) get_Protocols;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszName, BSTR bszDescription, BSTR bszFilePath, BSTR bszInitializationRoutine) RegisterContentProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszName) DeregisterContentProvider;
 	}
 
 
-	public HRESULT get_Version(uint64 pullVersion) mut => VT.[Friend]get_Version(&this, pullVersion);
+	public HRESULT get_Version(uint64* pullVersion) mut => VT.[Friend]get_Version(&this, pullVersion);
 
-	public HRESULT get_InstalledFeatures(uint32 pulInstalledFeatures) mut => VT.[Friend]get_InstalledFeatures(&this, pulInstalledFeatures);
+	public HRESULT get_InstalledFeatures(uint32* pulInstalledFeatures) mut => VT.[Friend]get_InstalledFeatures(&this, pulInstalledFeatures);
 
-	public HRESULT get_Protocols(uint32 pulProtocols) mut => VT.[Friend]get_Protocols(&this, pulProtocols);
+	public HRESULT get_Protocols(uint32* pulProtocols) mut => VT.[Friend]get_Protocols(&this, pulProtocols);
 
 	public HRESULT RegisterContentProvider(BSTR bszName, BSTR bszDescription, BSTR bszFilePath, BSTR bszInitializationRoutine) mut => VT.[Friend]RegisterContentProvider(&this, bszName, bszDescription, bszFilePath, bszInitializationRoutine);
 
@@ -999,12 +999,12 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportSetupManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulTftpCapabilities) get_TftpCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulTftpCapabilities) get_TftpCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportCollection** ppProviderCollection) get_ContentProviders;
 	}
 
 
-	public HRESULT get_TftpCapabilities(uint32 pulTftpCapabilities) mut => VT.[Friend]get_TftpCapabilities(&this, pulTftpCapabilities);
+	public HRESULT get_TftpCapabilities(uint32* pulTftpCapabilities) mut => VT.[Friend]get_TftpCapabilities(&this, pulTftpCapabilities);
 
 	public HRESULT get_ContentProviders(IWdsTransportCollection** ppProviderCollection) mut => VT.[Friend]get_ContentProviders(&this, ppProviderCollection);
 }
@@ -1019,7 +1019,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportServicePolicy** ppWdsTransportServicePolicy) get_ServicePolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportDiagnosticsPolicy** ppWdsTransportDiagnosticsPolicy) get_DiagnosticsPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bRealtimeStatus, int16 pbServicesRunning) get_WdsTransportServicesRunning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bRealtimeStatus, int16* pbServicesRunning) get_WdsTransportServicesRunning;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EnableWdsTransportServices;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisableWdsTransportServices;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StartWdsTransportServices;
@@ -1033,7 +1033,7 @@ public static
 
 	public HRESULT get_DiagnosticsPolicy(IWdsTransportDiagnosticsPolicy** ppWdsTransportDiagnosticsPolicy) mut => VT.[Friend]get_DiagnosticsPolicy(&this, ppWdsTransportDiagnosticsPolicy);
 
-	public HRESULT get_WdsTransportServicesRunning(int16 bRealtimeStatus, int16 pbServicesRunning) mut => VT.[Friend]get_WdsTransportServicesRunning(&this, bRealtimeStatus, pbServicesRunning);
+	public HRESULT get_WdsTransportServicesRunning(int16 bRealtimeStatus, int16* pbServicesRunning) mut => VT.[Friend]get_WdsTransportServicesRunning(&this, bRealtimeStatus, pbServicesRunning);
 
 	public HRESULT EnableWdsTransportServices() mut => VT.[Friend]EnableWdsTransportServices(&this);
 
@@ -1113,9 +1113,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR bszStartIpAddress) put_StartIpAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR* pbszEndIpAddress) get_EndIpAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR bszEndIpAddress) put_EndIpAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulStartPort) get_StartPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulStartPort) get_StartPort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStartPort) put_StartPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulEndPort) get_EndPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulEndPort) get_EndPort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulEndPort) put_EndPort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_NETWORK_PROFILE_TYPE* pProfileType) get_NetworkProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_NETWORK_PROFILE_TYPE ProfileType) put_NetworkProfile;
@@ -1134,11 +1134,11 @@ public static
 
 	public HRESULT put_EndIpAddress(WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR bszEndIpAddress) mut => VT.[Friend]put_EndIpAddress(&this, AddressType, bszEndIpAddress);
 
-	public HRESULT get_StartPort(uint32 pulStartPort) mut => VT.[Friend]get_StartPort(&this, pulStartPort);
+	public HRESULT get_StartPort(uint32* pulStartPort) mut => VT.[Friend]get_StartPort(&this, pulStartPort);
 
 	public HRESULT put_StartPort(uint32 ulStartPort) mut => VT.[Friend]put_StartPort(&this, ulStartPort);
 
-	public HRESULT get_EndPort(uint32 pulEndPort) mut => VT.[Friend]get_EndPort(&this, pulEndPort);
+	public HRESULT get_EndPort(uint32* pulEndPort) mut => VT.[Friend]get_EndPort(&this, pulEndPort);
 
 	public HRESULT put_EndPort(uint32 ulEndPort) mut => VT.[Friend]put_EndPort(&this, ulEndPort);
 
@@ -1157,9 +1157,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_UDP_PORT_POLICY* pUdpPortPolicy) get_UdpPortPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_UDP_PORT_POLICY UdpPortPolicy) put_UdpPortPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulTftpMaximumBlockSize) get_TftpMaximumBlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulTftpMaximumBlockSize) get_TftpMaximumBlockSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulTftpMaximumBlockSize) put_TftpMaximumBlockSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbEnableTftpVariableWindowExtension) get_EnableTftpVariableWindowExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbEnableTftpVariableWindowExtension) get_EnableTftpVariableWindowExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bEnableTftpVariableWindowExtension) put_EnableTftpVariableWindowExtension;
 	}
 
@@ -1168,11 +1168,11 @@ public static
 
 	public HRESULT put_UdpPortPolicy(WDSTRANSPORT_UDP_PORT_POLICY UdpPortPolicy) mut => VT.[Friend]put_UdpPortPolicy(&this, UdpPortPolicy);
 
-	public HRESULT get_TftpMaximumBlockSize(uint32 pulTftpMaximumBlockSize) mut => VT.[Friend]get_TftpMaximumBlockSize(&this, pulTftpMaximumBlockSize);
+	public HRESULT get_TftpMaximumBlockSize(uint32* pulTftpMaximumBlockSize) mut => VT.[Friend]get_TftpMaximumBlockSize(&this, pulTftpMaximumBlockSize);
 
 	public HRESULT put_TftpMaximumBlockSize(uint32 ulTftpMaximumBlockSize) mut => VT.[Friend]put_TftpMaximumBlockSize(&this, ulTftpMaximumBlockSize);
 
-	public HRESULT get_EnableTftpVariableWindowExtension(int16 pbEnableTftpVariableWindowExtension) mut => VT.[Friend]get_EnableTftpVariableWindowExtension(&this, pbEnableTftpVariableWindowExtension);
+	public HRESULT get_EnableTftpVariableWindowExtension(int16* pbEnableTftpVariableWindowExtension) mut => VT.[Friend]get_EnableTftpVariableWindowExtension(&this, pbEnableTftpVariableWindowExtension);
 
 	public HRESULT put_EnableTftpVariableWindowExtension(int16 bEnableTftpVariableWindowExtension) mut => VT.[Friend]put_EnableTftpVariableWindowExtension(&this, bEnableTftpVariableWindowExtension);
 }
@@ -1185,18 +1185,18 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportCacheable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbEnabled) get_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bEnabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulComponents) get_Components;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulComponents) get_Components;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulComponents) put_Components;
 	}
 
 
-	public HRESULT get_Enabled(int16 pbEnabled) mut => VT.[Friend]get_Enabled(&this, pbEnabled);
+	public HRESULT get_Enabled(int16* pbEnabled) mut => VT.[Friend]get_Enabled(&this, pbEnabled);
 
 	public HRESULT put_Enabled(int16 bEnabled) mut => VT.[Friend]put_Enabled(&this, bEnabled);
 
-	public HRESULT get_Components(uint32 pulComponents) mut => VT.[Friend]get_Components(&this, pulComponents);
+	public HRESULT get_Components(uint32* pulComponents) mut => VT.[Friend]get_Components(&this, pulComponents);
 
 	public HRESULT put_Components(uint32 ulComponents) mut => VT.[Friend]put_Components(&this, ulComponents);
 }
@@ -1211,11 +1211,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE* pSlowClientHandling) get_SlowClientHandling;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE SlowClientHandling) put_SlowClientHandling;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulThreshold) get_AutoDisconnectThreshold;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulThreshold) get_AutoDisconnectThreshold;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulThreshold) put_AutoDisconnectThreshold;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulStreamCount) get_MultistreamStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulStreamCount) get_MultistreamStreamCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStreamCount) put_MultistreamStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbClientFallback) get_SlowClientFallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbClientFallback) get_SlowClientFallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bClientFallback) put_SlowClientFallback;
 	}
 
@@ -1224,15 +1224,15 @@ public static
 
 	public HRESULT put_SlowClientHandling(WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE SlowClientHandling) mut => VT.[Friend]put_SlowClientHandling(&this, SlowClientHandling);
 
-	public HRESULT get_AutoDisconnectThreshold(uint32 pulThreshold) mut => VT.[Friend]get_AutoDisconnectThreshold(&this, pulThreshold);
+	public HRESULT get_AutoDisconnectThreshold(uint32* pulThreshold) mut => VT.[Friend]get_AutoDisconnectThreshold(&this, pulThreshold);
 
 	public HRESULT put_AutoDisconnectThreshold(uint32 ulThreshold) mut => VT.[Friend]put_AutoDisconnectThreshold(&this, ulThreshold);
 
-	public HRESULT get_MultistreamStreamCount(uint32 pulStreamCount) mut => VT.[Friend]get_MultistreamStreamCount(&this, pulStreamCount);
+	public HRESULT get_MultistreamStreamCount(uint32* pulStreamCount) mut => VT.[Friend]get_MultistreamStreamCount(&this, pulStreamCount);
 
 	public HRESULT put_MultistreamStreamCount(uint32 ulStreamCount) mut => VT.[Friend]put_MultistreamStreamCount(&this, ulStreamCount);
 
-	public HRESULT get_SlowClientFallback(int16 pbClientFallback) mut => VT.[Friend]get_SlowClientFallback(&this, pbClientFallback);
+	public HRESULT get_SlowClientFallback(int16* pbClientFallback) mut => VT.[Friend]get_SlowClientFallback(&this, pbClientFallback);
 
 	public HRESULT put_SlowClientFallback(int16 bClientFallback) mut => VT.[Friend]put_SlowClientFallback(&this, bClientFallback);
 }
@@ -1246,7 +1246,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_NAMESPACE_TYPE* pType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulId) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszName) put_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszFriendlyName) get_FriendlyName;
@@ -1257,10 +1257,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszContentProvider) put_ContentProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszConfiguration) get_Configuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszConfiguration) put_Configuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbRegistered) get_Registered;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbTombstoned) get_Tombstoned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pTombstoneTime) get_TombstoneTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbTransmissionStarted) get_TransmissionStarted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbRegistered) get_Registered;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbTombstoned) get_Tombstoned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pTombstoneTime) get_TombstoneTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbTransmissionStarted) get_TransmissionStarted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Register;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bTerminateSessions) Deregister;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportNamespace** ppWdsTransportNamespaceClone) Clone;
@@ -1271,7 +1271,7 @@ public static
 
 	public HRESULT get_Type(WDSTRANSPORT_NAMESPACE_TYPE* pType) mut => VT.[Friend]get_Type(&this, pType);
 
-	public HRESULT get_Id(uint32 pulId) mut => VT.[Friend]get_Id(&this, pulId);
+	public HRESULT get_Id(uint32* pulId) mut => VT.[Friend]get_Id(&this, pulId);
 
 	public HRESULT get_Name(BSTR* pbszName) mut => VT.[Friend]get_Name(&this, pbszName);
 
@@ -1293,13 +1293,13 @@ public static
 
 	public HRESULT put_Configuration(BSTR bszConfiguration) mut => VT.[Friend]put_Configuration(&this, bszConfiguration);
 
-	public HRESULT get_Registered(int16 pbRegistered) mut => VT.[Friend]get_Registered(&this, pbRegistered);
+	public HRESULT get_Registered(int16* pbRegistered) mut => VT.[Friend]get_Registered(&this, pbRegistered);
 
-	public HRESULT get_Tombstoned(int16 pbTombstoned) mut => VT.[Friend]get_Tombstoned(&this, pbTombstoned);
+	public HRESULT get_Tombstoned(int16* pbTombstoned) mut => VT.[Friend]get_Tombstoned(&this, pbTombstoned);
 
-	public HRESULT get_TombstoneTime(double pTombstoneTime) mut => VT.[Friend]get_TombstoneTime(&this, pTombstoneTime);
+	public HRESULT get_TombstoneTime(double* pTombstoneTime) mut => VT.[Friend]get_TombstoneTime(&this, pTombstoneTime);
 
-	public HRESULT get_TransmissionStarted(int16 pbTransmissionStarted) mut => VT.[Friend]get_TransmissionStarted(&this, pbTransmissionStarted);
+	public HRESULT get_TransmissionStarted(int16* pbTransmissionStarted) mut => VT.[Friend]get_TransmissionStarted(&this, pbTransmissionStarted);
 
 	public HRESULT Register() mut => VT.[Friend]Register(&this);
 
@@ -1359,18 +1359,18 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportNamespaceScheduledCast.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulMinimumClients) get_MinimumClients;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulMinimumClients) get_MinimumClients;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulMinimumClients) put_MinimumClients;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pStartTime) get_StartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pStartTime) get_StartTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double StartTime) put_StartTime;
 	}
 
 
-	public HRESULT get_MinimumClients(uint32 pulMinimumClients) mut => VT.[Friend]get_MinimumClients(&this, pulMinimumClients);
+	public HRESULT get_MinimumClients(uint32* pulMinimumClients) mut => VT.[Friend]get_MinimumClients(&this, pulMinimumClients);
 
 	public HRESULT put_MinimumClients(uint32 ulMinimumClients) mut => VT.[Friend]put_MinimumClients(&this, ulMinimumClients);
 
-	public HRESULT get_StartTime(double pStartTime) mut => VT.[Friend]get_StartTime(&this, pStartTime);
+	public HRESULT get_StartTime(double* pStartTime) mut => VT.[Friend]get_StartTime(&this, pStartTime);
 
 	public HRESULT put_StartTime(double StartTime) mut => VT.[Friend]put_StartTime(&this, StartTime);
 }
@@ -1384,7 +1384,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportNamespace** ppWdsTransportNamespace) get_Namespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulId) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportCollection** ppWdsTransportSessions) RetrieveSessions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Terminate;
@@ -1393,7 +1393,7 @@ public static
 
 	public HRESULT get_Namespace(IWdsTransportNamespace** ppWdsTransportNamespace) mut => VT.[Friend]get_Namespace(&this, ppWdsTransportNamespace);
 
-	public HRESULT get_Id(uint32 pulId) mut => VT.[Friend]get_Id(&this, pulId);
+	public HRESULT get_Id(uint32* pulId) mut => VT.[Friend]get_Id(&this, pulId);
 
 	public HRESULT get_Name(BSTR* pbszName) mut => VT.[Friend]get_Name(&this, pbszName);
 
@@ -1411,11 +1411,11 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportContent** ppWdsTransportContent) get_Content;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulId) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszNetworkInterfaceName) get_NetworkInterfaceName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszNetworkInterfaceAddress) get_NetworkInterfaceAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulTransferRate) get_TransferRate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulMasterClientId) get_MasterClientId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulTransferRate) get_TransferRate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulMasterClientId) get_MasterClientId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportCollection** ppWdsTransportClients) RetrieveClients;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Terminate;
 	}
@@ -1423,15 +1423,15 @@ public static
 
 	public HRESULT get_Content(IWdsTransportContent** ppWdsTransportContent) mut => VT.[Friend]get_Content(&this, ppWdsTransportContent);
 
-	public HRESULT get_Id(uint32 pulId) mut => VT.[Friend]get_Id(&this, pulId);
+	public HRESULT get_Id(uint32* pulId) mut => VT.[Friend]get_Id(&this, pulId);
 
 	public HRESULT get_NetworkInterfaceName(BSTR* pbszNetworkInterfaceName) mut => VT.[Friend]get_NetworkInterfaceName(&this, pbszNetworkInterfaceName);
 
 	public HRESULT get_NetworkInterfaceAddress(BSTR* pbszNetworkInterfaceAddress) mut => VT.[Friend]get_NetworkInterfaceAddress(&this, pbszNetworkInterfaceAddress);
 
-	public HRESULT get_TransferRate(uint32 pulTransferRate) mut => VT.[Friend]get_TransferRate(&this, pulTransferRate);
+	public HRESULT get_TransferRate(uint32* pulTransferRate) mut => VT.[Friend]get_TransferRate(&this, pulTransferRate);
 
-	public HRESULT get_MasterClientId(uint32 pulMasterClientId) mut => VT.[Friend]get_MasterClientId(&this, pulMasterClientId);
+	public HRESULT get_MasterClientId(uint32* pulMasterClientId) mut => VT.[Friend]get_MasterClientId(&this, pulMasterClientId);
 
 	public HRESULT RetrieveClients(IWdsTransportCollection** ppWdsTransportClients) mut => VT.[Friend]RetrieveClients(&this, ppWdsTransportClients);
 
@@ -1447,15 +1447,15 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportSession** ppWdsTransportSession) get_Session;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulId) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszMacAddress) get_MacAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszIpAddress) get_IpAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulPercentCompletion) get_PercentCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulJoinDuration) get_JoinDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulCpuUtilization) get_CpuUtilization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulMemoryUtilization) get_MemoryUtilization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulNetworkUtilization) get_NetworkUtilization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulPercentCompletion) get_PercentCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulJoinDuration) get_JoinDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulCpuUtilization) get_CpuUtilization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulMemoryUtilization) get_MemoryUtilization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulNetworkUtilization) get_NetworkUtilization;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszUserIdentity) get_UserIdentity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_DISCONNECT_TYPE DisconnectionType) Disconnect;
 	}
@@ -1463,7 +1463,7 @@ public static
 
 	public HRESULT get_Session(IWdsTransportSession** ppWdsTransportSession) mut => VT.[Friend]get_Session(&this, ppWdsTransportSession);
 
-	public HRESULT get_Id(uint32 pulId) mut => VT.[Friend]get_Id(&this, pulId);
+	public HRESULT get_Id(uint32* pulId) mut => VT.[Friend]get_Id(&this, pulId);
 
 	public HRESULT get_Name(BSTR* pbszName) mut => VT.[Friend]get_Name(&this, pbszName);
 
@@ -1471,15 +1471,15 @@ public static
 
 	public HRESULT get_IpAddress(BSTR* pbszIpAddress) mut => VT.[Friend]get_IpAddress(&this, pbszIpAddress);
 
-	public HRESULT get_PercentCompletion(uint32 pulPercentCompletion) mut => VT.[Friend]get_PercentCompletion(&this, pulPercentCompletion);
+	public HRESULT get_PercentCompletion(uint32* pulPercentCompletion) mut => VT.[Friend]get_PercentCompletion(&this, pulPercentCompletion);
 
-	public HRESULT get_JoinDuration(uint32 pulJoinDuration) mut => VT.[Friend]get_JoinDuration(&this, pulJoinDuration);
+	public HRESULT get_JoinDuration(uint32* pulJoinDuration) mut => VT.[Friend]get_JoinDuration(&this, pulJoinDuration);
 
-	public HRESULT get_CpuUtilization(uint32 pulCpuUtilization) mut => VT.[Friend]get_CpuUtilization(&this, pulCpuUtilization);
+	public HRESULT get_CpuUtilization(uint32* pulCpuUtilization) mut => VT.[Friend]get_CpuUtilization(&this, pulCpuUtilization);
 
-	public HRESULT get_MemoryUtilization(uint32 pulMemoryUtilization) mut => VT.[Friend]get_MemoryUtilization(&this, pulMemoryUtilization);
+	public HRESULT get_MemoryUtilization(uint32* pulMemoryUtilization) mut => VT.[Friend]get_MemoryUtilization(&this, pulMemoryUtilization);
 
-	public HRESULT get_NetworkUtilization(uint32 pulNetworkUtilization) mut => VT.[Friend]get_NetworkUtilization(&this, pulNetworkUtilization);
+	public HRESULT get_NetworkUtilization(uint32* pulNetworkUtilization) mut => VT.[Friend]get_NetworkUtilization(&this, pulNetworkUtilization);
 
 	public HRESULT get_UserIdentity(BSTR* pbszUserIdentity) mut => VT.[Friend]get_UserIdentity(&this, pbszUserIdentity);
 
@@ -1496,11 +1496,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszFileName) get_FileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszIpAddress) get_IpAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulTimeout) get_Timeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pul64CurrentOffset) get_CurrentFileOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pul64FileSize) get_FileSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulBlockSize) get_BlockSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulWindowSize) get_WindowSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulTimeout) get_Timeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pul64CurrentOffset) get_CurrentFileOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pul64FileSize) get_FileSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulBlockSize) get_BlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulWindowSize) get_WindowSize;
 	}
 
 
@@ -1508,15 +1508,15 @@ public static
 
 	public HRESULT get_IpAddress(BSTR* pbszIpAddress) mut => VT.[Friend]get_IpAddress(&this, pbszIpAddress);
 
-	public HRESULT get_Timeout(uint32 pulTimeout) mut => VT.[Friend]get_Timeout(&this, pulTimeout);
+	public HRESULT get_Timeout(uint32* pulTimeout) mut => VT.[Friend]get_Timeout(&this, pulTimeout);
 
-	public HRESULT get_CurrentFileOffset(uint64 pul64CurrentOffset) mut => VT.[Friend]get_CurrentFileOffset(&this, pul64CurrentOffset);
+	public HRESULT get_CurrentFileOffset(uint64* pul64CurrentOffset) mut => VT.[Friend]get_CurrentFileOffset(&this, pul64CurrentOffset);
 
-	public HRESULT get_FileSize(uint64 pul64FileSize) mut => VT.[Friend]get_FileSize(&this, pul64FileSize);
+	public HRESULT get_FileSize(uint64* pul64FileSize) mut => VT.[Friend]get_FileSize(&this, pul64FileSize);
 
-	public HRESULT get_BlockSize(uint32 pulBlockSize) mut => VT.[Friend]get_BlockSize(&this, pulBlockSize);
+	public HRESULT get_BlockSize(uint32* pulBlockSize) mut => VT.[Friend]get_BlockSize(&this, pulBlockSize);
 
-	public HRESULT get_WindowSize(uint32 pulWindowSize) mut => VT.[Friend]get_WindowSize(&this, pulWindowSize);
+	public HRESULT get_WindowSize(uint32* pulWindowSize) mut => VT.[Friend]get_WindowSize(&this, pulWindowSize);
 }
 
 [CRepr]struct IWdsTransportContentProvider : IDispatch
@@ -1564,7 +1564,7 @@ public static
 	public static extern HRESULT WdsCliFindNextImage(HANDLE Handle);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetEnumerationFlags(HANDLE Handle, uint32 pdwFlags);
+	public static extern HRESULT WdsCliGetEnumerationFlags(HANDLE Handle, uint32* pdwFlags);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsCliGetImageHandleFromFindHandle(HANDLE FindHandle, HANDLE* phImageHandle);
@@ -1594,13 +1594,13 @@ public static
 	public static extern HRESULT WdsCliGetImageType(HANDLE hIfh, WDS_CLI_IMAGE_TYPE* pImageType);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageFiles(HANDLE hIfh, PWSTR** pppwszFiles, uint32 pdwCount);
+	public static extern HRESULT WdsCliGetImageFiles(HANDLE hIfh, PWSTR** pppwszFiles, uint32* pdwCount);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsCliGetImageLanguage(HANDLE hIfh, PWSTR* ppwszValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageLanguages(HANDLE hIfh, int8*** pppszValues, uint32 pdwNumValues);
+	public static extern HRESULT WdsCliGetImageLanguages(HANDLE hIfh, int8*** pppszValues, uint32* pdwNumValues);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsCliGetImageVersion(HANDLE hIfh, PWSTR* ppwszValue);
@@ -1609,7 +1609,7 @@ public static
 	public static extern HRESULT WdsCliGetImagePath(HANDLE hIfh, PWSTR* ppwszValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageIndex(HANDLE hIfh, uint32 pdwValue);
+	public static extern HRESULT WdsCliGetImageIndex(HANDLE hIfh, uint32* pdwValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsCliGetImageArchitecture(HANDLE hIfh, CPU_ARCHITECTURE* pdwValue);
@@ -1618,7 +1618,7 @@ public static
 	public static extern HRESULT WdsCliGetImageLastModifiedTime(HANDLE hIfh, SYSTEMTIME** ppSysTimeValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageSize(HANDLE hIfh, uint64 pullValue);
+	public static extern HRESULT WdsCliGetImageSize(HANDLE hIfh, uint64* pullValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsCliGetImageHalName(HANDLE hIfh, PWSTR* ppwszValue);
@@ -1633,7 +1633,7 @@ public static
 	public static extern HRESULT WdsCliGetImageParameter(HANDLE hIfh, WDS_CLI_IMAGE_PARAM_TYPE ParamType, void* pResponse, uint32 uResponseLen);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetTransferSize(HANDLE hIfh, uint64 pullValue);
+	public static extern HRESULT WdsCliGetTransferSize(HANDLE hIfh, uint64* pullValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WdsCliSetTransferBufferSize(uint32 ulSizeInBytes);
@@ -1651,10 +1651,10 @@ public static
 	public static extern HRESULT WdsCliWaitForTransfer(HANDLE hTransfer);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliObtainDriverPackages(HANDLE hImage, PWSTR* ppwszServerName, PWSTR** pppwszDriverPackages, uint32 pulCount);
+	public static extern HRESULT WdsCliObtainDriverPackages(HANDLE hImage, PWSTR* ppwszServerName, PWSTR** pppwszDriverPackages, uint32* pulCount);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliObtainDriverPackagesEx(HANDLE hSession, PWSTR pwszMachineInfo, PWSTR* ppwszServerName, PWSTR** pppwszDriverPackages, uint32 pulCount);
+	public static extern HRESULT WdsCliObtainDriverPackagesEx(HANDLE hSession, PWSTR pwszMachineInfo, PWSTR* ppwszServerName, PWSTR** pppwszDriverPackages, uint32* pulCount);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsCliGetDriverQueryXml(PWSTR pwszWinDirPath, PWSTR* ppwszDriverQuery);
@@ -1666,7 +1666,7 @@ public static
 	public static extern uint32 PxeProviderUnRegister(PWSTR pszProviderName);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeProviderQueryIndex(PWSTR pszProviderName, uint32 puIndex);
+	public static extern uint32 PxeProviderQueryIndex(PWSTR pszProviderName, uint32* puIndex);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PxeProviderEnumFirst(HANDLE* phEnum);
@@ -1693,7 +1693,7 @@ public static
 	public static extern uint32 PxeTrace(HANDLE hProvider, uint32 Severity, PWSTR pszFormat);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeTraceV(HANDLE hProvider, uint32 Severity, PWSTR pszFormat, int8 Params);
+	public static extern uint32 PxeTraceV(HANDLE hProvider, uint32 Severity, PWSTR pszFormat, int8* Params);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* PxePacketAllocate(HANDLE hProvider, HANDLE hClientRequest, uint32 uSize);
@@ -1705,22 +1705,22 @@ public static
 	public static extern uint32 PxeProviderSetAttribute(HANDLE hProvider, uint32 Attribute, void* pParameterBuffer, uint32 uParamLen);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpInitialize(void* pRecvPacket, uint32 uRecvPacketLen, void* pReplyPacket, uint32 uMaxReplyPacketLen, uint32 puReplyPacketLen);
+	public static extern uint32 PxeDhcpInitialize(void* pRecvPacket, uint32 uRecvPacketLen, void* pReplyPacket, uint32 uMaxReplyPacketLen, uint32* puReplyPacketLen);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpv6Initialize(void* pRequest, uint32 cbRequest, void* pReply, uint32 cbReply, uint32 pcbReplyUsed);
+	public static extern uint32 PxeDhcpv6Initialize(void* pRequest, uint32 cbRequest, void* pReply, uint32 cbReply, uint32* pcbReplyUsed);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpAppendOption(void* pReplyPacket, uint32 uMaxReplyPacketLen, uint32 puReplyPacketLen, uint8 bOption, uint8 bOptionLen, void* pValue);
+	public static extern uint32 PxeDhcpAppendOption(void* pReplyPacket, uint32 uMaxReplyPacketLen, uint32* puReplyPacketLen, uint8 bOption, uint8 bOptionLen, void* pValue);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpv6AppendOption(void* pReply, uint32 cbReply, uint32 pcbReplyUsed, uint16 wOptionType, uint16 cbOption, void* pOption);
+	public static extern uint32 PxeDhcpv6AppendOption(void* pReply, uint32 cbReply, uint32* pcbReplyUsed, uint16 wOptionType, uint16 cbOption, void* pOption);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpAppendOptionRaw(void* pReplyPacket, uint32 uMaxReplyPacketLen, uint32 puReplyPacketLen, uint16 uBufferLen, void* pBuffer);
+	public static extern uint32 PxeDhcpAppendOptionRaw(void* pReplyPacket, uint32 uMaxReplyPacketLen, uint32* puReplyPacketLen, uint16 uBufferLen, void* pBuffer);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpv6AppendOptionRaw(void* pReply, uint32 cbReply, uint32 pcbReplyUsed, uint16 cbBuffer, void* pBuffer);
+	public static extern uint32 PxeDhcpv6AppendOptionRaw(void* pReply, uint32 cbReply, uint32* pcbReplyUsed, uint16 cbBuffer, void* pBuffer);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PxeDhcpIsValid(void* pPacket, uint32 uPacketLen, BOOL bRequestPacket, BOOL* pbPxeOptionPresent);
@@ -1729,28 +1729,28 @@ public static
 	public static extern uint32 PxeDhcpv6IsValid(void* pPacket, uint32 uPacketLen, BOOL bRequestPacket, BOOL* pbPxeOptionPresent);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpGetOptionValue(void* pPacket, uint32 uPacketLen, uint32 uInstance, uint8 bOption, uint8 pbOptionLen, void** ppOptionValue);
+	public static extern uint32 PxeDhcpGetOptionValue(void* pPacket, uint32 uPacketLen, uint32 uInstance, uint8 bOption, uint8* pbOptionLen, void** ppOptionValue);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpv6GetOptionValue(void* pPacket, uint32 uPacketLen, uint32 uInstance, uint16 wOption, uint16 pwOptionLen, void** ppOptionValue);
+	public static extern uint32 PxeDhcpv6GetOptionValue(void* pPacket, uint32 uPacketLen, uint32 uInstance, uint16 wOption, uint16* pwOptionLen, void** ppOptionValue);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpGetVendorOptionValue(void* pPacket, uint32 uPacketLen, uint8 bOption, uint32 uInstance, uint8 pbOptionLen, void** ppOptionValue);
+	public static extern uint32 PxeDhcpGetVendorOptionValue(void* pPacket, uint32 uPacketLen, uint8 bOption, uint32 uInstance, uint8* pbOptionLen, void** ppOptionValue);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpv6GetVendorOptionValue(void* pPacket, uint32 uPacketLen, uint32 dwEnterpriseNumber, uint16 wOption, uint32 uInstance, uint16 pwOptionLen, void** ppOptionValue);
+	public static extern uint32 PxeDhcpv6GetVendorOptionValue(void* pPacket, uint32 uPacketLen, uint32 dwEnterpriseNumber, uint16 wOption, uint32 uInstance, uint16* pwOptionLen, void** ppOptionValue);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpv6ParseRelayForw(void* pRelayForwPacket, uint32 uRelayForwPacketLen, PXE_DHCPV6_NESTED_RELAY_MESSAGE* pRelayMessages, uint32 nRelayMessages, uint32 pnRelayMessages, uint8** ppInnerPacket, uint32 pcbInnerPacket);
+	public static extern uint32 PxeDhcpv6ParseRelayForw(void* pRelayForwPacket, uint32 uRelayForwPacketLen, PXE_DHCPV6_NESTED_RELAY_MESSAGE* pRelayMessages, uint32 nRelayMessages, uint32* pnRelayMessages, uint8** ppInnerPacket, uint32* pcbInnerPacket);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeDhcpv6CreateRelayRepl(PXE_DHCPV6_NESTED_RELAY_MESSAGE* pRelayMessages, uint32 nRelayMessages, uint8 pInnerPacket, uint32 cbInnerPacket, void* pReplyBuffer, uint32 cbReplyBuffer, uint32 pcbReplyBuffer);
+	public static extern uint32 PxeDhcpv6CreateRelayRepl(PXE_DHCPV6_NESTED_RELAY_MESSAGE* pRelayMessages, uint32 nRelayMessages, uint8* pInnerPacket, uint32 cbInnerPacket, void* pReplyBuffer, uint32 cbReplyBuffer, uint32* pcbReplyBuffer);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PxeGetServerInfo(uint32 uInfoType, void* pBuffer, uint32 uBufferLen);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PxeGetServerInfoEx(uint32 uInfoType, void* pBuffer, uint32 uBufferLen, uint32 puBufferUsed);
+	public static extern uint32 PxeGetServerInfoEx(uint32 uInfoType, void* pBuffer, uint32 uBufferLen, uint32* puBufferUsed);
 
 	[Import("WDSMC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsTransportServerRegisterCallback(HANDLE hProvider, TRANSPORTPROVIDER_CALLBACK_ID CallbackId, void* pfnCallback);
@@ -1762,7 +1762,7 @@ public static
 	public static extern HRESULT WdsTransportServerTrace(HANDLE hProvider, uint32 Severity, PWSTR pwszFormat);
 
 	[Import("WDSMC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsTransportServerTraceV(HANDLE hProvider, uint32 Severity, PWSTR pwszFormat, int8 Params);
+	public static extern HRESULT WdsTransportServerTraceV(HANDLE hProvider, uint32 Severity, PWSTR pwszFormat, int8* Params);
 
 	[Import("WDSMC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* WdsTransportServerAllocateBuffer(HANDLE hProvider, uint32 ulBufferSize);
@@ -1795,7 +1795,7 @@ public static
 	public static extern uint32 WdsTransportClientWaitForCompletion(HANDLE hSessionKey, uint32 uTimeout);
 
 	[Import("WDSTPTC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WdsTransportClientQueryStatus(HANDLE hSessionKey, uint32 puStatus, uint32 puErrorCode);
+	public static extern uint32 WdsTransportClientQueryStatus(HANDLE hSessionKey, uint32* puStatus, uint32* puErrorCode);
 
 	[Import("WDSTPTC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WdsTransportClientCloseSession(HANDLE hSessionKey);
@@ -1810,10 +1810,10 @@ public static
 	public static extern uint32 WdsTransportClientShutdown();
 
 	[Import("WDSBP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WdsBpParseInitialize(void* pPacket, uint32 uPacketLen, uint8 pbPacketType, HANDLE* phHandle);
+	public static extern uint32 WdsBpParseInitialize(void* pPacket, uint32 uPacketLen, uint8* pbPacketType, HANDLE* phHandle);
 
 	[Import("WDSBP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WdsBpParseInitializev6(void* pPacket, uint32 uPacketLen, uint8 pbPacketType, HANDLE* phHandle);
+	public static extern uint32 WdsBpParseInitializev6(void* pPacket, uint32 uPacketLen, uint8* pbPacketType, HANDLE* phHandle);
 
 	[Import("WDSBP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WdsBpInitialize(uint8 bPacketType, HANDLE* phHandle);
@@ -1822,13 +1822,13 @@ public static
 	public static extern uint32 WdsBpCloseHandle(HANDLE hHandle);
 
 	[Import("WDSBP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WdsBpQueryOption(HANDLE hHandle, uint32 uOption, uint32 uValueLen, void* pValue, uint32 puBytes);
+	public static extern uint32 WdsBpQueryOption(HANDLE hHandle, uint32 uOption, uint32 uValueLen, void* pValue, uint32* puBytes);
 
 	[Import("WDSBP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WdsBpAddOption(HANDLE hHandle, uint32 uOption, uint32 uValueLen, void* pValue);
 
 	[Import("WDSBP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WdsBpGetOptionBuffer(HANDLE hHandle, uint32 uBufferLen, void* pBuffer, uint32 puBytes);
+	public static extern uint32 WdsBpGetOptionBuffer(HANDLE hHandle, uint32 uBufferLen, void* pBuffer, uint32* puBytes);
 
 }
 #endregion

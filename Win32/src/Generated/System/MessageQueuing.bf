@@ -947,22 +947,22 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPathName) put_PathName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFormatName) put_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisTransactional) get_IsTransactional;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plQuota) get_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQuota) get_Quota;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lQuota) put_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plBasePriority) get_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plBasePriority) get_BasePriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lBasePriority) put_BasePriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthenticate) get_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthenticate) get_Authenticate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthenticate) put_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournalQuota) get_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisWorldReadable) get_IsWorldReadable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue** ppq) Open;
@@ -989,21 +989,21 @@ public static
 
 	public HRESULT put_FormatName(BSTR bstrFormatName) mut => VT.[Friend]put_FormatName(&this, bstrFormatName);
 
-	public HRESULT get_IsTransactional(int16 pisTransactional) mut => VT.[Friend]get_IsTransactional(&this, pisTransactional);
+	public HRESULT get_IsTransactional(int16* pisTransactional) mut => VT.[Friend]get_IsTransactional(&this, pisTransactional);
 
-	public HRESULT get_PrivLevel(int32 plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
+	public HRESULT get_PrivLevel(int32* plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
 
 	public HRESULT put_PrivLevel(int32 lPrivLevel) mut => VT.[Friend]put_PrivLevel(&this, lPrivLevel);
 
-	public HRESULT get_Journal(int32 plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
+	public HRESULT get_Journal(int32* plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
 
 	public HRESULT put_Journal(int32 lJournal) mut => VT.[Friend]put_Journal(&this, lJournal);
 
-	public HRESULT get_Quota(int32 plQuota) mut => VT.[Friend]get_Quota(&this, plQuota);
+	public HRESULT get_Quota(int32* plQuota) mut => VT.[Friend]get_Quota(&this, plQuota);
 
 	public HRESULT put_Quota(int32 lQuota) mut => VT.[Friend]put_Quota(&this, lQuota);
 
-	public HRESULT get_BasePriority(int32 plBasePriority) mut => VT.[Friend]get_BasePriority(&this, plBasePriority);
+	public HRESULT get_BasePriority(int32* plBasePriority) mut => VT.[Friend]get_BasePriority(&this, plBasePriority);
 
 	public HRESULT put_BasePriority(int32 lBasePriority) mut => VT.[Friend]put_BasePriority(&this, lBasePriority);
 
@@ -1011,15 +1011,15 @@ public static
 
 	public HRESULT get_ModifyTime(VARIANT* pvarModifyTime) mut => VT.[Friend]get_ModifyTime(&this, pvarModifyTime);
 
-	public HRESULT get_Authenticate(int32 plAuthenticate) mut => VT.[Friend]get_Authenticate(&this, plAuthenticate);
+	public HRESULT get_Authenticate(int32* plAuthenticate) mut => VT.[Friend]get_Authenticate(&this, plAuthenticate);
 
 	public HRESULT put_Authenticate(int32 lAuthenticate) mut => VT.[Friend]put_Authenticate(&this, lAuthenticate);
 
-	public HRESULT get_JournalQuota(int32 plJournalQuota) mut => VT.[Friend]get_JournalQuota(&this, plJournalQuota);
+	public HRESULT get_JournalQuota(int32* plJournalQuota) mut => VT.[Friend]get_JournalQuota(&this, plJournalQuota);
 
 	public HRESULT put_JournalQuota(int32 lJournalQuota) mut => VT.[Friend]put_JournalQuota(&this, lJournalQuota);
 
-	public HRESULT get_IsWorldReadable(int16 pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable(&this, pisWorldReadable);
+	public HRESULT get_IsWorldReadable(int16* pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable(&this, pisWorldReadable);
 
 	public HRESULT Create(VARIANT* IsTransactional, VARIANT* IsWorldReadable) mut => VT.[Friend]Create(&this, IsTransactional, IsWorldReadable);
 
@@ -1049,22 +1049,22 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPathName) put_PathName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFormatName) put_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisTransactional) get_IsTransactional;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plQuota) get_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQuota) get_Quota;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lQuota) put_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plBasePriority) get_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plBasePriority) get_BasePriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lBasePriority) put_BasePriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthenticate) get_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthenticate) get_Authenticate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthenticate) put_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournalQuota) get_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisWorldReadable) get_IsWorldReadable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue2** ppq) Open;
@@ -1095,21 +1095,21 @@ public static
 
 	public HRESULT put_FormatName(BSTR bstrFormatName) mut => VT.[Friend]put_FormatName(&this, bstrFormatName);
 
-	public HRESULT get_IsTransactional(int16 pisTransactional) mut => VT.[Friend]get_IsTransactional(&this, pisTransactional);
+	public HRESULT get_IsTransactional(int16* pisTransactional) mut => VT.[Friend]get_IsTransactional(&this, pisTransactional);
 
-	public HRESULT get_PrivLevel(int32 plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
+	public HRESULT get_PrivLevel(int32* plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
 
 	public HRESULT put_PrivLevel(int32 lPrivLevel) mut => VT.[Friend]put_PrivLevel(&this, lPrivLevel);
 
-	public HRESULT get_Journal(int32 plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
+	public HRESULT get_Journal(int32* plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
 
 	public HRESULT put_Journal(int32 lJournal) mut => VT.[Friend]put_Journal(&this, lJournal);
 
-	public HRESULT get_Quota(int32 plQuota) mut => VT.[Friend]get_Quota(&this, plQuota);
+	public HRESULT get_Quota(int32* plQuota) mut => VT.[Friend]get_Quota(&this, plQuota);
 
 	public HRESULT put_Quota(int32 lQuota) mut => VT.[Friend]put_Quota(&this, lQuota);
 
-	public HRESULT get_BasePriority(int32 plBasePriority) mut => VT.[Friend]get_BasePriority(&this, plBasePriority);
+	public HRESULT get_BasePriority(int32* plBasePriority) mut => VT.[Friend]get_BasePriority(&this, plBasePriority);
 
 	public HRESULT put_BasePriority(int32 lBasePriority) mut => VT.[Friend]put_BasePriority(&this, lBasePriority);
 
@@ -1117,15 +1117,15 @@ public static
 
 	public HRESULT get_ModifyTime(VARIANT* pvarModifyTime) mut => VT.[Friend]get_ModifyTime(&this, pvarModifyTime);
 
-	public HRESULT get_Authenticate(int32 plAuthenticate) mut => VT.[Friend]get_Authenticate(&this, plAuthenticate);
+	public HRESULT get_Authenticate(int32* plAuthenticate) mut => VT.[Friend]get_Authenticate(&this, plAuthenticate);
 
 	public HRESULT put_Authenticate(int32 lAuthenticate) mut => VT.[Friend]put_Authenticate(&this, lAuthenticate);
 
-	public HRESULT get_JournalQuota(int32 plJournalQuota) mut => VT.[Friend]get_JournalQuota(&this, plJournalQuota);
+	public HRESULT get_JournalQuota(int32* plJournalQuota) mut => VT.[Friend]get_JournalQuota(&this, plJournalQuota);
 
 	public HRESULT put_JournalQuota(int32 lJournalQuota) mut => VT.[Friend]put_JournalQuota(&this, lJournalQuota);
 
-	public HRESULT get_IsWorldReadable(int16 pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable(&this, pisWorldReadable);
+	public HRESULT get_IsWorldReadable(int16* pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable(&this, pisWorldReadable);
 
 	public HRESULT Create(VARIANT* IsTransactional, VARIANT* IsWorldReadable) mut => VT.[Friend]Create(&this, IsTransactional, IsWorldReadable);
 
@@ -1163,22 +1163,22 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPathName) put_PathName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFormatName) put_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisTransactional) get_IsTransactional;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plQuota) get_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQuota) get_Quota;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lQuota) put_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plBasePriority) get_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plBasePriority) get_BasePriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lBasePriority) put_BasePriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthenticate) get_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthenticate) get_Authenticate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthenticate) put_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournalQuota) get_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisWorldReadable) get_IsWorldReadable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue3** ppq) Open;
@@ -1188,8 +1188,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSecurity) get_Security;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSecurity) put_Security;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisTransactional) get_IsTransactional2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisWorldReadable) get_IsWorldReadable2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrMulticastAddress) get_MulticastAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMulticastAddress) put_MulticastAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrADsPath) get_ADsPath;
@@ -1214,21 +1214,21 @@ public static
 
 	public HRESULT put_FormatName(BSTR bstrFormatName) mut => VT.[Friend]put_FormatName(&this, bstrFormatName);
 
-	public HRESULT get_IsTransactional(int16 pisTransactional) mut => VT.[Friend]get_IsTransactional(&this, pisTransactional);
+	public HRESULT get_IsTransactional(int16* pisTransactional) mut => VT.[Friend]get_IsTransactional(&this, pisTransactional);
 
-	public HRESULT get_PrivLevel(int32 plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
+	public HRESULT get_PrivLevel(int32* plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
 
 	public HRESULT put_PrivLevel(int32 lPrivLevel) mut => VT.[Friend]put_PrivLevel(&this, lPrivLevel);
 
-	public HRESULT get_Journal(int32 plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
+	public HRESULT get_Journal(int32* plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
 
 	public HRESULT put_Journal(int32 lJournal) mut => VT.[Friend]put_Journal(&this, lJournal);
 
-	public HRESULT get_Quota(int32 plQuota) mut => VT.[Friend]get_Quota(&this, plQuota);
+	public HRESULT get_Quota(int32* plQuota) mut => VT.[Friend]get_Quota(&this, plQuota);
 
 	public HRESULT put_Quota(int32 lQuota) mut => VT.[Friend]put_Quota(&this, lQuota);
 
-	public HRESULT get_BasePriority(int32 plBasePriority) mut => VT.[Friend]get_BasePriority(&this, plBasePriority);
+	public HRESULT get_BasePriority(int32* plBasePriority) mut => VT.[Friend]get_BasePriority(&this, plBasePriority);
 
 	public HRESULT put_BasePriority(int32 lBasePriority) mut => VT.[Friend]put_BasePriority(&this, lBasePriority);
 
@@ -1236,15 +1236,15 @@ public static
 
 	public HRESULT get_ModifyTime(VARIANT* pvarModifyTime) mut => VT.[Friend]get_ModifyTime(&this, pvarModifyTime);
 
-	public HRESULT get_Authenticate(int32 plAuthenticate) mut => VT.[Friend]get_Authenticate(&this, plAuthenticate);
+	public HRESULT get_Authenticate(int32* plAuthenticate) mut => VT.[Friend]get_Authenticate(&this, plAuthenticate);
 
 	public HRESULT put_Authenticate(int32 lAuthenticate) mut => VT.[Friend]put_Authenticate(&this, lAuthenticate);
 
-	public HRESULT get_JournalQuota(int32 plJournalQuota) mut => VT.[Friend]get_JournalQuota(&this, plJournalQuota);
+	public HRESULT get_JournalQuota(int32* plJournalQuota) mut => VT.[Friend]get_JournalQuota(&this, plJournalQuota);
 
 	public HRESULT put_JournalQuota(int32 lJournalQuota) mut => VT.[Friend]put_JournalQuota(&this, lJournalQuota);
 
-	public HRESULT get_IsWorldReadable(int16 pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable(&this, pisWorldReadable);
+	public HRESULT get_IsWorldReadable(int16* pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable(&this, pisWorldReadable);
 
 	public HRESULT Create(VARIANT* IsTransactional, VARIANT* IsWorldReadable) mut => VT.[Friend]Create(&this, IsTransactional, IsWorldReadable);
 
@@ -1264,9 +1264,9 @@ public static
 
 	public HRESULT put_Security(VARIANT varSecurity) mut => VT.[Friend]put_Security(&this, varSecurity);
 
-	public HRESULT get_IsTransactional2(int16 pisTransactional) mut => VT.[Friend]get_IsTransactional2(&this, pisTransactional);
+	public HRESULT get_IsTransactional2(int16* pisTransactional) mut => VT.[Friend]get_IsTransactional2(&this, pisTransactional);
 
-	public HRESULT get_IsWorldReadable2(int16 pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable2(&this, pisWorldReadable);
+	public HRESULT get_IsWorldReadable2(int16* pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable2(&this, pisWorldReadable);
 
 	public HRESULT get_MulticastAddress(BSTR* pbstrMulticastAddress) mut => VT.[Friend]get_MulticastAddress(&this, pbstrMulticastAddress);
 
@@ -1292,22 +1292,22 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPathName) put_PathName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFormatName) put_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisTransactional) get_IsTransactional;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plQuota) get_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQuota) get_Quota;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lQuota) put_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plBasePriority) get_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plBasePriority) get_BasePriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lBasePriority) put_BasePriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthenticate) get_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthenticate) get_Authenticate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthenticate) put_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournalQuota) get_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisWorldReadable) get_IsWorldReadable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue4** ppq) Open;
@@ -1317,8 +1317,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSecurity) get_Security;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSecurity) put_Security;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisTransactional) get_IsTransactional2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisWorldReadable) get_IsWorldReadable2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrMulticastAddress) get_MulticastAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMulticastAddress) put_MulticastAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrADsPath) get_ADsPath;
@@ -1343,21 +1343,21 @@ public static
 
 	public HRESULT put_FormatName(BSTR bstrFormatName) mut => VT.[Friend]put_FormatName(&this, bstrFormatName);
 
-	public HRESULT get_IsTransactional(int16 pisTransactional) mut => VT.[Friend]get_IsTransactional(&this, pisTransactional);
+	public HRESULT get_IsTransactional(int16* pisTransactional) mut => VT.[Friend]get_IsTransactional(&this, pisTransactional);
 
-	public HRESULT get_PrivLevel(int32 plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
+	public HRESULT get_PrivLevel(int32* plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
 
 	public HRESULT put_PrivLevel(int32 lPrivLevel) mut => VT.[Friend]put_PrivLevel(&this, lPrivLevel);
 
-	public HRESULT get_Journal(int32 plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
+	public HRESULT get_Journal(int32* plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
 
 	public HRESULT put_Journal(int32 lJournal) mut => VT.[Friend]put_Journal(&this, lJournal);
 
-	public HRESULT get_Quota(int32 plQuota) mut => VT.[Friend]get_Quota(&this, plQuota);
+	public HRESULT get_Quota(int32* plQuota) mut => VT.[Friend]get_Quota(&this, plQuota);
 
 	public HRESULT put_Quota(int32 lQuota) mut => VT.[Friend]put_Quota(&this, lQuota);
 
-	public HRESULT get_BasePriority(int32 plBasePriority) mut => VT.[Friend]get_BasePriority(&this, plBasePriority);
+	public HRESULT get_BasePriority(int32* plBasePriority) mut => VT.[Friend]get_BasePriority(&this, plBasePriority);
 
 	public HRESULT put_BasePriority(int32 lBasePriority) mut => VT.[Friend]put_BasePriority(&this, lBasePriority);
 
@@ -1365,15 +1365,15 @@ public static
 
 	public HRESULT get_ModifyTime(VARIANT* pvarModifyTime) mut => VT.[Friend]get_ModifyTime(&this, pvarModifyTime);
 
-	public HRESULT get_Authenticate(int32 plAuthenticate) mut => VT.[Friend]get_Authenticate(&this, plAuthenticate);
+	public HRESULT get_Authenticate(int32* plAuthenticate) mut => VT.[Friend]get_Authenticate(&this, plAuthenticate);
 
 	public HRESULT put_Authenticate(int32 lAuthenticate) mut => VT.[Friend]put_Authenticate(&this, lAuthenticate);
 
-	public HRESULT get_JournalQuota(int32 plJournalQuota) mut => VT.[Friend]get_JournalQuota(&this, plJournalQuota);
+	public HRESULT get_JournalQuota(int32* plJournalQuota) mut => VT.[Friend]get_JournalQuota(&this, plJournalQuota);
 
 	public HRESULT put_JournalQuota(int32 lJournalQuota) mut => VT.[Friend]put_JournalQuota(&this, lJournalQuota);
 
-	public HRESULT get_IsWorldReadable(int16 pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable(&this, pisWorldReadable);
+	public HRESULT get_IsWorldReadable(int16* pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable(&this, pisWorldReadable);
 
 	public HRESULT Create(VARIANT* IsTransactional, VARIANT* IsWorldReadable) mut => VT.[Friend]Create(&this, IsTransactional, IsWorldReadable);
 
@@ -1393,9 +1393,9 @@ public static
 
 	public HRESULT put_Security(VARIANT varSecurity) mut => VT.[Friend]put_Security(&this, varSecurity);
 
-	public HRESULT get_IsTransactional2(int16 pisTransactional) mut => VT.[Friend]get_IsTransactional2(&this, pisTransactional);
+	public HRESULT get_IsTransactional2(int16* pisTransactional) mut => VT.[Friend]get_IsTransactional2(&this, pisTransactional);
 
-	public HRESULT get_IsWorldReadable2(int16 pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable2(&this, pisWorldReadable);
+	public HRESULT get_IsWorldReadable2(int16* pisWorldReadable) mut => VT.[Friend]get_IsWorldReadable2(&this, pisWorldReadable);
 
 	public HRESULT get_MulticastAddress(BSTR* pbstrMulticastAddress) mut => VT.[Friend]get_MulticastAddress(&this, pbstrMulticastAddress);
 
@@ -1412,11 +1412,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAccess) get_Access;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plShareMode) get_ShareMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAccess) get_Access;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plShareMode) get_ShareMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfo) get_QueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plHandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisOpen) get_IsOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek;
@@ -1428,15 +1428,15 @@ public static
 	}
 
 
-	public HRESULT get_Access(int32 plAccess) mut => VT.[Friend]get_Access(&this, plAccess);
+	public HRESULT get_Access(int32* plAccess) mut => VT.[Friend]get_Access(&this, plAccess);
 
-	public HRESULT get_ShareMode(int32 plShareMode) mut => VT.[Friend]get_ShareMode(&this, plShareMode);
+	public HRESULT get_ShareMode(int32* plShareMode) mut => VT.[Friend]get_ShareMode(&this, plShareMode);
 
 	public HRESULT get_QueueInfo(IMSMQQueueInfo** ppqinfo) mut => VT.[Friend]get_QueueInfo(&this, ppqinfo);
 
-	public HRESULT get_Handle(int32 plHandle) mut => VT.[Friend]get_Handle(&this, plHandle);
+	public HRESULT get_Handle(int32* plHandle) mut => VT.[Friend]get_Handle(&this, plHandle);
 
-	public HRESULT get_IsOpen(int16 pisOpen) mut => VT.[Friend]get_IsOpen(&this, pisOpen);
+	public HRESULT get_IsOpen(int16* pisOpen) mut => VT.[Friend]get_IsOpen(&this, pisOpen);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
@@ -1463,11 +1463,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAccess) get_Access;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plShareMode) get_ShareMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAccess) get_Access;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plShareMode) get_ShareMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfo) get_QueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plHandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisOpen) get_IsOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive_v1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek_v1;
@@ -1485,15 +1485,15 @@ public static
 	}
 
 
-	public HRESULT get_Access(int32 plAccess) mut => VT.[Friend]get_Access(&this, plAccess);
+	public HRESULT get_Access(int32* plAccess) mut => VT.[Friend]get_Access(&this, plAccess);
 
-	public HRESULT get_ShareMode(int32 plShareMode) mut => VT.[Friend]get_ShareMode(&this, plShareMode);
+	public HRESULT get_ShareMode(int32* plShareMode) mut => VT.[Friend]get_ShareMode(&this, plShareMode);
 
 	public HRESULT get_QueueInfo(IMSMQQueueInfo2** ppqinfo) mut => VT.[Friend]get_QueueInfo(&this, ppqinfo);
 
-	public HRESULT get_Handle(int32 plHandle) mut => VT.[Friend]get_Handle(&this, plHandle);
+	public HRESULT get_Handle(int32* plHandle) mut => VT.[Friend]get_Handle(&this, plHandle);
 
-	public HRESULT get_IsOpen(int16 pisOpen) mut => VT.[Friend]get_IsOpen(&this, pisOpen);
+	public HRESULT get_IsOpen(int16* pisOpen) mut => VT.[Friend]get_IsOpen(&this, pisOpen);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
@@ -1532,11 +1532,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAccess) get_Access;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plShareMode) get_ShareMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAccess) get_Access;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plShareMode) get_ShareMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3** ppqinfo) get_QueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plHandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisOpen) get_IsOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive_v1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek_v1;
@@ -1563,19 +1563,19 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekFirstByLookupId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekLastByLookupId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Purge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisOpen) get_IsOpen2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen2;
 	}
 
 
-	public HRESULT get_Access(int32 plAccess) mut => VT.[Friend]get_Access(&this, plAccess);
+	public HRESULT get_Access(int32* plAccess) mut => VT.[Friend]get_Access(&this, plAccess);
 
-	public HRESULT get_ShareMode(int32 plShareMode) mut => VT.[Friend]get_ShareMode(&this, plShareMode);
+	public HRESULT get_ShareMode(int32* plShareMode) mut => VT.[Friend]get_ShareMode(&this, plShareMode);
 
 	public HRESULT get_QueueInfo(IMSMQQueueInfo3** ppqinfo) mut => VT.[Friend]get_QueueInfo(&this, ppqinfo);
 
-	public HRESULT get_Handle(int32 plHandle) mut => VT.[Friend]get_Handle(&this, plHandle);
+	public HRESULT get_Handle(int32* plHandle) mut => VT.[Friend]get_Handle(&this, plHandle);
 
-	public HRESULT get_IsOpen(int16 pisOpen) mut => VT.[Friend]get_IsOpen(&this, pisOpen);
+	public HRESULT get_IsOpen(int16* pisOpen) mut => VT.[Friend]get_IsOpen(&this, pisOpen);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
@@ -1629,7 +1629,7 @@ public static
 
 	public HRESULT Purge() mut => VT.[Friend]Purge(&this);
 
-	public HRESULT get_IsOpen2(int16 pisOpen) mut => VT.[Friend]get_IsOpen2(&this, pisOpen);
+	public HRESULT get_IsOpen2(int16* pisOpen) mut => VT.[Friend]get_IsOpen2(&this, pisOpen);
 }
 
 [CRepr]struct IMSMQQueue4 : IDispatch
@@ -1640,11 +1640,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAccess) get_Access;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plShareMode) get_ShareMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAccess) get_Access;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plShareMode) get_ShareMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4** ppqinfo) get_QueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plHandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisOpen) get_IsOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive_v1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek_v1;
@@ -1671,20 +1671,20 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekFirstByLookupId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekLastByLookupId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Purge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisOpen) get_IsOpen2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveByLookupIdAllowPeek;
 	}
 
 
-	public HRESULT get_Access(int32 plAccess) mut => VT.[Friend]get_Access(&this, plAccess);
+	public HRESULT get_Access(int32* plAccess) mut => VT.[Friend]get_Access(&this, plAccess);
 
-	public HRESULT get_ShareMode(int32 plShareMode) mut => VT.[Friend]get_ShareMode(&this, plShareMode);
+	public HRESULT get_ShareMode(int32* plShareMode) mut => VT.[Friend]get_ShareMode(&this, plShareMode);
 
 	public HRESULT get_QueueInfo(IMSMQQueueInfo4** ppqinfo) mut => VT.[Friend]get_QueueInfo(&this, ppqinfo);
 
-	public HRESULT get_Handle(int32 plHandle) mut => VT.[Friend]get_Handle(&this, plHandle);
+	public HRESULT get_Handle(int32* plHandle) mut => VT.[Friend]get_Handle(&this, plHandle);
 
-	public HRESULT get_IsOpen(int16 pisOpen) mut => VT.[Friend]get_IsOpen(&this, pisOpen);
+	public HRESULT get_IsOpen(int16* pisOpen) mut => VT.[Friend]get_IsOpen(&this, pisOpen);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
@@ -1738,7 +1738,7 @@ public static
 
 	public HRESULT Purge() mut => VT.[Friend]Purge(&this);
 
-	public HRESULT get_IsOpen2(int16 pisOpen) mut => VT.[Friend]get_IsOpen2(&this, pisOpen);
+	public HRESULT get_IsOpen2(int16* pisOpen) mut => VT.[Friend]get_IsOpen2(&this, pisOpen);
 
 	public HRESULT ReceiveByLookupIdAllowPeek(VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) mut => VT.[Friend]ReceiveByLookupIdAllowPeek(&this, LookupId, Transaction, WantDestinationQueue, WantBody, WantConnectorType, ppmsg);
 }
@@ -1751,26 +1751,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plClass) get_Class;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plClass) get_Class;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthLevel) get_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisAuthenticated) get_IsAuthenticated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plDelivery) get_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDelivery) get_Delivery;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDelivery) put_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plTrace) get_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTrace) get_Trace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lTrace) put_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPriority) get_Priority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPriority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAppSpecific) get_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pcbBody) get_BodyLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcbBody) get_BodyLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_Body;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) put_Body;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo;
@@ -1778,17 +1778,17 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAck) get_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAck) get_Ack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAck) put_Ack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMaxTimeToReceive) get_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plHashAlg) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plEncryptAlg) get_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
@@ -1796,38 +1796,38 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSenderIdType) get_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueue* DestinationQueue, VARIANT* Transaction) Send;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext;
 	}
 
 
-	public HRESULT get_Class(int32 plClass) mut => VT.[Friend]get_Class(&this, plClass);
+	public HRESULT get_Class(int32* plClass) mut => VT.[Friend]get_Class(&this, plClass);
 
-	public HRESULT get_PrivLevel(int32 plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
+	public HRESULT get_PrivLevel(int32* plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
 
 	public HRESULT put_PrivLevel(int32 lPrivLevel) mut => VT.[Friend]put_PrivLevel(&this, lPrivLevel);
 
-	public HRESULT get_AuthLevel(int32 plAuthLevel) mut => VT.[Friend]get_AuthLevel(&this, plAuthLevel);
+	public HRESULT get_AuthLevel(int32* plAuthLevel) mut => VT.[Friend]get_AuthLevel(&this, plAuthLevel);
 
 	public HRESULT put_AuthLevel(int32 lAuthLevel) mut => VT.[Friend]put_AuthLevel(&this, lAuthLevel);
 
-	public HRESULT get_IsAuthenticated(int16 pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated(&this, pisAuthenticated);
+	public HRESULT get_IsAuthenticated(int16* pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated(&this, pisAuthenticated);
 
-	public HRESULT get_Delivery(int32 plDelivery) mut => VT.[Friend]get_Delivery(&this, plDelivery);
+	public HRESULT get_Delivery(int32* plDelivery) mut => VT.[Friend]get_Delivery(&this, plDelivery);
 
 	public HRESULT put_Delivery(int32 lDelivery) mut => VT.[Friend]put_Delivery(&this, lDelivery);
 
-	public HRESULT get_Trace(int32 plTrace) mut => VT.[Friend]get_Trace(&this, plTrace);
+	public HRESULT get_Trace(int32* plTrace) mut => VT.[Friend]get_Trace(&this, plTrace);
 
 	public HRESULT put_Trace(int32 lTrace) mut => VT.[Friend]put_Trace(&this, lTrace);
 
-	public HRESULT get_Priority(int32 plPriority) mut => VT.[Friend]get_Priority(&this, plPriority);
+	public HRESULT get_Priority(int32* plPriority) mut => VT.[Friend]get_Priority(&this, plPriority);
 
 	public HRESULT put_Priority(int32 lPriority) mut => VT.[Friend]put_Priority(&this, lPriority);
 
-	public HRESULT get_Journal(int32 plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
+	public HRESULT get_Journal(int32* plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
 
 	public HRESULT put_Journal(int32 lJournal) mut => VT.[Friend]put_Journal(&this, lJournal);
 
@@ -1835,13 +1835,13 @@ public static
 
 	public HRESULT putref_ResponseQueueInfo(IMSMQQueueInfo* pqinfoResponse) mut => VT.[Friend]putref_ResponseQueueInfo(&this, pqinfoResponse);
 
-	public HRESULT get_AppSpecific(int32 plAppSpecific) mut => VT.[Friend]get_AppSpecific(&this, plAppSpecific);
+	public HRESULT get_AppSpecific(int32* plAppSpecific) mut => VT.[Friend]get_AppSpecific(&this, plAppSpecific);
 
 	public HRESULT put_AppSpecific(int32 lAppSpecific) mut => VT.[Friend]put_AppSpecific(&this, lAppSpecific);
 
 	public HRESULT get_SourceMachineGuid(BSTR* pbstrGuidSrcMachine) mut => VT.[Friend]get_SourceMachineGuid(&this, pbstrGuidSrcMachine);
 
-	public HRESULT get_BodyLength(int32 pcbBody) mut => VT.[Friend]get_BodyLength(&this, pcbBody);
+	public HRESULT get_BodyLength(int32* pcbBody) mut => VT.[Friend]get_BodyLength(&this, pcbBody);
 
 	public HRESULT get_Body(VARIANT* pvarBody) mut => VT.[Friend]get_Body(&this, pvarBody);
 
@@ -1857,7 +1857,7 @@ public static
 
 	public HRESULT put_CorrelationId(VARIANT varMsgId) mut => VT.[Friend]put_CorrelationId(&this, varMsgId);
 
-	public HRESULT get_Ack(int32 plAck) mut => VT.[Friend]get_Ack(&this, plAck);
+	public HRESULT get_Ack(int32* plAck) mut => VT.[Friend]get_Ack(&this, plAck);
 
 	public HRESULT put_Ack(int32 lAck) mut => VT.[Friend]put_Ack(&this, lAck);
 
@@ -1865,19 +1865,19 @@ public static
 
 	public HRESULT put_Label(BSTR bstrLabel) mut => VT.[Friend]put_Label(&this, bstrLabel);
 
-	public HRESULT get_MaxTimeToReachQueue(int32 plMaxTimeToReachQueue) mut => VT.[Friend]get_MaxTimeToReachQueue(&this, plMaxTimeToReachQueue);
+	public HRESULT get_MaxTimeToReachQueue(int32* plMaxTimeToReachQueue) mut => VT.[Friend]get_MaxTimeToReachQueue(&this, plMaxTimeToReachQueue);
 
 	public HRESULT put_MaxTimeToReachQueue(int32 lMaxTimeToReachQueue) mut => VT.[Friend]put_MaxTimeToReachQueue(&this, lMaxTimeToReachQueue);
 
-	public HRESULT get_MaxTimeToReceive(int32 plMaxTimeToReceive) mut => VT.[Friend]get_MaxTimeToReceive(&this, plMaxTimeToReceive);
+	public HRESULT get_MaxTimeToReceive(int32* plMaxTimeToReceive) mut => VT.[Friend]get_MaxTimeToReceive(&this, plMaxTimeToReceive);
 
 	public HRESULT put_MaxTimeToReceive(int32 lMaxTimeToReceive) mut => VT.[Friend]put_MaxTimeToReceive(&this, lMaxTimeToReceive);
 
-	public HRESULT get_HashAlgorithm(int32 plHashAlg) mut => VT.[Friend]get_HashAlgorithm(&this, plHashAlg);
+	public HRESULT get_HashAlgorithm(int32* plHashAlg) mut => VT.[Friend]get_HashAlgorithm(&this, plHashAlg);
 
 	public HRESULT put_HashAlgorithm(int32 lHashAlg) mut => VT.[Friend]put_HashAlgorithm(&this, lHashAlg);
 
-	public HRESULT get_EncryptAlgorithm(int32 plEncryptAlg) mut => VT.[Friend]get_EncryptAlgorithm(&this, plEncryptAlg);
+	public HRESULT get_EncryptAlgorithm(int32* plEncryptAlg) mut => VT.[Friend]get_EncryptAlgorithm(&this, plEncryptAlg);
 
 	public HRESULT put_EncryptAlgorithm(int32 lEncryptAlg) mut => VT.[Friend]put_EncryptAlgorithm(&this, lEncryptAlg);
 
@@ -1893,7 +1893,7 @@ public static
 
 	public HRESULT get_SenderId(VARIANT* pvarSenderId) mut => VT.[Friend]get_SenderId(&this, pvarSenderId);
 
-	public HRESULT get_SenderIdType(int32 plSenderIdType) mut => VT.[Friend]get_SenderIdType(&this, plSenderIdType);
+	public HRESULT get_SenderIdType(int32* plSenderIdType) mut => VT.[Friend]get_SenderIdType(&this, plSenderIdType);
 
 	public HRESULT put_SenderIdType(int32 lSenderIdType) mut => VT.[Friend]put_SenderIdType(&this, lSenderIdType);
 
@@ -2030,13 +2030,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plTransaction) get_Transaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTransaction) get_Transaction;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* fRetaining, VARIANT* grfTC, VARIANT* grfRM) Commit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* fRetaining, VARIANT* fAsync) Abort;
 	}
 
 
-	public HRESULT get_Transaction(int32 plTransaction) mut => VT.[Friend]get_Transaction(&this, plTransaction);
+	public HRESULT get_Transaction(int32* plTransaction) mut => VT.[Friend]get_Transaction(&this, plTransaction);
 
 	public HRESULT Commit(VARIANT* fRetaining, VARIANT* grfTC, VARIANT* grfRM) mut => VT.[Friend]Commit(&this, fRetaining, grfTC, grfRM);
 
@@ -2141,26 +2141,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plClass) get_Class;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plClass) get_Class;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthLevel) get_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisAuthenticated) get_IsAuthenticated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plDelivery) get_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDelivery) get_Delivery;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDelivery) put_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plTrace) get_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTrace) get_Trace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lTrace) put_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPriority) get_Priority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPriority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo_v1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAppSpecific) get_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pcbBody) get_BodyLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcbBody) get_BodyLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_Body;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) put_Body;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo_v1;
@@ -2168,17 +2168,17 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAck) get_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAck) get_Ack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAck) put_Ack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMaxTimeToReceive) get_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plHashAlg) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plEncryptAlg) get_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
@@ -2186,11 +2186,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSenderIdType) get_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueue2* DestinationQueue, VARIANT* Transaction) Send;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSenderVersion) get_SenderVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderVersion) get_SenderVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarExtension) get_Extension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varExtension) put_Extension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidConnectorType) get_ConnectorTypeGuid;
@@ -2200,50 +2200,50 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varDestSymmKey) put_DestinationSymmetricKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSignature) get_Signature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSignature) put_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthProvType) get_AuthenticationProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthProvType) get_AuthenticationProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthProvType) put_AuthenticationProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrAuthProvName) get_AuthenticationProviderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAuthProvName) put_AuthenticationProviderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderId) put_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMsgClass) get_MsgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMsgClass) get_MsgClass;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMsgClass) put_MsgClass;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarXactId) get_TransactionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisFirstInXact) get_IsFirstInTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisLastInXact) get_IsLastInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoResponse) get_ResponseQueueInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoResponse) putref_ResponseQueueInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoAdmin) get_AdminQueueInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoAdmin) putref_AdminQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
 	}
 
 
-	public HRESULT get_Class(int32 plClass) mut => VT.[Friend]get_Class(&this, plClass);
+	public HRESULT get_Class(int32* plClass) mut => VT.[Friend]get_Class(&this, plClass);
 
-	public HRESULT get_PrivLevel(int32 plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
+	public HRESULT get_PrivLevel(int32* plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
 
 	public HRESULT put_PrivLevel(int32 lPrivLevel) mut => VT.[Friend]put_PrivLevel(&this, lPrivLevel);
 
-	public HRESULT get_AuthLevel(int32 plAuthLevel) mut => VT.[Friend]get_AuthLevel(&this, plAuthLevel);
+	public HRESULT get_AuthLevel(int32* plAuthLevel) mut => VT.[Friend]get_AuthLevel(&this, plAuthLevel);
 
 	public HRESULT put_AuthLevel(int32 lAuthLevel) mut => VT.[Friend]put_AuthLevel(&this, lAuthLevel);
 
-	public HRESULT get_IsAuthenticated(int16 pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated(&this, pisAuthenticated);
+	public HRESULT get_IsAuthenticated(int16* pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated(&this, pisAuthenticated);
 
-	public HRESULT get_Delivery(int32 plDelivery) mut => VT.[Friend]get_Delivery(&this, plDelivery);
+	public HRESULT get_Delivery(int32* plDelivery) mut => VT.[Friend]get_Delivery(&this, plDelivery);
 
 	public HRESULT put_Delivery(int32 lDelivery) mut => VT.[Friend]put_Delivery(&this, lDelivery);
 
-	public HRESULT get_Trace(int32 plTrace) mut => VT.[Friend]get_Trace(&this, plTrace);
+	public HRESULT get_Trace(int32* plTrace) mut => VT.[Friend]get_Trace(&this, plTrace);
 
 	public HRESULT put_Trace(int32 lTrace) mut => VT.[Friend]put_Trace(&this, lTrace);
 
-	public HRESULT get_Priority(int32 plPriority) mut => VT.[Friend]get_Priority(&this, plPriority);
+	public HRESULT get_Priority(int32* plPriority) mut => VT.[Friend]get_Priority(&this, plPriority);
 
 	public HRESULT put_Priority(int32 lPriority) mut => VT.[Friend]put_Priority(&this, lPriority);
 
-	public HRESULT get_Journal(int32 plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
+	public HRESULT get_Journal(int32* plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
 
 	public HRESULT put_Journal(int32 lJournal) mut => VT.[Friend]put_Journal(&this, lJournal);
 
@@ -2251,13 +2251,13 @@ public static
 
 	public HRESULT putref_ResponseQueueInfo_v1(IMSMQQueueInfo* pqinfoResponse) mut => VT.[Friend]putref_ResponseQueueInfo_v1(&this, pqinfoResponse);
 
-	public HRESULT get_AppSpecific(int32 plAppSpecific) mut => VT.[Friend]get_AppSpecific(&this, plAppSpecific);
+	public HRESULT get_AppSpecific(int32* plAppSpecific) mut => VT.[Friend]get_AppSpecific(&this, plAppSpecific);
 
 	public HRESULT put_AppSpecific(int32 lAppSpecific) mut => VT.[Friend]put_AppSpecific(&this, lAppSpecific);
 
 	public HRESULT get_SourceMachineGuid(BSTR* pbstrGuidSrcMachine) mut => VT.[Friend]get_SourceMachineGuid(&this, pbstrGuidSrcMachine);
 
-	public HRESULT get_BodyLength(int32 pcbBody) mut => VT.[Friend]get_BodyLength(&this, pcbBody);
+	public HRESULT get_BodyLength(int32* pcbBody) mut => VT.[Friend]get_BodyLength(&this, pcbBody);
 
 	public HRESULT get_Body(VARIANT* pvarBody) mut => VT.[Friend]get_Body(&this, pvarBody);
 
@@ -2273,7 +2273,7 @@ public static
 
 	public HRESULT put_CorrelationId(VARIANT varMsgId) mut => VT.[Friend]put_CorrelationId(&this, varMsgId);
 
-	public HRESULT get_Ack(int32 plAck) mut => VT.[Friend]get_Ack(&this, plAck);
+	public HRESULT get_Ack(int32* plAck) mut => VT.[Friend]get_Ack(&this, plAck);
 
 	public HRESULT put_Ack(int32 lAck) mut => VT.[Friend]put_Ack(&this, lAck);
 
@@ -2281,19 +2281,19 @@ public static
 
 	public HRESULT put_Label(BSTR bstrLabel) mut => VT.[Friend]put_Label(&this, bstrLabel);
 
-	public HRESULT get_MaxTimeToReachQueue(int32 plMaxTimeToReachQueue) mut => VT.[Friend]get_MaxTimeToReachQueue(&this, plMaxTimeToReachQueue);
+	public HRESULT get_MaxTimeToReachQueue(int32* plMaxTimeToReachQueue) mut => VT.[Friend]get_MaxTimeToReachQueue(&this, plMaxTimeToReachQueue);
 
 	public HRESULT put_MaxTimeToReachQueue(int32 lMaxTimeToReachQueue) mut => VT.[Friend]put_MaxTimeToReachQueue(&this, lMaxTimeToReachQueue);
 
-	public HRESULT get_MaxTimeToReceive(int32 plMaxTimeToReceive) mut => VT.[Friend]get_MaxTimeToReceive(&this, plMaxTimeToReceive);
+	public HRESULT get_MaxTimeToReceive(int32* plMaxTimeToReceive) mut => VT.[Friend]get_MaxTimeToReceive(&this, plMaxTimeToReceive);
 
 	public HRESULT put_MaxTimeToReceive(int32 lMaxTimeToReceive) mut => VT.[Friend]put_MaxTimeToReceive(&this, lMaxTimeToReceive);
 
-	public HRESULT get_HashAlgorithm(int32 plHashAlg) mut => VT.[Friend]get_HashAlgorithm(&this, plHashAlg);
+	public HRESULT get_HashAlgorithm(int32* plHashAlg) mut => VT.[Friend]get_HashAlgorithm(&this, plHashAlg);
 
 	public HRESULT put_HashAlgorithm(int32 lHashAlg) mut => VT.[Friend]put_HashAlgorithm(&this, lHashAlg);
 
-	public HRESULT get_EncryptAlgorithm(int32 plEncryptAlg) mut => VT.[Friend]get_EncryptAlgorithm(&this, plEncryptAlg);
+	public HRESULT get_EncryptAlgorithm(int32* plEncryptAlg) mut => VT.[Friend]get_EncryptAlgorithm(&this, plEncryptAlg);
 
 	public HRESULT put_EncryptAlgorithm(int32 lEncryptAlg) mut => VT.[Friend]put_EncryptAlgorithm(&this, lEncryptAlg);
 
@@ -2309,7 +2309,7 @@ public static
 
 	public HRESULT get_SenderId(VARIANT* pvarSenderId) mut => VT.[Friend]get_SenderId(&this, pvarSenderId);
 
-	public HRESULT get_SenderIdType(int32 plSenderIdType) mut => VT.[Friend]get_SenderIdType(&this, plSenderIdType);
+	public HRESULT get_SenderIdType(int32* plSenderIdType) mut => VT.[Friend]get_SenderIdType(&this, plSenderIdType);
 
 	public HRESULT put_SenderIdType(int32 lSenderIdType) mut => VT.[Friend]put_SenderIdType(&this, lSenderIdType);
 
@@ -2317,7 +2317,7 @@ public static
 
 	public HRESULT AttachCurrentSecurityContext() mut => VT.[Friend]AttachCurrentSecurityContext(&this);
 
-	public HRESULT get_SenderVersion(int32 plSenderVersion) mut => VT.[Friend]get_SenderVersion(&this, plSenderVersion);
+	public HRESULT get_SenderVersion(int32* plSenderVersion) mut => VT.[Friend]get_SenderVersion(&this, plSenderVersion);
 
 	public HRESULT get_Extension(VARIANT* pvarExtension) mut => VT.[Friend]get_Extension(&this, pvarExtension);
 
@@ -2337,7 +2337,7 @@ public static
 
 	public HRESULT put_Signature(VARIANT varSignature) mut => VT.[Friend]put_Signature(&this, varSignature);
 
-	public HRESULT get_AuthenticationProviderType(int32 plAuthProvType) mut => VT.[Friend]get_AuthenticationProviderType(&this, plAuthProvType);
+	public HRESULT get_AuthenticationProviderType(int32* plAuthProvType) mut => VT.[Friend]get_AuthenticationProviderType(&this, plAuthProvType);
 
 	public HRESULT put_AuthenticationProviderType(int32 lAuthProvType) mut => VT.[Friend]put_AuthenticationProviderType(&this, lAuthProvType);
 
@@ -2347,7 +2347,7 @@ public static
 
 	public HRESULT put_SenderId(VARIANT varSenderId) mut => VT.[Friend]put_SenderId(&this, varSenderId);
 
-	public HRESULT get_MsgClass(int32 plMsgClass) mut => VT.[Friend]get_MsgClass(&this, plMsgClass);
+	public HRESULT get_MsgClass(int32* plMsgClass) mut => VT.[Friend]get_MsgClass(&this, plMsgClass);
 
 	public HRESULT put_MsgClass(int32 lMsgClass) mut => VT.[Friend]put_MsgClass(&this, lMsgClass);
 
@@ -2355,9 +2355,9 @@ public static
 
 	public HRESULT get_TransactionId(VARIANT* pvarXactId) mut => VT.[Friend]get_TransactionId(&this, pvarXactId);
 
-	public HRESULT get_IsFirstInTransaction(int16 pisFirstInXact) mut => VT.[Friend]get_IsFirstInTransaction(&this, pisFirstInXact);
+	public HRESULT get_IsFirstInTransaction(int16* pisFirstInXact) mut => VT.[Friend]get_IsFirstInTransaction(&this, pisFirstInXact);
 
-	public HRESULT get_IsLastInTransaction(int16 pisLastInXact) mut => VT.[Friend]get_IsLastInTransaction(&this, pisLastInXact);
+	public HRESULT get_IsLastInTransaction(int16* pisLastInXact) mut => VT.[Friend]get_IsLastInTransaction(&this, pisLastInXact);
 
 	public HRESULT get_ResponseQueueInfo(IMSMQQueueInfo2** ppqinfoResponse) mut => VT.[Friend]get_ResponseQueueInfo(&this, ppqinfoResponse);
 
@@ -2367,7 +2367,7 @@ public static
 
 	public HRESULT putref_AdminQueueInfo(IMSMQQueueInfo2* pqinfoAdmin) mut => VT.[Friend]putref_AdminQueueInfo(&this, pqinfoAdmin);
 
-	public HRESULT get_ReceivedAuthenticationLevel(int16 psReceivedAuthenticationLevel) mut => VT.[Friend]get_ReceivedAuthenticationLevel(&this, psReceivedAuthenticationLevel);
+	public HRESULT get_ReceivedAuthenticationLevel(int16* psReceivedAuthenticationLevel) mut => VT.[Friend]get_ReceivedAuthenticationLevel(&this, psReceivedAuthenticationLevel);
 }
 
 [CRepr]struct IMSMQMessage3 : IDispatch
@@ -2378,26 +2378,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plClass) get_Class;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plClass) get_Class;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthLevel) get_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisAuthenticated) get_IsAuthenticated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plDelivery) get_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDelivery) get_Delivery;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDelivery) put_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plTrace) get_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTrace) get_Trace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lTrace) put_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPriority) get_Priority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPriority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo_v1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAppSpecific) get_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pcbBody) get_BodyLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcbBody) get_BodyLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_Body;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) put_Body;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo_v1;
@@ -2405,17 +2405,17 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAck) get_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAck) get_Ack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAck) put_Ack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMaxTimeToReceive) get_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plHashAlg) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plEncryptAlg) get_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
@@ -2423,11 +2423,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSenderIdType) get_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* DestinationQueue, VARIANT* Transaction) Send;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSenderVersion) get_SenderVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderVersion) get_SenderVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarExtension) get_Extension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varExtension) put_Extension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidConnectorType) get_ConnectorTypeGuid;
@@ -2437,22 +2437,22 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varDestSymmKey) put_DestinationSymmetricKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSignature) get_Signature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSignature) put_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthProvType) get_AuthenticationProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthProvType) get_AuthenticationProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthProvType) put_AuthenticationProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrAuthProvName) get_AuthenticationProviderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAuthProvName) put_AuthenticationProviderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderId) put_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMsgClass) get_MsgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMsgClass) get_MsgClass;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMsgClass) put_MsgClass;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarXactId) get_TransactionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisFirstInXact) get_IsFirstInTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisLastInXact) get_IsLastInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoResponse) get_ResponseQueueInfo_v2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoResponse) putref_ResponseQueueInfo_v2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoAdmin) get_AdminQueueInfo_v2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoAdmin) putref_AdminQueueInfo_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3** ppqinfoResponse) get_ResponseQueueInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3* pqinfoResponse) putref_ResponseQueueInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3** ppqinfoAdmin) get_AdminQueueInfo;
@@ -2461,9 +2461,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pdestResponse) putref_ResponseDestination;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppdestDestination) get_Destination;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarLookupId) get_LookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisAuthenticated) get_IsAuthenticated2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisFirstInXact) get_IsFirstInTransaction2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisLastInXact) get_IsLastInTransaction2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSoapEnvelope) get_SoapEnvelope;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCompoundMessage) get_CompoundMessage;
@@ -2472,31 +2472,31 @@ public static
 	}
 
 
-	public HRESULT get_Class(int32 plClass) mut => VT.[Friend]get_Class(&this, plClass);
+	public HRESULT get_Class(int32* plClass) mut => VT.[Friend]get_Class(&this, plClass);
 
-	public HRESULT get_PrivLevel(int32 plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
+	public HRESULT get_PrivLevel(int32* plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
 
 	public HRESULT put_PrivLevel(int32 lPrivLevel) mut => VT.[Friend]put_PrivLevel(&this, lPrivLevel);
 
-	public HRESULT get_AuthLevel(int32 plAuthLevel) mut => VT.[Friend]get_AuthLevel(&this, plAuthLevel);
+	public HRESULT get_AuthLevel(int32* plAuthLevel) mut => VT.[Friend]get_AuthLevel(&this, plAuthLevel);
 
 	public HRESULT put_AuthLevel(int32 lAuthLevel) mut => VT.[Friend]put_AuthLevel(&this, lAuthLevel);
 
-	public HRESULT get_IsAuthenticated(int16 pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated(&this, pisAuthenticated);
+	public HRESULT get_IsAuthenticated(int16* pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated(&this, pisAuthenticated);
 
-	public HRESULT get_Delivery(int32 plDelivery) mut => VT.[Friend]get_Delivery(&this, plDelivery);
+	public HRESULT get_Delivery(int32* plDelivery) mut => VT.[Friend]get_Delivery(&this, plDelivery);
 
 	public HRESULT put_Delivery(int32 lDelivery) mut => VT.[Friend]put_Delivery(&this, lDelivery);
 
-	public HRESULT get_Trace(int32 plTrace) mut => VT.[Friend]get_Trace(&this, plTrace);
+	public HRESULT get_Trace(int32* plTrace) mut => VT.[Friend]get_Trace(&this, plTrace);
 
 	public HRESULT put_Trace(int32 lTrace) mut => VT.[Friend]put_Trace(&this, lTrace);
 
-	public HRESULT get_Priority(int32 plPriority) mut => VT.[Friend]get_Priority(&this, plPriority);
+	public HRESULT get_Priority(int32* plPriority) mut => VT.[Friend]get_Priority(&this, plPriority);
 
 	public HRESULT put_Priority(int32 lPriority) mut => VT.[Friend]put_Priority(&this, lPriority);
 
-	public HRESULT get_Journal(int32 plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
+	public HRESULT get_Journal(int32* plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
 
 	public HRESULT put_Journal(int32 lJournal) mut => VT.[Friend]put_Journal(&this, lJournal);
 
@@ -2504,13 +2504,13 @@ public static
 
 	public HRESULT putref_ResponseQueueInfo_v1(IMSMQQueueInfo* pqinfoResponse) mut => VT.[Friend]putref_ResponseQueueInfo_v1(&this, pqinfoResponse);
 
-	public HRESULT get_AppSpecific(int32 plAppSpecific) mut => VT.[Friend]get_AppSpecific(&this, plAppSpecific);
+	public HRESULT get_AppSpecific(int32* plAppSpecific) mut => VT.[Friend]get_AppSpecific(&this, plAppSpecific);
 
 	public HRESULT put_AppSpecific(int32 lAppSpecific) mut => VT.[Friend]put_AppSpecific(&this, lAppSpecific);
 
 	public HRESULT get_SourceMachineGuid(BSTR* pbstrGuidSrcMachine) mut => VT.[Friend]get_SourceMachineGuid(&this, pbstrGuidSrcMachine);
 
-	public HRESULT get_BodyLength(int32 pcbBody) mut => VT.[Friend]get_BodyLength(&this, pcbBody);
+	public HRESULT get_BodyLength(int32* pcbBody) mut => VT.[Friend]get_BodyLength(&this, pcbBody);
 
 	public HRESULT get_Body(VARIANT* pvarBody) mut => VT.[Friend]get_Body(&this, pvarBody);
 
@@ -2526,7 +2526,7 @@ public static
 
 	public HRESULT put_CorrelationId(VARIANT varMsgId) mut => VT.[Friend]put_CorrelationId(&this, varMsgId);
 
-	public HRESULT get_Ack(int32 plAck) mut => VT.[Friend]get_Ack(&this, plAck);
+	public HRESULT get_Ack(int32* plAck) mut => VT.[Friend]get_Ack(&this, plAck);
 
 	public HRESULT put_Ack(int32 lAck) mut => VT.[Friend]put_Ack(&this, lAck);
 
@@ -2534,19 +2534,19 @@ public static
 
 	public HRESULT put_Label(BSTR bstrLabel) mut => VT.[Friend]put_Label(&this, bstrLabel);
 
-	public HRESULT get_MaxTimeToReachQueue(int32 plMaxTimeToReachQueue) mut => VT.[Friend]get_MaxTimeToReachQueue(&this, plMaxTimeToReachQueue);
+	public HRESULT get_MaxTimeToReachQueue(int32* plMaxTimeToReachQueue) mut => VT.[Friend]get_MaxTimeToReachQueue(&this, plMaxTimeToReachQueue);
 
 	public HRESULT put_MaxTimeToReachQueue(int32 lMaxTimeToReachQueue) mut => VT.[Friend]put_MaxTimeToReachQueue(&this, lMaxTimeToReachQueue);
 
-	public HRESULT get_MaxTimeToReceive(int32 plMaxTimeToReceive) mut => VT.[Friend]get_MaxTimeToReceive(&this, plMaxTimeToReceive);
+	public HRESULT get_MaxTimeToReceive(int32* plMaxTimeToReceive) mut => VT.[Friend]get_MaxTimeToReceive(&this, plMaxTimeToReceive);
 
 	public HRESULT put_MaxTimeToReceive(int32 lMaxTimeToReceive) mut => VT.[Friend]put_MaxTimeToReceive(&this, lMaxTimeToReceive);
 
-	public HRESULT get_HashAlgorithm(int32 plHashAlg) mut => VT.[Friend]get_HashAlgorithm(&this, plHashAlg);
+	public HRESULT get_HashAlgorithm(int32* plHashAlg) mut => VT.[Friend]get_HashAlgorithm(&this, plHashAlg);
 
 	public HRESULT put_HashAlgorithm(int32 lHashAlg) mut => VT.[Friend]put_HashAlgorithm(&this, lHashAlg);
 
-	public HRESULT get_EncryptAlgorithm(int32 plEncryptAlg) mut => VT.[Friend]get_EncryptAlgorithm(&this, plEncryptAlg);
+	public HRESULT get_EncryptAlgorithm(int32* plEncryptAlg) mut => VT.[Friend]get_EncryptAlgorithm(&this, plEncryptAlg);
 
 	public HRESULT put_EncryptAlgorithm(int32 lEncryptAlg) mut => VT.[Friend]put_EncryptAlgorithm(&this, lEncryptAlg);
 
@@ -2562,7 +2562,7 @@ public static
 
 	public HRESULT get_SenderId(VARIANT* pvarSenderId) mut => VT.[Friend]get_SenderId(&this, pvarSenderId);
 
-	public HRESULT get_SenderIdType(int32 plSenderIdType) mut => VT.[Friend]get_SenderIdType(&this, plSenderIdType);
+	public HRESULT get_SenderIdType(int32* plSenderIdType) mut => VT.[Friend]get_SenderIdType(&this, plSenderIdType);
 
 	public HRESULT put_SenderIdType(int32 lSenderIdType) mut => VT.[Friend]put_SenderIdType(&this, lSenderIdType);
 
@@ -2570,7 +2570,7 @@ public static
 
 	public HRESULT AttachCurrentSecurityContext() mut => VT.[Friend]AttachCurrentSecurityContext(&this);
 
-	public HRESULT get_SenderVersion(int32 plSenderVersion) mut => VT.[Friend]get_SenderVersion(&this, plSenderVersion);
+	public HRESULT get_SenderVersion(int32* plSenderVersion) mut => VT.[Friend]get_SenderVersion(&this, plSenderVersion);
 
 	public HRESULT get_Extension(VARIANT* pvarExtension) mut => VT.[Friend]get_Extension(&this, pvarExtension);
 
@@ -2590,7 +2590,7 @@ public static
 
 	public HRESULT put_Signature(VARIANT varSignature) mut => VT.[Friend]put_Signature(&this, varSignature);
 
-	public HRESULT get_AuthenticationProviderType(int32 plAuthProvType) mut => VT.[Friend]get_AuthenticationProviderType(&this, plAuthProvType);
+	public HRESULT get_AuthenticationProviderType(int32* plAuthProvType) mut => VT.[Friend]get_AuthenticationProviderType(&this, plAuthProvType);
 
 	public HRESULT put_AuthenticationProviderType(int32 lAuthProvType) mut => VT.[Friend]put_AuthenticationProviderType(&this, lAuthProvType);
 
@@ -2600,7 +2600,7 @@ public static
 
 	public HRESULT put_SenderId(VARIANT varSenderId) mut => VT.[Friend]put_SenderId(&this, varSenderId);
 
-	public HRESULT get_MsgClass(int32 plMsgClass) mut => VT.[Friend]get_MsgClass(&this, plMsgClass);
+	public HRESULT get_MsgClass(int32* plMsgClass) mut => VT.[Friend]get_MsgClass(&this, plMsgClass);
 
 	public HRESULT put_MsgClass(int32 lMsgClass) mut => VT.[Friend]put_MsgClass(&this, lMsgClass);
 
@@ -2608,9 +2608,9 @@ public static
 
 	public HRESULT get_TransactionId(VARIANT* pvarXactId) mut => VT.[Friend]get_TransactionId(&this, pvarXactId);
 
-	public HRESULT get_IsFirstInTransaction(int16 pisFirstInXact) mut => VT.[Friend]get_IsFirstInTransaction(&this, pisFirstInXact);
+	public HRESULT get_IsFirstInTransaction(int16* pisFirstInXact) mut => VT.[Friend]get_IsFirstInTransaction(&this, pisFirstInXact);
 
-	public HRESULT get_IsLastInTransaction(int16 pisLastInXact) mut => VT.[Friend]get_IsLastInTransaction(&this, pisLastInXact);
+	public HRESULT get_IsLastInTransaction(int16* pisLastInXact) mut => VT.[Friend]get_IsLastInTransaction(&this, pisLastInXact);
 
 	public HRESULT get_ResponseQueueInfo_v2(IMSMQQueueInfo2** ppqinfoResponse) mut => VT.[Friend]get_ResponseQueueInfo_v2(&this, ppqinfoResponse);
 
@@ -2620,7 +2620,7 @@ public static
 
 	public HRESULT putref_AdminQueueInfo_v2(IMSMQQueueInfo2* pqinfoAdmin) mut => VT.[Friend]putref_AdminQueueInfo_v2(&this, pqinfoAdmin);
 
-	public HRESULT get_ReceivedAuthenticationLevel(int16 psReceivedAuthenticationLevel) mut => VT.[Friend]get_ReceivedAuthenticationLevel(&this, psReceivedAuthenticationLevel);
+	public HRESULT get_ReceivedAuthenticationLevel(int16* psReceivedAuthenticationLevel) mut => VT.[Friend]get_ReceivedAuthenticationLevel(&this, psReceivedAuthenticationLevel);
 
 	public HRESULT get_ResponseQueueInfo(IMSMQQueueInfo3** ppqinfoResponse) mut => VT.[Friend]get_ResponseQueueInfo(&this, ppqinfoResponse);
 
@@ -2638,11 +2638,11 @@ public static
 
 	public HRESULT get_LookupId(VARIANT* pvarLookupId) mut => VT.[Friend]get_LookupId(&this, pvarLookupId);
 
-	public HRESULT get_IsAuthenticated2(int16 pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated2(&this, pisAuthenticated);
+	public HRESULT get_IsAuthenticated2(int16* pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated2(&this, pisAuthenticated);
 
-	public HRESULT get_IsFirstInTransaction2(int16 pisFirstInXact) mut => VT.[Friend]get_IsFirstInTransaction2(&this, pisFirstInXact);
+	public HRESULT get_IsFirstInTransaction2(int16* pisFirstInXact) mut => VT.[Friend]get_IsFirstInTransaction2(&this, pisFirstInXact);
 
-	public HRESULT get_IsLastInTransaction2(int16 pisLastInXact) mut => VT.[Friend]get_IsLastInTransaction2(&this, pisLastInXact);
+	public HRESULT get_IsLastInTransaction2(int16* pisLastInXact) mut => VT.[Friend]get_IsLastInTransaction2(&this, pisLastInXact);
 
 	public HRESULT AttachCurrentSecurityContext2() mut => VT.[Friend]AttachCurrentSecurityContext2(&this);
 
@@ -2663,26 +2663,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plClass) get_Class;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plClass) get_Class;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthLevel) get_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisAuthenticated) get_IsAuthenticated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plDelivery) get_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDelivery) get_Delivery;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDelivery) put_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plTrace) get_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTrace) get_Trace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lTrace) put_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPriority) get_Priority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPriority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo_v1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAppSpecific) get_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pcbBody) get_BodyLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcbBody) get_BodyLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_Body;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) put_Body;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo_v1;
@@ -2690,17 +2690,17 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAck) get_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAck) get_Ack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAck) put_Ack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMaxTimeToReceive) get_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plHashAlg) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plEncryptAlg) get_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
@@ -2708,11 +2708,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSenderIdType) get_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* DestinationQueue, VARIANT* Transaction) Send;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSenderVersion) get_SenderVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderVersion) get_SenderVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarExtension) get_Extension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varExtension) put_Extension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidConnectorType) get_ConnectorTypeGuid;
@@ -2722,22 +2722,22 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varDestSymmKey) put_DestinationSymmetricKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSignature) get_Signature;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSignature) put_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plAuthProvType) get_AuthenticationProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthProvType) get_AuthenticationProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthProvType) put_AuthenticationProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrAuthProvName) get_AuthenticationProviderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAuthProvName) put_AuthenticationProviderName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderId) put_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMsgClass) get_MsgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMsgClass) get_MsgClass;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMsgClass) put_MsgClass;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarXactId) get_TransactionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisFirstInXact) get_IsFirstInTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisLastInXact) get_IsLastInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoResponse) get_ResponseQueueInfo_v2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoResponse) putref_ResponseQueueInfo_v2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoAdmin) get_AdminQueueInfo_v2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoAdmin) putref_AdminQueueInfo_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4** ppqinfoResponse) get_ResponseQueueInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4* pqinfoResponse) putref_ResponseQueueInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4** ppqinfoAdmin) get_AdminQueueInfo;
@@ -2746,9 +2746,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pdestResponse) putref_ResponseDestination;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppdestDestination) get_Destination;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarLookupId) get_LookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisAuthenticated) get_IsAuthenticated2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisFirstInXact) get_IsFirstInTransaction2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pisLastInXact) get_IsLastInTransaction2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSoapEnvelope) get_SoapEnvelope;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCompoundMessage) get_CompoundMessage;
@@ -2757,31 +2757,31 @@ public static
 	}
 
 
-	public HRESULT get_Class(int32 plClass) mut => VT.[Friend]get_Class(&this, plClass);
+	public HRESULT get_Class(int32* plClass) mut => VT.[Friend]get_Class(&this, plClass);
 
-	public HRESULT get_PrivLevel(int32 plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
+	public HRESULT get_PrivLevel(int32* plPrivLevel) mut => VT.[Friend]get_PrivLevel(&this, plPrivLevel);
 
 	public HRESULT put_PrivLevel(int32 lPrivLevel) mut => VT.[Friend]put_PrivLevel(&this, lPrivLevel);
 
-	public HRESULT get_AuthLevel(int32 plAuthLevel) mut => VT.[Friend]get_AuthLevel(&this, plAuthLevel);
+	public HRESULT get_AuthLevel(int32* plAuthLevel) mut => VT.[Friend]get_AuthLevel(&this, plAuthLevel);
 
 	public HRESULT put_AuthLevel(int32 lAuthLevel) mut => VT.[Friend]put_AuthLevel(&this, lAuthLevel);
 
-	public HRESULT get_IsAuthenticated(int16 pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated(&this, pisAuthenticated);
+	public HRESULT get_IsAuthenticated(int16* pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated(&this, pisAuthenticated);
 
-	public HRESULT get_Delivery(int32 plDelivery) mut => VT.[Friend]get_Delivery(&this, plDelivery);
+	public HRESULT get_Delivery(int32* plDelivery) mut => VT.[Friend]get_Delivery(&this, plDelivery);
 
 	public HRESULT put_Delivery(int32 lDelivery) mut => VT.[Friend]put_Delivery(&this, lDelivery);
 
-	public HRESULT get_Trace(int32 plTrace) mut => VT.[Friend]get_Trace(&this, plTrace);
+	public HRESULT get_Trace(int32* plTrace) mut => VT.[Friend]get_Trace(&this, plTrace);
 
 	public HRESULT put_Trace(int32 lTrace) mut => VT.[Friend]put_Trace(&this, lTrace);
 
-	public HRESULT get_Priority(int32 plPriority) mut => VT.[Friend]get_Priority(&this, plPriority);
+	public HRESULT get_Priority(int32* plPriority) mut => VT.[Friend]get_Priority(&this, plPriority);
 
 	public HRESULT put_Priority(int32 lPriority) mut => VT.[Friend]put_Priority(&this, lPriority);
 
-	public HRESULT get_Journal(int32 plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
+	public HRESULT get_Journal(int32* plJournal) mut => VT.[Friend]get_Journal(&this, plJournal);
 
 	public HRESULT put_Journal(int32 lJournal) mut => VT.[Friend]put_Journal(&this, lJournal);
 
@@ -2789,13 +2789,13 @@ public static
 
 	public HRESULT putref_ResponseQueueInfo_v1(IMSMQQueueInfo* pqinfoResponse) mut => VT.[Friend]putref_ResponseQueueInfo_v1(&this, pqinfoResponse);
 
-	public HRESULT get_AppSpecific(int32 plAppSpecific) mut => VT.[Friend]get_AppSpecific(&this, plAppSpecific);
+	public HRESULT get_AppSpecific(int32* plAppSpecific) mut => VT.[Friend]get_AppSpecific(&this, plAppSpecific);
 
 	public HRESULT put_AppSpecific(int32 lAppSpecific) mut => VT.[Friend]put_AppSpecific(&this, lAppSpecific);
 
 	public HRESULT get_SourceMachineGuid(BSTR* pbstrGuidSrcMachine) mut => VT.[Friend]get_SourceMachineGuid(&this, pbstrGuidSrcMachine);
 
-	public HRESULT get_BodyLength(int32 pcbBody) mut => VT.[Friend]get_BodyLength(&this, pcbBody);
+	public HRESULT get_BodyLength(int32* pcbBody) mut => VT.[Friend]get_BodyLength(&this, pcbBody);
 
 	public HRESULT get_Body(VARIANT* pvarBody) mut => VT.[Friend]get_Body(&this, pvarBody);
 
@@ -2811,7 +2811,7 @@ public static
 
 	public HRESULT put_CorrelationId(VARIANT varMsgId) mut => VT.[Friend]put_CorrelationId(&this, varMsgId);
 
-	public HRESULT get_Ack(int32 plAck) mut => VT.[Friend]get_Ack(&this, plAck);
+	public HRESULT get_Ack(int32* plAck) mut => VT.[Friend]get_Ack(&this, plAck);
 
 	public HRESULT put_Ack(int32 lAck) mut => VT.[Friend]put_Ack(&this, lAck);
 
@@ -2819,19 +2819,19 @@ public static
 
 	public HRESULT put_Label(BSTR bstrLabel) mut => VT.[Friend]put_Label(&this, bstrLabel);
 
-	public HRESULT get_MaxTimeToReachQueue(int32 plMaxTimeToReachQueue) mut => VT.[Friend]get_MaxTimeToReachQueue(&this, plMaxTimeToReachQueue);
+	public HRESULT get_MaxTimeToReachQueue(int32* plMaxTimeToReachQueue) mut => VT.[Friend]get_MaxTimeToReachQueue(&this, plMaxTimeToReachQueue);
 
 	public HRESULT put_MaxTimeToReachQueue(int32 lMaxTimeToReachQueue) mut => VT.[Friend]put_MaxTimeToReachQueue(&this, lMaxTimeToReachQueue);
 
-	public HRESULT get_MaxTimeToReceive(int32 plMaxTimeToReceive) mut => VT.[Friend]get_MaxTimeToReceive(&this, plMaxTimeToReceive);
+	public HRESULT get_MaxTimeToReceive(int32* plMaxTimeToReceive) mut => VT.[Friend]get_MaxTimeToReceive(&this, plMaxTimeToReceive);
 
 	public HRESULT put_MaxTimeToReceive(int32 lMaxTimeToReceive) mut => VT.[Friend]put_MaxTimeToReceive(&this, lMaxTimeToReceive);
 
-	public HRESULT get_HashAlgorithm(int32 plHashAlg) mut => VT.[Friend]get_HashAlgorithm(&this, plHashAlg);
+	public HRESULT get_HashAlgorithm(int32* plHashAlg) mut => VT.[Friend]get_HashAlgorithm(&this, plHashAlg);
 
 	public HRESULT put_HashAlgorithm(int32 lHashAlg) mut => VT.[Friend]put_HashAlgorithm(&this, lHashAlg);
 
-	public HRESULT get_EncryptAlgorithm(int32 plEncryptAlg) mut => VT.[Friend]get_EncryptAlgorithm(&this, plEncryptAlg);
+	public HRESULT get_EncryptAlgorithm(int32* plEncryptAlg) mut => VT.[Friend]get_EncryptAlgorithm(&this, plEncryptAlg);
 
 	public HRESULT put_EncryptAlgorithm(int32 lEncryptAlg) mut => VT.[Friend]put_EncryptAlgorithm(&this, lEncryptAlg);
 
@@ -2847,7 +2847,7 @@ public static
 
 	public HRESULT get_SenderId(VARIANT* pvarSenderId) mut => VT.[Friend]get_SenderId(&this, pvarSenderId);
 
-	public HRESULT get_SenderIdType(int32 plSenderIdType) mut => VT.[Friend]get_SenderIdType(&this, plSenderIdType);
+	public HRESULT get_SenderIdType(int32* plSenderIdType) mut => VT.[Friend]get_SenderIdType(&this, plSenderIdType);
 
 	public HRESULT put_SenderIdType(int32 lSenderIdType) mut => VT.[Friend]put_SenderIdType(&this, lSenderIdType);
 
@@ -2855,7 +2855,7 @@ public static
 
 	public HRESULT AttachCurrentSecurityContext() mut => VT.[Friend]AttachCurrentSecurityContext(&this);
 
-	public HRESULT get_SenderVersion(int32 plSenderVersion) mut => VT.[Friend]get_SenderVersion(&this, plSenderVersion);
+	public HRESULT get_SenderVersion(int32* plSenderVersion) mut => VT.[Friend]get_SenderVersion(&this, plSenderVersion);
 
 	public HRESULT get_Extension(VARIANT* pvarExtension) mut => VT.[Friend]get_Extension(&this, pvarExtension);
 
@@ -2875,7 +2875,7 @@ public static
 
 	public HRESULT put_Signature(VARIANT varSignature) mut => VT.[Friend]put_Signature(&this, varSignature);
 
-	public HRESULT get_AuthenticationProviderType(int32 plAuthProvType) mut => VT.[Friend]get_AuthenticationProviderType(&this, plAuthProvType);
+	public HRESULT get_AuthenticationProviderType(int32* plAuthProvType) mut => VT.[Friend]get_AuthenticationProviderType(&this, plAuthProvType);
 
 	public HRESULT put_AuthenticationProviderType(int32 lAuthProvType) mut => VT.[Friend]put_AuthenticationProviderType(&this, lAuthProvType);
 
@@ -2885,7 +2885,7 @@ public static
 
 	public HRESULT put_SenderId(VARIANT varSenderId) mut => VT.[Friend]put_SenderId(&this, varSenderId);
 
-	public HRESULT get_MsgClass(int32 plMsgClass) mut => VT.[Friend]get_MsgClass(&this, plMsgClass);
+	public HRESULT get_MsgClass(int32* plMsgClass) mut => VT.[Friend]get_MsgClass(&this, plMsgClass);
 
 	public HRESULT put_MsgClass(int32 lMsgClass) mut => VT.[Friend]put_MsgClass(&this, lMsgClass);
 
@@ -2893,9 +2893,9 @@ public static
 
 	public HRESULT get_TransactionId(VARIANT* pvarXactId) mut => VT.[Friend]get_TransactionId(&this, pvarXactId);
 
-	public HRESULT get_IsFirstInTransaction(int16 pisFirstInXact) mut => VT.[Friend]get_IsFirstInTransaction(&this, pisFirstInXact);
+	public HRESULT get_IsFirstInTransaction(int16* pisFirstInXact) mut => VT.[Friend]get_IsFirstInTransaction(&this, pisFirstInXact);
 
-	public HRESULT get_IsLastInTransaction(int16 pisLastInXact) mut => VT.[Friend]get_IsLastInTransaction(&this, pisLastInXact);
+	public HRESULT get_IsLastInTransaction(int16* pisLastInXact) mut => VT.[Friend]get_IsLastInTransaction(&this, pisLastInXact);
 
 	public HRESULT get_ResponseQueueInfo_v2(IMSMQQueueInfo2** ppqinfoResponse) mut => VT.[Friend]get_ResponseQueueInfo_v2(&this, ppqinfoResponse);
 
@@ -2905,7 +2905,7 @@ public static
 
 	public HRESULT putref_AdminQueueInfo_v2(IMSMQQueueInfo2* pqinfoAdmin) mut => VT.[Friend]putref_AdminQueueInfo_v2(&this, pqinfoAdmin);
 
-	public HRESULT get_ReceivedAuthenticationLevel(int16 psReceivedAuthenticationLevel) mut => VT.[Friend]get_ReceivedAuthenticationLevel(&this, psReceivedAuthenticationLevel);
+	public HRESULT get_ReceivedAuthenticationLevel(int16* psReceivedAuthenticationLevel) mut => VT.[Friend]get_ReceivedAuthenticationLevel(&this, psReceivedAuthenticationLevel);
 
 	public HRESULT get_ResponseQueueInfo(IMSMQQueueInfo4** ppqinfoResponse) mut => VT.[Friend]get_ResponseQueueInfo(&this, ppqinfoResponse);
 
@@ -2923,11 +2923,11 @@ public static
 
 	public HRESULT get_LookupId(VARIANT* pvarLookupId) mut => VT.[Friend]get_LookupId(&this, pvarLookupId);
 
-	public HRESULT get_IsAuthenticated2(int16 pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated2(&this, pisAuthenticated);
+	public HRESULT get_IsAuthenticated2(int16* pisAuthenticated) mut => VT.[Friend]get_IsAuthenticated2(&this, pisAuthenticated);
 
-	public HRESULT get_IsFirstInTransaction2(int16 pisFirstInXact) mut => VT.[Friend]get_IsFirstInTransaction2(&this, pisFirstInXact);
+	public HRESULT get_IsFirstInTransaction2(int16* pisFirstInXact) mut => VT.[Friend]get_IsFirstInTransaction2(&this, pisFirstInXact);
 
-	public HRESULT get_IsLastInTransaction2(int16 pisLastInXact) mut => VT.[Friend]get_IsLastInTransaction2(&this, pisLastInXact);
+	public HRESULT get_IsLastInTransaction2(int16* pisLastInXact) mut => VT.[Friend]get_IsLastInTransaction2(&this, pisLastInXact);
 
 	public HRESULT AttachCurrentSecurityContext2() mut => VT.[Friend]AttachCurrentSecurityContext2(&this);
 
@@ -2948,13 +2948,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 phwnd) get_Hwnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* phwnd) get_Hwnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueue* pq, int32 msgcursor) FireArrivedEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueue* pq, HRESULT hrStatus, int32 msgcursor) FireArrivedErrorEvent;
 	}
 
 
-	public HRESULT get_Hwnd(int32 phwnd) mut => VT.[Friend]get_Hwnd(&this, phwnd);
+	public HRESULT get_Hwnd(int32* phwnd) mut => VT.[Friend]get_Hwnd(&this, phwnd);
 
 	public HRESULT FireArrivedEvent(IMSMQQueue* pq, int32 msgcursor) mut => VT.[Friend]FireArrivedEvent(&this, pq, msgcursor);
 
@@ -3103,10 +3103,10 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Flags, VARIANT* ExternalCertificate) RegisterCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuid, BSTR* pbstrMachineName) MachineNameOfMachineId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 psMSMQVersionMajor) get_MSMQVersionMajor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 psMSMQVersionMinor) get_MSMQVersionMinor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 psMSMQVersionBuild) get_MSMQVersionBuild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pfIsDsEnabled) get_IsDsEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psMSMQVersionMajor) get_MSMQVersionMajor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psMSMQVersionMinor) get_MSMQVersionMinor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psMSMQVersionBuild) get_MSMQVersionBuild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pfIsDsEnabled) get_IsDsEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
@@ -3115,13 +3115,13 @@ public static
 
 	public HRESULT MachineNameOfMachineId(BSTR bstrGuid, BSTR* pbstrMachineName) mut => VT.[Friend]MachineNameOfMachineId(&this, bstrGuid, pbstrMachineName);
 
-	public HRESULT get_MSMQVersionMajor(int16 psMSMQVersionMajor) mut => VT.[Friend]get_MSMQVersionMajor(&this, psMSMQVersionMajor);
+	public HRESULT get_MSMQVersionMajor(int16* psMSMQVersionMajor) mut => VT.[Friend]get_MSMQVersionMajor(&this, psMSMQVersionMajor);
 
-	public HRESULT get_MSMQVersionMinor(int16 psMSMQVersionMinor) mut => VT.[Friend]get_MSMQVersionMinor(&this, psMSMQVersionMinor);
+	public HRESULT get_MSMQVersionMinor(int16* psMSMQVersionMinor) mut => VT.[Friend]get_MSMQVersionMinor(&this, psMSMQVersionMinor);
 
-	public HRESULT get_MSMQVersionBuild(int16 psMSMQVersionBuild) mut => VT.[Friend]get_MSMQVersionBuild(&this, psMSMQVersionBuild);
+	public HRESULT get_MSMQVersionBuild(int16* psMSMQVersionBuild) mut => VT.[Friend]get_MSMQVersionBuild(&this, psMSMQVersionBuild);
 
-	public HRESULT get_IsDsEnabled(int16 pfIsDsEnabled) mut => VT.[Friend]get_IsDsEnabled(&this, pfIsDsEnabled);
+	public HRESULT get_IsDsEnabled(int16* pfIsDsEnabled) mut => VT.[Friend]get_IsDsEnabled(&this, pfIsDsEnabled);
 
 	public HRESULT get_Properties(IDispatch** ppcolProperties) mut => VT.[Friend]get_Properties(&this, ppcolProperties);
 }
@@ -3137,7 +3137,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvActiveQueues) get_ActiveQueues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvPrivateQueues) get_PrivateQueues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDirectoryServiceServer) get_DirectoryServiceServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pfIsConnected) get_IsConnected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pfIsConnected) get_IsConnected;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvBytesInAllQueues) get_BytesInAllQueues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMachine) put_Machine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrMachine) get_Machine;
@@ -3153,7 +3153,7 @@ public static
 
 	public HRESULT get_DirectoryServiceServer(BSTR* pbstrDirectoryServiceServer) mut => VT.[Friend]get_DirectoryServiceServer(&this, pbstrDirectoryServiceServer);
 
-	public HRESULT get_IsConnected(int16 pfIsConnected) mut => VT.[Friend]get_IsConnected(&this, pfIsConnected);
+	public HRESULT get_IsConnected(int16* pfIsConnected) mut => VT.[Friend]get_IsConnected(&this, pfIsConnected);
 
 	public HRESULT get_BytesInAllQueues(VARIANT* pvBytesInAllQueues) mut => VT.[Friend]get_BytesInAllQueues(&this, pvBytesInAllQueues);
 
@@ -3178,7 +3178,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pfIsOpen) get_IsOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pfIsOpen) get_IsOpen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppIADs) get_IADs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pIADs) putref_IADs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrADsPath) get_ADsPath;
@@ -3197,7 +3197,7 @@ public static
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
-	public HRESULT get_IsOpen(int16 pfIsOpen) mut => VT.[Friend]get_IsOpen(&this, pfIsOpen);
+	public HRESULT get_IsOpen(int16* pfIsOpen) mut => VT.[Friend]get_IsOpen(&this, pfIsOpen);
 
 	public HRESULT get_IADs(IDispatch** ppIADs) mut => VT.[Friend]get_IADs(&this, ppIADs);
 
@@ -3249,14 +3249,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Index, VARIANT* pvarRet) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppunk) _NewEnum;
 	}
 
 
 	public HRESULT Item(VARIANT* Index, VARIANT* pvarRet) mut => VT.[Friend]Item(&this, Index, pvarRet);
 
-	public HRESULT get_Count(int32 pCount) mut => VT.[Friend]get_Count(&this, pCount);
+	public HRESULT get_Count(int32* pCount) mut => VT.[Friend]get_Count(&this, pCount);
 
 	public HRESULT _NewEnum(IUnknown** ppunk) mut => VT.[Friend]_NewEnum(&this, ppunk);
 }
@@ -3272,11 +3272,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Machine, VARIANT* Pathname, VARIANT* FormatName) Init;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrMachine) get_Machine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMessageCount) get_MessageCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plForeignStatus) get_ForeignStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plQueueType) get_QueueType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pfIsLocal) get_IsLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plTransactionalStatus) get_TransactionalStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMessageCount) get_MessageCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plForeignStatus) get_ForeignStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQueueType) get_QueueType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pfIsLocal) get_IsLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTransactionalStatus) get_TransactionalStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvBytesInQueue) get_BytesInQueue;
 	}
 
@@ -3287,15 +3287,15 @@ public static
 
 	public HRESULT get_Machine(BSTR* pbstrMachine) mut => VT.[Friend]get_Machine(&this, pbstrMachine);
 
-	public HRESULT get_MessageCount(int32 plMessageCount) mut => VT.[Friend]get_MessageCount(&this, plMessageCount);
+	public HRESULT get_MessageCount(int32* plMessageCount) mut => VT.[Friend]get_MessageCount(&this, plMessageCount);
 
-	public HRESULT get_ForeignStatus(int32 plForeignStatus) mut => VT.[Friend]get_ForeignStatus(&this, plForeignStatus);
+	public HRESULT get_ForeignStatus(int32* plForeignStatus) mut => VT.[Friend]get_ForeignStatus(&this, plForeignStatus);
 
-	public HRESULT get_QueueType(int32 plQueueType) mut => VT.[Friend]get_QueueType(&this, plQueueType);
+	public HRESULT get_QueueType(int32* plQueueType) mut => VT.[Friend]get_QueueType(&this, plQueueType);
 
-	public HRESULT get_IsLocal(int16 pfIsLocal) mut => VT.[Friend]get_IsLocal(&this, pfIsLocal);
+	public HRESULT get_IsLocal(int16* pfIsLocal) mut => VT.[Friend]get_IsLocal(&this, pfIsLocal);
 
-	public HRESULT get_TransactionalStatus(int32 plTransactionalStatus) mut => VT.[Friend]get_TransactionalStatus(&this, plTransactionalStatus);
+	public HRESULT get_TransactionalStatus(int32* plTransactionalStatus) mut => VT.[Friend]get_TransactionalStatus(&this, plTransactionalStatus);
 
 	public HRESULT get_BytesInQueue(VARIANT* pvBytesInQueue) mut => VT.[Friend]get_BytesInQueue(&this, pvBytesInQueue);
 }
@@ -3308,7 +3308,7 @@ public static
 
 	[CRepr]public struct VTable : IMSMQManagement.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plState) get_State;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvNextHops) get_NextHops;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQCollection** ppCollection) EodGetSendInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
@@ -3317,7 +3317,7 @@ public static
 	}
 
 
-	public HRESULT get_State(int32 plState) mut => VT.[Friend]get_State(&this, plState);
+	public HRESULT get_State(int32* plState) mut => VT.[Friend]get_State(&this, plState);
 
 	public HRESULT get_NextHops(VARIANT* pvNextHops) mut => VT.[Friend]get_NextHops(&this, pvNextHops);
 
@@ -3338,13 +3338,13 @@ public static
 
 	[CRepr]public struct VTable : IMSMQManagement.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plJournalMessageCount) get_JournalMessageCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournalMessageCount) get_JournalMessageCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvBytesInJournal) get_BytesInJournal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvCollection) EodGetReceiveInfo;
 	}
 
 
-	public HRESULT get_JournalMessageCount(int32 plJournalMessageCount) mut => VT.[Friend]get_JournalMessageCount(&this, plJournalMessageCount);
+	public HRESULT get_JournalMessageCount(int32* plJournalMessageCount) mut => VT.[Friend]get_JournalMessageCount(&this, plJournalMessageCount);
 
 	public HRESULT get_BytesInJournal(VARIANT* pvBytesInJournal) mut => VT.[Friend]get_BytesInJournal(&this, pvBytesInJournal);
 

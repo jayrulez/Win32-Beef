@@ -6981,14 +6981,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, INetCfgBindingInterface** rgelt, uint32 pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, INetCfgBindingInterface** rgelt, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumNetCfgBindingInterface** ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, INetCfgBindingInterface** rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, INetCfgBindingInterface** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
@@ -7005,14 +7005,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, INetCfgBindingPath** rgelt, uint32 pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, INetCfgBindingPath** rgelt, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumNetCfgBindingPath** ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, INetCfgBindingPath** rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, INetCfgBindingPath** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
@@ -7029,14 +7029,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, INetCfgComponent** rgelt, uint32 pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, INetCfgComponent** rgelt, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumNetCfgComponent** ppenum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, INetCfgComponent** rgelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
+	public HRESULT Next(uint32 celt, INetCfgComponent** rgelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
@@ -7057,9 +7057,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Uninitialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Apply;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwInfId, INetCfgComponent** pComponent) FindComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidClass, Guid riid, void** ppvObject) QueryNetCfgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidClass, ref Guid riid, void** ppvObject) QueryNetCfgClass;
 	}
 
 
@@ -7071,11 +7071,11 @@ public static
 
 	public HRESULT Cancel() mut => VT.[Friend]Cancel(&this);
 
-	public HRESULT EnumComponents(Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) mut => VT.[Friend]EnumComponents(&this, pguidClass, ppenumComponent);
+	public HRESULT EnumComponents(ref Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) mut => VT.[Friend]EnumComponents(&this, ref pguidClass, ppenumComponent);
 
 	public HRESULT FindComponent(PWSTR pszwInfId, INetCfgComponent** pComponent) mut => VT.[Friend]FindComponent(&this, pszwInfId, pComponent);
 
-	public HRESULT QueryNetCfgClass(Guid pguidClass, Guid riid, void** ppvObject) mut => VT.[Friend]QueryNetCfgClass(&this, pguidClass, riid, ppvObject);
+	public HRESULT QueryNetCfgClass(ref Guid pguidClass, ref Guid riid, void** ppvObject) mut => VT.[Friend]QueryNetCfgClass(&this, ref pguidClass, ref riid, ppvObject);
 }
 
 [CRepr]struct INetCfgLock : IUnknown
@@ -7134,7 +7134,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) Enable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwPathToken) GetPathToken;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent** ppComponent) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcInterfaces) GetDepth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcInterfaces) GetDepth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumNetCfgBindingInterface** ppenumInterface) EnumBindingInterfaces;
 	}
 
@@ -7151,7 +7151,7 @@ public static
 
 	public HRESULT GetOwner(INetCfgComponent** ppComponent) mut => VT.[Friend]GetOwner(&this, ppComponent);
 
-	public HRESULT GetDepth(uint32 pcInterfaces) mut => VT.[Friend]GetDepth(&this, pcInterfaces);
+	public HRESULT GetDepth(uint32* pcInterfaces) mut => VT.[Friend]GetDepth(&this, pcInterfaces);
 
 	public HRESULT EnumBindingInterfaces(IEnumNetCfgBindingInterface** ppenumInterface) mut => VT.[Friend]EnumBindingInterfaces(&this, ppenumInterface);
 }
@@ -7222,12 +7222,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwDisplayName) SetDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pszwHelpText) GetHelpText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwId) GetId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCharacteristics) GetCharacteristics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pGuid) GetInstanceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCharacteristics) GetCharacteristics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuid) GetInstanceGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwDevNodeId) GetPnpDevNodeId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pGuid) GetClassGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuid) GetClassGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwBindName) GetBindName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulStatus) GetDeviceStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulStatus) GetDeviceStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKEY* phkey) OpenParamKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, uint32 dwFlags, IUnknown* punkContext) RaisePropertyUi;
 	}
@@ -7241,17 +7241,17 @@ public static
 
 	public HRESULT GetId(PWSTR* ppszwId) mut => VT.[Friend]GetId(&this, ppszwId);
 
-	public HRESULT GetCharacteristics(uint32 pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
+	public HRESULT GetCharacteristics(uint32* pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
 
-	public HRESULT GetInstanceGuid(Guid pGuid) mut => VT.[Friend]GetInstanceGuid(&this, pGuid);
+	public HRESULT GetInstanceGuid(ref Guid pGuid) mut => VT.[Friend]GetInstanceGuid(&this, ref pGuid);
 
 	public HRESULT GetPnpDevNodeId(PWSTR* ppszwDevNodeId) mut => VT.[Friend]GetPnpDevNodeId(&this, ppszwDevNodeId);
 
-	public HRESULT GetClassGuid(Guid pGuid) mut => VT.[Friend]GetClassGuid(&this, pGuid);
+	public HRESULT GetClassGuid(ref Guid pGuid) mut => VT.[Friend]GetClassGuid(&this, ref pGuid);
 
 	public HRESULT GetBindName(PWSTR* ppszwBindName) mut => VT.[Friend]GetBindName(&this, ppszwBindName);
 
-	public HRESULT GetDeviceStatus(uint32 pulStatus) mut => VT.[Friend]GetDeviceStatus(&this, pulStatus);
+	public HRESULT GetDeviceStatus(uint32* pulStatus) mut => VT.[Friend]GetDeviceStatus(&this, pulStatus);
 
 	public HRESULT OpenParamKey(HKEY* phkey) mut => VT.[Friend]OpenParamKey(&this, phkey);
 
@@ -7391,7 +7391,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkReserved) QueryPropertyUi;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkReserved) SetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwDefPages, uint8** pahpspPrivate, uint32 pcPages, HWND hwndParent, PWSTR* pszStartPage) MergePropPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwDefPages, uint8** pahpspPrivate, uint32* pcPages, HWND hwndParent, PWSTR* pszStartPage) MergePropPages;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndSheet) ValidateProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ApplyProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelProperties;
@@ -7402,7 +7402,7 @@ public static
 
 	public HRESULT SetContext(IUnknown* pUnkReserved) mut => VT.[Friend]SetContext(&this, pUnkReserved);
 
-	public HRESULT MergePropPages(uint32 pdwDefPages, uint8** pahpspPrivate, uint32 pcPages, HWND hwndParent, PWSTR* pszStartPage) mut => VT.[Friend]MergePropPages(&this, pdwDefPages, pahpspPrivate, pcPages, hwndParent, pszStartPage);
+	public HRESULT MergePropPages(uint32* pdwDefPages, uint8** pahpspPrivate, uint32* pcPages, HWND hwndParent, PWSTR* pszStartPage) mut => VT.[Friend]MergePropPages(&this, pdwDefPages, pahpspPrivate, pcPages, hwndParent, pszStartPage);
 
 	public HRESULT ValidateProperties(HWND hwndSheet) mut => VT.[Friend]ValidateProperties(&this, hwndSheet);
 
@@ -7437,14 +7437,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwNotifications) GetSupportedNotifications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwNotifications) GetSupportedNotifications;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChangeFlag, INetCfgBindingPath* pIPath) SysQueryBindingPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChangeFlag, INetCfgBindingPath* pIPath) SysNotifyBindingPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChangeFlag, INetCfgComponent* pIComp) SysNotifyComponent;
 	}
 
 
-	public HRESULT GetSupportedNotifications(uint32 dwNotifications) mut => VT.[Friend]GetSupportedNotifications(&this, dwNotifications);
+	public HRESULT GetSupportedNotifications(uint32* dwNotifications) mut => VT.[Friend]GetSupportedNotifications(&this, dwNotifications);
 
 	public HRESULT SysQueryBindingPath(uint32 dwChangeFlag, INetCfgBindingPath* pIPath) mut => VT.[Friend]SysQueryBindingPath(&this, dwChangeFlag, pIPath);
 
@@ -7461,13 +7461,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pAdapter, uint32 pdwNumInterfaces, Guid** ppguidInterfaceIds) GetInterfaceIdsForAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, Guid** ppguidInterfaceIds) GetInterfaceIdsForAdapter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AddInterfacesToAdapter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pAdapter, uint32 dwNumInterfaces, Guid* pguidInterfaceIds) RemoveInterfacesFromAdapter;
 	}
 
 
-	public HRESULT GetInterfaceIdsForAdapter(INetCfgComponent* pAdapter, uint32 pdwNumInterfaces, Guid** ppguidInterfaceIds) mut => VT.[Friend]GetInterfaceIdsForAdapter(&this, pAdapter, pdwNumInterfaces, ppguidInterfaceIds);
+	public HRESULT GetInterfaceIdsForAdapter(INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, Guid** ppguidInterfaceIds) mut => VT.[Friend]GetInterfaceIdsForAdapter(&this, pAdapter, pdwNumInterfaces, ppguidInterfaceIds);
 
 	public HRESULT AddInterfacesToAdapter() mut => VT.[Friend]AddInterfacesToAdapter(&this);
 
@@ -7482,11 +7482,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguid) GetDeviceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguid) GetDeviceGuid;
 	}
 
 
-	public HRESULT GetDeviceGuid(Guid pguid) mut => VT.[Friend]GetDeviceGuid(&this, pguid);
+	public HRESULT GetDeviceGuid(ref Guid pguid) mut => VT.[Friend]GetDeviceGuid(&this, ref pguid);
 }
 
 [CRepr]struct INetRasConnectionIpUiInfo : IUnknown
@@ -7512,14 +7512,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, Guid pAdapterInstanceGuid) SaveAdapterParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, Guid pAdapterInstanceGuid) RestoreAdapterParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, ref Guid pAdapterInstanceGuid) SaveAdapterParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, ref Guid pAdapterInstanceGuid) RestoreAdapterParameters;
 	}
 
 
-	public HRESULT SaveAdapterParameters(INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, Guid pAdapterInstanceGuid) mut => VT.[Friend]SaveAdapterParameters(&this, pncsp, pszwAnswerSections, pAdapterInstanceGuid);
+	public HRESULT SaveAdapterParameters(INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, ref Guid pAdapterInstanceGuid) mut => VT.[Friend]SaveAdapterParameters(&this, pncsp, pszwAnswerSections, ref pAdapterInstanceGuid);
 
-	public HRESULT RestoreAdapterParameters(PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, Guid pAdapterInstanceGuid) mut => VT.[Friend]RestoreAdapterParameters(&this, pszwAnswerFile, pszwAnswerSection, pAdapterInstanceGuid);
+	public HRESULT RestoreAdapterParameters(PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, ref Guid pAdapterInstanceGuid) mut => VT.[Friend]RestoreAdapterParameters(&this, pszwAnswerFile, pszwAnswerSection, ref pAdapterInstanceGuid);
 }
 
 [CRepr]struct IProvisioningDomain : IUnknown
@@ -7548,11 +7548,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, Guid pAdapterInstanceGuid, uint32 pulStatus) CreateProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, ref Guid pAdapterInstanceGuid, uint32* pulStatus) CreateProfile;
 	}
 
 
-	public HRESULT CreateProfile(BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, Guid pAdapterInstanceGuid, uint32 pulStatus) mut => VT.[Friend]CreateProfile(&this, bstrXMLWirelessConfigProfile, bstrXMLConnectionConfigProfile, pAdapterInstanceGuid, pulStatus);
+	public HRESULT CreateProfile(BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, ref Guid pAdapterInstanceGuid, uint32* pulStatus) mut => VT.[Friend]CreateProfile(&this, bstrXMLWirelessConfigProfile, bstrXMLConnectionConfigProfile, ref pAdapterInstanceGuid, pulStatus);
 }
 
 #endregion
@@ -7561,52 +7561,52 @@ public static
 public static
 {
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetUserAdd(PWSTR servername, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetUserAdd(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetUserEnum(PWSTR servername, uint32 level, NET_USER_ENUM_FILTER_FLAGS filter, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint32 resume_handle);
+	public static extern uint32 NetUserEnum(PWSTR servername, uint32 level, NET_USER_ENUM_FILTER_FLAGS filter, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint32* resume_handle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetUserGetInfo(PWSTR servername, PWSTR username, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetUserSetInfo(PWSTR servername, PWSTR username, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetUserSetInfo(PWSTR servername, PWSTR username, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetUserDel(PWSTR servername, PWSTR username);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetUserGetGroups(PWSTR servername, PWSTR username, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries);
+	public static extern uint32 NetUserGetGroups(PWSTR servername, PWSTR username, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetUserSetGroups(PWSTR servername, PWSTR username, uint32 level, uint8 buf, uint32 num_entries);
+	public static extern uint32 NetUserSetGroups(PWSTR servername, PWSTR username, uint32 level, uint8* buf, uint32 num_entries);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetUserGetLocalGroups(PWSTR servername, PWSTR username, uint32 level, uint32 flags, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries);
+	public static extern uint32 NetUserGetLocalGroups(PWSTR servername, PWSTR username, uint32 level, uint32 flags, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetUserModalsGet(PWSTR servername, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetUserModalsSet(PWSTR servername, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetUserModalsSet(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetUserChangePassword(PWSTR domainname, PWSTR username, PWSTR oldpassword, PWSTR newpassword);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetGroupAdd(PWSTR servername, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetGroupAdd(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetGroupAddUser(PWSTR servername, PWSTR GroupName, PWSTR username);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetGroupEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint resume_handle);
+	public static extern uint32 NetGroupEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint* resume_handle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetGroupGetInfo(PWSTR servername, PWSTR groupname, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetGroupSetInfo(PWSTR servername, PWSTR groupname, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetGroupSetInfo(PWSTR servername, PWSTR groupname, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetGroupDel(PWSTR servername, PWSTR groupname);
@@ -7615,25 +7615,25 @@ public static
 	public static extern uint32 NetGroupDelUser(PWSTR servername, PWSTR GroupName, PWSTR Username);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetGroupGetUsers(PWSTR servername, PWSTR groupname, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint ResumeHandle);
+	public static extern uint32 NetGroupGetUsers(PWSTR servername, PWSTR groupname, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint* ResumeHandle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetGroupSetUsers(PWSTR servername, PWSTR groupname, uint32 level, uint8 buf, uint32 totalentries);
+	public static extern uint32 NetGroupSetUsers(PWSTR servername, PWSTR groupname, uint32 level, uint8* buf, uint32 totalentries);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetLocalGroupAdd(PWSTR servername, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetLocalGroupAdd(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetLocalGroupAddMember(PWSTR servername, PWSTR groupname, PSID membersid);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetLocalGroupEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint resumehandle);
+	public static extern uint32 NetLocalGroupEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint* resumehandle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetLocalGroupGetInfo(PWSTR servername, PWSTR groupname, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetLocalGroupSetInfo(PWSTR servername, PWSTR groupname, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetLocalGroupSetInfo(PWSTR servername, PWSTR groupname, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetLocalGroupDel(PWSTR servername, PWSTR groupname);
@@ -7642,40 +7642,40 @@ public static
 	public static extern uint32 NetLocalGroupDelMember(PWSTR servername, PWSTR groupname, PSID membersid);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetLocalGroupGetMembers(PWSTR servername, PWSTR localgroupname, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint resumehandle);
+	public static extern uint32 NetLocalGroupGetMembers(PWSTR servername, PWSTR localgroupname, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint* resumehandle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetLocalGroupSetMembers(PWSTR servername, PWSTR groupname, uint32 level, uint8 buf, uint32 totalentries);
+	public static extern uint32 NetLocalGroupSetMembers(PWSTR servername, PWSTR groupname, uint32 level, uint8* buf, uint32 totalentries);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetLocalGroupAddMembers(PWSTR servername, PWSTR groupname, uint32 level, uint8 buf, uint32 totalentries);
+	public static extern uint32 NetLocalGroupAddMembers(PWSTR servername, PWSTR groupname, uint32 level, uint8* buf, uint32 totalentries);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetLocalGroupDelMembers(PWSTR servername, PWSTR groupname, uint32 level, uint8 buf, uint32 totalentries);
+	public static extern uint32 NetLocalGroupDelMembers(PWSTR servername, PWSTR groupname, uint32 level, uint8* buf, uint32 totalentries);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetQueryDisplayInformation(PWSTR ServerName, uint32 Level, uint32 Index, uint32 EntriesRequested, uint32 PreferredMaximumLength, uint32 ReturnedEntryCount, void** SortedBuffer);
+	public static extern uint32 NetQueryDisplayInformation(PWSTR ServerName, uint32 Level, uint32 Index, uint32 EntriesRequested, uint32 PreferredMaximumLength, uint32* ReturnedEntryCount, void** SortedBuffer);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetGetDisplayInformationIndex(PWSTR ServerName, uint32 Level, PWSTR Prefix, uint32 Index);
+	public static extern uint32 NetGetDisplayInformationIndex(PWSTR ServerName, uint32 Level, PWSTR Prefix, uint32* Index);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetAccessAdd(PWSTR servername, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetAccessAdd(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetAccessEnum(PWSTR servername, PWSTR BasePath, uint32 Recursive, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint32 resume_handle);
+	public static extern uint32 NetAccessEnum(PWSTR servername, PWSTR BasePath, uint32 Recursive, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint32* resume_handle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetAccessGetInfo(PWSTR servername, PWSTR resource, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetAccessSetInfo(PWSTR servername, PWSTR resource, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetAccessSetInfo(PWSTR servername, PWSTR resource, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetAccessDel(PWSTR servername, PWSTR resource);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetAccessGetUserPerms(PWSTR servername, PWSTR UGname, PWSTR resource, uint32 Perms);
+	public static extern uint32 NetAccessGetUserPerms(PWSTR servername, PWSTR UGname, PWSTR resource, uint32* Perms);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetValidatePasswordPolicy(PWSTR ServerName, void* Qualifier, NET_VALIDATE_PASSWORD_TYPE ValidationType, void* InputArg, void** OutputArg);
@@ -7690,7 +7690,7 @@ public static
 	public static extern uint32 NetGetAnyDCName(PWSTR ServerName, PWSTR DomainName, uint8** Buffer);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 I_NetLogonControl2(PWSTR ServerName, uint32 FunctionCode, uint32 QueryLevel, uint8 Data, uint8** Buffer);
+	public static extern uint32 I_NetLogonControl2(PWSTR ServerName, uint32 FunctionCode, uint32 QueryLevel, uint8* Data, uint8** Buffer);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS NetAddServiceAccount(PWSTR ServerName, PWSTR AccountName, PWSTR Password, uint32 Flags);
@@ -7699,7 +7699,7 @@ public static
 	public static extern NTSTATUS NetRemoveServiceAccount(PWSTR ServerName, PWSTR AccountName, uint32 Flags);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS NetEnumerateServiceAccounts(PWSTR ServerName, uint32 Flags, uint32 AccountsCount, uint16*** Accounts);
+	public static extern NTSTATUS NetEnumerateServiceAccounts(PWSTR ServerName, uint32 Flags, uint32* AccountsCount, uint16*** Accounts);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS NetIsServiceAccount(PWSTR ServerName, PWSTR AccountName, BOOL* IsService);
@@ -7717,7 +7717,7 @@ public static
 	public static extern uint32 NetMessageNameAdd(PWSTR servername, PWSTR msgname);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetMessageNameEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint32 resume_handle);
+	public static extern uint32 NetMessageNameEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint32* resume_handle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetMessageNameGetInfo(PWSTR servername, PWSTR msgname, uint32 level, uint8** bufptr);
@@ -7726,34 +7726,34 @@ public static
 	public static extern uint32 NetMessageNameDel(PWSTR servername, PWSTR msgname);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetMessageBufferSend(PWSTR servername, PWSTR msgname, PWSTR fromname, uint8 buf, uint32 buflen);
+	public static extern uint32 NetMessageBufferSend(PWSTR servername, PWSTR msgname, PWSTR fromname, uint8* buf, uint32 buflen);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetRemoteTOD(PWSTR UncServerName, uint8** BufferPtr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetRemoteComputerSupports(PWSTR UncServerName, NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS OptionsWanted, uint32 OptionsSupported);
+	public static extern uint32 NetRemoteComputerSupports(PWSTR UncServerName, NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS OptionsWanted, uint32* OptionsSupported);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplGetInfo(PWSTR servername, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplSetInfo(PWSTR servername, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetReplSetInfo(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplExportDirAdd(PWSTR servername, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetReplExportDirAdd(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplExportDirDel(PWSTR servername, PWSTR dirname);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplExportDirEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint32 resumehandle);
+	public static extern uint32 NetReplExportDirEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint32* resumehandle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplExportDirGetInfo(PWSTR servername, PWSTR dirname, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplExportDirSetInfo(PWSTR servername, PWSTR dirname, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetReplExportDirSetInfo(PWSTR servername, PWSTR dirname, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplExportDirLock(PWSTR servername, PWSTR dirname);
@@ -7762,13 +7762,13 @@ public static
 	public static extern uint32 NetReplExportDirUnlock(PWSTR servername, PWSTR dirname, uint32 unlockforce);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplImportDirAdd(PWSTR servername, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetReplImportDirAdd(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplImportDirDel(PWSTR servername, PWSTR dirname);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplImportDirEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint32 resumehandle);
+	public static extern uint32 NetReplImportDirEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint32* resumehandle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplImportDirGetInfo(PWSTR servername, PWSTR dirname, uint32 level, uint8** bufptr);
@@ -7780,16 +7780,16 @@ public static
 	public static extern uint32 NetReplImportDirUnlock(PWSTR servername, PWSTR dirname, uint32 unlockforce);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetServerEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, NET_SERVER_TYPE servertype, PWSTR domain, uint32 resume_handle);
+	public static extern uint32 NetServerEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, NET_SERVER_TYPE servertype, PWSTR domain, uint32* resume_handle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetServerGetInfo(PWSTR servername, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetServerSetInfo(PWSTR servername, uint32 level, uint8 buf, uint32 ParmError);
+	public static extern uint32 NetServerSetInfo(PWSTR servername, uint32 level, uint8* buf, uint32* ParmError);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetServerDiskEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint32 resume_handle);
+	public static extern uint32 NetServerDiskEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint32* resume_handle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetServerComputerNameAdd(PWSTR ServerName, PWSTR EmulatedDomainName, PWSTR EmulatedServerName);
@@ -7798,22 +7798,22 @@ public static
 	public static extern uint32 NetServerComputerNameDel(PWSTR ServerName, PWSTR EmulatedServerName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetServerTransportAdd(PWSTR servername, uint32 level, uint8 bufptr);
+	public static extern uint32 NetServerTransportAdd(PWSTR servername, uint32 level, uint8* bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetServerTransportAddEx(PWSTR servername, uint32 level, uint8 bufptr);
+	public static extern uint32 NetServerTransportAddEx(PWSTR servername, uint32 level, uint8* bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetServerTransportDel(PWSTR servername, uint32 level, uint8 bufptr);
+	public static extern uint32 NetServerTransportDel(PWSTR servername, uint32 level, uint8* bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetServerTransportEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint32 resume_handle);
+	public static extern uint32 NetServerTransportEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint32* resume_handle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetServiceControl(PWSTR servername, PWSTR service, uint32 opcode, uint32 arg, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetServiceEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint32 resume_handle);
+	public static extern uint32 NetServiceEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint32* resume_handle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetServiceGetInfo(PWSTR servername, PWSTR service, uint32 level, uint8** bufptr);
@@ -7822,13 +7822,13 @@ public static
 	public static extern uint32 NetServiceInstall(PWSTR servername, PWSTR service, uint32 argc, PWSTR* argv, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetUseAdd(int8 servername, uint32 LevelFlags, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetUseAdd(int8* servername, uint32 LevelFlags, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetUseDel(PWSTR UncServerName, PWSTR UseName, FORCE_LEVEL_FLAGS ForceLevelFlags);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetUseEnum(PWSTR UncServerName, uint32 LevelFlags, uint8** BufPtr, uint32 PreferedMaximumSize, uint32 EntriesRead, uint32 TotalEntries, uint32 ResumeHandle);
+	public static extern uint32 NetUseEnum(PWSTR UncServerName, uint32 LevelFlags, uint8** BufPtr, uint32 PreferedMaximumSize, uint32* EntriesRead, uint32* TotalEntries, uint32* ResumeHandle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetUseGetInfo(PWSTR UncServerName, PWSTR UseName, uint32 LevelFlags, uint8** bufptr);
@@ -7837,25 +7837,25 @@ public static
 	public static extern uint32 NetWkstaGetInfo(PWSTR servername, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetWkstaSetInfo(PWSTR servername, uint32 level, uint8 buffer, uint32 parm_err);
+	public static extern uint32 NetWkstaSetInfo(PWSTR servername, uint32 level, uint8* buffer, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetWkstaUserGetInfo(PWSTR reserved, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetWkstaUserSetInfo(PWSTR reserved, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetWkstaUserSetInfo(PWSTR reserved, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetWkstaUserEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint32 resumehandle);
+	public static extern uint32 NetWkstaUserEnum(PWSTR servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint32* resumehandle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetWkstaTransportAdd(int8 servername, uint32 level, uint8 buf, uint32 parm_err);
+	public static extern uint32 NetWkstaTransportAdd(int8* servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetWkstaTransportDel(PWSTR servername, PWSTR transportname, FORCE_LEVEL_FLAGS ucond);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetWkstaTransportEnum(int8 servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32 entriesread, uint32 totalentries, uint32 resume_handle);
+	public static extern uint32 NetWkstaTransportEnum(int8* servername, uint32 level, uint8** bufptr, uint32 prefmaxlen, uint32* entriesread, uint32* totalentries, uint32* resume_handle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetApiBufferAllocate(uint32 ByteCount, void** Buffer);
@@ -7867,16 +7867,16 @@ public static
 	public static extern uint32 NetApiBufferReallocate(void* OldBuffer, uint32 NewByteCount, void** NewBuffer);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetApiBufferSize(void* Buffer, uint32 ByteCount);
+	public static extern uint32 NetApiBufferSize(void* Buffer, uint32* ByteCount);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetErrorLogClear(PWSTR UncServerName, PWSTR BackupFile, uint8 Reserved);
+	public static extern uint32 NetErrorLogClear(PWSTR UncServerName, PWSTR BackupFile, uint8* Reserved);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetErrorLogRead(PWSTR UncServerName, PWSTR Reserved1, HLOG* ErrorLogHandle, uint32 Offset, uint32 Reserved2, uint32 Reserved3, uint32 OffsetFlag, uint8** BufPtr, uint32 PrefMaxSize, uint32 BytesRead, uint32 TotalAvailable);
+	public static extern uint32 NetErrorLogRead(PWSTR UncServerName, PWSTR Reserved1, HLOG* ErrorLogHandle, uint32 Offset, uint32* Reserved2, uint32 Reserved3, uint32 OffsetFlag, uint8** BufPtr, uint32 PrefMaxSize, uint32* BytesRead, uint32* TotalAvailable);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetErrorLogWrite(uint8 Reserved1, uint32 Code, PWSTR Component, uint8 Buffer, uint32 NumBytes, uint8 MsgBuf, uint32 StrCount, uint8 Reserved2);
+	public static extern uint32 NetErrorLogWrite(uint8* Reserved1, uint32 Code, PWSTR Component, uint8* Buffer, uint32 NumBytes, uint8* MsgBuf, uint32 StrCount, uint8* Reserved2);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetConfigGet(PWSTR server, PWSTR component, PWSTR parameter, uint8** bufptr);
@@ -7885,16 +7885,16 @@ public static
 	public static extern uint32 NetConfigGetAll(PWSTR server, PWSTR component, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetConfigSet(PWSTR server, PWSTR reserved1, PWSTR component, uint32 level, uint32 reserved2, uint8 buf, uint32 reserved3);
+	public static extern uint32 NetConfigSet(PWSTR server, PWSTR reserved1, PWSTR component, uint32 level, uint32 reserved2, uint8* buf, uint32 reserved3);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetAuditClear(PWSTR server, PWSTR backupfile, PWSTR service);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetAuditRead(PWSTR server, PWSTR service, HLOG* auditloghandle, uint32 offset, uint32 reserved1, uint32 reserved2, uint32 offsetflag, uint8** bufptr, uint32 prefmaxlen, uint32 bytesread, uint32 totalavailable);
+	public static extern uint32 NetAuditRead(PWSTR server, PWSTR service, HLOG* auditloghandle, uint32 offset, uint32* reserved1, uint32 reserved2, uint32 offsetflag, uint8** bufptr, uint32 prefmaxlen, uint32* bytesread, uint32* totalavailable);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetAuditWrite(uint32 type, uint8 buf, uint32 numbytes, PWSTR service, uint8 reserved);
+	public static extern uint32 NetAuditWrite(uint32 type, uint8* buf, uint32 numbytes, PWSTR service, uint8* reserved);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetJoinDomain(PWSTR lpServer, PWSTR lpDomain, PWSTR lpMachineAccountOU, PWSTR lpAccount, PWSTR lpPassword, NET_JOIN_DOMAIN_JOIN_OPTIONS fJoinOptions);
@@ -7909,7 +7909,7 @@ public static
 	public static extern uint32 NetValidateName(PWSTR lpServer, PWSTR lpName, PWSTR lpAccount, PWSTR lpPassword, NETSETUP_NAME_TYPE NameType);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetGetJoinableOUs(PWSTR lpServer, PWSTR lpDomain, PWSTR lpAccount, PWSTR lpPassword, uint32 OUCount, PWSTR** OUs);
+	public static extern uint32 NetGetJoinableOUs(PWSTR lpServer, PWSTR lpDomain, PWSTR lpAccount, PWSTR lpPassword, uint32* OUCount, PWSTR** OUs);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetAddAlternateComputerName(PWSTR Server, PWSTR AlternateName, PWSTR DomainAccount, PWSTR DomainAccountPassword, uint32 Reserved);
@@ -7921,19 +7921,19 @@ public static
 	public static extern uint32 NetSetPrimaryComputerName(PWSTR Server, PWSTR PrimaryName, PWSTR DomainAccount, PWSTR DomainAccountPassword, uint32 Reserved);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetEnumerateComputerNames(PWSTR Server, NET_COMPUTER_NAME_TYPE NameType, uint32 Reserved, uint32 EntryCount, PWSTR** ComputerNames);
+	public static extern uint32 NetEnumerateComputerNames(PWSTR Server, NET_COMPUTER_NAME_TYPE NameType, uint32 Reserved, uint32* EntryCount, PWSTR** ComputerNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetProvisionComputerAccount(PWSTR lpDomain, PWSTR lpMachineName, PWSTR lpMachineAccountOU, PWSTR lpDcName, NETSETUP_PROVISION dwOptions, uint8** pProvisionBinData, uint32 pdwProvisionBinDataSize, PWSTR* pProvisionTextData);
+	public static extern uint32 NetProvisionComputerAccount(PWSTR lpDomain, PWSTR lpMachineName, PWSTR lpMachineAccountOU, PWSTR lpDcName, NETSETUP_PROVISION dwOptions, uint8** pProvisionBinData, uint32* pdwProvisionBinDataSize, PWSTR* pProvisionTextData);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetRequestOfflineDomainJoin(uint8 pProvisionBinData, uint32 cbProvisionBinDataSize, NET_REQUEST_PROVISION_OPTIONS dwOptions, PWSTR lpWindowsPath);
+	public static extern uint32 NetRequestOfflineDomainJoin(uint8* pProvisionBinData, uint32 cbProvisionBinDataSize, NET_REQUEST_PROVISION_OPTIONS dwOptions, PWSTR lpWindowsPath);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetCreateProvisioningPackage(NETSETUP_PROVISIONING_PARAMS* pProvisioningParams, uint8** ppPackageBinData, uint32 pdwPackageBinDataSize, PWSTR* ppPackageTextData);
+	public static extern uint32 NetCreateProvisioningPackage(NETSETUP_PROVISIONING_PARAMS* pProvisioningParams, uint8** ppPackageBinData, uint32* pdwPackageBinDataSize, PWSTR* ppPackageTextData);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetRequestProvisioningPackageInstall(uint8 pPackageBinData, uint32 dwPackageBinDataSize, NET_REQUEST_PROVISION_OPTIONS dwProvisionOptions, PWSTR lpWindowsPath, void* pvReserved);
+	public static extern uint32 NetRequestProvisioningPackageInstall(uint8* pPackageBinData, uint32 dwPackageBinDataSize, NET_REQUEST_PROVISION_OPTIONS dwProvisionOptions, PWSTR lpWindowsPath, void* pvReserved);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT NetGetAadJoinInformation(PWSTR pcszTenantId, DSREG_JOIN_INFO** ppJoinInfo);
@@ -7951,13 +7951,13 @@ public static
 	public static extern HRESULT SetNetScheduleAccountInformation(PWSTR pwszServerName, PWSTR pwszAccount, PWSTR pwszPassword);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetScheduleJobAdd(PWSTR Servername, uint8 Buffer, uint32 JobId);
+	public static extern uint32 NetScheduleJobAdd(PWSTR Servername, uint8* Buffer, uint32* JobId);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetScheduleJobDel(PWSTR Servername, uint32 MinJobId, uint32 MaxJobId);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetScheduleJobEnum(PWSTR Servername, uint8** PointerToBuffer, uint32 PrefferedMaximumLength, uint32 EntriesRead, uint32 TotalEntries, uint32 ResumeHandle);
+	public static extern uint32 NetScheduleJobEnum(PWSTR Servername, uint8** PointerToBuffer, uint32 PrefferedMaximumLength, uint32* EntriesRead, uint32* TotalEntries, uint32* ResumeHandle);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetScheduleJobGetInfo(PWSTR Servername, uint32 JobId, uint8** PointerToBuffer);
@@ -7987,16 +7987,16 @@ public static
 	public static uint32 TracePrintfEx(uint32 dwTraceID, uint32 dwFlags, PSTR lpszFormat) => TracePrintfExA(dwTraceID, dwFlags, lpszFormat);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TraceVprintfExA(uint32 dwTraceID, uint32 dwFlags, PSTR lpszFormat, int8 arglist);
-	public static uint32 TraceVprintfEx(uint32 dwTraceID, uint32 dwFlags, PSTR lpszFormat, int8 arglist) => TraceVprintfExA(dwTraceID, dwFlags, lpszFormat, arglist);
+	public static extern uint32 TraceVprintfExA(uint32 dwTraceID, uint32 dwFlags, PSTR lpszFormat, int8* arglist);
+	public static uint32 TraceVprintfEx(uint32 dwTraceID, uint32 dwFlags, PSTR lpszFormat, int8* arglist) => TraceVprintfExA(dwTraceID, dwFlags, lpszFormat, arglist);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TracePutsExA(uint32 dwTraceID, uint32 dwFlags, PSTR lpszString);
 	public static uint32 TracePutsEx(uint32 dwTraceID, uint32 dwFlags, PSTR lpszString) => TracePutsExA(dwTraceID, dwFlags, lpszString);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TraceDumpExA(uint32 dwTraceID, uint32 dwFlags, uint8 lpbBytes, uint32 dwByteCount, uint32 dwGroupSize, BOOL bAddressPrefix, PSTR lpszPrefix);
-	public static uint32 TraceDumpEx(uint32 dwTraceID, uint32 dwFlags, uint8 lpbBytes, uint32 dwByteCount, uint32 dwGroupSize, BOOL bAddressPrefix, PSTR lpszPrefix) => TraceDumpExA(dwTraceID, dwFlags, lpbBytes, dwByteCount, dwGroupSize, bAddressPrefix, lpszPrefix);
+	public static extern uint32 TraceDumpExA(uint32 dwTraceID, uint32 dwFlags, uint8* lpbBytes, uint32 dwByteCount, uint32 dwGroupSize, BOOL bAddressPrefix, PSTR lpszPrefix);
+	public static uint32 TraceDumpEx(uint32 dwTraceID, uint32 dwFlags, uint8* lpbBytes, uint32 dwByteCount, uint32 dwGroupSize, BOOL bAddressPrefix, PSTR lpszPrefix) => TraceDumpExA(dwTraceID, dwFlags, lpbBytes, dwByteCount, dwGroupSize, bAddressPrefix, lpszPrefix);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TraceRegisterExW(PWSTR lpszCallerName, uint32 dwFlags);
@@ -8017,13 +8017,13 @@ public static
 	public static extern uint32 TracePrintfExW(uint32 dwTraceID, uint32 dwFlags, PWSTR lpszFormat);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TraceVprintfExW(uint32 dwTraceID, uint32 dwFlags, PWSTR lpszFormat, int8 arglist);
+	public static extern uint32 TraceVprintfExW(uint32 dwTraceID, uint32 dwFlags, PWSTR lpszFormat, int8* arglist);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TracePutsExW(uint32 dwTraceID, uint32 dwFlags, PWSTR lpszString);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 TraceDumpExW(uint32 dwTraceID, uint32 dwFlags, uint8 lpbBytes, uint32 dwByteCount, uint32 dwGroupSize, BOOL bAddressPrefix, PWSTR lpszPrefix);
+	public static extern uint32 TraceDumpExW(uint32 dwTraceID, uint32 dwFlags, uint8* lpbBytes, uint32 dwByteCount, uint32 dwGroupSize, BOOL bAddressPrefix, PWSTR lpszPrefix);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void LogErrorA(uint32 dwMessageId, uint32 cNumberOfSubStrings, PSTR* plpwsSubStrings, uint32 dwErrorCode);
@@ -8052,8 +8052,8 @@ public static
 	public static void RouterLogEvent(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwErrorCode) => RouterLogEventA(hLogHandle, dwEventType, dwMessageId, dwSubStringCount, plpszSubStringArray, dwErrorCode);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void RouterLogEventDataA(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwDataBytes, uint8 lpDataBytes);
-	public static void RouterLogEventData(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwDataBytes, uint8 lpDataBytes) => RouterLogEventDataA(hLogHandle, dwEventType, dwMessageId, dwSubStringCount, plpszSubStringArray, dwDataBytes, lpDataBytes);
+	public static extern void RouterLogEventDataA(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwDataBytes, uint8* lpDataBytes);
+	public static void RouterLogEventData(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwDataBytes, uint8* lpDataBytes) => RouterLogEventDataA(hLogHandle, dwEventType, dwMessageId, dwSubStringCount, plpszSubStringArray, dwDataBytes, lpDataBytes);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RouterLogEventStringA(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwErrorCode, uint32 dwErrorIndex);
@@ -8064,8 +8064,8 @@ public static
 	public static void RouterLogEventEx(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PSTR ptszFormat) => RouterLogEventExA(hLogHandle, dwEventType, dwErrorCode, dwMessageId, ptszFormat);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void RouterLogEventValistExA(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PSTR ptszFormat, int8 arglist);
-	public static void RouterLogEventValistEx(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PSTR ptszFormat, int8 arglist) => RouterLogEventValistExA(hLogHandle, dwEventType, dwErrorCode, dwMessageId, ptszFormat, arglist);
+	public static extern void RouterLogEventValistExA(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PSTR ptszFormat, int8* arglist);
+	public static void RouterLogEventValistEx(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PSTR ptszFormat, int8* arglist) => RouterLogEventValistExA(hLogHandle, dwEventType, dwErrorCode, dwMessageId, ptszFormat, arglist);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RouterGetErrorStringA(uint32 dwErrorCode, PSTR* lplpszErrorString);
@@ -8081,7 +8081,7 @@ public static
 	public static extern void RouterLogEventW(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PWSTR* plpszSubStringArray, uint32 dwErrorCode);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void RouterLogEventDataW(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PWSTR* plpszSubStringArray, uint32 dwDataBytes, uint8 lpDataBytes);
+	public static extern void RouterLogEventDataW(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PWSTR* plpszSubStringArray, uint32 dwDataBytes, uint8* lpDataBytes);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RouterLogEventStringW(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PWSTR* plpszSubStringArray, uint32 dwErrorCode, uint32 dwErrorIndex);
@@ -8090,7 +8090,7 @@ public static
 	public static extern void RouterLogEventExW(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PWSTR ptszFormat);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void RouterLogEventValistExW(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PWSTR ptszFormat, int8 arglist);
+	public static extern void RouterLogEventValistExW(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PWSTR ptszFormat, int8* arglist);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RouterGetErrorStringW(uint32 dwErrorCode, PWSTR* lplpwszErrorString);
@@ -8099,7 +8099,7 @@ public static
 	public static extern void RouterAssert(PSTR pszFailedAssertion, PSTR pszFileName, uint32 dwLineNumber, PSTR pszMessage);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprSetupProtocolEnum(uint32 dwTransportId, uint8** lplpBuffer, uint32 lpdwEntriesRead);
+	public static extern uint32 MprSetupProtocolEnum(uint32 dwTransportId, uint8** lplpBuffer, uint32* lpdwEntriesRead);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprSetupProtocolFree(void* lpBuffer);

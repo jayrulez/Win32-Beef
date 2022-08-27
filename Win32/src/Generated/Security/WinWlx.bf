@@ -181,9 +181,9 @@ public function int32 PWLX_CHANGE_PASSWORD_NOTIFY_EX(HANDLE hWlx, WLX_MPR_NOTIFY
 
 public function BOOL PWLX_CLOSE_USER_DESKTOP(HANDLE hWlx, WLX_DESKTOP* pDesktop, HANDLE hToken);
 
-public function BOOL PWLX_SET_OPTION(HANDLE hWlx, uint32 Option, uint Value, uint OldValue);
+public function BOOL PWLX_SET_OPTION(HANDLE hWlx, uint32 Option, uint Value, uint* OldValue);
 
-public function BOOL PWLX_GET_OPTION(HANDLE hWlx, uint32 Option, uint Value);
+public function BOOL PWLX_GET_OPTION(HANDLE hWlx, uint32 Option, uint* Value);
 
 public function void PWLX_WIN31_MIGRATE(HANDLE hWlx);
 

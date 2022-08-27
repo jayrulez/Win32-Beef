@@ -263,11 +263,11 @@ public enum EFaultRepRetVal : int32
 #endregion
 
 #region Function Pointers
-public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, BOOL* pbOwnershipClaimed, char16* pwszEventName, uint32 pchSize, uint32 pdwSignatureCount);
+public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, BOOL* pbOwnershipClaimed, char16* pwszEventName, uint32* pchSize, uint32* pdwSignatureCount);
 
-public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, uint32 dwIndex, char16* pwszName, uint32 pchName, char16* pwszValue, uint32 pchValue);
+public function HRESULT PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, uint32 dwIndex, char16* pwszName, uint32* pchName, char16* pwszValue, uint32* pchValue);
 
-public function HRESULT PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, BOOL* pbIsCustomDebugger, char16* pwszDebuggerLaunch, uint32 pchDebuggerLaunch, BOOL* pbIsDebuggerAutolaunch);
+public function HRESULT PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(void* pContext, WER_RUNTIME_EXCEPTION_INFORMATION* pExceptionInformation, BOOL* pbIsCustomDebugger, char16* pwszDebuggerLaunch, uint32* pchDebuggerLaunch, BOOL* pbIsDebuggerAutolaunch);
 
 public function EFaultRepRetVal pfn_REPORTFAULT(EXCEPTION_POINTERS* param0, uint32 param1);
 
@@ -594,10 +594,10 @@ public static
 	public static extern HRESULT WerStorePurge();
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreGetReportCount(HREPORTSTORE hReportStore, uint32 pdwReportCount);
+	public static extern HRESULT WerStoreGetReportCount(HREPORTSTORE hReportStore, uint32* pdwReportCount);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreGetSizeOnDisk(HREPORTSTORE hReportStore, uint64 pqwSizeInBytes);
+	public static extern HRESULT WerStoreGetSizeOnDisk(HREPORTSTORE hReportStore, uint64* pqwSizeInBytes);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WerStoreQueryReportMetadataV1(HREPORTSTORE hReportStore, PWSTR pszReportKey, WER_REPORT_METADATA_V1* pReportMetadata);

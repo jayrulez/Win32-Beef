@@ -2380,12 +2380,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, uint32 cbData, uint8 pData) SetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, uint32 pcbData, uint8 pData) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, uint32 cbData, uint8* pData) SetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, uint32* pcbData, uint8* pData) GetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, PWSTR pszValue) SetStringValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, PWSTR* ppszValue) GetStringValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, uint32 dwValue) SetDWORD;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, uint32 pdwValue) GetDWORD;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, uint32* pdwValue) GetDWORD;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszSubKeyName, ISpDataKey** ppSubKey) OpenKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszSubKey, ISpDataKey** ppSubKey) CreateKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszSubKey) DeleteKey;
@@ -2395,9 +2395,9 @@ public static
 	}
 
 
-	public HRESULT SetData(PWSTR pszValueName, uint32 cbData, uint8 pData) mut => VT.[Friend]SetData(&this, pszValueName, cbData, pData);
+	public HRESULT SetData(PWSTR pszValueName, uint32 cbData, uint8* pData) mut => VT.[Friend]SetData(&this, pszValueName, cbData, pData);
 
-	public HRESULT GetData(PWSTR pszValueName, uint32 pcbData, uint8 pData) mut => VT.[Friend]GetData(&this, pszValueName, pcbData, pData);
+	public HRESULT GetData(PWSTR pszValueName, uint32* pcbData, uint8* pData) mut => VT.[Friend]GetData(&this, pszValueName, pcbData, pData);
 
 	public HRESULT SetStringValue(PWSTR pszValueName, PWSTR pszValue) mut => VT.[Friend]SetStringValue(&this, pszValueName, pszValue);
 
@@ -2405,7 +2405,7 @@ public static
 
 	public HRESULT SetDWORD(PWSTR pszValueName, uint32 dwValue) mut => VT.[Friend]SetDWORD(&this, pszValueName, dwValue);
 
-	public HRESULT GetDWORD(PWSTR pszValueName, uint32 pdwValue) mut => VT.[Friend]GetDWORD(&this, pszValueName, pdwValue);
+	public HRESULT GetDWORD(PWSTR pszValueName, uint32* pdwValue) mut => VT.[Friend]GetDWORD(&this, pszValueName, pdwValue);
 
 	public HRESULT OpenKey(PWSTR pszSubKeyName, ISpDataKey** ppSubKey) mut => VT.[Friend]OpenKey(&this, pszSubKeyName, ppSubKey);
 
@@ -2476,10 +2476,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszCategoryId, PWSTR pszTokenId, BOOL fCreateIfNotExist) SetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszCoMemTokenId) GetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpObjectTokenCategory** ppTokenCategory) GetCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkOuter, uint32 dwClsContext, Guid riid, void** ppvObject) CreateInstance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid clsidCaller, PWSTR pszValueName, PWSTR pszFileNameSpecifier, uint32 nFolder, PWSTR* ppszFilePath) GetStorageFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid clsidCaller, PWSTR pszKeyName, BOOL fDeleteFile) RemoveStorageFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pclsidCaller) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid riid, void** ppvObject) CreateInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsidCaller, PWSTR pszValueName, PWSTR pszFileNameSpecifier, uint32 nFolder, PWSTR* ppszFilePath) GetStorageFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsidCaller, PWSTR pszKeyName, BOOL fDeleteFile) RemoveStorageFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pclsidCaller) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, IUnknown* punkObject, BOOL* pfSupported) IsUISupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR pszTitle, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, IUnknown* punkObject) DisplayUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszAttributes, BOOL* pfMatches) MatchesAttributes;
@@ -2492,13 +2492,13 @@ public static
 
 	public HRESULT GetCategory(ISpObjectTokenCategory** ppTokenCategory) mut => VT.[Friend]GetCategory(&this, ppTokenCategory);
 
-	public HRESULT CreateInstance(IUnknown* pUnkOuter, uint32 dwClsContext, Guid riid, void** ppvObject) mut => VT.[Friend]CreateInstance(&this, pUnkOuter, dwClsContext, riid, ppvObject);
+	public HRESULT CreateInstance(IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid riid, void** ppvObject) mut => VT.[Friend]CreateInstance(&this, pUnkOuter, dwClsContext, ref riid, ppvObject);
 
-	public HRESULT GetStorageFileName(Guid clsidCaller, PWSTR pszValueName, PWSTR pszFileNameSpecifier, uint32 nFolder, PWSTR* ppszFilePath) mut => VT.[Friend]GetStorageFileName(&this, clsidCaller, pszValueName, pszFileNameSpecifier, nFolder, ppszFilePath);
+	public HRESULT GetStorageFileName(ref Guid clsidCaller, PWSTR pszValueName, PWSTR pszFileNameSpecifier, uint32 nFolder, PWSTR* ppszFilePath) mut => VT.[Friend]GetStorageFileName(&this, ref clsidCaller, pszValueName, pszFileNameSpecifier, nFolder, ppszFilePath);
 
-	public HRESULT RemoveStorageFileName(Guid clsidCaller, PWSTR pszKeyName, BOOL fDeleteFile) mut => VT.[Friend]RemoveStorageFileName(&this, clsidCaller, pszKeyName, fDeleteFile);
+	public HRESULT RemoveStorageFileName(ref Guid clsidCaller, PWSTR pszKeyName, BOOL fDeleteFile) mut => VT.[Friend]RemoveStorageFileName(&this, ref clsidCaller, pszKeyName, fDeleteFile);
 
-	public HRESULT Remove(Guid pclsidCaller) mut => VT.[Friend]Remove(&this, pclsidCaller);
+	public HRESULT Remove(ref Guid pclsidCaller) mut => VT.[Friend]Remove(&this, ref pclsidCaller);
 
 	public HRESULT IsUISupported(PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, IUnknown* punkObject, BOOL* pfSupported) mut => VT.[Friend]IsUISupported(&this, pszTypeOfUI, pvExtraData, cbExtraData, punkObject, pfSupported);
 
@@ -2530,16 +2530,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, ISpObjectToken** pelt, uint32 pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, ISpObjectToken** pelt, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumSpObjectTokens** ppEnum) Clone;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, ISpObjectToken** ppToken) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount) GetCount;
 	}
 
 
-	public HRESULT Next(uint32 celt, ISpObjectToken** pelt, uint32 pceltFetched) mut => VT.[Friend]Next(&this, celt, pelt, pceltFetched);
+	public HRESULT Next(uint32 celt, ISpObjectToken** pelt, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, pelt, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
@@ -2549,7 +2549,7 @@ public static
 
 	public HRESULT Item(uint32 Index, ISpObjectToken** ppToken) mut => VT.[Friend]Item(&this, Index, ppToken);
 
-	public HRESULT GetCount(uint32 pCount) mut => VT.[Friend]GetCount(&this, pCount);
+	public HRESULT GetCount(uint32* pCount) mut => VT.[Friend]GetCount(&this, pCount);
 }
 
 [CRepr]struct ISpObjectWithToken : IUnknown
@@ -2578,14 +2578,14 @@ public static
 
 	[CRepr]public struct VTable : IServiceProvider.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidServiceId, IUnknown* pUnkObject) SetObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidServiceId, Guid ObjectCLSID, Guid ObjectIID, BOOL fReleaseWhenLastExternalRefReleased, void** ppObject) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidServiceId, IUnknown* pUnkObject) SetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidServiceId, ref Guid ObjectCLSID, ref Guid ObjectIID, BOOL fReleaseWhenLastExternalRefReleased, void** ppObject) GetObject;
 	}
 
 
-	public HRESULT SetObject(Guid guidServiceId, IUnknown* pUnkObject) mut => VT.[Friend]SetObject(&this, guidServiceId, pUnkObject);
+	public HRESULT SetObject(ref Guid guidServiceId, IUnknown* pUnkObject) mut => VT.[Friend]SetObject(&this, ref guidServiceId, pUnkObject);
 
-	public HRESULT GetObject(Guid guidServiceId, Guid ObjectCLSID, Guid ObjectIID, BOOL fReleaseWhenLastExternalRefReleased, void** ppObject) mut => VT.[Friend]GetObject(&this, guidServiceId, ObjectCLSID, ObjectIID, fReleaseWhenLastExternalRefReleased, ppObject);
+	public HRESULT GetObject(ref Guid guidServiceId, ref Guid ObjectCLSID, ref Guid ObjectIID, BOOL fReleaseWhenLastExternalRefReleased, void** ppObject) mut => VT.[Friend]GetObject(&this, ref guidServiceId, ref ObjectCLSID, ref ObjectIID, fReleaseWhenLastExternalRefReleased, ppObject);
 }
 
 [CRepr]struct ISpEventSource : ISpNotifySource
@@ -2597,14 +2597,14 @@ public static
 	[CRepr]public struct VTable : ISpNotifySource.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullEventInterest, uint64 ullQueuedInterest) SetInterest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, SPEVENT* pEventArray, uint32 pulFetched) GetEvents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, SPEVENT* pEventArray, uint32* pulFetched) GetEvents;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPEVENTSOURCEINFO* pInfo) GetInfo;
 	}
 
 
 	public HRESULT SetInterest(uint64 ullEventInterest, uint64 ullQueuedInterest) mut => VT.[Friend]SetInterest(&this, ullEventInterest, ullQueuedInterest);
 
-	public HRESULT GetEvents(uint32 ulCount, SPEVENT* pEventArray, uint32 pulFetched) mut => VT.[Friend]GetEvents(&this, ulCount, pEventArray, pulFetched);
+	public HRESULT GetEvents(uint32 ulCount, SPEVENT* pEventArray, uint32* pulFetched) mut => VT.[Friend]GetEvents(&this, ulCount, pEventArray, pulFetched);
 
 	public HRESULT GetInfo(SPEVENTSOURCEINFO* pInfo) mut => VT.[Friend]GetInfo(&this, pInfo);
 }
@@ -2617,11 +2617,11 @@ public static
 
 	[CRepr]public struct VTable : ISpEventSource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, SPEVENTEX* pEventArray, uint32 pulFetched) GetEventsEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, SPEVENTEX* pEventArray, uint32* pulFetched) GetEventsEx;
 	}
 
 
-	public HRESULT GetEventsEx(uint32 ulCount, SPEVENTEX* pEventArray, uint32 pulFetched) mut => VT.[Friend]GetEventsEx(&this, ulCount, pEventArray, pulFetched);
+	public HRESULT GetEventsEx(uint32 ulCount, SPEVENTEX* pEventArray, uint32* pulFetched) mut => VT.[Friend]GetEventsEx(&this, ulCount, pEventArray, pulFetched);
 }
 
 [CRepr]struct ISpEventSink : IUnknown
@@ -2633,13 +2633,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPEVENT* pEventArray, uint32 ulCount) AddEvents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pullEventInterest) GetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullEventInterest) GetEventInterest;
 	}
 
 
 	public HRESULT AddEvents(SPEVENT* pEventArray, uint32 ulCount) mut => VT.[Friend]AddEvents(&this, pEventArray, ulCount);
 
-	public HRESULT GetEventInterest(uint64 pullEventInterest) mut => VT.[Friend]GetEventInterest(&this, pullEventInterest);
+	public HRESULT GetEventInterest(uint64* pullEventInterest) mut => VT.[Friend]GetEventInterest(&this, pullEventInterest);
 }
 
 [CRepr]struct ISpStreamFormat : IStream
@@ -2650,11 +2650,11 @@ public static
 
 	[CRepr]public struct VTable : IStream.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) GetFormat;
 	}
 
 
-	public HRESULT GetFormat(Guid pguidFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetFormat(&this, pguidFormatId, ppCoMemWaveFormatEx);
+	public HRESULT GetFormat(ref Guid pguidFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetFormat(&this, ref pguidFormatId, ppCoMemWaveFormatEx);
 }
 
 [CRepr]struct ISpStream : ISpStreamFormat
@@ -2665,18 +2665,18 @@ public static
 
 	[CRepr]public struct VTable : ISpStreamFormat.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, Guid rguidFormat, WAVEFORMATEX* pWaveFormatEx) SetBaseStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, ref Guid rguidFormat, WAVEFORMATEX* pWaveFormatEx) SetBaseStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** ppStream) GetBaseStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszFileName, SPFILEMODE eMode, Guid pFormatId, WAVEFORMATEX* pWaveFormatEx, uint64 ullEventInterest) BindToFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszFileName, SPFILEMODE eMode, ref Guid pFormatId, WAVEFORMATEX* pWaveFormatEx, uint64 ullEventInterest) BindToFile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
-	public HRESULT SetBaseStream(IStream* pStream, Guid rguidFormat, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetBaseStream(&this, pStream, rguidFormat, pWaveFormatEx);
+	public HRESULT SetBaseStream(IStream* pStream, ref Guid rguidFormat, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetBaseStream(&this, pStream, ref rguidFormat, pWaveFormatEx);
 
 	public HRESULT GetBaseStream(IStream** ppStream) mut => VT.[Friend]GetBaseStream(&this, ppStream);
 
-	public HRESULT BindToFile(PWSTR pszFileName, SPFILEMODE eMode, Guid pFormatId, WAVEFORMATEX* pWaveFormatEx, uint64 ullEventInterest) mut => VT.[Friend]BindToFile(&this, pszFileName, eMode, pFormatId, pWaveFormatEx, ullEventInterest);
+	public HRESULT BindToFile(PWSTR pszFileName, SPFILEMODE eMode, ref Guid pFormatId, WAVEFORMATEX* pWaveFormatEx, uint64 ullEventInterest) mut => VT.[Friend]BindToFile(&this, pszFileName, eMode, ref pFormatId, pWaveFormatEx, ullEventInterest);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 }
@@ -2691,10 +2691,10 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpStreamFormat* pStream, BOOL fSetFormatToBaseStreamFormat, BOOL fWriteToBaseStream) SetBaseStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpStreamFormat** ppStream) GetBaseStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid rguidFormatIdOfConvertedStream, WAVEFORMATEX* pWaveFormatExOfConvertedStream) SetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rguidFormatIdOfConvertedStream, WAVEFORMATEX* pWaveFormatExOfConvertedStream) SetFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResetSeekPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullOffsetConvertedStream, uint64 pullOffsetBaseStream) ScaleConvertedToBaseOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullOffsetBaseStream, uint64 pullOffsetConvertedStream) ScaleBaseToConvertedOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullOffsetConvertedStream, uint64* pullOffsetBaseStream) ScaleConvertedToBaseOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullOffsetBaseStream, uint64* pullOffsetConvertedStream) ScaleBaseToConvertedOffset;
 	}
 
 
@@ -2702,13 +2702,13 @@ public static
 
 	public HRESULT GetBaseStream(ISpStreamFormat** ppStream) mut => VT.[Friend]GetBaseStream(&this, ppStream);
 
-	public HRESULT SetFormat(Guid rguidFormatIdOfConvertedStream, WAVEFORMATEX* pWaveFormatExOfConvertedStream) mut => VT.[Friend]SetFormat(&this, rguidFormatIdOfConvertedStream, pWaveFormatExOfConvertedStream);
+	public HRESULT SetFormat(ref Guid rguidFormatIdOfConvertedStream, WAVEFORMATEX* pWaveFormatExOfConvertedStream) mut => VT.[Friend]SetFormat(&this, ref rguidFormatIdOfConvertedStream, pWaveFormatExOfConvertedStream);
 
 	public HRESULT ResetSeekPosition() mut => VT.[Friend]ResetSeekPosition(&this);
 
-	public HRESULT ScaleConvertedToBaseOffset(uint64 ullOffsetConvertedStream, uint64 pullOffsetBaseStream) mut => VT.[Friend]ScaleConvertedToBaseOffset(&this, ullOffsetConvertedStream, pullOffsetBaseStream);
+	public HRESULT ScaleConvertedToBaseOffset(uint64 ullOffsetConvertedStream, uint64* pullOffsetBaseStream) mut => VT.[Friend]ScaleConvertedToBaseOffset(&this, ullOffsetConvertedStream, pullOffsetBaseStream);
 
-	public HRESULT ScaleBaseToConvertedOffset(uint64 ullOffsetBaseStream, uint64 pullOffsetConvertedStream) mut => VT.[Friend]ScaleBaseToConvertedOffset(&this, ullOffsetBaseStream, pullOffsetConvertedStream);
+	public HRESULT ScaleBaseToConvertedOffset(uint64 ullOffsetBaseStream, uint64* pullOffsetConvertedStream) mut => VT.[Friend]ScaleBaseToConvertedOffset(&this, ullOffsetBaseStream, pullOffsetConvertedStream);
 }
 
 [CRepr]struct ISpAudio : ISpStreamFormat
@@ -2720,22 +2720,22 @@ public static
 	[CRepr]public struct VTable : ISpStreamFormat.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPAUDIOSTATE NewState, uint64 ullReserved) SetState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid rguidFmtId, WAVEFORMATEX* pWaveFormatEx) SetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rguidFmtId, WAVEFORMATEX* pWaveFormatEx) SetFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPAUDIOSTATUS* pStatus) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPAUDIOBUFFERINFO* pBuffInfo) SetBufferInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPAUDIOBUFFERINFO* pBuffInfo) GetBufferInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) GetDefaultFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) GetDefaultFormat;
 		protected new function [CallingConvention(.Stdcall)] HANDLE(SelfOuter* self) EventHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pLevel) GetVolumeLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pLevel) GetVolumeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Level) SetVolumeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcbSize) GetBufferNotifySize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbSize) GetBufferNotifySize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbSize) SetBufferNotifySize;
 	}
 
 
 	public HRESULT SetState(SPAUDIOSTATE NewState, uint64 ullReserved) mut => VT.[Friend]SetState(&this, NewState, ullReserved);
 
-	public HRESULT SetFormat(Guid rguidFmtId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetFormat(&this, rguidFmtId, pWaveFormatEx);
+	public HRESULT SetFormat(ref Guid rguidFmtId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetFormat(&this, ref rguidFmtId, pWaveFormatEx);
 
 	public HRESULT GetStatus(SPAUDIOSTATUS* pStatus) mut => VT.[Friend]GetStatus(&this, pStatus);
 
@@ -2743,15 +2743,15 @@ public static
 
 	public HRESULT GetBufferInfo(SPAUDIOBUFFERINFO* pBuffInfo) mut => VT.[Friend]GetBufferInfo(&this, pBuffInfo);
 
-	public HRESULT GetDefaultFormat(Guid pFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetDefaultFormat(&this, pFormatId, ppCoMemWaveFormatEx);
+	public HRESULT GetDefaultFormat(ref Guid pFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetDefaultFormat(&this, ref pFormatId, ppCoMemWaveFormatEx);
 
 	public HANDLE EventHandle() mut => VT.[Friend]EventHandle(&this);
 
-	public HRESULT GetVolumeLevel(uint32 pLevel) mut => VT.[Friend]GetVolumeLevel(&this, pLevel);
+	public HRESULT GetVolumeLevel(uint32* pLevel) mut => VT.[Friend]GetVolumeLevel(&this, pLevel);
 
 	public HRESULT SetVolumeLevel(uint32 Level) mut => VT.[Friend]SetVolumeLevel(&this, Level);
 
-	public HRESULT GetBufferNotifySize(uint32 pcbSize) mut => VT.[Friend]GetBufferNotifySize(&this, pcbSize);
+	public HRESULT GetBufferNotifySize(uint32* pcbSize) mut => VT.[Friend]GetBufferNotifySize(&this, pcbSize);
 
 	public HRESULT SetBufferNotifySize(uint32 cbSize) mut => VT.[Friend]SetBufferNotifySize(&this, cbSize);
 }
@@ -2764,21 +2764,21 @@ public static
 
 	[CRepr]public struct VTable : ISpAudio.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 puDeviceId) GetDeviceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puDeviceId) GetDeviceId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uDeviceId) SetDeviceId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void** pHandle) GetMMHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 puLineId) GetLineId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puLineId) GetLineId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uLineId) SetLineId;
 	}
 
 
-	public HRESULT GetDeviceId(uint32 puDeviceId) mut => VT.[Friend]GetDeviceId(&this, puDeviceId);
+	public HRESULT GetDeviceId(uint32* puDeviceId) mut => VT.[Friend]GetDeviceId(&this, puDeviceId);
 
 	public HRESULT SetDeviceId(uint32 uDeviceId) mut => VT.[Friend]SetDeviceId(&this, uDeviceId);
 
 	public HRESULT GetMMHandle(void** pHandle) mut => VT.[Friend]GetMMHandle(&this, pHandle);
 
-	public HRESULT GetLineId(uint32 puLineId) mut => VT.[Friend]GetLineId(&this, puLineId);
+	public HRESULT GetLineId(uint32* puLineId) mut => VT.[Friend]GetLineId(&this, puLineId);
 
 	public HRESULT SetLineId(uint32 uLineId) mut => VT.[Friend]SetLineId(&this, uLineId);
 }
@@ -2810,25 +2810,25 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszWord, uint16 LangID, uint32 dwFlags, SPWORDPRONUNCIATIONLIST* pWordPronunciationList) GetPronunciations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszWord, uint16 LangID, SPPARTOFSPEECH ePartOfSpeech, uint16 pszPronunciation) AddPronunciation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszWord, uint16 LangID, SPPARTOFSPEECH ePartOfSpeech, uint16 pszPronunciation) RemovePronunciation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwGeneration) GetGeneration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32 pdwGeneration, SPWORDLIST* pWordList) GetGenerationChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32 pdwGeneration, uint32 pdwCookie, SPWORDLIST* pWordList) GetWords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszWord, uint16 LangID, SPPARTOFSPEECH ePartOfSpeech, uint16* pszPronunciation) AddPronunciation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszWord, uint16 LangID, SPPARTOFSPEECH ePartOfSpeech, uint16* pszPronunciation) RemovePronunciation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwGeneration) GetGeneration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32* pdwGeneration, SPWORDLIST* pWordList) GetGenerationChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32* pdwGeneration, uint32* pdwCookie, SPWORDLIST* pWordList) GetWords;
 	}
 
 
 	public HRESULT GetPronunciations(PWSTR pszWord, uint16 LangID, uint32 dwFlags, SPWORDPRONUNCIATIONLIST* pWordPronunciationList) mut => VT.[Friend]GetPronunciations(&this, pszWord, LangID, dwFlags, pWordPronunciationList);
 
-	public HRESULT AddPronunciation(PWSTR pszWord, uint16 LangID, SPPARTOFSPEECH ePartOfSpeech, uint16 pszPronunciation) mut => VT.[Friend]AddPronunciation(&this, pszWord, LangID, ePartOfSpeech, pszPronunciation);
+	public HRESULT AddPronunciation(PWSTR pszWord, uint16 LangID, SPPARTOFSPEECH ePartOfSpeech, uint16* pszPronunciation) mut => VT.[Friend]AddPronunciation(&this, pszWord, LangID, ePartOfSpeech, pszPronunciation);
 
-	public HRESULT RemovePronunciation(PWSTR pszWord, uint16 LangID, SPPARTOFSPEECH ePartOfSpeech, uint16 pszPronunciation) mut => VT.[Friend]RemovePronunciation(&this, pszWord, LangID, ePartOfSpeech, pszPronunciation);
+	public HRESULT RemovePronunciation(PWSTR pszWord, uint16 LangID, SPPARTOFSPEECH ePartOfSpeech, uint16* pszPronunciation) mut => VT.[Friend]RemovePronunciation(&this, pszWord, LangID, ePartOfSpeech, pszPronunciation);
 
-	public HRESULT GetGeneration(uint32 pdwGeneration) mut => VT.[Friend]GetGeneration(&this, pdwGeneration);
+	public HRESULT GetGeneration(uint32* pdwGeneration) mut => VT.[Friend]GetGeneration(&this, pdwGeneration);
 
-	public HRESULT GetGenerationChange(uint32 dwFlags, uint32 pdwGeneration, SPWORDLIST* pWordList) mut => VT.[Friend]GetGenerationChange(&this, dwFlags, pdwGeneration, pWordList);
+	public HRESULT GetGenerationChange(uint32 dwFlags, uint32* pdwGeneration, SPWORDLIST* pWordList) mut => VT.[Friend]GetGenerationChange(&this, dwFlags, pdwGeneration, pWordList);
 
-	public HRESULT GetWords(uint32 dwFlags, uint32 pdwGeneration, uint32 pdwCookie, SPWORDLIST* pWordList) mut => VT.[Friend]GetWords(&this, dwFlags, pdwGeneration, pdwCookie, pWordList);
+	public HRESULT GetWords(uint32 dwFlags, uint32* pdwGeneration, uint32* pdwCookie, SPWORDLIST* pWordList) mut => VT.[Friend]GetWords(&this, dwFlags, pdwGeneration, pdwCookie, pWordList);
 }
 
 [CRepr]struct ISpContainerLexicon : ISpLexicon
@@ -2857,11 +2857,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszDisplay, uint16 LangID, PWSTR pszSpoken, SPSHORTCUTTYPE shType) AddShortcut;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszDisplay, uint16 LangID, PWSTR pszSpoken, SPSHORTCUTTYPE shType) RemoveShortcut;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 LangID, SPSHORTCUTPAIRLIST* pShortcutpairList) GetShortcuts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwGeneration) GetGeneration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwGeneration, SPWORDLIST* pWordList) GetWordsFromGenerationChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwGeneration, uint32 pdwCookie, SPWORDLIST* pWordList) GetWords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwGeneration, uint32 pdwCookie, SPSHORTCUTPAIRLIST* pShortcutpairList) GetShortcutsForGeneration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwGeneration, SPSHORTCUTPAIRLIST* pShortcutpairList) GetGenerationChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwGeneration) GetGeneration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwGeneration, SPWORDLIST* pWordList) GetWordsFromGenerationChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwGeneration, uint32* pdwCookie, SPWORDLIST* pWordList) GetWords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwGeneration, uint32* pdwCookie, SPSHORTCUTPAIRLIST* pShortcutpairList) GetShortcutsForGeneration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwGeneration, SPSHORTCUTPAIRLIST* pShortcutpairList) GetGenerationChange;
 	}
 
 
@@ -2871,15 +2871,15 @@ public static
 
 	public HRESULT GetShortcuts(uint16 LangID, SPSHORTCUTPAIRLIST* pShortcutpairList) mut => VT.[Friend]GetShortcuts(&this, LangID, pShortcutpairList);
 
-	public HRESULT GetGeneration(uint32 pdwGeneration) mut => VT.[Friend]GetGeneration(&this, pdwGeneration);
+	public HRESULT GetGeneration(uint32* pdwGeneration) mut => VT.[Friend]GetGeneration(&this, pdwGeneration);
 
-	public HRESULT GetWordsFromGenerationChange(uint32 pdwGeneration, SPWORDLIST* pWordList) mut => VT.[Friend]GetWordsFromGenerationChange(&this, pdwGeneration, pWordList);
+	public HRESULT GetWordsFromGenerationChange(uint32* pdwGeneration, SPWORDLIST* pWordList) mut => VT.[Friend]GetWordsFromGenerationChange(&this, pdwGeneration, pWordList);
 
-	public HRESULT GetWords(uint32 pdwGeneration, uint32 pdwCookie, SPWORDLIST* pWordList) mut => VT.[Friend]GetWords(&this, pdwGeneration, pdwCookie, pWordList);
+	public HRESULT GetWords(uint32* pdwGeneration, uint32* pdwCookie, SPWORDLIST* pWordList) mut => VT.[Friend]GetWords(&this, pdwGeneration, pdwCookie, pWordList);
 
-	public HRESULT GetShortcutsForGeneration(uint32 pdwGeneration, uint32 pdwCookie, SPSHORTCUTPAIRLIST* pShortcutpairList) mut => VT.[Friend]GetShortcutsForGeneration(&this, pdwGeneration, pdwCookie, pShortcutpairList);
+	public HRESULT GetShortcutsForGeneration(uint32* pdwGeneration, uint32* pdwCookie, SPSHORTCUTPAIRLIST* pShortcutpairList) mut => VT.[Friend]GetShortcutsForGeneration(&this, pdwGeneration, pdwCookie, pShortcutpairList);
 
-	public HRESULT GetGenerationChange(uint32 pdwGeneration, SPSHORTCUTPAIRLIST* pShortcutpairList) mut => VT.[Friend]GetGenerationChange(&this, pdwGeneration, pShortcutpairList);
+	public HRESULT GetGenerationChange(uint32* pdwGeneration, SPSHORTCUTPAIRLIST* pShortcutpairList) mut => VT.[Friend]GetGenerationChange(&this, pdwGeneration, pShortcutpairList);
 }
 
 [CRepr]struct ISpPhoneConverter : ISpObjectWithToken
@@ -2890,14 +2890,14 @@ public static
 
 	[CRepr]public struct VTable : ISpObjectWithToken.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPhone, uint16 pId) PhoneToId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pId, PWSTR pszPhone) IdToPhone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPhone, uint16* pId) PhoneToId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pId, PWSTR pszPhone) IdToPhone;
 	}
 
 
-	public HRESULT PhoneToId(PWSTR pszPhone, uint16 pId) mut => VT.[Friend]PhoneToId(&this, pszPhone, pId);
+	public HRESULT PhoneToId(PWSTR pszPhone, uint16* pId) mut => VT.[Friend]PhoneToId(&this, pszPhone, pId);
 
-	public HRESULT IdToPhone(uint16 pId, PWSTR pszPhone) mut => VT.[Friend]IdToPhone(&this, pId, pszPhone);
+	public HRESULT IdToPhone(uint16* pId, PWSTR pszPhone) mut => VT.[Friend]IdToPhone(&this, pId, pszPhone);
 }
 
 [CRepr]struct ISpPhoneticAlphabetConverter : IUnknown
@@ -2908,23 +2908,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pLangID) GetLangId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pLangID) GetLangId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 LangID) SetLangId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pszSAPIId, uint16* pszUPSId, uint32 cMaxLength) SAPI2UPS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pszUPSId, uint16* pszSAPIId, uint32 cMaxLength) UPS2SAPI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSrcLength, BOOL bSAPI2UPS, uint32 pcMaxDestLength) GetMaxConvertLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pszSAPIId, uint16* pszUPSId, uint32 cMaxLength) SAPI2UPS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pszUPSId, uint16* pszSAPIId, uint32 cMaxLength) UPS2SAPI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSrcLength, BOOL bSAPI2UPS, uint32* pcMaxDestLength) GetMaxConvertLength;
 	}
 
 
-	public HRESULT GetLangId(uint16 pLangID) mut => VT.[Friend]GetLangId(&this, pLangID);
+	public HRESULT GetLangId(uint16* pLangID) mut => VT.[Friend]GetLangId(&this, pLangID);
 
 	public HRESULT SetLangId(uint16 LangID) mut => VT.[Friend]SetLangId(&this, LangID);
 
-	public HRESULT SAPI2UPS(uint16 pszSAPIId, uint16* pszUPSId, uint32 cMaxLength) mut => VT.[Friend]SAPI2UPS(&this, pszSAPIId, pszUPSId, cMaxLength);
+	public HRESULT SAPI2UPS(uint16* pszSAPIId, uint16* pszUPSId, uint32 cMaxLength) mut => VT.[Friend]SAPI2UPS(&this, pszSAPIId, pszUPSId, cMaxLength);
 
-	public HRESULT UPS2SAPI(uint16 pszUPSId, uint16* pszSAPIId, uint32 cMaxLength) mut => VT.[Friend]UPS2SAPI(&this, pszUPSId, pszSAPIId, cMaxLength);
+	public HRESULT UPS2SAPI(uint16* pszUPSId, uint16* pszSAPIId, uint32 cMaxLength) mut => VT.[Friend]UPS2SAPI(&this, pszUPSId, pszSAPIId, cMaxLength);
 
-	public HRESULT GetMaxConvertLength(uint32 cSrcLength, BOOL bSAPI2UPS, uint32 pcMaxDestLength) mut => VT.[Friend]GetMaxConvertLength(&this, cSrcLength, bSAPI2UPS, pcMaxDestLength);
+	public HRESULT GetMaxConvertLength(uint32 cSrcLength, BOOL bSAPI2UPS, uint32* pcMaxDestLength) mut => VT.[Friend]GetMaxConvertLength(&this, cSrcLength, bSAPI2UPS, pcMaxDestLength);
 }
 
 [CRepr]struct ISpPhoneticAlphabetSelection : IUnknown
@@ -2960,21 +2960,21 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpObjectToken* pToken) SetVoice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpObjectToken** ppToken) GetVoice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcs, uint32 dwFlags, uint32 pulStreamNumber) Speak;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, uint32 dwFlags, uint32 pulStreamNumber) SpeakStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcs, uint32 dwFlags, uint32* pulStreamNumber) Speak;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, uint32 dwFlags, uint32* pulStreamNumber) SpeakStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPVOICESTATUS* pStatus, PWSTR* ppszLastBookmark) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pItemType, int32 lNumItems, uint32 pulNumSkipped) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pItemType, int32 lNumItems, uint32* pulNumSkipped) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPVPRIORITY ePriority) SetPriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPVPRIORITY* pePriority) GetPriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPEVENTENUM eBoundary) SetAlertBoundary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPEVENTENUM* peBoundary) GetAlertBoundary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 RateAdjust) SetRate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pRateAdjust) GetRate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pRateAdjust) GetRate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 usVolume) SetVolume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pusVolume) GetVolume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pusVolume) GetVolume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 msTimeout) WaitUntilDone;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 msTimeout) SetSyncSpeakTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pmsTimeout) GetSyncSpeakTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pmsTimeout) GetSyncSpeakTimeout;
 		protected new function [CallingConvention(.Stdcall)] HANDLE(SelfOuter* self) SpeakCompleteEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, BOOL* pfSupported) IsUISupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR pszTitle, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData) DisplayUI;
@@ -2995,13 +2995,13 @@ public static
 
 	public HRESULT GetVoice(ISpObjectToken** ppToken) mut => VT.[Friend]GetVoice(&this, ppToken);
 
-	public HRESULT Speak(PWSTR pwcs, uint32 dwFlags, uint32 pulStreamNumber) mut => VT.[Friend]Speak(&this, pwcs, dwFlags, pulStreamNumber);
+	public HRESULT Speak(PWSTR pwcs, uint32 dwFlags, uint32* pulStreamNumber) mut => VT.[Friend]Speak(&this, pwcs, dwFlags, pulStreamNumber);
 
-	public HRESULT SpeakStream(IStream* pStream, uint32 dwFlags, uint32 pulStreamNumber) mut => VT.[Friend]SpeakStream(&this, pStream, dwFlags, pulStreamNumber);
+	public HRESULT SpeakStream(IStream* pStream, uint32 dwFlags, uint32* pulStreamNumber) mut => VT.[Friend]SpeakStream(&this, pStream, dwFlags, pulStreamNumber);
 
 	public HRESULT GetStatus(SPVOICESTATUS* pStatus, PWSTR* ppszLastBookmark) mut => VT.[Friend]GetStatus(&this, pStatus, ppszLastBookmark);
 
-	public HRESULT Skip(PWSTR pItemType, int32 lNumItems, uint32 pulNumSkipped) mut => VT.[Friend]Skip(&this, pItemType, lNumItems, pulNumSkipped);
+	public HRESULT Skip(PWSTR pItemType, int32 lNumItems, uint32* pulNumSkipped) mut => VT.[Friend]Skip(&this, pItemType, lNumItems, pulNumSkipped);
 
 	public HRESULT SetPriority(SPVPRIORITY ePriority) mut => VT.[Friend]SetPriority(&this, ePriority);
 
@@ -3013,17 +3013,17 @@ public static
 
 	public HRESULT SetRate(int32 RateAdjust) mut => VT.[Friend]SetRate(&this, RateAdjust);
 
-	public HRESULT GetRate(int32 pRateAdjust) mut => VT.[Friend]GetRate(&this, pRateAdjust);
+	public HRESULT GetRate(int32* pRateAdjust) mut => VT.[Friend]GetRate(&this, pRateAdjust);
 
 	public HRESULT SetVolume(uint16 usVolume) mut => VT.[Friend]SetVolume(&this, usVolume);
 
-	public HRESULT GetVolume(uint16 pusVolume) mut => VT.[Friend]GetVolume(&this, pusVolume);
+	public HRESULT GetVolume(uint16* pusVolume) mut => VT.[Friend]GetVolume(&this, pusVolume);
 
 	public HRESULT WaitUntilDone(uint32 msTimeout) mut => VT.[Friend]WaitUntilDone(&this, msTimeout);
 
 	public HRESULT SetSyncSpeakTimeout(uint32 msTimeout) mut => VT.[Friend]SetSyncSpeakTimeout(&this, msTimeout);
 
-	public HRESULT GetSyncSpeakTimeout(uint32 pmsTimeout) mut => VT.[Friend]GetSyncSpeakTimeout(&this, pmsTimeout);
+	public HRESULT GetSyncSpeakTimeout(uint32* pmsTimeout) mut => VT.[Friend]GetSyncSpeakTimeout(&this, pmsTimeout);
 
 	public HANDLE SpeakCompleteEvent() mut => VT.[Friend]SpeakCompleteEvent(&this);
 
@@ -3042,7 +3042,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPPHRASE** ppCoMemPhrase) GetPhrase;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPSERIALIZEDPHRASE** ppCoMemPhrase) GetSerializedPhrase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStart, uint32 ulCount, BOOL fUseTextReplacements, PWSTR* ppszCoMemText, uint8 pbDisplayAttributes) GetText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStart, uint32 ulCount, BOOL fUseTextReplacements, PWSTR* ppszCoMemText, uint8* pbDisplayAttributes) GetText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwValueTypes) Discard;
 	}
 
@@ -3051,7 +3051,7 @@ public static
 
 	public HRESULT GetSerializedPhrase(SPSERIALIZEDPHRASE** ppCoMemPhrase) mut => VT.[Friend]GetSerializedPhrase(&this, ppCoMemPhrase);
 
-	public HRESULT GetText(uint32 ulStart, uint32 ulCount, BOOL fUseTextReplacements, PWSTR* ppszCoMemText, uint8 pbDisplayAttributes) mut => VT.[Friend]GetText(&this, ulStart, ulCount, fUseTextReplacements, ppszCoMemText, pbDisplayAttributes);
+	public HRESULT GetText(uint32 ulStart, uint32 ulCount, BOOL fUseTextReplacements, PWSTR* ppszCoMemText, uint8* pbDisplayAttributes) mut => VT.[Friend]GetText(&this, ulStart, ulCount, fUseTextReplacements, ppszCoMemText, pbDisplayAttributes);
 
 	public HRESULT Discard(uint32 dwValueTypes) mut => VT.[Friend]Discard(&this, dwValueTypes);
 }
@@ -3064,12 +3064,12 @@ public static
 
 	[CRepr]public struct VTable : ISpPhrase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpPhrase** ppParent, uint32 pulStartElementInParent, uint32 pcElementsInParent, uint32 pcElementsInAlt) GetAltInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpPhrase** ppParent, uint32* pulStartElementInParent, uint32* pcElementsInParent, uint32* pcElementsInAlt) GetAltInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Commit;
 	}
 
 
-	public HRESULT GetAltInfo(ISpPhrase** ppParent, uint32 pulStartElementInParent, uint32 pcElementsInParent, uint32 pcElementsInAlt) mut => VT.[Friend]GetAltInfo(&this, ppParent, pulStartElementInParent, pcElementsInParent, pcElementsInAlt);
+	public HRESULT GetAltInfo(ISpPhrase** ppParent, uint32* pulStartElementInParent, uint32* pcElementsInParent, uint32* pcElementsInAlt) mut => VT.[Friend]GetAltInfo(&this, ppParent, pulStartElementInParent, pcElementsInParent, pcElementsInAlt);
 
 	public HRESULT Commit() mut => VT.[Friend]Commit(&this);
 }
@@ -3104,26 +3104,26 @@ public static
 	[CRepr]public struct VTable : ISpPhrase.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPRECORESULTTIMES* pTimes) GetResultTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStartElement, uint32 cElements, uint32 ulRequestCount, ISpPhraseAlt** ppPhrases, uint32 pcPhrasesReturned) GetAlternates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStartElement, uint32 cElements, uint32 ulRequestCount, ISpPhraseAlt** ppPhrases, uint32* pcPhrasesReturned) GetAlternates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStartElement, uint32 cElements, ISpStreamFormat** ppStream) GetAudio;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStartElement, uint32 cElements, uint32 dwFlags, uint32 pulStreamNumber) SpeakAudio;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStartElement, uint32 cElements, uint32 dwFlags, uint32* pulStreamNumber) SpeakAudio;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPSERIALIZEDRESULT** ppCoMemSerializedResult) Serialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) ScaleAudio;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) ScaleAudio;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpRecoContext** ppRecoContext) GetRecoContext;
 	}
 
 
 	public HRESULT GetResultTimes(SPRECORESULTTIMES* pTimes) mut => VT.[Friend]GetResultTimes(&this, pTimes);
 
-	public HRESULT GetAlternates(uint32 ulStartElement, uint32 cElements, uint32 ulRequestCount, ISpPhraseAlt** ppPhrases, uint32 pcPhrasesReturned) mut => VT.[Friend]GetAlternates(&this, ulStartElement, cElements, ulRequestCount, ppPhrases, pcPhrasesReturned);
+	public HRESULT GetAlternates(uint32 ulStartElement, uint32 cElements, uint32 ulRequestCount, ISpPhraseAlt** ppPhrases, uint32* pcPhrasesReturned) mut => VT.[Friend]GetAlternates(&this, ulStartElement, cElements, ulRequestCount, ppPhrases, pcPhrasesReturned);
 
 	public HRESULT GetAudio(uint32 ulStartElement, uint32 cElements, ISpStreamFormat** ppStream) mut => VT.[Friend]GetAudio(&this, ulStartElement, cElements, ppStream);
 
-	public HRESULT SpeakAudio(uint32 ulStartElement, uint32 cElements, uint32 dwFlags, uint32 pulStreamNumber) mut => VT.[Friend]SpeakAudio(&this, ulStartElement, cElements, dwFlags, pulStreamNumber);
+	public HRESULT SpeakAudio(uint32 ulStartElement, uint32 cElements, uint32 dwFlags, uint32* pulStreamNumber) mut => VT.[Friend]SpeakAudio(&this, ulStartElement, cElements, dwFlags, pulStreamNumber);
 
 	public HRESULT Serialize(SPSERIALIZEDRESULT** ppCoMemSerializedResult) mut => VT.[Friend]Serialize(&this, ppCoMemSerializedResult);
 
-	public HRESULT ScaleAudio(Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]ScaleAudio(&this, pAudioFormatId, pWaveFormatEx);
+	public HRESULT ScaleAudio(ref Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]ScaleAudio(&this, ref pAudioFormatId, pWaveFormatEx);
 
 	public HRESULT GetRecoContext(ISpRecoContext** ppRecoContext) mut => VT.[Friend]GetRecoContext(&this, ppRecoContext);
 }
@@ -3211,13 +3211,13 @@ public static
 
 	[CRepr]public struct VTable : ISpGrammarBuilder.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pullGrammarId) GetGrammarId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullGrammarId) GetGrammarId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpRecoContext** ppRecoCtxt) GetRecoContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszFileName, SPLOADOPTIONS Options) LoadCmdFromFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid rcid, PWSTR pszGrammarName, SPLOADOPTIONS Options) LoadCmdFromObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rcid, PWSTR pszGrammarName, SPLOADOPTIONS Options) LoadCmdFromObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE hModule, PWSTR pszResourceName, PWSTR pszResourceType, uint16 wLanguage, SPLOADOPTIONS Options) LoadCmdFromResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPBINARYGRAMMAR* pGrammar, SPLOADOPTIONS Options) LoadCmdFromMemory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid rguidParam, PWSTR pszStringParam, void* pvDataPrarm, uint32 cbDataSize, SPLOADOPTIONS Options) LoadCmdFromProprietaryGrammar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rguidParam, PWSTR pszStringParam, void* pvDataPrarm, uint32 cbDataSize, SPLOADOPTIONS Options) LoadCmdFromProprietaryGrammar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, void* pReserved, SPRULESTATE NewState) SetRuleState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulRuleId, SPRULESTATE NewState) SetRuleIdState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTopicName, SPLOADOPTIONS Options) LoadDictation;
@@ -3232,19 +3232,19 @@ public static
 	}
 
 
-	public HRESULT GetGrammarId(uint64 pullGrammarId) mut => VT.[Friend]GetGrammarId(&this, pullGrammarId);
+	public HRESULT GetGrammarId(uint64* pullGrammarId) mut => VT.[Friend]GetGrammarId(&this, pullGrammarId);
 
 	public HRESULT GetRecoContext(ISpRecoContext** ppRecoCtxt) mut => VT.[Friend]GetRecoContext(&this, ppRecoCtxt);
 
 	public HRESULT LoadCmdFromFile(PWSTR pszFileName, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromFile(&this, pszFileName, Options);
 
-	public HRESULT LoadCmdFromObject(Guid rcid, PWSTR pszGrammarName, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromObject(&this, rcid, pszGrammarName, Options);
+	public HRESULT LoadCmdFromObject(ref Guid rcid, PWSTR pszGrammarName, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromObject(&this, ref rcid, pszGrammarName, Options);
 
 	public HRESULT LoadCmdFromResource(HINSTANCE hModule, PWSTR pszResourceName, PWSTR pszResourceType, uint16 wLanguage, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromResource(&this, hModule, pszResourceName, pszResourceType, wLanguage, Options);
 
 	public HRESULT LoadCmdFromMemory(SPBINARYGRAMMAR* pGrammar, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromMemory(&this, pGrammar, Options);
 
-	public HRESULT LoadCmdFromProprietaryGrammar(Guid rguidParam, PWSTR pszStringParam, void* pvDataPrarm, uint32 cbDataSize, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromProprietaryGrammar(&this, rguidParam, pszStringParam, pvDataPrarm, cbDataSize, Options);
+	public HRESULT LoadCmdFromProprietaryGrammar(ref Guid rguidParam, PWSTR pszStringParam, void* pvDataPrarm, uint32 cbDataSize, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromProprietaryGrammar(&this, ref rguidParam, pszStringParam, pvDataPrarm, cbDataSize, Options);
 
 	public HRESULT SetRuleState(PWSTR pszName, void* pReserved, SPRULESTATE NewState) mut => VT.[Friend]SetRuleState(&this, pszName, pReserved, NewState);
 
@@ -3295,7 +3295,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPRULE** ppCoMemRules, uint32 puNumRules) GetRules;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPRULE** ppCoMemRules, uint32* puNumRules) GetRules;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszFileName, SPLOADOPTIONS Options, PWSTR pszSharingUri, PWSTR pszBaseUri) LoadCmdFromFile2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPBINARYGRAMMAR* pGrammar, SPLOADOPTIONS Options, PWSTR pszSharingUri, PWSTR pszBaseUri) LoadCmdFromMemory2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszRuleName, uint32 ulRuleId, int32 nRulePriority) SetRulePriority;
@@ -3306,7 +3306,7 @@ public static
 	}
 
 
-	public HRESULT GetRules(SPRULE** ppCoMemRules, uint32 puNumRules) mut => VT.[Friend]GetRules(&this, ppCoMemRules, puNumRules);
+	public HRESULT GetRules(SPRULE** ppCoMemRules, uint32* puNumRules) mut => VT.[Friend]GetRules(&this, ppCoMemRules, puNumRules);
 
 	public HRESULT LoadCmdFromFile2(PWSTR pszFileName, SPLOADOPTIONS Options, PWSTR pszSharingUri, PWSTR pszBaseUri) mut => VT.[Friend]LoadCmdFromFile2(&this, pszFileName, Options, pszSharingUri, pszBaseUri);
 
@@ -3331,13 +3331,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceUri, int16 fAlwaysReload, IUnknown** pStream, BSTR* pbstrMIMEType, int16 pfModified, BSTR* pbstrRedirectUrl) LoadResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceUri, int16 fAlwaysReload, IUnknown** pStream, BSTR* pbstrMIMEType, int16* pfModified, BSTR* pbstrRedirectUrl) LoadResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceUri, BSTR* pbstrLocalPath, BSTR* pbstrMIMEType, BSTR* pbstrRedirectUrl) GetLocalCopy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pbstrLocalPath) ReleaseLocalCopy;
 	}
 
 
-	public HRESULT LoadResource(BSTR bstrResourceUri, int16 fAlwaysReload, IUnknown** pStream, BSTR* pbstrMIMEType, int16 pfModified, BSTR* pbstrRedirectUrl) mut => VT.[Friend]LoadResource(&this, bstrResourceUri, fAlwaysReload, pStream, pbstrMIMEType, pfModified, pbstrRedirectUrl);
+	public HRESULT LoadResource(BSTR bstrResourceUri, int16 fAlwaysReload, IUnknown** pStream, BSTR* pbstrMIMEType, int16* pfModified, BSTR* pbstrRedirectUrl) mut => VT.[Friend]LoadResource(&this, bstrResourceUri, fAlwaysReload, pStream, pbstrMIMEType, pfModified, pbstrRedirectUrl);
 
 	public HRESULT GetLocalCopy(BSTR bstrResourceUri, BSTR* pbstrLocalPath, BSTR* pbstrMIMEType, BSTR* pbstrRedirectUrl) mut => VT.[Friend]GetLocalCopy(&this, bstrResourceUri, pbstrLocalPath, pbstrMIMEType, pbstrRedirectUrl);
 
@@ -3355,10 +3355,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpRecognizer** ppRecognizer) GetRecognizer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullGrammarId, ISpRecoGrammar** ppGrammar) CreateGrammar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPRECOCONTEXTSTATUS* pStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcAlternates) GetMaxAlternates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcAlternates) GetMaxAlternates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cAlternates) SetMaxAlternates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPAUDIOOPTIONS Options, Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) SetAudioOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPAUDIOOPTIONS* pOptions, Guid pAudioFormatId, WAVEFORMATEX** ppCoMemWFEX) GetAudioOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPAUDIOOPTIONS Options, ref Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) SetAudioOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPAUDIOOPTIONS* pOptions, ref Guid pAudioFormatId, WAVEFORMATEX** ppCoMemWFEX) GetAudioOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPSERIALIZEDRESULT* pSerializedResult, ISpRecoResult** ppResult) DeserializeResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPBOOKMARKOPTIONS Options, uint64 ullStreamPosition, LPARAM lparamEvent) Bookmark;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pAdaptationData, uint32 cch) SetAdaptationData;
@@ -3367,7 +3367,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpVoice* pVoice, BOOL fAllowFormatChanges) SetVoice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpVoice** ppVoice) GetVoice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullEventInterest) SetVoicePurgeEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pullEventInterest) GetVoicePurgeEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullEventInterest) GetVoicePurgeEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPCONTEXTSTATE eContextState) SetContextState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPCONTEXTSTATE* peContextState) GetContextState;
 	}
@@ -3379,13 +3379,13 @@ public static
 
 	public HRESULT GetStatus(SPRECOCONTEXTSTATUS* pStatus) mut => VT.[Friend]GetStatus(&this, pStatus);
 
-	public HRESULT GetMaxAlternates(uint32 pcAlternates) mut => VT.[Friend]GetMaxAlternates(&this, pcAlternates);
+	public HRESULT GetMaxAlternates(uint32* pcAlternates) mut => VT.[Friend]GetMaxAlternates(&this, pcAlternates);
 
 	public HRESULT SetMaxAlternates(uint32 cAlternates) mut => VT.[Friend]SetMaxAlternates(&this, cAlternates);
 
-	public HRESULT SetAudioOptions(SPAUDIOOPTIONS Options, Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetAudioOptions(&this, Options, pAudioFormatId, pWaveFormatEx);
+	public HRESULT SetAudioOptions(SPAUDIOOPTIONS Options, ref Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetAudioOptions(&this, Options, ref pAudioFormatId, pWaveFormatEx);
 
-	public HRESULT GetAudioOptions(SPAUDIOOPTIONS* pOptions, Guid pAudioFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetAudioOptions(&this, pOptions, pAudioFormatId, ppCoMemWFEX);
+	public HRESULT GetAudioOptions(SPAUDIOOPTIONS* pOptions, ref Guid pAudioFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetAudioOptions(&this, pOptions, ref pAudioFormatId, ppCoMemWFEX);
 
 	public HRESULT DeserializeResult(SPSERIALIZEDRESULT* pSerializedResult, ISpRecoResult** ppResult) mut => VT.[Friend]DeserializeResult(&this, pSerializedResult, ppResult);
 
@@ -3403,7 +3403,7 @@ public static
 
 	public HRESULT SetVoicePurgeEvent(uint64 ullEventInterest) mut => VT.[Friend]SetVoicePurgeEvent(&this, ullEventInterest);
 
-	public HRESULT GetVoicePurgeEvent(uint64 pullEventInterest) mut => VT.[Friend]GetVoicePurgeEvent(&this, pullEventInterest);
+	public HRESULT GetVoicePurgeEvent(uint64* pullEventInterest) mut => VT.[Friend]GetVoicePurgeEvent(&this, pullEventInterest);
 
 	public HRESULT SetContextState(SPCONTEXTSTATE eContextState) mut => VT.[Friend]SetContextState(&this, eContextState);
 
@@ -3419,14 +3419,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 eGrammarOptions) SetGrammarOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 peGrammarOptions) GetGrammarOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* peGrammarOptions) GetGrammarOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pAdaptationData, uint32 cch, PWSTR pTopicName, uint32 eAdaptationSettings, SPADAPTATIONRELEVANCE eRelevance) SetAdaptationData2;
 	}
 
 
 	public HRESULT SetGrammarOptions(uint32 eGrammarOptions) mut => VT.[Friend]SetGrammarOptions(&this, eGrammarOptions);
 
-	public HRESULT GetGrammarOptions(uint32 peGrammarOptions) mut => VT.[Friend]GetGrammarOptions(&this, peGrammarOptions);
+	public HRESULT GetGrammarOptions(uint32* peGrammarOptions) mut => VT.[Friend]GetGrammarOptions(&this, peGrammarOptions);
 
 	public HRESULT SetAdaptationData2(PWSTR pAdaptationData, uint32 cch, PWSTR pTopicName, uint32 eAdaptationSettings, SPADAPTATIONRELEVANCE eRelevance) mut => VT.[Friend]SetAdaptationData2(&this, pAdaptationData, cch, pTopicName, eAdaptationSettings, eRelevance);
 }
@@ -3440,7 +3440,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pName, int32 lValue) SetPropertyNum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pName, int32 plValue) GetPropertyNum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pName, int32* plValue) GetPropertyNum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pName, PWSTR pValue) SetPropertyString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pName, PWSTR* ppCoMemValue) GetPropertyString;
 	}
@@ -3448,7 +3448,7 @@ public static
 
 	public HRESULT SetPropertyNum(PWSTR pName, int32 lValue) mut => VT.[Friend]SetPropertyNum(&this, pName, lValue);
 
-	public HRESULT GetPropertyNum(PWSTR pName, int32 plValue) mut => VT.[Friend]GetPropertyNum(&this, pName, plValue);
+	public HRESULT GetPropertyNum(PWSTR pName, int32* plValue) mut => VT.[Friend]GetPropertyNum(&this, pName, plValue);
 
 	public HRESULT SetPropertyString(PWSTR pName, PWSTR pValue) mut => VT.[Friend]SetPropertyString(&this, pName, pValue);
 
@@ -3475,7 +3475,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPRECOSTATE* pState) GetRecoState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPRECOSTATE NewState) SetRecoState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPRECOGNIZERSTATUS* pStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPWAVEFORMATTYPE WaveFormatType, Guid pFormatId, WAVEFORMATEX** ppCoMemWFEX) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPWAVEFORMATTYPE WaveFormatType, ref Guid pFormatId, WAVEFORMATEX** ppCoMemWFEX) GetFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, BOOL* pfSupported) IsUISupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR pszTitle, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData) DisplayUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpPhrase* pPhrase) EmulateRecognition;
@@ -3506,7 +3506,7 @@ public static
 
 	public HRESULT GetStatus(SPRECOGNIZERSTATUS* pStatus) mut => VT.[Friend]GetStatus(&this, pStatus);
 
-	public HRESULT GetFormat(SPWAVEFORMATTYPE WaveFormatType, Guid pFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetFormat(&this, WaveFormatType, pFormatId, ppCoMemWFEX);
+	public HRESULT GetFormat(SPWAVEFORMATTYPE WaveFormatType, ref Guid pFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetFormat(&this, WaveFormatType, ref pFormatId, ppCoMemWFEX);
 
 	public HRESULT IsUISupported(PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, BOOL* pfSupported) mut => VT.[Friend]IsUISupported(&this, pszTypeOfUI, pvExtraData, cbExtraData, pfSupported);
 
@@ -3523,14 +3523,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppbData, uint32 pulSize, uint32 dwReserved) GetSerializedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbData, uint32 ulSize, uint32 dwReserved) SetSerializedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppbData, uint32* pulSize, uint32 dwReserved) GetSerializedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbData, uint32 ulSize, uint32 dwReserved) SetSerializedState;
 	}
 
 
-	public HRESULT GetSerializedState(uint8** ppbData, uint32 pulSize, uint32 dwReserved) mut => VT.[Friend]GetSerializedState(&this, ppbData, pulSize, dwReserved);
+	public HRESULT GetSerializedState(uint8** ppbData, uint32* pulSize, uint32 dwReserved) mut => VT.[Friend]GetSerializedState(&this, ppbData, pulSize, dwReserved);
 
-	public HRESULT SetSerializedState(uint8 pbData, uint32 ulSize, uint32 dwReserved) mut => VT.[Friend]SetSerializedState(&this, pbData, ulSize, dwReserved);
+	public HRESULT SetSerializedState(uint8* pbData, uint32 ulSize, uint32 dwReserved) mut => VT.[Friend]SetSerializedState(&this, pbData, ulSize, dwReserved);
 }
 
 [CRepr]struct ISpRecognizer2 : IUnknown
@@ -3580,12 +3580,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPDISPLAYPHRASE* pPhrase, uint32 cRequestCount, SPDISPLAYPHRASE** ppCoMemPhrases, uint32 pcPhrasesReturned) GetDisplayAlternates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPDISPLAYPHRASE* pPhrase, uint32 cRequestCount, SPDISPLAYPHRASE** ppCoMemPhrases, uint32* pcPhrasesReturned) GetDisplayAlternates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulTrailSpace) SetFullStopTrailSpace;
 	}
 
 
-	public HRESULT GetDisplayAlternates(SPDISPLAYPHRASE* pPhrase, uint32 cRequestCount, SPDISPLAYPHRASE** ppCoMemPhrases, uint32 pcPhrasesReturned) mut => VT.[Friend]GetDisplayAlternates(&this, pPhrase, cRequestCount, ppCoMemPhrases, pcPhrasesReturned);
+	public HRESULT GetDisplayAlternates(SPDISPLAYPHRASE* pPhrase, uint32 cRequestCount, SPDISPLAYPHRASE** ppCoMemPhrases, uint32* pcPhrasesReturned) mut => VT.[Friend]GetDisplayAlternates(&this, pPhrase, cRequestCount, ppCoMemPhrases, pcPhrasesReturned);
 
 	public HRESULT SetFullStopTrailSpace(uint32 ulTrailSpace) mut => VT.[Friend]SetFullStopTrailSpace(&this, ulTrailSpace);
 }
@@ -3603,7 +3603,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ValueName, BSTR Value) SetStringValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ValueName, BSTR* Value) GetStringValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ValueName, int32 Value) SetLongValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ValueName, int32 Value) GetLongValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ValueName, int32* Value) GetLongValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR SubKeyName, ISpeechDataKey** SubKey) OpenKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR SubKeyName, ISpeechDataKey** SubKey) CreateKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR SubKeyName) DeleteKey;
@@ -3623,7 +3623,7 @@ public static
 
 	public HRESULT SetLongValue(BSTR ValueName, int32 Value) mut => VT.[Friend]SetLongValue(&this, ValueName, Value);
 
-	public HRESULT GetLongValue(BSTR ValueName, int32 Value) mut => VT.[Friend]GetLongValue(&this, ValueName, Value);
+	public HRESULT GetLongValue(BSTR ValueName, int32* Value) mut => VT.[Friend]GetLongValue(&this, ValueName, Value);
 
 	public HRESULT OpenKey(BSTR SubKeyName, ISpeechDataKey** SubKey) mut => VT.[Friend]OpenKey(&this, SubKeyName, SubKey);
 
@@ -3656,9 +3656,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ObjectStorageCLSID) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ObjectStorageCLSID, BSTR KeyName, BSTR FileName, SpeechTokenShellFolder Folder, BSTR* FilePath) GetStorageFileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ObjectStorageCLSID, BSTR KeyName, int16 DeleteFileA) RemoveStorageFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TypeOfUI, VARIANT* ExtraData, IUnknown* Object, int16 Supported) IsUISupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TypeOfUI, VARIANT* ExtraData, IUnknown* Object, int16* Supported) IsUISupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 hWnd, BSTR Title, BSTR TypeOfUI, VARIANT* ExtraData, IUnknown* Object) DisplayUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Attributes, int16 Matches) MatchesAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Attributes, int16* Matches) MatchesAttributes;
 	}
 
 
@@ -3682,11 +3682,11 @@ public static
 
 	public HRESULT RemoveStorageFileName(BSTR ObjectStorageCLSID, BSTR KeyName, int16 DeleteFileA) mut => VT.[Friend]RemoveStorageFileName(&this, ObjectStorageCLSID, KeyName, DeleteFileA);
 
-	public HRESULT IsUISupported(BSTR TypeOfUI, VARIANT* ExtraData, IUnknown* Object, int16 Supported) mut => VT.[Friend]IsUISupported(&this, TypeOfUI, ExtraData, Object, Supported);
+	public HRESULT IsUISupported(BSTR TypeOfUI, VARIANT* ExtraData, IUnknown* Object, int16* Supported) mut => VT.[Friend]IsUISupported(&this, TypeOfUI, ExtraData, Object, Supported);
 
 	public HRESULT DisplayUI(int32 hWnd, BSTR Title, BSTR TypeOfUI, VARIANT* ExtraData, IUnknown* Object) mut => VT.[Friend]DisplayUI(&this, hWnd, Title, TypeOfUI, ExtraData, Object);
 
-	public HRESULT MatchesAttributes(BSTR Attributes, int16 Matches) mut => VT.[Friend]MatchesAttributes(&this, Attributes, Matches);
+	public HRESULT MatchesAttributes(BSTR Attributes, int16* Matches) mut => VT.[Friend]MatchesAttributes(&this, Attributes, Matches);
 }
 
 [CRepr]struct ISpeechObjectTokens : IDispatch
@@ -3697,13 +3697,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, ISpeechObjectToken** Token) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumVARIANT) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT Item(int32 Index, ISpeechObjectToken** Token) mut => VT.[Friend]Item(&this, Index, Token);
 
@@ -3748,24 +3748,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MinNotification) get_MinNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MinNotification) get_MinNotification;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MinNotification) put_MinNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 BufferSize) get_BufferSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* BufferSize) get_BufferSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 BufferSize) put_BufferSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 EventBias) get_EventBias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* EventBias) get_EventBias;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 EventBias) put_EventBias;
 	}
 
 
-	public HRESULT get_MinNotification(int32 MinNotification) mut => VT.[Friend]get_MinNotification(&this, MinNotification);
+	public HRESULT get_MinNotification(int32* MinNotification) mut => VT.[Friend]get_MinNotification(&this, MinNotification);
 
 	public HRESULT put_MinNotification(int32 MinNotification) mut => VT.[Friend]put_MinNotification(&this, MinNotification);
 
-	public HRESULT get_BufferSize(int32 BufferSize) mut => VT.[Friend]get_BufferSize(&this, BufferSize);
+	public HRESULT get_BufferSize(int32* BufferSize) mut => VT.[Friend]get_BufferSize(&this, BufferSize);
 
 	public HRESULT put_BufferSize(int32 BufferSize) mut => VT.[Friend]put_BufferSize(&this, BufferSize);
 
-	public HRESULT get_EventBias(int32 EventBias) mut => VT.[Friend]get_EventBias(&this, EventBias);
+	public HRESULT get_EventBias(int32* EventBias) mut => VT.[Friend]get_EventBias(&this, EventBias);
 
 	public HRESULT put_EventBias(int32 EventBias) mut => VT.[Friend]put_EventBias(&this, EventBias);
 }
@@ -3778,17 +3778,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 FreeBufferSpace) get_FreeBufferSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NonBlockingIO) get_NonBlockingIO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* FreeBufferSpace) get_FreeBufferSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* NonBlockingIO) get_NonBlockingIO;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechAudioState* State) get_State;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* CurrentSeekPosition) get_CurrentSeekPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* CurrentDevicePosition) get_CurrentDevicePosition;
 	}
 
 
-	public HRESULT get_FreeBufferSpace(int32 FreeBufferSpace) mut => VT.[Friend]get_FreeBufferSpace(&this, FreeBufferSpace);
+	public HRESULT get_FreeBufferSpace(int32* FreeBufferSpace) mut => VT.[Friend]get_FreeBufferSpace(&this, FreeBufferSpace);
 
-	public HRESULT get_NonBlockingIO(int32 NonBlockingIO) mut => VT.[Friend]get_NonBlockingIO(&this, NonBlockingIO);
+	public HRESULT get_NonBlockingIO(int32* NonBlockingIO) mut => VT.[Friend]get_NonBlockingIO(&this, NonBlockingIO);
 
 	public HRESULT get_State(SpeechAudioState* State) mut => VT.[Friend]get_State(&this, State);
 
@@ -3835,44 +3835,44 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 FormatTag) get_FormatTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* FormatTag) get_FormatTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 FormatTag) put_FormatTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Channels) get_Channels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Channels) get_Channels;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Channels) put_Channels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 SamplesPerSec) get_SamplesPerSec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* SamplesPerSec) get_SamplesPerSec;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 SamplesPerSec) put_SamplesPerSec;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AvgBytesPerSec) get_AvgBytesPerSec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* AvgBytesPerSec) get_AvgBytesPerSec;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AvgBytesPerSec) put_AvgBytesPerSec;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 BlockAlign) get_BlockAlign;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* BlockAlign) get_BlockAlign;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 BlockAlign) put_BlockAlign;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 BitsPerSample) get_BitsPerSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* BitsPerSample) get_BitsPerSample;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 BitsPerSample) put_BitsPerSample;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* ExtraData) get_ExtraData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT ExtraData) put_ExtraData;
 	}
 
 
-	public HRESULT get_FormatTag(int16 FormatTag) mut => VT.[Friend]get_FormatTag(&this, FormatTag);
+	public HRESULT get_FormatTag(int16* FormatTag) mut => VT.[Friend]get_FormatTag(&this, FormatTag);
 
 	public HRESULT put_FormatTag(int16 FormatTag) mut => VT.[Friend]put_FormatTag(&this, FormatTag);
 
-	public HRESULT get_Channels(int16 Channels) mut => VT.[Friend]get_Channels(&this, Channels);
+	public HRESULT get_Channels(int16* Channels) mut => VT.[Friend]get_Channels(&this, Channels);
 
 	public HRESULT put_Channels(int16 Channels) mut => VT.[Friend]put_Channels(&this, Channels);
 
-	public HRESULT get_SamplesPerSec(int32 SamplesPerSec) mut => VT.[Friend]get_SamplesPerSec(&this, SamplesPerSec);
+	public HRESULT get_SamplesPerSec(int32* SamplesPerSec) mut => VT.[Friend]get_SamplesPerSec(&this, SamplesPerSec);
 
 	public HRESULT put_SamplesPerSec(int32 SamplesPerSec) mut => VT.[Friend]put_SamplesPerSec(&this, SamplesPerSec);
 
-	public HRESULT get_AvgBytesPerSec(int32 AvgBytesPerSec) mut => VT.[Friend]get_AvgBytesPerSec(&this, AvgBytesPerSec);
+	public HRESULT get_AvgBytesPerSec(int32* AvgBytesPerSec) mut => VT.[Friend]get_AvgBytesPerSec(&this, AvgBytesPerSec);
 
 	public HRESULT put_AvgBytesPerSec(int32 AvgBytesPerSec) mut => VT.[Friend]put_AvgBytesPerSec(&this, AvgBytesPerSec);
 
-	public HRESULT get_BlockAlign(int16 BlockAlign) mut => VT.[Friend]get_BlockAlign(&this, BlockAlign);
+	public HRESULT get_BlockAlign(int16* BlockAlign) mut => VT.[Friend]get_BlockAlign(&this, BlockAlign);
 
 	public HRESULT put_BlockAlign(int16 BlockAlign) mut => VT.[Friend]put_BlockAlign(&this, BlockAlign);
 
-	public HRESULT get_BitsPerSample(int16 BitsPerSample) mut => VT.[Friend]get_BitsPerSample(&this, BitsPerSample);
+	public HRESULT get_BitsPerSample(int16* BitsPerSample) mut => VT.[Friend]get_BitsPerSample(&this, BitsPerSample);
 
 	public HRESULT put_BitsPerSample(int16 BitsPerSample) mut => VT.[Friend]put_BitsPerSample(&this, BitsPerSample);
 
@@ -3891,8 +3891,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechAudioFormat** AudioFormat) get_Format;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechAudioFormat* AudioFormat) putref_Format;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Buffer, int32 NumberOfBytes, int32 BytesRead) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Buffer, int32 BytesWritten) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Buffer, int32 NumberOfBytes, int32* BytesRead) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Buffer, int32* BytesWritten) Write;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Position, SpeechStreamSeekPositionType Origin, VARIANT* NewPosition) Seek;
 	}
 
@@ -3901,9 +3901,9 @@ public static
 
 	public HRESULT putref_Format(ISpeechAudioFormat* AudioFormat) mut => VT.[Friend]putref_Format(&this, AudioFormat);
 
-	public HRESULT Read(VARIANT* Buffer, int32 NumberOfBytes, int32 BytesRead) mut => VT.[Friend]Read(&this, Buffer, NumberOfBytes, BytesRead);
+	public HRESULT Read(VARIANT* Buffer, int32 NumberOfBytes, int32* BytesRead) mut => VT.[Friend]Read(&this, Buffer, NumberOfBytes, BytesRead);
 
-	public HRESULT Write(VARIANT Buffer, int32 BytesWritten) mut => VT.[Friend]Write(&this, Buffer, BytesWritten);
+	public HRESULT Write(VARIANT Buffer, int32* BytesWritten) mut => VT.[Friend]Write(&this, Buffer, BytesWritten);
 
 	public HRESULT Seek(VARIANT Position, SpeechStreamSeekPositionType Origin, VARIANT* NewPosition) mut => VT.[Friend]Seek(&this, Position, Origin, NewPosition);
 }
@@ -3973,11 +3973,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechAudioStatus** Status) get_Status;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechAudioBufferInfo** BufferInfo) get_BufferInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechAudioFormat** StreamFormat) get_DefaultFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Volume) get_Volume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Volume) get_Volume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Volume) put_Volume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 BufferNotifySize) get_BufferNotifySize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* BufferNotifySize) get_BufferNotifySize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 BufferNotifySize) put_BufferNotifySize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 EventHandle) get_EventHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* EventHandle) get_EventHandle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechAudioState State) SetState;
 	}
 
@@ -3988,15 +3988,15 @@ public static
 
 	public HRESULT get_DefaultFormat(ISpeechAudioFormat** StreamFormat) mut => VT.[Friend]get_DefaultFormat(&this, StreamFormat);
 
-	public HRESULT get_Volume(int32 Volume) mut => VT.[Friend]get_Volume(&this, Volume);
+	public HRESULT get_Volume(int32* Volume) mut => VT.[Friend]get_Volume(&this, Volume);
 
 	public HRESULT put_Volume(int32 Volume) mut => VT.[Friend]put_Volume(&this, Volume);
 
-	public HRESULT get_BufferNotifySize(int32 BufferNotifySize) mut => VT.[Friend]get_BufferNotifySize(&this, BufferNotifySize);
+	public HRESULT get_BufferNotifySize(int32* BufferNotifySize) mut => VT.[Friend]get_BufferNotifySize(&this, BufferNotifySize);
 
 	public HRESULT put_BufferNotifySize(int32 BufferNotifySize) mut => VT.[Friend]put_BufferNotifySize(&this, BufferNotifySize);
 
-	public HRESULT get_EventHandle(int32 EventHandle) mut => VT.[Friend]get_EventHandle(&this, EventHandle);
+	public HRESULT get_EventHandle(int32* EventHandle) mut => VT.[Friend]get_EventHandle(&this, EventHandle);
 
 	public HRESULT SetState(SpeechAudioState State) mut => VT.[Friend]SetState(&this, State);
 }
@@ -4009,23 +4009,23 @@ public static
 
 	[CRepr]public struct VTable : ISpeechAudio.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 DeviceId) get_DeviceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* DeviceId) get_DeviceId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 DeviceId) put_DeviceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LineId) get_LineId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LineId) get_LineId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LineId) put_LineId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Handle) get_MMHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Handle) get_MMHandle;
 	}
 
 
-	public HRESULT get_DeviceId(int32 DeviceId) mut => VT.[Friend]get_DeviceId(&this, DeviceId);
+	public HRESULT get_DeviceId(int32* DeviceId) mut => VT.[Friend]get_DeviceId(&this, DeviceId);
 
 	public HRESULT put_DeviceId(int32 DeviceId) mut => VT.[Friend]put_DeviceId(&this, DeviceId);
 
-	public HRESULT get_LineId(int32 LineId) mut => VT.[Friend]get_LineId(&this, LineId);
+	public HRESULT get_LineId(int32* LineId) mut => VT.[Friend]get_LineId(&this, LineId);
 
 	public HRESULT put_LineId(int32 LineId) mut => VT.[Friend]put_LineId(&this, LineId);
 
-	public HRESULT get_MMHandle(int32 Handle) mut => VT.[Friend]get_MMHandle(&this, Handle);
+	public HRESULT get_MMHandle(int32* Handle) mut => VT.[Friend]get_MMHandle(&this, Handle);
 }
 
 [CRepr]struct ISpeechVoice : IDispatch
@@ -4043,12 +4043,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechObjectToken* AudioOutput) putref_AudioOutput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechBaseStream** AudioOutputStream) get_AudioOutputStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechBaseStream* AudioOutputStream) putref_AudioOutputStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Rate) get_Rate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Rate) get_Rate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Rate) put_Rate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Volume) get_Volume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Volume) get_Volume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Volume) put_Volume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Allow) put_AllowAudioOutputFormatChangesOnNextSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Allow) get_AllowAudioOutputFormatChangesOnNextSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Allow) get_AllowAudioOutputFormatChangesOnNextSet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechVoiceEvents* EventInterestFlags) get_EventInterests;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechVoiceEvents EventInterestFlags) put_EventInterests;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechVoicePriority Priority) put_Priority;
@@ -4056,17 +4056,17 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechVoiceEvents Boundary) put_AlertBoundary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechVoiceEvents* Boundary) get_AlertBoundary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 msTimeout) put_SynchronousSpeakTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 msTimeout) get_SynchronousSpeakTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Text, SpeechVoiceSpeakFlags Flags, int32 StreamNumber) Speak;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechBaseStream* Stream, SpeechVoiceSpeakFlags Flags, int32 StreamNumber) SpeakStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* msTimeout) get_SynchronousSpeakTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Text, SpeechVoiceSpeakFlags Flags, int32* StreamNumber) Speak;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechBaseStream* Stream, SpeechVoiceSpeakFlags Flags, int32* StreamNumber) SpeakStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Type, int32 NumItems, int32 NumSkipped) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Type, int32 NumItems, int32* NumSkipped) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR RequiredAttributes, BSTR OptionalAttributes, ISpeechObjectTokens** ObjectTokens) GetVoices;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR RequiredAttributes, BSTR OptionalAttributes, ISpeechObjectTokens** ObjectTokens) GetAudioOutputs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 msTimeout, int16 Done) WaitUntilDone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Handle) SpeakCompleteEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TypeOfUI, VARIANT* ExtraData, int16 Supported) IsUISupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 msTimeout, int16* Done) WaitUntilDone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Handle) SpeakCompleteEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TypeOfUI, VARIANT* ExtraData, int16* Supported) IsUISupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 hWndParent, BSTR Title, BSTR TypeOfUI, VARIANT* ExtraData) DisplayUI;
 	}
 
@@ -4085,17 +4085,17 @@ public static
 
 	public HRESULT putref_AudioOutputStream(ISpeechBaseStream* AudioOutputStream) mut => VT.[Friend]putref_AudioOutputStream(&this, AudioOutputStream);
 
-	public HRESULT get_Rate(int32 Rate) mut => VT.[Friend]get_Rate(&this, Rate);
+	public HRESULT get_Rate(int32* Rate) mut => VT.[Friend]get_Rate(&this, Rate);
 
 	public HRESULT put_Rate(int32 Rate) mut => VT.[Friend]put_Rate(&this, Rate);
 
-	public HRESULT get_Volume(int32 Volume) mut => VT.[Friend]get_Volume(&this, Volume);
+	public HRESULT get_Volume(int32* Volume) mut => VT.[Friend]get_Volume(&this, Volume);
 
 	public HRESULT put_Volume(int32 Volume) mut => VT.[Friend]put_Volume(&this, Volume);
 
 	public HRESULT put_AllowAudioOutputFormatChangesOnNextSet(int16 Allow) mut => VT.[Friend]put_AllowAudioOutputFormatChangesOnNextSet(&this, Allow);
 
-	public HRESULT get_AllowAudioOutputFormatChangesOnNextSet(int16 Allow) mut => VT.[Friend]get_AllowAudioOutputFormatChangesOnNextSet(&this, Allow);
+	public HRESULT get_AllowAudioOutputFormatChangesOnNextSet(int16* Allow) mut => VT.[Friend]get_AllowAudioOutputFormatChangesOnNextSet(&this, Allow);
 
 	public HRESULT get_EventInterests(SpeechVoiceEvents* EventInterestFlags) mut => VT.[Friend]get_EventInterests(&this, EventInterestFlags);
 
@@ -4111,27 +4111,27 @@ public static
 
 	public HRESULT put_SynchronousSpeakTimeout(int32 msTimeout) mut => VT.[Friend]put_SynchronousSpeakTimeout(&this, msTimeout);
 
-	public HRESULT get_SynchronousSpeakTimeout(int32 msTimeout) mut => VT.[Friend]get_SynchronousSpeakTimeout(&this, msTimeout);
+	public HRESULT get_SynchronousSpeakTimeout(int32* msTimeout) mut => VT.[Friend]get_SynchronousSpeakTimeout(&this, msTimeout);
 
-	public HRESULT Speak(BSTR Text, SpeechVoiceSpeakFlags Flags, int32 StreamNumber) mut => VT.[Friend]Speak(&this, Text, Flags, StreamNumber);
+	public HRESULT Speak(BSTR Text, SpeechVoiceSpeakFlags Flags, int32* StreamNumber) mut => VT.[Friend]Speak(&this, Text, Flags, StreamNumber);
 
-	public HRESULT SpeakStream(ISpeechBaseStream* Stream, SpeechVoiceSpeakFlags Flags, int32 StreamNumber) mut => VT.[Friend]SpeakStream(&this, Stream, Flags, StreamNumber);
+	public HRESULT SpeakStream(ISpeechBaseStream* Stream, SpeechVoiceSpeakFlags Flags, int32* StreamNumber) mut => VT.[Friend]SpeakStream(&this, Stream, Flags, StreamNumber);
 
 	public HRESULT Pause() mut => VT.[Friend]Pause(&this);
 
 	public HRESULT Resume() mut => VT.[Friend]Resume(&this);
 
-	public HRESULT Skip(BSTR Type, int32 NumItems, int32 NumSkipped) mut => VT.[Friend]Skip(&this, Type, NumItems, NumSkipped);
+	public HRESULT Skip(BSTR Type, int32 NumItems, int32* NumSkipped) mut => VT.[Friend]Skip(&this, Type, NumItems, NumSkipped);
 
 	public HRESULT GetVoices(BSTR RequiredAttributes, BSTR OptionalAttributes, ISpeechObjectTokens** ObjectTokens) mut => VT.[Friend]GetVoices(&this, RequiredAttributes, OptionalAttributes, ObjectTokens);
 
 	public HRESULT GetAudioOutputs(BSTR RequiredAttributes, BSTR OptionalAttributes, ISpeechObjectTokens** ObjectTokens) mut => VT.[Friend]GetAudioOutputs(&this, RequiredAttributes, OptionalAttributes, ObjectTokens);
 
-	public HRESULT WaitUntilDone(int32 msTimeout, int16 Done) mut => VT.[Friend]WaitUntilDone(&this, msTimeout, Done);
+	public HRESULT WaitUntilDone(int32 msTimeout, int16* Done) mut => VT.[Friend]WaitUntilDone(&this, msTimeout, Done);
 
-	public HRESULT SpeakCompleteEvent(int32 Handle) mut => VT.[Friend]SpeakCompleteEvent(&this, Handle);
+	public HRESULT SpeakCompleteEvent(int32* Handle) mut => VT.[Friend]SpeakCompleteEvent(&this, Handle);
 
-	public HRESULT IsUISupported(BSTR TypeOfUI, VARIANT* ExtraData, int16 Supported) mut => VT.[Friend]IsUISupported(&this, TypeOfUI, ExtraData, Supported);
+	public HRESULT IsUISupported(BSTR TypeOfUI, VARIANT* ExtraData, int16* Supported) mut => VT.[Friend]IsUISupported(&this, TypeOfUI, ExtraData, Supported);
 
 	public HRESULT DisplayUI(int32 hWndParent, BSTR Title, BSTR TypeOfUI, VARIANT* ExtraData) mut => VT.[Friend]DisplayUI(&this, hWndParent, Title, TypeOfUI, ExtraData);
 }
@@ -4144,44 +4144,44 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 StreamNumber) get_CurrentStreamNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 StreamNumber) get_LastStreamNumberQueued;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 HResult) get_LastHResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* StreamNumber) get_CurrentStreamNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* StreamNumber) get_LastStreamNumberQueued;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* HResult) get_LastHResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRunState* State) get_RunningState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Position) get_InputWordPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Length) get_InputWordLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Position) get_InputSentencePosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Length) get_InputSentenceLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Position) get_InputWordPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Length) get_InputWordLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Position) get_InputSentencePosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Length) get_InputSentenceLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Bookmark) get_LastBookmark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 BookmarkId) get_LastBookmarkId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 PhoneId) get_PhonemeId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 VisemeId) get_VisemeId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* BookmarkId) get_LastBookmarkId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* PhoneId) get_PhonemeId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* VisemeId) get_VisemeId;
 	}
 
 
-	public HRESULT get_CurrentStreamNumber(int32 StreamNumber) mut => VT.[Friend]get_CurrentStreamNumber(&this, StreamNumber);
+	public HRESULT get_CurrentStreamNumber(int32* StreamNumber) mut => VT.[Friend]get_CurrentStreamNumber(&this, StreamNumber);
 
-	public HRESULT get_LastStreamNumberQueued(int32 StreamNumber) mut => VT.[Friend]get_LastStreamNumberQueued(&this, StreamNumber);
+	public HRESULT get_LastStreamNumberQueued(int32* StreamNumber) mut => VT.[Friend]get_LastStreamNumberQueued(&this, StreamNumber);
 
-	public HRESULT get_LastHResult(int32 HResult) mut => VT.[Friend]get_LastHResult(&this, HResult);
+	public HRESULT get_LastHResult(int32* HResult) mut => VT.[Friend]get_LastHResult(&this, HResult);
 
 	public HRESULT get_RunningState(SpeechRunState* State) mut => VT.[Friend]get_RunningState(&this, State);
 
-	public HRESULT get_InputWordPosition(int32 Position) mut => VT.[Friend]get_InputWordPosition(&this, Position);
+	public HRESULT get_InputWordPosition(int32* Position) mut => VT.[Friend]get_InputWordPosition(&this, Position);
 
-	public HRESULT get_InputWordLength(int32 Length) mut => VT.[Friend]get_InputWordLength(&this, Length);
+	public HRESULT get_InputWordLength(int32* Length) mut => VT.[Friend]get_InputWordLength(&this, Length);
 
-	public HRESULT get_InputSentencePosition(int32 Position) mut => VT.[Friend]get_InputSentencePosition(&this, Position);
+	public HRESULT get_InputSentencePosition(int32* Position) mut => VT.[Friend]get_InputSentencePosition(&this, Position);
 
-	public HRESULT get_InputSentenceLength(int32 Length) mut => VT.[Friend]get_InputSentenceLength(&this, Length);
+	public HRESULT get_InputSentenceLength(int32* Length) mut => VT.[Friend]get_InputSentenceLength(&this, Length);
 
 	public HRESULT get_LastBookmark(BSTR* Bookmark) mut => VT.[Friend]get_LastBookmark(&this, Bookmark);
 
-	public HRESULT get_LastBookmarkId(int32 BookmarkId) mut => VT.[Friend]get_LastBookmarkId(&this, BookmarkId);
+	public HRESULT get_LastBookmarkId(int32* BookmarkId) mut => VT.[Friend]get_LastBookmarkId(&this, BookmarkId);
 
-	public HRESULT get_PhonemeId(int16 PhoneId) mut => VT.[Friend]get_PhonemeId(&this, PhoneId);
+	public HRESULT get_PhonemeId(int16* PhoneId) mut => VT.[Friend]get_PhonemeId(&this, PhoneId);
 
-	public HRESULT get_VisemeId(int16 VisemeId) mut => VT.[Friend]get_VisemeId(&this, VisemeId);
+	public HRESULT get_VisemeId(int16* VisemeId) mut => VT.[Friend]get_VisemeId(&this, VisemeId);
 }
 
 [CRepr]struct _ISpeechVoiceEvents : IDispatch
@@ -4207,12 +4207,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechObjectToken* Recognizer) putref_Recognizer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechObjectToken** Recognizer) get_Recognizer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Allow) put_AllowAudioInputFormatChangesOnNextSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Allow) get_AllowAudioInputFormatChangesOnNextSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Allow) get_AllowAudioInputFormatChangesOnNextSet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechObjectToken* AudioInput) putref_AudioInput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechObjectToken** AudioInput) get_AudioInput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechBaseStream* AudioInputStream) putref_AudioInputStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechBaseStream** AudioInputStream) get_AudioInputStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Shared) get_IsShared;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Shared) get_IsShared;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRecognizerState State) put_State;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRecognizerState* State) get_State;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechRecognizerStatus** Status) get_Status;
@@ -4221,11 +4221,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT TextElements, VARIANT* ElementDisplayAttributes, int32 LanguageId) EmulateRecognition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechRecoContext** NewContext) CreateRecoContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechFormatType Type, ISpeechAudioFormat** Format) GetFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Name, int32 Value, int16 Supported) SetPropertyNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Name, int32 Value, int16 Supported) GetPropertyNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Name, BSTR Value, int16 Supported) SetPropertyString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Name, BSTR* Value, int16 Supported) GetPropertyString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TypeOfUI, VARIANT* ExtraData, int16 Supported) IsUISupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Name, int32 Value, int16* Supported) SetPropertyNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Name, int32* Value, int16* Supported) GetPropertyNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Name, BSTR Value, int16* Supported) SetPropertyString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Name, BSTR* Value, int16* Supported) GetPropertyString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TypeOfUI, VARIANT* ExtraData, int16* Supported) IsUISupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 hWndParent, BSTR Title, BSTR TypeOfUI, VARIANT* ExtraData) DisplayUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR RequiredAttributes, BSTR OptionalAttributes, ISpeechObjectTokens** ObjectTokens) GetRecognizers;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR RequiredAttributes, BSTR OptionalAttributes, ISpeechObjectTokens** ObjectTokens) GetAudioInputs;
@@ -4239,7 +4239,7 @@ public static
 
 	public HRESULT put_AllowAudioInputFormatChangesOnNextSet(int16 Allow) mut => VT.[Friend]put_AllowAudioInputFormatChangesOnNextSet(&this, Allow);
 
-	public HRESULT get_AllowAudioInputFormatChangesOnNextSet(int16 Allow) mut => VT.[Friend]get_AllowAudioInputFormatChangesOnNextSet(&this, Allow);
+	public HRESULT get_AllowAudioInputFormatChangesOnNextSet(int16* Allow) mut => VT.[Friend]get_AllowAudioInputFormatChangesOnNextSet(&this, Allow);
 
 	public HRESULT putref_AudioInput(ISpeechObjectToken* AudioInput) mut => VT.[Friend]putref_AudioInput(&this, AudioInput);
 
@@ -4249,7 +4249,7 @@ public static
 
 	public HRESULT get_AudioInputStream(ISpeechBaseStream** AudioInputStream) mut => VT.[Friend]get_AudioInputStream(&this, AudioInputStream);
 
-	public HRESULT get_IsShared(int16 Shared) mut => VT.[Friend]get_IsShared(&this, Shared);
+	public HRESULT get_IsShared(int16* Shared) mut => VT.[Friend]get_IsShared(&this, Shared);
 
 	public HRESULT put_State(SpeechRecognizerState State) mut => VT.[Friend]put_State(&this, State);
 
@@ -4267,15 +4267,15 @@ public static
 
 	public HRESULT GetFormat(SpeechFormatType Type, ISpeechAudioFormat** Format) mut => VT.[Friend]GetFormat(&this, Type, Format);
 
-	public HRESULT SetPropertyNumber(BSTR Name, int32 Value, int16 Supported) mut => VT.[Friend]SetPropertyNumber(&this, Name, Value, Supported);
+	public HRESULT SetPropertyNumber(BSTR Name, int32 Value, int16* Supported) mut => VT.[Friend]SetPropertyNumber(&this, Name, Value, Supported);
 
-	public HRESULT GetPropertyNumber(BSTR Name, int32 Value, int16 Supported) mut => VT.[Friend]GetPropertyNumber(&this, Name, Value, Supported);
+	public HRESULT GetPropertyNumber(BSTR Name, int32* Value, int16* Supported) mut => VT.[Friend]GetPropertyNumber(&this, Name, Value, Supported);
 
-	public HRESULT SetPropertyString(BSTR Name, BSTR Value, int16 Supported) mut => VT.[Friend]SetPropertyString(&this, Name, Value, Supported);
+	public HRESULT SetPropertyString(BSTR Name, BSTR Value, int16* Supported) mut => VT.[Friend]SetPropertyString(&this, Name, Value, Supported);
 
-	public HRESULT GetPropertyString(BSTR Name, BSTR* Value, int16 Supported) mut => VT.[Friend]GetPropertyString(&this, Name, Value, Supported);
+	public HRESULT GetPropertyString(BSTR Name, BSTR* Value, int16* Supported) mut => VT.[Friend]GetPropertyString(&this, Name, Value, Supported);
 
-	public HRESULT IsUISupported(BSTR TypeOfUI, VARIANT* ExtraData, int16 Supported) mut => VT.[Friend]IsUISupported(&this, TypeOfUI, ExtraData, Supported);
+	public HRESULT IsUISupported(BSTR TypeOfUI, VARIANT* ExtraData, int16* Supported) mut => VT.[Friend]IsUISupported(&this, TypeOfUI, ExtraData, Supported);
 
 	public HRESULT DisplayUI(int32 hWndParent, BSTR Title, BSTR TypeOfUI, VARIANT* ExtraData) mut => VT.[Friend]DisplayUI(&this, hWndParent, Title, TypeOfUI, ExtraData);
 
@@ -4296,8 +4296,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechAudioStatus** AudioStatus) get_AudioStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pCurrentStreamPos) get_CurrentStreamPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 StreamNumber) get_CurrentStreamNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NumberOfActiveRules) get_NumberOfActiveRules;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* StreamNumber) get_CurrentStreamNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* NumberOfActiveRules) get_NumberOfActiveRules;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ClsidEngine) get_ClsidEngine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* SupportedLanguages) get_SupportedLanguages;
 	}
@@ -4307,9 +4307,9 @@ public static
 
 	public HRESULT get_CurrentStreamPosition(VARIANT* pCurrentStreamPos) mut => VT.[Friend]get_CurrentStreamPosition(&this, pCurrentStreamPos);
 
-	public HRESULT get_CurrentStreamNumber(int32 StreamNumber) mut => VT.[Friend]get_CurrentStreamNumber(&this, StreamNumber);
+	public HRESULT get_CurrentStreamNumber(int32* StreamNumber) mut => VT.[Friend]get_CurrentStreamNumber(&this, StreamNumber);
 
-	public HRESULT get_NumberOfActiveRules(int32 NumberOfActiveRules) mut => VT.[Friend]get_NumberOfActiveRules(&this, NumberOfActiveRules);
+	public HRESULT get_NumberOfActiveRules(int32* NumberOfActiveRules) mut => VT.[Friend]get_NumberOfActiveRules(&this, NumberOfActiveRules);
 
 	public HRESULT get_ClsidEngine(BSTR* ClsidEngine) mut => VT.[Friend]get_ClsidEngine(&this, ClsidEngine);
 
@@ -4330,13 +4330,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechVoice* Voice) putref_Voice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechVoice** Voice) get_Voice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Allow) put_AllowVoiceFormatMatchingOnNextSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pAllow) get_AllowVoiceFormatMatchingOnNextSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pAllow) get_AllowVoiceFormatMatchingOnNextSet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRecoEvents EventInterest) put_VoicePurgeEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRecoEvents* EventInterest) get_VoicePurgeEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRecoEvents EventInterest) put_EventInterests;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRecoEvents* EventInterest) get_EventInterests;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MaxAlternates) put_CmdMaxAlternates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MaxAlternates) get_CmdMaxAlternates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MaxAlternates) get_CmdMaxAlternates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRecoContextState State) put_State;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRecoContextState* State) get_State;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRetainedAudioOptions Option) put_RetainedAudio;
@@ -4364,7 +4364,7 @@ public static
 
 	public HRESULT put_AllowVoiceFormatMatchingOnNextSet(int16 Allow) mut => VT.[Friend]put_AllowVoiceFormatMatchingOnNextSet(&this, Allow);
 
-	public HRESULT get_AllowVoiceFormatMatchingOnNextSet(int16 pAllow) mut => VT.[Friend]get_AllowVoiceFormatMatchingOnNextSet(&this, pAllow);
+	public HRESULT get_AllowVoiceFormatMatchingOnNextSet(int16* pAllow) mut => VT.[Friend]get_AllowVoiceFormatMatchingOnNextSet(&this, pAllow);
 
 	public HRESULT put_VoicePurgeEvent(SpeechRecoEvents EventInterest) mut => VT.[Friend]put_VoicePurgeEvent(&this, EventInterest);
 
@@ -4376,7 +4376,7 @@ public static
 
 	public HRESULT put_CmdMaxAlternates(int32 MaxAlternates) mut => VT.[Friend]put_CmdMaxAlternates(&this, MaxAlternates);
 
-	public HRESULT get_CmdMaxAlternates(int32 MaxAlternates) mut => VT.[Friend]get_CmdMaxAlternates(&this, MaxAlternates);
+	public HRESULT get_CmdMaxAlternates(int32* MaxAlternates) mut => VT.[Friend]get_CmdMaxAlternates(&this, MaxAlternates);
 
 	public HRESULT put_State(SpeechRecoContextState State) mut => VT.[Friend]put_State(&this, State);
 
@@ -4495,7 +4495,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechRuleAttributes* Attributes) get_Attributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechGrammarRuleState** State) get_InitialState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Id) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ResourceName, BSTR ResourceValue) AddResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechGrammarRuleState** State) AddState;
@@ -4508,7 +4508,7 @@ public static
 
 	public HRESULT get_Name(BSTR* Name) mut => VT.[Friend]get_Name(&this, Name);
 
-	public HRESULT get_Id(int32 Id) mut => VT.[Friend]get_Id(&this, Id);
+	public HRESULT get_Id(int32* Id) mut => VT.[Friend]get_Id(&this, Id);
 
 	public HRESULT Clear() mut => VT.[Friend]Clear(&this);
 
@@ -4525,18 +4525,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT RuleNameOrId, ISpeechGrammarRule** Rule) FindRule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, ISpeechGrammarRule** Rule) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** EnumVARIANT) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Dynamic) get_Dynamic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Dynamic) get_Dynamic;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR RuleName, SpeechRuleAttributes Attributes, int32 RuleId, ISpeechGrammarRule** Rule) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Commit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ErrorText, VARIANT* SaveStream) CommitAndSave;
 	}
 
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT FindRule(VARIANT RuleNameOrId, ISpeechGrammarRule** Rule) mut => VT.[Friend]FindRule(&this, RuleNameOrId, Rule);
 
@@ -4544,7 +4544,7 @@ public static
 
 	public HRESULT get__NewEnum(IUnknown** EnumVARIANT) mut => VT.[Friend]get__NewEnum(&this, EnumVARIANT);
 
-	public HRESULT get_Dynamic(int16 Dynamic) mut => VT.[Friend]get_Dynamic(&this, Dynamic);
+	public HRESULT get_Dynamic(int16* Dynamic) mut => VT.[Friend]get_Dynamic(&this, Dynamic);
 
 	public HRESULT Add(BSTR RuleName, SpeechRuleAttributes Attributes, int32 RuleId, ISpeechGrammarRule** Rule) mut => VT.[Friend]Add(&this, RuleName, Attributes, RuleId, Rule);
 
@@ -4593,7 +4593,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechGrammarRule** Rule) get_Rule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Weight) get_Weight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* PropertyName) get_PropertyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 PropertyId) get_PropertyId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* PropertyId) get_PropertyId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PropertyValue) get_PropertyValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechGrammarRuleState** NextState) get_NextState;
 	}
@@ -4609,7 +4609,7 @@ public static
 
 	public HRESULT get_PropertyName(BSTR* PropertyName) mut => VT.[Friend]get_PropertyName(&this, PropertyName);
 
-	public HRESULT get_PropertyId(int32 PropertyId) mut => VT.[Friend]get_PropertyId(&this, PropertyId);
+	public HRESULT get_PropertyId(int32* PropertyId) mut => VT.[Friend]get_PropertyId(&this, PropertyId);
 
 	public HRESULT get_PropertyValue(VARIANT* PropertyValue) mut => VT.[Friend]get_PropertyValue(&this, PropertyValue);
 
@@ -4624,13 +4624,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, ISpeechGrammarRuleStateTransition** Transition) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** EnumVARIANT) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT Item(int32 Index, ISpeechGrammarRuleStateTransition** Transition) mut => VT.[Friend]Item(&this, Index, Transition);
 
@@ -4646,31 +4646,31 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 ActiveOffset) put_ActiveOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 ActiveOffset) get_ActiveOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* ActiveOffset) get_ActiveOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 ActiveLength) put_ActiveLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 ActiveLength) get_ActiveLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* ActiveLength) get_ActiveLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 SelectionOffset) put_SelectionOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 SelectionOffset) get_SelectionOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* SelectionOffset) get_SelectionOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 SelectionLength) put_SelectionLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 SelectionLength) get_SelectionLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* SelectionLength) get_SelectionLength;
 	}
 
 
 	public HRESULT put_ActiveOffset(int32 ActiveOffset) mut => VT.[Friend]put_ActiveOffset(&this, ActiveOffset);
 
-	public HRESULT get_ActiveOffset(int32 ActiveOffset) mut => VT.[Friend]get_ActiveOffset(&this, ActiveOffset);
+	public HRESULT get_ActiveOffset(int32* ActiveOffset) mut => VT.[Friend]get_ActiveOffset(&this, ActiveOffset);
 
 	public HRESULT put_ActiveLength(int32 ActiveLength) mut => VT.[Friend]put_ActiveLength(&this, ActiveLength);
 
-	public HRESULT get_ActiveLength(int32 ActiveLength) mut => VT.[Friend]get_ActiveLength(&this, ActiveLength);
+	public HRESULT get_ActiveLength(int32* ActiveLength) mut => VT.[Friend]get_ActiveLength(&this, ActiveLength);
 
 	public HRESULT put_SelectionOffset(int32 SelectionOffset) mut => VT.[Friend]put_SelectionOffset(&this, SelectionOffset);
 
-	public HRESULT get_SelectionOffset(int32 SelectionOffset) mut => VT.[Friend]get_SelectionOffset(&this, SelectionOffset);
+	public HRESULT get_SelectionOffset(int32* SelectionOffset) mut => VT.[Friend]get_SelectionOffset(&this, SelectionOffset);
 
 	public HRESULT put_SelectionLength(int32 SelectionLength) mut => VT.[Friend]put_SelectionLength(&this, SelectionLength);
 
-	public HRESULT get_SelectionLength(int32 SelectionLength) mut => VT.[Friend]get_SelectionLength(&this, SelectionLength);
+	public HRESULT get_SelectionLength(int32* SelectionLength) mut => VT.[Friend]get_SelectionLength(&this, SelectionLength);
 }
 
 [CRepr]struct ISpeechRecoResult : IDispatch
@@ -4688,7 +4688,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechPhraseInfo** PhraseInfo) get_PhraseInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 RequestCount, int32 StartElement, int32 Elements, ISpeechPhraseAlternates** Alternates) Alternates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 StartElement, int32 Elements, ISpeechMemoryStream** Stream) Audio;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 StartElement, int32 Elements, SpeechVoiceSpeakFlags Flags, int32 StreamNumber) SpeakAudio;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 StartElement, int32 Elements, SpeechVoiceSpeakFlags Flags, int32* StreamNumber) SpeakAudio;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* ResultBlock) SaveToMemory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechDiscardType ValueTypes) DiscardResultInfo;
 	}
@@ -4708,7 +4708,7 @@ public static
 
 	public HRESULT Audio(int32 StartElement, int32 Elements, ISpeechMemoryStream** Stream) mut => VT.[Friend]Audio(&this, StartElement, Elements, Stream);
 
-	public HRESULT SpeakAudio(int32 StartElement, int32 Elements, SpeechVoiceSpeakFlags Flags, int32 StreamNumber) mut => VT.[Friend]SpeakAudio(&this, StartElement, Elements, Flags, StreamNumber);
+	public HRESULT SpeakAudio(int32 StartElement, int32 Elements, SpeechVoiceSpeakFlags Flags, int32* StreamNumber) mut => VT.[Friend]SpeakAudio(&this, StartElement, Elements, Flags, StreamNumber);
 
 	public HRESULT SaveToMemory(VARIANT* ResultBlock) mut => VT.[Friend]SaveToMemory(&this, ResultBlock);
 
@@ -4740,7 +4740,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Time) get_StreamTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Length) get_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 TickCount) get_TickCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* TickCount) get_TickCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* OffsetFromStart) get_OffsetFromStart;
 	}
 
@@ -4749,7 +4749,7 @@ public static
 
 	public HRESULT get_Length(VARIANT* Length) mut => VT.[Friend]get_Length(&this, Length);
 
-	public HRESULT get_TickCount(int32 TickCount) mut => VT.[Friend]get_TickCount(&this, TickCount);
+	public HRESULT get_TickCount(int32* TickCount) mut => VT.[Friend]get_TickCount(&this, TickCount);
 
 	public HRESULT get_OffsetFromStart(VARIANT* OffsetFromStart) mut => VT.[Friend]get_OffsetFromStart(&this, OffsetFromStart);
 }
@@ -4763,8 +4763,8 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechRecoResult** RecoResult) get_RecoResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 StartElement) get_StartElementInResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NumberOfElements) get_NumberOfElementsInResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* StartElement) get_StartElementInResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* NumberOfElements) get_NumberOfElementsInResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechPhraseInfo** PhraseInfo) get_PhraseInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Commit;
 	}
@@ -4772,9 +4772,9 @@ public static
 
 	public HRESULT get_RecoResult(ISpeechRecoResult** RecoResult) mut => VT.[Friend]get_RecoResult(&this, RecoResult);
 
-	public HRESULT get_StartElementInResult(int32 StartElement) mut => VT.[Friend]get_StartElementInResult(&this, StartElement);
+	public HRESULT get_StartElementInResult(int32* StartElement) mut => VT.[Friend]get_StartElementInResult(&this, StartElement);
 
-	public HRESULT get_NumberOfElementsInResult(int32 NumberOfElements) mut => VT.[Friend]get_NumberOfElementsInResult(&this, NumberOfElements);
+	public HRESULT get_NumberOfElementsInResult(int32* NumberOfElements) mut => VT.[Friend]get_NumberOfElementsInResult(&this, NumberOfElements);
 
 	public HRESULT get_PhraseInfo(ISpeechPhraseInfo** PhraseInfo) mut => VT.[Friend]get_PhraseInfo(&this, PhraseInfo);
 
@@ -4789,13 +4789,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, ISpeechPhraseAlternate** PhraseAlternate) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** EnumVARIANT) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT Item(int32 Index, ISpeechPhraseAlternate** PhraseAlternate) mut => VT.[Friend]Item(&this, Index, PhraseAlternate);
 
@@ -4810,13 +4810,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LanguageId) get_LanguageId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LanguageId) get_LanguageId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* GrammarId) get_GrammarId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* StartTime) get_StartTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* AudioStreamPosition) get_AudioStreamPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pAudioSizeBytes) get_AudioSizeBytes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 RetainedSizeBytes) get_RetainedSizeBytes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AudioSizeTime) get_AudioSizeTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pAudioSizeBytes) get_AudioSizeBytes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* RetainedSizeBytes) get_RetainedSizeBytes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* AudioSizeTime) get_AudioSizeTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechPhraseRule** Rule) get_Rule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechPhraseProperties** Properties) get_Properties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechPhraseElements** Elements) get_Elements;
@@ -4829,7 +4829,7 @@ public static
 	}
 
 
-	public HRESULT get_LanguageId(int32 LanguageId) mut => VT.[Friend]get_LanguageId(&this, LanguageId);
+	public HRESULT get_LanguageId(int32* LanguageId) mut => VT.[Friend]get_LanguageId(&this, LanguageId);
 
 	public HRESULT get_GrammarId(VARIANT* GrammarId) mut => VT.[Friend]get_GrammarId(&this, GrammarId);
 
@@ -4837,11 +4837,11 @@ public static
 
 	public HRESULT get_AudioStreamPosition(VARIANT* AudioStreamPosition) mut => VT.[Friend]get_AudioStreamPosition(&this, AudioStreamPosition);
 
-	public HRESULT get_AudioSizeBytes(int32 pAudioSizeBytes) mut => VT.[Friend]get_AudioSizeBytes(&this, pAudioSizeBytes);
+	public HRESULT get_AudioSizeBytes(int32* pAudioSizeBytes) mut => VT.[Friend]get_AudioSizeBytes(&this, pAudioSizeBytes);
 
-	public HRESULT get_RetainedSizeBytes(int32 RetainedSizeBytes) mut => VT.[Friend]get_RetainedSizeBytes(&this, RetainedSizeBytes);
+	public HRESULT get_RetainedSizeBytes(int32* RetainedSizeBytes) mut => VT.[Friend]get_RetainedSizeBytes(&this, RetainedSizeBytes);
 
-	public HRESULT get_AudioSizeTime(int32 AudioSizeTime) mut => VT.[Friend]get_AudioSizeTime(&this, AudioSizeTime);
+	public HRESULT get_AudioSizeTime(int32* AudioSizeTime) mut => VT.[Friend]get_AudioSizeTime(&this, AudioSizeTime);
 
 	public HRESULT get_Rule(ISpeechPhraseRule** Rule) mut => VT.[Friend]get_Rule(&this, Rule);
 
@@ -4870,33 +4870,33 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AudioTimeOffset) get_AudioTimeOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AudioSizeTime) get_AudioSizeTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AudioStreamOffset) get_AudioStreamOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AudioSizeBytes) get_AudioSizeBytes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 RetainedStreamOffset) get_RetainedStreamOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 RetainedSizeBytes) get_RetainedSizeBytes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* AudioTimeOffset) get_AudioTimeOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* AudioSizeTime) get_AudioSizeTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* AudioStreamOffset) get_AudioStreamOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* AudioSizeBytes) get_AudioSizeBytes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* RetainedStreamOffset) get_RetainedStreamOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* RetainedSizeBytes) get_RetainedSizeBytes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* DisplayText) get_DisplayText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* LexicalForm) get_LexicalForm;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Pronunciation) get_Pronunciation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechDisplayAttributes* DisplayAttributes) get_DisplayAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechEngineConfidence* RequiredConfidence) get_RequiredConfidence;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechEngineConfidence* ActualConfidence) get_ActualConfidence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float EngineConfidence) get_EngineConfidence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* EngineConfidence) get_EngineConfidence;
 	}
 
 
-	public HRESULT get_AudioTimeOffset(int32 AudioTimeOffset) mut => VT.[Friend]get_AudioTimeOffset(&this, AudioTimeOffset);
+	public HRESULT get_AudioTimeOffset(int32* AudioTimeOffset) mut => VT.[Friend]get_AudioTimeOffset(&this, AudioTimeOffset);
 
-	public HRESULT get_AudioSizeTime(int32 AudioSizeTime) mut => VT.[Friend]get_AudioSizeTime(&this, AudioSizeTime);
+	public HRESULT get_AudioSizeTime(int32* AudioSizeTime) mut => VT.[Friend]get_AudioSizeTime(&this, AudioSizeTime);
 
-	public HRESULT get_AudioStreamOffset(int32 AudioStreamOffset) mut => VT.[Friend]get_AudioStreamOffset(&this, AudioStreamOffset);
+	public HRESULT get_AudioStreamOffset(int32* AudioStreamOffset) mut => VT.[Friend]get_AudioStreamOffset(&this, AudioStreamOffset);
 
-	public HRESULT get_AudioSizeBytes(int32 AudioSizeBytes) mut => VT.[Friend]get_AudioSizeBytes(&this, AudioSizeBytes);
+	public HRESULT get_AudioSizeBytes(int32* AudioSizeBytes) mut => VT.[Friend]get_AudioSizeBytes(&this, AudioSizeBytes);
 
-	public HRESULT get_RetainedStreamOffset(int32 RetainedStreamOffset) mut => VT.[Friend]get_RetainedStreamOffset(&this, RetainedStreamOffset);
+	public HRESULT get_RetainedStreamOffset(int32* RetainedStreamOffset) mut => VT.[Friend]get_RetainedStreamOffset(&this, RetainedStreamOffset);
 
-	public HRESULT get_RetainedSizeBytes(int32 RetainedSizeBytes) mut => VT.[Friend]get_RetainedSizeBytes(&this, RetainedSizeBytes);
+	public HRESULT get_RetainedSizeBytes(int32* RetainedSizeBytes) mut => VT.[Friend]get_RetainedSizeBytes(&this, RetainedSizeBytes);
 
 	public HRESULT get_DisplayText(BSTR* DisplayText) mut => VT.[Friend]get_DisplayText(&this, DisplayText);
 
@@ -4910,7 +4910,7 @@ public static
 
 	public HRESULT get_ActualConfidence(SpeechEngineConfidence* ActualConfidence) mut => VT.[Friend]get_ActualConfidence(&this, ActualConfidence);
 
-	public HRESULT get_EngineConfidence(float EngineConfidence) mut => VT.[Friend]get_EngineConfidence(&this, EngineConfidence);
+	public HRESULT get_EngineConfidence(float* EngineConfidence) mut => VT.[Friend]get_EngineConfidence(&this, EngineConfidence);
 }
 
 [CRepr]struct ISpeechPhraseElements : IDispatch
@@ -4921,13 +4921,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, ISpeechPhraseElement** Element) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** EnumVARIANT) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT Item(int32 Index, ISpeechPhraseElement** Element) mut => VT.[Friend]Item(&this, Index, Element);
 
@@ -4944,8 +4944,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechDisplayAttributes* DisplayAttributes) get_DisplayAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Text) get_Text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 FirstElement) get_FirstElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NumberOfElements) get_NumberOfElements;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* FirstElement) get_FirstElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* NumberOfElements) get_NumberOfElements;
 	}
 
 
@@ -4953,9 +4953,9 @@ public static
 
 	public HRESULT get_Text(BSTR* Text) mut => VT.[Friend]get_Text(&this, Text);
 
-	public HRESULT get_FirstElement(int32 FirstElement) mut => VT.[Friend]get_FirstElement(&this, FirstElement);
+	public HRESULT get_FirstElement(int32* FirstElement) mut => VT.[Friend]get_FirstElement(&this, FirstElement);
 
-	public HRESULT get_NumberOfElements(int32 NumberOfElements) mut => VT.[Friend]get_NumberOfElements(&this, NumberOfElements);
+	public HRESULT get_NumberOfElements(int32* NumberOfElements) mut => VT.[Friend]get_NumberOfElements(&this, NumberOfElements);
 }
 
 [CRepr]struct ISpeechPhraseReplacements : IDispatch
@@ -4966,13 +4966,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, ISpeechPhraseReplacement** Reps) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** EnumVARIANT) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT Item(int32 Index, ISpeechPhraseReplacement** Reps) mut => VT.[Friend]Item(&this, Index, Reps);
 
@@ -4988,11 +4988,11 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Id) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Value) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 FirstElement) get_FirstElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NumberOfElements) get_NumberOfElements;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Confidence) get_EngineConfidence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* FirstElement) get_FirstElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* NumberOfElements) get_NumberOfElements;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Confidence) get_EngineConfidence;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechEngineConfidence* Confidence) get_Confidence;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechPhraseProperty** ParentProperty) get_Parent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechPhraseProperties** Children) get_Children;
@@ -5001,15 +5001,15 @@ public static
 
 	public HRESULT get_Name(BSTR* Name) mut => VT.[Friend]get_Name(&this, Name);
 
-	public HRESULT get_Id(int32 Id) mut => VT.[Friend]get_Id(&this, Id);
+	public HRESULT get_Id(int32* Id) mut => VT.[Friend]get_Id(&this, Id);
 
 	public HRESULT get_Value(VARIANT* Value) mut => VT.[Friend]get_Value(&this, Value);
 
-	public HRESULT get_FirstElement(int32 FirstElement) mut => VT.[Friend]get_FirstElement(&this, FirstElement);
+	public HRESULT get_FirstElement(int32* FirstElement) mut => VT.[Friend]get_FirstElement(&this, FirstElement);
 
-	public HRESULT get_NumberOfElements(int32 NumberOfElements) mut => VT.[Friend]get_NumberOfElements(&this, NumberOfElements);
+	public HRESULT get_NumberOfElements(int32* NumberOfElements) mut => VT.[Friend]get_NumberOfElements(&this, NumberOfElements);
 
-	public HRESULT get_EngineConfidence(float Confidence) mut => VT.[Friend]get_EngineConfidence(&this, Confidence);
+	public HRESULT get_EngineConfidence(float* Confidence) mut => VT.[Friend]get_EngineConfidence(&this, Confidence);
 
 	public HRESULT get_Confidence(SpeechEngineConfidence* Confidence) mut => VT.[Friend]get_Confidence(&this, Confidence);
 
@@ -5026,13 +5026,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, ISpeechPhraseProperty** Property) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** EnumVARIANT) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT Item(int32 Index, ISpeechPhraseProperty** Property) mut => VT.[Friend]Item(&this, Index, Property);
 
@@ -5048,23 +5048,23 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Id) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 FirstElement) get_FirstElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NumberOfElements) get_NumberOfElements;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* FirstElement) get_FirstElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* NumberOfElements) get_NumberOfElements;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechPhraseRule** Parent) get_Parent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechPhraseRules** Children) get_Children;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechEngineConfidence* ActualConfidence) get_Confidence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float EngineConfidence) get_EngineConfidence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* EngineConfidence) get_EngineConfidence;
 	}
 
 
 	public HRESULT get_Name(BSTR* Name) mut => VT.[Friend]get_Name(&this, Name);
 
-	public HRESULT get_Id(int32 Id) mut => VT.[Friend]get_Id(&this, Id);
+	public HRESULT get_Id(int32* Id) mut => VT.[Friend]get_Id(&this, Id);
 
-	public HRESULT get_FirstElement(int32 FirstElement) mut => VT.[Friend]get_FirstElement(&this, FirstElement);
+	public HRESULT get_FirstElement(int32* FirstElement) mut => VT.[Friend]get_FirstElement(&this, FirstElement);
 
-	public HRESULT get_NumberOfElements(int32 NumberOfElements) mut => VT.[Friend]get_NumberOfElements(&this, NumberOfElements);
+	public HRESULT get_NumberOfElements(int32* NumberOfElements) mut => VT.[Friend]get_NumberOfElements(&this, NumberOfElements);
 
 	public HRESULT get_Parent(ISpeechPhraseRule** Parent) mut => VT.[Friend]get_Parent(&this, Parent);
 
@@ -5072,7 +5072,7 @@ public static
 
 	public HRESULT get_Confidence(SpeechEngineConfidence* ActualConfidence) mut => VT.[Friend]get_Confidence(&this, ActualConfidence);
 
-	public HRESULT get_EngineConfidence(float EngineConfidence) mut => VT.[Friend]get_EngineConfidence(&this, EngineConfidence);
+	public HRESULT get_EngineConfidence(float* EngineConfidence) mut => VT.[Friend]get_EngineConfidence(&this, EngineConfidence);
 }
 
 [CRepr]struct ISpeechPhraseRules : IDispatch
@@ -5083,13 +5083,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, ISpeechPhraseRule** Rule) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** EnumVARIANT) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT Item(int32 Index, ISpeechPhraseRule** Rule) mut => VT.[Friend]Item(&this, Index, Rule);
 
@@ -5104,20 +5104,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 GenerationId) get_GenerationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechLexiconType Flags, int32 GenerationID, ISpeechLexiconWords** Words) GetWords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* GenerationId) get_GenerationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechLexiconType Flags, int32* GenerationID, ISpeechLexiconWords** Words) GetWords;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrWord, int32 LangId, SpeechPartOfSpeech PartOfSpeech, BSTR bstrPronunciation) AddPronunciation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrWord, int32 LangId, SpeechPartOfSpeech PartOfSpeech, VARIANT* PhoneIds) AddPronunciationByPhoneIds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrWord, int32 LangId, SpeechPartOfSpeech PartOfSpeech, BSTR bstrPronunciation) RemovePronunciation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrWord, int32 LangId, SpeechPartOfSpeech PartOfSpeech, VARIANT* PhoneIds) RemovePronunciationByPhoneIds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrWord, int32 LangId, SpeechLexiconType TypeFlags, ISpeechLexiconPronunciations** ppPronunciations) GetPronunciations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 GenerationID, ISpeechLexiconWords** ppWords) GetGenerationChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* GenerationID, ISpeechLexiconWords** ppWords) GetGenerationChange;
 	}
 
 
-	public HRESULT get_GenerationId(int32 GenerationId) mut => VT.[Friend]get_GenerationId(&this, GenerationId);
+	public HRESULT get_GenerationId(int32* GenerationId) mut => VT.[Friend]get_GenerationId(&this, GenerationId);
 
-	public HRESULT GetWords(SpeechLexiconType Flags, int32 GenerationID, ISpeechLexiconWords** Words) mut => VT.[Friend]GetWords(&this, Flags, GenerationID, Words);
+	public HRESULT GetWords(SpeechLexiconType Flags, int32* GenerationID, ISpeechLexiconWords** Words) mut => VT.[Friend]GetWords(&this, Flags, GenerationID, Words);
 
 	public HRESULT AddPronunciation(BSTR bstrWord, int32 LangId, SpeechPartOfSpeech PartOfSpeech, BSTR bstrPronunciation) mut => VT.[Friend]AddPronunciation(&this, bstrWord, LangId, PartOfSpeech, bstrPronunciation);
 
@@ -5129,7 +5129,7 @@ public static
 
 	public HRESULT GetPronunciations(BSTR bstrWord, int32 LangId, SpeechLexiconType TypeFlags, ISpeechLexiconPronunciations** ppPronunciations) mut => VT.[Friend]GetPronunciations(&this, bstrWord, LangId, TypeFlags, ppPronunciations);
 
-	public HRESULT GetGenerationChange(int32 GenerationID, ISpeechLexiconWords** ppWords) mut => VT.[Friend]GetGenerationChange(&this, GenerationID, ppWords);
+	public HRESULT GetGenerationChange(int32* GenerationID, ISpeechLexiconWords** ppWords) mut => VT.[Friend]GetGenerationChange(&this, GenerationID, ppWords);
 }
 
 [CRepr]struct ISpeechLexiconWords : IDispatch
@@ -5140,13 +5140,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, ISpeechLexiconWord** Word) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** EnumVARIANT) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT Item(int32 Index, ISpeechLexiconWord** Word) mut => VT.[Friend]Item(&this, Index, Word);
 
@@ -5161,14 +5161,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LangId) get_LangId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LangId) get_LangId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechWordType* WordType) get_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Word) get_Word;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechLexiconPronunciations** Pronunciations) get_Pronunciations;
 	}
 
 
-	public HRESULT get_LangId(int32 LangId) mut => VT.[Friend]get_LangId(&this, LangId);
+	public HRESULT get_LangId(int32* LangId) mut => VT.[Friend]get_LangId(&this, LangId);
 
 	public HRESULT get_Type(SpeechWordType* WordType) mut => VT.[Friend]get_Type(&this, WordType);
 
@@ -5185,13 +5185,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, ISpeechLexiconPronunciation** Pronunciation) Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** EnumVARIANT) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 Count) mut => VT.[Friend]get_Count(&this, Count);
+	public HRESULT get_Count(int32* Count) mut => VT.[Friend]get_Count(&this, Count);
 
 	public HRESULT Item(int32 Index, ISpeechLexiconPronunciation** Pronunciation) mut => VT.[Friend]Item(&this, Index, Pronunciation);
 
@@ -5207,7 +5207,7 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechLexiconType* LexiconType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LangId) get_LangId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LangId) get_LangId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechPartOfSpeech* PartOfSpeech) get_PartOfSpeech;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PhoneIds) get_PhoneIds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Symbolic) get_Symbolic;
@@ -5216,7 +5216,7 @@ public static
 
 	public HRESULT get_Type(SpeechLexiconType* LexiconType) mut => VT.[Friend]get_Type(&this, LexiconType);
 
-	public HRESULT get_LangId(int32 LangId) mut => VT.[Friend]get_LangId(&this, LangId);
+	public HRESULT get_LangId(int32* LangId) mut => VT.[Friend]get_LangId(&this, LangId);
 
 	public HRESULT get_PartOfSpeech(SpeechPartOfSpeech* PartOfSpeech) mut => VT.[Friend]get_PartOfSpeech(&this, PartOfSpeech);
 
@@ -5234,13 +5234,13 @@ public static
 	[CRepr]public struct VTable : ISpeechRecoResult.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPXMLRESULTOPTIONS Options, BSTR* pResult) GetXMLResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LineNumber, BSTR* ScriptLine, BSTR* Source, BSTR* Description, int32 ResultCode, int16 IsError) GetXMLErrorInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LineNumber, BSTR* ScriptLine, BSTR* Source, BSTR* Description, int32* ResultCode, int16* IsError) GetXMLErrorInfo;
 	}
 
 
 	public HRESULT GetXMLResult(SPXMLRESULTOPTIONS Options, BSTR* pResult) mut => VT.[Friend]GetXMLResult(&this, Options, pResult);
 
-	public HRESULT GetXMLErrorInfo(int32 LineNumber, BSTR* ScriptLine, BSTR* Source, BSTR* Description, int32 ResultCode, int16 IsError) mut => VT.[Friend]GetXMLErrorInfo(&this, LineNumber, ScriptLine, Source, Description, ResultCode, IsError);
+	public HRESULT GetXMLErrorInfo(int32* LineNumber, BSTR* ScriptLine, BSTR* Source, BSTR* Description, int32* ResultCode, int16* IsError) mut => VT.[Friend]GetXMLErrorInfo(&this, LineNumber, ScriptLine, Source, Description, ResultCode, IsError);
 }
 
 [CRepr]struct ISpeechRecoResultDispatch : IDispatch
@@ -5258,11 +5258,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpeechPhraseInfo** PhraseInfo) get_PhraseInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 RequestCount, int32 StartElement, int32 Elements, ISpeechPhraseAlternates** Alternates) Alternates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 StartElement, int32 Elements, ISpeechMemoryStream** Stream) Audio;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 StartElement, int32 Elements, SpeechVoiceSpeakFlags Flags, int32 StreamNumber) SpeakAudio;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 StartElement, int32 Elements, SpeechVoiceSpeakFlags Flags, int32* StreamNumber) SpeakAudio;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* ResultBlock) SaveToMemory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SpeechDiscardType ValueTypes) DiscardResultInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPXMLRESULTOPTIONS Options, BSTR* pResult) GetXMLResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LineNumber, BSTR* ScriptLine, BSTR* Source, BSTR* Description, HRESULT* ResultCode, int16 IsError) GetXMLErrorInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LineNumber, BSTR* ScriptLine, BSTR* Source, BSTR* Description, HRESULT* ResultCode, int16* IsError) GetXMLErrorInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Feedback, int16 WasSuccessful) SetTextFeedback;
 	}
 
@@ -5281,7 +5281,7 @@ public static
 
 	public HRESULT Audio(int32 StartElement, int32 Elements, ISpeechMemoryStream** Stream) mut => VT.[Friend]Audio(&this, StartElement, Elements, Stream);
 
-	public HRESULT SpeakAudio(int32 StartElement, int32 Elements, SpeechVoiceSpeakFlags Flags, int32 StreamNumber) mut => VT.[Friend]SpeakAudio(&this, StartElement, Elements, Flags, StreamNumber);
+	public HRESULT SpeakAudio(int32 StartElement, int32 Elements, SpeechVoiceSpeakFlags Flags, int32* StreamNumber) mut => VT.[Friend]SpeakAudio(&this, StartElement, Elements, Flags, StreamNumber);
 
 	public HRESULT SaveToMemory(VARIANT* ResultBlock) mut => VT.[Friend]SaveToMemory(&this, ResultBlock);
 
@@ -5289,7 +5289,7 @@ public static
 
 	public HRESULT GetXMLResult(SPXMLRESULTOPTIONS Options, BSTR* pResult) mut => VT.[Friend]GetXMLResult(&this, Options, pResult);
 
-	public HRESULT GetXMLErrorInfo(int32 LineNumber, BSTR* ScriptLine, BSTR* Source, BSTR* Description, HRESULT* ResultCode, int16 IsError) mut => VT.[Friend]GetXMLErrorInfo(&this, LineNumber, ScriptLine, Source, Description, ResultCode, IsError);
+	public HRESULT GetXMLErrorInfo(int32* LineNumber, BSTR* ScriptLine, BSTR* Source, BSTR* Description, HRESULT* ResultCode, int16* IsError) mut => VT.[Friend]GetXMLErrorInfo(&this, LineNumber, ScriptLine, Source, Description, ResultCode, IsError);
 
 	public HRESULT SetTextFeedback(BSTR Feedback, int16 WasSuccessful) mut => VT.[Friend]SetTextFeedback(&this, Feedback, WasSuccessful);
 }
@@ -5317,14 +5317,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LanguageId) get_LanguageId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LanguageId) get_LanguageId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LanguageId) put_LanguageId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Phonemes, VARIANT* IdArray) PhoneToId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT IdArray, BSTR* Phonemes) IdToPhone;
 	}
 
 
-	public HRESULT get_LanguageId(int32 LanguageId) mut => VT.[Friend]get_LanguageId(&this, LanguageId);
+	public HRESULT get_LanguageId(int32* LanguageId) mut => VT.[Friend]get_LanguageId(&this, LanguageId);
 
 	public HRESULT put_LanguageId(int32 LanguageId) mut => VT.[Friend]put_LanguageId(&this, LanguageId);
 

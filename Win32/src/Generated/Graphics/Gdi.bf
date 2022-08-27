@@ -5358,25 +5358,25 @@ public static
 	public static extern BOOL GetBrushOrgEx(HDC hdc, POINT* lppt);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCharWidthA(HDC hdc, uint32 iFirst, uint32 iLast, int32 lpBuffer);
-	public static BOOL GetCharWidth(HDC hdc, uint32 iFirst, uint32 iLast, int32 lpBuffer) => GetCharWidthA(hdc, iFirst, iLast, lpBuffer);
+	public static extern BOOL GetCharWidthA(HDC hdc, uint32 iFirst, uint32 iLast, int32* lpBuffer);
+	public static BOOL GetCharWidth(HDC hdc, uint32 iFirst, uint32 iLast, int32* lpBuffer) => GetCharWidthA(hdc, iFirst, iLast, lpBuffer);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCharWidthW(HDC hdc, uint32 iFirst, uint32 iLast, int32 lpBuffer);
+	public static extern BOOL GetCharWidthW(HDC hdc, uint32 iFirst, uint32 iLast, int32* lpBuffer);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCharWidth32A(HDC hdc, uint32 iFirst, uint32 iLast, int32 lpBuffer);
-	public static BOOL GetCharWidth32(HDC hdc, uint32 iFirst, uint32 iLast, int32 lpBuffer) => GetCharWidth32A(hdc, iFirst, iLast, lpBuffer);
+	public static extern BOOL GetCharWidth32A(HDC hdc, uint32 iFirst, uint32 iLast, int32* lpBuffer);
+	public static BOOL GetCharWidth32(HDC hdc, uint32 iFirst, uint32 iLast, int32* lpBuffer) => GetCharWidth32A(hdc, iFirst, iLast, lpBuffer);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCharWidth32W(HDC hdc, uint32 iFirst, uint32 iLast, int32 lpBuffer);
+	public static extern BOOL GetCharWidth32W(HDC hdc, uint32 iFirst, uint32 iLast, int32* lpBuffer);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCharWidthFloatA(HDC hdc, uint32 iFirst, uint32 iLast, float lpBuffer);
-	public static BOOL GetCharWidthFloat(HDC hdc, uint32 iFirst, uint32 iLast, float lpBuffer) => GetCharWidthFloatA(hdc, iFirst, iLast, lpBuffer);
+	public static extern BOOL GetCharWidthFloatA(HDC hdc, uint32 iFirst, uint32 iLast, float* lpBuffer);
+	public static BOOL GetCharWidthFloat(HDC hdc, uint32 iFirst, uint32 iLast, float* lpBuffer) => GetCharWidthFloatA(hdc, iFirst, iLast, lpBuffer);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetCharWidthFloatW(HDC hdc, uint32 iFirst, uint32 iLast, float lpBuffer);
+	public static extern BOOL GetCharWidthFloatW(HDC hdc, uint32 iFirst, uint32 iLast, float* lpBuffer);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetCharABCWidthsA(HDC hdc, uint32 wFirst, uint32 wLast, ABC* lpABC);
@@ -5512,11 +5512,11 @@ public static
 	public static extern BOOL GetTextExtentPoint32W(HDC hdc, char16* lpString, int32 c, SIZE* psizl);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTextExtentExPointA(HDC hdc, uint8* lpszString, int32 cchString, int32 nMaxExtent, int32 lpnFit, int32* lpnDx, SIZE* lpSize);
-	public static BOOL GetTextExtentExPoint(HDC hdc, uint8* lpszString, int32 cchString, int32 nMaxExtent, int32 lpnFit, int32* lpnDx, SIZE* lpSize) => GetTextExtentExPointA(hdc, lpszString, cchString, nMaxExtent, lpnFit, lpnDx, lpSize);
+	public static extern BOOL GetTextExtentExPointA(HDC hdc, uint8* lpszString, int32 cchString, int32 nMaxExtent, int32* lpnFit, int32* lpnDx, SIZE* lpSize);
+	public static BOOL GetTextExtentExPoint(HDC hdc, uint8* lpszString, int32 cchString, int32 nMaxExtent, int32* lpnFit, int32* lpnDx, SIZE* lpSize) => GetTextExtentExPointA(hdc, lpszString, cchString, nMaxExtent, lpnFit, lpnDx, lpSize);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTextExtentExPointW(HDC hdc, char16* lpszString, int32 cchString, int32 nMaxExtent, int32 lpnFit, int32* lpnDx, SIZE* lpSize);
+	public static extern BOOL GetTextExtentExPointW(HDC hdc, char16* lpszString, int32 cchString, int32 nMaxExtent, int32* lpnFit, int32* lpnDx, SIZE* lpSize);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetFontLanguageInfo(HDC hdc);
@@ -5542,7 +5542,7 @@ public static
 	public static extern BOOL GetTextExtentPointI(HDC hdc, uint16* pgiIn, int32 cgi, SIZE* psize);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTextExtentExPointI(HDC hdc, uint16* lpwszString, int32 cwchString, int32 nMaxExtent, int32 lpnFit, int32* lpnDx, SIZE* lpSize);
+	public static extern BOOL GetTextExtentExPointI(HDC hdc, uint16* lpwszString, int32 cwchString, int32 nMaxExtent, int32* lpnFit, int32* lpnDx, SIZE* lpSize);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetCharWidthI(HDC hdc, uint32 giFirst, uint32 cgi, uint16* pgi, int32* piWidths);
@@ -5565,7 +5565,7 @@ public static
 	public static extern BOOL RemoveFontResourceExW(PWSTR name, uint32 fl, void* pdv);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE AddFontMemResourceEx(void* pFileView, uint32 cjSize, void* pvResrved, uint32 pNumFonts);
+	public static extern HANDLE AddFontMemResourceEx(void* pFileView, uint32 cjSize, void* pvResrved, uint32* pNumFonts);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RemoveFontMemResourceEx(HANDLE h);
@@ -5727,7 +5727,7 @@ public static
 	public static extern uint32 GetLayout(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HMETAFILE SetMetaFileBitsEx(uint32 cbBuffer, uint8 lpData);
+	public static extern HMETAFILE SetMetaFileBitsEx(uint32 cbBuffer, uint8* lpData);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetPaletteEntries(HPALETTE hpal, uint32 iStart, uint32 cEntries, PALETTEENTRY* pPalEntries);
@@ -5829,7 +5829,7 @@ public static
 	public static extern HENHMETAFILE GetEnhMetaFileW(PWSTR lpName);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetEnhMetaFileBits(HENHMETAFILE hEMF, uint32 nSize, uint8 lpData);
+	public static extern uint32 GetEnhMetaFileBits(HENHMETAFILE hEMF, uint32 nSize, uint8* lpData);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetEnhMetaFileDescriptionA(HENHMETAFILE hemf, uint32 cchBuffer, uint8* lpDescription);
@@ -5845,7 +5845,7 @@ public static
 	public static extern uint32 GetEnhMetaFilePaletteEntries(HENHMETAFILE hemf, uint32 nNumEntries, PALETTEENTRY* lpPaletteEntries);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetWinMetaFileBits(HENHMETAFILE hemf, uint32 cbData16, uint8 pData16, int32 iMapMode, HDC hdcRef);
+	public static extern uint32 GetWinMetaFileBits(HENHMETAFILE hemf, uint32 cbData16, uint8* pData16, int32 iMapMode, HDC hdcRef);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PlayEnhMetaFile(HDC hdc, HENHMETAFILE hmf, RECT* lprect);
@@ -5854,10 +5854,10 @@ public static
 	public static extern BOOL PlayEnhMetaFileRecord(HDC hdc, HANDLETABLE* pht, ENHMETARECORD* pmr, uint32 cht);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HENHMETAFILE SetEnhMetaFileBits(uint32 nSize, uint8 pb);
+	public static extern HENHMETAFILE SetEnhMetaFileBits(uint32 nSize, uint8* pb);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GdiComment(HDC hdc, uint32 nSize, uint8 lpData);
+	public static extern BOOL GdiComment(HDC hdc, uint32 nSize, uint8* lpData);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetTextMetricsA(HDC hdc, TEXTMETRICA* lptm);
@@ -5939,7 +5939,7 @@ public static
 	public static extern int32 SetArcDirection(HDC hdc, ARC_DIRECTION dir);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetMiterLimit(HDC hdc, float limit, float old);
+	public static extern BOOL SetMiterLimit(HDC hdc, float limit, float* old);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrokeAndFillPath(HDC hdc);
@@ -5954,7 +5954,7 @@ public static
 	public static extern HPEN ExtCreatePen(PEN_STYLE iPenStyle, uint32 cWidth, LOGBRUSH* plbrush, uint32 cStyle, uint32* pstyle);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetMiterLimit(HDC hdc, float plimit);
+	public static extern BOOL GetMiterLimit(HDC hdc, float* plimit);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetArcDirection(HDC hdc);
@@ -6076,25 +6076,25 @@ public static
 	public static extern uint32 wglSwapMultipleBuffers(uint32 param0, WGLSWAP* param1);
 
 	[Import("FONTSUB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CreateFontPackage(uint8 puchSrcBuffer, uint32 ulSrcBufferSize, uint8** ppuchFontPackageBuffer, uint32 pulFontPackageBufferSize, uint32 pulBytesWritten, uint16 usFlag, uint16 usTTCIndex, uint16 usSubsetFormat, uint16 usSubsetLanguage, CREATE_FONT_PACKAGE_SUBSET_PLATFORM usSubsetPlatform, CREATE_FONT_PACKAGE_SUBSET_ENCODING usSubsetEncoding, uint16 pusSubsetKeepList, uint16 usSubsetListCount, CFP_ALLOCPROC lpfnAllocate, CFP_REALLOCPROC lpfnReAllocate, CFP_FREEPROC lpfnFree, void* lpvReserved);
+	public static extern uint32 CreateFontPackage(uint8* puchSrcBuffer, uint32 ulSrcBufferSize, uint8** ppuchFontPackageBuffer, uint32* pulFontPackageBufferSize, uint32* pulBytesWritten, uint16 usFlag, uint16 usTTCIndex, uint16 usSubsetFormat, uint16 usSubsetLanguage, CREATE_FONT_PACKAGE_SUBSET_PLATFORM usSubsetPlatform, CREATE_FONT_PACKAGE_SUBSET_ENCODING usSubsetEncoding, uint16* pusSubsetKeepList, uint16 usSubsetListCount, CFP_ALLOCPROC lpfnAllocate, CFP_REALLOCPROC lpfnReAllocate, CFP_FREEPROC lpfnFree, void* lpvReserved);
 
 	[Import("FONTSUB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MergeFontPackage(uint8 puchMergeFontBuffer, uint32 ulMergeFontBufferSize, uint8 puchFontPackageBuffer, uint32 ulFontPackageBufferSize, uint8** ppuchDestBuffer, uint32 pulDestBufferSize, uint32 pulBytesWritten, uint16 usMode, CFP_ALLOCPROC lpfnAllocate, CFP_REALLOCPROC lpfnReAllocate, CFP_FREEPROC lpfnFree, void* lpvReserved);
+	public static extern uint32 MergeFontPackage(uint8* puchMergeFontBuffer, uint32 ulMergeFontBufferSize, uint8* puchFontPackageBuffer, uint32 ulFontPackageBufferSize, uint8** ppuchDestBuffer, uint32* pulDestBufferSize, uint32* pulBytesWritten, uint16 usMode, CFP_ALLOCPROC lpfnAllocate, CFP_REALLOCPROC lpfnReAllocate, CFP_FREEPROC lpfnFree, void* lpvReserved);
 
 	[Import("t2embed.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TTEmbedFont(HDC hDC, TTEMBED_FLAGS ulFlags, EMBED_FONT_CHARSET ulCharSet, EMBEDDED_FONT_PRIV_STATUS* pulPrivStatus, uint32 pulStatus, WRITEEMBEDPROC lpfnWriteToStream, void* lpvWriteStream, uint16* pusCharCodeSet, uint16 usCharCodeCount, uint16 usLanguage, TTEMBEDINFO* pTTEmbedInfo);
+	public static extern int32 TTEmbedFont(HDC hDC, TTEMBED_FLAGS ulFlags, EMBED_FONT_CHARSET ulCharSet, EMBEDDED_FONT_PRIV_STATUS* pulPrivStatus, uint32* pulStatus, WRITEEMBEDPROC lpfnWriteToStream, void* lpvWriteStream, uint16* pusCharCodeSet, uint16 usCharCodeCount, uint16 usLanguage, TTEMBEDINFO* pTTEmbedInfo);
 
 	[Import("t2embed.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TTEmbedFontFromFileA(HDC hDC, PSTR szFontFileName, uint16 usTTCIndex, TTEMBED_FLAGS ulFlags, EMBED_FONT_CHARSET ulCharSet, EMBEDDED_FONT_PRIV_STATUS* pulPrivStatus, uint32 pulStatus, WRITEEMBEDPROC lpfnWriteToStream, void* lpvWriteStream, uint16* pusCharCodeSet, uint16 usCharCodeCount, uint16 usLanguage, TTEMBEDINFO* pTTEmbedInfo);
+	public static extern int32 TTEmbedFontFromFileA(HDC hDC, PSTR szFontFileName, uint16 usTTCIndex, TTEMBED_FLAGS ulFlags, EMBED_FONT_CHARSET ulCharSet, EMBEDDED_FONT_PRIV_STATUS* pulPrivStatus, uint32* pulStatus, WRITEEMBEDPROC lpfnWriteToStream, void* lpvWriteStream, uint16* pusCharCodeSet, uint16 usCharCodeCount, uint16 usLanguage, TTEMBEDINFO* pTTEmbedInfo);
 
 	[Import("t2embed.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 TTLoadEmbeddedFont(HANDLE* phFontReference, uint32 ulFlags, EMBEDDED_FONT_PRIV_STATUS* pulPrivStatus, FONT_LICENSE_PRIVS ulPrivs, TTLOAD_EMBEDDED_FONT_STATUS* pulStatus, READEMBEDPROC lpfnReadFromStream, void* lpvReadStream, PWSTR szWinFamilyName, PSTR szMacFamilyName, TTLOADINFO* pTTLoadInfo);
 
 	[Import("t2embed.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TTGetEmbeddedFontInfo(TTEMBED_FLAGS ulFlags, uint32 pulPrivStatus, FONT_LICENSE_PRIVS ulPrivs, uint32 pulStatus, READEMBEDPROC lpfnReadFromStream, void* lpvReadStream, TTLOADINFO* pTTLoadInfo);
+	public static extern int32 TTGetEmbeddedFontInfo(TTEMBED_FLAGS ulFlags, uint32* pulPrivStatus, FONT_LICENSE_PRIVS ulPrivs, uint32* pulStatus, READEMBEDPROC lpfnReadFromStream, void* lpvReadStream, TTLOADINFO* pTTLoadInfo);
 
 	[Import("t2embed.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TTDeleteEmbeddedFont(HANDLE hFontReference, uint32 ulFlags, uint32 pulStatus);
+	public static extern int32 TTDeleteEmbeddedFont(HANDLE hFontReference, uint32 ulFlags, uint32* pulStatus);
 
 	[Import("t2embed.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 TTGetEmbeddingType(HDC hDC, EMBEDDED_FONT_PRIV_STATUS* pulEmbedType);
@@ -6115,7 +6115,7 @@ public static
 	public static extern int32 TTEnableEmbeddingForFacename(PSTR lpszFacename, BOOL bEnable);
 
 	[Import("t2embed.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TTEmbedFontEx(HDC hDC, TTEMBED_FLAGS ulFlags, EMBED_FONT_CHARSET ulCharSet, EMBEDDED_FONT_PRIV_STATUS* pulPrivStatus, uint32 pulStatus, WRITEEMBEDPROC lpfnWriteToStream, void* lpvWriteStream, uint32* pulCharCodeSet, uint16 usCharCodeCount, uint16 usLanguage, TTEMBEDINFO* pTTEmbedInfo);
+	public static extern int32 TTEmbedFontEx(HDC hDC, TTEMBED_FLAGS ulFlags, EMBED_FONT_CHARSET ulCharSet, EMBEDDED_FONT_PRIV_STATUS* pulPrivStatus, uint32* pulStatus, WRITEEMBEDPROC lpfnWriteToStream, void* lpvWriteStream, uint32* pulCharCodeSet, uint16 usCharCodeCount, uint16 usLanguage, TTEMBEDINFO* pTTEmbedInfo);
 
 	[Import("t2embed.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 TTRunValidationTestsEx(HDC hDC, TTVALIDATIONTESTSPARAMSEX* pTestParam);

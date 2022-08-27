@@ -2711,12 +2711,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnhancedStorageACT*** pppIEnhancedStorageACTs, uint32 pcEnhancedStorageACTs) GetACTs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnhancedStorageACT*** pppIEnhancedStorageACTs, uint32* pcEnhancedStorageACTs) GetACTs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szVolume, IEnhancedStorageACT** ppIEnhancedStorageACT) GetMatchingACT;
 	}
 
 
-	public HRESULT GetACTs(IEnhancedStorageACT*** pppIEnhancedStorageACTs, uint32 pcEnhancedStorageACTs) mut => VT.[Friend]GetACTs(&this, pppIEnhancedStorageACTs, pcEnhancedStorageACTs);
+	public HRESULT GetACTs(IEnhancedStorageACT*** pppIEnhancedStorageACTs, uint32* pcEnhancedStorageACTs) mut => VT.[Friend]GetACTs(&this, pppIEnhancedStorageACTs, pcEnhancedStorageACTs);
 
 	public HRESULT GetMatchingACT(PWSTR szVolume, IEnhancedStorageACT** ppIEnhancedStorageACT) mut => VT.[Friend]GetMatchingACT(&this, szVolume, ppIEnhancedStorageACT);
 }
@@ -2734,7 +2734,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ACT_AUTHORIZATION_STATE* pState) GetAuthorizationState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszVolume) GetMatchingVolume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszIdentity) GetUniqueIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnhancedStorageSilo*** pppIEnhancedStorageSilos, uint32 pcEnhancedStorageSilos) GetSilos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnhancedStorageSilo*** pppIEnhancedStorageSilos, uint32* pcEnhancedStorageSilos) GetSilos;
 	}
 
 
@@ -2748,7 +2748,7 @@ public static
 
 	public HRESULT GetUniqueIdentity(PWSTR* ppwszIdentity) mut => VT.[Friend]GetUniqueIdentity(&this, ppwszIdentity);
 
-	public HRESULT GetSilos(IEnhancedStorageSilo*** pppIEnhancedStorageSilos, uint32 pcEnhancedStorageSilos) mut => VT.[Friend]GetSilos(&this, pppIEnhancedStorageSilos, pcEnhancedStorageSilos);
+	public HRESULT GetSilos(IEnhancedStorageSilo*** pppIEnhancedStorageSilos, uint32* pcEnhancedStorageSilos) mut => VT.[Friend]GetSilos(&this, pppIEnhancedStorageSilos, pcEnhancedStorageSilos);
 }
 
 [CRepr]struct IEnhancedStorageACT2 : IEnhancedStorageACT
@@ -2799,8 +2799,8 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SILO_INFO* pSiloInfo) GetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnhancedStorageSiloAction*** pppIEnhancedStorageSiloActions, uint32 pcEnhancedStorageSiloActions) GetActions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 Command, uint8* pbCommandBuffer, uint32 cbCommandBuffer, uint8* pbResponseBuffer, uint32 pcbResponseBuffer) SendCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnhancedStorageSiloAction*** pppIEnhancedStorageSiloActions, uint32* pcEnhancedStorageSiloActions) GetActions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 Command, uint8* pbCommandBuffer, uint32 cbCommandBuffer, uint8* pbResponseBuffer, uint32* pcbResponseBuffer) SendCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevice** ppIPortableDevice) GetPortableDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszSiloDevicePath) GetDevicePath;
 	}
@@ -2808,9 +2808,9 @@ public static
 
 	public HRESULT GetInfo(SILO_INFO* pSiloInfo) mut => VT.[Friend]GetInfo(&this, pSiloInfo);
 
-	public HRESULT GetActions(IEnhancedStorageSiloAction*** pppIEnhancedStorageSiloActions, uint32 pcEnhancedStorageSiloActions) mut => VT.[Friend]GetActions(&this, pppIEnhancedStorageSiloActions, pcEnhancedStorageSiloActions);
+	public HRESULT GetActions(IEnhancedStorageSiloAction*** pppIEnhancedStorageSiloActions, uint32* pcEnhancedStorageSiloActions) mut => VT.[Friend]GetActions(&this, pppIEnhancedStorageSiloActions, pcEnhancedStorageSiloActions);
 
-	public HRESULT SendCommand(uint8 Command, uint8* pbCommandBuffer, uint32 cbCommandBuffer, uint8* pbResponseBuffer, uint32 pcbResponseBuffer) mut => VT.[Friend]SendCommand(&this, Command, pbCommandBuffer, cbCommandBuffer, pbResponseBuffer, pcbResponseBuffer);
+	public HRESULT SendCommand(uint8 Command, uint8* pbCommandBuffer, uint32 cbCommandBuffer, uint8* pbResponseBuffer, uint32* pcbResponseBuffer) mut => VT.[Friend]SendCommand(&this, Command, pbCommandBuffer, cbCommandBuffer, pbResponseBuffer, pcbResponseBuffer);
 
 	public HRESULT GetPortableDevice(IPortableDevice** ppIPortableDevice) mut => VT.[Friend]GetPortableDevice(&this, ppIPortableDevice);
 

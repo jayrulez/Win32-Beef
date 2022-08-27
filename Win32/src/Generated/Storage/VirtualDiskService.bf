@@ -2355,14 +2355,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IUnknown** ppObjectArray, uint32 pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IUnknown** ppObjectArray, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, IUnknown** ppObjectArray, uint32 pcFetched) mut => VT.[Friend]Next(&this, celt, ppObjectArray, pcFetched);
+	public HRESULT Next(uint32 celt, IUnknown** ppObjectArray, uint32* pcFetched) mut => VT.[Friend]Next(&this, celt, ppObjectArray, pcFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
@@ -2381,7 +2381,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* pHrResult, VDS_ASYNC_OUTPUT* pAsyncOut) Wait;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* pHrResult, uint32 pulPercentCompleted) QueryStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* pHrResult, uint32* pulPercentCompleted) QueryStatus;
 	}
 
 
@@ -2389,7 +2389,7 @@ public static
 
 	public HRESULT Wait(HRESULT* pHrResult, VDS_ASYNC_OUTPUT* pAsyncOut) mut => VT.[Friend]Wait(&this, pHrResult, pAsyncOut);
 
-	public HRESULT QueryStatus(HRESULT* pHrResult, uint32 pulPercentCompleted) mut => VT.[Friend]QueryStatus(&this, pHrResult, pulPercentCompleted);
+	public HRESULT QueryStatus(HRESULT* pHrResult, uint32* pulPercentCompleted) mut => VT.[Friend]QueryStatus(&this, pHrResult, pulPercentCompleted);
 }
 
 [CRepr]struct IVdsAdviseSink : IUnknown
@@ -2430,11 +2430,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulVersionSupport) GetVersionSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* ulVersionSupport) GetVersionSupport;
 	}
 
 
-	public HRESULT GetVersionSupport(uint32 ulVersionSupport) mut => VT.[Friend]GetVersionSupport(&this, ulVersionSupport);
+	public HRESULT GetVersionSupport(uint32* ulVersionSupport) mut => VT.[Friend]GetVersionSupport(&this, ulVersionSupport);
 }
 
 [CRepr]struct IVdsProviderPrivate : IUnknown
@@ -2519,7 +2519,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, uint64 ullRemainingFreeSpace, VDS_POOL_ATTRIBUTES* pPoolAttributes, IEnumVdsObject** ppEnum) QueryStoragePools;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid StoragePoolId, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) CreateLunInStoragePool;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, Guid StoragePoolId, VDS_HINTS2* pHints2, uint64 pullMaxLunSize) QueryMaxLunCreateSizeInStoragePool;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, Guid StoragePoolId, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) QueryMaxLunCreateSizeInStoragePool;
 	}
 
 
@@ -2527,7 +2527,7 @@ public static
 
 	public HRESULT CreateLunInStoragePool(VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid StoragePoolId, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) mut => VT.[Friend]CreateLunInStoragePool(&this, type, ullSizeInBytes, StoragePoolId, pwszUnmaskingList, pHints2, ppAsync);
 
-	public HRESULT QueryMaxLunCreateSizeInStoragePool(VDS_LUN_TYPE type, Guid StoragePoolId, VDS_HINTS2* pHints2, uint64 pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSizeInStoragePool(&this, type, StoragePoolId, pHints2, pullMaxLunSize);
+	public HRESULT QueryMaxLunCreateSizeInStoragePool(VDS_LUN_TYPE type, Guid StoragePoolId, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSizeInStoragePool(&this, type, StoragePoolId, pHints2, pullMaxLunSize);
 }
 
 [CRepr]struct IVdsSubSystem : IUnknown
@@ -2549,7 +2549,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid* pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS* pHints, IVdsAsync** ppAsync) CreateLun;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid DriveToBeReplaced, Guid ReplacementDrive) ReplaceDrive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_SUB_SYSTEM_STATUS status) SetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64 pullMaxLunSize) QueryMaxLunCreateSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64* pullMaxLunSize) QueryMaxLunCreateSize;
 	}
 
 
@@ -2575,7 +2575,7 @@ public static
 
 	public HRESULT SetStatus(VDS_SUB_SYSTEM_STATUS status) mut => VT.[Friend]SetStatus(&this, status);
 
-	public HRESULT QueryMaxLunCreateSize(VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64 pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize(&this, type, pDriveIdArray, lNumberOfDrives, pHints, pullMaxLunSize);
+	public HRESULT QueryMaxLunCreateSize(VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize(&this, type, pDriveIdArray, lNumberOfDrives, pHints, pullMaxLunSize);
 }
 
 [CRepr]struct IVdsSubSystem2 : IUnknown
@@ -2589,7 +2589,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_SUB_SYSTEM_PROP2* pSubSystemProp2) GetProperties2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 sBusNumber, int16 sSlotNumber, uint32 ulEnclosureNumber, IVdsDrive** ppDrive) GetDrive2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid* pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) CreateLun2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64 pullMaxLunSize) QueryMaxLunCreateSize2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) QueryMaxLunCreateSize2;
 	}
 
 
@@ -2599,7 +2599,7 @@ public static
 
 	public HRESULT CreateLun2(VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid* pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) mut => VT.[Friend]CreateLun2(&this, type, ullSizeInBytes, pDriveIdArray, lNumberOfDrives, pwszUnmaskingList, pHints2, ppAsync);
 
-	public HRESULT QueryMaxLunCreateSize2(VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64 pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize2(&this, type, pDriveIdArray, lNumberOfDrives, pHints2, pullMaxLunSize);
+	public HRESULT QueryMaxLunCreateSize2(VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize2(&this, type, pDriveIdArray, lNumberOfDrives, pHints2, pullMaxLunSize);
 }
 
 [CRepr]struct IVdsSubSystemNaming : IUnknown
@@ -2649,11 +2649,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulSupportedInterconnectsFlag) GetSupportedInterconnects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulSupportedInterconnectsFlag) GetSupportedInterconnects;
 	}
 
 
-	public HRESULT GetSupportedInterconnects(uint32 pulSupportedInterconnectsFlag) mut => VT.[Friend]GetSupportedInterconnects(&this, pulSupportedInterconnectsFlag);
+	public HRESULT GetSupportedInterconnects(uint32* pulSupportedInterconnectsFlag) mut => VT.[Friend]GetSupportedInterconnects(&this, pulSupportedInterconnectsFlag);
 }
 
 [CRepr]struct IVdsControllerPort : IUnknown
@@ -2744,7 +2744,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_PROP* pDriveProp) GetProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_EXTENT** ppExtentArray, int32 plNumberOfExtents) QueryExtents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) QueryExtents;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags) SetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags) ClearFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_STATUS status) SetStatus;
@@ -2755,7 +2755,7 @@ public static
 
 	public HRESULT GetSubSystem(IVdsSubSystem** ppSubSystem) mut => VT.[Friend]GetSubSystem(&this, ppSubSystem);
 
-	public HRESULT QueryExtents(VDS_DRIVE_EXTENT** ppExtentArray, int32 plNumberOfExtents) mut => VT.[Friend]QueryExtents(&this, ppExtentArray, plNumberOfExtents);
+	public HRESULT QueryExtents(VDS_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) mut => VT.[Friend]QueryExtents(&this, ppExtentArray, plNumberOfExtents);
 
 	public HRESULT SetFlags(uint32 ulFlags) mut => VT.[Friend]SetFlags(&this, ulFlags);
 
@@ -2803,7 +2803,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HINTS* pHints) QueryHints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HINTS* pHints) ApplyHints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_STATUS status) SetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pDriveIdArray, int32 lNumberOfDrives, uint64 pullMaxBytesToBeAdded) QueryMaxLunExtendSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pDriveIdArray, int32 lNumberOfDrives, uint64* pullMaxBytesToBeAdded) QueryMaxLunExtendSize;
 	}
 
 
@@ -2839,7 +2839,7 @@ public static
 
 	public HRESULT SetStatus(VDS_LUN_STATUS status) mut => VT.[Friend]SetStatus(&this, status);
 
-	public HRESULT QueryMaxLunExtendSize(Guid* pDriveIdArray, int32 lNumberOfDrives, uint64 pullMaxBytesToBeAdded) mut => VT.[Friend]QueryMaxLunExtendSize(&this, pDriveIdArray, lNumberOfDrives, pullMaxBytesToBeAdded);
+	public HRESULT QueryMaxLunExtendSize(Guid* pDriveIdArray, int32 lNumberOfDrives, uint64* pullMaxBytesToBeAdded) mut => VT.[Friend]QueryMaxLunExtendSize(&this, pDriveIdArray, lNumberOfDrives, pullMaxBytesToBeAdded);
 }
 
 [CRepr]struct IVdsLun2 : IUnknown
@@ -2883,11 +2883,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulLunNumber) GetLunNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulLunNumber) GetLunNumber;
 	}
 
 
-	public HRESULT GetLunNumber(uint32 pulLunNumber) mut => VT.[Friend]GetLunNumber(&this, pulLunNumber);
+	public HRESULT GetLunNumber(uint32* pulLunNumber) mut => VT.[Friend]GetLunNumber(&this, pulLunNumber);
 }
 
 [CRepr]struct IVdsLunControllerPorts : IUnknown
@@ -2916,20 +2916,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_PATH_INFO** ppPaths, int32 plNumberOfPaths) GetPathInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LOADBALANCE_POLICY_ENUM* pPolicy, VDS_PATH_POLICY** ppPaths, int32 plNumberOfPaths) GetLoadBalancePolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_PATH_INFO** ppPaths, int32* plNumberOfPaths) GetPathInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LOADBALANCE_POLICY_ENUM* pPolicy, VDS_PATH_POLICY** ppPaths, int32* plNumberOfPaths) GetLoadBalancePolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LOADBALANCE_POLICY_ENUM policy, VDS_PATH_POLICY* pPaths, int32 lNumberOfPaths) SetLoadBalancePolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulLbFlags) GetSupportedLbPolicies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulLbFlags) GetSupportedLbPolicies;
 	}
 
 
-	public HRESULT GetPathInfo(VDS_PATH_INFO** ppPaths, int32 plNumberOfPaths) mut => VT.[Friend]GetPathInfo(&this, ppPaths, plNumberOfPaths);
+	public HRESULT GetPathInfo(VDS_PATH_INFO** ppPaths, int32* plNumberOfPaths) mut => VT.[Friend]GetPathInfo(&this, ppPaths, plNumberOfPaths);
 
-	public HRESULT GetLoadBalancePolicy(VDS_LOADBALANCE_POLICY_ENUM* pPolicy, VDS_PATH_POLICY** ppPaths, int32 plNumberOfPaths) mut => VT.[Friend]GetLoadBalancePolicy(&this, pPolicy, ppPaths, plNumberOfPaths);
+	public HRESULT GetLoadBalancePolicy(VDS_LOADBALANCE_POLICY_ENUM* pPolicy, VDS_PATH_POLICY** ppPaths, int32* plNumberOfPaths) mut => VT.[Friend]GetLoadBalancePolicy(&this, pPolicy, ppPaths, plNumberOfPaths);
 
 	public HRESULT SetLoadBalancePolicy(VDS_LOADBALANCE_POLICY_ENUM policy, VDS_PATH_POLICY* pPaths, int32 lNumberOfPaths) mut => VT.[Friend]SetLoadBalancePolicy(&this, policy, pPaths, lNumberOfPaths);
 
-	public HRESULT GetSupportedLbPolicies(uint32 pulLbFlags) mut => VT.[Friend]GetSupportedLbPolicies(&this, pulLbFlags);
+	public HRESULT GetSupportedLbPolicies(uint32* pulLbFlags) mut => VT.[Friend]GetSupportedLbPolicies(&this, pulLbFlags);
 }
 
 [CRepr]struct IVdsLunIscsi : IUnknown
@@ -2960,7 +2960,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_PLEX_PROP* pPlexProp) GetProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsLun** ppLun) GetLun;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_EXTENT** ppExtentArray, int32 plNumberOfExtents) QueryExtents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) QueryExtents;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HINTS* pHints) QueryHints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HINTS* pHints) ApplyHints;
 	}
@@ -2970,7 +2970,7 @@ public static
 
 	public HRESULT GetLun(IVdsLun** ppLun) mut => VT.[Friend]GetLun(&this, ppLun);
 
-	public HRESULT QueryExtents(VDS_DRIVE_EXTENT** ppExtentArray, int32 plNumberOfExtents) mut => VT.[Friend]QueryExtents(&this, ppExtentArray, plNumberOfExtents);
+	public HRESULT QueryExtents(VDS_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) mut => VT.[Friend]QueryExtents(&this, ppExtentArray, plNumberOfExtents);
 
 	public HRESULT QueryHints(VDS_HINTS* pHints) mut => VT.[Friend]QueryHints(&this, pHints);
 
@@ -2990,7 +2990,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedPortalGroups;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_ISCSI_PORTAL_STATUS status) SetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_IPADDRESS* pTunnelAddress, VDS_IPADDRESS* pDestinationAddress) SetIpsecTunnelAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_IPADDRESS* pInitiatorPortalAddress, uint64 pullSecurityFlags) GetIpsecSecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_IPADDRESS* pInitiatorPortalAddress, uint64* pullSecurityFlags) GetIpsecSecurity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_IPADDRESS* pInitiatorPortalAddress, uint64 ullSecurityFlags, VDS_ISCSI_IPSEC_KEY* pIpsecKey) SetIpsecSecurity;
 	}
 
@@ -3005,7 +3005,7 @@ public static
 
 	public HRESULT SetIpsecTunnelAddress(VDS_IPADDRESS* pTunnelAddress, VDS_IPADDRESS* pDestinationAddress) mut => VT.[Friend]SetIpsecTunnelAddress(&this, pTunnelAddress, pDestinationAddress);
 
-	public HRESULT GetIpsecSecurity(VDS_IPADDRESS* pInitiatorPortalAddress, uint64 pullSecurityFlags) mut => VT.[Friend]GetIpsecSecurity(&this, pInitiatorPortalAddress, pullSecurityFlags);
+	public HRESULT GetIpsecSecurity(VDS_IPADDRESS* pInitiatorPortalAddress, uint64* pullSecurityFlags) mut => VT.[Friend]GetIpsecSecurity(&this, pInitiatorPortalAddress, pullSecurityFlags);
 
 	public HRESULT SetIpsecSecurity(VDS_IPADDRESS* pInitiatorPortalAddress, uint64 ullSecurityFlags, VDS_ISCSI_IPSEC_KEY* pIpsecKey) mut => VT.[Friend]SetIpsecSecurity(&this, pInitiatorPortalAddress, ullSecurityFlags, pIpsecKey);
 }
@@ -3027,7 +3027,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszFriendlyName) SetFriendlyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_ISCSI_SHARED_SECRET* pTargetSharedSecret, PWSTR pwszInitiatorName) SetSharedSecret;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszInitiatorName, VDS_ISCSI_SHARED_SECRET* pInitiatorSharedSecret) RememberInitiatorSharedSecret;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR** pppwszInitiatorList, int32 plNumberOfInitiators) GetConnectedInitiators;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR** pppwszInitiatorList, int32* plNumberOfInitiators) GetConnectedInitiators;
 	}
 
 
@@ -3049,7 +3049,7 @@ public static
 
 	public HRESULT RememberInitiatorSharedSecret(PWSTR pwszInitiatorName, VDS_ISCSI_SHARED_SECRET* pInitiatorSharedSecret) mut => VT.[Friend]RememberInitiatorSharedSecret(&this, pwszInitiatorName, pInitiatorSharedSecret);
 
-	public HRESULT GetConnectedInitiators(PWSTR** pppwszInitiatorList, int32 plNumberOfInitiators) mut => VT.[Friend]GetConnectedInitiators(&this, pppwszInitiatorList, plNumberOfInitiators);
+	public HRESULT GetConnectedInitiators(PWSTR** pppwszInitiatorList, int32* plNumberOfInitiators) mut => VT.[Friend]GetConnectedInitiators(&this, pppwszInitiatorList, plNumberOfInitiators);
 }
 
 [CRepr]struct IVdsIscsiPortalGroup : IUnknown
@@ -3093,7 +3093,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsProvider** ppProvider) GetProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_STORAGE_POOL_PROP* pStoragePoolProp) GetProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_POOL_ATTRIBUTES* pStoragePoolAttributes) GetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_STORAGE_POOL_DRIVE_EXTENT** ppExtentArray, int32 plNumberOfExtents) QueryDriveExtents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_STORAGE_POOL_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) QueryDriveExtents;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAllocatedLuns;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAllocatedStoragePools;
 	}
@@ -3105,7 +3105,7 @@ public static
 
 	public HRESULT GetAttributes(VDS_POOL_ATTRIBUTES* pStoragePoolAttributes) mut => VT.[Friend]GetAttributes(&this, pStoragePoolAttributes);
 
-	public HRESULT QueryDriveExtents(VDS_STORAGE_POOL_DRIVE_EXTENT** ppExtentArray, int32 plNumberOfExtents) mut => VT.[Friend]QueryDriveExtents(&this, ppExtentArray, plNumberOfExtents);
+	public HRESULT QueryDriveExtents(VDS_STORAGE_POOL_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) mut => VT.[Friend]QueryDriveExtents(&this, ppExtentArray, plNumberOfExtents);
 
 	public HRESULT QueryAllocatedLuns(IEnumVdsObject** ppEnum) mut => VT.[Friend]QueryAllocatedLuns(&this, ppEnum);
 
@@ -3141,11 +3141,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, Guid pLunId) QueryIfCreatedLun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, ref Guid pLunId) QueryIfCreatedLun;
 	}
 
 
-	public HRESULT QueryIfCreatedLun(PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, Guid pLunId) mut => VT.[Friend]QueryIfCreatedLun(&this, pwszDevicePath, pVdsLunInformation, pLunId);
+	public HRESULT QueryIfCreatedLun(PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, ref Guid pLunId) mut => VT.[Friend]QueryIfCreatedLun(&this, pwszDevicePath, pVdsLunInformation, ref pLunId);
 }
 
 [CRepr]struct IVdsHwProviderPrivateMpio : IUnknown

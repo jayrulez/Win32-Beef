@@ -611,7 +611,7 @@ public enum AZ_PROP_CONSTANTS : int32
 #region Function Pointers
 public function BOOL PFN_AUTHZ_DYNAMIC_ACCESS_CHECK(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, ACE_HEADER* pAce, void* pArgs, BOOL* pbAceApplicable);
 
-public function BOOL PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, void* Args, SID_AND_ATTRIBUTES** pSidAttrArray, uint32 pSidCount, SID_AND_ATTRIBUTES** pRestrictedSidAttrArray, uint32 pRestrictedSidCount);
+public function BOOL PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, void* Args, SID_AND_ATTRIBUTES** pSidAttrArray, uint32* pSidCount, SID_AND_ATTRIBUTES** pRestrictedSidAttrArray, uint32* pRestrictedSidCount);
 
 public function void PFN_AUTHZ_FREE_DYNAMIC_GROUPS(SID_AND_ATTRIBUTES* pSidAttrArray);
 
@@ -1082,11 +1082,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plProp) get_DomainTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProp) get_DomainTimeout;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProp) put_DomainTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plProp) get_ScriptEngineTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProp) get_ScriptEngineTimeout;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProp) put_ScriptEngineTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plProp) get_MaxScriptEngines;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProp) get_MaxScriptEngines;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProp) put_MaxScriptEngines;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbProp) get_GenerateAudits;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bProp) put_GenerateAudits;
@@ -1140,15 +1140,15 @@ public static
 
 	public HRESULT put_ApplicationData(BSTR bstrApplicationData) mut => VT.[Friend]put_ApplicationData(&this, bstrApplicationData);
 
-	public HRESULT get_DomainTimeout(int32 plProp) mut => VT.[Friend]get_DomainTimeout(&this, plProp);
+	public HRESULT get_DomainTimeout(int32* plProp) mut => VT.[Friend]get_DomainTimeout(&this, plProp);
 
 	public HRESULT put_DomainTimeout(int32 lProp) mut => VT.[Friend]put_DomainTimeout(&this, lProp);
 
-	public HRESULT get_ScriptEngineTimeout(int32 plProp) mut => VT.[Friend]get_ScriptEngineTimeout(&this, plProp);
+	public HRESULT get_ScriptEngineTimeout(int32* plProp) mut => VT.[Friend]get_ScriptEngineTimeout(&this, plProp);
 
 	public HRESULT put_ScriptEngineTimeout(int32 lProp) mut => VT.[Friend]put_ScriptEngineTimeout(&this, lProp);
 
-	public HRESULT get_MaxScriptEngines(int32 plProp) mut => VT.[Friend]get_MaxScriptEngines(&this, plProp);
+	public HRESULT get_MaxScriptEngines(int32* plProp) mut => VT.[Friend]get_MaxScriptEngines(&this, plProp);
 
 	public HRESULT put_MaxScriptEngines(int32 lProp) mut => VT.[Friend]put_MaxScriptEngines(&this, lProp);
 
@@ -1261,23 +1261,23 @@ public static
 
 	[CRepr]public struct VTable : IAzAuthorizationStore2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbIsUpdateNeeded) IsUpdateNeeded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbSupported) BizruleGroupSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbIsUpdateNeeded) IsUpdateNeeded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbSupported) BizruleGroupSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFunctionalLevel) UpgradeStoresFunctionalLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFunctionalLevel, int16 pbSupported) IsFunctionalLevelUpgradeSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plMajorVersion, int32 plMinorVersion) GetSchemaVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFunctionalLevel, int16* pbSupported) IsFunctionalLevelUpgradeSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMajorVersion, int32* plMinorVersion) GetSchemaVersion;
 	}
 
 
-	public HRESULT IsUpdateNeeded(int16 pbIsUpdateNeeded) mut => VT.[Friend]IsUpdateNeeded(&this, pbIsUpdateNeeded);
+	public HRESULT IsUpdateNeeded(int16* pbIsUpdateNeeded) mut => VT.[Friend]IsUpdateNeeded(&this, pbIsUpdateNeeded);
 
-	public HRESULT BizruleGroupSupported(int16 pbSupported) mut => VT.[Friend]BizruleGroupSupported(&this, pbSupported);
+	public HRESULT BizruleGroupSupported(int16* pbSupported) mut => VT.[Friend]BizruleGroupSupported(&this, pbSupported);
 
 	public HRESULT UpgradeStoresFunctionalLevel(int32 lFunctionalLevel) mut => VT.[Friend]UpgradeStoresFunctionalLevel(&this, lFunctionalLevel);
 
-	public HRESULT IsFunctionalLevelUpgradeSupported(int32 lFunctionalLevel, int16 pbSupported) mut => VT.[Friend]IsFunctionalLevelUpgradeSupported(&this, lFunctionalLevel, pbSupported);
+	public HRESULT IsFunctionalLevelUpgradeSupported(int32 lFunctionalLevel, int16* pbSupported) mut => VT.[Friend]IsFunctionalLevelUpgradeSupported(&this, lFunctionalLevel, pbSupported);
 
-	public HRESULT GetSchemaVersion(int32 plMajorVersion, int32 plMinorVersion) mut => VT.[Friend]GetSchemaVersion(&this, plMajorVersion, plMinorVersion);
+	public HRESULT GetSchemaVersion(int32* plMajorVersion, int32* plMinorVersion) mut => VT.[Friend]GetSchemaVersion(&this, plMajorVersion, plMinorVersion);
 }
 
 [CRepr]struct IAzApplication : IDispatch
@@ -1502,14 +1502,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Index, VARIANT* pvarObtPtr) mut => VT.[Friend]get_Item(&this, Index, pvarObtPtr);
 
-	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
 	public HRESULT get__NewEnum(IUnknown** ppEnumPtr) mut => VT.[Friend]get__NewEnum(&this, ppEnumPtr);
 }
@@ -1528,7 +1528,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plProp) get_OperationID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProp) get_OperationID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProp) put_OperationID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_Writable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
@@ -1549,7 +1549,7 @@ public static
 
 	public HRESULT put_ApplicationData(BSTR bstrApplicationData) mut => VT.[Friend]put_ApplicationData(&this, bstrApplicationData);
 
-	public HRESULT get_OperationID(int32 plProp) mut => VT.[Friend]get_OperationID(&this, plProp);
+	public HRESULT get_OperationID(int32* plProp) mut => VT.[Friend]get_OperationID(&this, plProp);
 
 	public HRESULT put_OperationID(int32 lProp) mut => VT.[Friend]put_OperationID(&this, lProp);
 
@@ -1571,14 +1571,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Index, VARIANT* pvarObtPtr) mut => VT.[Friend]get_Item(&this, Index, pvarObtPtr);
 
-	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
 	public HRESULT get__NewEnum(IUnknown** ppEnumPtr) mut => VT.[Friend]get__NewEnum(&this, ppEnumPtr);
 }
@@ -1682,14 +1682,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Index, VARIANT* pvarObtPtr) mut => VT.[Friend]get_Item(&this, Index, pvarObtPtr);
 
-	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
 	public HRESULT get__NewEnum(IUnknown** ppEnumPtr) mut => VT.[Friend]get__NewEnum(&this, ppEnumPtr);
 }
@@ -1829,14 +1829,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Index, VARIANT* pvarObtPtr) mut => VT.[Friend]get_Item(&this, Index, pvarObtPtr);
 
-	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
 	public HRESULT get__NewEnum(IUnknown** ppEnumPtr) mut => VT.[Friend]get__NewEnum(&this, ppEnumPtr);
 }
@@ -1851,7 +1851,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plProp) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProp) get_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProp) put_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_LdapQuery;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_LdapQuery;
@@ -1888,7 +1888,7 @@ public static
 
 	public HRESULT put_Name(BSTR bstrName) mut => VT.[Friend]put_Name(&this, bstrName);
 
-	public HRESULT get_Type(int32 plProp) mut => VT.[Friend]get_Type(&this, plProp);
+	public HRESULT get_Type(int32* plProp) mut => VT.[Friend]get_Type(&this, plProp);
 
 	public HRESULT put_Type(int32 lProp) mut => VT.[Friend]put_Type(&this, lProp);
 
@@ -1958,14 +1958,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Index, VARIANT* pvarObtPtr) mut => VT.[Friend]get_Item(&this, Index, pvarObtPtr);
 
-	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
 	public HRESULT get__NewEnum(IUnknown** ppEnumPtr) mut => VT.[Friend]get__NewEnum(&this, ppEnumPtr);
 }
@@ -2072,14 +2072,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Index, VARIANT* pvarObtPtr) mut => VT.[Friend]get_Item(&this, Index, pvarObtPtr);
 
-	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
 	public HRESULT get__NewEnum(IUnknown** ppEnumPtr) mut => VT.[Friend]get__NewEnum(&this, ppEnumPtr);
 }
@@ -2202,7 +2202,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrParameterName, VARIANT* pvarParameterValue) GetParameterValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR varParameterName) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* plCount) get_Count;
 	}
 
 
@@ -2216,7 +2216,7 @@ public static
 
 	public HRESULT RemoveAll() mut => VT.[Friend]RemoveAll(&this);
 
-	public HRESULT get_Count(uint32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(uint32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
 }
 
 [CRepr]struct IAzBizRuleInterfaces : IDispatch
@@ -2229,10 +2229,10 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrInterfaceName, int32 lInterfaceFlag, VARIANT varInterface) AddInterface;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varInterfaceNames, VARIANT varInterfaceFlags, VARIANT varInterfaces) AddInterfaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrInterfaceName, int32 lInterfaceFlag, VARIANT* varInterface) GetInterfaceValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrInterfaceName, int32* lInterfaceFlag, VARIANT* varInterface) GetInterfaceValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrInterfaceName) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* plCount) get_Count;
 	}
 
 
@@ -2240,13 +2240,13 @@ public static
 
 	public HRESULT AddInterfaces(VARIANT varInterfaceNames, VARIANT varInterfaceFlags, VARIANT varInterfaces) mut => VT.[Friend]AddInterfaces(&this, varInterfaceNames, varInterfaceFlags, varInterfaces);
 
-	public HRESULT GetInterfaceValue(BSTR bstrInterfaceName, int32 lInterfaceFlag, VARIANT* varInterface) mut => VT.[Friend]GetInterfaceValue(&this, bstrInterfaceName, lInterfaceFlag, varInterface);
+	public HRESULT GetInterfaceValue(BSTR bstrInterfaceName, int32* lInterfaceFlag, VARIANT* varInterface) mut => VT.[Friend]GetInterfaceValue(&this, bstrInterfaceName, lInterfaceFlag, varInterface);
 
 	public HRESULT Remove(BSTR bstrInterfaceName) mut => VT.[Friend]Remove(&this, bstrInterfaceName);
 
 	public HRESULT RemoveAll() mut => VT.[Friend]RemoveAll(&this);
 
-	public HRESULT get_Count(uint32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(uint32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
 }
 
 [CRepr]struct IAzClientContext3 : IAzClientContext2
@@ -2257,8 +2257,8 @@ public static
 
 	[CRepr]public struct VTable : IAzClientContext2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrObjectName, BSTR bstrScopeName, int32 lOperation, uint32 plResult) AccessCheck2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, BSTR bstrRoleName, int16 pbIsInRole) IsInRoleAssignment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrObjectName, BSTR bstrScopeName, int32 lOperation, uint32* plResult) AccessCheck2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, BSTR bstrRoleName, int16* pbIsInRole) IsInRoleAssignment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, IAzOperations** ppOperationCollection) GetOperations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, IAzTasks** ppTaskCollection) GetTasks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzBizRuleParameters** ppBizRuleParam) get_BizRuleParameters;
@@ -2268,9 +2268,9 @@ public static
 	}
 
 
-	public HRESULT AccessCheck2(BSTR bstrObjectName, BSTR bstrScopeName, int32 lOperation, uint32 plResult) mut => VT.[Friend]AccessCheck2(&this, bstrObjectName, bstrScopeName, lOperation, plResult);
+	public HRESULT AccessCheck2(BSTR bstrObjectName, BSTR bstrScopeName, int32 lOperation, uint32* plResult) mut => VT.[Friend]AccessCheck2(&this, bstrObjectName, bstrScopeName, lOperation, plResult);
 
-	public HRESULT IsInRoleAssignment(BSTR bstrScopeName, BSTR bstrRoleName, int16 pbIsInRole) mut => VT.[Friend]IsInRoleAssignment(&this, bstrScopeName, bstrRoleName, pbIsInRole);
+	public HRESULT IsInRoleAssignment(BSTR bstrScopeName, BSTR bstrRoleName, int16* pbIsInRole) mut => VT.[Friend]IsInRoleAssignment(&this, bstrScopeName, bstrRoleName, pbIsInRole);
 
 	public HRESULT GetOperations(BSTR bstrScopeName, IAzOperations** ppOperationCollection) mut => VT.[Friend]GetOperations(&this, bstrScopeName, ppOperationCollection);
 
@@ -2329,7 +2329,7 @@ public static
 
 	[CRepr]public struct VTable : IAzApplication2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, int16 pbExist) ScopeExists;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, int16* pbExist) ScopeExists;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, IAzScope2** ppScope2) OpenScope2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, IAzScope2** ppScope2) CreateScope2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName) DeleteScope2;
@@ -2341,12 +2341,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleAssignmentName, IAzRoleAssignment** ppRoleAssignment) CreateRoleAssignment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleAssignmentName, IAzRoleAssignment** ppRoleAssignment) OpenRoleAssignment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleAssignmentName) DeleteRoleAssignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pbEnabled) get_BizRulesEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbEnabled) get_BizRulesEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bEnabled) put_BizRulesEnabled;
 	}
 
 
-	public HRESULT ScopeExists(BSTR bstrScopeName, int16 pbExist) mut => VT.[Friend]ScopeExists(&this, bstrScopeName, pbExist);
+	public HRESULT ScopeExists(BSTR bstrScopeName, int16* pbExist) mut => VT.[Friend]ScopeExists(&this, bstrScopeName, pbExist);
 
 	public HRESULT OpenScope2(BSTR bstrScopeName, IAzScope2** ppScope2) mut => VT.[Friend]OpenScope2(&this, bstrScopeName, ppScope2);
 
@@ -2370,7 +2370,7 @@ public static
 
 	public HRESULT DeleteRoleAssignment(BSTR bstrRoleAssignmentName) mut => VT.[Friend]DeleteRoleAssignment(&this, bstrRoleAssignmentName);
 
-	public HRESULT get_BizRulesEnabled(int16 pbEnabled) mut => VT.[Friend]get_BizRulesEnabled(&this, pbEnabled);
+	public HRESULT get_BizRulesEnabled(int16* pbEnabled) mut => VT.[Friend]get_BizRulesEnabled(&this, pbEnabled);
 
 	public HRESULT put_BizRulesEnabled(int16 bEnabled) mut => VT.[Friend]put_BizRulesEnabled(&this, bEnabled);
 }
@@ -2399,14 +2399,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Index, VARIANT* pvarObtPtr) mut => VT.[Friend]get_Item(&this, Index, pvarObtPtr);
 
-	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
 	public HRESULT get__NewEnum(IUnknown** ppEnumPtr) mut => VT.[Friend]get__NewEnum(&this, ppEnumPtr);
 }
@@ -2468,14 +2468,14 @@ public static
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
 	public HRESULT get_Item(int32 Index, VARIANT* pvarObtPtr) mut => VT.[Friend]get_Item(&this, Index, pvarObtPtr);
 
-	public HRESULT get_Count(int32 plCount) mut => VT.[Friend]get_Count(&this, plCount);
+	public HRESULT get_Count(int32* plCount) mut => VT.[Friend]get_Count(&this, plCount);
 
 	public HRESULT get__NewEnum(IUnknown** ppEnumPtr) mut => VT.[Friend]get__NewEnum(&this, ppEnumPtr);
 }
@@ -2506,12 +2506,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSid, int32 pSidType, BSTR* pbstrName) NameFromSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSid, int32* pSidType, BSTR* pbstrName) NameFromSid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vSids, VARIANT* pvSidTypes, VARIANT* pvNames) NamesFromSids;
 	}
 
 
-	public HRESULT NameFromSid(BSTR bstrSid, int32 pSidType, BSTR* pbstrName) mut => VT.[Friend]NameFromSid(&this, bstrSid, pSidType, pbstrName);
+	public HRESULT NameFromSid(BSTR bstrSid, int32* pSidType, BSTR* pbstrName) mut => VT.[Friend]NameFromSid(&this, bstrSid, pSidType, pbstrName);
 
 	public HRESULT NamesFromSids(VARIANT vSids, VARIANT* pvSidTypes, VARIANT* pvNames) mut => VT.[Friend]NamesFromSids(&this, vSids, pvSidTypes, pvNames);
 }
@@ -2588,7 +2588,7 @@ public static
 public static
 {
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzAccessCheck(AUTHZ_ACCESS_CHECK_FLAGS Flags, AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, AUTHZ_ACCESS_REQUEST* pRequest, AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent, SECURITY_DESCRIPTOR* pSecurityDescriptor, SECURITY_DESCRIPTOR** OptionalSecurityDescriptorArray, uint32 OptionalSecurityDescriptorCount, AUTHZ_ACCESS_REPLY* pReply, int phAccessCheckResults);
+	public static extern BOOL AuthzAccessCheck(AUTHZ_ACCESS_CHECK_FLAGS Flags, AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, AUTHZ_ACCESS_REQUEST* pRequest, AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent, SECURITY_DESCRIPTOR* pSecurityDescriptor, SECURITY_DESCRIPTOR** OptionalSecurityDescriptorArray, uint32 OptionalSecurityDescriptorCount, AUTHZ_ACCESS_REPLY* pReply, int* phAccessCheckResults);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AuthzCachedAccessCheck(uint32 Flags, AUTHZ_ACCESS_CHECK_RESULTS_HANDLE hAccessCheckResults, AUTHZ_ACCESS_REQUEST* pRequest, AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent, AUTHZ_ACCESS_REPLY* pReply);
@@ -2612,19 +2612,19 @@ public static
 	public static extern BOOL AuthzFreeResourceManager(AUTHZ_RESOURCE_MANAGER_HANDLE hAuthzResourceManager);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzInitializeContextFromToken(uint32 Flags, HANDLE TokenHandle, AUTHZ_RESOURCE_MANAGER_HANDLE hAuthzResourceManager, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, int phAuthzClientContext);
+	public static extern BOOL AuthzInitializeContextFromToken(uint32 Flags, HANDLE TokenHandle, AUTHZ_RESOURCE_MANAGER_HANDLE hAuthzResourceManager, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, int* phAuthzClientContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzInitializeContextFromSid(uint32 Flags, PSID UserSid, AUTHZ_RESOURCE_MANAGER_HANDLE hAuthzResourceManager, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, int phAuthzClientContext);
+	public static extern BOOL AuthzInitializeContextFromSid(uint32 Flags, PSID UserSid, AUTHZ_RESOURCE_MANAGER_HANDLE hAuthzResourceManager, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, int* phAuthzClientContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzInitializeContextFromAuthzContext(uint32 Flags, AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, int phNewAuthzClientContext);
+	public static extern BOOL AuthzInitializeContextFromAuthzContext(uint32 Flags, AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, int* phNewAuthzClientContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzInitializeCompoundContext(AUTHZ_CLIENT_CONTEXT_HANDLE UserContext, AUTHZ_CLIENT_CONTEXT_HANDLE DeviceContext, int phCompoundContext);
+	public static extern BOOL AuthzInitializeCompoundContext(AUTHZ_CLIENT_CONTEXT_HANDLE UserContext, AUTHZ_CLIENT_CONTEXT_HANDLE DeviceContext, int* phCompoundContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzAddSidsToContext(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, SID_AND_ATTRIBUTES* Sids, uint32 SidCount, SID_AND_ATTRIBUTES* RestrictedSids, uint32 RestrictedSidCount, int phNewAuthzClientContext);
+	public static extern BOOL AuthzAddSidsToContext(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, SID_AND_ATTRIBUTES* Sids, uint32 SidCount, SID_AND_ATTRIBUTES* RestrictedSids, uint32 RestrictedSidCount, int* phNewAuthzClientContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AuthzModifySecurityAttributes(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, AUTHZ_SECURITY_ATTRIBUTE_OPERATION* pOperations, AUTHZ_SECURITY_ATTRIBUTES_INFORMATION* pAttributes);
@@ -2639,16 +2639,16 @@ public static
 	public static extern BOOL AuthzSetAppContainerInformation(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, PSID pAppContainerSid, uint32 CapabilityCount, SID_AND_ATTRIBUTES* pCapabilitySids);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzGetInformationFromContext(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, AUTHZ_CONTEXT_INFORMATION_CLASS InfoClass, uint32 BufferSize, uint32 pSizeRequired, void* Buffer);
+	public static extern BOOL AuthzGetInformationFromContext(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, AUTHZ_CONTEXT_INFORMATION_CLASS InfoClass, uint32 BufferSize, uint32* pSizeRequired, void* Buffer);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AuthzFreeContext(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzInitializeObjectAccessAuditEvent(AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS Flags, AUTHZ_AUDIT_EVENT_TYPE_HANDLE hAuditEventType, PWSTR szOperationType, PWSTR szObjectType, PWSTR szObjectName, PWSTR szAdditionalInfo, int phAuditEvent, uint32 dwAdditionalParameterCount);
+	public static extern BOOL AuthzInitializeObjectAccessAuditEvent(AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS Flags, AUTHZ_AUDIT_EVENT_TYPE_HANDLE hAuditEventType, PWSTR szOperationType, PWSTR szObjectType, PWSTR szObjectName, PWSTR szAdditionalInfo, int* phAuditEvent, uint32 dwAdditionalParameterCount);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzInitializeObjectAccessAuditEvent2(uint32 Flags, AUTHZ_AUDIT_EVENT_TYPE_HANDLE hAuditEventType, PWSTR szOperationType, PWSTR szObjectType, PWSTR szObjectName, PWSTR szAdditionalInfo, PWSTR szAdditionalInfo2, int phAuditEvent, uint32 dwAdditionalParameterCount);
+	public static extern BOOL AuthzInitializeObjectAccessAuditEvent2(uint32 Flags, AUTHZ_AUDIT_EVENT_TYPE_HANDLE hAuditEventType, PWSTR szOperationType, PWSTR szObjectType, PWSTR szObjectName, PWSTR szAdditionalInfo, PWSTR szAdditionalInfo2, int* phAuditEvent, uint32 dwAdditionalParameterCount);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AuthzFreeAuditEvent(AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent);
@@ -2663,13 +2663,13 @@ public static
 	public static extern BOOL AuthzUninstallSecurityEventSource(uint32 dwFlags, PWSTR szEventSourceName);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzEnumerateSecurityEventSources(uint32 dwFlags, AUTHZ_SOURCE_SCHEMA_REGISTRATION* Buffer, uint32 pdwCount, uint32 pdwLength);
+	public static extern BOOL AuthzEnumerateSecurityEventSources(uint32 dwFlags, AUTHZ_SOURCE_SCHEMA_REGISTRATION* Buffer, uint32* pdwCount, uint32* pdwLength);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzRegisterSecurityEventSource(uint32 dwFlags, PWSTR szEventSourceName, int phEventProvider);
+	public static extern BOOL AuthzRegisterSecurityEventSource(uint32 dwFlags, PWSTR szEventSourceName, int* phEventProvider);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzUnregisterSecurityEventSource(uint32 dwFlags, int phEventProvider);
+	public static extern BOOL AuthzUnregisterSecurityEventSource(uint32 dwFlags, int* phEventProvider);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AuthzReportSecurityEvent(uint32 dwFlags, AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE hEventProvider, uint32 dwAuditId, PSID pUserSid, uint32 dwCount);
@@ -2694,25 +2694,25 @@ public static
 	public static extern uint32 SetEntriesInAclW(uint32 cCountOfExplicitEntries, EXPLICIT_ACCESS_W* pListOfExplicitEntries, ACL* OldAcl, ACL** NewAcl);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetExplicitEntriesFromAclA(ACL* pacl, uint32 pcCountOfExplicitEntries, EXPLICIT_ACCESS_A** pListOfExplicitEntries);
-	public static uint32 GetExplicitEntriesFromAcl(ACL* pacl, uint32 pcCountOfExplicitEntries, EXPLICIT_ACCESS_A** pListOfExplicitEntries) => GetExplicitEntriesFromAclA(pacl, pcCountOfExplicitEntries, pListOfExplicitEntries);
+	public static extern uint32 GetExplicitEntriesFromAclA(ACL* pacl, uint32* pcCountOfExplicitEntries, EXPLICIT_ACCESS_A** pListOfExplicitEntries);
+	public static uint32 GetExplicitEntriesFromAcl(ACL* pacl, uint32* pcCountOfExplicitEntries, EXPLICIT_ACCESS_A** pListOfExplicitEntries) => GetExplicitEntriesFromAclA(pacl, pcCountOfExplicitEntries, pListOfExplicitEntries);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetExplicitEntriesFromAclW(ACL* pacl, uint32 pcCountOfExplicitEntries, EXPLICIT_ACCESS_W** pListOfExplicitEntries);
+	public static extern uint32 GetExplicitEntriesFromAclW(ACL* pacl, uint32* pcCountOfExplicitEntries, EXPLICIT_ACCESS_W** pListOfExplicitEntries);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetEffectiveRightsFromAclA(ACL* pacl, TRUSTEE_A* pTrustee, uint32 pAccessRights);
-	public static uint32 GetEffectiveRightsFromAcl(ACL* pacl, TRUSTEE_A* pTrustee, uint32 pAccessRights) => GetEffectiveRightsFromAclA(pacl, pTrustee, pAccessRights);
+	public static extern uint32 GetEffectiveRightsFromAclA(ACL* pacl, TRUSTEE_A* pTrustee, uint32* pAccessRights);
+	public static uint32 GetEffectiveRightsFromAcl(ACL* pacl, TRUSTEE_A* pTrustee, uint32* pAccessRights) => GetEffectiveRightsFromAclA(pacl, pTrustee, pAccessRights);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetEffectiveRightsFromAclW(ACL* pacl, TRUSTEE_W* pTrustee, uint32 pAccessRights);
+	public static extern uint32 GetEffectiveRightsFromAclW(ACL* pacl, TRUSTEE_W* pTrustee, uint32* pAccessRights);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetAuditedPermissionsFromAclA(ACL* pacl, TRUSTEE_A* pTrustee, uint32 pSuccessfulAuditedRights, uint32 pFailedAuditRights);
-	public static uint32 GetAuditedPermissionsFromAcl(ACL* pacl, TRUSTEE_A* pTrustee, uint32 pSuccessfulAuditedRights, uint32 pFailedAuditRights) => GetAuditedPermissionsFromAclA(pacl, pTrustee, pSuccessfulAuditedRights, pFailedAuditRights);
+	public static extern uint32 GetAuditedPermissionsFromAclA(ACL* pacl, TRUSTEE_A* pTrustee, uint32* pSuccessfulAuditedRights, uint32* pFailedAuditRights);
+	public static uint32 GetAuditedPermissionsFromAcl(ACL* pacl, TRUSTEE_A* pTrustee, uint32* pSuccessfulAuditedRights, uint32* pFailedAuditRights) => GetAuditedPermissionsFromAclA(pacl, pTrustee, pSuccessfulAuditedRights, pFailedAuditRights);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetAuditedPermissionsFromAclW(ACL* pacl, TRUSTEE_W* pTrustee, uint32 pSuccessfulAuditedRights, uint32 pFailedAuditRights);
+	public static extern uint32 GetAuditedPermissionsFromAclW(ACL* pacl, TRUSTEE_W* pTrustee, uint32* pSuccessfulAuditedRights, uint32* pFailedAuditRights);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetNamedSecurityInfoA(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, OBJECT_SECURITY_INFORMATION SecurityInfo, PSID* ppsidOwner, PSID* ppsidGroup, ACL** ppDacl, ACL** ppSacl, SECURITY_DESCRIPTOR** ppSecurityDescriptor);
@@ -2759,18 +2759,18 @@ public static
 	public static extern uint32 TreeSetNamedSecurityInfoW(PWSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, PSID pOwner, PSID pGroup, ACL* pDacl, ACL* pSacl, TREE_SEC_INFO dwAction, FN_PROGRESS fnProgress, PROG_INVOKE_SETTING ProgressInvokeSetting, void* Args);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 BuildSecurityDescriptorA(TRUSTEE_A* pOwner, TRUSTEE_A* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_A* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_A* pListOfAuditEntries, SECURITY_DESCRIPTOR* pOldSD, uint32 pSizeNewSD, SECURITY_DESCRIPTOR** pNewSD);
-	public static uint32 BuildSecurityDescriptor(TRUSTEE_A* pOwner, TRUSTEE_A* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_A* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_A* pListOfAuditEntries, SECURITY_DESCRIPTOR* pOldSD, uint32 pSizeNewSD, SECURITY_DESCRIPTOR** pNewSD) => BuildSecurityDescriptorA(pOwner, pGroup, cCountOfAccessEntries, pListOfAccessEntries, cCountOfAuditEntries, pListOfAuditEntries, pOldSD, pSizeNewSD, pNewSD);
+	public static extern uint32 BuildSecurityDescriptorA(TRUSTEE_A* pOwner, TRUSTEE_A* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_A* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_A* pListOfAuditEntries, SECURITY_DESCRIPTOR* pOldSD, uint32* pSizeNewSD, SECURITY_DESCRIPTOR** pNewSD);
+	public static uint32 BuildSecurityDescriptor(TRUSTEE_A* pOwner, TRUSTEE_A* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_A* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_A* pListOfAuditEntries, SECURITY_DESCRIPTOR* pOldSD, uint32* pSizeNewSD, SECURITY_DESCRIPTOR** pNewSD) => BuildSecurityDescriptorA(pOwner, pGroup, cCountOfAccessEntries, pListOfAccessEntries, cCountOfAuditEntries, pListOfAuditEntries, pOldSD, pSizeNewSD, pNewSD);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 BuildSecurityDescriptorW(TRUSTEE_W* pOwner, TRUSTEE_W* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_W* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_W* pListOfAuditEntries, SECURITY_DESCRIPTOR* pOldSD, uint32 pSizeNewSD, SECURITY_DESCRIPTOR** pNewSD);
+	public static extern uint32 BuildSecurityDescriptorW(TRUSTEE_W* pOwner, TRUSTEE_W* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_W* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_W* pListOfAuditEntries, SECURITY_DESCRIPTOR* pOldSD, uint32* pSizeNewSD, SECURITY_DESCRIPTOR** pNewSD);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 LookupSecurityDescriptorPartsA(TRUSTEE_A** ppOwner, TRUSTEE_A** ppGroup, uint32 pcCountOfAccessEntries, EXPLICIT_ACCESS_A** ppListOfAccessEntries, uint32 pcCountOfAuditEntries, EXPLICIT_ACCESS_A** ppListOfAuditEntries, SECURITY_DESCRIPTOR* pSD);
-	public static uint32 LookupSecurityDescriptorParts(TRUSTEE_A** ppOwner, TRUSTEE_A** ppGroup, uint32 pcCountOfAccessEntries, EXPLICIT_ACCESS_A** ppListOfAccessEntries, uint32 pcCountOfAuditEntries, EXPLICIT_ACCESS_A** ppListOfAuditEntries, SECURITY_DESCRIPTOR* pSD) => LookupSecurityDescriptorPartsA(ppOwner, ppGroup, pcCountOfAccessEntries, ppListOfAccessEntries, pcCountOfAuditEntries, ppListOfAuditEntries, pSD);
+	public static extern uint32 LookupSecurityDescriptorPartsA(TRUSTEE_A** ppOwner, TRUSTEE_A** ppGroup, uint32* pcCountOfAccessEntries, EXPLICIT_ACCESS_A** ppListOfAccessEntries, uint32* pcCountOfAuditEntries, EXPLICIT_ACCESS_A** ppListOfAuditEntries, SECURITY_DESCRIPTOR* pSD);
+	public static uint32 LookupSecurityDescriptorParts(TRUSTEE_A** ppOwner, TRUSTEE_A** ppGroup, uint32* pcCountOfAccessEntries, EXPLICIT_ACCESS_A** ppListOfAccessEntries, uint32* pcCountOfAuditEntries, EXPLICIT_ACCESS_A** ppListOfAuditEntries, SECURITY_DESCRIPTOR* pSD) => LookupSecurityDescriptorPartsA(ppOwner, ppGroup, pcCountOfAccessEntries, ppListOfAccessEntries, pcCountOfAuditEntries, ppListOfAuditEntries, pSD);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 LookupSecurityDescriptorPartsW(TRUSTEE_W** ppOwner, TRUSTEE_W** ppGroup, uint32 pcCountOfAccessEntries, EXPLICIT_ACCESS_W** ppListOfAccessEntries, uint32 pcCountOfAuditEntries, EXPLICIT_ACCESS_W** ppListOfAuditEntries, SECURITY_DESCRIPTOR* pSD);
+	public static extern uint32 LookupSecurityDescriptorPartsW(TRUSTEE_W** ppOwner, TRUSTEE_W** ppGroup, uint32* pcCountOfAccessEntries, EXPLICIT_ACCESS_W** ppListOfAccessEntries, uint32* pcCountOfAuditEntries, EXPLICIT_ACCESS_W** ppListOfAuditEntries, SECURITY_DESCRIPTOR* pSD);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void BuildExplicitAccessWithNameA(EXPLICIT_ACCESS_A* pExplicitAccess, PSTR pTrusteeName, uint32 AccessPermissions, ACCESS_MODE AccessMode, ACE_FLAGS Inheritance);
@@ -2808,11 +2808,11 @@ public static
 	public static extern void BuildTrusteeWithSidW(TRUSTEE_W* pTrustee, PSID pSid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void BuildTrusteeWithObjectsAndSidA(TRUSTEE_A* pTrustee, OBJECTS_AND_SID* pObjSid, Guid pObjectGuid, Guid pInheritedObjectGuid, PSID pSid);
-	public static void BuildTrusteeWithObjectsAndSid(TRUSTEE_A* pTrustee, OBJECTS_AND_SID* pObjSid, Guid pObjectGuid, Guid pInheritedObjectGuid, PSID pSid) => BuildTrusteeWithObjectsAndSidA(pTrustee, pObjSid, pObjectGuid, pInheritedObjectGuid, pSid);
+	public static extern void BuildTrusteeWithObjectsAndSidA(TRUSTEE_A* pTrustee, OBJECTS_AND_SID* pObjSid, ref Guid pObjectGuid, ref Guid pInheritedObjectGuid, PSID pSid);
+	public static void BuildTrusteeWithObjectsAndSid(TRUSTEE_A* pTrustee, OBJECTS_AND_SID* pObjSid, ref Guid pObjectGuid, ref Guid pInheritedObjectGuid, PSID pSid) => BuildTrusteeWithObjectsAndSidA(pTrustee, pObjSid, ref pObjectGuid, ref pInheritedObjectGuid, pSid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void BuildTrusteeWithObjectsAndSidW(TRUSTEE_W* pTrustee, OBJECTS_AND_SID* pObjSid, Guid pObjectGuid, Guid pInheritedObjectGuid, PSID pSid);
+	public static extern void BuildTrusteeWithObjectsAndSidW(TRUSTEE_W* pTrustee, OBJECTS_AND_SID* pObjSid, ref Guid pObjectGuid, ref Guid pInheritedObjectGuid, PSID pSid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void BuildTrusteeWithObjectsAndNameA(TRUSTEE_A* pTrustee, OBJECTS_AND_NAME_A* pObjName, SE_OBJECT_TYPE ObjectType, PSTR ObjectTypeName, PSTR InheritedObjectTypeName, PSTR Name);
@@ -2871,18 +2871,18 @@ public static
 	public static extern BOOL ConvertStringSidToSidW(PWSTR StringSid, PSID* Sid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ConvertStringSecurityDescriptorToSecurityDescriptorA(PSTR StringSecurityDescriptor, uint32 StringSDRevision, SECURITY_DESCRIPTOR** SecurityDescriptor, uint32 SecurityDescriptorSize);
-	public static BOOL ConvertStringSecurityDescriptorToSecurityDescriptor(PSTR StringSecurityDescriptor, uint32 StringSDRevision, SECURITY_DESCRIPTOR** SecurityDescriptor, uint32 SecurityDescriptorSize) => ConvertStringSecurityDescriptorToSecurityDescriptorA(StringSecurityDescriptor, StringSDRevision, SecurityDescriptor, SecurityDescriptorSize);
+	public static extern BOOL ConvertStringSecurityDescriptorToSecurityDescriptorA(PSTR StringSecurityDescriptor, uint32 StringSDRevision, SECURITY_DESCRIPTOR** SecurityDescriptor, uint32* SecurityDescriptorSize);
+	public static BOOL ConvertStringSecurityDescriptorToSecurityDescriptor(PSTR StringSecurityDescriptor, uint32 StringSDRevision, SECURITY_DESCRIPTOR** SecurityDescriptor, uint32* SecurityDescriptorSize) => ConvertStringSecurityDescriptorToSecurityDescriptorA(StringSecurityDescriptor, StringSDRevision, SecurityDescriptor, SecurityDescriptorSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ConvertStringSecurityDescriptorToSecurityDescriptorW(PWSTR StringSecurityDescriptor, uint32 StringSDRevision, SECURITY_DESCRIPTOR** SecurityDescriptor, uint32 SecurityDescriptorSize);
+	public static extern BOOL ConvertStringSecurityDescriptorToSecurityDescriptorW(PWSTR StringSecurityDescriptor, uint32 StringSDRevision, SECURITY_DESCRIPTOR** SecurityDescriptor, uint32* SecurityDescriptorSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ConvertSecurityDescriptorToStringSecurityDescriptorA(SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PSTR* StringSecurityDescriptor, uint32 StringSecurityDescriptorLen);
-	public static BOOL ConvertSecurityDescriptorToStringSecurityDescriptor(SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PSTR* StringSecurityDescriptor, uint32 StringSecurityDescriptorLen) => ConvertSecurityDescriptorToStringSecurityDescriptorA(SecurityDescriptor, RequestedStringSDRevision, SecurityInformation, StringSecurityDescriptor, StringSecurityDescriptorLen);
+	public static extern BOOL ConvertSecurityDescriptorToStringSecurityDescriptorA(SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PSTR* StringSecurityDescriptor, uint32* StringSecurityDescriptorLen);
+	public static BOOL ConvertSecurityDescriptorToStringSecurityDescriptor(SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PSTR* StringSecurityDescriptor, uint32* StringSecurityDescriptorLen) => ConvertSecurityDescriptorToStringSecurityDescriptorA(SecurityDescriptor, RequestedStringSDRevision, SecurityInformation, StringSecurityDescriptor, StringSecurityDescriptorLen);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ConvertSecurityDescriptorToStringSecurityDescriptorW(SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PWSTR* StringSecurityDescriptor, uint32 StringSecurityDescriptorLen);
+	public static extern BOOL ConvertSecurityDescriptorToStringSecurityDescriptorW(SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PWSTR* StringSecurityDescriptor, uint32* StringSecurityDescriptorLen);
 
 }
 #endregion

@@ -126,7 +126,7 @@ public function uint32 PNS_CONTEXT_DUMP_FN(PWSTR pwszRouter, PWSTR* ppwcArgument
 
 public function uint32 PNS_DLL_STOP_FN(uint32 dwReserved);
 
-public function uint32 PNS_HELPER_START_FN(Guid pguidParent, uint32 dwVersion);
+public function uint32 PNS_HELPER_START_FN(ref Guid pguidParent, uint32 dwVersion);
 
 public function uint32 PNS_HELPER_STOP_FN(uint32 dwReserved);
 
@@ -247,13 +247,13 @@ public static
 public static
 {
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MatchEnumTag(HANDLE hModule, PWSTR pwcArg, uint32 dwNumArg, TOKEN_VALUE* pEnumTable, uint32 pdwValue);
+	public static extern uint32 MatchEnumTag(HANDLE hModule, PWSTR pwcArg, uint32 dwNumArg, TOKEN_VALUE* pEnumTable, uint32* pdwValue);
 
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MatchToken(PWSTR pwszUserToken, PWSTR pwszCmdToken);
 
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PreprocessCommand(HANDLE hModule, PWSTR* ppwcArguments, uint32 dwCurrentIndex, uint32 dwArgCount, TAG_TYPE* pttTags, uint32 dwTagCount, uint32 dwMinArgs, uint32 dwMaxArgs, uint32 pdwTagType);
+	public static extern uint32 PreprocessCommand(HANDLE hModule, PWSTR* ppwcArguments, uint32 dwCurrentIndex, uint32 dwArgCount, TAG_TYPE* pttTags, uint32 dwTagCount, uint32 dwMinArgs, uint32 dwMaxArgs, uint32* pdwTagType);
 
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PrintError(HANDLE hModule, uint32 dwErrId);
@@ -268,7 +268,7 @@ public static
 	public static extern uint32 RegisterContext(NS_CONTEXT_ATTRIBUTES* pChildContext);
 
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterHelper(Guid pguidParentContext, NS_HELPER_ATTRIBUTES* pfnRegisterSubContext);
+	public static extern uint32 RegisterHelper(ref Guid pguidParentContext, NS_HELPER_ATTRIBUTES* pfnRegisterSubContext);
 
 }
 #endregion

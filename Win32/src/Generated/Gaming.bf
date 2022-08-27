@@ -142,14 +142,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, Guid pguidInstanceID) AddGame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, ref Guid pguidInstanceID) AddGame;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidInstanceID) RemoveGame;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidInstanceID) UpdateGame;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGDFBinaryPath, BOOL* pfHasAccess) VerifyAccess;
 	}
 
 
-	public HRESULT AddGame(BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, Guid pguidInstanceID) mut => VT.[Friend]AddGame(&this, bstrGDFBinaryPath, bstrGameInstallDirectory, installScope, pguidInstanceID);
+	public HRESULT AddGame(BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, ref Guid pguidInstanceID) mut => VT.[Friend]AddGame(&this, bstrGDFBinaryPath, bstrGameInstallDirectory, installScope, ref pguidInstanceID);
 
 	public HRESULT RemoveGame(Guid guidInstanceID) mut => VT.[Friend]RemoveGame(&this, guidInstanceID);
 
@@ -166,30 +166,30 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cch) GetMaxCategoryLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cch) GetMaxNameLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cch) GetMaxValueLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pMax) GetMaxCategories;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pMax) GetMaxStatsPerCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* cch) GetMaxCategoryLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* cch) GetMaxNameLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* cch) GetMaxValueLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pMax) GetMaxCategories;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pMax) GetMaxStatsPerCategory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 categoryIndex, PWSTR title) SetCategoryTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 categoryIndex, PWSTR* pTitle) GetCategoryTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 categoryIndex, uint16 statIndex, PWSTR* pName, PWSTR* pValue) GetStatistic;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 categoryIndex, uint16 statIndex, PWSTR name, PWSTR value) SetStatistic;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL trackChanges) Save;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 categoryIndex) SetLastPlayedCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pCategoryIndex) GetLastPlayedCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCategoryIndex) GetLastPlayedCategory;
 	}
 
 
-	public HRESULT GetMaxCategoryLength(uint32 cch) mut => VT.[Friend]GetMaxCategoryLength(&this, cch);
+	public HRESULT GetMaxCategoryLength(uint32* cch) mut => VT.[Friend]GetMaxCategoryLength(&this, cch);
 
-	public HRESULT GetMaxNameLength(uint32 cch) mut => VT.[Friend]GetMaxNameLength(&this, cch);
+	public HRESULT GetMaxNameLength(uint32* cch) mut => VT.[Friend]GetMaxNameLength(&this, cch);
 
-	public HRESULT GetMaxValueLength(uint32 cch) mut => VT.[Friend]GetMaxValueLength(&this, cch);
+	public HRESULT GetMaxValueLength(uint32* cch) mut => VT.[Friend]GetMaxValueLength(&this, cch);
 
-	public HRESULT GetMaxCategories(uint16 pMax) mut => VT.[Friend]GetMaxCategories(&this, pMax);
+	public HRESULT GetMaxCategories(uint16* pMax) mut => VT.[Friend]GetMaxCategories(&this, pMax);
 
-	public HRESULT GetMaxStatsPerCategory(uint16 pMax) mut => VT.[Friend]GetMaxStatsPerCategory(&this, pMax);
+	public HRESULT GetMaxStatsPerCategory(uint16* pMax) mut => VT.[Friend]GetMaxStatsPerCategory(&this, pMax);
 
 	public HRESULT SetCategoryTitle(uint16 categoryIndex, PWSTR title) mut => VT.[Friend]SetCategoryTitle(&this, categoryIndex, title);
 
@@ -203,7 +203,7 @@ public static
 
 	public HRESULT SetLastPlayedCategory(uint32 categoryIndex) mut => VT.[Friend]SetLastPlayedCategory(&this, categoryIndex);
 
-	public HRESULT GetLastPlayedCategory(uint32 pCategoryIndex) mut => VT.[Friend]GetLastPlayedCategory(&this, pCategoryIndex);
+	public HRESULT GetLastPlayedCategory(uint32* pCategoryIndex) mut => VT.[Friend]GetLastPlayedCategory(&this, pCategoryIndex);
 }
 
 [CRepr]struct IGameStatisticsMgr : IUnknown
@@ -377,7 +377,7 @@ public static
 	public static extern HRESULT HasExpandedResources(BOOL* hasExpandedResources);
 
 	[Import("api-ms-win-gaming-expandedresources-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetExpandedResourceExclusiveCpuCount(uint32 exclusiveCpuCount);
+	public static extern HRESULT GetExpandedResourceExclusiveCpuCount(uint32* exclusiveCpuCount);
 
 	[Import("api-ms-win-gaming-expandedresources-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ReleaseExclusiveCpuSets();

@@ -539,12 +539,12 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_PASSWORD_TYPE Type, uint32 dwPasswordLength, uint8* pbPassword) SetPassword;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWCNConnectNotify* pNotify) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32 pdwBufferUsed) GetAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 puInteger) GetIntegerAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32* pdwBufferUsed) GetAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32* puInteger) GetIntegerAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 cchMaxString, char16* wszString) GetStringAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchMaxStringLength, char16* wszProfile) GetNetworkProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszProfileXml) SetNetworkProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32 pdwBufferUsed) GetVendorExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32* pdwBufferUsed) GetVendorExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 cbBuffer, uint8* pbBuffer) SetVendorExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unadvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_PASSWORD_TYPE Type, uint32 dwOOBPasswordID, uint32 dwPasswordLength, uint8* pbPassword, uint32 dwRemotePublicKeyHashLength, uint8* pbRemotePublicKeyHash, uint32 dwDHKeyBlobLength, uint8* pbDHKeyBlob) SetNFCPasswordParams;
@@ -555,9 +555,9 @@ public static
 
 	public HRESULT Connect(IWCNConnectNotify* pNotify) mut => VT.[Friend]Connect(&this, pNotify);
 
-	public HRESULT GetAttribute(WCN_ATTRIBUTE_TYPE AttributeType, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32 pdwBufferUsed) mut => VT.[Friend]GetAttribute(&this, AttributeType, dwMaxBufferSize, pbBuffer, pdwBufferUsed);
+	public HRESULT GetAttribute(WCN_ATTRIBUTE_TYPE AttributeType, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32* pdwBufferUsed) mut => VT.[Friend]GetAttribute(&this, AttributeType, dwMaxBufferSize, pbBuffer, pdwBufferUsed);
 
-	public HRESULT GetIntegerAttribute(WCN_ATTRIBUTE_TYPE AttributeType, uint32 puInteger) mut => VT.[Friend]GetIntegerAttribute(&this, AttributeType, puInteger);
+	public HRESULT GetIntegerAttribute(WCN_ATTRIBUTE_TYPE AttributeType, uint32* puInteger) mut => VT.[Friend]GetIntegerAttribute(&this, AttributeType, puInteger);
 
 	public HRESULT GetStringAttribute(WCN_ATTRIBUTE_TYPE AttributeType, uint32 cchMaxString, char16* wszString) mut => VT.[Friend]GetStringAttribute(&this, AttributeType, cchMaxString, wszString);
 
@@ -565,7 +565,7 @@ public static
 
 	public HRESULT SetNetworkProfile(PWSTR pszProfileXml) mut => VT.[Friend]SetNetworkProfile(&this, pszProfileXml);
 
-	public HRESULT GetVendorExtension(WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32 pdwBufferUsed) mut => VT.[Friend]GetVendorExtension(&this, pVendorExtSpec, dwMaxBufferSize, pbBuffer, pdwBufferUsed);
+	public HRESULT GetVendorExtension(WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32* pdwBufferUsed) mut => VT.[Friend]GetVendorExtension(&this, pVendorExtSpec, dwMaxBufferSize, pbBuffer, pdwBufferUsed);
 
 	public HRESULT SetVendorExtension(WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 cbBuffer, uint8* pbBuffer) mut => VT.[Friend]SetVendorExtension(&this, pVendorExtSpec, cbBuffer, pbBuffer);
 

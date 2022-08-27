@@ -6811,11 +6811,11 @@ public function void PTERMINATION_HANDLER(BOOLEAN _abnormal_termination, uint64 
 #endif
 
 #if BF_ARM_64
-public function uint32 POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(HANDLE Process, void* TableAddress, uint32 Entries, IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY** Functions);
+public function uint32 POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(HANDLE Process, void* TableAddress, uint32* Entries, IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY** Functions);
 #endif
 
 #if BF_64_BIT
-public function uint32 POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(HANDLE Process, void* TableAddress, uint32 Entries, IMAGE_RUNTIME_FUNCTION_ENTRY** Functions);
+public function uint32 POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(HANDLE Process, void* TableAddress, uint32* Entries, IMAGE_RUNTIME_FUNCTION_ENTRY** Functions);
 #endif
 
 #if BF_64_BIT || BF_ARM_64

@@ -400,7 +400,7 @@ public static
 	public static extern uint32 PssWalkMarkerFree(HPSSWALK WalkMarkerHandle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PssWalkMarkerGetPosition(HPSSWALK WalkMarkerHandle, uint Position);
+	public static extern uint32 PssWalkMarkerGetPosition(HPSSWALK WalkMarkerHandle, uint* Position);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PssWalkMarkerSetPosition(HPSSWALK WalkMarkerHandle, uint Position);

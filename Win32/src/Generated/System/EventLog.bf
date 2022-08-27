@@ -499,13 +499,13 @@ public static
 	public static extern BOOL EvtCancel(int Object);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EvtGetExtendedStatus(uint32 BufferSize, char16* Buffer, uint32 BufferUsed);
+	public static extern uint32 EvtGetExtendedStatus(uint32 BufferSize, char16* Buffer, uint32* BufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtQuery(int Session, PWSTR Path, PWSTR Query, uint32 Flags);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtNext(int ResultSet, uint32 EventsSize, int* Events, uint32 Timeout, uint32 Flags, uint32 Returned);
+	public static extern BOOL EvtNext(int ResultSet, uint32 EventsSize, int* Events, uint32 Timeout, uint32 Flags, uint32* Returned);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EvtSeek(int ResultSet, int64 Position, int Bookmark, uint32 Timeout, uint32 Flags);
@@ -517,16 +517,16 @@ public static
 	public static extern int EvtCreateRenderContext(uint32 ValuePathsCount, PWSTR* ValuePaths, uint32 Flags);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtRender(int Context, int Fragment, uint32 Flags, uint32 BufferSize, void* Buffer, uint32 BufferUsed, uint32 PropertyCount);
+	public static extern BOOL EvtRender(int Context, int Fragment, uint32 Flags, uint32 BufferSize, void* Buffer, uint32* BufferUsed, uint32* PropertyCount);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtFormatMessage(int PublisherMetadata, int Event, uint32 MessageId, uint32 ValueCount, EVT_VARIANT* Values, uint32 Flags, uint32 BufferSize, char16* Buffer, uint32 BufferUsed);
+	public static extern BOOL EvtFormatMessage(int PublisherMetadata, int Event, uint32 MessageId, uint32 ValueCount, EVT_VARIANT* Values, uint32 Flags, uint32 BufferSize, char16* Buffer, uint32* BufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtOpenLog(int Session, PWSTR Path, uint32 Flags);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtGetLogInfo(int Log, EVT_LOG_PROPERTY_ID PropertyId, uint32 PropertyValueBufferSize, EVT_VARIANT* PropertyValueBuffer, uint32 PropertyValueBufferUsed);
+	public static extern BOOL EvtGetLogInfo(int Log, EVT_LOG_PROPERTY_ID PropertyId, uint32 PropertyValueBufferSize, EVT_VARIANT* PropertyValueBuffer, uint32* PropertyValueBufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EvtClearLog(int Session, PWSTR ChannelPath, PWSTR TargetFilePath, uint32 Flags);
@@ -541,7 +541,7 @@ public static
 	public static extern int EvtOpenChannelEnum(int Session, uint32 Flags);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtNextChannelPath(int ChannelEnum, uint32 ChannelPathBufferSize, char16* ChannelPathBuffer, uint32 ChannelPathBufferUsed);
+	public static extern BOOL EvtNextChannelPath(int ChannelEnum, uint32 ChannelPathBufferSize, char16* ChannelPathBuffer, uint32* ChannelPathBufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtOpenChannelConfig(int Session, PWSTR ChannelPath, uint32 Flags);
@@ -553,19 +553,19 @@ public static
 	public static extern BOOL EvtSetChannelConfigProperty(int ChannelConfig, EVT_CHANNEL_CONFIG_PROPERTY_ID PropertyId, uint32 Flags, EVT_VARIANT* PropertyValue);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtGetChannelConfigProperty(int ChannelConfig, EVT_CHANNEL_CONFIG_PROPERTY_ID PropertyId, uint32 Flags, uint32 PropertyValueBufferSize, EVT_VARIANT* PropertyValueBuffer, uint32 PropertyValueBufferUsed);
+	public static extern BOOL EvtGetChannelConfigProperty(int ChannelConfig, EVT_CHANNEL_CONFIG_PROPERTY_ID PropertyId, uint32 Flags, uint32 PropertyValueBufferSize, EVT_VARIANT* PropertyValueBuffer, uint32* PropertyValueBufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtOpenPublisherEnum(int Session, uint32 Flags);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtNextPublisherId(int PublisherEnum, uint32 PublisherIdBufferSize, char16* PublisherIdBuffer, uint32 PublisherIdBufferUsed);
+	public static extern BOOL EvtNextPublisherId(int PublisherEnum, uint32 PublisherIdBufferSize, char16* PublisherIdBuffer, uint32* PublisherIdBufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtOpenPublisherMetadata(int Session, PWSTR PublisherId, PWSTR LogFilePath, uint32 Locale, uint32 Flags);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtGetPublisherMetadataProperty(int PublisherMetadata, EVT_PUBLISHER_METADATA_PROPERTY_ID PropertyId, uint32 Flags, uint32 PublisherMetadataPropertyBufferSize, EVT_VARIANT* PublisherMetadataPropertyBuffer, uint32 PublisherMetadataPropertyBufferUsed);
+	public static extern BOOL EvtGetPublisherMetadataProperty(int PublisherMetadata, EVT_PUBLISHER_METADATA_PROPERTY_ID PropertyId, uint32 Flags, uint32 PublisherMetadataPropertyBufferSize, EVT_VARIANT* PublisherMetadataPropertyBuffer, uint32* PublisherMetadataPropertyBufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtOpenEventMetadataEnum(int PublisherMetadata, uint32 Flags);
@@ -574,16 +574,16 @@ public static
 	public static extern int EvtNextEventMetadata(int EventMetadataEnum, uint32 Flags);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtGetEventMetadataProperty(int EventMetadata, EVT_EVENT_METADATA_PROPERTY_ID PropertyId, uint32 Flags, uint32 EventMetadataPropertyBufferSize, EVT_VARIANT* EventMetadataPropertyBuffer, uint32 EventMetadataPropertyBufferUsed);
+	public static extern BOOL EvtGetEventMetadataProperty(int EventMetadata, EVT_EVENT_METADATA_PROPERTY_ID PropertyId, uint32 Flags, uint32 EventMetadataPropertyBufferSize, EVT_VARIANT* EventMetadataPropertyBuffer, uint32* EventMetadataPropertyBufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtGetObjectArraySize(int ObjectArray, uint32 ObjectArraySize);
+	public static extern BOOL EvtGetObjectArraySize(int ObjectArray, uint32* ObjectArraySize);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtGetObjectArrayProperty(int ObjectArray, uint32 PropertyId, uint32 ArrayIndex, uint32 Flags, uint32 PropertyValueBufferSize, EVT_VARIANT* PropertyValueBuffer, uint32 PropertyValueBufferUsed);
+	public static extern BOOL EvtGetObjectArrayProperty(int ObjectArray, uint32 PropertyId, uint32 ArrayIndex, uint32 Flags, uint32 PropertyValueBufferSize, EVT_VARIANT* PropertyValueBuffer, uint32* PropertyValueBufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtGetQueryInfo(int QueryOrSubscription, EVT_QUERY_PROPERTY_ID PropertyId, uint32 PropertyValueBufferSize, EVT_VARIANT* PropertyValueBuffer, uint32 PropertyValueBufferUsed);
+	public static extern BOOL EvtGetQueryInfo(int QueryOrSubscription, EVT_QUERY_PROPERTY_ID PropertyId, uint32 PropertyValueBufferSize, EVT_VARIANT* PropertyValueBuffer, uint32* PropertyValueBufferUsed);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int EvtCreateBookmark(PWSTR BookmarkXml);
@@ -592,7 +592,7 @@ public static
 	public static extern BOOL EvtUpdateBookmark(int Bookmark, int Event);
 
 	[Import("wevtapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EvtGetEventInfo(int Event, EVT_EVENT_PROPERTY_ID PropertyId, uint32 PropertyValueBufferSize, EVT_VARIANT* PropertyValueBuffer, uint32 PropertyValueBufferUsed);
+	public static extern BOOL EvtGetEventInfo(int Event, EVT_EVENT_PROPERTY_ID PropertyId, uint32 PropertyValueBufferSize, EVT_VARIANT* PropertyValueBuffer, uint32* PropertyValueBufferUsed);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ClearEventLogA(HANDLE hEventLog, PSTR lpBackupFileName);
@@ -618,10 +618,10 @@ public static
 	public static extern BOOL NotifyChangeEventLog(HANDLE hEventLog, HANDLE hEvent);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetNumberOfEventLogRecords(HANDLE hEventLog, uint32 NumberOfRecords);
+	public static extern BOOL GetNumberOfEventLogRecords(HANDLE hEventLog, uint32* NumberOfRecords);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetOldestEventLogRecord(HANDLE hEventLog, uint32 OldestRecord);
+	public static extern BOOL GetOldestEventLogRecord(HANDLE hEventLog, uint32* OldestRecord);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern EventLogHandle OpenEventLogA(PSTR lpUNCServerName, PSTR lpSourceName);
@@ -645,11 +645,11 @@ public static
 	public static extern EventLogHandle OpenBackupEventLogW(PWSTR lpUNCServerName, PWSTR lpFileName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ReadEventLogA(HANDLE hEventLog, READ_EVENT_LOG_READ_FLAGS dwReadFlags, uint32 dwRecordOffset, void* lpBuffer, uint32 nNumberOfBytesToRead, uint32 pnBytesRead, uint32 pnMinNumberOfBytesNeeded);
-	public static BOOL ReadEventLog(HANDLE hEventLog, READ_EVENT_LOG_READ_FLAGS dwReadFlags, uint32 dwRecordOffset, void* lpBuffer, uint32 nNumberOfBytesToRead, uint32 pnBytesRead, uint32 pnMinNumberOfBytesNeeded) => ReadEventLogA(hEventLog, dwReadFlags, dwRecordOffset, lpBuffer, nNumberOfBytesToRead, pnBytesRead, pnMinNumberOfBytesNeeded);
+	public static extern BOOL ReadEventLogA(HANDLE hEventLog, READ_EVENT_LOG_READ_FLAGS dwReadFlags, uint32 dwRecordOffset, void* lpBuffer, uint32 nNumberOfBytesToRead, uint32* pnBytesRead, uint32* pnMinNumberOfBytesNeeded);
+	public static BOOL ReadEventLog(HANDLE hEventLog, READ_EVENT_LOG_READ_FLAGS dwReadFlags, uint32 dwRecordOffset, void* lpBuffer, uint32 nNumberOfBytesToRead, uint32* pnBytesRead, uint32* pnMinNumberOfBytesNeeded) => ReadEventLogA(hEventLog, dwReadFlags, dwRecordOffset, lpBuffer, nNumberOfBytesToRead, pnBytesRead, pnMinNumberOfBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ReadEventLogW(HANDLE hEventLog, READ_EVENT_LOG_READ_FLAGS dwReadFlags, uint32 dwRecordOffset, void* lpBuffer, uint32 nNumberOfBytesToRead, uint32 pnBytesRead, uint32 pnMinNumberOfBytesNeeded);
+	public static extern BOOL ReadEventLogW(HANDLE hEventLog, READ_EVENT_LOG_READ_FLAGS dwReadFlags, uint32 dwRecordOffset, void* lpBuffer, uint32 nNumberOfBytesToRead, uint32* pnBytesRead, uint32* pnMinNumberOfBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ReportEventA(HANDLE hEventLog, REPORT_EVENT_TYPE wType, uint16 wCategory, uint32 dwEventID, PSID lpUserSid, uint16 wNumStrings, uint32 dwDataSize, PSTR* lpStrings, void* lpRawData);
@@ -659,7 +659,7 @@ public static
 	public static extern BOOL ReportEventW(HANDLE hEventLog, REPORT_EVENT_TYPE wType, uint16 wCategory, uint32 dwEventID, PSID lpUserSid, uint16 wNumStrings, uint32 dwDataSize, PWSTR* lpStrings, void* lpRawData);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetEventLogInformation(HANDLE hEventLog, uint32 dwInfoLevel, void* lpBuffer, uint32 cbBufSize, uint32 pcbBytesNeeded);
+	public static extern BOOL GetEventLogInformation(HANDLE hEventLog, uint32 dwInfoLevel, void* lpBuffer, uint32 cbBufSize, uint32* pcbBytesNeeded);
 
 }
 #endregion

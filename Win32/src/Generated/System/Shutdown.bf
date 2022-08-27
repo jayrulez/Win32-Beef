@@ -191,7 +191,7 @@ public static
 	public static extern BOOL ShutdownBlockReasonCreate(HWND hWnd, PWSTR pwszReason);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ShutdownBlockReasonQuery(HWND hWnd, char16* pwszBuff, uint32 pcchBuff);
+	public static extern BOOL ShutdownBlockReasonQuery(HWND hWnd, char16* pwszBuff, uint32* pcchBuff);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ShutdownBlockReasonDestroy(HWND hWnd);

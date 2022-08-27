@@ -7933,13 +7933,13 @@ public function HRESULT PDXVAHDSW_GetVideoProcessorInputFormats(HANDLE hDevice, 
 
 public function HRESULT PDXVAHDSW_GetVideoProcessorCaps(HANDLE hDevice, DXVAHD_CONTENT_DESC* pContentDesc, DXVAHD_DEVICE_USAGE Usage, uint32 Count, DXVAHD_VPCAPS* pCaps);
 
-public function HRESULT PDXVAHDSW_GetVideoProcessorCustomRates(HANDLE hDevice, Guid pVPGuid, uint32 Count, DXVAHD_CUSTOM_RATE_DATA* pRates);
+public function HRESULT PDXVAHDSW_GetVideoProcessorCustomRates(HANDLE hDevice, ref Guid pVPGuid, uint32 Count, DXVAHD_CUSTOM_RATE_DATA* pRates);
 
 public function HRESULT PDXVAHDSW_GetVideoProcessorFilterRange(HANDLE hDevice, DXVAHD_FILTER Filter, DXVAHD_FILTER_RANGE_DATA* pRange);
 
 public function HRESULT PDXVAHDSW_DestroyDevice(HANDLE hDevice);
 
-public function HRESULT PDXVAHDSW_CreateVideoProcessor(HANDLE hDevice, Guid pVPGuid, HANDLE* phVideoProcessor);
+public function HRESULT PDXVAHDSW_CreateVideoProcessor(HANDLE hDevice, ref Guid pVPGuid, HANDLE* phVideoProcessor);
 
 public function HRESULT PDXVAHDSW_SetVideoProcessBltState(HANDLE hVideoProcessor, DXVAHD_BLT_STATE State, uint32 DataSize, void* pData);
 
@@ -12433,53 +12433,53 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Api) IsSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Api) IsModifiable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Api, VARIANT* ValueMin, VARIANT* ValueMax, VARIANT* SteppingDelta) GetParameterRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Api, VARIANT** Values, uint32 ValuesCount) GetParameterValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Api, VARIANT* Value) GetDefaultValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Api, VARIANT* Value) GetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Api, VARIANT* Value) SetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Api, int userData) RegisterForEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Api) UnregisterForEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Api) IsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Api) IsModifiable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Api, VARIANT* ValueMin, VARIANT* ValueMax, VARIANT* SteppingDelta) GetParameterRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Api, VARIANT** Values, uint32* ValuesCount) GetParameterValues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Api, VARIANT* Value) GetDefaultValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Api, VARIANT* Value) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Api, VARIANT* Value) SetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Api, int userData) RegisterForEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Api) UnregisterForEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SetAllDefaults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Api, VARIANT* Value, Guid** ChangedParam, uint32 ChangedParamCount) SetValueWithNotify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid** ChangedParam, uint32 ChangedParamCount) SetAllDefaultsWithNotify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Api, VARIANT* Value, Guid** ChangedParam, uint32* ChangedParamCount) SetValueWithNotify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid** ChangedParam, uint32* ChangedParamCount) SetAllDefaultsWithNotify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* __MIDL__ICodecAPI0000) GetAllSettings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* __MIDL__ICodecAPI0001) SetAllSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* __MIDL__ICodecAPI0002, Guid** ChangedParam, uint32 ChangedParamCount) SetAllSettingsWithNotify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* __MIDL__ICodecAPI0002, Guid** ChangedParam, uint32* ChangedParamCount) SetAllSettingsWithNotify;
 	}
 
 
-	public HRESULT IsSupported(Guid Api) mut => VT.[Friend]IsSupported(&this, Api);
+	public HRESULT IsSupported(ref Guid Api) mut => VT.[Friend]IsSupported(&this, ref Api);
 
-	public HRESULT IsModifiable(Guid Api) mut => VT.[Friend]IsModifiable(&this, Api);
+	public HRESULT IsModifiable(ref Guid Api) mut => VT.[Friend]IsModifiable(&this, ref Api);
 
-	public HRESULT GetParameterRange(Guid Api, VARIANT* ValueMin, VARIANT* ValueMax, VARIANT* SteppingDelta) mut => VT.[Friend]GetParameterRange(&this, Api, ValueMin, ValueMax, SteppingDelta);
+	public HRESULT GetParameterRange(ref Guid Api, VARIANT* ValueMin, VARIANT* ValueMax, VARIANT* SteppingDelta) mut => VT.[Friend]GetParameterRange(&this, ref Api, ValueMin, ValueMax, SteppingDelta);
 
-	public HRESULT GetParameterValues(Guid Api, VARIANT** Values, uint32 ValuesCount) mut => VT.[Friend]GetParameterValues(&this, Api, Values, ValuesCount);
+	public HRESULT GetParameterValues(ref Guid Api, VARIANT** Values, uint32* ValuesCount) mut => VT.[Friend]GetParameterValues(&this, ref Api, Values, ValuesCount);
 
-	public HRESULT GetDefaultValue(Guid Api, VARIANT* Value) mut => VT.[Friend]GetDefaultValue(&this, Api, Value);
+	public HRESULT GetDefaultValue(ref Guid Api, VARIANT* Value) mut => VT.[Friend]GetDefaultValue(&this, ref Api, Value);
 
-	public HRESULT GetValue(Guid Api, VARIANT* Value) mut => VT.[Friend]GetValue(&this, Api, Value);
+	public HRESULT GetValue(ref Guid Api, VARIANT* Value) mut => VT.[Friend]GetValue(&this, ref Api, Value);
 
-	public HRESULT SetValue(Guid Api, VARIANT* Value) mut => VT.[Friend]SetValue(&this, Api, Value);
+	public HRESULT SetValue(ref Guid Api, VARIANT* Value) mut => VT.[Friend]SetValue(&this, ref Api, Value);
 
-	public HRESULT RegisterForEvent(Guid Api, int userData) mut => VT.[Friend]RegisterForEvent(&this, Api, userData);
+	public HRESULT RegisterForEvent(ref Guid Api, int userData) mut => VT.[Friend]RegisterForEvent(&this, ref Api, userData);
 
-	public HRESULT UnregisterForEvent(Guid Api) mut => VT.[Friend]UnregisterForEvent(&this, Api);
+	public HRESULT UnregisterForEvent(ref Guid Api) mut => VT.[Friend]UnregisterForEvent(&this, ref Api);
 
 	public HRESULT SetAllDefaults() mut => VT.[Friend]SetAllDefaults(&this);
 
-	public HRESULT SetValueWithNotify(Guid Api, VARIANT* Value, Guid** ChangedParam, uint32 ChangedParamCount) mut => VT.[Friend]SetValueWithNotify(&this, Api, Value, ChangedParam, ChangedParamCount);
+	public HRESULT SetValueWithNotify(ref Guid Api, VARIANT* Value, Guid** ChangedParam, uint32* ChangedParamCount) mut => VT.[Friend]SetValueWithNotify(&this, ref Api, Value, ChangedParam, ChangedParamCount);
 
-	public HRESULT SetAllDefaultsWithNotify(Guid** ChangedParam, uint32 ChangedParamCount) mut => VT.[Friend]SetAllDefaultsWithNotify(&this, ChangedParam, ChangedParamCount);
+	public HRESULT SetAllDefaultsWithNotify(Guid** ChangedParam, uint32* ChangedParamCount) mut => VT.[Friend]SetAllDefaultsWithNotify(&this, ChangedParam, ChangedParamCount);
 
 	public HRESULT GetAllSettings(IStream* __MIDL__ICodecAPI0000) mut => VT.[Friend]GetAllSettings(&this, __MIDL__ICodecAPI0000);
 
 	public HRESULT SetAllSettings(IStream* __MIDL__ICodecAPI0001) mut => VT.[Friend]SetAllSettings(&this, __MIDL__ICodecAPI0001);
 
-	public HRESULT SetAllSettingsWithNotify(IStream* __MIDL__ICodecAPI0002, Guid** ChangedParam, uint32 ChangedParamCount) mut => VT.[Friend]SetAllSettingsWithNotify(&this, __MIDL__ICodecAPI0002, ChangedParam, ChangedParamCount);
+	public HRESULT SetAllSettingsWithNotify(IStream* __MIDL__ICodecAPI0002, Guid** ChangedParam, uint32* ChangedParamCount) mut => VT.[Friend]SetAllSettingsWithNotify(&this, __MIDL__ICodecAPI0002, ChangedParam, ChangedParamCount);
 }
 
 [CRepr]struct IDirect3D9ExOverlayExtension : IUnknown
@@ -12505,17 +12505,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pCryptoType, Guid pDecodeProfile, D3DCONTENTPROTECTIONCAPS* pCaps) GetContentProtectionCaps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pCryptoType, ref Guid pDecodeProfile, D3DCONTENTPROTECTIONCAPS* pCaps) GetContentProtectionCaps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DAUTHENTICATEDCHANNELTYPE ChannelType, IDirect3DAuthenticatedChannel9** ppAuthenticatedChannel, HANDLE* pChannelHandle) CreateAuthenticatedChannel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pCryptoType, Guid pDecodeProfile, IDirect3DCryptoSession9** ppCryptoSession, HANDLE* pCryptoHandle) CreateCryptoSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pCryptoType, ref Guid pDecodeProfile, IDirect3DCryptoSession9** ppCryptoSession, HANDLE* pCryptoHandle) CreateCryptoSession;
 	}
 
 
-	public HRESULT GetContentProtectionCaps(Guid pCryptoType, Guid pDecodeProfile, D3DCONTENTPROTECTIONCAPS* pCaps) mut => VT.[Friend]GetContentProtectionCaps(&this, pCryptoType, pDecodeProfile, pCaps);
+	public HRESULT GetContentProtectionCaps(ref Guid pCryptoType, ref Guid pDecodeProfile, D3DCONTENTPROTECTIONCAPS* pCaps) mut => VT.[Friend]GetContentProtectionCaps(&this, ref pCryptoType, ref pDecodeProfile, pCaps);
 
 	public HRESULT CreateAuthenticatedChannel(D3DAUTHENTICATEDCHANNELTYPE ChannelType, IDirect3DAuthenticatedChannel9** ppAuthenticatedChannel, HANDLE* pChannelHandle) mut => VT.[Friend]CreateAuthenticatedChannel(&this, ChannelType, ppAuthenticatedChannel, pChannelHandle);
 
-	public HRESULT CreateCryptoSession(Guid pCryptoType, Guid pDecodeProfile, IDirect3DCryptoSession9** ppCryptoSession, HANDLE* pCryptoHandle) mut => VT.[Friend]CreateCryptoSession(&this, pCryptoType, pDecodeProfile, ppCryptoSession, pCryptoHandle);
+	public HRESULT CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecodeProfile, IDirect3DCryptoSession9** ppCryptoSession, HANDLE* pCryptoHandle) mut => VT.[Friend]CreateCryptoSession(&this, ref pCryptoType, ref pDecodeProfile, ppCryptoSession, pCryptoHandle);
 }
 
 [CRepr]struct IDirect3DAuthenticatedChannel9 : IUnknown
@@ -12526,17 +12526,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pCertificateSize) GetCertificateSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 CertifacteSize, uint8 ppCertificate) GetCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCertificateSize) GetCertificateSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 CertifacteSize, uint8* ppCertificate) GetCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 DataSize, void* pData) NegotiateKeyExchange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 InputSize, void* pInput, uint32 OutputSize, void* pOutput) Query;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 InputSize, void* pInput, D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT* pOutput) Configure;
 	}
 
 
-	public HRESULT GetCertificateSize(uint32 pCertificateSize) mut => VT.[Friend]GetCertificateSize(&this, pCertificateSize);
+	public HRESULT GetCertificateSize(uint32* pCertificateSize) mut => VT.[Friend]GetCertificateSize(&this, pCertificateSize);
 
-	public HRESULT GetCertificate(uint32 CertifacteSize, uint8 ppCertificate) mut => VT.[Friend]GetCertificate(&this, CertifacteSize, ppCertificate);
+	public HRESULT GetCertificate(uint32 CertifacteSize, uint8* ppCertificate) mut => VT.[Friend]GetCertificate(&this, CertifacteSize, ppCertificate);
 
 	public HRESULT NegotiateKeyExchange(uint32 DataSize, void* pData) mut => VT.[Friend]NegotiateKeyExchange(&this, DataSize, pData);
 
@@ -12553,21 +12553,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pCertificateSize) GetCertificateSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 CertifacteSize, uint8 ppCertificate) GetCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCertificateSize) GetCertificateSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 CertifacteSize, uint8* ppCertificate) GetCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 DataSize, void* pData) NegotiateKeyExchange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DSurface9* pSrcSurface, IDirect3DSurface9* pDstSurface, uint32 DstSurfaceSize, void* pIV) EncryptionBlt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DSurface9* pSrcSurface, IDirect3DSurface9* pDstSurface, uint32 SrcSurfaceSize, D3DENCRYPTED_BLOCK_INFO* pEncryptedBlockInfo, void* pContentKey, void* pIV) DecryptionBlt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DSurface9* pSrcSurface, uint32 pSurfacePitch) GetSurfacePitch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DSurface9* pSrcSurface, uint32* pSurfacePitch) GetSurfacePitch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pRandomNumber, uint32 RandomNumberSize) StartSessionKeyRefresh;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) FinishSessionKeyRefresh;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pReadbackKey, uint32 KeySize) GetEncryptionBltKey;
 	}
 
 
-	public HRESULT GetCertificateSize(uint32 pCertificateSize) mut => VT.[Friend]GetCertificateSize(&this, pCertificateSize);
+	public HRESULT GetCertificateSize(uint32* pCertificateSize) mut => VT.[Friend]GetCertificateSize(&this, pCertificateSize);
 
-	public HRESULT GetCertificate(uint32 CertifacteSize, uint8 ppCertificate) mut => VT.[Friend]GetCertificate(&this, CertifacteSize, ppCertificate);
+	public HRESULT GetCertificate(uint32 CertifacteSize, uint8* ppCertificate) mut => VT.[Friend]GetCertificate(&this, CertifacteSize, ppCertificate);
 
 	public HRESULT NegotiateKeyExchange(uint32 DataSize, void* pData) mut => VT.[Friend]NegotiateKeyExchange(&this, DataSize, pData);
 
@@ -12575,7 +12575,7 @@ public static
 
 	public HRESULT DecryptionBlt(IDirect3DSurface9* pSrcSurface, IDirect3DSurface9* pDstSurface, uint32 SrcSurfaceSize, D3DENCRYPTED_BLOCK_INFO* pEncryptedBlockInfo, void* pContentKey, void* pIV) mut => VT.[Friend]DecryptionBlt(&this, pSrcSurface, pDstSurface, SrcSurfaceSize, pEncryptedBlockInfo, pContentKey, pIV);
 
-	public HRESULT GetSurfacePitch(IDirect3DSurface9* pSrcSurface, uint32 pSurfacePitch) mut => VT.[Friend]GetSurfacePitch(&this, pSrcSurface, pSurfacePitch);
+	public HRESULT GetSurfacePitch(IDirect3DSurface9* pSrcSurface, uint32* pSurfacePitch) mut => VT.[Friend]GetSurfacePitch(&this, pSrcSurface, pSurfacePitch);
 
 	public HRESULT StartSessionKeyRefresh(void* pRandomNumber, uint32 RandomNumberSize) mut => VT.[Friend]StartSessionKeyRefresh(&this, pRandomNumber, RandomNumberSize);
 
@@ -12608,19 +12608,19 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_FEATURE_VIDEO FeatureVideo, void* pFeatureSupportData, uint32 FeatureSupportDataSize) CheckFeatureSupport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_DECODER_DESC* pDesc, Guid riid, void** ppVideoDecoder) CreateVideoDecoder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_DECODER_HEAP_DESC* pVideoDecoderHeapDesc, Guid riid, void** ppVideoDecoderHeap) CreateVideoDecoderHeap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NodeMask, D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC* pOutputStreamDesc, uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs, Guid riid, void** ppVideoProcessor) CreateVideoProcessor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_DECODER_DESC* pDesc, ref Guid riid, void** ppVideoDecoder) CreateVideoDecoder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_DECODER_HEAP_DESC* pVideoDecoderHeapDesc, ref Guid riid, void** ppVideoDecoderHeap) CreateVideoDecoderHeap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NodeMask, D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC* pOutputStreamDesc, uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs, ref Guid riid, void** ppVideoProcessor) CreateVideoProcessor;
 	}
 
 
 	public HRESULT CheckFeatureSupport(D3D12_FEATURE_VIDEO FeatureVideo, void* pFeatureSupportData, uint32 FeatureSupportDataSize) mut => VT.[Friend]CheckFeatureSupport(&this, FeatureVideo, pFeatureSupportData, FeatureSupportDataSize);
 
-	public HRESULT CreateVideoDecoder(D3D12_VIDEO_DECODER_DESC* pDesc, Guid riid, void** ppVideoDecoder) mut => VT.[Friend]CreateVideoDecoder(&this, pDesc, riid, ppVideoDecoder);
+	public HRESULT CreateVideoDecoder(D3D12_VIDEO_DECODER_DESC* pDesc, ref Guid riid, void** ppVideoDecoder) mut => VT.[Friend]CreateVideoDecoder(&this, pDesc, ref riid, ppVideoDecoder);
 
-	public HRESULT CreateVideoDecoderHeap(D3D12_VIDEO_DECODER_HEAP_DESC* pVideoDecoderHeapDesc, Guid riid, void** ppVideoDecoderHeap) mut => VT.[Friend]CreateVideoDecoderHeap(&this, pVideoDecoderHeapDesc, riid, ppVideoDecoderHeap);
+	public HRESULT CreateVideoDecoderHeap(D3D12_VIDEO_DECODER_HEAP_DESC* pVideoDecoderHeapDesc, ref Guid riid, void** ppVideoDecoderHeap) mut => VT.[Friend]CreateVideoDecoderHeap(&this, pVideoDecoderHeapDesc, ref riid, ppVideoDecoderHeap);
 
-	public HRESULT CreateVideoProcessor(uint32 NodeMask, D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC* pOutputStreamDesc, uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs, Guid riid, void** ppVideoProcessor) mut => VT.[Friend]CreateVideoProcessor(&this, NodeMask, pOutputStreamDesc, NumInputStreamDescs, pInputStreamDescs, riid, ppVideoProcessor);
+	public HRESULT CreateVideoProcessor(uint32 NodeMask, D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC* pOutputStreamDesc, uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs, ref Guid riid, void** ppVideoProcessor) mut => VT.[Friend]CreateVideoProcessor(&this, NodeMask, pOutputStreamDesc, NumInputStreamDescs, pInputStreamDescs, ref riid, ppVideoProcessor);
 }
 
 [CRepr]struct ID3D12VideoDecoder : ID3D12Pageable
@@ -12809,13 +12809,13 @@ public static
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_MOTION_ESTIMATOR_DESC(SelfOuter* self) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
 	public D3D12_VIDEO_MOTION_ESTIMATOR_DESC GetDesc() mut => VT.[Friend]GetDesc(&this);
 
-	public HRESULT GetProtectedResourceSession(Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, riid, ppProtectedSession);
+	public HRESULT GetProtectedResourceSession(ref Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, ref riid, ppProtectedSession);
 }
 
 [CRepr]struct ID3D12VideoMotionVectorHeap : ID3D12Pageable
@@ -12827,13 +12827,13 @@ public static
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC(SelfOuter* self) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
 	public D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC GetDesc() mut => VT.[Friend]GetDesc(&this);
 
-	public HRESULT GetProtectedResourceSession(Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, riid, ppProtectedSession);
+	public HRESULT GetProtectedResourceSession(ref Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, ref riid, ppProtectedSession);
 }
 
 [CRepr]struct ID3D12VideoDevice1 : ID3D12VideoDevice
@@ -12844,14 +12844,14 @@ public static
 
 	[CRepr]public struct VTable : ID3D12VideoDevice.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_MOTION_ESTIMATOR_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoMotionEstimator) CreateVideoMotionEstimator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoMotionVectorHeap) CreateVideoMotionVectorHeap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_MOTION_ESTIMATOR_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoMotionEstimator) CreateVideoMotionEstimator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoMotionVectorHeap) CreateVideoMotionVectorHeap;
 	}
 
 
-	public HRESULT CreateVideoMotionEstimator(D3D12_VIDEO_MOTION_ESTIMATOR_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoMotionEstimator) mut => VT.[Friend]CreateVideoMotionEstimator(&this, pDesc, pProtectedResourceSession, riid, ppVideoMotionEstimator);
+	public HRESULT CreateVideoMotionEstimator(D3D12_VIDEO_MOTION_ESTIMATOR_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoMotionEstimator) mut => VT.[Friend]CreateVideoMotionEstimator(&this, pDesc, pProtectedResourceSession, ref riid, ppVideoMotionEstimator);
 
-	public HRESULT CreateVideoMotionVectorHeap(D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoMotionVectorHeap) mut => VT.[Friend]CreateVideoMotionVectorHeap(&this, pDesc, pProtectedResourceSession, riid, ppVideoMotionVectorHeap);
+	public HRESULT CreateVideoMotionVectorHeap(D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoMotionVectorHeap) mut => VT.[Friend]CreateVideoMotionVectorHeap(&this, pDesc, pProtectedResourceSession, ref riid, ppVideoMotionVectorHeap);
 }
 
 [CRepr]struct ID3D12VideoEncodeCommandList : ID3D12CommandList
@@ -12922,11 +12922,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D12VideoDecoder.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
-	public HRESULT GetProtectedResourceSession(Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, riid, ppProtectedSession);
+	public HRESULT GetProtectedResourceSession(ref Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, ref riid, ppProtectedSession);
 }
 
 [CRepr]struct ID3D12VideoDecoderHeap1 : ID3D12VideoDecoderHeap
@@ -12937,11 +12937,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D12VideoDecoderHeap.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
-	public HRESULT GetProtectedResourceSession(Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, riid, ppProtectedSession);
+	public HRESULT GetProtectedResourceSession(ref Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, ref riid, ppProtectedSession);
 }
 
 [CRepr]struct ID3D12VideoProcessor1 : ID3D12VideoProcessor
@@ -12952,11 +12952,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D12VideoProcessor.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
-	public HRESULT GetProtectedResourceSession(Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, riid, ppProtectedSession);
+	public HRESULT GetProtectedResourceSession(ref Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, ref riid, ppProtectedSession);
 }
 
 [CRepr]struct ID3D12VideoExtensionCommand : ID3D12Pageable
@@ -12968,13 +12968,13 @@ public static
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_EXTENSION_COMMAND_DESC(SelfOuter* self) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
 	public D3D12_VIDEO_EXTENSION_COMMAND_DESC GetDesc() mut => VT.[Friend]GetDesc(&this);
 
-	public HRESULT GetProtectedResourceSession(Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, riid, ppProtectedSession);
+	public HRESULT GetProtectedResourceSession(ref Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, ref riid, ppProtectedSession);
 }
 
 [CRepr]struct ID3D12VideoDevice2 : ID3D12VideoDevice1
@@ -12985,21 +12985,21 @@ public static
 
 	[CRepr]public struct VTable : ID3D12VideoDevice1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_DECODER_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoDecoder) CreateVideoDecoder1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_DECODER_HEAP_DESC* pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoDecoderHeap) CreateVideoDecoderHeap1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NodeMask, D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC* pOutputStreamDesc, uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoProcessor) CreateVideoProcessor1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_EXTENSION_COMMAND_DESC* pDesc, void* pCreationParameters, uint CreationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoExtensionCommand) CreateVideoExtensionCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_DECODER_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoDecoder) CreateVideoDecoder1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_DECODER_HEAP_DESC* pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoDecoderHeap) CreateVideoDecoderHeap1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NodeMask, D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC* pOutputStreamDesc, uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) CreateVideoProcessor1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_EXTENSION_COMMAND_DESC* pDesc, void* pCreationParameters, uint CreationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) CreateVideoExtensionCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12VideoExtensionCommand* pExtensionCommand, void* pExecutionParameters, uint ExecutionParametersSizeInBytes, void* pOutputData, uint OutputDataSizeInBytes) ExecuteExtensionCommand;
 	}
 
 
-	public HRESULT CreateVideoDecoder1(D3D12_VIDEO_DECODER_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoDecoder) mut => VT.[Friend]CreateVideoDecoder1(&this, pDesc, pProtectedResourceSession, riid, ppVideoDecoder);
+	public HRESULT CreateVideoDecoder1(D3D12_VIDEO_DECODER_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoDecoder) mut => VT.[Friend]CreateVideoDecoder1(&this, pDesc, pProtectedResourceSession, ref riid, ppVideoDecoder);
 
-	public HRESULT CreateVideoDecoderHeap1(D3D12_VIDEO_DECODER_HEAP_DESC* pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoDecoderHeap) mut => VT.[Friend]CreateVideoDecoderHeap1(&this, pVideoDecoderHeapDesc, pProtectedResourceSession, riid, ppVideoDecoderHeap);
+	public HRESULT CreateVideoDecoderHeap1(D3D12_VIDEO_DECODER_HEAP_DESC* pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoDecoderHeap) mut => VT.[Friend]CreateVideoDecoderHeap1(&this, pVideoDecoderHeapDesc, pProtectedResourceSession, ref riid, ppVideoDecoderHeap);
 
-	public HRESULT CreateVideoProcessor1(uint32 NodeMask, D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC* pOutputStreamDesc, uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoProcessor) mut => VT.[Friend]CreateVideoProcessor1(&this, NodeMask, pOutputStreamDesc, NumInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, riid, ppVideoProcessor);
+	public HRESULT CreateVideoProcessor1(uint32 NodeMask, D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC* pOutputStreamDesc, uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) mut => VT.[Friend]CreateVideoProcessor1(&this, NodeMask, pOutputStreamDesc, NumInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, ref riid, ppVideoProcessor);
 
-	public HRESULT CreateVideoExtensionCommand(D3D12_VIDEO_EXTENSION_COMMAND_DESC* pDesc, void* pCreationParameters, uint CreationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid riid, void** ppVideoExtensionCommand) mut => VT.[Friend]CreateVideoExtensionCommand(&this, pDesc, pCreationParameters, CreationParametersDataSizeInBytes, pProtectedResourceSession, riid, ppVideoExtensionCommand);
+	public HRESULT CreateVideoExtensionCommand(D3D12_VIDEO_EXTENSION_COMMAND_DESC* pDesc, void* pCreationParameters, uint CreationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) mut => VT.[Friend]CreateVideoExtensionCommand(&this, pDesc, pCreationParameters, CreationParametersDataSizeInBytes, pProtectedResourceSession, ref riid, ppVideoExtensionCommand);
 
 	public HRESULT ExecuteExtensionCommand(ID3D12VideoExtensionCommand* pExtensionCommand, void* pExecutionParameters, uint ExecutionParametersSizeInBytes, void* pOutputData, uint OutputDataSizeInBytes) mut => VT.[Friend]ExecuteExtensionCommand(&this, pExtensionCommand, pExecutionParameters, ExecutionParametersSizeInBytes, pOutputData, OutputDataSizeInBytes);
 }
@@ -13138,14 +13138,14 @@ public static
 
 	[CRepr]public struct VTable : ID3D12VideoDevice2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_ENCODER_DESC* pDesc, Guid riid, void** ppVideoEncoder) CreateVideoEncoder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_ENCODER_HEAP_DESC* pDesc, Guid riid, void** ppVideoEncoderHeap) CreateVideoEncoderHeap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_ENCODER_DESC* pDesc, ref Guid riid, void** ppVideoEncoder) CreateVideoEncoder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_VIDEO_ENCODER_HEAP_DESC* pDesc, ref Guid riid, void** ppVideoEncoderHeap) CreateVideoEncoderHeap;
 	}
 
 
-	public HRESULT CreateVideoEncoder(D3D12_VIDEO_ENCODER_DESC* pDesc, Guid riid, void** ppVideoEncoder) mut => VT.[Friend]CreateVideoEncoder(&this, pDesc, riid, ppVideoEncoder);
+	public HRESULT CreateVideoEncoder(D3D12_VIDEO_ENCODER_DESC* pDesc, ref Guid riid, void** ppVideoEncoder) mut => VT.[Friend]CreateVideoEncoder(&this, pDesc, ref riid, ppVideoEncoder);
 
-	public HRESULT CreateVideoEncoderHeap(D3D12_VIDEO_ENCODER_HEAP_DESC* pDesc, Guid riid, void** ppVideoEncoderHeap) mut => VT.[Friend]CreateVideoEncoderHeap(&this, pDesc, riid, ppVideoEncoderHeap);
+	public HRESULT CreateVideoEncoderHeap(D3D12_VIDEO_ENCODER_HEAP_DESC* pDesc, ref Guid riid, void** ppVideoEncoderHeap) mut => VT.[Friend]CreateVideoEncoderHeap(&this, pDesc, ref riid, ppVideoEncoderHeap);
 }
 
 [CRepr]struct ID3D12VideoEncodeCommandList2 : ID3D12VideoEncodeCommandList1
@@ -13189,11 +13189,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidLicensorID, uint8* pbEphemeron, uint32 cbEphemeron, uint8** ppbBlobValidationID, uint32 pcbBlobSize) GetIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidLicensorID, uint8* pbEphemeron, uint32 cbEphemeron, uint8** ppbBlobValidationID, uint32* pcbBlobSize) GetIdentifier;
 	}
 
 
-	public HRESULT GetIdentifier(Guid guidLicensorID, uint8* pbEphemeron, uint32 cbEphemeron, uint8** ppbBlobValidationID, uint32 pcbBlobSize) mut => VT.[Friend]GetIdentifier(&this, guidLicensorID, pbEphemeron, cbEphemeron, ppbBlobValidationID, pcbBlobSize);
+	public HRESULT GetIdentifier(Guid guidLicensorID, uint8* pbEphemeron, uint32 cbEphemeron, uint8** ppbBlobValidationID, uint32* pcbBlobSize) mut => VT.[Friend]GetIdentifier(&this, guidLicensorID, pbEphemeron, cbEphemeron, ppbBlobValidationID, pcbBlobSize);
 }
 
 [CRepr]struct IWMVideoDecoderHurryup : IUnknown
@@ -13205,13 +13205,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHurryup) SetHurryup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plHurryup) GetHurryup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHurryup) GetHurryup;
 	}
 
 
 	public HRESULT SetHurryup(int32 lHurryup) mut => VT.[Friend]SetHurryup(&this, lHurryup);
 
-	public HRESULT GetHurryup(int32 plHurryup) mut => VT.[Friend]GetHurryup(&this, plHurryup);
+	public HRESULT GetHurryup(int32* plHurryup) mut => VT.[Friend]GetHurryup(&this, plHurryup);
 }
 
 [CRepr]struct IWMVideoForceKeyFrame : IUnknown
@@ -13237,14 +13237,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szName, uint32 pcchLength) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szDescription, uint32 pcchLength) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szName, uint32* pcchLength) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szDescription, uint32* pcchLength) GetDescription;
 	}
 
 
-	public HRESULT GetName(DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szName, uint32 pcchLength) mut => VT.[Friend]GetName(&this, pmt, cchLength, szName, pcchLength);
+	public HRESULT GetName(DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szName, uint32* pcchLength) mut => VT.[Friend]GetName(&this, pmt, cchLength, szName, pcchLength);
 
-	public HRESULT GetDescription(DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szDescription, uint32 pcchLength) mut => VT.[Friend]GetDescription(&this, pmt, cchLength, szDescription, pcchLength);
+	public HRESULT GetDescription(DMO_MEDIA_TYPE* pmt, uint32 cchLength, char16* szDescription, uint32* pcchLength) mut => VT.[Friend]GetDescription(&this, pmt, cchLength, szDescription, pcchLength);
 }
 
 [CRepr]struct IWMCodecProps : IUnknown
@@ -13255,14 +13255,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMO_MEDIA_TYPE* pmt, PWSTR pszName, WMT_PROP_DATATYPE* pType, uint8 pValue, uint32 pdwSize) GetFormatProp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFormat, PWSTR pszName, WMT_PROP_DATATYPE* pType, uint8 pValue, uint32 pdwSize) GetCodecProp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMO_MEDIA_TYPE* pmt, PWSTR pszName, WMT_PROP_DATATYPE* pType, uint8* pValue, uint32* pdwSize) GetFormatProp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFormat, PWSTR pszName, WMT_PROP_DATATYPE* pType, uint8* pValue, uint32* pdwSize) GetCodecProp;
 	}
 
 
-	public HRESULT GetFormatProp(DMO_MEDIA_TYPE* pmt, PWSTR pszName, WMT_PROP_DATATYPE* pType, uint8 pValue, uint32 pdwSize) mut => VT.[Friend]GetFormatProp(&this, pmt, pszName, pType, pValue, pdwSize);
+	public HRESULT GetFormatProp(DMO_MEDIA_TYPE* pmt, PWSTR pszName, WMT_PROP_DATATYPE* pType, uint8* pValue, uint32* pdwSize) mut => VT.[Friend]GetFormatProp(&this, pmt, pszName, pType, pValue, pdwSize);
 
-	public HRESULT GetCodecProp(uint32 dwFormat, PWSTR pszName, WMT_PROP_DATATYPE* pType, uint8 pValue, uint32 pdwSize) mut => VT.[Friend]GetCodecProp(&this, dwFormat, pszName, pType, pValue, pdwSize);
+	public HRESULT GetCodecProp(uint32 dwFormat, PWSTR pszName, WMT_PROP_DATATYPE* pType, uint8* pValue, uint32* pdwSize) mut => VT.[Friend]GetCodecProp(&this, dwFormat, pszName, pType, pValue, pdwSize);
 }
 
 [CRepr]struct IWMCodecLeakyBucket : IUnknown
@@ -13274,19 +13274,19 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulBufferSize) SetBufferSizeBits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulBufferSize) GetBufferSizeBits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulBufferSize) GetBufferSizeBits;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulBufferFullness) SetBufferFullnessBits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pulBufferFullness) GetBufferFullnessBits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulBufferFullness) GetBufferFullnessBits;
 	}
 
 
 	public HRESULT SetBufferSizeBits(uint32 ulBufferSize) mut => VT.[Friend]SetBufferSizeBits(&this, ulBufferSize);
 
-	public HRESULT GetBufferSizeBits(uint32 pulBufferSize) mut => VT.[Friend]GetBufferSizeBits(&this, pulBufferSize);
+	public HRESULT GetBufferSizeBits(uint32* pulBufferSize) mut => VT.[Friend]GetBufferSizeBits(&this, pulBufferSize);
 
 	public HRESULT SetBufferFullnessBits(uint32 ulBufferFullness) mut => VT.[Friend]SetBufferFullnessBits(&this, ulBufferFullness);
 
-	public HRESULT GetBufferFullnessBits(uint32 pulBufferFullness) mut => VT.[Friend]GetBufferFullnessBits(&this, pulBufferFullness);
+	public HRESULT GetBufferFullnessBits(uint32* pulBufferFullness) mut => VT.[Friend]GetBufferFullnessBits(&this, pulBufferFullness);
 }
 
 [CRepr]struct IWMCodecOutputTimestamp : IUnknown
@@ -13297,11 +13297,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 prtTime) GetNextOutputTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* prtTime) GetNextOutputTime;
 	}
 
 
-	public HRESULT GetNextOutputTime(int64 prtTime) mut => VT.[Friend]GetNextOutputTime(&this, prtTime);
+	public HRESULT GetNextOutputTime(int64* prtTime) mut => VT.[Friend]GetNextOutputTime(&this, prtTime);
 }
 
 [CRepr]struct IWMVideoDecoderReconBuffer : IUnknown
@@ -13312,13 +13312,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwSize) GetReconstructedVideoFrameSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwSize) GetReconstructedVideoFrameSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMediaBuffer* pBuf) GetReconstructedVideoFrame;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMediaBuffer* pBuf) SetReconstructedVideoFrame;
 	}
 
 
-	public HRESULT GetReconstructedVideoFrameSize(uint32 pdwSize) mut => VT.[Friend]GetReconstructedVideoFrameSize(&this, pdwSize);
+	public HRESULT GetReconstructedVideoFrameSize(uint32* pdwSize) mut => VT.[Friend]GetReconstructedVideoFrameSize(&this, pdwSize);
 
 	public HRESULT GetReconstructedVideoFrame(IMediaBuffer* pBuf) mut => VT.[Friend]GetReconstructedVideoFrame(&this, pBuf);
 
@@ -13334,13 +13334,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMO_MEDIA_TYPE* pmt) SetPartialOutputType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbData, uint32 pcbData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbData, uint32* pcbData) GetPrivateData;
 	}
 
 
 	public HRESULT SetPartialOutputType(DMO_MEDIA_TYPE* pmt) mut => VT.[Friend]SetPartialOutputType(&this, pmt);
 
-	public HRESULT GetPrivateData(uint8 pbData, uint32 pcbData) mut => VT.[Friend]GetPrivateData(&this, pbData, pcbData);
+	public HRESULT GetPrivateData(uint8* pbData, uint32* pcbData) mut => VT.[Friend]GetPrivateData(&this, pbData, pcbData);
 }
 
 [CRepr]struct IWMSampleExtensionSupport : IUnknown
@@ -13367,13 +13367,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lhalfFilterLen) SetHalfFilterLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float userChannelMtx) SetUserChannelMtx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* userChannelMtx) SetUserChannelMtx;
 	}
 
 
 	public HRESULT SetHalfFilterLength(int32 lhalfFilterLen) mut => VT.[Friend]SetHalfFilterLength(&this, lhalfFilterLen);
 
-	public HRESULT SetUserChannelMtx(float userChannelMtx) mut => VT.[Friend]SetUserChannelMtx(&this, userChannelMtx);
+	public HRESULT SetUserChannelMtx(float* userChannelMtx) mut => VT.[Friend]SetUserChannelMtx(&this, userChannelMtx);
 }
 
 [CRepr]struct IWMResizerProps : IUnknown
@@ -13388,7 +13388,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lmode) SetInterlaceMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lClipOriXSrc, int32 lClipOriYSrc, int32 lClipWidthSrc, int32 lClipHeightSrc) SetClipRegion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lClipOriXSrc, int32 lClipOriYSrc, int32 lClipWidthSrc, int32 lClipHeightSrc, int32 lClipOriXDst, int32 lClipOriYDst, int32 lClipWidthDst, int32 lClipHeightDst) SetFullCropRegion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lClipOriXSrc, int32 lClipOriYSrc, int32 lClipWidthSrc, int32 lClipHeightSrc, int32 lClipOriXDst, int32 lClipOriYDst, int32 lClipWidthDst, int32 lClipHeightDst) GetFullCropRegion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lClipOriXSrc, int32* lClipOriYSrc, int32* lClipWidthSrc, int32* lClipHeightSrc, int32* lClipOriXDst, int32* lClipOriYDst, int32* lClipWidthDst, int32* lClipHeightDst) GetFullCropRegion;
 	}
 
 
@@ -13400,7 +13400,7 @@ public static
 
 	public HRESULT SetFullCropRegion(int32 lClipOriXSrc, int32 lClipOriYSrc, int32 lClipWidthSrc, int32 lClipHeightSrc, int32 lClipOriXDst, int32 lClipOriYDst, int32 lClipWidthDst, int32 lClipHeightDst) mut => VT.[Friend]SetFullCropRegion(&this, lClipOriXSrc, lClipOriYSrc, lClipWidthSrc, lClipHeightSrc, lClipOriXDst, lClipOriYDst, lClipWidthDst, lClipHeightDst);
 
-	public HRESULT GetFullCropRegion(int32 lClipOriXSrc, int32 lClipOriYSrc, int32 lClipWidthSrc, int32 lClipHeightSrc, int32 lClipOriXDst, int32 lClipOriYDst, int32 lClipWidthDst, int32 lClipHeightDst) mut => VT.[Friend]GetFullCropRegion(&this, lClipOriXSrc, lClipOriYSrc, lClipWidthSrc, lClipHeightSrc, lClipOriXDst, lClipOriYDst, lClipWidthDst, lClipHeightDst);
+	public HRESULT GetFullCropRegion(int32* lClipOriXSrc, int32* lClipOriYSrc, int32* lClipWidthSrc, int32* lClipHeightSrc, int32* lClipOriXDst, int32* lClipOriYDst, int32* lClipWidthDst, int32* lClipHeightDst) mut => VT.[Friend]GetFullCropRegion(&this, lClipOriXSrc, lClipOriYSrc, lClipWidthSrc, lClipHeightSrc, lClipOriXDst, lClipOriYDst, lClipWidthDst, lClipHeightDst);
 }
 
 [CRepr]struct IWMColorLegalizerProps : IUnknown
@@ -13490,31 +13490,31 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszTitle) SetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwTitleSize, char16* pwszTitle) GetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwTitleSize, char16* pwszTitle) GetTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_ENTRY_DESCRIPTOR* pDescriptor) SetDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_ENTRY_DESCRIPTOR* pDescriptor) GetDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwNumSubEntries, uint16 pwSubEntryIndices) SetSubEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwNumSubEntries, uint16 pwSubEntryIndices) GetSubEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDescriptionDataSize, uint8 pbtDescriptionData, Guid pguidType) SetDescriptionData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwDescriptionDataSize, uint8 pbtDescriptionData, Guid pGuidType) GetDescriptionData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwNumSubEntries, uint16* pwSubEntryIndices) SetSubEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwNumSubEntries, uint16* pwSubEntryIndices) GetSubEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDescriptionDataSize, uint8* pbtDescriptionData, ref Guid pguidType) SetDescriptionData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwDescriptionDataSize, uint8* pbtDescriptionData, ref Guid pGuidType) GetDescriptionData;
 	}
 
 
 	public HRESULT SetTitle(PWSTR pwszTitle) mut => VT.[Friend]SetTitle(&this, pwszTitle);
 
-	public HRESULT GetTitle(uint16 pwTitleSize, char16* pwszTitle) mut => VT.[Friend]GetTitle(&this, pwTitleSize, pwszTitle);
+	public HRESULT GetTitle(uint16* pwTitleSize, char16* pwszTitle) mut => VT.[Friend]GetTitle(&this, pwTitleSize, pwszTitle);
 
 	public HRESULT SetDescriptor(TOC_ENTRY_DESCRIPTOR* pDescriptor) mut => VT.[Friend]SetDescriptor(&this, pDescriptor);
 
 	public HRESULT GetDescriptor(TOC_ENTRY_DESCRIPTOR* pDescriptor) mut => VT.[Friend]GetDescriptor(&this, pDescriptor);
 
-	public HRESULT SetSubEntries(uint32 dwNumSubEntries, uint16 pwSubEntryIndices) mut => VT.[Friend]SetSubEntries(&this, dwNumSubEntries, pwSubEntryIndices);
+	public HRESULT SetSubEntries(uint32 dwNumSubEntries, uint16* pwSubEntryIndices) mut => VT.[Friend]SetSubEntries(&this, dwNumSubEntries, pwSubEntryIndices);
 
-	public HRESULT GetSubEntries(uint32 pdwNumSubEntries, uint16 pwSubEntryIndices) mut => VT.[Friend]GetSubEntries(&this, pdwNumSubEntries, pwSubEntryIndices);
+	public HRESULT GetSubEntries(uint32* pdwNumSubEntries, uint16* pwSubEntryIndices) mut => VT.[Friend]GetSubEntries(&this, pdwNumSubEntries, pwSubEntryIndices);
 
-	public HRESULT SetDescriptionData(uint32 dwDescriptionDataSize, uint8 pbtDescriptionData, Guid pguidType) mut => VT.[Friend]SetDescriptionData(&this, dwDescriptionDataSize, pbtDescriptionData, pguidType);
+	public HRESULT SetDescriptionData(uint32 dwDescriptionDataSize, uint8* pbtDescriptionData, ref Guid pguidType) mut => VT.[Friend]SetDescriptionData(&this, dwDescriptionDataSize, pbtDescriptionData, ref pguidType);
 
-	public HRESULT GetDescriptionData(uint32 pdwDescriptionDataSize, uint8 pbtDescriptionData, Guid pGuidType) mut => VT.[Friend]GetDescriptionData(&this, pdwDescriptionDataSize, pbtDescriptionData, pGuidType);
+	public HRESULT GetDescriptionData(uint32* pdwDescriptionDataSize, uint8* pbtDescriptionData, ref Guid pGuidType) mut => VT.[Friend]GetDescriptionData(&this, pdwDescriptionDataSize, pbtDescriptionData, ref pGuidType);
 }
 
 [CRepr]struct ITocEntryList : IUnknown
@@ -13525,19 +13525,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwEntryCount) GetEntryCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwEntryCount) GetEntryCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEntryIndex, ITocEntry** ppEntry) GetEntryByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITocEntry* pEntry, uint32 pdwEntryIndex) AddEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITocEntry* pEntry, uint32* pdwEntryIndex) AddEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEntryIndex, ITocEntry* pEntry) AddEntryByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEntryIndex) RemoveEntryByIndex;
 	}
 
 
-	public HRESULT GetEntryCount(uint32 pdwEntryCount) mut => VT.[Friend]GetEntryCount(&this, pdwEntryCount);
+	public HRESULT GetEntryCount(uint32* pdwEntryCount) mut => VT.[Friend]GetEntryCount(&this, pdwEntryCount);
 
 	public HRESULT GetEntryByIndex(uint32 dwEntryIndex, ITocEntry** ppEntry) mut => VT.[Friend]GetEntryByIndex(&this, dwEntryIndex, ppEntry);
 
-	public HRESULT AddEntry(ITocEntry* pEntry, uint32 pdwEntryIndex) mut => VT.[Friend]AddEntry(&this, pEntry, pdwEntryIndex);
+	public HRESULT AddEntry(ITocEntry* pEntry, uint32* pdwEntryIndex) mut => VT.[Friend]AddEntry(&this, pEntry, pdwEntryIndex);
 
 	public HRESULT AddEntryByIndex(uint32 dwEntryIndex, ITocEntry* pEntry) mut => VT.[Friend]AddEntryByIndex(&this, dwEntryIndex, pEntry);
 
@@ -13555,12 +13555,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_DESCRIPTOR* pDescriptor) SetDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_DESCRIPTOR* pDescriptor) GetDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDescription) SetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwDescriptionSize, char16* pwszDescription) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwContextSize, uint8 pbtContext) SetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwContextSize, uint8 pbtContext) GetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwCount) GetEntryListCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwDescriptionSize, char16* pwszDescription) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwContextSize, uint8* pbtContext) SetContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwContextSize, uint8* pbtContext) GetContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwCount) GetEntryListCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wEntryListIndex, ITocEntryList** ppEntryList) GetEntryListByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITocEntryList* pEntryList, uint16 pwEntryListIndex) AddEntryList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITocEntryList* pEntryList, uint16* pwEntryListIndex) AddEntryList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wEntryListIndex, ITocEntryList* pEntryList) AddEntryListByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wEntryListIndex) RemoveEntryListByIndex;
 	}
@@ -13572,17 +13572,17 @@ public static
 
 	public HRESULT SetDescription(PWSTR pwszDescription) mut => VT.[Friend]SetDescription(&this, pwszDescription);
 
-	public HRESULT GetDescription(uint16 pwDescriptionSize, char16* pwszDescription) mut => VT.[Friend]GetDescription(&this, pwDescriptionSize, pwszDescription);
+	public HRESULT GetDescription(uint16* pwDescriptionSize, char16* pwszDescription) mut => VT.[Friend]GetDescription(&this, pwDescriptionSize, pwszDescription);
 
-	public HRESULT SetContext(uint32 dwContextSize, uint8 pbtContext) mut => VT.[Friend]SetContext(&this, dwContextSize, pbtContext);
+	public HRESULT SetContext(uint32 dwContextSize, uint8* pbtContext) mut => VT.[Friend]SetContext(&this, dwContextSize, pbtContext);
 
-	public HRESULT GetContext(uint32 pdwContextSize, uint8 pbtContext) mut => VT.[Friend]GetContext(&this, pdwContextSize, pbtContext);
+	public HRESULT GetContext(uint32* pdwContextSize, uint8* pbtContext) mut => VT.[Friend]GetContext(&this, pdwContextSize, pbtContext);
 
-	public HRESULT GetEntryListCount(uint16 pwCount) mut => VT.[Friend]GetEntryListCount(&this, pwCount);
+	public HRESULT GetEntryListCount(uint16* pwCount) mut => VT.[Friend]GetEntryListCount(&this, pwCount);
 
 	public HRESULT GetEntryListByIndex(uint16 wEntryListIndex, ITocEntryList** ppEntryList) mut => VT.[Friend]GetEntryListByIndex(&this, wEntryListIndex, ppEntryList);
 
-	public HRESULT AddEntryList(ITocEntryList* pEntryList, uint16 pwEntryListIndex) mut => VT.[Friend]AddEntryList(&this, pEntryList, pwEntryListIndex);
+	public HRESULT AddEntryList(ITocEntryList* pEntryList, uint16* pwEntryListIndex) mut => VT.[Friend]AddEntryList(&this, pEntryList, pwEntryListIndex);
 
 	public HRESULT AddEntryListByIndex(uint16 wEntryListIndex, ITocEntryList* pEntryList) mut => VT.[Friend]AddEntryListByIndex(&this, wEntryListIndex, pEntryList);
 
@@ -13597,19 +13597,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwEntryCount) GetEntryCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwEntryCount) GetEntryCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEntryIndex, IToc** ppToc) GetEntryByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IToc* pToc, uint32 pdwEntryIndex) AddEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IToc* pToc, uint32* pdwEntryIndex) AddEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEntryIndex, IToc* pToc) AddEntryByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEntryIndex) RemoveEntryByIndex;
 	}
 
 
-	public HRESULT GetEntryCount(uint32 pdwEntryCount) mut => VT.[Friend]GetEntryCount(&this, pdwEntryCount);
+	public HRESULT GetEntryCount(uint32* pdwEntryCount) mut => VT.[Friend]GetEntryCount(&this, pdwEntryCount);
 
 	public HRESULT GetEntryByIndex(uint32 dwEntryIndex, IToc** ppToc) mut => VT.[Friend]GetEntryByIndex(&this, dwEntryIndex, ppToc);
 
-	public HRESULT AddEntry(IToc* pToc, uint32 pdwEntryIndex) mut => VT.[Friend]AddEntry(&this, pToc, pdwEntryIndex);
+	public HRESULT AddEntry(IToc* pToc, uint32* pdwEntryIndex) mut => VT.[Friend]AddEntry(&this, pToc, pdwEntryIndex);
 
 	public HRESULT AddEntryByIndex(uint32 dwEntryIndex, IToc* pToc) mut => VT.[Friend]AddEntryByIndex(&this, dwEntryIndex, pToc);
 
@@ -13625,10 +13625,10 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszFileName) Init;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_POS_TYPE enumTocPosType, uint32 pdwTocCount) GetTocCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_POS_TYPE enumTocPosType, uint32* pdwTocCount) GetTocCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_POS_TYPE enumTocPosType, uint32 dwTocIndex, IToc** ppToc) GetTocByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_POS_TYPE enumTocPosType, Guid guidTocType, ITocCollection** ppTocs) GetTocByType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_POS_TYPE enumTocPosType, IToc* pToc, uint32 pdwTocIndex) AddToc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_POS_TYPE enumTocPosType, IToc* pToc, uint32* pdwTocIndex) AddToc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_POS_TYPE enumTocPosType, uint32 dwTocIndex) RemoveTocByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TOC_POS_TYPE enumTocPosType, Guid guidTocType) RemoveTocByType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Commit;
@@ -13637,13 +13637,13 @@ public static
 
 	public HRESULT Init(PWSTR pwszFileName) mut => VT.[Friend]Init(&this, pwszFileName);
 
-	public HRESULT GetTocCount(TOC_POS_TYPE enumTocPosType, uint32 pdwTocCount) mut => VT.[Friend]GetTocCount(&this, enumTocPosType, pdwTocCount);
+	public HRESULT GetTocCount(TOC_POS_TYPE enumTocPosType, uint32* pdwTocCount) mut => VT.[Friend]GetTocCount(&this, enumTocPosType, pdwTocCount);
 
 	public HRESULT GetTocByIndex(TOC_POS_TYPE enumTocPosType, uint32 dwTocIndex, IToc** ppToc) mut => VT.[Friend]GetTocByIndex(&this, enumTocPosType, dwTocIndex, ppToc);
 
 	public HRESULT GetTocByType(TOC_POS_TYPE enumTocPosType, Guid guidTocType, ITocCollection** ppTocs) mut => VT.[Friend]GetTocByType(&this, enumTocPosType, guidTocType, ppTocs);
 
-	public HRESULT AddToc(TOC_POS_TYPE enumTocPosType, IToc* pToc, uint32 pdwTocIndex) mut => VT.[Friend]AddToc(&this, enumTocPosType, pToc, pdwTocIndex);
+	public HRESULT AddToc(TOC_POS_TYPE enumTocPosType, IToc* pToc, uint32* pdwTocIndex) mut => VT.[Friend]AddToc(&this, enumTocPosType, pToc, pdwTocIndex);
 
 	public HRESULT RemoveTocByIndex(TOC_POS_TYPE enumTocPosType, uint32 dwTocIndex) mut => VT.[Friend]RemoveTocByIndex(&this, enumTocPosType, dwTocIndex);
 
@@ -13661,35 +13661,35 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILE_ACCESSMODE eAccessMode, FILE_OPENMODE eOpenMode, PWSTR pwszFileName) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pqwLength) GetLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pqwLength) GetLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 qwLength) SetLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pqwPosition) GetCurrentPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pqwPosition) GetCurrentPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 qwPosition) SetCurrentPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbEndOfStream) IsEndOfStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbt, uint32 ul, uint32 pulRead) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbt, uint32 ul, uint32 pulWritten) Write;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SEEK_ORIGIN eSeekOrigin, uint64 qwSeekOffset, uint32 dwSeekFlags, uint64 pqwCurrentPosition) Seek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbt, uint32 ul, uint32* pulRead) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbt, uint32 ul, uint32* pulWritten) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SEEK_ORIGIN eSeekOrigin, uint64 qwSeekOffset, uint32 dwSeekFlags, uint64* pqwCurrentPosition) Seek;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
 	public HRESULT Initialize(FILE_ACCESSMODE eAccessMode, FILE_OPENMODE eOpenMode, PWSTR pwszFileName) mut => VT.[Friend]Initialize(&this, eAccessMode, eOpenMode, pwszFileName);
 
-	public HRESULT GetLength(uint64 pqwLength) mut => VT.[Friend]GetLength(&this, pqwLength);
+	public HRESULT GetLength(uint64* pqwLength) mut => VT.[Friend]GetLength(&this, pqwLength);
 
 	public HRESULT SetLength(uint64 qwLength) mut => VT.[Friend]SetLength(&this, qwLength);
 
-	public HRESULT GetCurrentPosition(uint64 pqwPosition) mut => VT.[Friend]GetCurrentPosition(&this, pqwPosition);
+	public HRESULT GetCurrentPosition(uint64* pqwPosition) mut => VT.[Friend]GetCurrentPosition(&this, pqwPosition);
 
 	public HRESULT SetCurrentPosition(uint64 qwPosition) mut => VT.[Friend]SetCurrentPosition(&this, qwPosition);
 
 	public HRESULT IsEndOfStream(BOOL* pbEndOfStream) mut => VT.[Friend]IsEndOfStream(&this, pbEndOfStream);
 
-	public HRESULT Read(uint8 pbt, uint32 ul, uint32 pulRead) mut => VT.[Friend]Read(&this, pbt, ul, pulRead);
+	public HRESULT Read(uint8* pbt, uint32 ul, uint32* pulRead) mut => VT.[Friend]Read(&this, pbt, ul, pulRead);
 
-	public HRESULT Write(uint8 pbt, uint32 ul, uint32 pulWritten) mut => VT.[Friend]Write(&this, pbt, ul, pulWritten);
+	public HRESULT Write(uint8* pbt, uint32 ul, uint32* pulWritten) mut => VT.[Friend]Write(&this, pbt, ul, pulWritten);
 
-	public HRESULT Seek(SEEK_ORIGIN eSeekOrigin, uint64 qwSeekOffset, uint32 dwSeekFlags, uint64 pqwCurrentPosition) mut => VT.[Friend]Seek(&this, eSeekOrigin, qwSeekOffset, dwSeekFlags, pqwCurrentPosition);
+	public HRESULT Seek(SEEK_ORIGIN eSeekOrigin, uint64 qwSeekOffset, uint32 dwSeekFlags, uint64* pqwCurrentPosition) mut => VT.[Friend]Seek(&this, eSeekOrigin, qwSeekOffset, dwSeekFlags, pqwCurrentPosition);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 }
@@ -13702,13 +13702,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pqwSize) GetObjectDiskSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pqwSize) GetObjectDiskSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFileIo* pFio) Write;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFileIo* pFio) Read;
 	}
 
 
-	public HRESULT GetObjectDiskSize(uint64 pqwSize) mut => VT.[Friend]GetObjectDiskSize(&this, pqwSize);
+	public HRESULT GetObjectDiskSize(uint64* pqwSize) mut => VT.[Friend]GetObjectDiskSize(&this, pqwSize);
 
 	public HRESULT Write(IFileIo* pFio) mut => VT.[Friend]Write(&this, pFio);
 
@@ -13746,9 +13746,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Count, D3DFORMAT* pFormats) GetVideoProcessorOutputFormats;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Count, D3DFORMAT* pFormats) GetVideoProcessorInputFormats;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Count, DXVAHD_VPCAPS* pCaps) GetVideoProcessorCaps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pVPGuid, uint32 Count, DXVAHD_CUSTOM_RATE_DATA* pRates) GetVideoProcessorCustomRates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pVPGuid, uint32 Count, DXVAHD_CUSTOM_RATE_DATA* pRates) GetVideoProcessorCustomRates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXVAHD_FILTER Filter, DXVAHD_FILTER_RANGE_DATA* pRange) GetVideoProcessorFilterRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pVPGuid, IDXVAHD_VideoProcessor** ppVideoProcessor) CreateVideoProcessor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pVPGuid, IDXVAHD_VideoProcessor** ppVideoProcessor) CreateVideoProcessor;
 	}
 
 
@@ -13762,11 +13762,11 @@ public static
 
 	public HRESULT GetVideoProcessorCaps(uint32 Count, DXVAHD_VPCAPS* pCaps) mut => VT.[Friend]GetVideoProcessorCaps(&this, Count, pCaps);
 
-	public HRESULT GetVideoProcessorCustomRates(Guid pVPGuid, uint32 Count, DXVAHD_CUSTOM_RATE_DATA* pRates) mut => VT.[Friend]GetVideoProcessorCustomRates(&this, pVPGuid, Count, pRates);
+	public HRESULT GetVideoProcessorCustomRates(ref Guid pVPGuid, uint32 Count, DXVAHD_CUSTOM_RATE_DATA* pRates) mut => VT.[Friend]GetVideoProcessorCustomRates(&this, ref pVPGuid, Count, pRates);
 
 	public HRESULT GetVideoProcessorFilterRange(DXVAHD_FILTER Filter, DXVAHD_FILTER_RANGE_DATA* pRange) mut => VT.[Friend]GetVideoProcessorFilterRange(&this, Filter, pRange);
 
-	public HRESULT CreateVideoProcessor(Guid pVPGuid, IDXVAHD_VideoProcessor** ppVideoProcessor) mut => VT.[Friend]CreateVideoProcessor(&this, pVPGuid, ppVideoProcessor);
+	public HRESULT CreateVideoProcessor(ref Guid pVPGuid, IDXVAHD_VideoProcessor** ppVideoProcessor) mut => VT.[Friend]CreateVideoProcessor(&this, ref pVPGuid, ppVideoProcessor);
 }
 
 [CRepr]struct IDXVAHD_VideoProcessor : IUnknown
@@ -13810,7 +13810,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice) TestDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice, IDirect3DDevice9** ppDevice, BOOL fBlock) LockDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice, BOOL fSaveState) UnlockDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice, Guid riid, void** ppService) GetVideoService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice, ref Guid riid, void** ppService) GetVideoService;
 	}
 
 
@@ -13826,7 +13826,7 @@ public static
 
 	public HRESULT UnlockDevice(HANDLE hDevice, BOOL fSaveState) mut => VT.[Friend]UnlockDevice(&this, hDevice, fSaveState);
 
-	public HRESULT GetVideoService(HANDLE hDevice, Guid riid, void** ppService) mut => VT.[Friend]GetVideoService(&this, hDevice, riid, ppService);
+	public HRESULT GetVideoService(HANDLE hDevice, ref Guid riid, void** ppService) mut => VT.[Friend]GetVideoService(&this, hDevice, ref riid, ppService);
 }
 
 [CRepr]struct IDirectXVideoAccelerationService : IUnknown
@@ -13852,20 +13852,20 @@ public static
 
 	[CRepr]public struct VTable : IDirectXVideoAccelerationService.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pCount, Guid** pGuids) GetDecoderDeviceGuids;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Guid, uint32 pCount, D3DFORMAT** pFormats) GetDecoderRenderTargets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Guid, DXVA2_VideoDesc* pVideoDesc, void* pReserved, uint32 pCount, DXVA2_ConfigPictureDecode** ppConfigs) GetDecoderConfigurations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid Guid, DXVA2_VideoDesc* pVideoDesc, DXVA2_ConfigPictureDecode* pConfig, IDirect3DSurface9** ppDecoderRenderTargets, uint32 NumRenderTargets, IDirectXVideoDecoder** ppDecode) CreateVideoDecoder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount, Guid** pGuids) GetDecoderDeviceGuids;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Guid, uint32* pCount, D3DFORMAT** pFormats) GetDecoderRenderTargets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Guid, DXVA2_VideoDesc* pVideoDesc, void* pReserved, uint32* pCount, DXVA2_ConfigPictureDecode** ppConfigs) GetDecoderConfigurations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Guid, DXVA2_VideoDesc* pVideoDesc, DXVA2_ConfigPictureDecode* pConfig, IDirect3DSurface9** ppDecoderRenderTargets, uint32 NumRenderTargets, IDirectXVideoDecoder** ppDecode) CreateVideoDecoder;
 	}
 
 
-	public HRESULT GetDecoderDeviceGuids(uint32 pCount, Guid** pGuids) mut => VT.[Friend]GetDecoderDeviceGuids(&this, pCount, pGuids);
+	public HRESULT GetDecoderDeviceGuids(uint32* pCount, Guid** pGuids) mut => VT.[Friend]GetDecoderDeviceGuids(&this, pCount, pGuids);
 
-	public HRESULT GetDecoderRenderTargets(Guid Guid, uint32 pCount, D3DFORMAT** pFormats) mut => VT.[Friend]GetDecoderRenderTargets(&this, Guid, pCount, pFormats);
+	public HRESULT GetDecoderRenderTargets(ref Guid Guid, uint32* pCount, D3DFORMAT** pFormats) mut => VT.[Friend]GetDecoderRenderTargets(&this, ref Guid, pCount, pFormats);
 
-	public HRESULT GetDecoderConfigurations(Guid Guid, DXVA2_VideoDesc* pVideoDesc, void* pReserved, uint32 pCount, DXVA2_ConfigPictureDecode** ppConfigs) mut => VT.[Friend]GetDecoderConfigurations(&this, Guid, pVideoDesc, pReserved, pCount, ppConfigs);
+	public HRESULT GetDecoderConfigurations(ref Guid Guid, DXVA2_VideoDesc* pVideoDesc, void* pReserved, uint32* pCount, DXVA2_ConfigPictureDecode** ppConfigs) mut => VT.[Friend]GetDecoderConfigurations(&this, ref Guid, pVideoDesc, pReserved, pCount, ppConfigs);
 
-	public HRESULT CreateVideoDecoder(Guid Guid, DXVA2_VideoDesc* pVideoDesc, DXVA2_ConfigPictureDecode* pConfig, IDirect3DSurface9** ppDecoderRenderTargets, uint32 NumRenderTargets, IDirectXVideoDecoder** ppDecode) mut => VT.[Friend]CreateVideoDecoder(&this, Guid, pVideoDesc, pConfig, ppDecoderRenderTargets, NumRenderTargets, ppDecode);
+	public HRESULT CreateVideoDecoder(ref Guid Guid, DXVA2_VideoDesc* pVideoDesc, DXVA2_ConfigPictureDecode* pConfig, IDirect3DSurface9** ppDecoderRenderTargets, uint32 NumRenderTargets, IDirectXVideoDecoder** ppDecode) mut => VT.[Friend]CreateVideoDecoder(&this, ref Guid, pVideoDesc, pConfig, ppDecoderRenderTargets, NumRenderTargets, ppDecode);
 }
 
 [CRepr]struct IDirectXVideoProcessorService : IDirectXVideoAccelerationService
@@ -13877,31 +13877,31 @@ public static
 	[CRepr]public struct VTable : IDirectXVideoAccelerationService.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pCallbacks) RegisterVideoProcessorSoftwareDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXVA2_VideoDesc* pVideoDesc, uint32 pCount, Guid** pGuids) GetVideoProcessorDeviceGuids;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, uint32 pCount, D3DFORMAT** pFormats) GetVideoProcessorRenderTargets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 pCount, D3DFORMAT** pFormats) GetVideoProcessorSubStreamFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, DXVA2_VideoProcessorCaps* pCaps) GetVideoProcessorCaps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 ProcAmpCap, DXVA2_ValueRange* pRange) GetProcAmpRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 FilterSetting, DXVA2_ValueRange* pRange) GetFilterPropertyRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 MaxNumSubStreams, IDirectXVideoProcessor** ppVidProcess) CreateVideoProcessor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXVA2_VideoDesc* pVideoDesc, uint32* pCount, Guid** pGuids) GetVideoProcessorDeviceGuids;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, uint32* pCount, D3DFORMAT** pFormats) GetVideoProcessorRenderTargets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32* pCount, D3DFORMAT** pFormats) GetVideoProcessorSubStreamFormats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, DXVA2_VideoProcessorCaps* pCaps) GetVideoProcessorCaps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 ProcAmpCap, DXVA2_ValueRange* pRange) GetProcAmpRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 FilterSetting, DXVA2_ValueRange* pRange) GetFilterPropertyRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 MaxNumSubStreams, IDirectXVideoProcessor** ppVidProcess) CreateVideoProcessor;
 	}
 
 
 	public HRESULT RegisterVideoProcessorSoftwareDevice(void* pCallbacks) mut => VT.[Friend]RegisterVideoProcessorSoftwareDevice(&this, pCallbacks);
 
-	public HRESULT GetVideoProcessorDeviceGuids(DXVA2_VideoDesc* pVideoDesc, uint32 pCount, Guid** pGuids) mut => VT.[Friend]GetVideoProcessorDeviceGuids(&this, pVideoDesc, pCount, pGuids);
+	public HRESULT GetVideoProcessorDeviceGuids(DXVA2_VideoDesc* pVideoDesc, uint32* pCount, Guid** pGuids) mut => VT.[Friend]GetVideoProcessorDeviceGuids(&this, pVideoDesc, pCount, pGuids);
 
-	public HRESULT GetVideoProcessorRenderTargets(Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, uint32 pCount, D3DFORMAT** pFormats) mut => VT.[Friend]GetVideoProcessorRenderTargets(&this, VideoProcDeviceGuid, pVideoDesc, pCount, pFormats);
+	public HRESULT GetVideoProcessorRenderTargets(ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, uint32* pCount, D3DFORMAT** pFormats) mut => VT.[Friend]GetVideoProcessorRenderTargets(&this, ref VideoProcDeviceGuid, pVideoDesc, pCount, pFormats);
 
-	public HRESULT GetVideoProcessorSubStreamFormats(Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 pCount, D3DFORMAT** pFormats) mut => VT.[Friend]GetVideoProcessorSubStreamFormats(&this, VideoProcDeviceGuid, pVideoDesc, RenderTargetFormat, pCount, pFormats);
+	public HRESULT GetVideoProcessorSubStreamFormats(ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32* pCount, D3DFORMAT** pFormats) mut => VT.[Friend]GetVideoProcessorSubStreamFormats(&this, ref VideoProcDeviceGuid, pVideoDesc, RenderTargetFormat, pCount, pFormats);
 
-	public HRESULT GetVideoProcessorCaps(Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, DXVA2_VideoProcessorCaps* pCaps) mut => VT.[Friend]GetVideoProcessorCaps(&this, VideoProcDeviceGuid, pVideoDesc, RenderTargetFormat, pCaps);
+	public HRESULT GetVideoProcessorCaps(ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, DXVA2_VideoProcessorCaps* pCaps) mut => VT.[Friend]GetVideoProcessorCaps(&this, ref VideoProcDeviceGuid, pVideoDesc, RenderTargetFormat, pCaps);
 
-	public HRESULT GetProcAmpRange(Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 ProcAmpCap, DXVA2_ValueRange* pRange) mut => VT.[Friend]GetProcAmpRange(&this, VideoProcDeviceGuid, pVideoDesc, RenderTargetFormat, ProcAmpCap, pRange);
+	public HRESULT GetProcAmpRange(ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 ProcAmpCap, DXVA2_ValueRange* pRange) mut => VT.[Friend]GetProcAmpRange(&this, ref VideoProcDeviceGuid, pVideoDesc, RenderTargetFormat, ProcAmpCap, pRange);
 
-	public HRESULT GetFilterPropertyRange(Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 FilterSetting, DXVA2_ValueRange* pRange) mut => VT.[Friend]GetFilterPropertyRange(&this, VideoProcDeviceGuid, pVideoDesc, RenderTargetFormat, FilterSetting, pRange);
+	public HRESULT GetFilterPropertyRange(ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 FilterSetting, DXVA2_ValueRange* pRange) mut => VT.[Friend]GetFilterPropertyRange(&this, ref VideoProcDeviceGuid, pVideoDesc, RenderTargetFormat, FilterSetting, pRange);
 
-	public HRESULT CreateVideoProcessor(Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 MaxNumSubStreams, IDirectXVideoProcessor** ppVidProcess) mut => VT.[Friend]CreateVideoProcessor(&this, VideoProcDeviceGuid, pVideoDesc, RenderTargetFormat, MaxNumSubStreams, ppVidProcess);
+	public HRESULT CreateVideoProcessor(ref Guid VideoProcDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT RenderTargetFormat, uint32 MaxNumSubStreams, IDirectXVideoProcessor** ppVidProcess) mut => VT.[Friend]CreateVideoProcessor(&this, ref VideoProcDeviceGuid, pVideoDesc, RenderTargetFormat, MaxNumSubStreams, ppVidProcess);
 }
 
 [CRepr]struct IDirectXVideoDecoder : IUnknown
@@ -13913,8 +13913,8 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectXVideoDecoderService** ppService) GetVideoDecoderService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, DXVA2_ConfigPictureDecode* pConfig, IDirect3DSurface9*** pDecoderRenderTargets, uint32 pNumSurfaces) GetCreationParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXVA2_BufferfType BufferType, void** ppBuffer, uint32 pBufferSize) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, DXVA2_ConfigPictureDecode* pConfig, IDirect3DSurface9*** pDecoderRenderTargets, uint32* pNumSurfaces) GetCreationParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXVA2_BufferfType BufferType, void** ppBuffer, uint32* pBufferSize) GetBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 BufferType) ReleaseBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DSurface9* pRenderTarget, void* pvPVPData) BeginFrame;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* pHandleComplete) EndFrame;
@@ -13924,9 +13924,9 @@ public static
 
 	public HRESULT GetVideoDecoderService(IDirectXVideoDecoderService** ppService) mut => VT.[Friend]GetVideoDecoderService(&this, ppService);
 
-	public HRESULT GetCreationParameters(Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, DXVA2_ConfigPictureDecode* pConfig, IDirect3DSurface9*** pDecoderRenderTargets, uint32 pNumSurfaces) mut => VT.[Friend]GetCreationParameters(&this, pDeviceGuid, pVideoDesc, pConfig, pDecoderRenderTargets, pNumSurfaces);
+	public HRESULT GetCreationParameters(ref Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, DXVA2_ConfigPictureDecode* pConfig, IDirect3DSurface9*** pDecoderRenderTargets, uint32* pNumSurfaces) mut => VT.[Friend]GetCreationParameters(&this, ref pDeviceGuid, pVideoDesc, pConfig, pDecoderRenderTargets, pNumSurfaces);
 
-	public HRESULT GetBuffer(DXVA2_BufferfType BufferType, void** ppBuffer, uint32 pBufferSize) mut => VT.[Friend]GetBuffer(&this, BufferType, ppBuffer, pBufferSize);
+	public HRESULT GetBuffer(DXVA2_BufferfType BufferType, void** ppBuffer, uint32* pBufferSize) mut => VT.[Friend]GetBuffer(&this, BufferType, ppBuffer, pBufferSize);
 
 	public HRESULT ReleaseBuffer(uint32 BufferType) mut => VT.[Friend]ReleaseBuffer(&this, BufferType);
 
@@ -13946,7 +13946,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectXVideoProcessorService** ppService) GetVideoProcessorService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT* pRenderTargetFormat, uint32 pMaxNumSubStreams) GetCreationParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT* pRenderTargetFormat, uint32* pMaxNumSubStreams) GetCreationParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXVA2_VideoProcessorCaps* pCaps) GetVideoProcessorCaps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ProcAmpCap, DXVA2_ValueRange* pRange) GetProcAmpRange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 FilterSetting, DXVA2_ValueRange* pRange) GetFilterPropertyRange;
@@ -13956,7 +13956,7 @@ public static
 
 	public HRESULT GetVideoProcessorService(IDirectXVideoProcessorService** ppService) mut => VT.[Friend]GetVideoProcessorService(&this, ppService);
 
-	public HRESULT GetCreationParameters(Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT* pRenderTargetFormat, uint32 pMaxNumSubStreams) mut => VT.[Friend]GetCreationParameters(&this, pDeviceGuid, pVideoDesc, pRenderTargetFormat, pMaxNumSubStreams);
+	public HRESULT GetCreationParameters(ref Guid pDeviceGuid, DXVA2_VideoDesc* pVideoDesc, D3DFORMAT* pRenderTargetFormat, uint32* pMaxNumSubStreams) mut => VT.[Friend]GetCreationParameters(&this, ref pDeviceGuid, pVideoDesc, pRenderTargetFormat, pMaxNumSubStreams);
 
 	public HRESULT GetVideoProcessorCaps(DXVA2_VideoProcessorCaps* pCaps) mut => VT.[Friend]GetVideoProcessorCaps(&this, pCaps);
 
@@ -13993,15 +13993,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPM_RANDOM_NUMBER* prnRandomNumber, uint8** ppbCertificate, uint32 pulCertificateLength) StartInitialization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPM_RANDOM_NUMBER* prnRandomNumber, uint8** ppbCertificate, uint32* pulCertificateLength) StartInitialization;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPM_ENCRYPTED_INITIALIZATION_PARAMETERS* pParameters) FinishInitialization;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPM_GET_INFO_PARAMETERS* pParameters, OPM_REQUESTED_INFORMATION* pRequestedInformation) GetInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS* pParameters, OPM_REQUESTED_INFORMATION* pRequestedInformation) COPPCompatibleGetInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPM_CONFIGURE_PARAMETERS* pParameters, uint32 ulAdditionalParametersSize, uint8 pbAdditionalParameters) Configure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPM_CONFIGURE_PARAMETERS* pParameters, uint32 ulAdditionalParametersSize, uint8* pbAdditionalParameters) Configure;
 	}
 
 
-	public HRESULT StartInitialization(OPM_RANDOM_NUMBER* prnRandomNumber, uint8** ppbCertificate, uint32 pulCertificateLength) mut => VT.[Friend]StartInitialization(&this, prnRandomNumber, ppbCertificate, pulCertificateLength);
+	public HRESULT StartInitialization(OPM_RANDOM_NUMBER* prnRandomNumber, uint8** ppbCertificate, uint32* pulCertificateLength) mut => VT.[Friend]StartInitialization(&this, prnRandomNumber, ppbCertificate, pulCertificateLength);
 
 	public HRESULT FinishInitialization(OPM_ENCRYPTED_INITIALIZATION_PARAMETERS* pParameters) mut => VT.[Friend]FinishInitialization(&this, pParameters);
 
@@ -14009,7 +14009,7 @@ public static
 
 	public HRESULT COPPCompatibleGetInformation(OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS* pParameters, OPM_REQUESTED_INFORMATION* pRequestedInformation) mut => VT.[Friend]COPPCompatibleGetInformation(&this, pParameters, pRequestedInformation);
 
-	public HRESULT Configure(OPM_CONFIGURE_PARAMETERS* pParameters, uint32 ulAdditionalParametersSize, uint8 pbAdditionalParameters) mut => VT.[Friend]Configure(&this, pParameters, ulAdditionalParametersSize, pbAdditionalParameters);
+	public HRESULT Configure(OPM_CONFIGURE_PARAMETERS* pParameters, uint32 ulAdditionalParametersSize, uint8* pbAdditionalParameters) mut => VT.[Friend]Configure(&this, pParameters, ulAdditionalParametersSize, pbAdditionalParameters);
 }
 
 [CRepr]struct IMFAttributes : IUnknown
@@ -14020,96 +14020,96 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, PROPVARIANT* pValue) GetItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, MF_ATTRIBUTE_TYPE* pType) GetItemType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, PROPVARIANT* Value, BOOL* pbResult) CompareItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, PROPVARIANT* pValue) GetItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, MF_ATTRIBUTE_TYPE* pType) GetItemType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, PROPVARIANT* Value, BOOL* pbResult) CompareItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAttributes* pTheirs, MF_ATTRIBUTES_MATCH_TYPE MatchType, BOOL* pbResult) Compare;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, uint32 punValue) GetUINT32;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, uint64 punValue) GetUINT64;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, double pfValue) GetDouble;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, Guid pguidValue) GetGUID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, uint32 pcchLength) GetStringLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, char16* pwszValue, uint32 cchBufSize, uint32 pcchLength) GetString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, PWSTR* ppwszValue, uint32 pcchLength) GetAllocatedString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, uint32 pcbBlobSize) GetBlobSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, uint8* pBuf, uint32 cbBufSize, uint32 pcbBlobSize) GetBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, uint8** ppBuf, uint32 pcbSize) GetAllocatedBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, Guid riid, void** ppv) GetUnknown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, PROPVARIANT* Value) SetItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey) DeleteItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, uint32* punValue) GetUINT32;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, uint64* punValue) GetUINT64;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, double* pfValue) GetDouble;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, ref Guid pguidValue) GetGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, uint32* pcchLength) GetStringLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, char16* pwszValue, uint32 cchBufSize, uint32* pcchLength) GetString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, PWSTR* ppwszValue, uint32* pcchLength) GetAllocatedString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, uint32* pcbBlobSize) GetBlobSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, uint8* pBuf, uint32 cbBufSize, uint32* pcbBlobSize) GetBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, uint8** ppBuf, uint32* pcbSize) GetAllocatedBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, ref Guid riid, void** ppv) GetUnknown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, PROPVARIANT* Value) SetItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey) DeleteItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DeleteAllItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, uint32 unValue) SetUINT32;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, uint64 unValue) SetUINT64;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, double fValue) SetDouble;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, Guid guidValue) SetGUID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, PWSTR wszValue) SetString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, uint8* pBuf, uint32 cbBufSize) SetBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidKey, IUnknown* pUnknown) SetUnknown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, uint32 unValue) SetUINT32;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, uint64 unValue) SetUINT64;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, double fValue) SetDouble;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, ref Guid guidValue) SetGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, PWSTR wszValue) SetString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, uint8* pBuf, uint32 cbBufSize) SetBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, IUnknown* pUnknown) SetUnknown;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) LockStore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnlockStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcItems) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 unIndex, Guid pguidKey, PROPVARIANT* pValue) GetItemByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcItems) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 unIndex, ref Guid pguidKey, PROPVARIANT* pValue) GetItemByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAttributes* pDest) CopyAllItems;
 	}
 
 
-	public HRESULT GetItem(Guid guidKey, PROPVARIANT* pValue) mut => VT.[Friend]GetItem(&this, guidKey, pValue);
+	public HRESULT GetItem(ref Guid guidKey, PROPVARIANT* pValue) mut => VT.[Friend]GetItem(&this, ref guidKey, pValue);
 
-	public HRESULT GetItemType(Guid guidKey, MF_ATTRIBUTE_TYPE* pType) mut => VT.[Friend]GetItemType(&this, guidKey, pType);
+	public HRESULT GetItemType(ref Guid guidKey, MF_ATTRIBUTE_TYPE* pType) mut => VT.[Friend]GetItemType(&this, ref guidKey, pType);
 
-	public HRESULT CompareItem(Guid guidKey, PROPVARIANT* Value, BOOL* pbResult) mut => VT.[Friend]CompareItem(&this, guidKey, Value, pbResult);
+	public HRESULT CompareItem(ref Guid guidKey, PROPVARIANT* Value, BOOL* pbResult) mut => VT.[Friend]CompareItem(&this, ref guidKey, Value, pbResult);
 
 	public HRESULT Compare(IMFAttributes* pTheirs, MF_ATTRIBUTES_MATCH_TYPE MatchType, BOOL* pbResult) mut => VT.[Friend]Compare(&this, pTheirs, MatchType, pbResult);
 
-	public HRESULT GetUINT32(Guid guidKey, uint32 punValue) mut => VT.[Friend]GetUINT32(&this, guidKey, punValue);
+	public HRESULT GetUINT32(ref Guid guidKey, uint32* punValue) mut => VT.[Friend]GetUINT32(&this, ref guidKey, punValue);
 
-	public HRESULT GetUINT64(Guid guidKey, uint64 punValue) mut => VT.[Friend]GetUINT64(&this, guidKey, punValue);
+	public HRESULT GetUINT64(ref Guid guidKey, uint64* punValue) mut => VT.[Friend]GetUINT64(&this, ref guidKey, punValue);
 
-	public HRESULT GetDouble(Guid guidKey, double pfValue) mut => VT.[Friend]GetDouble(&this, guidKey, pfValue);
+	public HRESULT GetDouble(ref Guid guidKey, double* pfValue) mut => VT.[Friend]GetDouble(&this, ref guidKey, pfValue);
 
-	public HRESULT GetGUID(Guid guidKey, Guid pguidValue) mut => VT.[Friend]GetGUID(&this, guidKey, pguidValue);
+	public HRESULT GetGUID(ref Guid guidKey, ref Guid pguidValue) mut => VT.[Friend]GetGUID(&this, ref guidKey, ref pguidValue);
 
-	public HRESULT GetStringLength(Guid guidKey, uint32 pcchLength) mut => VT.[Friend]GetStringLength(&this, guidKey, pcchLength);
+	public HRESULT GetStringLength(ref Guid guidKey, uint32* pcchLength) mut => VT.[Friend]GetStringLength(&this, ref guidKey, pcchLength);
 
-	public HRESULT GetString(Guid guidKey, char16* pwszValue, uint32 cchBufSize, uint32 pcchLength) mut => VT.[Friend]GetString(&this, guidKey, pwszValue, cchBufSize, pcchLength);
+	public HRESULT GetString(ref Guid guidKey, char16* pwszValue, uint32 cchBufSize, uint32* pcchLength) mut => VT.[Friend]GetString(&this, ref guidKey, pwszValue, cchBufSize, pcchLength);
 
-	public HRESULT GetAllocatedString(Guid guidKey, PWSTR* ppwszValue, uint32 pcchLength) mut => VT.[Friend]GetAllocatedString(&this, guidKey, ppwszValue, pcchLength);
+	public HRESULT GetAllocatedString(ref Guid guidKey, PWSTR* ppwszValue, uint32* pcchLength) mut => VT.[Friend]GetAllocatedString(&this, ref guidKey, ppwszValue, pcchLength);
 
-	public HRESULT GetBlobSize(Guid guidKey, uint32 pcbBlobSize) mut => VT.[Friend]GetBlobSize(&this, guidKey, pcbBlobSize);
+	public HRESULT GetBlobSize(ref Guid guidKey, uint32* pcbBlobSize) mut => VT.[Friend]GetBlobSize(&this, ref guidKey, pcbBlobSize);
 
-	public HRESULT GetBlob(Guid guidKey, uint8* pBuf, uint32 cbBufSize, uint32 pcbBlobSize) mut => VT.[Friend]GetBlob(&this, guidKey, pBuf, cbBufSize, pcbBlobSize);
+	public HRESULT GetBlob(ref Guid guidKey, uint8* pBuf, uint32 cbBufSize, uint32* pcbBlobSize) mut => VT.[Friend]GetBlob(&this, ref guidKey, pBuf, cbBufSize, pcbBlobSize);
 
-	public HRESULT GetAllocatedBlob(Guid guidKey, uint8** ppBuf, uint32 pcbSize) mut => VT.[Friend]GetAllocatedBlob(&this, guidKey, ppBuf, pcbSize);
+	public HRESULT GetAllocatedBlob(ref Guid guidKey, uint8** ppBuf, uint32* pcbSize) mut => VT.[Friend]GetAllocatedBlob(&this, ref guidKey, ppBuf, pcbSize);
 
-	public HRESULT GetUnknown(Guid guidKey, Guid riid, void** ppv) mut => VT.[Friend]GetUnknown(&this, guidKey, riid, ppv);
+	public HRESULT GetUnknown(ref Guid guidKey, ref Guid riid, void** ppv) mut => VT.[Friend]GetUnknown(&this, ref guidKey, ref riid, ppv);
 
-	public HRESULT SetItem(Guid guidKey, PROPVARIANT* Value) mut => VT.[Friend]SetItem(&this, guidKey, Value);
+	public HRESULT SetItem(ref Guid guidKey, PROPVARIANT* Value) mut => VT.[Friend]SetItem(&this, ref guidKey, Value);
 
-	public HRESULT DeleteItem(Guid guidKey) mut => VT.[Friend]DeleteItem(&this, guidKey);
+	public HRESULT DeleteItem(ref Guid guidKey) mut => VT.[Friend]DeleteItem(&this, ref guidKey);
 
 	public HRESULT DeleteAllItems() mut => VT.[Friend]DeleteAllItems(&this);
 
-	public HRESULT SetUINT32(Guid guidKey, uint32 unValue) mut => VT.[Friend]SetUINT32(&this, guidKey, unValue);
+	public HRESULT SetUINT32(ref Guid guidKey, uint32 unValue) mut => VT.[Friend]SetUINT32(&this, ref guidKey, unValue);
 
-	public HRESULT SetUINT64(Guid guidKey, uint64 unValue) mut => VT.[Friend]SetUINT64(&this, guidKey, unValue);
+	public HRESULT SetUINT64(ref Guid guidKey, uint64 unValue) mut => VT.[Friend]SetUINT64(&this, ref guidKey, unValue);
 
-	public HRESULT SetDouble(Guid guidKey, double fValue) mut => VT.[Friend]SetDouble(&this, guidKey, fValue);
+	public HRESULT SetDouble(ref Guid guidKey, double fValue) mut => VT.[Friend]SetDouble(&this, ref guidKey, fValue);
 
-	public HRESULT SetGUID(Guid guidKey, Guid guidValue) mut => VT.[Friend]SetGUID(&this, guidKey, guidValue);
+	public HRESULT SetGUID(ref Guid guidKey, ref Guid guidValue) mut => VT.[Friend]SetGUID(&this, ref guidKey, ref guidValue);
 
-	public HRESULT SetString(Guid guidKey, PWSTR wszValue) mut => VT.[Friend]SetString(&this, guidKey, wszValue);
+	public HRESULT SetString(ref Guid guidKey, PWSTR wszValue) mut => VT.[Friend]SetString(&this, ref guidKey, wszValue);
 
-	public HRESULT SetBlob(Guid guidKey, uint8* pBuf, uint32 cbBufSize) mut => VT.[Friend]SetBlob(&this, guidKey, pBuf, cbBufSize);
+	public HRESULT SetBlob(ref Guid guidKey, uint8* pBuf, uint32 cbBufSize) mut => VT.[Friend]SetBlob(&this, ref guidKey, pBuf, cbBufSize);
 
-	public HRESULT SetUnknown(Guid guidKey, IUnknown* pUnknown) mut => VT.[Friend]SetUnknown(&this, guidKey, pUnknown);
+	public HRESULT SetUnknown(ref Guid guidKey, IUnknown* pUnknown) mut => VT.[Friend]SetUnknown(&this, ref guidKey, pUnknown);
 
 	public HRESULT LockStore() mut => VT.[Friend]LockStore(&this);
 
 	public HRESULT UnlockStore() mut => VT.[Friend]UnlockStore(&this);
 
-	public HRESULT GetCount(uint32 pcItems) mut => VT.[Friend]GetCount(&this, pcItems);
+	public HRESULT GetCount(uint32* pcItems) mut => VT.[Friend]GetCount(&this, pcItems);
 
-	public HRESULT GetItemByIndex(uint32 unIndex, Guid pguidKey, PROPVARIANT* pValue) mut => VT.[Friend]GetItemByIndex(&this, unIndex, pguidKey, pValue);
+	public HRESULT GetItemByIndex(uint32 unIndex, ref Guid pguidKey, PROPVARIANT* pValue) mut => VT.[Friend]GetItemByIndex(&this, unIndex, ref pguidKey, pValue);
 
 	public HRESULT CopyAllItems(IMFAttributes* pDest) mut => VT.[Friend]CopyAllItems(&this, pDest);
 }
@@ -14122,23 +14122,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppbBuffer, uint32 pcbMaxLength, uint32 pcbCurrentLength) Lock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppbBuffer, uint32* pcbMaxLength, uint32* pcbCurrentLength) Lock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcbCurrentLength) GetCurrentLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbCurrentLength) GetCurrentLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbCurrentLength) SetCurrentLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcbMaxLength) GetMaxLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbMaxLength) GetMaxLength;
 	}
 
 
-	public HRESULT Lock(uint8** ppbBuffer, uint32 pcbMaxLength, uint32 pcbCurrentLength) mut => VT.[Friend]Lock(&this, ppbBuffer, pcbMaxLength, pcbCurrentLength);
+	public HRESULT Lock(uint8** ppbBuffer, uint32* pcbMaxLength, uint32* pcbCurrentLength) mut => VT.[Friend]Lock(&this, ppbBuffer, pcbMaxLength, pcbCurrentLength);
 
 	public HRESULT Unlock() mut => VT.[Friend]Unlock(&this);
 
-	public HRESULT GetCurrentLength(uint32 pcbCurrentLength) mut => VT.[Friend]GetCurrentLength(&this, pcbCurrentLength);
+	public HRESULT GetCurrentLength(uint32* pcbCurrentLength) mut => VT.[Friend]GetCurrentLength(&this, pcbCurrentLength);
 
 	public HRESULT SetCurrentLength(uint32 cbCurrentLength) mut => VT.[Friend]SetCurrentLength(&this, cbCurrentLength);
 
-	public HRESULT GetMaxLength(uint32 pcbMaxLength) mut => VT.[Friend]GetMaxLength(&this, pcbMaxLength);
+	public HRESULT GetMaxLength(uint32* pcbMaxLength) mut => VT.[Friend]GetMaxLength(&this, pcbMaxLength);
 }
 
 [CRepr]struct IMFSample : IMFAttributes
@@ -14149,36 +14149,36 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwSampleFlags) GetSampleFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwSampleFlags) GetSampleFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSampleFlags) SetSampleFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 phnsSampleTime) GetSampleTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* phnsSampleTime) GetSampleTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 hnsSampleTime) SetSampleTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 phnsSampleDuration) GetSampleDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* phnsSampleDuration) GetSampleDuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 hnsSampleDuration) SetSampleDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwBufferCount) GetBufferCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwBufferCount) GetBufferCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, IMFMediaBuffer** ppBuffer) GetBufferByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaBuffer** ppBuffer) ConvertToContiguousBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaBuffer* pBuffer) AddBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex) RemoveBufferByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAllBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcbTotalLength) GetTotalLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbTotalLength) GetTotalLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaBuffer* pBuffer) CopyToBuffer;
 	}
 
 
-	public HRESULT GetSampleFlags(uint32 pdwSampleFlags) mut => VT.[Friend]GetSampleFlags(&this, pdwSampleFlags);
+	public HRESULT GetSampleFlags(uint32* pdwSampleFlags) mut => VT.[Friend]GetSampleFlags(&this, pdwSampleFlags);
 
 	public HRESULT SetSampleFlags(uint32 dwSampleFlags) mut => VT.[Friend]SetSampleFlags(&this, dwSampleFlags);
 
-	public HRESULT GetSampleTime(int64 phnsSampleTime) mut => VT.[Friend]GetSampleTime(&this, phnsSampleTime);
+	public HRESULT GetSampleTime(int64* phnsSampleTime) mut => VT.[Friend]GetSampleTime(&this, phnsSampleTime);
 
 	public HRESULT SetSampleTime(int64 hnsSampleTime) mut => VT.[Friend]SetSampleTime(&this, hnsSampleTime);
 
-	public HRESULT GetSampleDuration(int64 phnsSampleDuration) mut => VT.[Friend]GetSampleDuration(&this, phnsSampleDuration);
+	public HRESULT GetSampleDuration(int64* phnsSampleDuration) mut => VT.[Friend]GetSampleDuration(&this, phnsSampleDuration);
 
 	public HRESULT SetSampleDuration(int64 hnsSampleDuration) mut => VT.[Friend]SetSampleDuration(&this, hnsSampleDuration);
 
-	public HRESULT GetBufferCount(uint32 pdwBufferCount) mut => VT.[Friend]GetBufferCount(&this, pdwBufferCount);
+	public HRESULT GetBufferCount(uint32* pdwBufferCount) mut => VT.[Friend]GetBufferCount(&this, pdwBufferCount);
 
 	public HRESULT GetBufferByIndex(uint32 dwIndex, IMFMediaBuffer** ppBuffer) mut => VT.[Friend]GetBufferByIndex(&this, dwIndex, ppBuffer);
 
@@ -14190,7 +14190,7 @@ public static
 
 	public HRESULT RemoveAllBuffers() mut => VT.[Friend]RemoveAllBuffers(&this);
 
-	public HRESULT GetTotalLength(uint32 pcbTotalLength) mut => VT.[Friend]GetTotalLength(&this, pcbTotalLength);
+	public HRESULT GetTotalLength(uint32* pcbTotalLength) mut => VT.[Friend]GetTotalLength(&this, pcbTotalLength);
 
 	public HRESULT CopyToBuffer(IMFMediaBuffer* pBuffer) mut => VT.[Friend]CopyToBuffer(&this, pBuffer);
 }
@@ -14203,29 +14203,29 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppbScanline0, int32 plPitch) Lock2D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppbScanline0, int32* plPitch) Lock2D;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unlock2D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** pbScanline0, int32 plPitch) GetScanline0AndPitch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** pbScanline0, int32* plPitch) GetScanline0AndPitch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfIsContiguous) IsContiguousFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcbLength) GetContiguousLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbDestBuffer, uint32 cbDestBuffer) ContiguousCopyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbSrcBuffer, uint32 cbSrcBuffer) ContiguousCopyFrom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbLength) GetContiguousLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbDestBuffer, uint32 cbDestBuffer) ContiguousCopyTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbSrcBuffer, uint32 cbSrcBuffer) ContiguousCopyFrom;
 	}
 
 
-	public HRESULT Lock2D(uint8** ppbScanline0, int32 plPitch) mut => VT.[Friend]Lock2D(&this, ppbScanline0, plPitch);
+	public HRESULT Lock2D(uint8** ppbScanline0, int32* plPitch) mut => VT.[Friend]Lock2D(&this, ppbScanline0, plPitch);
 
 	public HRESULT Unlock2D() mut => VT.[Friend]Unlock2D(&this);
 
-	public HRESULT GetScanline0AndPitch(uint8** pbScanline0, int32 plPitch) mut => VT.[Friend]GetScanline0AndPitch(&this, pbScanline0, plPitch);
+	public HRESULT GetScanline0AndPitch(uint8** pbScanline0, int32* plPitch) mut => VT.[Friend]GetScanline0AndPitch(&this, pbScanline0, plPitch);
 
 	public HRESULT IsContiguousFormat(BOOL* pfIsContiguous) mut => VT.[Friend]IsContiguousFormat(&this, pfIsContiguous);
 
-	public HRESULT GetContiguousLength(uint32 pcbLength) mut => VT.[Friend]GetContiguousLength(&this, pcbLength);
+	public HRESULT GetContiguousLength(uint32* pcbLength) mut => VT.[Friend]GetContiguousLength(&this, pcbLength);
 
-	public HRESULT ContiguousCopyTo(uint8 pbDestBuffer, uint32 cbDestBuffer) mut => VT.[Friend]ContiguousCopyTo(&this, pbDestBuffer, cbDestBuffer);
+	public HRESULT ContiguousCopyTo(uint8* pbDestBuffer, uint32 cbDestBuffer) mut => VT.[Friend]ContiguousCopyTo(&this, pbDestBuffer, cbDestBuffer);
 
-	public HRESULT ContiguousCopyFrom(uint8 pbSrcBuffer, uint32 cbSrcBuffer) mut => VT.[Friend]ContiguousCopyFrom(&this, pbSrcBuffer, cbSrcBuffer);
+	public HRESULT ContiguousCopyFrom(uint8* pbSrcBuffer, uint32 cbSrcBuffer) mut => VT.[Friend]ContiguousCopyFrom(&this, pbSrcBuffer, cbSrcBuffer);
 }
 
 [CRepr]struct IMF2DBuffer2 : IMF2DBuffer
@@ -14236,12 +14236,12 @@ public static
 
 	[CRepr]public struct VTable : IMF2DBuffer.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF2DBuffer_LockFlags lockFlags, uint8** ppbScanline0, int32 plPitch, uint8** ppbBufferStart, uint32 pcbBufferLength) Lock2DSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF2DBuffer_LockFlags lockFlags, uint8** ppbScanline0, int32* plPitch, uint8** ppbBufferStart, uint32* pcbBufferLength) Lock2DSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMF2DBuffer2* pDestBuffer) Copy2DTo;
 	}
 
 
-	public HRESULT Lock2DSize(MF2DBuffer_LockFlags lockFlags, uint8** ppbScanline0, int32 plPitch, uint8** ppbBufferStart, uint32 pcbBufferLength) mut => VT.[Friend]Lock2DSize(&this, lockFlags, ppbScanline0, plPitch, ppbBufferStart, pcbBufferLength);
+	public HRESULT Lock2DSize(MF2DBuffer_LockFlags lockFlags, uint8** ppbScanline0, int32* plPitch, uint8** ppbBufferStart, uint32* pcbBufferLength) mut => VT.[Friend]Lock2DSize(&this, lockFlags, ppbScanline0, plPitch, ppbBufferStart, pcbBufferLength);
 
 	public HRESULT Copy2DTo(IMF2DBuffer2* pDestBuffer) mut => VT.[Friend]Copy2DTo(&this, pDestBuffer);
 }
@@ -14254,20 +14254,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppvObject) GetResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 puSubresource) GetSubresourceIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guid, Guid riid, void** ppvObject) GetUnknown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guid, IUnknown* pUnkData) SetUnknown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvObject) GetResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puSubresource) GetSubresourceIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, ref Guid riid, void** ppvObject) GetUnknown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, IUnknown* pUnkData) SetUnknown;
 	}
 
 
-	public HRESULT GetResource(Guid riid, void** ppvObject) mut => VT.[Friend]GetResource(&this, riid, ppvObject);
+	public HRESULT GetResource(ref Guid riid, void** ppvObject) mut => VT.[Friend]GetResource(&this, ref riid, ppvObject);
 
-	public HRESULT GetSubresourceIndex(uint32 puSubresource) mut => VT.[Friend]GetSubresourceIndex(&this, puSubresource);
+	public HRESULT GetSubresourceIndex(uint32* puSubresource) mut => VT.[Friend]GetSubresourceIndex(&this, puSubresource);
 
-	public HRESULT GetUnknown(Guid guid, Guid riid, void** ppvObject) mut => VT.[Friend]GetUnknown(&this, guid, riid, ppvObject);
+	public HRESULT GetUnknown(ref Guid guid, ref Guid riid, void** ppvObject) mut => VT.[Friend]GetUnknown(&this, ref guid, ref riid, ppvObject);
 
-	public HRESULT SetUnknown(Guid guid, IUnknown* pUnkData) mut => VT.[Friend]SetUnknown(&this, guid, pUnkData);
+	public HRESULT SetUnknown(ref Guid guid, IUnknown* pUnkData) mut => VT.[Friend]SetUnknown(&this, ref guid, pUnkData);
 }
 
 [CRepr]struct IMFMediaType : IMFAttributes
@@ -14278,19 +14278,19 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidMajorType) GetMajorType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidMajorType) GetMajorType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfCompressed) IsCompressedFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaType* pIMediaType, uint32 pdwFlags) IsEqual;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaType* pIMediaType, uint32* pdwFlags) IsEqual;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidRepresentation, void** ppvRepresentation) GetRepresentation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidRepresentation, void* pvRepresentation) FreeRepresentation;
 	}
 
 
-	public HRESULT GetMajorType(Guid pguidMajorType) mut => VT.[Friend]GetMajorType(&this, pguidMajorType);
+	public HRESULT GetMajorType(ref Guid pguidMajorType) mut => VT.[Friend]GetMajorType(&this, ref pguidMajorType);
 
 	public HRESULT IsCompressedFormat(BOOL* pfCompressed) mut => VT.[Friend]IsCompressedFormat(&this, pfCompressed);
 
-	public HRESULT IsEqual(IMFMediaType* pIMediaType, uint32 pdwFlags) mut => VT.[Friend]IsEqual(&this, pIMediaType, pdwFlags);
+	public HRESULT IsEqual(IMFMediaType* pIMediaType, uint32* pdwFlags) mut => VT.[Friend]IsEqual(&this, pIMediaType, pdwFlags);
 
 	public HRESULT GetRepresentation(Guid guidRepresentation, void** ppvRepresentation) mut => VT.[Friend]GetRepresentation(&this, guidRepresentation, ppvRepresentation);
 
@@ -14365,12 +14365,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwFlags, uint32 pdwQueue) GetParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags, uint32* pdwQueue) GetParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pAsyncResult) Invoke;
 	}
 
 
-	public HRESULT GetParameters(uint32 pdwFlags, uint32 pdwQueue) mut => VT.[Friend]GetParameters(&this, pdwFlags, pdwQueue);
+	public HRESULT GetParameters(uint32* pdwFlags, uint32* pdwQueue) mut => VT.[Friend]GetParameters(&this, pdwFlags, pdwQueue);
 
 	public HRESULT Invoke(IMFAsyncResult* pAsyncResult) mut => VT.[Friend]Invoke(&this, pAsyncResult);
 }
@@ -14401,16 +14401,16 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pmet) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidExtendedType) GetExtendedType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pmet) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidExtendedType) GetExtendedType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* phrStatus) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* pvValue) GetValue;
 	}
 
 
-	public HRESULT GetType(uint32 pmet) mut => VT.[Friend]COM_GetType(&this, pmet);
+	public HRESULT GetType(uint32* pmet) mut => VT.[Friend]COM_GetType(&this, pmet);
 
-	public HRESULT GetExtendedType(Guid pguidExtendedType) mut => VT.[Friend]GetExtendedType(&this, pguidExtendedType);
+	public HRESULT GetExtendedType(ref Guid pguidExtendedType) mut => VT.[Friend]GetExtendedType(&this, ref pguidExtendedType);
 
 	public HRESULT GetStatus(HRESULT* phrStatus) mut => VT.[Friend]GetStatus(&this, phrStatus);
 
@@ -14428,7 +14428,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS dwFlags, IMFMediaEvent** ppEvent) GetEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginGetEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, IMFMediaEvent** ppEvent) EndGetEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 met, Guid guidExtendedType, HRESULT hrStatus, PROPVARIANT* pvValue) QueueEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 met, ref Guid guidExtendedType, HRESULT hrStatus, PROPVARIANT* pvValue) QueueEvent;
 	}
 
 
@@ -14438,7 +14438,7 @@ public static
 
 	public HRESULT EndGetEvent(IMFAsyncResult* pResult, IMFMediaEvent** ppEvent) mut => VT.[Friend]EndGetEvent(&this, pResult, ppEvent);
 
-	public HRESULT QueueEvent(uint32 met, Guid guidExtendedType, HRESULT hrStatus, PROPVARIANT* pvValue) mut => VT.[Friend]QueueEvent(&this, met, guidExtendedType, hrStatus, pvValue);
+	public HRESULT QueueEvent(uint32 met, ref Guid guidExtendedType, HRESULT hrStatus, PROPVARIANT* pvValue) mut => VT.[Friend]QueueEvent(&this, met, ref guidExtendedType, hrStatus, pvValue);
 }
 
 [CRepr]struct IMFRemoteAsyncCallback : IUnknown
@@ -14464,49 +14464,49 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCapabilities) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pqwLength) GetLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCapabilities) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pqwLength) GetLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 qwLength) SetLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pqwPosition) GetCurrentPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pqwPosition) GetCurrentPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 qwPosition) SetCurrentPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfEndOfStream) IsEndOfStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pb, uint32 cb, uint32 pcbRead) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pb, uint32 cb, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginRead;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, uint32 pcbRead) EndRead;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pb, uint32 cb, uint32 pcbWritten) Write;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pb, uint32 cb, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginWrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, uint32 pcbWritten) EndWrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFBYTESTREAM_SEEK_ORIGIN SeekOrigin, int64 llSeekOffset, uint32 dwSeekFlags, uint64 pqwCurrentPosition) Seek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pb, uint32 cb, uint32* pcbRead) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pb, uint32 cb, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginRead;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, uint32* pcbRead) EndRead;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pb, uint32 cb, uint32* pcbWritten) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pb, uint32 cb, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginWrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, uint32* pcbWritten) EndWrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFBYTESTREAM_SEEK_ORIGIN SeekOrigin, int64 llSeekOffset, uint32 dwSeekFlags, uint64* pqwCurrentPosition) Seek;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Flush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
-	public HRESULT GetCapabilities(uint32 pdwCapabilities) mut => VT.[Friend]GetCapabilities(&this, pdwCapabilities);
+	public HRESULT GetCapabilities(uint32* pdwCapabilities) mut => VT.[Friend]GetCapabilities(&this, pdwCapabilities);
 
-	public HRESULT GetLength(uint64 pqwLength) mut => VT.[Friend]GetLength(&this, pqwLength);
+	public HRESULT GetLength(uint64* pqwLength) mut => VT.[Friend]GetLength(&this, pqwLength);
 
 	public HRESULT SetLength(uint64 qwLength) mut => VT.[Friend]SetLength(&this, qwLength);
 
-	public HRESULT GetCurrentPosition(uint64 pqwPosition) mut => VT.[Friend]GetCurrentPosition(&this, pqwPosition);
+	public HRESULT GetCurrentPosition(uint64* pqwPosition) mut => VT.[Friend]GetCurrentPosition(&this, pqwPosition);
 
 	public HRESULT SetCurrentPosition(uint64 qwPosition) mut => VT.[Friend]SetCurrentPosition(&this, qwPosition);
 
 	public HRESULT IsEndOfStream(BOOL* pfEndOfStream) mut => VT.[Friend]IsEndOfStream(&this, pfEndOfStream);
 
-	public HRESULT Read(uint8* pb, uint32 cb, uint32 pcbRead) mut => VT.[Friend]Read(&this, pb, cb, pcbRead);
+	public HRESULT Read(uint8* pb, uint32 cb, uint32* pcbRead) mut => VT.[Friend]Read(&this, pb, cb, pcbRead);
 
-	public HRESULT BeginRead(uint8 pb, uint32 cb, IMFAsyncCallback* pCallback, IUnknown* punkState) mut => VT.[Friend]BeginRead(&this, pb, cb, pCallback, punkState);
+	public HRESULT BeginRead(uint8* pb, uint32 cb, IMFAsyncCallback* pCallback, IUnknown* punkState) mut => VT.[Friend]BeginRead(&this, pb, cb, pCallback, punkState);
 
-	public HRESULT EndRead(IMFAsyncResult* pResult, uint32 pcbRead) mut => VT.[Friend]EndRead(&this, pResult, pcbRead);
+	public HRESULT EndRead(IMFAsyncResult* pResult, uint32* pcbRead) mut => VT.[Friend]EndRead(&this, pResult, pcbRead);
 
-	public HRESULT Write(uint8* pb, uint32 cb, uint32 pcbWritten) mut => VT.[Friend]Write(&this, pb, cb, pcbWritten);
+	public HRESULT Write(uint8* pb, uint32 cb, uint32* pcbWritten) mut => VT.[Friend]Write(&this, pb, cb, pcbWritten);
 
-	public HRESULT BeginWrite(uint8 pb, uint32 cb, IMFAsyncCallback* pCallback, IUnknown* punkState) mut => VT.[Friend]BeginWrite(&this, pb, cb, pCallback, punkState);
+	public HRESULT BeginWrite(uint8* pb, uint32 cb, IMFAsyncCallback* pCallback, IUnknown* punkState) mut => VT.[Friend]BeginWrite(&this, pb, cb, pCallback, punkState);
 
-	public HRESULT EndWrite(IMFAsyncResult* pResult, uint32 pcbWritten) mut => VT.[Friend]EndWrite(&this, pResult, pcbWritten);
+	public HRESULT EndWrite(IMFAsyncResult* pResult, uint32* pcbWritten) mut => VT.[Friend]EndWrite(&this, pResult, pcbWritten);
 
-	public HRESULT Seek(MFBYTESTREAM_SEEK_ORIGIN SeekOrigin, int64 llSeekOffset, uint32 dwSeekFlags, uint64 pqwCurrentPosition) mut => VT.[Friend]Seek(&this, SeekOrigin, llSeekOffset, dwSeekFlags, pqwCurrentPosition);
+	public HRESULT Seek(MFBYTESTREAM_SEEK_ORIGIN SeekOrigin, int64 llSeekOffset, uint32 dwSeekFlags, uint64* pqwCurrentPosition) mut => VT.[Friend]Seek(&this, SeekOrigin, llSeekOffset, dwSeekFlags, pqwCurrentPosition);
 
 	public HRESULT Flush() mut => VT.[Friend]Flush(&this);
 
@@ -14521,11 +14521,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream* pByteStream, IMFAttributes* pAttributes, Guid riid, void** ppvObject) CreateByteStreamProxy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream* pByteStream, IMFAttributes* pAttributes, ref Guid riid, void** ppvObject) CreateByteStreamProxy;
 	}
 
 
-	public HRESULT CreateByteStreamProxy(IMFByteStream* pByteStream, IMFAttributes* pAttributes, Guid riid, void** ppvObject) mut => VT.[Friend]CreateByteStreamProxy(&this, pByteStream, pAttributes, riid, ppvObject);
+	public HRESULT CreateByteStreamProxy(IMFByteStream* pByteStream, IMFAttributes* pAttributes, ref Guid riid, void** ppvObject) mut => VT.[Friend]CreateByteStreamProxy(&this, pByteStream, pAttributes, ref riid, ppvObject);
 }
 
 [CRepr]struct IMFSampleOutputStream : IUnknown
@@ -14557,7 +14557,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcElements) GetElementCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcElements) GetElementCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwElementIndex, IUnknown** ppUnkElement) GetElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkElement) AddElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwElementIndex, IUnknown** ppUnkElement) RemoveElement;
@@ -14566,7 +14566,7 @@ public static
 	}
 
 
-	public HRESULT GetElementCount(uint32 pcElements) mut => VT.[Friend]GetElementCount(&this, pcElements);
+	public HRESULT GetElementCount(uint32* pcElements) mut => VT.[Friend]GetElementCount(&this, pcElements);
 
 	public HRESULT GetElement(uint32 dwElementIndex, IUnknown** ppUnkElement) mut => VT.[Friend]GetElement(&this, dwElementIndex, ppUnkElement);
 
@@ -14591,8 +14591,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginGetEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, IMFMediaEvent** ppEvent) EndGetEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaEvent* pEvent) QueueEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 met, Guid guidExtendedType, HRESULT hrStatus, PROPVARIANT* pvValue) QueueEventParamVar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 met, Guid guidExtendedType, HRESULT hrStatus, IUnknown* pUnk) QueueEventParamUnk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 met, ref Guid guidExtendedType, HRESULT hrStatus, PROPVARIANT* pvValue) QueueEventParamVar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 met, ref Guid guidExtendedType, HRESULT hrStatus, IUnknown* pUnk) QueueEventParamUnk;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Shutdown;
 	}
 
@@ -14605,9 +14605,9 @@ public static
 
 	public HRESULT QueueEvent(IMFMediaEvent* pEvent) mut => VT.[Friend]QueueEvent(&this, pEvent);
 
-	public HRESULT QueueEventParamVar(uint32 met, Guid guidExtendedType, HRESULT hrStatus, PROPVARIANT* pvValue) mut => VT.[Friend]QueueEventParamVar(&this, met, guidExtendedType, hrStatus, pvValue);
+	public HRESULT QueueEventParamVar(uint32 met, ref Guid guidExtendedType, HRESULT hrStatus, PROPVARIANT* pvValue) mut => VT.[Friend]QueueEventParamVar(&this, met, ref guidExtendedType, hrStatus, pvValue);
 
-	public HRESULT QueueEventParamUnk(uint32 met, Guid guidExtendedType, HRESULT hrStatus, IUnknown* pUnk) mut => VT.[Friend]QueueEventParamUnk(&this, met, guidExtendedType, hrStatus, pUnk);
+	public HRESULT QueueEventParamUnk(uint32 met, ref Guid guidExtendedType, HRESULT hrStatus, IUnknown* pUnk) mut => VT.[Friend]QueueEventParamUnk(&this, met, ref guidExtendedType, hrStatus, pUnk);
 
 	public HRESULT Shutdown() mut => VT.[Friend]Shutdown(&this);
 }
@@ -14620,13 +14620,13 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) ActivateObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) ActivateObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ShutdownObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DetachObject;
 	}
 
 
-	public HRESULT ActivateObject(Guid riid, void** ppv) mut => VT.[Friend]ActivateObject(&this, riid, ppv);
+	public HRESULT ActivateObject(ref Guid riid, void** ppv) mut => VT.[Friend]ActivateObject(&this, ref riid, ppv);
 
 	public HRESULT ShutdownObject() mut => VT.[Friend]ShutdownObject(&this);
 
@@ -14641,26 +14641,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, PWSTR selector, Guid clsid) GetPreferredClsid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, uint32 index, PWSTR* selector, Guid clsid) GetPreferredClsidByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, PWSTR selector, Guid clsid) SetPreferredClsid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, Guid clsid) IsDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, uint32 index, Guid clsid) GetDisabledByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, Guid clsid, BOOL disabled) SetDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, PWSTR selector, ref Guid clsid) GetPreferredClsid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, uint32 index, PWSTR* selector, ref Guid clsid) GetPreferredClsidByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, PWSTR selector, ref Guid clsid) SetPreferredClsid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, ref Guid clsid) IsDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, uint32 index, ref Guid clsid) GetDisabledByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pluginType, ref Guid clsid, BOOL disabled) SetDisabled;
 	}
 
 
-	public HRESULT GetPreferredClsid(uint32 pluginType, PWSTR selector, Guid clsid) mut => VT.[Friend]GetPreferredClsid(&this, pluginType, selector, clsid);
+	public HRESULT GetPreferredClsid(uint32 pluginType, PWSTR selector, ref Guid clsid) mut => VT.[Friend]GetPreferredClsid(&this, pluginType, selector, ref clsid);
 
-	public HRESULT GetPreferredClsidByIndex(uint32 pluginType, uint32 index, PWSTR* selector, Guid clsid) mut => VT.[Friend]GetPreferredClsidByIndex(&this, pluginType, index, selector, clsid);
+	public HRESULT GetPreferredClsidByIndex(uint32 pluginType, uint32 index, PWSTR* selector, ref Guid clsid) mut => VT.[Friend]GetPreferredClsidByIndex(&this, pluginType, index, selector, ref clsid);
 
-	public HRESULT SetPreferredClsid(uint32 pluginType, PWSTR selector, Guid clsid) mut => VT.[Friend]SetPreferredClsid(&this, pluginType, selector, clsid);
+	public HRESULT SetPreferredClsid(uint32 pluginType, PWSTR selector, ref Guid clsid) mut => VT.[Friend]SetPreferredClsid(&this, pluginType, selector, ref clsid);
 
-	public HRESULT IsDisabled(uint32 pluginType, Guid clsid) mut => VT.[Friend]IsDisabled(&this, pluginType, clsid);
+	public HRESULT IsDisabled(uint32 pluginType, ref Guid clsid) mut => VT.[Friend]IsDisabled(&this, pluginType, ref clsid);
 
-	public HRESULT GetDisabledByIndex(uint32 pluginType, uint32 index, Guid clsid) mut => VT.[Friend]GetDisabledByIndex(&this, pluginType, index, clsid);
+	public HRESULT GetDisabledByIndex(uint32 pluginType, uint32 index, ref Guid clsid) mut => VT.[Friend]GetDisabledByIndex(&this, pluginType, index, ref clsid);
 
-	public HRESULT SetDisabled(uint32 pluginType, Guid clsid, BOOL disabled) mut => VT.[Friend]SetDisabled(&this, pluginType, clsid, disabled);
+	public HRESULT SetDisabled(uint32 pluginType, ref Guid clsid, BOOL disabled) mut => VT.[Friend]SetDisabled(&this, pluginType, ref clsid, disabled);
 }
 
 [CRepr]struct IMFPluginControl2 : IMFPluginControl
@@ -14687,8 +14687,8 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice) CloseDeviceHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice, Guid riid, void** ppService) GetVideoService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice, Guid riid, void** ppUnkDevice, BOOL fBlock) LockDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice, ref Guid riid, void** ppService) GetVideoService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice, ref Guid riid, void** ppUnkDevice, BOOL fBlock) LockDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* phDevice) OpenDeviceHandle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkDevice, uint32 resetToken) ResetDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDevice) TestDevice;
@@ -14698,9 +14698,9 @@ public static
 
 	public HRESULT CloseDeviceHandle(HANDLE hDevice) mut => VT.[Friend]CloseDeviceHandle(&this, hDevice);
 
-	public HRESULT GetVideoService(HANDLE hDevice, Guid riid, void** ppService) mut => VT.[Friend]GetVideoService(&this, hDevice, riid, ppService);
+	public HRESULT GetVideoService(HANDLE hDevice, ref Guid riid, void** ppService) mut => VT.[Friend]GetVideoService(&this, hDevice, ref riid, ppService);
 
-	public HRESULT LockDevice(HANDLE hDevice, Guid riid, void** ppUnkDevice, BOOL fBlock) mut => VT.[Friend]LockDevice(&this, hDevice, riid, ppUnkDevice, fBlock);
+	public HRESULT LockDevice(HANDLE hDevice, ref Guid riid, void** ppUnkDevice, BOOL fBlock) mut => VT.[Friend]LockDevice(&this, hDevice, ref riid, ppUnkDevice, fBlock);
 
 	public HRESULT OpenDeviceHandle(HANDLE* phDevice) mut => VT.[Friend]OpenDeviceHandle(&this, phDevice);
 
@@ -14719,12 +14719,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwMuxStreamCount) GetStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMuxStreamCount) GetStreamCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMuxStreamIndex, IMFAttributes** ppStreamAttributes) GetAttributes;
 	}
 
 
-	public HRESULT GetStreamCount(uint32 pdwMuxStreamCount) mut => VT.[Friend]GetStreamCount(&this, pdwMuxStreamCount);
+	public HRESULT GetStreamCount(uint32* pdwMuxStreamCount) mut => VT.[Friend]GetStreamCount(&this, pdwMuxStreamCount);
 
 	public HRESULT GetAttributes(uint32 dwMuxStreamIndex, IMFAttributes** ppStreamAttributes) mut => VT.[Friend]GetAttributes(&this, dwMuxStreamIndex, ppStreamAttributes);
 }
@@ -14737,26 +14737,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwMuxStreamCount) GetStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMuxStreamCount) GetStreamCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMuxStreamIndex, IMFMediaType** ppMediaType) GetMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCount) GetStreamConfigurationCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCount) GetStreamConfigurationCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullStreamMask) AddStreamConfiguration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullStreamMask) RemoveStreamConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulIndex, uint64 pullStreamMask) GetStreamConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulIndex, uint64* pullStreamMask) GetStreamConfiguration;
 	}
 
 
-	public HRESULT GetStreamCount(uint32 pdwMuxStreamCount) mut => VT.[Friend]GetStreamCount(&this, pdwMuxStreamCount);
+	public HRESULT GetStreamCount(uint32* pdwMuxStreamCount) mut => VT.[Friend]GetStreamCount(&this, pdwMuxStreamCount);
 
 	public HRESULT GetMediaType(uint32 dwMuxStreamIndex, IMFMediaType** ppMediaType) mut => VT.[Friend]GetMediaType(&this, dwMuxStreamIndex, ppMediaType);
 
-	public HRESULT GetStreamConfigurationCount(uint32 pdwCount) mut => VT.[Friend]GetStreamConfigurationCount(&this, pdwCount);
+	public HRESULT GetStreamConfigurationCount(uint32* pdwCount) mut => VT.[Friend]GetStreamConfigurationCount(&this, pdwCount);
 
 	public HRESULT AddStreamConfiguration(uint64 ullStreamMask) mut => VT.[Friend]AddStreamConfiguration(&this, ullStreamMask);
 
 	public HRESULT RemoveStreamConfiguration(uint64 ullStreamMask) mut => VT.[Friend]RemoveStreamConfiguration(&this, ullStreamMask);
 
-	public HRESULT GetStreamConfiguration(uint32 ulIndex, uint64 pullStreamMask) mut => VT.[Friend]GetStreamConfiguration(&this, ulIndex, pullStreamMask);
+	public HRESULT GetStreamConfiguration(uint32 ulIndex, uint64* pullStreamMask) mut => VT.[Friend]GetStreamConfiguration(&this, ulIndex, pullStreamMask);
 }
 
 [CRepr]struct IMFMuxStreamSampleManager : IUnknown
@@ -14767,13 +14767,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwMuxStreamCount) GetStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMuxStreamCount) GetStreamCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMuxStreamIndex, IMFSample** ppSample) GetSample;
 		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetStreamConfiguration;
 	}
 
 
-	public HRESULT GetStreamCount(uint32 pdwMuxStreamCount) mut => VT.[Friend]GetStreamCount(&this, pdwMuxStreamCount);
+	public HRESULT GetStreamCount(uint32* pdwMuxStreamCount) mut => VT.[Friend]GetStreamCount(&this, pdwMuxStreamCount);
 
 	public HRESULT GetSample(uint32 dwMuxStreamIndex, IMFSample** ppSample) mut => VT.[Friend]GetSample(&this, dwMuxStreamIndex, ppSample);
 
@@ -14788,11 +14788,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pGuidIdentifier) GetIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuidIdentifier) GetIdentifier;
 	}
 
 
-	public HRESULT GetIdentifier(Guid pGuidIdentifier) mut => VT.[Friend]GetIdentifier(&this, pGuidIdentifier);
+	public HRESULT GetIdentifier(ref Guid pGuidIdentifier) mut => VT.[Friend]GetIdentifier(&this, ref pGuidIdentifier);
 }
 
 [CRepr]struct IMFTransform : IUnknown
@@ -14803,8 +14803,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwInputMinimum, uint32 pdwInputMaximum, uint32 pdwOutputMinimum, uint32 pdwOutputMaximum) GetStreamLimits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcInputStreams, uint32 pcOutputStreams) GetStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwInputMinimum, uint32* pdwInputMaximum, uint32* pdwOutputMinimum, uint32* pdwOutputMaximum) GetStreamLimits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcInputStreams, uint32* pcOutputStreams) GetStreamCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputIDArraySize, uint32* pdwInputIDs, uint32 dwOutputIDArraySize, uint32* pdwOutputIDs) GetStreamIDs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, MFT_INPUT_STREAM_INFO* pStreamInfo) GetInputStreamInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, MFT_OUTPUT_STREAM_INFO* pStreamInfo) GetOutputStreamInfo;
@@ -14812,26 +14812,26 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFAttributes** pAttributes) GetInputStreamAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, IMFAttributes** pAttributes) GetOutputStreamAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID) DeleteInputStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cStreams, uint32 adwStreamIDs) AddInputStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cStreams, uint32* adwStreamIDs) AddInputStreams;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, uint32 dwTypeIndex, IMFMediaType** ppType) GetInputAvailableType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, uint32 dwTypeIndex, IMFMediaType** ppType) GetOutputAvailableType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFMediaType* pType, uint32 dwFlags) SetInputType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, IMFMediaType* pType, uint32 dwFlags) SetOutputType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFMediaType** ppType) GetInputCurrentType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, IMFMediaType** ppType) GetOutputCurrentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, uint32 pdwFlags) GetInputStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwFlags) GetOutputStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, uint32* pdwFlags) GetInputStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) GetOutputStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 hnsLowerBound, int64 hnsUpperBound) SetOutputBounds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFMediaEvent* pEvent) ProcessEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFT_MESSAGE_TYPE eMessage, uint ulParam) ProcessMessage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFSample* pSample, uint32 dwFlags) ProcessInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32 cOutputBufferCount, MFT_OUTPUT_DATA_BUFFER* pOutputSamples, uint32 pdwStatus) ProcessOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32 cOutputBufferCount, MFT_OUTPUT_DATA_BUFFER* pOutputSamples, uint32* pdwStatus) ProcessOutput;
 	}
 
 
-	public HRESULT GetStreamLimits(uint32 pdwInputMinimum, uint32 pdwInputMaximum, uint32 pdwOutputMinimum, uint32 pdwOutputMaximum) mut => VT.[Friend]GetStreamLimits(&this, pdwInputMinimum, pdwInputMaximum, pdwOutputMinimum, pdwOutputMaximum);
+	public HRESULT GetStreamLimits(uint32* pdwInputMinimum, uint32* pdwInputMaximum, uint32* pdwOutputMinimum, uint32* pdwOutputMaximum) mut => VT.[Friend]GetStreamLimits(&this, pdwInputMinimum, pdwInputMaximum, pdwOutputMinimum, pdwOutputMaximum);
 
-	public HRESULT GetStreamCount(uint32 pcInputStreams, uint32 pcOutputStreams) mut => VT.[Friend]GetStreamCount(&this, pcInputStreams, pcOutputStreams);
+	public HRESULT GetStreamCount(uint32* pcInputStreams, uint32* pcOutputStreams) mut => VT.[Friend]GetStreamCount(&this, pcInputStreams, pcOutputStreams);
 
 	public HRESULT GetStreamIDs(uint32 dwInputIDArraySize, uint32* pdwInputIDs, uint32 dwOutputIDArraySize, uint32* pdwOutputIDs) mut => VT.[Friend]GetStreamIDs(&this, dwInputIDArraySize, pdwInputIDs, dwOutputIDArraySize, pdwOutputIDs);
 
@@ -14847,7 +14847,7 @@ public static
 
 	public HRESULT DeleteInputStream(uint32 dwStreamID) mut => VT.[Friend]DeleteInputStream(&this, dwStreamID);
 
-	public HRESULT AddInputStreams(uint32 cStreams, uint32 adwStreamIDs) mut => VT.[Friend]AddInputStreams(&this, cStreams, adwStreamIDs);
+	public HRESULT AddInputStreams(uint32 cStreams, uint32* adwStreamIDs) mut => VT.[Friend]AddInputStreams(&this, cStreams, adwStreamIDs);
 
 	public HRESULT GetInputAvailableType(uint32 dwInputStreamID, uint32 dwTypeIndex, IMFMediaType** ppType) mut => VT.[Friend]GetInputAvailableType(&this, dwInputStreamID, dwTypeIndex, ppType);
 
@@ -14861,9 +14861,9 @@ public static
 
 	public HRESULT GetOutputCurrentType(uint32 dwOutputStreamID, IMFMediaType** ppType) mut => VT.[Friend]GetOutputCurrentType(&this, dwOutputStreamID, ppType);
 
-	public HRESULT GetInputStatus(uint32 dwInputStreamID, uint32 pdwFlags) mut => VT.[Friend]GetInputStatus(&this, dwInputStreamID, pdwFlags);
+	public HRESULT GetInputStatus(uint32 dwInputStreamID, uint32* pdwFlags) mut => VT.[Friend]GetInputStatus(&this, dwInputStreamID, pdwFlags);
 
-	public HRESULT GetOutputStatus(uint32 pdwFlags) mut => VT.[Friend]GetOutputStatus(&this, pdwFlags);
+	public HRESULT GetOutputStatus(uint32* pdwFlags) mut => VT.[Friend]GetOutputStatus(&this, pdwFlags);
 
 	public HRESULT SetOutputBounds(int64 hnsLowerBound, int64 hnsUpperBound) mut => VT.[Friend]SetOutputBounds(&this, hnsLowerBound, hnsUpperBound);
 
@@ -14873,7 +14873,7 @@ public static
 
 	public HRESULT ProcessInput(uint32 dwInputStreamID, IMFSample* pSample, uint32 dwFlags) mut => VT.[Friend]ProcessInput(&this, dwInputStreamID, pSample, dwFlags);
 
-	public HRESULT ProcessOutput(uint32 dwFlags, uint32 cOutputBufferCount, MFT_OUTPUT_DATA_BUFFER* pOutputSamples, uint32 pdwStatus) mut => VT.[Friend]ProcessOutput(&this, dwFlags, cOutputBufferCount, pOutputSamples, pdwStatus);
+	public HRESULT ProcessOutput(uint32 dwFlags, uint32 cOutputBufferCount, MFT_OUTPUT_DATA_BUFFER* pOutputSamples, uint32* pdwStatus) mut => VT.[Friend]ProcessOutput(&this, dwFlags, cOutputBufferCount, pOutputSamples, pdwStatus);
 }
 
 [CRepr]struct IMFMediaSession : IMFMediaEventGenerator
@@ -14886,13 +14886,13 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSetTopologyFlags, IMFTopology* pTopology) SetTopology;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearTopologies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition) Start;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition) Start;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Shutdown;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFClock** ppClock) GetClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCaps) GetSessionCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCaps) GetSessionCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwGetFullTopologyFlags, uint64 TopoId, IMFTopology** ppFullTopology) GetFullTopology;
 	}
 
@@ -14901,7 +14901,7 @@ public static
 
 	public HRESULT ClearTopologies() mut => VT.[Friend]ClearTopologies(&this);
 
-	public HRESULT Start(Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition) mut => VT.[Friend]Start(&this, pguidTimeFormat, pvarStartPosition);
+	public HRESULT Start(ref Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition) mut => VT.[Friend]Start(&this, ref pguidTimeFormat, pvarStartPosition);
 
 	public HRESULT Pause() mut => VT.[Friend]Pause(&this);
 
@@ -14913,7 +14913,7 @@ public static
 
 	public HRESULT GetClock(IMFClock** ppClock) mut => VT.[Friend]GetClock(&this, ppClock);
 
-	public HRESULT GetSessionCapabilities(uint32 pdwCaps) mut => VT.[Friend]GetSessionCapabilities(&this, pdwCaps);
+	public HRESULT GetSessionCapabilities(uint32* pdwCaps) mut => VT.[Friend]GetSessionCapabilities(&this, pdwCaps);
 
 	public HRESULT GetFullTopology(uint32 dwGetFullTopologyFlags, uint64 TopoId, IMFTopology** ppFullTopology) mut => VT.[Friend]GetFullTopology(&this, dwGetFullTopologyFlags, TopoId, ppFullTopology);
 }
@@ -14959,20 +14959,20 @@ public static
 
 	[CRepr]public struct VTable : IMFMediaEventGenerator.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCharacteristics) GetCharacteristics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCharacteristics) GetCharacteristics;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPresentationDescriptor** ppPresentationDescriptor) CreatePresentationDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPresentationDescriptor* pPresentationDescriptor, Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition) Start;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPresentationDescriptor* pPresentationDescriptor, ref Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition) Start;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Shutdown;
 	}
 
 
-	public HRESULT GetCharacteristics(uint32 pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
+	public HRESULT GetCharacteristics(uint32* pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
 
 	public HRESULT CreatePresentationDescriptor(IMFPresentationDescriptor** ppPresentationDescriptor) mut => VT.[Friend]CreatePresentationDescriptor(&this, ppPresentationDescriptor);
 
-	public HRESULT Start(IMFPresentationDescriptor* pPresentationDescriptor, Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition) mut => VT.[Friend]Start(&this, pPresentationDescriptor, pguidTimeFormat, pvarStartPosition);
+	public HRESULT Start(IMFPresentationDescriptor* pPresentationDescriptor, ref Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition) mut => VT.[Friend]Start(&this, pPresentationDescriptor, ref pguidTimeFormat, pvarStartPosition);
 
 	public HRESULT Stop() mut => VT.[Friend]Stop(&this);
 
@@ -15049,10 +15049,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCharacteristics) GetCharacteristics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCharacteristics) GetCharacteristics;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamSinkIdentifier, IMFMediaType* pMediaType, IMFStreamSink** ppStreamSink) AddStreamSink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamSinkIdentifier) RemoveStreamSink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcStreamSinkCount) GetStreamSinkCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcStreamSinkCount) GetStreamSinkCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, IMFStreamSink** ppStreamSink) GetStreamSinkByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamSinkIdentifier, IMFStreamSink** ppStreamSink) GetStreamSinkById;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPresentationClock* pPresentationClock) SetPresentationClock;
@@ -15061,13 +15061,13 @@ public static
 	}
 
 
-	public HRESULT GetCharacteristics(uint32 pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
+	public HRESULT GetCharacteristics(uint32* pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
 
 	public HRESULT AddStreamSink(uint32 dwStreamSinkIdentifier, IMFMediaType* pMediaType, IMFStreamSink** ppStreamSink) mut => VT.[Friend]AddStreamSink(&this, dwStreamSinkIdentifier, pMediaType, ppStreamSink);
 
 	public HRESULT RemoveStreamSink(uint32 dwStreamSinkIdentifier) mut => VT.[Friend]RemoveStreamSink(&this, dwStreamSinkIdentifier);
 
-	public HRESULT GetStreamSinkCount(uint32 pcStreamSinkCount) mut => VT.[Friend]GetStreamSinkCount(&this, pcStreamSinkCount);
+	public HRESULT GetStreamSinkCount(uint32* pcStreamSinkCount) mut => VT.[Friend]GetStreamSinkCount(&this, pcStreamSinkCount);
 
 	public HRESULT GetStreamSinkByIndex(uint32 dwIndex, IMFStreamSink** ppStreamSink) mut => VT.[Friend]GetStreamSinkByIndex(&this, dwIndex, ppStreamSink);
 
@@ -15089,7 +15089,7 @@ public static
 	[CRepr]public struct VTable : IMFMediaEventGenerator.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaSink** ppMediaSink) GetMediaSink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwIdentifier) GetIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwIdentifier) GetIdentifier;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaTypeHandler** ppHandler) GetMediaTypeHandler;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFSample* pSample) ProcessSample;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFSTREAMSINK_MARKER_TYPE eMarkerType, PROPVARIANT* pvarMarkerValue, PROPVARIANT* pvarContextValue) PlaceMarker;
@@ -15099,7 +15099,7 @@ public static
 
 	public HRESULT GetMediaSink(IMFMediaSink** ppMediaSink) mut => VT.[Friend]GetMediaSink(&this, ppMediaSink);
 
-	public HRESULT GetIdentifier(uint32 pdwIdentifier) mut => VT.[Friend]GetIdentifier(&this, pdwIdentifier);
+	public HRESULT GetIdentifier(uint32* pdwIdentifier) mut => VT.[Friend]GetIdentifier(&this, pdwIdentifier);
 
 	public HRESULT GetMediaTypeHandler(IMFMediaTypeHandler** ppHandler) mut => VT.[Friend]GetMediaTypeHandler(&this, ppHandler);
 
@@ -15173,13 +15173,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFVideoSampleAllocatorNotify* pNotify) SetCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSamples) GetFreeSampleCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSamples) GetFreeSampleCount;
 	}
 
 
 	public HRESULT SetCallback(IMFVideoSampleAllocatorNotify* pNotify) mut => VT.[Friend]SetCallback(&this, pNotify);
 
-	public HRESULT GetFreeSampleCount(int32 plSamples) mut => VT.[Friend]GetFreeSampleCount(&this, plSamples);
+	public HRESULT GetFreeSampleCount(int32* plSamples) mut => VT.[Friend]GetFreeSampleCount(&this, plSamples);
 }
 
 [CRepr]struct IMFVideoSampleAllocatorEx : IMFVideoSampleAllocator
@@ -15252,7 +15252,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiRotation) SetRotationOverride;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnabled) EnableHardwareEffects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 puiSupport) GetSupportedHardwareEffects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiSupport) GetSupportedHardwareEffects;
 	}
 
 
@@ -15260,7 +15260,7 @@ public static
 
 	public HRESULT EnableHardwareEffects(BOOL fEnabled) mut => VT.[Friend]EnableHardwareEffects(&this, fEnabled);
 
-	public HRESULT GetSupportedHardwareEffects(uint32 puiSupport) mut => VT.[Friend]GetSupportedHardwareEffects(&this, puiSupport);
+	public HRESULT GetSupportedHardwareEffects(uint32* puiSupport) mut => VT.[Friend]GetSupportedHardwareEffects(&this, puiSupport);
 }
 
 [CRepr]struct IMFVideoProcessorControl3 : IMFVideoProcessorControl2
@@ -15310,10 +15310,10 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pID) GetTopologyID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pID) GetTopologyID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTopologyNode* pNode) AddNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTopologyNode* pNode) RemoveNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwNodes) GetNodeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwNodes) GetNodeCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wIndex, IMFTopologyNode** ppNode) GetNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTopology* pTopology) CloneFrom;
@@ -15323,13 +15323,13 @@ public static
 	}
 
 
-	public HRESULT GetTopologyID(uint64 pID) mut => VT.[Friend]GetTopologyID(&this, pID);
+	public HRESULT GetTopologyID(uint64* pID) mut => VT.[Friend]GetTopologyID(&this, pID);
 
 	public HRESULT AddNode(IMFTopologyNode* pNode) mut => VT.[Friend]AddNode(&this, pNode);
 
 	public HRESULT RemoveNode(IMFTopologyNode* pNode) mut => VT.[Friend]RemoveNode(&this, pNode);
 
-	public HRESULT GetNodeCount(uint16 pwNodes) mut => VT.[Friend]GetNodeCount(&this, pwNodes);
+	public HRESULT GetNodeCount(uint16* pwNodes) mut => VT.[Friend]GetNodeCount(&this, pwNodes);
 
 	public HRESULT GetNode(uint16 wIndex, IMFTopologyNode** ppNode) mut => VT.[Friend]GetNode(&this, wIndex, ppNode);
 
@@ -15355,14 +15355,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pObject) SetObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppObject) GetObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_TOPOLOGY_TYPE* pType) GetNodeType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pID) GetTopoNodeID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pID) GetTopoNodeID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullTopoID) SetTopoNodeID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcInputs) GetInputCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcOutputs) GetOutputCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcInputs) GetInputCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcOutputs) GetOutputCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputIndex, IMFTopologyNode* pDownstreamNode, uint32 dwInputIndexOnDownstreamNode) ConnectOutput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputIndex) DisconnectOutput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputIndex, IMFTopologyNode** ppUpstreamNode, uint32 pdwOutputIndexOnUpstreamNode) GetInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputIndex, IMFTopologyNode** ppDownstreamNode, uint32 pdwInputIndexOnDownstreamNode) GetOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputIndex, IMFTopologyNode** ppUpstreamNode, uint32* pdwOutputIndexOnUpstreamNode) GetInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputIndex, IMFTopologyNode** ppDownstreamNode, uint32* pdwInputIndexOnDownstreamNode) GetOutput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputIndex, IMFMediaType* pType) SetOutputPrefType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputIndex, IMFMediaType** ppType) GetOutputPrefType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputIndex, IMFMediaType* pType) SetInputPrefType;
@@ -15377,21 +15377,21 @@ public static
 
 	public HRESULT GetNodeType(MF_TOPOLOGY_TYPE* pType) mut => VT.[Friend]GetNodeType(&this, pType);
 
-	public HRESULT GetTopoNodeID(uint64 pID) mut => VT.[Friend]GetTopoNodeID(&this, pID);
+	public HRESULT GetTopoNodeID(uint64* pID) mut => VT.[Friend]GetTopoNodeID(&this, pID);
 
 	public HRESULT SetTopoNodeID(uint64 ullTopoID) mut => VT.[Friend]SetTopoNodeID(&this, ullTopoID);
 
-	public HRESULT GetInputCount(uint32 pcInputs) mut => VT.[Friend]GetInputCount(&this, pcInputs);
+	public HRESULT GetInputCount(uint32* pcInputs) mut => VT.[Friend]GetInputCount(&this, pcInputs);
 
-	public HRESULT GetOutputCount(uint32 pcOutputs) mut => VT.[Friend]GetOutputCount(&this, pcOutputs);
+	public HRESULT GetOutputCount(uint32* pcOutputs) mut => VT.[Friend]GetOutputCount(&this, pcOutputs);
 
 	public HRESULT ConnectOutput(uint32 dwOutputIndex, IMFTopologyNode* pDownstreamNode, uint32 dwInputIndexOnDownstreamNode) mut => VT.[Friend]ConnectOutput(&this, dwOutputIndex, pDownstreamNode, dwInputIndexOnDownstreamNode);
 
 	public HRESULT DisconnectOutput(uint32 dwOutputIndex) mut => VT.[Friend]DisconnectOutput(&this, dwOutputIndex);
 
-	public HRESULT GetInput(uint32 dwInputIndex, IMFTopologyNode** ppUpstreamNode, uint32 pdwOutputIndexOnUpstreamNode) mut => VT.[Friend]GetInput(&this, dwInputIndex, ppUpstreamNode, pdwOutputIndexOnUpstreamNode);
+	public HRESULT GetInput(uint32 dwInputIndex, IMFTopologyNode** ppUpstreamNode, uint32* pdwOutputIndexOnUpstreamNode) mut => VT.[Friend]GetInput(&this, dwInputIndex, ppUpstreamNode, pdwOutputIndexOnUpstreamNode);
 
-	public HRESULT GetOutput(uint32 dwOutputIndex, IMFTopologyNode** ppDownstreamNode, uint32 pdwInputIndexOnDownstreamNode) mut => VT.[Friend]GetOutput(&this, dwOutputIndex, ppDownstreamNode, pdwInputIndexOnDownstreamNode);
+	public HRESULT GetOutput(uint32 dwOutputIndex, IMFTopologyNode** ppDownstreamNode, uint32* pdwInputIndexOnDownstreamNode) mut => VT.[Friend]GetOutput(&this, dwOutputIndex, ppDownstreamNode, pdwInputIndexOnDownstreamNode);
 
 	public HRESULT SetOutputPrefType(uint32 dwOutputIndex, IMFMediaType* pType) mut => VT.[Friend]SetOutputPrefType(&this, dwOutputIndex, pType);
 
@@ -15412,11 +15412,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidService, Guid riid, void** ppvObject) GetService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidService, ref Guid riid, void** ppvObject) GetService;
 	}
 
 
-	public HRESULT GetService(Guid guidService, Guid riid, void** ppvObject) mut => VT.[Friend]GetService(&this, guidService, riid, ppvObject);
+	public HRESULT GetService(ref Guid guidService, ref Guid riid, void** ppvObject) mut => VT.[Friend]GetService(&this, ref guidService, ref riid, ppvObject);
 }
 
 [CRepr]struct IMFClock : IUnknown
@@ -15427,19 +15427,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCharacteristics) GetClockCharacteristics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwReserved, int64 pllClockTime, int64 phnsSystemTime) GetCorrelatedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwContinuityKey) GetContinuityKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCharacteristics) GetClockCharacteristics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwReserved, int64* pllClockTime, int64* phnsSystemTime) GetCorrelatedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwContinuityKey) GetContinuityKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwReserved, MFCLOCK_STATE* peClockState) GetState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFCLOCK_PROPERTIES* pClockProperties) GetProperties;
 	}
 
 
-	public HRESULT GetClockCharacteristics(uint32 pdwCharacteristics) mut => VT.[Friend]GetClockCharacteristics(&this, pdwCharacteristics);
+	public HRESULT GetClockCharacteristics(uint32* pdwCharacteristics) mut => VT.[Friend]GetClockCharacteristics(&this, pdwCharacteristics);
 
-	public HRESULT GetCorrelatedTime(uint32 dwReserved, int64 pllClockTime, int64 phnsSystemTime) mut => VT.[Friend]GetCorrelatedTime(&this, dwReserved, pllClockTime, phnsSystemTime);
+	public HRESULT GetCorrelatedTime(uint32 dwReserved, int64* pllClockTime, int64* phnsSystemTime) mut => VT.[Friend]GetCorrelatedTime(&this, dwReserved, pllClockTime, phnsSystemTime);
 
-	public HRESULT GetContinuityKey(uint32 pdwContinuityKey) mut => VT.[Friend]GetContinuityKey(&this, pdwContinuityKey);
+	public HRESULT GetContinuityKey(uint32* pdwContinuityKey) mut => VT.[Friend]GetContinuityKey(&this, pdwContinuityKey);
 
 	public HRESULT GetState(uint32 dwReserved, MFCLOCK_STATE* peClockState) mut => VT.[Friend]GetState(&this, dwReserved, peClockState);
 
@@ -15456,7 +15456,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPresentationTimeSource* pTimeSource) SetTimeSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPresentationTimeSource** ppTimeSource) GetTimeSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 phnsClockTime) GetTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* phnsClockTime) GetTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFClockStateSink* pStateSink) AddClockStateSink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFClockStateSink* pStateSink) RemoveClockStateSink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 llClockStartOffset) Start;
@@ -15469,7 +15469,7 @@ public static
 
 	public HRESULT GetTimeSource(IMFPresentationTimeSource** ppTimeSource) mut => VT.[Friend]GetTimeSource(&this, ppTimeSource);
 
-	public HRESULT GetTime(int64 phnsClockTime) mut => VT.[Friend]GetTime(&this, phnsClockTime);
+	public HRESULT GetTime(int64* phnsClockTime) mut => VT.[Friend]GetTime(&this, phnsClockTime);
 
 	public HRESULT AddClockStateSink(IMFClockStateSink* pStateSink) mut => VT.[Friend]AddClockStateSink(&this, pStateSink);
 
@@ -15532,7 +15532,7 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwDescriptorCount) GetStreamDescriptorCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwDescriptorCount) GetStreamDescriptorCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, BOOL* pfSelected, IMFStreamDescriptor** ppDescriptor) GetStreamDescriptorByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDescriptorIndex) SelectStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDescriptorIndex) DeselectStream;
@@ -15540,7 +15540,7 @@ public static
 	}
 
 
-	public HRESULT GetStreamDescriptorCount(uint32 pdwDescriptorCount) mut => VT.[Friend]GetStreamDescriptorCount(&this, pdwDescriptorCount);
+	public HRESULT GetStreamDescriptorCount(uint32* pdwDescriptorCount) mut => VT.[Friend]GetStreamDescriptorCount(&this, pdwDescriptorCount);
 
 	public HRESULT GetStreamDescriptorByIndex(uint32 dwIndex, BOOL* pfSelected, IMFStreamDescriptor** ppDescriptor) mut => VT.[Friend]GetStreamDescriptorByIndex(&this, dwIndex, pfSelected, ppDescriptor);
 
@@ -15559,12 +15559,12 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwStreamIdentifier) GetStreamIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStreamIdentifier) GetStreamIdentifier;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaTypeHandler** ppMediaTypeHandler) GetMediaTypeHandler;
 	}
 
 
-	public HRESULT GetStreamIdentifier(uint32 pdwStreamIdentifier) mut => VT.[Friend]GetStreamIdentifier(&this, pdwStreamIdentifier);
+	public HRESULT GetStreamIdentifier(uint32* pdwStreamIdentifier) mut => VT.[Friend]GetStreamIdentifier(&this, pdwStreamIdentifier);
 
 	public HRESULT GetMediaTypeHandler(IMFMediaTypeHandler** ppMediaTypeHandler) mut => VT.[Friend]GetMediaTypeHandler(&this, ppMediaTypeHandler);
 }
@@ -15578,17 +15578,17 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaType* pMediaType, IMFMediaType** ppMediaType) IsMediaTypeSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwTypeCount) GetMediaTypeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwTypeCount) GetMediaTypeCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, IMFMediaType** ppType) GetMediaTypeByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaType* pMediaType) SetCurrentMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaType** ppMediaType) GetCurrentMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidMajorType) GetMajorType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidMajorType) GetMajorType;
 	}
 
 
 	public HRESULT IsMediaTypeSupported(IMFMediaType* pMediaType, IMFMediaType** ppMediaType) mut => VT.[Friend]IsMediaTypeSupported(&this, pMediaType, ppMediaType);
 
-	public HRESULT GetMediaTypeCount(uint32 pdwTypeCount) mut => VT.[Friend]GetMediaTypeCount(&this, pdwTypeCount);
+	public HRESULT GetMediaTypeCount(uint32* pdwTypeCount) mut => VT.[Friend]GetMediaTypeCount(&this, pdwTypeCount);
 
 	public HRESULT GetMediaTypeByIndex(uint32 dwIndex, IMFMediaType** ppType) mut => VT.[Friend]GetMediaTypeByIndex(&this, dwIndex, ppType);
 
@@ -15596,7 +15596,7 @@ public static
 
 	public HRESULT GetCurrentMediaType(IMFMediaType** ppMediaType) mut => VT.[Friend]GetCurrentMediaType(&this, ppMediaType);
 
-	public HRESULT GetMajorType(Guid pguidMajorType) mut => VT.[Friend]GetMajorType(&this, pguidMajorType);
+	public HRESULT GetMajorType(ref Guid pguidMajorType) mut => VT.[Friend]GetMajorType(&this, ref pguidMajorType);
 }
 
 [CRepr]struct IMFTimer : IUnknown
@@ -15676,9 +15676,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pType) GetEnableType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszURL, uint32 pcchURL, MF_URL_TRUST_STATUS* pTrustStatus) GetEnableURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppbData, uint32 pcbData) GetEnableData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pType) GetEnableType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszURL, uint32* pcchURL, MF_URL_TRUST_STATUS* pTrustStatus) GetEnableURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppbData, uint32* pcbData) GetEnableData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfAutomatic) IsAutomaticSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AutomaticEnable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) MonitorEnable;
@@ -15686,11 +15686,11 @@ public static
 	}
 
 
-	public HRESULT GetEnableType(Guid pType) mut => VT.[Friend]GetEnableType(&this, pType);
+	public HRESULT GetEnableType(ref Guid pType) mut => VT.[Friend]GetEnableType(&this, ref pType);
 
-	public HRESULT GetEnableURL(PWSTR* ppwszURL, uint32 pcchURL, MF_URL_TRUST_STATUS* pTrustStatus) mut => VT.[Friend]GetEnableURL(&this, ppwszURL, pcchURL, pTrustStatus);
+	public HRESULT GetEnableURL(PWSTR* ppwszURL, uint32* pcchURL, MF_URL_TRUST_STATUS* pTrustStatus) mut => VT.[Friend]GetEnableURL(&this, ppwszURL, pcchURL, pTrustStatus);
 
-	public HRESULT GetEnableData(uint8** ppbData, uint32 pcbData) mut => VT.[Friend]GetEnableData(&this, ppbData, pcbData);
+	public HRESULT GetEnableData(uint8** ppbData, uint32* pcbData) mut => VT.[Friend]GetEnableData(&this, ppbData, pcbData);
 
 	public HRESULT IsAutomaticSupported(BOOL* pfAutomatic) mut => VT.[Friend]IsAutomaticSupported(&this, pfAutomatic);
 
@@ -15757,17 +15757,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFRATE_DIRECTION eDirection, BOOL fThin, float pflRate) GetSlowestRate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFRATE_DIRECTION eDirection, BOOL fThin, float pflRate) GetFastestRate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fThin, float flRate, float pflNearestSupportedRate) IsRateSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFRATE_DIRECTION eDirection, BOOL fThin, float* pflRate) GetSlowestRate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFRATE_DIRECTION eDirection, BOOL fThin, float* pflRate) GetFastestRate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fThin, float flRate, float* pflNearestSupportedRate) IsRateSupported;
 	}
 
 
-	public HRESULT GetSlowestRate(MFRATE_DIRECTION eDirection, BOOL fThin, float pflRate) mut => VT.[Friend]GetSlowestRate(&this, eDirection, fThin, pflRate);
+	public HRESULT GetSlowestRate(MFRATE_DIRECTION eDirection, BOOL fThin, float* pflRate) mut => VT.[Friend]GetSlowestRate(&this, eDirection, fThin, pflRate);
 
-	public HRESULT GetFastestRate(MFRATE_DIRECTION eDirection, BOOL fThin, float pflRate) mut => VT.[Friend]GetFastestRate(&this, eDirection, fThin, pflRate);
+	public HRESULT GetFastestRate(MFRATE_DIRECTION eDirection, BOOL fThin, float* pflRate) mut => VT.[Friend]GetFastestRate(&this, eDirection, fThin, pflRate);
 
-	public HRESULT IsRateSupported(BOOL fThin, float flRate, float pflNearestSupportedRate) mut => VT.[Friend]IsRateSupported(&this, fThin, flRate, pflNearestSupportedRate);
+	public HRESULT IsRateSupported(BOOL fThin, float flRate, float* pflNearestSupportedRate) mut => VT.[Friend]IsRateSupported(&this, fThin, flRate, pflNearestSupportedRate);
 }
 
 [CRepr]struct IMFRateControl : IUnknown
@@ -15779,13 +15779,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fThin, float flRate) SetRate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfThin, float pflRate) GetRate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfThin, float* pflRate) GetRate;
 	}
 
 
 	public HRESULT SetRate(BOOL fThin, float flRate) mut => VT.[Friend]SetRate(&this, fThin, flRate);
 
-	public HRESULT GetRate(BOOL* pfThin, float pflRate) mut => VT.[Friend]GetRate(&this, pfThin, pflRate);
+	public HRESULT GetRate(BOOL* pfThin, float* pflRate) mut => VT.[Friend]GetRate(&this, pfThin, pflRate);
 }
 
 [CRepr]struct IMFTimecodeTranslate : IUnknown
@@ -15797,7 +15797,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* pPropVarTimecode, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginConvertTimecodeToHNS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, int64 phnsTime) EndConvertTimecodeToHNS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, int64* phnsTime) EndConvertTimecodeToHNS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 hnsTime, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginConvertHNSToTimecode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, PROPVARIANT* pPropVarTimecode) EndConvertHNSToTimecode;
 	}
@@ -15805,7 +15805,7 @@ public static
 
 	public HRESULT BeginConvertTimecodeToHNS(PROPVARIANT* pPropVarTimecode, IMFAsyncCallback* pCallback, IUnknown* punkState) mut => VT.[Friend]BeginConvertTimecodeToHNS(&this, pPropVarTimecode, pCallback, punkState);
 
-	public HRESULT EndConvertTimecodeToHNS(IMFAsyncResult* pResult, int64 phnsTime) mut => VT.[Friend]EndConvertTimecodeToHNS(&this, pResult, phnsTime);
+	public HRESULT EndConvertTimecodeToHNS(IMFAsyncResult* pResult, int64* phnsTime) mut => VT.[Friend]EndConvertTimecodeToHNS(&this, pResult, phnsTime);
 
 	public HRESULT BeginConvertHNSToTimecode(int64 hnsTime, IMFAsyncCallback* pCallback, IUnknown* punkState) mut => VT.[Friend]BeginConvertHNSToTimecode(&this, hnsTime, pCallback, punkState);
 
@@ -15820,11 +15820,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition, PROPVARIANT* pvarPreviousKeyFrame, PROPVARIANT* pvarNextKeyFrame) GetNearestKeyFrames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition, PROPVARIANT* pvarPreviousKeyFrame, PROPVARIANT* pvarNextKeyFrame) GetNearestKeyFrames;
 	}
 
 
-	public HRESULT GetNearestKeyFrames(Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition, PROPVARIANT* pvarPreviousKeyFrame, PROPVARIANT* pvarNextKeyFrame) mut => VT.[Friend]GetNearestKeyFrames(&this, pguidTimeFormat, pvarStartPosition, pvarPreviousKeyFrame, pvarNextKeyFrame);
+	public HRESULT GetNearestKeyFrames(ref Guid pguidTimeFormat, PROPVARIANT* pvarStartPosition, PROPVARIANT* pvarPreviousKeyFrame, PROPVARIANT* pvarNextKeyFrame) mut => VT.[Friend]GetNearestKeyFrames(&this, ref pguidTimeFormat, pvarStartPosition, pvarPreviousKeyFrame, pvarNextKeyFrame);
 }
 
 [CRepr]struct IMFSimpleAudioVolume : IUnknown
@@ -15836,7 +15836,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fLevel) SetMasterVolume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pfLevel) GetMasterVolume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pfLevel) GetMasterVolume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMute) SetMute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbMute) GetMute;
 	}
@@ -15844,7 +15844,7 @@ public static
 
 	public HRESULT SetMasterVolume(float fLevel) mut => VT.[Friend]SetMasterVolume(&this, fLevel);
 
-	public HRESULT GetMasterVolume(float pfLevel) mut => VT.[Friend]GetMasterVolume(&this, pfLevel);
+	public HRESULT GetMasterVolume(float* pfLevel) mut => VT.[Friend]GetMasterVolume(&this, pfLevel);
 
 	public HRESULT SetMute(BOOL bMute) mut => VT.[Friend]SetMute(&this, bMute);
 
@@ -15859,19 +15859,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCount) GetChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCount) GetChannelCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, float fLevel) SetChannelVolume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, float pfLevel) GetChannelVolume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, float* pfLevel) GetChannelVolume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCount, float* pfVolumes) SetAllVolumes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCount, float* pfVolumes) GetAllVolumes;
 	}
 
 
-	public HRESULT GetChannelCount(uint32 pdwCount) mut => VT.[Friend]GetChannelCount(&this, pdwCount);
+	public HRESULT GetChannelCount(uint32* pdwCount) mut => VT.[Friend]GetChannelCount(&this, pdwCount);
 
 	public HRESULT SetChannelVolume(uint32 dwIndex, float fLevel) mut => VT.[Friend]SetChannelVolume(&this, dwIndex, fLevel);
 
-	public HRESULT GetChannelVolume(uint32 dwIndex, float pfLevel) mut => VT.[Friend]GetChannelVolume(&this, dwIndex, pfLevel);
+	public HRESULT GetChannelVolume(uint32 dwIndex, float* pfLevel) mut => VT.[Friend]GetChannelVolume(&this, dwIndex, pfLevel);
 
 	public HRESULT SetAllVolumes(uint32 dwCount, float* pfVolumes) mut => VT.[Friend]SetAllVolumes(&this, dwCount, pfVolumes);
 
@@ -15886,8 +15886,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid rguidClass) SetGroupingParam;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidClass) GetGroupingParam;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rguidClass) SetGroupingParam;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidClass) GetGroupingParam;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName) SetDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pszName) GetDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath) SetIconPath;
@@ -15895,9 +15895,9 @@ public static
 	}
 
 
-	public HRESULT SetGroupingParam(Guid rguidClass) mut => VT.[Friend]SetGroupingParam(&this, rguidClass);
+	public HRESULT SetGroupingParam(ref Guid rguidClass) mut => VT.[Friend]SetGroupingParam(&this, ref rguidClass);
 
-	public HRESULT GetGroupingParam(Guid pguidClass) mut => VT.[Friend]GetGroupingParam(&this, pguidClass);
+	public HRESULT GetGroupingParam(ref Guid pguidClass) mut => VT.[Friend]GetGroupingParam(&this, ref pguidClass);
 
 	public HRESULT SetDisplayName(PWSTR pszName) mut => VT.[Friend]SetDisplayName(&this, pszName);
 
@@ -15917,14 +15917,14 @@ public static
 	[CRepr]public struct VTable : IMFClockStateSink.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPresentationClock* pPresentationClock) OnSetPresentationClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidMajorMediaType, uint32 dwSampleFlags, int64 llSampleTime, int64 llSampleDuration, uint8 pSampleBuffer, uint32 dwSampleSize) OnProcessSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidMajorMediaType, uint32 dwSampleFlags, int64 llSampleTime, int64 llSampleDuration, uint8* pSampleBuffer, uint32 dwSampleSize) OnProcessSample;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnShutdown;
 	}
 
 
 	public HRESULT OnSetPresentationClock(IMFPresentationClock* pPresentationClock) mut => VT.[Friend]OnSetPresentationClock(&this, pPresentationClock);
 
-	public HRESULT OnProcessSample(Guid guidMajorMediaType, uint32 dwSampleFlags, int64 llSampleTime, int64 llSampleDuration, uint8 pSampleBuffer, uint32 dwSampleSize) mut => VT.[Friend]OnProcessSample(&this, guidMajorMediaType, dwSampleFlags, llSampleTime, llSampleDuration, pSampleBuffer, dwSampleSize);
+	public HRESULT OnProcessSample(ref Guid guidMajorMediaType, uint32 dwSampleFlags, int64 llSampleTime, int64 llSampleDuration, uint8* pSampleBuffer, uint32 dwSampleSize) mut => VT.[Friend]OnProcessSample(&this, ref guidMajorMediaType, dwSampleFlags, llSampleTime, llSampleDuration, pSampleBuffer, dwSampleSize);
 
 	public HRESULT OnShutdown() mut => VT.[Friend]OnShutdown(&this);
 }
@@ -15937,11 +15937,11 @@ public static
 
 	[CRepr]public struct VTable : IMFSampleGrabberSinkCallback.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidMajorMediaType, uint32 dwSampleFlags, int64 llSampleTime, int64 llSampleDuration, uint8 pSampleBuffer, uint32 dwSampleSize, IMFAttributes* pAttributes) OnProcessSampleEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidMajorMediaType, uint32 dwSampleFlags, int64 llSampleTime, int64 llSampleDuration, uint8* pSampleBuffer, uint32 dwSampleSize, IMFAttributes* pAttributes) OnProcessSampleEx;
 	}
 
 
-	public HRESULT OnProcessSampleEx(Guid guidMajorMediaType, uint32 dwSampleFlags, int64 llSampleTime, int64 llSampleDuration, uint8 pSampleBuffer, uint32 dwSampleSize, IMFAttributes* pAttributes) mut => VT.[Friend]OnProcessSampleEx(&this, guidMajorMediaType, dwSampleFlags, llSampleTime, llSampleDuration, pSampleBuffer, dwSampleSize, pAttributes);
+	public HRESULT OnProcessSampleEx(ref Guid guidMajorMediaType, uint32 dwSampleFlags, int64 llSampleTime, int64 llSampleDuration, uint8* pSampleBuffer, uint32 dwSampleSize, IMFAttributes* pAttributes) mut => VT.[Friend]OnProcessSampleEx(&this, ref guidMajorMediaType, dwSampleFlags, llSampleTime, llSampleDuration, pSampleBuffer, dwSampleSize, pAttributes);
 }
 
 [CRepr]struct IMFWorkQueueServices : IUnknown
@@ -15956,14 +15956,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult) EndRegisterTopologyWorkQueuesWithMMCSS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncCallback* pCallback, IUnknown* pState) BeginUnregisterTopologyWorkQueuesWithMMCSS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult) EndUnregisterTopologyWorkQueuesWithMMCSS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTopologyWorkQueueId, char16* pwszClass, uint32 pcchClass) GetTopologyWorkQueueMMCSSClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTopologyWorkQueueId, uint32 pdwTaskId) GetTopologyWorkQueueMMCSSTaskId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTopologyWorkQueueId, char16* pwszClass, uint32* pcchClass) GetTopologyWorkQueueMMCSSClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTopologyWorkQueueId, uint32* pdwTaskId) GetTopologyWorkQueueMMCSSTaskId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPlatformWorkQueue, PWSTR wszClass, uint32 dwTaskId, IMFAsyncCallback* pCallback, IUnknown* pState) BeginRegisterPlatformWorkQueueWithMMCSS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, uint32 pdwTaskId) EndRegisterPlatformWorkQueueWithMMCSS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, uint32* pdwTaskId) EndRegisterPlatformWorkQueueWithMMCSS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPlatformWorkQueue, IMFAsyncCallback* pCallback, IUnknown* pState) BeginUnregisterPlatformWorkQueueWithMMCSS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult) EndUnregisterPlatformWorkQueueWithMMCSS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPlatformWorkQueueId, char16* pwszClass, uint32 pcchClass) GetPlaftormWorkQueueMMCSSClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPlatformWorkQueueId, uint32 pdwTaskId) GetPlatformWorkQueueMMCSSTaskId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPlatformWorkQueueId, char16* pwszClass, uint32* pcchClass) GetPlaftormWorkQueueMMCSSClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPlatformWorkQueueId, uint32* pdwTaskId) GetPlatformWorkQueueMMCSSTaskId;
 	}
 
 
@@ -15975,21 +15975,21 @@ public static
 
 	public HRESULT EndUnregisterTopologyWorkQueuesWithMMCSS(IMFAsyncResult* pResult) mut => VT.[Friend]EndUnregisterTopologyWorkQueuesWithMMCSS(&this, pResult);
 
-	public HRESULT GetTopologyWorkQueueMMCSSClass(uint32 dwTopologyWorkQueueId, char16* pwszClass, uint32 pcchClass) mut => VT.[Friend]GetTopologyWorkQueueMMCSSClass(&this, dwTopologyWorkQueueId, pwszClass, pcchClass);
+	public HRESULT GetTopologyWorkQueueMMCSSClass(uint32 dwTopologyWorkQueueId, char16* pwszClass, uint32* pcchClass) mut => VT.[Friend]GetTopologyWorkQueueMMCSSClass(&this, dwTopologyWorkQueueId, pwszClass, pcchClass);
 
-	public HRESULT GetTopologyWorkQueueMMCSSTaskId(uint32 dwTopologyWorkQueueId, uint32 pdwTaskId) mut => VT.[Friend]GetTopologyWorkQueueMMCSSTaskId(&this, dwTopologyWorkQueueId, pdwTaskId);
+	public HRESULT GetTopologyWorkQueueMMCSSTaskId(uint32 dwTopologyWorkQueueId, uint32* pdwTaskId) mut => VT.[Friend]GetTopologyWorkQueueMMCSSTaskId(&this, dwTopologyWorkQueueId, pdwTaskId);
 
 	public HRESULT BeginRegisterPlatformWorkQueueWithMMCSS(uint32 dwPlatformWorkQueue, PWSTR wszClass, uint32 dwTaskId, IMFAsyncCallback* pCallback, IUnknown* pState) mut => VT.[Friend]BeginRegisterPlatformWorkQueueWithMMCSS(&this, dwPlatformWorkQueue, wszClass, dwTaskId, pCallback, pState);
 
-	public HRESULT EndRegisterPlatformWorkQueueWithMMCSS(IMFAsyncResult* pResult, uint32 pdwTaskId) mut => VT.[Friend]EndRegisterPlatformWorkQueueWithMMCSS(&this, pResult, pdwTaskId);
+	public HRESULT EndRegisterPlatformWorkQueueWithMMCSS(IMFAsyncResult* pResult, uint32* pdwTaskId) mut => VT.[Friend]EndRegisterPlatformWorkQueueWithMMCSS(&this, pResult, pdwTaskId);
 
 	public HRESULT BeginUnregisterPlatformWorkQueueWithMMCSS(uint32 dwPlatformWorkQueue, IMFAsyncCallback* pCallback, IUnknown* pState) mut => VT.[Friend]BeginUnregisterPlatformWorkQueueWithMMCSS(&this, dwPlatformWorkQueue, pCallback, pState);
 
 	public HRESULT EndUnregisterPlatformWorkQueueWithMMCSS(IMFAsyncResult* pResult) mut => VT.[Friend]EndUnregisterPlatformWorkQueueWithMMCSS(&this, pResult);
 
-	public HRESULT GetPlaftormWorkQueueMMCSSClass(uint32 dwPlatformWorkQueueId, char16* pwszClass, uint32 pcchClass) mut => VT.[Friend]GetPlaftormWorkQueueMMCSSClass(&this, dwPlatformWorkQueueId, pwszClass, pcchClass);
+	public HRESULT GetPlaftormWorkQueueMMCSSClass(uint32 dwPlatformWorkQueueId, char16* pwszClass, uint32* pcchClass) mut => VT.[Friend]GetPlaftormWorkQueueMMCSSClass(&this, dwPlatformWorkQueueId, pwszClass, pcchClass);
 
-	public HRESULT GetPlatformWorkQueueMMCSSTaskId(uint32 dwPlatformWorkQueueId, uint32 pdwTaskId) mut => VT.[Friend]GetPlatformWorkQueueMMCSSTaskId(&this, dwPlatformWorkQueueId, pdwTaskId);
+	public HRESULT GetPlatformWorkQueueMMCSSTaskId(uint32 dwPlatformWorkQueueId, uint32* pdwTaskId) mut => VT.[Friend]GetPlatformWorkQueueMMCSSTaskId(&this, dwPlatformWorkQueueId, pdwTaskId);
 }
 
 [CRepr]struct IMFWorkQueueServicesEx : IMFWorkQueueServices
@@ -16000,17 +16000,17 @@ public static
 
 	[CRepr]public struct VTable : IMFWorkQueueServices.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTopologyWorkQueueId, int32 plPriority) GetTopologyWorkQueueMMCSSPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTopologyWorkQueueId, int32* plPriority) GetTopologyWorkQueueMMCSSPriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPlatformWorkQueue, PWSTR wszClass, uint32 dwTaskId, int32 lPriority, IMFAsyncCallback* pCallback, IUnknown* pState) BeginRegisterPlatformWorkQueueWithMMCSSEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPlatformWorkQueueId, int32 plPriority) GetPlatformWorkQueueMMCSSPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPlatformWorkQueueId, int32* plPriority) GetPlatformWorkQueueMMCSSPriority;
 	}
 
 
-	public HRESULT GetTopologyWorkQueueMMCSSPriority(uint32 dwTopologyWorkQueueId, int32 plPriority) mut => VT.[Friend]GetTopologyWorkQueueMMCSSPriority(&this, dwTopologyWorkQueueId, plPriority);
+	public HRESULT GetTopologyWorkQueueMMCSSPriority(uint32 dwTopologyWorkQueueId, int32* plPriority) mut => VT.[Friend]GetTopologyWorkQueueMMCSSPriority(&this, dwTopologyWorkQueueId, plPriority);
 
 	public HRESULT BeginRegisterPlatformWorkQueueWithMMCSSEx(uint32 dwPlatformWorkQueue, PWSTR wszClass, uint32 dwTaskId, int32 lPriority, IMFAsyncCallback* pCallback, IUnknown* pState) mut => VT.[Friend]BeginRegisterPlatformWorkQueueWithMMCSSEx(&this, dwPlatformWorkQueue, wszClass, dwTaskId, lPriority, pCallback, pState);
 
-	public HRESULT GetPlatformWorkQueueMMCSSPriority(uint32 dwPlatformWorkQueueId, int32 plPriority) mut => VT.[Friend]GetPlatformWorkQueueMMCSSPriority(&this, dwPlatformWorkQueueId, plPriority);
+	public HRESULT GetPlatformWorkQueueMMCSSPriority(uint32 dwPlatformWorkQueueId, int32* plPriority) mut => VT.[Friend]GetPlatformWorkQueueMMCSSPriority(&this, dwPlatformWorkQueueId, plPriority);
 }
 
 [CRepr]struct IMFQualityManager : IUnknown
@@ -16078,11 +16078,11 @@ public static
 
 	[CRepr]public struct VTable : IMFQualityAdvise.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaEvent* pEvent, uint32 pdwFlags) NotifyQualityEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaEvent* pEvent, uint32* pdwFlags) NotifyQualityEvent;
 	}
 
 
-	public HRESULT NotifyQualityEvent(IMFMediaEvent* pEvent, uint32 pdwFlags) mut => VT.[Friend]NotifyQualityEvent(&this, pEvent, pdwFlags);
+	public HRESULT NotifyQualityEvent(IMFMediaEvent* pEvent, uint32* pdwFlags) mut => VT.[Friend]NotifyQualityEvent(&this, pEvent, pdwFlags);
 }
 
 [CRepr]struct IMFQualityAdviseLimits : IUnknown
@@ -16132,13 +16132,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwTaskIndex, PWSTR wszClassName, int32 lBasePriority) RegisterThreadsEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwTaskIndex, PWSTR wszClassName, int32 lBasePriority) RegisterThreadsEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnregisterThreads;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMultithreadedWorkQueueId, int32 lWorkItemBasePriority) SetWorkQueueEx;
 	}
 
 
-	public HRESULT RegisterThreadsEx(uint32 pdwTaskIndex, PWSTR wszClassName, int32 lBasePriority) mut => VT.[Friend]RegisterThreadsEx(&this, pdwTaskIndex, wszClassName, lBasePriority);
+	public HRESULT RegisterThreadsEx(uint32* pdwTaskIndex, PWSTR wszClassName, int32 lBasePriority) mut => VT.[Friend]RegisterThreadsEx(&this, pdwTaskIndex, wszClassName, lBasePriority);
 
 	public HRESULT UnregisterThreads() mut => VT.[Friend]UnregisterThreads(&this);
 
@@ -16153,19 +16153,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTopology* pTopology, uint32 dwFlags, uint32 pdwId) AppendTopology;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTopology* pTopology, uint32 dwFlags, uint32* pdwId) AppendTopology;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwId) DeleteTopology;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPresentationDescriptor* pPD, uint32 pId, IMFTopology** ppTopology) GetPresentationContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPresentationDescriptor* pPD, uint32* pId, IMFTopology** ppTopology) GetPresentationContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwId, IMFTopology* pTopology) UpdateTopology;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwId, uint32 dwFlags) UpdateTopologyFlags;
 	}
 
 
-	public HRESULT AppendTopology(IMFTopology* pTopology, uint32 dwFlags, uint32 pdwId) mut => VT.[Friend]AppendTopology(&this, pTopology, dwFlags, pdwId);
+	public HRESULT AppendTopology(IMFTopology* pTopology, uint32 dwFlags, uint32* pdwId) mut => VT.[Friend]AppendTopology(&this, pTopology, dwFlags, pdwId);
 
 	public HRESULT DeleteTopology(uint32 dwId) mut => VT.[Friend]DeleteTopology(&this, dwId);
 
-	public HRESULT GetPresentationContext(IMFPresentationDescriptor* pPD, uint32 pId, IMFTopology** ppTopology) mut => VT.[Friend]GetPresentationContext(&this, pPD, pId, ppTopology);
+	public HRESULT GetPresentationContext(IMFPresentationDescriptor* pPD, uint32* pId, IMFTopology** ppTopology) mut => VT.[Friend]GetPresentationContext(&this, pPD, pId, ppTopology);
 
 	public HRESULT UpdateTopology(uint32 dwId, IMFTopology* pTopology) mut => VT.[Friend]UpdateTopology(&this, dwId, pTopology);
 
@@ -16263,7 +16263,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfTimeSeekIsSupported) IsTimeSeekSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 qwTimePosition) TimeSeek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pqwStartTime, uint64 pqwStopTime, uint64 pqwDuration) GetTimeSeekResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pqwStartTime, uint64* pqwStopTime, uint64* pqwDuration) GetTimeSeekResult;
 	}
 
 
@@ -16271,7 +16271,7 @@ public static
 
 	public HRESULT TimeSeek(uint64 qwTimePosition) mut => VT.[Friend]TimeSeek(&this, qwTimePosition);
 
-	public HRESULT GetTimeSeekResult(uint64 pqwStartTime, uint64 pqwStopTime, uint64 pqwDuration) mut => VT.[Friend]GetTimeSeekResult(&this, pqwStartTime, pqwStopTime, pqwDuration);
+	public HRESULT GetTimeSeekResult(uint64* pqwStartTime, uint64* pqwStopTime, uint64* pqwDuration) mut => VT.[Friend]GetTimeSeekResult(&this, pqwStartTime, pqwStopTime, pqwDuration);
 }
 
 [CRepr]struct IMFByteStreamCacheControl2 : IMFByteStreamCacheControl
@@ -16282,13 +16282,13 @@ public static
 
 	[CRepr]public struct VTable : IMFByteStreamCacheControl.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcRanges, MF_BYTE_STREAM_CACHE_RANGE** ppRanges) GetByteRanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcRanges, MF_BYTE_STREAM_CACHE_RANGE** ppRanges) GetByteRanges;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 qwBytes) SetCacheLimit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfActive) IsBackgroundTransferActive;
 	}
 
 
-	public HRESULT GetByteRanges(uint32 pcRanges, MF_BYTE_STREAM_CACHE_RANGE** ppRanges) mut => VT.[Friend]GetByteRanges(&this, pcRanges, ppRanges);
+	public HRESULT GetByteRanges(uint32* pcRanges, MF_BYTE_STREAM_CACHE_RANGE** ppRanges) mut => VT.[Friend]GetByteRanges(&this, pcRanges, ppRanges);
 
 	public HRESULT SetCacheLimit(uint64 qwBytes) mut => VT.[Friend]SetCacheLimit(&this, qwBytes);
 
@@ -16303,21 +16303,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbData, uint32 cbData, BOOL fDataIsEncrypted) SetUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbData, uint32 cbData, BOOL fDataIsEncrypted) SetPassword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbData, uint32 pcbData, BOOL fEncryptData) GetUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbData, uint32 pcbData, BOOL fEncryptData) GetPassword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbData, uint32 cbData, BOOL fDataIsEncrypted) SetUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbData, uint32 cbData, BOOL fDataIsEncrypted) SetPassword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbData, uint32* pcbData, BOOL fEncryptData) GetUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbData, uint32* pcbData, BOOL fEncryptData) GetPassword;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfLoggedOnUser) LoggedOnUser;
 	}
 
 
-	public HRESULT SetUser(uint8 pbData, uint32 cbData, BOOL fDataIsEncrypted) mut => VT.[Friend]SetUser(&this, pbData, cbData, fDataIsEncrypted);
+	public HRESULT SetUser(uint8* pbData, uint32 cbData, BOOL fDataIsEncrypted) mut => VT.[Friend]SetUser(&this, pbData, cbData, fDataIsEncrypted);
 
-	public HRESULT SetPassword(uint8 pbData, uint32 cbData, BOOL fDataIsEncrypted) mut => VT.[Friend]SetPassword(&this, pbData, cbData, fDataIsEncrypted);
+	public HRESULT SetPassword(uint8* pbData, uint32 cbData, BOOL fDataIsEncrypted) mut => VT.[Friend]SetPassword(&this, pbData, cbData, fDataIsEncrypted);
 
-	public HRESULT GetUser(uint8* pbData, uint32 pcbData, BOOL fEncryptData) mut => VT.[Friend]GetUser(&this, pbData, pcbData, fEncryptData);
+	public HRESULT GetUser(uint8* pbData, uint32* pcbData, BOOL fEncryptData) mut => VT.[Friend]GetUser(&this, pbData, pcbData, fEncryptData);
 
-	public HRESULT GetPassword(uint8* pbData, uint32 pcbData, BOOL fEncryptData) mut => VT.[Friend]GetPassword(&this, pbData, pcbData, fEncryptData);
+	public HRESULT GetPassword(uint8* pbData, uint32* pcbData, BOOL fEncryptData) mut => VT.[Friend]GetPassword(&this, pbData, pcbData, fEncryptData);
 
 	public HRESULT LoggedOnUser(BOOL* pfLoggedOnUser) mut => VT.[Friend]LoggedOnUser(&this, pfLoggedOnUser);
 }
@@ -16351,13 +16351,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUrl, PWSTR pszRealm, uint32 dwAuthenticationFlags, IMFNetCredential** ppCred, uint32 pdwRequirementsFlags) GetCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUrl, PWSTR pszRealm, uint32 dwAuthenticationFlags, IMFNetCredential** ppCred, uint32* pdwRequirementsFlags) GetCredential;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFNetCredential* pCred, BOOL fGood) SetGood;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFNetCredential* pCred, uint32 dwOptionsFlags) SetUserOptions;
 	}
 
 
-	public HRESULT GetCredential(PWSTR pszUrl, PWSTR pszRealm, uint32 dwAuthenticationFlags, IMFNetCredential** ppCred, uint32 pdwRequirementsFlags) mut => VT.[Friend]GetCredential(&this, pszUrl, pszRealm, dwAuthenticationFlags, ppCred, pdwRequirementsFlags);
+	public HRESULT GetCredential(PWSTR pszUrl, PWSTR pszRealm, uint32 dwAuthenticationFlags, IMFNetCredential** ppCred, uint32* pdwRequirementsFlags) mut => VT.[Friend]GetCredential(&this, pszUrl, pszRealm, dwAuthenticationFlags, ppCred, pdwRequirementsFlags);
 
 	public HRESULT SetGood(IMFNetCredential* pCred, BOOL fGood) mut => VT.[Friend]SetGood(&this, pCred, fGood);
 
@@ -16372,23 +16372,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszURL, uint8** ppbData, uint32 pcbData) GetClientCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszURL, uint8** ppbData, uint32* pcbData) GetClientCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszURL, IMFAsyncCallback* pCallback, IUnknown* pState) BeginGetClientCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, uint8** ppbData, uint32 pcbData) EndGetClientCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, uint8** ppbData, uint32* pcbData) EndGetClientCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszURL, BOOL* pfOverrideAutomaticCheck, BOOL* pfClientCertificateAvailable) GetCertificatePolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszURL, uint8 pbData, uint32 cbData, BOOL* pfIsGood) OnServerCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszURL, uint8* pbData, uint32 cbData, BOOL* pfIsGood) OnServerCertificate;
 	}
 
 
-	public HRESULT GetClientCertificate(PWSTR pszURL, uint8** ppbData, uint32 pcbData) mut => VT.[Friend]GetClientCertificate(&this, pszURL, ppbData, pcbData);
+	public HRESULT GetClientCertificate(PWSTR pszURL, uint8** ppbData, uint32* pcbData) mut => VT.[Friend]GetClientCertificate(&this, pszURL, ppbData, pcbData);
 
 	public HRESULT BeginGetClientCertificate(PWSTR pszURL, IMFAsyncCallback* pCallback, IUnknown* pState) mut => VT.[Friend]BeginGetClientCertificate(&this, pszURL, pCallback, pState);
 
-	public HRESULT EndGetClientCertificate(IMFAsyncResult* pResult, uint8** ppbData, uint32 pcbData) mut => VT.[Friend]EndGetClientCertificate(&this, pResult, ppbData, pcbData);
+	public HRESULT EndGetClientCertificate(IMFAsyncResult* pResult, uint8** ppbData, uint32* pcbData) mut => VT.[Friend]EndGetClientCertificate(&this, pResult, ppbData, pcbData);
 
 	public HRESULT GetCertificatePolicy(PWSTR pszURL, BOOL* pfOverrideAutomaticCheck, BOOL* pfClientCertificateAvailable) mut => VT.[Friend]GetCertificatePolicy(&this, pszURL, pfOverrideAutomaticCheck, pfClientCertificateAvailable);
 
-	public HRESULT OnServerCertificate(PWSTR pszURL, uint8 pbData, uint32 cbData, BOOL* pfIsGood) mut => VT.[Friend]OnServerCertificate(&this, pszURL, pbData, cbData, pfIsGood);
+	public HRESULT OnServerCertificate(PWSTR pszURL, uint8* pbData, uint32 cbData, BOOL* pfIsGood) mut => VT.[Friend]OnServerCertificate(&this, pszURL, pbData, cbData, pfIsGood);
 }
 
 [CRepr]struct IMFNetResourceFilter : IUnknown
@@ -16399,12 +16399,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUrl, int16 pvbCancel) OnRedirect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUrl, int16* pvbCancel) OnRedirect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUrl) OnSendingRequest;
 	}
 
 
-	public HRESULT OnRedirect(PWSTR pszUrl, int16 pvbCancel) mut => VT.[Friend]OnRedirect(&this, pszUrl, pvbCancel);
+	public HRESULT OnRedirect(PWSTR pszUrl, int16* pvbCancel) mut => VT.[Friend]OnRedirect(&this, pszUrl, pvbCancel);
 
 	public HRESULT OnSendingRequest(PWSTR pszUrl) mut => VT.[Friend]OnSendingRequest(&this, pszUrl);
 }
@@ -16435,7 +16435,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszHost, PWSTR pszUrl, BOOL fReserved) FindFirstProxy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) FindNextProxy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hrOp) RegisterProxyResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszStr, uint32 pcchStr) GetCurrentProxy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszStr, uint32* pcchStr) GetCurrentProxy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFNetProxyLocator** ppProxyLocator) Clone;
 	}
 
@@ -16446,7 +16446,7 @@ public static
 
 	public HRESULT RegisterProxyResult(HRESULT hrOp) mut => VT.[Friend]RegisterProxyResult(&this, hrOp);
 
-	public HRESULT GetCurrentProxy(char16* pszStr, uint32 pcchStr) mut => VT.[Friend]GetCurrentProxy(&this, pszStr, pcchStr);
+	public HRESULT GetCurrentProxy(char16* pszStr, uint32* pcchStr) mut => VT.[Friend]GetCurrentProxy(&this, pszStr, pcchStr);
 
 	public HRESULT Clone(IMFNetProxyLocator** ppProxyLocator) mut => VT.[Friend]Clone(&this, ppProxyLocator);
 }
@@ -16477,7 +16477,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream* pStream, IMFAsyncCallback* pCallback, IUnknown* pState) BeginSave;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult) EndSave;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelSave;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwPercentComplete) GetProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwPercentComplete) GetProgress;
 	}
 
 
@@ -16487,7 +16487,7 @@ public static
 
 	public HRESULT CancelSave() mut => VT.[Friend]CancelSave(&this);
 
-	public HRESULT GetProgress(uint32 pdwPercentComplete) mut => VT.[Friend]GetProgress(&this, pdwPercentComplete);
+	public HRESULT GetProgress(uint32* pdwPercentComplete) mut => VT.[Friend]GetProgress(&this, pdwPercentComplete);
 }
 
 [CRepr]struct IMFNetSchemeHandlerConfig : IUnknown
@@ -16498,13 +16498,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcProtocols) GetNumberOfSupportedProtocols;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcProtocols) GetNumberOfSupportedProtocols;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nProtocolIndex, MFNETSOURCE_PROTOCOL_TYPE* pnProtocolType) GetSupportedProtocolType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResetProtocolRolloverSettings;
 	}
 
 
-	public HRESULT GetNumberOfSupportedProtocols(uint32 pcProtocols) mut => VT.[Friend]GetNumberOfSupportedProtocols(&this, pcProtocols);
+	public HRESULT GetNumberOfSupportedProtocols(uint32* pcProtocols) mut => VT.[Friend]GetNumberOfSupportedProtocols(&this, pcProtocols);
 
 	public HRESULT GetSupportedProtocolType(uint32 nProtocolIndex, MFNETSOURCE_PROTOCOL_TYPE* pnProtocolType) mut => VT.[Friend]GetSupportedProtocolType(&this, nProtocolIndex, pnProtocolType);
 
@@ -16543,7 +16543,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream* pByteStream, PWSTR pwszURL, uint32 dwFlags, IPropertyStore* pProps, IUnknown** ppIUnknownCancelCookie, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginCreateObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, MF_OBJECT_TYPE* pObjectType, IUnknown** ppObject) EndCreateObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pIUnknownCancelCookie) CancelObjectCreation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pqwBytes) GetMaxNumberOfBytesRequiredForResolution;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pqwBytes) GetMaxNumberOfBytesRequiredForResolution;
 	}
 
 
@@ -16553,7 +16553,7 @@ public static
 
 	public HRESULT CancelObjectCreation(IUnknown* pIUnknownCancelCookie) mut => VT.[Friend]CancelObjectCreation(&this, pIUnknownCancelCookie);
 
-	public HRESULT GetMaxNumberOfBytesRequiredForResolution(uint64 pqwBytes) mut => VT.[Friend]GetMaxNumberOfBytesRequiredForResolution(&this, pqwBytes);
+	public HRESULT GetMaxNumberOfBytesRequiredForResolution(uint64* pqwBytes) mut => VT.[Friend]GetMaxNumberOfBytesRequiredForResolution(&this, pqwBytes);
 }
 
 [CRepr]struct IMFTrustedInput : IUnknown
@@ -16564,11 +16564,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, Guid riid, IUnknown** ppunkObject) GetInputTrustAuthority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, ref Guid riid, IUnknown** ppunkObject) GetInputTrustAuthority;
 	}
 
 
-	public HRESULT GetInputTrustAuthority(uint32 dwStreamID, Guid riid, IUnknown** ppunkObject) mut => VT.[Friend]GetInputTrustAuthority(&this, dwStreamID, riid, ppunkObject);
+	public HRESULT GetInputTrustAuthority(uint32 dwStreamID, ref Guid riid, IUnknown** ppunkObject) mut => VT.[Friend]GetInputTrustAuthority(&this, dwStreamID, ref riid, ppunkObject);
 }
 
 [CRepr]struct IMFInputTrustAuthority : IUnknown
@@ -16579,7 +16579,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) GetDecrypter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetDecrypter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFPOLICYMANAGER_ACTION Action, IMFActivate** ppContentEnablerActivate) RequestAccess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFPOLICYMANAGER_ACTION Action, IMFOutputPolicy** ppPolicy) GetPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS* pParam) BindAccess;
@@ -16588,7 +16588,7 @@ public static
 	}
 
 
-	public HRESULT GetDecrypter(Guid riid, void** ppv) mut => VT.[Friend]GetDecrypter(&this, riid, ppv);
+	public HRESULT GetDecrypter(ref Guid riid, void** ppv) mut => VT.[Friend]GetDecrypter(&this, ref riid, ppv);
 
 	public HRESULT RequestAccess(MFPOLICYMANAGER_ACTION Action, IMFActivate** ppContentEnablerActivate) mut => VT.[Friend]RequestAccess(&this, Action, ppContentEnablerActivate);
 
@@ -16609,13 +16609,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcOutputTrustAuthorities) GetOutputTrustAuthorityCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcOutputTrustAuthorities) GetOutputTrustAuthorityCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, IMFOutputTrustAuthority** ppauthority) GetOutputTrustAuthorityByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfIsFinal) IsFinal;
 	}
 
 
-	public HRESULT GetOutputTrustAuthorityCount(uint32 pcOutputTrustAuthorities) mut => VT.[Friend]GetOutputTrustAuthorityCount(&this, pcOutputTrustAuthorities);
+	public HRESULT GetOutputTrustAuthorityCount(uint32* pcOutputTrustAuthorities) mut => VT.[Friend]GetOutputTrustAuthorityCount(&this, pcOutputTrustAuthorities);
 
 	public HRESULT GetOutputTrustAuthorityByIndex(uint32 dwIndex, IMFOutputTrustAuthority** ppauthority) mut => VT.[Friend]GetOutputTrustAuthorityByIndex(&this, dwIndex, ppauthority);
 
@@ -16631,13 +16631,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFPOLICYMANAGER_ACTION* pAction) GetAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFOutputPolicy** ppPolicy, uint32 nPolicy, uint8** ppbTicket, uint32 pcbTicket) SetPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFOutputPolicy** ppPolicy, uint32 nPolicy, uint8** ppbTicket, uint32* pcbTicket) SetPolicy;
 	}
 
 
 	public HRESULT GetAction(MFPOLICYMANAGER_ACTION* pAction) mut => VT.[Friend]GetAction(&this, pAction);
 
-	public HRESULT SetPolicy(IMFOutputPolicy** ppPolicy, uint32 nPolicy, uint8** ppbTicket, uint32 pcbTicket) mut => VT.[Friend]SetPolicy(&this, ppPolicy, nPolicy, ppbTicket, pcbTicket);
+	public HRESULT SetPolicy(IMFOutputPolicy** ppPolicy, uint32 nPolicy, uint8** ppbTicket, uint32* pcbTicket) mut => VT.[Friend]SetPolicy(&this, ppPolicy, nPolicy, ppbTicket, pcbTicket);
 }
 
 [CRepr]struct IMFOutputPolicy : IMFAttributes
@@ -16648,17 +16648,17 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, Guid guidOutputSubType, Guid rgGuidProtectionSchemasSupported, uint32 cProtectionSchemasSupported, IMFCollection** ppRequiredProtectionSchemas) GenerateRequiredSchemas;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidOriginatorID) GetOriginatorID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwMinimumGRLVersion) GetMinimumGRLVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, Guid guidOutputSubType, ref Guid rgGuidProtectionSchemasSupported, uint32 cProtectionSchemasSupported, IMFCollection** ppRequiredProtectionSchemas) GenerateRequiredSchemas;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidOriginatorID) GetOriginatorID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMinimumGRLVersion) GetMinimumGRLVersion;
 	}
 
 
-	public HRESULT GenerateRequiredSchemas(uint32 dwAttributes, Guid guidOutputSubType, Guid rgGuidProtectionSchemasSupported, uint32 cProtectionSchemasSupported, IMFCollection** ppRequiredProtectionSchemas) mut => VT.[Friend]GenerateRequiredSchemas(&this, dwAttributes, guidOutputSubType, rgGuidProtectionSchemasSupported, cProtectionSchemasSupported, ppRequiredProtectionSchemas);
+	public HRESULT GenerateRequiredSchemas(uint32 dwAttributes, Guid guidOutputSubType, ref Guid rgGuidProtectionSchemasSupported, uint32 cProtectionSchemasSupported, IMFCollection** ppRequiredProtectionSchemas) mut => VT.[Friend]GenerateRequiredSchemas(&this, dwAttributes, guidOutputSubType, ref rgGuidProtectionSchemasSupported, cProtectionSchemasSupported, ppRequiredProtectionSchemas);
 
-	public HRESULT GetOriginatorID(Guid pguidOriginatorID) mut => VT.[Friend]GetOriginatorID(&this, pguidOriginatorID);
+	public HRESULT GetOriginatorID(ref Guid pguidOriginatorID) mut => VT.[Friend]GetOriginatorID(&this, ref pguidOriginatorID);
 
-	public HRESULT GetMinimumGRLVersion(uint32 pdwMinimumGRLVersion) mut => VT.[Friend]GetMinimumGRLVersion(&this, pdwMinimumGRLVersion);
+	public HRESULT GetMinimumGRLVersion(uint32* pdwMinimumGRLVersion) mut => VT.[Friend]GetMinimumGRLVersion(&this, pdwMinimumGRLVersion);
 }
 
 [CRepr]struct IMFOutputSchema : IMFAttributes
@@ -16669,17 +16669,17 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidSchemaType) GetSchemaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwVal) GetConfigurationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidOriginatorID) GetOriginatorID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidSchemaType) GetSchemaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwVal) GetConfigurationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidOriginatorID) GetOriginatorID;
 	}
 
 
-	public HRESULT GetSchemaType(Guid pguidSchemaType) mut => VT.[Friend]GetSchemaType(&this, pguidSchemaType);
+	public HRESULT GetSchemaType(ref Guid pguidSchemaType) mut => VT.[Friend]GetSchemaType(&this, ref pguidSchemaType);
 
-	public HRESULT GetConfigurationData(uint32 pdwVal) mut => VT.[Friend]GetConfigurationData(&this, pdwVal);
+	public HRESULT GetConfigurationData(uint32* pdwVal) mut => VT.[Friend]GetConfigurationData(&this, pdwVal);
 
-	public HRESULT GetOriginatorID(Guid pguidOriginatorID) mut => VT.[Friend]GetOriginatorID(&this, pguidOriginatorID);
+	public HRESULT GetOriginatorID(ref Guid pguidOriginatorID) mut => VT.[Friend]GetOriginatorID(&this, ref pguidOriginatorID);
 }
 
 [CRepr]struct IMFSecureChannel : IUnknown
@@ -16690,14 +16690,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppCert, uint32 pcbCert) GetCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbEncryptedSessionKey, uint32 cbSessionKey) SetupSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppCert, uint32* pcbCert) GetCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbEncryptedSessionKey, uint32 cbSessionKey) SetupSession;
 	}
 
 
-	public HRESULT GetCertificate(uint8** ppCert, uint32 pcbCert) mut => VT.[Friend]GetCertificate(&this, ppCert, pcbCert);
+	public HRESULT GetCertificate(uint8** ppCert, uint32* pcbCert) mut => VT.[Friend]GetCertificate(&this, ppCert, pcbCert);
 
-	public HRESULT SetupSession(uint8 pbEncryptedSessionKey, uint32 cbSessionKey) mut => VT.[Friend]SetupSession(&this, pbEncryptedSessionKey, cbSessionKey);
+	public HRESULT SetupSession(uint8* pbEncryptedSessionKey, uint32 cbSessionKey) mut => VT.[Friend]SetupSession(&this, pbEncryptedSessionKey, cbSessionKey);
 }
 
 [CRepr]struct IMFSampleProtection : IUnknown
@@ -16708,23 +16708,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwVersion) GetInputProtectionVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwVersion) GetOutputProtectionVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwVersion, uint8** ppCert, uint32 pcbCert) GetProtectionCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwVersion, uint32 dwOutputId, uint8 pbCert, uint32 cbCert, uint8** ppbSeed, uint32 pcbSeed) InitOutputProtection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwVersion, uint32 dwInputId, uint8 pbSeed, uint32 cbSeed) InitInputProtection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwVersion) GetInputProtectionVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwVersion) GetOutputProtectionVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwVersion, uint8** ppCert, uint32* pcbCert) GetProtectionCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwVersion, uint32 dwOutputId, uint8* pbCert, uint32 cbCert, uint8** ppbSeed, uint32* pcbSeed) InitOutputProtection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwVersion, uint32 dwInputId, uint8* pbSeed, uint32 cbSeed) InitInputProtection;
 	}
 
 
-	public HRESULT GetInputProtectionVersion(uint32 pdwVersion) mut => VT.[Friend]GetInputProtectionVersion(&this, pdwVersion);
+	public HRESULT GetInputProtectionVersion(uint32* pdwVersion) mut => VT.[Friend]GetInputProtectionVersion(&this, pdwVersion);
 
-	public HRESULT GetOutputProtectionVersion(uint32 pdwVersion) mut => VT.[Friend]GetOutputProtectionVersion(&this, pdwVersion);
+	public HRESULT GetOutputProtectionVersion(uint32* pdwVersion) mut => VT.[Friend]GetOutputProtectionVersion(&this, pdwVersion);
 
-	public HRESULT GetProtectionCertificate(uint32 dwVersion, uint8** ppCert, uint32 pcbCert) mut => VT.[Friend]GetProtectionCertificate(&this, dwVersion, ppCert, pcbCert);
+	public HRESULT GetProtectionCertificate(uint32 dwVersion, uint8** ppCert, uint32* pcbCert) mut => VT.[Friend]GetProtectionCertificate(&this, dwVersion, ppCert, pcbCert);
 
-	public HRESULT InitOutputProtection(uint32 dwVersion, uint32 dwOutputId, uint8 pbCert, uint32 cbCert, uint8** ppbSeed, uint32 pcbSeed) mut => VT.[Friend]InitOutputProtection(&this, dwVersion, dwOutputId, pbCert, cbCert, ppbSeed, pcbSeed);
+	public HRESULT InitOutputProtection(uint32 dwVersion, uint32 dwOutputId, uint8* pbCert, uint32 cbCert, uint8** ppbSeed, uint32* pcbSeed) mut => VT.[Friend]InitOutputProtection(&this, dwVersion, dwOutputId, pbCert, cbCert, ppbSeed, pcbSeed);
 
-	public HRESULT InitInputProtection(uint32 dwVersion, uint32 dwInputId, uint8 pbSeed, uint32 cbSeed) mut => VT.[Friend]InitInputProtection(&this, dwVersion, dwInputId, pbSeed, cbSeed);
+	public HRESULT InitInputProtection(uint32 dwVersion, uint32 dwInputId, uint8* pbSeed, uint32 cbSeed) mut => VT.[Friend]InitInputProtection(&this, dwVersion, dwInputId, pbSeed, cbSeed);
 }
 
 [CRepr]struct IMFMediaSinkPreroll : IUnknown
@@ -16783,14 +16783,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) GetRemoteObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) GetRemoteHost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetRemoteObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetRemoteHost;
 	}
 
 
-	public HRESULT GetRemoteObject(Guid riid, void** ppv) mut => VT.[Friend]GetRemoteObject(&this, riid, ppv);
+	public HRESULT GetRemoteObject(ref Guid riid, void** ppv) mut => VT.[Friend]GetRemoteObject(&this, ref riid, ppv);
 
-	public HRESULT GetRemoteHost(Guid riid, void** ppv) mut => VT.[Friend]GetRemoteHost(&this, riid, ppv);
+	public HRESULT GetRemoteHost(ref Guid riid, void** ppv) mut => VT.[Friend]GetRemoteHost(&this, ref riid, ppv);
 }
 
 [CRepr]struct IMFObjectReferenceStream : IUnknown
@@ -16801,14 +16801,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, IUnknown* pUnk) SaveReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid riid, void** ppv) LoadReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, IUnknown* pUnk) SaveReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) LoadReference;
 	}
 
 
-	public HRESULT SaveReference(Guid riid, IUnknown* pUnk) mut => VT.[Friend]SaveReference(&this, riid, pUnk);
+	public HRESULT SaveReference(ref Guid riid, IUnknown* pUnk) mut => VT.[Friend]SaveReference(&this, ref riid, pUnk);
 
-	public HRESULT LoadReference(Guid riid, void** ppv) mut => VT.[Friend]LoadReference(&this, riid, ppv);
+	public HRESULT LoadReference(ref Guid riid, void** ppv) mut => VT.[Friend]LoadReference(&this, ref riid, ppv);
 }
 
 [CRepr]struct IMFPMPHost : IUnknown
@@ -16821,7 +16821,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) LockProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnlockProcess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid clsid, IStream* pStream, Guid riid, void** ppv) CreateObjectByCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsid, IStream* pStream, ref Guid riid, void** ppv) CreateObjectByCLSID;
 	}
 
 
@@ -16829,7 +16829,7 @@ public static
 
 	public HRESULT UnlockProcess() mut => VT.[Friend]UnlockProcess(&this);
 
-	public HRESULT CreateObjectByCLSID(Guid clsid, IStream* pStream, Guid riid, void** ppv) mut => VT.[Friend]CreateObjectByCLSID(&this, clsid, pStream, riid, ppv);
+	public HRESULT CreateObjectByCLSID(ref Guid clsid, IStream* pStream, ref Guid riid, void** ppv) mut => VT.[Friend]CreateObjectByCLSID(&this, ref clsid, pStream, ref riid, ppv);
 }
 
 [CRepr]struct IMFPMPClient : IUnknown
@@ -16857,7 +16857,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) LockProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnlockProcess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid clsid, Guid riid, void** ppObject) CreateObjectByCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsid, ref Guid riid, void** ppObject) CreateObjectByCLSID;
 	}
 
 
@@ -16865,7 +16865,7 @@ public static
 
 	public HRESULT UnlockProcess() mut => VT.[Friend]UnlockProcess(&this);
 
-	public HRESULT CreateObjectByCLSID(Guid clsid, Guid riid, void** ppObject) mut => VT.[Friend]CreateObjectByCLSID(&this, clsid, riid, ppObject);
+	public HRESULT CreateObjectByCLSID(ref Guid clsid, ref Guid riid, void** ppObject) mut => VT.[Friend]CreateObjectByCLSID(&this, ref clsid, ref riid, ppObject);
 }
 
 [CRepr]struct IMFRemoteDesktopPlugin : IUnknown
@@ -16891,14 +16891,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCount) GetStyleCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCount) GetStyleCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* pPropVarStyleArray) GetStyles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszStyle) SetSelectedStyle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszStyle) GetSelectedStyle;
 	}
 
 
-	public HRESULT GetStyleCount(uint32 pdwCount) mut => VT.[Friend]GetStyleCount(&this, pdwCount);
+	public HRESULT GetStyleCount(uint32* pdwCount) mut => VT.[Friend]GetStyleCount(&this, pdwCount);
 
 	public HRESULT GetStyles(PROPVARIANT* pPropVarStyleArray) mut => VT.[Friend]GetStyles(&this, pPropVarStyleArray);
 
@@ -17001,7 +17001,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncCallback* pNotificationCallback) SetPhotoConfirmationCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid subtype) SetPixelFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid subtype) GetPixelFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid subtype) GetPixelFormat;
 	}
 
 
@@ -17009,7 +17009,7 @@ public static
 
 	public HRESULT SetPixelFormat(Guid subtype) mut => VT.[Friend]SetPixelFormat(&this, subtype);
 
-	public HRESULT GetPixelFormat(Guid subtype) mut => VT.[Friend]GetPixelFormat(&this, subtype);
+	public HRESULT GetPixelFormat(ref Guid subtype) mut => VT.[Friend]GetPixelFormat(&this, ref subtype);
 }
 
 [CRepr]struct IMFPMPHostApp : IUnknown
@@ -17022,7 +17022,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) LockProcess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnlockProcess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR id, IStream* pStream, Guid riid, void** ppv) ActivateClassById;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR id, IStream* pStream, ref Guid riid, void** ppv) ActivateClassById;
 	}
 
 
@@ -17030,7 +17030,7 @@ public static
 
 	public HRESULT UnlockProcess() mut => VT.[Friend]UnlockProcess(&this);
 
-	public HRESULT ActivateClassById(PWSTR id, IStream* pStream, Guid riid, void** ppv) mut => VT.[Friend]ActivateClassById(&this, id, pStream, riid, ppv);
+	public HRESULT ActivateClassById(PWSTR id, IStream* pStream, ref Guid riid, void** ppv) mut => VT.[Friend]ActivateClassById(&this, id, pStream, ref riid, ppv);
 }
 
 [CRepr]struct IMFPMPClientApp : IUnknown
@@ -17086,14 +17086,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputLength, uint8 input, uint32 outputLength, uint8 output) Call;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 outputLength, uint8** output) ReadGRL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputLength, uint8* input, uint32 outputLength, uint8* output) Call;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* outputLength, uint8** output) ReadGRL;
 	}
 
 
-	public HRESULT Call(uint32 inputLength, uint8 input, uint32 outputLength, uint8 output) mut => VT.[Friend]Call(&this, inputLength, input, outputLength, output);
+	public HRESULT Call(uint32 inputLength, uint8* input, uint32 outputLength, uint8* output) mut => VT.[Friend]Call(&this, inputLength, input, outputLength, output);
 
-	public HRESULT ReadGRL(uint32 outputLength, uint8** output) mut => VT.[Friend]ReadGRL(&this, outputLength, output);
+	public HRESULT ReadGRL(uint32* outputLength, uint8** output) mut => VT.[Friend]ReadGRL(&this, outputLength, output);
 }
 
 [CRepr]struct IMFSignedLibrary : IUnknown
@@ -17119,14 +17119,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 size, uint8** data) GetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 stage, uint32 cbIn, uint8 pbIn, uint32 pcbOut, uint8** ppbOut) Setup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* size, uint8** data) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 stage, uint32 cbIn, uint8* pbIn, uint32* pcbOut, uint8** ppbOut) Setup;
 	}
 
 
-	public HRESULT GetData(uint32 size, uint8** data) mut => VT.[Friend]GetData(&this, size, data);
+	public HRESULT GetData(uint32* size, uint8** data) mut => VT.[Friend]GetData(&this, size, data);
 
-	public HRESULT Setup(uint32 stage, uint32 cbIn, uint8 pbIn, uint32 pcbOut, uint8** ppbOut) mut => VT.[Friend]Setup(&this, stage, cbIn, pbIn, pcbOut, ppbOut);
+	public HRESULT Setup(uint32 stage, uint32 cbIn, uint8* pbIn, uint32* pcbOut, uint8** ppbOut) mut => VT.[Friend]Setup(&this, stage, cbIn, pbIn, pcbOut, ppbOut);
 }
 
 [CRepr]struct IMFContentProtectionDevice : IUnknown
@@ -17137,14 +17137,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 FunctionId, uint32 InputBufferByteCount, uint8 InputBuffer, uint32 OutputBufferByteCount, uint8 OutputBuffer) InvokeFunction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PrivateInputByteCount, uint32 PrivateOutputByteCount) GetPrivateDataByteCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 FunctionId, uint32 InputBufferByteCount, uint8* InputBuffer, uint32* OutputBufferByteCount, uint8* OutputBuffer) InvokeFunction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* PrivateInputByteCount, uint32* PrivateOutputByteCount) GetPrivateDataByteCount;
 	}
 
 
-	public HRESULT InvokeFunction(uint32 FunctionId, uint32 InputBufferByteCount, uint8 InputBuffer, uint32 OutputBufferByteCount, uint8 OutputBuffer) mut => VT.[Friend]InvokeFunction(&this, FunctionId, InputBufferByteCount, InputBuffer, OutputBufferByteCount, OutputBuffer);
+	public HRESULT InvokeFunction(uint32 FunctionId, uint32 InputBufferByteCount, uint8* InputBuffer, uint32* OutputBufferByteCount, uint8* OutputBuffer) mut => VT.[Friend]InvokeFunction(&this, FunctionId, InputBufferByteCount, InputBuffer, OutputBufferByteCount, OutputBuffer);
 
-	public HRESULT GetPrivateDataByteCount(uint32 PrivateInputByteCount, uint32 PrivateOutputByteCount) mut => VT.[Friend]GetPrivateDataByteCount(&this, PrivateInputByteCount, PrivateOutputByteCount);
+	public HRESULT GetPrivateDataByteCount(uint32* PrivateInputByteCount, uint32* PrivateOutputByteCount) mut => VT.[Friend]GetPrivateDataByteCount(&this, PrivateInputByteCount, PrivateOutputByteCount);
 }
 
 [CRepr]struct IMFContentDecryptorContext : IUnknown
@@ -17155,11 +17155,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 InputPrivateDataByteCount, void* InputPrivateData, uint64 OutputPrivateData) InitializeHardwareKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 InputPrivateDataByteCount, void* InputPrivateData, uint64* OutputPrivateData) InitializeHardwareKey;
 	}
 
 
-	public HRESULT InitializeHardwareKey(uint32 InputPrivateDataByteCount, void* InputPrivateData, uint64 OutputPrivateData) mut => VT.[Friend]InitializeHardwareKey(&this, InputPrivateDataByteCount, InputPrivateData, OutputPrivateData);
+	public HRESULT InitializeHardwareKey(uint32 InputPrivateDataByteCount, void* InputPrivateData, uint64* OutputPrivateData) mut => VT.[Friend]InitializeHardwareKey(&this, InputPrivateDataByteCount, InputPrivateData, OutputPrivateData);
 }
 
 [CRepr]struct IMFNetCrossOriginSupport : IUnknown
@@ -17197,15 +17197,15 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginReceiveResponse;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult) EndReceiveResponse;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pb, uint32 cb, IMFAsyncCallback* pCallback, IUnknown* punkState) BeginReadPayload;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, uint64 pqwOffset, uint32 pcbRead) EndReadPayload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncResult* pResult, uint64* pqwOffset, uint32* pcbRead) EndReadPayload;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szHeaderName, uint32 dwIndex, PWSTR* ppszHeaderValue) QueryHeader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszURL) GetURL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfNullSourceOrigin) HasNullSourceOrigin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pqwStartTime, uint64 pqwStopTime, uint64 pqwDuration) GetTimeSeekResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwHttpStatus) GetHttpStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pqwStartTime, uint64* pqwStopTime, uint64* pqwDuration) GetTimeSeekResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwHttpStatus) GetHttpStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfAtEndOfPayload) GetAtEndOfPayload;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pqwTotalLength) GetTotalLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pqwRangeEnd) GetRangeEndOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pqwTotalLength) GetTotalLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pqwRangeEnd) GetRangeEndOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
@@ -17222,7 +17222,7 @@ public static
 
 	public HRESULT BeginReadPayload(uint8* pb, uint32 cb, IMFAsyncCallback* pCallback, IUnknown* punkState) mut => VT.[Friend]BeginReadPayload(&this, pb, cb, pCallback, punkState);
 
-	public HRESULT EndReadPayload(IMFAsyncResult* pResult, uint64 pqwOffset, uint32 pcbRead) mut => VT.[Friend]EndReadPayload(&this, pResult, pqwOffset, pcbRead);
+	public HRESULT EndReadPayload(IMFAsyncResult* pResult, uint64* pqwOffset, uint32* pcbRead) mut => VT.[Friend]EndReadPayload(&this, pResult, pqwOffset, pcbRead);
 
 	public HRESULT QueryHeader(PWSTR szHeaderName, uint32 dwIndex, PWSTR* ppszHeaderValue) mut => VT.[Friend]QueryHeader(&this, szHeaderName, dwIndex, ppszHeaderValue);
 
@@ -17230,15 +17230,15 @@ public static
 
 	public HRESULT HasNullSourceOrigin(BOOL* pfNullSourceOrigin) mut => VT.[Friend]HasNullSourceOrigin(&this, pfNullSourceOrigin);
 
-	public HRESULT GetTimeSeekResult(uint64 pqwStartTime, uint64 pqwStopTime, uint64 pqwDuration) mut => VT.[Friend]GetTimeSeekResult(&this, pqwStartTime, pqwStopTime, pqwDuration);
+	public HRESULT GetTimeSeekResult(uint64* pqwStartTime, uint64* pqwStopTime, uint64* pqwDuration) mut => VT.[Friend]GetTimeSeekResult(&this, pqwStartTime, pqwStopTime, pqwDuration);
 
-	public HRESULT GetHttpStatus(uint32 pdwHttpStatus) mut => VT.[Friend]GetHttpStatus(&this, pdwHttpStatus);
+	public HRESULT GetHttpStatus(uint32* pdwHttpStatus) mut => VT.[Friend]GetHttpStatus(&this, pdwHttpStatus);
 
 	public HRESULT GetAtEndOfPayload(BOOL* pfAtEndOfPayload) mut => VT.[Friend]GetAtEndOfPayload(&this, pfAtEndOfPayload);
 
-	public HRESULT GetTotalLength(uint64 pqwTotalLength) mut => VT.[Friend]GetTotalLength(&this, pqwTotalLength);
+	public HRESULT GetTotalLength(uint64* pqwTotalLength) mut => VT.[Friend]GetTotalLength(&this, pqwTotalLength);
 
-	public HRESULT GetRangeEndOffset(uint64 pqwRangeEnd) mut => VT.[Friend]GetRangeEndOffset(&this, pqwRangeEnd);
+	public HRESULT GetRangeEndOffset(uint64* pqwRangeEnd) mut => VT.[Friend]GetRangeEndOffset(&this, pqwRangeEnd);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 }
@@ -17320,29 +17320,29 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pDeviceId) GetDeviceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pDeviceId) GetDeviceId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFSensorDeviceType* pType) GetDeviceType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* SymbolicLink, int32 cchSymbolicLink, int32 pcchWritten) GetSymbolicLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) GetSymbolicLink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAttributes** ppAttributes) GetDeviceAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFSensorStreamType eType, uint32 pdwCount) GetStreamAttributesCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFSensorStreamType eType, uint32* pdwCount) GetStreamAttributesCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFSensorStreamType eType, uint32 dwIndex, IMFAttributes** ppAttributes) GetStreamAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFSensorDeviceMode eMode) SetSensorDeviceMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFSensorDeviceMode* peMode) GetSensorDeviceMode;
 	}
 
 
-	public HRESULT GetDeviceId(uint64 pDeviceId) mut => VT.[Friend]GetDeviceId(&this, pDeviceId);
+	public HRESULT GetDeviceId(uint64* pDeviceId) mut => VT.[Friend]GetDeviceId(&this, pDeviceId);
 
 	public HRESULT GetDeviceType(MFSensorDeviceType* pType) mut => VT.[Friend]GetDeviceType(&this, pType);
 
-	public HRESULT GetFlags(uint64 pFlags) mut => VT.[Friend]COM_GetFlags(&this, pFlags);
+	public HRESULT GetFlags(uint64* pFlags) mut => VT.[Friend]COM_GetFlags(&this, pFlags);
 
-	public HRESULT GetSymbolicLink(char16* SymbolicLink, int32 cchSymbolicLink, int32 pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
+	public HRESULT GetSymbolicLink(char16* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
 
 	public HRESULT GetDeviceAttributes(IMFAttributes** ppAttributes) mut => VT.[Friend]GetDeviceAttributes(&this, ppAttributes);
 
-	public HRESULT GetStreamAttributesCount(MFSensorStreamType eType, uint32 pdwCount) mut => VT.[Friend]GetStreamAttributesCount(&this, eType, pdwCount);
+	public HRESULT GetStreamAttributesCount(MFSensorStreamType eType, uint32* pdwCount) mut => VT.[Friend]GetStreamAttributesCount(&this, eType, pdwCount);
 
 	public HRESULT GetStreamAttributes(MFSensorStreamType eType, uint32 dwIndex, IMFAttributes** ppAttributes) mut => VT.[Friend]GetStreamAttributes(&this, eType, dwIndex, ppAttributes);
 
@@ -17359,30 +17359,30 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* SymbolicLink, int32 cchSymbolicLink, int32 pcchWritten) GetSymbolicLink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) GetSymbolicLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pFlags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAttributes** ppAttributes) GetSensorGroupAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCount) GetSensorDeviceCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCount) GetSensorDeviceCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, IMFSensorDevice** ppDevice) GetSensorDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex) SetDefaultSensorDeviceIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwIndex) GetDefaultSensorDeviceIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwIndex) GetDefaultSensorDeviceIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaSource** ppSource) CreateMediaSource;
 	}
 
 
-	public HRESULT GetSymbolicLink(char16* SymbolicLink, int32 cchSymbolicLink, int32 pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
+	public HRESULT GetSymbolicLink(char16* SymbolicLink, int32 cchSymbolicLink, int32* pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
 
-	public HRESULT GetFlags(uint64 pFlags) mut => VT.[Friend]COM_GetFlags(&this, pFlags);
+	public HRESULT GetFlags(uint64* pFlags) mut => VT.[Friend]COM_GetFlags(&this, pFlags);
 
 	public HRESULT GetSensorGroupAttributes(IMFAttributes** ppAttributes) mut => VT.[Friend]GetSensorGroupAttributes(&this, ppAttributes);
 
-	public HRESULT GetSensorDeviceCount(uint32 pdwCount) mut => VT.[Friend]GetSensorDeviceCount(&this, pdwCount);
+	public HRESULT GetSensorDeviceCount(uint32* pdwCount) mut => VT.[Friend]GetSensorDeviceCount(&this, pdwCount);
 
 	public HRESULT GetSensorDevice(uint32 dwIndex, IMFSensorDevice** ppDevice) mut => VT.[Friend]GetSensorDevice(&this, dwIndex, ppDevice);
 
 	public HRESULT SetDefaultSensorDeviceIndex(uint32 dwIndex) mut => VT.[Friend]SetDefaultSensorDeviceIndex(&this, dwIndex);
 
-	public HRESULT GetDefaultSensorDeviceIndex(uint32 pdwIndex) mut => VT.[Friend]GetDefaultSensorDeviceIndex(&this, pdwIndex);
+	public HRESULT GetDefaultSensorDeviceIndex(uint32* pdwIndex) mut => VT.[Friend]GetDefaultSensorDeviceIndex(&this, pdwIndex);
 
 	public HRESULT CreateMediaSource(IMFMediaSource** ppSource) mut => VT.[Friend]CreateMediaSource(&this, ppSource);
 }
@@ -17395,13 +17395,13 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCount) GetMediaTypeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCount) GetMediaTypeCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, IMFMediaType** ppMediaType) GetMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFSensorStream** ppStream) CloneSensorStream;
 	}
 
 
-	public HRESULT GetMediaTypeCount(uint32 pdwCount) mut => VT.[Friend]GetMediaTypeCount(&this, pdwCount);
+	public HRESULT GetMediaTypeCount(uint32* pdwCount) mut => VT.[Friend]GetMediaTypeCount(&this, pdwCount);
 
 	public HRESULT GetMediaType(uint32 dwIndex, IMFMediaType** ppMediaType) mut => VT.[Friend]GetMediaType(&this, dwIndex, ppMediaType);
 
@@ -17418,9 +17418,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAttributes** ppAttributes) GetFactoryAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMaxTransformCount, IMFCollection* pSensorDevices, IMFAttributes* pAttributes) InitializeFactory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCount) GetTransformCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 TransformIndex, Guid pguidTransformId, IMFAttributes** ppAttributes, IMFCollection** ppStreamInformation) GetTransformInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidSensorTransformID, IMFAttributes* pAttributes, IMFDeviceTransform** ppDeviceMFT) CreateTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCount) GetTransformCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 TransformIndex, ref Guid pguidTransformId, IMFAttributes** ppAttributes, IMFCollection** ppStreamInformation) GetTransformInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidSensorTransformID, IMFAttributes* pAttributes, IMFDeviceTransform** ppDeviceMFT) CreateTransform;
 	}
 
 
@@ -17428,11 +17428,11 @@ public static
 
 	public HRESULT InitializeFactory(uint32 dwMaxTransformCount, IMFCollection* pSensorDevices, IMFAttributes* pAttributes) mut => VT.[Friend]InitializeFactory(&this, dwMaxTransformCount, pSensorDevices, pAttributes);
 
-	public HRESULT GetTransformCount(uint32 pdwCount) mut => VT.[Friend]GetTransformCount(&this, pdwCount);
+	public HRESULT GetTransformCount(uint32* pdwCount) mut => VT.[Friend]GetTransformCount(&this, pdwCount);
 
-	public HRESULT GetTransformInformation(uint32 TransformIndex, Guid pguidTransformId, IMFAttributes** ppAttributes, IMFCollection** ppStreamInformation) mut => VT.[Friend]GetTransformInformation(&this, TransformIndex, pguidTransformId, ppAttributes, ppStreamInformation);
+	public HRESULT GetTransformInformation(uint32 TransformIndex, ref Guid pguidTransformId, IMFAttributes** ppAttributes, IMFCollection** ppStreamInformation) mut => VT.[Friend]GetTransformInformation(&this, TransformIndex, ref pguidTransformId, ppAttributes, ppStreamInformation);
 
-	public HRESULT CreateTransform(Guid guidSensorTransformID, IMFAttributes* pAttributes, IMFDeviceTransform** ppDeviceMFT) mut => VT.[Friend]CreateTransform(&this, guidSensorTransformID, pAttributes, ppDeviceMFT);
+	public HRESULT CreateTransform(ref Guid guidSensorTransformID, IMFAttributes* pAttributes, IMFDeviceTransform** ppDeviceMFT) mut => VT.[Friend]CreateTransform(&this, ref guidSensorTransformID, pAttributes, ppDeviceMFT);
 }
 
 [CRepr]struct IMFSensorProfile : IUnknown
@@ -17497,14 +17497,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pPID) GetProcessId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pPID) GetProcessId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfStreaming) GetStreamingState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFSensorDeviceMode* pMode) GetStreamingMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pft) GetReportTime;
 	}
 
 
-	public HRESULT GetProcessId(uint32 pPID) mut => VT.[Friend]GetProcessId(&this, pPID);
+	public HRESULT GetProcessId(uint32* pPID) mut => VT.[Friend]GetProcessId(&this, pPID);
 
 	public HRESULT GetStreamingState(BOOL* pfStreaming) mut => VT.[Friend]GetStreamingState(&this, pfStreaming);
 
@@ -17521,18 +17521,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* FriendlyName, uint32 cchFriendlyName, uint32 pcchWritten) GetFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* SymbolicLink, uint32 cchSymbolicLink, uint32 pcchWritten) GetSymbolicLink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcCount) GetProcessCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* FriendlyName, uint32 cchFriendlyName, uint32* pcchWritten) GetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* SymbolicLink, uint32 cchSymbolicLink, uint32* pcchWritten) GetSymbolicLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcCount) GetProcessCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, IMFSensorProcessActivity** ppProcessActivity) GetProcessActivity;
 	}
 
 
-	public HRESULT GetFriendlyName(char16* FriendlyName, uint32 cchFriendlyName, uint32 pcchWritten) mut => VT.[Friend]GetFriendlyName(&this, FriendlyName, cchFriendlyName, pcchWritten);
+	public HRESULT GetFriendlyName(char16* FriendlyName, uint32 cchFriendlyName, uint32* pcchWritten) mut => VT.[Friend]GetFriendlyName(&this, FriendlyName, cchFriendlyName, pcchWritten);
 
-	public HRESULT GetSymbolicLink(char16* SymbolicLink, uint32 cchSymbolicLink, uint32 pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
+	public HRESULT GetSymbolicLink(char16* SymbolicLink, uint32 cchSymbolicLink, uint32* pcchWritten) mut => VT.[Friend]GetSymbolicLink(&this, SymbolicLink, cchSymbolicLink, pcchWritten);
 
-	public HRESULT GetProcessCount(uint32 pcCount) mut => VT.[Friend]GetProcessCount(&this, pcCount);
+	public HRESULT GetProcessCount(uint32* pcCount) mut => VT.[Friend]GetProcessCount(&this, pcCount);
 
 	public HRESULT GetProcessActivity(uint32 Index, IMFSensorProcessActivity** ppProcessActivity) mut => VT.[Friend]GetProcessActivity(&this, Index, ppProcessActivity);
 }
@@ -17545,13 +17545,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcCount) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, IMFSensorActivityReport** sensorActivityReport) GetActivityReport;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR SymbolicName, IMFSensorActivityReport** sensorActivityReport) GetActivityReportByDeviceName;
 	}
 
 
-	public HRESULT GetCount(uint32 pcCount) mut => VT.[Friend]GetCount(&this, pcCount);
+	public HRESULT GetCount(uint32* pcCount) mut => VT.[Friend]GetCount(&this, pcCount);
 
 	public HRESULT GetActivityReport(uint32 Index, IMFSensorActivityReport** sensorActivityReport) mut => VT.[Friend]GetActivityReport(&this, Index, sensorActivityReport);
 
@@ -17656,22 +17656,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbBuffer, uint32 dwBufferSize) InitializeFromBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwBufferSize) GetBufferSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbBuffer, uint32 pdwBufferSize) SerializeToBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCount) GetIntrinsicModelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbBuffer, uint32 dwBufferSize) InitializeFromBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwBufferSize) GetBufferSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbBuffer, uint32* pdwBufferSize) SerializeToBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCount) GetIntrinsicModelCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, IMFExtendedCameraIntrinsicModel** ppIntrinsicModel) GetIntrinsicModelByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFExtendedCameraIntrinsicModel* pIntrinsicModel) AddIntrinsicModel;
 	}
 
 
-	public HRESULT InitializeFromBuffer(uint8 pbBuffer, uint32 dwBufferSize) mut => VT.[Friend]InitializeFromBuffer(&this, pbBuffer, dwBufferSize);
+	public HRESULT InitializeFromBuffer(uint8* pbBuffer, uint32 dwBufferSize) mut => VT.[Friend]InitializeFromBuffer(&this, pbBuffer, dwBufferSize);
 
-	public HRESULT GetBufferSize(uint32 pdwBufferSize) mut => VT.[Friend]GetBufferSize(&this, pdwBufferSize);
+	public HRESULT GetBufferSize(uint32* pdwBufferSize) mut => VT.[Friend]GetBufferSize(&this, pdwBufferSize);
 
-	public HRESULT SerializeToBuffer(uint8 pbBuffer, uint32 pdwBufferSize) mut => VT.[Friend]SerializeToBuffer(&this, pbBuffer, pdwBufferSize);
+	public HRESULT SerializeToBuffer(uint8* pbBuffer, uint32* pdwBufferSize) mut => VT.[Friend]SerializeToBuffer(&this, pbBuffer, pdwBufferSize);
 
-	public HRESULT GetIntrinsicModelCount(uint32 pdwCount) mut => VT.[Friend]GetIntrinsicModelCount(&this, pdwCount);
+	public HRESULT GetIntrinsicModelCount(uint32* pdwCount) mut => VT.[Friend]GetIntrinsicModelCount(&this, pdwCount);
 
 	public HRESULT GetIntrinsicModelByIndex(uint32 dwIndex, IMFExtendedCameraIntrinsicModel** ppIntrinsicModel) mut => VT.[Friend]GetIntrinsicModelByIndex(&this, dwIndex, ppIntrinsicModel);
 
@@ -17689,7 +17689,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ulFlags) SetFlags;
 		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppPayload, uint32 pulPayload) LockPayload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppPayload, uint32* pulPayload) LockPayload;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnlockPayload;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CommitSettings;
 	}
@@ -17701,7 +17701,7 @@ public static
 
 	public uint64 GetFlags() mut => VT.[Friend]COM_GetFlags(&this);
 
-	public HRESULT LockPayload(uint8** ppPayload, uint32 pulPayload) mut => VT.[Friend]LockPayload(&this, ppPayload, pulPayload);
+	public HRESULT LockPayload(uint8** ppPayload, uint32* pulPayload) mut => VT.[Friend]LockPayload(&this, ppPayload, pulPayload);
 
 	public HRESULT UnlockPayload() mut => VT.[Friend]UnlockPayload(&this);
 
@@ -17731,11 +17731,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 panel) GetRelativePanel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* panel) GetRelativePanel;
 	}
 
 
-	public HRESULT GetRelativePanel(uint32 panel) mut => VT.[Friend]GetRelativePanel(&this, panel);
+	public HRESULT GetRelativePanel(uint32* panel) mut => VT.[Friend]GetRelativePanel(&this, panel);
 }
 
 [CRepr]struct IMFRelativePanelWatcher : IMFShutdown
@@ -17767,11 +17767,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 occlusionState) GetOcclusionState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* occlusionState) GetOcclusionState;
 	}
 
 
-	public HRESULT GetOcclusionState(uint32 occlusionState) mut => VT.[Friend]GetOcclusionState(&this, occlusionState);
+	public HRESULT GetOcclusionState(uint32* occlusionState) mut => VT.[Friend]GetOcclusionState(&this, occlusionState);
 }
 
 [CRepr]struct IMFCameraOcclusionStateReportCallback : IUnknown
@@ -17834,13 +17834,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, IUnknown* pAllocator) SetDefaultAllocator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, uint32 pdwInputStreamID, MFSampleAllocatorUsage* peUsage) GetAllocatorUsage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, uint32* pdwInputStreamID, MFSampleAllocatorUsage* peUsage) GetAllocatorUsage;
 	}
 
 
 	public HRESULT SetDefaultAllocator(uint32 dwOutputStreamID, IUnknown* pAllocator) mut => VT.[Friend]SetDefaultAllocator(&this, dwOutputStreamID, pAllocator);
 
-	public HRESULT GetAllocatorUsage(uint32 dwOutputStreamID, uint32 pdwInputStreamID, MFSampleAllocatorUsage* peUsage) mut => VT.[Friend]GetAllocatorUsage(&this, dwOutputStreamID, pdwInputStreamID, peUsage);
+	public HRESULT GetAllocatorUsage(uint32 dwOutputStreamID, uint32* pdwInputStreamID, MFSampleAllocatorUsage* peUsage) mut => VT.[Friend]GetAllocatorUsage(&this, dwOutputStreamID, pdwInputStreamID, peUsage);
 }
 
 [CRepr]struct IMFASFContentInfo : IUnknown
@@ -17851,9 +17851,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaBuffer* pIStartOfContent, uint64 cbHeaderSize) GetHeaderSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaBuffer* pIStartOfContent, uint64* cbHeaderSize) GetHeaderSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaBuffer* pIHeaderBuffer, uint64 cbOffsetWithinHeader) ParseHeader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaBuffer* pIHeader, uint32 pcbHeader) GenerateHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaBuffer* pIHeader, uint32* pcbHeader) GenerateHeader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFProfile** ppIProfile) GetProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFProfile* pIProfile) SetProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPresentationDescriptor** ppIPresentationDescriptor) GeneratePresentationDescriptor;
@@ -17861,11 +17861,11 @@ public static
 	}
 
 
-	public HRESULT GetHeaderSize(IMFMediaBuffer* pIStartOfContent, uint64 cbHeaderSize) mut => VT.[Friend]GetHeaderSize(&this, pIStartOfContent, cbHeaderSize);
+	public HRESULT GetHeaderSize(IMFMediaBuffer* pIStartOfContent, uint64* cbHeaderSize) mut => VT.[Friend]GetHeaderSize(&this, pIStartOfContent, cbHeaderSize);
 
 	public HRESULT ParseHeader(IMFMediaBuffer* pIHeaderBuffer, uint64 cbOffsetWithinHeader) mut => VT.[Friend]ParseHeader(&this, pIHeaderBuffer, cbOffsetWithinHeader);
 
-	public HRESULT GenerateHeader(IMFMediaBuffer* pIHeader, uint32 pcbHeader) mut => VT.[Friend]GenerateHeader(&this, pIHeader, pcbHeader);
+	public HRESULT GenerateHeader(IMFMediaBuffer* pIHeader, uint32* pcbHeader) mut => VT.[Friend]GenerateHeader(&this, pIHeader, pcbHeader);
 
 	public HRESULT GetProfile(IMFASFProfile** ppIProfile) mut => VT.[Friend]GetProfile(&this, ppIProfile);
 
@@ -17884,13 +17884,13 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcStreams) GetStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint16 pwStreamNumber, IMFASFStreamConfig** ppIStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcStreams) GetStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint16* pwStreamNumber, IMFASFStreamConfig** ppIStream) GetStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wStreamNumber, IMFASFStreamConfig** ppIStream) GetStreamByNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFStreamConfig* pIStream) SetStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wStreamNumber) RemoveStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaType* pIMediaType, IMFASFStreamConfig** ppIStream) CreateStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcMutexs) GetMutualExclusionCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcMutexs) GetMutualExclusionCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMutexIndex, IMFASFMutualExclusion** ppIMutex) GetMutualExclusion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFMutualExclusion* pIMutex) AddMutualExclusion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMutexIndex) RemoveMutualExclusion;
@@ -17903,9 +17903,9 @@ public static
 	}
 
 
-	public HRESULT GetStreamCount(uint32 pcStreams) mut => VT.[Friend]GetStreamCount(&this, pcStreams);
+	public HRESULT GetStreamCount(uint32* pcStreams) mut => VT.[Friend]GetStreamCount(&this, pcStreams);
 
-	public HRESULT GetStream(uint32 dwStreamIndex, uint16 pwStreamNumber, IMFASFStreamConfig** ppIStream) mut => VT.[Friend]GetStream(&this, dwStreamIndex, pwStreamNumber, ppIStream);
+	public HRESULT GetStream(uint32 dwStreamIndex, uint16* pwStreamNumber, IMFASFStreamConfig** ppIStream) mut => VT.[Friend]GetStream(&this, dwStreamIndex, pwStreamNumber, ppIStream);
 
 	public HRESULT GetStreamByNumber(uint16 wStreamNumber, IMFASFStreamConfig** ppIStream) mut => VT.[Friend]GetStreamByNumber(&this, wStreamNumber, ppIStream);
 
@@ -17915,7 +17915,7 @@ public static
 
 	public HRESULT CreateStream(IMFMediaType* pIMediaType, IMFASFStreamConfig** ppIStream) mut => VT.[Friend]CreateStream(&this, pIMediaType, ppIStream);
 
-	public HRESULT GetMutualExclusionCount(uint32 pcMutexs) mut => VT.[Friend]GetMutualExclusionCount(&this, pcMutexs);
+	public HRESULT GetMutualExclusionCount(uint32* pcMutexs) mut => VT.[Friend]GetMutualExclusionCount(&this, pcMutexs);
 
 	public HRESULT GetMutualExclusion(uint32 dwMutexIndex, IMFASFMutualExclusion** ppIMutex) mut => VT.[Friend]GetMutualExclusion(&this, dwMutexIndex, ppIMutex);
 
@@ -17944,20 +17944,20 @@ public static
 
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidStreamType) GetStreamType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidStreamType) GetStreamType;
 		protected new function [CallingConvention(.Stdcall)] uint16(SelfOuter* self) GetStreamNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wStreamNum) SetStreamNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaType** ppIMediaType) GetMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaType* pIMediaType) SetMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pcPayloadExtensions) GetPayloadExtensionCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wPayloadExtensionNumber, Guid pguidExtensionSystemID, uint16 pcbExtensionDataSize, uint8 pbExtensionSystemInfo, uint32 pcbExtensionSystemInfo) GetPayloadExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pcPayloadExtensions) GetPayloadExtensionCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wPayloadExtensionNumber, ref Guid pguidExtensionSystemID, uint16* pcbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32* pcbExtensionSystemInfo) GetPayloadExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidExtensionSystemID, uint16 cbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32 cbExtensionSystemInfo) AddPayloadExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAllPayloadExtensions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFStreamConfig** ppIStreamConfig) Clone;
 	}
 
 
-	public HRESULT GetStreamType(Guid pguidStreamType) mut => VT.[Friend]GetStreamType(&this, pguidStreamType);
+	public HRESULT GetStreamType(ref Guid pguidStreamType) mut => VT.[Friend]GetStreamType(&this, ref pguidStreamType);
 
 	public uint16 GetStreamNumber() mut => VT.[Friend]GetStreamNumber(&this);
 
@@ -17967,9 +17967,9 @@ public static
 
 	public HRESULT SetMediaType(IMFMediaType* pIMediaType) mut => VT.[Friend]SetMediaType(&this, pIMediaType);
 
-	public HRESULT GetPayloadExtensionCount(uint16 pcPayloadExtensions) mut => VT.[Friend]GetPayloadExtensionCount(&this, pcPayloadExtensions);
+	public HRESULT GetPayloadExtensionCount(uint16* pcPayloadExtensions) mut => VT.[Friend]GetPayloadExtensionCount(&this, pcPayloadExtensions);
 
-	public HRESULT GetPayloadExtension(uint16 wPayloadExtensionNumber, Guid pguidExtensionSystemID, uint16 pcbExtensionDataSize, uint8 pbExtensionSystemInfo, uint32 pcbExtensionSystemInfo) mut => VT.[Friend]GetPayloadExtension(&this, wPayloadExtensionNumber, pguidExtensionSystemID, pcbExtensionDataSize, pbExtensionSystemInfo, pcbExtensionSystemInfo);
+	public HRESULT GetPayloadExtension(uint16 wPayloadExtensionNumber, ref Guid pguidExtensionSystemID, uint16* pcbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32* pcbExtensionSystemInfo) mut => VT.[Friend]GetPayloadExtension(&this, wPayloadExtensionNumber, ref pguidExtensionSystemID, pcbExtensionDataSize, pbExtensionSystemInfo, pcbExtensionSystemInfo);
 
 	public HRESULT AddPayloadExtension(Guid guidExtensionSystemID, uint16 cbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32 cbExtensionSystemInfo) mut => VT.[Friend]AddPayloadExtension(&this, guidExtensionSystemID, cbExtensionDataSize, pbExtensionSystemInfo, cbExtensionSystemInfo);
 
@@ -17986,25 +17986,25 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidType) SetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwRecordCount) GetRecordCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRecordNumber, uint16 pwStreamNumArray, uint32 pcStreams) GetStreamsForRecord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType) SetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwRecordCount) GetRecordCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRecordNumber, uint16* pwStreamNumArray, uint32* pcStreams) GetStreamsForRecord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRecordNumber, uint16 wStreamNumber) AddStreamForRecord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRecordNumber, uint16 wStreamNumber) RemoveStreamFromRecord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRecordNumber) RemoveRecord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwRecordNumber) AddRecord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwRecordNumber) AddRecord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFMutualExclusion** ppIMutex) Clone;
 	}
 
 
-	public HRESULT GetType(Guid pguidType) mut => VT.[Friend]COM_GetType(&this, pguidType);
+	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, ref pguidType);
 
-	public HRESULT SetType(Guid guidType) mut => VT.[Friend]SetType(&this, guidType);
+	public HRESULT SetType(ref Guid guidType) mut => VT.[Friend]SetType(&this, ref guidType);
 
-	public HRESULT GetRecordCount(uint32 pdwRecordCount) mut => VT.[Friend]GetRecordCount(&this, pdwRecordCount);
+	public HRESULT GetRecordCount(uint32* pdwRecordCount) mut => VT.[Friend]GetRecordCount(&this, pdwRecordCount);
 
-	public HRESULT GetStreamsForRecord(uint32 dwRecordNumber, uint16 pwStreamNumArray, uint32 pcStreams) mut => VT.[Friend]GetStreamsForRecord(&this, dwRecordNumber, pwStreamNumArray, pcStreams);
+	public HRESULT GetStreamsForRecord(uint32 dwRecordNumber, uint16* pwStreamNumArray, uint32* pcStreams) mut => VT.[Friend]GetStreamsForRecord(&this, dwRecordNumber, pwStreamNumArray, pcStreams);
 
 	public HRESULT AddStreamForRecord(uint32 dwRecordNumber, uint16 wStreamNumber) mut => VT.[Friend]AddStreamForRecord(&this, dwRecordNumber, wStreamNumber);
 
@@ -18012,7 +18012,7 @@ public static
 
 	public HRESULT RemoveRecord(uint32 dwRecordNumber) mut => VT.[Friend]RemoveRecord(&this, dwRecordNumber);
 
-	public HRESULT AddRecord(uint32 pdwRecordNumber) mut => VT.[Friend]AddRecord(&this, pdwRecordNumber);
+	public HRESULT AddRecord(uint32* pdwRecordNumber) mut => VT.[Friend]AddRecord(&this, pdwRecordNumber);
 
 	public HRESULT Clone(IMFASFMutualExclusion** ppIMutex) mut => VT.[Friend]Clone(&this, ppIMutex);
 }
@@ -18025,17 +18025,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwStreamCount) GetStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint16 pwStreamNumber, uint16 pwStreamFlags) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStreamCount) GetStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint16* pwStreamNumber, uint16* pwStreamFlags) GetStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wStreamNumber, uint16 wStreamFlags) AddStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex) RemoveStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFStreamPrioritization** ppIStreamPrioritization) Clone;
 	}
 
 
-	public HRESULT GetStreamCount(uint32 pdwStreamCount) mut => VT.[Friend]GetStreamCount(&this, pdwStreamCount);
+	public HRESULT GetStreamCount(uint32* pdwStreamCount) mut => VT.[Friend]GetStreamCount(&this, pdwStreamCount);
 
-	public HRESULT GetStream(uint32 dwStreamIndex, uint16 pwStreamNumber, uint16 pwStreamFlags) mut => VT.[Friend]GetStream(&this, dwStreamIndex, pwStreamNumber, pwStreamFlags);
+	public HRESULT GetStream(uint32 dwStreamIndex, uint16* pwStreamNumber, uint16* pwStreamFlags) mut => VT.[Friend]GetStream(&this, dwStreamIndex, pwStreamNumber, pwStreamFlags);
 
 	public HRESULT AddStream(uint16 wStreamNumber, uint16 wStreamFlags) mut => VT.[Friend]AddStream(&this, wStreamNumber, wStreamFlags);
 
@@ -18053,44 +18053,44 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) SetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFContentInfo* pIContentInfo) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFContentInfo* pIContentInfo, uint64 pcbIndexOffset) GetIndexPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFContentInfo* pIContentInfo, uint64* pcbIndexOffset) GetIndexPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream** ppIByteStreams, uint32 cByteStreams) SetIndexByteStreams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcByteStreams) GetIndexByteStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ASF_INDEX_IDENTIFIER* pIndexIdentifier, BOOL* pfIsIndexed, uint8 pbIndexDescriptor, uint32 pcbIndexDescriptor) GetIndexStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbIndexDescriptor, uint32 cbIndexDescriptor, BOOL fGenerateIndex) SetIndexStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* pvarValue, ASF_INDEX_IDENTIFIER* pIndexIdentifier, uint64 pcbOffsetWithinData, int64 phnsApproxTime, uint32 pdwPayloadNumberOfStreamWithinPacket) GetSeekPositionForValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcByteStreams) GetIndexByteStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ASF_INDEX_IDENTIFIER* pIndexIdentifier, BOOL* pfIsIndexed, uint8* pbIndexDescriptor, uint32* pcbIndexDescriptor) GetIndexStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbIndexDescriptor, uint32 cbIndexDescriptor, BOOL fGenerateIndex) SetIndexStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* pvarValue, ASF_INDEX_IDENTIFIER* pIndexIdentifier, uint64* pcbOffsetWithinData, int64* phnsApproxTime, uint32* pdwPayloadNumberOfStreamWithinPacket) GetSeekPositionForValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFSample* pIASFPacketSample) GenerateIndexEntries;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFContentInfo* pIContentInfo) CommitIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 pcbIndexWriteSpace) GetIndexWriteSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pcbIndexWriteSpace) GetIndexWriteSpace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaBuffer* pIIndexBuffer, uint64 cbOffsetWithinIndex) GetCompletedIndex;
 	}
 
 
 	public HRESULT SetFlags(uint32 dwFlags) mut => VT.[Friend]SetFlags(&this, dwFlags);
 
-	public HRESULT GetFlags(uint32 pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
+	public HRESULT GetFlags(uint32* pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
 
 	public HRESULT Initialize(IMFASFContentInfo* pIContentInfo) mut => VT.[Friend]Initialize(&this, pIContentInfo);
 
-	public HRESULT GetIndexPosition(IMFASFContentInfo* pIContentInfo, uint64 pcbIndexOffset) mut => VT.[Friend]GetIndexPosition(&this, pIContentInfo, pcbIndexOffset);
+	public HRESULT GetIndexPosition(IMFASFContentInfo* pIContentInfo, uint64* pcbIndexOffset) mut => VT.[Friend]GetIndexPosition(&this, pIContentInfo, pcbIndexOffset);
 
 	public HRESULT SetIndexByteStreams(IMFByteStream** ppIByteStreams, uint32 cByteStreams) mut => VT.[Friend]SetIndexByteStreams(&this, ppIByteStreams, cByteStreams);
 
-	public HRESULT GetIndexByteStreamCount(uint32 pcByteStreams) mut => VT.[Friend]GetIndexByteStreamCount(&this, pcByteStreams);
+	public HRESULT GetIndexByteStreamCount(uint32* pcByteStreams) mut => VT.[Friend]GetIndexByteStreamCount(&this, pcByteStreams);
 
-	public HRESULT GetIndexStatus(ASF_INDEX_IDENTIFIER* pIndexIdentifier, BOOL* pfIsIndexed, uint8 pbIndexDescriptor, uint32 pcbIndexDescriptor) mut => VT.[Friend]GetIndexStatus(&this, pIndexIdentifier, pfIsIndexed, pbIndexDescriptor, pcbIndexDescriptor);
+	public HRESULT GetIndexStatus(ASF_INDEX_IDENTIFIER* pIndexIdentifier, BOOL* pfIsIndexed, uint8* pbIndexDescriptor, uint32* pcbIndexDescriptor) mut => VT.[Friend]GetIndexStatus(&this, pIndexIdentifier, pfIsIndexed, pbIndexDescriptor, pcbIndexDescriptor);
 
-	public HRESULT SetIndexStatus(uint8 pbIndexDescriptor, uint32 cbIndexDescriptor, BOOL fGenerateIndex) mut => VT.[Friend]SetIndexStatus(&this, pbIndexDescriptor, cbIndexDescriptor, fGenerateIndex);
+	public HRESULT SetIndexStatus(uint8* pbIndexDescriptor, uint32 cbIndexDescriptor, BOOL fGenerateIndex) mut => VT.[Friend]SetIndexStatus(&this, pbIndexDescriptor, cbIndexDescriptor, fGenerateIndex);
 
-	public HRESULT GetSeekPositionForValue(PROPVARIANT* pvarValue, ASF_INDEX_IDENTIFIER* pIndexIdentifier, uint64 pcbOffsetWithinData, int64 phnsApproxTime, uint32 pdwPayloadNumberOfStreamWithinPacket) mut => VT.[Friend]GetSeekPositionForValue(&this, pvarValue, pIndexIdentifier, pcbOffsetWithinData, phnsApproxTime, pdwPayloadNumberOfStreamWithinPacket);
+	public HRESULT GetSeekPositionForValue(PROPVARIANT* pvarValue, ASF_INDEX_IDENTIFIER* pIndexIdentifier, uint64* pcbOffsetWithinData, int64* phnsApproxTime, uint32* pdwPayloadNumberOfStreamWithinPacket) mut => VT.[Friend]GetSeekPositionForValue(&this, pvarValue, pIndexIdentifier, pcbOffsetWithinData, phnsApproxTime, pdwPayloadNumberOfStreamWithinPacket);
 
 	public HRESULT GenerateIndexEntries(IMFSample* pIASFPacketSample) mut => VT.[Friend]GenerateIndexEntries(&this, pIASFPacketSample);
 
 	public HRESULT CommitIndex(IMFASFContentInfo* pIContentInfo) mut => VT.[Friend]CommitIndex(&this, pIContentInfo);
 
-	public HRESULT GetIndexWriteSpace(uint64 pcbIndexWriteSpace) mut => VT.[Friend]GetIndexWriteSpace(&this, pcbIndexWriteSpace);
+	public HRESULT GetIndexWriteSpace(uint64* pcbIndexWriteSpace) mut => VT.[Friend]GetIndexWriteSpace(&this, pcbIndexWriteSpace);
 
 	public HRESULT GetCompletedIndex(IMFMediaBuffer* pIIndexBuffer, uint64 cbOffsetWithinIndex) mut => VT.[Friend]GetCompletedIndex(&this, pIIndexBuffer, cbOffsetWithinIndex);
 }
@@ -18105,13 +18105,13 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFContentInfo* pIContentInfo) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) SetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwStreamNumbers, uint16 wNumStreams) SelectStreams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pwStreamNumbers, uint16 pwNumStreams) GetSelectedStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwStreamNumbers, uint16 wNumStreams) SelectStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwStreamNumbers, uint16* pwNumStreams) GetSelectedStreams;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaBuffer* pIBuffer, uint32 cbBufferOffset, uint32 cbLength) ParseData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ASF_STATUSFLAGS* pdwStatusFlags, uint16 pwStreamNumber, IMFSample** ppISample) GetNextSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ASF_STATUSFLAGS* pdwStatusFlags, uint16* pwStreamNumber, IMFSample** ppISample) GetNextSample;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Flush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwLastSendTime) GetLastSendTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLastSendTime) GetLastSendTime;
 	}
 
 
@@ -18119,19 +18119,19 @@ public static
 
 	public HRESULT SetFlags(uint32 dwFlags) mut => VT.[Friend]SetFlags(&this, dwFlags);
 
-	public HRESULT GetFlags(uint32 pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
+	public HRESULT GetFlags(uint32* pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
 
-	public HRESULT SelectStreams(uint16 pwStreamNumbers, uint16 wNumStreams) mut => VT.[Friend]SelectStreams(&this, pwStreamNumbers, wNumStreams);
+	public HRESULT SelectStreams(uint16* pwStreamNumbers, uint16 wNumStreams) mut => VT.[Friend]SelectStreams(&this, pwStreamNumbers, wNumStreams);
 
-	public HRESULT GetSelectedStreams(uint16 pwStreamNumbers, uint16 pwNumStreams) mut => VT.[Friend]GetSelectedStreams(&this, pwStreamNumbers, pwNumStreams);
+	public HRESULT GetSelectedStreams(uint16* pwStreamNumbers, uint16* pwNumStreams) mut => VT.[Friend]GetSelectedStreams(&this, pwStreamNumbers, pwNumStreams);
 
 	public HRESULT ParseData(IMFMediaBuffer* pIBuffer, uint32 cbBufferOffset, uint32 cbLength) mut => VT.[Friend]ParseData(&this, pIBuffer, cbBufferOffset, cbLength);
 
-	public HRESULT GetNextSample(ASF_STATUSFLAGS* pdwStatusFlags, uint16 pwStreamNumber, IMFSample** ppISample) mut => VT.[Friend]GetNextSample(&this, pdwStatusFlags, pwStreamNumber, ppISample);
+	public HRESULT GetNextSample(ASF_STATUSFLAGS* pdwStatusFlags, uint16* pwStreamNumber, IMFSample** ppISample) mut => VT.[Friend]GetNextSample(&this, pdwStatusFlags, pwStreamNumber, ppISample);
 
 	public HRESULT Flush() mut => VT.[Friend]Flush(&this);
 
-	public HRESULT GetLastSendTime(uint32 pdwLastSendTime) mut => VT.[Friend]GetLastSendTime(&this, pdwLastSendTime);
+	public HRESULT GetLastSendTime(uint32* pdwLastSendTime) mut => VT.[Friend]GetLastSendTime(&this, pdwLastSendTime);
 }
 
 [CRepr]struct IMFASFMultiplexer : IUnknown
@@ -18144,9 +18144,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFContentInfo* pIContentInfo) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) SetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wStreamNumber, IMFSample* pISample, int64 hnsTimestampAdjust) ProcessSample;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwStatusFlags, IMFSample** ppIPacket) GetNextPacket;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatusFlags, IMFSample** ppIPacket) GetNextPacket;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Flush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFASFContentInfo* pIContentInfo) End;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wStreamNumber, ASF_MUX_STATISTICS* pMuxStats) GetStatistics;
@@ -18158,11 +18158,11 @@ public static
 
 	public HRESULT SetFlags(uint32 dwFlags) mut => VT.[Friend]SetFlags(&this, dwFlags);
 
-	public HRESULT GetFlags(uint32 pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
+	public HRESULT GetFlags(uint32* pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
 
 	public HRESULT ProcessSample(uint16 wStreamNumber, IMFSample* pISample, int64 hnsTimestampAdjust) mut => VT.[Friend]ProcessSample(&this, wStreamNumber, pISample, hnsTimestampAdjust);
 
-	public HRESULT GetNextPacket(uint32 pdwStatusFlags, IMFSample** ppIPacket) mut => VT.[Friend]GetNextPacket(&this, pdwStatusFlags, ppIPacket);
+	public HRESULT GetNextPacket(uint32* pdwStatusFlags, IMFSample** ppIPacket) mut => VT.[Friend]GetNextPacket(&this, pdwStatusFlags, ppIPacket);
 
 	public HRESULT Flush() mut => VT.[Friend]Flush(&this);
 
@@ -18181,48 +18181,48 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcStreams) GetStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcOutputs) GetOutputCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, uint32 pcStreams) GetOutputStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, uint16 rgwStreamNumbers) GetOutputStreamNumbers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wStreamNum, uint32 pdwOutput) GetOutputFromStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcStreams) GetStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcOutputs) GetOutputCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, uint32* pcStreams) GetOutputStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, uint16* rgwStreamNumbers) GetOutputStreamNumbers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wStreamNum, uint32* pdwOutput) GetOutputFromStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, ASF_SELECTION_STATUS* pSelection) GetOutputOverride;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, ASF_SELECTION_STATUS Selection) SetOutputOverride;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, uint32 pcMutexes) GetOutputMutexCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, uint32* pcMutexes) GetOutputMutexCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, uint32 dwMutexNum, IUnknown** ppMutex) GetOutputMutex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, uint32 dwMutexNum, uint16 wSelectedRecord) SetOutputMutexSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pcStepCount) GetBandwidthStepCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStepNum, uint32 pdwBitrate, uint16 rgwStreamNumbers, ASF_SELECTION_STATUS* rgSelections) GetBandwidthStep;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwBitrate, uint32 pdwStepNum) BitrateToStepNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcStepCount) GetBandwidthStepCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStepNum, uint32* pdwBitrate, uint16* rgwStreamNumbers, ASF_SELECTION_STATUS* rgSelections) GetBandwidthStep;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwBitrate, uint32* pdwStepNum) BitrateToStepNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamSelectorFlags) SetStreamSelectorFlags;
 	}
 
 
-	public HRESULT GetStreamCount(uint32 pcStreams) mut => VT.[Friend]GetStreamCount(&this, pcStreams);
+	public HRESULT GetStreamCount(uint32* pcStreams) mut => VT.[Friend]GetStreamCount(&this, pcStreams);
 
-	public HRESULT GetOutputCount(uint32 pcOutputs) mut => VT.[Friend]GetOutputCount(&this, pcOutputs);
+	public HRESULT GetOutputCount(uint32* pcOutputs) mut => VT.[Friend]GetOutputCount(&this, pcOutputs);
 
-	public HRESULT GetOutputStreamCount(uint32 dwOutputNum, uint32 pcStreams) mut => VT.[Friend]GetOutputStreamCount(&this, dwOutputNum, pcStreams);
+	public HRESULT GetOutputStreamCount(uint32 dwOutputNum, uint32* pcStreams) mut => VT.[Friend]GetOutputStreamCount(&this, dwOutputNum, pcStreams);
 
-	public HRESULT GetOutputStreamNumbers(uint32 dwOutputNum, uint16 rgwStreamNumbers) mut => VT.[Friend]GetOutputStreamNumbers(&this, dwOutputNum, rgwStreamNumbers);
+	public HRESULT GetOutputStreamNumbers(uint32 dwOutputNum, uint16* rgwStreamNumbers) mut => VT.[Friend]GetOutputStreamNumbers(&this, dwOutputNum, rgwStreamNumbers);
 
-	public HRESULT GetOutputFromStream(uint16 wStreamNum, uint32 pdwOutput) mut => VT.[Friend]GetOutputFromStream(&this, wStreamNum, pdwOutput);
+	public HRESULT GetOutputFromStream(uint16 wStreamNum, uint32* pdwOutput) mut => VT.[Friend]GetOutputFromStream(&this, wStreamNum, pdwOutput);
 
 	public HRESULT GetOutputOverride(uint32 dwOutputNum, ASF_SELECTION_STATUS* pSelection) mut => VT.[Friend]GetOutputOverride(&this, dwOutputNum, pSelection);
 
 	public HRESULT SetOutputOverride(uint32 dwOutputNum, ASF_SELECTION_STATUS Selection) mut => VT.[Friend]SetOutputOverride(&this, dwOutputNum, Selection);
 
-	public HRESULT GetOutputMutexCount(uint32 dwOutputNum, uint32 pcMutexes) mut => VT.[Friend]GetOutputMutexCount(&this, dwOutputNum, pcMutexes);
+	public HRESULT GetOutputMutexCount(uint32 dwOutputNum, uint32* pcMutexes) mut => VT.[Friend]GetOutputMutexCount(&this, dwOutputNum, pcMutexes);
 
 	public HRESULT GetOutputMutex(uint32 dwOutputNum, uint32 dwMutexNum, IUnknown** ppMutex) mut => VT.[Friend]GetOutputMutex(&this, dwOutputNum, dwMutexNum, ppMutex);
 
 	public HRESULT SetOutputMutexSelection(uint32 dwOutputNum, uint32 dwMutexNum, uint16 wSelectedRecord) mut => VT.[Friend]SetOutputMutexSelection(&this, dwOutputNum, dwMutexNum, wSelectedRecord);
 
-	public HRESULT GetBandwidthStepCount(uint32 pcStepCount) mut => VT.[Friend]GetBandwidthStepCount(&this, pcStepCount);
+	public HRESULT GetBandwidthStepCount(uint32* pcStepCount) mut => VT.[Friend]GetBandwidthStepCount(&this, pcStepCount);
 
-	public HRESULT GetBandwidthStep(uint32 dwStepNum, uint32 pdwBitrate, uint16 rgwStreamNumbers, ASF_SELECTION_STATUS* rgSelections) mut => VT.[Friend]GetBandwidthStep(&this, dwStepNum, pdwBitrate, rgwStreamNumbers, rgSelections);
+	public HRESULT GetBandwidthStep(uint32 dwStepNum, uint32* pdwBitrate, uint16* rgwStreamNumbers, ASF_SELECTION_STATUS* rgSelections) mut => VT.[Friend]GetBandwidthStep(&this, dwStepNum, pdwBitrate, rgwStreamNumbers, rgSelections);
 
-	public HRESULT BitrateToStepNumber(uint32 dwBitrate, uint32 pdwStepNum) mut => VT.[Friend]BitrateToStepNumber(&this, dwBitrate, pdwStepNum);
+	public HRESULT BitrateToStepNumber(uint32 dwBitrate, uint32* pdwStepNum) mut => VT.[Friend]BitrateToStepNumber(&this, dwBitrate, pdwStepNum);
 
 	public HRESULT SetStreamSelectorFlags(uint32 dwStreamSelectorFlags) mut => VT.[Friend]SetStreamSelectorFlags(&this, dwStreamSelectorFlags);
 }
@@ -18235,14 +18235,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pLicenseRequest, uint32 cbLicenseRequest, uint8** ppLicenseResponse, uint32 pcbLicenseResponse, BSTR* pbstrKID) ProcessLicenseRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppLicenseResponse, uint32 pcbLicenseResponse) GetChainedLicenseResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pLicenseRequest, uint32 cbLicenseRequest, uint8** ppLicenseResponse, uint32* pcbLicenseResponse, BSTR* pbstrKID) ProcessLicenseRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppLicenseResponse, uint32* pcbLicenseResponse) GetChainedLicenseResponse;
 	}
 
 
-	public HRESULT ProcessLicenseRequest(uint8* pLicenseRequest, uint32 cbLicenseRequest, uint8** ppLicenseResponse, uint32 pcbLicenseResponse, BSTR* pbstrKID) mut => VT.[Friend]ProcessLicenseRequest(&this, pLicenseRequest, cbLicenseRequest, ppLicenseResponse, pcbLicenseResponse, pbstrKID);
+	public HRESULT ProcessLicenseRequest(uint8* pLicenseRequest, uint32 cbLicenseRequest, uint8** ppLicenseResponse, uint32* pcbLicenseResponse, BSTR* pbstrKID) mut => VT.[Friend]ProcessLicenseRequest(&this, pLicenseRequest, cbLicenseRequest, ppLicenseResponse, pcbLicenseResponse, pbstrKID);
 
-	public HRESULT GetChainedLicenseResponse(uint8** ppLicenseResponse, uint32 pcbLicenseResponse) mut => VT.[Friend]GetChainedLicenseResponse(&this, ppLicenseResponse, pcbLicenseResponse);
+	public HRESULT GetChainedLicenseResponse(uint8** ppLicenseResponse, uint32* pcbLicenseResponse) mut => VT.[Friend]GetChainedLicenseResponse(&this, ppLicenseResponse, pcbLicenseResponse);
 }
 
 [CRepr]struct IMFCaptureEngineOnEventCallback : IUnknown
@@ -18284,8 +18284,8 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSinkStreamIndex, IMFMediaType** ppMediaType) GetOutputMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSinkStreamIndex, Guid rguidService, Guid riid, IUnknown** ppUnknown) GetService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSourceStreamIndex, IMFMediaType* pMediaType, IMFAttributes* pAttributes, uint32 pdwSinkStreamIndex) AddStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSinkStreamIndex, ref Guid rguidService, ref Guid riid, IUnknown** ppUnknown) GetService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSourceStreamIndex, IMFMediaType* pMediaType, IMFAttributes* pAttributes, uint32* pdwSinkStreamIndex) AddStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Prepare;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAllStreams;
 	}
@@ -18293,9 +18293,9 @@ public static
 
 	public HRESULT GetOutputMediaType(uint32 dwSinkStreamIndex, IMFMediaType** ppMediaType) mut => VT.[Friend]GetOutputMediaType(&this, dwSinkStreamIndex, ppMediaType);
 
-	public HRESULT GetService(uint32 dwSinkStreamIndex, Guid rguidService, Guid riid, IUnknown** ppUnknown) mut => VT.[Friend]GetService(&this, dwSinkStreamIndex, rguidService, riid, ppUnknown);
+	public HRESULT GetService(uint32 dwSinkStreamIndex, ref Guid rguidService, ref Guid riid, IUnknown** ppUnknown) mut => VT.[Friend]GetService(&this, dwSinkStreamIndex, ref rguidService, ref riid, ppUnknown);
 
-	public HRESULT AddStream(uint32 dwSourceStreamIndex, IMFMediaType* pMediaType, IMFAttributes* pAttributes, uint32 pdwSinkStreamIndex) mut => VT.[Friend]AddStream(&this, dwSourceStreamIndex, pMediaType, pAttributes, pdwSinkStreamIndex);
+	public HRESULT AddStream(uint32 dwSourceStreamIndex, IMFMediaType* pMediaType, IMFAttributes* pAttributes, uint32* pdwSinkStreamIndex) mut => VT.[Friend]AddStream(&this, dwSourceStreamIndex, pMediaType, pAttributes, pdwSinkStreamIndex);
 
 	public HRESULT Prepare() mut => VT.[Friend]Prepare(&this);
 
@@ -18310,16 +18310,16 @@ public static
 
 	[CRepr]public struct VTable : IMFCaptureSink.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream* pByteStream, Guid guidContainerType) SetOutputByteStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream* pByteStream, ref Guid guidContainerType) SetOutputByteStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName) SetOutputFileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamSinkIndex, IMFCaptureEngineOnSampleCallback* pCallback) SetSampleCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaSink* pMediaSink) SetCustomSink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 pdwRotationValue) GetRotation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32* pdwRotationValue) GetRotation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwRotationValue) SetRotation;
 	}
 
 
-	public HRESULT SetOutputByteStream(IMFByteStream* pByteStream, Guid guidContainerType) mut => VT.[Friend]SetOutputByteStream(&this, pByteStream, guidContainerType);
+	public HRESULT SetOutputByteStream(IMFByteStream* pByteStream, ref Guid guidContainerType) mut => VT.[Friend]SetOutputByteStream(&this, pByteStream, ref guidContainerType);
 
 	public HRESULT SetOutputFileName(PWSTR fileName) mut => VT.[Friend]SetOutputFileName(&this, fileName);
 
@@ -18327,7 +18327,7 @@ public static
 
 	public HRESULT SetCustomSink(IMFMediaSink* pMediaSink) mut => VT.[Friend]SetCustomSink(&this, pMediaSink);
 
-	public HRESULT GetRotation(uint32 dwStreamIndex, uint32 pdwRotationValue) mut => VT.[Friend]GetRotation(&this, dwStreamIndex, pdwRotationValue);
+	public HRESULT GetRotation(uint32 dwStreamIndex, uint32* pdwRotationValue) mut => VT.[Friend]GetRotation(&this, dwStreamIndex, pdwRotationValue);
 
 	public HRESULT SetRotation(uint32 dwStreamIndex, uint32 dwRotationValue) mut => VT.[Friend]SetRotation(&this, dwStreamIndex, dwRotationValue);
 }
@@ -18342,11 +18342,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE handle) SetRenderHandle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pSurface) SetRenderSurface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFVideoNormalizedRect* pSrc, RECT* pDst, uint32 pBorderClr) UpdateVideo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFVideoNormalizedRect* pSrc, RECT* pDst, uint32* pBorderClr) UpdateVideo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamSinkIndex, IMFCaptureEngineOnSampleCallback* pCallback) SetSampleCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfMirrorState) GetMirrorState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fMirrorState) SetMirrorState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 pdwRotationValue) GetRotation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32* pdwRotationValue) GetRotation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwRotationValue) SetRotation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaSink* pMediaSink) SetCustomSink;
 	}
@@ -18356,7 +18356,7 @@ public static
 
 	public HRESULT SetRenderSurface(IUnknown* pSurface) mut => VT.[Friend]SetRenderSurface(&this, pSurface);
 
-	public HRESULT UpdateVideo(MFVideoNormalizedRect* pSrc, RECT* pDst, uint32 pBorderClr) mut => VT.[Friend]UpdateVideo(&this, pSrc, pDst, pBorderClr);
+	public HRESULT UpdateVideo(MFVideoNormalizedRect* pSrc, RECT* pDst, uint32* pBorderClr) mut => VT.[Friend]UpdateVideo(&this, pSrc, pDst, pBorderClr);
 
 	public HRESULT SetSampleCallback(uint32 dwStreamSinkIndex, IMFCaptureEngineOnSampleCallback* pCallback) mut => VT.[Friend]SetSampleCallback(&this, dwStreamSinkIndex, pCallback);
 
@@ -18364,7 +18364,7 @@ public static
 
 	public HRESULT SetMirrorState(BOOL fMirrorState) mut => VT.[Friend]SetMirrorState(&this, fMirrorState);
 
-	public HRESULT GetRotation(uint32 dwStreamIndex, uint32 pdwRotationValue) mut => VT.[Friend]GetRotation(&this, dwStreamIndex, pdwRotationValue);
+	public HRESULT GetRotation(uint32 dwStreamIndex, uint32* pdwRotationValue) mut => VT.[Friend]GetRotation(&this, dwStreamIndex, pdwRotationValue);
 
 	public HRESULT SetRotation(uint32 dwStreamIndex, uint32 dwRotationValue) mut => VT.[Friend]SetRotation(&this, dwStreamIndex, dwRotationValue);
 
@@ -18402,18 +18402,18 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_CAPTURE_ENGINE_DEVICE_TYPE mfCaptureEngineDeviceType, IMFMediaSource** ppMediaSource) GetCaptureDeviceSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_CAPTURE_ENGINE_DEVICE_TYPE mfCaptureEngineDeviceType, IMFActivate** ppActivate) GetCaptureDeviceActivate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid rguidService, Guid riid, IUnknown** ppUnknown) GetService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rguidService, ref Guid riid, IUnknown** ppUnknown) GetService;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSourceStreamIndex, IUnknown* pUnknown) AddEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSourceStreamIndex, IUnknown* pUnknown) RemoveEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSourceStreamIndex) RemoveAllEffects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSourceStreamIndex, uint32 dwMediaTypeIndex, IMFMediaType** ppMediaType) GetAvailableDeviceMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSourceStreamIndex, IMFMediaType* pMediaType) SetCurrentDeviceMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSourceStreamIndex, IMFMediaType** ppMediaType) GetCurrentDeviceMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwStreamCount) GetDeviceStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStreamCount) GetDeviceStreamCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSourceStreamIndex, MF_CAPTURE_ENGINE_STREAM_CATEGORY* pStreamCategory) GetDeviceStreamCategory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, BOOL* pfMirrorState) GetMirrorState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, BOOL fMirrorState) SetMirrorState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uifriendlyName, uint32 pdwActualStreamIndex) GetStreamIndexFromFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uifriendlyName, uint32* pdwActualStreamIndex) GetStreamIndexFromFriendlyName;
 	}
 
 
@@ -18421,7 +18421,7 @@ public static
 
 	public HRESULT GetCaptureDeviceActivate(MF_CAPTURE_ENGINE_DEVICE_TYPE mfCaptureEngineDeviceType, IMFActivate** ppActivate) mut => VT.[Friend]GetCaptureDeviceActivate(&this, mfCaptureEngineDeviceType, ppActivate);
 
-	public HRESULT GetService(Guid rguidService, Guid riid, IUnknown** ppUnknown) mut => VT.[Friend]GetService(&this, rguidService, riid, ppUnknown);
+	public HRESULT GetService(ref Guid rguidService, ref Guid riid, IUnknown** ppUnknown) mut => VT.[Friend]GetService(&this, ref rguidService, ref riid, ppUnknown);
 
 	public HRESULT AddEffect(uint32 dwSourceStreamIndex, IUnknown* pUnknown) mut => VT.[Friend]AddEffect(&this, dwSourceStreamIndex, pUnknown);
 
@@ -18435,7 +18435,7 @@ public static
 
 	public HRESULT GetCurrentDeviceMediaType(uint32 dwSourceStreamIndex, IMFMediaType** ppMediaType) mut => VT.[Friend]GetCurrentDeviceMediaType(&this, dwSourceStreamIndex, ppMediaType);
 
-	public HRESULT GetDeviceStreamCount(uint32 pdwStreamCount) mut => VT.[Friend]GetDeviceStreamCount(&this, pdwStreamCount);
+	public HRESULT GetDeviceStreamCount(uint32* pdwStreamCount) mut => VT.[Friend]GetDeviceStreamCount(&this, pdwStreamCount);
 
 	public HRESULT GetDeviceStreamCategory(uint32 dwSourceStreamIndex, MF_CAPTURE_ENGINE_STREAM_CATEGORY* pStreamCategory) mut => VT.[Friend]GetDeviceStreamCategory(&this, dwSourceStreamIndex, pStreamCategory);
 
@@ -18443,7 +18443,7 @@ public static
 
 	public HRESULT SetMirrorState(uint32 dwStreamIndex, BOOL fMirrorState) mut => VT.[Friend]SetMirrorState(&this, dwStreamIndex, fMirrorState);
 
-	public HRESULT GetStreamIndexFromFriendlyName(uint32 uifriendlyName, uint32 pdwActualStreamIndex) mut => VT.[Friend]GetStreamIndexFromFriendlyName(&this, uifriendlyName, pdwActualStreamIndex);
+	public HRESULT GetStreamIndexFromFriendlyName(uint32 uifriendlyName, uint32* pdwActualStreamIndex) mut => VT.[Friend]GetStreamIndexFromFriendlyName(&this, uifriendlyName, pdwActualStreamIndex);
 }
 
 [CRepr]struct IMFCaptureEngine : IUnknown
@@ -18490,11 +18490,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid clsid, Guid riid, void** ppvObject) CreateInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsid, ref Guid riid, void** ppvObject) CreateInstance;
 	}
 
 
-	public HRESULT CreateInstance(Guid clsid, Guid riid, void** ppvObject) mut => VT.[Friend]CreateInstance(&this, clsid, riid, ppvObject);
+	public HRESULT CreateInstance(ref Guid clsid, ref Guid riid, void** ppvObject) mut => VT.[Friend]CreateInstance(&this, ref clsid, ref riid, ppvObject);
 }
 
 [CRepr]struct IMFCaptureEngineOnSampleCallback2 : IMFCaptureEngineOnSampleCallback
@@ -18612,8 +18612,8 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, double pStart) GetStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, double pEnd) GetEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, double* pStart) GetStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, double* pEnd) GetEnd;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, double time) ContainsTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double startTime, double endTime) AddRange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
@@ -18622,9 +18622,9 @@ public static
 
 	public uint32 GetLength() mut => VT.[Friend]GetLength(&this);
 
-	public HRESULT GetStart(uint32 index, double pStart) mut => VT.[Friend]GetStart(&this, index, pStart);
+	public HRESULT GetStart(uint32 index, double* pStart) mut => VT.[Friend]GetStart(&this, index, pStart);
 
-	public HRESULT GetEnd(uint32 index, double pEnd) mut => VT.[Friend]GetEnd(&this, index, pEnd);
+	public HRESULT GetEnd(uint32 index, double* pEnd) mut => VT.[Friend]GetEnd(&this, index, pEnd);
 
 	public BOOL ContainsTime(double time) mut => VT.[Friend]ContainsTime(&this, time);
 
@@ -18723,11 +18723,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double Volume) SetVolume;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) HasVideo;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) HasAudio;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cx, uint32 cy) GetNativeVideoSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cx, uint32 cy) GetVideoAspectRatio;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* cx, uint32* cy) GetNativeVideoSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* cx, uint32* cy) GetVideoAspectRatio;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Shutdown;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pDstSurf, MFVideoNormalizedRect* pSrc, RECT* pDst, MFARGB* pBorderClr) TransferVideoFrame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 pPts) OnVideoStreamTick;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pPts) OnVideoStreamTick;
 	}
 
 
@@ -18805,15 +18805,15 @@ public static
 
 	public BOOL HasAudio() mut => VT.[Friend]HasAudio(&this);
 
-	public HRESULT GetNativeVideoSize(uint32 cx, uint32 cy) mut => VT.[Friend]GetNativeVideoSize(&this, cx, cy);
+	public HRESULT GetNativeVideoSize(uint32* cx, uint32* cy) mut => VT.[Friend]GetNativeVideoSize(&this, cx, cy);
 
-	public HRESULT GetVideoAspectRatio(uint32 cx, uint32 cy) mut => VT.[Friend]GetVideoAspectRatio(&this, cx, cy);
+	public HRESULT GetVideoAspectRatio(uint32* cx, uint32* cy) mut => VT.[Friend]GetVideoAspectRatio(&this, cx, cy);
 
 	public HRESULT Shutdown() mut => VT.[Friend]Shutdown(&this);
 
 	public HRESULT TransferVideoFrame(IUnknown* pDstSurf, MFVideoNormalizedRect* pSrc, RECT* pDst, MFARGB* pBorderClr) mut => VT.[Friend]TransferVideoFrame(&this, pDstSurf, pSrc, pDst, pBorderClr);
 
-	public HRESULT OnVideoStreamTick(int64 pPts) mut => VT.[Friend]OnVideoStreamTick(&this, pPts);
+	public HRESULT OnVideoStreamTick(int64* pPts) mut => VT.[Friend]OnVideoStreamTick(&this, pPts);
 }
 
 [CRepr]struct IMFMediaEngineEx : IMFMediaEngine
@@ -18831,10 +18831,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double balance) SetBalance;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, double rate) IsPlaybackRateSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Forward) FrameStep;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pCharacteristics) GetResourceCharacteristics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidMFAttribute, PROPVARIANT* pvValue) GetPresentationAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwStreamCount) GetNumberOfStreams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, Guid guidMFAttribute, PROPVARIANT* pvValue) GetStreamAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCharacteristics) GetResourceCharacteristics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidMFAttribute, PROPVARIANT* pvValue) GetPresentationAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStreamCount) GetNumberOfStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, ref Guid guidMFAttribute, PROPVARIANT* pvValue) GetStreamAttribute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, BOOL* pEnabled) GetStreamSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, BOOL Enabled) SetStreamSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ApplyStreamSelections;
@@ -18843,7 +18843,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pEffect, BOOL fOptional) InsertAudioEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAllEffects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double timeToFire) SetTimelineMarkerTimer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pTimeToFire) GetTimelineMarkerTimer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pTimeToFire) GetTimelineMarkerTimer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelTimelineMarkerTimer;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsStereo3D;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_MEDIA_ENGINE_S3D_PACKING_MODE* packMode) GetStereo3DFramePackingMode;
@@ -18853,9 +18853,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) EnableWindowlessSwapchainMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* phSwapchain) GetVideoSwapchainHandle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) EnableHorizontalMirrorMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pCategory) GetAudioStreamCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCategory) GetAudioStreamCategory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 category) SetAudioStreamCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pRole) GetAudioEndpointRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pRole) GetAudioEndpointRole;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 role) SetAudioEndpointRole;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfEnabled) GetRealTimeMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) SetRealTimeMode;
@@ -18878,13 +18878,13 @@ public static
 
 	public HRESULT FrameStep(BOOL Forward) mut => VT.[Friend]FrameStep(&this, Forward);
 
-	public HRESULT GetResourceCharacteristics(uint32 pCharacteristics) mut => VT.[Friend]GetResourceCharacteristics(&this, pCharacteristics);
+	public HRESULT GetResourceCharacteristics(uint32* pCharacteristics) mut => VT.[Friend]GetResourceCharacteristics(&this, pCharacteristics);
 
-	public HRESULT GetPresentationAttribute(Guid guidMFAttribute, PROPVARIANT* pvValue) mut => VT.[Friend]GetPresentationAttribute(&this, guidMFAttribute, pvValue);
+	public HRESULT GetPresentationAttribute(ref Guid guidMFAttribute, PROPVARIANT* pvValue) mut => VT.[Friend]GetPresentationAttribute(&this, ref guidMFAttribute, pvValue);
 
-	public HRESULT GetNumberOfStreams(uint32 pdwStreamCount) mut => VT.[Friend]GetNumberOfStreams(&this, pdwStreamCount);
+	public HRESULT GetNumberOfStreams(uint32* pdwStreamCount) mut => VT.[Friend]GetNumberOfStreams(&this, pdwStreamCount);
 
-	public HRESULT GetStreamAttribute(uint32 dwStreamIndex, Guid guidMFAttribute, PROPVARIANT* pvValue) mut => VT.[Friend]GetStreamAttribute(&this, dwStreamIndex, guidMFAttribute, pvValue);
+	public HRESULT GetStreamAttribute(uint32 dwStreamIndex, ref Guid guidMFAttribute, PROPVARIANT* pvValue) mut => VT.[Friend]GetStreamAttribute(&this, dwStreamIndex, ref guidMFAttribute, pvValue);
 
 	public HRESULT GetStreamSelection(uint32 dwStreamIndex, BOOL* pEnabled) mut => VT.[Friend]GetStreamSelection(&this, dwStreamIndex, pEnabled);
 
@@ -18902,7 +18902,7 @@ public static
 
 	public HRESULT SetTimelineMarkerTimer(double timeToFire) mut => VT.[Friend]SetTimelineMarkerTimer(&this, timeToFire);
 
-	public HRESULT GetTimelineMarkerTimer(double pTimeToFire) mut => VT.[Friend]GetTimelineMarkerTimer(&this, pTimeToFire);
+	public HRESULT GetTimelineMarkerTimer(double* pTimeToFire) mut => VT.[Friend]GetTimelineMarkerTimer(&this, pTimeToFire);
 
 	public HRESULT CancelTimelineMarkerTimer() mut => VT.[Friend]CancelTimelineMarkerTimer(&this);
 
@@ -18922,11 +18922,11 @@ public static
 
 	public HRESULT EnableHorizontalMirrorMode(BOOL fEnable) mut => VT.[Friend]EnableHorizontalMirrorMode(&this, fEnable);
 
-	public HRESULT GetAudioStreamCategory(uint32 pCategory) mut => VT.[Friend]GetAudioStreamCategory(&this, pCategory);
+	public HRESULT GetAudioStreamCategory(uint32* pCategory) mut => VT.[Friend]GetAudioStreamCategory(&this, pCategory);
 
 	public HRESULT SetAudioStreamCategory(uint32 category) mut => VT.[Friend]SetAudioStreamCategory(&this, category);
 
-	public HRESULT GetAudioEndpointRole(uint32 pRole) mut => VT.[Friend]GetAudioEndpointRole(&this, pRole);
+	public HRESULT GetAudioEndpointRole(uint32* pRole) mut => VT.[Friend]GetAudioEndpointRole(&this, pRole);
 
 	public HRESULT SetAudioEndpointRole(uint32 role) mut => VT.[Friend]SetAudioEndpointRole(&this, role);
 
@@ -18990,25 +18990,25 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkDeviceContext) ShareResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pFrameProtectionFlags) GetRequiredProtections;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pFrameProtectionFlags) GetRequiredProtections;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd) SetOPMWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pDstSurf, MFVideoNormalizedRect* pSrc, RECT* pDst, MFARGB* pBorderClr, uint32 pFrameProtectionFlags) TransferVideoFrame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pDstSurf, MFVideoNormalizedRect* pSrc, RECT* pDst, MFARGB* pBorderClr, uint32* pFrameProtectionFlags) TransferVideoFrame;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFContentProtectionManager* pCPM) SetContentProtectionManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbBlob, uint32 cbBlob) SetApplicationCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbBlob, uint32 cbBlob) SetApplicationCertificate;
 	}
 
 
 	public HRESULT ShareResources(IUnknown* pUnkDeviceContext) mut => VT.[Friend]ShareResources(&this, pUnkDeviceContext);
 
-	public HRESULT GetRequiredProtections(uint32 pFrameProtectionFlags) mut => VT.[Friend]GetRequiredProtections(&this, pFrameProtectionFlags);
+	public HRESULT GetRequiredProtections(uint32* pFrameProtectionFlags) mut => VT.[Friend]GetRequiredProtections(&this, pFrameProtectionFlags);
 
 	public HRESULT SetOPMWindow(HWND hwnd) mut => VT.[Friend]SetOPMWindow(&this, hwnd);
 
-	public HRESULT TransferVideoFrame(IUnknown* pDstSurf, MFVideoNormalizedRect* pSrc, RECT* pDst, MFARGB* pBorderClr, uint32 pFrameProtectionFlags) mut => VT.[Friend]TransferVideoFrame(&this, pDstSurf, pSrc, pDst, pBorderClr, pFrameProtectionFlags);
+	public HRESULT TransferVideoFrame(IUnknown* pDstSurf, MFVideoNormalizedRect* pSrc, RECT* pDst, MFARGB* pBorderClr, uint32* pFrameProtectionFlags) mut => VT.[Friend]TransferVideoFrame(&this, pDstSurf, pSrc, pDst, pBorderClr, pFrameProtectionFlags);
 
 	public HRESULT SetContentProtectionManager(IMFContentProtectionManager* pCPM) mut => VT.[Friend]SetContentProtectionManager(&this, pCPM);
 
-	public HRESULT SetApplicationCertificate(uint8 pbBlob, uint32 cbBlob) mut => VT.[Friend]SetApplicationCertificate(&this, pbBlob, cbBlob);
+	public HRESULT SetApplicationCertificate(uint8* pbBlob, uint32 cbBlob) mut => VT.[Friend]SetApplicationCertificate(&this, pbBlob, cbBlob);
 }
 
 [CRepr]struct IAudioSourceProvider : IUnknown
@@ -19019,11 +19019,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSampleCount, uint32 pdwChannelCount, float pInterleavedAudioData) ProvideInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSampleCount, uint32* pdwChannelCount, float* pInterleavedAudioData) ProvideInput;
 	}
 
 
-	public HRESULT ProvideInput(uint32 dwSampleCount, uint32 pdwChannelCount, float pInterleavedAudioData) mut => VT.[Friend]ProvideInput(&this, dwSampleCount, pdwChannelCount, pInterleavedAudioData);
+	public HRESULT ProvideInput(uint32 dwSampleCount, uint32* pdwChannelCount, float* pInterleavedAudioData) mut => VT.[Friend]ProvideInput(&this, dwSampleCount, pdwChannelCount, pInterleavedAudioData);
 }
 
 [CRepr]struct IMFMediaEngineWebSupport : IUnknown
@@ -19129,8 +19129,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double time) SetAppendWindowStart;
 		protected new function [CallingConvention(.Stdcall)] double(SelfOuter* self) GetAppendWindowEnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double time) SetAppendWindowEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pData, uint32 len) Append;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream* pStream, uint64 pMaxLen) AppendByteStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32 len) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream* pStream, uint64* pMaxLen) AppendByteStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Abort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double start, double end) Remove;
 	}
@@ -19152,9 +19152,9 @@ public static
 
 	public HRESULT SetAppendWindowEnd(double time) mut => VT.[Friend]SetAppendWindowEnd(&this, time);
 
-	public HRESULT Append(uint8 pData, uint32 len) mut => VT.[Friend]Append(&this, pData, len);
+	public HRESULT Append(uint8* pData, uint32 len) mut => VT.[Friend]Append(&this, pData, len);
 
-	public HRESULT AppendByteStream(IMFByteStream* pStream, uint64 pMaxLen) mut => VT.[Friend]AppendByteStream(&this, pStream, pMaxLen);
+	public HRESULT AppendByteStream(IMFByteStream* pStream, uint64* pMaxLen) mut => VT.[Friend]AppendByteStream(&this, pStream, pMaxLen);
 
 	public HRESULT Abort() mut => VT.[Friend]Abort(&this);
 
@@ -19301,11 +19301,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint8 initData, uint32 cb) NeedKey;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint8* initData, uint32 cb) NeedKey;
 	}
 
 
-	public void NeedKey(uint8 initData, uint32 cb) mut => VT.[Friend]NeedKey(&this, initData, cb);
+	public void NeedKey(uint8* initData, uint32 cb) mut => VT.[Friend]NeedKey(&this, initData, cb);
 }
 
 [CRepr]struct IMFMediaKeys : IUnknown
@@ -19316,14 +19316,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mimeType, uint8 initData, uint32 cb, uint8 customData, uint32 cbCustomData, IMFMediaKeySessionNotify* notify, IMFMediaKeySession** ppSession) CreateSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mimeType, uint8* initData, uint32 cb, uint8* customData, uint32 cbCustomData, IMFMediaKeySessionNotify* notify, IMFMediaKeySession** ppSession) CreateSession;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* keySystem) get_KeySystem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Shutdown;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFCdmSuspendNotify** notify) GetSuspendNotify;
 	}
 
 
-	public HRESULT CreateSession(BSTR mimeType, uint8 initData, uint32 cb, uint8 customData, uint32 cbCustomData, IMFMediaKeySessionNotify* notify, IMFMediaKeySession** ppSession) mut => VT.[Friend]CreateSession(&this, mimeType, initData, cb, customData, cbCustomData, notify, ppSession);
+	public HRESULT CreateSession(BSTR mimeType, uint8* initData, uint32 cb, uint8* customData, uint32 cbCustomData, IMFMediaKeySessionNotify* notify, IMFMediaKeySession** ppSession) mut => VT.[Friend]CreateSession(&this, mimeType, initData, cb, customData, cbCustomData, notify, ppSession);
 
 	public HRESULT get_KeySystem(BSTR* keySystem) mut => VT.[Friend]get_KeySystem(&this, keySystem);
 
@@ -19340,21 +19340,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 code, uint32 systemCode) GetError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* code, uint32* systemCode) GetError;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* keySystem) get_KeySystem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* sessionId) get_SessionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 key, uint32 cb) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* key, uint32 cb) Update;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
-	public HRESULT GetError(uint16 code, uint32 systemCode) mut => VT.[Friend]GetError(&this, code, systemCode);
+	public HRESULT GetError(uint16* code, uint32* systemCode) mut => VT.[Friend]GetError(&this, code, systemCode);
 
 	public HRESULT get_KeySystem(BSTR* keySystem) mut => VT.[Friend]get_KeySystem(&this, keySystem);
 
 	public HRESULT get_SessionId(BSTR* sessionId) mut => VT.[Friend]get_SessionId(&this, sessionId);
 
-	public HRESULT Update(uint8 key, uint32 cb) mut => VT.[Friend]Update(&this, key, cb);
+	public HRESULT Update(uint8* key, uint32 cb) mut => VT.[Friend]Update(&this, key, cb);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 }
@@ -19367,13 +19367,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, BSTR destinationURL, uint8 message, uint32 cb) KeyMessage;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, BSTR destinationURL, uint8* message, uint32 cb) KeyMessage;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) KeyAdded;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint16 code, uint32 systemCode) KeyError;
 	}
 
 
-	public void KeyMessage(BSTR destinationURL, uint8 message, uint32 cb) mut => VT.[Friend]KeyMessage(&this, destinationURL, message, cb);
+	public void KeyMessage(BSTR destinationURL, uint8* message, uint32 cb) mut => VT.[Friend]KeyMessage(&this, destinationURL, message, cb);
 
 	public void KeyAdded() mut => VT.[Friend]KeyAdded(&this);
 
@@ -19549,11 +19549,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTimedTextNotify* notify) RegisterNotifications;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 trackId, BOOL selected) SelectTrack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream* byteStream, PWSTR label, PWSTR language, MF_TIMED_TEXT_TRACK_KIND kind, BOOL isDefault, uint32 trackId) AddDataSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR url, PWSTR label, PWSTR language, MF_TIMED_TEXT_TRACK_KIND kind, BOOL isDefault, uint32 trackId) AddDataSourceFromUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFByteStream* byteStream, PWSTR label, PWSTR language, MF_TIMED_TEXT_TRACK_KIND kind, BOOL isDefault, uint32* trackId) AddDataSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR url, PWSTR label, PWSTR language, MF_TIMED_TEXT_TRACK_KIND kind, BOOL isDefault, uint32* trackId) AddDataSourceFromUrl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR label, PWSTR language, MF_TIMED_TEXT_TRACK_KIND kind, IMFTimedTextTrack** track) AddTrack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTimedTextTrack* track) RemoveTrack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double offset) GetCueTimeOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* offset) GetCueTimeOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double offset) SetCueTimeOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTimedTextTrackList** tracks) GetTracks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTimedTextTrackList** activeTracks) GetActiveTracks;
@@ -19568,15 +19568,15 @@ public static
 
 	public HRESULT SelectTrack(uint32 trackId, BOOL selected) mut => VT.[Friend]SelectTrack(&this, trackId, selected);
 
-	public HRESULT AddDataSource(IMFByteStream* byteStream, PWSTR label, PWSTR language, MF_TIMED_TEXT_TRACK_KIND kind, BOOL isDefault, uint32 trackId) mut => VT.[Friend]AddDataSource(&this, byteStream, label, language, kind, isDefault, trackId);
+	public HRESULT AddDataSource(IMFByteStream* byteStream, PWSTR label, PWSTR language, MF_TIMED_TEXT_TRACK_KIND kind, BOOL isDefault, uint32* trackId) mut => VT.[Friend]AddDataSource(&this, byteStream, label, language, kind, isDefault, trackId);
 
-	public HRESULT AddDataSourceFromUrl(PWSTR url, PWSTR label, PWSTR language, MF_TIMED_TEXT_TRACK_KIND kind, BOOL isDefault, uint32 trackId) mut => VT.[Friend]AddDataSourceFromUrl(&this, url, label, language, kind, isDefault, trackId);
+	public HRESULT AddDataSourceFromUrl(PWSTR url, PWSTR label, PWSTR language, MF_TIMED_TEXT_TRACK_KIND kind, BOOL isDefault, uint32* trackId) mut => VT.[Friend]AddDataSourceFromUrl(&this, url, label, language, kind, isDefault, trackId);
 
 	public HRESULT AddTrack(PWSTR label, PWSTR language, MF_TIMED_TEXT_TRACK_KIND kind, IMFTimedTextTrack** track) mut => VT.[Friend]AddTrack(&this, label, language, kind, track);
 
 	public HRESULT RemoveTrack(IMFTimedTextTrack* track) mut => VT.[Friend]RemoveTrack(&this, track);
 
-	public HRESULT GetCueTimeOffset(double offset) mut => VT.[Friend]GetCueTimeOffset(&this, offset);
+	public HRESULT GetCueTimeOffset(double* offset) mut => VT.[Friend]GetCueTimeOffset(&this, offset);
 
 	public HRESULT SetCueTimeOffset(double offset) mut => VT.[Friend]SetCueTimeOffset(&this, offset);
 
@@ -19644,7 +19644,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsActive;
 		protected new function [CallingConvention(.Stdcall)] MF_TIMED_TEXT_ERROR_CODE(SelfOuter* self) GetErrorCode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) GetExtendedErrorCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid format) GetDataFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid format) GetDataFormat;
 		protected new function [CallingConvention(.Stdcall)] MF_TIMED_TEXT_TRACK_READY_STATE(SelfOuter* self) GetReadyState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTimedTextCueList** cues) GetCueList;
 	}
@@ -19670,7 +19670,7 @@ public static
 
 	public HRESULT GetExtendedErrorCode() mut => VT.[Friend]GetExtendedErrorCode(&this);
 
-	public HRESULT GetDataFormat(Guid format) mut => VT.[Friend]GetDataFormat(&this, format);
+	public HRESULT GetDataFormat(ref Guid format) mut => VT.[Friend]GetDataFormat(&this, ref format);
 
 	public MF_TIMED_TEXT_TRACK_READY_STATE GetReadyState() mut => VT.[Friend]GetReadyState(&this);
 
@@ -19753,7 +19753,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* text) GetText;
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetSubformattingCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, uint32 firstChar, uint32 charLength, IMFTimedTextStyle** style) GetSubformatting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, uint32* firstChar, uint32* charLength, IMFTimedTextStyle** style) GetSubformatting;
 	}
 
 
@@ -19761,7 +19761,7 @@ public static
 
 	public uint32 GetSubformattingCount() mut => VT.[Friend]GetSubformattingCount(&this);
 
-	public HRESULT GetSubformatting(uint32 index, uint32 firstChar, uint32 charLength, IMFTimedTextStyle** style) mut => VT.[Friend]GetSubformatting(&this, index, firstChar, charLength, style);
+	public HRESULT GetSubformatting(uint32 index, uint32* firstChar, uint32* charLength, IMFTimedTextStyle** style) mut => VT.[Friend]GetSubformatting(&this, index, firstChar, charLength, style);
 }
 
 [CRepr]struct IMFTimedTextStyle : IUnknown
@@ -19775,7 +19775,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsExternal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* fontFamily) GetFontFamily;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double fontSize, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetFontSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* fontSize, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetFontSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFARGB* color) GetColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFARGB* bgColor) GetBackgroundColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* showBackgroundAlways) GetShowBackgroundAlways;
@@ -19783,8 +19783,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* bold) GetBold;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* rightToLeft) GetRightToLeft;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_TIMED_TEXT_ALIGNMENT* textAlign) GetTextAlignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 textDecoration) GetTextDecoration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFARGB* color, double thickness, double blurRadius, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetTextOutline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* textDecoration) GetTextDecoration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFARGB* color, double* thickness, double* blurRadius, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetTextOutline;
 	}
 
 
@@ -19794,7 +19794,7 @@ public static
 
 	public HRESULT GetFontFamily(PWSTR* fontFamily) mut => VT.[Friend]GetFontFamily(&this, fontFamily);
 
-	public HRESULT GetFontSize(double fontSize, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetFontSize(&this, fontSize, unitType);
+	public HRESULT GetFontSize(double* fontSize, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetFontSize(&this, fontSize, unitType);
 
 	public HRESULT GetColor(MFARGB* color) mut => VT.[Friend]GetColor(&this, color);
 
@@ -19810,9 +19810,9 @@ public static
 
 	public HRESULT GetTextAlignment(MF_TIMED_TEXT_ALIGNMENT* textAlign) mut => VT.[Friend]GetTextAlignment(&this, textAlign);
 
-	public HRESULT GetTextDecoration(uint32 textDecoration) mut => VT.[Friend]GetTextDecoration(&this, textDecoration);
+	public HRESULT GetTextDecoration(uint32* textDecoration) mut => VT.[Friend]GetTextDecoration(&this, textDecoration);
 
-	public HRESULT GetTextOutline(MFARGB* color, double thickness, double blurRadius, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetTextOutline(&this, color, thickness, blurRadius, unitType);
+	public HRESULT GetTextOutline(MFARGB* color, double* thickness, double* blurRadius, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetTextOutline(&this, color, thickness, blurRadius, unitType);
 }
 
 [CRepr]struct IMFTimedTextRegion : IUnknown
@@ -19824,25 +19824,25 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pX, double pY, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pWidth, double pHeight, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetExtent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pX, double* pY, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pWidth, double* pHeight, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetExtent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFARGB* bgColor) GetBackgroundColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_TIMED_TEXT_WRITING_MODE* writingMode) GetWritingMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_TIMED_TEXT_DISPLAY_ALIGNMENT* displayAlign) GetDisplayAlignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pLineHeight, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetLineHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pLineHeight, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetLineHeight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* clipOverflow) GetClipOverflow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double before, double start, double after, double end, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetPadding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* before, double* start, double* after, double* end, MF_TIMED_TEXT_UNIT_TYPE* unitType) GetPadding;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* wrap) GetWrap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 zIndex) GetZIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* zIndex) GetZIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_TIMED_TEXT_SCROLL_MODE* scrollMode) GetScrollMode;
 	}
 
 
 	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetPosition(double pX, double pY, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetPosition(&this, pX, pY, unitType);
+	public HRESULT GetPosition(double* pX, double* pY, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetPosition(&this, pX, pY, unitType);
 
-	public HRESULT GetExtent(double pWidth, double pHeight, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetExtent(&this, pWidth, pHeight, unitType);
+	public HRESULT GetExtent(double* pWidth, double* pHeight, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetExtent(&this, pWidth, pHeight, unitType);
 
 	public HRESULT GetBackgroundColor(MFARGB* bgColor) mut => VT.[Friend]GetBackgroundColor(&this, bgColor);
 
@@ -19850,15 +19850,15 @@ public static
 
 	public HRESULT GetDisplayAlignment(MF_TIMED_TEXT_DISPLAY_ALIGNMENT* displayAlign) mut => VT.[Friend]GetDisplayAlignment(&this, displayAlign);
 
-	public HRESULT GetLineHeight(double pLineHeight, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetLineHeight(&this, pLineHeight, unitType);
+	public HRESULT GetLineHeight(double* pLineHeight, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetLineHeight(&this, pLineHeight, unitType);
 
 	public HRESULT GetClipOverflow(BOOL* clipOverflow) mut => VT.[Friend]GetClipOverflow(&this, clipOverflow);
 
-	public HRESULT GetPadding(double before, double start, double after, double end, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetPadding(&this, before, start, after, end, unitType);
+	public HRESULT GetPadding(double* before, double* start, double* after, double* end, MF_TIMED_TEXT_UNIT_TYPE* unitType) mut => VT.[Friend]GetPadding(&this, before, start, after, end, unitType);
 
 	public HRESULT GetWrap(BOOL* wrap) mut => VT.[Friend]GetWrap(&this, wrap);
 
-	public HRESULT GetZIndex(int32 zIndex) mut => VT.[Friend]GetZIndex(&this, zIndex);
+	public HRESULT GetZIndex(int32* zIndex) mut => VT.[Friend]GetZIndex(&this, zIndex);
 
 	public HRESULT GetScrollMode(MF_TIMED_TEXT_SCROLL_MODE* scrollMode) mut => VT.[Friend]GetScrollMode(&this, scrollMode);
 }
@@ -19871,11 +19871,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** data, uint32 length) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** data, uint32* length) GetData;
 	}
 
 
-	public HRESULT GetData(uint8** data, uint32 length) mut => VT.[Friend]GetData(&this, data, length);
+	public HRESULT GetData(uint8** data, uint32* length) mut => VT.[Friend]GetData(&this, data, length);
 }
 
 [CRepr]struct IMFTimedTextCueList : IUnknown
@@ -19891,7 +19891,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 id, IMFTimedTextCue** cue) GetCueById;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR originalId, IMFTimedTextCue** cue) GetCueByOriginalId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double start, double duration, PWSTR text, IMFTimedTextCue** cue) AddTextCue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double start, double duration, uint8 data, uint32 dataSize, IMFTimedTextCue** cue) AddDataCue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double start, double duration, uint8* data, uint32 dataSize, IMFTimedTextCue** cue) AddDataCue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTimedTextCue* cue) RemoveCue;
 	}
 
@@ -19906,7 +19906,7 @@ public static
 
 	public HRESULT AddTextCue(double start, double duration, PWSTR text, IMFTimedTextCue** cue) mut => VT.[Friend]AddTextCue(&this, start, duration, text, cue);
 
-	public HRESULT AddDataCue(double start, double duration, uint8 data, uint32 dataSize, IMFTimedTextCue** cue) mut => VT.[Friend]AddDataCue(&this, start, duration, data, dataSize, cue);
+	public HRESULT AddDataCue(double start, double duration, uint8* data, uint32 dataSize, IMFTimedTextCue** cue) mut => VT.[Friend]AddDataCue(&this, start, duration, data, dataSize, cue);
 
 	public HRESULT RemoveCue(IMFTimedTextCue* cue) mut => VT.[Friend]RemoveCue(&this, cue);
 }
@@ -19967,7 +19967,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTimedTextRuby** ruby) GetRuby;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFTimedTextBouten** bouten) GetBouten;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* value) IsTextCombined;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double value) GetFontAngleInDegrees;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* value) GetFontAngleInDegrees;
 	}
 
 
@@ -19977,7 +19977,7 @@ public static
 
 	public HRESULT IsTextCombined(BOOL* value) mut => VT.[Friend]IsTextCombined(&this, value);
 
-	public HRESULT GetFontAngleInDegrees(double value) mut => VT.[Friend]GetFontAngleInDegrees(&this, value);
+	public HRESULT GetFontAngleInDegrees(double* value) mut => VT.[Friend]GetFontAngleInDegrees(&this, value);
 }
 
 [CRepr]struct IMFMediaEngineEMENotify : IUnknown
@@ -19988,12 +19988,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint8 pbInitData, uint32 cb, BSTR bstrInitDataType) Encrypted;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint8* pbInitData, uint32 cb, BSTR bstrInitDataType) Encrypted;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) WaitingForKey;
 	}
 
 
-	public void Encrypted(uint8 pbInitData, uint32 cb, BSTR bstrInitDataType) mut => VT.[Friend]Encrypted(&this, pbInitData, cb, bstrInitDataType);
+	public void Encrypted(uint8* pbInitData, uint32 cb, BSTR bstrInitDataType) mut => VT.[Friend]Encrypted(&this, pbInitData, cb, bstrInitDataType);
 
 	public void WaitingForKey() mut => VT.[Friend]WaitingForKey(&this);
 }
@@ -20006,12 +20006,12 @@ public static
 
 	[CRepr]public struct VTable : IMFMediaKeySessionNotify.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, MF_MEDIAKEYSESSION_MESSAGETYPE eMessageType, BSTR destinationURL, uint8 pbMessage, uint32 cbMessage) KeyMessage2;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, MF_MEDIAKEYSESSION_MESSAGETYPE eMessageType, BSTR destinationURL, uint8* pbMessage, uint32 cbMessage) KeyMessage2;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) KeyStatusChange;
 	}
 
 
-	public void KeyMessage2(MF_MEDIAKEYSESSION_MESSAGETYPE eMessageType, BSTR destinationURL, uint8 pbMessage, uint32 cbMessage) mut => VT.[Friend]KeyMessage2(&this, eMessageType, destinationURL, pbMessage, cbMessage);
+	public void KeyMessage2(MF_MEDIAKEYSESSION_MESSAGETYPE eMessageType, BSTR destinationURL, uint8* pbMessage, uint32 cbMessage) mut => VT.[Friend]KeyMessage2(&this, eMessageType, destinationURL, pbMessage, cbMessage);
 
 	public void KeyStatusChange() mut => VT.[Friend]KeyStatusChange(&this);
 }
@@ -20061,14 +20061,14 @@ public static
 	[CRepr]public struct VTable : IMFMediaKeys.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_MEDIAKEYSESSION_TYPE eSessionType, IMFMediaKeySessionNotify2* pMFMediaKeySessionNotify2, IMFMediaKeySession2** ppSession) CreateSession2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pbServerCertificate, uint32 cb) SetServerCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbServerCertificate, uint32 cb) SetServerCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT systemCode, HRESULT* code) GetDOMException;
 	}
 
 
 	public HRESULT CreateSession2(MF_MEDIAKEYSESSION_TYPE eSessionType, IMFMediaKeySessionNotify2* pMFMediaKeySessionNotify2, IMFMediaKeySession2** ppSession) mut => VT.[Friend]CreateSession2(&this, eSessionType, pMFMediaKeySessionNotify2, ppSession);
 
-	public HRESULT SetServerCertificate(uint8 pbServerCertificate, uint32 cb) mut => VT.[Friend]SetServerCertificate(&this, pbServerCertificate, cb);
+	public HRESULT SetServerCertificate(uint8* pbServerCertificate, uint32 cb) mut => VT.[Friend]SetServerCertificate(&this, pbServerCertificate, cb);
 
 	public HRESULT GetDOMException(HRESULT systemCode, HRESULT* code) mut => VT.[Friend]GetDOMException(&this, systemCode, code);
 }
@@ -20081,22 +20081,22 @@ public static
 
 	[CRepr]public struct VTable : IMFMediaKeySession.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFMediaKeyStatus** pKeyStatusesArray, uint32 puSize) get_KeyStatuses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFMediaKeyStatus** pKeyStatusesArray, uint32* puSize) get_KeyStatuses;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSessionId, BOOL* pfLoaded) Load;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR initDataType, uint8 pbInitData, uint32 cb) GenerateRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double dblExpiration) get_Expiration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR initDataType, uint8* pbInitData, uint32 cb) GenerateRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* dblExpiration) get_Expiration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Shutdown;
 	}
 
 
-	public HRESULT get_KeyStatuses(MFMediaKeyStatus** pKeyStatusesArray, uint32 puSize) mut => VT.[Friend]get_KeyStatuses(&this, pKeyStatusesArray, puSize);
+	public HRESULT get_KeyStatuses(MFMediaKeyStatus** pKeyStatusesArray, uint32* puSize) mut => VT.[Friend]get_KeyStatuses(&this, pKeyStatusesArray, puSize);
 
 	public HRESULT Load(BSTR bstrSessionId, BOOL* pfLoaded) mut => VT.[Friend]Load(&this, bstrSessionId, pfLoaded);
 
-	public HRESULT GenerateRequest(BSTR initDataType, uint8 pbInitData, uint32 cb) mut => VT.[Friend]GenerateRequest(&this, initDataType, pbInitData, cb);
+	public HRESULT GenerateRequest(BSTR initDataType, uint8* pbInitData, uint32 cb) mut => VT.[Friend]GenerateRequest(&this, initDataType, pbInitData, cb);
 
-	public HRESULT get_Expiration(double dblExpiration) mut => VT.[Friend]get_Expiration(&this, dblExpiration);
+	public HRESULT get_Expiration(double* dblExpiration) mut => VT.[Friend]get_Expiration(&this, dblExpiration);
 
 	public HRESULT Remove() mut => VT.[Friend]Remove(&this);
 
@@ -20111,11 +20111,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR keySystem, Guid riid, void** ppvObject) CreateContentDecryptionModuleFactory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR keySystem, ref Guid riid, void** ppvObject) CreateContentDecryptionModuleFactory;
 	}
 
 
-	public HRESULT CreateContentDecryptionModuleFactory(PWSTR keySystem, Guid riid, void** ppvObject) mut => VT.[Friend]CreateContentDecryptionModuleFactory(&this, keySystem, riid, ppvObject);
+	public HRESULT CreateContentDecryptionModuleFactory(PWSTR keySystem, ref Guid riid, void** ppvObject) mut => VT.[Friend]CreateContentDecryptionModuleFactory(&this, keySystem, ref riid, ppvObject);
 }
 
 [CRepr]struct IMFDLNASinkInit : IUnknown
@@ -20141,14 +20141,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid clsid, PWSTR pwszURL, IMFAttributes* pAttributes, Guid riid, void** ppvObject) CreateInstanceFromURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid clsid, IUnknown* punkObject, IMFAttributes* pAttributes, Guid riid, void** ppvObject) CreateInstanceFromObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsid, PWSTR pwszURL, IMFAttributes* pAttributes, ref Guid riid, void** ppvObject) CreateInstanceFromURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsid, IUnknown* punkObject, IMFAttributes* pAttributes, ref Guid riid, void** ppvObject) CreateInstanceFromObject;
 	}
 
 
-	public HRESULT CreateInstanceFromURL(Guid clsid, PWSTR pwszURL, IMFAttributes* pAttributes, Guid riid, void** ppvObject) mut => VT.[Friend]CreateInstanceFromURL(&this, clsid, pwszURL, pAttributes, riid, ppvObject);
+	public HRESULT CreateInstanceFromURL(ref Guid clsid, PWSTR pwszURL, IMFAttributes* pAttributes, ref Guid riid, void** ppvObject) mut => VT.[Friend]CreateInstanceFromURL(&this, ref clsid, pwszURL, pAttributes, ref riid, ppvObject);
 
-	public HRESULT CreateInstanceFromObject(Guid clsid, IUnknown* punkObject, IMFAttributes* pAttributes, Guid riid, void** ppvObject) mut => VT.[Friend]CreateInstanceFromObject(&this, clsid, punkObject, pAttributes, riid, ppvObject);
+	public HRESULT CreateInstanceFromObject(ref Guid clsid, IUnknown* punkObject, IMFAttributes* pAttributes, ref Guid riid, void** ppvObject) mut => VT.[Friend]CreateInstanceFromObject(&this, ref clsid, punkObject, pAttributes, ref riid, ppvObject);
 }
 
 [CRepr]struct IMFSourceReader : IUnknown
@@ -20163,12 +20163,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, BOOL fSelected) SetStreamSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwMediaTypeIndex, IMFMediaType** ppMediaType) GetNativeMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, IMFMediaType** ppMediaType) GetCurrentMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 pdwReserved, IMFMediaType* pMediaType) SetCurrentMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidTimeFormat, PROPVARIANT* varPosition) SetCurrentPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwControlFlags, uint32 pdwActualStreamIndex, uint32 pdwStreamFlags, int64 pllTimestamp, IMFSample** ppSample) ReadSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32* pdwReserved, IMFMediaType* pMediaType) SetCurrentMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidTimeFormat, PROPVARIANT* varPosition) SetCurrentPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwControlFlags, uint32* pdwActualStreamIndex, uint32* pdwStreamFlags, int64* pllTimestamp, IMFSample** ppSample) ReadSample;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex) Flush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, Guid guidService, Guid riid, void** ppvObject) GetServiceForStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, Guid guidAttribute, PROPVARIANT* pvarAttribute) GetPresentationAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, ref Guid guidService, ref Guid riid, void** ppvObject) GetServiceForStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, ref Guid guidAttribute, PROPVARIANT* pvarAttribute) GetPresentationAttribute;
 	}
 
 
@@ -20180,17 +20180,17 @@ public static
 
 	public HRESULT GetCurrentMediaType(uint32 dwStreamIndex, IMFMediaType** ppMediaType) mut => VT.[Friend]GetCurrentMediaType(&this, dwStreamIndex, ppMediaType);
 
-	public HRESULT SetCurrentMediaType(uint32 dwStreamIndex, uint32 pdwReserved, IMFMediaType* pMediaType) mut => VT.[Friend]SetCurrentMediaType(&this, dwStreamIndex, pdwReserved, pMediaType);
+	public HRESULT SetCurrentMediaType(uint32 dwStreamIndex, uint32* pdwReserved, IMFMediaType* pMediaType) mut => VT.[Friend]SetCurrentMediaType(&this, dwStreamIndex, pdwReserved, pMediaType);
 
-	public HRESULT SetCurrentPosition(Guid guidTimeFormat, PROPVARIANT* varPosition) mut => VT.[Friend]SetCurrentPosition(&this, guidTimeFormat, varPosition);
+	public HRESULT SetCurrentPosition(ref Guid guidTimeFormat, PROPVARIANT* varPosition) mut => VT.[Friend]SetCurrentPosition(&this, ref guidTimeFormat, varPosition);
 
-	public HRESULT ReadSample(uint32 dwStreamIndex, uint32 dwControlFlags, uint32 pdwActualStreamIndex, uint32 pdwStreamFlags, int64 pllTimestamp, IMFSample** ppSample) mut => VT.[Friend]ReadSample(&this, dwStreamIndex, dwControlFlags, pdwActualStreamIndex, pdwStreamFlags, pllTimestamp, ppSample);
+	public HRESULT ReadSample(uint32 dwStreamIndex, uint32 dwControlFlags, uint32* pdwActualStreamIndex, uint32* pdwStreamFlags, int64* pllTimestamp, IMFSample** ppSample) mut => VT.[Friend]ReadSample(&this, dwStreamIndex, dwControlFlags, pdwActualStreamIndex, pdwStreamFlags, pllTimestamp, ppSample);
 
 	public HRESULT Flush(uint32 dwStreamIndex) mut => VT.[Friend]Flush(&this, dwStreamIndex);
 
-	public HRESULT GetServiceForStream(uint32 dwStreamIndex, Guid guidService, Guid riid, void** ppvObject) mut => VT.[Friend]GetServiceForStream(&this, dwStreamIndex, guidService, riid, ppvObject);
+	public HRESULT GetServiceForStream(uint32 dwStreamIndex, ref Guid guidService, ref Guid riid, void** ppvObject) mut => VT.[Friend]GetServiceForStream(&this, dwStreamIndex, ref guidService, ref riid, ppvObject);
 
-	public HRESULT GetPresentationAttribute(uint32 dwStreamIndex, Guid guidAttribute, PROPVARIANT* pvarAttribute) mut => VT.[Friend]GetPresentationAttribute(&this, dwStreamIndex, guidAttribute, pvarAttribute);
+	public HRESULT GetPresentationAttribute(uint32 dwStreamIndex, ref Guid guidAttribute, PROPVARIANT* pvarAttribute) mut => VT.[Friend]GetPresentationAttribute(&this, dwStreamIndex, ref guidAttribute, pvarAttribute);
 }
 
 [CRepr]struct IMFSourceReaderEx : IMFSourceReader
@@ -20201,20 +20201,20 @@ public static
 
 	[CRepr]public struct VTable : IMFSourceReader.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, IMFMediaType* pMediaType, uint32 pdwStreamFlags) SetNativeMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, IMFMediaType* pMediaType, uint32* pdwStreamFlags) SetNativeMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, IUnknown* pTransformOrActivate) AddTransformForStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex) RemoveAllTransformsForStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwTransformIndex, Guid pGuidCategory, IMFTransform** ppTransform) GetTransformForStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwTransformIndex, ref Guid pGuidCategory, IMFTransform** ppTransform) GetTransformForStream;
 	}
 
 
-	public HRESULT SetNativeMediaType(uint32 dwStreamIndex, IMFMediaType* pMediaType, uint32 pdwStreamFlags) mut => VT.[Friend]SetNativeMediaType(&this, dwStreamIndex, pMediaType, pdwStreamFlags);
+	public HRESULT SetNativeMediaType(uint32 dwStreamIndex, IMFMediaType* pMediaType, uint32* pdwStreamFlags) mut => VT.[Friend]SetNativeMediaType(&this, dwStreamIndex, pMediaType, pdwStreamFlags);
 
 	public HRESULT AddTransformForStream(uint32 dwStreamIndex, IUnknown* pTransformOrActivate) mut => VT.[Friend]AddTransformForStream(&this, dwStreamIndex, pTransformOrActivate);
 
 	public HRESULT RemoveAllTransformsForStream(uint32 dwStreamIndex) mut => VT.[Friend]RemoveAllTransformsForStream(&this, dwStreamIndex);
 
-	public HRESULT GetTransformForStream(uint32 dwStreamIndex, uint32 dwTransformIndex, Guid pGuidCategory, IMFTransform** ppTransform) mut => VT.[Friend]GetTransformForStream(&this, dwStreamIndex, dwTransformIndex, pGuidCategory, ppTransform);
+	public HRESULT GetTransformForStream(uint32 dwStreamIndex, uint32 dwTransformIndex, ref Guid pGuidCategory, IMFTransform** ppTransform) mut => VT.[Friend]GetTransformForStream(&this, dwStreamIndex, dwTransformIndex, ref pGuidCategory, ppTransform);
 }
 
 [CRepr]struct IMFSourceReaderCallback : IUnknown
@@ -20264,7 +20264,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaType* pTargetMediaType, uint32 pdwStreamIndex) AddStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaType* pTargetMediaType, uint32* pdwStreamIndex) AddStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, IMFMediaType* pInputMediaType, IMFAttributes* pEncodingParameters) SetInputMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BeginWriting;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, IMFSample* pSample) WriteSample;
@@ -20273,12 +20273,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex) NotifyEndOfSegment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex) Flush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finalize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, Guid guidService, Guid riid, void** ppvObject) GetServiceForStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, ref Guid guidService, ref Guid riid, void** ppvObject) GetServiceForStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, MF_SINK_WRITER_STATISTICS* pStats) GetStatistics;
 	}
 
 
-	public HRESULT AddStream(IMFMediaType* pTargetMediaType, uint32 pdwStreamIndex) mut => VT.[Friend]AddStream(&this, pTargetMediaType, pdwStreamIndex);
+	public HRESULT AddStream(IMFMediaType* pTargetMediaType, uint32* pdwStreamIndex) mut => VT.[Friend]AddStream(&this, pTargetMediaType, pdwStreamIndex);
 
 	public HRESULT SetInputMediaType(uint32 dwStreamIndex, IMFMediaType* pInputMediaType, IMFAttributes* pEncodingParameters) mut => VT.[Friend]SetInputMediaType(&this, dwStreamIndex, pInputMediaType, pEncodingParameters);
 
@@ -20296,7 +20296,7 @@ public static
 
 	public HRESULT Finalize() mut => VT.[Friend]Finalize(&this);
 
-	public HRESULT GetServiceForStream(uint32 dwStreamIndex, Guid guidService, Guid riid, void** ppvObject) mut => VT.[Friend]GetServiceForStream(&this, dwStreamIndex, guidService, riid, ppvObject);
+	public HRESULT GetServiceForStream(uint32 dwStreamIndex, ref Guid guidService, ref Guid riid, void** ppvObject) mut => VT.[Friend]GetServiceForStream(&this, dwStreamIndex, ref guidService, ref riid, ppvObject);
 
 	public HRESULT GetStatistics(uint32 dwStreamIndex, MF_SINK_WRITER_STATISTICS* pStats) mut => VT.[Friend]GetStatistics(&this, dwStreamIndex, pStats);
 }
@@ -20309,11 +20309,11 @@ public static
 
 	[CRepr]public struct VTable : IMFSinkWriter.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwTransformIndex, Guid pGuidCategory, IMFTransform** ppTransform) GetTransformForStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwTransformIndex, ref Guid pGuidCategory, IMFTransform** ppTransform) GetTransformForStream;
 	}
 
 
-	public HRESULT GetTransformForStream(uint32 dwStreamIndex, uint32 dwTransformIndex, Guid pGuidCategory, IMFTransform** ppTransform) mut => VT.[Friend]GetTransformForStream(&this, dwStreamIndex, dwTransformIndex, pGuidCategory, ppTransform);
+	public HRESULT GetTransformForStream(uint32 dwStreamIndex, uint32 dwTransformIndex, ref Guid pGuidCategory, IMFTransform** ppTransform) mut => VT.[Friend]GetTransformForStream(&this, dwStreamIndex, dwTransformIndex, ref pGuidCategory, ppTransform);
 }
 
 [CRepr]struct IMFSinkWriterEncoderConfig : IUnknown
@@ -20378,11 +20378,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float xOut, float yOut, uint32 dwOutputStreamIndex, uint32 dwInputStreamIndex, float pxIn, float pyIn) MapOutputCoordinateToInputStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float xOut, float yOut, uint32 dwOutputStreamIndex, uint32 dwInputStreamIndex, float* pxIn, float* pyIn) MapOutputCoordinateToInputStream;
 	}
 
 
-	public HRESULT MapOutputCoordinateToInputStream(float xOut, float yOut, uint32 dwOutputStreamIndex, uint32 dwInputStreamIndex, float pxIn, float pyIn) mut => VT.[Friend]MapOutputCoordinateToInputStream(&this, xOut, yOut, dwOutputStreamIndex, dwInputStreamIndex, pxIn, pyIn);
+	public HRESULT MapOutputCoordinateToInputStream(float xOut, float yOut, uint32 dwOutputStreamIndex, uint32 dwInputStreamIndex, float* pxIn, float* pyIn) mut => VT.[Friend]MapOutputCoordinateToInputStream(&this, xOut, yOut, dwOutputStreamIndex, dwInputStreamIndex, pxIn, pyIn);
 }
 
 [CRepr]struct IMFVideoDeviceID : IUnknown
@@ -20393,11 +20393,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pDeviceID) GetDeviceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pDeviceID) GetDeviceID;
 	}
 
 
-	public HRESULT GetDeviceID(Guid pDeviceID) mut => VT.[Friend]GetDeviceID(&this, pDeviceID);
+	public HRESULT GetDeviceID(ref Guid pDeviceID) mut => VT.[Friend]GetDeviceID(&this, ref pDeviceID);
 }
 
 [CRepr]struct IMFVideoDisplayControl : IUnknown
@@ -20413,15 +20413,15 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFVideoNormalizedRect* pnrcSource, RECT* prcDest) SetVideoPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFVideoNormalizedRect* pnrcSource, RECT* prcDest) GetVideoPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAspectRatioMode) SetAspectRatioMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwAspectRatioMode) GetAspectRatioMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAspectRatioMode) GetAspectRatioMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndVideo) SetVideoWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* phwndVideo) GetVideoWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RepaintVideo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BITMAPINFOHEADER* pBih, uint8** pDib, uint32 pcbDib, int64 pTimeStamp) GetCurrentImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BITMAPINFOHEADER* pBih, uint8** pDib, uint32* pcbDib, int64* pTimeStamp) GetCurrentImage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Clr) SetBorderColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pClr) GetBorderColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pClr) GetBorderColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRenderFlags) SetRenderingPrefs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwRenderFlags) GetRenderingPrefs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwRenderFlags) GetRenderingPrefs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fFullscreen) SetFullscreen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfFullscreen) GetFullscreen;
 	}
@@ -20437,7 +20437,7 @@ public static
 
 	public HRESULT SetAspectRatioMode(uint32 dwAspectRatioMode) mut => VT.[Friend]SetAspectRatioMode(&this, dwAspectRatioMode);
 
-	public HRESULT GetAspectRatioMode(uint32 pdwAspectRatioMode) mut => VT.[Friend]GetAspectRatioMode(&this, pdwAspectRatioMode);
+	public HRESULT GetAspectRatioMode(uint32* pdwAspectRatioMode) mut => VT.[Friend]GetAspectRatioMode(&this, pdwAspectRatioMode);
 
 	public HRESULT SetVideoWindow(HWND hwndVideo) mut => VT.[Friend]SetVideoWindow(&this, hwndVideo);
 
@@ -20445,15 +20445,15 @@ public static
 
 	public HRESULT RepaintVideo() mut => VT.[Friend]RepaintVideo(&this);
 
-	public HRESULT GetCurrentImage(BITMAPINFOHEADER* pBih, uint8** pDib, uint32 pcbDib, int64 pTimeStamp) mut => VT.[Friend]GetCurrentImage(&this, pBih, pDib, pcbDib, pTimeStamp);
+	public HRESULT GetCurrentImage(BITMAPINFOHEADER* pBih, uint8** pDib, uint32* pcbDib, int64* pTimeStamp) mut => VT.[Friend]GetCurrentImage(&this, pBih, pDib, pcbDib, pTimeStamp);
 
 	public HRESULT SetBorderColor(uint32 Clr) mut => VT.[Friend]SetBorderColor(&this, Clr);
 
-	public HRESULT GetBorderColor(uint32 pClr) mut => VT.[Friend]GetBorderColor(&this, pClr);
+	public HRESULT GetBorderColor(uint32* pClr) mut => VT.[Friend]GetBorderColor(&this, pClr);
 
 	public HRESULT SetRenderingPrefs(uint32 dwRenderFlags) mut => VT.[Friend]SetRenderingPrefs(&this, dwRenderFlags);
 
-	public HRESULT GetRenderingPrefs(uint32 pdwRenderFlags) mut => VT.[Friend]GetRenderingPrefs(&this, pdwRenderFlags);
+	public HRESULT GetRenderingPrefs(uint32* pdwRenderFlags) mut => VT.[Friend]GetRenderingPrefs(&this, pdwRenderFlags);
 
 	public HRESULT SetFullscreen(BOOL fFullscreen) mut => VT.[Friend]SetFullscreen(&this, fFullscreen);
 
@@ -20486,13 +20486,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 phnsSampleTime, int64 phnsSampleDuration) GetDesiredSampleTimeAndDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* phnsSampleTime, int64* phnsSampleDuration) GetDesiredSampleTimeAndDuration;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, int64 hnsSampleTime, int64 hnsSampleDuration) SetDesiredSampleTimeAndDuration;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) Clear;
 	}
 
 
-	public HRESULT GetDesiredSampleTimeAndDuration(int64 phnsSampleTime, int64 phnsSampleDuration) mut => VT.[Friend]GetDesiredSampleTimeAndDuration(&this, phnsSampleTime, phnsSampleDuration);
+	public HRESULT GetDesiredSampleTimeAndDuration(int64* phnsSampleTime, int64* phnsSampleDuration) mut => VT.[Friend]GetDesiredSampleTimeAndDuration(&this, phnsSampleTime, phnsSampleDuration);
 
 	public void SetDesiredSampleTimeAndDuration(int64 hnsSampleTime, int64 hnsSampleDuration) mut => VT.[Friend]SetDesiredSampleTimeAndDuration(&this, hnsSampleTime, hnsSampleDuration);
 
@@ -20508,7 +20508,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, uint32 dwZ) SetStreamZOrder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, uint32 pdwZ) GetStreamZOrder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, uint32* pdwZ) GetStreamZOrder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, MFVideoNormalizedRect* pnrcOutput) SetStreamOutputRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, MFVideoNormalizedRect* pnrcOutput) GetStreamOutputRect;
 	}
@@ -20516,7 +20516,7 @@ public static
 
 	public HRESULT SetStreamZOrder(uint32 dwStreamID, uint32 dwZ) mut => VT.[Friend]SetStreamZOrder(&this, dwStreamID, dwZ);
 
-	public HRESULT GetStreamZOrder(uint32 dwStreamID, uint32 pdwZ) mut => VT.[Friend]GetStreamZOrder(&this, dwStreamID, pdwZ);
+	public HRESULT GetStreamZOrder(uint32 dwStreamID, uint32* pdwZ) mut => VT.[Friend]GetStreamZOrder(&this, dwStreamID, pdwZ);
 
 	public HRESULT SetStreamOutputRect(uint32 dwStreamID, MFVideoNormalizedRect* pnrcOutput) mut => VT.[Friend]SetStreamOutputRect(&this, dwStreamID, pnrcOutput);
 
@@ -20532,13 +20532,13 @@ public static
 	[CRepr]public struct VTable : IMFVideoMixerControl.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMixFlags) SetMixingPrefs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwMixFlags) GetMixingPrefs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMixFlags) GetMixingPrefs;
 	}
 
 
 	public HRESULT SetMixingPrefs(uint32 dwMixFlags) mut => VT.[Friend]SetMixingPrefs(&this, dwMixFlags);
 
-	public HRESULT GetMixingPrefs(uint32 pdwMixFlags) mut => VT.[Friend]GetMixingPrefs(&this, pdwMixFlags);
+	public HRESULT GetMixingPrefs(uint32* pdwMixFlags) mut => VT.[Friend]GetMixingPrefs(&this, pdwMixFlags);
 }
 
 [CRepr]struct IMFVideoRenderer : IUnknown
@@ -20565,13 +20565,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMaxStreams) SetNumberOfStreams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwMaxStreams) GetNumberOfStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMaxStreams) GetNumberOfStreams;
 	}
 
 
 	public HRESULT SetNumberOfStreams(uint32 dwMaxStreams) mut => VT.[Friend]SetNumberOfStreams(&this, dwMaxStreams);
 
-	public HRESULT GetNumberOfStreams(uint32 pdwMaxStreams) mut => VT.[Friend]GetNumberOfStreams(&this, pdwMaxStreams);
+	public HRESULT GetNumberOfStreams(uint32* pdwMaxStreams) mut => VT.[Friend]GetNumberOfStreams(&this, pdwMaxStreams);
 }
 
 [CRepr]struct IEVRFilterConfigEx : IEVRFilterConfig
@@ -20583,13 +20583,13 @@ public static
 	[CRepr]public struct VTable : IEVRFilterConfig.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwConfigFlags) SetConfigPrefs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwConfigFlags) GetConfigPrefs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwConfigFlags) GetConfigPrefs;
 	}
 
 
 	public HRESULT SetConfigPrefs(uint32 dwConfigFlags) mut => VT.[Friend]SetConfigPrefs(&this, dwConfigFlags);
 
-	public HRESULT GetConfigPrefs(uint32 pdwConfigFlags) mut => VT.[Friend]GetConfigPrefs(&this, pdwConfigFlags);
+	public HRESULT GetConfigPrefs(uint32* pdwConfigFlags) mut => VT.[Friend]GetConfigPrefs(&this, pdwConfigFlags);
 }
 
 [CRepr]struct IMFTopologyServiceLookup : IUnknown
@@ -20600,11 +20600,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_SERVICE_LOOKUP_TYPE Type, uint32 dwIndex, Guid guidService, Guid riid, void** ppvObjects, uint32 pnObjects) LookupService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_SERVICE_LOOKUP_TYPE Type, uint32 dwIndex, ref Guid guidService, ref Guid riid, void** ppvObjects, uint32* pnObjects) LookupService;
 	}
 
 
-	public HRESULT LookupService(MF_SERVICE_LOOKUP_TYPE Type, uint32 dwIndex, Guid guidService, Guid riid, void** ppvObjects, uint32 pnObjects) mut => VT.[Friend]LookupService(&this, Type, dwIndex, guidService, riid, ppvObjects, pnObjects);
+	public HRESULT LookupService(MF_SERVICE_LOOKUP_TYPE Type, uint32 dwIndex, ref Guid guidService, ref Guid riid, void** ppvObjects, uint32* pnObjects) mut => VT.[Friend]LookupService(&this, Type, dwIndex, ref guidService, ref riid, ppvObjects, pnObjects);
 }
 
 [CRepr]struct IMFTopologyServiceLookupClient : IUnknown
@@ -20661,21 +20661,21 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) FrameStep;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidPositionType, PROPVARIANT* pvPositionValue) SetPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidPositionType, PROPVARIANT* pvPositionValue) GetPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidPositionType, PROPVARIANT* pvDurationValue) GetDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidPositionType, PROPVARIANT* pvPositionValue) SetPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidPositionType, PROPVARIANT* pvPositionValue) GetPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidPositionType, PROPVARIANT* pvDurationValue) GetDuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float flRate) SetRate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pflRate) GetRate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fForwardDirection, float pflSlowestRate, float pflFastestRate) GetSupportedRates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pflRate) GetRate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fForwardDirection, float* pflSlowestRate, float* pflFastestRate) GetSupportedRates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFP_MEDIAPLAYER_STATE* peState) GetState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszURL, BOOL fSync, uint dwUserData, IMFPMediaItem** ppMediaItem) CreateMediaItemFromURL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pIUnknownObj, BOOL fSync, uint dwUserData, IMFPMediaItem** ppMediaItem) CreateMediaItemFromObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPMediaItem* pIMFPMediaItem) SetMediaItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearMediaItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPMediaItem** ppIMFPMediaItem) GetMediaItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pflVolume) GetVolume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pflVolume) GetVolume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float flVolume) SetVolume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pflBalance) GetBalance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pflBalance) GetBalance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float flBalance) SetBalance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfMute) GetMute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fMute) SetMute;
@@ -20684,11 +20684,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFVideoNormalizedRect* pnrcSource) SetVideoSourceRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFVideoNormalizedRect* pnrcSource) GetVideoSourceRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAspectRatioMode) SetAspectRatioMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwAspectRatioMode) GetAspectRatioMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAspectRatioMode) GetAspectRatioMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* phwndVideo) GetVideoWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UpdateVideo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Clr) SetBorderColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pClr) GetBorderColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pClr) GetBorderColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pEffect, BOOL fOptional) InsertEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pEffect) RemoveEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAllEffects;
@@ -20704,17 +20704,17 @@ public static
 
 	public HRESULT FrameStep() mut => VT.[Friend]FrameStep(&this);
 
-	public HRESULT SetPosition(Guid guidPositionType, PROPVARIANT* pvPositionValue) mut => VT.[Friend]SetPosition(&this, guidPositionType, pvPositionValue);
+	public HRESULT SetPosition(ref Guid guidPositionType, PROPVARIANT* pvPositionValue) mut => VT.[Friend]SetPosition(&this, ref guidPositionType, pvPositionValue);
 
-	public HRESULT GetPosition(Guid guidPositionType, PROPVARIANT* pvPositionValue) mut => VT.[Friend]GetPosition(&this, guidPositionType, pvPositionValue);
+	public HRESULT GetPosition(ref Guid guidPositionType, PROPVARIANT* pvPositionValue) mut => VT.[Friend]GetPosition(&this, ref guidPositionType, pvPositionValue);
 
-	public HRESULT GetDuration(Guid guidPositionType, PROPVARIANT* pvDurationValue) mut => VT.[Friend]GetDuration(&this, guidPositionType, pvDurationValue);
+	public HRESULT GetDuration(ref Guid guidPositionType, PROPVARIANT* pvDurationValue) mut => VT.[Friend]GetDuration(&this, ref guidPositionType, pvDurationValue);
 
 	public HRESULT SetRate(float flRate) mut => VT.[Friend]SetRate(&this, flRate);
 
-	public HRESULT GetRate(float pflRate) mut => VT.[Friend]GetRate(&this, pflRate);
+	public HRESULT GetRate(float* pflRate) mut => VT.[Friend]GetRate(&this, pflRate);
 
-	public HRESULT GetSupportedRates(BOOL fForwardDirection, float pflSlowestRate, float pflFastestRate) mut => VT.[Friend]GetSupportedRates(&this, fForwardDirection, pflSlowestRate, pflFastestRate);
+	public HRESULT GetSupportedRates(BOOL fForwardDirection, float* pflSlowestRate, float* pflFastestRate) mut => VT.[Friend]GetSupportedRates(&this, fForwardDirection, pflSlowestRate, pflFastestRate);
 
 	public HRESULT GetState(MFP_MEDIAPLAYER_STATE* peState) mut => VT.[Friend]GetState(&this, peState);
 
@@ -20728,11 +20728,11 @@ public static
 
 	public HRESULT GetMediaItem(IMFPMediaItem** ppIMFPMediaItem) mut => VT.[Friend]GetMediaItem(&this, ppIMFPMediaItem);
 
-	public HRESULT GetVolume(float pflVolume) mut => VT.[Friend]GetVolume(&this, pflVolume);
+	public HRESULT GetVolume(float* pflVolume) mut => VT.[Friend]GetVolume(&this, pflVolume);
 
 	public HRESULT SetVolume(float flVolume) mut => VT.[Friend]SetVolume(&this, flVolume);
 
-	public HRESULT GetBalance(float pflBalance) mut => VT.[Friend]GetBalance(&this, pflBalance);
+	public HRESULT GetBalance(float* pflBalance) mut => VT.[Friend]GetBalance(&this, pflBalance);
 
 	public HRESULT SetBalance(float flBalance) mut => VT.[Friend]SetBalance(&this, flBalance);
 
@@ -20750,7 +20750,7 @@ public static
 
 	public HRESULT SetAspectRatioMode(uint32 dwAspectRatioMode) mut => VT.[Friend]SetAspectRatioMode(&this, dwAspectRatioMode);
 
-	public HRESULT GetAspectRatioMode(uint32 pdwAspectRatioMode) mut => VT.[Friend]GetAspectRatioMode(&this, pdwAspectRatioMode);
+	public HRESULT GetAspectRatioMode(uint32* pdwAspectRatioMode) mut => VT.[Friend]GetAspectRatioMode(&this, pdwAspectRatioMode);
 
 	public HRESULT GetVideoWindow(HWND* phwndVideo) mut => VT.[Friend]GetVideoWindow(&this, phwndVideo);
 
@@ -20758,7 +20758,7 @@ public static
 
 	public HRESULT SetBorderColor(uint32 Clr) mut => VT.[Friend]SetBorderColor(&this, Clr);
 
-	public HRESULT GetBorderColor(uint32 pClr) mut => VT.[Friend]GetBorderColor(&this, pClr);
+	public HRESULT GetBorderColor(uint32* pClr) mut => VT.[Friend]GetBorderColor(&this, pClr);
 
 	public HRESULT InsertEffect(IUnknown* pEffect, BOOL fOptional) mut => VT.[Friend]InsertEffect(&this, pEffect, fOptional);
 
@@ -20780,20 +20780,20 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFPMediaPlayer** ppMediaPlayer) GetMediaPlayer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszURL) GetURL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppIUnknown) GetObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint pdwUserData) GetUserData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* pdwUserData) GetUserData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint dwUserData) SetUserData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidStartPositionType, PROPVARIANT* pvStartValue, Guid pguidStopPositionType, PROPVARIANT* pvStopValue) GetStartStopPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid pguidStartPositionType, PROPVARIANT* pvStartValue, Guid pguidStopPositionType, PROPVARIANT* pvStopValue) SetStartStopPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidStartPositionType, PROPVARIANT* pvStartValue, ref Guid pguidStopPositionType, PROPVARIANT* pvStopValue) GetStartStopPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidStartPositionType, PROPVARIANT* pvStartValue, ref Guid pguidStopPositionType, PROPVARIANT* pvStopValue) SetStartStopPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfHasVideo, BOOL* pfSelected) HasVideo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfHasAudio, BOOL* pfSelected) HasAudio;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProtected) IsProtected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidPositionType, PROPVARIANT* pvDurationValue) GetDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwStreamCount) GetNumberOfStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidPositionType, PROPVARIANT* pvDurationValue) GetDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStreamCount) GetNumberOfStreams;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, BOOL* pfEnabled) GetStreamSelection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, BOOL fEnabled) SetStreamSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, Guid guidMFAttribute, PROPVARIANT* pvValue) GetStreamAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidMFAttribute, PROPVARIANT* pvValue) GetPresentationAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pCharacteristics) GetCharacteristics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, ref Guid guidMFAttribute, PROPVARIANT* pvValue) GetStreamAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidMFAttribute, PROPVARIANT* pvValue) GetPresentationAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCharacteristics) GetCharacteristics;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, IUnknown* pMediaSink) SetStreamSink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore** ppMetadataStore) GetMetadata;
 	}
@@ -20805,13 +20805,13 @@ public static
 
 	public HRESULT GetObject(IUnknown** ppIUnknown) mut => VT.[Friend]GetObject(&this, ppIUnknown);
 
-	public HRESULT GetUserData(uint pdwUserData) mut => VT.[Friend]GetUserData(&this, pdwUserData);
+	public HRESULT GetUserData(uint* pdwUserData) mut => VT.[Friend]GetUserData(&this, pdwUserData);
 
 	public HRESULT SetUserData(uint dwUserData) mut => VT.[Friend]SetUserData(&this, dwUserData);
 
-	public HRESULT GetStartStopPosition(Guid pguidStartPositionType, PROPVARIANT* pvStartValue, Guid pguidStopPositionType, PROPVARIANT* pvStopValue) mut => VT.[Friend]GetStartStopPosition(&this, pguidStartPositionType, pvStartValue, pguidStopPositionType, pvStopValue);
+	public HRESULT GetStartStopPosition(ref Guid pguidStartPositionType, PROPVARIANT* pvStartValue, ref Guid pguidStopPositionType, PROPVARIANT* pvStopValue) mut => VT.[Friend]GetStartStopPosition(&this, ref pguidStartPositionType, pvStartValue, ref pguidStopPositionType, pvStopValue);
 
-	public HRESULT SetStartStopPosition(Guid pguidStartPositionType, PROPVARIANT* pvStartValue, Guid pguidStopPositionType, PROPVARIANT* pvStopValue) mut => VT.[Friend]SetStartStopPosition(&this, pguidStartPositionType, pvStartValue, pguidStopPositionType, pvStopValue);
+	public HRESULT SetStartStopPosition(ref Guid pguidStartPositionType, PROPVARIANT* pvStartValue, ref Guid pguidStopPositionType, PROPVARIANT* pvStopValue) mut => VT.[Friend]SetStartStopPosition(&this, ref pguidStartPositionType, pvStartValue, ref pguidStopPositionType, pvStopValue);
 
 	public HRESULT HasVideo(BOOL* pfHasVideo, BOOL* pfSelected) mut => VT.[Friend]HasVideo(&this, pfHasVideo, pfSelected);
 
@@ -20819,19 +20819,19 @@ public static
 
 	public HRESULT IsProtected(BOOL* pfProtected) mut => VT.[Friend]IsProtected(&this, pfProtected);
 
-	public HRESULT GetDuration(Guid guidPositionType, PROPVARIANT* pvDurationValue) mut => VT.[Friend]GetDuration(&this, guidPositionType, pvDurationValue);
+	public HRESULT GetDuration(ref Guid guidPositionType, PROPVARIANT* pvDurationValue) mut => VT.[Friend]GetDuration(&this, ref guidPositionType, pvDurationValue);
 
-	public HRESULT GetNumberOfStreams(uint32 pdwStreamCount) mut => VT.[Friend]GetNumberOfStreams(&this, pdwStreamCount);
+	public HRESULT GetNumberOfStreams(uint32* pdwStreamCount) mut => VT.[Friend]GetNumberOfStreams(&this, pdwStreamCount);
 
 	public HRESULT GetStreamSelection(uint32 dwStreamIndex, BOOL* pfEnabled) mut => VT.[Friend]GetStreamSelection(&this, dwStreamIndex, pfEnabled);
 
 	public HRESULT SetStreamSelection(uint32 dwStreamIndex, BOOL fEnabled) mut => VT.[Friend]SetStreamSelection(&this, dwStreamIndex, fEnabled);
 
-	public HRESULT GetStreamAttribute(uint32 dwStreamIndex, Guid guidMFAttribute, PROPVARIANT* pvValue) mut => VT.[Friend]GetStreamAttribute(&this, dwStreamIndex, guidMFAttribute, pvValue);
+	public HRESULT GetStreamAttribute(uint32 dwStreamIndex, ref Guid guidMFAttribute, PROPVARIANT* pvValue) mut => VT.[Friend]GetStreamAttribute(&this, dwStreamIndex, ref guidMFAttribute, pvValue);
 
-	public HRESULT GetPresentationAttribute(Guid guidMFAttribute, PROPVARIANT* pvValue) mut => VT.[Friend]GetPresentationAttribute(&this, guidMFAttribute, pvValue);
+	public HRESULT GetPresentationAttribute(ref Guid guidMFAttribute, PROPVARIANT* pvValue) mut => VT.[Friend]GetPresentationAttribute(&this, ref guidMFAttribute, pvValue);
 
-	public HRESULT GetCharacteristics(uint32 pCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pCharacteristics);
+	public HRESULT GetCharacteristics(uint32* pCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pCharacteristics);
 
 	public HRESULT SetStreamSink(uint32 dwStreamIndex, IUnknown* pMediaSink) mut => VT.[Friend]SetStreamSink(&this, dwStreamIndex, pMediaSink);
 
@@ -21008,28 +21008,28 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 lpdwNumProcessingModes, Guid** ppVideoProcessingModes) GetAvailableVideoProcessorModes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid lpVideoProcessorMode, DXVA2_VideoProcessorCaps* lpVideoProcessorCaps) GetVideoProcessorCaps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid lpMode) GetVideoProcessorMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid lpMode) SetVideoProcessorMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpdwNumProcessingModes, Guid** ppVideoProcessingModes) GetAvailableVideoProcessorModes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid lpVideoProcessorMode, DXVA2_VideoProcessorCaps* lpVideoProcessorCaps) GetVideoProcessorCaps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid lpMode) GetVideoProcessorMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid lpMode) SetVideoProcessorMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProperty, DXVA2_ValueRange* pPropRange) GetProcAmpRange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, DXVA2_ProcAmpValues* Values) GetProcAmpValues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, DXVA2_ProcAmpValues* pValues) SetProcAmpValues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProperty, DXVA2_ValueRange* pPropRange) GetFilteringRange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProperty, DXVA2_Fixed32* pValue) GetFilteringValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProperty, DXVA2_Fixed32* pValue) SetFilteringValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 lpClrBkg) GetBackgroundColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpClrBkg) GetBackgroundColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ClrBkg) SetBackgroundColor;
 	}
 
 
-	public HRESULT GetAvailableVideoProcessorModes(uint32 lpdwNumProcessingModes, Guid** ppVideoProcessingModes) mut => VT.[Friend]GetAvailableVideoProcessorModes(&this, lpdwNumProcessingModes, ppVideoProcessingModes);
+	public HRESULT GetAvailableVideoProcessorModes(uint32* lpdwNumProcessingModes, Guid** ppVideoProcessingModes) mut => VT.[Friend]GetAvailableVideoProcessorModes(&this, lpdwNumProcessingModes, ppVideoProcessingModes);
 
-	public HRESULT GetVideoProcessorCaps(Guid lpVideoProcessorMode, DXVA2_VideoProcessorCaps* lpVideoProcessorCaps) mut => VT.[Friend]GetVideoProcessorCaps(&this, lpVideoProcessorMode, lpVideoProcessorCaps);
+	public HRESULT GetVideoProcessorCaps(ref Guid lpVideoProcessorMode, DXVA2_VideoProcessorCaps* lpVideoProcessorCaps) mut => VT.[Friend]GetVideoProcessorCaps(&this, ref lpVideoProcessorMode, lpVideoProcessorCaps);
 
-	public HRESULT GetVideoProcessorMode(Guid lpMode) mut => VT.[Friend]GetVideoProcessorMode(&this, lpMode);
+	public HRESULT GetVideoProcessorMode(ref Guid lpMode) mut => VT.[Friend]GetVideoProcessorMode(&this, ref lpMode);
 
-	public HRESULT SetVideoProcessorMode(Guid lpMode) mut => VT.[Friend]SetVideoProcessorMode(&this, lpMode);
+	public HRESULT SetVideoProcessorMode(ref Guid lpMode) mut => VT.[Friend]SetVideoProcessorMode(&this, ref lpMode);
 
 	public HRESULT GetProcAmpRange(uint32 dwProperty, DXVA2_ValueRange* pPropRange) mut => VT.[Friend]GetProcAmpRange(&this, dwProperty, pPropRange);
 
@@ -21043,7 +21043,7 @@ public static
 
 	public HRESULT SetFilteringValue(uint32 dwProperty, DXVA2_Fixed32* pValue) mut => VT.[Friend]SetFilteringValue(&this, dwProperty, pValue);
 
-	public HRESULT GetBackgroundColor(uint32 lpClrBkg) mut => VT.[Friend]GetBackgroundColor(&this, lpClrBkg);
+	public HRESULT GetBackgroundColor(uint32* lpClrBkg) mut => VT.[Friend]GetBackgroundColor(&this, lpClrBkg);
 
 	public HRESULT SetBackgroundColor(uint32 ClrBkg) mut => VT.[Friend]SetBackgroundColor(&this, ClrBkg);
 }
@@ -21126,7 +21126,7 @@ public static
 	[CRepr]public struct VTable : IMFMediaBuffer.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32ID) SetID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pu32ID) GetID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pu32ID) GetID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AudioObjectType type) SetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AudioObjectType* pType) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpatialAudioMetadataItems** ppMetadataItems) GetMetadataItems;
@@ -21135,7 +21135,7 @@ public static
 
 	public HRESULT SetID(uint32 u32ID) mut => VT.[Friend]SetID(&this, u32ID);
 
-	public HRESULT GetID(uint32 pu32ID) mut => VT.[Friend]GetID(&this, pu32ID);
+	public HRESULT GetID(uint32* pu32ID) mut => VT.[Friend]GetID(&this, pu32ID);
 
 	public HRESULT SetType(AudioObjectType type) mut => VT.[Friend]SetType(&this, type);
 
@@ -21152,13 +21152,13 @@ public static
 
 	[CRepr]public struct VTable : IMFSample.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwObjectCount) GetObjectCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwObjectCount) GetObjectCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFSpatialAudioObjectBuffer* pAudioObjBuffer) AddSpatialAudioObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, IMFSpatialAudioObjectBuffer** ppAudioObjBuffer) GetSpatialAudioObjectByIndex;
 	}
 
 
-	public HRESULT GetObjectCount(uint32 pdwObjectCount) mut => VT.[Friend]GetObjectCount(&this, pdwObjectCount);
+	public HRESULT GetObjectCount(uint32* pdwObjectCount) mut => VT.[Friend]GetObjectCount(&this, pdwObjectCount);
 
 	public HRESULT AddSpatialAudioObject(IMFSpatialAudioObjectBuffer* pAudioObjBuffer) mut => VT.[Friend]AddSpatialAudioObject(&this, pAudioObjBuffer);
 
@@ -21174,8 +21174,8 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* sessionId) GetSessionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double expiration) GetExpiration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFMediaKeyStatus** keyStatuses, uint32 numKeyStatuses) GetKeyStatuses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* expiration) GetExpiration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFMediaKeyStatus** keyStatuses, uint32* numKeyStatuses) GetKeyStatuses;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR sessionId, BOOL* loaded) Load;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR initDataType, uint8* initData, uint32 initDataSize) GenerateRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* response, uint32 responseSize) Update;
@@ -21186,9 +21186,9 @@ public static
 
 	public HRESULT GetSessionId(PWSTR* sessionId) mut => VT.[Friend]GetSessionId(&this, sessionId);
 
-	public HRESULT GetExpiration(double expiration) mut => VT.[Friend]GetExpiration(&this, expiration);
+	public HRESULT GetExpiration(double* expiration) mut => VT.[Friend]GetExpiration(&this, expiration);
 
-	public HRESULT GetKeyStatuses(MFMediaKeyStatus** keyStatuses, uint32 numKeyStatuses) mut => VT.[Friend]GetKeyStatuses(&this, keyStatuses, numKeyStatuses);
+	public HRESULT GetKeyStatuses(MFMediaKeyStatus** keyStatuses, uint32* numKeyStatuses) mut => VT.[Friend]GetKeyStatuses(&this, keyStatuses, numKeyStatuses);
 
 	public HRESULT Load(PWSTR sessionId, BOOL* loaded) mut => VT.[Friend]Load(&this, sessionId, loaded);
 
@@ -21233,7 +21233,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MF_MEDIAKEYSESSION_TYPE sessionType, IMFContentDecryptionModuleSessionCallbacks* callbacks, IMFContentDecryptionModuleSession** session) CreateSession;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* certificate, uint32 certificateSize) SetServerCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* contentInitData, uint32 contentInitDataSize, IMFTrustedInput** trustedInput) CreateTrustedInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid** systemIds, uint32 count) GetProtectionSystemIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid** systemIds, uint32* count) GetProtectionSystemIds;
 	}
 
 
@@ -21249,7 +21249,7 @@ public static
 
 	public HRESULT CreateTrustedInput(uint8* contentInitData, uint32 contentInitDataSize, IMFTrustedInput** trustedInput) mut => VT.[Friend]CreateTrustedInput(&this, contentInitData, contentInitDataSize, trustedInput);
 
-	public HRESULT GetProtectionSystemIds(Guid** systemIds, uint32 count) mut => VT.[Friend]GetProtectionSystemIds(&this, systemIds, count);
+	public HRESULT GetProtectionSystemIds(Guid** systemIds, uint32* count) mut => VT.[Friend]GetProtectionSystemIds(&this, systemIds, count);
 }
 
 [CRepr]struct IMFContentDecryptionModuleAccess : IUnknown
@@ -21318,24 +21318,24 @@ public static
 	[CRepr]public struct VTable : IMFAttributes.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR DeviceSourceInfo) AddDeviceSourceInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DEVPROPKEY* pKey, uint32 Type, uint8 pbData, uint32 cbData) AddProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR EntryName, PWSTR SubkeyPath, uint32 dwRegType, uint8 pbData, uint32 cbData) AddRegistryEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DEVPROPKEY* pKey, uint32 Type, uint8* pbData, uint32 cbData) AddProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR EntryName, PWSTR SubkeyPath, uint32 dwRegType, uint8* pbData, uint32 cbData) AddRegistryEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAsyncCallback* pCallback) Start;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFMediaSource** ppMediaSource) GetMediaSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid propertySet, uint32 propertyId, uint32 propertyFlags, void* propertyPayload, uint32 propertyPayloadLength, void* data, uint32 dataLength, uint32 dataWritten) SendCameraProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid kseventSet, uint32 kseventId, uint32 kseventFlags, HANDLE eventHandle, IMFCameraSyncObject** cameraSyncObject) CreateSyncEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid kseventSet, uint32 kseventId, uint32 kseventFlags, HANDLE semaphoreHandle, int32 semaphoreAdjustment, IMFCameraSyncObject** cameraSyncObject) CreateSyncSemaphore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid propertySet, uint32 propertyId, uint32 propertyFlags, void* propertyPayload, uint32 propertyPayloadLength, void* data, uint32 dataLength, uint32* dataWritten) SendCameraProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid kseventSet, uint32 kseventId, uint32 kseventFlags, HANDLE eventHandle, IMFCameraSyncObject** cameraSyncObject) CreateSyncEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid kseventSet, uint32 kseventId, uint32 kseventFlags, HANDLE semaphoreHandle, int32 semaphoreAdjustment, IMFCameraSyncObject** cameraSyncObject) CreateSyncSemaphore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Shutdown;
 	}
 
 
 	public HRESULT AddDeviceSourceInfo(PWSTR DeviceSourceInfo) mut => VT.[Friend]AddDeviceSourceInfo(&this, DeviceSourceInfo);
 
-	public HRESULT AddProperty(DEVPROPKEY* pKey, uint32 Type, uint8 pbData, uint32 cbData) mut => VT.[Friend]AddProperty(&this, pKey, Type, pbData, cbData);
+	public HRESULT AddProperty(DEVPROPKEY* pKey, uint32 Type, uint8* pbData, uint32 cbData) mut => VT.[Friend]AddProperty(&this, pKey, Type, pbData, cbData);
 
-	public HRESULT AddRegistryEntry(PWSTR EntryName, PWSTR SubkeyPath, uint32 dwRegType, uint8 pbData, uint32 cbData) mut => VT.[Friend]AddRegistryEntry(&this, EntryName, SubkeyPath, dwRegType, pbData, cbData);
+	public HRESULT AddRegistryEntry(PWSTR EntryName, PWSTR SubkeyPath, uint32 dwRegType, uint8* pbData, uint32 cbData) mut => VT.[Friend]AddRegistryEntry(&this, EntryName, SubkeyPath, dwRegType, pbData, cbData);
 
 	public HRESULT Start(IMFAsyncCallback* pCallback) mut => VT.[Friend]Start(&this, pCallback);
 
@@ -21345,11 +21345,11 @@ public static
 
 	public HRESULT GetMediaSource(IMFMediaSource** ppMediaSource) mut => VT.[Friend]GetMediaSource(&this, ppMediaSource);
 
-	public HRESULT SendCameraProperty(Guid propertySet, uint32 propertyId, uint32 propertyFlags, void* propertyPayload, uint32 propertyPayloadLength, void* data, uint32 dataLength, uint32 dataWritten) mut => VT.[Friend]SendCameraProperty(&this, propertySet, propertyId, propertyFlags, propertyPayload, propertyPayloadLength, data, dataLength, dataWritten);
+	public HRESULT SendCameraProperty(ref Guid propertySet, uint32 propertyId, uint32 propertyFlags, void* propertyPayload, uint32 propertyPayloadLength, void* data, uint32 dataLength, uint32* dataWritten) mut => VT.[Friend]SendCameraProperty(&this, ref propertySet, propertyId, propertyFlags, propertyPayload, propertyPayloadLength, data, dataLength, dataWritten);
 
-	public HRESULT CreateSyncEvent(Guid kseventSet, uint32 kseventId, uint32 kseventFlags, HANDLE eventHandle, IMFCameraSyncObject** cameraSyncObject) mut => VT.[Friend]CreateSyncEvent(&this, kseventSet, kseventId, kseventFlags, eventHandle, cameraSyncObject);
+	public HRESULT CreateSyncEvent(ref Guid kseventSet, uint32 kseventId, uint32 kseventFlags, HANDLE eventHandle, IMFCameraSyncObject** cameraSyncObject) mut => VT.[Friend]CreateSyncEvent(&this, ref kseventSet, kseventId, kseventFlags, eventHandle, cameraSyncObject);
 
-	public HRESULT CreateSyncSemaphore(Guid kseventSet, uint32 kseventId, uint32 kseventFlags, HANDLE semaphoreHandle, int32 semaphoreAdjustment, IMFCameraSyncObject** cameraSyncObject) mut => VT.[Friend]CreateSyncSemaphore(&this, kseventSet, kseventId, kseventFlags, semaphoreHandle, semaphoreAdjustment, cameraSyncObject);
+	public HRESULT CreateSyncSemaphore(ref Guid kseventSet, uint32 kseventId, uint32 kseventFlags, HANDLE semaphoreHandle, int32 semaphoreAdjustment, IMFCameraSyncObject** cameraSyncObject) mut => VT.[Friend]CreateSyncSemaphore(&this, ref kseventSet, kseventId, kseventFlags, semaphoreHandle, semaphoreAdjustment, cameraSyncObject);
 
 	public HRESULT Shutdown() mut => VT.[Friend]Shutdown(&this);
 }
@@ -21363,19 +21363,19 @@ public static
 	public static extern HRESULT DXVAHD_CreateDevice(IDirect3DDevice9Ex* pD3DDevice, DXVAHD_CONTENT_DESC* pContentDesc, DXVAHD_DEVICE_USAGE Usage, PDXVAHDSW_Plugin pPlugin, IDXVAHD_Device** ppDevice);
 
 	[Import("dxva2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DXVA2CreateDirect3DDeviceManager9(uint32 pResetToken, IDirect3DDeviceManager9** ppDeviceManager);
+	public static extern HRESULT DXVA2CreateDirect3DDeviceManager9(uint32* pResetToken, IDirect3DDeviceManager9** ppDeviceManager);
 
 	[Import("dxva2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DXVA2CreateVideoService(IDirect3DDevice9* pDD, Guid riid, void** ppService);
+	public static extern HRESULT DXVA2CreateVideoService(IDirect3DDevice9* pDD, ref Guid riid, void** ppService);
 
 	[Import("dxva2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OPMGetVideoOutputsFromHMONITOR(HMONITOR hMonitor, OPM_VIDEO_OUTPUT_SEMANTICS vos, uint32 pulNumVideoOutputs, IOPMVideoOutput*** pppOPMVideoOutputArray);
+	public static extern HRESULT OPMGetVideoOutputsFromHMONITOR(HMONITOR hMonitor, OPM_VIDEO_OUTPUT_SEMANTICS vos, uint32* pulNumVideoOutputs, IOPMVideoOutput*** pppOPMVideoOutputArray);
 
 	[Import("dxva2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OPMGetVideoOutputForTarget(LUID* pAdapterLuid, uint32 VidPnTarget, OPM_VIDEO_OUTPUT_SEMANTICS vos, IOPMVideoOutput** ppOPMVideoOutput);
 
 	[Import("dxva2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OPMGetVideoOutputsFromIDirect3DDevice9Object(IDirect3DDevice9* pDirect3DDevice9, OPM_VIDEO_OUTPUT_SEMANTICS vos, uint32 pulNumVideoOutputs, IOPMVideoOutput*** pppOPMVideoOutputArray);
+	public static extern HRESULT OPMGetVideoOutputsFromIDirect3DDevice9Object(IDirect3DDevice9* pDirect3DDevice9, OPM_VIDEO_OUTPUT_SEMANTICS vos, uint32* pulNumVideoOutputs, IOPMVideoOutput*** pppOPMVideoOutputArray);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFSerializeAttributesToStream(IMFAttributes* pAttr, uint32 dwOptions, IStream* pStm);
@@ -21414,7 +21414,7 @@ public static
 	public static extern HRESULT MFGetTopoNodeCurrentType(IMFTopologyNode* pNode, uint32 dwStreamIndex, BOOL fOutput, IMFMediaType** ppType);
 
 	[Import("MF.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetService(IUnknown* punkObject, Guid guidService, Guid riid, void** ppvObject);
+	public static extern HRESULT MFGetService(IUnknown* punkObject, ref Guid guidService, ref Guid riid, void** ppvObject);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int64 MFGetSystemTime();
@@ -21432,7 +21432,7 @@ public static
 	public static extern HRESULT MFRequireProtectedEnvironment(IMFPresentationDescriptor* pPresentationDescriptor);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFSerializePresentationDescriptor(IMFPresentationDescriptor* pPD, uint32 pcbData, uint8** ppbData);
+	public static extern HRESULT MFSerializePresentationDescriptor(IMFPresentationDescriptor* pPD, uint32* pcbData, uint8** ppbData);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFDeserializePresentationDescriptor(uint32 cbData, uint8* pbData, IMFPresentationDescriptor** ppPD);
@@ -21507,7 +21507,7 @@ public static
 	public static extern HRESULT MFCreateProxyLocator(PWSTR pszProtocol, IPropertyStore* pProxyConfig, IMFNetProxyLocator** ppProxyLocator);
 
 	[Import("MF.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateNetSchemePlugin(Guid riid, void** ppvHandler);
+	public static extern HRESULT MFCreateNetSchemePlugin(ref Guid riid, void** ppvHandler);
 
 	[Import("MF.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreatePMPServer(uint32 dwCreationFlags, IMFPMPServer** ppPMPServer);
@@ -21531,7 +21531,7 @@ public static
 	public static extern HRESULT MFCreateTranscodeTopologyFromByteStream(IMFMediaSource* pSrc, IMFByteStream* pOutputStream, IMFTranscodeProfile* pProfile, IMFTopology** ppTranscodeTopo);
 
 	[Import("MF.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFTranscodeGetAudioOutputAvailableTypes(Guid guidSubType, uint32 dwMFTFlags, IMFAttributes* pCodecConfig, IMFCollection** ppAvailableTypes);
+	public static extern HRESULT MFTranscodeGetAudioOutputAvailableTypes(ref Guid guidSubType, uint32 dwMFTFlags, IMFAttributes* pCodecConfig, IMFCollection** ppAvailableTypes);
 
 	[Import("MF.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateTranscodeSinkActivate(IMFActivate** ppActivate);
@@ -21549,16 +21549,16 @@ public static
 	public static extern HRESULT MFCreateMFByteStreamOnStreamEx(IUnknown* punkStream, IMFByteStream** ppByteStream);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateStreamOnMFByteStreamEx(IMFByteStream* pByteStream, Guid riid, void** ppv);
+	public static extern HRESULT MFCreateStreamOnMFByteStreamEx(IMFByteStream* pByteStream, ref Guid riid, void** ppv);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateMediaTypeFromProperties(IUnknown* punkStream, IMFMediaType** ppMediaType);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreatePropertiesFromMediaType(IMFMediaType* pMediaType, Guid riid, void** ppv);
+	public static extern HRESULT MFCreatePropertiesFromMediaType(IMFMediaType* pMediaType, ref Guid riid, void** ppv);
 
 	[Import("MF.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFEnumDeviceSources(IMFAttributes* pAttributes, IMFActivate*** pppSourceActivate, uint32 pcSourceActivate);
+	public static extern HRESULT MFEnumDeviceSources(IMFAttributes* pAttributes, IMFActivate*** pppSourceActivate, uint32* pcSourceActivate);
 
 	[Import("MF.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateDeviceSource(IMFAttributes* pAttributes, IMFMediaSource** ppSource);
@@ -21576,16 +21576,16 @@ public static
 	public static extern HRESULT MFGetSystemId(IMFSystemId** ppId);
 
 	[Import("MF.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetLocalId(uint8 verifier, uint32 size, PWSTR* id);
+	public static extern HRESULT MFGetLocalId(uint8* verifier, uint32 size, PWSTR* id);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateContentProtectionDevice(Guid ProtectionSystemId, IMFContentProtectionDevice** ContentProtectionDevice);
+	public static extern HRESULT MFCreateContentProtectionDevice(ref Guid ProtectionSystemId, IMFContentProtectionDevice** ContentProtectionDevice);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFIsContentProtectionDeviceSupported(Guid ProtectionSystemId, BOOL* isSupported);
+	public static extern HRESULT MFIsContentProtectionDeviceSupported(ref Guid ProtectionSystemId, BOOL* isSupported);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateContentDecryptorContext(Guid guidMediaProtectionSystemId, IMFDXGIDeviceManager* pD3DManager, IMFContentProtectionDevice* pContentProtectionDevice, IMFContentDecryptorContext** ppContentDecryptorContext);
+	public static extern HRESULT MFCreateContentDecryptorContext(ref Guid guidMediaProtectionSystemId, IMFDXGIDeviceManager* pD3DManager, IMFContentProtectionDevice* pContentProtectionDevice, IMFContentDecryptorContext** ppContentDecryptorContext);
 
 	[Import("MFSENSORGROUP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateSensorGroup(PWSTR SensorGroupSymbolicLink, IMFSensorGroup** ppSensorGroup);
@@ -21594,7 +21594,7 @@ public static
 	public static extern HRESULT MFCreateSensorStream(uint32 StreamId, IMFAttributes* pAttributes, IMFCollection* pMediaTypeCollection, IMFSensorStream** ppStream);
 
 	[Import("MFSENSORGROUP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateSensorProfile(Guid ProfileType, uint32 ProfileIndex, PWSTR Constraints, IMFSensorProfile** ppProfile);
+	public static extern HRESULT MFCreateSensorProfile(ref Guid ProfileType, uint32 ProfileIndex, PWSTR Constraints, IMFSensorProfile** ppProfile);
 
 	[Import("MFSENSORGROUP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateSensorProfileCollection(IMFSensorProfileCollection** ppSensorProfile);
@@ -21660,7 +21660,7 @@ public static
 	public static extern HRESULT MFCreateASFStreamingMediaSinkActivate(IMFActivate* pByteStreamActivate, IMFASFContentInfo* pContentInfo, IMFActivate** ppIActivate);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateD3D12SynchronizationObject(ID3D12Device* pDevice, Guid riid, void** ppvSyncObject);
+	public static extern HRESULT MFCreateD3D12SynchronizationObject(ID3D12Device* pDevice, ref Guid riid, void** ppvSyncObject);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFStartup(uint32 Version, uint32 dwFlags);
@@ -21687,34 +21687,34 @@ public static
 	public static extern HRESULT MFPutWorkItemEx2(uint32 dwQueue, int32 Priority, IMFAsyncResult* pResult);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFPutWaitingWorkItem(HANDLE hEvent, int32 Priority, IMFAsyncResult* pResult, uint64 pKey);
+	public static extern HRESULT MFPutWaitingWorkItem(HANDLE hEvent, int32 Priority, IMFAsyncResult* pResult, uint64* pKey);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFAllocateSerialWorkQueue(uint32 dwWorkQueue, uint32 pdwWorkQueue);
+	public static extern HRESULT MFAllocateSerialWorkQueue(uint32 dwWorkQueue, uint32* pdwWorkQueue);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFScheduleWorkItemEx(IMFAsyncResult* pResult, int64 Timeout, uint64 pKey);
+	public static extern HRESULT MFScheduleWorkItemEx(IMFAsyncResult* pResult, int64 Timeout, uint64* pKey);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFScheduleWorkItem(IMFAsyncCallback* pCallback, IUnknown* pState, int64 Timeout, uint64 pKey);
+	public static extern HRESULT MFScheduleWorkItem(IMFAsyncCallback* pCallback, IUnknown* pState, int64 Timeout, uint64* pKey);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCancelWorkItem(uint64 Key);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetTimerPeriodicity(uint32 Periodicity);
+	public static extern HRESULT MFGetTimerPeriodicity(uint32* Periodicity);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFAddPeriodicCallback(MFPERIODICCALLBACK Callback, IUnknown* pContext, uint32 pdwKey);
+	public static extern HRESULT MFAddPeriodicCallback(MFPERIODICCALLBACK Callback, IUnknown* pContext, uint32* pdwKey);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFRemovePeriodicCallback(uint32 dwKey);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFAllocateWorkQueueEx(MFASYNC_WORKQUEUE_TYPE WorkQueueType, uint32 pdwWorkQueue);
+	public static extern HRESULT MFAllocateWorkQueueEx(MFASYNC_WORKQUEUE_TYPE WorkQueueType, uint32* pdwWorkQueue);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFAllocateWorkQueue(uint32 pdwWorkQueue);
+	public static extern HRESULT MFAllocateWorkQueue(uint32* pdwWorkQueue);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFLockWorkQueue(uint32 dwWorkQueue);
@@ -21729,7 +21729,7 @@ public static
 	public static extern HRESULT MFBeginRegisterWorkQueueWithMMCSSEx(uint32 dwWorkQueueId, PWSTR wszClass, uint32 dwTaskId, int32 lPriority, IMFAsyncCallback* pDoneCallback, IUnknown* pDoneState);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFEndRegisterWorkQueueWithMMCSS(IMFAsyncResult* pResult, uint32 pdwTaskId);
+	public static extern HRESULT MFEndRegisterWorkQueueWithMMCSS(IMFAsyncResult* pResult, uint32* pdwTaskId);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFBeginUnregisterWorkQueueWithMMCSS(uint32 dwWorkQueueId, IMFAsyncCallback* pDoneCallback, IUnknown* pDoneState);
@@ -21738,22 +21738,22 @@ public static
 	public static extern HRESULT MFEndUnregisterWorkQueueWithMMCSS(IMFAsyncResult* pResult);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetWorkQueueMMCSSClass(uint32 dwWorkQueueId, char16* pwszClass, uint32 pcchClass);
+	public static extern HRESULT MFGetWorkQueueMMCSSClass(uint32 dwWorkQueueId, char16* pwszClass, uint32* pcchClass);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetWorkQueueMMCSSTaskId(uint32 dwWorkQueueId, uint32 pdwTaskId);
+	public static extern HRESULT MFGetWorkQueueMMCSSTaskId(uint32 dwWorkQueueId, uint32* pdwTaskId);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFRegisterPlatformWithMMCSS(PWSTR wszClass, uint32 pdwTaskId, int32 lPriority);
+	public static extern HRESULT MFRegisterPlatformWithMMCSS(PWSTR wszClass, uint32* pdwTaskId, int32 lPriority);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFUnregisterPlatformFromMMCSS();
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFLockSharedWorkQueue(PWSTR wszClass, int32 BasePriority, uint32 pdwTaskId, uint32 pID);
+	public static extern HRESULT MFLockSharedWorkQueue(PWSTR wszClass, int32 BasePriority, uint32* pdwTaskId, uint32* pID);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetWorkQueueMMCSSPriority(uint32 dwWorkQueueId, int32 lPriority);
+	public static extern HRESULT MFGetWorkQueueMMCSSPriority(uint32 dwWorkQueueId, int32* lPriority);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateAsyncResult(IUnknown* punkObject, IMFAsyncCallback* pCallback, IUnknown* punkState, IMFAsyncResult** ppAsyncResult);
@@ -21792,31 +21792,31 @@ public static
 	public static extern uint32 MFMapDXGIFormatToDX9Format(DXGI_FORMAT dx11);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFLockDXGIDeviceManager(uint32 pResetToken, IMFDXGIDeviceManager** ppManager);
+	public static extern HRESULT MFLockDXGIDeviceManager(uint32* pResetToken, IMFDXGIDeviceManager** ppManager);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFUnlockDXGIDeviceManager();
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateDXSurfaceBuffer(Guid riid, IUnknown* punkSurface, BOOL fBottomUpWhenLinear, IMFMediaBuffer** ppBuffer);
+	public static extern HRESULT MFCreateDXSurfaceBuffer(ref Guid riid, IUnknown* punkSurface, BOOL fBottomUpWhenLinear, IMFMediaBuffer** ppBuffer);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateWICBitmapBuffer(Guid riid, IUnknown* punkSurface, IMFMediaBuffer** ppBuffer);
+	public static extern HRESULT MFCreateWICBitmapBuffer(ref Guid riid, IUnknown* punkSurface, IMFMediaBuffer** ppBuffer);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateDXGISurfaceBuffer(Guid riid, IUnknown* punkSurface, uint32 uSubresourceIndex, BOOL fBottomUpWhenLinear, IMFMediaBuffer** ppBuffer);
+	public static extern HRESULT MFCreateDXGISurfaceBuffer(ref Guid riid, IUnknown* punkSurface, uint32 uSubresourceIndex, BOOL fBottomUpWhenLinear, IMFMediaBuffer** ppBuffer);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateVideoSampleAllocatorEx(Guid riid, void** ppSampleAllocator);
+	public static extern HRESULT MFCreateVideoSampleAllocatorEx(ref Guid riid, void** ppSampleAllocator);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateDXGIDeviceManager(uint32 resetToken, IMFDXGIDeviceManager** ppDeviceManager);
+	public static extern HRESULT MFCreateDXGIDeviceManager(uint32* resetToken, IMFDXGIDeviceManager** ppDeviceManager);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateAlignedMemoryBuffer(uint32 cbMaxLength, uint32 cbAligment, IMFMediaBuffer** ppBuffer);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateMediaEvent(uint32 met, Guid guidExtendedType, HRESULT hrStatus, PROPVARIANT* pvValue, IMFMediaEvent** ppEvent);
+	public static extern HRESULT MFCreateMediaEvent(uint32 met, ref Guid guidExtendedType, HRESULT hrStatus, PROPVARIANT* pvValue, IMFMediaEvent** ppEvent);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateEventQueue(IMFMediaEventQueue** ppMediaEventQueue);
@@ -21828,13 +21828,13 @@ public static
 	public static extern HRESULT MFCreateAttributes(IMFAttributes** ppMFAttributes, uint32 cInitialSize);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFInitAttributesFromBlob(IMFAttributes* pAttributes, uint8 pBuf, uint32 cbBufSize);
+	public static extern HRESULT MFInitAttributesFromBlob(IMFAttributes* pAttributes, uint8* pBuf, uint32 cbBufSize);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetAttributesAsBlobSize(IMFAttributes* pAttributes, uint32 pcbBufSize);
+	public static extern HRESULT MFGetAttributesAsBlobSize(IMFAttributes* pAttributes, uint32* pcbBufSize);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetAttributesAsBlob(IMFAttributes* pAttributes, uint8 pBuf, uint32 cbBufSize);
+	public static extern HRESULT MFGetAttributesAsBlob(IMFAttributes* pAttributes, uint8* pBuf, uint32 cbBufSize);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFTRegister(Guid clsidMFT, Guid guidCategory, PWSTR pszName, uint32 Flags, uint32 cInputTypes, MFT_REGISTER_TYPE_INFO* pInputTypes, uint32 cOutputTypes, MFT_REGISTER_TYPE_INFO* pOutputTypes, IMFAttributes* pAttributes);
@@ -21843,34 +21843,34 @@ public static
 	public static extern HRESULT MFTUnregister(Guid clsidMFT);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFTRegisterLocal(IClassFactory* pClassFactory, Guid guidCategory, PWSTR pszName, uint32 Flags, uint32 cInputTypes, MFT_REGISTER_TYPE_INFO* pInputTypes, uint32 cOutputTypes, MFT_REGISTER_TYPE_INFO* pOutputTypes);
+	public static extern HRESULT MFTRegisterLocal(IClassFactory* pClassFactory, ref Guid guidCategory, PWSTR pszName, uint32 Flags, uint32 cInputTypes, MFT_REGISTER_TYPE_INFO* pInputTypes, uint32 cOutputTypes, MFT_REGISTER_TYPE_INFO* pOutputTypes);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFTUnregisterLocal(IClassFactory* pClassFactory);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFTRegisterLocalByCLSID(Guid clisdMFT, Guid guidCategory, PWSTR pszName, uint32 Flags, uint32 cInputTypes, MFT_REGISTER_TYPE_INFO* pInputTypes, uint32 cOutputTypes, MFT_REGISTER_TYPE_INFO* pOutputTypes);
+	public static extern HRESULT MFTRegisterLocalByCLSID(ref Guid clisdMFT, ref Guid guidCategory, PWSTR pszName, uint32 Flags, uint32 cInputTypes, MFT_REGISTER_TYPE_INFO* pInputTypes, uint32 cOutputTypes, MFT_REGISTER_TYPE_INFO* pOutputTypes);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFTUnregisterLocalByCLSID(Guid clsidMFT);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFTEnum(Guid guidCategory, uint32 Flags, MFT_REGISTER_TYPE_INFO* pInputType, MFT_REGISTER_TYPE_INFO* pOutputType, IMFAttributes* pAttributes, Guid** ppclsidMFT, uint32 pcMFTs);
+	public static extern HRESULT MFTEnum(Guid guidCategory, uint32 Flags, MFT_REGISTER_TYPE_INFO* pInputType, MFT_REGISTER_TYPE_INFO* pOutputType, IMFAttributes* pAttributes, Guid** ppclsidMFT, uint32* pcMFTs);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFTEnumEx(Guid guidCategory, uint32 Flags, MFT_REGISTER_TYPE_INFO* pInputType, MFT_REGISTER_TYPE_INFO* pOutputType, IMFActivate*** pppMFTActivate, uint32 pnumMFTActivate);
+	public static extern HRESULT MFTEnumEx(Guid guidCategory, uint32 Flags, MFT_REGISTER_TYPE_INFO* pInputType, MFT_REGISTER_TYPE_INFO* pOutputType, IMFActivate*** pppMFTActivate, uint32* pnumMFTActivate);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFTEnum2(Guid guidCategory, uint32 Flags, MFT_REGISTER_TYPE_INFO* pInputType, MFT_REGISTER_TYPE_INFO* pOutputType, IMFAttributes* pAttributes, IMFActivate*** pppMFTActivate, uint32 pnumMFTActivate);
+	public static extern HRESULT MFTEnum2(Guid guidCategory, uint32 Flags, MFT_REGISTER_TYPE_INFO* pInputType, MFT_REGISTER_TYPE_INFO* pOutputType, IMFAttributes* pAttributes, IMFActivate*** pppMFTActivate, uint32* pnumMFTActivate);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFTGetInfo(Guid clsidMFT, PWSTR* pszName, MFT_REGISTER_TYPE_INFO** ppInputTypes, uint32 pcInputTypes, MFT_REGISTER_TYPE_INFO** ppOutputTypes, uint32 pcOutputTypes, IMFAttributes** ppAttributes);
+	public static extern HRESULT MFTGetInfo(Guid clsidMFT, PWSTR* pszName, MFT_REGISTER_TYPE_INFO** ppInputTypes, uint32* pcInputTypes, MFT_REGISTER_TYPE_INFO** ppOutputTypes, uint32* pcOutputTypes, IMFAttributes** ppAttributes);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFGetPluginControl(IMFPluginControl** ppPluginControl);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetMFTMerit(IUnknown* pMFT, uint32 cbVerifier, uint8 verifier, uint32 merit);
+	public static extern HRESULT MFGetMFTMerit(IUnknown* pMFT, uint32 cbVerifier, uint8* verifier, uint32* merit);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFRegisterLocalSchemeHandler(PWSTR szScheme, IMFActivate* pActivate);
@@ -21882,7 +21882,7 @@ public static
 	public static extern HRESULT MFCreateMFByteStreamWrapper(IMFByteStream* pStream, IMFByteStream** ppStreamWrapper);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateMediaExtensionActivate(PWSTR szActivatableClassId, IUnknown* pConfiguration, Guid riid, void** ppvObject);
+	public static extern HRESULT MFCreateMediaExtensionActivate(PWSTR szActivatableClassId, IUnknown* pConfiguration, ref Guid riid, void** ppvObject);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateMuxStreamAttributes(IMFCollection* pAttributesToMux, IMFAttributes** ppMuxAttribs);
@@ -21894,40 +21894,40 @@ public static
 	public static extern HRESULT MFCreateMuxStreamSample(IMFCollection* pSamplesToMux, IMFSample** ppMuxSample);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFValidateMediaTypeSize(Guid FormatType, uint8 pBlock, uint32 cbSize);
+	public static extern HRESULT MFValidateMediaTypeSize(Guid FormatType, uint8* pBlock, uint32 cbSize);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateMediaType(IMFMediaType** ppMFType);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateMFVideoFormatFromMFMediaType(IMFMediaType* pMFType, MFVIDEOFORMAT** ppMFVF, uint32 pcbSize);
+	public static extern HRESULT MFCreateMFVideoFormatFromMFMediaType(IMFMediaType* pMFType, MFVIDEOFORMAT** ppMFVF, uint32* pcbSize);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateWaveFormatExFromMFMediaType(IMFMediaType* pMFType, WAVEFORMATEX** ppWF, uint32 pcbSize, uint32 Flags);
+	public static extern HRESULT MFCreateWaveFormatExFromMFMediaType(IMFMediaType* pMFType, WAVEFORMATEX** ppWF, uint32* pcbSize, uint32 Flags);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFInitMediaTypeFromVideoInfoHeader(IMFMediaType* pMFType, VIDEOINFOHEADER* pVIH, uint32 cbBufSize, Guid pSubtype);
+	public static extern HRESULT MFInitMediaTypeFromVideoInfoHeader(IMFMediaType* pMFType, VIDEOINFOHEADER* pVIH, uint32 cbBufSize, ref Guid pSubtype);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFInitMediaTypeFromVideoInfoHeader2(IMFMediaType* pMFType, VIDEOINFOHEADER2* pVIH2, uint32 cbBufSize, Guid pSubtype);
+	public static extern HRESULT MFInitMediaTypeFromVideoInfoHeader2(IMFMediaType* pMFType, VIDEOINFOHEADER2* pVIH2, uint32 cbBufSize, ref Guid pSubtype);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFInitMediaTypeFromMPEG1VideoInfo(IMFMediaType* pMFType, MPEG1VIDEOINFO* pMP1VI, uint32 cbBufSize, Guid pSubtype);
+	public static extern HRESULT MFInitMediaTypeFromMPEG1VideoInfo(IMFMediaType* pMFType, MPEG1VIDEOINFO* pMP1VI, uint32 cbBufSize, ref Guid pSubtype);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFInitMediaTypeFromMPEG2VideoInfo(IMFMediaType* pMFType, MPEG2VIDEOINFO* pMP2VI, uint32 cbBufSize, Guid pSubtype);
+	public static extern HRESULT MFInitMediaTypeFromMPEG2VideoInfo(IMFMediaType* pMFType, MPEG2VIDEOINFO* pMP2VI, uint32 cbBufSize, ref Guid pSubtype);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCalculateBitmapImageSize(BITMAPINFOHEADER* pBMIH, uint32 cbBufSize, uint32 pcbImageSize, BOOL* pbKnown);
+	public static extern HRESULT MFCalculateBitmapImageSize(BITMAPINFOHEADER* pBMIH, uint32 cbBufSize, uint32* pcbImageSize, BOOL* pbKnown);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCalculateImageSize(Guid guidSubtype, uint32 unWidth, uint32 unHeight, uint32 pcbImageSize);
+	public static extern HRESULT MFCalculateImageSize(ref Guid guidSubtype, uint32 unWidth, uint32 unHeight, uint32* pcbImageSize);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFFrameRateToAverageTimePerFrame(uint32 unNumerator, uint32 unDenominator, uint64 punAverageTimePerFrame);
+	public static extern HRESULT MFFrameRateToAverageTimePerFrame(uint32 unNumerator, uint32 unDenominator, uint64* punAverageTimePerFrame);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFAverageTimePerFrameToFrameRate(uint64 unAverageTimePerFrame, uint32 punNumerator, uint32 punDenominator);
+	public static extern HRESULT MFAverageTimePerFrameToFrameRate(uint64 unAverageTimePerFrame, uint32* punNumerator, uint32* punDenominator);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFInitMediaTypeFromMFVideoFormat(IMFMediaType* pMFType, MFVIDEOFORMAT* pMFVF, uint32 cbBufSize);
@@ -21948,7 +21948,7 @@ public static
 	public static extern BOOL MFCompareFullToPartialMediaType(IMFMediaType* pMFTypeFull, IMFMediaType* pMFTypePartial);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFWrapMediaType(IMFMediaType* pOrig, Guid MajorType, Guid SubType, IMFMediaType** ppWrap);
+	public static extern HRESULT MFWrapMediaType(IMFMediaType* pOrig, ref Guid MajorType, ref Guid SubType, IMFMediaType** ppWrap);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFUnwrapMediaType(IMFMediaType* pWrap, IMFMediaType** ppOrig);
@@ -21957,7 +21957,7 @@ public static
 	public static extern HRESULT MFCreateVideoMediaType(MFVIDEOFORMAT* pVideoFormat, IMFVideoMediaType** ppIVideoMediaType);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateVideoMediaTypeFromSubtype(Guid pAMSubtype, IMFVideoMediaType** ppIVideoMediaType);
+	public static extern HRESULT MFCreateVideoMediaTypeFromSubtype(ref Guid pAMSubtype, IMFVideoMediaType** ppIVideoMediaType);
 
 	[Import("EVR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MFIsFormatYUV(uint32 Format);
@@ -21966,10 +21966,10 @@ public static
 	public static extern HRESULT MFCreateVideoMediaTypeFromBitMapInfoHeader(BITMAPINFOHEADER* pbmihBitMapInfoHeader, uint32 dwPixelAspectRatioX, uint32 dwPixelAspectRatioY, MFVideoInterlaceMode InterlaceMode, uint64 VideoFlags, uint64 qwFramesPerSecondNumerator, uint64 qwFramesPerSecondDenominator, uint32 dwMaxBitRate, IMFVideoMediaType** ppIVideoMediaType);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetStrideForBitmapInfoHeader(uint32 format, uint32 dwWidth, int32 pStride);
+	public static extern HRESULT MFGetStrideForBitmapInfoHeader(uint32 format, uint32 dwWidth, int32* pStride);
 
 	[Import("EVR.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetPlaneSize(uint32 format, uint32 dwWidth, uint32 dwHeight, uint32 pdwPlaneSize);
+	public static extern HRESULT MFGetPlaneSize(uint32 format, uint32 dwWidth, uint32 dwHeight, uint32* pdwPlaneSize);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(BITMAPINFOHEADER* pbmihBitMapInfoHeader, uint32 cbBitMapInfoHeader, uint32 dwPixelAspectRatioX, uint32 dwPixelAspectRatioY, MFVideoInterlaceMode InterlaceMode, uint64 VideoFlags, uint32 dwFramesPerSecondNumerator, uint32 dwFramesPerSecondDenominator, uint32 dwMaxBitRate, IMFVideoMediaType** ppIVideoMediaType);
@@ -21990,13 +21990,13 @@ public static
 	public static extern HRESULT MFInitVideoFormat_RGB(MFVIDEOFORMAT* pVideoFormat, uint32 dwWidth, uint32 dwHeight, uint32 D3Dfmt);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFConvertColorInfoToDXVA(uint32 pdwToDXVA, MFVIDEOFORMAT* pFromFormat);
+	public static extern HRESULT MFConvertColorInfoToDXVA(uint32* pdwToDXVA, MFVIDEOFORMAT* pFromFormat);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFConvertColorInfoFromDXVA(MFVIDEOFORMAT* pToFormat, uint32 dwFromDXVA);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCopyImage(uint8 pDest, int32 lDestStride, uint8 pSrc, int32 lSrcStride, uint32 dwWidthInBytes, uint32 dwLines);
+	public static extern HRESULT MFCopyImage(uint8* pDest, int32 lDestStride, uint8* pSrc, int32 lSrcStride, uint32 dwWidthInBytes, uint32 dwLines);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFConvertFromFP16Array(float* pDest, uint16* pSrc, uint32 dwCount);
@@ -22023,13 +22023,13 @@ public static
 	public static extern int64 MFllMulDiv(int64 a, int64 b, int64 c, int64 d);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFGetContentProtectionSystemCLSID(Guid guidProtectionSystemID, Guid pclsid);
+	public static extern HRESULT MFGetContentProtectionSystemCLSID(ref Guid guidProtectionSystemID, ref Guid pclsid);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCombineSamples(IMFSample* pSample, IMFSample* pSampleToAdd, uint32 dwMaxMergedDurationInMS, BOOL* pMerged);
 
 	[Import("MFPlat.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFSplitSample(IMFSample* pSample, IMFSample** pOutputSamples, uint32 dwOutputSampleMaxCount, uint32 pdwOutputSampleCount);
+	public static extern HRESULT MFSplitSample(IMFSample* pSample, IMFSample** pOutputSamples, uint32 dwOutputSampleMaxCount, uint32* pdwOutputSampleCount);
 
 	[Import("MFReadWrite.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateSourceReaderFromURL(PWSTR pwszURL, IMFAttributes* pAttributes, IMFSourceReader** ppSourceReader);
@@ -22047,22 +22047,22 @@ public static
 	public static extern HRESULT MFCreateSinkWriterFromMediaSink(IMFMediaSink* pMediaSink, IMFAttributes* pAttributes, IMFSinkWriter** ppSinkWriter);
 
 	[Import("EVR.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateVideoPresenter(IUnknown* pOwner, Guid riidDevice, Guid riid, void** ppVideoPresenter);
+	public static extern HRESULT MFCreateVideoPresenter(IUnknown* pOwner, ref Guid riidDevice, ref Guid riid, void** ppVideoPresenter);
 
 	[Import("EVR.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateVideoMixer(IUnknown* pOwner, Guid riidDevice, Guid riid, void** ppv);
+	public static extern HRESULT MFCreateVideoMixer(IUnknown* pOwner, ref Guid riidDevice, ref Guid riid, void** ppv);
 
 	[Import("EVR.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateVideoMixerAndPresenter(IUnknown* pMixerOwner, IUnknown* pPresenterOwner, Guid riidMixer, void** ppvVideoMixer, Guid riidPresenter, void** ppvVideoPresenter);
+	public static extern HRESULT MFCreateVideoMixerAndPresenter(IUnknown* pMixerOwner, IUnknown* pPresenterOwner, ref Guid riidMixer, void** ppvVideoMixer, ref Guid riidPresenter, void** ppvVideoPresenter);
 
 	[Import("MF.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateVideoRenderer(Guid riidRenderer, void** ppVideoRenderer);
+	public static extern HRESULT MFCreateVideoRenderer(ref Guid riidRenderer, void** ppVideoRenderer);
 
 	[Import("EVR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFCreateVideoSampleFromSurface(IUnknown* pUnkSurface, IMFSample** ppSample);
 
 	[Import("EVR.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MFCreateVideoSampleAllocator(Guid riid, void** ppSampleAllocator);
+	public static extern HRESULT MFCreateVideoSampleAllocator(ref Guid riid, void** ppSampleAllocator);
 
 	[Import("MFPlay.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MFPCreateMediaPlayer(PWSTR pwszURL, BOOL fStartPlayback, MFP_CREATION_OPTIONS creationOptions, IMFPMediaPlayerCallback* pCallback, HWND hWnd, IMFPMediaPlayer** ppMediaPlayer);

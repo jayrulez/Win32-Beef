@@ -824,7 +824,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_TrusteeName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_TrusteeDomain;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_TrusteeDSPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lVal) get_TrusteeType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lVal) get_TrusteeType;
 	}
 
 
@@ -836,7 +836,7 @@ public static
 
 	public HRESULT get_TrusteeDSPath(BSTR* pVal) mut => VT.[Friend]get_TrusteeDSPath(&this, pVal);
 
-	public HRESULT get_TrusteeType(int32 lVal) mut => VT.[Friend]get_TrusteeType(&this, lVal);
+	public HRESULT get_TrusteeType(int32* lVal) mut => VT.[Friend]get_TrusteeType(&this, lVal);
 }
 
 [CRepr]struct IGPMPermission : IDispatch
@@ -847,19 +847,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_Inherited;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_Inheritable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_Denied;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Inherited;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Inheritable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Denied;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_Permission;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMTrustee** ppIGPMTrustee) get_Trustee;
 	}
 
 
-	public HRESULT get_Inherited(int16 pVal) mut => VT.[Friend]get_Inherited(&this, pVal);
+	public HRESULT get_Inherited(int16* pVal) mut => VT.[Friend]get_Inherited(&this, pVal);
 
-	public HRESULT get_Inheritable(int16 pVal) mut => VT.[Friend]get_Inheritable(&this, pVal);
+	public HRESULT get_Inheritable(int16* pVal) mut => VT.[Friend]get_Inheritable(&this, pVal);
 
-	public HRESULT get_Denied(int16 pVal) mut => VT.[Friend]get_Denied(&this, pVal);
+	public HRESULT get_Denied(int16* pVal) mut => VT.[Friend]get_Denied(&this, pVal);
 
 	public HRESULT get_Permission(GPMPermissionType* pVal) mut => VT.[Friend]get_Permission(&this, pVal);
 
@@ -874,7 +874,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppEnum) get__NewEnum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMPermission* pPerm) Add;
@@ -883,7 +883,7 @@ public static
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -908,7 +908,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_GPOID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_GPODomain;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_GPODisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pVal) get_Timestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_Timestamp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Comment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_BackupDir;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
@@ -925,7 +925,7 @@ public static
 
 	public HRESULT get_GPODisplayName(BSTR* pVal) mut => VT.[Friend]get_GPODisplayName(&this, pVal);
 
-	public HRESULT get_Timestamp(double pVal) mut => VT.[Friend]get_Timestamp(&this, pVal);
+	public HRESULT get_Timestamp(double* pVal) mut => VT.[Friend]get_Timestamp(&this, pVal);
 
 	public HRESULT get_Comment(BSTR* pVal) mut => VT.[Friend]get_Comment(&this, pVal);
 
@@ -946,13 +946,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMBackup) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -967,7 +967,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_GPOInheritanceBlocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_GPOInheritanceBlocked;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_GPOInheritanceBlocked;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Path;
@@ -980,7 +980,7 @@ public static
 	}
 
 
-	public HRESULT get_GPOInheritanceBlocked(int16 pVal) mut => VT.[Friend]get_GPOInheritanceBlocked(&this, pVal);
+	public HRESULT get_GPOInheritanceBlocked(int16* pVal) mut => VT.[Friend]get_GPOInheritanceBlocked(&this, pVal);
 
 	public HRESULT put_GPOInheritanceBlocked(int16 newVal) mut => VT.[Friend]put_GPOInheritanceBlocked(&this, newVal);
 
@@ -1009,13 +1009,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMSOM) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -1066,13 +1066,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** pVal) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -1094,9 +1094,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_LoggingUser;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_LoggingUser;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lVal) put_LoggingFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lVal) get_LoggingFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lVal) get_LoggingFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lVal) put_PlanningFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lVal) get_PlanningFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lVal) get_PlanningFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_PlanningDomainController;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_PlanningDomainController;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_PlanningSiteName;
@@ -1139,11 +1139,11 @@ public static
 
 	public HRESULT put_LoggingFlags(int32 lVal) mut => VT.[Friend]put_LoggingFlags(&this, lVal);
 
-	public HRESULT get_LoggingFlags(int32 lVal) mut => VT.[Friend]get_LoggingFlags(&this, lVal);
+	public HRESULT get_LoggingFlags(int32* lVal) mut => VT.[Friend]get_LoggingFlags(&this, lVal);
 
 	public HRESULT put_PlanningFlags(int32 lVal) mut => VT.[Friend]put_PlanningFlags(&this, lVal);
 
-	public HRESULT get_PlanningFlags(int32 lVal) mut => VT.[Friend]get_PlanningFlags(&this, lVal);
+	public HRESULT get_PlanningFlags(int32* lVal) mut => VT.[Friend]get_PlanningFlags(&this, lVal);
 
 	public HRESULT put_PlanningDomainController(BSTR bstrVal) mut => VT.[Friend]put_PlanningDomainController(&this, bstrVal);
 
@@ -1209,18 +1209,18 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Path;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_DomainName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pDate) get_CreationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pDate) get_ModificationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_UserDSVersionNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_ComputerDSVersionNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_UserSysvolVersionNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_ComputerSysvolVersionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pDate) get_CreationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pDate) get_ModificationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_UserDSVersionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_ComputerDSVersionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_UserSysvolVersionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_ComputerSysvolVersionNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMWMIFilter** ppIGPMWMIFilter) GetWMIFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMWMIFilter* pIGPMWMIFilter) SetWMIFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbEnabled) SetUserEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbEnabled) SetComputerEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pvbEnabled) IsUserEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pvbEnabled) IsComputerEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbEnabled) IsUserEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbEnabled) IsComputerEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSecurityInfo** ppSecurityInfo) GetSecurityInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSecurityInfo* pSecurityInfo) SetSecurityInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
@@ -1231,7 +1231,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, IGPMDomain* pIGPMDomain, VARIANT* pvarNewDisplayName, VARIANT* pvarMigrationTable, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) CopyTo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, IDispatch* pSD) SetSecurityDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, IDispatch** ppSD) GetSecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pvbConsistent) IsACLConsistent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbConsistent) IsACLConsistent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) MakeACLConsistent;
 	}
 
@@ -1246,17 +1246,17 @@ public static
 
 	public HRESULT get_DomainName(BSTR* pVal) mut => VT.[Friend]get_DomainName(&this, pVal);
 
-	public HRESULT get_CreationTime(double pDate) mut => VT.[Friend]get_CreationTime(&this, pDate);
+	public HRESULT get_CreationTime(double* pDate) mut => VT.[Friend]get_CreationTime(&this, pDate);
 
-	public HRESULT get_ModificationTime(double pDate) mut => VT.[Friend]get_ModificationTime(&this, pDate);
+	public HRESULT get_ModificationTime(double* pDate) mut => VT.[Friend]get_ModificationTime(&this, pDate);
 
-	public HRESULT get_UserDSVersionNumber(int32 pVal) mut => VT.[Friend]get_UserDSVersionNumber(&this, pVal);
+	public HRESULT get_UserDSVersionNumber(int32* pVal) mut => VT.[Friend]get_UserDSVersionNumber(&this, pVal);
 
-	public HRESULT get_ComputerDSVersionNumber(int32 pVal) mut => VT.[Friend]get_ComputerDSVersionNumber(&this, pVal);
+	public HRESULT get_ComputerDSVersionNumber(int32* pVal) mut => VT.[Friend]get_ComputerDSVersionNumber(&this, pVal);
 
-	public HRESULT get_UserSysvolVersionNumber(int32 pVal) mut => VT.[Friend]get_UserSysvolVersionNumber(&this, pVal);
+	public HRESULT get_UserSysvolVersionNumber(int32* pVal) mut => VT.[Friend]get_UserSysvolVersionNumber(&this, pVal);
 
-	public HRESULT get_ComputerSysvolVersionNumber(int32 pVal) mut => VT.[Friend]get_ComputerSysvolVersionNumber(&this, pVal);
+	public HRESULT get_ComputerSysvolVersionNumber(int32* pVal) mut => VT.[Friend]get_ComputerSysvolVersionNumber(&this, pVal);
 
 	public HRESULT GetWMIFilter(IGPMWMIFilter** ppIGPMWMIFilter) mut => VT.[Friend]GetWMIFilter(&this, ppIGPMWMIFilter);
 
@@ -1266,9 +1266,9 @@ public static
 
 	public HRESULT SetComputerEnabled(int16 vbEnabled) mut => VT.[Friend]SetComputerEnabled(&this, vbEnabled);
 
-	public HRESULT IsUserEnabled(int16 pvbEnabled) mut => VT.[Friend]IsUserEnabled(&this, pvbEnabled);
+	public HRESULT IsUserEnabled(int16* pvbEnabled) mut => VT.[Friend]IsUserEnabled(&this, pvbEnabled);
 
-	public HRESULT IsComputerEnabled(int16 pvbEnabled) mut => VT.[Friend]IsComputerEnabled(&this, pvbEnabled);
+	public HRESULT IsComputerEnabled(int16* pvbEnabled) mut => VT.[Friend]IsComputerEnabled(&this, pvbEnabled);
 
 	public HRESULT GetSecurityInfo(IGPMSecurityInfo** ppSecurityInfo) mut => VT.[Friend]GetSecurityInfo(&this, ppSecurityInfo);
 
@@ -1290,7 +1290,7 @@ public static
 
 	public HRESULT GetSecurityDescriptor(int32 lFlags, IDispatch** ppSD) mut => VT.[Friend]GetSecurityDescriptor(&this, lFlags, ppSD);
 
-	public HRESULT IsACLConsistent(int16 pvbConsistent) mut => VT.[Friend]IsACLConsistent(&this, pvbConsistent);
+	public HRESULT IsACLConsistent(int16* pvbConsistent) mut => VT.[Friend]IsACLConsistent(&this, pvbConsistent);
 
 	public HRESULT MakeACLConsistent() mut => VT.[Friend]MakeACLConsistent(&this);
 }
@@ -1303,13 +1303,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMGPOs) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -1326,11 +1326,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_GPOID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_GPODomain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pVal) get_Enforced;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Enforced;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_Enforced;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lVal) get_SOMLinkOrder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lVal) get_SOMLinkOrder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSOM** ppIGPMSOM) get_SOM;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 	}
@@ -1340,15 +1340,15 @@ public static
 
 	public HRESULT get_GPODomain(BSTR* pVal) mut => VT.[Friend]get_GPODomain(&this, pVal);
 
-	public HRESULT get_Enabled(int16 pVal) mut => VT.[Friend]get_Enabled(&this, pVal);
+	public HRESULT get_Enabled(int16* pVal) mut => VT.[Friend]get_Enabled(&this, pVal);
 
 	public HRESULT put_Enabled(int16 newVal) mut => VT.[Friend]put_Enabled(&this, newVal);
 
-	public HRESULT get_Enforced(int16 pVal) mut => VT.[Friend]get_Enforced(&this, pVal);
+	public HRESULT get_Enforced(int16* pVal) mut => VT.[Friend]get_Enforced(&this, pVal);
 
 	public HRESULT put_Enforced(int16 newVal) mut => VT.[Friend]put_Enforced(&this, newVal);
 
-	public HRESULT get_SOMLinkOrder(int32 lVal) mut => VT.[Friend]get_SOMLinkOrder(&this, lVal);
+	public HRESULT get_SOMLinkOrder(int32* lVal) mut => VT.[Friend]get_SOMLinkOrder(&this, lVal);
 
 	public HRESULT get_SOM(IGPMSOM** ppIGPMSOM) mut => VT.[Friend]get_SOM(&this, ppIGPMSOM);
 
@@ -1363,13 +1363,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMLinks) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -1384,13 +1384,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMCSEs) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -1407,8 +1407,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pvbEnabled) IsUserEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 pvbEnabled) IsComputerEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbEnabled) IsUserEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbEnabled) IsComputerEnabled;
 	}
 
 
@@ -1416,9 +1416,9 @@ public static
 
 	public HRESULT get_DisplayName(BSTR* pVal) mut => VT.[Friend]get_DisplayName(&this, pVal);
 
-	public HRESULT IsUserEnabled(int16 pvbEnabled) mut => VT.[Friend]IsUserEnabled(&this, pvbEnabled);
+	public HRESULT IsUserEnabled(int16* pvbEnabled) mut => VT.[Friend]IsUserEnabled(&this, pvbEnabled);
 
-	public HRESULT IsComputerEnabled(int16 pvbEnabled) mut => VT.[Friend]IsComputerEnabled(&this, pvbEnabled);
+	public HRESULT IsComputerEnabled(int16* pvbEnabled) mut => VT.[Friend]IsComputerEnabled(&this, pvbEnabled);
 }
 
 [CRepr]struct IGPMAsyncCancel : IDispatch
@@ -1459,13 +1459,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** pVal) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -1538,14 +1538,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpContains;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpNotContains;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpNotEquals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_UsePDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_UseAnyDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_DoNotUseW2KDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_UsePDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_UseAnyDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_DoNotUseW2KDC;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSOMType* pVal) get_SOMSite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSOMType* pVal) get_SOMDomain;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSOMType* pVal) get_SOMOU;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbOwner, int16 vbGroup, int16 vbDACL, int16 vbSACL, int32 pVal) get_SecurityFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_DoNotValidateDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbOwner, int16 vbGroup, int16 vbDACL, int16 vbSACL, int32* pVal) get_SecurityFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_DoNotValidateDC;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType* pVal) get_ReportHTML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType* pVal) get_ReportXML;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMRSOPMode* pVal) get_RSOPModeUnknown;
@@ -1562,14 +1562,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionNone;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionByRelativeName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_MigrationTableOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_ProcessSecurity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_RsopLoggingNoComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_RsopLoggingNoUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_RsopPlanningAssumeSlowLink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbMerge, int32 pVal) get_RsopPlanningLoopbackOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_RsopPlanningAssumeUserWQLFilterTrue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_RsopPlanningAssumeCompWQLFilterTrue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_MigrationTableOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_ProcessSecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RsopLoggingNoComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RsopLoggingNoUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RsopPlanningAssumeSlowLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbMerge, int32* pVal) get_RsopPlanningLoopbackOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RsopPlanningAssumeUserWQLFilterTrue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RsopPlanningAssumeCompWQLFilterTrue;
 	}
 
 
@@ -1629,11 +1629,11 @@ public static
 
 	public HRESULT get_SearchOpNotEquals(GPMSearchOperation* pVal) mut => VT.[Friend]get_SearchOpNotEquals(&this, pVal);
 
-	public HRESULT get_UsePDC(int32 pVal) mut => VT.[Friend]get_UsePDC(&this, pVal);
+	public HRESULT get_UsePDC(int32* pVal) mut => VT.[Friend]get_UsePDC(&this, pVal);
 
-	public HRESULT get_UseAnyDC(int32 pVal) mut => VT.[Friend]get_UseAnyDC(&this, pVal);
+	public HRESULT get_UseAnyDC(int32* pVal) mut => VT.[Friend]get_UseAnyDC(&this, pVal);
 
-	public HRESULT get_DoNotUseW2KDC(int32 pVal) mut => VT.[Friend]get_DoNotUseW2KDC(&this, pVal);
+	public HRESULT get_DoNotUseW2KDC(int32* pVal) mut => VT.[Friend]get_DoNotUseW2KDC(&this, pVal);
 
 	public HRESULT get_SOMSite(GPMSOMType* pVal) mut => VT.[Friend]get_SOMSite(&this, pVal);
 
@@ -1641,9 +1641,9 @@ public static
 
 	public HRESULT get_SOMOU(GPMSOMType* pVal) mut => VT.[Friend]get_SOMOU(&this, pVal);
 
-	public HRESULT get_SecurityFlags(int16 vbOwner, int16 vbGroup, int16 vbDACL, int16 vbSACL, int32 pVal) mut => VT.[Friend]get_SecurityFlags(&this, vbOwner, vbGroup, vbDACL, vbSACL, pVal);
+	public HRESULT get_SecurityFlags(int16 vbOwner, int16 vbGroup, int16 vbDACL, int16 vbSACL, int32* pVal) mut => VT.[Friend]get_SecurityFlags(&this, vbOwner, vbGroup, vbDACL, vbSACL, pVal);
 
-	public HRESULT get_DoNotValidateDC(int32 pVal) mut => VT.[Friend]get_DoNotValidateDC(&this, pVal);
+	public HRESULT get_DoNotValidateDC(int32* pVal) mut => VT.[Friend]get_DoNotValidateDC(&this, pVal);
 
 	public HRESULT get_ReportHTML(GPMReportType* pVal) mut => VT.[Friend]get_ReportHTML(&this, pVal);
 
@@ -1677,21 +1677,21 @@ public static
 
 	public HRESULT get_DestinationOptionSet(GPMDestinationOption* pVal) mut => VT.[Friend]get_DestinationOptionSet(&this, pVal);
 
-	public HRESULT get_MigrationTableOnly(int32 pVal) mut => VT.[Friend]get_MigrationTableOnly(&this, pVal);
+	public HRESULT get_MigrationTableOnly(int32* pVal) mut => VT.[Friend]get_MigrationTableOnly(&this, pVal);
 
-	public HRESULT get_ProcessSecurity(int32 pVal) mut => VT.[Friend]get_ProcessSecurity(&this, pVal);
+	public HRESULT get_ProcessSecurity(int32* pVal) mut => VT.[Friend]get_ProcessSecurity(&this, pVal);
 
-	public HRESULT get_RsopLoggingNoComputer(int32 pVal) mut => VT.[Friend]get_RsopLoggingNoComputer(&this, pVal);
+	public HRESULT get_RsopLoggingNoComputer(int32* pVal) mut => VT.[Friend]get_RsopLoggingNoComputer(&this, pVal);
 
-	public HRESULT get_RsopLoggingNoUser(int32 pVal) mut => VT.[Friend]get_RsopLoggingNoUser(&this, pVal);
+	public HRESULT get_RsopLoggingNoUser(int32* pVal) mut => VT.[Friend]get_RsopLoggingNoUser(&this, pVal);
 
-	public HRESULT get_RsopPlanningAssumeSlowLink(int32 pVal) mut => VT.[Friend]get_RsopPlanningAssumeSlowLink(&this, pVal);
+	public HRESULT get_RsopPlanningAssumeSlowLink(int32* pVal) mut => VT.[Friend]get_RsopPlanningAssumeSlowLink(&this, pVal);
 
-	public HRESULT get_RsopPlanningLoopbackOption(int16 vbMerge, int32 pVal) mut => VT.[Friend]get_RsopPlanningLoopbackOption(&this, vbMerge, pVal);
+	public HRESULT get_RsopPlanningLoopbackOption(int16 vbMerge, int32* pVal) mut => VT.[Friend]get_RsopPlanningLoopbackOption(&this, vbMerge, pVal);
 
-	public HRESULT get_RsopPlanningAssumeUserWQLFilterTrue(int32 pVal) mut => VT.[Friend]get_RsopPlanningAssumeUserWQLFilterTrue(&this, pVal);
+	public HRESULT get_RsopPlanningAssumeUserWQLFilterTrue(int32* pVal) mut => VT.[Friend]get_RsopPlanningAssumeUserWQLFilterTrue(&this, pVal);
 
-	public HRESULT get_RsopPlanningAssumeCompWQLFilterTrue(int32 pVal) mut => VT.[Friend]get_RsopPlanningAssumeCompWQLFilterTrue(&this, pVal);
+	public HRESULT get_RsopPlanningAssumeCompWQLFilterTrue(int32* pVal) mut => VT.[Friend]get_RsopPlanningAssumeCompWQLFilterTrue(&this, pVal);
 }
 
 [CRepr]struct IGPMResult : IDispatch
@@ -1723,13 +1723,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** pVal) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -1828,13 +1828,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMTmplBackup) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -1855,7 +1855,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTemplateDomain) get_Domain;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTemplateID) get_StarterGPOID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrID) get_ID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pTimestamp) get_Timestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pTimestamp) get_Timestamp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMStarterGPOType* pType) get_Type;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
@@ -1875,7 +1875,7 @@ public static
 
 	public HRESULT get_ID(BSTR* pbstrID) mut => VT.[Friend]get_ID(&this, pbstrID);
 
-	public HRESULT get_Timestamp(double pTimestamp) mut => VT.[Friend]get_Timestamp(&this, pTimestamp);
+	public HRESULT get_Timestamp(double* pTimestamp) mut => VT.[Friend]get_Timestamp(&this, pTimestamp);
 
 	public HRESULT get_Type(GPMStarterGPOType* pType) mut => VT.[Friend]get_Type(&this, pType);
 
@@ -1918,12 +1918,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Author;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Product;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pVal) get_CreationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_CreationTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double pVal) get_ModifiedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_ModifiedTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMStarterGPOType* pVal) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pVal) get_ComputerVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 pVal) get_UserVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pVal) get_ComputerVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pVal) get_UserVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_StarterGPOVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSaveFile, int16 bOverwrite, int16 bSaveAsSystem, VARIANT* bstrLanguage, VARIANT* bstrAuthor, VARIANT* bstrProduct, VARIANT* bstrUniqueID, VARIANT* bstrVersion, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) Save;
@@ -1948,17 +1948,17 @@ public static
 
 	public HRESULT get_Product(BSTR* pVal) mut => VT.[Friend]get_Product(&this, pVal);
 
-	public HRESULT get_CreationTime(double pVal) mut => VT.[Friend]get_CreationTime(&this, pVal);
+	public HRESULT get_CreationTime(double* pVal) mut => VT.[Friend]get_CreationTime(&this, pVal);
 
 	public HRESULT get_ID(BSTR* pVal) mut => VT.[Friend]get_ID(&this, pVal);
 
-	public HRESULT get_ModifiedTime(double pVal) mut => VT.[Friend]get_ModifiedTime(&this, pVal);
+	public HRESULT get_ModifiedTime(double* pVal) mut => VT.[Friend]get_ModifiedTime(&this, pVal);
 
 	public HRESULT get_Type(GPMStarterGPOType* pVal) mut => VT.[Friend]get_Type(&this, pVal);
 
-	public HRESULT get_ComputerVersion(uint16 pVal) mut => VT.[Friend]get_ComputerVersion(&this, pVal);
+	public HRESULT get_ComputerVersion(uint16* pVal) mut => VT.[Friend]get_ComputerVersion(&this, pVal);
 
-	public HRESULT get_UserVersion(uint16 pVal) mut => VT.[Friend]get_UserVersion(&this, pVal);
+	public HRESULT get_UserVersion(uint16* pVal) mut => VT.[Friend]get_UserVersion(&this, pVal);
 
 	public HRESULT get_StarterGPOVersion(BSTR* pVal) mut => VT.[Friend]get_StarterGPOVersion(&this, pVal);
 
@@ -1987,13 +1987,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMTemplates) get__NewEnum;
 	}
 
 
-	public HRESULT get_Count(int32 pVal) mut => VT.[Friend]get_Count(&this, pVal);
+	public HRESULT get_Count(int32* pVal) mut => VT.[Friend]get_Count(&this, pVal);
 
 	public HRESULT get_Item(int32 lIndex, VARIANT* pVal) mut => VT.[Friend]get_Item(&this, lIndex, pVal);
 
@@ -2163,10 +2163,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, HKEY* hKey) GetRegistryKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetDSPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetFileSysPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOptions) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwOptions) GetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GROUP_POLICY_OBJECT_TYPE* gpoType) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GROUP_POLICY_HINT_TYPE* gpHint) GetHint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMachine, BOOL bAdd, Guid pGuidExtension, Guid pGuidSnapin) PolicyChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuidSnapin) PolicyChanged;
 	}
 
 
@@ -2180,13 +2180,13 @@ public static
 
 	public HRESULT GetFileSysPath(uint32 dwSection, char16* pszPath, int32 cchMaxPath) mut => VT.[Friend]GetFileSysPath(&this, dwSection, pszPath, cchMaxPath);
 
-	public HRESULT GetOptions(uint32 dwOptions) mut => VT.[Friend]GetOptions(&this, dwOptions);
+	public HRESULT GetOptions(uint32* dwOptions) mut => VT.[Friend]GetOptions(&this, dwOptions);
 
 	public HRESULT GetType(GROUP_POLICY_OBJECT_TYPE* gpoType) mut => VT.[Friend]COM_GetType(&this, gpoType);
 
 	public HRESULT GetHint(GROUP_POLICY_HINT_TYPE* gpHint) mut => VT.[Friend]GetHint(&this, gpHint);
 
-	public HRESULT PolicyChanged(BOOL bMachine, BOOL bAdd, Guid pGuidExtension, Guid pGuidSnapin) mut => VT.[Friend]PolicyChanged(&this, bMachine, bAdd, pGuidExtension, pGuidSnapin);
+	public HRESULT PolicyChanged(BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuidSnapin) mut => VT.[Friend]PolicyChanged(&this, bMachine, bAdd, ref pGuidExtension, ref pGuidSnapin);
 }
 
 [CRepr]struct IGroupPolicyObject : IUnknown
@@ -2201,7 +2201,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, uint32 dwFlags) OpenDSGPO;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) OpenLocalMachineGPO;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszComputerName, uint32 dwFlags) OpenRemoteMachineGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMachine, BOOL bAdd, Guid pGuidExtension, Guid pGuid) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuid) Save;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszName, int32 cchMaxLength) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszName, int32 cchMaxLength) GetDisplayName;
@@ -2210,11 +2210,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetDSPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetFileSysPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, HKEY* hKey) GetRegistryKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOptions) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwOptions) GetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOptions, uint32 dwMask) SetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GROUP_POLICY_OBJECT_TYPE* gpoType) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszName, int32 cchMaxLength) GetMachineName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HPROPSHEETPAGE** hPages, uint32 uPageCount) GetPropertySheetPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HPROPSHEETPAGE** hPages, uint32* uPageCount) GetPropertySheetPages;
 	}
 
 
@@ -2226,7 +2226,7 @@ public static
 
 	public HRESULT OpenRemoteMachineGPO(PWSTR pszComputerName, uint32 dwFlags) mut => VT.[Friend]OpenRemoteMachineGPO(&this, pszComputerName, dwFlags);
 
-	public HRESULT Save(BOOL bMachine, BOOL bAdd, Guid pGuidExtension, Guid pGuid) mut => VT.[Friend]Save(&this, bMachine, bAdd, pGuidExtension, pGuid);
+	public HRESULT Save(BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuid) mut => VT.[Friend]Save(&this, bMachine, bAdd, ref pGuidExtension, ref pGuid);
 
 	public HRESULT Delete() mut => VT.[Friend]Delete(&this);
 
@@ -2244,7 +2244,7 @@ public static
 
 	public HRESULT GetRegistryKey(uint32 dwSection, HKEY* hKey) mut => VT.[Friend]GetRegistryKey(&this, dwSection, hKey);
 
-	public HRESULT GetOptions(uint32 dwOptions) mut => VT.[Friend]GetOptions(&this, dwOptions);
+	public HRESULT GetOptions(uint32* dwOptions) mut => VT.[Friend]GetOptions(&this, dwOptions);
 
 	public HRESULT SetOptions(uint32 dwOptions, uint32 dwMask) mut => VT.[Friend]SetOptions(&this, dwOptions, dwMask);
 
@@ -2252,7 +2252,7 @@ public static
 
 	public HRESULT GetMachineName(char16* pszName, int32 cchMaxLength) mut => VT.[Friend]GetMachineName(&this, pszName, cchMaxLength);
 
-	public HRESULT GetPropertySheetPages(HPROPSHEETPAGE** hPages, uint32 uPageCount) mut => VT.[Friend]GetPropertySheetPages(&this, hPages, uPageCount);
+	public HRESULT GetPropertySheetPages(HPROPSHEETPAGE** hPages, uint32* uPageCount) mut => VT.[Friend]GetPropertySheetPages(&this, hPages, uPageCount);
 }
 
 [CRepr]struct IRSOPInformation : IUnknown
@@ -2264,14 +2264,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, char16* pszName, int32 cchMaxLength) GetNamespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszEventSource, PWSTR pszEventLogName, PWSTR pszEventTime, uint32 dwEventID, PWSTR* ppszText) GetEventLogEntryText;
 	}
 
 
 	public HRESULT GetNamespace(uint32 dwSection, char16* pszName, int32 cchMaxLength) mut => VT.[Friend]GetNamespace(&this, dwSection, pszName, cchMaxLength);
 
-	public HRESULT GetFlags(uint32 pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
+	public HRESULT GetFlags(uint32* pdwFlags) mut => VT.[Friend]COM_GetFlags(&this, pdwFlags);
 
 	public HRESULT GetEventLogEntryText(PWSTR pszEventSource, PWSTR pszEventLogName, PWSTR pszEventTime, uint32 dwEventID, PWSTR* ppszText) mut => VT.[Friend]GetEventLogEntryText(&this, pszEventSource, pszEventLogName, pszEventTime, dwEventID, ppszText);
 }
@@ -2314,23 +2314,23 @@ public static
 	public static extern BOOL FreeGPOListW(GROUP_POLICY_OBJECTW* pGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetAppliedGPOListA(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, Guid pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList);
-	public static uint32 GetAppliedGPOList(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, Guid pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList) => GetAppliedGPOListA(dwFlags, pMachineName, pSidUser, pGuidExtension, ppGPOList);
+	public static extern uint32 GetAppliedGPOListA(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, ref Guid pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList);
+	public static uint32 GetAppliedGPOList(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, ref Guid pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList) => GetAppliedGPOListA(dwFlags, pMachineName, pSidUser, ref pGuidExtension, ppGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetAppliedGPOListW(uint32 dwFlags, PWSTR pMachineName, PSID pSidUser, Guid pGuidExtension, GROUP_POLICY_OBJECTW** ppGPOList);
+	public static extern uint32 GetAppliedGPOListW(uint32 dwFlags, PWSTR pMachineName, PSID pSidUser, ref Guid pGuidExtension, GROUP_POLICY_OBJECTW** ppGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ProcessGroupPolicyCompleted(Guid extensionId, uint pAsyncHandle, uint32 dwStatus);
+	public static extern uint32 ProcessGroupPolicyCompleted(ref Guid extensionId, uint pAsyncHandle, uint32 dwStatus);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ProcessGroupPolicyCompletedEx(Guid extensionId, uint pAsyncHandle, uint32 dwStatus, HRESULT RsopStatus);
+	public static extern uint32 ProcessGroupPolicyCompletedEx(ref Guid extensionId, uint pAsyncHandle, uint32 dwStatus, HRESULT RsopStatus);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RsopAccessCheckByType(SECURITY_DESCRIPTOR* pSecurityDescriptor, PSID pPrincipalSelfSid, void* pRsopToken, uint32 dwDesiredAccessMask, OBJECT_TYPE_LIST* pObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* pGenericMapping, PRIVILEGE_SET* pPrivilegeSet, uint32 pdwPrivilegeSetLength, uint32 pdwGrantedAccessMask, int32 pbAccessStatus);
+	public static extern HRESULT RsopAccessCheckByType(SECURITY_DESCRIPTOR* pSecurityDescriptor, PSID pPrincipalSelfSid, void* pRsopToken, uint32 dwDesiredAccessMask, OBJECT_TYPE_LIST* pObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* pGenericMapping, PRIVILEGE_SET* pPrivilegeSet, uint32* pdwPrivilegeSetLength, uint32* pdwGrantedAccessMask, int32* pbAccessStatus);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RsopFileAccessCheck(PWSTR pszFileName, void* pRsopToken, uint32 dwDesiredAccessMask, uint32 pdwGrantedAccessMask, int32 pbAccessStatus);
+	public static extern HRESULT RsopFileAccessCheck(PWSTR pszFileName, void* pRsopToken, uint32 dwDesiredAccessMask, uint32* pdwGrantedAccessMask, int32* pbAccessStatus);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RsopSetPolicySettingStatus(uint32 dwFlags, IWbemServices* pServices, IWbemClassObject* pSettingInstance, uint32 nInfo, POLICYSETTINGSTATUSINFO* pStatus);
@@ -2348,13 +2348,13 @@ public static
 	public static extern uint32 UninstallApplication(PWSTR ProductCode, uint32 dwStatus);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CommandLineFromMsiDescriptor(PWSTR Descriptor, char16* CommandLine, uint32 CommandLineLength);
+	public static extern uint32 CommandLineFromMsiDescriptor(PWSTR Descriptor, char16* CommandLine, uint32* CommandLineLength);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetManagedApplications(Guid pCategory, uint32 dwQueryFlags, uint32 dwInfoLevel, uint32 pdwApps, MANAGEDAPPLICATION** prgManagedApps);
+	public static extern uint32 GetManagedApplications(ref Guid pCategory, uint32 dwQueryFlags, uint32 dwInfoLevel, uint32* pdwApps, MANAGEDAPPLICATION** prgManagedApps);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetLocalManagedApplications(BOOL bUserApps, uint32 pdwApps, LOCALMANAGEDAPPLICATION** prgLocalApps);
+	public static extern uint32 GetLocalManagedApplications(BOOL bUserApps, uint32* pdwApps, LOCALMANAGEDAPPLICATION** prgLocalApps);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void GetLocalManagedApplicationData(PWSTR ProductCode, PWSTR* DisplayName, PWSTR* SupportUrl);

@@ -1706,21 +1706,21 @@ public function void RASDIALFUNC1(HRASCONN param0, uint32 param1, RASCONNSTATE p
 
 public function uint32 RASDIALFUNC2(uint param0, uint32 param1, HRASCONN param2, uint32 param3, RASCONNSTATE param4, uint32 param5, uint32 param6);
 
-public function BOOL ORASADFUNC(HWND param0, PSTR param1, uint32 param2, uint32 param3);
+public function BOOL ORASADFUNC(HWND param0, PSTR param1, uint32 param2, uint32* param3);
 
-public function BOOL RASADFUNCA(PSTR param0, PSTR param1, RASADPARAMS* param2, uint32 param3);
+public function BOOL RASADFUNCA(PSTR param0, PSTR param1, RASADPARAMS* param2, uint32* param3);
 
-public function BOOL RASADFUNCW(PWSTR param0, PWSTR param1, RASADPARAMS* param2, uint32 param3);
+public function BOOL RASADFUNCW(PWSTR param0, PWSTR param1, RASADPARAMS* param2, uint32* param3);
 
-public function uint32 PFNRASGETBUFFER(uint8** ppBuffer, uint32 pdwSize);
+public function uint32 PFNRASGETBUFFER(uint8** ppBuffer, uint32* pdwSize);
 
-public function uint32 PFNRASFREEBUFFER(uint8 pBufer);
+public function uint32 PFNRASFREEBUFFER(uint8* pBufer);
 
-public function uint32 PFNRASSENDBUFFER(HANDLE hPort, uint8 pBuffer, uint32 dwSize);
+public function uint32 PFNRASSENDBUFFER(HANDLE hPort, uint8* pBuffer, uint32 dwSize);
 
-public function uint32 PFNRASRECEIVEBUFFER(HANDLE hPort, uint8 pBuffer, uint32 pdwSize, uint32 dwTimeOut, HANDLE hEvent);
+public function uint32 PFNRASRECEIVEBUFFER(HANDLE hPort, uint8* pBuffer, uint32* pdwSize, uint32 dwTimeOut, HANDLE hEvent);
 
-public function uint32 PFNRASRETRIEVEBUFFER(HANDLE hPort, uint8 pBuffer, uint32 pdwSize);
+public function uint32 PFNRASRETRIEVEBUFFER(HANDLE hPort, uint8* pBuffer, uint32* pdwSize);
 
 public function uint32 RasCustomScriptExecuteFn(HANDLE hPort, PWSTR lpszPhonebook, PWSTR lpszEntryName, PFNRASGETBUFFER pfnRasGetBuffer, PFNRASFREEBUFFER pfnRasFreeBuffer, PFNRASSENDBUFFER pfnRasSendBuffer, PFNRASRECEIVEBUFFER pfnRasReceiveBuffer, PFNRASRETRIEVEBUFFER pfnRasRetrieveBuffer, HWND hWnd, RASDIALPARAMSA* pRasDialParams, void* pvReserved);
 
@@ -1740,9 +1740,9 @@ public function BOOL RasCustomDialDlgFn(HINSTANCE hInstDll, uint32 dwFlags, PWST
 
 public function BOOL RasCustomEntryDlgFn(HINSTANCE hInstDll, PWSTR lpszPhonebook, PWSTR lpszEntry, RASENTRYDLGA* lpInfo, uint32 dwFlags);
 
-public function uint32 PMPRADMINGETIPADDRESSFORUSER(PWSTR param0, PWSTR param1, uint32 param2, BOOL* param3);
+public function uint32 PMPRADMINGETIPADDRESSFORUSER(PWSTR param0, PWSTR param1, uint32* param2, BOOL* param3);
 
-public function void PMPRADMINRELEASEIPADRESS(PWSTR param0, PWSTR param1, uint32 param2);
+public function void PMPRADMINRELEASEIPADRESS(PWSTR param0, PWSTR param1, uint32* param2);
 
 public function uint32 PMPRADMINGETIPV6ADDRESSFORUSER(PWSTR param0, PWSTR param1, IN6_ADDR* param2, BOOL* param3);
 
@@ -1780,15 +1780,15 @@ public function uint32 PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX(AUTH_VAL
 
 public function uint32 RASSECURITYPROC();
 
-public function uint32 PMGM_RPF_CALLBACK(uint32 dwSourceAddr, uint32 dwSourceMask, uint32 dwGroupAddr, uint32 dwGroupMask, uint32 pdwInIfIndex, uint32 pdwInIfNextHopAddr, uint32 pdwUpStreamNbr, uint32 dwHdrSize, uint8 pbPacketHdr, uint8 pbRoute);
+public function uint32 PMGM_RPF_CALLBACK(uint32 dwSourceAddr, uint32 dwSourceMask, uint32 dwGroupAddr, uint32 dwGroupMask, uint32* pdwInIfIndex, uint32* pdwInIfNextHopAddr, uint32* pdwUpStreamNbr, uint32 dwHdrSize, uint8* pbPacketHdr, uint8* pbRoute);
 
 public function uint32 PMGM_CREATION_ALERT_CALLBACK(uint32 dwSourceAddr, uint32 dwSourceMask, uint32 dwGroupAddr, uint32 dwGroupMask, uint32 dwInIfIndex, uint32 dwInIfNextHopAddr, uint32 dwIfCount, MGM_IF_ENTRY* pmieOutIfList);
 
-public function uint32 PMGM_PRUNE_ALERT_CALLBACK(uint32 dwSourceAddr, uint32 dwSourceMask, uint32 dwGroupAddr, uint32 dwGroupMask, uint32 dwIfIndex, uint32 dwIfNextHopAddr, BOOL bMemberDelete, uint32 pdwTimeout);
+public function uint32 PMGM_PRUNE_ALERT_CALLBACK(uint32 dwSourceAddr, uint32 dwSourceMask, uint32 dwGroupAddr, uint32 dwGroupMask, uint32 dwIfIndex, uint32 dwIfNextHopAddr, BOOL bMemberDelete, uint32* pdwTimeout);
 
 public function uint32 PMGM_JOIN_ALERT_CALLBACK(uint32 dwSourceAddr, uint32 dwSourceMask, uint32 dwGroupAddr, uint32 dwGroupMask, BOOL bMemberUpdate);
 
-public function uint32 PMGM_WRONG_IF_CALLBACK(uint32 dwSourceAddr, uint32 dwGroupAddr, uint32 dwIfIndex, uint32 dwIfNextHopAddr, uint32 dwHdrSize, uint8 pbPacketHdr);
+public function uint32 PMGM_WRONG_IF_CALLBACK(uint32 dwSourceAddr, uint32 dwGroupAddr, uint32 dwIfIndex, uint32 dwIfNextHopAddr, uint32 dwHdrSize, uint8* pbPacketHdr);
 
 public function uint32 PMGM_LOCAL_JOIN_CALLBACK(uint32 dwSourceAddr, uint32 dwSourceMask, uint32 dwGroupAddr, uint32 dwGroupMask, uint32 dwIfIndex, uint32 dwIfNextHopAddr);
 
@@ -3757,18 +3757,18 @@ public static
 	public static extern uint32 RasDialW(RASDIALEXTENSIONS* param0, PWSTR param1, RASDIALPARAMSW* param2, uint32 param3, void* param4, HRASCONN* param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasEnumConnectionsA(RASCONNA* param0, uint32 param1, uint32 param2);
-	public static uint32 RasEnumConnections(RASCONNA* param0, uint32 param1, uint32 param2) => RasEnumConnectionsA(param0, param1, param2);
+	public static extern uint32 RasEnumConnectionsA(RASCONNA* param0, uint32* param1, uint32* param2);
+	public static uint32 RasEnumConnections(RASCONNA* param0, uint32* param1, uint32* param2) => RasEnumConnectionsA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasEnumConnectionsW(RASCONNW* param0, uint32 param1, uint32 param2);
+	public static extern uint32 RasEnumConnectionsW(RASCONNW* param0, uint32* param1, uint32* param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasEnumEntriesA(PSTR param0, PSTR param1, RASENTRYNAMEA* param2, uint32 param3, uint32 param4);
-	public static uint32 RasEnumEntries(PSTR param0, PSTR param1, RASENTRYNAMEA* param2, uint32 param3, uint32 param4) => RasEnumEntriesA(param0, param1, param2, param3, param4);
+	public static extern uint32 RasEnumEntriesA(PSTR param0, PSTR param1, RASENTRYNAMEA* param2, uint32* param3, uint32* param4);
+	public static uint32 RasEnumEntries(PSTR param0, PSTR param1, RASENTRYNAMEA* param2, uint32* param3, uint32* param4) => RasEnumEntriesA(param0, param1, param2, param3, param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasEnumEntriesW(PWSTR param0, PWSTR param1, RASENTRYNAMEW* param2, uint32 param3, uint32 param4);
+	public static extern uint32 RasEnumEntriesW(PWSTR param0, PWSTR param1, RASENTRYNAMEW* param2, uint32* param3, uint32* param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetConnectStatusA(HRASCONN param0, RASCONNSTATUSA* param1);
@@ -3792,11 +3792,11 @@ public static
 	public static extern uint32 RasHangUpW(HRASCONN param0);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetProjectionInfoA(HRASCONN param0, RASPROJECTION param1, void* param2, uint32 param3);
-	public static uint32 RasGetProjectionInfo(HRASCONN param0, RASPROJECTION param1, void* param2, uint32 param3) => RasGetProjectionInfoA(param0, param1, param2, param3);
+	public static extern uint32 RasGetProjectionInfoA(HRASCONN param0, RASPROJECTION param1, void* param2, uint32* param3);
+	public static uint32 RasGetProjectionInfo(HRASCONN param0, RASPROJECTION param1, void* param2, uint32* param3) => RasGetProjectionInfoA(param0, param1, param2, param3);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetProjectionInfoW(HRASCONN param0, RASPROJECTION param1, void* param2, uint32 param3);
+	public static extern uint32 RasGetProjectionInfoW(HRASCONN param0, RASPROJECTION param1, void* param2, uint32* param3);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasCreatePhonebookEntryA(HWND param0, PSTR param1);
@@ -3820,39 +3820,39 @@ public static
 	public static extern uint32 RasSetEntryDialParamsW(PWSTR param0, RASDIALPARAMSW* param1, BOOL param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetEntryDialParamsA(PSTR param0, RASDIALPARAMSA* param1, int32 param2);
-	public static uint32 RasGetEntryDialParams(PSTR param0, RASDIALPARAMSA* param1, int32 param2) => RasGetEntryDialParamsA(param0, param1, param2);
+	public static extern uint32 RasGetEntryDialParamsA(PSTR param0, RASDIALPARAMSA* param1, int32* param2);
+	public static uint32 RasGetEntryDialParams(PSTR param0, RASDIALPARAMSA* param1, int32* param2) => RasGetEntryDialParamsA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetEntryDialParamsW(PWSTR param0, RASDIALPARAMSW* param1, int32 param2);
+	public static extern uint32 RasGetEntryDialParamsW(PWSTR param0, RASDIALPARAMSW* param1, int32* param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasEnumDevicesA(RASDEVINFOA* param0, uint32 param1, uint32 param2);
-	public static uint32 RasEnumDevices(RASDEVINFOA* param0, uint32 param1, uint32 param2) => RasEnumDevicesA(param0, param1, param2);
+	public static extern uint32 RasEnumDevicesA(RASDEVINFOA* param0, uint32* param1, uint32* param2);
+	public static uint32 RasEnumDevices(RASDEVINFOA* param0, uint32* param1, uint32* param2) => RasEnumDevicesA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasEnumDevicesW(RASDEVINFOW* param0, uint32 param1, uint32 param2);
+	public static extern uint32 RasEnumDevicesW(RASDEVINFOW* param0, uint32* param1, uint32* param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetCountryInfoA(RASCTRYINFO* param0, uint32 param1);
-	public static uint32 RasGetCountryInfo(RASCTRYINFO* param0, uint32 param1) => RasGetCountryInfoA(param0, param1);
+	public static extern uint32 RasGetCountryInfoA(RASCTRYINFO* param0, uint32* param1);
+	public static uint32 RasGetCountryInfo(RASCTRYINFO* param0, uint32* param1) => RasGetCountryInfoA(param0, param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetCountryInfoW(RASCTRYINFO* param0, uint32 param1);
+	public static extern uint32 RasGetCountryInfoW(RASCTRYINFO* param0, uint32* param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetEntryPropertiesA(PSTR param0, PSTR param1, RASENTRYA* param2, uint32 param3, uint8 param4, uint32 param5);
-	public static uint32 RasGetEntryProperties(PSTR param0, PSTR param1, RASENTRYA* param2, uint32 param3, uint8 param4, uint32 param5) => RasGetEntryPropertiesA(param0, param1, param2, param3, param4, param5);
+	public static extern uint32 RasGetEntryPropertiesA(PSTR param0, PSTR param1, RASENTRYA* param2, uint32* param3, uint8* param4, uint32* param5);
+	public static uint32 RasGetEntryProperties(PSTR param0, PSTR param1, RASENTRYA* param2, uint32* param3, uint8* param4, uint32* param5) => RasGetEntryPropertiesA(param0, param1, param2, param3, param4, param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetEntryPropertiesW(PWSTR param0, PWSTR param1, RASENTRYW* param2, uint32 param3, uint8 param4, uint32 param5);
+	public static extern uint32 RasGetEntryPropertiesW(PWSTR param0, PWSTR param1, RASENTRYW* param2, uint32* param3, uint8* param4, uint32* param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasSetEntryPropertiesA(PSTR param0, PSTR param1, RASENTRYA* param2, uint32 param3, uint8 param4, uint32 param5);
-	public static uint32 RasSetEntryProperties(PSTR param0, PSTR param1, RASENTRYA* param2, uint32 param3, uint8 param4, uint32 param5) => RasSetEntryPropertiesA(param0, param1, param2, param3, param4, param5);
+	public static extern uint32 RasSetEntryPropertiesA(PSTR param0, PSTR param1, RASENTRYA* param2, uint32 param3, uint8* param4, uint32 param5);
+	public static uint32 RasSetEntryProperties(PSTR param0, PSTR param1, RASENTRYA* param2, uint32 param3, uint8* param4, uint32 param5) => RasSetEntryPropertiesA(param0, param1, param2, param3, param4, param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasSetEntryPropertiesW(PWSTR param0, PWSTR param1, RASENTRYW* param2, uint32 param3, uint8 param4, uint32 param5);
+	public static extern uint32 RasSetEntryPropertiesW(PWSTR param0, PWSTR param1, RASENTRYW* param2, uint32 param3, uint8* param4, uint32 param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasRenameEntryA(PSTR param0, PSTR param1, PSTR param2);
@@ -3904,25 +3904,25 @@ public static
 	public static extern uint32 RasSetCredentialsW(PWSTR param0, PWSTR param1, RASCREDENTIALSW* param2, BOOL param3);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetSubEntryPropertiesA(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32 param4, uint8 param5, uint32 param6);
-	public static uint32 RasGetSubEntryProperties(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32 param4, uint8 param5, uint32 param6) => RasGetSubEntryPropertiesA(param0, param1, param2, param3, param4, param5, param6);
+	public static extern uint32 RasGetSubEntryPropertiesA(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32* param4, uint8* param5, uint32* param6);
+	public static uint32 RasGetSubEntryProperties(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32* param4, uint8* param5, uint32* param6) => RasGetSubEntryPropertiesA(param0, param1, param2, param3, param4, param5, param6);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetSubEntryPropertiesW(PWSTR param0, PWSTR param1, uint32 param2, RASSUBENTRYW* param3, uint32 param4, uint8 param5, uint32 param6);
+	public static extern uint32 RasGetSubEntryPropertiesW(PWSTR param0, PWSTR param1, uint32 param2, RASSUBENTRYW* param3, uint32* param4, uint8* param5, uint32* param6);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasSetSubEntryPropertiesA(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32 param4, uint8 param5, uint32 param6);
-	public static uint32 RasSetSubEntryProperties(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32 param4, uint8 param5, uint32 param6) => RasSetSubEntryPropertiesA(param0, param1, param2, param3, param4, param5, param6);
+	public static extern uint32 RasSetSubEntryPropertiesA(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32 param4, uint8* param5, uint32 param6);
+	public static uint32 RasSetSubEntryProperties(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32 param4, uint8* param5, uint32 param6) => RasSetSubEntryPropertiesA(param0, param1, param2, param3, param4, param5, param6);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasSetSubEntryPropertiesW(PWSTR param0, PWSTR param1, uint32 param2, RASSUBENTRYW* param3, uint32 param4, uint8 param5, uint32 param6);
+	public static extern uint32 RasSetSubEntryPropertiesW(PWSTR param0, PWSTR param1, uint32 param2, RASSUBENTRYW* param3, uint32 param4, uint8* param5, uint32 param6);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetAutodialAddressA(PSTR param0, uint32 param1, RASAUTODIALENTRYA* param2, uint32 param3, uint32 param4);
-	public static uint32 RasGetAutodialAddress(PSTR param0, uint32 param1, RASAUTODIALENTRYA* param2, uint32 param3, uint32 param4) => RasGetAutodialAddressA(param0, param1, param2, param3, param4);
+	public static extern uint32 RasGetAutodialAddressA(PSTR param0, uint32* param1, RASAUTODIALENTRYA* param2, uint32* param3, uint32* param4);
+	public static uint32 RasGetAutodialAddress(PSTR param0, uint32* param1, RASAUTODIALENTRYA* param2, uint32* param3, uint32* param4) => RasGetAutodialAddressA(param0, param1, param2, param3, param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetAutodialAddressW(PWSTR param0, uint32 param1, RASAUTODIALENTRYW* param2, uint32 param3, uint32 param4);
+	public static extern uint32 RasGetAutodialAddressW(PWSTR param0, uint32* param1, RASAUTODIALENTRYW* param2, uint32* param3, uint32* param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetAutodialAddressA(PSTR param0, uint32 param1, RASAUTODIALENTRYA* param2, uint32 param3, uint32 param4);
@@ -3932,18 +3932,18 @@ public static
 	public static extern uint32 RasSetAutodialAddressW(PWSTR param0, uint32 param1, RASAUTODIALENTRYW* param2, uint32 param3, uint32 param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasEnumAutodialAddressesA(PSTR* lppRasAutodialAddresses, uint32 lpdwcbRasAutodialAddresses, uint32 lpdwcRasAutodialAddresses);
-	public static uint32 RasEnumAutodialAddresses(PSTR* lppRasAutodialAddresses, uint32 lpdwcbRasAutodialAddresses, uint32 lpdwcRasAutodialAddresses) => RasEnumAutodialAddressesA(lppRasAutodialAddresses, lpdwcbRasAutodialAddresses, lpdwcRasAutodialAddresses);
+	public static extern uint32 RasEnumAutodialAddressesA(PSTR* lppRasAutodialAddresses, uint32* lpdwcbRasAutodialAddresses, uint32* lpdwcRasAutodialAddresses);
+	public static uint32 RasEnumAutodialAddresses(PSTR* lppRasAutodialAddresses, uint32* lpdwcbRasAutodialAddresses, uint32* lpdwcRasAutodialAddresses) => RasEnumAutodialAddressesA(lppRasAutodialAddresses, lpdwcbRasAutodialAddresses, lpdwcRasAutodialAddresses);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasEnumAutodialAddressesW(PWSTR* lppRasAutodialAddresses, uint32 lpdwcbRasAutodialAddresses, uint32 lpdwcRasAutodialAddresses);
+	public static extern uint32 RasEnumAutodialAddressesW(PWSTR* lppRasAutodialAddresses, uint32* lpdwcbRasAutodialAddresses, uint32* lpdwcRasAutodialAddresses);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetAutodialEnableA(uint32 param0, int32 param1);
-	public static uint32 RasGetAutodialEnable(uint32 param0, int32 param1) => RasGetAutodialEnableA(param0, param1);
+	public static extern uint32 RasGetAutodialEnableA(uint32 param0, int32* param1);
+	public static uint32 RasGetAutodialEnable(uint32 param0, int32* param1) => RasGetAutodialEnableA(param0, param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetAutodialEnableW(uint32 param0, int32 param1);
+	public static extern uint32 RasGetAutodialEnableW(uint32 param0, int32* param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetAutodialEnableA(uint32 param0, BOOL param1);
@@ -3953,11 +3953,11 @@ public static
 	public static extern uint32 RasSetAutodialEnableW(uint32 param0, BOOL param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetAutodialParamA(uint32 param0, void* param1, uint32 param2);
-	public static uint32 RasGetAutodialParam(uint32 param0, void* param1, uint32 param2) => RasGetAutodialParamA(param0, param1, param2);
+	public static extern uint32 RasGetAutodialParamA(uint32 param0, void* param1, uint32* param2);
+	public static uint32 RasGetAutodialParam(uint32 param0, void* param1, uint32* param2) => RasGetAutodialParamA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetAutodialParamW(uint32 param0, void* param1, uint32 param2);
+	public static extern uint32 RasGetAutodialParamW(uint32 param0, void* param1, uint32* param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetAutodialParamA(uint32 param0, void* param1, uint32 param2);
@@ -3985,32 +3985,32 @@ public static
 	public static extern uint32 RasClearConnectionStatistics(HRASCONN hRasConn);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetEapUserDataA(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8 pbEapData, uint32 pdwSizeofEapData);
-	public static uint32 RasGetEapUserData(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8 pbEapData, uint32 pdwSizeofEapData) => RasGetEapUserDataA(hToken, pszPhonebook, pszEntry, pbEapData, pdwSizeofEapData);
+	public static extern uint32 RasGetEapUserDataA(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8* pbEapData, uint32* pdwSizeofEapData);
+	public static uint32 RasGetEapUserData(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8* pbEapData, uint32* pdwSizeofEapData) => RasGetEapUserDataA(hToken, pszPhonebook, pszEntry, pbEapData, pdwSizeofEapData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetEapUserDataW(HANDLE hToken, PWSTR pszPhonebook, PWSTR pszEntry, uint8 pbEapData, uint32 pdwSizeofEapData);
+	public static extern uint32 RasGetEapUserDataW(HANDLE hToken, PWSTR pszPhonebook, PWSTR pszEntry, uint8* pbEapData, uint32* pdwSizeofEapData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasSetEapUserDataA(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8 pbEapData, uint32 dwSizeofEapData);
-	public static uint32 RasSetEapUserData(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8 pbEapData, uint32 dwSizeofEapData) => RasSetEapUserDataA(hToken, pszPhonebook, pszEntry, pbEapData, dwSizeofEapData);
+	public static extern uint32 RasSetEapUserDataA(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8* pbEapData, uint32 dwSizeofEapData);
+	public static uint32 RasSetEapUserData(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8* pbEapData, uint32 dwSizeofEapData) => RasSetEapUserDataA(hToken, pszPhonebook, pszEntry, pbEapData, dwSizeofEapData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasSetEapUserDataW(HANDLE hToken, PWSTR pszPhonebook, PWSTR pszEntry, uint8 pbEapData, uint32 dwSizeofEapData);
+	public static extern uint32 RasSetEapUserDataW(HANDLE hToken, PWSTR pszPhonebook, PWSTR pszEntry, uint8* pbEapData, uint32 dwSizeofEapData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetCustomAuthDataA(PSTR pszPhonebook, PSTR pszEntry, uint8 pbCustomAuthData, uint32 pdwSizeofCustomAuthData);
-	public static uint32 RasGetCustomAuthData(PSTR pszPhonebook, PSTR pszEntry, uint8 pbCustomAuthData, uint32 pdwSizeofCustomAuthData) => RasGetCustomAuthDataA(pszPhonebook, pszEntry, pbCustomAuthData, pdwSizeofCustomAuthData);
+	public static extern uint32 RasGetCustomAuthDataA(PSTR pszPhonebook, PSTR pszEntry, uint8* pbCustomAuthData, uint32* pdwSizeofCustomAuthData);
+	public static uint32 RasGetCustomAuthData(PSTR pszPhonebook, PSTR pszEntry, uint8* pbCustomAuthData, uint32* pdwSizeofCustomAuthData) => RasGetCustomAuthDataA(pszPhonebook, pszEntry, pbCustomAuthData, pdwSizeofCustomAuthData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetCustomAuthDataW(PWSTR pszPhonebook, PWSTR pszEntry, uint8 pbCustomAuthData, uint32 pdwSizeofCustomAuthData);
+	public static extern uint32 RasGetCustomAuthDataW(PWSTR pszPhonebook, PWSTR pszEntry, uint8* pbCustomAuthData, uint32* pdwSizeofCustomAuthData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasSetCustomAuthDataA(PSTR pszPhonebook, PSTR pszEntry, uint8 pbCustomAuthData, uint32 dwSizeofCustomAuthData);
-	public static uint32 RasSetCustomAuthData(PSTR pszPhonebook, PSTR pszEntry, uint8 pbCustomAuthData, uint32 dwSizeofCustomAuthData) => RasSetCustomAuthDataA(pszPhonebook, pszEntry, pbCustomAuthData, dwSizeofCustomAuthData);
+	public static extern uint32 RasSetCustomAuthDataA(PSTR pszPhonebook, PSTR pszEntry, uint8* pbCustomAuthData, uint32 dwSizeofCustomAuthData);
+	public static uint32 RasSetCustomAuthData(PSTR pszPhonebook, PSTR pszEntry, uint8* pbCustomAuthData, uint32 dwSizeofCustomAuthData) => RasSetCustomAuthDataA(pszPhonebook, pszEntry, pbCustomAuthData, dwSizeofCustomAuthData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasSetCustomAuthDataW(PWSTR pszPhonebook, PWSTR pszEntry, uint8 pbCustomAuthData, uint32 dwSizeofCustomAuthData);
+	public static extern uint32 RasSetCustomAuthDataW(PWSTR pszPhonebook, PWSTR pszEntry, uint8* pbCustomAuthData, uint32 dwSizeofCustomAuthData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetEapUserIdentityW(PWSTR pszPhonebook, PWSTR pszEntry, uint32 dwFlags, HWND hwnd, RASEAPUSERIDENTITYW** ppRasEapUserIdentity);
@@ -4037,7 +4037,7 @@ public static
 	public static extern uint32 RasUpdateConnection(HRASCONN hrasconn, RASUPDATECONN* lprasupdateconn);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasGetProjectionInfoEx(HRASCONN hrasconn, RAS_PROJECTION_INFO* pRasProjection, uint32 lpdwSize);
+	public static extern uint32 RasGetProjectionInfoEx(HRASCONN hrasconn, RAS_PROJECTION_INFO* pRasProjection, uint32* lpdwSize);
 
 	[Import("RASDLG.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RasPhonebookDlgA(PSTR lpszPhonebook, PSTR lpszEntry, RASPBDLGA* lpInfo);
@@ -4061,7 +4061,7 @@ public static
 	public static extern BOOL RasDialDlgW(PWSTR lpszPhonebook, PWSTR lpszEntry, PWSTR lpszPhoneNumber, RASDIALDLG* lpInfo);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminConnectionEnumEx(int hRasServer, MPRAPI_OBJECT_HEADER* pObjectHeader, uint32 dwPreferedMaxLen, uint32 lpdwEntriesRead, uint32 lpdwTotalEntries, RAS_CONNECTION_EX** ppRasConn, uint32 lpdwResumeHandle);
+	public static extern uint32 MprAdminConnectionEnumEx(int hRasServer, MPRAPI_OBJECT_HEADER* pObjectHeader, uint32 dwPreferedMaxLen, uint32* lpdwEntriesRead, uint32* lpdwTotalEntries, RAS_CONNECTION_EX** ppRasConn, uint32* lpdwResumeHandle);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminConnectionGetInfoEx(int hRasServer, HANDLE hRasConnection, RAS_CONNECTION_EX* pRasConnection);
@@ -4097,10 +4097,10 @@ public static
 	public static extern uint32 MprConfigInterfaceSetCustomInfoEx(HANDLE hMprConfig, HANDLE hRouterInterface, MPR_IF_CUSTOMINFOEX2* pCustomInfo);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminConnectionEnum(int hRasServer, uint32 dwLevel, uint8** lplpbBuffer, uint32 dwPrefMaxLen, uint32 lpdwEntriesRead, uint32 lpdwTotalEntries, uint32 lpdwResumeHandle);
+	public static extern uint32 MprAdminConnectionEnum(int hRasServer, uint32 dwLevel, uint8** lplpbBuffer, uint32 dwPrefMaxLen, uint32* lpdwEntriesRead, uint32* lpdwTotalEntries, uint32* lpdwResumeHandle);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminPortEnum(int hRasServer, uint32 dwLevel, HANDLE hRasConnection, uint8** lplpbBuffer, uint32 dwPrefMaxLen, uint32 lpdwEntriesRead, uint32 lpdwTotalEntries, uint32 lpdwResumeHandle);
+	public static extern uint32 MprAdminPortEnum(int hRasServer, uint32 dwLevel, HANDLE hRasConnection, uint8** lplpbBuffer, uint32 dwPrefMaxLen, uint32* lpdwEntriesRead, uint32* lpdwTotalEntries, uint32* lpdwResumeHandle);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminConnectionGetInfo(int hRasServer, uint32 dwLevel, HANDLE hRasConnection, uint8** lplpbBuffer);
@@ -4124,10 +4124,10 @@ public static
 	public static extern uint32 MprAdminConnectionRemoveQuarantine(HANDLE hRasServer, HANDLE hRasConnection, BOOL fIsIpAddress);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminUserGetInfo(PWSTR lpszServer, PWSTR lpszUser, uint32 dwLevel, uint8 lpbBuffer);
+	public static extern uint32 MprAdminUserGetInfo(PWSTR lpszServer, PWSTR lpszUser, uint32 dwLevel, uint8* lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminUserSetInfo(PWSTR lpszServer, PWSTR lpszUser, uint32 dwLevel, uint8 lpbBuffer);
+	public static extern uint32 MprAdminUserSetInfo(PWSTR lpszServer, PWSTR lpszUser, uint32 dwLevel, uint8* lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminSendUserMessage(int hMprServer, HANDLE hConnection, PWSTR lpwszMessage);
@@ -4139,7 +4139,7 @@ public static
 	public static extern BOOL MprAdminIsServiceRunning(PWSTR lpwsServerName);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminServerConnect(PWSTR lpwsServerName, int phMprServer);
+	public static extern uint32 MprAdminServerConnect(PWSTR lpwsServerName, int* phMprServer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void MprAdminServerDisconnect(int hMprServer);
@@ -4148,7 +4148,7 @@ public static
 	public static extern uint32 MprAdminServerGetCredentials(int hMprServer, uint32 dwLevel, uint8** lplpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminServerSetCredentials(int hMprServer, uint32 dwLevel, uint8 lpbBuffer);
+	public static extern uint32 MprAdminServerSetCredentials(int hMprServer, uint32 dwLevel, uint8* lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminBufferFree(void* pBuffer);
@@ -4160,7 +4160,7 @@ public static
 	public static extern uint32 MprAdminServerGetInfo(int hMprServer, uint32 dwLevel, uint8** lplpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminServerSetInfo(int hMprServer, uint32 dwLevel, uint8 lpbBuffer);
+	public static extern uint32 MprAdminServerSetInfo(int hMprServer, uint32 dwLevel, uint8* lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminEstablishDomainRasServer(PWSTR pszDomain, PWSTR pszMachine, BOOL bEnable);
@@ -4169,28 +4169,28 @@ public static
 	public static extern uint32 MprAdminIsDomainRasServer(PWSTR pszDomain, PWSTR pszMachine, BOOL* pbIsRasServer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminTransportCreate(int hMprServer, uint32 dwTransportId, PWSTR lpwsTransportName, uint8 pGlobalInfo, uint32 dwGlobalInfoSize, uint8 pClientInterfaceInfo, uint32 dwClientInterfaceInfoSize, PWSTR lpwsDLLPath);
+	public static extern uint32 MprAdminTransportCreate(int hMprServer, uint32 dwTransportId, PWSTR lpwsTransportName, uint8* pGlobalInfo, uint32 dwGlobalInfoSize, uint8* pClientInterfaceInfo, uint32 dwClientInterfaceInfoSize, PWSTR lpwsDLLPath);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminTransportSetInfo(int hMprServer, uint32 dwTransportId, uint8 pGlobalInfo, uint32 dwGlobalInfoSize, uint8 pClientInterfaceInfo, uint32 dwClientInterfaceInfoSize);
+	public static extern uint32 MprAdminTransportSetInfo(int hMprServer, uint32 dwTransportId, uint8* pGlobalInfo, uint32 dwGlobalInfoSize, uint8* pClientInterfaceInfo, uint32 dwClientInterfaceInfoSize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminTransportGetInfo(int hMprServer, uint32 dwTransportId, uint8** ppGlobalInfo, uint32 lpdwGlobalInfoSize, uint8** ppClientInterfaceInfo, uint32 lpdwClientInterfaceInfoSize);
+	public static extern uint32 MprAdminTransportGetInfo(int hMprServer, uint32 dwTransportId, uint8** ppGlobalInfo, uint32* lpdwGlobalInfoSize, uint8** ppClientInterfaceInfo, uint32* lpdwClientInterfaceInfoSize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminDeviceEnum(int hMprServer, uint32 dwLevel, uint8** lplpbBuffer, uint32 lpdwTotalEntries);
+	public static extern uint32 MprAdminDeviceEnum(int hMprServer, uint32 dwLevel, uint8** lplpbBuffer, uint32* lpdwTotalEntries);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminInterfaceGetHandle(int hMprServer, PWSTR lpwsInterfaceName, HANDLE* phInterface, BOOL fIncludeClientInterfaces);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminInterfaceCreate(int hMprServer, uint32 dwLevel, uint8 lpbBuffer, HANDLE* phInterface);
+	public static extern uint32 MprAdminInterfaceCreate(int hMprServer, uint32 dwLevel, uint8* lpbBuffer, HANDLE* phInterface);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminInterfaceGetInfo(int hMprServer, HANDLE hInterface, uint32 dwLevel, uint8** lplpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminInterfaceSetInfo(int hMprServer, HANDLE hInterface, uint32 dwLevel, uint8 lpbBuffer);
+	public static extern uint32 MprAdminInterfaceSetInfo(int hMprServer, HANDLE hInterface, uint32 dwLevel, uint8* lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminInterfaceDelete(int hMprServer, HANDLE hInterface);
@@ -4199,22 +4199,22 @@ public static
 	public static extern uint32 MprAdminInterfaceDeviceGetInfo(int hMprServer, HANDLE hInterface, uint32 dwIndex, uint32 dwLevel, uint8** lplpBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminInterfaceDeviceSetInfo(int hMprServer, HANDLE hInterface, uint32 dwIndex, uint32 dwLevel, uint8 lpbBuffer);
+	public static extern uint32 MprAdminInterfaceDeviceSetInfo(int hMprServer, HANDLE hInterface, uint32 dwIndex, uint32 dwLevel, uint8* lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminInterfaceTransportRemove(int hMprServer, HANDLE hInterface, uint32 dwTransportId);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminInterfaceTransportAdd(int hMprServer, HANDLE hInterface, uint32 dwTransportId, uint8 pInterfaceInfo, uint32 dwInterfaceInfoSize);
+	public static extern uint32 MprAdminInterfaceTransportAdd(int hMprServer, HANDLE hInterface, uint32 dwTransportId, uint8* pInterfaceInfo, uint32 dwInterfaceInfoSize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminInterfaceTransportGetInfo(int hMprServer, HANDLE hInterface, uint32 dwTransportId, uint8** ppInterfaceInfo, uint32 lpdwInterfaceInfoSize);
+	public static extern uint32 MprAdminInterfaceTransportGetInfo(int hMprServer, HANDLE hInterface, uint32 dwTransportId, uint8** ppInterfaceInfo, uint32* lpdwInterfaceInfoSize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminInterfaceTransportSetInfo(int hMprServer, HANDLE hInterface, uint32 dwTransportId, uint8 pInterfaceInfo, uint32 dwInterfaceInfoSize);
+	public static extern uint32 MprAdminInterfaceTransportSetInfo(int hMprServer, HANDLE hInterface, uint32 dwTransportId, uint8* pInterfaceInfo, uint32 dwInterfaceInfoSize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminInterfaceEnum(int hMprServer, uint32 dwLevel, uint8** lplpbBuffer, uint32 dwPrefMaxLen, uint32 lpdwEntriesRead, uint32 lpdwTotalEntries, uint32 lpdwResumeHandle);
+	public static extern uint32 MprAdminInterfaceEnum(int hMprServer, uint32 dwLevel, uint8** lplpbBuffer, uint32 dwPrefMaxLen, uint32* lpdwEntriesRead, uint32* lpdwTotalEntries, uint32* lpdwResumeHandle);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminInterfaceSetCredentials(PWSTR lpwsServer, PWSTR lpwsInterfaceName, PWSTR lpwsUserName, PWSTR lpwsDomainName, PWSTR lpwsPassword);
@@ -4223,7 +4223,7 @@ public static
 	public static extern uint32 MprAdminInterfaceGetCredentials(PWSTR lpwsServer, PWSTR lpwsInterfaceName, PWSTR lpwsUserName, PWSTR lpwsPassword, PWSTR lpwsDomainName);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminInterfaceSetCredentialsEx(int hMprServer, HANDLE hInterface, uint32 dwLevel, uint8 lpbBuffer);
+	public static extern uint32 MprAdminInterfaceSetCredentialsEx(int hMprServer, HANDLE hInterface, uint32 dwLevel, uint8* lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminInterfaceGetCredentialsEx(int hMprServer, HANDLE hInterface, uint32 dwLevel, uint8** lplpbBuffer);
@@ -4238,7 +4238,7 @@ public static
 	public static extern uint32 MprAdminInterfaceUpdateRoutes(int hMprServer, HANDLE hInterface, uint32 dwProtocolId, HANDLE hEvent);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminInterfaceQueryUpdateResult(int hMprServer, HANDLE hInterface, uint32 dwProtocolId, uint32 lpdwUpdateResult);
+	public static extern uint32 MprAdminInterfaceQueryUpdateResult(int hMprServer, HANDLE hInterface, uint32 dwProtocolId, uint32* lpdwUpdateResult);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminInterfaceUpdatePhonebookInfo(int hMprServer, HANDLE hInterface);
@@ -4250,7 +4250,7 @@ public static
 	public static extern uint32 MprAdminDeregisterConnectionNotification(int hMprServer, HANDLE hEventNotification);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminMIBServerConnect(PWSTR lpwsServerName, int phMibServer);
+	public static extern uint32 MprAdminMIBServerConnect(PWSTR lpwsServerName, int* phMibServer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void MprAdminMIBServerDisconnect(int hMibServer);
@@ -4265,13 +4265,13 @@ public static
 	public static extern uint32 MprAdminMIBEntrySet(int hMibServer, uint32 dwProtocolId, uint32 dwRoutingPid, void* lpEntry, uint32 dwEntrySize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminMIBEntryGet(int hMibServer, uint32 dwProtocolId, uint32 dwRoutingPid, void* lpInEntry, uint32 dwInEntrySize, void** lplpOutEntry, uint32 lpOutEntrySize);
+	public static extern uint32 MprAdminMIBEntryGet(int hMibServer, uint32 dwProtocolId, uint32 dwRoutingPid, void* lpInEntry, uint32 dwInEntrySize, void** lplpOutEntry, uint32* lpOutEntrySize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminMIBEntryGetFirst(int hMibServer, uint32 dwProtocolId, uint32 dwRoutingPid, void* lpInEntry, uint32 dwInEntrySize, void** lplpOutEntry, uint32 lpOutEntrySize);
+	public static extern uint32 MprAdminMIBEntryGetFirst(int hMibServer, uint32 dwProtocolId, uint32 dwRoutingPid, void* lpInEntry, uint32 dwInEntrySize, void** lplpOutEntry, uint32* lpOutEntrySize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminMIBEntryGetNext(int hMibServer, uint32 dwProtocolId, uint32 dwRoutingPid, void* lpInEntry, uint32 dwInEntrySize, void** lplpOutEntry, uint32 lpOutEntrySize);
+	public static extern uint32 MprAdminMIBEntryGetNext(int hMibServer, uint32 dwProtocolId, uint32 dwRoutingPid, void* lpInEntry, uint32 dwInEntrySize, void** lplpOutEntry, uint32* lpOutEntrySize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminMIBBufferFree(void* pBuffer);
@@ -4295,7 +4295,7 @@ public static
 	public static extern uint32 MprConfigServerGetInfo(HANDLE hMprConfig, uint32 dwLevel, uint8** lplpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigServerSetInfo(int hMprServer, uint32 dwLevel, uint8 lpbBuffer);
+	public static extern uint32 MprConfigServerSetInfo(int hMprServer, uint32 dwLevel, uint8* lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprConfigServerBackup(HANDLE hMprConfig, PWSTR lpwsPath);
@@ -4304,7 +4304,7 @@ public static
 	public static extern uint32 MprConfigServerRestore(HANDLE hMprConfig, PWSTR lpwsPath);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigTransportCreate(HANDLE hMprConfig, uint32 dwTransportId, PWSTR lpwsTransportName, uint8 pGlobalInfo, uint32 dwGlobalInfoSize, uint8 pClientInterfaceInfo, uint32 dwClientInterfaceInfoSize, PWSTR lpwsDLLPath, HANDLE* phRouterTransport);
+	public static extern uint32 MprConfigTransportCreate(HANDLE hMprConfig, uint32 dwTransportId, PWSTR lpwsTransportName, uint8* pGlobalInfo, uint32 dwGlobalInfoSize, uint8* pClientInterfaceInfo, uint32 dwClientInterfaceInfoSize, PWSTR lpwsDLLPath, HANDLE* phRouterTransport);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprConfigTransportDelete(HANDLE hMprConfig, HANDLE hRouterTransport);
@@ -4313,16 +4313,16 @@ public static
 	public static extern uint32 MprConfigTransportGetHandle(HANDLE hMprConfig, uint32 dwTransportId, HANDLE* phRouterTransport);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigTransportSetInfo(HANDLE hMprConfig, HANDLE hRouterTransport, uint8 pGlobalInfo, uint32 dwGlobalInfoSize, uint8 pClientInterfaceInfo, uint32 dwClientInterfaceInfoSize, PWSTR lpwsDLLPath);
+	public static extern uint32 MprConfigTransportSetInfo(HANDLE hMprConfig, HANDLE hRouterTransport, uint8* pGlobalInfo, uint32 dwGlobalInfoSize, uint8* pClientInterfaceInfo, uint32 dwClientInterfaceInfoSize, PWSTR lpwsDLLPath);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigTransportGetInfo(HANDLE hMprConfig, HANDLE hRouterTransport, uint8** ppGlobalInfo, uint32 lpdwGlobalInfoSize, uint8** ppClientInterfaceInfo, uint32 lpdwClientInterfaceInfoSize, PWSTR* lplpwsDLLPath);
+	public static extern uint32 MprConfigTransportGetInfo(HANDLE hMprConfig, HANDLE hRouterTransport, uint8** ppGlobalInfo, uint32* lpdwGlobalInfoSize, uint8** ppClientInterfaceInfo, uint32* lpdwClientInterfaceInfoSize, PWSTR* lplpwsDLLPath);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigTransportEnum(HANDLE hMprConfig, uint32 dwLevel, uint8** lplpBuffer, uint32 dwPrefMaxLen, uint32 lpdwEntriesRead, uint32 lpdwTotalEntries, uint32 lpdwResumeHandle);
+	public static extern uint32 MprConfigTransportEnum(HANDLE hMprConfig, uint32 dwLevel, uint8** lplpBuffer, uint32 dwPrefMaxLen, uint32* lpdwEntriesRead, uint32* lpdwTotalEntries, uint32* lpdwResumeHandle);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigInterfaceCreate(HANDLE hMprConfig, uint32 dwLevel, uint8 lpbBuffer, HANDLE* phRouterInterface);
+	public static extern uint32 MprConfigInterfaceCreate(HANDLE hMprConfig, uint32 dwLevel, uint8* lpbBuffer, HANDLE* phRouterInterface);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprConfigInterfaceDelete(HANDLE hMprConfig, HANDLE hRouterInterface);
@@ -4331,16 +4331,16 @@ public static
 	public static extern uint32 MprConfigInterfaceGetHandle(HANDLE hMprConfig, PWSTR lpwsInterfaceName, HANDLE* phRouterInterface);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigInterfaceGetInfo(HANDLE hMprConfig, HANDLE hRouterInterface, uint32 dwLevel, uint8** lplpBuffer, uint32 lpdwBufferSize);
+	public static extern uint32 MprConfigInterfaceGetInfo(HANDLE hMprConfig, HANDLE hRouterInterface, uint32 dwLevel, uint8** lplpBuffer, uint32* lpdwBufferSize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigInterfaceSetInfo(HANDLE hMprConfig, HANDLE hRouterInterface, uint32 dwLevel, uint8 lpbBuffer);
+	public static extern uint32 MprConfigInterfaceSetInfo(HANDLE hMprConfig, HANDLE hRouterInterface, uint32 dwLevel, uint8* lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigInterfaceEnum(HANDLE hMprConfig, uint32 dwLevel, uint8** lplpBuffer, uint32 dwPrefMaxLen, uint32 lpdwEntriesRead, uint32 lpdwTotalEntries, uint32 lpdwResumeHandle);
+	public static extern uint32 MprConfigInterfaceEnum(HANDLE hMprConfig, uint32 dwLevel, uint8** lplpBuffer, uint32 dwPrefMaxLen, uint32* lpdwEntriesRead, uint32* lpdwTotalEntries, uint32* lpdwResumeHandle);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigInterfaceTransportAdd(HANDLE hMprConfig, HANDLE hRouterInterface, uint32 dwTransportId, PWSTR lpwsTransportName, uint8 pInterfaceInfo, uint32 dwInterfaceInfoSize, HANDLE* phRouterIfTransport);
+	public static extern uint32 MprConfigInterfaceTransportAdd(HANDLE hMprConfig, HANDLE hRouterInterface, uint32 dwTransportId, PWSTR lpwsTransportName, uint8* pInterfaceInfo, uint32 dwInterfaceInfoSize, HANDLE* phRouterIfTransport);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprConfigInterfaceTransportRemove(HANDLE hMprConfig, HANDLE hRouterInterface, HANDLE hRouterIfTransport);
@@ -4349,13 +4349,13 @@ public static
 	public static extern uint32 MprConfigInterfaceTransportGetHandle(HANDLE hMprConfig, HANDLE hRouterInterface, uint32 dwTransportId, HANDLE* phRouterIfTransport);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigInterfaceTransportGetInfo(HANDLE hMprConfig, HANDLE hRouterInterface, HANDLE hRouterIfTransport, uint8** ppInterfaceInfo, uint32 lpdwInterfaceInfoSize);
+	public static extern uint32 MprConfigInterfaceTransportGetInfo(HANDLE hMprConfig, HANDLE hRouterInterface, HANDLE hRouterIfTransport, uint8** ppInterfaceInfo, uint32* lpdwInterfaceInfoSize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigInterfaceTransportSetInfo(HANDLE hMprConfig, HANDLE hRouterInterface, HANDLE hRouterIfTransport, uint8 pInterfaceInfo, uint32 dwInterfaceInfoSize);
+	public static extern uint32 MprConfigInterfaceTransportSetInfo(HANDLE hMprConfig, HANDLE hRouterInterface, HANDLE hRouterIfTransport, uint8* pInterfaceInfo, uint32 dwInterfaceInfoSize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigInterfaceTransportEnum(HANDLE hMprConfig, HANDLE hRouterInterface, uint32 dwLevel, uint8** lplpBuffer, uint32 dwPrefMaxLen, uint32 lpdwEntriesRead, uint32 lpdwTotalEntries, uint32 lpdwResumeHandle);
+	public static extern uint32 MprConfigInterfaceTransportEnum(HANDLE hMprConfig, HANDLE hRouterInterface, uint32 dwLevel, uint8** lplpBuffer, uint32 dwPrefMaxLen, uint32* lpdwEntriesRead, uint32* lpdwTotalEntries, uint32* lpdwResumeHandle);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprConfigGetFriendlyName(HANDLE hMprConfig, PWSTR pszGuidName, PWSTR pszBuffer, uint32 dwBufferSize);
@@ -4364,10 +4364,10 @@ public static
 	public static extern uint32 MprConfigGetGuidName(HANDLE hMprConfig, PWSTR pszFriendlyName, PWSTR pszBuffer, uint32 dwBufferSize);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigFilterGetInfo(HANDLE hMprConfig, uint32 dwLevel, uint32 dwTransportId, uint8 lpBuffer);
+	public static extern uint32 MprConfigFilterGetInfo(HANDLE hMprConfig, uint32 dwLevel, uint32 dwTransportId, uint8* lpBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigFilterSetInfo(HANDLE hMprConfig, uint32 dwLevel, uint32 dwTransportId, uint8 lpBuffer);
+	public static extern uint32 MprConfigFilterSetInfo(HANDLE hMprConfig, uint32 dwLevel, uint32 dwTransportId, uint8* lpBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprInfoCreate(uint32 dwVersion, void** lplpNewHeader);
@@ -4382,16 +4382,16 @@ public static
 	public static extern uint32 MprInfoDuplicate(void* lpHeader, void** lplpNewHeader);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprInfoBlockAdd(void* lpHeader, uint32 dwInfoType, uint32 dwItemSize, uint32 dwItemCount, uint8 lpItemData, void** lplpNewHeader);
+	public static extern uint32 MprInfoBlockAdd(void* lpHeader, uint32 dwInfoType, uint32 dwItemSize, uint32 dwItemCount, uint8* lpItemData, void** lplpNewHeader);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprInfoBlockRemove(void* lpHeader, uint32 dwInfoType, void** lplpNewHeader);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprInfoBlockSet(void* lpHeader, uint32 dwInfoType, uint32 dwItemSize, uint32 dwItemCount, uint8 lpItemData, void** lplpNewHeader);
+	public static extern uint32 MprInfoBlockSet(void* lpHeader, uint32 dwInfoType, uint32 dwItemSize, uint32 dwItemCount, uint8* lpItemData, void** lplpNewHeader);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprInfoBlockFind(void* lpHeader, uint32 dwInfoType, uint32 lpdwItemSize, uint32 lpdwItemCount, uint8** lplpItemData);
+	public static extern uint32 MprInfoBlockFind(void* lpHeader, uint32 dwInfoType, uint32* lpdwItemSize, uint32* lpdwItemCount, uint8** lplpItemData);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprInfoBlockQuerySize(void* lpHeader);
@@ -4409,7 +4409,7 @@ public static
 	public static extern uint32 MgmReleaseInterfaceOwnership(HANDLE hProtocol, uint32 dwIfIndex, uint32 dwIfNextHopAddr);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MgmGetProtocolOnInterface(uint32 dwIfIndex, uint32 dwIfNextHopAddr, uint32 pdwIfProtocolId, uint32 pdwIfComponentId);
+	public static extern uint32 MgmGetProtocolOnInterface(uint32 dwIfIndex, uint32 dwIfNextHopAddr, uint32* pdwIfProtocolId, uint32* pdwIfComponentId);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MgmAddGroupMembershipEntry(HANDLE hProtocol, uint32 dwSourceAddr, uint32 dwSourceMask, uint32 dwGroupAddr, uint32 dwGroupMask, uint32 dwIfIndex, uint32 dwIfNextHopIPAddr, uint32 dwFlags);
@@ -4418,49 +4418,49 @@ public static
 	public static extern uint32 MgmDeleteGroupMembershipEntry(HANDLE hProtocol, uint32 dwSourceAddr, uint32 dwSourceMask, uint32 dwGroupAddr, uint32 dwGroupMask, uint32 dwIfIndex, uint32 dwIfNextHopIPAddr, uint32 dwFlags);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MgmGetMfe(MIB_IPMCAST_MFE* pimm, uint32 pdwBufferSize, uint8 pbBuffer);
+	public static extern uint32 MgmGetMfe(MIB_IPMCAST_MFE* pimm, uint32* pdwBufferSize, uint8* pbBuffer);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MgmGetFirstMfe(uint32 pdwBufferSize, uint8 pbBuffer, uint32 pdwNumEntries);
+	public static extern uint32 MgmGetFirstMfe(uint32* pdwBufferSize, uint8* pbBuffer, uint32* pdwNumEntries);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MgmGetNextMfe(MIB_IPMCAST_MFE* pimmStart, uint32 pdwBufferSize, uint8 pbBuffer, uint32 pdwNumEntries);
+	public static extern uint32 MgmGetNextMfe(MIB_IPMCAST_MFE* pimmStart, uint32* pdwBufferSize, uint8* pbBuffer, uint32* pdwNumEntries);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MgmGetMfeStats(MIB_IPMCAST_MFE* pimm, uint32 pdwBufferSize, uint8 pbBuffer, uint32 dwFlags);
+	public static extern uint32 MgmGetMfeStats(MIB_IPMCAST_MFE* pimm, uint32* pdwBufferSize, uint8* pbBuffer, uint32 dwFlags);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MgmGetFirstMfeStats(uint32 pdwBufferSize, uint8 pbBuffer, uint32 pdwNumEntries, uint32 dwFlags);
+	public static extern uint32 MgmGetFirstMfeStats(uint32* pdwBufferSize, uint8* pbBuffer, uint32* pdwNumEntries, uint32 dwFlags);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MgmGetNextMfeStats(MIB_IPMCAST_MFE* pimmStart, uint32 pdwBufferSize, uint8 pbBuffer, uint32 pdwNumEntries, uint32 dwFlags);
+	public static extern uint32 MgmGetNextMfeStats(MIB_IPMCAST_MFE* pimmStart, uint32* pdwBufferSize, uint8* pbBuffer, uint32* pdwNumEntries, uint32 dwFlags);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MgmGroupEnumerationStart(HANDLE hProtocol, MGM_ENUM_TYPES metEnumType, HANDLE* phEnumHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MgmGroupEnumerationGetNext(HANDLE hEnum, uint32 pdwBufferSize, uint8 pbBuffer, uint32 pdwNumEntries);
+	public static extern uint32 MgmGroupEnumerationGetNext(HANDLE hEnum, uint32* pdwBufferSize, uint8* pbBuffer, uint32* pdwNumEntries);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MgmGroupEnumerationEnd(HANDLE hEnum);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmConvertNetAddressToIpv6AddressAndLength(RTM_NET_ADDRESS* pNetAddress, IN6_ADDR* pAddress, uint32 pLength, uint32 dwAddressSize);
+	public static extern uint32 RtmConvertNetAddressToIpv6AddressAndLength(RTM_NET_ADDRESS* pNetAddress, IN6_ADDR* pAddress, uint32* pLength, uint32 dwAddressSize);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmConvertIpv6AddressAndLengthToNetAddress(RTM_NET_ADDRESS* pNetAddress, IN6_ADDR Address, uint32 dwLength, uint32 dwAddressSize);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmRegisterEntity(RTM_ENTITY_INFO* RtmEntityInfo, RTM_ENTITY_EXPORT_METHODS* ExportMethods, RTM_EVENT_CALLBACK EventCallback, BOOL ReserveOpaquePointer, RTM_REGN_PROFILE* RtmRegProfile, int RtmRegHandle);
+	public static extern uint32 RtmRegisterEntity(RTM_ENTITY_INFO* RtmEntityInfo, RTM_ENTITY_EXPORT_METHODS* ExportMethods, RTM_EVENT_CALLBACK EventCallback, BOOL ReserveOpaquePointer, RTM_REGN_PROFILE* RtmRegProfile, int* RtmRegHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmDeregisterEntity(int RtmRegHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmGetRegisteredEntities(int RtmRegHandle, uint32 NumEntities, int EntityHandles, RTM_ENTITY_INFO* EntityInfos);
+	public static extern uint32 RtmGetRegisteredEntities(int RtmRegHandle, uint32* NumEntities, int* EntityHandles, RTM_ENTITY_INFO* EntityInfos);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmReleaseEntities(int RtmRegHandle, uint32 NumEntities, int EntityHandles);
+	public static extern uint32 RtmReleaseEntities(int RtmRegHandle, uint32 NumEntities, int* EntityHandles);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmLockDestination(int RtmRegHandle, int DestHandle, BOOL Exclusive, BOOL LockDest);
@@ -4469,10 +4469,10 @@ public static
 	public static extern uint32 RtmGetOpaqueInformationPointer(int RtmRegHandle, int DestHandle, void** OpaqueInfoPointer);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmGetEntityMethods(int RtmRegHandle, int EntityHandle, uint32 NumMethods, RTM_ENTITY_EXPORT_METHOD* ExptMethods);
+	public static extern uint32 RtmGetEntityMethods(int RtmRegHandle, int EntityHandle, uint32* NumMethods, RTM_ENTITY_EXPORT_METHOD* ExptMethods);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmInvokeMethod(int RtmRegHandle, int EntityHandle, RTM_ENTITY_METHOD_INPUT* Input, uint32 OutputSize, RTM_ENTITY_METHOD_OUTPUT* Output);
+	public static extern uint32 RtmInvokeMethod(int RtmRegHandle, int EntityHandle, RTM_ENTITY_METHOD_INPUT* Input, uint32* OutputSize, RTM_ENTITY_METHOD_OUTPUT* Output);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmBlockMethods(int RtmRegHandle, HANDLE TargetHandle, uint8 TargetType, uint32 BlockingFlag);
@@ -4502,10 +4502,10 @@ public static
 	public static extern uint32 RtmReleaseNextHopInfo(int RtmRegHandle, RTM_NEXTHOP_INFO* NextHopInfo);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmAddRouteToDest(int RtmRegHandle, int RouteHandle, RTM_NET_ADDRESS* DestAddress, RTM_ROUTE_INFO* RouteInfo, uint32 TimeToLive, int RouteListHandle, uint32 NotifyType, int NotifyHandle, uint32 ChangeFlags);
+	public static extern uint32 RtmAddRouteToDest(int RtmRegHandle, int* RouteHandle, RTM_NET_ADDRESS* DestAddress, RTM_ROUTE_INFO* RouteInfo, uint32 TimeToLive, int RouteListHandle, uint32 NotifyType, int NotifyHandle, uint32* ChangeFlags);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmDeleteRouteToDest(int RtmRegHandle, int RouteHandle, uint32 ChangeFlags);
+	public static extern uint32 RtmDeleteRouteToDest(int RtmRegHandle, int RouteHandle, uint32* ChangeFlags);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmHoldDestination(int RtmRegHandle, int DestHandle, uint32 TargetViews, uint32 HoldTime);
@@ -4517,7 +4517,7 @@ public static
 	public static extern uint32 RtmLockRoute(int RtmRegHandle, int RouteHandle, BOOL Exclusive, BOOL LockRoute, RTM_ROUTE_INFO** RoutePointer);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmUpdateAndUnlockRoute(int RtmRegHandle, int RouteHandle, uint32 TimeToLive, int RouteListHandle, uint32 NotifyType, int NotifyHandle, uint32 ChangeFlags);
+	public static extern uint32 RtmUpdateAndUnlockRoute(int RtmRegHandle, int RouteHandle, uint32 TimeToLive, int RouteListHandle, uint32 NotifyType, int NotifyHandle, uint32* ChangeFlags);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmGetExactMatchDestination(int RtmRegHandle, RTM_NET_ADDRESS* DestAddress, uint32 ProtocolId, uint32 TargetViews, RTM_DEST_INFO* DestInfo);
@@ -4529,16 +4529,16 @@ public static
 	public static extern uint32 RtmGetLessSpecificDestination(int RtmRegHandle, int DestHandle, uint32 ProtocolId, uint32 TargetViews, RTM_DEST_INFO* DestInfo);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmGetExactMatchRoute(int RtmRegHandle, RTM_NET_ADDRESS* DestAddress, uint32 MatchingFlags, RTM_ROUTE_INFO* RouteInfo, uint32 InterfaceIndex, uint32 TargetViews, int RouteHandle);
+	public static extern uint32 RtmGetExactMatchRoute(int RtmRegHandle, RTM_NET_ADDRESS* DestAddress, uint32 MatchingFlags, RTM_ROUTE_INFO* RouteInfo, uint32 InterfaceIndex, uint32 TargetViews, int* RouteHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmIsBestRoute(int RtmRegHandle, int RouteHandle, uint32 BestInViews);
+	public static extern uint32 RtmIsBestRoute(int RtmRegHandle, int RouteHandle, uint32* BestInViews);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmAddNextHop(int RtmRegHandle, RTM_NEXTHOP_INFO* NextHopInfo, int NextHopHandle, uint32 ChangeFlags);
+	public static extern uint32 RtmAddNextHop(int RtmRegHandle, RTM_NEXTHOP_INFO* NextHopInfo, int* NextHopHandle, uint32* ChangeFlags);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmFindNextHop(int RtmRegHandle, RTM_NEXTHOP_INFO* NextHopInfo, int NextHopHandle, RTM_NEXTHOP_INFO** NextHopPointer);
+	public static extern uint32 RtmFindNextHop(int RtmRegHandle, RTM_NEXTHOP_INFO* NextHopInfo, int* NextHopHandle, RTM_NEXTHOP_INFO** NextHopPointer);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmDeleteNextHop(int RtmRegHandle, int NextHopHandle, RTM_NEXTHOP_INFO* NextHopInfo);
@@ -4550,46 +4550,46 @@ public static
 	public static extern uint32 RtmLockNextHop(int RtmRegHandle, int NextHopHandle, BOOL Exclusive, BOOL LockNextHop, RTM_NEXTHOP_INFO** NextHopPointer);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmCreateDestEnum(int RtmRegHandle, uint32 TargetViews, uint32 EnumFlags, RTM_NET_ADDRESS* NetAddress, uint32 ProtocolId, int RtmEnumHandle);
+	public static extern uint32 RtmCreateDestEnum(int RtmRegHandle, uint32 TargetViews, uint32 EnumFlags, RTM_NET_ADDRESS* NetAddress, uint32 ProtocolId, int* RtmEnumHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmGetEnumDests(int RtmRegHandle, int EnumHandle, uint32 NumDests, RTM_DEST_INFO* DestInfos);
+	public static extern uint32 RtmGetEnumDests(int RtmRegHandle, int EnumHandle, uint32* NumDests, RTM_DEST_INFO* DestInfos);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmReleaseDests(int RtmRegHandle, uint32 NumDests, RTM_DEST_INFO* DestInfos);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmCreateRouteEnum(int RtmRegHandle, int DestHandle, uint32 TargetViews, uint32 EnumFlags, RTM_NET_ADDRESS* StartDest, uint32 MatchingFlags, RTM_ROUTE_INFO* CriteriaRoute, uint32 CriteriaInterface, int RtmEnumHandle);
+	public static extern uint32 RtmCreateRouteEnum(int RtmRegHandle, int DestHandle, uint32 TargetViews, uint32 EnumFlags, RTM_NET_ADDRESS* StartDest, uint32 MatchingFlags, RTM_ROUTE_INFO* CriteriaRoute, uint32 CriteriaInterface, int* RtmEnumHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmGetEnumRoutes(int RtmRegHandle, int EnumHandle, uint32 NumRoutes, int RouteHandles);
+	public static extern uint32 RtmGetEnumRoutes(int RtmRegHandle, int EnumHandle, uint32* NumRoutes, int* RouteHandles);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmReleaseRoutes(int RtmRegHandle, uint32 NumRoutes, int RouteHandles);
+	public static extern uint32 RtmReleaseRoutes(int RtmRegHandle, uint32 NumRoutes, int* RouteHandles);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmCreateNextHopEnum(int RtmRegHandle, uint32 EnumFlags, RTM_NET_ADDRESS* NetAddress, int RtmEnumHandle);
+	public static extern uint32 RtmCreateNextHopEnum(int RtmRegHandle, uint32 EnumFlags, RTM_NET_ADDRESS* NetAddress, int* RtmEnumHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmGetEnumNextHops(int RtmRegHandle, int EnumHandle, uint32 NumNextHops, int NextHopHandles);
+	public static extern uint32 RtmGetEnumNextHops(int RtmRegHandle, int EnumHandle, uint32* NumNextHops, int* NextHopHandles);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmReleaseNextHops(int RtmRegHandle, uint32 NumNextHops, int NextHopHandles);
+	public static extern uint32 RtmReleaseNextHops(int RtmRegHandle, uint32 NumNextHops, int* NextHopHandles);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmDeleteEnumHandle(int RtmRegHandle, int EnumHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmRegisterForChangeNotification(int RtmRegHandle, uint32 TargetViews, uint32 NotifyFlags, void* NotifyContext, int NotifyHandle);
+	public static extern uint32 RtmRegisterForChangeNotification(int RtmRegHandle, uint32 TargetViews, uint32 NotifyFlags, void* NotifyContext, int* NotifyHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmGetChangedDests(int RtmRegHandle, int NotifyHandle, uint32 NumDests, RTM_DEST_INFO* ChangedDests);
+	public static extern uint32 RtmGetChangedDests(int RtmRegHandle, int NotifyHandle, uint32* NumDests, RTM_DEST_INFO* ChangedDests);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmReleaseChangedDests(int RtmRegHandle, int NotifyHandle, uint32 NumDests, RTM_DEST_INFO* ChangedDests);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmIgnoreChangedDests(int RtmRegHandle, int NotifyHandle, uint32 NumDests, int ChangedDests);
+	public static extern uint32 RtmIgnoreChangedDests(int RtmRegHandle, int NotifyHandle, uint32 NumDests, int* ChangedDests);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmGetChangeStatus(int RtmRegHandle, int NotifyHandle, int DestHandle, BOOL* ChangeStatus);
@@ -4604,16 +4604,16 @@ public static
 	public static extern uint32 RtmDeregisterFromChangeNotification(int RtmRegHandle, int NotifyHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmCreateRouteList(int RtmRegHandle, int RouteListHandle);
+	public static extern uint32 RtmCreateRouteList(int RtmRegHandle, int* RouteListHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmInsertInRouteList(int RtmRegHandle, int RouteListHandle, uint32 NumRoutes, int RouteHandles);
+	public static extern uint32 RtmInsertInRouteList(int RtmRegHandle, int RouteListHandle, uint32 NumRoutes, int* RouteHandles);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmCreateRouteListEnum(int RtmRegHandle, int RouteListHandle, int RtmEnumHandle);
+	public static extern uint32 RtmCreateRouteListEnum(int RtmRegHandle, int RouteListHandle, int* RtmEnumHandle);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtmGetListEnumRoutes(int RtmRegHandle, int EnumHandle, uint32 NumRoutes, int* RouteHandles);
+	public static extern uint32 RtmGetListEnumRoutes(int RtmRegHandle, int EnumHandle, uint32* NumRoutes, int* RouteHandles);
 
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtmDeleteRouteList(int RtmRegHandle, int RouteListHandle);

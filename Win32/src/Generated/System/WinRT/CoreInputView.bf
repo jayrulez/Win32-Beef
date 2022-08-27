@@ -31,11 +31,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, Guid riid, void** coreFrameworkInputView) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** coreFrameworkInputView) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** coreFrameworkInputView) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, coreFrameworkInputView);
+	public HRESULT GetForWindow(HWND appWindow, ref Guid riid, void** coreFrameworkInputView) mut => VT.[Friend]GetForWindow(&this, appWindow, ref riid, coreFrameworkInputView);
 }
 
 #endregion

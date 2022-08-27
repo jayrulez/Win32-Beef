@@ -1400,13 +1400,13 @@ public enum WLDP_POLICY_SETTING : int32
 #region Function Pointers
 public function void* PFIBER_CALLOUT_ROUTINE(void* lpParameter);
 
-public function BOOL PQUERYACTCTXW_FUNC(uint32 dwFlags, HANDLE hActCtx, void* pvSubInstance, uint32 ulInfoClass, void* pvBuffer, uint cbBuffer, uint pcbWrittenOrRequired);
+public function BOOL PQUERYACTCTXW_FUNC(uint32 dwFlags, HANDLE hActCtx, void* pvSubInstance, uint32 ulInfoClass, void* pvBuffer, uint cbBuffer, uint* pcbWrittenOrRequired);
 
 public function uint32 APPLICATION_RECOVERY_CALLBACK(void* pvParameter);
 
 public function void PIO_APC_ROUTINE(void* ApcContext, IO_STATUS_BLOCK* IoStatusBlock, uint32 Reserved);
 
-public function BOOLEAN PWINSTATIONQUERYINFORMATIONW(HANDLE param0, uint32 param1, WINSTATIONINFOCLASS param2, void* param3, uint32 param4, uint32 param5);
+public function BOOLEAN PWINSTATIONQUERYINFORMATIONW(HANDLE param0, uint32 param1, WINSTATIONINFOCLASS param2, void* param3, uint32 param4, uint32* param5);
 
 public function void PFEATURE_STATE_CHANGE_CALLBACK(void* context);
 
@@ -1424,7 +1424,7 @@ public function HRESULT PWLDP_QUERYDYNAMICODETRUST_API(HANDLE fileHandle, void* 
 
 public function HRESULT PWLDP_QUERYWINDOWSLOCKDOWNMODE_API(WLDP_WINDOWS_LOCKDOWN_MODE* lockdownMode);
 
-public function HRESULT PWLDP_QUERYDEVICESECURITYINFORMATION_API(WLDP_DEVICE_SECURITY_INFORMATION* information, uint32 informationLength, uint32 returnLength);
+public function HRESULT PWLDP_QUERYDEVICESECURITYINFORMATION_API(WLDP_DEVICE_SECURITY_INFORMATION* information, uint32 informationLength, uint32* returnLength);
 
 public function HRESULT PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API(WLDP_WINDOWS_LOCKDOWN_RESTRICTION* LockdownRestriction);
 
@@ -2343,11 +2343,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isAllowed) CanActivateClientVM;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isAllowed) CanActivateClientVM;
 	}
 
 
-	public HRESULT CanActivateClientVM(int16 isAllowed) mut => VT.[Friend]CanActivateClientVM(&this, isAllowed);
+	public HRESULT CanActivateClientVM(int16* isAllowed) mut => VT.[Friend]CanActivateClientVM(&this, isAllowed);
 }
 
 [CRepr]struct IClipServiceNotificationHelper : IUnknown
@@ -2410,37 +2410,37 @@ public static
 	public static extern BOOL IsApiSetImplemented(PSTR Contract);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryThreadCycleTime(HANDLE ThreadHandle, uint64 CycleTime);
+	public static extern BOOL QueryThreadCycleTime(HANDLE ThreadHandle, uint64* CycleTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryProcessCycleTime(HANDLE ProcessHandle, uint64 CycleTime);
+	public static extern BOOL QueryProcessCycleTime(HANDLE ProcessHandle, uint64* CycleTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryIdleProcessorCycleTime(uint32 BufferLength, uint64 ProcessorIdleCycleTime);
+	public static extern BOOL QueryIdleProcessorCycleTime(uint32* BufferLength, uint64* ProcessorIdleCycleTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryIdleProcessorCycleTimeEx(uint16 Group, uint32 BufferLength, uint64 ProcessorIdleCycleTime);
+	public static extern BOOL QueryIdleProcessorCycleTimeEx(uint16 Group, uint32* BufferLength, uint64* ProcessorIdleCycleTime);
 
 	[Import("api-ms-win-core-realtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void QueryInterruptTimePrecise(uint64 lpInterruptTimePrecise);
+	public static extern void QueryInterruptTimePrecise(uint64* lpInterruptTimePrecise);
 
 	[Import("api-ms-win-core-realtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void QueryUnbiasedInterruptTimePrecise(uint64 lpUnbiasedInterruptTimePrecise);
+	public static extern void QueryUnbiasedInterruptTimePrecise(uint64* lpUnbiasedInterruptTimePrecise);
 
 	[Import("api-ms-win-core-realtime-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void QueryInterruptTime(uint64 lpInterruptTime);
+	public static extern void QueryInterruptTime(uint64* lpInterruptTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryUnbiasedInterruptTime(uint64 UnbiasedTime);
+	public static extern BOOL QueryUnbiasedInterruptTime(uint64* UnbiasedTime);
 
 	[Import("api-ms-win-core-realtime-l1-1-2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT QueryAuxiliaryCounterFrequency(uint64 lpAuxiliaryCounterFrequency);
+	public static extern HRESULT QueryAuxiliaryCounterFrequency(uint64* lpAuxiliaryCounterFrequency);
 
 	[Import("api-ms-win-core-realtime-l1-1-2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ConvertAuxiliaryCounterToPerformanceCounter(uint64 ullAuxiliaryCounterValue, uint64 lpPerformanceCounterValue, uint64 lpConversionError);
+	public static extern HRESULT ConvertAuxiliaryCounterToPerformanceCounter(uint64 ullAuxiliaryCounterValue, uint64* lpPerformanceCounterValue, uint64* lpConversionError);
 
 	[Import("api-ms-win-core-realtime-l1-1-2.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ConvertPerformanceCounterToAuxiliaryCounter(uint64 ullPerformanceCounterValue, uint64 lpAuxiliaryCounterValue, uint64 lpConversionError);
+	public static extern HRESULT ConvertPerformanceCounterToAuxiliaryCounter(uint64 ullPerformanceCounterValue, uint64* lpAuxiliaryCounterValue, uint64* lpConversionError);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint GlobalCompact(uint32 dwMinFree);
@@ -2482,10 +2482,10 @@ public static
 	public static extern int32 MulDiv(int32 nNumber, int32 nNumerator, int32 nDenominator);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetSystemRegistryQuota(uint32 pdwQuotaAllowed, uint32 pdwQuotaUsed);
+	public static extern BOOL GetSystemRegistryQuota(uint32* pdwQuotaAllowed, uint32* pdwQuotaUsed);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FileTimeToDosDateTime(FILETIME* lpFileTime, uint16 lpFatDate, uint16 lpFatTime);
+	public static extern BOOL FileTimeToDosDateTime(FILETIME* lpFileTime, uint16* lpFatDate, uint16* lpFatTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DosDateTimeToFileTime(uint16 wFatDate, uint16 wFatTime, FILETIME* lpFileTime);
@@ -2540,11 +2540,11 @@ public static
 	public static extern uint32 GetFirmwareEnvironmentVariableW(PWSTR lpName, PWSTR lpGuid, void* pBuffer, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetFirmwareEnvironmentVariableExA(PSTR lpName, PSTR lpGuid, void* pBuffer, uint32 nSize, uint32 pdwAttribubutes);
-	public static uint32 GetFirmwareEnvironmentVariableEx(PSTR lpName, PSTR lpGuid, void* pBuffer, uint32 nSize, uint32 pdwAttribubutes) => GetFirmwareEnvironmentVariableExA(lpName, lpGuid, pBuffer, nSize, pdwAttribubutes);
+	public static extern uint32 GetFirmwareEnvironmentVariableExA(PSTR lpName, PSTR lpGuid, void* pBuffer, uint32 nSize, uint32* pdwAttribubutes);
+	public static uint32 GetFirmwareEnvironmentVariableEx(PSTR lpName, PSTR lpGuid, void* pBuffer, uint32 nSize, uint32* pdwAttribubutes) => GetFirmwareEnvironmentVariableExA(lpName, lpGuid, pBuffer, nSize, pdwAttribubutes);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetFirmwareEnvironmentVariableExW(PWSTR lpName, PWSTR lpGuid, void* pBuffer, uint32 nSize, uint32 pdwAttribubutes);
+	public static extern uint32 GetFirmwareEnvironmentVariableExW(PWSTR lpName, PWSTR lpGuid, void* pBuffer, uint32 nSize, uint32* pdwAttribubutes);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetFirmwareEnvironmentVariableA(PSTR lpName, PSTR lpGuid, void* pValue, uint32 nSize);
@@ -2661,25 +2661,25 @@ public static
 	public static extern BOOL IsBadHugeWritePtr(void* lp, uint ucb);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetComputerNameA(uint8* lpBuffer, uint32 nSize);
-	public static BOOL GetComputerName(uint8* lpBuffer, uint32 nSize) => GetComputerNameA(lpBuffer, nSize);
+	public static extern BOOL GetComputerNameA(uint8* lpBuffer, uint32* nSize);
+	public static BOOL GetComputerName(uint8* lpBuffer, uint32* nSize) => GetComputerNameA(lpBuffer, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetComputerNameW(char16* lpBuffer, uint32 nSize);
+	public static extern BOOL GetComputerNameW(char16* lpBuffer, uint32* nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DnsHostnameToComputerNameA(PSTR Hostname, uint8* ComputerName, uint32 nSize);
-	public static BOOL DnsHostnameToComputerName(PSTR Hostname, uint8* ComputerName, uint32 nSize) => DnsHostnameToComputerNameA(Hostname, ComputerName, nSize);
+	public static extern BOOL DnsHostnameToComputerNameA(PSTR Hostname, uint8* ComputerName, uint32* nSize);
+	public static BOOL DnsHostnameToComputerName(PSTR Hostname, uint8* ComputerName, uint32* nSize) => DnsHostnameToComputerNameA(Hostname, ComputerName, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DnsHostnameToComputerNameW(PWSTR Hostname, char16* ComputerName, uint32 nSize);
+	public static extern BOOL DnsHostnameToComputerNameW(PWSTR Hostname, char16* ComputerName, uint32* nSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserNameA(uint8* lpBuffer, uint32 pcbBuffer);
-	public static BOOL GetUserName(uint8* lpBuffer, uint32 pcbBuffer) => GetUserNameA(lpBuffer, pcbBuffer);
+	public static extern BOOL GetUserNameA(uint8* lpBuffer, uint32* pcbBuffer);
+	public static BOOL GetUserName(uint8* lpBuffer, uint32* pcbBuffer) => GetUserNameA(lpBuffer, pcbBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetUserNameW(char16* lpBuffer, uint32 pcbBuffer);
+	public static extern BOOL GetUserNameW(char16* lpBuffer, uint32* pcbBuffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsTokenUntrusted(HANDLE TokenHandle);
@@ -2712,42 +2712,42 @@ public static
 
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uaw_lstrcmpW(uint16 String1, uint16 String2);
+	public static extern int32 uaw_lstrcmpW(uint16* String1, uint16* String2);
 
 #endif
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uaw_lstrcmpiW(uint16 String1, uint16 String2);
+	public static extern int32 uaw_lstrcmpiW(uint16* String1, uint16* String2);
 
 #endif
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uaw_lstrlenW(uint16 String);
+	public static extern int32 uaw_lstrlenW(uint16* String);
 
 #endif
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16* uaw_wcschr(uint16 String, char16 Character);
+	public static extern uint16* uaw_wcschr(uint16* String, char16 Character);
 
 #endif
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16* uaw_wcscpy(uint16 Destination, uint16 Source);
+	public static extern uint16* uaw_wcscpy(uint16* Destination, uint16* Source);
 
 #endif
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uaw_wcsicmp(uint16 String1, uint16 String2);
+	public static extern int32 uaw_wcsicmp(uint16* String1, uint16* String2);
 
 #endif
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint uaw_wcslen(uint16 String);
+	public static extern uint uaw_wcslen(uint16* String);
 
 #endif
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16* uaw_wcsrchr(uint16 String, char16 Character);
+	public static extern uint16* uaw_wcsrchr(uint16* String, char16 Character);
 
 #endif
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
@@ -2763,7 +2763,7 @@ public static
 	public static extern NTSTATUS NtNotifyChangeMultipleKeys(HANDLE MasterKeyHandle, uint32 Count, OBJECT_ATTRIBUTES* SubordinateObjects, HANDLE Event, PIO_APC_ROUTINE ApcRoutine, void* ApcContext, IO_STATUS_BLOCK* IoStatusBlock, uint32 CompletionFilter, BOOLEAN WatchTree, void* Buffer, uint32 BufferSize, BOOLEAN Asynchronous);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS NtQueryMultipleValueKey(HANDLE KeyHandle, KEY_VALUE_ENTRY* ValueEntries, uint32 EntryCount, void* ValueBuffer, uint32 BufferLength, uint32 RequiredBufferLength);
+	public static extern NTSTATUS NtQueryMultipleValueKey(HANDLE KeyHandle, KEY_VALUE_ENTRY* ValueEntries, uint32 EntryCount, void* ValueBuffer, uint32* BufferLength, uint32* RequiredBufferLength);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS NtSetInformationKey(HANDLE KeyHandle, KEY_SET_INFORMATION_CLASS KeySetInformationClass, void* KeySetInformation, uint32 KeySetInformationLength);
@@ -2778,22 +2778,22 @@ public static
 	public static extern BOOLEAN RtlIsNameLegalDOS8Dot3(UNICODE_STRING* Name, STRING* OemName, BOOLEAN* NameContainsSpaces);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS NtQueryObject(HANDLE Handle, OBJECT_INFORMATION_CLASS ObjectInformationClass, void* ObjectInformation, uint32 ObjectInformationLength, uint32 ReturnLength);
+	public static extern NTSTATUS NtQueryObject(HANDLE Handle, OBJECT_INFORMATION_CLASS ObjectInformationClass, void* ObjectInformation, uint32 ObjectInformationLength, uint32* ReturnLength);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS NtQuerySystemInformation(SYSTEM_INFORMATION_CLASS SystemInformationClass, void* SystemInformation, uint32 SystemInformationLength, uint32 ReturnLength);
+	public static extern NTSTATUS NtQuerySystemInformation(SYSTEM_INFORMATION_CLASS SystemInformationClass, void* SystemInformation, uint32 SystemInformationLength, uint32* ReturnLength);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS NtQuerySystemTime(LARGE_INTEGER* SystemTime);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS NtQueryTimerResolution(uint32 MaximumTime, uint32 MinimumTime, uint32 CurrentTime);
+	public static extern NTSTATUS NtQueryTimerResolution(uint32* MaximumTime, uint32* MinimumTime, uint32* CurrentTime);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS RtlLocalTimeToSystemTime(LARGE_INTEGER* LocalTime, LARGE_INTEGER* SystemTime);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN RtlTimeToSecondsSince1970(LARGE_INTEGER* Time, uint32 ElapsedSeconds);
+	public static extern BOOLEAN RtlTimeToSecondsSince1970(LARGE_INTEGER* Time, uint32* ElapsedSeconds);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RtlFreeAnsiString(STRING* AnsiString);
@@ -2805,16 +2805,16 @@ public static
 	public static extern void RtlFreeOemString(STRING* OemString);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void RtlInitString(STRING* DestinationString, int8 SourceString);
+	public static extern void RtlInitString(STRING* DestinationString, int8* SourceString);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS RtlInitStringEx(STRING* DestinationString, int8 SourceString);
+	public static extern NTSTATUS RtlInitStringEx(STRING* DestinationString, int8* SourceString);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void RtlInitAnsiString(STRING* DestinationString, int8 SourceString);
+	public static extern void RtlInitAnsiString(STRING* DestinationString, int8* SourceString);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS RtlInitAnsiStringEx(STRING* DestinationString, int8 SourceString);
+	public static extern NTSTATUS RtlInitAnsiStringEx(STRING* DestinationString, int8* SourceString);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RtlInitUnicodeString(UNICODE_STRING* DestinationString, PWSTR SourceString);
@@ -2829,13 +2829,13 @@ public static
 	public static extern NTSTATUS RtlUnicodeStringToOemString(STRING* DestinationString, UNICODE_STRING* SourceString, BOOLEAN AllocateDestinationString);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS RtlUnicodeToMultiByteSize(uint32 BytesInMultiByteString, PWSTR UnicodeString, uint32 BytesInUnicodeString);
+	public static extern NTSTATUS RtlUnicodeToMultiByteSize(uint32* BytesInMultiByteString, PWSTR UnicodeString, uint32 BytesInUnicodeString);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS RtlCharToInteger(int8 String, uint32 Base, uint32 Value);
+	public static extern NTSTATUS RtlCharToInteger(int8* String, uint32 Base, uint32* Value);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtlUniform(uint32 Seed);
+	public static extern uint32 RtlUniform(uint32* Seed);
 
 	[Import("api-ms-win-core-featurestaging-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern FEATURE_ENABLED_STATE GetFeatureEnabledState(uint32 featureId, FEATURE_CHANGE_TIME changeTime);
@@ -2853,7 +2853,7 @@ public static
 	public static extern void UnsubscribeFeatureStateChangeNotification(FEATURE_STATE_CHANGE_SUBSCRIPTION subscription);
 
 	[Import("api-ms-win-core-featurestaging-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetFeatureVariant(uint32 featureId, FEATURE_CHANGE_TIME changeTime, uint32 payloadId, BOOL* hasNotification);
+	public static extern uint32 GetFeatureVariant(uint32 featureId, FEATURE_CHANGE_TIME changeTime, uint32* payloadId, BOOL* hasNotification);
 
 	[Import("DCIMAN32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HDC DCIOpenProvider();
@@ -2939,11 +2939,11 @@ public static
 	public static extern HRESULT RebootCheckOnInstallW(HWND hwnd, PWSTR pszINF, PWSTR pszSec, uint32 dwReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT TranslateInfStringA(PSTR pszInfFilename, PSTR pszInstallSection, PSTR pszTranslateSection, PSTR pszTranslateKey, uint8* pszBuffer, uint32 cchBuffer, uint32 pdwRequiredSize, void* pvReserved);
-	public static HRESULT TranslateInfString(PSTR pszInfFilename, PSTR pszInstallSection, PSTR pszTranslateSection, PSTR pszTranslateKey, uint8* pszBuffer, uint32 cchBuffer, uint32 pdwRequiredSize, void* pvReserved) => TranslateInfStringA(pszInfFilename, pszInstallSection, pszTranslateSection, pszTranslateKey, pszBuffer, cchBuffer, pdwRequiredSize, pvReserved);
+	public static extern HRESULT TranslateInfStringA(PSTR pszInfFilename, PSTR pszInstallSection, PSTR pszTranslateSection, PSTR pszTranslateKey, uint8* pszBuffer, uint32 cchBuffer, uint32* pdwRequiredSize, void* pvReserved);
+	public static HRESULT TranslateInfString(PSTR pszInfFilename, PSTR pszInstallSection, PSTR pszTranslateSection, PSTR pszTranslateKey, uint8* pszBuffer, uint32 cchBuffer, uint32* pdwRequiredSize, void* pvReserved) => TranslateInfStringA(pszInfFilename, pszInstallSection, pszTranslateSection, pszTranslateKey, pszBuffer, cchBuffer, pdwRequiredSize, pvReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT TranslateInfStringW(PWSTR pszInfFilename, PWSTR pszInstallSection, PWSTR pszTranslateSection, PWSTR pszTranslateKey, char16* pszBuffer, uint32 cchBuffer, uint32 pdwRequiredSize, void* pvReserved);
+	public static extern HRESULT TranslateInfStringW(PWSTR pszInfFilename, PWSTR pszInstallSection, PWSTR pszTranslateSection, PWSTR pszTranslateKey, char16* pszBuffer, uint32 cchBuffer, uint32* pdwRequiredSize, void* pvReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RegInstallA(HINSTANCE hmod, PSTR pszSection, STRTABLEA* pstTable);
@@ -3015,21 +3015,21 @@ public static
 	public static extern HRESULT FileSaveMarkNotExistW(PWSTR lpFileList, PWSTR lpDir, PWSTR lpBaseName);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetVersionFromFileA(PSTR lpszFilename, uint32 pdwMSVer, uint32 pdwLSVer, BOOL bVersion);
-	public static HRESULT GetVersionFromFile(PSTR lpszFilename, uint32 pdwMSVer, uint32 pdwLSVer, BOOL bVersion) => GetVersionFromFileA(lpszFilename, pdwMSVer, pdwLSVer, bVersion);
+	public static extern HRESULT GetVersionFromFileA(PSTR lpszFilename, uint32* pdwMSVer, uint32* pdwLSVer, BOOL bVersion);
+	public static HRESULT GetVersionFromFile(PSTR lpszFilename, uint32* pdwMSVer, uint32* pdwLSVer, BOOL bVersion) => GetVersionFromFileA(lpszFilename, pdwMSVer, pdwLSVer, bVersion);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetVersionFromFileW(PWSTR lpszFilename, uint32 pdwMSVer, uint32 pdwLSVer, BOOL bVersion);
+	public static extern HRESULT GetVersionFromFileW(PWSTR lpszFilename, uint32* pdwMSVer, uint32* pdwLSVer, BOOL bVersion);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetVersionFromFileExA(PSTR lpszFilename, uint32 pdwMSVer, uint32 pdwLSVer, BOOL bVersion);
-	public static HRESULT GetVersionFromFileEx(PSTR lpszFilename, uint32 pdwMSVer, uint32 pdwLSVer, BOOL bVersion) => GetVersionFromFileExA(lpszFilename, pdwMSVer, pdwLSVer, bVersion);
+	public static extern HRESULT GetVersionFromFileExA(PSTR lpszFilename, uint32* pdwMSVer, uint32* pdwLSVer, BOOL bVersion);
+	public static HRESULT GetVersionFromFileEx(PSTR lpszFilename, uint32* pdwMSVer, uint32* pdwLSVer, BOOL bVersion) => GetVersionFromFileExA(lpszFilename, pdwMSVer, pdwLSVer, bVersion);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetVersionFromFileExW(PWSTR lpszFilename, uint32 pdwMSVer, uint32 pdwLSVer, BOOL bVersion);
+	public static extern HRESULT GetVersionFromFileExW(PWSTR lpszFilename, uint32* pdwMSVer, uint32* pdwLSVer, BOOL bVersion);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsNTAdmin(uint32 dwReserved, uint32 lpdwReserved);
+	public static extern BOOL IsNTAdmin(uint32 dwReserved, uint32* lpdwReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DelNodeA(PSTR pszFileOrDirName, uint32 dwFlags);
@@ -3049,11 +3049,11 @@ public static
 	public static extern HRESULT OpenINFEngineW(PWSTR pszInfFilename, PWSTR pszInstallSection, uint32 dwFlags, void** phInf, void* pvReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT TranslateInfStringExA(void* hInf, PSTR pszInfFilename, PSTR pszTranslateSection, PSTR pszTranslateKey, uint8* pszBuffer, uint32 dwBufferSize, uint32 pdwRequiredSize, void* pvReserved);
-	public static HRESULT TranslateInfStringEx(void* hInf, PSTR pszInfFilename, PSTR pszTranslateSection, PSTR pszTranslateKey, uint8* pszBuffer, uint32 dwBufferSize, uint32 pdwRequiredSize, void* pvReserved) => TranslateInfStringExA(hInf, pszInfFilename, pszTranslateSection, pszTranslateKey, pszBuffer, dwBufferSize, pdwRequiredSize, pvReserved);
+	public static extern HRESULT TranslateInfStringExA(void* hInf, PSTR pszInfFilename, PSTR pszTranslateSection, PSTR pszTranslateKey, uint8* pszBuffer, uint32 dwBufferSize, uint32* pdwRequiredSize, void* pvReserved);
+	public static HRESULT TranslateInfStringEx(void* hInf, PSTR pszInfFilename, PSTR pszTranslateSection, PSTR pszTranslateKey, uint8* pszBuffer, uint32 dwBufferSize, uint32* pdwRequiredSize, void* pvReserved) => TranslateInfStringExA(hInf, pszInfFilename, pszTranslateSection, pszTranslateKey, pszBuffer, dwBufferSize, pdwRequiredSize, pvReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT TranslateInfStringExW(void* hInf, PWSTR pszInfFilename, PWSTR pszTranslateSection, PWSTR pszTranslateKey, char16* pszBuffer, uint32 dwBufferSize, uint32 pdwRequiredSize, void* pvReserved);
+	public static extern HRESULT TranslateInfStringExW(void* hInf, PWSTR pszInfFilename, PWSTR pszTranslateSection, PWSTR pszTranslateKey, char16* pszBuffer, uint32 dwBufferSize, uint32* pdwRequiredSize, void* pvReserved);
 
 	[Import("ADVPACK.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CloseINFEngine(void* hInf);
@@ -3127,13 +3127,13 @@ public static
 	public static extern BOOL WINNLSGetEnableStatus(HWND param0);
 
 	[Import("APPHELP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ApphelpCheckShellObject(Guid ObjectCLSID, BOOL bShimIfNecessary, uint64 pullFlags);
+	public static extern BOOL ApphelpCheckShellObject(ref Guid ObjectCLSID, BOOL bShimIfNecessary, uint64* pullFlags);
 
 	[Import("Wldp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WldpGetLockdownPolicy(WLDP_HOST_INFORMATION* hostInformation, uint32 lockdownState, uint32 lockdownFlags);
+	public static extern HRESULT WldpGetLockdownPolicy(WLDP_HOST_INFORMATION* hostInformation, uint32* lockdownState, uint32 lockdownFlags);
 
 	[Import("Wldp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WldpIsClassInApprovedList(Guid classID, WLDP_HOST_INFORMATION* hostInformation, BOOL* isApproved, uint32 optionalFlags);
+	public static extern HRESULT WldpIsClassInApprovedList(ref Guid classID, WLDP_HOST_INFORMATION* hostInformation, BOOL* isApproved, uint32 optionalFlags);
 
 	[Import("Wldp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WldpSetDynamicCodeTrust(HANDLE fileHandle);
@@ -3145,7 +3145,7 @@ public static
 	public static extern HRESULT WldpQueryDynamicCodeTrust(HANDLE fileHandle, void* baseImage, uint32 imageSize);
 
 	[Import("Wldp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WldpQueryDeviceSecurityInformation(WLDP_DEVICE_SECURITY_INFORMATION* information, uint32 informationLength, uint32 returnLength);
+	public static extern HRESULT WldpQueryDeviceSecurityInformation(WLDP_DEVICE_SECURITY_INFORMATION* information, uint32 informationLength, uint32* returnLength);
 
 }
 #endregion

@@ -552,10 +552,10 @@ public static
 	public static extern uint32 SetIoRateControlInformationJobObject(HANDLE hJob, JOBOBJECT_IO_RATE_CONTROL_INFORMATION* IoRateControlInfo);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryInformationJobObject(HANDLE hJob, JOBOBJECTINFOCLASS JobObjectInformationClass, void* lpJobObjectInformation, uint32 cbJobObjectInformationLength, uint32 lpReturnLength);
+	public static extern BOOL QueryInformationJobObject(HANDLE hJob, JOBOBJECTINFOCLASS JobObjectInformationClass, void* lpJobObjectInformation, uint32 cbJobObjectInformationLength, uint32* lpReturnLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryIoRateControlInformationJobObject(HANDLE hJob, PWSTR VolumeName, JOBOBJECT_IO_RATE_CONTROL_INFORMATION** InfoBlocks, uint32 InfoBlockCount);
+	public static extern uint32 QueryIoRateControlInformationJobObject(HANDLE hJob, PWSTR VolumeName, JOBOBJECT_IO_RATE_CONTROL_INFORMATION** InfoBlocks, uint32* InfoBlockCount);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UserHandleGrantAccess(HANDLE hUserHandle, HANDLE hJob, BOOL bGrant);

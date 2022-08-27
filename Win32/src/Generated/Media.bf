@@ -321,18 +321,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 pTime) GetTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 baseTime, int64 streamTime, HANDLE hEvent, uint pdwAdviseCookie) AdviseTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 startTime, int64 periodTime, HANDLE hSemaphore, uint pdwAdviseCookie) AdvisePeriodic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pTime) GetTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 baseTime, int64 streamTime, HANDLE hEvent, uint* pdwAdviseCookie) AdviseTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 startTime, int64 periodTime, HANDLE hSemaphore, uint* pdwAdviseCookie) AdvisePeriodic;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint dwAdviseCookie) Unadvise;
 	}
 
 
-	public HRESULT GetTime(int64 pTime) mut => VT.[Friend]GetTime(&this, pTime);
+	public HRESULT GetTime(int64* pTime) mut => VT.[Friend]GetTime(&this, pTime);
 
-	public HRESULT AdviseTime(int64 baseTime, int64 streamTime, HANDLE hEvent, uint pdwAdviseCookie) mut => VT.[Friend]AdviseTime(&this, baseTime, streamTime, hEvent, pdwAdviseCookie);
+	public HRESULT AdviseTime(int64 baseTime, int64 streamTime, HANDLE hEvent, uint* pdwAdviseCookie) mut => VT.[Friend]AdviseTime(&this, baseTime, streamTime, hEvent, pdwAdviseCookie);
 
-	public HRESULT AdvisePeriodic(int64 startTime, int64 periodTime, HANDLE hSemaphore, uint pdwAdviseCookie) mut => VT.[Friend]AdvisePeriodic(&this, startTime, periodTime, hSemaphore, pdwAdviseCookie);
+	public HRESULT AdvisePeriodic(int64 startTime, int64 periodTime, HANDLE hSemaphore, uint* pdwAdviseCookie) mut => VT.[Friend]AdvisePeriodic(&this, startTime, periodTime, hSemaphore, pdwAdviseCookie);
 
 	public HRESULT Unadvise(uint dwAdviseCookie) mut => VT.[Friend]Unadvise(&this, dwAdviseCookie);
 }
@@ -346,13 +346,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 timerResolution) SetDefaultTimerResolution;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 pTimerResolution) GetDefaultTimerResolution;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pTimerResolution) GetDefaultTimerResolution;
 	}
 
 
 	public HRESULT SetDefaultTimerResolution(int64 timerResolution) mut => VT.[Friend]SetDefaultTimerResolution(&this, timerResolution);
 
-	public HRESULT GetDefaultTimerResolution(int64 pTimerResolution) mut => VT.[Friend]GetDefaultTimerResolution(&this, pTimerResolution);
+	public HRESULT GetDefaultTimerResolution(int64* pTimerResolution) mut => VT.[Friend]GetDefaultTimerResolution(&this, pTimerResolution);
 }
 
 [CRepr]struct IReferenceClock2 : IReferenceClock

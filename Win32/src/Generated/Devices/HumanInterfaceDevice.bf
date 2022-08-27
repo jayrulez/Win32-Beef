@@ -4903,7 +4903,7 @@ public function BOOL LPDIJOYTYPECALLBACK(PWSTR param0, void* param1);
 
 public function BOOLEAN PHIDP_INSERT_SCANCODES(void* Context, PSTR NewScanCodes, uint32 Length);
 
-public function NTSTATUS PFN_HidP_GetVersionInternal(uint32 Version);
+public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 
 #endregion
 
@@ -6149,22 +6149,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1, Guid param2) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0) GetEffectGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1, ref Guid param2) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0) GetEffectGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFECT* param0, uint32 param1) GetParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFECT* param0, uint32 param1) SetParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1) Start;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) GetEffectStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* param0) GetEffectStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Download;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unload;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFESCAPE* param0) Escape;
 	}
 
 
-	public HRESULT Initialize(HINSTANCE param0, uint32 param1, Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, param2);
+	public HRESULT Initialize(HINSTANCE param0, uint32 param1, ref Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, ref param2);
 
-	public HRESULT GetEffectGuid(Guid param0) mut => VT.[Friend]GetEffectGuid(&this, param0);
+	public HRESULT GetEffectGuid(ref Guid param0) mut => VT.[Friend]GetEffectGuid(&this, ref param0);
 
 	public HRESULT GetParameters(DIEFFECT* param0, uint32 param1) mut => VT.[Friend]GetParameters(&this, param0, param1);
 
@@ -6174,7 +6174,7 @@ public static
 
 	public HRESULT Stop() mut => VT.[Friend]Stop(&this);
 
-	public HRESULT GetEffectStatus(uint32 param0) mut => VT.[Friend]GetEffectStatus(&this, param0);
+	public HRESULT GetEffectStatus(uint32* param0) mut => VT.[Friend]GetEffectStatus(&this, param0);
 
 	public HRESULT Download() mut => VT.[Friend]Download(&this);
 
@@ -6193,19 +6193,19 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVCAPS* param0) GetCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMDEVICEOBJECTSCALLBACKW param0, void* param1, uint32 param2) EnumObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIPROPHEADER* param1) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIPROPHEADER* param1) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIPROPHEADER* param1) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIPROPHEADER* param1) SetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Acquire;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unacquire;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, void* param1) GetDeviceState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) GetDeviceData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) GetDeviceData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDATAFORMAT* param0) SetDataFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE param0) SetEventNotification;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) SetCooperativeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVICEOBJECTINSTANCEW* param0, uint32 param1, uint32 param2) GetObjectInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVICEINSTANCEW* param0) GetDeviceInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) RunControlPanel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1, Guid param2) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1, ref Guid param2) Initialize;
 	}
 
 
@@ -6213,9 +6213,9 @@ public static
 
 	public HRESULT EnumObjects(LPDIENUMDEVICEOBJECTSCALLBACKW param0, void* param1, uint32 param2) mut => VT.[Friend]EnumObjects(&this, param0, param1, param2);
 
-	public HRESULT GetProperty(Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]GetProperty(&this, param0, param1);
+	public HRESULT GetProperty(ref Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]GetProperty(&this, ref param0, param1);
 
-	public HRESULT SetProperty(Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]SetProperty(&this, param0, param1);
+	public HRESULT SetProperty(ref Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]SetProperty(&this, ref param0, param1);
 
 	public HRESULT Acquire() mut => VT.[Friend]Acquire(&this);
 
@@ -6223,7 +6223,7 @@ public static
 
 	public HRESULT GetDeviceState(uint32 param0, void* param1) mut => VT.[Friend]GetDeviceState(&this, param0, param1);
 
-	public HRESULT GetDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) mut => VT.[Friend]GetDeviceData(&this, param0, param1, param2, param3);
+	public HRESULT GetDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) mut => VT.[Friend]GetDeviceData(&this, param0, param1, param2, param3);
 
 	public HRESULT SetDataFormat(DIDATAFORMAT* param0) mut => VT.[Friend]SetDataFormat(&this, param0);
 
@@ -6237,7 +6237,7 @@ public static
 
 	public HRESULT RunControlPanel(HWND param0, uint32 param1) mut => VT.[Friend]RunControlPanel(&this, param0, param1);
 
-	public HRESULT Initialize(HINSTANCE param0, uint32 param1, Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, param2);
+	public HRESULT Initialize(HINSTANCE param0, uint32 param1, ref Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, ref param2);
 }
 
 [CRepr]struct IDirectInputDeviceA : IUnknown
@@ -6250,19 +6250,19 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVCAPS* param0) GetCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMDEVICEOBJECTSCALLBACKA param0, void* param1, uint32 param2) EnumObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIPROPHEADER* param1) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIPROPHEADER* param1) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIPROPHEADER* param1) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIPROPHEADER* param1) SetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Acquire;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unacquire;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, void* param1) GetDeviceState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) GetDeviceData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) GetDeviceData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDATAFORMAT* param0) SetDataFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE param0) SetEventNotification;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) SetCooperativeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVICEOBJECTINSTANCEA* param0, uint32 param1, uint32 param2) GetObjectInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVICEINSTANCEA* param0) GetDeviceInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) RunControlPanel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1, Guid param2) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1, ref Guid param2) Initialize;
 	}
 
 
@@ -6270,9 +6270,9 @@ public static
 
 	public HRESULT EnumObjects(LPDIENUMDEVICEOBJECTSCALLBACKA param0, void* param1, uint32 param2) mut => VT.[Friend]EnumObjects(&this, param0, param1, param2);
 
-	public HRESULT GetProperty(Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]GetProperty(&this, param0, param1);
+	public HRESULT GetProperty(ref Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]GetProperty(&this, ref param0, param1);
 
-	public HRESULT SetProperty(Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]SetProperty(&this, param0, param1);
+	public HRESULT SetProperty(ref Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]SetProperty(&this, ref param0, param1);
 
 	public HRESULT Acquire() mut => VT.[Friend]Acquire(&this);
 
@@ -6280,7 +6280,7 @@ public static
 
 	public HRESULT GetDeviceState(uint32 param0, void* param1) mut => VT.[Friend]GetDeviceState(&this, param0, param1);
 
-	public HRESULT GetDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) mut => VT.[Friend]GetDeviceData(&this, param0, param1, param2, param3);
+	public HRESULT GetDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) mut => VT.[Friend]GetDeviceData(&this, param0, param1, param2, param3);
 
 	public HRESULT SetDataFormat(DIDATAFORMAT* param0) mut => VT.[Friend]SetDataFormat(&this, param0);
 
@@ -6294,7 +6294,7 @@ public static
 
 	public HRESULT RunControlPanel(HWND param0, uint32 param1) mut => VT.[Friend]RunControlPanel(&this, param0, param1);
 
-	public HRESULT Initialize(HINSTANCE param0, uint32 param1, Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, param2);
+	public HRESULT Initialize(HINSTANCE param0, uint32 param1, ref Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, ref param2);
 }
 
 [CRepr]struct IDirectInputDevice2W : IDirectInputDeviceW
@@ -6305,25 +6305,25 @@ public static
 
 	[CRepr]public struct VTable : IDirectInputDeviceW.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) CreateEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) CreateEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMEFFECTSCALLBACKW param0, void* param1, uint32 param2) EnumEffects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFECTINFOW* param0, Guid param1) GetEffectInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) GetForceFeedbackState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFECTINFOW* param0, ref Guid param1) GetEffectInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* param0) GetForceFeedbackState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) SendForceFeedbackCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK param0, void* param1, uint32 param2) EnumCreatedEffectObjects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFESCAPE* param0) Escape;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Poll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) SendDeviceData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) SendDeviceData;
 	}
 
 
-	public HRESULT CreateEffect(Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) mut => VT.[Friend]CreateEffect(&this, param0, param1, param2, param3);
+	public HRESULT CreateEffect(ref Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) mut => VT.[Friend]CreateEffect(&this, ref param0, param1, param2, param3);
 
 	public HRESULT EnumEffects(LPDIENUMEFFECTSCALLBACKW param0, void* param1, uint32 param2) mut => VT.[Friend]EnumEffects(&this, param0, param1, param2);
 
-	public HRESULT GetEffectInfo(DIEFFECTINFOW* param0, Guid param1) mut => VT.[Friend]GetEffectInfo(&this, param0, param1);
+	public HRESULT GetEffectInfo(DIEFFECTINFOW* param0, ref Guid param1) mut => VT.[Friend]GetEffectInfo(&this, param0, ref param1);
 
-	public HRESULT GetForceFeedbackState(uint32 param0) mut => VT.[Friend]GetForceFeedbackState(&this, param0);
+	public HRESULT GetForceFeedbackState(uint32* param0) mut => VT.[Friend]GetForceFeedbackState(&this, param0);
 
 	public HRESULT SendForceFeedbackCommand(uint32 param0) mut => VT.[Friend]SendForceFeedbackCommand(&this, param0);
 
@@ -6333,7 +6333,7 @@ public static
 
 	public HRESULT Poll() mut => VT.[Friend]Poll(&this);
 
-	public HRESULT SendDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) mut => VT.[Friend]SendDeviceData(&this, param0, param1, param2, param3);
+	public HRESULT SendDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) mut => VT.[Friend]SendDeviceData(&this, param0, param1, param2, param3);
 }
 
 [CRepr]struct IDirectInputDevice2A : IDirectInputDeviceA
@@ -6344,25 +6344,25 @@ public static
 
 	[CRepr]public struct VTable : IDirectInputDeviceA.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) CreateEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) CreateEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMEFFECTSCALLBACKA param0, void* param1, uint32 param2) EnumEffects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFECTINFOA* param0, Guid param1) GetEffectInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) GetForceFeedbackState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFECTINFOA* param0, ref Guid param1) GetEffectInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* param0) GetForceFeedbackState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) SendForceFeedbackCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK param0, void* param1, uint32 param2) EnumCreatedEffectObjects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFESCAPE* param0) Escape;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Poll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) SendDeviceData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) SendDeviceData;
 	}
 
 
-	public HRESULT CreateEffect(Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) mut => VT.[Friend]CreateEffect(&this, param0, param1, param2, param3);
+	public HRESULT CreateEffect(ref Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) mut => VT.[Friend]CreateEffect(&this, ref param0, param1, param2, param3);
 
 	public HRESULT EnumEffects(LPDIENUMEFFECTSCALLBACKA param0, void* param1, uint32 param2) mut => VT.[Friend]EnumEffects(&this, param0, param1, param2);
 
-	public HRESULT GetEffectInfo(DIEFFECTINFOA* param0, Guid param1) mut => VT.[Friend]GetEffectInfo(&this, param0, param1);
+	public HRESULT GetEffectInfo(DIEFFECTINFOA* param0, ref Guid param1) mut => VT.[Friend]GetEffectInfo(&this, param0, ref param1);
 
-	public HRESULT GetForceFeedbackState(uint32 param0) mut => VT.[Friend]GetForceFeedbackState(&this, param0);
+	public HRESULT GetForceFeedbackState(uint32* param0) mut => VT.[Friend]GetForceFeedbackState(&this, param0);
 
 	public HRESULT SendForceFeedbackCommand(uint32 param0) mut => VT.[Friend]SendForceFeedbackCommand(&this, param0);
 
@@ -6372,7 +6372,7 @@ public static
 
 	public HRESULT Poll() mut => VT.[Friend]Poll(&this);
 
-	public HRESULT SendDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) mut => VT.[Friend]SendDeviceData(&this, param0, param1, param2, param3);
+	public HRESULT SendDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) mut => VT.[Friend]SendDeviceData(&this, param0, param1, param2, param3);
 }
 
 [CRepr]struct IDirectInputDevice7W : IDirectInputDevice2W
@@ -6421,28 +6421,28 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVCAPS* param0) GetCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMDEVICEOBJECTSCALLBACKW param0, void* param1, uint32 param2) EnumObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIPROPHEADER* param1) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIPROPHEADER* param1) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIPROPHEADER* param1) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIPROPHEADER* param1) SetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Acquire;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unacquire;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, void* param1) GetDeviceState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) GetDeviceData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) GetDeviceData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDATAFORMAT* param0) SetDataFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE param0) SetEventNotification;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) SetCooperativeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVICEOBJECTINSTANCEW* param0, uint32 param1, uint32 param2) GetObjectInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVICEINSTANCEW* param0) GetDeviceInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) RunControlPanel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1, Guid param2) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) CreateEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1, ref Guid param2) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) CreateEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMEFFECTSCALLBACKW param0, void* param1, uint32 param2) EnumEffects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFECTINFOW* param0, Guid param1) GetEffectInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) GetForceFeedbackState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFECTINFOW* param0, ref Guid param1) GetEffectInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* param0) GetForceFeedbackState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) SendForceFeedbackCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK param0, void* param1, uint32 param2) EnumCreatedEffectObjects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFESCAPE* param0) Escape;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Poll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) SendDeviceData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) SendDeviceData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR param0, LPDIENUMEFFECTSINFILECALLBACK param1, void* param2, uint32 param3) EnumEffectsInFile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR param0, uint32 param1, DIFILEEFFECT* param2, uint32 param3) WriteEffectToFile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIACTIONFORMATW* param0, PWSTR param1, uint32 param2) BuildActionMap;
@@ -6455,9 +6455,9 @@ public static
 
 	public HRESULT EnumObjects(LPDIENUMDEVICEOBJECTSCALLBACKW param0, void* param1, uint32 param2) mut => VT.[Friend]EnumObjects(&this, param0, param1, param2);
 
-	public HRESULT GetProperty(Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]GetProperty(&this, param0, param1);
+	public HRESULT GetProperty(ref Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]GetProperty(&this, ref param0, param1);
 
-	public HRESULT SetProperty(Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]SetProperty(&this, param0, param1);
+	public HRESULT SetProperty(ref Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]SetProperty(&this, ref param0, param1);
 
 	public HRESULT Acquire() mut => VT.[Friend]Acquire(&this);
 
@@ -6465,7 +6465,7 @@ public static
 
 	public HRESULT GetDeviceState(uint32 param0, void* param1) mut => VT.[Friend]GetDeviceState(&this, param0, param1);
 
-	public HRESULT GetDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) mut => VT.[Friend]GetDeviceData(&this, param0, param1, param2, param3);
+	public HRESULT GetDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) mut => VT.[Friend]GetDeviceData(&this, param0, param1, param2, param3);
 
 	public HRESULT SetDataFormat(DIDATAFORMAT* param0) mut => VT.[Friend]SetDataFormat(&this, param0);
 
@@ -6479,15 +6479,15 @@ public static
 
 	public HRESULT RunControlPanel(HWND param0, uint32 param1) mut => VT.[Friend]RunControlPanel(&this, param0, param1);
 
-	public HRESULT Initialize(HINSTANCE param0, uint32 param1, Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, param2);
+	public HRESULT Initialize(HINSTANCE param0, uint32 param1, ref Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, ref param2);
 
-	public HRESULT CreateEffect(Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) mut => VT.[Friend]CreateEffect(&this, param0, param1, param2, param3);
+	public HRESULT CreateEffect(ref Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) mut => VT.[Friend]CreateEffect(&this, ref param0, param1, param2, param3);
 
 	public HRESULT EnumEffects(LPDIENUMEFFECTSCALLBACKW param0, void* param1, uint32 param2) mut => VT.[Friend]EnumEffects(&this, param0, param1, param2);
 
-	public HRESULT GetEffectInfo(DIEFFECTINFOW* param0, Guid param1) mut => VT.[Friend]GetEffectInfo(&this, param0, param1);
+	public HRESULT GetEffectInfo(DIEFFECTINFOW* param0, ref Guid param1) mut => VT.[Friend]GetEffectInfo(&this, param0, ref param1);
 
-	public HRESULT GetForceFeedbackState(uint32 param0) mut => VT.[Friend]GetForceFeedbackState(&this, param0);
+	public HRESULT GetForceFeedbackState(uint32* param0) mut => VT.[Friend]GetForceFeedbackState(&this, param0);
 
 	public HRESULT SendForceFeedbackCommand(uint32 param0) mut => VT.[Friend]SendForceFeedbackCommand(&this, param0);
 
@@ -6497,7 +6497,7 @@ public static
 
 	public HRESULT Poll() mut => VT.[Friend]Poll(&this);
 
-	public HRESULT SendDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) mut => VT.[Friend]SendDeviceData(&this, param0, param1, param2, param3);
+	public HRESULT SendDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) mut => VT.[Friend]SendDeviceData(&this, param0, param1, param2, param3);
 
 	public HRESULT EnumEffectsInFile(PWSTR param0, LPDIENUMEFFECTSINFILECALLBACK param1, void* param2, uint32 param3) mut => VT.[Friend]EnumEffectsInFile(&this, param0, param1, param2, param3);
 
@@ -6520,28 +6520,28 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVCAPS* param0) GetCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMDEVICEOBJECTSCALLBACKA param0, void* param1, uint32 param2) EnumObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIPROPHEADER* param1) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIPROPHEADER* param1) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIPROPHEADER* param1) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIPROPHEADER* param1) SetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Acquire;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unacquire;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, void* param1) GetDeviceState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) GetDeviceData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) GetDeviceData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDATAFORMAT* param0) SetDataFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE param0) SetEventNotification;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) SetCooperativeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVICEOBJECTINSTANCEA* param0, uint32 param1, uint32 param2) GetObjectInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIDEVICEINSTANCEA* param0) GetDeviceInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) RunControlPanel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1, Guid param2) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) CreateEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1, ref Guid param2) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) CreateEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMEFFECTSCALLBACKA param0, void* param1, uint32 param2) EnumEffects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFECTINFOA* param0, Guid param1) GetEffectInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) GetForceFeedbackState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFECTINFOA* param0, ref Guid param1) GetEffectInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* param0) GetForceFeedbackState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) SendForceFeedbackCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK param0, void* param1, uint32 param2) EnumCreatedEffectObjects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIEFFESCAPE* param0) Escape;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Poll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) SendDeviceData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) SendDeviceData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR param0, LPDIENUMEFFECTSINFILECALLBACK param1, void* param2, uint32 param3) EnumEffectsInFile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR param0, uint32 param1, DIFILEEFFECT* param2, uint32 param3) WriteEffectToFile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIACTIONFORMATA* param0, PSTR param1, uint32 param2) BuildActionMap;
@@ -6554,9 +6554,9 @@ public static
 
 	public HRESULT EnumObjects(LPDIENUMDEVICEOBJECTSCALLBACKA param0, void* param1, uint32 param2) mut => VT.[Friend]EnumObjects(&this, param0, param1, param2);
 
-	public HRESULT GetProperty(Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]GetProperty(&this, param0, param1);
+	public HRESULT GetProperty(ref Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]GetProperty(&this, ref param0, param1);
 
-	public HRESULT SetProperty(Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]SetProperty(&this, param0, param1);
+	public HRESULT SetProperty(ref Guid param0, DIPROPHEADER* param1) mut => VT.[Friend]SetProperty(&this, ref param0, param1);
 
 	public HRESULT Acquire() mut => VT.[Friend]Acquire(&this);
 
@@ -6564,7 +6564,7 @@ public static
 
 	public HRESULT GetDeviceState(uint32 param0, void* param1) mut => VT.[Friend]GetDeviceState(&this, param0, param1);
 
-	public HRESULT GetDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) mut => VT.[Friend]GetDeviceData(&this, param0, param1, param2, param3);
+	public HRESULT GetDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) mut => VT.[Friend]GetDeviceData(&this, param0, param1, param2, param3);
 
 	public HRESULT SetDataFormat(DIDATAFORMAT* param0) mut => VT.[Friend]SetDataFormat(&this, param0);
 
@@ -6578,15 +6578,15 @@ public static
 
 	public HRESULT RunControlPanel(HWND param0, uint32 param1) mut => VT.[Friend]RunControlPanel(&this, param0, param1);
 
-	public HRESULT Initialize(HINSTANCE param0, uint32 param1, Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, param2);
+	public HRESULT Initialize(HINSTANCE param0, uint32 param1, ref Guid param2) mut => VT.[Friend]Initialize(&this, param0, param1, ref param2);
 
-	public HRESULT CreateEffect(Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) mut => VT.[Friend]CreateEffect(&this, param0, param1, param2, param3);
+	public HRESULT CreateEffect(ref Guid param0, DIEFFECT* param1, IDirectInputEffect** param2, IUnknown* param3) mut => VT.[Friend]CreateEffect(&this, ref param0, param1, param2, param3);
 
 	public HRESULT EnumEffects(LPDIENUMEFFECTSCALLBACKA param0, void* param1, uint32 param2) mut => VT.[Friend]EnumEffects(&this, param0, param1, param2);
 
-	public HRESULT GetEffectInfo(DIEFFECTINFOA* param0, Guid param1) mut => VT.[Friend]GetEffectInfo(&this, param0, param1);
+	public HRESULT GetEffectInfo(DIEFFECTINFOA* param0, ref Guid param1) mut => VT.[Friend]GetEffectInfo(&this, param0, ref param1);
 
-	public HRESULT GetForceFeedbackState(uint32 param0) mut => VT.[Friend]GetForceFeedbackState(&this, param0);
+	public HRESULT GetForceFeedbackState(uint32* param0) mut => VT.[Friend]GetForceFeedbackState(&this, param0);
 
 	public HRESULT SendForceFeedbackCommand(uint32 param0) mut => VT.[Friend]SendForceFeedbackCommand(&this, param0);
 
@@ -6596,7 +6596,7 @@ public static
 
 	public HRESULT Poll() mut => VT.[Friend]Poll(&this);
 
-	public HRESULT SendDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32 param2, uint32 param3) mut => VT.[Friend]SendDeviceData(&this, param0, param1, param2, param3);
+	public HRESULT SendDeviceData(uint32 param0, DIDEVICEOBJECTDATA* param1, uint32* param2, uint32 param3) mut => VT.[Friend]SendDeviceData(&this, param0, param1, param2, param3);
 
 	public HRESULT EnumEffectsInFile(PSTR param0, LPDIENUMEFFECTSINFILECALLBACK param1, void* param2, uint32 param3) mut => VT.[Friend]EnumEffectsInFile(&this, param0, param1, param2, param3);
 
@@ -6617,19 +6617,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, IDirectInputDeviceW** param1, IUnknown* param2) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, IDirectInputDeviceW** param1, IUnknown* param2) CreateDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, LPDIENUMDEVICESCALLBACKW param1, void* param2, uint32 param3) EnumDevices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0) GetDeviceStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0) GetDeviceStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) RunControlPanel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1) Initialize;
 	}
 
 
-	public HRESULT CreateDevice(Guid param0, IDirectInputDeviceW** param1, IUnknown* param2) mut => VT.[Friend]CreateDevice(&this, param0, param1, param2);
+	public HRESULT CreateDevice(ref Guid param0, IDirectInputDeviceW** param1, IUnknown* param2) mut => VT.[Friend]CreateDevice(&this, ref param0, param1, param2);
 
 	public HRESULT EnumDevices(uint32 param0, LPDIENUMDEVICESCALLBACKW param1, void* param2, uint32 param3) mut => VT.[Friend]EnumDevices(&this, param0, param1, param2, param3);
 
-	public HRESULT GetDeviceStatus(Guid param0) mut => VT.[Friend]GetDeviceStatus(&this, param0);
+	public HRESULT GetDeviceStatus(ref Guid param0) mut => VT.[Friend]GetDeviceStatus(&this, ref param0);
 
 	public HRESULT RunControlPanel(HWND param0, uint32 param1) mut => VT.[Friend]RunControlPanel(&this, param0, param1);
 
@@ -6644,19 +6644,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, IDirectInputDeviceA** param1, IUnknown* param2) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, IDirectInputDeviceA** param1, IUnknown* param2) CreateDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, LPDIENUMDEVICESCALLBACKA param1, void* param2, uint32 param3) EnumDevices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0) GetDeviceStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0) GetDeviceStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) RunControlPanel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1) Initialize;
 	}
 
 
-	public HRESULT CreateDevice(Guid param0, IDirectInputDeviceA** param1, IUnknown* param2) mut => VT.[Friend]CreateDevice(&this, param0, param1, param2);
+	public HRESULT CreateDevice(ref Guid param0, IDirectInputDeviceA** param1, IUnknown* param2) mut => VT.[Friend]CreateDevice(&this, ref param0, param1, param2);
 
 	public HRESULT EnumDevices(uint32 param0, LPDIENUMDEVICESCALLBACKA param1, void* param2, uint32 param3) mut => VT.[Friend]EnumDevices(&this, param0, param1, param2, param3);
 
-	public HRESULT GetDeviceStatus(Guid param0) mut => VT.[Friend]GetDeviceStatus(&this, param0);
+	public HRESULT GetDeviceStatus(ref Guid param0) mut => VT.[Friend]GetDeviceStatus(&this, ref param0);
 
 	public HRESULT RunControlPanel(HWND param0, uint32 param1) mut => VT.[Friend]RunControlPanel(&this, param0, param1);
 
@@ -6671,11 +6671,11 @@ public static
 
 	[CRepr]public struct VTable : IDirectInputW.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, PWSTR param1, Guid param2) FindDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, PWSTR param1, ref Guid param2) FindDevice;
 	}
 
 
-	public HRESULT FindDevice(Guid param0, PWSTR param1, Guid param2) mut => VT.[Friend]FindDevice(&this, param0, param1, param2);
+	public HRESULT FindDevice(ref Guid param0, PWSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, ref param2);
 }
 
 [CRepr]struct IDirectInput2A : IDirectInputA
@@ -6686,11 +6686,11 @@ public static
 
 	[CRepr]public struct VTable : IDirectInputA.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, PSTR param1, Guid param2) FindDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, PSTR param1, ref Guid param2) FindDevice;
 	}
 
 
-	public HRESULT FindDevice(Guid param0, PSTR param1, Guid param2) mut => VT.[Friend]FindDevice(&this, param0, param1, param2);
+	public HRESULT FindDevice(ref Guid param0, PSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, ref param2);
 }
 
 [CRepr]struct IDirectInput7W : IDirectInput2W
@@ -6701,11 +6701,11 @@ public static
 
 	[CRepr]public struct VTable : IDirectInput2W.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, Guid param1, void** param2, IUnknown* param3) CreateDeviceEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, ref Guid param1, void** param2, IUnknown* param3) CreateDeviceEx;
 	}
 
 
-	public HRESULT CreateDeviceEx(Guid param0, Guid param1, void** param2, IUnknown* param3) mut => VT.[Friend]CreateDeviceEx(&this, param0, param1, param2, param3);
+	public HRESULT CreateDeviceEx(ref Guid param0, ref Guid param1, void** param2, IUnknown* param3) mut => VT.[Friend]CreateDeviceEx(&this, ref param0, ref param1, param2, param3);
 }
 
 [CRepr]struct IDirectInput7A : IDirectInput2A
@@ -6716,11 +6716,11 @@ public static
 
 	[CRepr]public struct VTable : IDirectInput2A.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, Guid param1, void** param2, IUnknown* param3) CreateDeviceEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, ref Guid param1, void** param2, IUnknown* param3) CreateDeviceEx;
 	}
 
 
-	public HRESULT CreateDeviceEx(Guid param0, Guid param1, void** param2, IUnknown* param3) mut => VT.[Friend]CreateDeviceEx(&this, param0, param1, param2, param3);
+	public HRESULT CreateDeviceEx(ref Guid param0, ref Guid param1, void** param2, IUnknown* param3) mut => VT.[Friend]CreateDeviceEx(&this, ref param0, ref param1, param2, param3);
 }
 
 [CRepr]struct IDirectInput8W : IUnknown
@@ -6731,28 +6731,28 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, IDirectInputDevice8W** param1, IUnknown* param2) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, IDirectInputDevice8W** param1, IUnknown* param2) CreateDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, LPDIENUMDEVICESCALLBACKW param1, void* param2, uint32 param3) EnumDevices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0) GetDeviceStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0) GetDeviceStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) RunControlPanel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, PWSTR param1, Guid param2) FindDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, PWSTR param1, ref Guid param2) FindDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR param0, DIACTIONFORMATW* param1, LPDIENUMDEVICESBYSEMANTICSCBW param2, void* param3, uint32 param4) EnumDevicesBySemantics;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDICONFIGUREDEVICESCALLBACK param0, DICONFIGUREDEVICESPARAMSW* param1, uint32 param2, void* param3) ConfigureDevices;
 	}
 
 
-	public HRESULT CreateDevice(Guid param0, IDirectInputDevice8W** param1, IUnknown* param2) mut => VT.[Friend]CreateDevice(&this, param0, param1, param2);
+	public HRESULT CreateDevice(ref Guid param0, IDirectInputDevice8W** param1, IUnknown* param2) mut => VT.[Friend]CreateDevice(&this, ref param0, param1, param2);
 
 	public HRESULT EnumDevices(uint32 param0, LPDIENUMDEVICESCALLBACKW param1, void* param2, uint32 param3) mut => VT.[Friend]EnumDevices(&this, param0, param1, param2, param3);
 
-	public HRESULT GetDeviceStatus(Guid param0) mut => VT.[Friend]GetDeviceStatus(&this, param0);
+	public HRESULT GetDeviceStatus(ref Guid param0) mut => VT.[Friend]GetDeviceStatus(&this, ref param0);
 
 	public HRESULT RunControlPanel(HWND param0, uint32 param1) mut => VT.[Friend]RunControlPanel(&this, param0, param1);
 
 	public HRESULT Initialize(HINSTANCE param0, uint32 param1) mut => VT.[Friend]Initialize(&this, param0, param1);
 
-	public HRESULT FindDevice(Guid param0, PWSTR param1, Guid param2) mut => VT.[Friend]FindDevice(&this, param0, param1, param2);
+	public HRESULT FindDevice(ref Guid param0, PWSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, ref param2);
 
 	public HRESULT EnumDevicesBySemantics(PWSTR param0, DIACTIONFORMATW* param1, LPDIENUMDEVICESBYSEMANTICSCBW param2, void* param3, uint32 param4) mut => VT.[Friend]EnumDevicesBySemantics(&this, param0, param1, param2, param3, param4);
 
@@ -6767,28 +6767,28 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, IDirectInputDevice8A** param1, IUnknown* param2) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, IDirectInputDevice8A** param1, IUnknown* param2) CreateDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, LPDIENUMDEVICESCALLBACKA param1, void* param2, uint32 param3) EnumDevices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0) GetDeviceStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0) GetDeviceStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, uint32 param1) RunControlPanel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE param0, uint32 param1) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid param0, PSTR param1, Guid param2) FindDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, PSTR param1, ref Guid param2) FindDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR param0, DIACTIONFORMATA* param1, LPDIENUMDEVICESBYSEMANTICSCBA param2, void* param3, uint32 param4) EnumDevicesBySemantics;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDICONFIGUREDEVICESCALLBACK param0, DICONFIGUREDEVICESPARAMSA* param1, uint32 param2, void* param3) ConfigureDevices;
 	}
 
 
-	public HRESULT CreateDevice(Guid param0, IDirectInputDevice8A** param1, IUnknown* param2) mut => VT.[Friend]CreateDevice(&this, param0, param1, param2);
+	public HRESULT CreateDevice(ref Guid param0, IDirectInputDevice8A** param1, IUnknown* param2) mut => VT.[Friend]CreateDevice(&this, ref param0, param1, param2);
 
 	public HRESULT EnumDevices(uint32 param0, LPDIENUMDEVICESCALLBACKA param1, void* param2, uint32 param3) mut => VT.[Friend]EnumDevices(&this, param0, param1, param2, param3);
 
-	public HRESULT GetDeviceStatus(Guid param0) mut => VT.[Friend]GetDeviceStatus(&this, param0);
+	public HRESULT GetDeviceStatus(ref Guid param0) mut => VT.[Friend]GetDeviceStatus(&this, ref param0);
 
 	public HRESULT RunControlPanel(HWND param0, uint32 param1) mut => VT.[Friend]RunControlPanel(&this, param0, param1);
 
 	public HRESULT Initialize(HINSTANCE param0, uint32 param1) mut => VT.[Friend]Initialize(&this, param0, param1);
 
-	public HRESULT FindDevice(Guid param0, PSTR param1, Guid param2) mut => VT.[Friend]FindDevice(&this, param0, param1, param2);
+	public HRESULT FindDevice(ref Guid param0, PSTR param1, ref Guid param2) mut => VT.[Friend]FindDevice(&this, ref param0, param1, ref param2);
 
 	public HRESULT EnumDevicesBySemantics(PSTR param0, DIACTIONFORMATA* param1, LPDIENUMDEVICESBYSEMANTICSCBA param2, void* param3, uint32 param4) mut => VT.[Friend]EnumDevicesBySemantics(&this, param0, param1, param2, param3, param4);
 
@@ -6809,11 +6809,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1) SetGain;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1) SendForceFeedbackCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, DIDEVICESTATE* param1) GetForceFeedbackState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1, uint32 param2, DIEFFECT* param3, uint32 param4) DownloadEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1, uint32* param2, DIEFFECT* param3, uint32 param4) DownloadEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1) DestroyEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1, uint32 param2, uint32 param3) StartEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1) StopEffect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1, uint32 param2) GetEffectStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1, uint32* param2) GetEffectStatus;
 	}
 
 
@@ -6829,7 +6829,7 @@ public static
 
 	public HRESULT GetForceFeedbackState(uint32 param0, DIDEVICESTATE* param1) mut => VT.[Friend]GetForceFeedbackState(&this, param0, param1);
 
-	public HRESULT DownloadEffect(uint32 param0, uint32 param1, uint32 param2, DIEFFECT* param3, uint32 param4) mut => VT.[Friend]DownloadEffect(&this, param0, param1, param2, param3, param4);
+	public HRESULT DownloadEffect(uint32 param0, uint32 param1, uint32* param2, DIEFFECT* param3, uint32 param4) mut => VT.[Friend]DownloadEffect(&this, param0, param1, param2, param3, param4);
 
 	public HRESULT DestroyEffect(uint32 param0, uint32 param1) mut => VT.[Friend]DestroyEffect(&this, param0, param1);
 
@@ -6837,7 +6837,7 @@ public static
 
 	public HRESULT StopEffect(uint32 param0, uint32 param1) mut => VT.[Friend]StopEffect(&this, param0, param1);
 
-	public HRESULT GetEffectStatus(uint32 param0, uint32 param1, uint32 param2) mut => VT.[Friend]GetEffectStatus(&this, param0, param1, param2);
+	public HRESULT GetEffectStatus(uint32 param0, uint32 param1, uint32* param2) mut => VT.[Friend]GetEffectStatus(&this, param0, param1, param2);
 }
 
 [CRepr]struct IDirectInputJoyConfig : IUnknown
@@ -6861,7 +6861,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) DeleteConfig;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIJOYUSERVALUES* param0, uint32 param1) GetUserValues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIJOYUSERVALUES* param0, uint32 param1) SetUserValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, Guid param1) AddNewHardware;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, ref Guid param1) AddNewHardware;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR param0, uint32 param1, HKEY* param2) OpenTypeKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, uint32 param1, HKEY* param2) OpenConfigKey;
 	}
@@ -6893,7 +6893,7 @@ public static
 
 	public HRESULT SetUserValues(DIJOYUSERVALUES* param0, uint32 param1) mut => VT.[Friend]SetUserValues(&this, param0, param1);
 
-	public HRESULT AddNewHardware(HWND param0, Guid param1) mut => VT.[Friend]AddNewHardware(&this, param0, param1);
+	public HRESULT AddNewHardware(HWND param0, ref Guid param1) mut => VT.[Friend]AddNewHardware(&this, param0, ref param1);
 
 	public HRESULT OpenTypeKey(PWSTR param0, uint32 param1, HKEY* param2) mut => VT.[Friend]OpenTypeKey(&this, param0, param1, param2);
 
@@ -6921,7 +6921,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0) DeleteConfig;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIJOYUSERVALUES* param0, uint32 param1) GetUserValues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DIJOYUSERVALUES* param0, uint32 param1) SetUserValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, Guid param1) AddNewHardware;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND param0, ref Guid param1) AddNewHardware;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR param0, uint32 param1, HKEY* param2) OpenTypeKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKEY* param0) OpenAppStatusKey;
 	}
@@ -6953,7 +6953,7 @@ public static
 
 	public HRESULT SetUserValues(DIJOYUSERVALUES* param0, uint32 param1) mut => VT.[Friend]SetUserValues(&this, param0, param1);
 
-	public HRESULT AddNewHardware(HWND param0, Guid param1) mut => VT.[Friend]AddNewHardware(&this, param0, param1);
+	public HRESULT AddNewHardware(HWND param0, ref Guid param1) mut => VT.[Friend]AddNewHardware(&this, param0, ref param1);
 
 	public HRESULT OpenTypeKey(PWSTR param0, uint32 param1, HKEY* param2) mut => VT.[Friend]OpenTypeKey(&this, param0, param1, param2);
 
@@ -6966,7 +6966,7 @@ public static
 public static
 {
 	[Import("DINPUT8.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DirectInput8Create(HINSTANCE hinst, uint32 dwVersion, Guid riidltf, void** ppvOut, IUnknown* punkOuter);
+	public static extern HRESULT DirectInput8Create(HINSTANCE hinst, uint32 dwVersion, ref Guid riidltf, void** ppvOut, IUnknown* punkOuter);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 joyConfigChanged(uint32 dwFlags);
@@ -6975,46 +6975,46 @@ public static
 	public static extern NTSTATUS HidP_GetCaps(int PreparsedData, HIDP_CAPS* Capabilities);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetLinkCollectionNodes(HIDP_LINK_COLLECTION_NODE* LinkCollectionNodes, uint32 LinkCollectionNodesLength, int PreparsedData);
+	public static extern NTSTATUS HidP_GetLinkCollectionNodes(HIDP_LINK_COLLECTION_NODE* LinkCollectionNodes, uint32* LinkCollectionNodesLength, int PreparsedData);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetSpecificButtonCaps(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, HIDP_BUTTON_CAPS* ButtonCaps, uint16 ButtonCapsLength, int PreparsedData);
+	public static extern NTSTATUS HidP_GetSpecificButtonCaps(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, HIDP_BUTTON_CAPS* ButtonCaps, uint16* ButtonCapsLength, int PreparsedData);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetButtonCaps(HIDP_REPORT_TYPE ReportType, HIDP_BUTTON_CAPS* ButtonCaps, uint16 ButtonCapsLength, int PreparsedData);
+	public static extern NTSTATUS HidP_GetButtonCaps(HIDP_REPORT_TYPE ReportType, HIDP_BUTTON_CAPS* ButtonCaps, uint16* ButtonCapsLength, int PreparsedData);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetSpecificValueCaps(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, HIDP_VALUE_CAPS* ValueCaps, uint16 ValueCapsLength, int PreparsedData);
+	public static extern NTSTATUS HidP_GetSpecificValueCaps(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, HIDP_VALUE_CAPS* ValueCaps, uint16* ValueCapsLength, int PreparsedData);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetValueCaps(HIDP_REPORT_TYPE ReportType, HIDP_VALUE_CAPS* ValueCaps, uint16 ValueCapsLength, int PreparsedData);
+	public static extern NTSTATUS HidP_GetValueCaps(HIDP_REPORT_TYPE ReportType, HIDP_VALUE_CAPS* ValueCaps, uint16* ValueCapsLength, int PreparsedData);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetExtendedAttributes(HIDP_REPORT_TYPE ReportType, uint16 DataIndex, int PreparsedData, HIDP_EXTENDED_ATTRIBUTES* Attributes, uint32 LengthAttributes);
+	public static extern NTSTATUS HidP_GetExtendedAttributes(HIDP_REPORT_TYPE ReportType, uint16 DataIndex, int PreparsedData, HIDP_EXTENDED_ATTRIBUTES* Attributes, uint32* LengthAttributes);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS HidP_InitializeReportForID(HIDP_REPORT_TYPE ReportType, uint8 ReportID, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_SetData(HIDP_REPORT_TYPE ReportType, HIDP_DATA* DataList, uint32 DataLength, int PreparsedData, PSTR Report, uint32 ReportLength);
+	public static extern NTSTATUS HidP_SetData(HIDP_REPORT_TYPE ReportType, HIDP_DATA* DataList, uint32* DataLength, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetData(HIDP_REPORT_TYPE ReportType, HIDP_DATA* DataList, uint32 DataLength, int PreparsedData, PSTR Report, uint32 ReportLength);
+	public static extern NTSTATUS HidP_GetData(HIDP_REPORT_TYPE ReportType, HIDP_DATA* DataList, uint32* DataLength, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HidP_MaxDataListLength(HIDP_REPORT_TYPE ReportType, int PreparsedData);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_SetUsages(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16* UsageList, uint32 UsageLength, int PreparsedData, PSTR Report, uint32 ReportLength);
+	public static extern NTSTATUS HidP_SetUsages(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16* UsageList, uint32* UsageLength, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_UnsetUsages(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16* UsageList, uint32 UsageLength, int PreparsedData, PSTR Report, uint32 ReportLength);
+	public static extern NTSTATUS HidP_UnsetUsages(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16* UsageList, uint32* UsageLength, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetUsages(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16* UsageList, uint32 UsageLength, int PreparsedData, PSTR Report, uint32 ReportLength);
+	public static extern NTSTATUS HidP_GetUsages(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16* UsageList, uint32* UsageLength, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetUsagesEx(HIDP_REPORT_TYPE ReportType, uint16 LinkCollection, USAGE_AND_PAGE* ButtonList, uint32 UsageLength, int PreparsedData, PSTR Report, uint32 ReportLength);
+	public static extern NTSTATUS HidP_GetUsagesEx(HIDP_REPORT_TYPE ReportType, uint16 LinkCollection, USAGE_AND_PAGE* ButtonList, uint32* UsageLength, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HidP_MaxUsageListLength(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, int PreparsedData);
@@ -7029,10 +7029,10 @@ public static
 	public static extern NTSTATUS HidP_SetUsageValueArray(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, PSTR UsageValue, uint16 UsageValueByteLength, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetUsageValue(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, uint32 UsageValue, int PreparsedData, PSTR Report, uint32 ReportLength);
+	public static extern NTSTATUS HidP_GetUsageValue(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, uint32* UsageValue, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetScaledUsageValue(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, int32 UsageValue, int PreparsedData, PSTR Report, uint32 ReportLength);
+	public static extern NTSTATUS HidP_GetScaledUsageValue(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, int32* UsageValue, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS HidP_GetUsageValueArray(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, PSTR UsageValue, uint16 UsageValueByteLength, int PreparsedData, PSTR Report, uint32 ReportLength);
@@ -7041,7 +7041,7 @@ public static
 	public static extern NTSTATUS HidP_UsageListDifference(uint16* PreviousUsageList, uint16* CurrentUsageList, uint16* BreakUsageList, uint16* MakeUsageList, uint32 UsageListLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS HidP_GetButtonArray(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, HIDP_BUTTON_ARRAY_DATA* ButtonData, uint16 ButtonDataLength, int PreparsedData, PSTR Report, uint32 ReportLength);
+	public static extern NTSTATUS HidP_GetButtonArray(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, HIDP_BUTTON_ARRAY_DATA* ButtonData, uint16* ButtonDataLength, int PreparsedData, PSTR Report, uint32 ReportLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS HidP_SetButtonArray(HIDP_REPORT_TYPE ReportType, uint16 UsagePage, uint16 LinkCollection, uint16 Usage, HIDP_BUTTON_ARRAY_DATA* ButtonData, uint16 ButtonDataLength, int PreparsedData, PSTR Report, uint32 ReportLength);
@@ -7053,10 +7053,10 @@ public static
 	public static extern BOOLEAN HidD_GetAttributes(HANDLE HidDeviceObject, HIDD_ATTRIBUTES* Attributes);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void HidD_GetHidGuid(Guid HidGuid);
+	public static extern void HidD_GetHidGuid(ref Guid HidGuid);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN HidD_GetPreparsedData(HANDLE HidDeviceObject, int PreparsedData);
+	public static extern BOOLEAN HidD_GetPreparsedData(HANDLE HidDeviceObject, int* PreparsedData);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN HidD_FreePreparsedData(int PreparsedData);
@@ -7083,7 +7083,7 @@ public static
 	public static extern BOOLEAN HidD_SetOutputReport(HANDLE HidDeviceObject, void* ReportBuffer, uint32 ReportBufferLength);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN HidD_GetNumInputBuffers(HANDLE HidDeviceObject, uint32 NumberBuffers);
+	public static extern BOOLEAN HidD_GetNumInputBuffers(HANDLE HidDeviceObject, uint32* NumberBuffers);
 
 	[Import("HID.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN HidD_SetNumInputBuffers(HANDLE HidDeviceObject, uint32 NumberBuffers);

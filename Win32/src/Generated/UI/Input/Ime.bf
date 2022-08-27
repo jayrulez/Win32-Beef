@@ -1463,7 +1463,7 @@ public function BOOL PFNLOG(IMEDP* param0, HRESULT param1);
 
 public function HRESULT fpCreateIFECommonInstanceType(void** ppvObj);
 
-public function HRESULT fpCreateIFELanguageInstanceType(Guid clsid, void** ppvObj);
+public function HRESULT fpCreateIFELanguageInstanceType(ref Guid clsid, void** ppvObj);
 
 public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 
@@ -2063,8 +2063,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRequest, uint32 dwCMode, int32 cwchInput, PWSTR pwchInput, uint32 pfCInfo, MORRSLT** ppResult) GetJMorphResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCaps) GetConversionModeCaps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRequest, uint32 dwCMode, int32 cwchInput, PWSTR pwchInput, uint32* pfCInfo, MORRSLT** ppResult) GetJMorphResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCaps) GetConversionModeCaps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR string, int32 start, int32 length, BSTR* phonetic) GetPhonetic;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR string, int32 start, int32 length, BSTR* result) GetConversion;
 	}
@@ -2074,9 +2074,9 @@ public static
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
-	public HRESULT GetJMorphResult(uint32 dwRequest, uint32 dwCMode, int32 cwchInput, PWSTR pwchInput, uint32 pfCInfo, MORRSLT** ppResult) mut => VT.[Friend]GetJMorphResult(&this, dwRequest, dwCMode, cwchInput, pwchInput, pfCInfo, ppResult);
+	public HRESULT GetJMorphResult(uint32 dwRequest, uint32 dwCMode, int32 cwchInput, PWSTR pwchInput, uint32* pfCInfo, MORRSLT** ppResult) mut => VT.[Friend]GetJMorphResult(&this, dwRequest, dwCMode, cwchInput, pwchInput, pfCInfo, ppResult);
 
-	public HRESULT GetConversionModeCaps(uint32 pdwCaps) mut => VT.[Friend]GetConversionModeCaps(&this, pdwCaps);
+	public HRESULT GetConversionModeCaps(uint32* pdwCaps) mut => VT.[Friend]GetConversionModeCaps(&this, pdwCaps);
 
 	public HRESULT GetPhonetic(BSTR string, int32 start, int32 length, BSTR* phonetic) mut => VT.[Friend]GetPhonetic(&this, string, start, length, phonetic);
 
@@ -2093,19 +2093,19 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pchDictPath, IMESHF* pshf) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pchDictPath, IMESHF* pshf, IMEFMT* pjfmt, uint32 pulType) GetHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pchDictPath, IMESHF* pshf, IMEFMT* pjfmt, uint32* pulType) GetHeader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd) DisplayProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POSTBL** prgPosTbl, int32 pcPosTbl) GetPosTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchFirst, PWSTR pwchLast, PWSTR pwchDisplay, uint32 ulPos, uint32 ulSelect, uint32 ulWordSrc, uint8 pchBuffer, uint32 cbBuffer, uint32 pcWrd) GetWords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pchBuffer, uint32 cbBuffer, uint32 pcWrd) NextWords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POSTBL** prgPosTbl, int32* pcPosTbl) GetPosTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchFirst, PWSTR pwchLast, PWSTR pwchDisplay, uint32 ulPos, uint32 ulSelect, uint32 ulWordSrc, uint8* pchBuffer, uint32 cbBuffer, uint32* pcWrd) GetWords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pchBuffer, uint32 cbBuffer, uint32* pcWrd) NextWords;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pchDictPath, IMESHF* pshf) Create;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMESHF* pshf) SetHeader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEWRD* pwrd) ExistWord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEDP* pdp) ExistDependency;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEREG reg, IMEWRD* pwrd) RegisterWord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEREG reg, IMEDP* pdp) RegisterDependency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchKakariReading, PWSTR pwchKakariDisplay, uint32 ulKakariPos, PWSTR pwchUkeReading, PWSTR pwchUkeDisplay, uint32 ulUkePos, IMEREL jrel, uint32 ulWordSrc, uint8 pchBuffer, uint32 cbBuffer, uint32 pcdp) GetDependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 pchBuffer, uint32 cbBuffer, uint32 pcDp) NextDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchKakariReading, PWSTR pwchKakariDisplay, uint32 ulKakariPos, PWSTR pwchUkeReading, PWSTR pwchUkeDisplay, uint32 ulUkePos, IMEREL jrel, uint32 ulWordSrc, uint8* pchBuffer, uint32 cbBuffer, uint32* pcdp) GetDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pchBuffer, uint32 cbBuffer, uint32* pcDp) NextDependencies;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pchDic, PFNLOG pfnLog, IMEREG reg) ConvertFromOldMSIME;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ConvertFromUserToSys;
 	}
@@ -2115,15 +2115,15 @@ public static
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
-	public HRESULT GetHeader(uint8* pchDictPath, IMESHF* pshf, IMEFMT* pjfmt, uint32 pulType) mut => VT.[Friend]GetHeader(&this, pchDictPath, pshf, pjfmt, pulType);
+	public HRESULT GetHeader(uint8* pchDictPath, IMESHF* pshf, IMEFMT* pjfmt, uint32* pulType) mut => VT.[Friend]GetHeader(&this, pchDictPath, pshf, pjfmt, pulType);
 
 	public HRESULT DisplayProperty(HWND hwnd) mut => VT.[Friend]DisplayProperty(&this, hwnd);
 
-	public HRESULT GetPosTable(POSTBL** prgPosTbl, int32 pcPosTbl) mut => VT.[Friend]GetPosTable(&this, prgPosTbl, pcPosTbl);
+	public HRESULT GetPosTable(POSTBL** prgPosTbl, int32* pcPosTbl) mut => VT.[Friend]GetPosTable(&this, prgPosTbl, pcPosTbl);
 
-	public HRESULT GetWords(PWSTR pwchFirst, PWSTR pwchLast, PWSTR pwchDisplay, uint32 ulPos, uint32 ulSelect, uint32 ulWordSrc, uint8 pchBuffer, uint32 cbBuffer, uint32 pcWrd) mut => VT.[Friend]GetWords(&this, pwchFirst, pwchLast, pwchDisplay, ulPos, ulSelect, ulWordSrc, pchBuffer, cbBuffer, pcWrd);
+	public HRESULT GetWords(PWSTR pwchFirst, PWSTR pwchLast, PWSTR pwchDisplay, uint32 ulPos, uint32 ulSelect, uint32 ulWordSrc, uint8* pchBuffer, uint32 cbBuffer, uint32* pcWrd) mut => VT.[Friend]GetWords(&this, pwchFirst, pwchLast, pwchDisplay, ulPos, ulSelect, ulWordSrc, pchBuffer, cbBuffer, pcWrd);
 
-	public HRESULT NextWords(uint8 pchBuffer, uint32 cbBuffer, uint32 pcWrd) mut => VT.[Friend]NextWords(&this, pchBuffer, cbBuffer, pcWrd);
+	public HRESULT NextWords(uint8* pchBuffer, uint32 cbBuffer, uint32* pcWrd) mut => VT.[Friend]NextWords(&this, pchBuffer, cbBuffer, pcWrd);
 
 	public HRESULT Create(PSTR pchDictPath, IMESHF* pshf) mut => VT.[Friend]Create(&this, pchDictPath, pshf);
 
@@ -2137,9 +2137,9 @@ public static
 
 	public HRESULT RegisterDependency(IMEREG reg, IMEDP* pdp) mut => VT.[Friend]RegisterDependency(&this, reg, pdp);
 
-	public HRESULT GetDependencies(PWSTR pwchKakariReading, PWSTR pwchKakariDisplay, uint32 ulKakariPos, PWSTR pwchUkeReading, PWSTR pwchUkeDisplay, uint32 ulUkePos, IMEREL jrel, uint32 ulWordSrc, uint8 pchBuffer, uint32 cbBuffer, uint32 pcdp) mut => VT.[Friend]GetDependencies(&this, pwchKakariReading, pwchKakariDisplay, ulKakariPos, pwchUkeReading, pwchUkeDisplay, ulUkePos, jrel, ulWordSrc, pchBuffer, cbBuffer, pcdp);
+	public HRESULT GetDependencies(PWSTR pwchKakariReading, PWSTR pwchKakariDisplay, uint32 ulKakariPos, PWSTR pwchUkeReading, PWSTR pwchUkeDisplay, uint32 ulUkePos, IMEREL jrel, uint32 ulWordSrc, uint8* pchBuffer, uint32 cbBuffer, uint32* pcdp) mut => VT.[Friend]GetDependencies(&this, pwchKakariReading, pwchKakariDisplay, ulKakariPos, pwchUkeReading, pwchUkeDisplay, ulUkePos, jrel, ulWordSrc, pchBuffer, cbBuffer, pcdp);
 
-	public HRESULT NextDependencies(uint8 pchBuffer, uint32 cbBuffer, uint32 pcDp) mut => VT.[Friend]NextDependencies(&this, pchBuffer, cbBuffer, pcDp);
+	public HRESULT NextDependencies(uint8* pchBuffer, uint32 cbBuffer, uint32* pcDp) mut => VT.[Friend]NextDependencies(&this, pchBuffer, cbBuffer, pcDp);
 
 	public HRESULT ConvertFromOldMSIME(PSTR pchDic, PFNLOG pfnLog, IMEREG reg) mut => VT.[Friend]ConvertFromOldMSIME(&this, pchDic, pfnLog, reg);
 
@@ -2154,11 +2154,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid refiid, APPLETIDLIST* lpIIDList) GetAppletIIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refiid, APPLETIDLIST* lpIIDList) GetAppletIIDList;
 	}
 
 
-	public HRESULT GetAppletIIDList(Guid refiid, APPLETIDLIST* lpIIDList) mut => VT.[Friend]GetAppletIIDList(&this, refiid, lpIIDList);
+	public HRESULT GetAppletIIDList(ref Guid refiid, APPLETIDLIST* lpIIDList) mut => VT.[Friend]GetAppletIIDList(&this, ref refiid, lpIIDList);
 }
 
 [CRepr]struct IImePadApplet : IUnknown
@@ -2230,7 +2230,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumRegisterWordA** ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, REGISTERWORDA* rgRegisterWord, uint32 pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, REGISTERWORDA* rgRegisterWord, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount) Skip;
 	}
@@ -2238,7 +2238,7 @@ public static
 
 	public HRESULT Clone(IEnumRegisterWordA** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 
-	public HRESULT Next(uint32 ulCount, REGISTERWORDA* rgRegisterWord, uint32 pcFetched) mut => VT.[Friend]Next(&this, ulCount, rgRegisterWord, pcFetched);
+	public HRESULT Next(uint32 ulCount, REGISTERWORDA* rgRegisterWord, uint32* pcFetched) mut => VT.[Friend]Next(&this, ulCount, rgRegisterWord, pcFetched);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
@@ -2254,7 +2254,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumRegisterWordW** ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, REGISTERWORDW* rgRegisterWord, uint32 pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, REGISTERWORDW* rgRegisterWord, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount) Skip;
 	}
@@ -2262,7 +2262,7 @@ public static
 
 	public HRESULT Clone(IEnumRegisterWordW** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 
-	public HRESULT Next(uint32 ulCount, REGISTERWORDW* rgRegisterWord, uint32 pcFetched) mut => VT.[Friend]Next(&this, ulCount, rgRegisterWord, pcFetched);
+	public HRESULT Next(uint32 ulCount, REGISTERWORDW* rgRegisterWord, uint32* pcFetched) mut => VT.[Friend]Next(&this, ulCount, rgRegisterWord, pcFetched);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
@@ -2278,7 +2278,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumInputContext** ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, HIMC* rgInputContext, uint32 pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, HIMC* rgInputContext, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount) Skip;
 	}
@@ -2286,7 +2286,7 @@ public static
 
 	public HRESULT Clone(IEnumInputContext** ppEnum) mut => VT.[Friend]Clone(&this, ppEnum);
 
-	public HRESULT Next(uint32 ulCount, HIMC* rgInputContext, uint32 pcFetched) mut => VT.[Friend]Next(&this, ulCount, rgInputContext, pcFetched);
+	public HRESULT Next(uint32 ulCount, HIMC* rgInputContext, uint32* pcFetched) mut => VT.[Friend]Next(&this, ulCount, rgInputContext, pcFetched);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
@@ -2301,14 +2301,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid rclsid, uint16 lgid, PWSTR pszIconFile, PWSTR pszDesc) RegisterIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid rclsid) UnregisterIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid, uint16 lgid, PWSTR pszIconFile, PWSTR pszDesc) RegisterIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid) UnregisterIME;
 	}
 
 
-	public HRESULT RegisterIME(Guid rclsid, uint16 lgid, PWSTR pszIconFile, PWSTR pszDesc) mut => VT.[Friend]RegisterIME(&this, rclsid, lgid, pszIconFile, pszDesc);
+	public HRESULT RegisterIME(ref Guid rclsid, uint16 lgid, PWSTR pszIconFile, PWSTR pszDesc) mut => VT.[Friend]RegisterIME(&this, ref rclsid, lgid, pszIconFile, pszDesc);
 
-	public HRESULT UnregisterIME(Guid rclsid) mut => VT.[Friend]UnregisterIME(&this, rclsid);
+	public HRESULT UnregisterIME(ref Guid rclsid) mut => VT.[Friend]UnregisterIME(&this, ref rclsid);
 }
 
 [CRepr]struct IActiveIMMMessagePumpOwner : IUnknown
@@ -2322,7 +2322,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Start;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) End;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MSG* pMsg) OnTranslateMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pdwCookie) Pause;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCookie) Pause;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCookie) Resume;
 	}
 
@@ -2333,7 +2333,7 @@ public static
 
 	public HRESULT OnTranslateMessage(MSG* pMsg) mut => VT.[Friend]OnTranslateMessage(&this, pMsg);
 
-	public HRESULT Pause(uint32 pdwCookie) mut => VT.[Friend]Pause(&this, pdwCookie);
+	public HRESULT Pause(uint32* pdwCookie) mut => VT.[Friend]Pause(&this, pdwCookie);
 
 	public HRESULT Resume(uint32 dwCookie) mut => VT.[Friend]Resume(&this, dwCookie);
 }
@@ -2355,33 +2355,33 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szRegister, void* pData, IEnumRegisterWordW** pEnum) EnumRegisterWordW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeA;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32 puCopied) GetCandidateListA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32 puCopied) GetCandidateListW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 pdwListSize, uint32 pdwBufLen) GetCandidateListCountA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 pdwListSize, uint32 pdwBufLen) GetCandidateListCountW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, CANDIDATEFORM* pCandidate) GetCandidateWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTA* plf) GetCompositionFontA;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTW* plf) GetCompositionFontW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32 plCopied, void* pBuf) GetCompositionStringA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32 plCopied, void* pBuf) GetCompositionStringW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, COMPOSITIONFORM* pCompForm) GetCompositionWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC* phIMC) GetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32 puCopied) GetConversionListA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32 puCopied) GetConversionListW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 pfdwConversion, uint32 pfdwSentence) GetConversionStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pfdwConversion, uint32* pfdwSentence) GetConversionStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HWND* phDefWnd) GetDefaultIMEWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szDescription, uint32 puCopied) GetDescriptionA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32 puCopied) GetDescriptionW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32 pdwResult) GetGuideLineA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32 pdwResult) GetGuideLineW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szFileName, uint32 puCopied) GetIMEFileNameA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32 puCopied) GetIMEFileNameW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szDescription, uint32* puCopied) GetDescriptionA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32* puCopied) GetDescriptionW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32* pdwResult) GetGuideLineA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32* pdwResult) GetGuideLineW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szFileName, uint32* puCopied) GetIMEFileNameA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32* puCopied) GetIMEFileNameW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC) GetOpenStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 fdwIndex, uint32 pdwProperty) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32 puCopied) GetRegisterWordStyleA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32 puCopied) GetRegisterWordStyleW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 fdwIndex, uint32* pdwProperty) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32* puCopied) GetRegisterWordStyleA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puCopied) GetRegisterWordStyleW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, POINT* pptPos) GetStatusWindowPos;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32 puVirtualKey) GetVirtualKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32* puVirtualKey) GetVirtualKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR szIMEFileName, PSTR szLayoutText, HKL* phKL) InstallIMEA;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szIMEFileName, PWSTR szLayoutText, HKL* phKL) InstallIMEW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL) IsIME;
@@ -2406,13 +2406,13 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fRestoreLayout) Activate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Deactivate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam, LRESULT* plResult) OnDefWindowProc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 aaClassList, uint32 uSize) FilterClientWindows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uCodePage) GetCodePageA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint16 plid) GetLangId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* aaClassList, uint32 uSize) FilterClientWindows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32* uCodePage) GetCodePageA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint16* plid) GetLangId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC hIMC, uint32 dwFlags) AssociateContextEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idThread) DisableIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32 pdwResult) GetImeMenuItemsA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32 pdwResult) GetImeMenuItemsW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idThread, IEnumInputContext** ppEnum) EnumInputContext;
 	}
 
@@ -2435,13 +2435,13 @@ public static
 
 	public HRESULT EscapeW(HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) mut => VT.[Friend]EscapeW(&this, hKL, hIMC, uEscape, pData, plResult);
 
-	public HRESULT GetCandidateListA(HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32 puCopied) mut => VT.[Friend]GetCandidateListA(&this, hIMC, dwIndex, uBufLen, pCandList, puCopied);
+	public HRESULT GetCandidateListA(HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) mut => VT.[Friend]GetCandidateListA(&this, hIMC, dwIndex, uBufLen, pCandList, puCopied);
 
-	public HRESULT GetCandidateListW(HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32 puCopied) mut => VT.[Friend]GetCandidateListW(&this, hIMC, dwIndex, uBufLen, pCandList, puCopied);
+	public HRESULT GetCandidateListW(HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) mut => VT.[Friend]GetCandidateListW(&this, hIMC, dwIndex, uBufLen, pCandList, puCopied);
 
-	public HRESULT GetCandidateListCountA(HIMC hIMC, uint32 pdwListSize, uint32 pdwBufLen) mut => VT.[Friend]GetCandidateListCountA(&this, hIMC, pdwListSize, pdwBufLen);
+	public HRESULT GetCandidateListCountA(HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) mut => VT.[Friend]GetCandidateListCountA(&this, hIMC, pdwListSize, pdwBufLen);
 
-	public HRESULT GetCandidateListCountW(HIMC hIMC, uint32 pdwListSize, uint32 pdwBufLen) mut => VT.[Friend]GetCandidateListCountW(&this, hIMC, pdwListSize, pdwBufLen);
+	public HRESULT GetCandidateListCountW(HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) mut => VT.[Friend]GetCandidateListCountW(&this, hIMC, pdwListSize, pdwBufLen);
 
 	public HRESULT GetCandidateWindow(HIMC hIMC, uint32 dwIndex, CANDIDATEFORM* pCandidate) mut => VT.[Friend]GetCandidateWindow(&this, hIMC, dwIndex, pCandidate);
 
@@ -2449,45 +2449,45 @@ public static
 
 	public HRESULT GetCompositionFontW(HIMC hIMC, LOGFONTW* plf) mut => VT.[Friend]GetCompositionFontW(&this, hIMC, plf);
 
-	public HRESULT GetCompositionStringA(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32 plCopied, void* pBuf) mut => VT.[Friend]GetCompositionStringA(&this, hIMC, dwIndex, dwBufLen, plCopied, pBuf);
+	public HRESULT GetCompositionStringA(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) mut => VT.[Friend]GetCompositionStringA(&this, hIMC, dwIndex, dwBufLen, plCopied, pBuf);
 
-	public HRESULT GetCompositionStringW(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32 plCopied, void* pBuf) mut => VT.[Friend]GetCompositionStringW(&this, hIMC, dwIndex, dwBufLen, plCopied, pBuf);
+	public HRESULT GetCompositionStringW(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) mut => VT.[Friend]GetCompositionStringW(&this, hIMC, dwIndex, dwBufLen, plCopied, pBuf);
 
 	public HRESULT GetCompositionWindow(HIMC hIMC, COMPOSITIONFORM* pCompForm) mut => VT.[Friend]GetCompositionWindow(&this, hIMC, pCompForm);
 
 	public HRESULT GetContext(HWND hWnd, HIMC* phIMC) mut => VT.[Friend]GetContext(&this, hWnd, phIMC);
 
-	public HRESULT GetConversionListA(HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32 puCopied) mut => VT.[Friend]GetConversionListA(&this, hKL, hIMC, pSrc, uBufLen, uFlag, pDst, puCopied);
+	public HRESULT GetConversionListA(HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) mut => VT.[Friend]GetConversionListA(&this, hKL, hIMC, pSrc, uBufLen, uFlag, pDst, puCopied);
 
-	public HRESULT GetConversionListW(HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32 puCopied) mut => VT.[Friend]GetConversionListW(&this, hKL, hIMC, pSrc, uBufLen, uFlag, pDst, puCopied);
+	public HRESULT GetConversionListW(HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) mut => VT.[Friend]GetConversionListW(&this, hKL, hIMC, pSrc, uBufLen, uFlag, pDst, puCopied);
 
-	public HRESULT GetConversionStatus(HIMC hIMC, uint32 pfdwConversion, uint32 pfdwSentence) mut => VT.[Friend]GetConversionStatus(&this, hIMC, pfdwConversion, pfdwSentence);
+	public HRESULT GetConversionStatus(HIMC hIMC, uint32* pfdwConversion, uint32* pfdwSentence) mut => VT.[Friend]GetConversionStatus(&this, hIMC, pfdwConversion, pfdwSentence);
 
 	public HRESULT GetDefaultIMEWnd(HWND hWnd, HWND* phDefWnd) mut => VT.[Friend]GetDefaultIMEWnd(&this, hWnd, phDefWnd);
 
-	public HRESULT GetDescriptionA(HKL hKL, uint32 uBufLen, PSTR szDescription, uint32 puCopied) mut => VT.[Friend]GetDescriptionA(&this, hKL, uBufLen, szDescription, puCopied);
+	public HRESULT GetDescriptionA(HKL hKL, uint32 uBufLen, PSTR szDescription, uint32* puCopied) mut => VT.[Friend]GetDescriptionA(&this, hKL, uBufLen, szDescription, puCopied);
 
-	public HRESULT GetDescriptionW(HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32 puCopied) mut => VT.[Friend]GetDescriptionW(&this, hKL, uBufLen, szDescription, puCopied);
+	public HRESULT GetDescriptionW(HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32* puCopied) mut => VT.[Friend]GetDescriptionW(&this, hKL, uBufLen, szDescription, puCopied);
 
-	public HRESULT GetGuideLineA(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32 pdwResult) mut => VT.[Friend]GetGuideLineA(&this, hIMC, dwIndex, dwBufLen, pBuf, pdwResult);
+	public HRESULT GetGuideLineA(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32* pdwResult) mut => VT.[Friend]GetGuideLineA(&this, hIMC, dwIndex, dwBufLen, pBuf, pdwResult);
 
-	public HRESULT GetGuideLineW(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32 pdwResult) mut => VT.[Friend]GetGuideLineW(&this, hIMC, dwIndex, dwBufLen, pBuf, pdwResult);
+	public HRESULT GetGuideLineW(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32* pdwResult) mut => VT.[Friend]GetGuideLineW(&this, hIMC, dwIndex, dwBufLen, pBuf, pdwResult);
 
-	public HRESULT GetIMEFileNameA(HKL hKL, uint32 uBufLen, PSTR szFileName, uint32 puCopied) mut => VT.[Friend]GetIMEFileNameA(&this, hKL, uBufLen, szFileName, puCopied);
+	public HRESULT GetIMEFileNameA(HKL hKL, uint32 uBufLen, PSTR szFileName, uint32* puCopied) mut => VT.[Friend]GetIMEFileNameA(&this, hKL, uBufLen, szFileName, puCopied);
 
-	public HRESULT GetIMEFileNameW(HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32 puCopied) mut => VT.[Friend]GetIMEFileNameW(&this, hKL, uBufLen, szFileName, puCopied);
+	public HRESULT GetIMEFileNameW(HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32* puCopied) mut => VT.[Friend]GetIMEFileNameW(&this, hKL, uBufLen, szFileName, puCopied);
 
 	public HRESULT GetOpenStatus(HIMC hIMC) mut => VT.[Friend]GetOpenStatus(&this, hIMC);
 
-	public HRESULT GetProperty(HKL hKL, uint32 fdwIndex, uint32 pdwProperty) mut => VT.[Friend]GetProperty(&this, hKL, fdwIndex, pdwProperty);
+	public HRESULT GetProperty(HKL hKL, uint32 fdwIndex, uint32* pdwProperty) mut => VT.[Friend]GetProperty(&this, hKL, fdwIndex, pdwProperty);
 
-	public HRESULT GetRegisterWordStyleA(HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32 puCopied) mut => VT.[Friend]GetRegisterWordStyleA(&this, hKL, nItem, pStyleBuf, puCopied);
+	public HRESULT GetRegisterWordStyleA(HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32* puCopied) mut => VT.[Friend]GetRegisterWordStyleA(&this, hKL, nItem, pStyleBuf, puCopied);
 
-	public HRESULT GetRegisterWordStyleW(HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32 puCopied) mut => VT.[Friend]GetRegisterWordStyleW(&this, hKL, nItem, pStyleBuf, puCopied);
+	public HRESULT GetRegisterWordStyleW(HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puCopied) mut => VT.[Friend]GetRegisterWordStyleW(&this, hKL, nItem, pStyleBuf, puCopied);
 
 	public HRESULT GetStatusWindowPos(HIMC hIMC, POINT* pptPos) mut => VT.[Friend]GetStatusWindowPos(&this, hIMC, pptPos);
 
-	public HRESULT GetVirtualKey(HWND hWnd, uint32 puVirtualKey) mut => VT.[Friend]GetVirtualKey(&this, hWnd, puVirtualKey);
+	public HRESULT GetVirtualKey(HWND hWnd, uint32* puVirtualKey) mut => VT.[Friend]GetVirtualKey(&this, hWnd, puVirtualKey);
 
 	public HRESULT InstallIMEA(PSTR szIMEFileName, PSTR szLayoutText, HKL* phKL) mut => VT.[Friend]InstallIMEA(&this, szIMEFileName, szLayoutText, phKL);
 
@@ -2537,19 +2537,19 @@ public static
 
 	public HRESULT OnDefWindowProc(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam, LRESULT* plResult) mut => VT.[Friend]OnDefWindowProc(&this, hWnd, Msg, wParam, lParam, plResult);
 
-	public HRESULT FilterClientWindows(uint16 aaClassList, uint32 uSize) mut => VT.[Friend]FilterClientWindows(&this, aaClassList, uSize);
+	public HRESULT FilterClientWindows(uint16* aaClassList, uint32 uSize) mut => VT.[Friend]FilterClientWindows(&this, aaClassList, uSize);
 
-	public HRESULT GetCodePageA(HKL hKL, uint32 uCodePage) mut => VT.[Friend]GetCodePageA(&this, hKL, uCodePage);
+	public HRESULT GetCodePageA(HKL hKL, uint32* uCodePage) mut => VT.[Friend]GetCodePageA(&this, hKL, uCodePage);
 
-	public HRESULT GetLangId(HKL hKL, uint16 plid) mut => VT.[Friend]GetLangId(&this, hKL, plid);
+	public HRESULT GetLangId(HKL hKL, uint16* plid) mut => VT.[Friend]GetLangId(&this, hKL, plid);
 
 	public HRESULT AssociateContextEx(HWND hWnd, HIMC hIMC, uint32 dwFlags) mut => VT.[Friend]AssociateContextEx(&this, hWnd, hIMC, dwFlags);
 
 	public HRESULT DisableIME(uint32 idThread) mut => VT.[Friend]DisableIME(&this, idThread);
 
-	public HRESULT GetImeMenuItemsA(HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32 pdwResult) mut => VT.[Friend]GetImeMenuItemsA(&this, hIMC, dwFlags, dwType, pImeParentMenu, pImeMenu, dwSize, pdwResult);
+	public HRESULT GetImeMenuItemsA(HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32* pdwResult) mut => VT.[Friend]GetImeMenuItemsA(&this, hIMC, dwFlags, dwType, pImeParentMenu, pImeMenu, dwSize, pdwResult);
 
-	public HRESULT GetImeMenuItemsW(HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32 pdwResult) mut => VT.[Friend]GetImeMenuItemsW(&this, hIMC, dwFlags, dwType, pImeParentMenu, pImeMenu, dwSize, pdwResult);
+	public HRESULT GetImeMenuItemsW(HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32* pdwResult) mut => VT.[Friend]GetImeMenuItemsW(&this, hIMC, dwFlags, dwType, pImeParentMenu, pImeMenu, dwSize, pdwResult);
 
 	public HRESULT EnumInputContext(uint32 idThread, IEnumInputContext** ppEnum) mut => VT.[Friend]EnumInputContext(&this, idThread, ppEnum);
 }
@@ -2571,33 +2571,33 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szRegister, void* pData, IEnumRegisterWordW** pEnum) EnumRegisterWordW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeA;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32 puCopied) GetCandidateListA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32 puCopied) GetCandidateListW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 pdwListSize, uint32 pdwBufLen) GetCandidateListCountA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 pdwListSize, uint32 pdwBufLen) GetCandidateListCountW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, CANDIDATEFORM* pCandidate) GetCandidateWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTA* plf) GetCompositionFontA;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTW* plf) GetCompositionFontW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32 plCopied, void* pBuf) GetCompositionStringA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32 plCopied, void* pBuf) GetCompositionStringW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, COMPOSITIONFORM* pCompForm) GetCompositionWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC* phIMC) GetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32 puCopied) GetConversionListA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32 puCopied) GetConversionListW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 pfdwConversion, uint32 pfdwSentence) GetConversionStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pfdwConversion, uint32* pfdwSentence) GetConversionStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HWND* phDefWnd) GetDefaultIMEWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szDescription, uint32 puCopied) GetDescriptionA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32 puCopied) GetDescriptionW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32 pdwResult) GetGuideLineA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32 pdwResult) GetGuideLineW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szFileName, uint32 puCopied) GetIMEFileNameA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32 puCopied) GetIMEFileNameW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szDescription, uint32* puCopied) GetDescriptionA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32* puCopied) GetDescriptionW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32* pdwResult) GetGuideLineA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32* pdwResult) GetGuideLineW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szFileName, uint32* puCopied) GetIMEFileNameA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32* puCopied) GetIMEFileNameW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC) GetOpenStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 fdwIndex, uint32 pdwProperty) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32 puCopied) GetRegisterWordStyleA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32 puCopied) GetRegisterWordStyleW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 fdwIndex, uint32* pdwProperty) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32* puCopied) GetRegisterWordStyleA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puCopied) GetRegisterWordStyleW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, POINT* pptPos) GetStatusWindowPos;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32 puVirtualKey) GetVirtualKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32* puVirtualKey) GetVirtualKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR szIMEFileName, PSTR szLayoutText, HKL* phKL) InstallIMEA;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szIMEFileName, PWSTR szLayoutText, HKL* phKL) InstallIMEW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL) IsIME;
@@ -2622,28 +2622,28 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC) GenerateMessage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, INPUTCONTEXT** ppIMC) LockIMC;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC) UnlockIMC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 pdwLockCount) GetIMCLockCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pdwLockCount) GetIMCLockCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSize, HIMCC* phIMCC) CreateIMCC;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC) DestroyIMCC;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC, void** ppv) LockIMCC;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC) UnlockIMCC;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC, uint32 dwSize, HIMCC* phIMCC) ReSizeIMCC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC, uint32 pdwSize) GetIMCCSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC, uint32 pdwLockCount) GetIMCCLockCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwHotKeyID, uint32 puModifiers, uint32 puVKey, HKL* phKL) GetHotKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC, uint32* pdwSize) GetIMCCSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC, uint32* pdwLockCount) GetIMCCLockCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwHotKeyID, uint32* puModifiers, uint32* puVKey, HKL* phKL) GetHotKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwHotKeyID, uint32 uModifiers, uint32 uVKey, HKL hKL) SetHotKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uType, HWND hOwner, int32 x, int32 y, HWND* phSoftKbdWnd) CreateSoftKeyboard;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hSoftKbdWnd) DestroySoftKeyboard;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hSoftKbdWnd, int32 nCmdShow) ShowSoftKeyboard;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uCodePage) GetCodePageA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint16 plid) GetLangId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32* uCodePage) GetCodePageA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint16* plid) GetLangId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 lgidIME, uint8 bVk, uint8 bScan, uint32 dwFlags, uint32 dwExtraInfo) KeybdEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) LockModal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnlockModal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC hIMC, uint32 dwFlags) AssociateContextEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idThread) DisableIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32 pdwResult) GetImeMenuItemsA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32 pdwResult) GetImeMenuItemsW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idThread, IEnumInputContext** ppEnum) EnumInputContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, WPARAM wParam, LPARAM lParam, LRESULT* plResult) RequestMessageA;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, WPARAM wParam, LPARAM lParam, LRESULT* plResult) RequestMessageW;
@@ -2671,13 +2671,13 @@ public static
 
 	public HRESULT EscapeW(HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) mut => VT.[Friend]EscapeW(&this, hKL, hIMC, uEscape, pData, plResult);
 
-	public HRESULT GetCandidateListA(HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32 puCopied) mut => VT.[Friend]GetCandidateListA(&this, hIMC, dwIndex, uBufLen, pCandList, puCopied);
+	public HRESULT GetCandidateListA(HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) mut => VT.[Friend]GetCandidateListA(&this, hIMC, dwIndex, uBufLen, pCandList, puCopied);
 
-	public HRESULT GetCandidateListW(HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32 puCopied) mut => VT.[Friend]GetCandidateListW(&this, hIMC, dwIndex, uBufLen, pCandList, puCopied);
+	public HRESULT GetCandidateListW(HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) mut => VT.[Friend]GetCandidateListW(&this, hIMC, dwIndex, uBufLen, pCandList, puCopied);
 
-	public HRESULT GetCandidateListCountA(HIMC hIMC, uint32 pdwListSize, uint32 pdwBufLen) mut => VT.[Friend]GetCandidateListCountA(&this, hIMC, pdwListSize, pdwBufLen);
+	public HRESULT GetCandidateListCountA(HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) mut => VT.[Friend]GetCandidateListCountA(&this, hIMC, pdwListSize, pdwBufLen);
 
-	public HRESULT GetCandidateListCountW(HIMC hIMC, uint32 pdwListSize, uint32 pdwBufLen) mut => VT.[Friend]GetCandidateListCountW(&this, hIMC, pdwListSize, pdwBufLen);
+	public HRESULT GetCandidateListCountW(HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) mut => VT.[Friend]GetCandidateListCountW(&this, hIMC, pdwListSize, pdwBufLen);
 
 	public HRESULT GetCandidateWindow(HIMC hIMC, uint32 dwIndex, CANDIDATEFORM* pCandidate) mut => VT.[Friend]GetCandidateWindow(&this, hIMC, dwIndex, pCandidate);
 
@@ -2685,45 +2685,45 @@ public static
 
 	public HRESULT GetCompositionFontW(HIMC hIMC, LOGFONTW* plf) mut => VT.[Friend]GetCompositionFontW(&this, hIMC, plf);
 
-	public HRESULT GetCompositionStringA(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32 plCopied, void* pBuf) mut => VT.[Friend]GetCompositionStringA(&this, hIMC, dwIndex, dwBufLen, plCopied, pBuf);
+	public HRESULT GetCompositionStringA(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) mut => VT.[Friend]GetCompositionStringA(&this, hIMC, dwIndex, dwBufLen, plCopied, pBuf);
 
-	public HRESULT GetCompositionStringW(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32 plCopied, void* pBuf) mut => VT.[Friend]GetCompositionStringW(&this, hIMC, dwIndex, dwBufLen, plCopied, pBuf);
+	public HRESULT GetCompositionStringW(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) mut => VT.[Friend]GetCompositionStringW(&this, hIMC, dwIndex, dwBufLen, plCopied, pBuf);
 
 	public HRESULT GetCompositionWindow(HIMC hIMC, COMPOSITIONFORM* pCompForm) mut => VT.[Friend]GetCompositionWindow(&this, hIMC, pCompForm);
 
 	public HRESULT GetContext(HWND hWnd, HIMC* phIMC) mut => VT.[Friend]GetContext(&this, hWnd, phIMC);
 
-	public HRESULT GetConversionListA(HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32 puCopied) mut => VT.[Friend]GetConversionListA(&this, hKL, hIMC, pSrc, uBufLen, uFlag, pDst, puCopied);
+	public HRESULT GetConversionListA(HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) mut => VT.[Friend]GetConversionListA(&this, hKL, hIMC, pSrc, uBufLen, uFlag, pDst, puCopied);
 
-	public HRESULT GetConversionListW(HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32 puCopied) mut => VT.[Friend]GetConversionListW(&this, hKL, hIMC, pSrc, uBufLen, uFlag, pDst, puCopied);
+	public HRESULT GetConversionListW(HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) mut => VT.[Friend]GetConversionListW(&this, hKL, hIMC, pSrc, uBufLen, uFlag, pDst, puCopied);
 
-	public HRESULT GetConversionStatus(HIMC hIMC, uint32 pfdwConversion, uint32 pfdwSentence) mut => VT.[Friend]GetConversionStatus(&this, hIMC, pfdwConversion, pfdwSentence);
+	public HRESULT GetConversionStatus(HIMC hIMC, uint32* pfdwConversion, uint32* pfdwSentence) mut => VT.[Friend]GetConversionStatus(&this, hIMC, pfdwConversion, pfdwSentence);
 
 	public HRESULT GetDefaultIMEWnd(HWND hWnd, HWND* phDefWnd) mut => VT.[Friend]GetDefaultIMEWnd(&this, hWnd, phDefWnd);
 
-	public HRESULT GetDescriptionA(HKL hKL, uint32 uBufLen, PSTR szDescription, uint32 puCopied) mut => VT.[Friend]GetDescriptionA(&this, hKL, uBufLen, szDescription, puCopied);
+	public HRESULT GetDescriptionA(HKL hKL, uint32 uBufLen, PSTR szDescription, uint32* puCopied) mut => VT.[Friend]GetDescriptionA(&this, hKL, uBufLen, szDescription, puCopied);
 
-	public HRESULT GetDescriptionW(HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32 puCopied) mut => VT.[Friend]GetDescriptionW(&this, hKL, uBufLen, szDescription, puCopied);
+	public HRESULT GetDescriptionW(HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32* puCopied) mut => VT.[Friend]GetDescriptionW(&this, hKL, uBufLen, szDescription, puCopied);
 
-	public HRESULT GetGuideLineA(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32 pdwResult) mut => VT.[Friend]GetGuideLineA(&this, hIMC, dwIndex, dwBufLen, pBuf, pdwResult);
+	public HRESULT GetGuideLineA(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32* pdwResult) mut => VT.[Friend]GetGuideLineA(&this, hIMC, dwIndex, dwBufLen, pBuf, pdwResult);
 
-	public HRESULT GetGuideLineW(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32 pdwResult) mut => VT.[Friend]GetGuideLineW(&this, hIMC, dwIndex, dwBufLen, pBuf, pdwResult);
+	public HRESULT GetGuideLineW(HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32* pdwResult) mut => VT.[Friend]GetGuideLineW(&this, hIMC, dwIndex, dwBufLen, pBuf, pdwResult);
 
-	public HRESULT GetIMEFileNameA(HKL hKL, uint32 uBufLen, PSTR szFileName, uint32 puCopied) mut => VT.[Friend]GetIMEFileNameA(&this, hKL, uBufLen, szFileName, puCopied);
+	public HRESULT GetIMEFileNameA(HKL hKL, uint32 uBufLen, PSTR szFileName, uint32* puCopied) mut => VT.[Friend]GetIMEFileNameA(&this, hKL, uBufLen, szFileName, puCopied);
 
-	public HRESULT GetIMEFileNameW(HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32 puCopied) mut => VT.[Friend]GetIMEFileNameW(&this, hKL, uBufLen, szFileName, puCopied);
+	public HRESULT GetIMEFileNameW(HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32* puCopied) mut => VT.[Friend]GetIMEFileNameW(&this, hKL, uBufLen, szFileName, puCopied);
 
 	public HRESULT GetOpenStatus(HIMC hIMC) mut => VT.[Friend]GetOpenStatus(&this, hIMC);
 
-	public HRESULT GetProperty(HKL hKL, uint32 fdwIndex, uint32 pdwProperty) mut => VT.[Friend]GetProperty(&this, hKL, fdwIndex, pdwProperty);
+	public HRESULT GetProperty(HKL hKL, uint32 fdwIndex, uint32* pdwProperty) mut => VT.[Friend]GetProperty(&this, hKL, fdwIndex, pdwProperty);
 
-	public HRESULT GetRegisterWordStyleA(HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32 puCopied) mut => VT.[Friend]GetRegisterWordStyleA(&this, hKL, nItem, pStyleBuf, puCopied);
+	public HRESULT GetRegisterWordStyleA(HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32* puCopied) mut => VT.[Friend]GetRegisterWordStyleA(&this, hKL, nItem, pStyleBuf, puCopied);
 
-	public HRESULT GetRegisterWordStyleW(HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32 puCopied) mut => VT.[Friend]GetRegisterWordStyleW(&this, hKL, nItem, pStyleBuf, puCopied);
+	public HRESULT GetRegisterWordStyleW(HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puCopied) mut => VT.[Friend]GetRegisterWordStyleW(&this, hKL, nItem, pStyleBuf, puCopied);
 
 	public HRESULT GetStatusWindowPos(HIMC hIMC, POINT* pptPos) mut => VT.[Friend]GetStatusWindowPos(&this, hIMC, pptPos);
 
-	public HRESULT GetVirtualKey(HWND hWnd, uint32 puVirtualKey) mut => VT.[Friend]GetVirtualKey(&this, hWnd, puVirtualKey);
+	public HRESULT GetVirtualKey(HWND hWnd, uint32* puVirtualKey) mut => VT.[Friend]GetVirtualKey(&this, hWnd, puVirtualKey);
 
 	public HRESULT InstallIMEA(PSTR szIMEFileName, PSTR szLayoutText, HKL* phKL) mut => VT.[Friend]InstallIMEA(&this, szIMEFileName, szLayoutText, phKL);
 
@@ -2773,7 +2773,7 @@ public static
 
 	public HRESULT UnlockIMC(HIMC hIMC) mut => VT.[Friend]UnlockIMC(&this, hIMC);
 
-	public HRESULT GetIMCLockCount(HIMC hIMC, uint32 pdwLockCount) mut => VT.[Friend]GetIMCLockCount(&this, hIMC, pdwLockCount);
+	public HRESULT GetIMCLockCount(HIMC hIMC, uint32* pdwLockCount) mut => VT.[Friend]GetIMCLockCount(&this, hIMC, pdwLockCount);
 
 	public HRESULT CreateIMCC(uint32 dwSize, HIMCC* phIMCC) mut => VT.[Friend]CreateIMCC(&this, dwSize, phIMCC);
 
@@ -2785,11 +2785,11 @@ public static
 
 	public HRESULT ReSizeIMCC(HIMCC hIMCC, uint32 dwSize, HIMCC* phIMCC) mut => VT.[Friend]ReSizeIMCC(&this, hIMCC, dwSize, phIMCC);
 
-	public HRESULT GetIMCCSize(HIMCC hIMCC, uint32 pdwSize) mut => VT.[Friend]GetIMCCSize(&this, hIMCC, pdwSize);
+	public HRESULT GetIMCCSize(HIMCC hIMCC, uint32* pdwSize) mut => VT.[Friend]GetIMCCSize(&this, hIMCC, pdwSize);
 
-	public HRESULT GetIMCCLockCount(HIMCC hIMCC, uint32 pdwLockCount) mut => VT.[Friend]GetIMCCLockCount(&this, hIMCC, pdwLockCount);
+	public HRESULT GetIMCCLockCount(HIMCC hIMCC, uint32* pdwLockCount) mut => VT.[Friend]GetIMCCLockCount(&this, hIMCC, pdwLockCount);
 
-	public HRESULT GetHotKey(uint32 dwHotKeyID, uint32 puModifiers, uint32 puVKey, HKL* phKL) mut => VT.[Friend]GetHotKey(&this, dwHotKeyID, puModifiers, puVKey, phKL);
+	public HRESULT GetHotKey(uint32 dwHotKeyID, uint32* puModifiers, uint32* puVKey, HKL* phKL) mut => VT.[Friend]GetHotKey(&this, dwHotKeyID, puModifiers, puVKey, phKL);
 
 	public HRESULT SetHotKey(uint32 dwHotKeyID, uint32 uModifiers, uint32 uVKey, HKL hKL) mut => VT.[Friend]SetHotKey(&this, dwHotKeyID, uModifiers, uVKey, hKL);
 
@@ -2799,9 +2799,9 @@ public static
 
 	public HRESULT ShowSoftKeyboard(HWND hSoftKbdWnd, int32 nCmdShow) mut => VT.[Friend]ShowSoftKeyboard(&this, hSoftKbdWnd, nCmdShow);
 
-	public HRESULT GetCodePageA(HKL hKL, uint32 uCodePage) mut => VT.[Friend]GetCodePageA(&this, hKL, uCodePage);
+	public HRESULT GetCodePageA(HKL hKL, uint32* uCodePage) mut => VT.[Friend]GetCodePageA(&this, hKL, uCodePage);
 
-	public HRESULT GetLangId(HKL hKL, uint16 plid) mut => VT.[Friend]GetLangId(&this, hKL, plid);
+	public HRESULT GetLangId(HKL hKL, uint16* plid) mut => VT.[Friend]GetLangId(&this, hKL, plid);
 
 	public HRESULT KeybdEvent(uint16 lgidIME, uint8 bVk, uint8 bScan, uint32 dwFlags, uint32 dwExtraInfo) mut => VT.[Friend]KeybdEvent(&this, lgidIME, bVk, bScan, dwFlags, dwExtraInfo);
 
@@ -2813,9 +2813,9 @@ public static
 
 	public HRESULT DisableIME(uint32 idThread) mut => VT.[Friend]DisableIME(&this, idThread);
 
-	public HRESULT GetImeMenuItemsA(HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32 pdwResult) mut => VT.[Friend]GetImeMenuItemsA(&this, hIMC, dwFlags, dwType, pImeParentMenu, pImeMenu, dwSize, pdwResult);
+	public HRESULT GetImeMenuItemsA(HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32* pdwResult) mut => VT.[Friend]GetImeMenuItemsA(&this, hIMC, dwFlags, dwType, pImeParentMenu, pImeMenu, dwSize, pdwResult);
 
-	public HRESULT GetImeMenuItemsW(HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32 pdwResult) mut => VT.[Friend]GetImeMenuItemsW(&this, hIMC, dwFlags, dwType, pImeParentMenu, pImeMenu, dwSize, pdwResult);
+	public HRESULT GetImeMenuItemsW(HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32* pdwResult) mut => VT.[Friend]GetImeMenuItemsW(&this, hIMC, dwFlags, dwType, pImeParentMenu, pImeMenu, dwSize, pdwResult);
 
 	public HRESULT EnumInputContext(uint32 idThread, IEnumInputContext** ppEnum) mut => VT.[Friend]EnumInputContext(&this, idThread, ppEnum);
 
@@ -2838,29 +2838,29 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSystemInfoFlags, IMEINFO* pIMEInfo, PWSTR szWndClass, uint32 pdwPrivate) Inquire;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, PWSTR szSource, uint32 uFlag, uint32 uBufLen, CANDIDATELIST* pDest, uint32 puCopied) ConversionList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSystemInfoFlags, IMEINFO* pIMEInfo, PWSTR szWndClass, uint32* pdwPrivate) Inquire;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, PWSTR szSource, uint32 uFlag, uint32 uBufLen, CANDIDATELIST* pDest, uint32* puCopied) ConversionList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDW* pRegisterWord) Configure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uReserved) Destroy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) Escape;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, BOOL fFlag) SetActiveContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 uVirKey, uint32 lParam, uint8 pbKeyState) ProcessKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 uVirKey, uint32 lParam, uint8* pbKeyState) ProcessKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwAction, uint32 dwIndex, uint32 dwValue) Notify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, BOOL fSelect) Select;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uVirKey, uint32 uScanCode, uint8 pbKeyState, uint32 fuState, HIMC hIMC, uint32 pdwTransBuf, uint32 puSize) ToAsciiEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uVirKey, uint32 uScanCode, uint8* pbKeyState, uint32 fuState, HIMC hIMC, uint32* pdwTransBuf, uint32* puSize) ToAsciiEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szReading, uint32 dwStyle, PWSTR szString) RegisterWord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szReading, uint32 dwStyle, PWSTR szString) UnregisterWord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nItem, STYLEBUFW* pStyleBuf, uint32 puBufSize) GetRegisterWordStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puBufSize) GetRegisterWordStyle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szReading, uint32 dwStyle, PWSTR szRegister, void* pData, IEnumRegisterWordW** ppEnum) EnumRegisterWord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uCodePage) GetCodePageA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 plid) GetLangId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* uCodePage) GetCodePageA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* plid) GetLangId;
 	}
 
 
-	public HRESULT Inquire(uint32 dwSystemInfoFlags, IMEINFO* pIMEInfo, PWSTR szWndClass, uint32 pdwPrivate) mut => VT.[Friend]Inquire(&this, dwSystemInfoFlags, pIMEInfo, szWndClass, pdwPrivate);
+	public HRESULT Inquire(uint32 dwSystemInfoFlags, IMEINFO* pIMEInfo, PWSTR szWndClass, uint32* pdwPrivate) mut => VT.[Friend]Inquire(&this, dwSystemInfoFlags, pIMEInfo, szWndClass, pdwPrivate);
 
-	public HRESULT ConversionList(HIMC hIMC, PWSTR szSource, uint32 uFlag, uint32 uBufLen, CANDIDATELIST* pDest, uint32 puCopied) mut => VT.[Friend]ConversionList(&this, hIMC, szSource, uFlag, uBufLen, pDest, puCopied);
+	public HRESULT ConversionList(HIMC hIMC, PWSTR szSource, uint32 uFlag, uint32 uBufLen, CANDIDATELIST* pDest, uint32* puCopied) mut => VT.[Friend]ConversionList(&this, hIMC, szSource, uFlag, uBufLen, pDest, puCopied);
 
 	public HRESULT Configure(HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDW* pRegisterWord) mut => VT.[Friend]Configure(&this, hKL, hWnd, dwMode, pRegisterWord);
 
@@ -2870,7 +2870,7 @@ public static
 
 	public HRESULT SetActiveContext(HIMC hIMC, BOOL fFlag) mut => VT.[Friend]SetActiveContext(&this, hIMC, fFlag);
 
-	public HRESULT ProcessKey(HIMC hIMC, uint32 uVirKey, uint32 lParam, uint8 pbKeyState) mut => VT.[Friend]ProcessKey(&this, hIMC, uVirKey, lParam, pbKeyState);
+	public HRESULT ProcessKey(HIMC hIMC, uint32 uVirKey, uint32 lParam, uint8* pbKeyState) mut => VT.[Friend]ProcessKey(&this, hIMC, uVirKey, lParam, pbKeyState);
 
 	public HRESULT Notify(HIMC hIMC, uint32 dwAction, uint32 dwIndex, uint32 dwValue) mut => VT.[Friend]Notify(&this, hIMC, dwAction, dwIndex, dwValue);
 
@@ -2878,19 +2878,19 @@ public static
 
 	public HRESULT SetCompositionString(HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) mut => VT.[Friend]SetCompositionString(&this, hIMC, dwIndex, pComp, dwCompLen, pRead, dwReadLen);
 
-	public HRESULT ToAsciiEx(uint32 uVirKey, uint32 uScanCode, uint8 pbKeyState, uint32 fuState, HIMC hIMC, uint32 pdwTransBuf, uint32 puSize) mut => VT.[Friend]ToAsciiEx(&this, uVirKey, uScanCode, pbKeyState, fuState, hIMC, pdwTransBuf, puSize);
+	public HRESULT ToAsciiEx(uint32 uVirKey, uint32 uScanCode, uint8* pbKeyState, uint32 fuState, HIMC hIMC, uint32* pdwTransBuf, uint32* puSize) mut => VT.[Friend]ToAsciiEx(&this, uVirKey, uScanCode, pbKeyState, fuState, hIMC, pdwTransBuf, puSize);
 
 	public HRESULT RegisterWord(PWSTR szReading, uint32 dwStyle, PWSTR szString) mut => VT.[Friend]RegisterWord(&this, szReading, dwStyle, szString);
 
 	public HRESULT UnregisterWord(PWSTR szReading, uint32 dwStyle, PWSTR szString) mut => VT.[Friend]UnregisterWord(&this, szReading, dwStyle, szString);
 
-	public HRESULT GetRegisterWordStyle(uint32 nItem, STYLEBUFW* pStyleBuf, uint32 puBufSize) mut => VT.[Friend]GetRegisterWordStyle(&this, nItem, pStyleBuf, puBufSize);
+	public HRESULT GetRegisterWordStyle(uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puBufSize) mut => VT.[Friend]GetRegisterWordStyle(&this, nItem, pStyleBuf, puBufSize);
 
 	public HRESULT EnumRegisterWord(PWSTR szReading, uint32 dwStyle, PWSTR szRegister, void* pData, IEnumRegisterWordW** ppEnum) mut => VT.[Friend]EnumRegisterWord(&this, szReading, dwStyle, szRegister, pData, ppEnum);
 
-	public HRESULT GetCodePageA(uint32 uCodePage) mut => VT.[Friend]GetCodePageA(&this, uCodePage);
+	public HRESULT GetCodePageA(uint32* uCodePage) mut => VT.[Friend]GetCodePageA(&this, uCodePage);
 
-	public HRESULT GetLangId(uint16 plid) mut => VT.[Friend]GetLangId(&this, plid);
+	public HRESULT GetLangId(uint16* plid) mut => VT.[Friend]GetLangId(&this, plid);
 }
 
 [CRepr]struct IActiveIME2 : IActiveIME
@@ -2982,11 +2982,11 @@ public static
 	public static extern BOOL ImmSetCompositionStringW(HIMC param0, SET_COMPOSITION_STRING_TYPE dwIndex, void* lpComp, uint32 dwCompLen, void* lpRead, uint32 dwReadLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ImmGetCandidateListCountA(HIMC param0, uint32 lpdwListCount);
-	public static uint32 ImmGetCandidateListCount(HIMC param0, uint32 lpdwListCount) => ImmGetCandidateListCountA(param0, lpdwListCount);
+	public static extern uint32 ImmGetCandidateListCountA(HIMC param0, uint32* lpdwListCount);
+	public static uint32 ImmGetCandidateListCount(HIMC param0, uint32* lpdwListCount) => ImmGetCandidateListCountA(param0, lpdwListCount);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ImmGetCandidateListCountW(HIMC param0, uint32 lpdwListCount);
+	public static extern uint32 ImmGetCandidateListCountW(HIMC param0, uint32* lpdwListCount);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetCandidateListA(HIMC param0, uint32 deIndex, CANDIDATELIST* lpCandList, uint32 dwBufLen);
@@ -3003,7 +3003,7 @@ public static
 	public static extern uint32 ImmGetGuideLineW(HIMC param0, GET_GUIDE_LINE_TYPE dwIndex, PWSTR lpBuf, uint32 dwBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ImmGetConversionStatus(HIMC param0, uint32 lpfdwConversion, uint32 lpfdwSentence);
+	public static extern BOOL ImmGetConversionStatus(HIMC param0, uint32* lpfdwConversion, uint32* lpfdwSentence);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmSetConversionStatus(HIMC param0, uint32 param1, uint32 param2);
@@ -3128,7 +3128,7 @@ public static
 	public static extern BOOL ImmDisableLegacyIME();
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ImmGetHotKey(uint32 param0, uint32 lpuModifiers, uint32 lpuVKey, int phKL);
+	public static extern BOOL ImmGetHotKey(uint32 param0, uint32* lpuModifiers, uint32* lpuVKey, int* phKL);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmSetHotKey(uint32 param0, uint32 param1, uint32 param2, HKL param3);

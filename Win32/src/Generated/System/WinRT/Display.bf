@@ -52,13 +52,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* pValue) CreateSourcePresentationHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 pSourceId) GetSourceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pSourceId) GetSourceId;
 	}
 
 
 	public HRESULT CreateSourcePresentationHandle(HANDLE* pValue) mut => VT.[Friend]CreateSourcePresentationHandle(&this, pValue);
 
-	public HRESULT GetSourceId(uint32 pSourceId) mut => VT.[Friend]GetSourceId(&this, pSourceId);
+	public HRESULT GetSourceId(uint32* pSourceId) mut => VT.[Friend]GetSourceId(&this, pSourceId);
 }
 
 #endregion

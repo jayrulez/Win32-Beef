@@ -185,13 +185,13 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL K32EnumProcesses(uint32 lpidProcess, uint32 cb, uint32 lpcbNeeded);
+	public static extern BOOL K32EnumProcesses(uint32* lpidProcess, uint32 cb, uint32* lpcbNeeded);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL K32EnumProcessModules(HANDLE hProcess, HINSTANCE* lphModule, uint32 cb, uint32 lpcbNeeded);
+	public static extern BOOL K32EnumProcessModules(HANDLE hProcess, HINSTANCE* lphModule, uint32 cb, uint32* lpcbNeeded);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL K32EnumProcessModulesEx(HANDLE hProcess, HINSTANCE* lphModule, uint32 cb, uint32 lpcbNeeded, ENUM_PROCESS_MODULES_EX_FLAGS dwFilterFlag);
+	public static extern BOOL K32EnumProcessModulesEx(HANDLE hProcess, HINSTANCE* lphModule, uint32 cb, uint32* lpcbNeeded, ENUM_PROCESS_MODULES_EX_FLAGS dwFilterFlag);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 K32GetModuleBaseNameA(HANDLE hProcess, HINSTANCE hModule, uint8* lpBaseName, uint32 nSize);
@@ -220,7 +220,7 @@ public static
 	public static extern BOOL K32GetWsChanges(HANDLE hProcess, PSAPI_WS_WATCH_INFORMATION* lpWatchInfo, uint32 cb);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL K32GetWsChangesEx(HANDLE hProcess, PSAPI_WS_WATCH_INFORMATION_EX* lpWatchInfoEx, uint32 cb);
+	public static extern BOOL K32GetWsChangesEx(HANDLE hProcess, PSAPI_WS_WATCH_INFORMATION_EX* lpWatchInfoEx, uint32* cb);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 K32GetMappedFileNameW(HANDLE hProcess, void* lpv, char16* lpFilename, uint32 nSize);
@@ -230,7 +230,7 @@ public static
 	public static uint32 K32GetMappedFileName(HANDLE hProcess, void* lpv, uint8* lpFilename, uint32 nSize) => K32GetMappedFileNameA(hProcess, lpv, lpFilename, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL K32EnumDeviceDrivers(void** lpImageBase, uint32 cb, uint32 lpcbNeeded);
+	public static extern BOOL K32EnumDeviceDrivers(void** lpImageBase, uint32 cb, uint32* lpcbNeeded);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 K32GetDeviceDriverBaseNameA(void* ImageBase, uint8* lpFilename, uint32 nSize);

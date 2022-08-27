@@ -157,37 +157,37 @@ public static
 	public static extern uint32 Tbsip_Context_Close(void* hContext);
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 Tbsip_Submit_Command(void* hContext, TBS_COMMAND_LOCALITY Locality, TBS_COMMAND_PRIORITY Priority, uint8 pabCommand, uint32 cbCommand, uint8 pabResult, uint32 pcbResult);
+	public static extern uint32 Tbsip_Submit_Command(void* hContext, TBS_COMMAND_LOCALITY Locality, TBS_COMMAND_PRIORITY Priority, uint8* pabCommand, uint32 cbCommand, uint8* pabResult, uint32* pcbResult);
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 Tbsip_Cancel_Commands(void* hContext);
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 Tbsi_Physical_Presence_Command(void* hContext, uint8 pabInput, uint32 cbInput, uint8 pabOutput, uint32 pcbOutput);
+	public static extern uint32 Tbsi_Physical_Presence_Command(void* hContext, uint8* pabInput, uint32 cbInput, uint8* pabOutput, uint32* pcbOutput);
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 Tbsi_Get_TCG_Log(void* hContext, uint8 pOutputBuf, uint32 pOutputBufLen);
+	public static extern uint32 Tbsi_Get_TCG_Log(void* hContext, uint8* pOutputBuf, uint32* pOutputBufLen);
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 Tbsi_GetDeviceInfo(uint32 Size, void* Info);
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 Tbsi_Get_OwnerAuth(void* hContext, uint32 ownerauthType, uint8 pOutputBuf, uint32 pOutputBufLen);
+	public static extern uint32 Tbsi_Get_OwnerAuth(void* hContext, uint32 ownerauthType, uint8* pOutputBuf, uint32* pOutputBufLen);
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 Tbsi_Revoke_Attestation();
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetDeviceID(uint8 pbWindowsAIK, uint32 cbWindowsAIK, uint32 pcbResult, BOOL* pfProtectedByTPM);
+	public static extern HRESULT GetDeviceID(uint8* pbWindowsAIK, uint32 cbWindowsAIK, uint32* pcbResult, BOOL* pfProtectedByTPM);
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetDeviceIDString(char16* pszWindowsAIK, uint32 cchWindowsAIK, uint32 pcchResult, BOOL* pfProtectedByTPM);
+	public static extern HRESULT GetDeviceIDString(char16* pszWindowsAIK, uint32 cchWindowsAIK, uint32* pcchResult, BOOL* pfProtectedByTPM);
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 Tbsi_Create_Windows_Key(uint32 keyHandle);
 
 	[Import("tbs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 Tbsi_Get_TCG_Log_Ex(uint32 logType, uint8 pbOutput, uint32 pcbOutput);
+	public static extern uint32 Tbsi_Get_TCG_Log_Ex(uint32 logType, uint8* pbOutput, uint32* pcbOutput);
 
 }
 #endregion

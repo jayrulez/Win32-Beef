@@ -103,23 +103,23 @@ public function void* PFNFCIALLOC(uint32 cb);
 
 public function void PFNFCIFREE(void* memory);
 
-public function int PFNFCIOPEN(PSTR pszFile, int32 oflag, int32 pmode, int32 err, void* pv);
+public function int PFNFCIOPEN(PSTR pszFile, int32 oflag, int32 pmode, int32* err, void* pv);
 
-public function uint32 PFNFCIREAD(int hf, void* memory, uint32 cb, int32 err, void* pv);
+public function uint32 PFNFCIREAD(int hf, void* memory, uint32 cb, int32* err, void* pv);
 
-public function uint32 PFNFCIWRITE(int hf, void* memory, uint32 cb, int32 err, void* pv);
+public function uint32 PFNFCIWRITE(int hf, void* memory, uint32 cb, int32* err, void* pv);
 
-public function int32 PFNFCICLOSE(int hf, int32 err, void* pv);
+public function int32 PFNFCICLOSE(int hf, int32* err, void* pv);
 
-public function int32 PFNFCISEEK(int hf, int32 dist, int32 seektype, int32 err, void* pv);
+public function int32 PFNFCISEEK(int hf, int32 dist, int32 seektype, int32* err, void* pv);
 
-public function int32 PFNFCIDELETE(PSTR pszFile, int32 err, void* pv);
+public function int32 PFNFCIDELETE(PSTR pszFile, int32* err, void* pv);
 
 public function BOOL PFNFCIGETNEXTCABINET(CCAB* pccab, uint32 cbPrevCab, void* pv);
 
 public function int32 PFNFCIFILEPLACED(CCAB* pccab, PSTR pszFile, int32 cbFile, BOOL fContinuation, void* pv);
 
-public function int PFNFCIGETOPENINFO(PSTR pszName, uint16 pdate, uint16 ptime, uint16 pattribs, int32 err, void* pv);
+public function int PFNFCIGETOPENINFO(PSTR pszName, uint16* pdate, uint16* ptime, uint16* pattribs, int32* err, void* pv);
 
 public function int32 PFNFCISTATUS(uint32 typeStatus, uint32 cb1, uint32 cb2, void* pv);
 

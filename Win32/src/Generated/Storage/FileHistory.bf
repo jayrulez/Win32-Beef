@@ -213,13 +213,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_TARGET_PROPERTY_TYPE PropertyType, BSTR* PropertyValue) GetStringProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_TARGET_PROPERTY_TYPE PropertyType, uint64 PropertyValue) GetNumericalProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_TARGET_PROPERTY_TYPE PropertyType, uint64* PropertyValue) GetNumericalProperty;
 	}
 
 
 	public HRESULT GetStringProperty(FH_TARGET_PROPERTY_TYPE PropertyType, BSTR* PropertyValue) mut => VT.[Friend]GetStringProperty(&this, PropertyType, PropertyValue);
 
-	public HRESULT GetNumericalProperty(FH_TARGET_PROPERTY_TYPE PropertyType, uint64 PropertyValue) mut => VT.[Friend]GetNumericalProperty(&this, PropertyType, PropertyValue);
+	public HRESULT GetNumericalProperty(FH_TARGET_PROPERTY_TYPE PropertyType, uint64* PropertyValue) mut => VT.[Friend]GetNumericalProperty(&this, PropertyType, PropertyValue);
 }
 
 [CRepr]struct IFhScopeIterator : IUnknown
@@ -253,7 +253,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SaveConfiguration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Add, FH_PROTECTED_ITEM_CATEGORY Category, BSTR Item) AddRemoveExcludeRule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Include, FH_PROTECTED_ITEM_CATEGORY Category, IFhScopeIterator** Iterator) GetIncludeExcludeRules;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_LOCAL_POLICY_TYPE LocalPolicyType, uint64 PolicyValue) GetLocalPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_LOCAL_POLICY_TYPE LocalPolicyType, uint64* PolicyValue) GetLocalPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_LOCAL_POLICY_TYPE LocalPolicyType, uint64 PolicyValue) SetLocalPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_BACKUP_STATUS* BackupStatus) GetBackupStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_BACKUP_STATUS BackupStatus) SetBackupStatus;
@@ -261,7 +261,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TargetUrl, FH_DEVICE_VALIDATION_RESULT* ValidationResult) ValidateTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TargetUrl, BSTR TargetName) ProvisionAndSetNewTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Recommend) ChangeDefaultTargetRecommendation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ProtectionState, BSTR* ProtectedUntilTime) QueryProtectionStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* ProtectionState, BSTR* ProtectedUntilTime) QueryProtectionStatus;
 	}
 
 
@@ -275,7 +275,7 @@ public static
 
 	public HRESULT GetIncludeExcludeRules(BOOL Include, FH_PROTECTED_ITEM_CATEGORY Category, IFhScopeIterator** Iterator) mut => VT.[Friend]GetIncludeExcludeRules(&this, Include, Category, Iterator);
 
-	public HRESULT GetLocalPolicy(FH_LOCAL_POLICY_TYPE LocalPolicyType, uint64 PolicyValue) mut => VT.[Friend]GetLocalPolicy(&this, LocalPolicyType, PolicyValue);
+	public HRESULT GetLocalPolicy(FH_LOCAL_POLICY_TYPE LocalPolicyType, uint64* PolicyValue) mut => VT.[Friend]GetLocalPolicy(&this, LocalPolicyType, PolicyValue);
 
 	public HRESULT SetLocalPolicy(FH_LOCAL_POLICY_TYPE LocalPolicyType, uint64 PolicyValue) mut => VT.[Friend]SetLocalPolicy(&this, LocalPolicyType, PolicyValue);
 
@@ -291,7 +291,7 @@ public static
 
 	public HRESULT ChangeDefaultTargetRecommendation(BOOL Recommend) mut => VT.[Friend]ChangeDefaultTargetRecommendation(&this, Recommend);
 
-	public HRESULT QueryProtectionStatus(uint32 ProtectionState, BSTR* ProtectedUntilTime) mut => VT.[Friend]QueryProtectionStatus(&this, ProtectionState, ProtectedUntilTime);
+	public HRESULT QueryProtectionStatus(uint32* ProtectionState, BSTR* ProtectedUntilTime) mut => VT.[Friend]QueryProtectionStatus(&this, ProtectionState, ProtectedUntilTime);
 }
 
 [CRepr]struct IFhReassociation : IUnknown

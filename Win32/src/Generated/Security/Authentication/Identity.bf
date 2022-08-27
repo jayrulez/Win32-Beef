@@ -3558,27 +3558,27 @@ public function BOOLEAN PSAM_INIT_NOTIFICATION_ROUTINE();
 
 public function BOOLEAN PSAM_PASSWORD_FILTER_ROUTINE(UNICODE_STRING* AccountName, UNICODE_STRING* FullName, UNICODE_STRING* Password, BOOLEAN SetOperation);
 
-public function void SEC_GET_KEY_FN(void* Arg, void* Principal, uint32 KeyVer, void** Key, int32 Status);
+public function void SEC_GET_KEY_FN(void* Arg, void* Principal, uint32 KeyVer, void** Key, int32* Status);
 
-public function int32 ACQUIRE_CREDENTIALS_HANDLE_FN_W(uint16 param0, uint16 param1, uint32 param2, void* param3, void* param4, SEC_GET_KEY_FN param5, void* param6, SecHandle* param7, LARGE_INTEGER* param8);
+public function int32 ACQUIRE_CREDENTIALS_HANDLE_FN_W(uint16* param0, uint16* param1, uint32 param2, void* param3, void* param4, SEC_GET_KEY_FN param5, void* param6, SecHandle* param7, LARGE_INTEGER* param8);
 
-public function int32 ACQUIRE_CREDENTIALS_HANDLE_FN_A(int8 param0, int8 param1, uint32 param2, void* param3, void* param4, SEC_GET_KEY_FN param5, void* param6, SecHandle* param7, LARGE_INTEGER* param8);
+public function int32 ACQUIRE_CREDENTIALS_HANDLE_FN_A(int8* param0, int8* param1, uint32 param2, void* param3, void* param4, SEC_GET_KEY_FN param5, void* param6, SecHandle* param7, LARGE_INTEGER* param8);
 
 public function int32 FREE_CREDENTIALS_HANDLE_FN(SecHandle* param0);
 
-public function int32 ADD_CREDENTIALS_FN_W(SecHandle* param0, uint16 param1, uint16 param2, uint32 param3, void* param4, SEC_GET_KEY_FN param5, void* param6, LARGE_INTEGER* param7);
+public function int32 ADD_CREDENTIALS_FN_W(SecHandle* param0, uint16* param1, uint16* param2, uint32 param3, void* param4, SEC_GET_KEY_FN param5, void* param6, LARGE_INTEGER* param7);
 
-public function int32 ADD_CREDENTIALS_FN_A(SecHandle* param0, int8 param1, int8 param2, uint32 param3, void* param4, SEC_GET_KEY_FN param5, void* param6, LARGE_INTEGER* param7);
+public function int32 ADD_CREDENTIALS_FN_A(SecHandle* param0, int8* param1, int8* param2, uint32 param3, void* param4, SEC_GET_KEY_FN param5, void* param6, LARGE_INTEGER* param7);
 
-public function int32 CHANGE_PASSWORD_FN_W(uint16 param0, uint16 param1, uint16 param2, uint16 param3, uint16 param4, BOOLEAN param5, uint32 param6, SecBufferDesc* param7);
+public function int32 CHANGE_PASSWORD_FN_W(uint16* param0, uint16* param1, uint16* param2, uint16* param3, uint16* param4, BOOLEAN param5, uint32 param6, SecBufferDesc* param7);
 
-public function int32 CHANGE_PASSWORD_FN_A(int8 param0, int8 param1, int8 param2, int8 param3, int8 param4, BOOLEAN param5, uint32 param6, SecBufferDesc* param7);
+public function int32 CHANGE_PASSWORD_FN_A(int8* param0, int8* param1, int8* param2, int8* param3, int8* param4, BOOLEAN param5, uint32 param6, SecBufferDesc* param7);
 
-public function int32 INITIALIZE_SECURITY_CONTEXT_FN_W(SecHandle* param0, SecHandle* param1, uint16 param2, uint32 param3, uint32 param4, uint32 param5, SecBufferDesc* param6, uint32 param7, SecHandle* param8, SecBufferDesc* param9, uint32 param10, LARGE_INTEGER* param11);
+public function int32 INITIALIZE_SECURITY_CONTEXT_FN_W(SecHandle* param0, SecHandle* param1, uint16* param2, uint32 param3, uint32 param4, uint32 param5, SecBufferDesc* param6, uint32 param7, SecHandle* param8, SecBufferDesc* param9, uint32* param10, LARGE_INTEGER* param11);
 
-public function int32 INITIALIZE_SECURITY_CONTEXT_FN_A(SecHandle* param0, SecHandle* param1, int8 param2, uint32 param3, uint32 param4, uint32 param5, SecBufferDesc* param6, uint32 param7, SecHandle* param8, SecBufferDesc* param9, uint32 param10, LARGE_INTEGER* param11);
+public function int32 INITIALIZE_SECURITY_CONTEXT_FN_A(SecHandle* param0, SecHandle* param1, int8* param2, uint32 param3, uint32 param4, uint32 param5, SecBufferDesc* param6, uint32 param7, SecHandle* param8, SecBufferDesc* param9, uint32* param10, LARGE_INTEGER* param11);
 
-public function int32 ACCEPT_SECURITY_CONTEXT_FN(SecHandle* param0, SecHandle* param1, SecBufferDesc* param2, uint32 param3, uint32 param4, SecHandle* param5, SecBufferDesc* param6, uint32 param7, LARGE_INTEGER* param8);
+public function int32 ACCEPT_SECURITY_CONTEXT_FN(SecHandle* param0, SecHandle* param1, SecBufferDesc* param2, uint32 param3, uint32 param4, SecHandle* param5, SecBufferDesc* param6, uint32* param7, LARGE_INTEGER* param8);
 
 public function int32 COMPLETE_AUTH_TOKEN_FN(SecHandle* param0, SecBufferDesc* param1);
 
@@ -3620,25 +3620,25 @@ public function int32 FREE_CONTEXT_BUFFER_FN(void* param0);
 
 public function int32 MAKE_SIGNATURE_FN(SecHandle* param0, uint32 param1, SecBufferDesc* param2, uint32 param3);
 
-public function int32 VERIFY_SIGNATURE_FN(SecHandle* param0, SecBufferDesc* param1, uint32 param2, uint32 param3);
+public function int32 VERIFY_SIGNATURE_FN(SecHandle* param0, SecBufferDesc* param1, uint32 param2, uint32* param3);
 
 public function int32 ENCRYPT_MESSAGE_FN(SecHandle* param0, uint32 param1, SecBufferDesc* param2, uint32 param3);
 
-public function int32 DECRYPT_MESSAGE_FN(SecHandle* param0, SecBufferDesc* param1, uint32 param2, uint32 param3);
+public function int32 DECRYPT_MESSAGE_FN(SecHandle* param0, SecBufferDesc* param1, uint32 param2, uint32* param3);
 
-public function int32 ENUMERATE_SECURITY_PACKAGES_FN_W(uint32 param0, SecPkgInfoW** param1);
+public function int32 ENUMERATE_SECURITY_PACKAGES_FN_W(uint32* param0, SecPkgInfoW** param1);
 
-public function int32 ENUMERATE_SECURITY_PACKAGES_FN_A(uint32 param0, SecPkgInfoA** param1);
+public function int32 ENUMERATE_SECURITY_PACKAGES_FN_A(uint32* param0, SecPkgInfoA** param1);
 
-public function int32 QUERY_SECURITY_PACKAGE_INFO_FN_W(uint16 param0, SecPkgInfoW** param1);
+public function int32 QUERY_SECURITY_PACKAGE_INFO_FN_W(uint16* param0, SecPkgInfoW** param1);
 
-public function int32 QUERY_SECURITY_PACKAGE_INFO_FN_A(int8 param0, SecPkgInfoA** param1);
+public function int32 QUERY_SECURITY_PACKAGE_INFO_FN_A(int8* param0, SecPkgInfoA** param1);
 
 public function int32 EXPORT_SECURITY_CONTEXT_FN(SecHandle* param0, uint32 param1, SecBuffer* param2, void** param3);
 
-public function int32 IMPORT_SECURITY_CONTEXT_FN_W(uint16 param0, SecBuffer* param1, void* param2, SecHandle* param3);
+public function int32 IMPORT_SECURITY_CONTEXT_FN_W(uint16* param0, SecBuffer* param1, void* param2, SecHandle* param3);
 
-public function int32 IMPORT_SECURITY_CONTEXT_FN_A(int8 param0, SecBuffer* param1, void* param2, SecHandle* param3);
+public function int32 IMPORT_SECURITY_CONTEXT_FN_A(int8* param0, SecBuffer* param1, void* param2, SecHandle* param3);
 
 public function SecurityFunctionTableA* INIT_SECURITY_INTERFACE_A();
 
@@ -3650,7 +3650,7 @@ public function NTSTATUS PLSA_DELETE_LOGON_SESSION(LUID* LogonId);
 
 public function NTSTATUS PLSA_ADD_CREDENTIAL(LUID* LogonId, uint32 AuthenticationPackage, STRING* PrimaryKeyValue, STRING* Credentials);
 
-public function NTSTATUS PLSA_GET_CREDENTIALS(LUID* LogonId, uint32 AuthenticationPackage, uint32 QueryContext, BOOLEAN RetrieveAllCredentials, STRING* PrimaryKeyValue, uint32 PrimaryKeyLength, STRING* Credentials);
+public function NTSTATUS PLSA_GET_CREDENTIALS(LUID* LogonId, uint32 AuthenticationPackage, uint32* QueryContext, BOOLEAN RetrieveAllCredentials, STRING* PrimaryKeyValue, uint32* PrimaryKeyLength, STRING* Credentials);
 
 public function NTSTATUS PLSA_DELETE_CREDENTIAL(LUID* LogonId, uint32 AuthenticationPackage, STRING* PrimaryKeyValue);
 
@@ -3672,17 +3672,17 @@ public function NTSTATUS PLSA_COPY_FROM_CLIENT_BUFFER(void** ClientRequest, uint
 
 public function NTSTATUS PLSA_AP_INITIALIZE_PACKAGE(uint32 AuthenticationPackageId, LSA_DISPATCH_TABLE* LsaDispatchTable, STRING* Database, STRING* Confidentiality, STRING** AuthenticationPackageName);
 
-public function NTSTATUS PLSA_AP_LOGON_USER(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* AuthenticationInformation, void* ClientAuthenticationBase, uint32 AuthenticationInformationLength, void** ProfileBuffer, uint32 ProfileBufferLength, LUID* LogonId, int32 SubStatus, LSA_TOKEN_INFORMATION_TYPE* TokenInformationType, void** TokenInformation, UNICODE_STRING** AccountName, UNICODE_STRING** AuthenticatingAuthority);
+public function NTSTATUS PLSA_AP_LOGON_USER(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* AuthenticationInformation, void* ClientAuthenticationBase, uint32 AuthenticationInformationLength, void** ProfileBuffer, uint32* ProfileBufferLength, LUID* LogonId, int32* SubStatus, LSA_TOKEN_INFORMATION_TYPE* TokenInformationType, void** TokenInformation, UNICODE_STRING** AccountName, UNICODE_STRING** AuthenticatingAuthority);
 
-public function NTSTATUS PLSA_AP_LOGON_USER_EX(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* AuthenticationInformation, void* ClientAuthenticationBase, uint32 AuthenticationInformationLength, void** ProfileBuffer, uint32 ProfileBufferLength, LUID* LogonId, int32 SubStatus, LSA_TOKEN_INFORMATION_TYPE* TokenInformationType, void** TokenInformation, UNICODE_STRING** AccountName, UNICODE_STRING** AuthenticatingAuthority, UNICODE_STRING** MachineName);
+public function NTSTATUS PLSA_AP_LOGON_USER_EX(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* AuthenticationInformation, void* ClientAuthenticationBase, uint32 AuthenticationInformationLength, void** ProfileBuffer, uint32* ProfileBufferLength, LUID* LogonId, int32* SubStatus, LSA_TOKEN_INFORMATION_TYPE* TokenInformationType, void** TokenInformation, UNICODE_STRING** AccountName, UNICODE_STRING** AuthenticatingAuthority, UNICODE_STRING** MachineName);
 
-public function NTSTATUS PLSA_AP_CALL_PACKAGE(void** ClientRequest, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32 ReturnBufferLength, int32 ProtocolStatus);
+public function NTSTATUS PLSA_AP_CALL_PACKAGE(void** ClientRequest, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32* ReturnBufferLength, int32* ProtocolStatus);
 
-public function NTSTATUS PLSA_AP_CALL_PACKAGE_PASSTHROUGH(void** ClientRequest, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32 ReturnBufferLength, int32 ProtocolStatus);
+public function NTSTATUS PLSA_AP_CALL_PACKAGE_PASSTHROUGH(void** ClientRequest, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32* ReturnBufferLength, int32* ProtocolStatus);
 
 public function void PLSA_AP_LOGON_TERMINATED(LUID* LogonId);
 
-public function NTSTATUS PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE(UNICODE_STRING* ClearPassword, void* OldCredentials, uint32 OldCredentialSize, uint32 UserAccountControl, UNICODE_STRING* UPN, UNICODE_STRING* UserName, UNICODE_STRING* NetbiosDomainName, UNICODE_STRING* DnsDomainName, void** NewCredentials, uint32 NewCredentialSize);
+public function NTSTATUS PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE(UNICODE_STRING* ClearPassword, void* OldCredentials, uint32 OldCredentialSize, uint32 UserAccountControl, UNICODE_STRING* UPN, UNICODE_STRING* UserName, UNICODE_STRING* NetbiosDomainName, UNICODE_STRING* DnsDomainName, void** NewCredentials, uint32* NewCredentialSize);
 
 public function BOOLEAN PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE(UNICODE_STRING* CredentialName);
 
@@ -3694,11 +3694,11 @@ public function NTSTATUS PLSA_CALLBACK_FUNCTION(uint Argument1, uint Argument2, 
 
 public function NTSTATUS PLSA_REDIRECTED_LOGON_INIT(HANDLE RedirectedLogonHandle, UNICODE_STRING* PackageName, uint32 SessionId, LUID* LogonId);
 
-public function NTSTATUS PLSA_REDIRECTED_LOGON_CALLBACK(HANDLE RedirectedLogonHandle, void* Buffer, uint32 BufferLength, void** ReturnBuffer, uint32 ReturnBufferLength);
+public function NTSTATUS PLSA_REDIRECTED_LOGON_CALLBACK(HANDLE RedirectedLogonHandle, void* Buffer, uint32 BufferLength, void** ReturnBuffer, uint32* ReturnBufferLength);
 
 public function void PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK(HANDLE RedirectedLogonHandle);
 
-public function NTSTATUS PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS(HANDLE RedirectedLogonHandle, uint8** LogonBuffer, uint32 LogonBufferLength);
+public function NTSTATUS PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS(HANDLE RedirectedLogonHandle, uint8** LogonBuffer, uint32* LogonBufferLength);
 
 public function NTSTATUS PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS(HANDLE RedirectedLogonHandle, SECPKG_SUPPLEMENTAL_CRED_ARRAY** SupplementalCredentials);
 
@@ -3710,7 +3710,7 @@ public function NTSTATUS PLSA_DUPLICATE_HANDLE(HANDLE SourceHandle, HANDLE* Dest
 
 public function NTSTATUS PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS(LUID* LogonId, uint32 SupplementalCredSize, void* SupplementalCreds, BOOLEAN Synchronous);
 
-public function HANDLE PLSA_CREATE_THREAD(SECURITY_ATTRIBUTES* SecurityAttributes, uint32 StackSize, LPTHREAD_START_ROUTINE StartFunction, void* ThreadParameter, uint32 CreationFlags, uint32 ThreadId);
+public function HANDLE PLSA_CREATE_THREAD(SECURITY_ATTRIBUTES* SecurityAttributes, uint32 StackSize, LPTHREAD_START_ROUTINE StartFunction, void* ThreadParameter, uint32 CreationFlags, uint32* ThreadId);
 
 public function NTSTATUS PLSA_GET_CLIENT_INFO(SECPKG_CLIENT_INFO* ClientInfo);
 
@@ -3720,17 +3720,17 @@ public function NTSTATUS PLSA_CANCEL_NOTIFICATION(HANDLE NotifyHandle);
 
 public function NTSTATUS PLSA_MAP_BUFFER(SecBuffer* InputBuffer, SecBuffer* OutputBuffer);
 
-public function NTSTATUS PLSA_CREATE_TOKEN(LUID* LogonId, TOKEN_SOURCE* TokenSource, SECURITY_LOGON_TYPE LogonType, SECURITY_IMPERSONATION_LEVEL ImpersonationLevel, LSA_TOKEN_INFORMATION_TYPE TokenInformationType, void* TokenInformation, TOKEN_GROUPS* TokenGroups, UNICODE_STRING* AccountName, UNICODE_STRING* AuthorityName, UNICODE_STRING* Workstation, UNICODE_STRING* ProfilePath, HANDLE* Token, int32 SubStatus);
+public function NTSTATUS PLSA_CREATE_TOKEN(LUID* LogonId, TOKEN_SOURCE* TokenSource, SECURITY_LOGON_TYPE LogonType, SECURITY_IMPERSONATION_LEVEL ImpersonationLevel, LSA_TOKEN_INFORMATION_TYPE TokenInformationType, void* TokenInformation, TOKEN_GROUPS* TokenGroups, UNICODE_STRING* AccountName, UNICODE_STRING* AuthorityName, UNICODE_STRING* Workstation, UNICODE_STRING* ProfilePath, HANDLE* Token, int32* SubStatus);
 
-public function NTSTATUS PLSA_CREATE_TOKEN_EX(LUID* LogonId, TOKEN_SOURCE* TokenSource, SECURITY_LOGON_TYPE LogonType, SECURITY_IMPERSONATION_LEVEL ImpersonationLevel, LSA_TOKEN_INFORMATION_TYPE TokenInformationType, void* TokenInformation, TOKEN_GROUPS* TokenGroups, UNICODE_STRING* Workstation, UNICODE_STRING* ProfilePath, void* SessionInformation, SECPKG_SESSIONINFO_TYPE SessionInformationType, HANDLE* Token, int32 SubStatus);
+public function NTSTATUS PLSA_CREATE_TOKEN_EX(LUID* LogonId, TOKEN_SOURCE* TokenSource, SECURITY_LOGON_TYPE LogonType, SECURITY_IMPERSONATION_LEVEL ImpersonationLevel, LSA_TOKEN_INFORMATION_TYPE TokenInformationType, void* TokenInformation, TOKEN_GROUPS* TokenGroups, UNICODE_STRING* Workstation, UNICODE_STRING* ProfilePath, void* SessionInformation, SECPKG_SESSIONINFO_TYPE SessionInformationType, HANDLE* Token, int32* SubStatus);
 
 public function void PLSA_AUDIT_LOGON(NTSTATUS Status, NTSTATUS SubStatus, UNICODE_STRING* AccountName, UNICODE_STRING* AuthenticatingAuthority, UNICODE_STRING* WorkstationName, PSID UserSid, SECURITY_LOGON_TYPE LogonType, TOKEN_SOURCE* TokenSource, LUID* LogonId);
 
-public function NTSTATUS PLSA_CALL_PACKAGE(UNICODE_STRING* AuthenticationPackage, void* ProtocolSubmitBuffer, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32 ReturnBufferLength, int32 ProtocolStatus);
+public function NTSTATUS PLSA_CALL_PACKAGE(UNICODE_STRING* AuthenticationPackage, void* ProtocolSubmitBuffer, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32* ReturnBufferLength, int32* ProtocolStatus);
 
-public function NTSTATUS PLSA_CALL_PACKAGEEX(UNICODE_STRING* AuthenticationPackage, void* ClientBufferBase, void* ProtocolSubmitBuffer, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32 ReturnBufferLength, int32 ProtocolStatus);
+public function NTSTATUS PLSA_CALL_PACKAGEEX(UNICODE_STRING* AuthenticationPackage, void* ClientBufferBase, void* ProtocolSubmitBuffer, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32* ReturnBufferLength, int32* ProtocolStatus);
 
-public function NTSTATUS PLSA_CALL_PACKAGE_PASSTHROUGH(UNICODE_STRING* AuthenticationPackage, void* ClientBufferBase, void* ProtocolSubmitBuffer, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32 ReturnBufferLength, int32 ProtocolStatus);
+public function NTSTATUS PLSA_CALL_PACKAGE_PASSTHROUGH(UNICODE_STRING* AuthenticationPackage, void* ClientBufferBase, void* ProtocolSubmitBuffer, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32* ReturnBufferLength, int32* ProtocolStatus);
 
 public function BOOLEAN PLSA_GET_CALL_INFO(SECPKG_CALL_INFO* Info);
 
@@ -3742,23 +3742,23 @@ public function void PLSA_FREE_SHARED_MEMORY(void* SharedMem, void* Memory);
 
 public function BOOLEAN PLSA_DELETE_SHARED_MEMORY(void* SharedMem);
 
-public function NTSTATUS PLSA_GET_APP_MODE_INFO(uint32 UserFunction, uint Argument1, uint Argument2, SecBuffer* UserData, BOOLEAN* ReturnToLsa);
+public function NTSTATUS PLSA_GET_APP_MODE_INFO(uint32* UserFunction, uint* Argument1, uint* Argument2, SecBuffer* UserData, BOOLEAN* ReturnToLsa);
 
 public function NTSTATUS PLSA_SET_APP_MODE_INFO(uint32 UserFunction, uint Argument1, uint Argument2, SecBuffer* UserData, BOOLEAN ReturnToLsa);
 
 public function NTSTATUS PLSA_OPEN_SAM_USER(UNICODE_STRING* Name, SECPKG_NAME_TYPE NameType, UNICODE_STRING* Prefix, BOOLEAN AllowGuest, uint32 Reserved, void** UserHandle);
 
-public function NTSTATUS PLSA_GET_USER_CREDENTIALS(void* UserHandle, void** PrimaryCreds, uint32 PrimaryCredsSize, void** SupplementalCreds, uint32 SupplementalCredsSize);
+public function NTSTATUS PLSA_GET_USER_CREDENTIALS(void* UserHandle, void** PrimaryCreds, uint32* PrimaryCredsSize, void** SupplementalCreds, uint32* SupplementalCredsSize);
 
-public function NTSTATUS PLSA_GET_USER_AUTH_DATA(void* UserHandle, uint8** UserAuthData, uint32 UserAuthDataSize);
+public function NTSTATUS PLSA_GET_USER_AUTH_DATA(void* UserHandle, uint8** UserAuthData, uint32* UserAuthDataSize);
 
 public function NTSTATUS PLSA_CLOSE_SAM_USER(void* UserHandle);
 
-public function NTSTATUS PLSA_GET_AUTH_DATA_FOR_USER(UNICODE_STRING* Name, SECPKG_NAME_TYPE NameType, UNICODE_STRING* Prefix, uint8** UserAuthData, uint32 UserAuthDataSize, UNICODE_STRING* UserFlatName);
+public function NTSTATUS PLSA_GET_AUTH_DATA_FOR_USER(UNICODE_STRING* Name, SECPKG_NAME_TYPE NameType, UNICODE_STRING* Prefix, uint8** UserAuthData, uint32* UserAuthDataSize, UNICODE_STRING* UserFlatName);
 
-public function NTSTATUS PLSA_CONVERT_AUTH_DATA_TO_TOKEN(void* UserAuthData, uint32 UserAuthDataSize, SECURITY_IMPERSONATION_LEVEL ImpersonationLevel, TOKEN_SOURCE* TokenSource, SECURITY_LOGON_TYPE LogonType, UNICODE_STRING* AuthorityName, HANDLE* Token, LUID* LogonId, UNICODE_STRING* AccountName, int32 SubStatus);
+public function NTSTATUS PLSA_CONVERT_AUTH_DATA_TO_TOKEN(void* UserAuthData, uint32 UserAuthDataSize, SECURITY_IMPERSONATION_LEVEL ImpersonationLevel, TOKEN_SOURCE* TokenSource, SECURITY_LOGON_TYPE LogonType, UNICODE_STRING* AuthorityName, HANDLE* Token, LUID* LogonId, UNICODE_STRING* AccountName, int32* SubStatus);
 
-public function NTSTATUS PLSA_CRACK_SINGLE_NAME(uint32 FormatOffered, BOOLEAN PerformAtGC, UNICODE_STRING* NameInput, UNICODE_STRING* Prefix, uint32 RequestedFormat, UNICODE_STRING* CrackedName, UNICODE_STRING* DnsDomainName, uint32 SubStatus);
+public function NTSTATUS PLSA_CRACK_SINGLE_NAME(uint32 FormatOffered, BOOLEAN PerformAtGC, UNICODE_STRING* NameInput, UNICODE_STRING* Prefix, uint32 RequestedFormat, UNICODE_STRING* CrackedName, UNICODE_STRING* DnsDomainName, uint32* SubStatus);
 
 public function NTSTATUS PLSA_AUDIT_ACCOUNT_LOGON(uint32 AuditId, BOOLEAN Success, UNICODE_STRING* Source, UNICODE_STRING* ClientName, UNICODE_STRING* MappedName, NTSTATUS Status);
 
@@ -3766,7 +3766,7 @@ public function NTSTATUS PLSA_CLIENT_CALLBACK(PSTR Callback, uint Argument1, uin
 
 public function NTSTATUS PLSA_REGISTER_CALLBACK(uint32 CallbackId, PLSA_CALLBACK_FUNCTION Callback);
 
-public function NTSTATUS PLSA_GET_EXTENDED_CALL_FLAGS(uint32 Flags);
+public function NTSTATUS PLSA_GET_EXTENDED_CALL_FLAGS(uint32* Flags);
 
 public function NTSTATUS PLSA_UPDATE_PRIMARY_CREDENTIALS(SECPKG_PRIMARY_CRED* PrimaryCredentials, SECPKG_SUPPLEMENTAL_CRED_ARRAY* Credentials);
 
@@ -3774,7 +3774,7 @@ public function void PLSA_PROTECT_MEMORY(void* Buffer, uint32 BufferSize);
 
 public function NTSTATUS PLSA_OPEN_TOKEN_BY_LOGON_ID(LUID* LogonId, HANDLE* RetTokenHandle);
 
-public function NTSTATUS PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN(uint8 UserAuthData, uint32 UserAuthDataSize, void* Reserved, uint8** ExpandedAuthData, uint32 ExpandedAuthDataSize);
+public function NTSTATUS PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN(uint8* UserAuthData, uint32 UserAuthDataSize, void* Reserved, uint8** ExpandedAuthData, uint32* ExpandedAuthDataSize);
 
 public function NTSTATUS PLSA_GET_SERVICE_ACCOUNT_PASSWORD(UNICODE_STRING* AccountName, UNICODE_STRING* DomainName, CRED_FETCH CredFetch, FILETIME* FileTimeExpiry, UNICODE_STRING* CurrentPassword, UNICODE_STRING* PreviousPassword, FILETIME* FileTimeCurrPwdValidForOutbound);
 
@@ -3786,13 +3786,13 @@ public function NTSTATUS PLSA_QUERY_CLIENT_REQUEST(void** ClientRequest, uint32 
 
 public function NTSTATUS CredReadFn(LUID* LogonId, uint32 CredFlags, PWSTR TargetName, uint32 Type, uint32 Flags, ENCRYPTED_CREDENTIALW** Credential);
 
-public function NTSTATUS CredReadDomainCredentialsFn(LUID* LogonId, uint32 CredFlags, CREDENTIAL_TARGET_INFORMATIONW* TargetInfo, uint32 Flags, uint32 Count, ENCRYPTED_CREDENTIALW*** Credential);
+public function NTSTATUS CredReadDomainCredentialsFn(LUID* LogonId, uint32 CredFlags, CREDENTIAL_TARGET_INFORMATIONW* TargetInfo, uint32 Flags, uint32* Count, ENCRYPTED_CREDENTIALW*** Credential);
 
 public function void CredFreeCredentialsFn(uint32 Count, ENCRYPTED_CREDENTIALW** Credentials);
 
 public function NTSTATUS CredWriteFn(LUID* LogonId, uint32 CredFlags, ENCRYPTED_CREDENTIALW* Credential, uint32 Flags);
 
-public function NTSTATUS CrediUnmarshalandDecodeStringFn(PWSTR MarshaledString, uint8** Blob, uint32 BlobSize, uint8 IsFailureFatal);
+public function NTSTATUS CrediUnmarshalandDecodeStringFn(PWSTR MarshaledString, uint8** Blob, uint32* BlobSize, uint8* IsFailureFatal);
 
 public function void* PLSA_LOCATE_PKG_BY_ID(uint32 PackgeId);
 
@@ -3806,17 +3806,17 @@ public function NTSTATUS SpGetExtendedInformationFn(SECPKG_EXTENDED_INFORMATION_
 
 public function NTSTATUS SpSetExtendedInformationFn(SECPKG_EXTENDED_INFORMATION_CLASS Class, SECPKG_EXTENDED_INFORMATION* Info);
 
-public function NTSTATUS PLSA_AP_LOGON_USER_EX2(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferSize, void** ProfileBuffer, uint32 ProfileBufferSize, LUID* LogonId, int32 SubStatus, LSA_TOKEN_INFORMATION_TYPE* TokenInformationType, void** TokenInformation, UNICODE_STRING** AccountName, UNICODE_STRING** AuthenticatingAuthority, UNICODE_STRING** MachineName, SECPKG_PRIMARY_CRED* PrimaryCredentials, SECPKG_SUPPLEMENTAL_CRED_ARRAY** SupplementalCredentials);
+public function NTSTATUS PLSA_AP_LOGON_USER_EX2(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferSize, void** ProfileBuffer, uint32* ProfileBufferSize, LUID* LogonId, int32* SubStatus, LSA_TOKEN_INFORMATION_TYPE* TokenInformationType, void** TokenInformation, UNICODE_STRING** AccountName, UNICODE_STRING** AuthenticatingAuthority, UNICODE_STRING** MachineName, SECPKG_PRIMARY_CRED* PrimaryCredentials, SECPKG_SUPPLEMENTAL_CRED_ARRAY** SupplementalCredentials);
 
-public function NTSTATUS PLSA_AP_LOGON_USER_EX3(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferSize, SECPKG_SURROGATE_LOGON* SurrogateLogon, void** ProfileBuffer, uint32 ProfileBufferSize, LUID* LogonId, int32 SubStatus, LSA_TOKEN_INFORMATION_TYPE* TokenInformationType, void** TokenInformation, UNICODE_STRING** AccountName, UNICODE_STRING** AuthenticatingAuthority, UNICODE_STRING** MachineName, SECPKG_PRIMARY_CRED* PrimaryCredentials, SECPKG_SUPPLEMENTAL_CRED_ARRAY** SupplementalCredentials);
+public function NTSTATUS PLSA_AP_LOGON_USER_EX3(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferSize, SECPKG_SURROGATE_LOGON* SurrogateLogon, void** ProfileBuffer, uint32* ProfileBufferSize, LUID* LogonId, int32* SubStatus, LSA_TOKEN_INFORMATION_TYPE* TokenInformationType, void** TokenInformation, UNICODE_STRING** AccountName, UNICODE_STRING** AuthenticatingAuthority, UNICODE_STRING** MachineName, SECPKG_PRIMARY_CRED* PrimaryCredentials, SECPKG_SUPPLEMENTAL_CRED_ARRAY** SupplementalCredentials);
 
-public function NTSTATUS PLSA_AP_PRE_LOGON_USER_SURROGATE(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferSize, SECPKG_SURROGATE_LOGON* SurrogateLogon, int32 SubStatus);
+public function NTSTATUS PLSA_AP_PRE_LOGON_USER_SURROGATE(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferSize, SECPKG_SURROGATE_LOGON* SurrogateLogon, int32* SubStatus);
 
 public function NTSTATUS PLSA_AP_POST_LOGON_USER_SURROGATE(void** ClientRequest, SECURITY_LOGON_TYPE LogonType, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferSize, SECPKG_SURROGATE_LOGON* SurrogateLogon, void* ProfileBuffer, uint32 ProfileBufferSize, LUID* LogonId, NTSTATUS Status, NTSTATUS SubStatus, LSA_TOKEN_INFORMATION_TYPE TokenInformationType, void* TokenInformation, UNICODE_STRING* AccountName, UNICODE_STRING* AuthenticatingAuthority, UNICODE_STRING* MachineName, SECPKG_PRIMARY_CRED* PrimaryCredentials, SECPKG_SUPPLEMENTAL_CRED_ARRAY* SupplementalCredentials);
 
 public function NTSTATUS SpAcceptCredentialsFn(SECURITY_LOGON_TYPE LogonType, UNICODE_STRING* AccountName, SECPKG_PRIMARY_CRED* PrimaryCredentials, SECPKG_SUPPLEMENTAL_CRED* SupplementalCredentials);
 
-public function NTSTATUS SpAcquireCredentialsHandleFn(UNICODE_STRING* PrincipalName, uint32 CredentialUseFlags, LUID* LogonId, void* AuthorizationData, void* GetKeyFunciton, void* GetKeyArgument, uint CredentialHandle, LARGE_INTEGER* ExpirationTime);
+public function NTSTATUS SpAcquireCredentialsHandleFn(UNICODE_STRING* PrincipalName, uint32 CredentialUseFlags, LUID* LogonId, void* AuthorizationData, void* GetKeyFunciton, void* GetKeyArgument, uint* CredentialHandle, LARGE_INTEGER* ExpirationTime);
 
 public function NTSTATUS SpFreeCredentialsHandleFn(uint CredentialHandle);
 
@@ -3832,13 +3832,13 @@ public function NTSTATUS SpGetCredentialsFn(uint CredentialHandle, SecBuffer* Cr
 
 public function NTSTATUS SpDeleteCredentialsFn(uint CredentialHandle, SecBuffer* Key);
 
-public function NTSTATUS SpInitLsaModeContextFn(uint CredentialHandle, uint ContextHandle, UNICODE_STRING* TargetName, uint32 ContextRequirements, uint32 TargetDataRep, SecBufferDesc* InputBuffers, uint NewContextHandle, SecBufferDesc* OutputBuffers, uint32 ContextAttributes, LARGE_INTEGER* ExpirationTime, BOOLEAN* MappedContext, SecBuffer* ContextData);
+public function NTSTATUS SpInitLsaModeContextFn(uint CredentialHandle, uint ContextHandle, UNICODE_STRING* TargetName, uint32 ContextRequirements, uint32 TargetDataRep, SecBufferDesc* InputBuffers, uint* NewContextHandle, SecBufferDesc* OutputBuffers, uint32* ContextAttributes, LARGE_INTEGER* ExpirationTime, BOOLEAN* MappedContext, SecBuffer* ContextData);
 
 public function NTSTATUS SpDeleteContextFn(uint ContextHandle);
 
 public function NTSTATUS SpApplyControlTokenFn(uint ContextHandle, SecBufferDesc* ControlToken);
 
-public function NTSTATUS SpAcceptLsaModeContextFn(uint CredentialHandle, uint ContextHandle, SecBufferDesc* InputBuffer, uint32 ContextRequirements, uint32 TargetDataRep, uint NewContextHandle, SecBufferDesc* OutputBuffer, uint32 ContextAttributes, LARGE_INTEGER* ExpirationTime, BOOLEAN* MappedContext, SecBuffer* ContextData);
+public function NTSTATUS SpAcceptLsaModeContextFn(uint CredentialHandle, uint ContextHandle, SecBufferDesc* InputBuffer, uint32 ContextRequirements, uint32 TargetDataRep, uint* NewContextHandle, SecBufferDesc* OutputBuffer, uint32* ContextAttributes, LARGE_INTEGER* ExpirationTime, BOOLEAN* MappedContext, SecBuffer* ContextData);
 
 public function NTSTATUS SpGetUserInfoFn(LUID* LogonId, uint32 Flags, SECURITY_USER_DATA** UserData);
 
@@ -3848,23 +3848,23 @@ public function NTSTATUS SpSetContextAttributesFn(uint ContextHandle, uint32 Con
 
 public function NTSTATUS SpChangeAccountPasswordFn(UNICODE_STRING* pDomainName, UNICODE_STRING* pAccountName, UNICODE_STRING* pOldPassword, UNICODE_STRING* pNewPassword, BOOLEAN Impersonating, SecBufferDesc* pOutput);
 
-public function NTSTATUS SpQueryMetaDataFn(uint CredentialHandle, UNICODE_STRING* TargetName, uint32 ContextRequirements, uint32 MetaDataLength, uint8** MetaData, uint ContextHandle);
+public function NTSTATUS SpQueryMetaDataFn(uint CredentialHandle, UNICODE_STRING* TargetName, uint32 ContextRequirements, uint32* MetaDataLength, uint8** MetaData, uint* ContextHandle);
 
-public function NTSTATUS SpExchangeMetaDataFn(uint CredentialHandle, UNICODE_STRING* TargetName, uint32 ContextRequirements, uint32 MetaDataLength, uint8 MetaData, uint ContextHandle);
+public function NTSTATUS SpExchangeMetaDataFn(uint CredentialHandle, UNICODE_STRING* TargetName, uint32 ContextRequirements, uint32 MetaDataLength, uint8* MetaData, uint* ContextHandle);
 
-public function NTSTATUS SpGetCredUIContextFn(uint ContextHandle, Guid CredType, uint32 FlatCredUIContextLength, uint8** FlatCredUIContext);
+public function NTSTATUS SpGetCredUIContextFn(uint ContextHandle, ref Guid CredType, uint32* FlatCredUIContextLength, uint8** FlatCredUIContext);
 
-public function NTSTATUS SpUpdateCredentialsFn(uint ContextHandle, Guid CredType, uint32 FlatCredUIContextLength, uint8 FlatCredUIContext);
+public function NTSTATUS SpUpdateCredentialsFn(uint ContextHandle, ref Guid CredType, uint32 FlatCredUIContextLength, uint8* FlatCredUIContext);
 
 public function NTSTATUS SpValidateTargetInfoFn(void** ClientRequest, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferLength, SECPKG_TARGETINFO* TargetInfo);
 
 public function NTSTATUS LSA_AP_POST_LOGON_USER(SECPKG_POST_LOGON_USER_INFO* PostLogonUserInfo);
 
-public function NTSTATUS SpGetRemoteCredGuardLogonBufferFn(uint CredHandle, uint ContextHandle, UNICODE_STRING* TargetName, HANDLE* RedirectedLogonHandle, PLSA_REDIRECTED_LOGON_CALLBACK* Callback, PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK* CleanupCallback, uint32 LogonBufferSize, void** LogonBuffer);
+public function NTSTATUS SpGetRemoteCredGuardLogonBufferFn(uint CredHandle, uint ContextHandle, UNICODE_STRING* TargetName, HANDLE* RedirectedLogonHandle, PLSA_REDIRECTED_LOGON_CALLBACK* Callback, PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK* CleanupCallback, uint32* LogonBufferSize, void** LogonBuffer);
 
-public function NTSTATUS SpGetRemoteCredGuardSupplementalCredsFn(uint CredHandle, UNICODE_STRING* TargetName, HANDLE* RedirectedLogonHandle, PLSA_REDIRECTED_LOGON_CALLBACK* Callback, PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK* CleanupCallback, uint32 SupplementalCredsSize, void** SupplementalCreds);
+public function NTSTATUS SpGetRemoteCredGuardSupplementalCredsFn(uint CredHandle, UNICODE_STRING* TargetName, HANDLE* RedirectedLogonHandle, PLSA_REDIRECTED_LOGON_CALLBACK* Callback, PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK* CleanupCallback, uint32* SupplementalCredsSize, void** SupplementalCreds);
 
-public function NTSTATUS SpGetTbalSupplementalCredsFn(LUID LogonId, uint32 SupplementalCredsSize, void** SupplementalCreds);
+public function NTSTATUS SpGetTbalSupplementalCredsFn(LUID LogonId, uint32* SupplementalCredsSize, void** SupplementalCreds);
 
 public function NTSTATUS SpInstanceInitFn(uint32 Version, SECPKG_DLL_FUNCTIONS* FunctionTable, void** UserFunctions);
 
@@ -3872,29 +3872,29 @@ public function NTSTATUS SpInitUserModeContextFn(uint ContextHandle, SecBuffer* 
 
 public function NTSTATUS SpMakeSignatureFn(uint ContextHandle, uint32 QualityOfProtection, SecBufferDesc* MessageBuffers, uint32 MessageSequenceNumber);
 
-public function NTSTATUS SpVerifySignatureFn(uint ContextHandle, SecBufferDesc* MessageBuffers, uint32 MessageSequenceNumber, uint32 QualityOfProtection);
+public function NTSTATUS SpVerifySignatureFn(uint ContextHandle, SecBufferDesc* MessageBuffers, uint32 MessageSequenceNumber, uint32* QualityOfProtection);
 
 public function NTSTATUS SpSealMessageFn(uint ContextHandle, uint32 QualityOfProtection, SecBufferDesc* MessageBuffers, uint32 MessageSequenceNumber);
 
-public function NTSTATUS SpUnsealMessageFn(uint ContextHandle, SecBufferDesc* MessageBuffers, uint32 MessageSequenceNumber, uint32 QualityOfProtection);
+public function NTSTATUS SpUnsealMessageFn(uint ContextHandle, SecBufferDesc* MessageBuffers, uint32 MessageSequenceNumber, uint32* QualityOfProtection);
 
 public function NTSTATUS SpGetContextTokenFn(uint ContextHandle, HANDLE* ImpersonationToken);
 
 public function NTSTATUS SpExportSecurityContextFn(uint phContext, uint32 fFlags, SecBuffer* pPackedContext, HANDLE* pToken);
 
-public function NTSTATUS SpImportSecurityContextFn(SecBuffer* pPackedContext, HANDLE Token, uint phContext);
+public function NTSTATUS SpImportSecurityContextFn(SecBuffer* pPackedContext, HANDLE Token, uint* phContext);
 
 public function NTSTATUS SpCompleteAuthTokenFn(uint ContextHandle, SecBufferDesc* InputBuffer);
 
 public function NTSTATUS SpFormatCredentialsFn(SecBuffer* Credentials, SecBuffer* FormattedCredentials);
 
-public function NTSTATUS SpMarshallSupplementalCredsFn(uint32 CredentialSize, uint8 Credentials, uint32 MarshalledCredSize, void** MarshalledCreds);
+public function NTSTATUS SpMarshallSupplementalCredsFn(uint32 CredentialSize, uint8* Credentials, uint32* MarshalledCredSize, void** MarshalledCreds);
 
-public function NTSTATUS SpMarshalAttributeDataFn(uint32 AttributeInfo, uint32 Attribute, uint32 AttributeDataSize, uint8 AttributeData, uint32 MarshaledAttributeDataSize, uint8** MarshaledAttributeData);
+public function NTSTATUS SpMarshalAttributeDataFn(uint32 AttributeInfo, uint32 Attribute, uint32 AttributeDataSize, uint8* AttributeData, uint32* MarshaledAttributeDataSize, uint8** MarshaledAttributeData);
 
-public function NTSTATUS SpLsaModeInitializeFn(uint32 LsaVersion, uint32 PackageVersion, SECPKG_FUNCTION_TABLE** ppTables, uint32 pcTables);
+public function NTSTATUS SpLsaModeInitializeFn(uint32 LsaVersion, uint32* PackageVersion, SECPKG_FUNCTION_TABLE** ppTables, uint32* pcTables);
 
-public function NTSTATUS SpUserModeInitializeFn(uint32 LsaVersion, uint32 PackageVersion, SECPKG_USER_FUNCTION_TABLE** ppTables, uint32 pcTables);
+public function NTSTATUS SpUserModeInitializeFn(uint32 LsaVersion, uint32* PackageVersion, SECPKG_USER_FUNCTION_TABLE** ppTables, uint32* pcTables);
 
 public function void* PKSEC_CREATE_CONTEXT_LIST(KSEC_CONTEXT_TYPE Type);
 
@@ -3902,27 +3902,27 @@ public function void PKSEC_INSERT_LIST_ENTRY(void* List, KSEC_LIST_ENTRY* Entry)
 
 public function NTSTATUS PKSEC_REFERENCE_LIST_ENTRY(KSEC_LIST_ENTRY* Entry, uint32 Signature, BOOLEAN RemoveNoRef);
 
-public function void PKSEC_DEREFERENCE_LIST_ENTRY(KSEC_LIST_ENTRY* Entry, uint8 Delete);
+public function void PKSEC_DEREFERENCE_LIST_ENTRY(KSEC_LIST_ENTRY* Entry, uint8* Delete);
 
-public function NTSTATUS PKSEC_SERIALIZE_WINNT_AUTH_DATA(void* pvAuthData, uint32 Size, void** SerializedData);
+public function NTSTATUS PKSEC_SERIALIZE_WINNT_AUTH_DATA(void* pvAuthData, uint32* Size, void** SerializedData);
 
-public function NTSTATUS PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA(void* pvAuthData, uint32 Size, void** SerializedData);
+public function NTSTATUS PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA(void* pvAuthData, uint32* Size, void** SerializedData);
 
 public function void* PKSEC_LOCATE_PKG_BY_ID(uint32 PackageId);
 
 public function NTSTATUS KspInitPackageFn(SECPKG_KERNEL_FUNCTIONS* FunctionTable);
 
-public function NTSTATUS KspDeleteContextFn(uint ContextId, uint LsaContextId);
+public function NTSTATUS KspDeleteContextFn(uint ContextId, uint* LsaContextId);
 
-public function NTSTATUS KspInitContextFn(uint ContextId, SecBuffer* ContextData, uint NewContextId);
+public function NTSTATUS KspInitContextFn(uint ContextId, SecBuffer* ContextData, uint* NewContextId);
 
 public function NTSTATUS KspMakeSignatureFn(uint ContextId, uint32 fQOP, SecBufferDesc* Message, uint32 MessageSeqNo);
 
-public function NTSTATUS KspVerifySignatureFn(uint ContextId, SecBufferDesc* Message, uint32 MessageSeqNo, uint32 pfQOP);
+public function NTSTATUS KspVerifySignatureFn(uint ContextId, SecBufferDesc* Message, uint32 MessageSeqNo, uint32* pfQOP);
 
 public function NTSTATUS KspSealMessageFn(uint ContextId, uint32 fQOP, SecBufferDesc* Message, uint32 MessageSeqNo);
 
-public function NTSTATUS KspUnsealMessageFn(uint ContextId, SecBufferDesc* Message, uint32 MessageSeqNo, uint32 pfQOP);
+public function NTSTATUS KspUnsealMessageFn(uint ContextId, SecBufferDesc* Message, uint32 MessageSeqNo, uint32* pfQOP);
 
 public function NTSTATUS KspGetTokenFn(uint ContextId, HANDLE* ImpersonationToken, void** RawToken);
 
@@ -3930,23 +3930,23 @@ public function NTSTATUS KspQueryAttributesFn(uint ContextId, uint32 Attribute, 
 
 public function NTSTATUS KspCompleteTokenFn(uint ContextId, SecBufferDesc* Token);
 
-public function NTSTATUS KspMapHandleFn(uint ContextId, uint LsaContextId);
+public function NTSTATUS KspMapHandleFn(uint ContextId, uint* LsaContextId);
 
 public function NTSTATUS KspSetPagingModeFn(BOOLEAN PagingMode);
 
-public function NTSTATUS KspSerializeAuthDataFn(void* pvAuthData, uint32 Size, void** SerializedData);
+public function NTSTATUS KspSerializeAuthDataFn(void* pvAuthData, uint32* Size, void** SerializedData);
 
 public function BOOL SSL_EMPTY_CACHE_FN_A(PSTR pszTargetName, uint32 dwFlags);
 
 public function BOOL SSL_EMPTY_CACHE_FN_W(PWSTR pszTargetName, uint32 dwFlags);
 
-public function BOOL SSL_CRACK_CERTIFICATE_FN(uint8 pbCertificate, uint32 cbCertificate, BOOL VerifySignature, X509Certificate** ppCertificate);
+public function BOOL SSL_CRACK_CERTIFICATE_FN(uint8* pbCertificate, uint32 cbCertificate, BOOL VerifySignature, X509Certificate** ppCertificate);
 
 public function void SSL_FREE_CERTIFICATE_FN(X509Certificate* pCertificate);
 
-public function int32 SslGetServerIdentityFn(uint8 ClientHello, uint32 ClientHelloSize, uint8** ServerIdentity, uint32 ServerIdentitySize, uint32 Flags);
+public function int32 SslGetServerIdentityFn(uint8* ClientHello, uint32 ClientHelloSize, uint8** ServerIdentity, uint32* ServerIdentitySize, uint32 Flags);
 
-public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloByteSize, SCH_EXTENSION_DATA* genericExtensions, uint8 genericExtensionsCount, uint32 bytesToRead, SchGetExtensionsOptions flags);
+public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloByteSize, SCH_EXTENSION_DATA* genericExtensions, uint8 genericExtensionsCount, uint32* bytesToRead, SchGetExtensionsOptions flags);
 
 #endregion
 
@@ -7223,19 +7223,19 @@ public static
 public static
 {
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaRegisterLogonProcess(STRING* LogonProcessName, LsaHandle* LsaHandle, uint32 SecurityMode);
+	public static extern NTSTATUS LsaRegisterLogonProcess(STRING* LogonProcessName, LsaHandle* LsaHandle, uint32* SecurityMode);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaLogonUser(HANDLE LsaHandle, STRING* OriginName, SECURITY_LOGON_TYPE LogonType, uint32 AuthenticationPackage, void* AuthenticationInformation, uint32 AuthenticationInformationLength, TOKEN_GROUPS* LocalGroups, TOKEN_SOURCE* SourceContext, void** ProfileBuffer, uint32 ProfileBufferLength, LUID* LogonId, HANDLE* Token, QUOTA_LIMITS* Quotas, int32 SubStatus);
+	public static extern NTSTATUS LsaLogonUser(HANDLE LsaHandle, STRING* OriginName, SECURITY_LOGON_TYPE LogonType, uint32 AuthenticationPackage, void* AuthenticationInformation, uint32 AuthenticationInformationLength, TOKEN_GROUPS* LocalGroups, TOKEN_SOURCE* SourceContext, void** ProfileBuffer, uint32* ProfileBufferLength, LUID* LogonId, HANDLE* Token, QUOTA_LIMITS* Quotas, int32* SubStatus);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaLookupAuthenticationPackage(HANDLE LsaHandle, STRING* PackageName, uint32 AuthenticationPackage);
+	public static extern NTSTATUS LsaLookupAuthenticationPackage(HANDLE LsaHandle, STRING* PackageName, uint32* AuthenticationPackage);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS LsaFreeReturnBuffer(void* Buffer);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaCallAuthenticationPackage(HANDLE LsaHandle, uint32 AuthenticationPackage, void* ProtocolSubmitBuffer, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32 ReturnBufferLength, int32 ProtocolStatus);
+	public static extern NTSTATUS LsaCallAuthenticationPackage(HANDLE LsaHandle, uint32 AuthenticationPackage, void* ProtocolSubmitBuffer, uint32 SubmitBufferLength, void** ProtocolReturnBuffer, uint32* ReturnBufferLength, int32* ProtocolStatus);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS LsaDeregisterLogonProcess(LsaHandle LsaHandle);
@@ -7250,7 +7250,7 @@ public static
 	public static extern NTSTATUS LsaClose(void* ObjectHandle);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaEnumerateLogonSessions(uint32 LogonSessionCount, LUID** LogonSessionList);
+	public static extern NTSTATUS LsaEnumerateLogonSessions(uint32* LogonSessionCount, LUID** LogonSessionList);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS LsaGetLogonSessionData(LUID* LogonId, SECURITY_LOGON_SESSION_DATA** ppLogonSessionData);
@@ -7262,10 +7262,10 @@ public static
 	public static extern NTSTATUS LsaSetCAPs(UNICODE_STRING* CAPDNs, uint32 CAPDNCount, uint32 Flags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaGetAppliedCAPIDs(UNICODE_STRING* SystemName, PSID** CAPIDs, uint32 CAPIDCount);
+	public static extern NTSTATUS LsaGetAppliedCAPIDs(UNICODE_STRING* SystemName, PSID** CAPIDs, uint32* CAPIDCount);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaQueryCAPs(PSID* CAPIDs, uint32 CAPIDCount, CENTRAL_ACCESS_POLICY** CAPs, uint32 CAPCount);
+	public static extern NTSTATUS LsaQueryCAPs(PSID* CAPIDs, uint32 CAPIDCount, CENTRAL_ACCESS_POLICY** CAPs, uint32* CAPCount);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS LsaQueryInformationPolicy(void* PolicyHandle, POLICY_INFORMATION_CLASS InformationClass, void** Buffer);
@@ -7286,7 +7286,7 @@ public static
 	public static extern NTSTATUS LsaUnregisterPolicyChangeNotification(POLICY_NOTIFICATION_INFORMATION_CLASS InformationClass, HANDLE NotificationEventHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaEnumerateTrustedDomains(void* PolicyHandle, uint32 EnumerationContext, void** Buffer, uint32 PreferedMaximumLength, uint32 CountReturned);
+	public static extern NTSTATUS LsaEnumerateTrustedDomains(void* PolicyHandle, uint32* EnumerationContext, void** Buffer, uint32 PreferedMaximumLength, uint32* CountReturned);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS LsaLookupNames(void* PolicyHandle, uint32 Count, UNICODE_STRING* Names, LSA_REFERENCED_DOMAIN_LIST** ReferencedDomains, LSA_TRANSLATED_SID** Sids);
@@ -7301,10 +7301,10 @@ public static
 	public static extern NTSTATUS LsaLookupSids2(void* PolicyHandle, uint32 LookupOptions, uint32 Count, PSID* Sids, LSA_REFERENCED_DOMAIN_LIST** ReferencedDomains, LSA_TRANSLATED_NAME** Names);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaEnumerateAccountsWithUserRight(void* PolicyHandle, UNICODE_STRING* UserRight, void** Buffer, uint32 CountReturned);
+	public static extern NTSTATUS LsaEnumerateAccountsWithUserRight(void* PolicyHandle, UNICODE_STRING* UserRight, void** Buffer, uint32* CountReturned);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaEnumerateAccountRights(void* PolicyHandle, PSID AccountSid, UNICODE_STRING** UserRights, uint32 CountOfRights);
+	public static extern NTSTATUS LsaEnumerateAccountRights(void* PolicyHandle, PSID AccountSid, UNICODE_STRING** UserRights, uint32* CountOfRights);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS LsaAddAccountRights(void* PolicyHandle, PSID AccountSid, UNICODE_STRING* UserRights, uint32 CountOfRights);
@@ -7331,7 +7331,7 @@ public static
 	public static extern NTSTATUS LsaSetTrustedDomainInfoByName(void* PolicyHandle, UNICODE_STRING* TrustedDomainName, TRUSTED_INFORMATION_CLASS InformationClass, void* Buffer);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS LsaEnumerateTrustedDomainsEx(void* PolicyHandle, uint32 EnumerationContext, void** Buffer, uint32 PreferedMaximumLength, uint32 CountReturned);
+	public static extern NTSTATUS LsaEnumerateTrustedDomainsEx(void* PolicyHandle, uint32* EnumerationContext, void** Buffer, uint32 PreferedMaximumLength, uint32* CountReturned);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS LsaCreateTrustedDomainEx(void* PolicyHandle, TRUSTED_DOMAIN_INFORMATION_EX* TrustedDomainInformation, TRUSTED_DOMAIN_AUTH_INFORMATION* AuthenticationInformation, uint32 DesiredAccess, void** TrustedDomainHandle);
@@ -7382,30 +7382,30 @@ public static
 	public static extern BOOLEAN AuditComputeEffectivePolicyByToken(HANDLE hTokenHandle, Guid* pSubCategoryGuids, uint32 dwPolicyCount, AUDIT_POLICY_INFORMATION** ppAuditPolicy);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditEnumerateCategories(Guid** ppAuditCategoriesArray, uint32 pdwCountReturned);
+	public static extern BOOLEAN AuditEnumerateCategories(Guid** ppAuditCategoriesArray, uint32* pdwCountReturned);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditEnumerateSubCategories(Guid pAuditCategoryGuid, BOOLEAN bRetrieveAllSubCategories, Guid** ppAuditSubCategoriesArray, uint32 pdwCountReturned);
+	public static extern BOOLEAN AuditEnumerateSubCategories(ref Guid pAuditCategoryGuid, BOOLEAN bRetrieveAllSubCategories, Guid** ppAuditSubCategoriesArray, uint32* pdwCountReturned);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupCategoryNameW(Guid pAuditCategoryGuid, PWSTR* ppszCategoryName);
+	public static extern BOOLEAN AuditLookupCategoryNameW(ref Guid pAuditCategoryGuid, PWSTR* ppszCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupCategoryNameA(Guid pAuditCategoryGuid, PSTR* ppszCategoryName);
-	public static BOOLEAN AuditLookupCategoryName(Guid pAuditCategoryGuid, PSTR* ppszCategoryName) => AuditLookupCategoryNameA(pAuditCategoryGuid, ppszCategoryName);
+	public static extern BOOLEAN AuditLookupCategoryNameA(ref Guid pAuditCategoryGuid, PSTR* ppszCategoryName);
+	public static BOOLEAN AuditLookupCategoryName(ref Guid pAuditCategoryGuid, PSTR* ppszCategoryName) => AuditLookupCategoryNameA(ref pAuditCategoryGuid, ppszCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupSubCategoryNameW(Guid pAuditSubCategoryGuid, PWSTR* ppszSubCategoryName);
+	public static extern BOOLEAN AuditLookupSubCategoryNameW(ref Guid pAuditSubCategoryGuid, PWSTR* ppszSubCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupSubCategoryNameA(Guid pAuditSubCategoryGuid, PSTR* ppszSubCategoryName);
-	public static BOOLEAN AuditLookupSubCategoryName(Guid pAuditSubCategoryGuid, PSTR* ppszSubCategoryName) => AuditLookupSubCategoryNameA(pAuditSubCategoryGuid, ppszSubCategoryName);
+	public static extern BOOLEAN AuditLookupSubCategoryNameA(ref Guid pAuditSubCategoryGuid, PSTR* ppszSubCategoryName);
+	public static BOOLEAN AuditLookupSubCategoryName(ref Guid pAuditSubCategoryGuid, PSTR* ppszSubCategoryName) => AuditLookupSubCategoryNameA(ref pAuditSubCategoryGuid, ppszSubCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupCategoryIdFromCategoryGuid(Guid pAuditCategoryGuid, POLICY_AUDIT_EVENT_TYPE* pAuditCategoryId);
+	public static extern BOOLEAN AuditLookupCategoryIdFromCategoryGuid(ref Guid pAuditCategoryGuid, POLICY_AUDIT_EVENT_TYPE* pAuditCategoryId);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupCategoryGuidFromCategoryId(POLICY_AUDIT_EVENT_TYPE AuditCategoryId, Guid pAuditCategoryGuid);
+	public static extern BOOLEAN AuditLookupCategoryGuidFromCategoryId(POLICY_AUDIT_EVENT_TYPE AuditCategoryId, ref Guid pAuditCategoryGuid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN AuditSetSecurity(uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
@@ -7448,21 +7448,21 @@ public static
 	public static int32 AddCredentials(SecHandle* hCredentials, PSTR pszPrincipal, PSTR pszPackage, uint32 fCredentialUse, void* pAuthData, SEC_GET_KEY_FN pGetKeyFn, void* pvGetKeyArgument, LARGE_INTEGER* ptsExpiry) => AddCredentialsA(hCredentials, pszPrincipal, pszPackage, fCredentialUse, pAuthData, pGetKeyFn, pvGetKeyArgument, ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ChangeAccountPasswordW(uint16 pszPackageName, uint16 pszDomainName, uint16 pszAccountName, uint16 pszOldPassword, uint16 pszNewPassword, BOOLEAN bImpersonating, uint32 dwReserved, SecBufferDesc* pOutput);
+	public static extern int32 ChangeAccountPasswordW(uint16* pszPackageName, uint16* pszDomainName, uint16* pszAccountName, uint16* pszOldPassword, uint16* pszNewPassword, BOOLEAN bImpersonating, uint32 dwReserved, SecBufferDesc* pOutput);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ChangeAccountPasswordA(int8 pszPackageName, int8 pszDomainName, int8 pszAccountName, int8 pszOldPassword, int8 pszNewPassword, BOOLEAN bImpersonating, uint32 dwReserved, SecBufferDesc* pOutput);
-	public static int32 ChangeAccountPassword(int8 pszPackageName, int8 pszDomainName, int8 pszAccountName, int8 pszOldPassword, int8 pszNewPassword, BOOLEAN bImpersonating, uint32 dwReserved, SecBufferDesc* pOutput) => ChangeAccountPasswordA(pszPackageName, pszDomainName, pszAccountName, pszOldPassword, pszNewPassword, bImpersonating, dwReserved, pOutput);
+	public static extern int32 ChangeAccountPasswordA(int8* pszPackageName, int8* pszDomainName, int8* pszAccountName, int8* pszOldPassword, int8* pszNewPassword, BOOLEAN bImpersonating, uint32 dwReserved, SecBufferDesc* pOutput);
+	public static int32 ChangeAccountPassword(int8* pszPackageName, int8* pszDomainName, int8* pszAccountName, int8* pszOldPassword, int8* pszNewPassword, BOOLEAN bImpersonating, uint32 dwReserved, SecBufferDesc* pOutput) => ChangeAccountPasswordA(pszPackageName, pszDomainName, pszAccountName, pszOldPassword, pszNewPassword, bImpersonating, dwReserved, pOutput);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 InitializeSecurityContextW(SecHandle* phCredential, SecHandle* phContext, uint16 pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32 pfContextAttr, LARGE_INTEGER* ptsExpiry);
+	public static extern int32 InitializeSecurityContextW(SecHandle* phCredential, SecHandle* phContext, uint16* pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 InitializeSecurityContextA(SecHandle* phCredential, SecHandle* phContext, int8 pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32 pfContextAttr, LARGE_INTEGER* ptsExpiry);
-	public static int32 InitializeSecurityContext(SecHandle* phCredential, SecHandle* phContext, int8 pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32 pfContextAttr, LARGE_INTEGER* ptsExpiry) => InitializeSecurityContextA(phCredential, phContext, pszTargetName, fContextReq, Reserved1, TargetDataRep, pInput, Reserved2, phNewContext, pOutput, pfContextAttr, ptsExpiry);
+	public static extern int32 InitializeSecurityContextA(SecHandle* phCredential, SecHandle* phContext, int8* pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
+	public static int32 InitializeSecurityContext(SecHandle* phCredential, SecHandle* phContext, int8* pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry) => InitializeSecurityContextA(phCredential, phContext, pszTargetName, fContextReq, Reserved1, TargetDataRep, pInput, Reserved2, phNewContext, pOutput, pfContextAttr, ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 AcceptSecurityContext(SecHandle* phCredential, SecHandle* phContext, SecBufferDesc* pInput, ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ fContextReq, uint32 TargetDataRep, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32 pfContextAttr, LARGE_INTEGER* ptsExpiry);
+	public static extern int32 AcceptSecurityContext(SecHandle* phCredential, SecHandle* phContext, SecBufferDesc* pInput, ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ fContextReq, uint32 TargetDataRep, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 CompleteAuthToken(SecHandle* phContext, SecBufferDesc* pToken);
@@ -7531,20 +7531,20 @@ public static
 	public static extern int32 MakeSignature(SecHandle* phContext, uint32 fQOP, SecBufferDesc* pMessage, uint32 MessageSeqNo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 VerifySignature(SecHandle* phContext, SecBufferDesc* pMessage, uint32 MessageSeqNo, uint32 pfQOP);
+	public static extern int32 VerifySignature(SecHandle* phContext, SecBufferDesc* pMessage, uint32 MessageSeqNo, uint32* pfQOP);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 EncryptMessage(SecHandle* phContext, uint32 fQOP, SecBufferDesc* pMessage, uint32 MessageSeqNo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DecryptMessage(SecHandle* phContext, SecBufferDesc* pMessage, uint32 MessageSeqNo, uint32 pfQOP);
+	public static extern int32 DecryptMessage(SecHandle* phContext, SecBufferDesc* pMessage, uint32 MessageSeqNo, uint32* pfQOP);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 EnumerateSecurityPackagesW(uint32 pcPackages, SecPkgInfoW** ppPackageInfo);
+	public static extern int32 EnumerateSecurityPackagesW(uint32* pcPackages, SecPkgInfoW** ppPackageInfo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 EnumerateSecurityPackagesA(uint32 pcPackages, SecPkgInfoA** ppPackageInfo);
-	public static int32 EnumerateSecurityPackages(uint32 pcPackages, SecPkgInfoA** ppPackageInfo) => EnumerateSecurityPackagesA(pcPackages, ppPackageInfo);
+	public static extern int32 EnumerateSecurityPackagesA(uint32* pcPackages, SecPkgInfoA** ppPackageInfo);
+	public static int32 EnumerateSecurityPackages(uint32* pcPackages, SecPkgInfoA** ppPackageInfo) => EnumerateSecurityPackagesA(pcPackages, ppPackageInfo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 QuerySecurityPackageInfoW(PWSTR pszPackageName, SecPkgInfoW** ppPackageInfo);
@@ -7571,11 +7571,11 @@ public static
 	public static extern SecurityFunctionTableW* InitSecurityInterfaceW();
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SaslEnumerateProfilesA(PSTR* ProfileList, uint32 ProfileCount);
-	public static int32 SaslEnumerateProfiles(PSTR* ProfileList, uint32 ProfileCount) => SaslEnumerateProfilesA(ProfileList, ProfileCount);
+	public static extern int32 SaslEnumerateProfilesA(PSTR* ProfileList, uint32* ProfileCount);
+	public static int32 SaslEnumerateProfiles(PSTR* ProfileList, uint32* ProfileCount) => SaslEnumerateProfilesA(ProfileList, ProfileCount);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SaslEnumerateProfilesW(PWSTR* ProfileList, uint32 ProfileCount);
+	public static extern int32 SaslEnumerateProfilesW(PWSTR* ProfileList, uint32* ProfileCount);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslGetProfilePackageA(PSTR ProfileName, SecPkgInfoA** PackageInfo);
@@ -7592,33 +7592,33 @@ public static
 	public static extern int32 SaslIdentifyPackageW(SecBufferDesc* pInput, SecPkgInfoW** PackageInfo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SaslInitializeSecurityContextW(SecHandle* phCredential, SecHandle* phContext, PWSTR pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32 pfContextAttr, LARGE_INTEGER* ptsExpiry);
+	public static extern int32 SaslInitializeSecurityContextW(SecHandle* phCredential, SecHandle* phContext, PWSTR pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SaslInitializeSecurityContextA(SecHandle* phCredential, SecHandle* phContext, PSTR pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32 pfContextAttr, LARGE_INTEGER* ptsExpiry);
-	public static int32 SaslInitializeSecurityContext(SecHandle* phCredential, SecHandle* phContext, PSTR pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32 pfContextAttr, LARGE_INTEGER* ptsExpiry) => SaslInitializeSecurityContextA(phCredential, phContext, pszTargetName, fContextReq, Reserved1, TargetDataRep, pInput, Reserved2, phNewContext, pOutput, pfContextAttr, ptsExpiry);
+	public static extern int32 SaslInitializeSecurityContextA(SecHandle* phCredential, SecHandle* phContext, PSTR pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
+	public static int32 SaslInitializeSecurityContext(SecHandle* phCredential, SecHandle* phContext, PSTR pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry) => SaslInitializeSecurityContextA(phCredential, phContext, pszTargetName, fContextReq, Reserved1, TargetDataRep, pInput, Reserved2, phNewContext, pOutput, pfContextAttr, ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SaslAcceptSecurityContext(SecHandle* phCredential, SecHandle* phContext, SecBufferDesc* pInput, uint32 fContextReq, uint32 TargetDataRep, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32 pfContextAttr, LARGE_INTEGER* ptsExpiry);
+	public static extern int32 SaslAcceptSecurityContext(SecHandle* phCredential, SecHandle* phContext, SecBufferDesc* pInput, uint32 fContextReq, uint32 TargetDataRep, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslSetContextOption(SecHandle* ContextHandle, uint32 Option, void* Value, uint32 Size);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SaslGetContextOption(SecHandle* ContextHandle, uint32 Option, void* Value, uint32 Size, uint32 Needed);
+	public static extern int32 SaslGetContextOption(SecHandle* ContextHandle, uint32 Option, void* Value, uint32 Size, uint32* Needed);
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SspiPromptForCredentialsW(PWSTR pszTargetName, void* pUiInfo, uint32 dwAuthError, PWSTR pszPackage, void* pInputAuthIdentity, void** ppAuthIdentity, int32 pfSave, uint32 dwFlags);
+	public static extern uint32 SspiPromptForCredentialsW(PWSTR pszTargetName, void* pUiInfo, uint32 dwAuthError, PWSTR pszPackage, void* pInputAuthIdentity, void** ppAuthIdentity, int32* pfSave, uint32 dwFlags);
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SspiPromptForCredentialsA(PSTR pszTargetName, void* pUiInfo, uint32 dwAuthError, PSTR pszPackage, void* pInputAuthIdentity, void** ppAuthIdentity, int32 pfSave, uint32 dwFlags);
-	public static uint32 SspiPromptForCredentials(PSTR pszTargetName, void* pUiInfo, uint32 dwAuthError, PSTR pszPackage, void* pInputAuthIdentity, void** ppAuthIdentity, int32 pfSave, uint32 dwFlags) => SspiPromptForCredentialsA(pszTargetName, pUiInfo, dwAuthError, pszPackage, pInputAuthIdentity, ppAuthIdentity, pfSave, dwFlags);
+	public static extern uint32 SspiPromptForCredentialsA(PSTR pszTargetName, void* pUiInfo, uint32 dwAuthError, PSTR pszPackage, void* pInputAuthIdentity, void** ppAuthIdentity, int32* pfSave, uint32 dwFlags);
+	public static uint32 SspiPromptForCredentials(PSTR pszTargetName, void* pUiInfo, uint32 dwAuthError, PSTR pszPackage, void* pInputAuthIdentity, void** ppAuthIdentity, int32* pfSave, uint32 dwFlags) => SspiPromptForCredentialsA(pszTargetName, pUiInfo, dwAuthError, pszPackage, pInputAuthIdentity, ppAuthIdentity, pfSave, dwFlags);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SspiPrepareForCredRead(void* AuthIdentity, PWSTR pszTargetName, uint32 pCredmanCredentialType, PWSTR* ppszCredmanTargetName);
+	public static extern int32 SspiPrepareForCredRead(void* AuthIdentity, PWSTR pszTargetName, uint32* pCredmanCredentialType, PWSTR* ppszCredmanTargetName);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SspiPrepareForCredWrite(void* AuthIdentity, PWSTR pszTargetName, uint32 pCredmanCredentialType, PWSTR* ppszCredmanTargetName, PWSTR* ppszCredmanUserName, uint8** ppCredentialBlob, uint32 pCredentialBlobSize);
+	public static extern int32 SspiPrepareForCredWrite(void* AuthIdentity, PWSTR pszTargetName, uint32* pCredmanCredentialType, PWSTR* ppszCredmanTargetName, PWSTR* ppszCredmanUserName, uint8** ppCredentialBlob, uint32* pCredentialBlobSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SspiEncryptAuthIdentity(void* AuthData);
@@ -7660,7 +7660,7 @@ public static
 	public static extern int32 SspiCompareAuthIdentities(void* AuthIdentity1, void* AuthIdentity2, BOOLEAN* SameSuppliedUser, BOOLEAN* SameSuppliedIdentity);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SspiMarshalAuthIdentity(void* AuthIdentity, uint32 AuthIdentityLength, int8** AuthIdentityByteArray);
+	public static extern int32 SspiMarshalAuthIdentity(void* AuthIdentity, uint32* AuthIdentityLength, int8** AuthIdentityByteArray);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SspiUnmarshalAuthIdentity(uint32 AuthIdentityLength, PSTR AuthIdentityByteArray, void** ppAuthIdentity);
@@ -7689,10 +7689,10 @@ public static
 	public static extern int32 DeleteSecurityPackageW(PWSTR pszPackageName);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS CredMarshalTargetInfo(CREDENTIAL_TARGET_INFORMATIONW* InTargetInfo, uint16** Buffer, uint32 BufferSize);
+	public static extern NTSTATUS CredMarshalTargetInfo(CREDENTIAL_TARGET_INFORMATIONW* InTargetInfo, uint16** Buffer, uint32* BufferSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS CredUnmarshalTargetInfo(uint16 Buffer, uint32 BufferSize, CREDENTIAL_TARGET_INFORMATIONW** RetTargetInfo, uint32 RetActualSize);
+	public static extern NTSTATUS CredUnmarshalTargetInfo(uint16* Buffer, uint32 BufferSize, CREDENTIAL_TARGET_INFORMATIONW** RetTargetInfo, uint32* RetActualSize);
 
 	[Import("SCHANNEL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SslEmptyCacheA(PSTR pszTargetName, uint32 dwFlags);
@@ -7702,10 +7702,10 @@ public static
 	public static extern BOOL SslEmptyCacheW(PWSTR pszTargetName, uint32 dwFlags);
 
 	[Import("SCHANNEL.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SslGenerateRandomBits(uint8 pRandomData, int32 cRandomData);
+	public static extern void SslGenerateRandomBits(uint8* pRandomData, int32 cRandomData);
 
 	[Import("SCHANNEL.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SslCrackCertificate(uint8 pbCertificate, uint32 cbCertificate, uint32 dwFlags, X509Certificate** ppCertificate);
+	public static extern BOOL SslCrackCertificate(uint8* pbCertificate, uint32 cbCertificate, uint32 dwFlags, X509Certificate** ppCertificate);
 
 	[Import("SCHANNEL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void SslFreeCertificate(X509Certificate* pCertificate);
@@ -7714,16 +7714,16 @@ public static
 	public static extern uint32 SslGetMaximumKeySize(uint32 Reserved);
 
 	[Import("SCHANNEL.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SslGetServerIdentity(uint8 ClientHello, uint32 ClientHelloSize, uint8** ServerIdentity, uint32 ServerIdentitySize, uint32 Flags);
+	public static extern int32 SslGetServerIdentity(uint8* ClientHello, uint32 ClientHelloSize, uint8** ServerIdentity, uint32* ServerIdentitySize, uint32 Flags);
 
 	[Import("SCHANNEL.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SslGetExtensions(uint8* clientHello, uint32 clientHelloByteSize, SCH_EXTENSION_DATA* genericExtensions, uint8 genericExtensionsCount, uint32 bytesToRead, SchGetExtensionsOptions flags);
+	public static extern int32 SslGetExtensions(uint8* clientHello, uint32 clientHelloByteSize, SCH_EXTENSION_DATA* genericExtensions, uint8 genericExtensionsCount, uint32* bytesToRead, SchGetExtensionsOptions flags);
 
 	[Import("TOKENBINDING.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TokenBindingGenerateBinding(TOKENBINDING_KEY_PARAMETERS_TYPE keyType, PWSTR targetURL, TOKENBINDING_TYPE bindingType, void* tlsEKM, uint32 tlsEKMSize, TOKENBINDING_EXTENSION_FORMAT extensionFormat, void* extensionData, void** tokenBinding, uint32 tokenBindingSize, TOKENBINDING_RESULT_DATA** resultData);
+	public static extern int32 TokenBindingGenerateBinding(TOKENBINDING_KEY_PARAMETERS_TYPE keyType, PWSTR targetURL, TOKENBINDING_TYPE bindingType, void* tlsEKM, uint32 tlsEKMSize, TOKENBINDING_EXTENSION_FORMAT extensionFormat, void* extensionData, void** tokenBinding, uint32* tokenBindingSize, TOKENBINDING_RESULT_DATA** resultData);
 
 	[Import("TOKENBINDING.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TokenBindingGenerateMessage(void** tokenBindings, uint32* tokenBindingsSize, uint32 tokenBindingsCount, void** tokenBindingMessage, uint32 tokenBindingMessageSize);
+	public static extern int32 TokenBindingGenerateMessage(void** tokenBindings, uint32* tokenBindingsSize, uint32 tokenBindingsCount, void** tokenBindingMessage, uint32* tokenBindingMessageSize);
 
 	[Import("TOKENBINDING.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 TokenBindingVerifyMessage(void* tokenBindingMessage, uint32 tokenBindingMessageSize, TOKENBINDING_KEY_PARAMETERS_TYPE keyType, void* tlsEKM, uint32 tlsEKMSize, TOKENBINDING_RESULT_LIST** resultList);
@@ -7747,28 +7747,28 @@ public static
 	public static extern int32 TokenBindingGenerateIDForUri(TOKENBINDING_KEY_PARAMETERS_TYPE keyType, PWSTR targetUri, TOKENBINDING_RESULT_DATA** resultData);
 
 	[Import("TOKENBINDING.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TokenBindingGetHighestSupportedVersion(uint8 majorVersion, uint8 minorVersion);
+	public static extern int32 TokenBindingGetHighestSupportedVersion(uint8* majorVersion, uint8* minorVersion);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN GetUserNameExA(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32 nSize);
-	public static BOOLEAN GetUserNameEx(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32 nSize) => GetUserNameExA(NameFormat, lpNameBuffer, nSize);
+	public static extern BOOLEAN GetUserNameExA(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize);
+	public static BOOLEAN GetUserNameEx(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize) => GetUserNameExA(NameFormat, lpNameBuffer, nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN GetUserNameExW(EXTENDED_NAME_FORMAT NameFormat, char16* lpNameBuffer, uint32 nSize);
+	public static extern BOOLEAN GetUserNameExW(EXTENDED_NAME_FORMAT NameFormat, char16* lpNameBuffer, uint32* nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN GetComputerObjectNameA(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32 nSize);
-	public static BOOLEAN GetComputerObjectName(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32 nSize) => GetComputerObjectNameA(NameFormat, lpNameBuffer, nSize);
+	public static extern BOOLEAN GetComputerObjectNameA(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize);
+	public static BOOLEAN GetComputerObjectName(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize) => GetComputerObjectNameA(NameFormat, lpNameBuffer, nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN GetComputerObjectNameW(EXTENDED_NAME_FORMAT NameFormat, char16* lpNameBuffer, uint32 nSize);
+	public static extern BOOLEAN GetComputerObjectNameW(EXTENDED_NAME_FORMAT NameFormat, char16* lpNameBuffer, uint32* nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN TranslateNameA(PSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, uint8* lpTranslatedName, uint32 nSize);
-	public static BOOLEAN TranslateName(PSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, uint8* lpTranslatedName, uint32 nSize) => TranslateNameA(lpAccountName, AccountNameFormat, DesiredNameFormat, lpTranslatedName, nSize);
+	public static extern BOOLEAN TranslateNameA(PSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, uint8* lpTranslatedName, uint32* nSize);
+	public static BOOLEAN TranslateName(PSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, uint8* lpTranslatedName, uint32* nSize) => TranslateNameA(lpAccountName, AccountNameFormat, DesiredNameFormat, lpTranslatedName, nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN TranslateNameW(PWSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, char16* lpTranslatedName, uint32 nSize);
+	public static extern BOOLEAN TranslateNameW(PWSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, char16* lpTranslatedName, uint32* nSize);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SLOpen(void** phSLC);
@@ -7777,112 +7777,112 @@ public static
 	public static extern HRESULT SLClose(void* hSLC);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLInstallProofOfPurchase(void* hSLC, PWSTR pwszPKeyAlgorithm, PWSTR pwszPKeyString, uint32 cbPKeySpecificData, uint8 pbPKeySpecificData, Guid pPkeyId);
+	public static extern HRESULT SLInstallProofOfPurchase(void* hSLC, PWSTR pwszPKeyAlgorithm, PWSTR pwszPKeyString, uint32 cbPKeySpecificData, uint8* pbPKeySpecificData, ref Guid pPkeyId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLUninstallProofOfPurchase(void* hSLC, Guid pPKeyId);
+	public static extern HRESULT SLUninstallProofOfPurchase(void* hSLC, ref Guid pPKeyId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLInstallLicense(void* hSLC, uint32 cbLicenseBlob, uint8 pbLicenseBlob, Guid pLicenseFileId);
+	public static extern HRESULT SLInstallLicense(void* hSLC, uint32 cbLicenseBlob, uint8* pbLicenseBlob, ref Guid pLicenseFileId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLUninstallLicense(void* hSLC, Guid pLicenseFileId);
+	public static extern HRESULT SLUninstallLicense(void* hSLC, ref Guid pLicenseFileId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLConsumeRight(void* hSLC, Guid pAppId, Guid pProductSkuId, PWSTR pwszRightName, void* pvReserved);
+	public static extern HRESULT SLConsumeRight(void* hSLC, ref Guid pAppId, ref Guid pProductSkuId, PWSTR pwszRightName, void* pvReserved);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetProductSkuInformation(void* hSLC, Guid pProductSkuId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32 pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetProductSkuInformation(void* hSLC, ref Guid pProductSkuId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetPKeyInformation(void* hSLC, Guid pPKeyId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32 pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetPKeyInformation(void* hSLC, ref Guid pPKeyId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetLicenseInformation(void* hSLC, Guid pSLLicenseId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32 pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetLicenseInformation(void* hSLC, ref Guid pSLLicenseId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetLicensingStatusInformation(void* hSLC, Guid pAppID, Guid pProductSkuId, PWSTR pwszRightName, uint32 pnStatusCount, SL_LICENSING_STATUS** ppLicensingStatus);
+	public static extern HRESULT SLGetLicensingStatusInformation(void* hSLC, ref Guid pAppID, ref Guid pProductSkuId, PWSTR pwszRightName, uint32* pnStatusCount, SL_LICENSING_STATUS** ppLicensingStatus);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetPolicyInformation(void* hSLC, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32 pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetPolicyInformation(void* hSLC, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetPolicyInformationDWORD(void* hSLC, PWSTR pwszValueName, uint32 pdwValue);
+	public static extern HRESULT SLGetPolicyInformationDWORD(void* hSLC, PWSTR pwszValueName, uint32* pdwValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetServiceInformation(void* hSLC, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32 pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetServiceInformation(void* hSLC, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetApplicationInformation(void* hSLC, Guid pApplicationId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32 pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetApplicationInformation(void* hSLC, ref Guid pApplicationId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("slcext.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLActivateProduct(void* hSLC, Guid pProductSkuId, uint32 cbAppSpecificData, void* pvAppSpecificData, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR pwszProxyServer, uint16 wProxyPort);
+	public static extern HRESULT SLActivateProduct(void* hSLC, ref Guid pProductSkuId, uint32 cbAppSpecificData, void* pvAppSpecificData, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR pwszProxyServer, uint16 wProxyPort);
 
 	[Import("slcext.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SLGetServerStatus(PWSTR pwszServerURL, PWSTR pwszAcquisitionType, PWSTR pwszProxyServer, uint16 wProxyPort, HRESULT* phrStatus);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGenerateOfflineInstallationId(void* hSLC, Guid pProductSkuId, PWSTR* ppwszInstallationId);
+	public static extern HRESULT SLGenerateOfflineInstallationId(void* hSLC, ref Guid pProductSkuId, PWSTR* ppwszInstallationId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGenerateOfflineInstallationIdEx(void* hSLC, Guid pProductSkuId, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR* ppwszInstallationId);
+	public static extern HRESULT SLGenerateOfflineInstallationIdEx(void* hSLC, ref Guid pProductSkuId, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR* ppwszInstallationId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLDepositOfflineConfirmationId(void* hSLC, Guid pProductSkuId, PWSTR pwszInstallationId, PWSTR pwszConfirmationId);
+	public static extern HRESULT SLDepositOfflineConfirmationId(void* hSLC, ref Guid pProductSkuId, PWSTR pwszInstallationId, PWSTR pwszConfirmationId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLDepositOfflineConfirmationIdEx(void* hSLC, Guid pProductSkuId, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR pwszInstallationId, PWSTR pwszConfirmationId);
+	public static extern HRESULT SLDepositOfflineConfirmationIdEx(void* hSLC, ref Guid pProductSkuId, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR pwszInstallationId, PWSTR pwszConfirmationId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetPKeyId(void* hSLC, PWSTR pwszPKeyAlgorithm, PWSTR pwszPKeyString, uint32 cbPKeySpecificData, uint8 pbPKeySpecificData, Guid pPKeyId);
+	public static extern HRESULT SLGetPKeyId(void* hSLC, PWSTR pwszPKeyAlgorithm, PWSTR pwszPKeyString, uint32 cbPKeySpecificData, uint8* pbPKeySpecificData, ref Guid pPKeyId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetInstalledProductKeyIds(void* hSLC, Guid pProductSkuId, uint32 pnProductKeyIds, Guid** ppProductKeyIds);
+	public static extern HRESULT SLGetInstalledProductKeyIds(void* hSLC, ref Guid pProductSkuId, uint32* pnProductKeyIds, Guid** ppProductKeyIds);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLSetCurrentProductKey(void* hSLC, Guid pProductSkuId, Guid pProductKeyId);
+	public static extern HRESULT SLSetCurrentProductKey(void* hSLC, ref Guid pProductSkuId, ref Guid pProductKeyId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetSLIDList(void* hSLC, SLIDTYPE eQueryIdType, Guid pQueryId, SLIDTYPE eReturnIdType, uint32 pnReturnIds, Guid** ppReturnIds);
+	public static extern HRESULT SLGetSLIDList(void* hSLC, SLIDTYPE eQueryIdType, ref Guid pQueryId, SLIDTYPE eReturnIdType, uint32* pnReturnIds, Guid** ppReturnIds);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetLicenseFileId(void* hSLC, uint32 cbLicenseBlob, uint8 pbLicenseBlob, Guid pLicenseFileId);
+	public static extern HRESULT SLGetLicenseFileId(void* hSLC, uint32 cbLicenseBlob, uint8* pbLicenseBlob, ref Guid pLicenseFileId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetLicense(void* hSLC, Guid pLicenseFileId, uint32 pcbLicenseFile, uint8** ppbLicenseFile);
+	public static extern HRESULT SLGetLicense(void* hSLC, ref Guid pLicenseFileId, uint32* pcbLicenseFile, uint8** ppbLicenseFile);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLFireEvent(void* hSLC, PWSTR pwszEventId, Guid pApplicationId);
+	public static extern HRESULT SLFireEvent(void* hSLC, PWSTR pwszEventId, ref Guid pApplicationId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLRegisterEvent(void* hSLC, PWSTR pwszEventId, Guid pApplicationId, HANDLE hEvent);
+	public static extern HRESULT SLRegisterEvent(void* hSLC, PWSTR pwszEventId, ref Guid pApplicationId, HANDLE hEvent);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLUnregisterEvent(void* hSLC, PWSTR pwszEventId, Guid pApplicationId, HANDLE hEvent);
+	public static extern HRESULT SLUnregisterEvent(void* hSLC, PWSTR pwszEventId, ref Guid pApplicationId, HANDLE hEvent);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetWindowsInformation(PWSTR pwszValueName, SLDATATYPE* peDataType, uint32 pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetWindowsInformation(PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetWindowsInformationDWORD(PWSTR pwszValueName, uint32 pdwValue);
+	public static extern HRESULT SLGetWindowsInformationDWORD(PWSTR pwszValueName, uint32* pdwValue);
 
 	[Import("SLWGA.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLIsGenuineLocal(Guid pAppId, SL_GENUINE_STATE* pGenuineState, SL_NONGENUINE_UI_OPTIONS* pUIOptions);
+	public static extern HRESULT SLIsGenuineLocal(ref Guid pAppId, SL_GENUINE_STATE* pGenuineState, SL_NONGENUINE_UI_OPTIONS* pUIOptions);
 
 	[Import("slcext.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLAcquireGenuineTicket(void** ppTicketBlob, uint32 pcbTicketBlob, PWSTR pwszTemplateId, PWSTR pwszServerUrl, PWSTR pwszClientToken);
+	public static extern HRESULT SLAcquireGenuineTicket(void** ppTicketBlob, uint32* pcbTicketBlob, PWSTR pwszTemplateId, PWSTR pwszServerUrl, PWSTR pwszClientToken);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLSetGenuineInformation(Guid pQueryId, PWSTR pwszValueName, SLDATATYPE eDataType, uint32 cbValue, uint8 pbValue);
+	public static extern HRESULT SLSetGenuineInformation(ref Guid pQueryId, PWSTR pwszValueName, SLDATATYPE eDataType, uint32 cbValue, uint8* pbValue);
 
 	[Import("slcext.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetReferralInformation(void* hSLC, SLREFERRALTYPE eReferralType, Guid pSkuOrAppId, PWSTR pwszValueName, PWSTR* ppwszValue);
+	public static extern HRESULT SLGetReferralInformation(void* hSLC, SLREFERRALTYPE eReferralType, ref Guid pSkuOrAppId, PWSTR pwszValueName, PWSTR* ppwszValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetGenuineInformation(Guid pQueryId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32 pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetGenuineInformation(ref Guid pQueryId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("api-ms-win-core-slapi-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLQueryLicenseValueFromApp(PWSTR valueName, uint32 valueType, void* dataBuffer, uint32 dataSize, uint32 resultDataSize);
+	public static extern HRESULT SLQueryLicenseValueFromApp(PWSTR valueName, uint32* valueType, void* dataBuffer, uint32 dataSize, uint32* resultDataSize);
 
 }
 #endregion
