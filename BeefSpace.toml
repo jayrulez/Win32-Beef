@@ -1,0 +1,5 @@
+FileVersion = 1
+Projects = {Win32 = {Path = "."}}
+
+[Workspace]
+StartupProject = "Win32"

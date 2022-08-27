@@ -1,0 +1,36 @@
+using System;
+
+namespace Win32.Graphics.Hlsl;
+#region Constants
+public static
+{
+	public const String D3DCOMPILER_DLL = "d3dcompiler_47.dll";
+
+	public const uint32 D3DCOMPILE_OPTIMIZATION_LEVEL2 = 49152;
+
+	public const uint32 D3D_COMPILE_STANDARD_FILE_INCLUDE = 1;
+
+}
+#endregion
+
+#region TypeDefs
+#endregion
+
+#region Enums
+#endregion
+
+#region Function Pointers
+#endregion
+
+#region Structs
+#endregion
+
+#region COM Class IDs
+public static
+{
+}
+#endregion
+
+#region COM Types
+#endregion
+
