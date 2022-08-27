@@ -77,7 +77,7 @@ public static
 	public static extern HRESULT GetAppContainerRegistryLocation(uint32 desiredAccess, HKEY* phAppContainerKey);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetAppContainerFolderPath(PWSTR pszAppContainerSid, PWSTR ppszPath);
+	public static extern HRESULT GetAppContainerFolderPath(PWSTR pszAppContainerSid, PWSTR* ppszPath);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(PSID psidAppContainerSid, PWSTR pszRestrictedAppContainerName, PSID* ppsidRestrictedAppContainerSid);

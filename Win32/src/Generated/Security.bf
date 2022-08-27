@@ -795,7 +795,7 @@ public struct OBJECT_TYPE_LIST
 {
 	public uint16 Level;
 	public uint16 Sbz;
-	public Guid ObjectType;
+	public Guid* ObjectType;
 }
 
 [CRepr]
@@ -1022,7 +1022,7 @@ public struct CLAIM_SECURITY_ATTRIBUTE_V1
 	{
 		public int64* pInt64;
 		public uint64* pUint64;
-		public PWSTR ppString;
+		public PWSTR* ppString;
 		public CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE* pFqbn;
 		public CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE* pOctetString;
 	}
@@ -1151,7 +1151,7 @@ public static
 	public static extern BOOL AddAccessAllowedAceEx(ACL* pAcl, uint32 dwAceRevision, ACE_FLAGS AceFlags, uint32 AccessMask, PSID pSid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AddAccessAllowedObjectAce(ACL* pAcl, uint32 dwAceRevision, ACE_FLAGS AceFlags, uint32 AccessMask, Guid ObjectTypeGuid, Guid InheritedObjectTypeGuid, PSID pSid);
+	public static extern BOOL AddAccessAllowedObjectAce(ACL* pAcl, uint32 dwAceRevision, ACE_FLAGS AceFlags, uint32 AccessMask, ref Guid ObjectTypeGuid, ref Guid InheritedObjectTypeGuid, PSID pSid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddAccessDeniedAce(ACL* pAcl, uint32 dwAceRevision, uint32 AccessMask, PSID pSid);
@@ -1160,7 +1160,7 @@ public static
 	public static extern BOOL AddAccessDeniedAceEx(ACL* pAcl, uint32 dwAceRevision, ACE_FLAGS AceFlags, uint32 AccessMask, PSID pSid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AddAccessDeniedObjectAce(ACL* pAcl, uint32 dwAceRevision, ACE_FLAGS AceFlags, uint32 AccessMask, Guid ObjectTypeGuid, Guid InheritedObjectTypeGuid, PSID pSid);
+	public static extern BOOL AddAccessDeniedObjectAce(ACL* pAcl, uint32 dwAceRevision, ACE_FLAGS AceFlags, uint32 AccessMask, ref Guid ObjectTypeGuid, ref Guid InheritedObjectTypeGuid, PSID pSid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddAce(ACL* pAcl, uint32 dwAceRevision, uint32 dwStartingAceIndex, void* pAceList, uint32 nAceListLength);
@@ -1172,7 +1172,7 @@ public static
 	public static extern BOOL AddAuditAccessAceEx(ACL* pAcl, uint32 dwAceRevision, ACE_FLAGS AceFlags, uint32 dwAccessMask, PSID pSid, BOOL bAuditSuccess, BOOL bAuditFailure);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AddAuditAccessObjectAce(ACL* pAcl, uint32 dwAceRevision, ACE_FLAGS AceFlags, uint32 AccessMask, Guid ObjectTypeGuid, Guid InheritedObjectTypeGuid, PSID pSid, BOOL bAuditSuccess, BOOL bAuditFailure);
+	public static extern BOOL AddAuditAccessObjectAce(ACL* pAcl, uint32 dwAceRevision, ACE_FLAGS AceFlags, uint32 AccessMask, ref Guid ObjectTypeGuid, ref Guid InheritedObjectTypeGuid, PSID pSid, BOOL bAuditSuccess, BOOL bAuditFailure);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddMandatoryAce(ACL* pAcl, ACE_REVISION dwAceRevision, ACE_FLAGS AceFlags, uint32 MandatoryPolicy, PSID pLabelSid);
@@ -1214,7 +1214,7 @@ public static
 	public static extern BOOL CheckTokenMembershipEx(HANDLE TokenHandle, PSID SidToCheck, uint32 Flags, BOOL* IsMember);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ConvertToAutoInheritPrivateObjectSecurity(SECURITY_DESCRIPTOR* ParentDescriptor, SECURITY_DESCRIPTOR* CurrentSecurityDescriptor, SECURITY_DESCRIPTOR** NewSecurityDescriptor, Guid ObjectType, BOOLEAN IsDirectoryObject, GENERIC_MAPPING* GenericMapping);
+	public static extern BOOL ConvertToAutoInheritPrivateObjectSecurity(SECURITY_DESCRIPTOR* ParentDescriptor, SECURITY_DESCRIPTOR* CurrentSecurityDescriptor, SECURITY_DESCRIPTOR** NewSecurityDescriptor, ref Guid ObjectType, BOOLEAN IsDirectoryObject, GENERIC_MAPPING* GenericMapping);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CopySid(uint32 nDestinationSidLength, PSID pDestinationSid, PSID pSourceSid);
@@ -1223,10 +1223,10 @@ public static
 	public static extern BOOL CreatePrivateObjectSecurity(SECURITY_DESCRIPTOR* ParentDescriptor, SECURITY_DESCRIPTOR* CreatorDescriptor, SECURITY_DESCRIPTOR** NewDescriptor, BOOL IsDirectoryObject, HANDLE Token, GENERIC_MAPPING* GenericMapping);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CreatePrivateObjectSecurityEx(SECURITY_DESCRIPTOR* ParentDescriptor, SECURITY_DESCRIPTOR* CreatorDescriptor, SECURITY_DESCRIPTOR** NewDescriptor, Guid ObjectType, BOOL IsContainerObject, SECURITY_AUTO_INHERIT_FLAGS AutoInheritFlags, HANDLE Token, GENERIC_MAPPING* GenericMapping);
+	public static extern BOOL CreatePrivateObjectSecurityEx(SECURITY_DESCRIPTOR* ParentDescriptor, SECURITY_DESCRIPTOR* CreatorDescriptor, SECURITY_DESCRIPTOR** NewDescriptor, ref Guid ObjectType, BOOL IsContainerObject, SECURITY_AUTO_INHERIT_FLAGS AutoInheritFlags, HANDLE Token, GENERIC_MAPPING* GenericMapping);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CreatePrivateObjectSecurityWithMultipleInheritance(SECURITY_DESCRIPTOR* ParentDescriptor, SECURITY_DESCRIPTOR* CreatorDescriptor, SECURITY_DESCRIPTOR** NewDescriptor, Guid* ObjectTypes, uint32 GuidCount, BOOL IsContainerObject, SECURITY_AUTO_INHERIT_FLAGS AutoInheritFlags, HANDLE Token, GENERIC_MAPPING* GenericMapping);
+	public static extern BOOL CreatePrivateObjectSecurityWithMultipleInheritance(SECURITY_DESCRIPTOR* ParentDescriptor, SECURITY_DESCRIPTOR* CreatorDescriptor, SECURITY_DESCRIPTOR** NewDescriptor, ref Guid ObjectTypes, uint32 GuidCount, BOOL IsContainerObject, SECURITY_AUTO_INHERIT_FLAGS AutoInheritFlags, HANDLE Token, GENERIC_MAPPING* GenericMapping);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CreateRestrictedToken(HANDLE ExistingTokenHandle, CREATE_RESTRICTED_TOKEN_FLAGS Flags, uint32 DisableSidCount, SID_AND_ATTRIBUTES* SidsToDisable, uint32 DeletePrivilegeCount, LUID_AND_ATTRIBUTES* PrivilegesToDelete, uint32 RestrictedSidCount, SID_AND_ATTRIBUTES* SidsToRestrict, HANDLE* NewTokenHandle);

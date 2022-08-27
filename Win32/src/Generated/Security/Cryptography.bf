@@ -4117,7 +4117,7 @@ public function BOOL PFN_CERT_ENUM_SYSTEM_STORE(void* pvSystemStore, CERT_SYSTEM
 
 public function BOOL PFN_CERT_ENUM_PHYSICAL_STORE(void* pvSystemStore, uint32 dwFlags, PWSTR pwszStoreName, CERT_PHYSICAL_STORE_INFO* pStoreInfo, void* pvReserved, void* pvArg);
 
-public function BOOL PFN_CRYPT_EXTRACT_ENCODED_SIGNATURE_PARAMETERS_FUNC(uint32 dwCertEncodingType, CRYPT_ALGORITHM_IDENTIFIER* pSignatureAlgorithm, void** ppvDecodedSignPara, PWSTR ppwszCNGHashAlgid);
+public function BOOL PFN_CRYPT_EXTRACT_ENCODED_SIGNATURE_PARAMETERS_FUNC(uint32 dwCertEncodingType, CRYPT_ALGORITHM_IDENTIFIER* pSignatureAlgorithm, void** ppvDecodedSignPara, PWSTR* ppwszCNGHashAlgid);
 
 public function BOOL PFN_CRYPT_SIGN_AND_ENCODE_HASH_FUNC(uint hKey, uint32 dwCertEncodingType, CRYPT_ALGORITHM_IDENTIFIER* pSignatureAlgorithm, void* pvDecodedSignPara, PWSTR pwszCNGPubKeyAlgid, PWSTR pwszCNGHashAlgid, uint8* pbComputedHash, uint32 cbComputedHash, uint8* pbSignature, uint32* pcbSignature);
 
@@ -4153,7 +4153,7 @@ public function void PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK(CERT_CHAIN_CO
 
 public function BOOL PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FLUSH(void* pContext, CRYPTOAPI_BLOB** rgIdentifierOrNameList, uint32 dwIdentifierOrNameListCount);
 
-public function BOOL PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET(void* pPluginContext, CRYPTOAPI_BLOB* pIdentifier, uint32 dwNameType, CRYPTOAPI_BLOB* pNameBlob, uint8** ppbContent, uint32* pcbContent, PWSTR ppwszPassword, CRYPTOAPI_BLOB** ppIdentifier);
+public function BOOL PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET(void* pPluginContext, CRYPTOAPI_BLOB* pIdentifier, uint32 dwNameType, CRYPTOAPI_BLOB* pNameBlob, uint8** ppbContent, uint32* pcbContent, PWSTR* ppwszPassword, CRYPTOAPI_BLOB** ppIdentifier);
 
 public function void PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE(CRYPT_OBJECT_LOCATOR_RELEASE_REASON dwReason, void* pPluginContext);
 
@@ -4582,7 +4582,7 @@ public struct BCRYPT_DSA_PARAMETER_HEADER_V2
 public struct BCRYPT_ECC_CURVE_NAMES
 {
 	public uint32 dwEccCurveNames;
-	public PWSTR pEccCurveNames;
+	public PWSTR* pEccCurveNames;
 }
 
 [CRepr]
@@ -4628,7 +4628,7 @@ public struct CRYPT_INTERFACE_REG
 	public BCRYPT_INTERFACE dwInterface;
 	public BCRYPT_TABLE dwFlags;
 	public uint32 cFunctions;
-	public PWSTR rgpszFunctions;
+	public PWSTR* rgpszFunctions;
 }
 
 [CRepr]
@@ -4643,7 +4643,7 @@ public struct CRYPT_IMAGE_REG
 public struct CRYPT_PROVIDER_REG
 {
 	public uint32 cAliases;
-	public PWSTR rgpszAliases;
+	public PWSTR* rgpszAliases;
 	public CRYPT_IMAGE_REG* pUM;
 	public CRYPT_IMAGE_REG* pKM;
 }
@@ -4652,7 +4652,7 @@ public struct CRYPT_PROVIDER_REG
 public struct CRYPT_PROVIDERS
 {
 	public uint32 cProviders;
-	public PWSTR rgpszProviders;
+	public PWSTR* rgpszProviders;
 }
 
 [CRepr]
@@ -4673,21 +4673,21 @@ public struct CRYPT_CONTEXT_FUNCTION_CONFIG
 public struct CRYPT_CONTEXTS
 {
 	public uint32 cContexts;
-	public PWSTR rgpszContexts;
+	public PWSTR* rgpszContexts;
 }
 
 [CRepr]
 public struct CRYPT_CONTEXT_FUNCTIONS
 {
 	public uint32 cFunctions;
-	public PWSTR rgpszFunctions;
+	public PWSTR* rgpszFunctions;
 }
 
 [CRepr]
 public struct CRYPT_CONTEXT_FUNCTION_PROVIDERS
 {
 	public uint32 cProviders;
-	public PWSTR rgpszProviders;
+	public PWSTR* rgpszProviders;
 }
 
 [CRepr]
@@ -6800,7 +6800,7 @@ public struct CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO
 public struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO
 {
 	public uint32 cCNGHashAlgid;
-	public PWSTR rgpwszCNGHashAlgid;
+	public PWSTR* rgpwszCNGHashAlgid;
 	public uint32 dwWeakIndex;
 }
 
@@ -6983,7 +6983,7 @@ public struct CRYPT_RETRIEVE_AUX_INFO
 	public FILETIME* pftCacheResync;
 	public BOOL fProxyCacheRetrieval;
 	public uint32 dwHttpStatusCode;
-	public PWSTR ppwszErrorResponseHeaders;
+	public PWSTR* ppwszErrorResponseHeaders;
 	public CRYPTOAPI_BLOB** ppErrorContentBlob;
 }
 
@@ -6998,7 +6998,7 @@ public struct CRYPT_ASYNC_RETRIEVAL_COMPLETION
 public struct CRYPT_URL_ARRAY
 {
 	public uint32 cUrl;
-	public PWSTR rgwszUrl;
+	public PWSTR* rgwszUrl;
 }
 
 [CRepr]
@@ -7345,7 +7345,7 @@ public struct CRYPT_TIMESTAMP_RESPONSE
 {
 	public CRYPT_TIMESTAMP_RESPONSE_STATUS dwStatus;
 	public uint32 cFreeText;
-	public PWSTR rgFreeText;
+	public PWSTR* rgFreeText;
 	public CRYPT_BIT_BLOB FailureInfo;
 	public CRYPTOAPI_BLOB ContentInfo;
 }
@@ -7795,7 +7795,7 @@ public struct CERTIFICATE_CHAIN_BLOB
 public struct CLAIMLIST
 {
 	public uint32 count;
-	public PWSTR claims;
+	public PWSTR* claims;
 }
 
 [CRepr]
@@ -8940,7 +8940,7 @@ public static
 	public static BOOL CertStrToName(uint32 dwCertEncodingType, PSTR pszX500, CERT_STRING_TYPE dwStrType, void* pvReserved, uint8* pbEncoded, uint32* pcbEncoded, PSTR* ppszError) => CertStrToNameA(dwCertEncodingType, pszX500, dwStrType, pvReserved, pbEncoded, pcbEncoded, ppszError);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CertStrToNameW(uint32 dwCertEncodingType, PWSTR pszX500, CERT_STRING_TYPE dwStrType, void* pvReserved, uint8* pbEncoded, uint32* pcbEncoded, PWSTR ppszError);
+	public static extern BOOL CertStrToNameW(uint32 dwCertEncodingType, PWSTR pszX500, CERT_STRING_TYPE dwStrType, void* pvReserved, uint8* pbEncoded, uint32* pcbEncoded, PWSTR* ppszError);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CertGetNameStringA(CERT_CONTEXT* pCertContext, uint32 dwType, uint32 dwFlags, void* pvTypePara, uint8* pszNameString, uint32 cchNameString);
@@ -9138,10 +9138,10 @@ public static
 	public static extern void CertFreeServerOcspResponseContext(CERT_SERVER_OCSP_RESPONSE_CONTEXT* pServerOcspResponseContext);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CertRetrieveLogoOrBiometricInfo(CERT_CONTEXT* pCertContext, PSTR lpszLogoOrBiometricType, uint32 dwRetrievalFlags, uint32 dwTimeout, uint32 dwFlags, void* pvReserved, uint8** ppbData, uint32* pcbData, PWSTR ppwszMimeType);
+	public static extern BOOL CertRetrieveLogoOrBiometricInfo(CERT_CONTEXT* pCertContext, PSTR lpszLogoOrBiometricType, uint32 dwRetrievalFlags, uint32 dwTimeout, uint32 dwFlags, void* pvReserved, uint8** ppbData, uint32* pcbData, PWSTR* ppwszMimeType);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CertSelectCertificateChains(Guid pSelectionContext, uint32 dwFlags, CERT_SELECT_CHAIN_PARA* pChainParameters, uint32 cCriteria, CERT_SELECT_CRITERIA* rgpCriteria, void* hStore, uint32* pcSelection, CERT_CHAIN_CONTEXT*** pprgpSelection);
+	public static extern BOOL CertSelectCertificateChains(ref Guid pSelectionContext, uint32 dwFlags, CERT_SELECT_CHAIN_PARA* pChainParameters, uint32 cCriteria, CERT_SELECT_CRITERIA* rgpCriteria, void* hStore, uint32* pcSelection, CERT_CHAIN_CONTEXT*** pprgpSelection);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void CertFreeCertificateChainList(CERT_CHAIN_CONTEXT** prgpSelection);
@@ -9159,7 +9159,7 @@ public static
 	public static extern BOOL CryptProtectData(CRYPTOAPI_BLOB* pDataIn, PWSTR szDataDescr, CRYPTOAPI_BLOB* pOptionalEntropy, void* pvReserved, CRYPTPROTECT_PROMPTSTRUCT* pPromptStruct, uint32 dwFlags, CRYPTOAPI_BLOB* pDataOut);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptUnprotectData(CRYPTOAPI_BLOB* pDataIn, PWSTR ppszDataDescr, CRYPTOAPI_BLOB* pOptionalEntropy, void* pvReserved, CRYPTPROTECT_PROMPTSTRUCT* pPromptStruct, uint32 dwFlags, CRYPTOAPI_BLOB* pDataOut);
+	public static extern BOOL CryptUnprotectData(CRYPTOAPI_BLOB* pDataIn, PWSTR* ppszDataDescr, CRYPTOAPI_BLOB* pOptionalEntropy, void* pvReserved, CRYPTPROTECT_PROMPTSTRUCT* pPromptStruct, uint32 dwFlags, CRYPTOAPI_BLOB* pDataOut);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptUpdateProtectedState(PSID pOldSid, PWSTR pwszOldPassword, uint32 dwFlags, uint32* pdwSuccessCount, uint32* pdwFailureCount);

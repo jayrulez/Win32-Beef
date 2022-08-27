@@ -2534,15 +2534,15 @@ public enum AsyncContentLoadedState : int32
 #endregion
 
 #region Function Pointers
-public function LRESULT LPFNLRESULTFROMOBJECT(Guid riid, WPARAM wParam, IUnknown* punk);
+public function LRESULT LPFNLRESULTFROMOBJECT(ref Guid riid, WPARAM wParam, IUnknown* punk);
 
-public function HRESULT LPFNOBJECTFROMLRESULT(LRESULT lResult, Guid riid, WPARAM wParam, void** ppvObject);
+public function HRESULT LPFNOBJECTFROMLRESULT(LRESULT lResult, ref Guid riid, WPARAM wParam, void** ppvObject);
 
-public function HRESULT LPFNACCESSIBLEOBJECTFROMWINDOW(HWND hwnd, uint32 dwId, Guid riid, void** ppvObject);
+public function HRESULT LPFNACCESSIBLEOBJECTFROMWINDOW(HWND hwnd, uint32 dwId, ref Guid riid, void** ppvObject);
 
 public function HRESULT LPFNACCESSIBLEOBJECTFROMPOINT(POINT ptScreen, IAccessible** ppacc, VARIANT* pvarChild);
 
-public function HRESULT LPFNCREATESTDACCESSIBLEOBJECT(HWND hwnd, int32 idObject, Guid riid, void** ppvObject);
+public function HRESULT LPFNCREATESTDACCESSIBLEOBJECT(HWND hwnd, int32 idObject, ref Guid riid, void** ppvObject);
 
 public function HRESULT LPFNACCESSIBLECHILDREN(IAccessible* paccContainer, int32 iChildStart, int32 cChildren, VARIANT* rgvarChildren, int32* pcObtained);
 
@@ -2617,7 +2617,7 @@ public struct UIAutomationMethodInfo
 	public uint32 cInParameters;
 	public uint32 cOutParameters;
 	public UIAutomationType* pParameterTypes;
-	public PWSTR pParameterNames;
+	public PWSTR* pParameterNames;
 }
 
 [CRepr]
@@ -3079,18 +3079,18 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, uint8* pIDString, uint32 dwIDStringLen, Guid idProp, VARIANT @var) SetPropValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, uint8* pIDString, uint32 dwIDStringLen, Guid* paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) SetPropServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, uint8* pIDString, uint32 dwIDStringLen, Guid* paProps, int32 cProps) ClearProps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, uint8* pIDString, uint32 dwIDStringLen, ref Guid paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) SetPropServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, uint8* pIDString, uint32 dwIDStringLen, ref Guid paProps, int32 cProps) ClearProps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HWND hwnd, uint32 idObject, uint32 idChild, Guid idProp, VARIANT @var) SetHwndProp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HWND hwnd, uint32 idObject, uint32 idChild, Guid idProp, PWSTR str) SetHwndPropStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HWND hwnd, uint32 idObject, uint32 idChild, Guid* paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) SetHwndPropServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HWND hwnd, uint32 idObject, uint32 idChild, Guid* paProps, int32 cProps) ClearHwndProps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HWND hwnd, uint32 idObject, uint32 idChild, ref Guid paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) SetHwndPropServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HWND hwnd, uint32 idObject, uint32 idChild, ref Guid paProps, int32 cProps) ClearHwndProps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HWND hwnd, uint32 idObject, uint32 idChild, uint8** ppIDString, uint32* pdwIDStringLen) ComposeHwndIdentityString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, uint8* pIDString, uint32 dwIDStringLen, HWND* phwnd, uint32* pidObject, uint32* pidChild) DecomposeHwndIdentityString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HMENU hmenu, uint32 idChild, Guid idProp, VARIANT @var) SetHmenuProp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HMENU hmenu, uint32 idChild, Guid idProp, PWSTR str) SetHmenuPropStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HMENU hmenu, uint32 idChild, Guid* paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) SetHmenuPropServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HMENU hmenu, uint32 idChild, Guid* paProps, int32 cProps) ClearHmenuProps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HMENU hmenu, uint32 idChild, ref Guid paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) SetHmenuPropServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HMENU hmenu, uint32 idChild, ref Guid paProps, int32 cProps) ClearHmenuProps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, HMENU hmenu, uint32 idChild, uint8** ppIDString, uint32* pdwIDStringLen) ComposeHmenuIdentityString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccPropServices*/SelfOuter* self, uint8* pIDString, uint32 dwIDStringLen, HMENU* phmenu, uint32* pidChild) DecomposeHmenuIdentityString;
 	}
@@ -3098,17 +3098,17 @@ public static
 
 	public HRESULT SetPropValue(uint8* pIDString, uint32 dwIDStringLen, Guid idProp, VARIANT @var) mut => VT.[Friend]SetPropValue(&this, pIDString, dwIDStringLen, idProp, @var);
 
-	public HRESULT SetPropServer(uint8* pIDString, uint32 dwIDStringLen, Guid* paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) mut => VT.[Friend]SetPropServer(&this, pIDString, dwIDStringLen, paProps, cProps, pServer, annoScope);
+	public HRESULT SetPropServer(uint8* pIDString, uint32 dwIDStringLen, ref Guid paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) mut => VT.[Friend]SetPropServer(&this, pIDString, dwIDStringLen, ref paProps, cProps, pServer, annoScope);
 
-	public HRESULT ClearProps(uint8* pIDString, uint32 dwIDStringLen, Guid* paProps, int32 cProps) mut => VT.[Friend]ClearProps(&this, pIDString, dwIDStringLen, paProps, cProps);
+	public HRESULT ClearProps(uint8* pIDString, uint32 dwIDStringLen, ref Guid paProps, int32 cProps) mut => VT.[Friend]ClearProps(&this, pIDString, dwIDStringLen, ref paProps, cProps);
 
 	public HRESULT SetHwndProp(HWND hwnd, uint32 idObject, uint32 idChild, Guid idProp, VARIANT @var) mut => VT.[Friend]SetHwndProp(&this, hwnd, idObject, idChild, idProp, @var);
 
 	public HRESULT SetHwndPropStr(HWND hwnd, uint32 idObject, uint32 idChild, Guid idProp, PWSTR str) mut => VT.[Friend]SetHwndPropStr(&this, hwnd, idObject, idChild, idProp, str);
 
-	public HRESULT SetHwndPropServer(HWND hwnd, uint32 idObject, uint32 idChild, Guid* paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) mut => VT.[Friend]SetHwndPropServer(&this, hwnd, idObject, idChild, paProps, cProps, pServer, annoScope);
+	public HRESULT SetHwndPropServer(HWND hwnd, uint32 idObject, uint32 idChild, ref Guid paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) mut => VT.[Friend]SetHwndPropServer(&this, hwnd, idObject, idChild, ref paProps, cProps, pServer, annoScope);
 
-	public HRESULT ClearHwndProps(HWND hwnd, uint32 idObject, uint32 idChild, Guid* paProps, int32 cProps) mut => VT.[Friend]ClearHwndProps(&this, hwnd, idObject, idChild, paProps, cProps);
+	public HRESULT ClearHwndProps(HWND hwnd, uint32 idObject, uint32 idChild, ref Guid paProps, int32 cProps) mut => VT.[Friend]ClearHwndProps(&this, hwnd, idObject, idChild, ref paProps, cProps);
 
 	public HRESULT ComposeHwndIdentityString(HWND hwnd, uint32 idObject, uint32 idChild, uint8** ppIDString, uint32* pdwIDStringLen) mut => VT.[Friend]ComposeHwndIdentityString(&this, hwnd, idObject, idChild, ppIDString, pdwIDStringLen);
 
@@ -3118,9 +3118,9 @@ public static
 
 	public HRESULT SetHmenuPropStr(HMENU hmenu, uint32 idChild, Guid idProp, PWSTR str) mut => VT.[Friend]SetHmenuPropStr(&this, hmenu, idChild, idProp, str);
 
-	public HRESULT SetHmenuPropServer(HMENU hmenu, uint32 idChild, Guid* paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) mut => VT.[Friend]SetHmenuPropServer(&this, hmenu, idChild, paProps, cProps, pServer, annoScope);
+	public HRESULT SetHmenuPropServer(HMENU hmenu, uint32 idChild, ref Guid paProps, int32 cProps, IAccPropServer* pServer, AnnoScope annoScope) mut => VT.[Friend]SetHmenuPropServer(&this, hmenu, idChild, ref paProps, cProps, pServer, annoScope);
 
-	public HRESULT ClearHmenuProps(HMENU hmenu, uint32 idChild, Guid* paProps, int32 cProps) mut => VT.[Friend]ClearHmenuProps(&this, hmenu, idChild, paProps, cProps);
+	public HRESULT ClearHmenuProps(HMENU hmenu, uint32 idChild, ref Guid paProps, int32 cProps) mut => VT.[Friend]ClearHmenuProps(&this, hmenu, idChild, ref paProps, cProps);
 
 	public HRESULT ComposeHmenuIdentityString(HMENU hmenu, uint32 idChild, uint8** ppIDString, uint32* pdwIDStringLen) mut => VT.[Friend]ComposeHmenuIdentityString(&this, hmenu, idChild, ppIDString, pdwIDStringLen);
 
@@ -4343,8 +4343,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIAutomationElement*/SelfOuter* self, int32 propertyId, BOOL ignoreDefaultValue, VARIANT* retVal) GetCurrentPropertyValueEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIAutomationElement*/SelfOuter* self, int32 propertyId, VARIANT* retVal) GetCachedPropertyValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIAutomationElement*/SelfOuter* self, int32 propertyId, BOOL ignoreDefaultValue, VARIANT* retVal) GetCachedPropertyValueEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIAutomationElement*/SelfOuter* self, int32 patternId, Guid riid, void** patternObject) GetCurrentPatternAs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIAutomationElement*/SelfOuter* self, int32 patternId, Guid riid, void** patternObject) GetCachedPatternAs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIAutomationElement*/SelfOuter* self, int32 patternId, ref Guid riid, void** patternObject) GetCurrentPatternAs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIAutomationElement*/SelfOuter* self, int32 patternId, ref Guid riid, void** patternObject) GetCachedPatternAs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIAutomationElement*/SelfOuter* self, int32 patternId, IUnknown** patternObject) GetCurrentPattern;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIAutomationElement*/SelfOuter* self, int32 patternId, IUnknown** patternObject) GetCachedPattern;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIAutomationElement*/SelfOuter* self, IUIAutomationElement** parent) GetCachedParent;
@@ -4439,9 +4439,9 @@ public static
 
 	public HRESULT GetCachedPropertyValueEx(int32 propertyId, BOOL ignoreDefaultValue, VARIANT* retVal) mut => VT.[Friend]GetCachedPropertyValueEx(&this, propertyId, ignoreDefaultValue, retVal);
 
-	public HRESULT GetCurrentPatternAs(int32 patternId, Guid riid, void** patternObject) mut => VT.[Friend]GetCurrentPatternAs(&this, patternId, riid, patternObject);
+	public HRESULT GetCurrentPatternAs(int32 patternId, ref Guid riid, void** patternObject) mut => VT.[Friend]GetCurrentPatternAs(&this, patternId, ref riid, patternObject);
 
-	public HRESULT GetCachedPatternAs(int32 patternId, Guid riid, void** patternObject) mut => VT.[Friend]GetCachedPatternAs(&this, patternId, riid, patternObject);
+	public HRESULT GetCachedPatternAs(int32 patternId, ref Guid riid, void** patternObject) mut => VT.[Friend]GetCachedPatternAs(&this, patternId, ref riid, patternObject);
 
 	public HRESULT GetCurrentPattern(int32 patternId, IUnknown** patternObject) mut => VT.[Friend]GetCurrentPattern(&this, patternId, patternObject);
 
@@ -6751,16 +6751,16 @@ public static
 public static
 {
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LRESULT LresultFromObject(Guid riid, WPARAM wParam, IUnknown* punk);
+	public static extern LRESULT LresultFromObject(ref Guid riid, WPARAM wParam, IUnknown* punk);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ObjectFromLresult(LRESULT lResult, Guid riid, WPARAM wParam, void** ppvObject);
+	public static extern HRESULT ObjectFromLresult(LRESULT lResult, ref Guid riid, WPARAM wParam, void** ppvObject);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WindowFromAccessibleObject(IAccessible* param0, HWND* phwnd);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AccessibleObjectFromWindow(HWND hwnd, uint32 dwId, Guid riid, void** ppvObject);
+	public static extern HRESULT AccessibleObjectFromWindow(HWND hwnd, uint32 dwId, ref Guid riid, void** ppvObject);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AccessibleObjectFromEvent(HWND hwnd, uint32 dwId, uint32 dwChildId, IAccessible** ppacc, VARIANT* pvarChild);
@@ -6789,14 +6789,14 @@ public static
 	public static extern void GetOleaccVersionInfo(uint32* pVer, uint32* pBuild);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateStdAccessibleObject(HWND hwnd, int32 idObject, Guid riid, void** ppvObject);
+	public static extern HRESULT CreateStdAccessibleObject(HWND hwnd, int32 idObject, ref Guid riid, void** ppvObject);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateStdAccessibleProxyA(HWND hwnd, PSTR pClassName, int32 idObject, Guid riid, void** ppvObject);
-	public static HRESULT CreateStdAccessibleProxy(HWND hwnd, PSTR pClassName, int32 idObject, Guid riid, void** ppvObject) => CreateStdAccessibleProxyA(hwnd, pClassName, idObject, riid, ppvObject);
+	public static extern HRESULT CreateStdAccessibleProxyA(HWND hwnd, PSTR pClassName, int32 idObject, ref Guid riid, void** ppvObject);
+	public static HRESULT CreateStdAccessibleProxy(HWND hwnd, PSTR pClassName, int32 idObject, ref Guid riid, void** ppvObject) => CreateStdAccessibleProxyA(hwnd, pClassName, idObject, ref riid, ppvObject);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateStdAccessibleProxyW(HWND hwnd, PWSTR pClassName, int32 idObject, Guid riid, void** ppvObject);
+	public static extern HRESULT CreateStdAccessibleProxyW(HWND hwnd, PWSTR pClassName, int32 idObject, ref Guid riid, void** ppvObject);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AccSetRunningUtilityState(HWND hwndApp, uint32 dwUtilityStateMask, ACC_UTILITY_STATE_FLAGS dwUtilityState);
@@ -6859,7 +6859,7 @@ public static
 	public static extern void UiaRegisterProviderCallback(UiaProviderCallback* pCallback);
 
 	[Import("UIAutomationCore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 UiaLookupId(AutomationIdentifierType type, Guid pGuid);
+	public static extern int32 UiaLookupId(AutomationIdentifierType type, ref Guid pGuid);
 
 	[Import("UIAutomationCore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UiaGetReservedNotSupportedValue(IUnknown** punkNotSupportedValue);

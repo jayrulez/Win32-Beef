@@ -1171,10 +1171,10 @@ public static
 	public static extern HRESULT ColorProfileSetDisplayDefaultAssociation(WCS_PROFILE_MANAGEMENT_SCOPE @scope, PWSTR profileName, COLORPROFILETYPE profileType, COLORPROFILESUBTYPE profileSubType, LUID targetAdapterID, uint32 sourceID);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ColorProfileGetDisplayList(WCS_PROFILE_MANAGEMENT_SCOPE @scope, LUID targetAdapterID, uint32 sourceID, PWSTR profileList, uint32* profileCount);
+	public static extern HRESULT ColorProfileGetDisplayList(WCS_PROFILE_MANAGEMENT_SCOPE @scope, LUID targetAdapterID, uint32 sourceID, PWSTR** profileList, uint32* profileCount);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ColorProfileGetDisplayDefault(WCS_PROFILE_MANAGEMENT_SCOPE @scope, LUID targetAdapterID, uint32 sourceID, COLORPROFILETYPE profileType, COLORPROFILESUBTYPE profileSubType, PWSTR profileName);
+	public static extern HRESULT ColorProfileGetDisplayDefault(WCS_PROFILE_MANAGEMENT_SCOPE @scope, LUID targetAdapterID, uint32 sourceID, COLORPROFILETYPE profileType, COLORPROFILESUBTYPE profileSubType, PWSTR* profileName);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ColorProfileGetDisplayUserScope(LUID targetAdapterID, uint32 sourceID, WCS_PROFILE_MANAGEMENT_SCOPE* @scope);

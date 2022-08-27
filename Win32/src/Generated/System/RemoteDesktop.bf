@@ -1733,7 +1733,7 @@ public struct VM_NOTIFY_ENTRY
 public struct VM_PATCH_INFO
 {
 	public uint32 dwNumEntries;
-	public PWSTR pVmNames;
+	public PWSTR* pVmNames;
 }
 
 [CRepr]
@@ -4834,11 +4834,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteSystemAdditionalInfoProvider*/SelfOuter* self, HSTRING* deduplicationId, Guid riid, void** mapView) GetAdditionalInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteSystemAdditionalInfoProvider*/SelfOuter* self, HSTRING* deduplicationId, ref Guid riid, void** mapView) GetAdditionalInfo;
 	}
 
 
-	public HRESULT GetAdditionalInfo(HSTRING* deduplicationId, Guid riid, void** mapView) mut => VT.[Friend]GetAdditionalInfo(&this, deduplicationId, riid, mapView);
+	public HRESULT GetAdditionalInfo(HSTRING* deduplicationId, ref Guid riid, void** mapView) mut => VT.[Friend]GetAdditionalInfo(&this, deduplicationId, ref riid, mapView);
 }
 
 #endregion
@@ -4912,14 +4912,14 @@ public static
 	public static extern BOOL WTSTerminateProcess(HANDLE hServer, uint32 ProcessId, uint32 ExitCode);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WTSQuerySessionInformationW(HANDLE hServer, uint32 SessionId, WTS_INFO_CLASS WTSInfoClass, PWSTR ppBuffer, uint32* pBytesReturned);
+	public static extern BOOL WTSQuerySessionInformationW(HANDLE hServer, uint32 SessionId, WTS_INFO_CLASS WTSInfoClass, PWSTR* ppBuffer, uint32* pBytesReturned);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSQuerySessionInformationA(HANDLE hServer, uint32 SessionId, WTS_INFO_CLASS WTSInfoClass, PSTR* ppBuffer, uint32* pBytesReturned);
 	public static BOOL WTSQuerySessionInformation(HANDLE hServer, uint32 SessionId, WTS_INFO_CLASS WTSInfoClass, PSTR* ppBuffer, uint32* pBytesReturned) => WTSQuerySessionInformationA(hServer, SessionId, WTSInfoClass, ppBuffer, pBytesReturned);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WTSQueryUserConfigW(PWSTR pServerName, PWSTR pUserName, WTS_CONFIG_CLASS WTSConfigClass, PWSTR ppBuffer, uint32* pBytesReturned);
+	public static extern BOOL WTSQueryUserConfigW(PWSTR pServerName, PWSTR pUserName, WTS_CONFIG_CLASS WTSConfigClass, PWSTR* ppBuffer, uint32* pBytesReturned);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSQueryUserConfigA(PSTR pServerName, PSTR pUserName, WTS_CONFIG_CLASS WTSConfigClass, PSTR* ppBuffer, uint32* pBytesReturned);
@@ -5001,7 +5001,7 @@ public static
 	public static BOOL WTSFreeMemoryEx(WTS_TYPE_CLASS WTSTypeClass, void* pMemory, uint32 NumberOfEntries) => WTSFreeMemoryExA(WTSTypeClass, pMemory, NumberOfEntries);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WTSEnumerateProcessesExW(HANDLE hServer, uint32* pLevel, uint32 SessionId, PWSTR ppProcessInfo, uint32* pCount);
+	public static extern BOOL WTSEnumerateProcessesExW(HANDLE hServer, uint32* pLevel, uint32 SessionId, PWSTR* ppProcessInfo, uint32* pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateProcessesExA(HANDLE hServer, uint32* pLevel, uint32 SessionId, PSTR* ppProcessInfo, uint32* pCount);

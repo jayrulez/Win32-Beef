@@ -856,8 +856,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IITDatabase*/SelfOuter* self, PWSTR lpszHost, PWSTR lpszMoniker, uint32 dwFlags) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IITDatabase*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IITDatabase*/SelfOuter* self, Guid rclsid, uint32* pdwObjInstance) CreateObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IITDatabase*/SelfOuter* self, uint32 dwObjInstance, Guid riid, void** ppvObj) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IITDatabase*/SelfOuter* self, ref Guid rclsid, uint32* pdwObjInstance) CreateObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IITDatabase*/SelfOuter* self, uint32 dwObjInstance, ref Guid riid, void** ppvObj) GetObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IITDatabase*/SelfOuter* self, PWSTR lpwszObject, uint32 dwObjInstance, void** ppvPersistence, BOOL fStream) GetObjectPersistence;
 	}
 
@@ -866,9 +866,9 @@ public static
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
-	public HRESULT CreateObject(Guid rclsid, uint32* pdwObjInstance) mut => VT.[Friend]CreateObject(&this, rclsid, pdwObjInstance);
+	public HRESULT CreateObject(ref Guid rclsid, uint32* pdwObjInstance) mut => VT.[Friend]CreateObject(&this, ref rclsid, pdwObjInstance);
 
-	public HRESULT GetObject(uint32 dwObjInstance, Guid riid, void** ppvObj) mut => VT.[Friend]GetObject(&this, dwObjInstance, riid, ppvObj);
+	public HRESULT GetObject(uint32 dwObjInstance, ref Guid riid, void** ppvObj) mut => VT.[Friend]GetObject(&this, dwObjInstance, ref riid, ppvObj);
 
 	public HRESULT GetObjectPersistence(PWSTR lpwszObject, uint32 dwObjInstance, void** ppvPersistence, BOOL fStream) mut => VT.[Friend]GetObjectPersistence(&this, lpwszObject, dwObjInstance, ppvPersistence, fStream);
 }
@@ -984,7 +984,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWordBreakerConfig*/SelfOuter* self, uint32 grfBreakFlags, uint32 dwReserved) SetControlInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWordBreakerConfig*/SelfOuter* self, uint32* pgrfBreakFlags, uint32* pdwReserved) GetControlInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWordBreakerConfig*/SelfOuter* self, IStream* pStream, uint32 dwExtDataType) LoadExternalBreakerData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWordBreakerConfig*/SelfOuter* self, Guid rclsid, IStemmer* pStemmer) SetWordStemmer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWordBreakerConfig*/SelfOuter* self, ref Guid rclsid, IStemmer* pStemmer) SetWordStemmer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWordBreakerConfig*/SelfOuter* self, IStemmer** ppStemmer) GetWordStemmer;
 	}
 
@@ -1003,7 +1003,7 @@ public static
 
 	public HRESULT LoadExternalBreakerData(IStream* pStream, uint32 dwExtDataType) mut => VT.[Friend]LoadExternalBreakerData(&this, pStream, dwExtDataType);
 
-	public HRESULT SetWordStemmer(Guid rclsid, IStemmer* pStemmer) mut => VT.[Friend]SetWordStemmer(&this, rclsid, pStemmer);
+	public HRESULT SetWordStemmer(ref Guid rclsid, IStemmer* pStemmer) mut => VT.[Friend]SetWordStemmer(&this, ref rclsid, pStemmer);
 
 	public HRESULT GetWordStemmer(IStemmer** ppStemmer) mut => VT.[Friend]GetWordStemmer(&this, ppStemmer);
 }

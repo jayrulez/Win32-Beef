@@ -1101,7 +1101,7 @@ public struct IMMP_MPV_STORE_DRIVER_HANDLE
 [CRepr]
 public struct tagIMMPID_GUIDLIST_ITEM
 {
-	public Guid pguid;
+	public Guid* pguid;
 	public uint32 dwStart;
 	public uint32 dwLast;
 }
@@ -3040,14 +3040,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, uint32 cFormats, Guid* lpiidFormatID, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, uint32 cFormats, ref Guid lpiidFormatID, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, uint32 cFormats) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, IEnumDiscMasterFormats** ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cFormats, Guid* lpiidFormatID, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFormats, lpiidFormatID, pcFetched);
+	public HRESULT Next(uint32 cFormats, ref Guid lpiidFormatID, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFormats, lpiidFormatID, pcFetched);
 
 	public HRESULT Skip(uint32 cFormats) mut => VT.[Friend]Skip(&this, cFormats);
 
@@ -3171,8 +3171,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IEnumDiscMasterFormats** ppEnum) EnumDiscMasterFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, Guid lpiid) GetActiveDiscMasterFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, Guid riid, void** ppUnk) SetActiveDiscMasterFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, ref Guid lpiid) GetActiveDiscMasterFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, ref Guid riid, void** ppUnk) SetActiveDiscMasterFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IEnumDiscRecorders** ppEnum) EnumDiscRecorders;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscRecorder** ppRecorder) GetActiveDiscRecorder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscRecorder* pRecorder) SetActiveDiscRecorder;
@@ -3188,9 +3188,9 @@ public static
 
 	public HRESULT EnumDiscMasterFormats(IEnumDiscMasterFormats** ppEnum) mut => VT.[Friend]EnumDiscMasterFormats(&this, ppEnum);
 
-	public HRESULT GetActiveDiscMasterFormat(Guid lpiid) mut => VT.[Friend]GetActiveDiscMasterFormat(&this, lpiid);
+	public HRESULT GetActiveDiscMasterFormat(ref Guid lpiid) mut => VT.[Friend]GetActiveDiscMasterFormat(&this, lpiid);
 
-	public HRESULT SetActiveDiscMasterFormat(Guid riid, void** ppUnk) mut => VT.[Friend]SetActiveDiscMasterFormat(&this, riid, ppUnk);
+	public HRESULT SetActiveDiscMasterFormat(ref Guid riid, void** ppUnk) mut => VT.[Friend]SetActiveDiscMasterFormat(&this, ref riid, ppUnk);
 
 	public HRESULT EnumDiscRecorders(IEnumDiscRecorders** ppEnum) mut => VT.[Friend]EnumDiscRecorders(&this, ppEnum);
 

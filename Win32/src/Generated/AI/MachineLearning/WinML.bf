@@ -167,7 +167,7 @@ public struct WINML_SEQUENCE_BINDING_DESC
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public PWSTR pStrings;
+		public PWSTR* pStrings;
 		public int64* pInts;
 		public float* pFloats;
 		public double* pDoubles;
@@ -184,7 +184,7 @@ public struct WINML_MAP_BINDING_DESC
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
-		public PWSTR pStringFields;
+		public PWSTR* pStringFields;
 		public int64* pIntFields;
 		public float* pFloatFields;
 		public double* pDoubleFields;
@@ -193,7 +193,7 @@ public struct WINML_MAP_BINDING_DESC
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
-		public PWSTR pStringKeys;
+		public PWSTR* pStringKeys;
 		public int64* pIntKeys;
 	}
 
@@ -420,7 +420,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinMLModel*/SelfOuter* self, WINML_MODEL_DESC** ppDescription) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinMLModel*/SelfOuter* self, uint32 Index, PWSTR pKey, PWSTR pValue) EnumerateMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinMLModel*/SelfOuter* self, uint32 Index, PWSTR* pKey, PWSTR* pValue) EnumerateMetadata;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinMLModel*/SelfOuter* self, uint32 Index, WINML_VARIABLE_DESC** ppInputDescriptor) EnumerateModelInputs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinMLModel*/SelfOuter* self, uint32 Index, WINML_VARIABLE_DESC** ppOutputDescriptor) EnumerateModelOutputs;
 	}
@@ -428,7 +428,7 @@ public static
 
 	public HRESULT GetDescription(WINML_MODEL_DESC** ppDescription) mut => VT.[Friend]GetDescription(&this, ppDescription);
 
-	public HRESULT EnumerateMetadata(uint32 Index, PWSTR pKey, PWSTR pValue) mut => VT.[Friend]EnumerateMetadata(&this, Index, pKey, pValue);
+	public HRESULT EnumerateMetadata(uint32 Index, PWSTR* pKey, PWSTR* pValue) mut => VT.[Friend]EnumerateMetadata(&this, Index, pKey, pValue);
 
 	public HRESULT EnumerateModelInputs(uint32 Index, WINML_VARIABLE_DESC** ppInputDescriptor) mut => VT.[Friend]EnumerateModelInputs(&this, Index, ppInputDescriptor);
 

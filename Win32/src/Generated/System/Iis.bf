@@ -2269,15 +2269,15 @@ public struct HTTP_FILTER_VERSION
 [CRepr]
 public struct HTTP_TRACE_EVENT
 {
-	public Guid pProviderGuid;
+	public Guid* pProviderGuid;
 	public uint32 dwArea;
-	public Guid pAreaGuid;
+	public Guid* pAreaGuid;
 	public uint32 dwEvent;
 	public PWSTR pszEventName;
 	public uint32 dwEventVersion;
 	public uint32 dwVerbosity;
-	public Guid pActivityGuid;
-	public Guid pRelatedActivityGuid;
+	public Guid* pActivityGuid;
+	public Guid* pRelatedActivityGuid;
 	public uint32 dwTimeStamp;
 	public uint32 dwFlags;
 	public uint32 cEventItems;
@@ -2297,7 +2297,7 @@ public struct HTTP_TRACE_EVENT_ITEM
 [CRepr]
 public struct HTTP_TRACE_CONFIGURATION
 {
-	public Guid pProviderGuid;
+	public Guid* pProviderGuid;
 	public uint32 dwAreas;
 	public uint32 dwVerbosity;
 	public BOOL fProviderEnabled;
@@ -2338,11 +2338,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpAuthenticationProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword, PWSTR ppszCanonicalUserName, BOOL* pfAuthenticated) AuthenticateUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpAuthenticationProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword, PWSTR* ppszCanonicalUserName, BOOL* pfAuthenticated) AuthenticateUser;
 	}
 
 
-	public HRESULT AuthenticateUser(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword, PWSTR ppszCanonicalUserName, BOOL* pfAuthenticated) mut => VT.[Friend]AuthenticateUser(&this, pszSessionId, pszSiteName, pszUserName, pszPassword, ppszCanonicalUserName, pfAuthenticated);
+	public HRESULT AuthenticateUser(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword, PWSTR* ppszCanonicalUserName, BOOL* pfAuthenticated) mut => VT.[Friend]AuthenticateUser(&this, pszSessionId, pszSiteName, pszUserName, pszPassword, ppszCanonicalUserName, pfAuthenticated);
 }
 
 [CRepr]struct AsyncIFtpAuthenticationProvider : IUnknown
@@ -2354,13 +2354,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpAuthenticationProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword) Begin_AuthenticateUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpAuthenticationProvider*/SelfOuter* self, PWSTR ppszCanonicalUserName, BOOL* pfAuthenticated) Finish_AuthenticateUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpAuthenticationProvider*/SelfOuter* self, PWSTR* ppszCanonicalUserName, BOOL* pfAuthenticated) Finish_AuthenticateUser;
 	}
 
 
 	public HRESULT Begin_AuthenticateUser(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR pszPassword) mut => VT.[Friend]Begin_AuthenticateUser(&this, pszSessionId, pszSiteName, pszUserName, pszPassword);
 
-	public HRESULT Finish_AuthenticateUser(PWSTR ppszCanonicalUserName, BOOL* pfAuthenticated) mut => VT.[Friend]Finish_AuthenticateUser(&this, ppszCanonicalUserName, pfAuthenticated);
+	public HRESULT Finish_AuthenticateUser(PWSTR* ppszCanonicalUserName, BOOL* pfAuthenticated) mut => VT.[Friend]Finish_AuthenticateUser(&this, ppszCanonicalUserName, pfAuthenticated);
 }
 
 [CRepr]struct IFtpRoleProvider : IUnknown
@@ -2404,11 +2404,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpHomeDirectoryProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR ppszHomeDirectoryData) GetUserHomeDirectoryData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFtpHomeDirectoryProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR* ppszHomeDirectoryData) GetUserHomeDirectoryData;
 	}
 
 
-	public HRESULT GetUserHomeDirectoryData(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR ppszHomeDirectoryData) mut => VT.[Friend]GetUserHomeDirectoryData(&this, pszSessionId, pszSiteName, pszUserName, ppszHomeDirectoryData);
+	public HRESULT GetUserHomeDirectoryData(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName, PWSTR* ppszHomeDirectoryData) mut => VT.[Friend]GetUserHomeDirectoryData(&this, pszSessionId, pszSiteName, pszUserName, ppszHomeDirectoryData);
 }
 
 [CRepr]struct AsyncIFtpHomeDirectoryProvider : IUnknown
@@ -2420,13 +2420,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpHomeDirectoryProvider*/SelfOuter* self, PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName) Begin_GetUserHomeDirectoryData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpHomeDirectoryProvider*/SelfOuter* self, PWSTR ppszHomeDirectoryData) Finish_GetUserHomeDirectoryData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIFtpHomeDirectoryProvider*/SelfOuter* self, PWSTR* ppszHomeDirectoryData) Finish_GetUserHomeDirectoryData;
 	}
 
 
 	public HRESULT Begin_GetUserHomeDirectoryData(PWSTR pszSessionId, PWSTR pszSiteName, PWSTR pszUserName) mut => VT.[Friend]Begin_GetUserHomeDirectoryData(&this, pszSessionId, pszSiteName, pszUserName);
 
-	public HRESULT Finish_GetUserHomeDirectoryData(PWSTR ppszHomeDirectoryData) mut => VT.[Friend]Finish_GetUserHomeDirectoryData(&this, ppszHomeDirectoryData);
+	public HRESULT Finish_GetUserHomeDirectoryData(PWSTR* ppszHomeDirectoryData) mut => VT.[Friend]Finish_GetUserHomeDirectoryData(&this, ppszHomeDirectoryData);
 }
 
 [CRepr]struct IFtpLogProvider : IUnknown
@@ -2570,14 +2570,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADMEXT*/SelfOuter* self) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADMEXT*/SelfOuter* self, Guid pclsidDcom, uint32 dwEnumIndex) EnumDcomCLSIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADMEXT*/SelfOuter* self, ref Guid pclsidDcom, uint32 dwEnumIndex) EnumDcomCLSIDs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADMEXT*/SelfOuter* self) Terminate;
 	}
 
 
 	public HRESULT Initialize() mut => VT.[Friend]Initialize(&this);
 
-	public HRESULT EnumDcomCLSIDs(Guid pclsidDcom, uint32 dwEnumIndex) mut => VT.[Friend]EnumDcomCLSIDs(&this, pclsidDcom, dwEnumIndex);
+	public HRESULT EnumDcomCLSIDs(ref Guid pclsidDcom, uint32 dwEnumIndex) mut => VT.[Friend]EnumDcomCLSIDs(&this, pclsidDcom, dwEnumIndex);
 
 	public HRESULT Terminate() mut => VT.[Friend]Terminate(&this);
 }

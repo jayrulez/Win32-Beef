@@ -1911,7 +1911,7 @@ public function uint32 MAXMEDIALABEL(uint32* pMaxSize);
 
 public function uint32 CLAIMMEDIALABEL(uint8* pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo);
 
-public function uint32 CLAIMMEDIALABELEX(uint8* pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo, Guid LabelGuid);
+public function uint32 CLAIMMEDIALABELEX(uint8* pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo, ref Guid LabelGuid);
 
 public function void* CLFS_BLOCK_ALLOCATION(uint32 cbBufferLength, void* pvUserContext);
 
@@ -4487,7 +4487,7 @@ public static
 public static
 {
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SearchPathW(PWSTR lpPath, PWSTR lpFileName, PWSTR lpExtension, uint32 nBufferLength, char16* lpBuffer, PWSTR lpFilePart);
+	public static extern uint32 SearchPathW(PWSTR lpPath, PWSTR lpFileName, PWSTR lpExtension, uint32 nBufferLength, char16* lpBuffer, PWSTR* lpFilePart);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SearchPathA(PSTR lpPath, PSTR lpFileName, PSTR lpExtension, uint32 nBufferLength, uint8* lpBuffer, PSTR* lpFilePart);
@@ -4640,7 +4640,7 @@ public static
 	public static extern BOOL GetFileTime(HANDLE hFile, FILETIME* lpCreationTime, FILETIME* lpLastAccessTime, FILETIME* lpLastWriteTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetFullPathNameW(PWSTR lpFileName, uint32 nBufferLength, char16* lpBuffer, PWSTR lpFilePart);
+	public static extern uint32 GetFullPathNameW(PWSTR lpFileName, uint32 nBufferLength, char16* lpBuffer, PWSTR* lpFilePart);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetFullPathNameA(PSTR lpFileName, uint32 nBufferLength, uint8* lpBuffer, PSTR* lpFilePart);
@@ -5193,7 +5193,7 @@ public static
 	public static extern BOOL TxfLogReadRecords(void* TxfLogContext, uint32 BufferLength, void* Buffer, uint32* BytesUsed, uint32* RecordCount);
 
 	[Import("txfw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL TxfReadMetadataInfo(HANDLE FileHandle, TXF_ID* TxfFileId, CLS_LSN* LastLsn, uint32* TransactionState, Guid LockingTransaction);
+	public static extern BOOL TxfReadMetadataInfo(HANDLE FileHandle, TXF_ID* TxfFileId, CLS_LSN* LastLsn, uint32* TransactionState, ref Guid LockingTransaction);
 
 	[Import("txfw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL TxfLogRecordGetFileName(void* RecordBuffer, uint32 RecordBufferLengthInBytes, PWSTR NameBuffer, uint32* NameBufferLengthInBytes, TXF_ID* TxfId);
@@ -5208,10 +5208,10 @@ public static
 	public static extern void TxfGetThreadMiniVersionForCreate(uint16* MiniVersion);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE CreateTransaction(SECURITY_ATTRIBUTES* lpTransactionAttributes, Guid UOW, uint32 CreateOptions, uint32 IsolationLevel, uint32 IsolationFlags, uint32 Timeout, PWSTR Description);
+	public static extern HANDLE CreateTransaction(SECURITY_ATTRIBUTES* lpTransactionAttributes, ref Guid UOW, uint32 CreateOptions, uint32 IsolationLevel, uint32 IsolationFlags, uint32 Timeout, PWSTR Description);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenTransaction(uint32 dwDesiredAccess, Guid TransactionId);
+	public static extern HANDLE OpenTransaction(uint32 dwDesiredAccess, ref Guid TransactionId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CommitTransaction(HANDLE TransactionHandle);
@@ -5226,7 +5226,7 @@ public static
 	public static extern BOOL RollbackTransactionAsync(HANDLE TransactionHandle);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTransactionId(HANDLE TransactionHandle, Guid TransactionId);
+	public static extern BOOL GetTransactionId(HANDLE TransactionHandle, ref Guid TransactionId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetTransactionInformation(HANDLE TransactionHandle, uint32* Outcome, uint32* IsolationLevel, uint32* IsolationFlags, uint32* Timeout, uint32 BufferLength, char16* Description);
@@ -5241,10 +5241,10 @@ public static
 	public static extern HANDLE OpenTransactionManager(PWSTR LogFileName, uint32 DesiredAccess, uint32 OpenOptions);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenTransactionManagerById(Guid TransactionManagerId, uint32 DesiredAccess, uint32 OpenOptions);
+	public static extern HANDLE OpenTransactionManagerById(ref Guid TransactionManagerId, uint32 DesiredAccess, uint32 OpenOptions);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL RenameTransactionManager(PWSTR LogFileName, Guid ExistingTransactionManagerGuid);
+	public static extern BOOL RenameTransactionManager(PWSTR LogFileName, ref Guid ExistingTransactionManagerGuid);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RollforwardTransactionManager(HANDLE TransactionManagerHandle, LARGE_INTEGER* TmVirtualClock);
@@ -5256,13 +5256,13 @@ public static
 	public static extern BOOL GetCurrentClockTransactionManager(HANDLE TransactionManagerHandle, LARGE_INTEGER* TmVirtualClock);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTransactionManagerId(HANDLE TransactionManagerHandle, Guid TransactionManagerId);
+	public static extern BOOL GetTransactionManagerId(HANDLE TransactionManagerHandle, ref Guid TransactionManagerId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE CreateResourceManager(SECURITY_ATTRIBUTES* lpResourceManagerAttributes, Guid ResourceManagerId, uint32 CreateOptions, HANDLE TmHandle, PWSTR Description);
+	public static extern HANDLE CreateResourceManager(SECURITY_ATTRIBUTES* lpResourceManagerAttributes, ref Guid ResourceManagerId, uint32 CreateOptions, HANDLE TmHandle, PWSTR Description);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenResourceManager(uint32 dwDesiredAccess, HANDLE TmHandle, Guid ResourceManagerId);
+	public static extern HANDLE OpenResourceManager(uint32 dwDesiredAccess, HANDLE TmHandle, ref Guid ResourceManagerId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RecoverResourceManager(HANDLE ResourceManagerHandle);
@@ -5280,7 +5280,7 @@ public static
 	public static extern HANDLE CreateEnlistment(SECURITY_ATTRIBUTES* lpEnlistmentAttributes, HANDLE ResourceManagerHandle, HANDLE TransactionHandle, uint32 NotificationMask, uint32 CreateOptions, void* EnlistmentKey);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenEnlistment(uint32 dwDesiredAccess, HANDLE ResourceManagerHandle, Guid EnlistmentId);
+	public static extern HANDLE OpenEnlistment(uint32 dwDesiredAccess, HANDLE ResourceManagerHandle, ref Guid EnlistmentId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RecoverEnlistment(HANDLE EnlistmentHandle, void* EnlistmentKey);
@@ -5289,7 +5289,7 @@ public static
 	public static extern BOOL GetEnlistmentRecoveryInformation(HANDLE EnlistmentHandle, uint32 BufferSize, void* Buffer, uint32* BufferUsed);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetEnlistmentId(HANDLE EnlistmentHandle, Guid EnlistmentId);
+	public static extern BOOL GetEnlistmentId(HANDLE EnlistmentHandle, ref Guid EnlistmentId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetEnlistmentRecoveryInformation(HANDLE EnlistmentHandle, uint32 BufferSize, void* Buffer);
@@ -5566,7 +5566,7 @@ public static
 	public static uint32 GetFullPathNameTransacted(PSTR lpFileName, uint32 nBufferLength, uint8* lpBuffer, PSTR* lpFilePart, HANDLE hTransaction) => GetFullPathNameTransactedA(lpFileName, nBufferLength, lpBuffer, lpFilePart, hTransaction);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetFullPathNameTransactedW(PWSTR lpFileName, uint32 nBufferLength, char16* lpBuffer, PWSTR lpFilePart, HANDLE hTransaction);
+	public static extern uint32 GetFullPathNameTransactedW(PWSTR lpFileName, uint32 nBufferLength, char16* lpBuffer, PWSTR* lpFilePart, HANDLE hTransaction);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DefineDosDeviceA(DEFINE_DOS_DEVICE_FLAGS dwFlags, PSTR lpDeviceName, PSTR lpTargetPath);

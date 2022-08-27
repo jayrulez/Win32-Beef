@@ -1112,20 +1112,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIObject*/SelfOuter* self, Guid Name, uint32 DataSize, void* pData) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIObject*/SelfOuter* self, Guid Name, IUnknown* pUnknown) SetPrivateDataInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIObject*/SelfOuter* self, Guid Name, uint32* pDataSize, void* pData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIObject*/SelfOuter* self, Guid riid, void** ppParent) GetParent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIObject*/SelfOuter* self, ref Guid Name, uint32 DataSize, void* pData) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIObject*/SelfOuter* self, ref Guid Name, IUnknown* pUnknown) SetPrivateDataInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIObject*/SelfOuter* self, ref Guid Name, uint32* pDataSize, void* pData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIObject*/SelfOuter* self, ref Guid riid, void** ppParent) GetParent;
 	}
 
 
-	public HRESULT SetPrivateData(Guid Name, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, Name, DataSize, pData);
+	public HRESULT SetPrivateData(ref Guid Name, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, ref Name, DataSize, pData);
 
-	public HRESULT SetPrivateDataInterface(Guid Name, IUnknown* pUnknown) mut => VT.[Friend]SetPrivateDataInterface(&this, Name, pUnknown);
+	public HRESULT SetPrivateDataInterface(ref Guid Name, IUnknown* pUnknown) mut => VT.[Friend]SetPrivateDataInterface(&this, ref Name, pUnknown);
 
-	public HRESULT GetPrivateData(Guid Name, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, Name, pDataSize, pData);
+	public HRESULT GetPrivateData(ref Guid Name, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, ref Name, pDataSize, pData);
 
-	public HRESULT GetParent(Guid riid, void** ppParent) mut => VT.[Friend]GetParent(&this, riid, ppParent);
+	public HRESULT GetParent(ref Guid riid, void** ppParent) mut => VT.[Friend]GetParent(&this, ref riid, ppParent);
 }
 
 [CRepr]struct IDXGIDeviceSubObject : IDXGIObject
@@ -1136,11 +1136,11 @@ public static
 
 	[CRepr]public struct VTable : IDXGIObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIDeviceSubObject*/SelfOuter* self, Guid riid, void** ppDevice) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIDeviceSubObject*/SelfOuter* self, ref Guid riid, void** ppDevice) GetDevice;
 	}
 
 
-	public HRESULT GetDevice(Guid riid, void** ppDevice) mut => VT.[Friend]GetDevice(&this, riid, ppDevice);
+	public HRESULT GetDevice(ref Guid riid, void** ppDevice) mut => VT.[Friend]GetDevice(&this, ref riid, ppDevice);
 }
 
 [CRepr]struct IDXGIResource : IDXGIDeviceSubObject
@@ -1234,7 +1234,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIAdapter*/SelfOuter* self, uint32 Output, IDXGIOutput** ppOutput) EnumOutputs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIAdapter*/SelfOuter* self, DXGI_ADAPTER_DESC* pDesc) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIAdapter*/SelfOuter* self, Guid InterfaceName, LARGE_INTEGER* pUMDVersion) CheckInterfaceSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIAdapter*/SelfOuter* self, ref Guid InterfaceName, LARGE_INTEGER* pUMDVersion) CheckInterfaceSupport;
 	}
 
 
@@ -1242,7 +1242,7 @@ public static
 
 	public HRESULT GetDesc(DXGI_ADAPTER_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
-	public HRESULT CheckInterfaceSupport(Guid InterfaceName, LARGE_INTEGER* pUMDVersion) mut => VT.[Friend]CheckInterfaceSupport(&this, InterfaceName, pUMDVersion);
+	public HRESULT CheckInterfaceSupport(ref Guid InterfaceName, LARGE_INTEGER* pUMDVersion) mut => VT.[Friend]CheckInterfaceSupport(&this, ref InterfaceName, pUMDVersion);
 }
 
 [CRepr]struct IDXGIOutput : IDXGIObject
@@ -1302,7 +1302,7 @@ public static
 	[CRepr]public struct VTable : IDXGIDeviceSubObject.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain*/SelfOuter* self, uint32 SyncInterval, uint32 Flags) Present;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain*/SelfOuter* self, uint32 Buffer, Guid riid, void** ppSurface) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain*/SelfOuter* self, uint32 Buffer, ref Guid riid, void** ppSurface) GetBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain*/SelfOuter* self, BOOL Fullscreen, IDXGIOutput* pTarget) SetFullscreenState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain*/SelfOuter* self, BOOL* pFullscreen, IDXGIOutput** ppTarget) GetFullscreenState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain*/SelfOuter* self, DXGI_SWAP_CHAIN_DESC* pDesc) GetDesc;
@@ -1316,7 +1316,7 @@ public static
 
 	public HRESULT Present(uint32 SyncInterval, uint32 Flags) mut => VT.[Friend]Present(&this, SyncInterval, Flags);
 
-	public HRESULT GetBuffer(uint32 Buffer, Guid riid, void** ppSurface) mut => VT.[Friend]GetBuffer(&this, Buffer, riid, ppSurface);
+	public HRESULT GetBuffer(uint32 Buffer, ref Guid riid, void** ppSurface) mut => VT.[Friend]GetBuffer(&this, Buffer, ref riid, ppSurface);
 
 	public HRESULT SetFullscreenState(BOOL Fullscreen, IDXGIOutput* pTarget) mut => VT.[Friend]SetFullscreenState(&this, Fullscreen, pTarget);
 
@@ -1502,11 +1502,11 @@ public static
 
 	[CRepr]public struct VTable : IDXGISurface1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISurface2*/SelfOuter* self, Guid riid, void** ppParentResource, uint32* pSubresourceIndex) GetResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISurface2*/SelfOuter* self, ref Guid riid, void** ppParentResource, uint32* pSubresourceIndex) GetResource;
 	}
 
 
-	public HRESULT GetResource(Guid riid, void** ppParentResource, uint32* pSubresourceIndex) mut => VT.[Friend]GetResource(&this, riid, ppParentResource, pSubresourceIndex);
+	public HRESULT GetResource(ref Guid riid, void** ppParentResource, uint32* pSubresourceIndex) mut => VT.[Friend]GetResource(&this, ref riid, ppParentResource, pSubresourceIndex);
 }
 
 [CRepr]struct IDXGIResource1 : IDXGIResource
@@ -1559,7 +1559,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain1*/SelfOuter* self, DXGI_SWAP_CHAIN_DESC1* pDesc) GetDesc1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain1*/SelfOuter* self, DXGI_SWAP_CHAIN_FULLSCREEN_DESC* pDesc) GetFullscreenDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain1*/SelfOuter* self, HWND* pHwnd) GetHwnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain1*/SelfOuter* self, Guid refiid, void** ppUnk) GetCoreWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain1*/SelfOuter* self, ref Guid refiid, void** ppUnk) GetCoreWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain1*/SelfOuter* self, uint32 SyncInterval, uint32 PresentFlags, DXGI_PRESENT_PARAMETERS* pPresentParameters) Present1;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*IDXGISwapChain1*/SelfOuter* self) IsTemporaryMonoSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGISwapChain1*/SelfOuter* self, IDXGIOutput** ppRestrictToOutput) GetRestrictToOutput;
@@ -1576,7 +1576,7 @@ public static
 
 	public HRESULT GetHwnd(HWND* pHwnd) mut => VT.[Friend]GetHwnd(&this, pHwnd);
 
-	public HRESULT GetCoreWindow(Guid refiid, void** ppUnk) mut => VT.[Friend]GetCoreWindow(&this, refiid, ppUnk);
+	public HRESULT GetCoreWindow(ref Guid refiid, void** ppUnk) mut => VT.[Friend]GetCoreWindow(&this, ref refiid, ppUnk);
 
 	public HRESULT Present1(uint32 SyncInterval, uint32 PresentFlags, DXGI_PRESENT_PARAMETERS* pPresentParameters) mut => VT.[Friend]Present1(&this, SyncInterval, PresentFlags, pPresentParameters);
 
@@ -1895,14 +1895,14 @@ public static
 
 	[CRepr]public struct VTable : IDXGIFactory3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIFactory4*/SelfOuter* self, LUID AdapterLuid, Guid riid, void** ppvAdapter) EnumAdapterByLuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIFactory4*/SelfOuter* self, Guid riid, void** ppvAdapter) EnumWarpAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIFactory4*/SelfOuter* self, LUID AdapterLuid, ref Guid riid, void** ppvAdapter) EnumAdapterByLuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIFactory4*/SelfOuter* self, ref Guid riid, void** ppvAdapter) EnumWarpAdapter;
 	}
 
 
-	public HRESULT EnumAdapterByLuid(LUID AdapterLuid, Guid riid, void** ppvAdapter) mut => VT.[Friend]EnumAdapterByLuid(&this, AdapterLuid, riid, ppvAdapter);
+	public HRESULT EnumAdapterByLuid(LUID AdapterLuid, ref Guid riid, void** ppvAdapter) mut => VT.[Friend]EnumAdapterByLuid(&this, AdapterLuid, ref riid, ppvAdapter);
 
-	public HRESULT EnumWarpAdapter(Guid riid, void** ppvAdapter) mut => VT.[Friend]EnumWarpAdapter(&this, riid, ppvAdapter);
+	public HRESULT EnumWarpAdapter(ref Guid riid, void** ppvAdapter) mut => VT.[Friend]EnumWarpAdapter(&this, ref riid, ppvAdapter);
 }
 
 [CRepr]struct IDXGIAdapter3 : IDXGIAdapter2
@@ -2039,11 +2039,11 @@ public static
 
 	[CRepr]public struct VTable : IDXGIFactory5.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIFactory6*/SelfOuter* self, uint32 Adapter, DXGI_GPU_PREFERENCE GpuPreference, Guid riid, void** ppvAdapter) EnumAdapterByGpuPreference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXGIFactory6*/SelfOuter* self, uint32 Adapter, DXGI_GPU_PREFERENCE GpuPreference, ref Guid riid, void** ppvAdapter) EnumAdapterByGpuPreference;
 	}
 
 
-	public HRESULT EnumAdapterByGpuPreference(uint32 Adapter, DXGI_GPU_PREFERENCE GpuPreference, Guid riid, void** ppvAdapter) mut => VT.[Friend]EnumAdapterByGpuPreference(&this, Adapter, GpuPreference, riid, ppvAdapter);
+	public HRESULT EnumAdapterByGpuPreference(uint32 Adapter, DXGI_GPU_PREFERENCE GpuPreference, ref Guid riid, void** ppvAdapter) mut => VT.[Friend]EnumAdapterByGpuPreference(&this, Adapter, GpuPreference, ref riid, ppvAdapter);
 }
 
 [CRepr]struct IDXGIFactory7 : IDXGIFactory6
@@ -2247,16 +2247,16 @@ public static
 public static
 {
 	[Import("dxgi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateDXGIFactory(Guid riid, void** ppFactory);
+	public static extern HRESULT CreateDXGIFactory(ref Guid riid, void** ppFactory);
 
 	[Import("dxgi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateDXGIFactory1(Guid riid, void** ppFactory);
+	public static extern HRESULT CreateDXGIFactory1(ref Guid riid, void** ppFactory);
 
 	[Import("dxgi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateDXGIFactory2(uint32 Flags, Guid riid, void** ppFactory);
+	public static extern HRESULT CreateDXGIFactory2(uint32 Flags, ref Guid riid, void** ppFactory);
 
 	[Import("dxgi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DXGIGetDebugInterface1(uint32 Flags, Guid riid, void** pDebug);
+	public static extern HRESULT DXGIGetDebugInterface1(uint32 Flags, ref Guid riid, void** pDebug);
 
 	[Import("dxgi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DXGIDeclareAdapterRemovalSupport();

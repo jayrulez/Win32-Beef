@@ -6227,7 +6227,7 @@ public struct WDBGEXTS_THREAD_OS_INFO
 [CRepr]
 public struct WDBGEXTS_CLR_DATA_INTERFACE
 {
-	public Guid Iid;
+	public Guid* Iid;
 	public void* Iface;
 }
 
@@ -6297,7 +6297,7 @@ public struct EXT_TYPED_DATA
 [CRepr]
 public struct WDBGEXTS_QUERY_INTERFACE
 {
-	public Guid Iid;
+	public Guid* Iid;
 	public void* Iface;
 }
 
@@ -9389,7 +9389,7 @@ public struct WHEA_DRIVER_BUFFER_SET
 	public uint32 Version;
 	public uint8* Data;
 	public uint32 DataSize;
-	public Guid SectionTypeGuid;
+	public Guid* SectionTypeGuid;
 	public uint8* SectionFriendlyName;
 	public uint8* Flags;
 }
@@ -10518,7 +10518,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, PWSTR Command) SetCommandWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, char16* Buffer, uint32 BufferSize, uint32* ExpressionSize) GetOffsetExpressionWide;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, PWSTR Expression) SetOffsetExpressionWide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, Guid Guid) GetGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugBreakpoint3*/SelfOuter* self, ref Guid Guid) GetGuid;
 	}
 
 
@@ -10572,7 +10572,7 @@ public static
 
 	public HRESULT SetOffsetExpressionWide(PWSTR Expression) mut => VT.[Friend]SetOffsetExpressionWide(&this, Expression);
 
-	public HRESULT GetGuid(Guid Guid) mut => VT.[Friend]GetGuid(&this, Guid);
+	public HRESULT GetGuid(ref Guid Guid) mut => VT.[Friend]GetGuid(&this, Guid);
 }
 
 [CRepr]struct IDebugClient : IUnknown
@@ -14179,7 +14179,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, uint32 Flags) OutputStackTraceEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) GetContextStackTraceEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) OutputContextStackTraceEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, Guid Guid, IDebugBreakpoint3** Bp) GetBreakpointByGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl5*/SelfOuter* self, ref Guid Guid, IDebugBreakpoint3** Bp) GetBreakpointByGuid;
 	}
 
 
@@ -14523,7 +14523,7 @@ public static
 
 	public HRESULT OutputContextStackTraceEx(uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) mut => VT.[Friend]OutputContextStackTraceEx(&this, OutputControl, Frames, FramesSize, FrameContexts, FrameContextsSize, FrameContextsEntrySize, Flags);
 
-	public HRESULT GetBreakpointByGuid(Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, Guid, Bp);
+	public HRESULT GetBreakpointByGuid(ref Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, Guid, Bp);
 }
 
 [CRepr]struct IDebugControl6 : IUnknown
@@ -14704,7 +14704,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, uint32 Flags) OutputStackTraceEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) GetContextStackTraceEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) OutputContextStackTraceEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, Guid Guid, IDebugBreakpoint3** Bp) GetBreakpointByGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, ref Guid Guid, IDebugBreakpoint3** Bp) GetBreakpointByGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32* Status) GetExecutionStatusEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl6*/SelfOuter* self, uint32* SendsAttempted, uint32* SecondsSinceLastResponse) GetSynchronizationStatus;
 	}
@@ -15050,7 +15050,7 @@ public static
 
 	public HRESULT OutputContextStackTraceEx(uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) mut => VT.[Friend]OutputContextStackTraceEx(&this, OutputControl, Frames, FramesSize, FrameContexts, FrameContextsSize, FrameContextsEntrySize, Flags);
 
-	public HRESULT GetBreakpointByGuid(Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, Guid, Bp);
+	public HRESULT GetBreakpointByGuid(ref Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, Guid, Bp);
 
 	public HRESULT GetExecutionStatusEx(uint32* Status) mut => VT.[Friend]GetExecutionStatusEx(&this, Status);
 
@@ -15235,7 +15235,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, uint32 Flags) OutputStackTraceEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, void* StartContext, uint32 StartContextSize, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32* FramesFilled) GetContextStackTraceEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) OutputContextStackTraceEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, Guid Guid, IDebugBreakpoint3** Bp) GetBreakpointByGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, ref Guid Guid, IDebugBreakpoint3** Bp) GetBreakpointByGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32* Status) GetExecutionStatusEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32* SendsAttempted, uint32* SecondsSinceLastResponse) GetSynchronizationStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugControl7*/SelfOuter* self, uint32 Flags, uint32* Class, uint32* Qualifier) GetDebuggeeType2;
@@ -15582,7 +15582,7 @@ public static
 
 	public HRESULT OutputContextStackTraceEx(uint32 OutputControl, DEBUG_STACK_FRAME_EX* Frames, uint32 FramesSize, void* FrameContexts, uint32 FrameContextsSize, uint32 FrameContextsEntrySize, uint32 Flags) mut => VT.[Friend]OutputContextStackTraceEx(&this, OutputControl, Frames, FramesSize, FrameContexts, FrameContextsSize, FrameContextsEntrySize, Flags);
 
-	public HRESULT GetBreakpointByGuid(Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, Guid, Bp);
+	public HRESULT GetBreakpointByGuid(ref Guid Guid, IDebugBreakpoint3** Bp) mut => VT.[Friend]GetBreakpointByGuid(&this, Guid, Bp);
 
 	public HRESULT GetExecutionStatusEx(uint32* Status) mut => VT.[Friend]GetExecutionStatusEx(&this, Status);
 
@@ -15788,9 +15788,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces3*/SelfOuter* self, uint64 Start, uint32 Size, void* Pattern, uint32 PatternSize, uint32* Filled) FillPhysical;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces3*/SelfOuter* self, uint64 Offset, MEMORY_BASIC_INFORMATION64* Info) QueryVirtual;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces3*/SelfOuter* self, uint64 ImageBase, IMAGE_NT_HEADERS64* Headers) ReadImageNtHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces3*/SelfOuter* self, Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) ReadTagged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces3*/SelfOuter* self, ref Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) ReadTagged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces3*/SelfOuter* self, uint64* Handle) StartEnumTagged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces3*/SelfOuter* self, uint64 Handle, Guid Tag, uint32* Size) GetNextTagged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces3*/SelfOuter* self, uint64 Handle, ref Guid Tag, uint32* Size) GetNextTagged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces3*/SelfOuter* self, uint64 Handle) EndEnumTagged;
 	}
 
@@ -15849,11 +15849,11 @@ public static
 
 	public HRESULT ReadImageNtHeaders(uint64 ImageBase, IMAGE_NT_HEADERS64* Headers) mut => VT.[Friend]ReadImageNtHeaders(&this, ImageBase, Headers);
 
-	public HRESULT ReadTagged(Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) mut => VT.[Friend]ReadTagged(&this, Tag, Offset, Buffer, BufferSize, TotalSize);
+	public HRESULT ReadTagged(ref Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) mut => VT.[Friend]ReadTagged(&this, Tag, Offset, Buffer, BufferSize, TotalSize);
 
 	public HRESULT StartEnumTagged(uint64* Handle) mut => VT.[Friend]StartEnumTagged(&this, Handle);
 
-	public HRESULT GetNextTagged(uint64 Handle, Guid Tag, uint32* Size) mut => VT.[Friend]GetNextTagged(&this, Handle, Tag, Size);
+	public HRESULT GetNextTagged(uint64 Handle, ref Guid Tag, uint32* Size) mut => VT.[Friend]GetNextTagged(&this, Handle, Tag, Size);
 
 	public HRESULT EndEnumTagged(uint64 Handle) mut => VT.[Friend]EndEnumTagged(&this, Handle);
 }
@@ -15893,9 +15893,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Start, uint32 Size, void* Pattern, uint32 PatternSize, uint32* Filled) FillPhysical;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, MEMORY_BASIC_INFORMATION64* Info) QueryVirtual;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 ImageBase, IMAGE_NT_HEADERS64* Headers) ReadImageNtHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) ReadTagged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, ref Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) ReadTagged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64* Handle) StartEnumTagged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Handle, Guid Tag, uint32* Size) GetNextTagged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Handle, ref Guid Tag, uint32* Size) GetNextTagged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Handle) EndEnumTagged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint32 Space, uint32 Which, uint64 Offset, void* Buffer, uint32 BufferSize, uint32* InfoSize) GetOffsetInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDataSpaces4*/SelfOuter* self, uint64 Offset, uint64* NextOffset) GetNextDifferentlyValidOffsetVirtual;
@@ -15964,11 +15964,11 @@ public static
 
 	public HRESULT ReadImageNtHeaders(uint64 ImageBase, IMAGE_NT_HEADERS64* Headers) mut => VT.[Friend]ReadImageNtHeaders(&this, ImageBase, Headers);
 
-	public HRESULT ReadTagged(Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) mut => VT.[Friend]ReadTagged(&this, Tag, Offset, Buffer, BufferSize, TotalSize);
+	public HRESULT ReadTagged(ref Guid Tag, uint32 Offset, void* Buffer, uint32 BufferSize, uint32* TotalSize) mut => VT.[Friend]ReadTagged(&this, Tag, Offset, Buffer, BufferSize, TotalSize);
 
 	public HRESULT StartEnumTagged(uint64* Handle) mut => VT.[Friend]StartEnumTagged(&this, Handle);
 
-	public HRESULT GetNextTagged(uint64 Handle, Guid Tag, uint32* Size) mut => VT.[Friend]GetNextTagged(&this, Handle, Tag, Size);
+	public HRESULT GetNextTagged(uint64 Handle, ref Guid Tag, uint32* Size) mut => VT.[Friend]GetNextTagged(&this, Handle, Tag, Size);
 
 	public HRESULT EndEnumTagged(uint64 Handle) mut => VT.[Friend]EndEnumTagged(&this, Handle);
 
@@ -18597,7 +18597,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, SymbolKind kind, uint32 searchFlags, IRawEnumerator** enumerator) EnumerateRawValues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, IModelObject** object) Dereference;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, IModelObject** runtimeTypedObject) TryCastToRuntimeType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, Guid conceptId, IUnknown** conceptInterface, IKeyStore** conceptMetadata) GetConcept;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, ref Guid conceptId, IUnknown** conceptInterface, IKeyStore** conceptMetadata) GetConcept;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, Location* location) GetLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, IDebugHostType** type) GetTypeInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, Location* location, IDebugHostType** type) GetTargetInfo;
@@ -18611,7 +18611,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self) ClearKeys;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, IKeyEnumerator** enumerator) EnumerateKeys;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, IKeyEnumerator** enumerator) EnumerateKeyReferences;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, Guid conceptId, IUnknown* conceptInterface, IKeyStore* conceptMetadata) SetConcept;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, ref Guid conceptId, IUnknown* conceptInterface, IKeyStore* conceptMetadata) SetConcept;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self) ClearConcepts;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, SymbolKind kind, PWSTR name, uint32 searchFlags, IModelObject** object) GetRawReference;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IModelObject*/SelfOuter* self, SymbolKind kind, uint32 searchFlags, IRawEnumerator** enumerator) EnumerateRawReferences;
@@ -18644,7 +18644,7 @@ public static
 
 	public HRESULT TryCastToRuntimeType(IModelObject** runtimeTypedObject) mut => VT.[Friend]TryCastToRuntimeType(&this, runtimeTypedObject);
 
-	public HRESULT GetConcept(Guid conceptId, IUnknown** conceptInterface, IKeyStore** conceptMetadata) mut => VT.[Friend]GetConcept(&this, conceptId, conceptInterface, conceptMetadata);
+	public HRESULT GetConcept(ref Guid conceptId, IUnknown** conceptInterface, IKeyStore** conceptMetadata) mut => VT.[Friend]GetConcept(&this, ref conceptId, conceptInterface, conceptMetadata);
 
 	public HRESULT GetLocation(Location* location) mut => VT.[Friend]GetLocation(&this, location);
 
@@ -18672,7 +18672,7 @@ public static
 
 	public HRESULT EnumerateKeyReferences(IKeyEnumerator** enumerator) mut => VT.[Friend]EnumerateKeyReferences(&this, enumerator);
 
-	public HRESULT SetConcept(Guid conceptId, IUnknown* conceptInterface, IKeyStore* conceptMetadata) mut => VT.[Friend]SetConcept(&this, conceptId, conceptInterface, conceptMetadata);
+	public HRESULT SetConcept(ref Guid conceptId, IUnknown* conceptInterface, IKeyStore* conceptMetadata) mut => VT.[Friend]SetConcept(&this, ref conceptId, conceptInterface, conceptMetadata);
 
 	public HRESULT ClearConcepts() mut => VT.[Friend]ClearConcepts(&this);
 
@@ -19639,17 +19639,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicConceptProviderConcept*/SelfOuter* self, IModelObject* contextObject, Guid conceptId, IUnknown** conceptInterface, IKeyStore** conceptMetadata, bool* hasConcept) GetConcept;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicConceptProviderConcept*/SelfOuter* self, IModelObject* contextObject, Guid conceptId, IUnknown* conceptInterface, IKeyStore* conceptMetadata) SetConcept;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicConceptProviderConcept*/SelfOuter* self, IModelObject* contextObject, ref Guid conceptId, IUnknown** conceptInterface, IKeyStore** conceptMetadata, bool* hasConcept) GetConcept;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicConceptProviderConcept*/SelfOuter* self, IModelObject* contextObject, ref Guid conceptId, IUnknown* conceptInterface, IKeyStore* conceptMetadata) SetConcept;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicConceptProviderConcept*/SelfOuter* self, IModelObject* parentModel) NotifyParent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicConceptProviderConcept*/SelfOuter* self, IModelObject* parentModel) NotifyParentChange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicConceptProviderConcept*/SelfOuter* self) NotifyDestruct;
 	}
 
 
-	public HRESULT GetConcept(IModelObject* contextObject, Guid conceptId, IUnknown** conceptInterface, IKeyStore** conceptMetadata, bool* hasConcept) mut => VT.[Friend]GetConcept(&this, contextObject, conceptId, conceptInterface, conceptMetadata, hasConcept);
+	public HRESULT GetConcept(IModelObject* contextObject, ref Guid conceptId, IUnknown** conceptInterface, IKeyStore** conceptMetadata, bool* hasConcept) mut => VT.[Friend]GetConcept(&this, contextObject, ref conceptId, conceptInterface, conceptMetadata, hasConcept);
 
-	public HRESULT SetConcept(IModelObject* contextObject, Guid conceptId, IUnknown* conceptInterface, IKeyStore* conceptMetadata) mut => VT.[Friend]SetConcept(&this, contextObject, conceptId, conceptInterface, conceptMetadata);
+	public HRESULT SetConcept(IModelObject* contextObject, ref Guid conceptId, IUnknown* conceptInterface, IKeyStore* conceptMetadata) mut => VT.[Friend]SetConcept(&this, contextObject, ref conceptId, conceptInterface, conceptMetadata);
 
 	public HRESULT NotifyParent(IModelObject* parentModel) mut => VT.[Friend]NotifyParent(&this, parentModel);
 
@@ -20159,12 +20159,12 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, IActiveScriptSite* pass) SetScriptSite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, Guid riid, void** ppvObject) GetScriptSite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, ref Guid riid, void** ppvObject) GetScriptSite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, SCRIPTSTATE ss) SetScriptState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, SCRIPTSTATE* pssState) GetScriptState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self) Close;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, PWSTR pstrName, uint32 dwFlags) AddNamedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor, uint32 dwFlags) AddTypeLib;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, ref Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor, uint32 dwFlags) AddTypeLib;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, PWSTR pstrItemName, IDispatch** ppdisp) GetScriptDispatch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, uint32* pstidThread) GetCurrentScriptThreadID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScript*/SelfOuter* self, uint32 dwWin32ThreadId, uint32* pstidThread) GetScriptThreadID;
@@ -20176,7 +20176,7 @@ public static
 
 	public HRESULT SetScriptSite(IActiveScriptSite* pass) mut => VT.[Friend]SetScriptSite(&this, pass);
 
-	public HRESULT GetScriptSite(Guid riid, void** ppvObject) mut => VT.[Friend]GetScriptSite(&this, riid, ppvObject);
+	public HRESULT GetScriptSite(ref Guid riid, void** ppvObject) mut => VT.[Friend]GetScriptSite(&this, ref riid, ppvObject);
 
 	public HRESULT SetScriptState(SCRIPTSTATE ss) mut => VT.[Friend]SetScriptState(&this, ss);
 
@@ -20186,7 +20186,7 @@ public static
 
 	public HRESULT AddNamedItem(PWSTR pstrName, uint32 dwFlags) mut => VT.[Friend]AddNamedItem(&this, pstrName, dwFlags);
 
-	public HRESULT AddTypeLib(Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor, uint32 dwFlags) mut => VT.[Friend]AddTypeLib(&this, rguidTypeLib, dwMajor, dwMinor, dwFlags);
+	public HRESULT AddTypeLib(ref Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor, uint32 dwFlags) mut => VT.[Friend]AddTypeLib(&this, ref rguidTypeLib, dwMajor, dwMinor, dwFlags);
 
 	public HRESULT GetScriptDispatch(PWSTR pstrItemName, IDispatch** ppdisp) mut => VT.[Friend]GetScriptDispatch(&this, pstrItemName, ppdisp);
 
@@ -20387,14 +20387,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptStats*/SelfOuter* self, uint32 stid, uint32* pluHi, uint32* pluLo) GetStat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptStats*/SelfOuter* self, Guid guid, uint32* pluHi, uint32* pluLo) GetStatEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptStats*/SelfOuter* self, ref Guid guid, uint32* pluHi, uint32* pluLo) GetStatEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptStats*/SelfOuter* self) ResetStats;
 	}
 
 
 	public HRESULT GetStat(uint32 stid, uint32* pluHi, uint32* pluLo) mut => VT.[Friend]GetStat(&this, stid, pluHi, pluLo);
 
-	public HRESULT GetStatEx(Guid guid, uint32* pluHi, uint32* pluLo) mut => VT.[Friend]GetStatEx(&this, guid, pluHi, pluLo);
+	public HRESULT GetStatEx(ref Guid guid, uint32* pluHi, uint32* pluLo) mut => VT.[Friend]GetStatEx(&this, ref guid, pluHi, pluLo);
 
 	public HRESULT ResetStats() mut => VT.[Friend]ResetStats(&this);
 }
@@ -20455,11 +20455,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptSIPInfo*/SelfOuter* self, Guid poid_sip) GetSIPOID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptSIPInfo*/SelfOuter* self, ref Guid poid_sip) GetSIPOID;
 	}
 
 
-	public HRESULT GetSIPOID(Guid poid_sip) mut => VT.[Friend]GetSIPOID(&this, poid_sip);
+	public HRESULT GetSIPOID(ref Guid poid_sip) mut => VT.[Friend]GetSIPOID(&this, poid_sip);
 }
 
 [CRepr]struct IActiveScriptSiteTraceInfo : IUnknown
@@ -20519,20 +20519,20 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugProperty*/SelfOuter* self, uint32 dwFieldSpec, uint32 nRadix, DebugPropertyInfo* pPropertyInfo) GetPropertyInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugProperty*/SelfOuter* self, uint32 cInfos, Guid* rgguidExtendedInfo, VARIANT* rgvar) GetExtendedInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugProperty*/SelfOuter* self, uint32 cInfos, ref Guid rgguidExtendedInfo, VARIANT* rgvar) GetExtendedInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugProperty*/SelfOuter* self, PWSTR pszValue, uint32 nRadix) SetValueAsString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugProperty*/SelfOuter* self, uint32 dwFieldSpec, uint32 nRadix, Guid refiid, IEnumDebugPropertyInfo** ppepi) EnumMembers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugProperty*/SelfOuter* self, uint32 dwFieldSpec, uint32 nRadix, ref Guid refiid, IEnumDebugPropertyInfo** ppepi) EnumMembers;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugProperty*/SelfOuter* self, IDebugProperty** ppDebugProp) GetParent;
 	}
 
 
 	public HRESULT GetPropertyInfo(uint32 dwFieldSpec, uint32 nRadix, DebugPropertyInfo* pPropertyInfo) mut => VT.[Friend]GetPropertyInfo(&this, dwFieldSpec, nRadix, pPropertyInfo);
 
-	public HRESULT GetExtendedInfo(uint32 cInfos, Guid* rgguidExtendedInfo, VARIANT* rgvar) mut => VT.[Friend]GetExtendedInfo(&this, cInfos, rgguidExtendedInfo, rgvar);
+	public HRESULT GetExtendedInfo(uint32 cInfos, ref Guid rgguidExtendedInfo, VARIANT* rgvar) mut => VT.[Friend]GetExtendedInfo(&this, cInfos, rgguidExtendedInfo, rgvar);
 
 	public HRESULT SetValueAsString(PWSTR pszValue, uint32 nRadix) mut => VT.[Friend]SetValueAsString(&this, pszValue, nRadix);
 
-	public HRESULT EnumMembers(uint32 dwFieldSpec, uint32 nRadix, Guid refiid, IEnumDebugPropertyInfo** ppepi) mut => VT.[Friend]EnumMembers(&this, dwFieldSpec, nRadix, refiid, ppepi);
+	public HRESULT EnumMembers(uint32 dwFieldSpec, uint32 nRadix, ref Guid refiid, IEnumDebugPropertyInfo** ppepi) mut => VT.[Friend]EnumMembers(&this, dwFieldSpec, nRadix, ref refiid, ppepi);
 
 	public HRESULT GetParent(IDebugProperty** ppDebugProp) mut => VT.[Friend]GetParent(&this, ppDebugProp);
 }
@@ -20618,7 +20618,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerPropertyBrowsing2*/SelfOuter* self, int32 dispid, BSTR* pBstr) GetDisplayString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerPropertyBrowsing2*/SelfOuter* self, int32 dispid, Guid pClsidPropPage) MapPropertyToPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerPropertyBrowsing2*/SelfOuter* self, int32 dispid, ref Guid pClsidPropPage) MapPropertyToPage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerPropertyBrowsing2*/SelfOuter* self, int32 dispid, CALPOLESTR* pCaStrings, CADWORD* pCaCookies) GetPredefinedStrings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerPropertyBrowsing2*/SelfOuter* self, int32 dispid, uint32 dwCookie) SetPredefinedValue;
 	}
@@ -20626,7 +20626,7 @@ public static
 
 	public HRESULT GetDisplayString(int32 dispid, BSTR* pBstr) mut => VT.[Friend]GetDisplayString(&this, dispid, pBstr);
 
-	public HRESULT MapPropertyToPage(int32 dispid, Guid pClsidPropPage) mut => VT.[Friend]MapPropertyToPage(&this, dispid, pClsidPropPage);
+	public HRESULT MapPropertyToPage(int32 dispid, ref Guid pClsidPropPage) mut => VT.[Friend]MapPropertyToPage(&this, dispid, pClsidPropPage);
 
 	public HRESULT GetPredefinedStrings(int32 dispid, CALPOLESTR* pCaStrings, CADWORD* pCaCookies) mut => VT.[Friend]GetPredefinedStrings(&this, dispid, pCaStrings, pCaCookies);
 
@@ -20873,13 +20873,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugExpressionContext*/SelfOuter* self, PWSTR pstrCode, uint32 nRadix, PWSTR pstrDelimiter, uint32 dwFlags, IDebugExpression** ppe) ParseLanguageText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugExpressionContext*/SelfOuter* self, BSTR* pbstrLanguageName, Guid pLanguageID) GetLanguageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugExpressionContext*/SelfOuter* self, BSTR* pbstrLanguageName, ref Guid pLanguageID) GetLanguageInfo;
 	}
 
 
 	public HRESULT ParseLanguageText(PWSTR pstrCode, uint32 nRadix, PWSTR pstrDelimiter, uint32 dwFlags, IDebugExpression** ppe) mut => VT.[Friend]ParseLanguageText(&this, pstrCode, nRadix, pstrDelimiter, dwFlags, ppe);
 
-	public HRESULT GetLanguageInfo(BSTR* pbstrLanguageName, Guid pLanguageID) mut => VT.[Friend]GetLanguageInfo(&this, pbstrLanguageName, pLanguageID);
+	public HRESULT GetLanguageInfo(BSTR* pbstrLanguageName, ref Guid pLanguageID) mut => VT.[Friend]GetLanguageInfo(&this, pbstrLanguageName, pLanguageID);
 }
 
 [CRepr]struct IDebugExpressionCallBack : IUnknown
@@ -21104,13 +21104,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentInfo*/SelfOuter* self, DOCUMENTNAMETYPE dnt, BSTR* pbstrName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentInfo*/SelfOuter* self, Guid pclsidDocument) GetDocumentClassId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugDocumentInfo*/SelfOuter* self, ref Guid pclsidDocument) GetDocumentClassId;
 	}
 
 
 	public HRESULT GetName(DOCUMENTNAMETYPE dnt, BSTR* pbstrName) mut => VT.[Friend]GetName(&this, dnt, pbstrName);
 
-	public HRESULT GetDocumentClassId(Guid pclsidDocument) mut => VT.[Friend]GetDocumentClassId(&this, pclsidDocument);
+	public HRESULT GetDocumentClassId(ref Guid pclsidDocument) mut => VT.[Friend]GetDocumentClassId(&this, pclsidDocument);
 }
 
 [CRepr]struct IDebugDocumentProvider : IDebugDocumentInfo
@@ -21449,17 +21449,17 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDebugger*/SelfOuter* self) QueryAlive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDebugger*/SelfOuter* self, Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, Guid riid, IUnknown** ppvObject) CreateInstanceAtDebugger;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDebugger*/SelfOuter* self, ref Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid riid, IUnknown** ppvObject) CreateInstanceAtDebugger;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDebugger*/SelfOuter* self, PWSTR pstr) onDebugOutput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDebugger*/SelfOuter* self, IRemoteDebugApplicationThread* prpt, BREAKREASON br, IActiveScriptErrorDebug* pError) onHandleBreakPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDebugger*/SelfOuter* self) onClose;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDebugger*/SelfOuter* self, Guid riid, IUnknown* punk) onDebuggerEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApplicationDebugger*/SelfOuter* self, ref Guid riid, IUnknown* punk) onDebuggerEvent;
 	}
 
 
 	public HRESULT QueryAlive() mut => VT.[Friend]QueryAlive(&this);
 
-	public HRESULT CreateInstanceAtDebugger(Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, Guid riid, IUnknown** ppvObject) mut => VT.[Friend]CreateInstanceAtDebugger(&this, rclsid, pUnkOuter, dwClsContext, riid, ppvObject);
+	public HRESULT CreateInstanceAtDebugger(ref Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid riid, IUnknown** ppvObject) mut => VT.[Friend]CreateInstanceAtDebugger(&this, ref rclsid, pUnkOuter, dwClsContext, ref riid, ppvObject);
 
 	public HRESULT onDebugOutput(PWSTR pstr) mut => VT.[Friend]onDebugOutput(&this, pstr);
 
@@ -21467,7 +21467,7 @@ public static
 
 	public HRESULT onClose() mut => VT.[Friend]onClose(&this);
 
-	public HRESULT onDebuggerEvent(Guid riid, IUnknown* punk) mut => VT.[Friend]onDebuggerEvent(&this, riid, punk);
+	public HRESULT onDebuggerEvent(ref Guid riid, IUnknown* punk) mut => VT.[Friend]onDebuggerEvent(&this, ref riid, punk);
 }
 
 [CRepr]struct IApplicationDebuggerUI : IUnknown
@@ -21615,7 +21615,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteDebugApplication*/SelfOuter* self, IApplicationDebugger* pad) ConnectDebugger;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteDebugApplication*/SelfOuter* self) DisconnectDebugger;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteDebugApplication*/SelfOuter* self, IApplicationDebugger** pad) GetDebugger;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteDebugApplication*/SelfOuter* self, Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, Guid riid, IUnknown** ppvObject) CreateInstanceAtApplication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteDebugApplication*/SelfOuter* self, ref Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid riid, IUnknown** ppvObject) CreateInstanceAtApplication;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteDebugApplication*/SelfOuter* self) QueryAlive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteDebugApplication*/SelfOuter* self, IEnumRemoteDebugApplicationThreads** pperdat) EnumThreads;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteDebugApplication*/SelfOuter* self, BSTR* pbstrName) GetName;
@@ -21634,7 +21634,7 @@ public static
 
 	public HRESULT GetDebugger(IApplicationDebugger** pad) mut => VT.[Friend]GetDebugger(&this, pad);
 
-	public HRESULT CreateInstanceAtApplication(Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, Guid riid, IUnknown** ppvObject) mut => VT.[Friend]CreateInstanceAtApplication(&this, rclsid, pUnkOuter, dwClsContext, riid, ppvObject);
+	public HRESULT CreateInstanceAtApplication(ref Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid riid, IUnknown** ppvObject) mut => VT.[Friend]CreateInstanceAtApplication(&this, ref rclsid, pUnkOuter, dwClsContext, ref riid, ppvObject);
 
 	public HRESULT QueryAlive() mut => VT.[Friend]QueryAlive(&this);
 
@@ -21669,7 +21669,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication32*/SelfOuter* self) QueryCurrentThreadIsDebuggerThread;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication32*/SelfOuter* self, IDebugThreadCall32* pptc, uint32 dwParam1, uint32 dwParam2, uint32 dwParam3) SynchronousCallInDebuggerThread;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication32*/SelfOuter* self, IDebugApplicationNode** ppdanNew) CreateApplicationNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication32*/SelfOuter* self, Guid riid, IUnknown* punk) FireDebuggerEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication32*/SelfOuter* self, ref Guid riid, IUnknown* punk) FireDebuggerEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication32*/SelfOuter* self, IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUME_ACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) HandleRuntimeError;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*IDebugApplication32*/SelfOuter* self) FCanJitDebug;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*IDebugApplication32*/SelfOuter* self) FIsAutoJitDebugEnabled;
@@ -21706,7 +21706,7 @@ public static
 
 	public HRESULT CreateApplicationNode(IDebugApplicationNode** ppdanNew) mut => VT.[Friend]CreateApplicationNode(&this, ppdanNew);
 
-	public HRESULT FireDebuggerEvent(Guid riid, IUnknown* punk) mut => VT.[Friend]FireDebuggerEvent(&this, riid, punk);
+	public HRESULT FireDebuggerEvent(ref Guid riid, IUnknown* punk) mut => VT.[Friend]FireDebuggerEvent(&this, ref riid, punk);
 
 	public HRESULT HandleRuntimeError(IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUME_ACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) mut => VT.[Friend]HandleRuntimeError(&this, pErrorDebug, pScriptSite, pbra, perra, pfCallOnScriptError);
 
@@ -21741,7 +21741,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication64*/SelfOuter* self) QueryCurrentThreadIsDebuggerThread;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication64*/SelfOuter* self, IDebugThreadCall64* pptc, uint64 dwParam1, uint64 dwParam2, uint64 dwParam3) SynchronousCallInDebuggerThread;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication64*/SelfOuter* self, IDebugApplicationNode** ppdanNew) CreateApplicationNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication64*/SelfOuter* self, Guid riid, IUnknown* punk) FireDebuggerEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication64*/SelfOuter* self, ref Guid riid, IUnknown* punk) FireDebuggerEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDebugApplication64*/SelfOuter* self, IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUME_ACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) HandleRuntimeError;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*IDebugApplication64*/SelfOuter* self) FCanJitDebug;
 		protected new function [CallingConvention(.Stdcall)] BOOL(/*IDebugApplication64*/SelfOuter* self) FIsAutoJitDebugEnabled;
@@ -21778,7 +21778,7 @@ public static
 
 	public HRESULT CreateApplicationNode(IDebugApplicationNode** ppdanNew) mut => VT.[Friend]CreateApplicationNode(&this, ppdanNew);
 
-	public HRESULT FireDebuggerEvent(Guid riid, IUnknown* punk) mut => VT.[Friend]FireDebuggerEvent(&this, riid, punk);
+	public HRESULT FireDebuggerEvent(ref Guid riid, IUnknown* punk) mut => VT.[Friend]FireDebuggerEvent(&this, ref riid, punk);
 
 	public HRESULT HandleRuntimeError(IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUME_ACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) mut => VT.[Friend]HandleRuntimeError(&this, pErrorDebug, pScriptSite, pbra, perra, pfCallOnScriptError);
 
@@ -22234,13 +22234,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptProfilerControl*/SelfOuter* self, Guid clsidProfilerObject, uint32 dwEventMask, uint32 dwContext) StartProfiling;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptProfilerControl*/SelfOuter* self, ref Guid clsidProfilerObject, uint32 dwEventMask, uint32 dwContext) StartProfiling;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptProfilerControl*/SelfOuter* self, uint32 dwEventMask) SetProfilerEventMask;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptProfilerControl*/SelfOuter* self, HRESULT hrShutdownReason) StopProfiling;
 	}
 
 
-	public HRESULT StartProfiling(Guid clsidProfilerObject, uint32 dwEventMask, uint32 dwContext) mut => VT.[Friend]StartProfiling(&this, clsidProfilerObject, dwEventMask, dwContext);
+	public HRESULT StartProfiling(ref Guid clsidProfilerObject, uint32 dwEventMask, uint32 dwContext) mut => VT.[Friend]StartProfiling(&this, ref clsidProfilerObject, dwEventMask, dwContext);
 
 	public HRESULT SetProfilerEventMask(uint32 dwEventMask) mut => VT.[Friend]SetProfilerEventMask(&this, dwEventMask);
 
@@ -22276,7 +22276,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptProfilerHeapEnum*/SelfOuter* self, uint32 celt, PROFILER_HEAP_OBJECT** heapObjects, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptProfilerHeapEnum*/SelfOuter* self, PROFILER_HEAP_OBJECT* heapObject, uint32 celt, PROFILER_HEAP_OBJECT_OPTIONAL_INFO* optionalInfo) GetOptionalInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptProfilerHeapEnum*/SelfOuter* self, uint32 celt, PROFILER_HEAP_OBJECT** heapObjects) FreeObjectAndOptionalInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptProfilerHeapEnum*/SelfOuter* self, PWSTR* pNameList, uint32* pcelt) GetNameIdMap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptProfilerHeapEnum*/SelfOuter* self, PWSTR*** pNameList, uint32* pcelt) GetNameIdMap;
 	}
 
 
@@ -22286,7 +22286,7 @@ public static
 
 	public HRESULT FreeObjectAndOptionalInfo(uint32 celt, PROFILER_HEAP_OBJECT** heapObjects) mut => VT.[Friend]FreeObjectAndOptionalInfo(&this, celt, heapObjects);
 
-	public HRESULT GetNameIdMap(PWSTR* pNameList, uint32* pcelt) mut => VT.[Friend]GetNameIdMap(&this, pNameList, pcelt);
+	public HRESULT GetNameIdMap(PWSTR*** pNameList, uint32* pcelt) mut => VT.[Friend]GetNameIdMap(&this, pNameList, pcelt);
 }
 
 [CRepr]struct IActiveScriptProfilerControl3 : IActiveScriptProfilerControl2
@@ -22531,8 +22531,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, uint32* pgrfasa) GetLanguageFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, IDispatch* pdisp, PWSTR pszItem, PWSTR pszSubItem, PWSTR pszEvent, IScriptEntry** ppse) GetEventHandler;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, PWSTR pszName) RemoveNamedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor, uint32 dwFlags) AddTypeLib;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor) RemoveTypeLib;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, ref Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor, uint32 dwFlags) AddTypeLib;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, ref Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor) RemoveTypeLib;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, uint32 fRequestedList, BSTR* pbstrChars) GetChars;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, PWSTR pszCode, uint32 cchCode, uint32 ichCurrentPosition, uint32 dwListTypesRequested, uint32* pdwListTypesProvided, uint32* pichListAnchorPosition, uint32* pichFuncAnchorPosition, int32* pmemid, int32* piCurrentParameter, IUnknown** ppunk) GetInfoFromContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveScriptAuthor*/SelfOuter* self, char16 ch, BOOL* pfcommit) IsCommitChar;
@@ -22557,9 +22557,9 @@ public static
 
 	public HRESULT RemoveNamedItem(PWSTR pszName) mut => VT.[Friend]RemoveNamedItem(&this, pszName);
 
-	public HRESULT AddTypeLib(Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor, uint32 dwFlags) mut => VT.[Friend]AddTypeLib(&this, rguidTypeLib, dwMajor, dwMinor, dwFlags);
+	public HRESULT AddTypeLib(ref Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor, uint32 dwFlags) mut => VT.[Friend]AddTypeLib(&this, ref rguidTypeLib, dwMajor, dwMinor, dwFlags);
 
-	public HRESULT RemoveTypeLib(Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor) mut => VT.[Friend]RemoveTypeLib(&this, rguidTypeLib, dwMajor, dwMinor);
+	public HRESULT RemoveTypeLib(ref Guid rguidTypeLib, uint32 dwMajor, uint32 dwMinor) mut => VT.[Friend]RemoveTypeLib(&this, ref rguidTypeLib, dwMajor, dwMinor);
 
 	public HRESULT GetChars(uint32 fRequestedList, BSTR* pbstrChars) mut => VT.[Friend]GetChars(&this, fRequestedList, pbstrChars);
 
@@ -22613,13 +22613,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebAppDiagnosticsSetup*/SelfOuter* self, int16* pRetVal) DiagnosticsSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebAppDiagnosticsSetup*/SelfOuter* self, Guid rclsid, uint32 dwClsContext, Guid riid, uint hPassToObject) CreateObjectWithSiteAtWebApp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebAppDiagnosticsSetup*/SelfOuter* self, ref Guid rclsid, uint32 dwClsContext, ref Guid riid, uint hPassToObject) CreateObjectWithSiteAtWebApp;
 	}
 
 
 	public HRESULT DiagnosticsSupported(int16* pRetVal) mut => VT.[Friend]DiagnosticsSupported(&this, pRetVal);
 
-	public HRESULT CreateObjectWithSiteAtWebApp(Guid rclsid, uint32 dwClsContext, Guid riid, uint hPassToObject) mut => VT.[Friend]CreateObjectWithSiteAtWebApp(&this, rclsid, dwClsContext, riid, hPassToObject);
+	public HRESULT CreateObjectWithSiteAtWebApp(ref Guid rclsid, uint32 dwClsContext, ref Guid riid, uint hPassToObject) mut => VT.[Friend]CreateObjectWithSiteAtWebApp(&this, ref rclsid, dwClsContext, ref riid, hPassToObject);
 }
 
 [CRepr]struct IRemoteDebugApplication110 : IUnknown
@@ -23092,14 +23092,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectSafety*/SelfOuter* self, Guid riid, uint32* pdwSupportedOptions, uint32* pdwEnabledOptions) GetInterfaceSafetyOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectSafety*/SelfOuter* self, Guid riid, uint32 dwOptionSetMask, uint32 dwEnabledOptions) SetInterfaceSafetyOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectSafety*/SelfOuter* self, ref Guid riid, uint32* pdwSupportedOptions, uint32* pdwEnabledOptions) GetInterfaceSafetyOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectSafety*/SelfOuter* self, ref Guid riid, uint32 dwOptionSetMask, uint32 dwEnabledOptions) SetInterfaceSafetyOptions;
 	}
 
 
-	public HRESULT GetInterfaceSafetyOptions(Guid riid, uint32* pdwSupportedOptions, uint32* pdwEnabledOptions) mut => VT.[Friend]GetInterfaceSafetyOptions(&this, riid, pdwSupportedOptions, pdwEnabledOptions);
+	public HRESULT GetInterfaceSafetyOptions(ref Guid riid, uint32* pdwSupportedOptions, uint32* pdwEnabledOptions) mut => VT.[Friend]GetInterfaceSafetyOptions(&this, ref riid, pdwSupportedOptions, pdwEnabledOptions);
 
-	public HRESULT SetInterfaceSafetyOptions(Guid riid, uint32 dwOptionSetMask, uint32 dwEnabledOptions) mut => VT.[Friend]SetInterfaceSafetyOptions(&this, riid, dwOptionSetMask, dwEnabledOptions);
+	public HRESULT SetInterfaceSafetyOptions(ref Guid riid, uint32 dwOptionSetMask, uint32 dwEnabledOptions) mut => VT.[Friend]SetInterfaceSafetyOptions(&this, ref riid, dwOptionSetMask, dwEnabledOptions);
 }
 
 #endregion
@@ -23133,16 +23133,16 @@ public static
 
 #endif
 	[Import("dbgeng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DebugConnect(PSTR RemoteOptions, Guid InterfaceId, void** Interface);
+	public static extern HRESULT DebugConnect(PSTR RemoteOptions, ref Guid InterfaceId, void** Interface);
 
 	[Import("dbgeng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DebugConnectWide(PWSTR RemoteOptions, Guid InterfaceId, void** Interface);
+	public static extern HRESULT DebugConnectWide(PWSTR RemoteOptions, ref Guid InterfaceId, void** Interface);
 
 	[Import("dbgeng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DebugCreate(Guid InterfaceId, void** Interface);
+	public static extern HRESULT DebugCreate(ref Guid InterfaceId, void** Interface);
 
 	[Import("dbgeng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DebugCreateEx(Guid InterfaceId, uint32 DbgEngOptions, void** Interface);
+	public static extern HRESULT DebugCreateEx(ref Guid InterfaceId, uint32 DbgEngOptions, void** Interface);
 
 	[Import("dbgmodel.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateDataModelManager(IDebugHost* debugHost, IDataModelManager** manager);
@@ -23663,7 +23663,7 @@ public static
 	public static extern BOOL SymMatchFileName(PSTR FileName, PSTR Match, PSTR* FileNameStop, PSTR* MatchStop);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymMatchFileNameW(PWSTR FileName, PWSTR Match, PWSTR FileNameStop, PWSTR MatchStop);
+	public static extern BOOL SymMatchFileNameW(PWSTR FileName, PWSTR Match, PWSTR* FileNameStop, PWSTR* MatchStop);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetSourceFile(HANDLE hProcess, uint64 Base, PSTR Params, PSTR FileSpec, uint8* FilePath, uint32 Size);
@@ -23903,10 +23903,10 @@ public static
 	public static extern PWSTR SymSrvGetSupplementW(HANDLE hProcess, PWSTR SymPath, PWSTR Node, PWSTR File);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymSrvGetFileIndexes(PSTR File, Guid Id, uint32* Val1, uint32* Val2, uint32 Flags);
+	public static extern BOOL SymSrvGetFileIndexes(PSTR File, ref Guid Id, uint32* Val1, uint32* Val2, uint32 Flags);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymSrvGetFileIndexesW(PWSTR File, Guid Id, uint32* Val1, uint32* Val2, uint32 Flags);
+	public static extern BOOL SymSrvGetFileIndexesW(PWSTR File, ref Guid Id, uint32* Val1, uint32* Val2, uint32 Flags);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymSrvGetFileIndexStringW(HANDLE hProcess, PWSTR SrvPath, PWSTR File, char16* Index, uint Size, uint32 Flags);

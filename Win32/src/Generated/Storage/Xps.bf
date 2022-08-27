@@ -678,27 +678,27 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMMatrixTransform** matrixTransform) GetTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMMatrixTransform** matrixTransform) GetTransformLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMMatrixTransform* matrixTransform) SetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR key) GetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR* key) GetTransformLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR key) SetTransformLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMGeometry** clipGeometry) GetClipGeometry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMGeometry** clipGeometry) GetClipGeometryLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMGeometry* clipGeometry) SetClipGeometryLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR key) GetClipGeometryLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR* key) GetClipGeometryLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR key) SetClipGeometryLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, float* opacity) GetOpacity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, float opacity) SetOpacity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMBrush** opacityMaskBrush) GetOpacityMaskBrush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMBrush** opacityMaskBrush) GetOpacityMaskBrushLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMBrush* opacityMaskBrush) SetOpacityMaskBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR key) GetOpacityMaskBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR* key) GetOpacityMaskBrushLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR key) SetOpacityMaskBrushLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR* name) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR name) SetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, BOOL* isHyperlink) GetIsHyperlinkTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, BOOL isHyperlink) SetIsHyperlinkTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IUri** hyperlinkUri) GetHyperlinkNavigateUri;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IUri* hyperlinkUri) SetHyperlinkNavigateUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR language) GetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR* language) GetLanguage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR language) SetLanguage;
 	}
 
@@ -709,7 +709,7 @@ public static
 
 	public HRESULT SetTransformLocal(IXpsOMMatrixTransform* matrixTransform) mut => VT.[Friend]SetTransformLocal(&this, matrixTransform);
 
-	public HRESULT GetTransformLookup(PWSTR key) mut => VT.[Friend]GetTransformLookup(&this, key);
+	public HRESULT GetTransformLookup(PWSTR* key) mut => VT.[Friend]GetTransformLookup(&this, key);
 
 	public HRESULT SetTransformLookup(PWSTR key) mut => VT.[Friend]SetTransformLookup(&this, key);
 
@@ -719,7 +719,7 @@ public static
 
 	public HRESULT SetClipGeometryLocal(IXpsOMGeometry* clipGeometry) mut => VT.[Friend]SetClipGeometryLocal(&this, clipGeometry);
 
-	public HRESULT GetClipGeometryLookup(PWSTR key) mut => VT.[Friend]GetClipGeometryLookup(&this, key);
+	public HRESULT GetClipGeometryLookup(PWSTR* key) mut => VT.[Friend]GetClipGeometryLookup(&this, key);
 
 	public HRESULT SetClipGeometryLookup(PWSTR key) mut => VT.[Friend]SetClipGeometryLookup(&this, key);
 
@@ -733,11 +733,11 @@ public static
 
 	public HRESULT SetOpacityMaskBrushLocal(IXpsOMBrush* opacityMaskBrush) mut => VT.[Friend]SetOpacityMaskBrushLocal(&this, opacityMaskBrush);
 
-	public HRESULT GetOpacityMaskBrushLookup(PWSTR key) mut => VT.[Friend]GetOpacityMaskBrushLookup(&this, key);
+	public HRESULT GetOpacityMaskBrushLookup(PWSTR* key) mut => VT.[Friend]GetOpacityMaskBrushLookup(&this, key);
 
 	public HRESULT SetOpacityMaskBrushLookup(PWSTR key) mut => VT.[Friend]SetOpacityMaskBrushLookup(&this, key);
 
-	public HRESULT GetName(PWSTR name) mut => VT.[Friend]GetName(&this, name);
+	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
 
 	public HRESULT SetName(PWSTR name) mut => VT.[Friend]SetName(&this, name);
 
@@ -749,7 +749,7 @@ public static
 
 	public HRESULT SetHyperlinkNavigateUri(IUri* hyperlinkUri) mut => VT.[Friend]SetHyperlinkNavigateUri(&this, hyperlinkUri);
 
-	public HRESULT GetLanguage(PWSTR language) mut => VT.[Friend]GetLanguage(&this, language);
+	public HRESULT GetLanguage(PWSTR* language) mut => VT.[Friend]GetLanguage(&this, language);
 
 	public HRESULT SetLanguage(PWSTR language) mut => VT.[Friend]SetLanguage(&this, language);
 }
@@ -781,7 +781,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self) ApplyEdits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, PWSTR unicodeString) GetUnicodeString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, PWSTR* unicodeString) GetUnicodeString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, PWSTR unicodeString) SetUnicodeString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32* indexCount) GetGlyphIndexCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32* indexCount, XPS_GLYPH_INDEX* glyphIndices) GetGlyphIndices;
@@ -796,14 +796,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32 bidiLevel) SetBidiLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, BOOL* isSideways) GetIsSideways;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, BOOL isSideways) SetIsSideways;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, PWSTR deviceFontName) GetDeviceFontName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, PWSTR* deviceFontName) GetDeviceFontName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, PWSTR deviceFontName) SetDeviceFontName;
 	}
 
 
 	public HRESULT ApplyEdits() mut => VT.[Friend]ApplyEdits(&this);
 
-	public HRESULT GetUnicodeString(PWSTR unicodeString) mut => VT.[Friend]GetUnicodeString(&this, unicodeString);
+	public HRESULT GetUnicodeString(PWSTR* unicodeString) mut => VT.[Friend]GetUnicodeString(&this, unicodeString);
 
 	public HRESULT SetUnicodeString(PWSTR unicodeString) mut => VT.[Friend]SetUnicodeString(&this, unicodeString);
 
@@ -833,7 +833,7 @@ public static
 
 	public HRESULT SetIsSideways(BOOL isSideways) mut => VT.[Friend]SetIsSideways(&this, isSideways);
 
-	public HRESULT GetDeviceFontName(PWSTR deviceFontName) mut => VT.[Friend]GetDeviceFontName(&this, deviceFontName);
+	public HRESULT GetDeviceFontName(PWSTR* deviceFontName) mut => VT.[Friend]GetDeviceFontName(&this, deviceFontName);
 
 	public HRESULT SetDeviceFontName(PWSTR deviceFontName) mut => VT.[Friend]SetDeviceFontName(&this, deviceFontName);
 }
@@ -846,7 +846,7 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMVisual.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR unicodeString) GetUnicodeString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR* unicodeString) GetUnicodeString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* indexCount) GetGlyphIndexCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* indexCount, XPS_GLYPH_INDEX* glyphIndices) GetGlyphIndices;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* glyphMappingCount) GetGlyphMappingCount;
@@ -855,7 +855,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* prohibitedCaretStopCount, uint32* prohibitedCaretStops) GetProhibitedCaretStops;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* bidiLevel) GetBidiLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, BOOL* isSideways) GetIsSideways;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR deviceFontName) GetDeviceFontName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR* deviceFontName) GetDeviceFontName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, XPS_STYLE_SIMULATION* styleSimulations) GetStyleSimulations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, XPS_STYLE_SIMULATION styleSimulations) SetStyleSimulations;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, XPS_POINT* origin) GetOrigin;
@@ -869,14 +869,14 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMBrush** fillBrush) GetFillBrush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMBrush** fillBrush) GetFillBrushLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMBrush* fillBrush) SetFillBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR key) GetFillBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR* key) GetFillBrushLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR key) SetFillBrushLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMGlyphsEditor** editor) GetGlyphsEditor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMGlyphs** glyphs) Clone;
 	}
 
 
-	public HRESULT GetUnicodeString(PWSTR unicodeString) mut => VT.[Friend]GetUnicodeString(&this, unicodeString);
+	public HRESULT GetUnicodeString(PWSTR* unicodeString) mut => VT.[Friend]GetUnicodeString(&this, unicodeString);
 
 	public HRESULT GetGlyphIndexCount(uint32* indexCount) mut => VT.[Friend]GetGlyphIndexCount(&this, indexCount);
 
@@ -894,7 +894,7 @@ public static
 
 	public HRESULT GetIsSideways(BOOL* isSideways) mut => VT.[Friend]GetIsSideways(&this, isSideways);
 
-	public HRESULT GetDeviceFontName(PWSTR deviceFontName) mut => VT.[Friend]GetDeviceFontName(&this, deviceFontName);
+	public HRESULT GetDeviceFontName(PWSTR* deviceFontName) mut => VT.[Friend]GetDeviceFontName(&this, deviceFontName);
 
 	public HRESULT GetStyleSimulations(XPS_STYLE_SIMULATION* styleSimulations) mut => VT.[Friend]GetStyleSimulations(&this, styleSimulations);
 
@@ -922,7 +922,7 @@ public static
 
 	public HRESULT SetFillBrushLocal(IXpsOMBrush* fillBrush) mut => VT.[Friend]SetFillBrushLocal(&this, fillBrush);
 
-	public HRESULT GetFillBrushLookup(PWSTR key) mut => VT.[Friend]GetFillBrushLookup(&this, key);
+	public HRESULT GetFillBrushLookup(PWSTR* key) mut => VT.[Friend]GetFillBrushLookup(&this, key);
 
 	public HRESULT SetFillBrushLookup(PWSTR key) mut => VT.[Friend]SetFillBrushLookup(&this, key);
 
@@ -996,7 +996,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransformLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, IXpsOMMatrixTransform* transform) SetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, PWSTR lookup) GetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, PWSTR* lookup) GetTransformLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, PWSTR lookup) SetTransformLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, IXpsOMGeometry** geometry) Clone;
 	}
@@ -1014,7 +1014,7 @@ public static
 
 	public HRESULT SetTransformLocal(IXpsOMMatrixTransform* transform) mut => VT.[Friend]SetTransformLocal(&this, transform);
 
-	public HRESULT GetTransformLookup(PWSTR lookup) mut => VT.[Friend]GetTransformLookup(&this, lookup);
+	public HRESULT GetTransformLookup(PWSTR* lookup) mut => VT.[Friend]GetTransformLookup(&this, lookup);
 
 	public HRESULT SetTransformLookup(PWSTR lookup) mut => VT.[Friend]SetTransformLookup(&this, lookup);
 
@@ -1119,18 +1119,18 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMGeometry** geometry) GetGeometry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMGeometry** geometry) GetGeometryLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMGeometry* geometry) SetGeometryLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR lookup) GetGeometryLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR* lookup) GetGeometryLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR lookup) SetGeometryLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR shortDescription) GetAccessibilityShortDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR* shortDescription) GetAccessibilityShortDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR shortDescription) SetAccessibilityShortDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR longDescription) GetAccessibilityLongDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR* longDescription) GetAccessibilityLongDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR longDescription) SetAccessibilityLongDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, BOOL* snapsToPixels) GetSnapsToPixels;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, BOOL snapsToPixels) SetSnapsToPixels;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush** brush) GetStrokeBrush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush** brush) GetStrokeBrushLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush* brush) SetStrokeBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR lookup) GetStrokeBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR* lookup) GetStrokeBrushLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR lookup) SetStrokeBrushLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMDashCollection** strokeDashes) GetStrokeDashes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, XPS_DASH_CAP* strokeDashCap) GetStrokeDashCap;
@@ -1150,7 +1150,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush** brush) GetFillBrush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush** brush) GetFillBrushLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush* brush) SetFillBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR lookup) GetFillBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR* lookup) GetFillBrushLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR lookup) SetFillBrushLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMPath** path) Clone;
 	}
@@ -1162,15 +1162,15 @@ public static
 
 	public HRESULT SetGeometryLocal(IXpsOMGeometry* geometry) mut => VT.[Friend]SetGeometryLocal(&this, geometry);
 
-	public HRESULT GetGeometryLookup(PWSTR lookup) mut => VT.[Friend]GetGeometryLookup(&this, lookup);
+	public HRESULT GetGeometryLookup(PWSTR* lookup) mut => VT.[Friend]GetGeometryLookup(&this, lookup);
 
 	public HRESULT SetGeometryLookup(PWSTR lookup) mut => VT.[Friend]SetGeometryLookup(&this, lookup);
 
-	public HRESULT GetAccessibilityShortDescription(PWSTR shortDescription) mut => VT.[Friend]GetAccessibilityShortDescription(&this, shortDescription);
+	public HRESULT GetAccessibilityShortDescription(PWSTR* shortDescription) mut => VT.[Friend]GetAccessibilityShortDescription(&this, shortDescription);
 
 	public HRESULT SetAccessibilityShortDescription(PWSTR shortDescription) mut => VT.[Friend]SetAccessibilityShortDescription(&this, shortDescription);
 
-	public HRESULT GetAccessibilityLongDescription(PWSTR longDescription) mut => VT.[Friend]GetAccessibilityLongDescription(&this, longDescription);
+	public HRESULT GetAccessibilityLongDescription(PWSTR* longDescription) mut => VT.[Friend]GetAccessibilityLongDescription(&this, longDescription);
 
 	public HRESULT SetAccessibilityLongDescription(PWSTR longDescription) mut => VT.[Friend]SetAccessibilityLongDescription(&this, longDescription);
 
@@ -1184,7 +1184,7 @@ public static
 
 	public HRESULT SetStrokeBrushLocal(IXpsOMBrush* brush) mut => VT.[Friend]SetStrokeBrushLocal(&this, brush);
 
-	public HRESULT GetStrokeBrushLookup(PWSTR lookup) mut => VT.[Friend]GetStrokeBrushLookup(&this, lookup);
+	public HRESULT GetStrokeBrushLookup(PWSTR* lookup) mut => VT.[Friend]GetStrokeBrushLookup(&this, lookup);
 
 	public HRESULT SetStrokeBrushLookup(PWSTR lookup) mut => VT.[Friend]SetStrokeBrushLookup(&this, lookup);
 
@@ -1224,7 +1224,7 @@ public static
 
 	public HRESULT SetFillBrushLocal(IXpsOMBrush* brush) mut => VT.[Friend]SetFillBrushLocal(&this, brush);
 
-	public HRESULT GetFillBrushLookup(PWSTR lookup) mut => VT.[Friend]GetFillBrushLookup(&this, lookup);
+	public HRESULT GetFillBrushLookup(PWSTR* lookup) mut => VT.[Friend]GetFillBrushLookup(&this, lookup);
 
 	public HRESULT SetFillBrushLookup(PWSTR lookup) mut => VT.[Friend]SetFillBrushLookup(&this, lookup);
 
@@ -1311,7 +1311,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransformLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, IXpsOMMatrixTransform* transform) SetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, PWSTR key) GetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, PWSTR* key) GetTransformLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, PWSTR key) SetTransformLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, XPS_RECT* viewbox) GetViewbox;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, XPS_RECT* viewbox) SetViewbox;
@@ -1328,7 +1328,7 @@ public static
 
 	public HRESULT SetTransformLocal(IXpsOMMatrixTransform* transform) mut => VT.[Friend]SetTransformLocal(&this, transform);
 
-	public HRESULT GetTransformLookup(PWSTR key) mut => VT.[Friend]GetTransformLookup(&this, key);
+	public HRESULT GetTransformLookup(PWSTR* key) mut => VT.[Friend]GetTransformLookup(&this, key);
 
 	public HRESULT SetTransformLookup(PWSTR key) mut => VT.[Friend]SetTransformLookup(&this, key);
 
@@ -1356,7 +1356,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, IXpsOMVisual** visual) GetVisual;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, IXpsOMVisual** visual) GetVisualLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, IXpsOMVisual* visual) SetVisualLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, PWSTR lookup) GetVisualLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, PWSTR* lookup) GetVisualLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, PWSTR lookup) SetVisualLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, IXpsOMVisualBrush** visualBrush) Clone;
 	}
@@ -1368,7 +1368,7 @@ public static
 
 	public HRESULT SetVisualLocal(IXpsOMVisual* visual) mut => VT.[Friend]SetVisualLocal(&this, visual);
 
-	public HRESULT GetVisualLookup(PWSTR lookup) mut => VT.[Friend]GetVisualLookup(&this, lookup);
+	public HRESULT GetVisualLookup(PWSTR* lookup) mut => VT.[Friend]GetVisualLookup(&this, lookup);
 
 	public HRESULT SetVisualLookup(PWSTR lookup) mut => VT.[Friend]SetVisualLookup(&this, lookup);
 
@@ -1444,7 +1444,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransformLocal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, IXpsOMMatrixTransform* transform) SetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, PWSTR key) GetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, PWSTR* key) GetTransformLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, PWSTR key) SetTransformLookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, XPS_SPREAD_METHOD* spreadMethod) GetSpreadMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, XPS_SPREAD_METHOD spreadMethod) SetSpreadMethod;
@@ -1461,7 +1461,7 @@ public static
 
 	public HRESULT SetTransformLocal(IXpsOMMatrixTransform* transform) mut => VT.[Friend]SetTransformLocal(&this, transform);
 
-	public HRESULT GetTransformLookup(PWSTR key) mut => VT.[Friend]GetTransformLookup(&this, key);
+	public HRESULT GetTransformLookup(PWSTR* key) mut => VT.[Friend]GetTransformLookup(&this, key);
 
 	public HRESULT SetTransformLookup(PWSTR key) mut => VT.[Friend]SetTransformLookup(&this, key);
 
@@ -1580,7 +1580,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, IUnknown** owner) GetOwner;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, uint32 index, PWSTR key, IXpsOMShareable** entry) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, uint32 index, PWSTR* key, IXpsOMShareable** entry) GetAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, PWSTR key, IXpsOMShareable* beforeEntry, IXpsOMShareable** entry) GetByKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, IXpsOMShareable* entry, uint32* index) GetIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, PWSTR key, IXpsOMShareable* entry) Append;
@@ -1595,7 +1595,7 @@ public static
 
 	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
-	public HRESULT GetAt(uint32 index, PWSTR key, IXpsOMShareable** entry) mut => VT.[Friend]GetAt(&this, index, key, entry);
+	public HRESULT GetAt(uint32 index, PWSTR* key, IXpsOMShareable** entry) mut => VT.[Friend]GetAt(&this, index, key, entry);
 
 	public HRESULT GetByKey(PWSTR key, IXpsOMShareable* beforeEntry, IXpsOMShareable** entry) mut => VT.[Friend]GetByKey(&this, key, beforeEntry, entry);
 
@@ -1977,9 +1977,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, IXpsOMVisualCollection** visuals) GetVisuals;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, BOOL* useAliasedEdgeMode) GetUseAliasedEdgeMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, BOOL useAliasedEdgeMode) SetUseAliasedEdgeMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, PWSTR shortDescription) GetAccessibilityShortDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, PWSTR* shortDescription) GetAccessibilityShortDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, PWSTR shortDescription) SetAccessibilityShortDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, PWSTR longDescription) GetAccessibilityLongDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, PWSTR* longDescription) GetAccessibilityLongDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, PWSTR longDescription) SetAccessibilityLongDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, IXpsOMDictionary** resourceDictionary) GetDictionary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, IXpsOMDictionary** resourceDictionary) GetDictionaryLocal;
@@ -1996,11 +1996,11 @@ public static
 
 	public HRESULT SetUseAliasedEdgeMode(BOOL useAliasedEdgeMode) mut => VT.[Friend]SetUseAliasedEdgeMode(&this, useAliasedEdgeMode);
 
-	public HRESULT GetAccessibilityShortDescription(PWSTR shortDescription) mut => VT.[Friend]GetAccessibilityShortDescription(&this, shortDescription);
+	public HRESULT GetAccessibilityShortDescription(PWSTR* shortDescription) mut => VT.[Friend]GetAccessibilityShortDescription(&this, shortDescription);
 
 	public HRESULT SetAccessibilityShortDescription(PWSTR shortDescription) mut => VT.[Friend]SetAccessibilityShortDescription(&this, shortDescription);
 
-	public HRESULT GetAccessibilityLongDescription(PWSTR longDescription) mut => VT.[Friend]GetAccessibilityLongDescription(&this, longDescription);
+	public HRESULT GetAccessibilityLongDescription(PWSTR* longDescription) mut => VT.[Friend]GetAccessibilityLongDescription(&this, longDescription);
 
 	public HRESULT SetAccessibilityLongDescription(PWSTR longDescription) mut => VT.[Friend]SetAccessibilityLongDescription(&this, longDescription);
 
@@ -2033,9 +2033,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_RECT* contentBox) SetContentBox;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_RECT* bleedBox) GetBleedBox;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_RECT* bleedBox) SetBleedBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, PWSTR language) GetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, PWSTR* language) GetLanguage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, PWSTR language) SetLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, PWSTR name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, PWSTR* name) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, PWSTR name) SetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, BOOL* isHyperlinkTarget) GetIsHyperlinkTarget;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, BOOL isHyperlinkTarget) SetIsHyperlinkTarget;
@@ -2045,7 +2045,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMRemoteDictionaryResource** remoteDictionaryResource) GetDictionaryResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMRemoteDictionaryResource* remoteDictionaryResource) SetDictionaryResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, ISequentialStream* stream, BOOL optimizeMarkupSize) Write;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_OBJECT_TYPE type, PWSTR key) GenerateUnusedLookupKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_OBJECT_TYPE type, PWSTR* key) GenerateUnusedLookupKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMPage** page) Clone;
 	}
 
@@ -2066,11 +2066,11 @@ public static
 
 	public HRESULT SetBleedBox(XPS_RECT* bleedBox) mut => VT.[Friend]SetBleedBox(&this, bleedBox);
 
-	public HRESULT GetLanguage(PWSTR language) mut => VT.[Friend]GetLanguage(&this, language);
+	public HRESULT GetLanguage(PWSTR* language) mut => VT.[Friend]GetLanguage(&this, language);
 
 	public HRESULT SetLanguage(PWSTR language) mut => VT.[Friend]SetLanguage(&this, language);
 
-	public HRESULT GetName(PWSTR name) mut => VT.[Friend]GetName(&this, name);
+	public HRESULT GetName(PWSTR* name) mut => VT.[Friend]GetName(&this, name);
 
 	public HRESULT SetName(PWSTR name) mut => VT.[Friend]SetName(&this, name);
 
@@ -2090,7 +2090,7 @@ public static
 
 	public HRESULT Write(ISequentialStream* stream, BOOL optimizeMarkupSize) mut => VT.[Friend]Write(&this, stream, optimizeMarkupSize);
 
-	public HRESULT GenerateUnusedLookupKey(XPS_OBJECT_TYPE type, PWSTR key) mut => VT.[Friend]GenerateUnusedLookupKey(&this, type, key);
+	public HRESULT GenerateUnusedLookupKey(XPS_OBJECT_TYPE type, PWSTR* key) mut => VT.[Friend]GenerateUnusedLookupKey(&this, type, key);
 
 	public HRESULT Clone(IXpsOMPage** page) mut => VT.[Friend]Clone(&this, page);
 }
@@ -2287,37 +2287,37 @@ public static
 	[CRepr]public struct VTable : IXpsOMPart.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, IXpsOMPackage** package) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR category) GetCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* category) GetCategory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR category) SetCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR contentStatus) GetContentStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* contentStatus) GetContentStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR contentStatus) SetContentStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR contentType) GetContentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* contentType) GetContentType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR contentType) SetContentType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* created) GetCreated;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* created) SetCreated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR creator) GetCreator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* creator) GetCreator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR creator) SetCreator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR description) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* description) GetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR description) SetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR identifier) GetIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* identifier) GetIdentifier;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR identifier) SetIdentifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR keywords) GetKeywords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* keywords) GetKeywords;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR keywords) SetKeywords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR language) GetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* language) GetLanguage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR language) SetLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR lastModifiedBy) GetLastModifiedBy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* lastModifiedBy) GetLastModifiedBy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR lastModifiedBy) SetLastModifiedBy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* lastPrinted) GetLastPrinted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* lastPrinted) SetLastPrinted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* modified) GetModified;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* modified) SetModified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR revision) GetRevision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* revision) GetRevision;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR revision) SetRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR subject) GetSubject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* subject) GetSubject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR subject) SetSubject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR title) GetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* title) GetTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR title) SetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR version) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* version) GetVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR version) SetVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, IXpsOMCoreProperties** coreProperties) Clone;
 	}
@@ -2325,15 +2325,15 @@ public static
 
 	public HRESULT GetOwner(IXpsOMPackage** package) mut => VT.[Friend]GetOwner(&this, package);
 
-	public HRESULT GetCategory(PWSTR category) mut => VT.[Friend]GetCategory(&this, category);
+	public HRESULT GetCategory(PWSTR* category) mut => VT.[Friend]GetCategory(&this, category);
 
 	public HRESULT SetCategory(PWSTR category) mut => VT.[Friend]SetCategory(&this, category);
 
-	public HRESULT GetContentStatus(PWSTR contentStatus) mut => VT.[Friend]GetContentStatus(&this, contentStatus);
+	public HRESULT GetContentStatus(PWSTR* contentStatus) mut => VT.[Friend]GetContentStatus(&this, contentStatus);
 
 	public HRESULT SetContentStatus(PWSTR contentStatus) mut => VT.[Friend]SetContentStatus(&this, contentStatus);
 
-	public HRESULT GetContentType(PWSTR contentType) mut => VT.[Friend]GetContentType(&this, contentType);
+	public HRESULT GetContentType(PWSTR* contentType) mut => VT.[Friend]GetContentType(&this, contentType);
 
 	public HRESULT SetContentType(PWSTR contentType) mut => VT.[Friend]SetContentType(&this, contentType);
 
@@ -2341,27 +2341,27 @@ public static
 
 	public HRESULT SetCreated(SYSTEMTIME* created) mut => VT.[Friend]SetCreated(&this, created);
 
-	public HRESULT GetCreator(PWSTR creator) mut => VT.[Friend]GetCreator(&this, creator);
+	public HRESULT GetCreator(PWSTR* creator) mut => VT.[Friend]GetCreator(&this, creator);
 
 	public HRESULT SetCreator(PWSTR creator) mut => VT.[Friend]SetCreator(&this, creator);
 
-	public HRESULT GetDescription(PWSTR description) mut => VT.[Friend]GetDescription(&this, description);
+	public HRESULT GetDescription(PWSTR* description) mut => VT.[Friend]GetDescription(&this, description);
 
 	public HRESULT SetDescription(PWSTR description) mut => VT.[Friend]SetDescription(&this, description);
 
-	public HRESULT GetIdentifier(PWSTR identifier) mut => VT.[Friend]GetIdentifier(&this, identifier);
+	public HRESULT GetIdentifier(PWSTR* identifier) mut => VT.[Friend]GetIdentifier(&this, identifier);
 
 	public HRESULT SetIdentifier(PWSTR identifier) mut => VT.[Friend]SetIdentifier(&this, identifier);
 
-	public HRESULT GetKeywords(PWSTR keywords) mut => VT.[Friend]GetKeywords(&this, keywords);
+	public HRESULT GetKeywords(PWSTR* keywords) mut => VT.[Friend]GetKeywords(&this, keywords);
 
 	public HRESULT SetKeywords(PWSTR keywords) mut => VT.[Friend]SetKeywords(&this, keywords);
 
-	public HRESULT GetLanguage(PWSTR language) mut => VT.[Friend]GetLanguage(&this, language);
+	public HRESULT GetLanguage(PWSTR* language) mut => VT.[Friend]GetLanguage(&this, language);
 
 	public HRESULT SetLanguage(PWSTR language) mut => VT.[Friend]SetLanguage(&this, language);
 
-	public HRESULT GetLastModifiedBy(PWSTR lastModifiedBy) mut => VT.[Friend]GetLastModifiedBy(&this, lastModifiedBy);
+	public HRESULT GetLastModifiedBy(PWSTR* lastModifiedBy) mut => VT.[Friend]GetLastModifiedBy(&this, lastModifiedBy);
 
 	public HRESULT SetLastModifiedBy(PWSTR lastModifiedBy) mut => VT.[Friend]SetLastModifiedBy(&this, lastModifiedBy);
 
@@ -2373,19 +2373,19 @@ public static
 
 	public HRESULT SetModified(SYSTEMTIME* modified) mut => VT.[Friend]SetModified(&this, modified);
 
-	public HRESULT GetRevision(PWSTR revision) mut => VT.[Friend]GetRevision(&this, revision);
+	public HRESULT GetRevision(PWSTR* revision) mut => VT.[Friend]GetRevision(&this, revision);
 
 	public HRESULT SetRevision(PWSTR revision) mut => VT.[Friend]SetRevision(&this, revision);
 
-	public HRESULT GetSubject(PWSTR subject) mut => VT.[Friend]GetSubject(&this, subject);
+	public HRESULT GetSubject(PWSTR* subject) mut => VT.[Friend]GetSubject(&this, subject);
 
 	public HRESULT SetSubject(PWSTR subject) mut => VT.[Friend]SetSubject(&this, subject);
 
-	public HRESULT GetTitle(PWSTR title) mut => VT.[Friend]GetTitle(&this, title);
+	public HRESULT GetTitle(PWSTR* title) mut => VT.[Friend]GetTitle(&this, title);
 
 	public HRESULT SetTitle(PWSTR title) mut => VT.[Friend]SetTitle(&this, title);
 
-	public HRESULT GetVersion(PWSTR version) mut => VT.[Friend]GetVersion(&this, version);
+	public HRESULT GetVersion(PWSTR* version) mut => VT.[Friend]GetVersion(&this, version);
 
 	public HRESULT SetVersion(PWSTR version) mut => VT.[Friend]SetVersion(&this, version);
 
@@ -2566,13 +2566,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMNameCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMNameCollection*/SelfOuter* self, uint32 index, PWSTR name) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMNameCollection*/SelfOuter* self, uint32 index, PWSTR* name) GetAt;
 	}
 
 
 	public HRESULT GetCount(uint32* count) mut => VT.[Friend]GetCount(&this, count);
 
-	public HRESULT GetAt(uint32 index, PWSTR name) mut => VT.[Friend]GetAt(&this, index, name);
+	public HRESULT GetAt(uint32 index, PWSTR* name) mut => VT.[Friend]GetAt(&this, index, name);
 }
 
 [CRepr]struct IXpsOMPartUriCollection : IUnknown
@@ -2832,11 +2832,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR signatureId) GetSignatureId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR* signatureId) GetSignatureId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR signatureId) SetSignatureId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR signatureMethod) GetSignatureMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR* signatureMethod) GetSignatureMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR signatureMethod) SetSignatureMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR digestMethod) GetDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR digestMethod) SetDigestMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, IOpcPartUri* signaturePartName) SetSignaturePartName;
@@ -2852,15 +2852,15 @@ public static
 	}
 
 
-	public HRESULT GetSignatureId(PWSTR signatureId) mut => VT.[Friend]GetSignatureId(&this, signatureId);
+	public HRESULT GetSignatureId(PWSTR* signatureId) mut => VT.[Friend]GetSignatureId(&this, signatureId);
 
 	public HRESULT SetSignatureId(PWSTR signatureId) mut => VT.[Friend]SetSignatureId(&this, signatureId);
 
-	public HRESULT GetSignatureMethod(PWSTR signatureMethod) mut => VT.[Friend]GetSignatureMethod(&this, signatureMethod);
+	public HRESULT GetSignatureMethod(PWSTR* signatureMethod) mut => VT.[Friend]GetSignatureMethod(&this, signatureMethod);
 
 	public HRESULT SetSignatureMethod(PWSTR signatureMethod) mut => VT.[Friend]SetSignatureMethod(&this, signatureMethod);
 
-	public HRESULT GetDigestMethod(PWSTR digestMethod) mut => VT.[Friend]GetDigestMethod(&this, digestMethod);
+	public HRESULT GetDigestMethod(PWSTR* digestMethod) mut => VT.[Friend]GetDigestMethod(&this, digestMethod);
 
 	public HRESULT SetDigestMethod(PWSTR digestMethod) mut => VT.[Friend]SetDigestMethod(&this, digestMethod);
 
@@ -2916,10 +2916,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, PWSTR sigId) GetSignatureId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, PWSTR* sigId) GetSignatureId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, uint8** signatureHashValue, uint32* count) GetSignatureValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, IOpcCertificateEnumerator** certificateEnumerator) GetCertificateEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, PWSTR sigDateTimeString) GetSigningTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, PWSTR* sigDateTimeString) GetSigningTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetSigningTimeFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, CERT_CONTEXT* x509Certificate, XPS_SIGNATURE_STATUS* sigStatus) Verify;
@@ -2931,13 +2931,13 @@ public static
 	}
 
 
-	public HRESULT GetSignatureId(PWSTR sigId) mut => VT.[Friend]GetSignatureId(&this, sigId);
+	public HRESULT GetSignatureId(PWSTR* sigId) mut => VT.[Friend]GetSignatureId(&this, sigId);
 
 	public HRESULT GetSignatureValue(uint8** signatureHashValue, uint32* count) mut => VT.[Friend]GetSignatureValue(&this, signatureHashValue, count);
 
 	public HRESULT GetCertificateEnumerator(IOpcCertificateEnumerator** certificateEnumerator) mut => VT.[Friend]GetCertificateEnumerator(&this, certificateEnumerator);
 
-	public HRESULT GetSigningTime(PWSTR sigDateTimeString) mut => VT.[Friend]GetSigningTime(&this, sigDateTimeString);
+	public HRESULT GetSigningTime(PWSTR* sigDateTimeString) mut => VT.[Friend]GetSigningTime(&this, sigDateTimeString);
 
 	public HRESULT GetSigningTimeFormat(OPC_SIGNATURE_TIME_FORMAT* timeFormat) mut => VT.[Friend]GetSigningTimeFormat(&this, timeFormat);
 
@@ -3033,34 +3033,34 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR intent) GetIntent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR* intent) GetIntent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR intent) SetIntent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR signerName) GetRequestedSigner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR* signerName) GetRequestedSigner;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR signerName) SetRequestedSigner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR dateString) GetRequestSignByDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR* dateString) GetRequestSignByDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR dateString) SetRequestSignByDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR place) GetSigningLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR* place) GetSigningLocale;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR place) SetSigningLocale;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, int32* pageIndex, IOpcPartUri** pagePartName, float* x, float* y) GetSpotLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, int32 pageIndex, float x, float y) SetSpotLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR requestId) GetRequestId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR* requestId) GetRequestId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, IXpsSignature** signature) GetSignature;
 	}
 
 
-	public HRESULT GetIntent(PWSTR intent) mut => VT.[Friend]GetIntent(&this, intent);
+	public HRESULT GetIntent(PWSTR* intent) mut => VT.[Friend]GetIntent(&this, intent);
 
 	public HRESULT SetIntent(PWSTR intent) mut => VT.[Friend]SetIntent(&this, intent);
 
-	public HRESULT GetRequestedSigner(PWSTR signerName) mut => VT.[Friend]GetRequestedSigner(&this, signerName);
+	public HRESULT GetRequestedSigner(PWSTR* signerName) mut => VT.[Friend]GetRequestedSigner(&this, signerName);
 
 	public HRESULT SetRequestedSigner(PWSTR signerName) mut => VT.[Friend]SetRequestedSigner(&this, signerName);
 
-	public HRESULT GetRequestSignByDate(PWSTR dateString) mut => VT.[Friend]GetRequestSignByDate(&this, dateString);
+	public HRESULT GetRequestSignByDate(PWSTR* dateString) mut => VT.[Friend]GetRequestSignByDate(&this, dateString);
 
 	public HRESULT SetRequestSignByDate(PWSTR dateString) mut => VT.[Friend]SetRequestSignByDate(&this, dateString);
 
-	public HRESULT GetSigningLocale(PWSTR place) mut => VT.[Friend]GetSigningLocale(&this, place);
+	public HRESULT GetSigningLocale(PWSTR* place) mut => VT.[Friend]GetSigningLocale(&this, place);
 
 	public HRESULT SetSigningLocale(PWSTR place) mut => VT.[Friend]SetSigningLocale(&this, place);
 
@@ -3068,7 +3068,7 @@ public static
 
 	public HRESULT SetSpotLocation(int32 pageIndex, float x, float y) mut => VT.[Friend]SetSpotLocation(&this, pageIndex, x, y);
 
-	public HRESULT GetRequestId(PWSTR requestId) mut => VT.[Friend]GetRequestId(&this, requestId);
+	public HRESULT GetRequestId(PWSTR* requestId) mut => VT.[Friend]GetRequestId(&this, requestId);
 
 	public HRESULT GetSignature(IXpsSignature** signature) mut => VT.[Friend]GetSignature(&this, signature);
 }

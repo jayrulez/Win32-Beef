@@ -3559,7 +3559,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self) Uninitialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self, PWSTR pwszTemplate, PWSTR pwszParams, PWSTR ppwszResponse) GenerateChallenge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self, PWSTR pwszTemplate, PWSTR pwszParams, PWSTR* ppwszResponse) GenerateChallenge;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self, CERTTRANSBLOB* pctbRequest, CERTTRANSBLOB* pctbSigningCertEncoded, PWSTR pwszTemplate, PWSTR pwszTransactionId, BOOL* pfVerified) VerifyRequest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INDESPolicy*/SelfOuter* self, PWSTR pwszChallenge, PWSTR pwszTransactionId, X509SCEPDisposition disposition, int32 lastHResult, CERTTRANSBLOB* pctbIssuedCertEncoded) Notify;
 	}
@@ -3569,7 +3569,7 @@ public static
 
 	public HRESULT Uninitialize() mut => VT.[Friend]Uninitialize(&this);
 
-	public HRESULT GenerateChallenge(PWSTR pwszTemplate, PWSTR pwszParams, PWSTR ppwszResponse) mut => VT.[Friend]GenerateChallenge(&this, pwszTemplate, pwszParams, ppwszResponse);
+	public HRESULT GenerateChallenge(PWSTR pwszTemplate, PWSTR pwszParams, PWSTR* ppwszResponse) mut => VT.[Friend]GenerateChallenge(&this, pwszTemplate, pwszParams, ppwszResponse);
 
 	public HRESULT VerifyRequest(CERTTRANSBLOB* pctbRequest, CERTTRANSBLOB* pctbSigningCertEncoded, PWSTR pwszTemplate, PWSTR pwszTransactionId, BOOL* pfVerified) mut => VT.[Friend]VerifyRequest(&this, pctbRequest, pctbSigningCertEncoded, pwszTemplate, pwszTransactionId, pfVerified);
 
@@ -7708,36 +7708,36 @@ public static
 		protected new function [CallingConvention(.Stdcall)] void*(/*IEnroll*/SelfOuter* self) getMyStore;
 		protected new function [CallingConvention(.Stdcall)] void*(/*IEnroll*/SelfOuter* self) getCAStore;
 		protected new function [CallingConvention(.Stdcall)] void*(/*IEnroll*/SelfOuter* self) getROOTHStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwIndex, int32 dwFlags, PWSTR pbstrProvName) enumProvidersWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwIndex, PWSTR pbstr) enumContainersWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwIndex, int32 dwFlags, PWSTR* pbstrProvName) enumProvidersWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwIndex, PWSTR* pbstr) enumContainersWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CRYPTOAPI_BLOB pkcs7OrPkcs10) freeRequestInfoBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) get_MyStoreNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwName) get_MyStoreNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) put_MyStoreNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) get_MyStoreTypeWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwType) get_MyStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) put_MyStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwFlags) get_MyStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwFlags) put_MyStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) get_CAStoreNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwName) get_CAStoreNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) put_CAStoreNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) get_CAStoreTypeWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwType) get_CAStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) put_CAStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwFlags) get_CAStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwFlags) put_CAStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) get_RootStoreNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwName) get_RootStoreNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) put_RootStoreNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) get_RootStoreTypeWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwType) get_RootStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) put_RootStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwFlags) get_RootStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwFlags) put_RootStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) get_RequestStoreNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwName) get_RequestStoreNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwName) put_RequestStoreNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) get_RequestStoreTypeWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwType) get_RequestStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwType) put_RequestStoreTypeWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwFlags) get_RequestStoreFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwFlags) put_RequestStoreFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwContainer) get_ContainerNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwContainer) get_ContainerNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwContainer) put_ContainerNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwProvider) get_ProviderNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szwProvider) get_ProviderNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szwProvider) put_ProviderNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32* pdwType) get_ProviderType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, int32 dwType) put_ProviderType;
@@ -7757,11 +7757,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fBool) put_EnableT61DNEncoding;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL* fBool) get_WriteCertToCSP;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, BOOL fBool) put_WriteCertToCSP;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) get_SPCFileNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szw) get_SPCFileNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) put_SPCFileNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) get_PVKFileNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szw) get_PVKFileNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) put_PVKFileNameWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) get_HashAlgorithmWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR* szw) get_HashAlgorithmWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, PWSTR szw) put_HashAlgorithmWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CERT_CONTEXT** ppCertContext) get_RenewalCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll*/SelfOuter* self, CERT_CONTEXT* pCertContext) put_RenewalCertificate;
@@ -7789,17 +7789,17 @@ public static
 
 	public void* getROOTHStore() mut => VT.[Friend]getROOTHStore(&this);
 
-	public HRESULT enumProvidersWStr(int32 dwIndex, int32 dwFlags, PWSTR pbstrProvName) mut => VT.[Friend]enumProvidersWStr(&this, dwIndex, dwFlags, pbstrProvName);
+	public HRESULT enumProvidersWStr(int32 dwIndex, int32 dwFlags, PWSTR* pbstrProvName) mut => VT.[Friend]enumProvidersWStr(&this, dwIndex, dwFlags, pbstrProvName);
 
-	public HRESULT enumContainersWStr(int32 dwIndex, PWSTR pbstr) mut => VT.[Friend]enumContainersWStr(&this, dwIndex, pbstr);
+	public HRESULT enumContainersWStr(int32 dwIndex, PWSTR* pbstr) mut => VT.[Friend]enumContainersWStr(&this, dwIndex, pbstr);
 
 	public HRESULT freeRequestInfoBlob(CRYPTOAPI_BLOB pkcs7OrPkcs10) mut => VT.[Friend]freeRequestInfoBlob(&this, pkcs7OrPkcs10);
 
-	public HRESULT get_MyStoreNameWStr(PWSTR szwName) mut => VT.[Friend]get_MyStoreNameWStr(&this, szwName);
+	public HRESULT get_MyStoreNameWStr(PWSTR* szwName) mut => VT.[Friend]get_MyStoreNameWStr(&this, szwName);
 
 	public HRESULT put_MyStoreNameWStr(PWSTR szwName) mut => VT.[Friend]put_MyStoreNameWStr(&this, szwName);
 
-	public HRESULT get_MyStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]get_MyStoreTypeWStr(&this, szwType);
+	public HRESULT get_MyStoreTypeWStr(PWSTR* szwType) mut => VT.[Friend]get_MyStoreTypeWStr(&this, szwType);
 
 	public HRESULT put_MyStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]put_MyStoreTypeWStr(&this, szwType);
 
@@ -7807,11 +7807,11 @@ public static
 
 	public HRESULT put_MyStoreFlags(int32 dwFlags) mut => VT.[Friend]put_MyStoreFlags(&this, dwFlags);
 
-	public HRESULT get_CAStoreNameWStr(PWSTR szwName) mut => VT.[Friend]get_CAStoreNameWStr(&this, szwName);
+	public HRESULT get_CAStoreNameWStr(PWSTR* szwName) mut => VT.[Friend]get_CAStoreNameWStr(&this, szwName);
 
 	public HRESULT put_CAStoreNameWStr(PWSTR szwName) mut => VT.[Friend]put_CAStoreNameWStr(&this, szwName);
 
-	public HRESULT get_CAStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]get_CAStoreTypeWStr(&this, szwType);
+	public HRESULT get_CAStoreTypeWStr(PWSTR* szwType) mut => VT.[Friend]get_CAStoreTypeWStr(&this, szwType);
 
 	public HRESULT put_CAStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]put_CAStoreTypeWStr(&this, szwType);
 
@@ -7819,11 +7819,11 @@ public static
 
 	public HRESULT put_CAStoreFlags(int32 dwFlags) mut => VT.[Friend]put_CAStoreFlags(&this, dwFlags);
 
-	public HRESULT get_RootStoreNameWStr(PWSTR szwName) mut => VT.[Friend]get_RootStoreNameWStr(&this, szwName);
+	public HRESULT get_RootStoreNameWStr(PWSTR* szwName) mut => VT.[Friend]get_RootStoreNameWStr(&this, szwName);
 
 	public HRESULT put_RootStoreNameWStr(PWSTR szwName) mut => VT.[Friend]put_RootStoreNameWStr(&this, szwName);
 
-	public HRESULT get_RootStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]get_RootStoreTypeWStr(&this, szwType);
+	public HRESULT get_RootStoreTypeWStr(PWSTR* szwType) mut => VT.[Friend]get_RootStoreTypeWStr(&this, szwType);
 
 	public HRESULT put_RootStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]put_RootStoreTypeWStr(&this, szwType);
 
@@ -7831,11 +7831,11 @@ public static
 
 	public HRESULT put_RootStoreFlags(int32 dwFlags) mut => VT.[Friend]put_RootStoreFlags(&this, dwFlags);
 
-	public HRESULT get_RequestStoreNameWStr(PWSTR szwName) mut => VT.[Friend]get_RequestStoreNameWStr(&this, szwName);
+	public HRESULT get_RequestStoreNameWStr(PWSTR* szwName) mut => VT.[Friend]get_RequestStoreNameWStr(&this, szwName);
 
 	public HRESULT put_RequestStoreNameWStr(PWSTR szwName) mut => VT.[Friend]put_RequestStoreNameWStr(&this, szwName);
 
-	public HRESULT get_RequestStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]get_RequestStoreTypeWStr(&this, szwType);
+	public HRESULT get_RequestStoreTypeWStr(PWSTR* szwType) mut => VT.[Friend]get_RequestStoreTypeWStr(&this, szwType);
 
 	public HRESULT put_RequestStoreTypeWStr(PWSTR szwType) mut => VT.[Friend]put_RequestStoreTypeWStr(&this, szwType);
 
@@ -7843,11 +7843,11 @@ public static
 
 	public HRESULT put_RequestStoreFlags(int32 dwFlags) mut => VT.[Friend]put_RequestStoreFlags(&this, dwFlags);
 
-	public HRESULT get_ContainerNameWStr(PWSTR szwContainer) mut => VT.[Friend]get_ContainerNameWStr(&this, szwContainer);
+	public HRESULT get_ContainerNameWStr(PWSTR* szwContainer) mut => VT.[Friend]get_ContainerNameWStr(&this, szwContainer);
 
 	public HRESULT put_ContainerNameWStr(PWSTR szwContainer) mut => VT.[Friend]put_ContainerNameWStr(&this, szwContainer);
 
-	public HRESULT get_ProviderNameWStr(PWSTR szwProvider) mut => VT.[Friend]get_ProviderNameWStr(&this, szwProvider);
+	public HRESULT get_ProviderNameWStr(PWSTR* szwProvider) mut => VT.[Friend]get_ProviderNameWStr(&this, szwProvider);
 
 	public HRESULT put_ProviderNameWStr(PWSTR szwProvider) mut => VT.[Friend]put_ProviderNameWStr(&this, szwProvider);
 
@@ -7887,15 +7887,15 @@ public static
 
 	public HRESULT put_WriteCertToCSP(BOOL fBool) mut => VT.[Friend]put_WriteCertToCSP(&this, fBool);
 
-	public HRESULT get_SPCFileNameWStr(PWSTR szw) mut => VT.[Friend]get_SPCFileNameWStr(&this, szw);
+	public HRESULT get_SPCFileNameWStr(PWSTR* szw) mut => VT.[Friend]get_SPCFileNameWStr(&this, szw);
 
 	public HRESULT put_SPCFileNameWStr(PWSTR szw) mut => VT.[Friend]put_SPCFileNameWStr(&this, szw);
 
-	public HRESULT get_PVKFileNameWStr(PWSTR szw) mut => VT.[Friend]get_PVKFileNameWStr(&this, szw);
+	public HRESULT get_PVKFileNameWStr(PWSTR* szw) mut => VT.[Friend]get_PVKFileNameWStr(&this, szw);
 
 	public HRESULT put_PVKFileNameWStr(PWSTR szw) mut => VT.[Friend]put_PVKFileNameWStr(&this, szw);
 
-	public HRESULT get_HashAlgorithmWStr(PWSTR szw) mut => VT.[Friend]get_HashAlgorithmWStr(&this, szw);
+	public HRESULT get_HashAlgorithmWStr(PWSTR* szw) mut => VT.[Friend]get_HashAlgorithmWStr(&this, szw);
 
 	public HRESULT put_HashAlgorithmWStr(PWSTR szw) mut => VT.[Friend]put_HashAlgorithmWStr(&this, szw);
 
@@ -7927,7 +7927,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32* pdwKeySpec) GetSupportedKeySpec;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL fMin, BOOL fExchange, int32* pdwKeySize) GetKeyLen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 dwIndex, int32 algClass, int32* pdwAlgID) EnumAlgs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 algID, PWSTR ppwsz) GetAlgNameWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 algID, PWSTR* ppwsz) GetAlgNameWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL fReuseHardwareKeyIfUnableToGenNew) put_ReuseHardwareKeyIfUnableToGenNew;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, BOOL* fReuseHardwareKeyIfUnableToGenNew) get_ReuseHardwareKeyIfUnableToGenNew;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll2*/SelfOuter* self, int32 hashAlgID) put_HashAlgID;
@@ -7953,7 +7953,7 @@ public static
 
 	public HRESULT EnumAlgs(int32 dwIndex, int32 algClass, int32* pdwAlgID) mut => VT.[Friend]EnumAlgs(&this, dwIndex, algClass, pdwAlgID);
 
-	public HRESULT GetAlgNameWStr(int32 algID, PWSTR ppwsz) mut => VT.[Friend]GetAlgNameWStr(&this, algID, ppwsz);
+	public HRESULT GetAlgNameWStr(int32 algID, PWSTR* ppwsz) mut => VT.[Friend]GetAlgNameWStr(&this, algID, ppwsz);
 
 	public HRESULT put_ReuseHardwareKeyIfUnableToGenNew(BOOL fReuseHardwareKeyIfUnableToGenNew) mut => VT.[Friend]put_ReuseHardwareKeyIfUnableToGenNew(&this, fReuseHardwareKeyIfUnableToGenNew);
 
@@ -7992,7 +7992,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CRYPTOAPI_BLOB* thumbPrintBlob) get_ThumbPrintWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, CERT_CONTEXT* pPrivateKeyArchiveCert) SetPrivateKeyArchiveCertificate;
 		protected new function [CallingConvention(.Stdcall)] CERT_CONTEXT*(/*IEnroll4*/SelfOuter* self) GetPrivateKeyArchiveCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, CRYPTOAPI_BLOB* pblobBinary, PWSTR ppwszString) binaryBlobToString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, CRYPTOAPI_BLOB* pblobBinary, PWSTR* ppwszString) binaryBlobToString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, PWSTR pwszString, CRYPTOAPI_BLOB* pblobBinary, int32* pdwSkip, int32* pdwFlags) stringToBinaryBlob;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, PWSTR pwszName, CRYPTOAPI_BLOB* pblobValue) addExtensionToRequestWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnroll4*/SelfOuter* self, int32 Flags, PWSTR pwszName, CRYPTOAPI_BLOB* pblobValue) addAttributeToRequestWStr;
@@ -8031,7 +8031,7 @@ public static
 
 	public CERT_CONTEXT* GetPrivateKeyArchiveCertificate() mut => VT.[Friend]GetPrivateKeyArchiveCertificate(&this);
 
-	public HRESULT binaryBlobToString(int32 Flags, CRYPTOAPI_BLOB* pblobBinary, PWSTR ppwszString) mut => VT.[Friend]binaryBlobToString(&this, Flags, pblobBinary, ppwszString);
+	public HRESULT binaryBlobToString(int32 Flags, CRYPTOAPI_BLOB* pblobBinary, PWSTR* ppwszString) mut => VT.[Friend]binaryBlobToString(&this, Flags, pblobBinary, ppwszString);
 
 	public HRESULT stringToBinaryBlob(int32 Flags, PWSTR pwszString, CRYPTOAPI_BLOB* pblobBinary, int32* pdwSkip, int32* pdwFlags) mut => VT.[Friend]stringToBinaryBlob(&this, Flags, pwszString, pblobBinary, pdwSkip, pdwFlags);
 
@@ -8142,13 +8142,13 @@ public static
 	public static extern HRESULT CertSrvIsServerOnlineW(PWSTR pwszServerName, BOOL* pfServerOnline);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupGetDynamicFileListW(void* hbc, PWSTR ppwszzFileList, uint32* pcbSize);
+	public static extern HRESULT CertSrvBackupGetDynamicFileListW(void* hbc, PWSTR* ppwszzFileList, uint32* pcbSize);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CertSrvBackupPrepareW(PWSTR pwszServerName, uint32 grbitJet, CSBACKUP_TYPE dwBackupFlags, void** phbc);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupGetDatabaseNamesW(void* hbc, PWSTR ppwszzAttachmentInformation, uint32* pcbSize);
+	public static extern HRESULT CertSrvBackupGetDatabaseNamesW(void* hbc, PWSTR* ppwszzAttachmentInformation, uint32* pcbSize);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CertSrvBackupOpenFileW(void* hbc, PWSTR pwszAttachmentName, uint32 cbReadHintSize, LARGE_INTEGER* pliFileSize);
@@ -8160,7 +8160,7 @@ public static
 	public static extern HRESULT CertSrvBackupClose(void* hbc);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvBackupGetBackupLogsW(void* hbc, PWSTR ppwszzBackupLogFiles, uint32* pcbSize);
+	public static extern HRESULT CertSrvBackupGetBackupLogsW(void* hbc, PWSTR* ppwszzBackupLogFiles, uint32* pcbSize);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CertSrvBackupTruncateLogs(void* hbc);
@@ -8172,7 +8172,7 @@ public static
 	public static extern void CertSrvBackupFree(void* pv);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CertSrvRestoreGetDatabaseLocationsW(void* hbc, PWSTR ppwszzDatabaseLocationList, uint32* pcbSize);
+	public static extern HRESULT CertSrvRestoreGetDatabaseLocationsW(void* hbc, PWSTR* ppwszzDatabaseLocationList, uint32* pcbSize);
 
 	[Import("certadm.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CertSrvRestorePrepareW(PWSTR pwszServerName, uint32 dwRestoreFlags, void** phbc);
@@ -8208,7 +8208,7 @@ public static
 	public static extern NTSTATUS PstAcquirePrivateKey(CERT_CONTEXT* pCert);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PstValidate(UNICODE_STRING* pTargetName, BOOL bIsClient, CERT_USAGE_MATCH* pRequestedIssuancePolicy, void** phAdditionalCertStore, CERT_CONTEXT* pCert, Guid pProvGUID);
+	public static extern NTSTATUS PstValidate(UNICODE_STRING* pTargetName, BOOL bIsClient, CERT_USAGE_MATCH* pRequestedIssuancePolicy, void** phAdditionalCertStore, CERT_CONTEXT* pCert, ref Guid pProvGUID);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS PstMapCertificate(CERT_CONTEXT* pCert, LSA_TOKEN_INFORMATION_TYPE* pTokenInformationType, void** ppTokenInformation);

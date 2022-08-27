@@ -928,15 +928,15 @@ public function BOOL PFAXDEVCONFIGURE(HPROPSHEETPAGE* param0);
 
 public function HRESULT PFAXDEVSHUTDOWN();
 
-public function int32 PFAXROUTEADDFILE(uint32 JobId, PWSTR FileName, Guid Guid);
+public function int32 PFAXROUTEADDFILE(uint32 JobId, PWSTR FileName, ref Guid Guid);
 
 public function int32 PFAXROUTEDELETEFILE(uint32 JobId, PWSTR FileName);
 
 public function BOOL PFAXROUTEGETFILE(uint32 JobId, uint32 Index, PWSTR FileNameBuffer, uint32* RequiredSize);
 
-public function BOOL PFAXROUTEENUMFILE(uint32 JobId, Guid GuidOwner, Guid GuidCaller, PWSTR FileName, void* Context);
+public function BOOL PFAXROUTEENUMFILE(uint32 JobId, ref Guid GuidOwner, ref Guid GuidCaller, PWSTR FileName, void* Context);
 
-public function BOOL PFAXROUTEENUMFILES(uint32 JobId, Guid Guid, PFAXROUTEENUMFILE FileEnumerator, void* Context);
+public function BOOL PFAXROUTEENUMFILES(uint32 JobId, ref Guid Guid, PFAXROUTEENUMFILE FileEnumerator, void* Context);
 
 public function BOOL PFAXROUTEMODIFYROUTINGDATA(uint32 JobId, PWSTR RoutingGuid, uint8* RoutingData, uint32 RoutingDataSize);
 

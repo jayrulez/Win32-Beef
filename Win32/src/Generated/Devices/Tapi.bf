@@ -5687,14 +5687,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTerminalClass*/SelfOuter* self, uint32 celt, Guid* pElements, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTerminalClass*/SelfOuter* self, uint32 celt, ref Guid pElements, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTerminalClass*/SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTerminalClass*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumTerminalClass*/SelfOuter* self, IEnumTerminalClass** ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, Guid* pElements, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, pElements, pceltFetched);
+	public HRESULT Next(uint32 celt, ref Guid pElements, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, pElements, pceltFetched);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 
@@ -7903,7 +7903,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMcastAddressAllocation*/SelfOuter* self, IMcastScope* pScope, double LeaseStartTime, double LeaseStopTime, int32 NumAddresses, IMcastLeaseInfo** ppLeaseResponse) RequestAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMcastAddressAllocation*/SelfOuter* self, int32 lReserved, IMcastLeaseInfo* pRenewRequest, IMcastLeaseInfo** ppRenewResponse) RenewAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMcastAddressAllocation*/SelfOuter* self, IMcastLeaseInfo* pReleaseRequest) ReleaseAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMcastAddressAllocation*/SelfOuter* self, double LeaseStartTime, double LeaseStopTime, uint32 dwNumAddresses, PWSTR ppAddresses, PWSTR pRequestID, PWSTR pServerAddress, IMcastLeaseInfo** ppReleaseRequest) CreateLeaseInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMcastAddressAllocation*/SelfOuter* self, double LeaseStartTime, double LeaseStopTime, uint32 dwNumAddresses, PWSTR* ppAddresses, PWSTR pRequestID, PWSTR pServerAddress, IMcastLeaseInfo** ppReleaseRequest) CreateLeaseInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMcastAddressAllocation*/SelfOuter* self, double LeaseStartTime, double LeaseStopTime, VARIANT vAddresses, BSTR pRequestID, BSTR pServerAddress, IMcastLeaseInfo** ppReleaseRequest) CreateLeaseInfoFromVariant;
 	}
 
@@ -7918,7 +7918,7 @@ public static
 
 	public HRESULT ReleaseAddress(IMcastLeaseInfo* pReleaseRequest) mut => VT.[Friend]ReleaseAddress(&this, pReleaseRequest);
 
-	public HRESULT CreateLeaseInfo(double LeaseStartTime, double LeaseStopTime, uint32 dwNumAddresses, PWSTR ppAddresses, PWSTR pRequestID, PWSTR pServerAddress, IMcastLeaseInfo** ppReleaseRequest) mut => VT.[Friend]CreateLeaseInfo(&this, LeaseStartTime, LeaseStopTime, dwNumAddresses, ppAddresses, pRequestID, pServerAddress, ppReleaseRequest);
+	public HRESULT CreateLeaseInfo(double LeaseStartTime, double LeaseStopTime, uint32 dwNumAddresses, PWSTR* ppAddresses, PWSTR pRequestID, PWSTR pServerAddress, IMcastLeaseInfo** ppReleaseRequest) mut => VT.[Friend]CreateLeaseInfo(&this, LeaseStartTime, LeaseStopTime, dwNumAddresses, ppAddresses, pRequestID, pServerAddress, ppReleaseRequest);
 
 	public HRESULT CreateLeaseInfoFromVariant(double LeaseStartTime, double LeaseStopTime, VARIANT vAddresses, BSTR pRequestID, BSTR pServerAddress, IMcastLeaseInfo** ppReleaseRequest) mut => VT.[Friend]CreateLeaseInfoFromVariant(&this, LeaseStartTime, LeaseStopTime, vAddresses, pRequestID, pServerAddress, ppReleaseRequest);
 }
@@ -8027,11 +8027,11 @@ public static
 	public static int32 lineCreateAgent(uint32 hLine, PSTR lpszAgentID, PSTR lpszAgentPIN, uint32* lphAgent) => lineCreateAgentA(hLine, lpszAgentID, lpszAgentPIN, lphAgent);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineCreateAgentSessionW(uint32 hLine, uint32 hAgent, PWSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid lpGroupID, uint32* lphAgentSession);
+	public static extern int32 lineCreateAgentSessionW(uint32 hLine, uint32 hAgent, PWSTR lpszAgentPIN, uint32 dwWorkingAddressID, ref Guid lpGroupID, uint32* lphAgentSession);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineCreateAgentSessionA(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid lpGroupID, uint32* lphAgentSession);
-	public static int32 lineCreateAgentSession(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid lpGroupID, uint32* lphAgentSession) => lineCreateAgentSessionA(hLine, hAgent, lpszAgentPIN, dwWorkingAddressID, lpGroupID, lphAgentSession);
+	public static extern int32 lineCreateAgentSessionA(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, ref Guid lpGroupID, uint32* lphAgentSession);
+	public static int32 lineCreateAgentSession(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, ref Guid lpGroupID, uint32* lphAgentSession) => lineCreateAgentSessionA(hLine, hAgent, lpszAgentPIN, dwWorkingAddressID, lpGroupID, lphAgentSession);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineDeallocateCall(uint32 hCall);
@@ -8258,11 +8258,11 @@ public static
 	public static extern int32 lineGetQueueInfo(uint32 hLine, uint32 dwQueueID, LINEQUEUEINFO* lpLineQueueInfo);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineGetQueueListA(uint32 hLine, Guid lpGroupID, LINEQUEUELIST* lpQueueList);
-	public static int32 lineGetQueueList(uint32 hLine, Guid lpGroupID, LINEQUEUELIST* lpQueueList) => lineGetQueueListA(hLine, lpGroupID, lpQueueList);
+	public static extern int32 lineGetQueueListA(uint32 hLine, ref Guid lpGroupID, LINEQUEUELIST* lpQueueList);
+	public static int32 lineGetQueueList(uint32 hLine, ref Guid lpGroupID, LINEQUEUELIST* lpQueueList) => lineGetQueueListA(hLine, lpGroupID, lpQueueList);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineGetQueueListW(uint32 hLine, Guid lpGroupID, LINEQUEUELIST* lpQueueList);
+	public static extern int32 lineGetQueueListW(uint32 hLine, ref Guid lpGroupID, LINEQUEUELIST* lpQueueList);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetRequest(uint32 hLineApp, uint32 dwRequestMode, void* lpRequestBuffer);

@@ -355,7 +355,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ITargetInfo* Target) SetTargetInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, uint32 Flags, void* Reserved, ISettingsContext** SettingsContext) CreateSettingsContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsContext* SettingsContext) SetSettingsContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsContext* SettingsContext, PWSTR pppwzIdentities, uint* pcIdentities) ApplySettingsContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsContext* SettingsContext, PWSTR** pppwzIdentities, uint* pcIdentities) ApplySettingsContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsContext** SettingsContext) GetSettingsContext;
 	}
 
@@ -388,7 +388,7 @@ public static
 
 	public HRESULT SetSettingsContext(ISettingsContext* SettingsContext) mut => VT.[Friend]SetSettingsContext(&this, SettingsContext);
 
-	public HRESULT ApplySettingsContext(ISettingsContext* SettingsContext, PWSTR pppwzIdentities, uint* pcIdentities) mut => VT.[Friend]ApplySettingsContext(&this, SettingsContext, pppwzIdentities, pcIdentities);
+	public HRESULT ApplySettingsContext(ISettingsContext* SettingsContext, PWSTR** pppwzIdentities, uint* pcIdentities) mut => VT.[Friend]ApplySettingsContext(&this, SettingsContext, pppwzIdentities, pcIdentities);
 
 	public HRESULT GetSettingsContext(ISettingsContext** SettingsContext) mut => VT.[Friend]GetSettingsContext(&this, SettingsContext);
 }

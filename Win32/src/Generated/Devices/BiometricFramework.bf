@@ -361,9 +361,9 @@ public function HRESULT PIBIO_SENSOR_DEACTIVATE_FN(WINBIO_PIPELINE* Pipeline);
 
 public function HRESULT PIBIO_SENSOR_QUERY_EXTENDED_INFO_FN(WINBIO_PIPELINE* Pipeline, WINBIO_EXTENDED_SENSOR_INFO* SensorInfo, uint SensorInfoSize);
 
-public function HRESULT PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN(WINBIO_PIPELINE* Pipeline, Guid* FormatArray, uint FormatArraySize, uint* FormatCount);
+public function HRESULT PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN(WINBIO_PIPELINE* Pipeline, ref Guid FormatArray, uint FormatArraySize, uint* FormatCount);
 
-public function HRESULT PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN(WINBIO_PIPELINE* Pipeline, Guid Format);
+public function HRESULT PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN(WINBIO_PIPELINE* Pipeline, ref Guid Format);
 
 public function HRESULT PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FN(WINBIO_PIPELINE* Pipeline, uint8* CalibrationBuffer, uint CalibrationBufferSize);
 
@@ -389,7 +389,7 @@ public function HRESULT PIBIO_ENGINE_DETACH_FN(WINBIO_PIPELINE* Pipeline);
 
 public function HRESULT PIBIO_ENGINE_CLEAR_CONTEXT_FN(WINBIO_PIPELINE* Pipeline);
 
-public function HRESULT PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN(WINBIO_PIPELINE* Pipeline, WINBIO_REGISTERED_FORMAT* StandardFormat, Guid VendorFormat);
+public function HRESULT PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN(WINBIO_PIPELINE* Pipeline, WINBIO_REGISTERED_FORMAT* StandardFormat, ref Guid VendorFormat);
 
 public function HRESULT PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FN(WINBIO_PIPELINE* Pipeline, uint* IndexElementCount);
 
@@ -449,7 +449,7 @@ public function HRESULT PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN(WINBIO_
 
 public function HRESULT PIBIO_ENGINE_REFRESH_CACHE_FN(WINBIO_PIPELINE* Pipeline);
 
-public function HRESULT PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN(WINBIO_PIPELINE* Pipeline, Guid* FormatArray, uint FormatCount, Guid SelectedFormat, uint* MaxBufferSize);
+public function HRESULT PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN(WINBIO_PIPELINE* Pipeline, ref Guid FormatArray, uint FormatCount, ref Guid SelectedFormat, uint* MaxBufferSize);
 
 public function HRESULT PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN(WINBIO_PIPELINE* Pipeline, BOOLEAN* DiscardAndRepeatCapture, uint8* CalibrationBuffer, uint* CalibrationBufferSize, uint MaxBufferSize);
 
@@ -473,15 +473,15 @@ public function HRESULT PIBIO_STORAGE_DETACH_FN(WINBIO_PIPELINE* Pipeline);
 
 public function HRESULT PIBIO_STORAGE_CLEAR_CONTEXT_FN(WINBIO_PIPELINE* Pipeline);
 
-public function HRESULT PIBIO_STORAGE_CREATE_DATABASE_FN(WINBIO_PIPELINE* Pipeline, Guid DatabaseId, uint32 Factor, Guid Format, PWSTR FilePath, PWSTR ConnectString, uint IndexElementCount, uint InitialSize);
+public function HRESULT PIBIO_STORAGE_CREATE_DATABASE_FN(WINBIO_PIPELINE* Pipeline, ref Guid DatabaseId, uint32 Factor, ref Guid Format, PWSTR FilePath, PWSTR ConnectString, uint IndexElementCount, uint InitialSize);
 
-public function HRESULT PIBIO_STORAGE_ERASE_DATABASE_FN(WINBIO_PIPELINE* Pipeline, Guid DatabaseId, PWSTR FilePath, PWSTR ConnectString);
+public function HRESULT PIBIO_STORAGE_ERASE_DATABASE_FN(WINBIO_PIPELINE* Pipeline, ref Guid DatabaseId, PWSTR FilePath, PWSTR ConnectString);
 
-public function HRESULT PIBIO_STORAGE_OPEN_DATABASE_FN(WINBIO_PIPELINE* Pipeline, Guid DatabaseId, PWSTR FilePath, PWSTR ConnectString);
+public function HRESULT PIBIO_STORAGE_OPEN_DATABASE_FN(WINBIO_PIPELINE* Pipeline, ref Guid DatabaseId, PWSTR FilePath, PWSTR ConnectString);
 
 public function HRESULT PIBIO_STORAGE_CLOSE_DATABASE_FN(WINBIO_PIPELINE* Pipeline);
 
-public function HRESULT PIBIO_STORAGE_GET_DATA_FORMAT_FN(WINBIO_PIPELINE* Pipeline, Guid Format, WINBIO_VERSION* Version);
+public function HRESULT PIBIO_STORAGE_GET_DATA_FORMAT_FN(WINBIO_PIPELINE* Pipeline, ref Guid Format, WINBIO_VERSION* Version);
 
 public function HRESULT PIBIO_STORAGE_GET_DATABASE_SIZE_FN(WINBIO_PIPELINE* Pipeline, uint* AvailableRecordCount, uint* TotalRecordCount);
 
@@ -1739,10 +1739,10 @@ public static
 	public static extern HRESULT WinBioAsyncMonitorFrameworkChanges(uint32 FrameworkHandle, uint32 ChangeTypes);
 
 	[Import("winbio.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WinBioOpenSession(uint32 Factor, WINBIO_POOL PoolType, uint32 Flags, uint32* UnitArray, uint UnitCount, Guid DatabaseId, uint32* SessionHandle);
+	public static extern HRESULT WinBioOpenSession(uint32 Factor, WINBIO_POOL PoolType, uint32 Flags, uint32* UnitArray, uint UnitCount, ref Guid DatabaseId, uint32* SessionHandle);
 
 	[Import("winbio.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WinBioAsyncOpenSession(uint32 Factor, WINBIO_POOL PoolType, uint32 Flags, uint32* UnitArray, uint UnitCount, Guid DatabaseId, WINBIO_ASYNC_NOTIFICATION_METHOD NotificationMethod, HWND TargetWindow, uint32 MessageCode, PWINBIO_ASYNC_COMPLETION_CALLBACK CallbackRoutine, void* UserData, BOOL AsynchronousOpen, uint32* SessionHandle);
+	public static extern HRESULT WinBioAsyncOpenSession(uint32 Factor, WINBIO_POOL PoolType, uint32 Flags, uint32* UnitArray, uint UnitCount, ref Guid DatabaseId, WINBIO_ASYNC_NOTIFICATION_METHOD NotificationMethod, HWND TargetWindow, uint32 MessageCode, PWINBIO_ASYNC_COMPLETION_CALLBACK CallbackRoutine, void* UserData, BOOL AsynchronousOpen, uint32* SessionHandle);
 
 	[Import("winbio.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WinBioCloseSession(uint32 SessionHandle);

@@ -197,11 +197,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAgileReference*/SelfOuter* self, Guid riid, void** ppvObjectReference) Resolve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAgileReference*/SelfOuter* self, ref Guid riid, void** ppvObjectReference) Resolve;
 	}
 
 
-	public HRESULT Resolve(Guid riid, void** ppvObjectReference) mut => VT.[Friend]Resolve(&this, riid, ppvObjectReference);
+	public HRESULT Resolve(ref Guid riid, void** ppvObjectReference) mut => VT.[Friend]Resolve(&this, ref riid, ppvObjectReference);
 }
 
 [CRepr]struct IApartmentShutdown : IUnknown
@@ -227,11 +227,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialInteractionManagerInterop*/SelfOuter* self, HWND window, Guid riid, void** spatialInteractionManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialInteractionManagerInterop*/SelfOuter* self, HWND window, ref Guid riid, void** spatialInteractionManager) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND window, Guid riid, void** spatialInteractionManager) mut => VT.[Friend]GetForWindow(&this, window, riid, spatialInteractionManager);
+	public HRESULT GetForWindow(HWND window, ref Guid riid, void** spatialInteractionManager) mut => VT.[Friend]GetForWindow(&this, window, ref riid, spatialInteractionManager);
 }
 
 [CRepr]struct IHolographicSpaceInterop : IInspectable
@@ -242,11 +242,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicSpaceInterop*/SelfOuter* self, HWND window, Guid riid, void** holographicSpace) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicSpaceInterop*/SelfOuter* self, HWND window, ref Guid riid, void** holographicSpace) CreateForWindow;
 	}
 
 
-	public HRESULT CreateForWindow(HWND window, Guid riid, void** holographicSpace) mut => VT.[Friend]CreateForWindow(&this, window, riid, holographicSpace);
+	public HRESULT CreateForWindow(HWND window, ref Guid riid, void** holographicSpace) mut => VT.[Friend]CreateForWindow(&this, window, ref riid, holographicSpace);
 }
 
 [CRepr]struct IInspectable : IUnknown
@@ -257,13 +257,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInspectable*/SelfOuter* self, uint32* iidCount, Guid* iids) GetIids;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInspectable*/SelfOuter* self, uint32* iidCount, ref Guid iids) GetIids;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInspectable*/SelfOuter* self, HSTRING* className) GetRuntimeClassName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInspectable*/SelfOuter* self, TrustLevel* trustLevel) GetTrustLevel;
 	}
 
 
-	public HRESULT GetIids(uint32* iidCount, Guid* iids) mut => VT.[Friend]GetIids(&this, iidCount, iids);
+	public HRESULT GetIids(uint32* iidCount, ref Guid iids) mut => VT.[Friend]GetIids(&this, iidCount, iids);
 
 	public HRESULT GetRuntimeClassName(HSTRING* className) mut => VT.[Friend]GetRuntimeClassName(&this, className);
 
@@ -278,17 +278,17 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountsSettingsPaneInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** accountsSettingsPane) GetForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountsSettingsPaneInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** asyncAction) ShowManageAccountsForWindowAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountsSettingsPaneInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** asyncAction) ShowAddAccountForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountsSettingsPaneInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** accountsSettingsPane) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountsSettingsPaneInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncAction) ShowManageAccountsForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountsSettingsPaneInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncAction) ShowAddAccountForWindowAsync;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** accountsSettingsPane) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, accountsSettingsPane);
+	public HRESULT GetForWindow(HWND appWindow, ref Guid riid, void** accountsSettingsPane) mut => VT.[Friend]GetForWindow(&this, appWindow, ref riid, accountsSettingsPane);
 
-	public HRESULT ShowManageAccountsForWindowAsync(HWND appWindow, Guid riid, void** asyncAction) mut => VT.[Friend]ShowManageAccountsForWindowAsync(&this, appWindow, riid, asyncAction);
+	public HRESULT ShowManageAccountsForWindowAsync(HWND appWindow, ref Guid riid, void** asyncAction) mut => VT.[Friend]ShowManageAccountsForWindowAsync(&this, appWindow, ref riid, asyncAction);
 
-	public HRESULT ShowAddAccountForWindowAsync(HWND appWindow, Guid riid, void** asyncAction) mut => VT.[Friend]ShowAddAccountForWindowAsync(&this, appWindow, riid, asyncAction);
+	public HRESULT ShowAddAccountForWindowAsync(HWND appWindow, ref Guid riid, void** asyncAction) mut => VT.[Friend]ShowAddAccountForWindowAsync(&this, appWindow, ref riid, asyncAction);
 }
 
 [CRepr]struct IAppServiceConnectionExtendedExecution : IUnknown
@@ -299,11 +299,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppServiceConnectionExtendedExecution*/SelfOuter* self, Guid riid, void** operation) OpenForExtendedExecutionAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppServiceConnectionExtendedExecution*/SelfOuter* self, ref Guid riid, void** operation) OpenForExtendedExecutionAsync;
 	}
 
 
-	public HRESULT OpenForExtendedExecutionAsync(Guid riid, void** operation) mut => VT.[Friend]OpenForExtendedExecutionAsync(&this, riid, operation);
+	public HRESULT OpenForExtendedExecutionAsync(ref Guid riid, void** operation) mut => VT.[Friend]OpenForExtendedExecutionAsync(&this, ref riid, operation);
 }
 
 [CRepr]struct ICorrelationVectorSource : IUnknown
@@ -392,11 +392,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDragDropManagerInterop*/SelfOuter* self, HWND hwnd, Guid riid, void** ppv) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDragDropManagerInterop*/SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND hwnd, Guid riid, void** ppv) mut => VT.[Friend]GetForWindow(&this, hwnd, riid, ppv);
+	public HRESULT GetForWindow(HWND hwnd, ref Guid riid, void** ppv) mut => VT.[Friend]GetForWindow(&this, hwnd, ref riid, ppv);
 }
 
 [CRepr]struct IInputPaneInterop : IInspectable
@@ -407,11 +407,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputPaneInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** inputPane) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputPaneInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** inputPane) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** inputPane) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, inputPane);
+	public HRESULT GetForWindow(HWND appWindow, ref Guid riid, void** inputPane) mut => VT.[Friend]GetForWindow(&this, appWindow, ref riid, inputPane);
 }
 
 [CRepr]struct IPlayToManagerInterop : IInspectable
@@ -422,12 +422,12 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPlayToManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** playToManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPlayToManagerInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** playToManager) GetForWindow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPlayToManagerInterop*/SelfOuter* self, HWND appWindow) ShowPlayToUIForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** playToManager) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, playToManager);
+	public HRESULT GetForWindow(HWND appWindow, ref Guid riid, void** playToManager) mut => VT.[Friend]GetForWindow(&this, appWindow, ref riid, playToManager);
 
 	public HRESULT ShowPlayToUIForWindow(HWND appWindow) mut => VT.[Friend]ShowPlayToUIForWindow(&this, appWindow);
 }
@@ -461,11 +461,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIViewSettingsInterop*/SelfOuter* self, HWND hwnd, Guid riid, void** ppv) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIViewSettingsInterop*/SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND hwnd, Guid riid, void** ppv) mut => VT.[Friend]GetForWindow(&this, hwnd, riid, ppv);
+	public HRESULT GetForWindow(HWND hwnd, ref Guid riid, void** ppv) mut => VT.[Friend]GetForWindow(&this, hwnd, ref riid, ppv);
 }
 
 [CRepr]struct IUserActivityInterop : IInspectable
@@ -476,11 +476,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserActivityInterop*/SelfOuter* self, HWND window, Guid iid, void** value) CreateSessionForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserActivityInterop*/SelfOuter* self, HWND window, ref Guid iid, void** value) CreateSessionForWindow;
 	}
 
 
-	public HRESULT CreateSessionForWindow(HWND window, Guid iid, void** value) mut => VT.[Friend]CreateSessionForWindow(&this, window, iid, value);
+	public HRESULT CreateSessionForWindow(HWND window, ref Guid iid, void** value) mut => VT.[Friend]CreateSessionForWindow(&this, window, ref iid, value);
 }
 
 [CRepr]struct IUserActivitySourceHostInterop : IInspectable
@@ -506,11 +506,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserActivityRequestManagerInterop*/SelfOuter* self, HWND window, Guid iid, void** value) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserActivityRequestManagerInterop*/SelfOuter* self, HWND window, ref Guid iid, void** value) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND window, Guid iid, void** value) mut => VT.[Friend]GetForWindow(&this, window, iid, value);
+	public HRESULT GetForWindow(HWND window, ref Guid iid, void** value) mut => VT.[Friend]GetForWindow(&this, window, ref iid, value);
 }
 
 [CRepr]struct IUserConsentVerifierInterop : IInspectable
@@ -521,11 +521,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserConsentVerifierInterop*/SelfOuter* self, HWND appWindow, HSTRING message, Guid riid, void** asyncOperation) RequestVerificationForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserConsentVerifierInterop*/SelfOuter* self, HWND appWindow, HSTRING message, ref Guid riid, void** asyncOperation) RequestVerificationForWindowAsync;
 	}
 
 
-	public HRESULT RequestVerificationForWindowAsync(HWND appWindow, HSTRING message, Guid riid, void** asyncOperation) mut => VT.[Friend]RequestVerificationForWindowAsync(&this, appWindow, message, riid, asyncOperation);
+	public HRESULT RequestVerificationForWindowAsync(HWND appWindow, HSTRING message, ref Guid riid, void** asyncOperation) mut => VT.[Friend]RequestVerificationForWindowAsync(&this, appWindow, message, ref riid, asyncOperation);
 }
 
 [CRepr]struct IWebAuthenticationCoreManagerInterop : IInspectable
@@ -536,14 +536,14 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebAuthenticationCoreManagerInterop*/SelfOuter* self, HWND appWindow, IInspectable* request, Guid riid, void** asyncInfo) RequestTokenForWindowAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebAuthenticationCoreManagerInterop*/SelfOuter* self, HWND appWindow, IInspectable* request, IInspectable* webAccount, Guid riid, void** asyncInfo) RequestTokenWithWebAccountForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebAuthenticationCoreManagerInterop*/SelfOuter* self, HWND appWindow, IInspectable* request, ref Guid riid, void** asyncInfo) RequestTokenForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebAuthenticationCoreManagerInterop*/SelfOuter* self, HWND appWindow, IInspectable* request, IInspectable* webAccount, ref Guid riid, void** asyncInfo) RequestTokenWithWebAccountForWindowAsync;
 	}
 
 
-	public HRESULT RequestTokenForWindowAsync(HWND appWindow, IInspectable* request, Guid riid, void** asyncInfo) mut => VT.[Friend]RequestTokenForWindowAsync(&this, appWindow, request, riid, asyncInfo);
+	public HRESULT RequestTokenForWindowAsync(HWND appWindow, IInspectable* request, ref Guid riid, void** asyncInfo) mut => VT.[Friend]RequestTokenForWindowAsync(&this, appWindow, request, ref riid, asyncInfo);
 
-	public HRESULT RequestTokenWithWebAccountForWindowAsync(HWND appWindow, IInspectable* request, IInspectable* webAccount, Guid riid, void** asyncInfo) mut => VT.[Friend]RequestTokenWithWebAccountForWindowAsync(&this, appWindow, request, webAccount, riid, asyncInfo);
+	public HRESULT RequestTokenWithWebAccountForWindowAsync(HWND appWindow, IInspectable* request, IInspectable* webAccount, ref Guid riid, void** asyncInfo) mut => VT.[Friend]RequestTokenWithWebAccountForWindowAsync(&this, appWindow, request, webAccount, ref riid, asyncInfo);
 }
 
 [CRepr]struct IRestrictedErrorInfo : IUnknown
@@ -670,9 +670,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, Guid iid) SetWinRtInterface;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, Guid iid) SetDelegate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, PWSTR defaultInterfaceName, Guid defaultInterfaceIID) SetInterfaceGroupSimpleDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, PWSTR defaultInterfaceName, ref Guid defaultInterfaceIID) SetInterfaceGroupSimpleDefault;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, uint32 elementCount, PWSTR* defaultInterfaceNameElements) SetInterfaceGroupParameterizedDefault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, PWSTR defaultInterfaceName, Guid defaultInterfaceIID) SetRuntimeClassSimpleDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, PWSTR defaultInterfaceName, ref Guid defaultInterfaceIID) SetRuntimeClassSimpleDefault;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, uint32 elementCount, PWSTR* defaultInterfaceNameElements) SetRuntimeClassParameterizedDefault;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, uint32 numFields, PWSTR* fieldTypeNames) SetStruct;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, PWSTR baseType) SetEnum;
@@ -685,11 +685,11 @@ public static
 
 	public HRESULT SetDelegate(Guid iid) mut => VT.[Friend]SetDelegate(&this, iid);
 
-	public HRESULT SetInterfaceGroupSimpleDefault(PWSTR name, PWSTR defaultInterfaceName, Guid defaultInterfaceIID) mut => VT.[Friend]SetInterfaceGroupSimpleDefault(&this, name, defaultInterfaceName, defaultInterfaceIID);
+	public HRESULT SetInterfaceGroupSimpleDefault(PWSTR name, PWSTR defaultInterfaceName, ref Guid defaultInterfaceIID) mut => VT.[Friend]SetInterfaceGroupSimpleDefault(&this, name, defaultInterfaceName, ref defaultInterfaceIID);
 
 	public HRESULT SetInterfaceGroupParameterizedDefault(PWSTR name, uint32 elementCount, PWSTR* defaultInterfaceNameElements) mut => VT.[Friend]SetInterfaceGroupParameterizedDefault(&this, name, elementCount, defaultInterfaceNameElements);
 
-	public HRESULT SetRuntimeClassSimpleDefault(PWSTR name, PWSTR defaultInterfaceName, Guid defaultInterfaceIID) mut => VT.[Friend]SetRuntimeClassSimpleDefault(&this, name, defaultInterfaceName, defaultInterfaceIID);
+	public HRESULT SetRuntimeClassSimpleDefault(PWSTR name, PWSTR defaultInterfaceName, ref Guid defaultInterfaceIID) mut => VT.[Friend]SetRuntimeClassSimpleDefault(&this, name, defaultInterfaceName, ref defaultInterfaceIID);
 
 	public HRESULT SetRuntimeClassParameterizedDefault(PWSTR name, uint32 elementCount, PWSTR* defaultInterfaceNameElements) mut => VT.[Friend]SetRuntimeClassParameterizedDefault(&this, name, elementCount, defaultInterfaceNameElements);
 
@@ -740,11 +740,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWeakReference*/SelfOuter* self, Guid riid, void** objectReference) Resolve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWeakReference*/SelfOuter* self, ref Guid riid, void** objectReference) Resolve;
 	}
 
 
-	public HRESULT Resolve(Guid riid, void** objectReference) mut => VT.[Friend]Resolve(&this, riid, objectReference);
+	public HRESULT Resolve(ref Guid riid, void** objectReference) mut => VT.[Friend]Resolve(&this, ref riid, objectReference);
 }
 
 [CRepr]struct IWeakReferenceSource : IUnknown
@@ -770,11 +770,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMediaTransportControlsInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** mediaTransportControl) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMediaTransportControlsInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** mediaTransportControl) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** mediaTransportControl) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, mediaTransportControl);
+	public HRESULT GetForWindow(HWND appWindow, ref Guid riid, void** mediaTransportControl) mut => VT.[Friend]GetForWindow(&this, appWindow, ref riid, mediaTransportControl);
 }
 
 [CRepr]struct IShareWindowCommandEventArgsInterop : IUnknown
@@ -800,11 +800,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShareWindowCommandSourceInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** shareWindowCommandSource) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShareWindowCommandSourceInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** shareWindowCommandSource) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** shareWindowCommandSource) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, shareWindowCommandSource);
+	public HRESULT GetForWindow(HWND appWindow, ref Guid riid, void** shareWindowCommandSource) mut => VT.[Friend]GetForWindow(&this, appWindow, ref riid, shareWindowCommandSource);
 }
 
 [CRepr]struct IMessageDispatcher : IInspectable
@@ -831,7 +831,7 @@ public static
 	public static extern HRESULT CoDecodeProxy(uint32 dwClientPid, uint64 ui64ProxyAddress, ServerInformation* pServerInformation);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RoGetAgileReference(AgileReferenceOptions options, Guid riid, IUnknown* pUnk, IAgileReference** ppAgileReference);
+	public static extern HRESULT RoGetAgileReference(AgileReferenceOptions options, ref Guid riid, IUnknown* pUnk, IAgileReference** ppAgileReference);
 
 	[Import("api-ms-win-core-winrt-string-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HSTRING_UserSize(uint32* param0, uint32 param1, HSTRING* param2);
@@ -936,7 +936,7 @@ public static
 	public static extern void RoRevokeActivationFactories(int cookie);
 
 	[Import("api-ms-win-core-winrt-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RoGetActivationFactory(HSTRING activatableClassId, Guid iid, void** factory);
+	public static extern HRESULT RoGetActivationFactory(HSTRING activatableClassId, ref Guid iid, void** factory);
 
 	[Import("api-ms-win-core-winrt-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RoRegisterForApartmentShutdown(IApartmentShutdown* callbackObject, uint64* apartmentIdentifier, APARTMENT_SHUTDOWN_REGISTRATION_COOKIE* regCookie);
@@ -1008,10 +1008,10 @@ public static
 	public static extern BOOL IsErrorPropagationEnabled();
 
 	[Import("RoMetadata.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT MetaDataGetDispenser(Guid rclsid, Guid riid, void** ppv);
+	public static extern HRESULT MetaDataGetDispenser(ref Guid rclsid, ref Guid riid, void** ppv);
 
 	[Import("api-ms-win-core-winrt-roparameterizediid-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RoGetParameterizedTypeInstanceIID(uint32 nameElementCount, PWSTR* nameElements, IRoMetaDataLocator* metaDataLocator, Guid iid, ROPARAMIIDHANDLE* pExtra);
+	public static extern HRESULT RoGetParameterizedTypeInstanceIID(uint32 nameElementCount, PWSTR* nameElements, IRoMetaDataLocator* metaDataLocator, ref Guid iid, ROPARAMIIDHANDLE* pExtra);
 
 	[Import("api-ms-win-core-winrt-roparameterizediid-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RoFreeParameterizedTypeExtra(ROPARAMIIDHANDLE extra);
@@ -1023,13 +1023,13 @@ public static
 	public static extern HRESULT RoGetServerActivatableClasses(HSTRING serverName, HSTRING** activatableClassIds, uint32* count);
 
 	[Import("api-ms-win-shcore-stream-winrt-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateRandomAccessStreamOnFile(PWSTR filePath, uint32 accessMode, Guid riid, void** ppv);
+	public static extern HRESULT CreateRandomAccessStreamOnFile(PWSTR filePath, uint32 accessMode, ref Guid riid, void** ppv);
 
 	[Import("api-ms-win-shcore-stream-winrt-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateRandomAccessStreamOverStream(IStream* stream, BSOS_OPTIONS options, Guid riid, void** ppv);
+	public static extern HRESULT CreateRandomAccessStreamOverStream(IStream* stream, BSOS_OPTIONS options, ref Guid riid, void** ppv);
 
 	[Import("api-ms-win-shcore-stream-winrt-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateStreamOverRandomAccessStream(IUnknown* randomAccessStream, Guid riid, void** ppv);
+	public static extern HRESULT CreateStreamOverRandomAccessStream(IUnknown* randomAccessStream, ref Guid riid, void** ppv);
 
 }
 #endregion

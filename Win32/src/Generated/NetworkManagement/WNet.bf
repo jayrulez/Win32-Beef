@@ -336,7 +336,7 @@ public function uint32 PF_NPSearchDialog(HWND hwndParent, NETRESOURCEW* lpNetRes
 
 public function uint32 PF_NPGetResourceParent(NETRESOURCEW* lpNetResource, void* lpBuffer, uint32* lpBufferSize);
 
-public function uint32 PF_NPGetResourceInformation(NETRESOURCEW* lpNetResource, void* lpBuffer, uint32* lpBufferSize, PWSTR lplpSystem);
+public function uint32 PF_NPGetResourceInformation(NETRESOURCEW* lpNetResource, void* lpBuffer, uint32* lpBufferSize, PWSTR* lplpSystem);
 
 public function uint32 PF_NPFormatNetworkName(PWSTR lpRemoteName, char16* lpFormattedName, uint32* lpnLength, uint32 dwFlags, uint32 dwAveCharPerLine);
 
@@ -348,7 +348,7 @@ public function uint32 PF_NPGetDirectoryType(PWSTR lpName, int32* lpType, BOOL b
 
 public function uint32 PF_NPDirectoryNotify(HWND hwnd, PWSTR lpDir, uint32 dwOper);
 
-public function uint32 PF_NPLogonNotify(LUID* lpLogonId, PWSTR lpAuthentInfoType, void* lpAuthentInfo, PWSTR lpPreviousAuthentInfoType, void* lpPreviousAuthentInfo, PWSTR lpStationName, void* StationHandle, PWSTR lpLogonScript);
+public function uint32 PF_NPLogonNotify(LUID* lpLogonId, PWSTR lpAuthentInfoType, void* lpAuthentInfo, PWSTR lpPreviousAuthentInfoType, void* lpPreviousAuthentInfo, PWSTR lpStationName, void* StationHandle, PWSTR* lpLogonScript);
 
 public function uint32 PF_NPPasswordChangeNotify(PWSTR lpAuthentInfoType, void* lpAuthentInfo, PWSTR lpPreviousAuthentInfoType, void* lpPreviousAuthentInfo, PWSTR lpStationName, void* StationHandle, uint32 dwChangeInfo);
 
@@ -633,7 +633,7 @@ public static
 	public static uint32 WNetGetResourceInformation(NETRESOURCEA* lpNetResource, void* lpBuffer, uint32* lpcbBuffer, PSTR* lplpSystem) => WNetGetResourceInformationA(lpNetResource, lpBuffer, lpcbBuffer, lplpSystem);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WNetGetResourceInformationW(NETRESOURCEW* lpNetResource, void* lpBuffer, uint32* lpcbBuffer, PWSTR lplpSystem);
+	public static extern uint32 WNetGetResourceInformationW(NETRESOURCEW* lpNetResource, void* lpBuffer, uint32* lpcbBuffer, PWSTR* lplpSystem);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetUniversalNameA(PSTR lpLocalPath, UNC_INFO_LEVEL dwInfoLevel, void* lpBuffer, uint32* lpBufferSize);
@@ -726,7 +726,7 @@ public static
 	public static extern uint32 NPGetResourceParent(NETRESOURCEW* lpNetResource, void* lpBuffer, uint32* lpBufferSize);
 
 	[Import("davclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NPGetResourceInformation(NETRESOURCEW* lpNetResource, void* lpBuffer, uint32* lpBufferSize, PWSTR lplpSystem);
+	public static extern uint32 NPGetResourceInformation(NETRESOURCEW* lpNetResource, void* lpBuffer, uint32* lpBufferSize, PWSTR* lplpSystem);
 
 	[Import("davclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NPFormatNetworkName(PWSTR lpRemoteName, char16* lpFormattedName, uint32* lpnLength, NETWORK_NAME_FORMAT_FLAGS dwFlags, uint32 dwAveCharPerLine);

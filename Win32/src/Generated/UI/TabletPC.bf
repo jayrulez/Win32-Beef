@@ -2108,7 +2108,7 @@ public struct PACKET_DESCRIPTION
 	public uint32 cPacketProperties;
 	public PACKET_PROPERTY* pPacketProperties;
 	public uint32 cButtons;
-	public Guid pguidButtons;
+	public Guid* pguidButtons;
 }
 
 [CRepr]
@@ -2277,7 +2277,7 @@ public struct RECO_LATTICE
 	public uint32 ulColumnCount;
 	public RECO_LATTICE_COLUMN* pLatticeColumns;
 	public uint32 ulPropertyCount;
-	public Guid pGuidProperties;
+	public Guid* pGuidProperties;
 	public uint32 ulBestResultColumnCount;
 	public uint32* pulBestResultColumns;
 	public uint32* pulBestResultIndexes;
@@ -4938,7 +4938,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32* pcPlugins) GetStylusAsyncPluginCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, IRealTimeStylus** ppiRTS) get_ChildRealTimeStylusPlugin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, IRealTimeStylus* piRTS) putref_ChildRealTimeStylusPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, StylusQueue sq, Guid pGuidId, uint32 cbData, uint8* pbData) AddCustomStylusDataToQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, StylusQueue sq, ref Guid pGuidId, uint32 cbData, uint8* pbData) AddCustomStylusDataToQueue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self) ClearStylusQueues;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, BOOL fUseMouseForInput) SetAllTabletsMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, IInkTablet* piTablet) SetSingleTabletMode;
@@ -4948,8 +4948,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32* pcTcidCount, uint32** ppTcids) GetAllTabletContextIds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, IInkCursors** ppiInkCursors) GetStyluses;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 sid, IInkCursor** ppiInkCursor) GetStylusForId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 cProperties, Guid* pPropertyGuids) SetDesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32* pcProperties, Guid* ppPropertyGuids) GetDesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 cProperties, ref Guid pPropertyGuids) SetDesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32* pcProperties, ref Guid ppPropertyGuids) GetDesiredPacketDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 tcid, float* pfInkToDeviceScaleX, float* pfInkToDeviceScaleY, uint32* pcPacketProperties, PACKET_PROPERTY** ppPacketProperties) GetPacketDescriptionData;
 	}
 
@@ -4990,7 +4990,7 @@ public static
 
 	public HRESULT putref_ChildRealTimeStylusPlugin(IRealTimeStylus* piRTS) mut => VT.[Friend]putref_ChildRealTimeStylusPlugin(&this, piRTS);
 
-	public HRESULT AddCustomStylusDataToQueue(StylusQueue sq, Guid pGuidId, uint32 cbData, uint8* pbData) mut => VT.[Friend]AddCustomStylusDataToQueue(&this, sq, pGuidId, cbData, pbData);
+	public HRESULT AddCustomStylusDataToQueue(StylusQueue sq, ref Guid pGuidId, uint32 cbData, uint8* pbData) mut => VT.[Friend]AddCustomStylusDataToQueue(&this, sq, ref pGuidId, cbData, pbData);
 
 	public HRESULT ClearStylusQueues() mut => VT.[Friend]ClearStylusQueues(&this);
 
@@ -5010,9 +5010,9 @@ public static
 
 	public HRESULT GetStylusForId(uint32 sid, IInkCursor** ppiInkCursor) mut => VT.[Friend]GetStylusForId(&this, sid, ppiInkCursor);
 
-	public HRESULT SetDesiredPacketDescription(uint32 cProperties, Guid* pPropertyGuids) mut => VT.[Friend]SetDesiredPacketDescription(&this, cProperties, pPropertyGuids);
+	public HRESULT SetDesiredPacketDescription(uint32 cProperties, ref Guid pPropertyGuids) mut => VT.[Friend]SetDesiredPacketDescription(&this, cProperties, ref pPropertyGuids);
 
-	public HRESULT GetDesiredPacketDescription(uint32* pcProperties, Guid* ppPropertyGuids) mut => VT.[Friend]GetDesiredPacketDescription(&this, pcProperties, ppPropertyGuids);
+	public HRESULT GetDesiredPacketDescription(uint32* pcProperties, ref Guid ppPropertyGuids) mut => VT.[Friend]GetDesiredPacketDescription(&this, pcProperties, ppPropertyGuids);
 
 	public HRESULT GetPacketDescriptionData(uint32 tcid, float* pfInkToDeviceScaleX, float* pfInkToDeviceScaleY, uint32* pcPacketProperties, PACKET_PROPERTY** ppPacketProperties) mut => VT.[Friend]GetPacketDescriptionData(&this, tcid, pfInkToDeviceScaleX, pfInkToDeviceScaleY, pcPacketProperties, ppPacketProperties);
 }
@@ -5115,11 +5115,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid) StylusOutOfRange;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPropCountPerPkt, int32* pPacket, int32** ppInOutPkt) StylusDown;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPropCountPerPkt, int32* pPacket, int32** ppInOutPkt) StylusUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonDown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonUp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) InAirPackets;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) Packets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, Guid pGuidId, uint32 cbData, uint8* pbData) CustomStylusDataAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, ref Guid pGuidId, uint32 cbData, uint8* pbData) CustomStylusDataAdded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid, uint16 event, SYSTEM_EVENT_DATA eventdata) SystemEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, IInkTablet* piTablet) TabletAdded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, int32 iTabletIndex) TabletRemoved;
@@ -5141,15 +5141,15 @@ public static
 
 	public HRESULT StylusUp(IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPropCountPerPkt, int32* pPacket, int32** ppInOutPkt) mut => VT.[Friend]StylusUp(&this, piRtsSrc, pStylusInfo, cPropCountPerPkt, pPacket, ppInOutPkt);
 
-	public HRESULT StylusButtonDown(IRealTimeStylus* piRtsSrc, uint32 sid, Guid pGuidStylusButton, POINT* pStylusPos) mut => VT.[Friend]StylusButtonDown(&this, piRtsSrc, sid, pGuidStylusButton, pStylusPos);
+	public HRESULT StylusButtonDown(IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) mut => VT.[Friend]StylusButtonDown(&this, piRtsSrc, sid, ref pGuidStylusButton, pStylusPos);
 
-	public HRESULT StylusButtonUp(IRealTimeStylus* piRtsSrc, uint32 sid, Guid pGuidStylusButton, POINT* pStylusPos) mut => VT.[Friend]StylusButtonUp(&this, piRtsSrc, sid, pGuidStylusButton, pStylusPos);
+	public HRESULT StylusButtonUp(IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) mut => VT.[Friend]StylusButtonUp(&this, piRtsSrc, sid, ref pGuidStylusButton, pStylusPos);
 
 	public HRESULT InAirPackets(IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) mut => VT.[Friend]InAirPackets(&this, piRtsSrc, pStylusInfo, cPktCount, cPktBuffLength, pPackets, pcInOutPkts, ppInOutPkts);
 
 	public HRESULT Packets(IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) mut => VT.[Friend]Packets(&this, piRtsSrc, pStylusInfo, cPktCount, cPktBuffLength, pPackets, pcInOutPkts, ppInOutPkts);
 
-	public HRESULT CustomStylusDataAdded(IRealTimeStylus* piRtsSrc, Guid pGuidId, uint32 cbData, uint8* pbData) mut => VT.[Friend]CustomStylusDataAdded(&this, piRtsSrc, pGuidId, cbData, pbData);
+	public HRESULT CustomStylusDataAdded(IRealTimeStylus* piRtsSrc, ref Guid pGuidId, uint32 cbData, uint8* pbData) mut => VT.[Friend]CustomStylusDataAdded(&this, piRtsSrc, ref pGuidId, cbData, pbData);
 
 	public HRESULT SystemEvent(IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid, uint16 event, SYSTEM_EVENT_DATA eventdata) mut => VT.[Friend]SystemEvent(&this, piRtsSrc, tcid, sid, event, eventdata);
 
@@ -5326,7 +5326,7 @@ public static
 public static
 {
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateRecognizer(Guid pCLSID, HRECOGNIZER* phrec);
+	public static extern HRESULT CreateRecognizer(ref Guid pCLSID, HRECOGNIZER* phrec);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DestroyRecognizer(HRECOGNIZER hrec);
@@ -5341,7 +5341,7 @@ public static
 	public static extern HRESULT DestroyContext(HRECOCONTEXT hrc);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetResultPropertyList(HRECOGNIZER hrec, uint32* pPropertyCount, Guid pPropertyGuid);
+	public static extern HRESULT GetResultPropertyList(HRECOGNIZER hrec, uint32* pPropertyCount, ref Guid pPropertyGuid);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetUnicodeRanges(HRECOGNIZER hrec, uint32* pcRanges, CHARACTER_RANGE* pcr);
@@ -5401,7 +5401,7 @@ public static
 	public static extern HRESULT MakeWordList(HRECOGNIZER hrec, PWSTR pBuffer, HRECOWORDLIST* phwl);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetAllRecognizers(Guid recognizerClsids, uint32* count);
+	public static extern HRESULT GetAllRecognizers(ref Guid recognizerClsids, uint32* count);
 
 	[Import("inkobjcore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT LoadCachedAttributes(Guid clsid, RECO_ATTRS* pRecoAttributes);

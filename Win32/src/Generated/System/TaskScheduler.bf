@@ -351,7 +351,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskTrigger*/SelfOuter* self, TASK_TRIGGER* pTrigger) SetTrigger;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskTrigger*/SelfOuter* self, TASK_TRIGGER* pTrigger) GetTrigger;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskTrigger*/SelfOuter* self, PWSTR ppwszTrigger) GetTriggerString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskTrigger*/SelfOuter* self, PWSTR* ppwszTrigger) GetTriggerString;
 	}
 
 
@@ -359,7 +359,7 @@ public static
 
 	public HRESULT GetTrigger(TASK_TRIGGER* pTrigger) mut => VT.[Friend]GetTrigger(&this, pTrigger);
 
-	public HRESULT GetTriggerString(PWSTR ppwszTrigger) mut => VT.[Friend]GetTriggerString(&this, ppwszTrigger);
+	public HRESULT GetTriggerString(PWSTR* ppwszTrigger) mut => VT.[Friend]GetTriggerString(&this, ppwszTrigger);
 }
 
 [CRepr]struct IScheduledWorkItem : IUnknown
@@ -374,7 +374,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 iTrigger) DeleteTrigger;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16* pwCount) GetTriggerCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 iTrigger, ITaskTrigger** ppTrigger) GetTrigger;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 iTrigger, PWSTR ppwszTrigger) GetTriggerString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 iTrigger, PWSTR* ppwszTrigger) GetTriggerString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, SYSTEMTIME* pstBegin, SYSTEMTIME* pstEnd, uint16* pCount, SYSTEMTIME** rgstTaskTimes) GetRunTimes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, SYSTEMTIME* pstNextRun) GetNextRunTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 wIdleMinutes, uint16 wDeadlineMinutes) SetIdleWait;
@@ -386,9 +386,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, HRESULT* phrStatus) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint32* pdwExitCode) GetExitCode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR pwszComment) SetComment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR ppwszComment) GetComment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR* ppwszComment) GetComment;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR pwszCreator) SetCreator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR ppwszCreator) GetCreator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR* ppwszCreator) GetCreator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 cbData, uint8* rgbData) SetWorkItemData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16* pcbData, uint8** prgbData) GetWorkItemData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 wRetryCount) SetErrorRetryCount;
@@ -398,7 +398,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint32 dwFlags) SetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR pwszAccountName, PWSTR pwszPassword) SetAccountInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR ppwszAccountName) GetAccountInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR* ppwszAccountName) GetAccountInformation;
 	}
 
 
@@ -410,7 +410,7 @@ public static
 
 	public HRESULT GetTrigger(uint16 iTrigger, ITaskTrigger** ppTrigger) mut => VT.[Friend]GetTrigger(&this, iTrigger, ppTrigger);
 
-	public HRESULT GetTriggerString(uint16 iTrigger, PWSTR ppwszTrigger) mut => VT.[Friend]GetTriggerString(&this, iTrigger, ppwszTrigger);
+	public HRESULT GetTriggerString(uint16 iTrigger, PWSTR* ppwszTrigger) mut => VT.[Friend]GetTriggerString(&this, iTrigger, ppwszTrigger);
 
 	public HRESULT GetRunTimes(SYSTEMTIME* pstBegin, SYSTEMTIME* pstEnd, uint16* pCount, SYSTEMTIME** rgstTaskTimes) mut => VT.[Friend]GetRunTimes(&this, pstBegin, pstEnd, pCount, rgstTaskTimes);
 
@@ -434,11 +434,11 @@ public static
 
 	public HRESULT SetComment(PWSTR pwszComment) mut => VT.[Friend]SetComment(&this, pwszComment);
 
-	public HRESULT GetComment(PWSTR ppwszComment) mut => VT.[Friend]GetComment(&this, ppwszComment);
+	public HRESULT GetComment(PWSTR* ppwszComment) mut => VT.[Friend]GetComment(&this, ppwszComment);
 
 	public HRESULT SetCreator(PWSTR pwszCreator) mut => VT.[Friend]SetCreator(&this, pwszCreator);
 
-	public HRESULT GetCreator(PWSTR ppwszCreator) mut => VT.[Friend]GetCreator(&this, ppwszCreator);
+	public HRESULT GetCreator(PWSTR* ppwszCreator) mut => VT.[Friend]GetCreator(&this, ppwszCreator);
 
 	public HRESULT SetWorkItemData(uint16 cbData, uint8* rgbData) mut => VT.[Friend]SetWorkItemData(&this, cbData, rgbData);
 
@@ -458,7 +458,7 @@ public static
 
 	public HRESULT SetAccountInformation(PWSTR pwszAccountName, PWSTR pwszPassword) mut => VT.[Friend]SetAccountInformation(&this, pwszAccountName, pwszPassword);
 
-	public HRESULT GetAccountInformation(PWSTR ppwszAccountName) mut => VT.[Friend]GetAccountInformation(&this, ppwszAccountName);
+	public HRESULT GetAccountInformation(PWSTR* ppwszAccountName) mut => VT.[Friend]GetAccountInformation(&this, ppwszAccountName);
 }
 
 [CRepr]struct ITask : IScheduledWorkItem
@@ -470,11 +470,11 @@ public static
 	[CRepr]public struct VTable : IScheduledWorkItem.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR pwszApplicationName) SetApplicationName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR ppwszApplicationName) GetApplicationName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR* ppwszApplicationName) GetApplicationName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR pwszParameters) SetParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR ppwszParameters) GetParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR* ppwszParameters) GetParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR pwszWorkingDirectory) SetWorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR ppwszWorkingDirectory) GetWorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR* ppwszWorkingDirectory) GetWorkingDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, uint32 dwPriority) SetPriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, uint32* pdwPriority) GetPriority;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, uint32 dwFlags) SetTaskFlags;
@@ -486,15 +486,15 @@ public static
 
 	public HRESULT SetApplicationName(PWSTR pwszApplicationName) mut => VT.[Friend]SetApplicationName(&this, pwszApplicationName);
 
-	public HRESULT GetApplicationName(PWSTR ppwszApplicationName) mut => VT.[Friend]GetApplicationName(&this, ppwszApplicationName);
+	public HRESULT GetApplicationName(PWSTR* ppwszApplicationName) mut => VT.[Friend]GetApplicationName(&this, ppwszApplicationName);
 
 	public HRESULT SetParameters(PWSTR pwszParameters) mut => VT.[Friend]SetParameters(&this, pwszParameters);
 
-	public HRESULT GetParameters(PWSTR ppwszParameters) mut => VT.[Friend]GetParameters(&this, ppwszParameters);
+	public HRESULT GetParameters(PWSTR* ppwszParameters) mut => VT.[Friend]GetParameters(&this, ppwszParameters);
 
 	public HRESULT SetWorkingDirectory(PWSTR pwszWorkingDirectory) mut => VT.[Friend]SetWorkingDirectory(&this, pwszWorkingDirectory);
 
-	public HRESULT GetWorkingDirectory(PWSTR ppwszWorkingDirectory) mut => VT.[Friend]GetWorkingDirectory(&this, ppwszWorkingDirectory);
+	public HRESULT GetWorkingDirectory(PWSTR* ppwszWorkingDirectory) mut => VT.[Friend]GetWorkingDirectory(&this, ppwszWorkingDirectory);
 
 	public HRESULT SetPriority(uint32 dwPriority) mut => VT.[Friend]SetPriority(&this, dwPriority);
 
@@ -517,14 +517,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumWorkItems*/SelfOuter* self, uint32 celt, PWSTR rgpwszNames, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumWorkItems*/SelfOuter* self, uint32 celt, PWSTR** rgpwszNames, uint32* pceltFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumWorkItems*/SelfOuter* self, uint32 celt) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumWorkItems*/SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumWorkItems*/SelfOuter* self, IEnumWorkItems** ppEnumWorkItems) Clone;
 	}
 
 
-	public HRESULT Next(uint32 celt, PWSTR rgpwszNames, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgpwszNames, pceltFetched);
+	public HRESULT Next(uint32 celt, PWSTR** rgpwszNames, uint32* pceltFetched) mut => VT.[Friend]Next(&this, celt, rgpwszNames, pceltFetched);
 
 	public HRESULT Skip(uint32 celt) mut => VT.[Friend]Skip(&this, celt);
 
@@ -542,31 +542,31 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszComputer) SetTargetComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR ppwszComputer) GetTargetComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR* ppwszComputer) GetTargetComputer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, IEnumWorkItems** ppEnumWorkItems) Enum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName, Guid riid, IUnknown** ppUnk) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName, ref Guid riid, IUnknown** ppUnk) Activate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszTaskName, Guid rclsid, Guid riid, IUnknown** ppUnk) NewWorkItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszTaskName, ref Guid rclsid, ref Guid riid, IUnknown** ppUnk) NewWorkItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszTaskName, IScheduledWorkItem* pWorkItem) AddWorkItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName, Guid riid) IsOfType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName, ref Guid riid) IsOfType;
 	}
 
 
 	public HRESULT SetTargetComputer(PWSTR pwszComputer) mut => VT.[Friend]SetTargetComputer(&this, pwszComputer);
 
-	public HRESULT GetTargetComputer(PWSTR ppwszComputer) mut => VT.[Friend]GetTargetComputer(&this, ppwszComputer);
+	public HRESULT GetTargetComputer(PWSTR* ppwszComputer) mut => VT.[Friend]GetTargetComputer(&this, ppwszComputer);
 
 	public HRESULT Enum(IEnumWorkItems** ppEnumWorkItems) mut => VT.[Friend]Enum(&this, ppEnumWorkItems);
 
-	public HRESULT Activate(PWSTR pwszName, Guid riid, IUnknown** ppUnk) mut => VT.[Friend]Activate(&this, pwszName, riid, ppUnk);
+	public HRESULT Activate(PWSTR pwszName, ref Guid riid, IUnknown** ppUnk) mut => VT.[Friend]Activate(&this, pwszName, ref riid, ppUnk);
 
 	public HRESULT Delete(PWSTR pwszName) mut => VT.[Friend]Delete(&this, pwszName);
 
-	public HRESULT NewWorkItem(PWSTR pwszTaskName, Guid rclsid, Guid riid, IUnknown** ppUnk) mut => VT.[Friend]NewWorkItem(&this, pwszTaskName, rclsid, riid, ppUnk);
+	public HRESULT NewWorkItem(PWSTR pwszTaskName, ref Guid rclsid, ref Guid riid, IUnknown** ppUnk) mut => VT.[Friend]NewWorkItem(&this, pwszTaskName, ref rclsid, ref riid, ppUnk);
 
 	public HRESULT AddWorkItem(PWSTR pwszTaskName, IScheduledWorkItem* pWorkItem) mut => VT.[Friend]AddWorkItem(&this, pwszTaskName, pWorkItem);
 
-	public HRESULT IsOfType(PWSTR pwszName, Guid riid) mut => VT.[Friend]IsOfType(&this, pwszName, riid);
+	public HRESULT IsOfType(PWSTR pwszName, ref Guid riid) mut => VT.[Friend]IsOfType(&this, pwszName, ref riid);
 }
 
 [CRepr]struct IProvideTaskPage : IUnknown

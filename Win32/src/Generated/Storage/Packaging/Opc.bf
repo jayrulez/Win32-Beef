@@ -406,7 +406,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, IOpcRelationshipSet** relationshipSet) GetRelationshipSet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, IStream** stream) GetContentStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, IOpcPartUri** name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, PWSTR contentType) GetContentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, PWSTR* contentType) GetContentType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, OPC_COMPRESSION_OPTIONS* compressionOptions) GetCompressionOptions;
 	}
 
@@ -417,7 +417,7 @@ public static
 
 	public HRESULT GetName(IOpcPartUri** name) mut => VT.[Friend]GetName(&this, name);
 
-	public HRESULT GetContentType(PWSTR contentType) mut => VT.[Friend]GetContentType(&this, contentType);
+	public HRESULT GetContentType(PWSTR* contentType) mut => VT.[Friend]GetContentType(&this, contentType);
 
 	public HRESULT GetCompressionOptions(OPC_COMPRESSION_OPTIONS* compressionOptions) mut => VT.[Friend]GetCompressionOptions(&this, compressionOptions);
 }
@@ -430,17 +430,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, PWSTR relationshipIdentifier) GetId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, PWSTR relationshipType) GetRelationshipType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, PWSTR* relationshipIdentifier) GetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, PWSTR* relationshipType) GetRelationshipType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, IOpcUri** sourceUri) GetSourceUri;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, IUri** targetUri) GetTargetUri;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, OPC_URI_TARGET_MODE* targetMode) GetTargetMode;
 	}
 
 
-	public HRESULT GetId(PWSTR relationshipIdentifier) mut => VT.[Friend]GetId(&this, relationshipIdentifier);
+	public HRESULT GetId(PWSTR* relationshipIdentifier) mut => VT.[Friend]GetId(&this, relationshipIdentifier);
 
-	public HRESULT GetRelationshipType(PWSTR relationshipType) mut => VT.[Friend]GetRelationshipType(&this, relationshipType);
+	public HRESULT GetRelationshipType(PWSTR* relationshipType) mut => VT.[Friend]GetRelationshipType(&this, relationshipType);
 
 	public HRESULT GetSourceUri(IOpcUri** sourceUri) mut => VT.[Friend]GetSourceUri(&this, sourceUri);
 
@@ -566,8 +566,8 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, IOpcPartUri** partName) GetPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, PWSTR contentType) GetContentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, PWSTR digestMethod) GetDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, PWSTR* contentType) GetContentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, uint8** digestValue, uint32* count) GetDigestValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, OPC_CANONICALIZATION_METHOD* transformMethod) GetTransformMethod;
 	}
@@ -575,9 +575,9 @@ public static
 
 	public HRESULT GetPartName(IOpcPartUri** partName) mut => VT.[Friend]GetPartName(&this, partName);
 
-	public HRESULT GetContentType(PWSTR contentType) mut => VT.[Friend]GetContentType(&this, contentType);
+	public HRESULT GetContentType(PWSTR* contentType) mut => VT.[Friend]GetContentType(&this, contentType);
 
-	public HRESULT GetDigestMethod(PWSTR digestMethod) mut => VT.[Friend]GetDigestMethod(&this, digestMethod);
+	public HRESULT GetDigestMethod(PWSTR* digestMethod) mut => VT.[Friend]GetDigestMethod(&this, digestMethod);
 
 	public HRESULT GetDigestValue(uint8** digestValue, uint32* count) mut => VT.[Friend]GetDigestValue(&this, digestValue, count);
 
@@ -593,7 +593,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, IOpcUri** sourceUri) GetSourceUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, PWSTR digestMethod) GetDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, uint8** digestValue, uint32* count) GetDigestValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, OPC_CANONICALIZATION_METHOD* transformMethod) GetTransformMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, OPC_RELATIONSHIPS_SIGNING_OPTION* relationshipSigningOption) GetRelationshipSigningOption;
@@ -603,7 +603,7 @@ public static
 
 	public HRESULT GetSourceUri(IOpcUri** sourceUri) mut => VT.[Friend]GetSourceUri(&this, sourceUri);
 
-	public HRESULT GetDigestMethod(PWSTR digestMethod) mut => VT.[Friend]GetDigestMethod(&this, digestMethod);
+	public HRESULT GetDigestMethod(PWSTR* digestMethod) mut => VT.[Friend]GetDigestMethod(&this, digestMethod);
 
 	public HRESULT GetDigestValue(uint8** digestValue, uint32* count) mut => VT.[Friend]GetDigestValue(&this, digestValue, count);
 
@@ -623,13 +623,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelector*/SelfOuter* self, OPC_RELATIONSHIP_SELECTOR* selector) GetSelectorType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelector*/SelfOuter* self, PWSTR selectionCriterion) GetSelectionCriterion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelector*/SelfOuter* self, PWSTR* selectionCriterion) GetSelectionCriterion;
 	}
 
 
 	public HRESULT GetSelectorType(OPC_RELATIONSHIP_SELECTOR* selector) mut => VT.[Friend]GetSelectorType(&this, selector);
 
-	public HRESULT GetSelectionCriterion(PWSTR selectionCriterion) mut => VT.[Friend]GetSelectionCriterion(&this, selectionCriterion);
+	public HRESULT GetSelectionCriterion(PWSTR* selectionCriterion) mut => VT.[Friend]GetSelectionCriterion(&this, selectionCriterion);
 }
 
 [CRepr]struct IOpcSignatureReference : IUnknown
@@ -640,24 +640,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, PWSTR referenceId) GetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, PWSTR* referenceId) GetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, IUri** referenceUri) GetUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, PWSTR type) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, PWSTR* type) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, OPC_CANONICALIZATION_METHOD* transformMethod) GetTransformMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, PWSTR digestMethod) GetDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, uint8** digestValue, uint32* count) GetDigestValue;
 	}
 
 
-	public HRESULT GetId(PWSTR referenceId) mut => VT.[Friend]GetId(&this, referenceId);
+	public HRESULT GetId(PWSTR* referenceId) mut => VT.[Friend]GetId(&this, referenceId);
 
 	public HRESULT GetUri(IUri** referenceUri) mut => VT.[Friend]GetUri(&this, referenceUri);
 
-	public HRESULT GetType(PWSTR type) mut => VT.[Friend]COM_GetType(&this, type);
+	public HRESULT GetType(PWSTR* type) mut => VT.[Friend]COM_GetType(&this, type);
 
 	public HRESULT GetTransformMethod(OPC_CANONICALIZATION_METHOD* transformMethod) mut => VT.[Friend]GetTransformMethod(&this, transformMethod);
 
-	public HRESULT GetDigestMethod(PWSTR digestMethod) mut => VT.[Friend]GetDigestMethod(&this, digestMethod);
+	public HRESULT GetDigestMethod(PWSTR* digestMethod) mut => VT.[Friend]GetDigestMethod(&this, digestMethod);
 
 	public HRESULT GetDigestValue(uint8** digestValue, uint32* count) mut => VT.[Friend]GetDigestValue(&this, digestValue, count);
 }
@@ -685,15 +685,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR* prefixes, PWSTR* namespaces, uint32* count) GetNamespaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR signatureId) GetSignatureId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR** prefixes, PWSTR** namespaces, uint32* count) GetNamespaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR* signatureId) GetSignatureId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR signatureMethod) GetSignatureMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR* signatureMethod) GetSignatureMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, OPC_CANONICALIZATION_METHOD* canonicalizationMethod) GetCanonicalizationMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, uint8** signatureValue, uint32* count) GetSignatureValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcSignaturePartReferenceEnumerator** partReferenceEnumerator) GetSignaturePartReferenceEnumerator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcSignatureRelationshipReferenceEnumerator** relationshipReferenceEnumerator) GetSignatureRelationshipReferenceEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR signingTime) GetSigningTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR* signingTime) GetSigningTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetTimeFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcSignatureReference** packageObjectReference) GetPackageObjectReference;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcCertificateEnumerator** certificateEnumerator) GetCertificateEnumerator;
@@ -703,13 +703,13 @@ public static
 	}
 
 
-	public HRESULT GetNamespaces(PWSTR* prefixes, PWSTR* namespaces, uint32* count) mut => VT.[Friend]GetNamespaces(&this, prefixes, namespaces, count);
+	public HRESULT GetNamespaces(PWSTR** prefixes, PWSTR** namespaces, uint32* count) mut => VT.[Friend]GetNamespaces(&this, prefixes, namespaces, count);
 
-	public HRESULT GetSignatureId(PWSTR signatureId) mut => VT.[Friend]GetSignatureId(&this, signatureId);
+	public HRESULT GetSignatureId(PWSTR* signatureId) mut => VT.[Friend]GetSignatureId(&this, signatureId);
 
 	public HRESULT GetSignaturePartName(IOpcPartUri** signaturePartName) mut => VT.[Friend]GetSignaturePartName(&this, signaturePartName);
 
-	public HRESULT GetSignatureMethod(PWSTR signatureMethod) mut => VT.[Friend]GetSignatureMethod(&this, signatureMethod);
+	public HRESULT GetSignatureMethod(PWSTR* signatureMethod) mut => VT.[Friend]GetSignatureMethod(&this, signatureMethod);
 
 	public HRESULT GetCanonicalizationMethod(OPC_CANONICALIZATION_METHOD* canonicalizationMethod) mut => VT.[Friend]GetCanonicalizationMethod(&this, canonicalizationMethod);
 
@@ -719,7 +719,7 @@ public static
 
 	public HRESULT GetSignatureRelationshipReferenceEnumerator(IOpcSignatureRelationshipReferenceEnumerator** relationshipReferenceEnumerator) mut => VT.[Friend]GetSignatureRelationshipReferenceEnumerator(&this, relationshipReferenceEnumerator);
 
-	public HRESULT GetSigningTime(PWSTR signingTime) mut => VT.[Friend]GetSigningTime(&this, signingTime);
+	public HRESULT GetSigningTime(PWSTR* signingTime) mut => VT.[Friend]GetSigningTime(&this, signingTime);
 
 	public HRESULT GetTimeFormat(OPC_SIGNATURE_TIME_FORMAT* timeFormat) mut => VT.[Friend]GetTimeFormat(&this, timeFormat);
 
@@ -742,11 +742,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR signatureId) GetSignatureId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR* signatureId) GetSignatureId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR signatureId) SetSignatureId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR signatureMethod) GetSignatureMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR* signatureMethod) GetSignatureMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR signatureMethod) SetSignatureMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR digestMethod) GetDefaultDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR* digestMethod) GetDefaultDigestMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR digestMethod) SetDefaultDigestMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, OPC_CERTIFICATE_EMBEDDING_OPTION* embeddingOption) GetCertificateEmbeddingOption;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, OPC_CERTIFICATE_EMBEDDING_OPTION embeddingOption) SetCertificateEmbeddingOption;
@@ -762,15 +762,15 @@ public static
 	}
 
 
-	public HRESULT GetSignatureId(PWSTR signatureId) mut => VT.[Friend]GetSignatureId(&this, signatureId);
+	public HRESULT GetSignatureId(PWSTR* signatureId) mut => VT.[Friend]GetSignatureId(&this, signatureId);
 
 	public HRESULT SetSignatureId(PWSTR signatureId) mut => VT.[Friend]SetSignatureId(&this, signatureId);
 
-	public HRESULT GetSignatureMethod(PWSTR signatureMethod) mut => VT.[Friend]GetSignatureMethod(&this, signatureMethod);
+	public HRESULT GetSignatureMethod(PWSTR* signatureMethod) mut => VT.[Friend]GetSignatureMethod(&this, signatureMethod);
 
 	public HRESULT SetSignatureMethod(PWSTR signatureMethod) mut => VT.[Friend]SetSignatureMethod(&this, signatureMethod);
 
-	public HRESULT GetDefaultDigestMethod(PWSTR digestMethod) mut => VT.[Friend]GetDefaultDigestMethod(&this, digestMethod);
+	public HRESULT GetDefaultDigestMethod(PWSTR* digestMethod) mut => VT.[Friend]GetDefaultDigestMethod(&this, digestMethod);
 
 	public HRESULT SetDefaultDigestMethod(PWSTR digestMethod) mut => VT.[Friend]SetDefaultDigestMethod(&this, digestMethod);
 

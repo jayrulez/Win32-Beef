@@ -193,10 +193,10 @@ public static
 	public static extern HRESULT D3DGetDebugInfo(void* pSrcData, uint SrcDataSize, ID3DBlob** ppDebugInfo);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DReflect(void* pSrcData, uint SrcDataSize, Guid pInterface, void** ppReflector);
+	public static extern HRESULT D3DReflect(void* pSrcData, uint SrcDataSize, ref Guid pInterface, void** ppReflector);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D3DReflectLibrary(void* pSrcData, uint SrcDataSize, Guid riid, void** ppReflector);
+	public static extern HRESULT D3DReflectLibrary(void* pSrcData, uint SrcDataSize, ref Guid riid, void** ppReflector);
 
 	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT D3DDisassemble(void* pSrcData, uint SrcDataSize, uint32 Flags, PSTR szComments, ID3DBlob** ppDisassembly);

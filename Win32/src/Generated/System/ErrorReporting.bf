@@ -576,10 +576,10 @@ public static
 	public static extern void WerStoreClose(HREPORTSTORE hReportStore);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreGetFirstReportKey(HREPORTSTORE hReportStore, PWSTR ppszReportKey);
+	public static extern HRESULT WerStoreGetFirstReportKey(HREPORTSTORE hReportStore, PWSTR* ppszReportKey);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerStoreGetNextReportKey(HREPORTSTORE hReportStore, PWSTR ppszReportKey);
+	public static extern HRESULT WerStoreGetNextReportKey(HREPORTSTORE hReportStore, PWSTR* ppszReportKey);
 
 	[Import("wer.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WerStoreQueryReportMetadataV2(HREPORTSTORE hReportStore, PWSTR pszReportKey, WER_REPORT_METADATA_V2* pReportMetadata);

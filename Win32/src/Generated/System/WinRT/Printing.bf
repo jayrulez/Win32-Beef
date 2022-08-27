@@ -34,14 +34,14 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrinting3DManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** printManager) GetForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrinting3DManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** asyncOperation) ShowPrintUIForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrinting3DManagerInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** printManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrinting3DManagerInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncOperation) ShowPrintUIForWindowAsync;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** printManager) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, printManager);
+	public HRESULT GetForWindow(HWND appWindow, ref Guid riid, void** printManager) mut => VT.[Friend]GetForWindow(&this, appWindow, ref riid, printManager);
 
-	public HRESULT ShowPrintUIForWindowAsync(HWND appWindow, Guid riid, void** asyncOperation) mut => VT.[Friend]ShowPrintUIForWindowAsync(&this, appWindow, riid, asyncOperation);
+	public HRESULT ShowPrintUIForWindowAsync(HWND appWindow, ref Guid riid, void** asyncOperation) mut => VT.[Friend]ShowPrintUIForWindowAsync(&this, appWindow, ref riid, asyncOperation);
 }
 
 [CRepr]struct IPrintManagerInterop : IInspectable
@@ -52,14 +52,14 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** printManager) GetForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintManagerInterop*/SelfOuter* self, HWND appWindow, Guid riid, void** asyncOperation) ShowPrintUIForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintManagerInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** printManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintManagerInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncOperation) ShowPrintUIForWindowAsync;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, Guid riid, void** printManager) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, printManager);
+	public HRESULT GetForWindow(HWND appWindow, ref Guid riid, void** printManager) mut => VT.[Friend]GetForWindow(&this, appWindow, ref riid, printManager);
 
-	public HRESULT ShowPrintUIForWindowAsync(HWND appWindow, Guid riid, void** asyncOperation) mut => VT.[Friend]ShowPrintUIForWindowAsync(&this, appWindow, riid, asyncOperation);
+	public HRESULT ShowPrintUIForWindowAsync(HWND appWindow, ref Guid riid, void** asyncOperation) mut => VT.[Friend]ShowPrintUIForWindowAsync(&this, appWindow, ref riid, asyncOperation);
 }
 
 [CRepr]struct IPrintWorkflowXpsReceiver : IUnknown

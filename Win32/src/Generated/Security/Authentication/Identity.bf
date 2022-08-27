@@ -3852,9 +3852,9 @@ public function NTSTATUS SpQueryMetaDataFn(uint CredentialHandle, UNICODE_STRING
 
 public function NTSTATUS SpExchangeMetaDataFn(uint CredentialHandle, UNICODE_STRING* TargetName, uint32 ContextRequirements, uint32 MetaDataLength, uint8* MetaData, uint* ContextHandle);
 
-public function NTSTATUS SpGetCredUIContextFn(uint ContextHandle, Guid CredType, uint32* FlatCredUIContextLength, uint8** FlatCredUIContext);
+public function NTSTATUS SpGetCredUIContextFn(uint ContextHandle, ref Guid CredType, uint32* FlatCredUIContextLength, uint8** FlatCredUIContext);
 
-public function NTSTATUS SpUpdateCredentialsFn(uint ContextHandle, Guid CredType, uint32 FlatCredUIContextLength, uint8* FlatCredUIContext);
+public function NTSTATUS SpUpdateCredentialsFn(uint ContextHandle, ref Guid CredType, uint32 FlatCredUIContextLength, uint8* FlatCredUIContext);
 
 public function NTSTATUS SpValidateTargetInfoFn(void** ClientRequest, void* ProtocolSubmitBuffer, void* ClientBufferBase, uint32 SubmitBufferLength, SECPKG_TARGETINFO* TargetInfo);
 
@@ -7182,7 +7182,7 @@ public struct SL_AD_ACTIVATION_INFO
 public struct SL_NONGENUINE_UI_OPTIONS
 {
 	public uint32 cbSize;
-	public Guid pComponentId;
+	public Guid* pComponentId;
 	public HRESULT hResultUI;
 }
 
@@ -7210,11 +7210,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICcgDomainAuthCredentials*/SelfOuter* self, PWSTR pluginInput, PWSTR domainName, PWSTR username, PWSTR password) GetPasswordCredentials;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICcgDomainAuthCredentials*/SelfOuter* self, PWSTR pluginInput, PWSTR* domainName, PWSTR* username, PWSTR* password) GetPasswordCredentials;
 	}
 
 
-	public HRESULT GetPasswordCredentials(PWSTR pluginInput, PWSTR domainName, PWSTR username, PWSTR password) mut => VT.[Friend]GetPasswordCredentials(&this, pluginInput, domainName, username, password);
+	public HRESULT GetPasswordCredentials(PWSTR pluginInput, PWSTR* domainName, PWSTR* username, PWSTR* password) mut => VT.[Friend]GetPasswordCredentials(&this, pluginInput, domainName, username, password);
 }
 
 #endregion
@@ -7367,45 +7367,45 @@ public static
 	public static extern BOOLEAN AuditSetPerUserPolicy(PSID pSid, AUDIT_POLICY_INFORMATION* pAuditPolicy, uint32 dwPolicyCount);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditQuerySystemPolicy(Guid* pSubCategoryGuids, uint32 dwPolicyCount, AUDIT_POLICY_INFORMATION** ppAuditPolicy);
+	public static extern BOOLEAN AuditQuerySystemPolicy(ref Guid pSubCategoryGuids, uint32 dwPolicyCount, AUDIT_POLICY_INFORMATION** ppAuditPolicy);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditQueryPerUserPolicy(PSID pSid, Guid* pSubCategoryGuids, uint32 dwPolicyCount, AUDIT_POLICY_INFORMATION** ppAuditPolicy);
+	public static extern BOOLEAN AuditQueryPerUserPolicy(PSID pSid, ref Guid pSubCategoryGuids, uint32 dwPolicyCount, AUDIT_POLICY_INFORMATION** ppAuditPolicy);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN AuditEnumeratePerUserPolicy(POLICY_AUDIT_SID_ARRAY** ppAuditSidArray);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditComputeEffectivePolicyBySid(PSID pSid, Guid* pSubCategoryGuids, uint32 dwPolicyCount, AUDIT_POLICY_INFORMATION** ppAuditPolicy);
+	public static extern BOOLEAN AuditComputeEffectivePolicyBySid(PSID pSid, ref Guid pSubCategoryGuids, uint32 dwPolicyCount, AUDIT_POLICY_INFORMATION** ppAuditPolicy);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditComputeEffectivePolicyByToken(HANDLE hTokenHandle, Guid* pSubCategoryGuids, uint32 dwPolicyCount, AUDIT_POLICY_INFORMATION** ppAuditPolicy);
+	public static extern BOOLEAN AuditComputeEffectivePolicyByToken(HANDLE hTokenHandle, ref Guid pSubCategoryGuids, uint32 dwPolicyCount, AUDIT_POLICY_INFORMATION** ppAuditPolicy);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditEnumerateCategories(Guid ppAuditCategoriesArray, uint32* pdwCountReturned);
+	public static extern BOOLEAN AuditEnumerateCategories(ref Guid ppAuditCategoriesArray, uint32* pdwCountReturned);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditEnumerateSubCategories(Guid pAuditCategoryGuid, BOOLEAN bRetrieveAllSubCategories, Guid ppAuditSubCategoriesArray, uint32* pdwCountReturned);
+	public static extern BOOLEAN AuditEnumerateSubCategories(ref Guid pAuditCategoryGuid, BOOLEAN bRetrieveAllSubCategories, ref Guid ppAuditSubCategoriesArray, uint32* pdwCountReturned);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupCategoryNameW(Guid pAuditCategoryGuid, PWSTR ppszCategoryName);
+	public static extern BOOLEAN AuditLookupCategoryNameW(ref Guid pAuditCategoryGuid, PWSTR* ppszCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupCategoryNameA(Guid pAuditCategoryGuid, PSTR* ppszCategoryName);
-	public static BOOLEAN AuditLookupCategoryName(Guid pAuditCategoryGuid, PSTR* ppszCategoryName) => AuditLookupCategoryNameA(pAuditCategoryGuid, ppszCategoryName);
+	public static extern BOOLEAN AuditLookupCategoryNameA(ref Guid pAuditCategoryGuid, PSTR* ppszCategoryName);
+	public static BOOLEAN AuditLookupCategoryName(ref Guid pAuditCategoryGuid, PSTR* ppszCategoryName) => AuditLookupCategoryNameA(ref pAuditCategoryGuid, ppszCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupSubCategoryNameW(Guid pAuditSubCategoryGuid, PWSTR ppszSubCategoryName);
+	public static extern BOOLEAN AuditLookupSubCategoryNameW(ref Guid pAuditSubCategoryGuid, PWSTR* ppszSubCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupSubCategoryNameA(Guid pAuditSubCategoryGuid, PSTR* ppszSubCategoryName);
-	public static BOOLEAN AuditLookupSubCategoryName(Guid pAuditSubCategoryGuid, PSTR* ppszSubCategoryName) => AuditLookupSubCategoryNameA(pAuditSubCategoryGuid, ppszSubCategoryName);
+	public static extern BOOLEAN AuditLookupSubCategoryNameA(ref Guid pAuditSubCategoryGuid, PSTR* ppszSubCategoryName);
+	public static BOOLEAN AuditLookupSubCategoryName(ref Guid pAuditSubCategoryGuid, PSTR* ppszSubCategoryName) => AuditLookupSubCategoryNameA(ref pAuditSubCategoryGuid, ppszSubCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupCategoryIdFromCategoryGuid(Guid pAuditCategoryGuid, POLICY_AUDIT_EVENT_TYPE* pAuditCategoryId);
+	public static extern BOOLEAN AuditLookupCategoryIdFromCategoryGuid(ref Guid pAuditCategoryGuid, POLICY_AUDIT_EVENT_TYPE* pAuditCategoryId);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOLEAN AuditLookupCategoryGuidFromCategoryId(POLICY_AUDIT_EVENT_TYPE AuditCategoryId, Guid pAuditCategoryGuid);
+	public static extern BOOLEAN AuditLookupCategoryGuidFromCategoryId(POLICY_AUDIT_EVENT_TYPE AuditCategoryId, ref Guid pAuditCategoryGuid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN AuditSetSecurity(uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
@@ -7575,7 +7575,7 @@ public static
 	public static int32 SaslEnumerateProfiles(PSTR* ProfileList, uint32* ProfileCount) => SaslEnumerateProfilesA(ProfileList, ProfileCount);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SaslEnumerateProfilesW(PWSTR ProfileList, uint32* ProfileCount);
+	public static extern int32 SaslEnumerateProfilesW(PWSTR* ProfileList, uint32* ProfileCount);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslGetProfilePackageA(PSTR ProfileName, SecPkgInfoA** PackageInfo);
@@ -7615,10 +7615,10 @@ public static
 	public static uint32 SspiPromptForCredentials(PSTR pszTargetName, void* pUiInfo, uint32 dwAuthError, PSTR pszPackage, void* pInputAuthIdentity, void** ppAuthIdentity, int32* pfSave, uint32 dwFlags) => SspiPromptForCredentialsA(pszTargetName, pUiInfo, dwAuthError, pszPackage, pInputAuthIdentity, ppAuthIdentity, pfSave, dwFlags);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SspiPrepareForCredRead(void* AuthIdentity, PWSTR pszTargetName, uint32* pCredmanCredentialType, PWSTR ppszCredmanTargetName);
+	public static extern int32 SspiPrepareForCredRead(void* AuthIdentity, PWSTR pszTargetName, uint32* pCredmanCredentialType, PWSTR* ppszCredmanTargetName);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SspiPrepareForCredWrite(void* AuthIdentity, PWSTR pszTargetName, uint32* pCredmanCredentialType, PWSTR ppszCredmanTargetName, PWSTR ppszCredmanUserName, uint8** ppCredentialBlob, uint32* pCredentialBlobSize);
+	public static extern int32 SspiPrepareForCredWrite(void* AuthIdentity, PWSTR pszTargetName, uint32* pCredmanCredentialType, PWSTR* ppszCredmanTargetName, PWSTR* ppszCredmanUserName, uint8** ppCredentialBlob, uint32* pCredentialBlobSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SspiEncryptAuthIdentity(void* AuthData);
@@ -7636,7 +7636,7 @@ public static
 	public static extern BOOLEAN SspiIsAuthIdentityEncrypted(void* EncryptedAuthData);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SspiEncodeAuthIdentityAsStrings(void* pAuthIdentity, PWSTR ppszUserName, PWSTR ppszDomainName, PWSTR ppszPackedCredentialsString);
+	public static extern int32 SspiEncodeAuthIdentityAsStrings(void* pAuthIdentity, PWSTR* ppszUserName, PWSTR* ppszDomainName, PWSTR* ppszPackedCredentialsString);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SspiValidateAuthIdentity(void* AuthData);
@@ -7669,7 +7669,7 @@ public static
 	public static extern BOOLEAN SspiIsPromptingNeeded(uint32 ErrorOrNtStatus);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SspiGetTargetHostName(PWSTR pszTargetName, PWSTR pszHostName);
+	public static extern int32 SspiGetTargetHostName(PWSTR pszTargetName, PWSTR* pszHostName);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SspiExcludePackage(void* AuthIdentity, PWSTR pszPackageName, void** ppNewAuthIdentity);
@@ -7777,31 +7777,31 @@ public static
 	public static extern HRESULT SLClose(void* hSLC);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLInstallProofOfPurchase(void* hSLC, PWSTR pwszPKeyAlgorithm, PWSTR pwszPKeyString, uint32 cbPKeySpecificData, uint8* pbPKeySpecificData, Guid pPkeyId);
+	public static extern HRESULT SLInstallProofOfPurchase(void* hSLC, PWSTR pwszPKeyAlgorithm, PWSTR pwszPKeyString, uint32 cbPKeySpecificData, uint8* pbPKeySpecificData, ref Guid pPkeyId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLUninstallProofOfPurchase(void* hSLC, Guid pPKeyId);
+	public static extern HRESULT SLUninstallProofOfPurchase(void* hSLC, ref Guid pPKeyId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLInstallLicense(void* hSLC, uint32 cbLicenseBlob, uint8* pbLicenseBlob, Guid pLicenseFileId);
+	public static extern HRESULT SLInstallLicense(void* hSLC, uint32 cbLicenseBlob, uint8* pbLicenseBlob, ref Guid pLicenseFileId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLUninstallLicense(void* hSLC, Guid pLicenseFileId);
+	public static extern HRESULT SLUninstallLicense(void* hSLC, ref Guid pLicenseFileId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLConsumeRight(void* hSLC, Guid pAppId, Guid pProductSkuId, PWSTR pwszRightName, void* pvReserved);
+	public static extern HRESULT SLConsumeRight(void* hSLC, ref Guid pAppId, ref Guid pProductSkuId, PWSTR pwszRightName, void* pvReserved);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetProductSkuInformation(void* hSLC, Guid pProductSkuId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetProductSkuInformation(void* hSLC, ref Guid pProductSkuId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetPKeyInformation(void* hSLC, Guid pPKeyId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetPKeyInformation(void* hSLC, ref Guid pPKeyId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetLicenseInformation(void* hSLC, Guid pSLLicenseId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetLicenseInformation(void* hSLC, ref Guid pSLLicenseId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetLicensingStatusInformation(void* hSLC, Guid pAppID, Guid pProductSkuId, PWSTR pwszRightName, uint32* pnStatusCount, SL_LICENSING_STATUS** ppLicensingStatus);
+	public static extern HRESULT SLGetLicensingStatusInformation(void* hSLC, ref Guid pAppID, ref Guid pProductSkuId, PWSTR pwszRightName, uint32* pnStatusCount, SL_LICENSING_STATUS** ppLicensingStatus);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SLGetPolicyInformation(void* hSLC, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
@@ -7813,52 +7813,52 @@ public static
 	public static extern HRESULT SLGetServiceInformation(void* hSLC, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetApplicationInformation(void* hSLC, Guid pApplicationId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetApplicationInformation(void* hSLC, ref Guid pApplicationId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("slcext.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLActivateProduct(void* hSLC, Guid pProductSkuId, uint32 cbAppSpecificData, void* pvAppSpecificData, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR pwszProxyServer, uint16 wProxyPort);
+	public static extern HRESULT SLActivateProduct(void* hSLC, ref Guid pProductSkuId, uint32 cbAppSpecificData, void* pvAppSpecificData, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR pwszProxyServer, uint16 wProxyPort);
 
 	[Import("slcext.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SLGetServerStatus(PWSTR pwszServerURL, PWSTR pwszAcquisitionType, PWSTR pwszProxyServer, uint16 wProxyPort, HRESULT* phrStatus);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGenerateOfflineInstallationId(void* hSLC, Guid pProductSkuId, PWSTR ppwszInstallationId);
+	public static extern HRESULT SLGenerateOfflineInstallationId(void* hSLC, ref Guid pProductSkuId, PWSTR* ppwszInstallationId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGenerateOfflineInstallationIdEx(void* hSLC, Guid pProductSkuId, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR ppwszInstallationId);
+	public static extern HRESULT SLGenerateOfflineInstallationIdEx(void* hSLC, ref Guid pProductSkuId, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR* ppwszInstallationId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLDepositOfflineConfirmationId(void* hSLC, Guid pProductSkuId, PWSTR pwszInstallationId, PWSTR pwszConfirmationId);
+	public static extern HRESULT SLDepositOfflineConfirmationId(void* hSLC, ref Guid pProductSkuId, PWSTR pwszInstallationId, PWSTR pwszConfirmationId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLDepositOfflineConfirmationIdEx(void* hSLC, Guid pProductSkuId, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR pwszInstallationId, PWSTR pwszConfirmationId);
+	public static extern HRESULT SLDepositOfflineConfirmationIdEx(void* hSLC, ref Guid pProductSkuId, SL_ACTIVATION_INFO_HEADER* pActivationInfo, PWSTR pwszInstallationId, PWSTR pwszConfirmationId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetPKeyId(void* hSLC, PWSTR pwszPKeyAlgorithm, PWSTR pwszPKeyString, uint32 cbPKeySpecificData, uint8* pbPKeySpecificData, Guid pPKeyId);
+	public static extern HRESULT SLGetPKeyId(void* hSLC, PWSTR pwszPKeyAlgorithm, PWSTR pwszPKeyString, uint32 cbPKeySpecificData, uint8* pbPKeySpecificData, ref Guid pPKeyId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetInstalledProductKeyIds(void* hSLC, Guid pProductSkuId, uint32* pnProductKeyIds, Guid ppProductKeyIds);
+	public static extern HRESULT SLGetInstalledProductKeyIds(void* hSLC, ref Guid pProductSkuId, uint32* pnProductKeyIds, ref Guid ppProductKeyIds);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLSetCurrentProductKey(void* hSLC, Guid pProductSkuId, Guid pProductKeyId);
+	public static extern HRESULT SLSetCurrentProductKey(void* hSLC, ref Guid pProductSkuId, ref Guid pProductKeyId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetSLIDList(void* hSLC, SLIDTYPE eQueryIdType, Guid pQueryId, SLIDTYPE eReturnIdType, uint32* pnReturnIds, Guid ppReturnIds);
+	public static extern HRESULT SLGetSLIDList(void* hSLC, SLIDTYPE eQueryIdType, ref Guid pQueryId, SLIDTYPE eReturnIdType, uint32* pnReturnIds, ref Guid ppReturnIds);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetLicenseFileId(void* hSLC, uint32 cbLicenseBlob, uint8* pbLicenseBlob, Guid pLicenseFileId);
+	public static extern HRESULT SLGetLicenseFileId(void* hSLC, uint32 cbLicenseBlob, uint8* pbLicenseBlob, ref Guid pLicenseFileId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetLicense(void* hSLC, Guid pLicenseFileId, uint32* pcbLicenseFile, uint8** ppbLicenseFile);
+	public static extern HRESULT SLGetLicense(void* hSLC, ref Guid pLicenseFileId, uint32* pcbLicenseFile, uint8** ppbLicenseFile);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLFireEvent(void* hSLC, PWSTR pwszEventId, Guid pApplicationId);
+	public static extern HRESULT SLFireEvent(void* hSLC, PWSTR pwszEventId, ref Guid pApplicationId);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLRegisterEvent(void* hSLC, PWSTR pwszEventId, Guid pApplicationId, HANDLE hEvent);
+	public static extern HRESULT SLRegisterEvent(void* hSLC, PWSTR pwszEventId, ref Guid pApplicationId, HANDLE hEvent);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLUnregisterEvent(void* hSLC, PWSTR pwszEventId, Guid pApplicationId, HANDLE hEvent);
+	public static extern HRESULT SLUnregisterEvent(void* hSLC, PWSTR pwszEventId, ref Guid pApplicationId, HANDLE hEvent);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SLGetWindowsInformation(PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
@@ -7867,19 +7867,19 @@ public static
 	public static extern HRESULT SLGetWindowsInformationDWORD(PWSTR pwszValueName, uint32* pdwValue);
 
 	[Import("SLWGA.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLIsGenuineLocal(Guid pAppId, SL_GENUINE_STATE* pGenuineState, SL_NONGENUINE_UI_OPTIONS* pUIOptions);
+	public static extern HRESULT SLIsGenuineLocal(ref Guid pAppId, SL_GENUINE_STATE* pGenuineState, SL_NONGENUINE_UI_OPTIONS* pUIOptions);
 
 	[Import("slcext.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SLAcquireGenuineTicket(void** ppTicketBlob, uint32* pcbTicketBlob, PWSTR pwszTemplateId, PWSTR pwszServerUrl, PWSTR pwszClientToken);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLSetGenuineInformation(Guid pQueryId, PWSTR pwszValueName, SLDATATYPE eDataType, uint32 cbValue, uint8* pbValue);
+	public static extern HRESULT SLSetGenuineInformation(ref Guid pQueryId, PWSTR pwszValueName, SLDATATYPE eDataType, uint32 cbValue, uint8* pbValue);
 
 	[Import("slcext.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetReferralInformation(void* hSLC, SLREFERRALTYPE eReferralType, Guid pSkuOrAppId, PWSTR pwszValueName, PWSTR ppwszValue);
+	public static extern HRESULT SLGetReferralInformation(void* hSLC, SLREFERRALTYPE eReferralType, ref Guid pSkuOrAppId, PWSTR pwszValueName, PWSTR* ppwszValue);
 
 	[Import("SLC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SLGetGenuineInformation(Guid pQueryId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
+	public static extern HRESULT SLGetGenuineInformation(ref Guid pQueryId, PWSTR pwszValueName, SLDATATYPE* peDataType, uint32* pcbValue, uint8** ppbValue);
 
 	[Import("api-ms-win-core-slapi-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SLQueryLicenseValueFromApp(PWSTR valueName, uint32* valueType, void* dataBuffer, uint32 dataSize, uint32* resultDataSize);

@@ -838,7 +838,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmObject*/SelfOuter* self, Guid id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmObject*/SelfOuter* self, ref Guid id) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmObject*/SelfOuter* self, BSTR* description) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmObject*/SelfOuter* self, BSTR description) put_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmObject*/SelfOuter* self) Delete;
@@ -846,7 +846,7 @@ public static
 	}
 
 
-	public HRESULT get_Id(Guid id) mut => VT.[Friend]get_Id(&this, id);
+	public HRESULT get_Id(ref Guid id) mut => VT.[Friend]get_Id(&this, id);
 
 	public HRESULT get_Description(BSTR* description) mut => VT.[Friend]get_Description(&this, description);
 
@@ -937,7 +937,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAction*/SelfOuter* self, Guid id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAction*/SelfOuter* self, ref Guid id) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAction*/SelfOuter* self, FsrmActionType* actionType) get_ActionType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAction*/SelfOuter* self, int32* minutes) get_RunLimitInterval;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAction*/SelfOuter* self, int32 minutes) put_RunLimitInterval;
@@ -945,7 +945,7 @@ public static
 	}
 
 
-	public HRESULT get_Id(Guid id) mut => VT.[Friend]get_Id(&this, id);
+	public HRESULT get_Id(ref Guid id) mut => VT.[Friend]get_Id(&this, id);
 
 	public HRESULT get_ActionType(FsrmActionType* actionType) mut => VT.[Friend]get_ActionType(&this, actionType);
 

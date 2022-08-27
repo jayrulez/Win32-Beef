@@ -4106,7 +4106,7 @@ public struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS
 	public uint32 dwUserVerificationRequirement;
 	public uint32 dwAttestationConveyancePreference;
 	public uint32 dwFlags;
-	public Guid pCancellationId;
+	public Guid* pCancellationId;
 	public WEBAUTHN_CREDENTIAL_LIST* pExcludeCredentialList;
 	public uint32 dwEnterpriseAttestation;
 	public uint32 dwLargeBlobSupport;
@@ -4125,7 +4125,7 @@ public struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS
 	public uint32 dwFlags;
 	public PWSTR pwszU2fAppId;
 	public BOOL* pbU2fAppId;
-	public Guid pCancellationId;
+	public Guid* pCancellationId;
 	public WEBAUTHN_CREDENTIAL_LIST* pAllowCredentialList;
 	public uint32 dwCredLargeBlobOperation;
 	public uint32 cbCredLargeBlob;
@@ -4825,10 +4825,10 @@ public static
 	public static extern void WebAuthNFreeAssertion(WEBAUTHN_ASSERTION* pWebAuthNAssertion);
 
 	[Import("webauthn.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WebAuthNGetCancellationId(Guid pCancellationId);
+	public static extern HRESULT WebAuthNGetCancellationId(ref Guid pCancellationId);
 
 	[Import("webauthn.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WebAuthNCancelCurrentOperation(Guid pCancellationId);
+	public static extern HRESULT WebAuthNCancelCurrentOperation(ref Guid pCancellationId);
 
 	[Import("webauthn.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR WebAuthNGetErrorName(HRESULT hr);

@@ -41,22 +41,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, Guid pCid) GetUnmarshalClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, uint32* pSize) GetMarshalSizeMax;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, IStream* pStm, Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags) MarshalInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, IStream* pStm, Guid riid, void** ppv) UnmarshalInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, ref Guid pCid) GetUnmarshalClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, uint32* pSize) GetMarshalSizeMax;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, IStream* pStm, ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags) MarshalInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, IStream* pStm, ref Guid riid, void** ppv) UnmarshalInterface;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, IStream* pStm) ReleaseMarshalData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, uint32 dwReserved) DisconnectObject;
 	}
 
 
-	public HRESULT GetUnmarshalClass(Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, Guid pCid) mut => VT.[Friend]GetUnmarshalClass(&this, riid, pv, dwDestContext, pvDestContext, mshlflags, pCid);
+	public HRESULT GetUnmarshalClass(ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, ref Guid pCid) mut => VT.[Friend]GetUnmarshalClass(&this, ref riid, pv, dwDestContext, pvDestContext, mshlflags, pCid);
 
-	public HRESULT GetMarshalSizeMax(Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, uint32* pSize) mut => VT.[Friend]GetMarshalSizeMax(&this, riid, pv, dwDestContext, pvDestContext, mshlflags, pSize);
+	public HRESULT GetMarshalSizeMax(ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, uint32* pSize) mut => VT.[Friend]GetMarshalSizeMax(&this, ref riid, pv, dwDestContext, pvDestContext, mshlflags, pSize);
 
-	public HRESULT MarshalInterface(IStream* pStm, Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags) mut => VT.[Friend]MarshalInterface(&this, pStm, riid, pv, dwDestContext, pvDestContext, mshlflags);
+	public HRESULT MarshalInterface(IStream* pStm, ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags) mut => VT.[Friend]MarshalInterface(&this, pStm, ref riid, pv, dwDestContext, pvDestContext, mshlflags);
 
-	public HRESULT UnmarshalInterface(IStream* pStm, Guid riid, void** ppv) mut => VT.[Friend]UnmarshalInterface(&this, pStm, riid, ppv);
+	public HRESULT UnmarshalInterface(IStream* pStm, ref Guid riid, void** ppv) mut => VT.[Friend]UnmarshalInterface(&this, pStm, ref riid, ppv);
 
 	public HRESULT ReleaseMarshalData(IStream* pStm) mut => VT.[Friend]ReleaseMarshalData(&this, pStm);
 
@@ -312,13 +312,13 @@ public static
 	public static extern void STGMEDIUM_UserFree64(uint32* param0, STGMEDIUM* param1);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetMarshalSizeMax(uint32* pulSize, Guid riid, IUnknown* pUnk, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags);
+	public static extern HRESULT CoGetMarshalSizeMax(uint32* pulSize, ref Guid riid, IUnknown* pUnk, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoMarshalInterface(IStream* pStm, Guid riid, IUnknown* pUnk, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags);
+	public static extern HRESULT CoMarshalInterface(IStream* pStm, ref Guid riid, IUnknown* pUnk, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoUnmarshalInterface(IStream* pStm, Guid riid, void** ppv);
+	public static extern HRESULT CoUnmarshalInterface(IStream* pStm, ref Guid riid, void** ppv);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CoMarshalHresult(IStream* pstm, HRESULT hresult);
@@ -330,13 +330,13 @@ public static
 	public static extern HRESULT CoReleaseMarshalData(IStream* pStm);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetStandardMarshal(Guid riid, IUnknown* pUnk, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, IMarshal** ppMarshal);
+	public static extern HRESULT CoGetStandardMarshal(ref Guid riid, IUnknown* pUnk, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, IMarshal** ppMarshal);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CoGetStdMarshalEx(IUnknown* pUnkOuter, uint32 smexflags, IUnknown** ppUnkInner);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoMarshalInterThreadInterfaceInStream(Guid riid, IUnknown* pUnk, IStream** ppStm);
+	public static extern HRESULT CoMarshalInterThreadInterfaceInStream(ref Guid riid, IUnknown* pUnk, IStream** ppStm);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 LPSAFEARRAY_UserSize(uint32* param0, uint32 param1, SAFEARRAY** param2);

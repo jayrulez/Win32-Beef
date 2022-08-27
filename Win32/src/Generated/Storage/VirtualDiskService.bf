@@ -2545,11 +2545,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryDrives;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, int16 sBusNumber, int16 sSlotNumber, IVdsDrive** ppDrive) GetDrive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self) Reenumerate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, Guid* pOnlineControllerIdArray, int32 lNumberOfOnlineControllers, Guid* pOfflineControllerIdArray, int32 lNumberOfOfflineControllers) SetControllerStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid* pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS* pHints, IVdsAsync** ppAsync) CreateLun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, ref Guid pOnlineControllerIdArray, int32 lNumberOfOnlineControllers, ref Guid pOfflineControllerIdArray, int32 lNumberOfOfflineControllers) SetControllerStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS* pHints, IVdsAsync** ppAsync) CreateLun;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, Guid DriveToBeReplaced, Guid ReplacementDrive) ReplaceDrive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, VDS_SUB_SYSTEM_STATUS status) SetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64* pullMaxLunSize) QueryMaxLunCreateSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64* pullMaxLunSize) QueryMaxLunCreateSize;
 	}
 
 
@@ -2567,15 +2567,15 @@ public static
 
 	public HRESULT Reenumerate() mut => VT.[Friend]Reenumerate(&this);
 
-	public HRESULT SetControllerStatus(Guid* pOnlineControllerIdArray, int32 lNumberOfOnlineControllers, Guid* pOfflineControllerIdArray, int32 lNumberOfOfflineControllers) mut => VT.[Friend]SetControllerStatus(&this, pOnlineControllerIdArray, lNumberOfOnlineControllers, pOfflineControllerIdArray, lNumberOfOfflineControllers);
+	public HRESULT SetControllerStatus(ref Guid pOnlineControllerIdArray, int32 lNumberOfOnlineControllers, ref Guid pOfflineControllerIdArray, int32 lNumberOfOfflineControllers) mut => VT.[Friend]SetControllerStatus(&this, pOnlineControllerIdArray, lNumberOfOnlineControllers, pOfflineControllerIdArray, lNumberOfOfflineControllers);
 
-	public HRESULT CreateLun(VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid* pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS* pHints, IVdsAsync** ppAsync) mut => VT.[Friend]CreateLun(&this, type, ullSizeInBytes, pDriveIdArray, lNumberOfDrives, pwszUnmaskingList, pHints, ppAsync);
+	public HRESULT CreateLun(VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS* pHints, IVdsAsync** ppAsync) mut => VT.[Friend]CreateLun(&this, type, ullSizeInBytes, pDriveIdArray, lNumberOfDrives, pwszUnmaskingList, pHints, ppAsync);
 
 	public HRESULT ReplaceDrive(Guid DriveToBeReplaced, Guid ReplacementDrive) mut => VT.[Friend]ReplaceDrive(&this, DriveToBeReplaced, ReplacementDrive);
 
 	public HRESULT SetStatus(VDS_SUB_SYSTEM_STATUS status) mut => VT.[Friend]SetStatus(&this, status);
 
-	public HRESULT QueryMaxLunCreateSize(VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize(&this, type, pDriveIdArray, lNumberOfDrives, pHints, pullMaxLunSize);
+	public HRESULT QueryMaxLunCreateSize(VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize(&this, type, pDriveIdArray, lNumberOfDrives, pHints, pullMaxLunSize);
 }
 
 [CRepr]struct IVdsSubSystem2 : IUnknown
@@ -2588,8 +2588,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem2*/SelfOuter* self, VDS_SUB_SYSTEM_PROP2* pSubSystemProp2) GetProperties2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem2*/SelfOuter* self, int16 sBusNumber, int16 sSlotNumber, uint32 ulEnclosureNumber, IVdsDrive** ppDrive) GetDrive2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem2*/SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid* pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) CreateLun2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem2*/SelfOuter* self, VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) QueryMaxLunCreateSize2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem2*/SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) CreateLun2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem2*/SelfOuter* self, VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) QueryMaxLunCreateSize2;
 	}
 
 
@@ -2597,9 +2597,9 @@ public static
 
 	public HRESULT GetDrive2(int16 sBusNumber, int16 sSlotNumber, uint32 ulEnclosureNumber, IVdsDrive** ppDrive) mut => VT.[Friend]GetDrive2(&this, sBusNumber, sSlotNumber, ulEnclosureNumber, ppDrive);
 
-	public HRESULT CreateLun2(VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid* pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) mut => VT.[Friend]CreateLun2(&this, type, ullSizeInBytes, pDriveIdArray, lNumberOfDrives, pwszUnmaskingList, pHints2, ppAsync);
+	public HRESULT CreateLun2(VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) mut => VT.[Friend]CreateLun2(&this, type, ullSizeInBytes, pDriveIdArray, lNumberOfDrives, pwszUnmaskingList, pHints2, ppAsync);
 
-	public HRESULT QueryMaxLunCreateSize2(VDS_LUN_TYPE type, Guid* pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize2(&this, type, pDriveIdArray, lNumberOfDrives, pHints2, pullMaxLunSize);
+	public HRESULT QueryMaxLunCreateSize2(VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) mut => VT.[Friend]QueryMaxLunCreateSize2(&this, type, pDriveIdArray, lNumberOfDrives, pHints2, pullMaxLunSize);
 }
 
 [CRepr]struct IVdsSubSystemNaming : IUnknown
@@ -2791,7 +2791,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, VDS_LUN_INFORMATION* pLunInfo) GetIdentificationData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryActiveControllers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, uint64 ullNumberOfBytesToAdd, Guid* pDriveIdArray, int32 lNumberOfDrives, IVdsAsync** ppAsync) Extend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, uint64 ullNumberOfBytesToAdd, ref Guid pDriveIdArray, int32 lNumberOfDrives, IVdsAsync** ppAsync) Extend;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, uint64 ullNumberOfBytesToRemove, IVdsAsync** ppAsync) Shrink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryPlexes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, Guid lunId, IVdsAsync** ppAsync) AddPlex;
@@ -2799,11 +2799,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, IVdsAsync** ppAsync) Recover;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, PWSTR pwszUnmaskingList) SetMask;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, Guid* pActiveControllerIdArray, int32 lNumberOfActiveControllers, Guid* pInactiveControllerIdArray, int32 lNumberOfInactiveControllers) AssociateControllers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, ref Guid pActiveControllerIdArray, int32 lNumberOfActiveControllers, ref Guid pInactiveControllerIdArray, int32 lNumberOfInactiveControllers) AssociateControllers;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, VDS_HINTS* pHints) QueryHints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, VDS_HINTS* pHints) ApplyHints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, VDS_LUN_STATUS status) SetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, Guid* pDriveIdArray, int32 lNumberOfDrives, uint64* pullMaxBytesToBeAdded) QueryMaxLunExtendSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, ref Guid pDriveIdArray, int32 lNumberOfDrives, uint64* pullMaxBytesToBeAdded) QueryMaxLunExtendSize;
 	}
 
 
@@ -2815,7 +2815,7 @@ public static
 
 	public HRESULT QueryActiveControllers(IEnumVdsObject** ppEnum) mut => VT.[Friend]QueryActiveControllers(&this, ppEnum);
 
-	public HRESULT Extend(uint64 ullNumberOfBytesToAdd, Guid* pDriveIdArray, int32 lNumberOfDrives, IVdsAsync** ppAsync) mut => VT.[Friend]Extend(&this, ullNumberOfBytesToAdd, pDriveIdArray, lNumberOfDrives, ppAsync);
+	public HRESULT Extend(uint64 ullNumberOfBytesToAdd, ref Guid pDriveIdArray, int32 lNumberOfDrives, IVdsAsync** ppAsync) mut => VT.[Friend]Extend(&this, ullNumberOfBytesToAdd, pDriveIdArray, lNumberOfDrives, ppAsync);
 
 	public HRESULT Shrink(uint64 ullNumberOfBytesToRemove, IVdsAsync** ppAsync) mut => VT.[Friend]Shrink(&this, ullNumberOfBytesToRemove, ppAsync);
 
@@ -2831,7 +2831,7 @@ public static
 
 	public HRESULT Delete() mut => VT.[Friend]Delete(&this);
 
-	public HRESULT AssociateControllers(Guid* pActiveControllerIdArray, int32 lNumberOfActiveControllers, Guid* pInactiveControllerIdArray, int32 lNumberOfInactiveControllers) mut => VT.[Friend]AssociateControllers(&this, pActiveControllerIdArray, lNumberOfActiveControllers, pInactiveControllerIdArray, lNumberOfInactiveControllers);
+	public HRESULT AssociateControllers(ref Guid pActiveControllerIdArray, int32 lNumberOfActiveControllers, ref Guid pInactiveControllerIdArray, int32 lNumberOfInactiveControllers) mut => VT.[Friend]AssociateControllers(&this, pActiveControllerIdArray, lNumberOfActiveControllers, pInactiveControllerIdArray, lNumberOfInactiveControllers);
 
 	public HRESULT QueryHints(VDS_HINTS* pHints) mut => VT.[Friend]QueryHints(&this, pHints);
 
@@ -2839,7 +2839,7 @@ public static
 
 	public HRESULT SetStatus(VDS_LUN_STATUS status) mut => VT.[Friend]SetStatus(&this, status);
 
-	public HRESULT QueryMaxLunExtendSize(Guid* pDriveIdArray, int32 lNumberOfDrives, uint64* pullMaxBytesToBeAdded) mut => VT.[Friend]QueryMaxLunExtendSize(&this, pDriveIdArray, lNumberOfDrives, pullMaxBytesToBeAdded);
+	public HRESULT QueryMaxLunExtendSize(ref Guid pDriveIdArray, int32 lNumberOfDrives, uint64* pullMaxBytesToBeAdded) mut => VT.[Friend]QueryMaxLunExtendSize(&this, pDriveIdArray, lNumberOfDrives, pullMaxBytesToBeAdded);
 }
 
 [CRepr]struct IVdsLun2 : IUnknown
@@ -2898,12 +2898,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunControllerPorts*/SelfOuter* self, Guid* pActiveControllerPortIdArray, int32 lNumberOfActiveControllerPorts, Guid* pInactiveControllerPortIdArray, int32 lNumberOfInactiveControllerPorts) AssociateControllerPorts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunControllerPorts*/SelfOuter* self, ref Guid pActiveControllerPortIdArray, int32 lNumberOfActiveControllerPorts, ref Guid pInactiveControllerPortIdArray, int32 lNumberOfInactiveControllerPorts) AssociateControllerPorts;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunControllerPorts*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryActiveControllerPorts;
 	}
 
 
-	public HRESULT AssociateControllerPorts(Guid* pActiveControllerPortIdArray, int32 lNumberOfActiveControllerPorts, Guid* pInactiveControllerPortIdArray, int32 lNumberOfInactiveControllerPorts) mut => VT.[Friend]AssociateControllerPorts(&this, pActiveControllerPortIdArray, lNumberOfActiveControllerPorts, pInactiveControllerPortIdArray, lNumberOfInactiveControllerPorts);
+	public HRESULT AssociateControllerPorts(ref Guid pActiveControllerPortIdArray, int32 lNumberOfActiveControllerPorts, ref Guid pInactiveControllerPortIdArray, int32 lNumberOfInactiveControllerPorts) mut => VT.[Friend]AssociateControllerPorts(&this, pActiveControllerPortIdArray, lNumberOfActiveControllerPorts, pInactiveControllerPortIdArray, lNumberOfInactiveControllerPorts);
 
 	public HRESULT QueryActiveControllerPorts(IEnumVdsObject** ppEnum) mut => VT.[Friend]QueryActiveControllerPorts(&this, ppEnum);
 }
@@ -2940,12 +2940,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunIscsi*/SelfOuter* self, Guid* pTargetIdArray, int32 lNumberOfTargets) AssociateTargets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunIscsi*/SelfOuter* self, ref Guid pTargetIdArray, int32 lNumberOfTargets) AssociateTargets;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunIscsi*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedTargets;
 	}
 
 
-	public HRESULT AssociateTargets(Guid* pTargetIdArray, int32 lNumberOfTargets) mut => VT.[Friend]AssociateTargets(&this, pTargetIdArray, lNumberOfTargets);
+	public HRESULT AssociateTargets(ref Guid pTargetIdArray, int32 lNumberOfTargets) mut => VT.[Friend]AssociateTargets(&this, pTargetIdArray, lNumberOfTargets);
 
 	public HRESULT QueryAssociatedTargets(IEnumVdsObject** ppEnum) mut => VT.[Friend]QueryAssociatedTargets(&this, ppEnum);
 }
@@ -3027,7 +3027,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, PWSTR pwszFriendlyName) SetFriendlyName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, VDS_ISCSI_SHARED_SECRET* pTargetSharedSecret, PWSTR pwszInitiatorName) SetSharedSecret;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, PWSTR pwszInitiatorName, VDS_ISCSI_SHARED_SECRET* pInitiatorSharedSecret) RememberInitiatorSharedSecret;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, PWSTR* pppwszInitiatorList, int32* plNumberOfInitiators) GetConnectedInitiators;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, PWSTR** pppwszInitiatorList, int32* plNumberOfInitiators) GetConnectedInitiators;
 	}
 
 
@@ -3049,7 +3049,7 @@ public static
 
 	public HRESULT RememberInitiatorSharedSecret(PWSTR pwszInitiatorName, VDS_ISCSI_SHARED_SECRET* pInitiatorSharedSecret) mut => VT.[Friend]RememberInitiatorSharedSecret(&this, pwszInitiatorName, pInitiatorSharedSecret);
 
-	public HRESULT GetConnectedInitiators(PWSTR* pppwszInitiatorList, int32* plNumberOfInitiators) mut => VT.[Friend]GetConnectedInitiators(&this, pppwszInitiatorList, plNumberOfInitiators);
+	public HRESULT GetConnectedInitiators(PWSTR** pppwszInitiatorList, int32* plNumberOfInitiators) mut => VT.[Friend]GetConnectedInitiators(&this, pppwszInitiatorList, plNumberOfInitiators);
 }
 
 [CRepr]struct IVdsIscsiPortalGroup : IUnknown
@@ -3141,11 +3141,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderPrivate*/SelfOuter* self, PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, Guid pLunId) QueryIfCreatedLun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderPrivate*/SelfOuter* self, PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, ref Guid pLunId) QueryIfCreatedLun;
 	}
 
 
-	public HRESULT QueryIfCreatedLun(PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, Guid pLunId) mut => VT.[Friend]QueryIfCreatedLun(&this, pwszDevicePath, pVdsLunInformation, pLunId);
+	public HRESULT QueryIfCreatedLun(PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, ref Guid pLunId) mut => VT.[Friend]QueryIfCreatedLun(&this, pwszDevicePath, pVdsLunInformation, pLunId);
 }
 
 [CRepr]struct IVdsHwProviderPrivateMpio : IUnknown

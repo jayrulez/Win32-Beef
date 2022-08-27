@@ -2918,9 +2918,9 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DResource9*/SelfOuter* self, IDirect3DDevice9** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DResource9*/SelfOuter* self, Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DResource9*/SelfOuter* self, Guid refguid, void* pData, uint32* pSizeOfData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DResource9*/SelfOuter* self, Guid refguid) FreePrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DResource9*/SelfOuter* self, ref Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DResource9*/SelfOuter* self, ref Guid refguid, void* pData, uint32* pSizeOfData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DResource9*/SelfOuter* self, ref Guid refguid) FreePrivateData;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IDirect3DResource9*/SelfOuter* self, uint32 PriorityNew) SetPriority;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IDirect3DResource9*/SelfOuter* self) GetPriority;
 		protected new function [CallingConvention(.Stdcall)] void(/*IDirect3DResource9*/SelfOuter* self) PreLoad;
@@ -2930,11 +2930,11 @@ public static
 
 	public HRESULT GetDevice(IDirect3DDevice9** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 
-	public HRESULT SetPrivateData(Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, refguid, pData, SizeOfData, Flags);
+	public HRESULT SetPrivateData(ref Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, ref refguid, pData, SizeOfData, Flags);
 
-	public HRESULT GetPrivateData(Guid refguid, void* pData, uint32* pSizeOfData) mut => VT.[Friend]GetPrivateData(&this, refguid, pData, pSizeOfData);
+	public HRESULT GetPrivateData(ref Guid refguid, void* pData, uint32* pSizeOfData) mut => VT.[Friend]GetPrivateData(&this, ref refguid, pData, pSizeOfData);
 
-	public HRESULT FreePrivateData(Guid refguid) mut => VT.[Friend]FreePrivateData(&this, refguid);
+	public HRESULT FreePrivateData(ref Guid refguid) mut => VT.[Friend]FreePrivateData(&this, ref refguid);
 
 	public uint32 SetPriority(uint32 PriorityNew) mut => VT.[Friend]SetPriority(&this, PriorityNew);
 
@@ -3160,7 +3160,7 @@ public static
 
 	[CRepr]public struct VTable : IDirect3DResource9.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DSurface9*/SelfOuter* self, Guid riid, void** ppContainer) GetContainer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DSurface9*/SelfOuter* self, ref Guid riid, void** ppContainer) GetContainer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DSurface9*/SelfOuter* self, D3DSURFACE_DESC* pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DSurface9*/SelfOuter* self, D3DLOCKED_RECT* pLockedRect, RECT* pRect, uint32 Flags) LockRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DSurface9*/SelfOuter* self) UnlockRect;
@@ -3169,7 +3169,7 @@ public static
 	}
 
 
-	public HRESULT GetContainer(Guid riid, void** ppContainer) mut => VT.[Friend]GetContainer(&this, riid, ppContainer);
+	public HRESULT GetContainer(ref Guid riid, void** ppContainer) mut => VT.[Friend]GetContainer(&this, ref riid, ppContainer);
 
 	public HRESULT GetDesc(D3DSURFACE_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
@@ -3191,10 +3191,10 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, IDirect3DDevice9** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, Guid refguid, void* pData, uint32* pSizeOfData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, Guid refguid) FreePrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, Guid riid, void** ppContainer) GetContainer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, ref Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, ref Guid refguid, void* pData, uint32* pSizeOfData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, ref Guid refguid) FreePrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, ref Guid riid, void** ppContainer) GetContainer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, D3DVOLUME_DESC* pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self, D3DLOCKED_BOX* pLockedVolume, D3DBOX* pBox, uint32 Flags) LockBox;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DVolume9*/SelfOuter* self) UnlockBox;
@@ -3203,13 +3203,13 @@ public static
 
 	public HRESULT GetDevice(IDirect3DDevice9** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 
-	public HRESULT SetPrivateData(Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, refguid, pData, SizeOfData, Flags);
+	public HRESULT SetPrivateData(ref Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, ref refguid, pData, SizeOfData, Flags);
 
-	public HRESULT GetPrivateData(Guid refguid, void* pData, uint32* pSizeOfData) mut => VT.[Friend]GetPrivateData(&this, refguid, pData, pSizeOfData);
+	public HRESULT GetPrivateData(ref Guid refguid, void* pData, uint32* pSizeOfData) mut => VT.[Friend]GetPrivateData(&this, ref refguid, pData, pSizeOfData);
 
-	public HRESULT FreePrivateData(Guid refguid) mut => VT.[Friend]FreePrivateData(&this, refguid);
+	public HRESULT FreePrivateData(ref Guid refguid) mut => VT.[Friend]FreePrivateData(&this, ref refguid);
 
-	public HRESULT GetContainer(Guid riid, void** ppContainer) mut => VT.[Friend]GetContainer(&this, riid, ppContainer);
+	public HRESULT GetContainer(ref Guid riid, void** ppContainer) mut => VT.[Friend]GetContainer(&this, ref riid, ppContainer);
 
 	public HRESULT GetDesc(D3DVOLUME_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 

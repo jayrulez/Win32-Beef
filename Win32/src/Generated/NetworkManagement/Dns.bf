@@ -1747,7 +1747,7 @@ public struct DNS_CONNECTION_POLICY_ENTRY
 	public uint32 cbAppSid;
 	public uint8* pbAppSid;
 	public uint32 nConnections;
-	public PWSTR ppwszConnections;
+	public PWSTR* ppwszConnections;
 	public uint32 dwPolicyEntryFlags;
 }
 
@@ -1769,8 +1769,8 @@ public struct DNS_SERVICE_INSTANCE
 	public uint16 wPriority;
 	public uint16 wWeight;
 	public uint32 dwPropertyCount;
-	public PWSTR keys;
-	public PWSTR values;
+	public PWSTR* keys;
+	public PWSTR* values;
 	public uint32 dwInterfaceIndex;
 }
 

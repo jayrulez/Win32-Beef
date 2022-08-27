@@ -1539,7 +1539,7 @@ public static
 	public static extern BOOL WinHttpSetTimeouts(void* hInternet, int32 nResolveTimeout, int32 nConnectTimeout, int32 nSendTimeout, int32 nReceiveTimeout);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* WinHttpOpenRequest(void* hConnect, PWSTR pwszVerb, PWSTR pwszObjectName, PWSTR pwszVersion, PWSTR pwszReferrer, PWSTR ppwszAcceptTypes, WINHTTP_OPEN_REQUEST_FLAGS dwFlags);
+	public static extern void* WinHttpOpenRequest(void* hConnect, PWSTR pwszVerb, PWSTR pwszObjectName, PWSTR pwszVersion, PWSTR pwszReferrer, PWSTR* ppwszAcceptTypes, WINHTTP_OPEN_REQUEST_FLAGS dwFlags);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WinHttpAddRequestHeaders(void* hRequest, char16* lpszHeaders, uint32 dwHeadersLength, uint32 dwModifiers);
@@ -1566,13 +1566,13 @@ public static
 	public static extern uint32 WinHttpQueryHeadersEx(void* hRequest, uint32 dwInfoLevel, uint64 ullFlags, uint32 uiCodePage, uint32* pdwIndex, WINHTTP_HEADER_NAME* pHeaderName, void* pBuffer, uint32* pdwBufferLength, WINHTTP_EXTENDED_HEADER** ppHeaders, uint32* pdwHeadersCount);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WinHttpQueryConnectionGroup(void* hInternet, Guid pGuidConnection, uint64 ullFlags, WINHTTP_QUERY_CONNECTION_GROUP_RESULT** ppResult);
+	public static extern uint32 WinHttpQueryConnectionGroup(void* hInternet, ref Guid pGuidConnection, uint64 ullFlags, WINHTTP_QUERY_CONNECTION_GROUP_RESULT** ppResult);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WinHttpFreeQueryConnectionGroupResult(WINHTTP_QUERY_CONNECTION_GROUP_RESULT* pResult);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WinHttpDetectAutoProxyConfigUrl(uint32 dwAutoDetectFlags, PWSTR ppwstrAutoConfigUrl);
+	public static extern BOOL WinHttpDetectAutoProxyConfigUrl(uint32 dwAutoDetectFlags, PWSTR* ppwstrAutoConfigUrl);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WinHttpGetProxyForUrl(void* hSession, PWSTR lpcwszUrl, WINHTTP_AUTOPROXY_OPTIONS* pAutoProxyOptions, WINHTTP_PROXY_INFO* pProxyInfo);

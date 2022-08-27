@@ -1154,7 +1154,7 @@ public static
 public static
 {
 	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateFX(Guid clsid, IUnknown** pEffect, void* pInitDat, uint32 InitDataByteSize);
+	public static extern HRESULT CreateFX(ref Guid clsid, IUnknown** pEffect, void* pInitDat, uint32 InitDataByteSize);
 
 	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT XAudio2CreateWithVersionInfo(IXAudio2** ppXAudio2, uint32 Flags, uint32 XAudio2Processor, uint32 ntddiVersion);

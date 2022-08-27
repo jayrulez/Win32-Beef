@@ -165,7 +165,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateDeviceAccessAsync*/SelfOuter* self) Cancel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateDeviceAccessAsync*/SelfOuter* self, uint32 timeout) Wait;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateDeviceAccessAsync*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateDeviceAccessAsync*/SelfOuter* self, Guid riid, void** deviceAccess) GetResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateDeviceAccessAsync*/SelfOuter* self, ref Guid riid, void** deviceAccess) GetResult;
 	}
 
 
@@ -175,7 +175,7 @@ public static
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
-	public HRESULT GetResult(Guid riid, void** deviceAccess) mut => VT.[Friend]GetResult(&this, riid, deviceAccess);
+	public HRESULT GetResult(ref Guid riid, void** deviceAccess) mut => VT.[Friend]GetResult(&this, ref riid, deviceAccess);
 }
 
 #endregion

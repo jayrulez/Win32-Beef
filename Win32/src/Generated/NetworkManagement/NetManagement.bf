@@ -6852,11 +6852,11 @@ public struct NETSETUP_PROVISIONING_PARAMS
 	public PWSTR lpMachineAccountOU;
 	public PWSTR lpDcName;
 	public NETSETUP_PROVISION dwProvisionOptions;
-	public PWSTR aCertTemplateNames;
+	public PWSTR* aCertTemplateNames;
 	public uint32 cCertTemplateNames;
-	public PWSTR aMachinePolicyNames;
+	public PWSTR* aMachinePolicyNames;
 	public uint32 cMachinePolicyNames;
-	public PWSTR aMachinePolicyPaths;
+	public PWSTR* aMachinePolicyPaths;
 	public uint32 cMachinePolicyPaths;
 	public PWSTR lpNetbiosName;
 	public PWSTR lpSiteName;
@@ -7057,9 +7057,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self) Uninitialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self) Apply;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, ref Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, PWSTR pszwInfId, INetCfgComponent** pComponent) FindComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, Guid pguidClass, Guid riid, void** ppvObject) QueryNetCfgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, ref Guid pguidClass, ref Guid riid, void** ppvObject) QueryNetCfgClass;
 	}
 
 
@@ -7071,11 +7071,11 @@ public static
 
 	public HRESULT Cancel() mut => VT.[Friend]Cancel(&this);
 
-	public HRESULT EnumComponents(Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) mut => VT.[Friend]EnumComponents(&this, pguidClass, ppenumComponent);
+	public HRESULT EnumComponents(ref Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) mut => VT.[Friend]EnumComponents(&this, ref pguidClass, ppenumComponent);
 
 	public HRESULT FindComponent(PWSTR pszwInfId, INetCfgComponent** pComponent) mut => VT.[Friend]FindComponent(&this, pszwInfId, pComponent);
 
-	public HRESULT QueryNetCfgClass(Guid pguidClass, Guid riid, void** ppvObject) mut => VT.[Friend]QueryNetCfgClass(&this, pguidClass, riid, ppvObject);
+	public HRESULT QueryNetCfgClass(ref Guid pguidClass, ref Guid riid, void** ppvObject) mut => VT.[Friend]QueryNetCfgClass(&this, ref pguidClass, ref riid, ppvObject);
 }
 
 [CRepr]struct INetCfgLock : IUnknown
@@ -7086,17 +7086,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgLock*/SelfOuter* self, uint32 cmsTimeout, PWSTR pszwClientDescription, PWSTR ppszwClientDescription) AcquireWriteLock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgLock*/SelfOuter* self, uint32 cmsTimeout, PWSTR pszwClientDescription, PWSTR* ppszwClientDescription) AcquireWriteLock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgLock*/SelfOuter* self) ReleaseWriteLock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgLock*/SelfOuter* self, PWSTR ppszwClientDescription) IsWriteLocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgLock*/SelfOuter* self, PWSTR* ppszwClientDescription) IsWriteLocked;
 	}
 
 
-	public HRESULT AcquireWriteLock(uint32 cmsTimeout, PWSTR pszwClientDescription, PWSTR ppszwClientDescription) mut => VT.[Friend]AcquireWriteLock(&this, cmsTimeout, pszwClientDescription, ppszwClientDescription);
+	public HRESULT AcquireWriteLock(uint32 cmsTimeout, PWSTR pszwClientDescription, PWSTR* ppszwClientDescription) mut => VT.[Friend]AcquireWriteLock(&this, cmsTimeout, pszwClientDescription, ppszwClientDescription);
 
 	public HRESULT ReleaseWriteLock() mut => VT.[Friend]ReleaseWriteLock(&this);
 
-	public HRESULT IsWriteLocked(PWSTR ppszwClientDescription) mut => VT.[Friend]IsWriteLocked(&this, ppszwClientDescription);
+	public HRESULT IsWriteLocked(PWSTR* ppszwClientDescription) mut => VT.[Friend]IsWriteLocked(&this, ppszwClientDescription);
 }
 
 [CRepr]struct INetCfgBindingInterface : IUnknown
@@ -7107,13 +7107,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingInterface*/SelfOuter* self, PWSTR ppszwInterfaceName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingInterface*/SelfOuter* self, PWSTR* ppszwInterfaceName) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingInterface*/SelfOuter* self, INetCfgComponent** ppnccItem) GetUpperComponent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingInterface*/SelfOuter* self, INetCfgComponent** ppnccItem) GetLowerComponent;
 	}
 
 
-	public HRESULT GetName(PWSTR ppszwInterfaceName) mut => VT.[Friend]GetName(&this, ppszwInterfaceName);
+	public HRESULT GetName(PWSTR* ppszwInterfaceName) mut => VT.[Friend]GetName(&this, ppszwInterfaceName);
 
 	public HRESULT GetUpperComponent(INetCfgComponent** ppnccItem) mut => VT.[Friend]GetUpperComponent(&this, ppnccItem);
 
@@ -7132,7 +7132,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, INetCfgBindingPath* pPath) IsSubPathOf;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self) IsEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, BOOL fEnable) Enable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, PWSTR ppszwPathToken) GetPathToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, PWSTR* ppszwPathToken) GetPathToken;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, INetCfgComponent** ppComponent) GetOwner;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, uint32* pcInterfaces) GetDepth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, IEnumNetCfgBindingInterface** ppenumInterface) EnumBindingInterfaces;
@@ -7147,7 +7147,7 @@ public static
 
 	public HRESULT Enable(BOOL fEnable) mut => VT.[Friend]Enable(&this, fEnable);
 
-	public HRESULT GetPathToken(PWSTR ppszwPathToken) mut => VT.[Friend]GetPathToken(&this, ppszwPathToken);
+	public HRESULT GetPathToken(PWSTR* ppszwPathToken) mut => VT.[Friend]GetPathToken(&this, ppszwPathToken);
 
 	public HRESULT GetOwner(INetCfgComponent** ppComponent) mut => VT.[Friend]GetOwner(&this, ppComponent);
 
@@ -7184,7 +7184,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgClassSetup*/SelfOuter* self, HWND hwndParent, OBO_TOKEN* pOboToken, INetCfgComponent** ppnccItem) SelectAndInstall;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgClassSetup*/SelfOuter* self, PWSTR pszwInfId, OBO_TOKEN* pOboToken, uint32 dwSetupFlags, uint32 dwUpgradeFromBuildNo, PWSTR pszwAnswerFile, PWSTR pszwAnswerSections, INetCfgComponent** ppnccItem) Install;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgClassSetup*/SelfOuter* self, INetCfgComponent* pComponent, OBO_TOKEN* pOboToken, PWSTR pmszwRefs) DeInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgClassSetup*/SelfOuter* self, INetCfgComponent* pComponent, OBO_TOKEN* pOboToken, PWSTR* pmszwRefs) DeInstall;
 	}
 
 
@@ -7192,7 +7192,7 @@ public static
 
 	public HRESULT Install(PWSTR pszwInfId, OBO_TOKEN* pOboToken, uint32 dwSetupFlags, uint32 dwUpgradeFromBuildNo, PWSTR pszwAnswerFile, PWSTR pszwAnswerSections, INetCfgComponent** ppnccItem) mut => VT.[Friend]Install(&this, pszwInfId, pOboToken, dwSetupFlags, dwUpgradeFromBuildNo, pszwAnswerFile, pszwAnswerSections, ppnccItem);
 
-	public HRESULT DeInstall(INetCfgComponent* pComponent, OBO_TOKEN* pOboToken, PWSTR pmszwRefs) mut => VT.[Friend]DeInstall(&this, pComponent, pOboToken, pmszwRefs);
+	public HRESULT DeInstall(INetCfgComponent* pComponent, OBO_TOKEN* pOboToken, PWSTR* pmszwRefs) mut => VT.[Friend]DeInstall(&this, pComponent, pOboToken, pmszwRefs);
 }
 
 [CRepr]struct INetCfgClassSetup2 : INetCfgClassSetup
@@ -7218,38 +7218,38 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR ppszwDisplayName) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwDisplayName) GetDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR pszwDisplayName) SetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR pszwHelpText) GetHelpText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR ppszwId) GetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* pszwHelpText) GetHelpText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwId) GetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, uint32* pdwCharacteristics) GetCharacteristics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, Guid pGuid) GetInstanceGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR ppszwDevNodeId) GetPnpDevNodeId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, Guid pGuid) GetClassGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR ppszwBindName) GetBindName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, ref Guid pGuid) GetInstanceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwDevNodeId) GetPnpDevNodeId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, ref Guid pGuid) GetClassGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwBindName) GetBindName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, uint32* pulStatus) GetDeviceStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, HKEY* phkey) OpenParamKey;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, HWND hwndParent, uint32 dwFlags, IUnknown* punkContext) RaisePropertyUi;
 	}
 
 
-	public HRESULT GetDisplayName(PWSTR ppszwDisplayName) mut => VT.[Friend]GetDisplayName(&this, ppszwDisplayName);
+	public HRESULT GetDisplayName(PWSTR* ppszwDisplayName) mut => VT.[Friend]GetDisplayName(&this, ppszwDisplayName);
 
 	public HRESULT SetDisplayName(PWSTR pszwDisplayName) mut => VT.[Friend]SetDisplayName(&this, pszwDisplayName);
 
-	public HRESULT GetHelpText(PWSTR pszwHelpText) mut => VT.[Friend]GetHelpText(&this, pszwHelpText);
+	public HRESULT GetHelpText(PWSTR* pszwHelpText) mut => VT.[Friend]GetHelpText(&this, pszwHelpText);
 
-	public HRESULT GetId(PWSTR ppszwId) mut => VT.[Friend]GetId(&this, ppszwId);
+	public HRESULT GetId(PWSTR* ppszwId) mut => VT.[Friend]GetId(&this, ppszwId);
 
 	public HRESULT GetCharacteristics(uint32* pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
 
-	public HRESULT GetInstanceGuid(Guid pGuid) mut => VT.[Friend]GetInstanceGuid(&this, pGuid);
+	public HRESULT GetInstanceGuid(ref Guid pGuid) mut => VT.[Friend]GetInstanceGuid(&this, pGuid);
 
-	public HRESULT GetPnpDevNodeId(PWSTR ppszwDevNodeId) mut => VT.[Friend]GetPnpDevNodeId(&this, ppszwDevNodeId);
+	public HRESULT GetPnpDevNodeId(PWSTR* ppszwDevNodeId) mut => VT.[Friend]GetPnpDevNodeId(&this, ppszwDevNodeId);
 
-	public HRESULT GetClassGuid(Guid pGuid) mut => VT.[Friend]GetClassGuid(&this, pGuid);
+	public HRESULT GetClassGuid(ref Guid pGuid) mut => VT.[Friend]GetClassGuid(&this, pGuid);
 
-	public HRESULT GetBindName(PWSTR ppszwBindName) mut => VT.[Friend]GetBindName(&this, ppszwBindName);
+	public HRESULT GetBindName(PWSTR* ppszwBindName) mut => VT.[Friend]GetBindName(&this, ppszwBindName);
 
 	public HRESULT GetDeviceStatus(uint32* pulStatus) mut => VT.[Friend]GetDeviceStatus(&this, pulStatus);
 
@@ -7391,7 +7391,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self, IUnknown* pUnkReserved) QueryPropertyUi;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self, IUnknown* pUnkReserved) SetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self, uint32* pdwDefPages, uint8** pahpspPrivate, uint32* pcPages, HWND hwndParent, PWSTR pszStartPage) MergePropPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self, uint32* pdwDefPages, uint8** pahpspPrivate, uint32* pcPages, HWND hwndParent, PWSTR* pszStartPage) MergePropPages;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self, HWND hwndSheet) ValidateProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self) ApplyProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self) CancelProperties;
@@ -7402,7 +7402,7 @@ public static
 
 	public HRESULT SetContext(IUnknown* pUnkReserved) mut => VT.[Friend]SetContext(&this, pUnkReserved);
 
-	public HRESULT MergePropPages(uint32* pdwDefPages, uint8** pahpspPrivate, uint32* pcPages, HWND hwndParent, PWSTR pszStartPage) mut => VT.[Friend]MergePropPages(&this, pdwDefPages, pahpspPrivate, pcPages, hwndParent, pszStartPage);
+	public HRESULT MergePropPages(uint32* pdwDefPages, uint8** pahpspPrivate, uint32* pcPages, HWND hwndParent, PWSTR* pszStartPage) mut => VT.[Friend]MergePropPages(&this, pdwDefPages, pahpspPrivate, pcPages, hwndParent, pszStartPage);
 
 	public HRESULT ValidateProperties(HWND hwndSheet) mut => VT.[Friend]ValidateProperties(&this, hwndSheet);
 
@@ -7461,17 +7461,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self, INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, Guid* ppguidInterfaceIds) GetInterfaceIdsForAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self, INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, ref Guid ppguidInterfaceIds) GetInterfaceIdsForAdapter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self) AddInterfacesToAdapter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self, INetCfgComponent* pAdapter, uint32 dwNumInterfaces, Guid* pguidInterfaceIds) RemoveInterfacesFromAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self, INetCfgComponent* pAdapter, uint32 dwNumInterfaces, ref Guid pguidInterfaceIds) RemoveInterfacesFromAdapter;
 	}
 
 
-	public HRESULT GetInterfaceIdsForAdapter(INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, Guid* ppguidInterfaceIds) mut => VT.[Friend]GetInterfaceIdsForAdapter(&this, pAdapter, pdwNumInterfaces, ppguidInterfaceIds);
+	public HRESULT GetInterfaceIdsForAdapter(INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, ref Guid ppguidInterfaceIds) mut => VT.[Friend]GetInterfaceIdsForAdapter(&this, pAdapter, pdwNumInterfaces, ppguidInterfaceIds);
 
 	public HRESULT AddInterfacesToAdapter() mut => VT.[Friend]AddInterfacesToAdapter(&this);
 
-	public HRESULT RemoveInterfacesFromAdapter(INetCfgComponent* pAdapter, uint32 dwNumInterfaces, Guid* pguidInterfaceIds) mut => VT.[Friend]RemoveInterfacesFromAdapter(&this, pAdapter, dwNumInterfaces, pguidInterfaceIds);
+	public HRESULT RemoveInterfacesFromAdapter(INetCfgComponent* pAdapter, uint32 dwNumInterfaces, ref Guid pguidInterfaceIds) mut => VT.[Friend]RemoveInterfacesFromAdapter(&this, pAdapter, dwNumInterfaces, ref pguidInterfaceIds);
 }
 
 [CRepr]struct INetLanConnectionUiInfo : IUnknown
@@ -7482,11 +7482,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetLanConnectionUiInfo*/SelfOuter* self, Guid pguid) GetDeviceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetLanConnectionUiInfo*/SelfOuter* self, ref Guid pguid) GetDeviceGuid;
 	}
 
 
-	public HRESULT GetDeviceGuid(Guid pguid) mut => VT.[Friend]GetDeviceGuid(&this, pguid);
+	public HRESULT GetDeviceGuid(ref Guid pguid) mut => VT.[Friend]GetDeviceGuid(&this, pguid);
 }
 
 [CRepr]struct INetRasConnectionIpUiInfo : IUnknown
@@ -7512,14 +7512,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSysPrep*/SelfOuter* self, INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, Guid pAdapterInstanceGuid) SaveAdapterParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSysPrep*/SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, Guid pAdapterInstanceGuid) RestoreAdapterParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSysPrep*/SelfOuter* self, INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, ref Guid pAdapterInstanceGuid) SaveAdapterParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSysPrep*/SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, ref Guid pAdapterInstanceGuid) RestoreAdapterParameters;
 	}
 
 
-	public HRESULT SaveAdapterParameters(INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, Guid pAdapterInstanceGuid) mut => VT.[Friend]SaveAdapterParameters(&this, pncsp, pszwAnswerSections, pAdapterInstanceGuid);
+	public HRESULT SaveAdapterParameters(INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, ref Guid pAdapterInstanceGuid) mut => VT.[Friend]SaveAdapterParameters(&this, pncsp, pszwAnswerSections, pAdapterInstanceGuid);
 
-	public HRESULT RestoreAdapterParameters(PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, Guid pAdapterInstanceGuid) mut => VT.[Friend]RestoreAdapterParameters(&this, pszwAnswerFile, pszwAnswerSection, pAdapterInstanceGuid);
+	public HRESULT RestoreAdapterParameters(PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, ref Guid pAdapterInstanceGuid) mut => VT.[Friend]RestoreAdapterParameters(&this, pszwAnswerFile, pszwAnswerSection, pAdapterInstanceGuid);
 }
 
 [CRepr]struct IProvisioningDomain : IUnknown
@@ -7548,11 +7548,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvisioningProfileWireless*/SelfOuter* self, BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, Guid pAdapterInstanceGuid, uint32* pulStatus) CreateProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvisioningProfileWireless*/SelfOuter* self, BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, ref Guid pAdapterInstanceGuid, uint32* pulStatus) CreateProfile;
 	}
 
 
-	public HRESULT CreateProfile(BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, Guid pAdapterInstanceGuid, uint32* pulStatus) mut => VT.[Friend]CreateProfile(&this, bstrXMLWirelessConfigProfile, bstrXMLConnectionConfigProfile, pAdapterInstanceGuid, pulStatus);
+	public HRESULT CreateProfile(BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, ref Guid pAdapterInstanceGuid, uint32* pulStatus) mut => VT.[Friend]CreateProfile(&this, bstrXMLWirelessConfigProfile, bstrXMLConnectionConfigProfile, pAdapterInstanceGuid, pulStatus);
 }
 
 #endregion
@@ -7909,7 +7909,7 @@ public static
 	public static extern uint32 NetValidateName(PWSTR lpServer, PWSTR lpName, PWSTR lpAccount, PWSTR lpPassword, NETSETUP_NAME_TYPE NameType);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetGetJoinableOUs(PWSTR lpServer, PWSTR lpDomain, PWSTR lpAccount, PWSTR lpPassword, uint32* OUCount, PWSTR OUs);
+	public static extern uint32 NetGetJoinableOUs(PWSTR lpServer, PWSTR lpDomain, PWSTR lpAccount, PWSTR lpPassword, uint32* OUCount, PWSTR** OUs);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetAddAlternateComputerName(PWSTR Server, PWSTR AlternateName, PWSTR DomainAccount, PWSTR DomainAccountPassword, uint32 Reserved);
@@ -7921,16 +7921,16 @@ public static
 	public static extern uint32 NetSetPrimaryComputerName(PWSTR Server, PWSTR PrimaryName, PWSTR DomainAccount, PWSTR DomainAccountPassword, uint32 Reserved);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetEnumerateComputerNames(PWSTR Server, NET_COMPUTER_NAME_TYPE NameType, uint32 Reserved, uint32* EntryCount, PWSTR ComputerNames);
+	public static extern uint32 NetEnumerateComputerNames(PWSTR Server, NET_COMPUTER_NAME_TYPE NameType, uint32 Reserved, uint32* EntryCount, PWSTR** ComputerNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetProvisionComputerAccount(PWSTR lpDomain, PWSTR lpMachineName, PWSTR lpMachineAccountOU, PWSTR lpDcName, NETSETUP_PROVISION dwOptions, uint8** pProvisionBinData, uint32* pdwProvisionBinDataSize, PWSTR pProvisionTextData);
+	public static extern uint32 NetProvisionComputerAccount(PWSTR lpDomain, PWSTR lpMachineName, PWSTR lpMachineAccountOU, PWSTR lpDcName, NETSETUP_PROVISION dwOptions, uint8** pProvisionBinData, uint32* pdwProvisionBinDataSize, PWSTR* pProvisionTextData);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetRequestOfflineDomainJoin(uint8* pProvisionBinData, uint32 cbProvisionBinDataSize, NET_REQUEST_PROVISION_OPTIONS dwOptions, PWSTR lpWindowsPath);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetCreateProvisioningPackage(NETSETUP_PROVISIONING_PARAMS* pProvisioningParams, uint8** ppPackageBinData, uint32* pdwPackageBinDataSize, PWSTR ppPackageTextData);
+	public static extern uint32 NetCreateProvisioningPackage(NETSETUP_PROVISIONING_PARAMS* pProvisioningParams, uint8** ppPackageBinData, uint32* pdwPackageBinDataSize, PWSTR* ppPackageTextData);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetRequestProvisioningPackageInstall(uint8* pPackageBinData, uint32 dwPackageBinDataSize, NET_REQUEST_PROVISION_OPTIONS dwProvisionOptions, PWSTR lpWindowsPath, void* pvReserved);
@@ -7942,7 +7942,7 @@ public static
 	public static extern void NetFreeAadJoinInformation(DSREG_JOIN_INFO* pJoinInfo);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetGetJoinInformation(PWSTR lpServer, PWSTR lpNameBuffer, NETSETUP_JOIN_STATUS* BufferType);
+	public static extern uint32 NetGetJoinInformation(PWSTR lpServer, PWSTR* lpNameBuffer, NETSETUP_JOIN_STATUS* BufferType);
 
 	[Import("mstask.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetNetScheduleAccountInformation(PWSTR pwszServerName, uint32 ccAccount, char16* wszAccount);
@@ -8093,7 +8093,7 @@ public static
 	public static extern void RouterLogEventValistExW(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PWSTR ptszFormat, int8* arglist);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RouterGetErrorStringW(uint32 dwErrorCode, PWSTR lplpwszErrorString);
+	public static extern uint32 RouterGetErrorStringW(uint32 dwErrorCode, PWSTR* lplpwszErrorString);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RouterAssert(PSTR pszFailedAssertion, PSTR pszFileName, uint32 dwLineNumber, PSTR pszMessage);

@@ -45,7 +45,7 @@ public struct DIAGNOSTIC_DATA_RECORD
 [CRepr]
 public struct DIAGNOSTIC_DATA_SEARCH_CRITERIA
 {
-	public PWSTR producerNames;
+	public PWSTR* producerNames;
 	public uint32 producerNameCount;
 	public PWSTR textToMatch;
 	public int32* categoryIds;
@@ -135,7 +135,7 @@ public struct DIAGNOSTIC_REPORT_DATA
 	public PWSTR cabId;
 	public uint32 reportStatus;
 	public Guid reportIntegratorId;
-	public PWSTR fileNames;
+	public PWSTR* fileNames;
 	public uint32 fileCount;
 	public PWSTR friendlyEventName;
 	public PWSTR applicationName;
@@ -176,7 +176,7 @@ public static
 	public static extern HRESULT DdqGetDiagnosticRecordStats(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DIAGNOSTIC_DATA_SEARCH_CRITERIA* searchCriteria, uint32* recordCount, int64* minRowId, int64* maxRowId);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqGetDiagnosticRecordPayload(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, int64 rowId, PWSTR payload);
+	public static extern HRESULT DdqGetDiagnosticRecordPayload(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, int64 rowId, PWSTR* payload);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqGetDiagnosticRecordLocaleTags(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, PWSTR locale, HDIAGNOSTIC_EVENT_TAG_DESCRIPTION* hTagDescription);
@@ -215,7 +215,7 @@ public static
 	public static extern HRESULT DdqGetDiagnosticRecordCategoryCount(HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION hCategoryDescription, uint32* categoryDescriptionCount);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DdqIsDiagnosticRecordSampledIn(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, Guid providerGroup, Guid providerId, PWSTR providerName, uint32* eventId, PWSTR eventName, uint32* eventVersion, uint64* eventKeywords, BOOL* isSampledIn);
+	public static extern HRESULT DdqIsDiagnosticRecordSampledIn(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, ref Guid providerGroup, ref Guid providerId, PWSTR providerName, uint32* eventId, PWSTR eventName, uint32* eventVersion, uint64* eventKeywords, BOOL* isSampledIn);
 
 	[Import("DiagnosticDataQuery.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DdqGetDiagnosticRecordPage(HDIAGNOSTIC_DATA_QUERY_SESSION hSession, DIAGNOSTIC_DATA_SEARCH_CRITERIA* searchCriteria, uint32 offset, uint32 pageRecordCount, int64 baseRowId, HDIAGNOSTIC_RECORD* hRecord);

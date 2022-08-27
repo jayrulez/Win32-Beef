@@ -1603,7 +1603,7 @@ public static
 	public static extern uint32 HttpQueryUrlGroupProperty(uint64 UrlGroupId, HTTP_SERVER_PROPERTY Property, void* PropertyInformation, uint32 PropertyInformationLength, uint32* ReturnLength);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpPrepareUrl(void* Reserved, uint32 Flags, PWSTR Url, PWSTR PreparedUrl);
+	public static extern uint32 HttpPrepareUrl(void* Reserved, uint32 Flags, PWSTR Url, PWSTR* PreparedUrl);
 
 	[Import("HTTPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpReceiveHttpRequest(HANDLE RequestQueueHandle, uint64 RequestId, HTTP_RECEIVE_HTTP_REQUEST_FLAGS Flags, HTTP_REQUEST_V2* RequestBuffer, uint32 RequestBufferLength, uint32* BytesReturned, OVERLAPPED* Overlapped);

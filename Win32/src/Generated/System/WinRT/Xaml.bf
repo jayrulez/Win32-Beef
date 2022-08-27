@@ -151,7 +151,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self, IUnknown* device) SetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self, RECT* updateRect, Guid iid, void** updateObject, POINT* offset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self, RECT* updateRect, ref Guid iid, void** updateObject, POINT* offset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self) SuspendDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self) ResumeDraw;
@@ -160,7 +160,7 @@ public static
 
 	public HRESULT SetDevice(IUnknown* device) mut => VT.[Friend]SetDevice(&this, device);
 
-	public HRESULT BeginDraw(RECT* updateRect, Guid iid, void** updateObject, POINT* offset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, offset);
+	public HRESULT BeginDraw(RECT* updateRect, ref Guid iid, void** updateObject, POINT* offset) mut => VT.[Friend]BeginDraw(&this, updateRect, ref iid, updateObject, offset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 

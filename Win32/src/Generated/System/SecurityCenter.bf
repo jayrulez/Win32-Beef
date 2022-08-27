@@ -227,7 +227,7 @@ public static
 	public static extern HRESULT WscQueryAntiMalwareUri();
 
 	[Import("WSCAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WscGetAntiMalwareUri(PWSTR ppszUri);
+	public static extern HRESULT WscGetAntiMalwareUri(PWSTR* ppszUri);
 
 }
 #endregion

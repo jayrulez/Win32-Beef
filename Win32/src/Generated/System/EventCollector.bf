@@ -165,7 +165,7 @@ public struct EC_VARIANT
 		public uint8* BinaryVal;
 		public BOOL* BooleanArr;
 		public int32* Int32Arr;
-		public PWSTR StringArr;
+		public PWSTR* StringArr;
 		public int PropertyHandleVal;
 	}
 

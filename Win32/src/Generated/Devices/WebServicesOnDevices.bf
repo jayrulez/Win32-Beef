@@ -793,8 +793,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, uint16* pwPort) GetPort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, uint16 wPort) SetPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, PWSTR ppszAddress) GetTransportAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, BOOL fSafe, PWSTR ppszAddress) GetTransportAddressEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, PWSTR* ppszAddress) GetTransportAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, BOOL fSafe, PWSTR* ppszAddress) GetTransportAddressEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, PWSTR pszAddress) SetTransportAddress;
 	}
 
@@ -803,9 +803,9 @@ public static
 
 	public HRESULT SetPort(uint16 wPort) mut => VT.[Friend]SetPort(&this, wPort);
 
-	public HRESULT GetTransportAddress(PWSTR ppszAddress) mut => VT.[Friend]GetTransportAddress(&this, ppszAddress);
+	public HRESULT GetTransportAddress(PWSTR* ppszAddress) mut => VT.[Friend]GetTransportAddress(&this, ppszAddress);
 
-	public HRESULT GetTransportAddressEx(BOOL fSafe, PWSTR ppszAddress) mut => VT.[Friend]GetTransportAddressEx(&this, fSafe, ppszAddress);
+	public HRESULT GetTransportAddressEx(BOOL fSafe, PWSTR* ppszAddress) mut => VT.[Friend]GetTransportAddressEx(&this, fSafe, ppszAddress);
 
 	public HRESULT SetTransportAddress(PWSTR pszAddress) mut => VT.[Friend]SetTransportAddress(&this, pszAddress);
 }
@@ -871,8 +871,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, WSDUdpMessageType* pMessageType) GetMessageType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, uint32 dwTTL) SetTTL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, uint32* pdwTTL) GetTTL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, Guid pAlias) SetAlias;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, Guid pAlias) GetAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, ref Guid pAlias) SetAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, ref Guid pAlias) GetAlias;
 	}
 
 
@@ -892,9 +892,9 @@ public static
 
 	public HRESULT GetTTL(uint32* pdwTTL) mut => VT.[Friend]GetTTL(&this, pdwTTL);
 
-	public HRESULT SetAlias(Guid pAlias) mut => VT.[Friend]SetAlias(&this, pAlias);
+	public HRESULT SetAlias(ref Guid pAlias) mut => VT.[Friend]SetAlias(&this, ref pAlias);
 
-	public HRESULT GetAlias(Guid pAlias) mut => VT.[Friend]GetAlias(&this, pAlias);
+	public HRESULT GetAlias(ref Guid pAlias) mut => VT.[Friend]GetAlias(&this, pAlias);
 }
 
 [CRepr]struct IWSDHttpMessageParameters : IWSDMessageParameters
@@ -906,11 +906,11 @@ public static
 	[CRepr]public struct VTable : IWSDMessageParameters.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR pszHeaders) SetInboundHttpHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR ppszHeaders) GetInboundHttpHeaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR* ppszHeaders) GetInboundHttpHeaders;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR pszHeaders) SetOutboundHttpHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR ppszHeaders) GetOutboundHttpHeaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR* ppszHeaders) GetOutboundHttpHeaders;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR pszId) SetID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR ppszId) GetID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR* ppszId) GetID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, IUnknown* pContext) SetContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, IUnknown** ppContext) GetContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self) Clear;
@@ -919,15 +919,15 @@ public static
 
 	public HRESULT SetInboundHttpHeaders(PWSTR pszHeaders) mut => VT.[Friend]SetInboundHttpHeaders(&this, pszHeaders);
 
-	public HRESULT GetInboundHttpHeaders(PWSTR ppszHeaders) mut => VT.[Friend]GetInboundHttpHeaders(&this, ppszHeaders);
+	public HRESULT GetInboundHttpHeaders(PWSTR* ppszHeaders) mut => VT.[Friend]GetInboundHttpHeaders(&this, ppszHeaders);
 
 	public HRESULT SetOutboundHttpHeaders(PWSTR pszHeaders) mut => VT.[Friend]SetOutboundHttpHeaders(&this, pszHeaders);
 
-	public HRESULT GetOutboundHttpHeaders(PWSTR ppszHeaders) mut => VT.[Friend]GetOutboundHttpHeaders(&this, ppszHeaders);
+	public HRESULT GetOutboundHttpHeaders(PWSTR* ppszHeaders) mut => VT.[Friend]GetOutboundHttpHeaders(&this, ppszHeaders);
 
 	public HRESULT SetID(PWSTR pszId) mut => VT.[Friend]SetID(&this, pszId);
 
-	public HRESULT GetID(PWSTR ppszId) mut => VT.[Friend]GetID(&this, ppszId);
+	public HRESULT GetID(PWSTR* ppszId) mut => VT.[Friend]GetID(&this, ppszId);
 
 	public HRESULT SetContext(IUnknown* pContext) mut => VT.[Friend]SetContext(&this, pContext);
 
@@ -946,7 +946,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAddress*/SelfOuter* self) GetSecure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAddress*/SelfOuter* self, BOOL fSecure) SetSecure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAddress*/SelfOuter* self, PWSTR ppszPath) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAddress*/SelfOuter* self, PWSTR* ppszPath) GetPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAddress*/SelfOuter* self, PWSTR pszPath) SetPath;
 	}
 
@@ -955,7 +955,7 @@ public static
 
 	public HRESULT SetSecure(BOOL fSecure) mut => VT.[Friend]SetSecure(&this, fSecure);
 
-	public HRESULT GetPath(PWSTR ppszPath) mut => VT.[Friend]GetPath(&this, ppszPath);
+	public HRESULT GetPath(PWSTR* ppszPath) mut => VT.[Friend]GetPath(&this, ppszPath);
 
 	public HRESULT SetPath(PWSTR pszPath) mut => VT.[Friend]SetPath(&this, pszPath);
 }
@@ -1169,10 +1169,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, WSD_URI_LIST** ppXAddrsList) GetXAddrs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, uint64* pullMetadataVersion) GetMetadataVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, WSDXML_ELEMENT** ppHeaderAny, WSDXML_ELEMENT** ppBodyAny) GetExtendedDiscoXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR ppszTag) GetProbeResolveTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR ppszRemoteTransportAddress) GetRemoteTransportAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR ppszLocalTransportAddress) GetLocalTransportAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, Guid pGuid) GetLocalInterfaceGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR* ppszTag) GetProbeResolveTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR* ppszRemoteTransportAddress) GetRemoteTransportAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR* ppszLocalTransportAddress) GetLocalTransportAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, ref Guid pGuid) GetLocalInterfaceGUID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, uint64* pullInstanceId) GetInstanceId;
 	}
 
@@ -1189,13 +1189,13 @@ public static
 
 	public HRESULT GetExtendedDiscoXML(WSDXML_ELEMENT** ppHeaderAny, WSDXML_ELEMENT** ppBodyAny) mut => VT.[Friend]GetExtendedDiscoXML(&this, ppHeaderAny, ppBodyAny);
 
-	public HRESULT GetProbeResolveTag(PWSTR ppszTag) mut => VT.[Friend]GetProbeResolveTag(&this, ppszTag);
+	public HRESULT GetProbeResolveTag(PWSTR* ppszTag) mut => VT.[Friend]GetProbeResolveTag(&this, ppszTag);
 
-	public HRESULT GetRemoteTransportAddress(PWSTR ppszRemoteTransportAddress) mut => VT.[Friend]GetRemoteTransportAddress(&this, ppszRemoteTransportAddress);
+	public HRESULT GetRemoteTransportAddress(PWSTR* ppszRemoteTransportAddress) mut => VT.[Friend]GetRemoteTransportAddress(&this, ppszRemoteTransportAddress);
 
-	public HRESULT GetLocalTransportAddress(PWSTR ppszLocalTransportAddress) mut => VT.[Friend]GetLocalTransportAddress(&this, ppszLocalTransportAddress);
+	public HRESULT GetLocalTransportAddress(PWSTR* ppszLocalTransportAddress) mut => VT.[Friend]GetLocalTransportAddress(&this, ppszLocalTransportAddress);
 
-	public HRESULT GetLocalInterfaceGUID(Guid pGuid) mut => VT.[Friend]GetLocalInterfaceGUID(&this, pGuid);
+	public HRESULT GetLocalInterfaceGUID(ref Guid pGuid) mut => VT.[Friend]GetLocalInterfaceGUID(&this, pGuid);
 
 	public HRESULT GetInstanceId(uint64* pullInstanceId) mut => VT.[Friend]GetInstanceId(&this, pullInstanceId);
 }
@@ -1277,12 +1277,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDScopeMatchingRule*/SelfOuter* self, PWSTR ppszScopeMatchingRule) GetScopeRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDScopeMatchingRule*/SelfOuter* self, PWSTR* ppszScopeMatchingRule) GetScopeRule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDScopeMatchingRule*/SelfOuter* self, PWSTR pszScope1, PWSTR pszScope2, BOOL* pfMatch) MatchScopes;
 	}
 
 
-	public HRESULT GetScopeRule(PWSTR ppszScopeMatchingRule) mut => VT.[Friend]GetScopeRule(&this, ppszScopeMatchingRule);
+	public HRESULT GetScopeRule(PWSTR* ppszScopeMatchingRule) mut => VT.[Friend]GetScopeRule(&this, ppszScopeMatchingRule);
 
 	public HRESULT MatchScopes(PWSTR pszScope1, PWSTR pszScope2, BOOL* pfMatch) mut => VT.[Friend]MatchScopes(&this, pszScope1, pszScope2, pfMatch);
 }
@@ -1300,7 +1300,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) SendTwoWayRequestAsync;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, IWSDAsyncResult* pAsyncResult) AbortAsyncOperation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, WSD_SOAP_FAULT* pFault) ProcessFault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, PWSTR ppszErrorInfo) GetErrorInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, PWSTR* ppszErrorInfo) GetErrorInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, WSD_SOAP_FAULT** ppFault) GetFaultInfo;
 	}
 
@@ -1315,7 +1315,7 @@ public static
 
 	public HRESULT ProcessFault(WSD_SOAP_FAULT* pFault) mut => VT.[Friend]ProcessFault(&this, pFault);
 
-	public HRESULT GetErrorInfo(PWSTR ppszErrorInfo) mut => VT.[Friend]GetErrorInfo(&this, ppszErrorInfo);
+	public HRESULT GetErrorInfo(PWSTR* ppszErrorInfo) mut => VT.[Friend]GetErrorInfo(&this, ppszErrorInfo);
 
 	public HRESULT GetFaultInfo(WSD_SOAP_FAULT** ppFault) mut => VT.[Friend]GetFaultInfo(&this, ppFault);
 }
@@ -1686,7 +1686,7 @@ public static
 	public static extern HRESULT WSDXMLBuildAnyForSingleElement(WSDXML_NAME* pElementName, PWSTR pszText, WSDXML_ELEMENT** ppAny);
 
 	[Import("wsdapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WSDXMLGetValueFromAny(PWSTR pszNamespace, PWSTR pszName, WSDXML_ELEMENT* pAny, PWSTR ppszValue);
+	public static extern HRESULT WSDXMLGetValueFromAny(PWSTR pszNamespace, PWSTR pszName, WSDXML_ELEMENT* pAny, PWSTR* ppszValue);
 
 	[Import("wsdapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WSDXMLAddSibling(WSDXML_ELEMENT* pFirst, WSDXML_ELEMENT* pSecond);

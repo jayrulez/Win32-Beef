@@ -556,11 +556,11 @@ public static
 
 	[CRepr]public struct VTable : IAudioSystemEffects.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffects2*/SelfOuter* self, Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) GetEffectsList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffects2*/SelfOuter* self, ref Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) GetEffectsList;
 	}
 
 
-	public HRESULT GetEffectsList(Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) mut => VT.[Friend]GetEffectsList(&this, ppEffectsIds, pcEffects, Event);
+	public HRESULT GetEffectsList(ref Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) mut => VT.[Friend]GetEffectsList(&this, ppEffectsIds, pcEffects, Event);
 }
 
 [CRepr]struct IAudioSystemEffectsCustomFormats : IUnknown
@@ -573,7 +573,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsCustomFormats*/SelfOuter* self, uint32* pcFormats) GetFormatCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsCustomFormats*/SelfOuter* self, uint32 nFormat, IAudioMediaType** ppFormat) GetFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsCustomFormats*/SelfOuter* self, uint32 nFormat, PWSTR ppwstrFormatRep) GetFormatRepresentation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsCustomFormats*/SelfOuter* self, uint32 nFormat, PWSTR* ppwstrFormatRep) GetFormatRepresentation;
 	}
 
 
@@ -581,7 +581,7 @@ public static
 
 	public HRESULT GetFormat(uint32 nFormat, IAudioMediaType** ppFormat) mut => VT.[Friend]GetFormat(&this, nFormat, ppFormat);
 
-	public HRESULT GetFormatRepresentation(uint32 nFormat, PWSTR ppwstrFormatRep) mut => VT.[Friend]GetFormatRepresentation(&this, nFormat, ppwstrFormatRep);
+	public HRESULT GetFormatRepresentation(uint32 nFormat, PWSTR* ppwstrFormatRep) mut => VT.[Friend]GetFormatRepresentation(&this, nFormat, ppwstrFormatRep);
 }
 
 [CRepr]struct IApoAuxiliaryInputConfiguration : IUnknown

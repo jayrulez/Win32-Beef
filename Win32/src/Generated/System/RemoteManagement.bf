@@ -1354,7 +1354,7 @@ public struct WSMAN_OPTION_SETEX
 	public uint32 optionsCount;
 	public WSMAN_OPTION* options;
 	public BOOL optionsMustUnderstand;
-	public PWSTR optionTypes;
+	public PWSTR* optionTypes;
 }
 
 [CRepr]
@@ -1444,7 +1444,7 @@ public struct WSMAN_COMMAND
 public struct WSMAN_STREAM_ID_SET
 {
 	public uint32 streamIDsCount;
-	public PWSTR streamIDs;
+	public PWSTR* streamIDs;
 }
 
 [CRepr]
@@ -1524,7 +1524,7 @@ public struct WSMAN_SHELL_ASYNC
 public struct WSMAN_COMMAND_ARG_SET
 {
 	public uint32 argsCount;
-	public PWSTR args;
+	public PWSTR* args;
 }
 
 [CRepr]

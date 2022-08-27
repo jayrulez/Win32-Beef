@@ -2700,7 +2700,7 @@ public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX(HKEY hkeyCluster
 
 public function uint32 PRESUTIL_SET_UNKNOWN_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pInPropertyList, uint32 cbInPropertyListSize);
 
-public function uint32 PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, uint8* pOutParams, BOOL bCheckForRequiredProperties, PWSTR pszNameOfPropInError);
+public function uint32 PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, uint8* pOutParams, BOOL bCheckForRequiredProperties, PWSTR* pszNameOfPropInError);
 
 public function uint32 PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32* pcbOutPropertyListSize, uint8* pInParams, uint32* pcbBytesReturned, uint32* pcbRequired);
 
@@ -2728,11 +2728,11 @@ public function uint32 PRESUTIL_GET_QWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszVa
 
 public function uint32 PRESUTIL_SET_BINARY_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint8* pbNewValue, uint32 cbNewValueSize, uint8** ppbOutValue, uint32* pcbOutValueSize);
 
-public function uint32 PRESUTIL_SET_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR ppszOutString);
+public function uint32 PRESUTIL_SET_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR* ppszOutString);
 
-public function uint32 PRESUTIL_SET_EXPAND_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR ppszOutString);
+public function uint32 PRESUTIL_SET_EXPAND_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR* ppszOutString);
 
-public function uint32 PRESUTIL_SET_MULTI_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, uint32 cbNewValueSize, PWSTR ppszOutValue, uint32* pcbOutValueSize);
+public function uint32 PRESUTIL_SET_MULTI_SZ_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, uint32 cbNewValueSize, PWSTR* ppszOutValue, uint32* pcbOutValueSize);
 
 public function uint32 PRESUTIL_SET_DWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszValueName, uint32 dwNewValue, uint32* pdwOutValue);
 
@@ -2740,9 +2740,9 @@ public function uint32 PRESUTIL_SET_QWORD_VALUE(HKEY hkeyClusterKey, PWSTR pszVa
 
 public function uint32 PRESUTIL_GET_BINARY_PROPERTY(uint8** ppbOutValue, uint32* pcbOutValueSize, CLUSPROP_BINARY* pValueStruct, uint8* pbOldValue, uint32 cbOldValueSize, uint8** ppPropertyList, uint32* pcbPropertyListSize);
 
-public function uint32 PRESUTIL_GET_SZ_PROPERTY(PWSTR ppszOutValue, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+public function uint32 PRESUTIL_GET_SZ_PROPERTY(PWSTR* ppszOutValue, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint8** ppPropertyList, uint32* pcbPropertyListSize);
 
-public function uint32 PRESUTIL_GET_MULTI_SZ_PROPERTY(PWSTR ppszOutValue, uint32* pcbOutValueSize, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint32 cbOldValueSize, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+public function uint32 PRESUTIL_GET_MULTI_SZ_PROPERTY(PWSTR* ppszOutValue, uint32* pcbOutValueSize, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint32 cbOldValueSize, uint8** ppPropertyList, uint32* pcbPropertyListSize);
 
 public function uint32 PRESUTIL_GET_DWORD_PROPERTY(uint32* pdwOutValue, CLUSPROP_DWORD* pValueStruct, uint32 dwOldValue, uint32 dwMinimum, uint32 dwMaximum, uint8** ppPropertyList, uint32* pcbPropertyListSize);
 
@@ -2762,17 +2762,17 @@ public function uint32 PRESUTIL_REMOVE_RESOURCE_SERVICE_ENVIRONMENT(PWSTR pszSer
 
 public function uint32 PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS(PWSTR pszServiceName, SC_HANDLE schSCMHandle, int* phService, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
-public function uint32 PRESUTIL_FIND_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
+public function uint32 PRESUTIL_FIND_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
 
-public function uint32 PRESUTIL_FIND_EXPAND_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
+public function uint32 PRESUTIL_FIND_EXPAND_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
 
-public function uint32 PRESUTIL_FIND_EXPANDED_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
+public function uint32 PRESUTIL_FIND_EXPANDED_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
 
 public function uint32 PRESUTIL_FIND_DWORD_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint32* pdwPropertyValue);
 
 public function uint32 PRESUTIL_FIND_BINARY_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint8** pbPropertyValue, uint32* pcbPropertyValueSize);
 
-public function uint32 PRESUTIL_FIND_MULTI_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue, uint32* pcbPropertyValueSize);
+public function uint32 PRESUTIL_FIND_MULTI_SZ_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue, uint32* pcbPropertyValueSize);
 
 public function uint32 PRESUTIL_FIND_LONG_PROPERTY(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, int32* plPropertyValue);
 
@@ -2864,11 +2864,11 @@ public function uint32 PFREE_CLUSTER_CRYPT(void* pCryptInfo);
 
 public function uint32 PRES_UTIL_VERIFY_SHUTDOWN_SAFE(uint32 flags, uint32 reason, uint32* pResult);
 
-public function uint32 PREGISTER_APPINSTANCE(HANDLE ProcessHandle, Guid AppInstanceId, BOOL ChildrenInheritAppInstance);
+public function uint32 PREGISTER_APPINSTANCE(HANDLE ProcessHandle, ref Guid AppInstanceId, BOOL ChildrenInheritAppInstance);
 
-public function uint32 PREGISTER_APPINSTANCE_VERSION(Guid AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow);
+public function uint32 PREGISTER_APPINSTANCE_VERSION(ref Guid AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow);
 
-public function uint32 PQUERY_APPINSTANCE_VERSION(Guid AppInstanceId, uint64* InstanceVersionHigh, uint64* InstanceVersionLow, NTSTATUS* VersionStatus);
+public function uint32 PQUERY_APPINSTANCE_VERSION(ref Guid AppInstanceId, uint64* InstanceVersionHigh, uint64* InstanceVersionLow, NTSTATUS* VersionStatus);
 
 public function uint32 PRESET_ALL_APPINSTANCE_VERSIONS();
 
@@ -3128,7 +3128,7 @@ public struct CREATE_CLUSTER_CONFIG
 	public uint32 dwVersion;
 	public PWSTR lpszClusterName;
 	public uint32 cNodes;
-	public PWSTR ppszNodeNames;
+	public PWSTR* ppszNodeNames;
 	public uint32 cIpEntries;
 	public CLUSTER_IP_ENTRY* pIpEntries;
 	public BOOLEAN fEmptyCluster;
@@ -6624,13 +6624,13 @@ public static
 	public static extern uint32 RemoveClusterNameAccount(_HCLUSTER* hCluster, BOOL bDeleteComputerObjects);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DetermineCNOResTypeFromNodelist(uint32 cNodes, PWSTR ppszNodeNames, CLUSTER_MGMT_POINT_RESTYPE* pCNOResType);
+	public static extern uint32 DetermineCNOResTypeFromNodelist(uint32 cNodes, PWSTR* ppszNodeNames, CLUSTER_MGMT_POINT_RESTYPE* pCNOResType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DetermineCNOResTypeFromCluster(_HCLUSTER* hCluster, CLUSTER_MGMT_POINT_RESTYPE* pCNOResType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DetermineClusterCloudTypeFromNodelist(uint32 cNodes, PWSTR ppszNodeNames, CLUSTER_CLOUD_TYPE* pCloudType);
+	public static extern uint32 DetermineClusterCloudTypeFromNodelist(uint32 cNodes, PWSTR* ppszNodeNames, CLUSTER_CLOUD_TYPE* pCloudType);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DetermineClusterCloudTypeFromCluster(_HCLUSTER* hCluster, CLUSTER_CLOUD_TYPE* pCloudType);
@@ -6738,7 +6738,7 @@ public static
 	public static extern uint32 ResUtilSetUnknownProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pInPropertyList, uint32 cbInPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetPropertiesToParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, uint8* pOutParams, BOOL bCheckForRequiredProperties, PWSTR pszNameOfPropInError);
+	public static extern uint32 ResUtilGetPropertiesToParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, uint8* pOutParams, BOOL bCheckForRequiredProperties, PWSTR* pszNameOfPropInError);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilPropertyListFromParameterBlock(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32* pcbOutPropertyListSize, uint8* pInParams, uint32* pcbBytesReturned, uint32* pcbRequired);
@@ -6777,13 +6777,13 @@ public static
 	public static extern uint32 ResUtilSetBinaryValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint8* pbNewValue, uint32 cbNewValueSize, uint8** ppbOutValue, uint32* pcbOutValueSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR ppszOutString);
+	public static extern uint32 ResUtilSetSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR* ppszOutString);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetExpandSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR ppszOutString);
+	public static extern uint32 ResUtilSetExpandSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, PWSTR* ppszOutString);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetMultiSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, uint32 cbNewValueSize, PWSTR ppszOutValue, uint32* pcbOutValueSize);
+	public static extern uint32 ResUtilSetMultiSzValue(HKEY hkeyClusterKey, PWSTR pszValueName, PWSTR pszNewValue, uint32 cbNewValueSize, PWSTR* ppszOutValue, uint32* pcbOutValueSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilSetDwordValue(HKEY hkeyClusterKey, PWSTR pszValueName, uint32 dwNewValue, uint32* pdwOutValue);
@@ -6798,10 +6798,10 @@ public static
 	public static extern uint32 ResUtilGetBinaryProperty(uint8** ppbOutValue, uint32* pcbOutValueSize, CLUSPROP_BINARY* pValueStruct, uint8* pbOldValue, uint32 cbOldValueSize, uint8** ppPropertyList, uint32* pcbPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetSzProperty(PWSTR ppszOutValue, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+	public static extern uint32 ResUtilGetSzProperty(PWSTR* ppszOutValue, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint8** ppPropertyList, uint32* pcbPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetMultiSzProperty(PWSTR ppszOutValue, uint32* pcbOutValueSize, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint32 cbOldValueSize, uint8** ppPropertyList, uint32* pcbPropertyListSize);
+	public static extern uint32 ResUtilGetMultiSzProperty(PWSTR* ppszOutValue, uint32* pcbOutValueSize, CLUSPROP_SZ* pValueStruct, PWSTR pszOldValue, uint32 cbOldValueSize, uint8** ppPropertyList, uint32* pcbPropertyListSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilGetDwordProperty(uint32* pdwOutValue, CLUSPROP_DWORD* pValueStruct, uint32 dwOldValue, uint32 dwMinimum, uint32 dwMaximum, uint8** ppPropertyList, uint32* pcbPropertyListSize);
@@ -6831,13 +6831,13 @@ public static
 	public static extern uint32 ResUtilSetResourceServiceStartParameters(PWSTR pszServiceName, SC_HANDLE schSCMHandle, int* phService, PLOG_EVENT_ROUTINE pfnLogEvent, int hResourceHandle);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
+	public static extern uint32 ResUtilFindSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindExpandSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
+	public static extern uint32 ResUtilFindExpandSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindExpandedSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue);
+	public static extern uint32 ResUtilFindExpandedSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilFindDwordProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint32* pdwPropertyValue);
@@ -6846,7 +6846,7 @@ public static
 	public static extern uint32 ResUtilFindBinaryProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, uint8** pbPropertyValue, uint32* pcbPropertyValueSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilFindMultiSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR pszPropertyValue, uint32* pcbPropertyValueSize);
+	public static extern uint32 ResUtilFindMultiSzProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, PWSTR* pszPropertyValue, uint32* pcbPropertyValueSize);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilFindLongProperty(void* pPropertyList, uint32 cbPropertyListSize, PWSTR pszPropertyName, int32* plPropertyValue);
@@ -7011,19 +7011,19 @@ public static
 	public static extern uint32 ResUtilDupResource(_HRESOURCE* group, _HRESOURCE** copy);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetClusterId(_HCLUSTER* hCluster, Guid guid);
+	public static extern uint32 ResUtilGetClusterId(_HCLUSTER* hCluster, ref Guid guid);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilNodeEnum(_HCLUSTER* hCluster, LPNODE_CALLBACK pNodeCallBack, void* pParameter);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterAppInstance(HANDLE ProcessHandle, Guid AppInstanceId, BOOL ChildrenInheritAppInstance);
+	public static extern uint32 RegisterAppInstance(HANDLE ProcessHandle, ref Guid AppInstanceId, BOOL ChildrenInheritAppInstance);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterAppInstanceVersion(Guid AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow);
+	public static extern uint32 RegisterAppInstanceVersion(ref Guid AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryAppInstanceVersion(Guid AppInstanceId, uint64* InstanceVersionHigh, uint64* InstanceVersionLow, NTSTATUS* VersionStatus);
+	public static extern uint32 QueryAppInstanceVersion(ref Guid AppInstanceId, uint64* InstanceVersionHigh, uint64* InstanceVersionLow, NTSTATUS* VersionStatus);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResetAllAppInstanceVersions();

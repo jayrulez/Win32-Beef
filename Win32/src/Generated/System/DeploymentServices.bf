@@ -1585,28 +1585,28 @@ public static
 	public static extern HRESULT WdsCliLog(HANDLE hSession, uint32 ulLogLevel, uint32 ulMessageCode);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageName(HANDLE hIfh, PWSTR ppwszValue);
+	public static extern HRESULT WdsCliGetImageName(HANDLE hIfh, PWSTR* ppwszValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageDescription(HANDLE hIfh, PWSTR ppwszValue);
+	public static extern HRESULT WdsCliGetImageDescription(HANDLE hIfh, PWSTR* ppwszValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsCliGetImageType(HANDLE hIfh, WDS_CLI_IMAGE_TYPE* pImageType);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageFiles(HANDLE hIfh, PWSTR pppwszFiles, uint32* pdwCount);
+	public static extern HRESULT WdsCliGetImageFiles(HANDLE hIfh, PWSTR** pppwszFiles, uint32* pdwCount);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageLanguage(HANDLE hIfh, PWSTR ppwszValue);
+	public static extern HRESULT WdsCliGetImageLanguage(HANDLE hIfh, PWSTR* ppwszValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsCliGetImageLanguages(HANDLE hIfh, int8*** pppszValues, uint32* pdwNumValues);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageVersion(HANDLE hIfh, PWSTR ppwszValue);
+	public static extern HRESULT WdsCliGetImageVersion(HANDLE hIfh, PWSTR* ppwszValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImagePath(HANDLE hIfh, PWSTR ppwszValue);
+	public static extern HRESULT WdsCliGetImagePath(HANDLE hIfh, PWSTR* ppwszValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsCliGetImageIndex(HANDLE hIfh, uint32* pdwValue);
@@ -1621,13 +1621,13 @@ public static
 	public static extern HRESULT WdsCliGetImageSize(HANDLE hIfh, uint64* pullValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageHalName(HANDLE hIfh, PWSTR ppwszValue);
+	public static extern HRESULT WdsCliGetImageHalName(HANDLE hIfh, PWSTR* ppwszValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageGroup(HANDLE hIfh, PWSTR ppwszValue);
+	public static extern HRESULT WdsCliGetImageGroup(HANDLE hIfh, PWSTR* ppwszValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetImageNamespace(HANDLE hIfh, PWSTR ppwszValue);
+	public static extern HRESULT WdsCliGetImageNamespace(HANDLE hIfh, PWSTR* ppwszValue);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WdsCliGetImageParameter(HANDLE hIfh, WDS_CLI_IMAGE_PARAM_TYPE ParamType, void* pResponse, uint32 uResponseLen);
@@ -1651,13 +1651,13 @@ public static
 	public static extern HRESULT WdsCliWaitForTransfer(HANDLE hTransfer);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliObtainDriverPackages(HANDLE hImage, PWSTR ppwszServerName, PWSTR pppwszDriverPackages, uint32* pulCount);
+	public static extern HRESULT WdsCliObtainDriverPackages(HANDLE hImage, PWSTR* ppwszServerName, PWSTR** pppwszDriverPackages, uint32* pulCount);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliObtainDriverPackagesEx(HANDLE hSession, PWSTR pwszMachineInfo, PWSTR ppwszServerName, PWSTR pppwszDriverPackages, uint32* pulCount);
+	public static extern HRESULT WdsCliObtainDriverPackagesEx(HANDLE hSession, PWSTR pwszMachineInfo, PWSTR* ppwszServerName, PWSTR** pppwszDriverPackages, uint32* pulCount);
 
 	[Import("WDSCLIENTAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WdsCliGetDriverQueryXml(PWSTR pwszWinDirPath, PWSTR ppwszDriverQuery);
+	public static extern HRESULT WdsCliGetDriverQueryXml(PWSTR pwszWinDirPath, PWSTR* ppwszDriverQuery);
 
 	[Import("WDSPXE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PxeProviderRegister(PWSTR pszProviderName, PWSTR pszModulePath, uint32 Index, BOOL bIsCritical, HKEY* phProviderKey);

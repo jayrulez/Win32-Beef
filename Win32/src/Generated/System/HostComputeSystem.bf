@@ -189,19 +189,19 @@ public static
 	public static extern uint64 HcsGetOperationId(HCS_OPERATION operation);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcsGetOperationResult(HCS_OPERATION operation, PWSTR resultDocument);
+	public static extern HRESULT HcsGetOperationResult(HCS_OPERATION operation, PWSTR* resultDocument);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcsGetOperationResultAndProcessInfo(HCS_OPERATION operation, HCS_PROCESS_INFORMATION* processInformation, PWSTR resultDocument);
+	public static extern HRESULT HcsGetOperationResultAndProcessInfo(HCS_OPERATION operation, HCS_PROCESS_INFORMATION* processInformation, PWSTR* resultDocument);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcsGetProcessorCompatibilityFromSavedState(PWSTR RuntimeFileName, PWSTR ProcessorFeaturesString);
+	public static extern HRESULT HcsGetProcessorCompatibilityFromSavedState(PWSTR RuntimeFileName, PWSTR* ProcessorFeaturesString);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcsWaitForOperationResult(HCS_OPERATION operation, uint32 timeoutMs, PWSTR resultDocument);
+	public static extern HRESULT HcsWaitForOperationResult(HCS_OPERATION operation, uint32 timeoutMs, PWSTR* resultDocument);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcsWaitForOperationResultAndProcessInfo(HCS_OPERATION operation, uint32 timeoutMs, HCS_PROCESS_INFORMATION* processInformation, PWSTR resultDocument);
+	public static extern HRESULT HcsWaitForOperationResultAndProcessInfo(HCS_OPERATION operation, uint32 timeoutMs, HCS_PROCESS_INFORMATION* processInformation, PWSTR* resultDocument);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcsSetOperationCallback(HCS_OPERATION operation, void* context, HCS_OPERATION_COMPLETION callback);
@@ -252,7 +252,7 @@ public static
 	public static extern HRESULT HcsModifyComputeSystem(HCS_SYSTEM computeSystem, HCS_OPERATION operation, PWSTR configuration, HANDLE identity);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcsWaitForComputeSystemExit(HCS_SYSTEM computeSystem, uint32 timeoutMs, PWSTR result);
+	public static extern HRESULT HcsWaitForComputeSystemExit(HCS_SYSTEM computeSystem, uint32 timeoutMs, PWSTR* result);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcsSetComputeSystemCallback(HCS_SYSTEM computeSystem, HCS_EVENT_OPTIONS callbackOptions, void* context, HCS_EVENT_CALLBACK callback);
@@ -285,13 +285,13 @@ public static
 	public static extern HRESULT HcsSetProcessCallback(HCS_PROCESS process, HCS_EVENT_OPTIONS callbackOptions, void* context, HCS_EVENT_CALLBACK callback);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcsWaitForProcessExit(HCS_PROCESS computeSystem, uint32 timeoutMs, PWSTR result);
+	public static extern HRESULT HcsWaitForProcessExit(HCS_PROCESS computeSystem, uint32 timeoutMs, PWSTR* result);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcsGetServiceProperties(PWSTR propertyQuery, PWSTR result);
+	public static extern HRESULT HcsGetServiceProperties(PWSTR propertyQuery, PWSTR* result);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcsModifyServiceSettings(PWSTR settings, PWSTR result);
+	public static extern HRESULT HcsModifyServiceSettings(PWSTR settings, PWSTR* result);
 
 	[Import("computecore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcsSubmitWerReport(PWSTR settings);
@@ -345,7 +345,7 @@ public static
 	public static extern HRESULT HcsFormatWritableLayerVhd(HANDLE vhdHandle);
 
 	[Import("computestorage.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcsGetLayerVhdMountPath(HANDLE vhdHandle, PWSTR mountPath);
+	public static extern HRESULT HcsGetLayerVhdMountPath(HANDLE vhdHandle, PWSTR* mountPath);
 
 	[Import("computestorage.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcsSetupBaseOSVolume(PWSTR layerPath, PWSTR volumePath, PWSTR options);

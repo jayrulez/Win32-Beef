@@ -4987,17 +4987,17 @@ public struct MAPPING_SERVICE_INFO
 	public uint16 wBuildVersion;
 	public uint16 wStepVersion;
 	public uint32 dwInputContentTypesCount;
-	public PWSTR prgInputContentTypes;
+	public PWSTR* prgInputContentTypes;
 	public uint32 dwOutputContentTypesCount;
-	public PWSTR prgOutputContentTypes;
+	public PWSTR* prgOutputContentTypes;
 	public uint32 dwInputLanguagesCount;
-	public PWSTR prgInputLanguages;
+	public PWSTR* prgInputLanguages;
 	public uint32 dwOutputLanguagesCount;
-	public PWSTR prgOutputLanguages;
+	public PWSTR* prgOutputLanguages;
 	public uint32 dwInputScriptsCount;
-	public PWSTR prgInputScripts;
+	public PWSTR* prgInputScripts;
 	public uint32 dwOutputScriptsCount;
-	public PWSTR prgOutputScripts;
+	public PWSTR* prgOutputScripts;
 	public Guid guid;
 	public PWSTR pszCategory;
 	public PWSTR pszDescription;
@@ -5018,7 +5018,7 @@ public struct MAPPING_ENUM_OPTIONS
 	public PWSTR pszOutputScript;
 	public PWSTR pszInputContentType;
 	public PWSTR pszOutputContentType;
-	public Guid pGuid;
+	public Guid* pGuid;
 	public uint32 _bitfield;
 }
 
@@ -5053,9 +5053,9 @@ public struct MAPPING_DATA_RANGE
 	public void* pData;
 	public uint32 dwDataSize;
 	public PWSTR pszContentType;
-	public PWSTR prgActionIds;
+	public PWSTR* prgActionIds;
 	public uint32 dwActionsCount;
-	public PWSTR prgActionDisplayNames;
+	public PWSTR* prgActionDisplayNames;
 }
 
 [CRepr]
@@ -5670,7 +5670,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, uint32* value) get_StartIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, uint32* value) get_Length;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, CORRECTIVE_ACTION* value) get_CorrectiveAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, PWSTR value) get_Replacement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, PWSTR* value) get_Replacement;
 	}
 
 
@@ -5680,7 +5680,7 @@ public static
 
 	public HRESULT get_CorrectiveAction(CORRECTIVE_ACTION* value) mut => VT.[Friend]get_CorrectiveAction(&this, value);
 
-	public HRESULT get_Replacement(PWSTR value) mut => VT.[Friend]get_Replacement(&this, value);
+	public HRESULT get_Replacement(PWSTR* value) mut => VT.[Friend]get_Replacement(&this, value);
 }
 
 [CRepr]struct IEnumSpellingError : IUnknown
@@ -5706,18 +5706,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR value) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR value) get_Heading;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR value) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR* value) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR* value) get_Heading;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR* value) get_Description;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, IEnumString** value) get_Labels;
 	}
 
 
-	public HRESULT get_Id(PWSTR value) mut => VT.[Friend]get_Id(&this, value);
+	public HRESULT get_Id(PWSTR* value) mut => VT.[Friend]get_Id(&this, value);
 
-	public HRESULT get_Heading(PWSTR value) mut => VT.[Friend]get_Heading(&this, value);
+	public HRESULT get_Heading(PWSTR* value) mut => VT.[Friend]get_Heading(&this, value);
 
-	public HRESULT get_Description(PWSTR value) mut => VT.[Friend]get_Description(&this, value);
+	public HRESULT get_Description(PWSTR* value) mut => VT.[Friend]get_Description(&this, value);
 
 	public HRESULT get_Labels(IEnumString** value) mut => VT.[Friend]get_Labels(&this, value);
 }
@@ -5745,7 +5745,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR value) get_LanguageTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR* value) get_LanguageTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR text, IEnumSpellingError** value) Check;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR word, IEnumString** value) Suggest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR word) Add;
@@ -5753,8 +5753,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR from, PWSTR to) AutoCorrect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR optionId, uint8* value) GetOptionValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, IEnumString** value) get_OptionIds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR value) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR value) get_LocalizedName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR* value) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR* value) get_LocalizedName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, ISpellCheckerChangedEventHandler* handler, uint32* eventCookie) add_SpellCheckerChanged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, uint32 eventCookie) remove_SpellCheckerChanged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR optionId, IOptionDescription** value) GetOptionDescription;
@@ -5762,7 +5762,7 @@ public static
 	}
 
 
-	public HRESULT get_LanguageTag(PWSTR value) mut => VT.[Friend]get_LanguageTag(&this, value);
+	public HRESULT get_LanguageTag(PWSTR* value) mut => VT.[Friend]get_LanguageTag(&this, value);
 
 	public HRESULT Check(PWSTR text, IEnumSpellingError** value) mut => VT.[Friend]Check(&this, text, value);
 
@@ -5778,9 +5778,9 @@ public static
 
 	public HRESULT get_OptionIds(IEnumString** value) mut => VT.[Friend]get_OptionIds(&this, value);
 
-	public HRESULT get_Id(PWSTR value) mut => VT.[Friend]get_Id(&this, value);
+	public HRESULT get_Id(PWSTR* value) mut => VT.[Friend]get_Id(&this, value);
 
-	public HRESULT get_LocalizedName(PWSTR value) mut => VT.[Friend]get_LocalizedName(&this, value);
+	public HRESULT get_LocalizedName(PWSTR* value) mut => VT.[Friend]get_LocalizedName(&this, value);
 
 	public HRESULT add_SpellCheckerChanged(ISpellCheckerChangedEventHandler* handler, uint32* eventCookie) mut => VT.[Friend]add_SpellCheckerChanged(&this, handler, eventCookie);
 
@@ -5853,20 +5853,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR value) get_LanguageTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR* value) get_LanguageTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR text, IEnumSpellingError** value) Check;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR word, IEnumString** value) Suggest;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, uint8* value) GetOptionValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, uint8 value) SetOptionValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, IEnumString** value) get_OptionIds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR value) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR value) get_LocalizedName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR* value) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR* value) get_LocalizedName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, IOptionDescription** value) GetOptionDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, WORDLIST_TYPE wordlistType, IEnumString* words) InitializeWordlist;
 	}
 
 
-	public HRESULT get_LanguageTag(PWSTR value) mut => VT.[Friend]get_LanguageTag(&this, value);
+	public HRESULT get_LanguageTag(PWSTR* value) mut => VT.[Friend]get_LanguageTag(&this, value);
 
 	public HRESULT Check(PWSTR text, IEnumSpellingError** value) mut => VT.[Friend]Check(&this, text, value);
 
@@ -5878,9 +5878,9 @@ public static
 
 	public HRESULT get_OptionIds(IEnumString** value) mut => VT.[Friend]get_OptionIds(&this, value);
 
-	public HRESULT get_Id(PWSTR value) mut => VT.[Friend]get_Id(&this, value);
+	public HRESULT get_Id(PWSTR* value) mut => VT.[Friend]get_Id(&this, value);
 
-	public HRESULT get_LocalizedName(PWSTR value) mut => VT.[Friend]get_LocalizedName(&this, value);
+	public HRESULT get_LocalizedName(PWSTR* value) mut => VT.[Friend]get_LocalizedName(&this, value);
 
 	public HRESULT GetOptionDescription(PWSTR optionId, IOptionDescription** value) mut => VT.[Friend]GetOptionDescription(&this, optionId, value);
 
@@ -5988,7 +5988,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, BOOL fNoAccess) Sync;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32* plLen) GetLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lDestPos, int32 lDestLen, IUnknown* pSrcMLStr, int32 lSrcPos, int32 lSrcLen) SetMLStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, Guid piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) GetMLStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) GetMLStr;
 	}
 
 
@@ -5998,7 +5998,7 @@ public static
 
 	public HRESULT SetMLStr(int32 lDestPos, int32 lDestLen, IUnknown* pSrcMLStr, int32 lSrcPos, int32 lSrcLen) mut => VT.[Friend]SetMLStr(&this, lDestPos, lDestLen, pSrcMLStr, lSrcPos, lSrcLen);
 
-	public HRESULT GetMLStr(int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, Guid piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) mut => VT.[Friend]GetMLStr(&this, lSrcPos, lSrcLen, pUnkOuter, dwClsContext, piid, ppDestMLStr, plDestPos, plDestLen);
+	public HRESULT GetMLStr(int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) mut => VT.[Friend]GetMLStr(&this, lSrcPos, lSrcLen, pUnkOuter, dwClsContext, ref piid, ppDestMLStr, plDestPos, plDestLen);
 }
 
 [CRepr]struct IMLangStringWStr : IMLangString
@@ -6013,7 +6013,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, IMLangStringBufW* pSrcBuf, int32* pcchActual, int32* plActualLen) SetStrBufW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, char16* pszDest, int32 cchDest, int32* pcchActual, int32* plActualLen) GetWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, IMLangStringBufW** ppDestBuf, int32* plDestLen) GetStrBufW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, int32 lFlags, int32 cchRequest, PWSTR ppszDest, int32* pcchDest, int32* plDestLen) LockWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, int32 lFlags, int32 cchRequest, PWSTR* ppszDest, int32* pcchDest, int32* plDestLen) LockWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, char16* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) UnlockWStr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 locale) SetLocale;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32* plocale, int32* plLocalePos, int32* plLocaleLen) GetLocale;
@@ -6028,7 +6028,7 @@ public static
 
 	public HRESULT GetStrBufW(int32 lSrcPos, int32 lSrcMaxLen, IMLangStringBufW** ppDestBuf, int32* plDestLen) mut => VT.[Friend]GetStrBufW(&this, lSrcPos, lSrcMaxLen, ppDestBuf, plDestLen);
 
-	public HRESULT LockWStr(int32 lSrcPos, int32 lSrcLen, int32 lFlags, int32 cchRequest, PWSTR ppszDest, int32* pcchDest, int32* plDestLen) mut => VT.[Friend]LockWStr(&this, lSrcPos, lSrcLen, lFlags, cchRequest, ppszDest, pcchDest, plDestLen);
+	public HRESULT LockWStr(int32 lSrcPos, int32 lSrcLen, int32 lFlags, int32 cchRequest, PWSTR* ppszDest, int32* pcchDest, int32* plDestLen) mut => VT.[Friend]LockWStr(&this, lSrcPos, lSrcLen, lFlags, cchRequest, ppszDest, pcchDest, plDestLen);
 
 	public HRESULT UnlockWStr(char16* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) mut => VT.[Friend]UnlockWStr(&this, pszSrc, cchSrc, pcchActual, plActualLen);
 

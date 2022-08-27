@@ -789,7 +789,7 @@ public struct PEER_EVENT_NODE_CHANGE_DATA
 public struct PEER_GRAPH_EVENT_REGISTRATION
 {
 	public PEER_GRAPH_EVENT_TYPE eventType;
-	public Guid pType;
+	public Guid* pType;
 }
 
 [CRepr]
@@ -837,7 +837,7 @@ public struct PEER_CREDENTIAL_INFO
 	public FILETIME ftValidityStart;
 	public FILETIME ftValidityEnd;
 	public uint32 cRoles;
-	public Guid pRoles;
+	public Guid* pRoles;
 }
 
 [CRepr]
@@ -870,9 +870,9 @@ public struct PEER_INVITATION_INFO
 	public FILETIME ftValidityStart;
 	public FILETIME ftValidityEnd;
 	public uint32 cRoles;
-	public Guid pRoles;
+	public Guid* pRoles;
 	public uint32 cClassifiers;
-	public PWSTR ppwzClassifiers;
+	public PWSTR* ppwzClassifiers;
 	public CERT_PUBLIC_KEY_INFO* pSubjectPublicKey;
 	public PEER_GROUP_AUTHENTICATION_SCHEME authScheme;
 }
@@ -907,7 +907,7 @@ public struct PEER_EVENT_MEMBER_CHANGE_DATA
 public struct PEER_GROUP_EVENT_REGISTRATION
 {
 	public PEER_GROUP_EVENT_TYPE eventType;
-	public Guid pType;
+	public Guid* pType;
 }
 
 [CRepr]
@@ -1023,7 +1023,7 @@ public struct PEER_PRESENCE_INFO
 public struct PEER_COLLAB_EVENT_REGISTRATION
 {
 	public PEER_COLLAB_EVENT_TYPE eventType;
-	public Guid pInstance;
+	public Guid* pInstance;
 }
 
 [CRepr]
@@ -1347,7 +1347,7 @@ public static
 	public static extern HRESULT PeerGraphCreate(PEER_GRAPH_PROPERTIES* pGraphProperties, PWSTR pwzDatabaseName, PEER_SECURITY_INTERFACE* pSecurityInterface, void** phGraph);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGraphOpen(PWSTR pwzGraphId, PWSTR pwzPeerId, PWSTR pwzDatabaseName, PEER_SECURITY_INTERFACE* pSecurityInterface, uint32 cRecordTypeSyncPrecedence, Guid* pRecordTypeSyncPrecedence, void** phGraph);
+	public static extern HRESULT PeerGraphOpen(PWSTR pwzGraphId, PWSTR pwzPeerId, PWSTR pwzDatabaseName, PEER_SECURITY_INTERFACE* pSecurityInterface, uint32 cRecordTypeSyncPrecedence, ref Guid pRecordTypeSyncPrecedence, void** phGraph);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerGraphListen(void* hGraph, uint32 dwScope, uint32 dwScopeId, uint16 wPort);
@@ -1380,19 +1380,19 @@ public static
 	public static extern HRESULT PeerGraphGetEventData(void* hPeerEvent, PEER_GRAPH_EVENT_DATA** ppEventData);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGraphGetRecord(void* hGraph, Guid pRecordId, PEER_RECORD** ppRecord);
+	public static extern HRESULT PeerGraphGetRecord(void* hGraph, ref Guid pRecordId, PEER_RECORD** ppRecord);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGraphAddRecord(void* hGraph, PEER_RECORD* pRecord, Guid pRecordId);
+	public static extern HRESULT PeerGraphAddRecord(void* hGraph, PEER_RECORD* pRecord, ref Guid pRecordId);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerGraphUpdateRecord(void* hGraph, PEER_RECORD* pRecord);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGraphDeleteRecord(void* hGraph, Guid pRecordId, BOOL fLocal);
+	public static extern HRESULT PeerGraphDeleteRecord(void* hGraph, ref Guid pRecordId, BOOL fLocal);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGraphEnumRecords(void* hGraph, Guid pRecordType, PWSTR pwzPeerId, void** phPeerEnum);
+	public static extern HRESULT PeerGraphEnumRecords(void* hGraph, ref Guid pRecordType, PWSTR pwzPeerId, void** phPeerEnum);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerGraphSearchRecords(void* hGraph, PWSTR pwzCriteria, void** phPeerEnum);
@@ -1404,13 +1404,13 @@ public static
 	public static extern HRESULT PeerGraphImportDatabase(void* hGraph, PWSTR pwzFilePath);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGraphValidateDeferredRecords(void* hGraph, uint32 cRecordIds, Guid* pRecordIds);
+	public static extern HRESULT PeerGraphValidateDeferredRecords(void* hGraph, uint32 cRecordIds, ref Guid pRecordIds);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerGraphOpenDirectConnection(void* hGraph, PWSTR pwzPeerId, PEER_ADDRESS* pAddress, uint64* pullConnectionId);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGraphSendData(void* hGraph, uint64 ullConnectionId, Guid pType, uint32 cbData, void* pvData);
+	public static extern HRESULT PeerGraphSendData(void* hGraph, uint64 ullConnectionId, ref Guid pType, uint32 cbData, void* pvData);
 
 	[Import("P2PGRAPH.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerGraphCloseDirectConnection(void* hGraph, uint64 ullConnectionId);
@@ -1479,10 +1479,10 @@ public static
 	public static extern HRESULT PeerGroupDelete(PWSTR pwzIdentity, PWSTR pwzGroupPeerName);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGroupCreateInvitation(void* hGroup, PWSTR pwzIdentityInfo, FILETIME* pftExpiration, uint32 cRoles, Guid* pRoles, PWSTR ppwzInvitation);
+	public static extern HRESULT PeerGroupCreateInvitation(void* hGroup, PWSTR pwzIdentityInfo, FILETIME* pftExpiration, uint32 cRoles, ref Guid pRoles, PWSTR* ppwzInvitation);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGroupCreatePasswordInvitation(void* hGroup, PWSTR ppwzInvitation);
+	public static extern HRESULT PeerGroupCreatePasswordInvitation(void* hGroup, PWSTR* ppwzInvitation);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerGroupParseInvitation(PWSTR pwzInvitation, PEER_INVITATION_INFO** ppInvitationInfo);
@@ -1509,7 +1509,7 @@ public static
 	public static extern HRESULT PeerGroupEnumConnections(void* hGroup, uint32 dwFlags, void** phPeerEnum);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGroupSendData(void* hGroup, uint64 ullConnectionId, Guid pType, uint32 cbData, void* pvData);
+	public static extern HRESULT PeerGroupSendData(void* hGroup, uint64 ullConnectionId, ref Guid pType, uint32 cbData, void* pvData);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerGroupRegisterEvent(void* hGroup, HANDLE hEvent, uint32 cEventRegistration, PEER_GROUP_EVENT_REGISTRATION* pEventRegistrations, void** phPeerEvent);
@@ -1521,19 +1521,19 @@ public static
 	public static extern HRESULT PeerGroupGetEventData(void* hPeerEvent, PEER_GROUP_EVENT_DATA** ppEventData);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGroupGetRecord(void* hGroup, Guid pRecordId, PEER_RECORD** ppRecord);
+	public static extern HRESULT PeerGroupGetRecord(void* hGroup, ref Guid pRecordId, PEER_RECORD** ppRecord);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGroupAddRecord(void* hGroup, PEER_RECORD* pRecord, Guid pRecordId);
+	public static extern HRESULT PeerGroupAddRecord(void* hGroup, PEER_RECORD* pRecord, ref Guid pRecordId);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerGroupUpdateRecord(void* hGroup, PEER_RECORD* pRecord);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGroupDeleteRecord(void* hGroup, Guid pRecordId);
+	public static extern HRESULT PeerGroupDeleteRecord(void* hGroup, ref Guid pRecordId);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGroupEnumRecords(void* hGroup, Guid pRecordType, void** phPeerEnum);
+	public static extern HRESULT PeerGroupEnumRecords(void* hGroup, ref Guid pRecordType, void** phPeerEnum);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerGroupSearchRecords(void* hGroup, PWSTR pwzCriteria, void** phPeerEnum);
@@ -1545,13 +1545,13 @@ public static
 	public static extern HRESULT PeerGroupImportDatabase(void* hGroup, PWSTR pwzFilePath);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGroupIssueCredentials(void* hGroup, PWSTR pwzSubjectIdentity, PEER_CREDENTIAL_INFO* pCredentialInfo, uint32 dwFlags, PWSTR ppwzInvitation);
+	public static extern HRESULT PeerGroupIssueCredentials(void* hGroup, PWSTR pwzSubjectIdentity, PEER_CREDENTIAL_INFO* pCredentialInfo, uint32 dwFlags, PWSTR* ppwzInvitation);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGroupExportConfig(void* hGroup, PWSTR pwzPassword, PWSTR ppwzXML);
+	public static extern HRESULT PeerGroupExportConfig(void* hGroup, PWSTR pwzPassword, PWSTR* ppwzXML);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerGroupImportConfig(PWSTR pwzXML, PWSTR pwzPassword, BOOL fOverwrite, PWSTR ppwzIdentity, PWSTR ppwzGroup);
+	public static extern HRESULT PeerGroupImportConfig(PWSTR pwzXML, PWSTR pwzPassword, BOOL fOverwrite, PWSTR* ppwzIdentity, PWSTR* ppwzGroup);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerGroupPeerTimeToUniversalTime(void* hGroup, FILETIME* pftPeerTime, FILETIME* pftUniversalTime);
@@ -1563,10 +1563,10 @@ public static
 	public static extern HRESULT PeerGroupResumePasswordAuthentication(void* hGroup, void* hPeerEventHandle);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerIdentityCreate(PWSTR pwzClassifier, PWSTR pwzFriendlyName, uint hCryptProv, PWSTR ppwzIdentity);
+	public static extern HRESULT PeerIdentityCreate(PWSTR pwzClassifier, PWSTR pwzFriendlyName, uint hCryptProv, PWSTR* ppwzIdentity);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerIdentityGetFriendlyName(PWSTR pwzIdentity, PWSTR ppwzFriendlyName);
+	public static extern HRESULT PeerIdentityGetFriendlyName(PWSTR pwzIdentity, PWSTR* ppwzFriendlyName);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerIdentitySetFriendlyName(PWSTR pwzIdentity, PWSTR pwzFriendlyName);
@@ -1584,19 +1584,19 @@ public static
 	public static extern HRESULT PeerEnumGroups(PWSTR pwzIdentity, void** phPeerEnum);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerCreatePeerName(PWSTR pwzIdentity, PWSTR pwzClassifier, PWSTR ppwzPeerName);
+	public static extern HRESULT PeerCreatePeerName(PWSTR pwzIdentity, PWSTR pwzClassifier, PWSTR* ppwzPeerName);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerIdentityGetXML(PWSTR pwzIdentity, PWSTR ppwzIdentityXML);
+	public static extern HRESULT PeerIdentityGetXML(PWSTR pwzIdentity, PWSTR* ppwzIdentityXML);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerIdentityExport(PWSTR pwzIdentity, PWSTR pwzPassword, PWSTR ppwzExportXML);
+	public static extern HRESULT PeerIdentityExport(PWSTR pwzIdentity, PWSTR pwzPassword, PWSTR* ppwzExportXML);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerIdentityImport(PWSTR pwzImportXML, PWSTR pwzPassword, PWSTR ppwzIdentity);
+	public static extern HRESULT PeerIdentityImport(PWSTR pwzImportXML, PWSTR pwzPassword, PWSTR* ppwzIdentity);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerIdentityGetDefault(PWSTR ppwzPeerName);
+	public static extern HRESULT PeerIdentityGetDefault(PWSTR* ppwzPeerName);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerCollabStartup(uint16 wVersionRequested);
@@ -1641,10 +1641,10 @@ public static
 	public static extern HRESULT PeerCollabRegisterApplication(PEER_APPLICATION_REGISTRATION_INFO* pcApplication, PEER_APPLICATION_REGISTRATION_TYPE registrationType);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerCollabUnregisterApplication(Guid pApplicationId, PEER_APPLICATION_REGISTRATION_TYPE registrationType);
+	public static extern HRESULT PeerCollabUnregisterApplication(ref Guid pApplicationId, PEER_APPLICATION_REGISTRATION_TYPE registrationType);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerCollabGetApplicationRegistrationInfo(Guid pApplicationId, PEER_APPLICATION_REGISTRATION_TYPE registrationType, PEER_APPLICATION_REGISTRATION_INFO** ppApplication);
+	public static extern HRESULT PeerCollabGetApplicationRegistrationInfo(ref Guid pApplicationId, PEER_APPLICATION_REGISTRATION_TYPE registrationType, PEER_APPLICATION_REGISTRATION_INFO** ppApplication);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerCollabEnumApplicationRegistrationInfo(PEER_APPLICATION_REGISTRATION_TYPE registrationType, void** phPeerEnum);
@@ -1653,10 +1653,10 @@ public static
 	public static extern HRESULT PeerCollabGetPresenceInfo(PEER_ENDPOINT* pcEndpoint, PEER_PRESENCE_INFO** ppPresenceInfo);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerCollabEnumApplications(PEER_ENDPOINT* pcEndpoint, Guid pApplicationId, void** phPeerEnum);
+	public static extern HRESULT PeerCollabEnumApplications(PEER_ENDPOINT* pcEndpoint, ref Guid pApplicationId, void** phPeerEnum);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerCollabEnumObjects(PEER_ENDPOINT* pcEndpoint, Guid pObjectId, void** phPeerEnum);
+	public static extern HRESULT PeerCollabEnumObjects(PEER_ENDPOINT* pcEndpoint, ref Guid pObjectId, void** phPeerEnum);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerCollabEnumEndpoints(PEER_CONTACT* pcContact, void** phPeerEnum);
@@ -1668,7 +1668,7 @@ public static
 	public static extern HRESULT PeerCollabDeleteEndpointData(PEER_ENDPOINT* pcEndpoint);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerCollabQueryContactData(PEER_ENDPOINT* pcEndpoint, PWSTR ppwzContactData);
+	public static extern HRESULT PeerCollabQueryContactData(PEER_ENDPOINT* pcEndpoint, PWSTR* ppwzContactData);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerCollabSubscribeEndpointData(PEER_ENDPOINT* pcEndpoint);
@@ -1680,7 +1680,7 @@ public static
 	public static extern HRESULT PeerCollabSetPresenceInfo(PEER_PRESENCE_INFO* pcPresenceInfo);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerCollabGetEndpointName(PWSTR ppwzEndpointName);
+	public static extern HRESULT PeerCollabGetEndpointName(PWSTR* ppwzEndpointName);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerCollabSetEndpointName(PWSTR pwzEndpointName);
@@ -1689,7 +1689,7 @@ public static
 	public static extern HRESULT PeerCollabSetObject(PEER_OBJECT* pcObject);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerCollabDeleteObject(Guid pObjectId);
+	public static extern HRESULT PeerCollabDeleteObject(ref Guid pObjectId);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerCollabRegisterEvent(HANDLE hEvent, uint32 cEventRegistration, PEER_COLLAB_EVENT_REGISTRATION* pEventRegistrations, void** phPeerEvent);
@@ -1719,16 +1719,16 @@ public static
 	public static extern HRESULT PeerCollabEnumContacts(void** phPeerEnum);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerCollabExportContact(PWSTR pwzPeerName, PWSTR ppwzContactData);
+	public static extern HRESULT PeerCollabExportContact(PWSTR pwzPeerName, PWSTR* ppwzContactData);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerCollabParseContact(PWSTR pwzContactData, PEER_CONTACT** ppContact);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerNameToPeerHostName(PWSTR pwzPeerName, PWSTR ppwzHostName);
+	public static extern HRESULT PeerNameToPeerHostName(PWSTR pwzPeerName, PWSTR* ppwzHostName);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PeerHostNameToPeerName(PWSTR pwzHostName, PWSTR ppwzPeerName);
+	public static extern HRESULT PeerHostNameToPeerName(PWSTR pwzHostName, PWSTR* ppwzPeerName);
 
 	[Import("P2P.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PeerPnrpStartup(uint16 wVersionRequested);

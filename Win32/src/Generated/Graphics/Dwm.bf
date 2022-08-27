@@ -367,7 +367,7 @@ public static
 	public static extern HRESULT DwmGetGraphicsStreamTransformHint(uint32 uIndex, MilMatrix3x2D* pTransform);
 
 	[Import("dwmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DwmGetGraphicsStreamClient(uint32 uIndex, Guid pClientUuid);
+	public static extern HRESULT DwmGetGraphicsStreamClient(uint32 uIndex, ref Guid pClientUuid);
 
 	[Import("dwmapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DwmGetTransportAttributes(BOOL* pfIsRemoting, BOOL* pfIsConnected, uint32* pDwGeneration);

@@ -782,13 +782,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWMDependency*/SelfOuter* self, Guid pWriterId) GetWriterId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWMDependency*/SelfOuter* self, ref Guid pWriterId) GetWriterId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWMDependency*/SelfOuter* self, BSTR* pbstrLogicalPath) GetLogicalPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWMDependency*/SelfOuter* self, BSTR* pbstrComponentName) GetComponentName;
 	}
 
 
-	public HRESULT GetWriterId(Guid pWriterId) mut => VT.[Friend]GetWriterId(&this, pWriterId);
+	public HRESULT GetWriterId(ref Guid pWriterId) mut => VT.[Friend]GetWriterId(&this, pWriterId);
 
 	public HRESULT GetLogicalPath(BSTR* pbstrLogicalPath) mut => VT.[Friend]GetLogicalPath(&this, pbstrLogicalPath);
 
@@ -930,14 +930,14 @@ public static
 	[CRepr]public struct VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterComponents*/SelfOuter* self, uint32* pcComponents) GetComponentCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterComponents*/SelfOuter* self, Guid pidInstance, Guid pidWriter) GetWriterInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterComponents*/SelfOuter* self, ref Guid pidInstance, ref Guid pidWriter) GetWriterInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterComponents*/SelfOuter* self, uint32 iComponent, IVssComponent** ppComponent) GetComponent;
 	}
 
 
 	public HRESULT GetComponentCount(uint32* pcComponents) mut => VT.[Friend]GetComponentCount(&this, pcComponents);
 
-	public HRESULT GetWriterInfo(Guid pidInstance, Guid pidWriter) mut => VT.[Friend]GetWriterInfo(&this, pidInstance, pidWriter);
+	public HRESULT GetWriterInfo(ref Guid pidInstance, ref Guid pidWriter) mut => VT.[Friend]GetWriterInfo(&this, pidInstance, pidWriter);
 
 	public HRESULT GetComponent(uint32 iComponent, IVssComponent** ppComponent) mut => VT.[Friend]GetComponent(&this, iComponent, ppComponent);
 }
@@ -1051,9 +1051,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterImpl*/SelfOuter* self, uint32 dwSubscribeTimeout, uint32 dwEventFlags) Subscribe;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterImpl*/SelfOuter* self) Unsubscribe;
 		protected new function [CallingConvention(.Stdcall)] void(/*IVssWriterImpl*/SelfOuter* self) Uninitialize;
-		protected new function [CallingConvention(.Stdcall)] PWSTR(/*IVssWriterImpl*/SelfOuter* self) GetCurrentVolumeArray;
+		protected new function [CallingConvention(.Stdcall)] PWSTR*(/*IVssWriterImpl*/SelfOuter* self) GetCurrentVolumeArray;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IVssWriterImpl*/SelfOuter* self) GetCurrentVolumeCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterImpl*/SelfOuter* self, PWSTR wszOriginalVolume, PWSTR ppwszSnapshotDevice) GetSnapshotDeviceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterImpl*/SelfOuter* self, PWSTR wszOriginalVolume, PWSTR* ppwszSnapshotDevice) GetSnapshotDeviceName;
 		protected new function [CallingConvention(.Stdcall)] Guid(/*IVssWriterImpl*/SelfOuter* self) GetCurrentSnapshotSetId;
 		protected new function [CallingConvention(.Stdcall)] int32(/*IVssWriterImpl*/SelfOuter* self) GetContext;
 		protected new function [CallingConvention(.Stdcall)] VSS_APPLICATION_LEVEL(/*IVssWriterImpl*/SelfOuter* self) GetCurrentLevel;
@@ -1067,7 +1067,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterImpl*/SelfOuter* self, Guid idWriter, Guid clsid) InstallAlternateWriter;
 		protected new function [CallingConvention(.Stdcall)] IVssExamineWriterMetadata*(/*IVssWriterImpl*/SelfOuter* self) GetIdentityInformation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterImpl*/SelfOuter* self, HRESULT hr, HRESULT hrApplication, PWSTR wszApplicationMessage) SetWriterFailureEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterImpl*/SelfOuter* self, Guid idSession) GetSessionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssWriterImpl*/SelfOuter* self, ref Guid idSession) GetSessionId;
 		protected new function [CallingConvention(.Stdcall)] bool(/*IVssWriterImpl*/SelfOuter* self) IsWriterShuttingDown;
 	}
 
@@ -1080,11 +1080,11 @@ public static
 
 	public void Uninitialize() mut => VT.[Friend]Uninitialize(&this);
 
-	public PWSTR GetCurrentVolumeArray() mut => VT.[Friend]GetCurrentVolumeArray(&this);
+	public PWSTR* GetCurrentVolumeArray() mut => VT.[Friend]GetCurrentVolumeArray(&this);
 
 	public uint32 GetCurrentVolumeCount() mut => VT.[Friend]GetCurrentVolumeCount(&this);
 
-	public HRESULT GetSnapshotDeviceName(PWSTR wszOriginalVolume, PWSTR ppwszSnapshotDevice) mut => VT.[Friend]GetSnapshotDeviceName(&this, wszOriginalVolume, ppwszSnapshotDevice);
+	public HRESULT GetSnapshotDeviceName(PWSTR wszOriginalVolume, PWSTR* ppwszSnapshotDevice) mut => VT.[Friend]GetSnapshotDeviceName(&this, wszOriginalVolume, ppwszSnapshotDevice);
 
 	public Guid GetCurrentSnapshotSetId() mut => VT.[Friend]GetCurrentSnapshotSetId(&this);
 
@@ -1112,7 +1112,7 @@ public static
 
 	public HRESULT SetWriterFailureEx(HRESULT hr, HRESULT hrApplication, PWSTR wszApplicationMessage) mut => VT.[Friend]SetWriterFailureEx(&this, hr, hrApplication, wszApplicationMessage);
 
-	public HRESULT GetSessionId(Guid idSession) mut => VT.[Friend]GetSessionId(&this, idSession);
+	public HRESULT GetSessionId(ref Guid idSession) mut => VT.[Friend]GetSessionId(&this, idSession);
 
 	public bool IsWriterShuttingDown() mut => VT.[Friend]IsWriterShuttingDown(&this);
 }
@@ -1182,13 +1182,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSnapshotMgmt*/SelfOuter* self, Guid ProviderId, Guid InterfaceId, IUnknown** ppItf) GetProviderMgmtInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSnapshotMgmt*/SelfOuter* self, Guid ProviderId, ref Guid InterfaceId, IUnknown** ppItf) GetProviderMgmtInterface;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSnapshotMgmt*/SelfOuter* self, Guid ProviderId, int32 lContext, IVssEnumMgmtObject** ppEnum) QueryVolumesSupportedForSnapshots;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSnapshotMgmt*/SelfOuter* self, uint16* pwszVolumeName, Guid ProviderId, IVssEnumObject** ppEnum) QuerySnapshotsByVolume;
 	}
 
 
-	public HRESULT GetProviderMgmtInterface(Guid ProviderId, Guid InterfaceId, IUnknown** ppItf) mut => VT.[Friend]GetProviderMgmtInterface(&this, ProviderId, InterfaceId, ppItf);
+	public HRESULT GetProviderMgmtInterface(Guid ProviderId, ref Guid InterfaceId, IUnknown** ppItf) mut => VT.[Friend]GetProviderMgmtInterface(&this, ProviderId, ref InterfaceId, ppItf);
 
 	public HRESULT QueryVolumesSupportedForSnapshots(Guid ProviderId, int32 lContext, IVssEnumMgmtObject** ppEnum) mut => VT.[Friend]QueryVolumesSupportedForSnapshots(&this, ProviderId, lContext, ppEnum);
 
@@ -1371,7 +1371,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSoftwareSnapshotProvider*/SelfOuter* self, int32 lContext) SetContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSoftwareSnapshotProvider*/SelfOuter* self, Guid SnapshotId, VSS_SNAPSHOT_PROP* pProp) GetSnapshotProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSoftwareSnapshotProvider*/SelfOuter* self, Guid QueriedObjectId, VSS_OBJECT_TYPE eQueriedObjectType, VSS_OBJECT_TYPE eReturnedObjectsType, IVssEnumObject** ppEnum) Query;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSoftwareSnapshotProvider*/SelfOuter* self, Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, Guid pNondeletedSnapshotID) DeleteSnapshots;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSoftwareSnapshotProvider*/SelfOuter* self, Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, ref Guid pNondeletedSnapshotID) DeleteSnapshots;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSoftwareSnapshotProvider*/SelfOuter* self, Guid SnapshotSetId, Guid SnapshotId, uint16* pwszVolumeName, int32 lNewContext) BeginPrepareSnapshot;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSoftwareSnapshotProvider*/SelfOuter* self, uint16* pwszVolumeName, BOOL* pbSupportedByThisProvider) IsVolumeSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssSoftwareSnapshotProvider*/SelfOuter* self, uint16* pwszVolumeName, BOOL* pbSnapshotsPresent, int32* plSnapshotCompatibility) IsVolumeSnapshotted;
@@ -1387,7 +1387,7 @@ public static
 
 	public HRESULT Query(Guid QueriedObjectId, VSS_OBJECT_TYPE eQueriedObjectType, VSS_OBJECT_TYPE eReturnedObjectsType, IVssEnumObject** ppEnum) mut => VT.[Friend]Query(&this, QueriedObjectId, eQueriedObjectType, eReturnedObjectsType, ppEnum);
 
-	public HRESULT DeleteSnapshots(Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, Guid pNondeletedSnapshotID) mut => VT.[Friend]DeleteSnapshots(&this, SourceObjectId, eSourceObjectType, bForceDelete, plDeletedSnapshots, pNondeletedSnapshotID);
+	public HRESULT DeleteSnapshots(Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, ref Guid pNondeletedSnapshotID) mut => VT.[Friend]DeleteSnapshots(&this, SourceObjectId, eSourceObjectType, bForceDelete, plDeletedSnapshots, pNondeletedSnapshotID);
 
 	public HRESULT BeginPrepareSnapshot(Guid SnapshotSetId, Guid SnapshotId, uint16* pwszVolumeName, int32 lNewContext) mut => VT.[Friend]BeginPrepareSnapshot(&this, SnapshotSetId, SnapshotId, pwszVolumeName, lNewContext);
 
@@ -1518,7 +1518,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssFileShareSnapshotProvider*/SelfOuter* self, int32 lContext) SetContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssFileShareSnapshotProvider*/SelfOuter* self, Guid SnapshotId, VSS_SNAPSHOT_PROP* pProp) GetSnapshotProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssFileShareSnapshotProvider*/SelfOuter* self, Guid QueriedObjectId, VSS_OBJECT_TYPE eQueriedObjectType, VSS_OBJECT_TYPE eReturnedObjectsType, IVssEnumObject** ppEnum) Query;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssFileShareSnapshotProvider*/SelfOuter* self, Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, Guid pNondeletedSnapshotID) DeleteSnapshots;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssFileShareSnapshotProvider*/SelfOuter* self, Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, ref Guid pNondeletedSnapshotID) DeleteSnapshots;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssFileShareSnapshotProvider*/SelfOuter* self, Guid SnapshotSetId, Guid SnapshotId, uint16* pwszSharePath, int32 lNewContext, Guid ProviderId) BeginPrepareSnapshot;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssFileShareSnapshotProvider*/SelfOuter* self, uint16* pwszSharePath, BOOL* pbSupportedByThisProvider) IsPathSupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVssFileShareSnapshotProvider*/SelfOuter* self, uint16* pwszSharePath, BOOL* pbSnapshotsPresent, int32* plSnapshotCompatibility) IsPathSnapshotted;
@@ -1532,7 +1532,7 @@ public static
 
 	public HRESULT Query(Guid QueriedObjectId, VSS_OBJECT_TYPE eQueriedObjectType, VSS_OBJECT_TYPE eReturnedObjectsType, IVssEnumObject** ppEnum) mut => VT.[Friend]Query(&this, QueriedObjectId, eQueriedObjectType, eReturnedObjectsType, ppEnum);
 
-	public HRESULT DeleteSnapshots(Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, Guid pNondeletedSnapshotID) mut => VT.[Friend]DeleteSnapshots(&this, SourceObjectId, eSourceObjectType, bForceDelete, plDeletedSnapshots, pNondeletedSnapshotID);
+	public HRESULT DeleteSnapshots(Guid SourceObjectId, VSS_OBJECT_TYPE eSourceObjectType, BOOL bForceDelete, int32* plDeletedSnapshots, ref Guid pNondeletedSnapshotID) mut => VT.[Friend]DeleteSnapshots(&this, SourceObjectId, eSourceObjectType, bForceDelete, plDeletedSnapshots, pNondeletedSnapshotID);
 
 	public HRESULT BeginPrepareSnapshot(Guid SnapshotSetId, Guid SnapshotId, uint16* pwszSharePath, int32 lNewContext, Guid ProviderId) mut => VT.[Friend]BeginPrepareSnapshot(&this, SnapshotSetId, SnapshotId, pwszSharePath, lNewContext, ProviderId);
 

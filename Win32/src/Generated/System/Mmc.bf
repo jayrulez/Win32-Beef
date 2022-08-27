@@ -1627,7 +1627,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponent*/SelfOuter* self, IDataObject* lpDataObject, MMC_NOTIFY_TYPE event, LPARAM arg, LPARAM param3) Notify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponent*/SelfOuter* self, int cookie) Destroy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponent*/SelfOuter* self, int cookie, DATA_OBJECT_TYPES type, IDataObject** ppDataObject) QueryDataObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponent*/SelfOuter* self, int cookie, PWSTR ppViewType, int32* pViewOptions) GetResultViewType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponent*/SelfOuter* self, int cookie, PWSTR* ppViewType, int32* pViewOptions) GetResultViewType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponent*/SelfOuter* self, RESULTDATAITEM* pResultDataItem) GetDisplayInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponent*/SelfOuter* self, IDataObject* lpDataObjectA, IDataObject* lpDataObjectB) CompareObjects;
 	}
@@ -1641,7 +1641,7 @@ public static
 
 	public HRESULT QueryDataObject(int cookie, DATA_OBJECT_TYPES type, IDataObject** ppDataObject) mut => VT.[Friend]QueryDataObject(&this, cookie, type, ppDataObject);
 
-	public HRESULT GetResultViewType(int cookie, PWSTR ppViewType, int32* pViewOptions) mut => VT.[Friend]GetResultViewType(&this, cookie, ppViewType, pViewOptions);
+	public HRESULT GetResultViewType(int cookie, PWSTR* ppViewType, int32* pViewOptions) mut => VT.[Friend]GetResultViewType(&this, cookie, ppViewType, pViewOptions);
 
 	public HRESULT GetDisplayInfo(RESULTDATAITEM* pResultDataItem) mut => VT.[Friend]GetDisplayInfo(&this, pResultDataItem);
 
@@ -1740,7 +1740,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHeaderCtrl*/SelfOuter* self, int32 nCol, PWSTR title, int32 nFormat, int32 nWidth) InsertColumn;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHeaderCtrl*/SelfOuter* self, int32 nCol) DeleteColumn;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHeaderCtrl*/SelfOuter* self, int32 nCol, PWSTR title) SetColumnText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHeaderCtrl*/SelfOuter* self, int32 nCol, PWSTR pText) GetColumnText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHeaderCtrl*/SelfOuter* self, int32 nCol, PWSTR* pText) GetColumnText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHeaderCtrl*/SelfOuter* self, int32 nCol, int32 nWidth) SetColumnWidth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHeaderCtrl*/SelfOuter* self, int32 nCol, int32* pWidth) GetColumnWidth;
 	}
@@ -1752,7 +1752,7 @@ public static
 
 	public HRESULT SetColumnText(int32 nCol, PWSTR title) mut => VT.[Friend]SetColumnText(&this, nCol, title);
 
-	public HRESULT GetColumnText(int32 nCol, PWSTR pText) mut => VT.[Friend]GetColumnText(&this, nCol, pText);
+	public HRESULT GetColumnText(int32 nCol, PWSTR* pText) mut => VT.[Friend]GetColumnText(&this, nCol, pText);
 
 	public HRESULT SetColumnWidth(int32 nCol, int32 nWidth) mut => VT.[Friend]SetColumnWidth(&this, nCol, nWidth);
 
@@ -1933,13 +1933,13 @@ public static
 	[CRepr]public struct VTable : IConsoleNameSpace.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConsoleNameSpace2*/SelfOuter* self, int hItem) Expand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConsoleNameSpace2*/SelfOuter* self, int hItem, Guid lpClsid) AddExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConsoleNameSpace2*/SelfOuter* self, int hItem, ref Guid lpClsid) AddExtension;
 	}
 
 
 	public HRESULT Expand(int hItem) mut => VT.[Friend]Expand(&this, hItem);
 
-	public HRESULT AddExtension(int hItem, Guid lpClsid) mut => VT.[Friend]AddExtension(&this, hItem, lpClsid);
+	public HRESULT AddExtension(int hItem, ref Guid lpClsid) mut => VT.[Friend]AddExtension(&this, hItem, lpClsid);
 }
 
 [CRepr]struct IPropertySheetCallback : IUnknown
@@ -2106,19 +2106,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinAbout*/SelfOuter* self, PWSTR lpDescription) GetSnapinDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinAbout*/SelfOuter* self, PWSTR lpName) GetProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinAbout*/SelfOuter* self, PWSTR lpVersion) GetSnapinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinAbout*/SelfOuter* self, PWSTR* lpDescription) GetSnapinDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinAbout*/SelfOuter* self, PWSTR* lpName) GetProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinAbout*/SelfOuter* self, PWSTR* lpVersion) GetSnapinVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinAbout*/SelfOuter* self, HICON* hAppIcon) GetSnapinImage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinAbout*/SelfOuter* self, HBITMAP* hSmallImage, HBITMAP* hSmallImageOpen, HBITMAP* hLargeImage, uint32* cMask) GetStaticFolderImage;
 	}
 
 
-	public HRESULT GetSnapinDescription(PWSTR lpDescription) mut => VT.[Friend]GetSnapinDescription(&this, lpDescription);
+	public HRESULT GetSnapinDescription(PWSTR* lpDescription) mut => VT.[Friend]GetSnapinDescription(&this, lpDescription);
 
-	public HRESULT GetProvider(PWSTR lpName) mut => VT.[Friend]GetProvider(&this, lpName);
+	public HRESULT GetProvider(PWSTR* lpName) mut => VT.[Friend]GetProvider(&this, lpName);
 
-	public HRESULT GetSnapinVersion(PWSTR lpVersion) mut => VT.[Friend]GetSnapinVersion(&this, lpVersion);
+	public HRESULT GetSnapinVersion(PWSTR* lpVersion) mut => VT.[Friend]GetSnapinVersion(&this, lpVersion);
 
 	public HRESULT GetSnapinImage(HICON* hAppIcon) mut => VT.[Friend]GetSnapinImage(&this, hAppIcon);
 
@@ -2154,11 +2154,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinHelp*/SelfOuter* self, PWSTR lpCompiledHelpFile) GetHelpTopic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinHelp*/SelfOuter* self, PWSTR* lpCompiledHelpFile) GetHelpTopic;
 	}
 
 
-	public HRESULT GetHelpTopic(PWSTR lpCompiledHelpFile) mut => VT.[Friend]GetHelpTopic(&this, lpCompiledHelpFile);
+	public HRESULT GetHelpTopic(PWSTR* lpCompiledHelpFile) mut => VT.[Friend]GetHelpTopic(&this, lpCompiledHelpFile);
 }
 
 [CRepr]struct IExtendPropertySheet2 : IExtendPropertySheet
@@ -2205,11 +2205,11 @@ public static
 
 	[CRepr]public struct VTable : ISnapinHelp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinHelp2*/SelfOuter* self, PWSTR lpCompiledHelpFiles) GetLinkedTopics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISnapinHelp2*/SelfOuter* self, PWSTR* lpCompiledHelpFiles) GetLinkedTopics;
 	}
 
 
-	public HRESULT GetLinkedTopics(PWSTR lpCompiledHelpFiles) mut => VT.[Friend]GetLinkedTopics(&this, lpCompiledHelpFiles);
+	public HRESULT GetLinkedTopics(PWSTR* lpCompiledHelpFiles) mut => VT.[Friend]GetLinkedTopics(&this, lpCompiledHelpFiles);
 }
 
 [CRepr]struct IEnumTASK : IUnknown
@@ -2246,8 +2246,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtendTaskPad*/SelfOuter* self, IDataObject* pdo, VARIANT* arg, VARIANT* param2) TaskNotify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtendTaskPad*/SelfOuter* self, IDataObject* pdo, PWSTR szTaskGroup, IEnumTASK** ppEnumTASK) EnumTasks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtendTaskPad*/SelfOuter* self, PWSTR pszGroup, PWSTR pszTitle) GetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtendTaskPad*/SelfOuter* self, PWSTR pszGroup, PWSTR pszDescriptiveText) GetDescriptiveText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtendTaskPad*/SelfOuter* self, PWSTR pszGroup, PWSTR* pszTitle) GetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtendTaskPad*/SelfOuter* self, PWSTR pszGroup, PWSTR* pszDescriptiveText) GetDescriptiveText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtendTaskPad*/SelfOuter* self, PWSTR pszGroup, MMC_TASK_DISPLAY_OBJECT* pTDO) GetBackground;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExtendTaskPad*/SelfOuter* self, PWSTR pszGroup, MMC_LISTPAD_INFO* lpListPadInfo) GetListPadInfo;
 	}
@@ -2257,9 +2257,9 @@ public static
 
 	public HRESULT EnumTasks(IDataObject* pdo, PWSTR szTaskGroup, IEnumTASK** ppEnumTASK) mut => VT.[Friend]EnumTasks(&this, pdo, szTaskGroup, ppEnumTASK);
 
-	public HRESULT GetTitle(PWSTR pszGroup, PWSTR pszTitle) mut => VT.[Friend]GetTitle(&this, pszGroup, pszTitle);
+	public HRESULT GetTitle(PWSTR pszGroup, PWSTR* pszTitle) mut => VT.[Friend]GetTitle(&this, pszGroup, pszTitle);
 
-	public HRESULT GetDescriptiveText(PWSTR pszGroup, PWSTR pszDescriptiveText) mut => VT.[Friend]GetDescriptiveText(&this, pszGroup, pszDescriptiveText);
+	public HRESULT GetDescriptiveText(PWSTR pszGroup, PWSTR* pszDescriptiveText) mut => VT.[Friend]GetDescriptiveText(&this, pszGroup, pszDescriptiveText);
 
 	public HRESULT GetBackground(PWSTR pszGroup, MMC_TASK_DISPLAY_OBJECT* pTDO) mut => VT.[Friend]GetBackground(&this, pszGroup, pTDO);
 
@@ -2311,16 +2311,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRequiredExtensions*/SelfOuter* self) EnableAllExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRequiredExtensions*/SelfOuter* self, Guid pExtCLSID) GetFirstExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRequiredExtensions*/SelfOuter* self, Guid pExtCLSID) GetNextExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRequiredExtensions*/SelfOuter* self, ref Guid pExtCLSID) GetFirstExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRequiredExtensions*/SelfOuter* self, ref Guid pExtCLSID) GetNextExtension;
 	}
 
 
 	public HRESULT EnableAllExtensions() mut => VT.[Friend]EnableAllExtensions(&this);
 
-	public HRESULT GetFirstExtension(Guid pExtCLSID) mut => VT.[Friend]GetFirstExtension(&this, pExtCLSID);
+	public HRESULT GetFirstExtension(ref Guid pExtCLSID) mut => VT.[Friend]GetFirstExtension(&this, pExtCLSID);
 
-	public HRESULT GetNextExtension(Guid pExtCLSID) mut => VT.[Friend]GetNextExtension(&this, pExtCLSID);
+	public HRESULT GetNextExtension(ref Guid pExtCLSID) mut => VT.[Friend]GetNextExtension(&this, pExtCLSID);
 }
 
 [CRepr]struct IStringTable : IUnknown

@@ -463,11 +463,11 @@ public enum SERVICE_SHARED_DIRECTORY_TYPE : int32
 #endregion
 
 #region Function Pointers
-public function void SERVICE_MAIN_FUNCTIONW(uint32 dwNumServicesArgs, PWSTR lpServiceArgVectors);
+public function void SERVICE_MAIN_FUNCTIONW(uint32 dwNumServicesArgs, PWSTR* lpServiceArgVectors);
 
 public function void SERVICE_MAIN_FUNCTIONA(uint32 dwNumServicesArgs, int8** lpServiceArgVectors);
 
-public function void LPSERVICE_MAIN_FUNCTIONW(uint32 dwNumServicesArgs, PWSTR lpServiceArgVectors);
+public function void LPSERVICE_MAIN_FUNCTIONW(uint32 dwNumServicesArgs, PWSTR* lpServiceArgVectors);
 
 public function void LPSERVICE_MAIN_FUNCTIONA(uint32 dwNumServicesArgs, PSTR* lpServiceArgVectors);
 
@@ -600,7 +600,7 @@ public struct SERVICE_TRIGGER
 {
 	public SERVICE_TRIGGER_TYPE dwTriggerType;
 	public SERVICE_TRIGGER_ACTION dwAction;
-	public Guid pTriggerSubtype;
+	public Guid* pTriggerSubtype;
 	public uint32 cDataItems;
 	public SERVICE_TRIGGER_SPECIFIC_DATA_ITEM* pDataItems;
 }

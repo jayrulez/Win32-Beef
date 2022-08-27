@@ -270,14 +270,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, DedupDataPortVolumeStatus* pStatus, uint32* pDataHeadroomMb) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 Count, DedupHash* pHashes, Guid pRequestId) LookupChunks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, uint8* pChunkData, Guid pRequestId) InsertChunks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, IStream* pChunkDataStream, Guid pRequestId) InsertChunksWithStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, DedupStreamEntry* pEntries, Guid pRequestId) CommitStreams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, IStream* pEntriesStream, Guid pRequestId) CommitStreamsWithStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 StreamCount, BSTR* pStreamPaths, Guid pRequestId) GetStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 Count, DedupHash* pHashes, ref Guid pRequestId) LookupChunks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, uint8* pChunkData, ref Guid pRequestId) InsertChunks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, IStream* pChunkDataStream, ref Guid pRequestId) InsertChunksWithStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, DedupStreamEntry* pEntries, ref Guid pRequestId) CommitStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, IStream* pEntriesStream, ref Guid pRequestId) CommitStreamsWithStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 StreamCount, BSTR* pStreamPaths, ref Guid pRequestId) GetStreams;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, Guid RequestId, uint32 MaxWaitMs, uint32 StreamEntryIndex, uint32* pStreamCount, DedupStream** ppStreams, uint32* pEntryCount, DedupStreamEntry** ppEntries, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) GetStreamsResults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 Count, DedupHash* pHashes, Guid pRequestId) GetChunks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 Count, DedupHash* pHashes, ref Guid pRequestId) GetChunks;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, Guid RequestId, uint32 MaxWaitMs, uint32 ChunkIndex, uint32* pChunkCount, DedupChunk** ppChunkMetadata, uint32* pDataByteCount, uint8** ppChunkData, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) GetChunksResults;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, Guid RequestId, DedupDataPortRequestStatus* pStatus) GetRequestStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, Guid RequestId, uint32 MaxWaitMs, HRESULT* pBatchResult, uint32* pBatchCount, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) GetRequestResults;
@@ -286,21 +286,21 @@ public static
 
 	public HRESULT GetStatus(DedupDataPortVolumeStatus* pStatus, uint32* pDataHeadroomMb) mut => VT.[Friend]GetStatus(&this, pStatus, pDataHeadroomMb);
 
-	public HRESULT LookupChunks(uint32 Count, DedupHash* pHashes, Guid pRequestId) mut => VT.[Friend]LookupChunks(&this, Count, pHashes, pRequestId);
+	public HRESULT LookupChunks(uint32 Count, DedupHash* pHashes, ref Guid pRequestId) mut => VT.[Friend]LookupChunks(&this, Count, pHashes, pRequestId);
 
-	public HRESULT InsertChunks(uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, uint8* pChunkData, Guid pRequestId) mut => VT.[Friend]InsertChunks(&this, ChunkCount, pChunkMetadata, DataByteCount, pChunkData, pRequestId);
+	public HRESULT InsertChunks(uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, uint8* pChunkData, ref Guid pRequestId) mut => VT.[Friend]InsertChunks(&this, ChunkCount, pChunkMetadata, DataByteCount, pChunkData, pRequestId);
 
-	public HRESULT InsertChunksWithStream(uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, IStream* pChunkDataStream, Guid pRequestId) mut => VT.[Friend]InsertChunksWithStream(&this, ChunkCount, pChunkMetadata, DataByteCount, pChunkDataStream, pRequestId);
+	public HRESULT InsertChunksWithStream(uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, IStream* pChunkDataStream, ref Guid pRequestId) mut => VT.[Friend]InsertChunksWithStream(&this, ChunkCount, pChunkMetadata, DataByteCount, pChunkDataStream, pRequestId);
 
-	public HRESULT CommitStreams(uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, DedupStreamEntry* pEntries, Guid pRequestId) mut => VT.[Friend]CommitStreams(&this, StreamCount, pStreams, EntryCount, pEntries, pRequestId);
+	public HRESULT CommitStreams(uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, DedupStreamEntry* pEntries, ref Guid pRequestId) mut => VT.[Friend]CommitStreams(&this, StreamCount, pStreams, EntryCount, pEntries, pRequestId);
 
-	public HRESULT CommitStreamsWithStream(uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, IStream* pEntriesStream, Guid pRequestId) mut => VT.[Friend]CommitStreamsWithStream(&this, StreamCount, pStreams, EntryCount, pEntriesStream, pRequestId);
+	public HRESULT CommitStreamsWithStream(uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, IStream* pEntriesStream, ref Guid pRequestId) mut => VT.[Friend]CommitStreamsWithStream(&this, StreamCount, pStreams, EntryCount, pEntriesStream, pRequestId);
 
-	public HRESULT GetStreams(uint32 StreamCount, BSTR* pStreamPaths, Guid pRequestId) mut => VT.[Friend]GetStreams(&this, StreamCount, pStreamPaths, pRequestId);
+	public HRESULT GetStreams(uint32 StreamCount, BSTR* pStreamPaths, ref Guid pRequestId) mut => VT.[Friend]GetStreams(&this, StreamCount, pStreamPaths, pRequestId);
 
 	public HRESULT GetStreamsResults(Guid RequestId, uint32 MaxWaitMs, uint32 StreamEntryIndex, uint32* pStreamCount, DedupStream** ppStreams, uint32* pEntryCount, DedupStreamEntry** ppEntries, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) mut => VT.[Friend]GetStreamsResults(&this, RequestId, MaxWaitMs, StreamEntryIndex, pStreamCount, ppStreams, pEntryCount, ppEntries, pStatus, ppItemResults);
 
-	public HRESULT GetChunks(uint32 Count, DedupHash* pHashes, Guid pRequestId) mut => VT.[Friend]GetChunks(&this, Count, pHashes, pRequestId);
+	public HRESULT GetChunks(uint32 Count, DedupHash* pHashes, ref Guid pRequestId) mut => VT.[Friend]GetChunks(&this, Count, pHashes, pRequestId);
 
 	public HRESULT GetChunksResults(Guid RequestId, uint32 MaxWaitMs, uint32 ChunkIndex, uint32* pChunkCount, DedupChunk** ppChunkMetadata, uint32* pDataByteCount, uint8** ppChunkData, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) mut => VT.[Friend]GetChunksResults(&this, RequestId, MaxWaitMs, ChunkIndex, pChunkCount, ppChunkMetadata, pDataByteCount, ppChunkData, pStatus, ppItemResults);
 

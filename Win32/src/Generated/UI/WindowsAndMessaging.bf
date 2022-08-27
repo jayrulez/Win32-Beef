@@ -6122,7 +6122,7 @@ public static
 	public static extern void DestroyResourceIndexer(void* resourceIndexer);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IndexFilePath(void* resourceIndexer, PWSTR filePath, PWSTR ppResourceUri, uint32* pQualifierCount, IndexedResourceQualifier** ppQualifiers);
+	public static extern HRESULT IndexFilePath(void* resourceIndexer, PWSTR filePath, PWSTR* ppResourceUri, uint32* pQualifierCount, IndexedResourceQualifier** ppQualifiers);
 
 	[Import("MrmSupport.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DestroyIndexedResults(PWSTR resourceUri, uint32 qualifierCount, IndexedResourceQualifier* qualifiers);

@@ -90,19 +90,19 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectConnectorInfo*/SelfOuter* self, uint32* puiIndex) GetIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectConnectorInfo*/SelfOuter* self, Guid pFormat) GetOptimalFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectConnectorInfo*/SelfOuter* self, ref Guid pFormat) GetOptimalFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectConnectorInfo*/SelfOuter* self, uint32* pulNumberFormats) GetNumberFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectConnectorInfo*/SelfOuter* self, uint32 ulIndex, Guid pFormat) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectConnectorInfo*/SelfOuter* self, uint32 ulIndex, ref Guid pFormat) GetFormat;
 	}
 
 
 	public HRESULT GetIndex(uint32* puiIndex) mut => VT.[Friend]GetIndex(&this, puiIndex);
 
-	public HRESULT GetOptimalFormat(Guid pFormat) mut => VT.[Friend]GetOptimalFormat(&this, pFormat);
+	public HRESULT GetOptimalFormat(ref Guid pFormat) mut => VT.[Friend]GetOptimalFormat(&this, pFormat);
 
 	public HRESULT GetNumberFormats(uint32* pulNumberFormats) mut => VT.[Friend]GetNumberFormats(&this, pulNumberFormats);
 
-	public HRESULT GetFormat(uint32 ulIndex, Guid pFormat) mut => VT.[Friend]GetFormat(&this, ulIndex, pFormat);
+	public HRESULT GetFormat(uint32 ulIndex, ref Guid pFormat) mut => VT.[Friend]GetFormat(&this, ulIndex, pFormat);
 }
 
 [CRepr]struct IMILBitmapEffectConnectionsInfo : IUnknown
@@ -251,8 +251,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectRenderContext*/SelfOuter* self, Guid format) SetOutputPixelFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectRenderContext*/SelfOuter* self, Guid pFormat) GetOutputPixelFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectRenderContext*/SelfOuter* self, ref Guid format) SetOutputPixelFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectRenderContext*/SelfOuter* self, ref Guid pFormat) GetOutputPixelFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectRenderContext*/SelfOuter* self, int16 fSoftware) SetUseSoftwareRenderer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectRenderContext*/SelfOuter* self, MILMatrixF* pMatrix) SetInitialTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectRenderContext*/SelfOuter* self, MILMatrixF* pMatrix) GetFinalTransform;
@@ -262,9 +262,9 @@ public static
 	}
 
 
-	public HRESULT SetOutputPixelFormat(Guid format) mut => VT.[Friend]SetOutputPixelFormat(&this, format);
+	public HRESULT SetOutputPixelFormat(ref Guid format) mut => VT.[Friend]SetOutputPixelFormat(&this, format);
 
-	public HRESULT GetOutputPixelFormat(Guid pFormat) mut => VT.[Friend]GetOutputPixelFormat(&this, pFormat);
+	public HRESULT GetOutputPixelFormat(ref Guid pFormat) mut => VT.[Friend]GetOutputPixelFormat(&this, pFormat);
 
 	public HRESULT SetUseSoftwareRenderer(int16 fSoftware) mut => VT.[Friend]SetUseSoftwareRenderer(&this, fSoftware);
 
@@ -314,13 +314,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectFactory*/SelfOuter* self, Guid pguidEffect, IMILBitmapEffect** ppEffect) CreateEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectFactory*/SelfOuter* self, ref Guid pguidEffect, IMILBitmapEffect** ppEffect) CreateEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectFactory*/SelfOuter* self, IMILBitmapEffectRenderContext** ppContext) CreateContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMILBitmapEffectFactory*/SelfOuter* self, IMILBitmapEffect** ppEffect) CreateEffectOuter;
 	}
 
 
-	public HRESULT CreateEffect(Guid pguidEffect, IMILBitmapEffect** ppEffect) mut => VT.[Friend]CreateEffect(&this, pguidEffect, ppEffect);
+	public HRESULT CreateEffect(ref Guid pguidEffect, IMILBitmapEffect** ppEffect) mut => VT.[Friend]CreateEffect(&this, ref pguidEffect, ppEffect);
 
 	public HRESULT CreateContext(IMILBitmapEffectRenderContext** ppContext) mut => VT.[Friend]CreateContext(&this, ppContext);
 

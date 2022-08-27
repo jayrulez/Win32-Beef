@@ -1402,7 +1402,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, uint32* pdwStatus) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, uint32* hIcon) GetDeviceIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, IWMDMEnumStorage** ppEnumStorage) EnumStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, _WAVEFORMATEX** ppFormatEx, uint32* pnFormatCount, PWSTR* pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, _WAVEFORMATEX** ppFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
 	}
 
@@ -1425,7 +1425,7 @@ public static
 
 	public HRESULT EnumStorage(IWMDMEnumStorage** ppEnumStorage) mut => VT.[Friend]EnumStorage(&this, ppEnumStorage);
 
-	public HRESULT GetFormatSupport(_WAVEFORMATEX** ppFormatEx, uint32* pnFormatCount, PWSTR* pppwszMimeType, uint32* pnMimeTypeCount) mut => VT.[Friend]GetFormatSupport(&this, ppFormatEx, pnFormatCount, pppwszMimeType, pnMimeTypeCount);
+	public HRESULT GetFormatSupport(_WAVEFORMATEX** ppFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) mut => VT.[Friend]GetFormatSupport(&this, ppFormatEx, pnFormatCount, pppwszMimeType, pnMimeTypeCount);
 
 	public HRESULT SendOpaqueCommand(OPAQUECOMMAND* pCommand) mut => VT.[Friend]SendOpaqueCommand(&this, pCommand);
 }
@@ -1792,7 +1792,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, uint32* pdwStatus) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, uint32* hIcon) GetDeviceIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, IMDSPEnumStorage** ppEnumStorage) EnumStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, _WAVEFORMATEX** pFormatEx, uint32* pnFormatCount, PWSTR* pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, _WAVEFORMATEX** pFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
 	}
 
@@ -1815,7 +1815,7 @@ public static
 
 	public HRESULT EnumStorage(IMDSPEnumStorage** ppEnumStorage) mut => VT.[Friend]EnumStorage(&this, ppEnumStorage);
 
-	public HRESULT GetFormatSupport(_WAVEFORMATEX** pFormatEx, uint32* pnFormatCount, PWSTR* pppwszMimeType, uint32* pnMimeTypeCount) mut => VT.[Friend]GetFormatSupport(&this, pFormatEx, pnFormatCount, pppwszMimeType, pnMimeTypeCount);
+	public HRESULT GetFormatSupport(_WAVEFORMATEX** pFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) mut => VT.[Friend]GetFormatSupport(&this, pFormatEx, pnFormatCount, pppwszMimeType, pnMimeTypeCount);
 
 	public HRESULT SendOpaqueCommand(OPAQUECOMMAND* pCommand) mut => VT.[Friend]SendOpaqueCommand(&this, pCommand);
 }

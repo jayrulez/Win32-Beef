@@ -2280,7 +2280,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self, BOOL* isAllowed) CanUpgrade;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self, PWSTR contentId) UpdateOperatingSystem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self) ShowProductKeyUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self, PWSTR contentId) GetOsProductContentId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self, PWSTR* contentId) GetOsProductContentId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self, BOOL* isGenuine) GetGenuineLocalStatus;
 	}
 
@@ -2291,7 +2291,7 @@ public static
 
 	public HRESULT ShowProductKeyUI() mut => VT.[Friend]ShowProductKeyUI(&this);
 
-	public HRESULT GetOsProductContentId(PWSTR contentId) mut => VT.[Friend]GetOsProductContentId(&this, contentId);
+	public HRESULT GetOsProductContentId(PWSTR* contentId) mut => VT.[Friend]GetOsProductContentId(&this, contentId);
 
 	public HRESULT GetGenuineLocalStatus(BOOL* isGenuine) mut => VT.[Friend]GetGenuineLocalStatus(&this, isGenuine);
 }
@@ -3127,13 +3127,13 @@ public static
 	public static extern BOOL WINNLSGetEnableStatus(HWND param0);
 
 	[Import("APPHELP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ApphelpCheckShellObject(Guid ObjectCLSID, BOOL bShimIfNecessary, uint64* pullFlags);
+	public static extern BOOL ApphelpCheckShellObject(ref Guid ObjectCLSID, BOOL bShimIfNecessary, uint64* pullFlags);
 
 	[Import("Wldp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WldpGetLockdownPolicy(WLDP_HOST_INFORMATION* hostInformation, uint32* lockdownState, uint32 lockdownFlags);
 
 	[Import("Wldp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WldpIsClassInApprovedList(Guid classID, WLDP_HOST_INFORMATION* hostInformation, BOOL* isApproved, uint32 optionalFlags);
+	public static extern HRESULT WldpIsClassInApprovedList(ref Guid classID, WLDP_HOST_INFORMATION* hostInformation, BOOL* isApproved, uint32 optionalFlags);
 
 	[Import("Wldp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WldpSetDynamicCodeTrust(HANDLE fileHandle);

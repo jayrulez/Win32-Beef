@@ -2732,8 +2732,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, uint32 hwndParent, uint32 dwFlags) Authorize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self) Unauthorize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, ACT_AUTHORIZATION_STATE* pState) GetAuthorizationState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, PWSTR ppwszVolume) GetMatchingVolume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, PWSTR ppwszIdentity) GetUniqueIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, PWSTR* ppwszVolume) GetMatchingVolume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, PWSTR* ppwszIdentity) GetUniqueIdentity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, IEnhancedStorageSilo*** pppIEnhancedStorageSilos, uint32* pcEnhancedStorageSilos) GetSilos;
 	}
 
@@ -2744,9 +2744,9 @@ public static
 
 	public HRESULT GetAuthorizationState(ACT_AUTHORIZATION_STATE* pState) mut => VT.[Friend]GetAuthorizationState(&this, pState);
 
-	public HRESULT GetMatchingVolume(PWSTR ppwszVolume) mut => VT.[Friend]GetMatchingVolume(&this, ppwszVolume);
+	public HRESULT GetMatchingVolume(PWSTR* ppwszVolume) mut => VT.[Friend]GetMatchingVolume(&this, ppwszVolume);
 
-	public HRESULT GetUniqueIdentity(PWSTR ppwszIdentity) mut => VT.[Friend]GetUniqueIdentity(&this, ppwszIdentity);
+	public HRESULT GetUniqueIdentity(PWSTR* ppwszIdentity) mut => VT.[Friend]GetUniqueIdentity(&this, ppwszIdentity);
 
 	public HRESULT GetSilos(IEnhancedStorageSilo*** pppIEnhancedStorageSilos, uint32* pcEnhancedStorageSilos) mut => VT.[Friend]GetSilos(&this, pppIEnhancedStorageSilos, pcEnhancedStorageSilos);
 }
@@ -2759,12 +2759,12 @@ public static
 
 	[CRepr]public struct VTable : IEnhancedStorageACT.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT2*/SelfOuter* self, PWSTR ppwszDeviceName) GetDeviceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT2*/SelfOuter* self, PWSTR* ppwszDeviceName) GetDeviceName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT2*/SelfOuter* self, BOOL* pIsDeviceRemovable) IsDeviceRemovable;
 	}
 
 
-	public HRESULT GetDeviceName(PWSTR ppwszDeviceName) mut => VT.[Friend]GetDeviceName(&this, ppwszDeviceName);
+	public HRESULT GetDeviceName(PWSTR* ppwszDeviceName) mut => VT.[Friend]GetDeviceName(&this, ppwszDeviceName);
 
 	public HRESULT IsDeviceRemovable(BOOL* pIsDeviceRemovable) mut => VT.[Friend]IsDeviceRemovable(&this, pIsDeviceRemovable);
 }
@@ -2802,7 +2802,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSilo*/SelfOuter* self, IEnhancedStorageSiloAction*** pppIEnhancedStorageSiloActions, uint32* pcEnhancedStorageSiloActions) GetActions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSilo*/SelfOuter* self, uint8 Command, uint8* pbCommandBuffer, uint32 cbCommandBuffer, uint8* pbResponseBuffer, uint32* pcbResponseBuffer) SendCommand;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSilo*/SelfOuter* self, IPortableDevice** ppIPortableDevice) GetPortableDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSilo*/SelfOuter* self, PWSTR ppwszSiloDevicePath) GetDevicePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSilo*/SelfOuter* self, PWSTR* ppwszSiloDevicePath) GetDevicePath;
 	}
 
 
@@ -2814,7 +2814,7 @@ public static
 
 	public HRESULT GetPortableDevice(IPortableDevice** ppIPortableDevice) mut => VT.[Friend]GetPortableDevice(&this, ppIPortableDevice);
 
-	public HRESULT GetDevicePath(PWSTR ppwszSiloDevicePath) mut => VT.[Friend]GetDevicePath(&this, ppwszSiloDevicePath);
+	public HRESULT GetDevicePath(PWSTR* ppwszSiloDevicePath) mut => VT.[Friend]GetDevicePath(&this, ppwszSiloDevicePath);
 }
 
 [CRepr]struct IEnhancedStorageSiloAction : IUnknown
@@ -2825,15 +2825,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSiloAction*/SelfOuter* self, PWSTR ppwszActionName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSiloAction*/SelfOuter* self, PWSTR ppwszActionDescription) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSiloAction*/SelfOuter* self, PWSTR* ppwszActionName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSiloAction*/SelfOuter* self, PWSTR* ppwszActionDescription) GetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSiloAction*/SelfOuter* self) Invoke;
 	}
 
 
-	public HRESULT GetName(PWSTR ppwszActionName) mut => VT.[Friend]GetName(&this, ppwszActionName);
+	public HRESULT GetName(PWSTR* ppwszActionName) mut => VT.[Friend]GetName(&this, ppwszActionName);
 
-	public HRESULT GetDescription(PWSTR ppwszActionDescription) mut => VT.[Friend]GetDescription(&this, ppwszActionDescription);
+	public HRESULT GetDescription(PWSTR* ppwszActionDescription) mut => VT.[Friend]GetDescription(&this, ppwszActionDescription);
 
 	public HRESULT Invoke() mut => VT.[Friend]Invoke(&this);
 }

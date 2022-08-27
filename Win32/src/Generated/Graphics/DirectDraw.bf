@@ -1883,13 +1883,13 @@ public static
 #endregion
 
 #region Function Pointers
-public function BOOL LPDDENUMCALLBACKA(Guid param0, PSTR param1, PSTR param2, void* param3);
+public function BOOL LPDDENUMCALLBACKA(ref Guid param0, PSTR param1, PSTR param2, void* param3);
 
-public function BOOL LPDDENUMCALLBACKW(Guid param0, PWSTR param1, PWSTR param2, void* param3);
+public function BOOL LPDDENUMCALLBACKW(ref Guid param0, PWSTR param1, PWSTR param2, void* param3);
 
-public function BOOL LPDDENUMCALLBACKEXA(Guid param0, PSTR param1, PSTR param2, void* param3, HMONITOR param4);
+public function BOOL LPDDENUMCALLBACKEXA(ref Guid param0, PSTR param1, PSTR param2, void* param3, HMONITOR param4);
 
-public function BOOL LPDDENUMCALLBACKEXW(Guid param0, PWSTR param1, PWSTR param2, void* param3, HMONITOR param4);
+public function BOOL LPDDENUMCALLBACKEXW(ref Guid param0, PWSTR param1, PWSTR param2, void* param3, HMONITOR param4);
 
 public function HRESULT LPDIRECTDRAWENUMERATEEXA(LPDDENUMCALLBACKEXA lpCallback, void* lpContext, uint32 dwFlags);
 
@@ -3308,7 +3308,7 @@ public struct HEAPALIASINFO
 public struct IUNKNOWN_LIST
 {
 	public IUNKNOWN_LIST* lpLink;
-	public Guid lpGuid;
+	public Guid* lpGuid;
 	public IUnknown* lpIUnknown;
 }
 
@@ -4645,7 +4645,7 @@ public struct DDHAL_GETMOCOMPGUIDSDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public uint32 dwNumGuids;
-	public Guid lpGuids;
+	public Guid* lpGuids;
 	public HRESULT ddRVal;
 	public LPDDHALMOCOMPCB_GETGUIDS GetMoCompGuids;
 }
@@ -4654,7 +4654,7 @@ public struct DDHAL_GETMOCOMPGUIDSDATA
 public struct DDHAL_GETMOCOMPFORMATSDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
-	public Guid lpGuid;
+	public Guid* lpGuid;
 	public uint32 dwNumFormats;
 	public DDPIXELFORMAT* lpFormats;
 	public HRESULT ddRVal;
@@ -4666,7 +4666,7 @@ public struct DDHAL_CREATEMOCOMPDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDMOTIONCOMP_LCL* lpMoComp;
-	public Guid lpGuid;
+	public Guid* lpGuid;
 	public uint32 dwUncompWidth;
 	public uint32 dwUncompHeight;
 	public DDPIXELFORMAT ddUncompPixelFormat;
@@ -4692,7 +4692,7 @@ public struct DDMCCOMPBUFFERINFO
 public struct DDHAL_GETMOCOMPCOMPBUFFDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
-	public Guid lpGuid;
+	public Guid* lpGuid;
 	public uint32 dwWidth;
 	public uint32 dwHeight;
 	public DDPIXELFORMAT ddPixelFormat;
@@ -4706,7 +4706,7 @@ public struct DDHAL_GETMOCOMPCOMPBUFFDATA
 public struct DDHAL_GETINTERNALMOCOMPDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
-	public Guid lpGuid;
+	public Guid* lpGuid;
 	public uint32 dwWidth;
 	public uint32 dwHeight;
 	public DDPIXELFORMAT ddPixelFormat;
@@ -5810,7 +5810,7 @@ public struct DD_GETMOCOMPGUIDSDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public uint32 dwNumGuids;
-	public Guid lpGuids;
+	public Guid* lpGuids;
 	public HRESULT ddRVal;
 }
 
@@ -5818,7 +5818,7 @@ public struct DD_GETMOCOMPGUIDSDATA
 public struct DD_GETMOCOMPFORMATSDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
-	public Guid lpGuid;
+	public Guid* lpGuid;
 	public uint32 dwNumFormats;
 	public DDPIXELFORMAT* lpFormats;
 	public HRESULT ddRVal;
@@ -5829,7 +5829,7 @@ public struct DD_CREATEMOCOMPDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_MOTIONCOMP_LOCAL* lpMoComp;
-	public Guid lpGuid;
+	public Guid* lpGuid;
 	public uint32 dwUncompWidth;
 	public uint32 dwUncompHeight;
 	public DDPIXELFORMAT ddUncompPixelFormat;
@@ -5854,7 +5854,7 @@ public struct DDCOMPBUFFERINFO
 public struct DD_GETMOCOMPCOMPBUFFDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
-	public Guid lpGuid;
+	public Guid* lpGuid;
 	public uint32 dwWidth;
 	public uint32 dwHeight;
 	public DDPIXELFORMAT ddPixelFormat;
@@ -5867,7 +5867,7 @@ public struct DD_GETMOCOMPCOMPBUFFDATA
 public struct DD_GETINTERNALMOCOMPDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
-	public Guid lpGuid;
+	public Guid* lpGuid;
 	public uint32 dwWidth;
 	public uint32 dwHeight;
 	public DDPIXELFORMAT ddPixelFormat;
@@ -6228,7 +6228,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw*/SelfOuter* self, uint32* param0) GetMonitorFrequency;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw*/SelfOuter* self, uint32* param0) GetScanLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw*/SelfOuter* self, int32* param0) GetVerticalBlankStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw*/SelfOuter* self, Guid param0) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw*/SelfOuter* self, ref Guid param0) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw*/SelfOuter* self) RestoreDisplayMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw*/SelfOuter* self, HWND param0, uint32 param1) SetCooperativeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw*/SelfOuter* self, uint32 param0, uint32 param1, uint32 param2) SetDisplayMode;
@@ -6266,7 +6266,7 @@ public static
 
 	public HRESULT GetVerticalBlankStatus(int32* param0) mut => VT.[Friend]GetVerticalBlankStatus(&this, param0);
 
-	public HRESULT Initialize(Guid param0) mut => VT.[Friend]Initialize(&this, param0);
+	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, param0);
 
 	public HRESULT RestoreDisplayMode() mut => VT.[Friend]RestoreDisplayMode(&this);
 
@@ -6300,7 +6300,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw2*/SelfOuter* self, uint32* param0) GetMonitorFrequency;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw2*/SelfOuter* self, uint32* param0) GetScanLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw2*/SelfOuter* self, int32* param0) GetVerticalBlankStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw2*/SelfOuter* self, Guid param0) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw2*/SelfOuter* self, ref Guid param0) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw2*/SelfOuter* self) RestoreDisplayMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw2*/SelfOuter* self, HWND param0, uint32 param1) SetCooperativeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw2*/SelfOuter* self, uint32 param0, uint32 param1, uint32 param2, uint32 param3, uint32 param4) SetDisplayMode;
@@ -6339,7 +6339,7 @@ public static
 
 	public HRESULT GetVerticalBlankStatus(int32* param0) mut => VT.[Friend]GetVerticalBlankStatus(&this, param0);
 
-	public HRESULT Initialize(Guid param0) mut => VT.[Friend]Initialize(&this, param0);
+	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, param0);
 
 	public HRESULT RestoreDisplayMode() mut => VT.[Friend]RestoreDisplayMode(&this);
 
@@ -6375,7 +6375,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw4*/SelfOuter* self, uint32* param0) GetMonitorFrequency;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw4*/SelfOuter* self, uint32* param0) GetScanLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw4*/SelfOuter* self, int32* param0) GetVerticalBlankStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw4*/SelfOuter* self, Guid param0) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw4*/SelfOuter* self, ref Guid param0) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw4*/SelfOuter* self) RestoreDisplayMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw4*/SelfOuter* self, HWND param0, uint32 param1) SetCooperativeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw4*/SelfOuter* self, uint32 param0, uint32 param1, uint32 param2, uint32 param3, uint32 param4) SetDisplayMode;
@@ -6418,7 +6418,7 @@ public static
 
 	public HRESULT GetVerticalBlankStatus(int32* param0) mut => VT.[Friend]GetVerticalBlankStatus(&this, param0);
 
-	public HRESULT Initialize(Guid param0) mut => VT.[Friend]Initialize(&this, param0);
+	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, param0);
 
 	public HRESULT RestoreDisplayMode() mut => VT.[Friend]RestoreDisplayMode(&this);
 
@@ -6462,7 +6462,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw7*/SelfOuter* self, uint32* param0) GetMonitorFrequency;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw7*/SelfOuter* self, uint32* param0) GetScanLine;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw7*/SelfOuter* self, int32* param0) GetVerticalBlankStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw7*/SelfOuter* self, Guid param0) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw7*/SelfOuter* self, ref Guid param0) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw7*/SelfOuter* self) RestoreDisplayMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw7*/SelfOuter* self, HWND param0, uint32 param1) SetCooperativeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDraw7*/SelfOuter* self, uint32 param0, uint32 param1, uint32 param2, uint32 param3, uint32 param4) SetDisplayMode;
@@ -6507,7 +6507,7 @@ public static
 
 	public HRESULT GetVerticalBlankStatus(int32* param0) mut => VT.[Friend]GetVerticalBlankStatus(&this, param0);
 
-	public HRESULT Initialize(Guid param0) mut => VT.[Friend]Initialize(&this, param0);
+	public HRESULT Initialize(ref Guid param0) mut => VT.[Friend]Initialize(&this, param0);
 
 	public HRESULT RestoreDisplayMode() mut => VT.[Friend]RestoreDisplayMode(&this);
 
@@ -6985,9 +6985,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self, uint32 param0) PageLock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self, uint32 param0) PageUnlock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self, DDSURFACEDESC2* param0, uint32 param1) SetSurfaceDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self, Guid param0, void* param1, uint32 param2, uint32 param3) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self, Guid param0, void* param1, uint32* param2) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self, Guid param0) FreePrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self, ref Guid param0, void* param1, uint32 param2, uint32 param3) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self, ref Guid param0, void* param1, uint32* param2) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self, ref Guid param0) FreePrivateData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self, uint32* param0) GetUniquenessValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface4*/SelfOuter* self) ChangeUniquenessValue;
 	}
@@ -7067,11 +7067,11 @@ public static
 
 	public HRESULT SetSurfaceDesc(DDSURFACEDESC2* param0, uint32 param1) mut => VT.[Friend]SetSurfaceDesc(&this, param0, param1);
 
-	public HRESULT SetPrivateData(Guid param0, void* param1, uint32 param2, uint32 param3) mut => VT.[Friend]SetPrivateData(&this, param0, param1, param2, param3);
+	public HRESULT SetPrivateData(ref Guid param0, void* param1, uint32 param2, uint32 param3) mut => VT.[Friend]SetPrivateData(&this, ref param0, param1, param2, param3);
 
-	public HRESULT GetPrivateData(Guid param0, void* param1, uint32* param2) mut => VT.[Friend]GetPrivateData(&this, param0, param1, param2);
+	public HRESULT GetPrivateData(ref Guid param0, void* param1, uint32* param2) mut => VT.[Friend]GetPrivateData(&this, ref param0, param1, param2);
 
-	public HRESULT FreePrivateData(Guid param0) mut => VT.[Friend]FreePrivateData(&this, param0);
+	public HRESULT FreePrivateData(ref Guid param0) mut => VT.[Friend]FreePrivateData(&this, ref param0);
 
 	public HRESULT GetUniquenessValue(uint32* param0) mut => VT.[Friend]GetUniquenessValue(&this, param0);
 
@@ -7123,9 +7123,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, uint32 param0) PageLock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, uint32 param0) PageUnlock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, DDSURFACEDESC2* param0, uint32 param1) SetSurfaceDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, Guid param0, void* param1, uint32 param2, uint32 param3) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, Guid param0, void* param1, uint32* param2) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, Guid param0) FreePrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, ref Guid param0, void* param1, uint32 param2, uint32 param3) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, ref Guid param0, void* param1, uint32* param2) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, ref Guid param0) FreePrivateData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, uint32* param0) GetUniquenessValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self) ChangeUniquenessValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectDrawSurface7*/SelfOuter* self, uint32 param0) SetPriority;
@@ -7209,11 +7209,11 @@ public static
 
 	public HRESULT SetSurfaceDesc(DDSURFACEDESC2* param0, uint32 param1) mut => VT.[Friend]SetSurfaceDesc(&this, param0, param1);
 
-	public HRESULT SetPrivateData(Guid param0, void* param1, uint32 param2, uint32 param3) mut => VT.[Friend]SetPrivateData(&this, param0, param1, param2, param3);
+	public HRESULT SetPrivateData(ref Guid param0, void* param1, uint32 param2, uint32 param3) mut => VT.[Friend]SetPrivateData(&this, ref param0, param1, param2, param3);
 
-	public HRESULT GetPrivateData(Guid param0, void* param1, uint32* param2) mut => VT.[Friend]GetPrivateData(&this, param0, param1, param2);
+	public HRESULT GetPrivateData(ref Guid param0, void* param1, uint32* param2) mut => VT.[Friend]GetPrivateData(&this, ref param0, param1, param2);
 
-	public HRESULT FreePrivateData(Guid param0) mut => VT.[Friend]FreePrivateData(&this, param0);
+	public HRESULT FreePrivateData(ref Guid param0) mut => VT.[Friend]FreePrivateData(&this, ref param0);
 
 	public HRESULT GetUniquenessValue(uint32* param0) mut => VT.[Friend]GetUniquenessValue(&this, param0);
 
@@ -7419,10 +7419,10 @@ public static
 	public static HRESULT DirectDrawEnumerateEx(LPDDENUMCALLBACKEXA lpCallback, void* lpContext, uint32 dwFlags) => DirectDrawEnumerateExA(lpCallback, lpContext, dwFlags);
 
 	[Import("DDRAW.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DirectDrawCreate(Guid lpGUID, IDirectDraw** lplpDD, IUnknown* pUnkOuter);
+	public static extern HRESULT DirectDrawCreate(ref Guid lpGUID, IDirectDraw** lplpDD, IUnknown* pUnkOuter);
 
 	[Import("DDRAW.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DirectDrawCreateEx(Guid lpGuid, void** lplpDD, Guid iid, IUnknown* pUnkOuter);
+	public static extern HRESULT DirectDrawCreateEx(ref Guid lpGuid, void** lplpDD, ref Guid iid, IUnknown* pUnkOuter);
 
 	[Import("DDRAW.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectDrawCreateClipper(uint32 dwFlags, IDirectDrawClipper** lplpDDClipper, IUnknown* pUnkOuter);

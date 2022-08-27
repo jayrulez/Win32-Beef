@@ -1389,7 +1389,7 @@ public static
 	public static extern uint32 EapHostPeerQueryUserBlobFromCredentialInputFields(HANDLE hUserImpersonationToken, EAP_METHOD_TYPE eapMethodType, uint32 dwFlags, uint32 dwEapConnDataSize, uint8* pbEapConnData, EAP_CONFIG_INPUT_FIELD_ARRAY* pEapConfigInputFieldArray, uint32* pdwUserBlobSize, uint8** ppbUserBlob, EAP_ERROR** ppEapError);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerInvokeIdentityUI(uint32 dwVersion, EAP_METHOD_TYPE eapMethodType, uint32 dwFlags, HWND hwndParent, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, uint32* pdwSizeOfUserDataOut, uint8** ppUserDataOut, PWSTR ppwszIdentity, EAP_ERROR** ppEapError, void** ppvReserved);
+	public static extern uint32 EapHostPeerInvokeIdentityUI(uint32 dwVersion, EAP_METHOD_TYPE eapMethodType, uint32 dwFlags, HWND hwndParent, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, uint32* pdwSizeOfUserDataOut, uint8** ppUserDataOut, PWSTR* ppwszIdentity, EAP_ERROR** ppEapError, void** ppvReserved);
 
 	[Import("eappcfg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EapHostPeerInvokeInteractiveUI(HWND hwndParent, uint32 dwSizeofUIContextData, uint8* pUIContextData, uint32* pdwSizeOfDataFromInteractiveUI, uint8** ppDataFromInteractiveUI, EAP_ERROR** ppEapError);
@@ -1422,7 +1422,7 @@ public static
 	public static extern void EapHostPeerUninitialize();
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerBeginSession(uint32 dwFlags, EAP_METHOD_TYPE eapType, EAP_ATTRIBUTES* pAttributeArray, HANDLE hTokenImpersonateUser, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, uint32 dwMaxSendPacketSize, Guid pConnectionId, NotificationHandler func, void* pContextData, uint32* pSessionId, EAP_ERROR** ppEapError);
+	public static extern uint32 EapHostPeerBeginSession(uint32 dwFlags, EAP_METHOD_TYPE eapType, EAP_ATTRIBUTES* pAttributeArray, HANDLE hTokenImpersonateUser, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, uint32 dwMaxSendPacketSize, ref Guid pConnectionId, NotificationHandler func, void* pContextData, uint32* pSessionId, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EapHostPeerProcessReceivedPacket(uint32 sessionHandle, uint32 cbReceivePacket, uint8* pReceivePacket, EapHostPeerResponseAction* pEapOutput, EAP_ERROR** ppEapError);
@@ -1452,19 +1452,19 @@ public static
 	public static extern uint32 EapHostPeerEndSession(uint32 sessionHandle, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetDataToUnplumbCredentials(Guid pConnectionIdThatLastSavedCreds, int* phCredentialImpersonationToken, uint32 sessionHandle, EAP_ERROR** ppEapError, BOOL* fSaveToCredMan);
+	public static extern uint32 EapHostPeerGetDataToUnplumbCredentials(ref Guid pConnectionIdThatLastSavedCreds, int* phCredentialImpersonationToken, uint32 sessionHandle, EAP_ERROR** ppEapError, BOOL* fSaveToCredMan);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerClearConnection(Guid pConnectionId, EAP_ERROR** ppEapError);
+	public static extern uint32 EapHostPeerClearConnection(ref Guid pConnectionId, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void EapHostPeerFreeEapError(EAP_ERROR* pEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetIdentity(uint32 dwVersion, uint32 dwFlags, EAP_METHOD_TYPE eapMethodType, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, HANDLE hTokenImpersonateUser, BOOL* pfInvokeUI, uint32* pdwSizeOfUserDataOut, uint8** ppUserDataOut, PWSTR ppwszIdentity, EAP_ERROR** ppEapError, uint8** ppvReserved);
+	public static extern uint32 EapHostPeerGetIdentity(uint32 dwVersion, uint32 dwFlags, EAP_METHOD_TYPE eapMethodType, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, HANDLE hTokenImpersonateUser, BOOL* pfInvokeUI, uint32* pdwSizeOfUserDataOut, uint8** ppUserDataOut, PWSTR* ppwszIdentity, EAP_ERROR** ppEapError, uint8** ppvReserved);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetEncryptedPassword(uint32 dwSizeofPassword, PWSTR szPassword, PWSTR ppszEncPassword);
+	public static extern uint32 EapHostPeerGetEncryptedPassword(uint32 dwSizeofPassword, PWSTR szPassword, PWSTR* ppszEncPassword);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void EapHostPeerFreeRuntimeMemory(uint8* pData);

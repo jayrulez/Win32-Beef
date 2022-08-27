@@ -294,14 +294,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self, uint32 cItemsToFetch, Guid* pCLSID, PWSTR* Names, uint32* pcItemsFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self, uint32 cItemsToFetch, ref Guid pCLSID, PWSTR* Names, uint32* pcItemsFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self, uint32 cItemsToSkip) Skip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self) Reset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDMO*/SelfOuter* self, IEnumDMO** ppEnum) Clone;
 	}
 
 
-	public HRESULT Next(uint32 cItemsToFetch, Guid* pCLSID, PWSTR* Names, uint32* pcItemsFetched) mut => VT.[Friend]Next(&this, cItemsToFetch, pCLSID, Names, pcItemsFetched);
+	public HRESULT Next(uint32 cItemsToFetch, ref Guid pCLSID, PWSTR* Names, uint32* pcItemsFetched) mut => VT.[Friend]Next(&this, cItemsToFetch, pCLSID, Names, pcItemsFetched);
 
 	public HRESULT Skip(uint32 cItemsToSkip) mut => VT.[Friend]Skip(&this, cItemsToSkip);
 
@@ -382,19 +382,19 @@ public static
 public static
 {
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMORegister(PWSTR szName, Guid clsidDMO, Guid guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE* pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE* pOutTypes);
+	public static extern HRESULT DMORegister(PWSTR szName, ref Guid clsidDMO, ref Guid guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE* pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE* pOutTypes);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMOUnregister(Guid clsidDMO, Guid guidCategory);
+	public static extern HRESULT DMOUnregister(ref Guid clsidDMO, ref Guid guidCategory);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMOEnum(Guid guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE* pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE* pOutTypes, IEnumDMO** ppEnum);
+	public static extern HRESULT DMOEnum(ref Guid guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE* pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE* pOutTypes, IEnumDMO** ppEnum);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMOGetTypes(Guid clsidDMO, uint32 ulInputTypesRequested, uint32* pulInputTypesSupplied, DMO_PARTIAL_MEDIATYPE* pInputTypes, uint32 ulOutputTypesRequested, uint32* pulOutputTypesSupplied, DMO_PARTIAL_MEDIATYPE* pOutputTypes);
+	public static extern HRESULT DMOGetTypes(ref Guid clsidDMO, uint32 ulInputTypesRequested, uint32* pulInputTypesSupplied, DMO_PARTIAL_MEDIATYPE* pInputTypes, uint32 ulOutputTypesRequested, uint32* pulOutputTypesSupplied, DMO_PARTIAL_MEDIATYPE* pOutputTypes);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMOGetName(Guid clsidDMO, char16* szName);
+	public static extern HRESULT DMOGetName(ref Guid clsidDMO, char16* szName);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MoInitMediaType(DMO_MEDIA_TYPE* pmt, uint32 cbFormat);

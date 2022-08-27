@@ -544,7 +544,7 @@ public struct REASON_CONTEXT
 			public HINSTANCE LocalizedReasonModule;
 			public uint32 LocalizedReasonId;
 			public uint32 ReasonStringCount;
-			public PWSTR ReasonStrings;
+			public PWSTR* ReasonStrings;
 		}
 
 		public _Detailed_e__Struct Detailed;
@@ -1350,10 +1350,10 @@ public static
 	public static extern BOOL IsProcessCritical(HANDLE hProcess, BOOL* Critical);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetProtectedPolicy(Guid PolicyGuid, uint PolicyValue, uint* OldPolicyValue);
+	public static extern BOOL SetProtectedPolicy(ref Guid PolicyGuid, uint PolicyValue, uint* OldPolicyValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryProtectedPolicy(Guid PolicyGuid, uint* PolicyValue);
+	public static extern BOOL QueryProtectedPolicy(ref Guid PolicyGuid, uint* PolicyValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetThreadIdealProcessor(HANDLE hThread, uint32 dwIdealProcessor);
@@ -1402,7 +1402,7 @@ public static
 	public static extern HRESULT SetThreadDescription(HANDLE hThread, PWSTR lpThreadDescription);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThreadDescription(HANDLE hThread, PWSTR ppszThreadDescription);
+	public static extern HRESULT GetThreadDescription(HANDLE hThread, PWSTR* ppszThreadDescription);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL QueueUserWorkItem(LPTHREAD_START_ROUTINE Function, void* Context, WORKER_THREAD_FLAGS Flags);

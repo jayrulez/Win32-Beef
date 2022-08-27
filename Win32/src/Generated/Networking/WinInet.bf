@@ -3344,7 +3344,7 @@ public static
 	public static void* HttpOpenRequest(void* hConnect, PSTR lpszVerb, PSTR lpszObjectName, PSTR lpszVersion, PSTR lpszReferrer, PSTR* lplpszAcceptTypes, uint32 dwFlags, uint dwContext) => HttpOpenRequestA(hConnect, lpszVerb, lpszObjectName, lpszVersion, lpszReferrer, lplpszAcceptTypes, dwFlags, dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* HttpOpenRequestW(void* hConnect, PWSTR lpszVerb, PWSTR lpszObjectName, PWSTR lpszVersion, PWSTR lpszReferrer, PWSTR lplpszAcceptTypes, uint32 dwFlags, uint dwContext);
+	public static extern void* HttpOpenRequestW(void* hConnect, PWSTR lpszVerb, PWSTR lpszObjectName, PWSTR lpszVersion, PWSTR lpszReferrer, PWSTR* lplpszAcceptTypes, uint32 dwFlags, uint dwContext);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL HttpAddRequestHeadersA(void* hRequest, uint8* lpszHeaders, uint32 dwHeadersLength, HTTP_ADDREQ_FLAG dwModifiers);
@@ -3739,7 +3739,7 @@ public static
 	public static extern int32 FindP3PPolicySymbol(PSTR pszSymbol);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 HttpGetServerCredentials(PWSTR pwszUrl, PWSTR ppwszUserName, PWSTR ppwszPassword);
+	public static extern uint32 HttpGetServerCredentials(PWSTR pwszUrl, PWSTR* ppwszUserName, PWSTR* ppwszPassword);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HttpPushEnable(void* hRequest, HTTP_PUSH_TRANSPORT_SETTING* pTransportSetting, HTTP_PUSH_WAIT_HANDLE* phWait);
@@ -3868,10 +3868,10 @@ public static
 	public static extern uint32 AppCacheFinalize(void* hAppCache, uint8* pbManifestData, uint32 dwManifestDataSize, APP_CACHE_FINALIZE_STATE* peState);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheGetFallbackUrl(void* hAppCache, PWSTR pwszUrl, PWSTR ppwszFallbackUrl);
+	public static extern uint32 AppCacheGetFallbackUrl(void* hAppCache, PWSTR pwszUrl, PWSTR* ppwszFallbackUrl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 AppCacheGetManifestUrl(void* hAppCache, PWSTR ppwszManifestUrl);
+	public static extern uint32 AppCacheGetManifestUrl(void* hAppCache, PWSTR* ppwszManifestUrl);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 AppCacheDuplicateHandle(void* hAppCache, void** phDuplicatedAppCache);
@@ -3946,7 +3946,7 @@ public static
 	public static extern uint32 UrlCacheCheckEntriesExist(PWSTR* rgpwszUrls, uint32 cEntries, BOOL* rgfExist);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 UrlCacheGetContentPaths(PWSTR pppwszDirectories, uint32* pcDirectories);
+	public static extern uint32 UrlCacheGetContentPaths(PWSTR** pppwszDirectories, uint32* pcDirectories);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 UrlCacheGetGlobalLimit(URL_CACHE_LIMIT_TYPE limitType, uint64* pullLimit);
@@ -3970,7 +3970,7 @@ public static
 	public static extern uint32 UrlCacheServer();
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ReadGuidsForConnectedNetworks(uint32* pcNetworks, PWSTR pppwszNetworkGuids, BSTR** pppbstrNetworkNames, PWSTR pppwszGWMacs, uint32* pcGatewayMacs, uint32* pdwFlags);
+	public static extern BOOL ReadGuidsForConnectedNetworks(uint32* pcNetworks, PWSTR** pppwszNetworkGuids, BSTR** pppbstrNetworkNames, PWSTR** pppwszGWMacs, uint32* pcGatewayMacs, uint32* pdwFlags);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsHostInProxyBypassList(INTERNET_SCHEME tScheme, uint8* lpszHost, uint32 cchHost);
@@ -4036,7 +4036,7 @@ public static
 	public static extern BOOL HttpWebSocketQueryCloseStatus(void* hWebSocket, uint16* pusStatus, void* pvReason, uint32 dwReasonLength, uint32* pdwReasonLengthConsumed);
 
 	[Import("WININET.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 InternetConvertUrlFromWireToWideChar(uint8* pcszUrl, uint32 cchUrl, PWSTR pcwszBaseUrl, uint32 dwCodePageHost, uint32 dwCodePagePath, BOOL fEncodePathExtra, uint32 dwCodePageExtra, PWSTR ppwszConvertedUrl);
+	public static extern uint32 InternetConvertUrlFromWireToWideChar(uint8* pcszUrl, uint32 cchUrl, PWSTR pcwszBaseUrl, uint32 dwCodePageHost, uint32 dwCodePagePath, BOOL fEncodePathExtra, uint32 dwCodePageExtra, PWSTR* ppwszConvertedUrl);
 
 }
 #endregion

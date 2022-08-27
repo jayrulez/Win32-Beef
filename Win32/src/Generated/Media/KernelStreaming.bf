@@ -3356,12 +3356,12 @@ public struct KSTOPOLOGY_CONNECTION
 public struct KSTOPOLOGY
 {
 	public uint32 CategoriesCount;
-	public Guid Categories;
+	public Guid* Categories;
 	public uint32 TopologyNodesCount;
-	public Guid TopologyNodes;
+	public Guid* TopologyNodes;
 	public uint32 TopologyConnectionsCount;
 	public KSTOPOLOGY_CONNECTION* TopologyConnections;
-	public Guid TopologyNodesNames;
+	public Guid* TopologyNodesNames;
 	public uint32 Reserved;
 }
 
@@ -8238,11 +8238,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackContainerId*/SelfOuter* self, Guid pJackContainerId) GetJackContainerId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackContainerId*/SelfOuter* self, ref Guid pJackContainerId) GetJackContainerId;
 	}
 
 
-	public HRESULT GetJackContainerId(Guid pJackContainerId) mut => VT.[Friend]GetJackContainerId(&this, pJackContainerId);
+	public HRESULT GetJackContainerId(ref Guid pJackContainerId) mut => VT.[Friend]GetJackContainerId(&this, pJackContainerId);
 }
 
 [CRepr]struct IKsPropertySet : IUnknown
@@ -8253,17 +8253,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength) Set;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) Get;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, Guid PropSet, uint32 Id, uint32* TypeSupport) QuerySupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, ref Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength) Set;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, ref Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) Get;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, ref Guid PropSet, uint32 Id, uint32* TypeSupport) QuerySupported;
 	}
 
 
-	public HRESULT Set(Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength) mut => VT.[Friend]Set(&this, PropSet, Id, InstanceData, InstanceLength, PropertyData, DataLength);
+	public HRESULT Set(ref Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength) mut => VT.[Friend]Set(&this, ref PropSet, Id, InstanceData, InstanceLength, PropertyData, DataLength);
 
-	public HRESULT Get(Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) mut => VT.[Friend]Get(&this, PropSet, Id, InstanceData, InstanceLength, PropertyData, DataLength, BytesReturned);
+	public HRESULT Get(ref Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) mut => VT.[Friend]Get(&this, ref PropSet, Id, InstanceData, InstanceLength, PropertyData, DataLength, BytesReturned);
 
-	public HRESULT QuerySupported(Guid PropSet, uint32 Id, uint32* TypeSupport) mut => VT.[Friend]QuerySupported(&this, PropSet, Id, TypeSupport);
+	public HRESULT QuerySupported(ref Guid PropSet, uint32 Id, uint32* TypeSupport) mut => VT.[Friend]QuerySupported(&this, ref PropSet, Id, TypeSupport);
 }
 
 [CRepr]struct IKsAggregateControl : IUnknown
@@ -8274,14 +8274,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsAggregateControl*/SelfOuter* self, Guid AggregateClass) KsAddAggregate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsAggregateControl*/SelfOuter* self, Guid AggregateClass) KsRemoveAggregate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsAggregateControl*/SelfOuter* self, ref Guid AggregateClass) KsAddAggregate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsAggregateControl*/SelfOuter* self, ref Guid AggregateClass) KsRemoveAggregate;
 	}
 
 
-	public HRESULT KsAddAggregate(Guid AggregateClass) mut => VT.[Friend]KsAddAggregate(&this, AggregateClass);
+	public HRESULT KsAddAggregate(ref Guid AggregateClass) mut => VT.[Friend]KsAddAggregate(&this, ref AggregateClass);
 
-	public HRESULT KsRemoveAggregate(Guid AggregateClass) mut => VT.[Friend]KsRemoveAggregate(&this, AggregateClass);
+	public HRESULT KsRemoveAggregate(ref Guid AggregateClass) mut => VT.[Friend]KsRemoveAggregate(&this, ref AggregateClass);
 }
 
 [CRepr]struct IKsTopology : IUnknown
@@ -8292,11 +8292,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsTopology*/SelfOuter* self, uint32 NodeId, uint32 Flags, uint32 DesiredAccess, IUnknown* UnkOuter, Guid InterfaceId, void** Interface) CreateNodeInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsTopology*/SelfOuter* self, uint32 NodeId, uint32 Flags, uint32 DesiredAccess, IUnknown* UnkOuter, ref Guid InterfaceId, void** Interface) CreateNodeInstance;
 	}
 
 
-	public HRESULT CreateNodeInstance(uint32 NodeId, uint32 Flags, uint32 DesiredAccess, IUnknown* UnkOuter, Guid InterfaceId, void** Interface) mut => VT.[Friend]CreateNodeInstance(&this, NodeId, Flags, DesiredAccess, UnkOuter, InterfaceId, Interface);
+	public HRESULT CreateNodeInstance(uint32 NodeId, uint32 Flags, uint32 DesiredAccess, IUnknown* UnkOuter, ref Guid InterfaceId, void** Interface) mut => VT.[Friend]CreateNodeInstance(&this, NodeId, Flags, DesiredAccess, UnkOuter, ref InterfaceId, Interface);
 }
 
 #endregion

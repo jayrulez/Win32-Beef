@@ -2864,7 +2864,7 @@ public struct SWbemQueryQualifiedName
 	public uint32 m_uVersion;
 	public uint32 m_uTokenType;
 	public uint32 m_uNameListSize;
-	public PWSTR m_ppszNameList;
+	public PWSTR* m_ppszNameList;
 	public BOOL m_bArraysUsed;
 	public BOOL* m_pbArrayElUsed;
 	public uint32* m_puArrayIndex;
@@ -2920,13 +2920,13 @@ public struct SWbemRpnEncodedQuery
 	public uint32 m_uFromTargetType;
 	public PWSTR m_pszOptionalFromPath;
 	public uint32 m_uFromListSize;
-	public PWSTR m_ppszFromList;
+	public PWSTR* m_ppszFromList;
 	public uint32 m_uWhereClauseSize;
 	public SWbemRpnQueryToken** m_ppRpnWhereClause;
 	public double m_dblWithinPolling;
 	public double m_dblWithinWindow;
 	public uint32 m_uOrderByListSize;
-	public PWSTR m_ppszOrderByList;
+	public PWSTR* m_ppszOrderByList;
 	public uint32* m_uOrderDirectionEl;
 }
 
@@ -5090,11 +5090,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemConnectorLogin*/SelfOuter* self, PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, void** pInterface) ConnectorLogin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemConnectorLogin*/SelfOuter* self, PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, void** pInterface) ConnectorLogin;
 	}
 
 
-	public HRESULT ConnectorLogin(PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, void** pInterface) mut => VT.[Friend]ConnectorLogin(&this, wszNetworkResource, wszPreferredLocale, lFlags, pCtx, riid, pInterface);
+	public HRESULT ConnectorLogin(PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, void** pInterface) mut => VT.[Friend]ConnectorLogin(&this, wszNetworkResource, wszPreferredLocale, lFlags, pCtx, ref riid, pInterface);
 }
 
 [CRepr]struct IWbemAddressResolution : IUnknown
@@ -5135,15 +5135,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemClientConnectionTransport*/SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, void** pInterface, IWbemCallResult** pCallRes) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemClientConnectionTransport*/SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, IWbemObjectSink* pResponseHandler) OpenAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemClientConnectionTransport*/SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, void** pInterface, IWbemCallResult** pCallRes) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemClientConnectionTransport*/SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, IWbemObjectSink* pResponseHandler) OpenAsync;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemClientConnectionTransport*/SelfOuter* self, int32 lFlags, IWbemObjectSink* pHandler) Cancel;
 	}
 
 
-	public HRESULT Open(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, void** pInterface, IWbemCallResult** pCallRes) mut => VT.[Friend]Open(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, riid, pInterface, pCallRes);
+	public HRESULT Open(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, void** pInterface, IWbemCallResult** pCallRes) mut => VT.[Friend]Open(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, ref riid, pInterface, pCallRes);
 
-	public HRESULT OpenAsync(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, IWbemObjectSink* pResponseHandler) mut => VT.[Friend]OpenAsync(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, riid, pResponseHandler);
+	public HRESULT OpenAsync(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, IWbemObjectSink* pResponseHandler) mut => VT.[Friend]OpenAsync(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, ref riid, pResponseHandler);
 
 	public HRESULT Cancel(int32 lFlags, IWbemObjectSink* pHandler) mut => VT.[Friend]Cancel(&this, lFlags, pHandler);
 }
@@ -5156,14 +5156,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemConstructClassObject*/SelfOuter* self, int32 lNumAntecedents, PWSTR awszAntecedents) SetInheritanceChain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemConstructClassObject*/SelfOuter* self, int32 lNumAntecedents, PWSTR* awszAntecedents) SetInheritanceChain;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemConstructClassObject*/SelfOuter* self, PWSTR wszPropertyName, int32 lOriginIndex) SetPropertyOrigin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemConstructClassObject*/SelfOuter* self, PWSTR wszMethodName, int32 lOriginIndex) SetMethodOrigin;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemConstructClassObject*/SelfOuter* self, PWSTR wszServer, PWSTR wszNamespace) SetServerNamespace;
 	}
 
 
-	public HRESULT SetInheritanceChain(int32 lNumAntecedents, PWSTR awszAntecedents) mut => VT.[Friend]SetInheritanceChain(&this, lNumAntecedents, awszAntecedents);
+	public HRESULT SetInheritanceChain(int32 lNumAntecedents, PWSTR* awszAntecedents) mut => VT.[Friend]SetInheritanceChain(&this, lNumAntecedents, awszAntecedents);
 
 	public HRESULT SetPropertyOrigin(PWSTR wszPropertyName, int32 lOriginIndex) mut => VT.[Friend]SetPropertyOrigin(&this, wszPropertyName, lOriginIndex);
 

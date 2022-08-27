@@ -237,7 +237,7 @@ public static
 	public static extern HRESULT RegisterDeviceWithLocalManagement(BOOL* alreadyRegistered);
 
 	[Import("MDMLocalManagement.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ApplyLocalManagementSyncML(PWSTR syncMLRequest, PWSTR syncMLResult);
+	public static extern HRESULT ApplyLocalManagementSyncML(PWSTR syncMLRequest, PWSTR* syncMLResult);
 
 	[Import("MDMLocalManagement.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UnregisterDeviceWithLocalManagement();

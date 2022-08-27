@@ -224,14 +224,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowSession*/SelfOuter* self, Guid in_applicationId, Guid in_endpointId, ISideShowContentManager** out_ppIContent) RegisterContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowSession*/SelfOuter* self, Guid in_applicationId, ISideShowNotificationManager** out_ppINotification) RegisterNotifications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowSession*/SelfOuter* self, ref Guid in_applicationId, ref Guid in_endpointId, ISideShowContentManager** out_ppIContent) RegisterContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowSession*/SelfOuter* self, ref Guid in_applicationId, ISideShowNotificationManager** out_ppINotification) RegisterNotifications;
 	}
 
 
-	public HRESULT RegisterContent(Guid in_applicationId, Guid in_endpointId, ISideShowContentManager** out_ppIContent) mut => VT.[Friend]RegisterContent(&this, in_applicationId, in_endpointId, out_ppIContent);
+	public HRESULT RegisterContent(ref Guid in_applicationId, ref Guid in_endpointId, ISideShowContentManager** out_ppIContent) mut => VT.[Friend]RegisterContent(&this, in_applicationId, in_endpointId, out_ppIContent);
 
-	public HRESULT RegisterNotifications(Guid in_applicationId, ISideShowNotificationManager** out_ppINotification) mut => VT.[Friend]RegisterNotifications(&this, in_applicationId, out_ppINotification);
+	public HRESULT RegisterNotifications(ref Guid in_applicationId, ISideShowNotificationManager** out_ppINotification) mut => VT.[Friend]RegisterNotifications(&this, in_applicationId, out_ppINotification);
 }
 
 [CRepr]struct ISideShowNotificationManager : IUnknown
@@ -265,9 +265,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, uint32* out_pNotificationId) get_NotificationId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, uint32 in_notificationId) put_NotificationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, PWSTR out_ppwszTitle) get_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, PWSTR* out_ppwszTitle) get_Title;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, PWSTR in_pwszTitle) put_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, PWSTR out_ppwszMessage) get_Message;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, PWSTR* out_ppwszMessage) get_Message;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, PWSTR in_pwszMessage) put_Message;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, HICON* out_phIcon) get_Image;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, HICON in_hIcon) put_Image;
@@ -280,11 +280,11 @@ public static
 
 	public HRESULT put_NotificationId(uint32 in_notificationId) mut => VT.[Friend]put_NotificationId(&this, in_notificationId);
 
-	public HRESULT get_Title(PWSTR out_ppwszTitle) mut => VT.[Friend]get_Title(&this, out_ppwszTitle);
+	public HRESULT get_Title(PWSTR* out_ppwszTitle) mut => VT.[Friend]get_Title(&this, out_ppwszTitle);
 
 	public HRESULT put_Title(PWSTR in_pwszTitle) mut => VT.[Friend]put_Title(&this, in_pwszTitle);
 
-	public HRESULT get_Message(PWSTR out_ppwszMessage) mut => VT.[Friend]get_Message(&this, out_ppwszMessage);
+	public HRESULT get_Message(PWSTR* out_ppwszMessage) mut => VT.[Friend]get_Message(&this, out_ppwszMessage);
 
 	public HRESULT put_Message(PWSTR in_pwszMessage) mut => VT.[Friend]put_Message(&this, in_pwszMessage);
 

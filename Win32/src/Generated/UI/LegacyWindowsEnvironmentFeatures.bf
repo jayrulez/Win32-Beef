@@ -109,7 +109,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache*/SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR ppwszDisplayName, PWSTR ppwszDescription, uint32* pdwFlags) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache*/SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, uint32* pdwFlags) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache*/SelfOuter* self, uint64* pdwlSpaceUsed, IEmptyVolumeCacheCallBack* picb) GetSpaceUsed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache*/SelfOuter* self, uint64 dwlSpaceToFree, IEmptyVolumeCacheCallBack* picb) Purge;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache*/SelfOuter* self, HWND hwnd) ShowProperties;
@@ -117,7 +117,7 @@ public static
 	}
 
 
-	public HRESULT Initialize(HKEY hkRegKey, PWSTR pcwszVolume, PWSTR ppwszDisplayName, PWSTR ppwszDescription, uint32* pdwFlags) mut => VT.[Friend]Initialize(&this, hkRegKey, pcwszVolume, ppwszDisplayName, ppwszDescription, pdwFlags);
+	public HRESULT Initialize(HKEY hkRegKey, PWSTR pcwszVolume, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, uint32* pdwFlags) mut => VT.[Friend]Initialize(&this, hkRegKey, pcwszVolume, ppwszDisplayName, ppwszDescription, pdwFlags);
 
 	public HRESULT GetSpaceUsed(uint64* pdwlSpaceUsed, IEmptyVolumeCacheCallBack* picb) mut => VT.[Friend]GetSpaceUsed(&this, pdwlSpaceUsed, picb);
 
@@ -136,11 +136,11 @@ public static
 
 	[CRepr]public struct VTable : IEmptyVolumeCache.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache2*/SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR pcwszKeyName, PWSTR ppwszDisplayName, PWSTR ppwszDescription, PWSTR ppwszBtnText, uint32* pdwFlags) InitializeEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache2*/SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR pcwszKeyName, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, PWSTR* ppwszBtnText, uint32* pdwFlags) InitializeEx;
 	}
 
 
-	public HRESULT InitializeEx(HKEY hkRegKey, PWSTR pcwszVolume, PWSTR pcwszKeyName, PWSTR ppwszDisplayName, PWSTR ppwszDescription, PWSTR ppwszBtnText, uint32* pdwFlags) mut => VT.[Friend]InitializeEx(&this, hkRegKey, pcwszVolume, pcwszKeyName, ppwszDisplayName, ppwszDescription, ppwszBtnText, pdwFlags);
+	public HRESULT InitializeEx(HKEY hkRegKey, PWSTR pcwszVolume, PWSTR pcwszKeyName, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, PWSTR* ppwszBtnText, uint32* pdwFlags) mut => VT.[Friend]InitializeEx(&this, hkRegKey, pcwszVolume, pcwszKeyName, ppwszDisplayName, ppwszDescription, ppwszBtnText, pdwFlags);
 }
 
 [CRepr]struct IReconcileInitiator : IUnknown

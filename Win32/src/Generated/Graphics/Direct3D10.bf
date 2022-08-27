@@ -2543,19 +2543,19 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10DeviceChild*/SelfOuter* self, ID3D10Device** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, Guid guid, uint32 DataSize, void* pData) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, Guid guid, IUnknown* pData) SetPrivateDataInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, ref Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, ref Guid guid, uint32 DataSize, void* pData) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10DeviceChild*/SelfOuter* self, ref Guid guid, IUnknown* pData) SetPrivateDataInterface;
 	}
 
 
 	public void GetDevice(ID3D10Device** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 
-	public HRESULT GetPrivateData(Guid guid, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, guid, pDataSize, pData);
+	public HRESULT GetPrivateData(ref Guid guid, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, ref guid, pDataSize, pData);
 
-	public HRESULT SetPrivateData(Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, guid, DataSize, pData);
+	public HRESULT SetPrivateData(ref Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, ref guid, DataSize, pData);
 
-	public HRESULT SetPrivateDataInterface(Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, guid, pData);
+	public HRESULT SetPrivateDataInterface(ref Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, ref guid, pData);
 }
 
 [CRepr]struct ID3D10DepthStencilState : ID3D10DeviceChild
@@ -2968,9 +2968,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self) GetDeviceRemovedReason;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, uint32 RaiseFlags) SetExceptionMode;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D10Device*/SelfOuter* self) GetExceptionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, Guid guid, uint32 DataSize, void* pData) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, Guid guid, IUnknown* pData) SetPrivateDataInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, ref Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, ref Guid guid, uint32 DataSize, void* pData) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, ref Guid guid, IUnknown* pData) SetPrivateDataInterface;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self) ClearState;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self) Flush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_BUFFER_DESC* pDesc, D3D10_SUBRESOURCE_DATA* pInitialData, ID3D10Buffer** ppBuffer) CreateBuffer;
@@ -2997,7 +2997,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, D3D10_COUNTER_INFO* pCounterInfo) CheckCounterInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, D3D10_COUNTER_DESC* pDesc, D3D10_COUNTER_TYPE* pType, uint32* pActiveCounters, uint8* szName, uint32* pNameLength, uint8* szUnits, uint32* pUnitsLength, uint8* szDescription, uint32* pDescriptionLength) CheckCounter;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D10Device*/SelfOuter* self) GetCreationFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, HANDLE hResource, Guid ReturnedInterface, void** ppResource) OpenSharedResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D10Device*/SelfOuter* self, HANDLE hResource, ref Guid ReturnedInterface, void** ppResource) OpenSharedResource;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32 Width, uint32 Height) SetTextFilterSize;
 		protected new function [CallingConvention(.Stdcall)] void(/*ID3D10Device*/SelfOuter* self, uint32* pWidth, uint32* pHeight) GetTextFilterSize;
 	}
@@ -3129,11 +3129,11 @@ public static
 
 	public uint32 GetExceptionMode() mut => VT.[Friend]GetExceptionMode(&this);
 
-	public HRESULT GetPrivateData(Guid guid, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, guid, pDataSize, pData);
+	public HRESULT GetPrivateData(ref Guid guid, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, ref guid, pDataSize, pData);
 
-	public HRESULT SetPrivateData(Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, guid, DataSize, pData);
+	public HRESULT SetPrivateData(ref Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, ref guid, DataSize, pData);
 
-	public HRESULT SetPrivateDataInterface(Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, guid, pData);
+	public HRESULT SetPrivateDataInterface(ref Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, ref guid, pData);
 
 	public void ClearState() mut => VT.[Friend]ClearState(&this);
 
@@ -3187,7 +3187,7 @@ public static
 
 	public uint32 GetCreationFlags() mut => VT.[Friend]GetCreationFlags(&this);
 
-	public HRESULT OpenSharedResource(HANDLE hResource, Guid ReturnedInterface, void** ppResource) mut => VT.[Friend]OpenSharedResource(&this, hResource, ReturnedInterface, ppResource);
+	public HRESULT OpenSharedResource(HANDLE hResource, ref Guid ReturnedInterface, void** ppResource) mut => VT.[Friend]OpenSharedResource(&this, hResource, ref ReturnedInterface, ppResource);
 
 	public void SetTextFilterSize(uint32 Width, uint32 Height) mut => VT.[Friend]SetTextFilterSize(&this, Width, Height);
 

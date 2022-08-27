@@ -3936,7 +3936,7 @@ public static
 	public static uint32 RasEnumAutodialAddresses(PSTR* lppRasAutodialAddresses, uint32* lpdwcbRasAutodialAddresses, uint32* lpdwcRasAutodialAddresses) => RasEnumAutodialAddressesA(lppRasAutodialAddresses, lpdwcbRasAutodialAddresses, lpdwcRasAutodialAddresses);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RasEnumAutodialAddressesW(PWSTR lppRasAutodialAddresses, uint32* lpdwcbRasAutodialAddresses, uint32* lpdwcRasAutodialAddresses);
+	public static extern uint32 RasEnumAutodialAddressesW(PWSTR* lppRasAutodialAddresses, uint32* lpdwcbRasAutodialAddresses, uint32* lpdwcRasAutodialAddresses);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetAutodialEnableA(uint32 param0, int32* param1);
@@ -4154,7 +4154,7 @@ public static
 	public static extern uint32 MprAdminBufferFree(void* pBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminGetErrorString(uint32 dwError, PWSTR lplpwsErrorString);
+	public static extern uint32 MprAdminGetErrorString(uint32 dwError, PWSTR* lplpwsErrorString);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminServerGetInfo(int hMprServer, uint32 dwLevel, uint8** lplpbBuffer);
@@ -4316,7 +4316,7 @@ public static
 	public static extern uint32 MprConfigTransportSetInfo(HANDLE hMprConfig, HANDLE hRouterTransport, uint8* pGlobalInfo, uint32 dwGlobalInfoSize, uint8* pClientInterfaceInfo, uint32 dwClientInterfaceInfoSize, PWSTR lpwsDLLPath);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprConfigTransportGetInfo(HANDLE hMprConfig, HANDLE hRouterTransport, uint8** ppGlobalInfo, uint32* lpdwGlobalInfoSize, uint8** ppClientInterfaceInfo, uint32* lpdwClientInterfaceInfoSize, PWSTR lplpwsDLLPath);
+	public static extern uint32 MprConfigTransportGetInfo(HANDLE hMprConfig, HANDLE hRouterTransport, uint8** ppGlobalInfo, uint32* lpdwGlobalInfoSize, uint8** ppClientInterfaceInfo, uint32* lpdwClientInterfaceInfoSize, PWSTR* lplpwsDLLPath);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprConfigTransportEnum(HANDLE hMprConfig, uint32 dwLevel, uint8** lplpBuffer, uint32 dwPrefMaxLen, uint32* lpdwEntriesRead, uint32* lpdwTotalEntries, uint32* lpdwResumeHandle);
